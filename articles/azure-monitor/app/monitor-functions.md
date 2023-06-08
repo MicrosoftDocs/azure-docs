@@ -2,6 +2,7 @@
 title: Monitor applications running on Azure Functions with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor integrates with your Azure Functions application, allowing performance monitoring and quickly identifying problems.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-python
 ms.date: 04/24/2023
 ms.reviewer: abinetabate
 ---
@@ -33,25 +34,14 @@ For more advanced use cases, you can modify telemetry by adding spans, updating 
 
 ### Enable distributed tracing for Java function apps
 
-1. **Option 1**: On the function app **Overview** pane, go to **Application Insights**. Under **Collection Level**, select **Recommended**.
+On the function app **Overview** pane, go to **Application Insights**. Under **Collection Level**, select **Recommended**.
 
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media//functions/collection-level.jpg" lightbox="./media//functions/collection-level.jpg" alt-text="Screenshot that shows the how to enable the AppInsights Java Agent.":::
-
-2. **Option 2**: On the function app **Overview** pane, go to **Configuration**. Under **Application settings**, select **New application setting**.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media//functions/create-new-setting.png" lightbox="./media//functions/create-new-setting.png" alt-text="Screenshot that shows the New application setting option.":::
-
-    Add an application setting with the following values and select **Save**.
-
-    ```
-    APPLICATIONINSIGHTS_ENABLE_AGENT: true
-    ```
+> [!div class="mx-imgBorder"]
+:::image type="content" source="./media//functions/collection-level.jpg" lightbox="./media//functions/collection-level.jpg" alt-text="Screenshot that shows the how to enable the AppInsights Java Agent.":::
 
 ### Troubleshooting
 
-Your Java functions might have slow startup times if you adopted this feature before February 2023. Follow the steps to fix the issue.
+Your Java functions might have slow startup times if you adopted this feature before February 2023. From the function app **Overview** pane, go to **Configuration** in the left-hand side navigation menu. Then click on **Application settings** and follow the steps below to fix the issue.
 
 #### Windows
 
@@ -62,7 +52,7 @@ Your Java functions might have slow startup times if you adopted this feature be
     ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
     ```
 
-1. Enable the latest version by adding this setting:
+2. Enable the latest version by adding this setting:
     
     ```
     APPLICATIONINSIGHTS_ENABLE_AGENT: true
@@ -76,7 +66,7 @@ Your Java functions might have slow startup times if you adopted this feature be
     ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
     ```
 
-1. Enable the latest version by adding this setting:
+2. Enable the latest version by adding this setting:
     
     ```
     APPLICATIONINSIGHTS_ENABLE_AGENT: true

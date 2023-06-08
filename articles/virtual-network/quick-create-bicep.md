@@ -33,7 +33,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
   # [PowerShell](#tab/azure-powershell)
 
-  1. [Install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+  1. [Install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
   1. Run `Connect-AzAccount` to connect to Azure.
 

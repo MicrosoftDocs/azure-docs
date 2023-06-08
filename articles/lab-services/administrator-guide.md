@@ -173,59 +173,9 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 
 ## RBAC roles
 
-By using [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) for access to lab plans and labs, you can assign the following roles:
+Azure Lab Services provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Lab Services. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Lab Services resources. This article describes the different built-in roles that Azure Lab Services supports.
 
-- **Owner**
-
-  An administrator who creates a lab plan is automatically assigned the lab plan Owner role. The Owner role can:
-
-  - Change the lab plan settings.
-  - Grant other administrators access to the lab plan as an Owner or Contributor.
-  - Grant educators access to labs as a Creator, Owner, or Contributor.
-  - Create and manage all labs in the lab plan.
-
-- **Contributor**
-
-  An administrator who is assigned the Contributor role can:
-
-  - Change the lab plan settings.
-  - Create and manage all labs in the lab plan.
-
-  However, the Contributor *can't* grant other users access to either lab plans or labs.
-
-- **Lab Creator**
-
-  When set on the lab plan, this role enables the user account to create labs from the lab plan. The user account can also see existing labs that are in the same resource group as the lab plan. When applied to a resource group, this role enables the user to view existing lab and create new labs. They'll have full control over any labs they create as they're assigned as Owner to those created labs. For more information, see [Add a user to the Lab Creator role](./quick-create-resources.md#add-a-user-to-the-lab-creator-role).
-
-- **Lab Contributor**
-
-  When applied to an existing lab, this role enables the user to fully manage the lab. When applied to a resource group, this role enables the user account to fully manage existing labs and create new labs in that resource group.
-
-  A key difference between the lab Owner and Contributor roles is that only an Owner can grant other users access to manage a lab. A Contributor *can't* grant other users access to manage a lab.
-
-- **Lab Operator**
-
-  When applied to a resource group or a lab, this role enables the user to have limited ability to manage existing labs. This role won't give the user the ability to create new labs. In an existing lab, the user can manage users, adjust individual users' quota, manage schedules, and start/stop VMs. The user account will be able to publish a lab. The user won't have the ability to change lab capacity or change quota at the lab level. The user won't be able to change the template title or description.
-
-- **Lab Assistant**
-
-  When applied to a resource group or a lab, this role enables the user to view an existing lab. Lab assistants can only perform actions on the lab VMs (reset, start, stop, connect) and send invitations to the lab. They don't have the ability to change a lab, create a lab, publish a lab, change lab capacity, or manage lab quota, individual quota nor schedules.
-
-- **Lab Services Contributor**
-
-  When applied to a resource group, enables the user to fully control all Lab Services scenarios in that resource group.
-
-- **Lab Services Reader**
-
-  When applied to a resource group, enables the user to view, but not change, all lab plans and lab resources. External resources like image galleries and virtual networks that may be connected to a lab plan aren't included.
-
-When you're assigning roles, it helps to follow these tips:
-
-- Ordinarily, only administrators should be members of a lab plan Owner or Contributor role. The lab plan might have more than one Owner or Contributor.
-- To give educators the ability to create new labs and manage the labs that they create, you need only assign them the Lab Creator role.
-- To give educators the ability to manage specific labs, but *not* the ability to create new labs, assign them either the Owner or Contributor role for each lab that they'll manage. For example, you might want to allow a professor and a teaching assistant to co-own a lab.
-- 
-For more detail about the permissions assigned to each role, see [Azure built-in roles](../role-based-access-control/built-in-roles.md#lab-assistant)
+Learn more about [Azure role-based access control in Azure Lab Services](./concept-lab-services-role-based-access-control.md).
 
 ## Content filtering
 

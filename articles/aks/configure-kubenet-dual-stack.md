@@ -5,7 +5,7 @@ description: Learn how to configure dual-stack kubenet networking in Azure Kuber
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2023
 ms.topic: how-to
 ms.date: 12/15/2021
 ---
@@ -18,7 +18,7 @@ This article shows you how to use dual-stack networking with an AKS cluster. For
 
 ## Limitations
 * Azure Route Tables have a hard limit of 400 routes per table. Because each node in a dual-stack cluster requires two routes, one for each IP address family, dual-stack clusters are limited to 200 nodes.
-* In Mariner node pools, service objects are only supported with `externalTrafficPolicy: Local`.
+* In Azure Linux node pools, service objects are only supported with `externalTrafficPolicy: Local`.
 * Dual-stack networking is required for the Azure Virtual Network and the pod CIDR - single stack IPv6-only isn't supported for node or pod IP addresses. Services can be provisioned on IPv4 or IPv6.
 * Features **not supported on dual-stack kubenet** include:
    * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy)
@@ -191,7 +191,7 @@ kubectl get nodes -o=custom-columns="NAME:.metadata.name,ADDRESSES:.status.addre
 
 The output from the `kubectl get nodes` command will show that the nodes have addresses and pod IP assignment space from both IPv4 and IPv6.
 
-```
+```output
 NAME                                ADDRESSES                           PODCIDRS
 aks-nodepool1-14508455-vmss000000   10.240.0.4,2001:1234:5678:9abc::4   10.244.0.0/24,fd12:3456:789a::/80
 aks-nodepool1-14508455-vmss000001   10.240.0.5,2001:1234:5678:9abc::5   10.244.1.0/24,fd12:3456:789a:0:1::/80
@@ -253,7 +253,7 @@ nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-145084
 
 > [!IMPORTANT]
 > There are currently two limitations pertaining to IPv6 services in AKS. These are both preview limitations and work is underway to remove them.
-> * Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Mariner node pools, this traffic cannot be routed to a pod and thus traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` will fail. IPv6 services MUST be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node, in order to function.
+> * Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic cannot be routed to a pod and thus traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` will fail. IPv6 services MUST be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node, in order to function.
 > * Only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service will only receive a public IP for its first listed IP family. In order to provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
 
 IPv6 services in Kubernetes can be exposed publicly similarly to an IPv4 service.
@@ -318,7 +318,7 @@ Once the deployment has been exposed and the `LoadBalancer` services have been f
 kubectl get services
 ```
 
-```
+```output
 NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
 nginx-ipv4   LoadBalancer   10.0.88.78               20.46.24.24         80:30652/TCP   97s
 nginx-ipv6   LoadBalancer   fd12:3456:789a:1::981a   2603:1030:8:5::2d   80:32002/TCP   63s
@@ -331,7 +331,7 @@ SERVICE_IP=$(kubectl get services nginx-ipv6 -o jsonpath='{.status.loadBalancer.
 curl -s "http://[${SERVICE_IP}]" | head -n5
 ```
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>

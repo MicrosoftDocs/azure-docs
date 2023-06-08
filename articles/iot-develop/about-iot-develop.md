@@ -1,14 +1,14 @@
 ---
-title: Introduction to Azure IoT device and application development
+title: Introduction to Azure IoT device development
 description: Learn how to use Azure IoT to do embedded device development and build device-enabled cloud applications.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
-ms.date: 04/28/2022
+ms.date: 05/08/2023
 ---
 
-# What is Azure IoT device and application development?
+# What is Azure IoT device development?
 
 Azure IoT is a collection of managed and platform services that connect, monitor, and control your IoT devices. Azure IoT offers developers a comprehensive set of options. Your options include device platforms, supporting cloud services, SDKs, MQTT support, and tools for building device-enabled cloud applications.
 
@@ -22,19 +22,19 @@ This article overviews several key considerations for developers who are getting
 ## Device development paths
 This article discusses two common device development paths. Each path includes a set of related development options and tasks.  
 
-* **Device application development:** Aligns with modern development practices, targets higher-order languages, and executes on a general-purpose operating system such as Windows or Linux. 
+* **General device development:** Aligns with modern development practices, targets higher-order languages, and executes on a general-purpose operating system such as Windows or Linux. 
     > [!NOTE]
-    > If your device is able to run a general-purpose operating system, we recommend following the [Device application development](#device-application-development) path. It provides a richer set of development options.
+    > If your device is able to run a general-purpose operating system, we recommend following the [General device development](#general-device-development) path. It provides a richer set of development options.
 
 * **Embedded device development:** Describes development targeting resource constrained devices. Often you use a resource-constrained device to reduce per unit costs, power consumption, or device size. These devices have direct control over the hardware platform they execute on.
 
-### Device application development
-Device application developers are adapting existing devices to connect to the cloud and integrate into their IoT solutions. These devices can support higher-order languages, such as C# or Python, and often support a robust general purpose operating system such as Windows or Linux. Common target devices include PCs, Containers, Raspberry Pis, and mobile devices. 
+### General device development
+Some developers adapt existing, general purpose devices to connect to the cloud and integrate into their IoT solutions. These devices can support higher-order languages, such as C# or Python, and often support a robust general purpose operating system such as Windows or Linux. Common target devices include PCs, Containers, Raspberry Pis, and mobile devices. 
 
-Rather than develop constrained devices at scale, device application developers focus on enabling a specific IoT scenario required by their cloud solution. Some developers also work on constrained devices for their cloud solution. For developers working with resource constrained devices, see the [Embedded Device Development](#embedded-device-development) path.
+Rather than develop constrained devices at scale, general device developers focus on enabling a specific IoT scenario required by their cloud solution. Some developers also work on constrained devices for their cloud solution. For developers working with resource constrained devices, see the [Embedded Device Development](#embedded-device-development) path.
 
 > [!IMPORTANT]
-> For information on SDKs to use with device application development, see the [Device SDKs](about-iot-sdks.md#device-sdks).
+> For information on SDKs to use for general device development, see the [Device SDKs](about-iot-sdks.md#device-sdks).
 
 ### Embedded device development
 Embedded development targets constrained devices that have limited memory and processing. Constrained devices restrict what can be achieved compared to a traditional development platform.

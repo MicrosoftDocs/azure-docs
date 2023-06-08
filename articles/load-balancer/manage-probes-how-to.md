@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 08/28/2022
+ms.date: 05/05/2023
 ms.custom: template-how-to
 ---
 
@@ -19,6 +19,17 @@ There are three types of health probes:
 | --- | --- | --- |
 | **Probe types** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **Probe down behavior** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
+
+Health probes have the following properties:
+
+| Health Probe configuration | Details |
+| --- | --- | 
+| Name | Name of the health probe. This is a name you get to define for your health probe |
+| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to leverage. Available options are: TCP, HTTP, HTTPS |
+| Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
+| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between consecutive health check attemps to the virtual machine |
+| Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
+| Path | The URI used for requesting health status from the virtual machine instance by the health probe (only applicable for HTTP(s) probes).
 
 >[!IMPORTANT]
 >Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance as up. To see this probe traffic within your backend instance, review [the Azure Load Balancer FAQ](./load-balancer-faqs.yml).

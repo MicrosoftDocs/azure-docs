@@ -4,11 +4,11 @@ description: Learn how to create a shareable link to let a user connect to a tar
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 05/10/2023
 ms.author: cherylmc
 ---
 
-# Create a shareable link for Bastion - preview
+# Create a shareable link for Bastion
 
 The Bastion **Shareable Link** feature lets users connect to a target resource (virtual machine or virtual machine scale set) using Azure Bastion without accessing the Azure portal. This article helps you use the Shareable Link feature to create a shareable link for an existing Azure Bastion deployment.
 
@@ -22,6 +22,7 @@ By default, users in your org will have only read access to shared links. If a u
 * Shareable Links isn't currently supported over Virtual WAN.
 * Shareable Links does not support connection to on-premises or non-Azure VMs and VMSS. 
 * The Standard SKU is required for this feature.
+* Bastion only supports 50 requests, including creates and deletes, for shareable links at a time.
 
 ## Prerequisites
 

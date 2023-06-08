@@ -136,7 +136,7 @@ az container show \
 
 The `identity` section in the output looks similar to the following, showing the identity is set in the container group. The `principalID` under `userAssignedIdentities` is the service principal of the identity you created in Azure Active Directory:
 
-```console
+```output
 [...]
 "identity": {
     "principalId": "null",
@@ -186,7 +186,7 @@ TOKEN=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 Now use the access token to authenticate to key vault and read a secret. Be sure to substitute the name of your key vault in the URL (*https:\//mykeyvault.vault.azure.net/...*):
 
 ```bash
-curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $TOKEN"
+curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=7.4 -H "Authorization: Bearer $TOKEN"
 ```
 
 The response looks similar to the following, showing the secret. In your code, you would parse this output to obtain the secret. Then, use the secret in a subsequent operation to access another Azure resource.
@@ -226,7 +226,7 @@ az container show \
 
 The `identity` section in the output looks similar to the following, showing that a system-assigned identity is created in Azure Active Directory:
 
-```console
+```output
 [...]
 "identity": {
     "principalId": "xxxxxxxx-528d-7083-b74c-xxxxxxxxxxxx",
@@ -271,13 +271,13 @@ az container exec \
 
 Run the following commands in the bash shell in the container. First log in to the Azure CLI using the managed identity:
 
-```azurecli
+```azurecli-interactive
 az login --identity
 ```
 
 From the running container, retrieve the secret from the key vault:
 
-```azurecli
+```azurecli-interactive
 az keyvault secret show \
   --name SampleSecret \
   --vault-name mykeyvault --query value

@@ -136,13 +136,13 @@ This optional configuration replaces the default authentication with publishing 
 
     ```yaml
     - name: Sign in to Azure 
-    # Use the GitHub secret you added.
-    - uses: azure/login@v1
+      # Use the GitHub secret you added.
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Deploy to Azure Web App
-    # Remove publish-profile.
-    - uses: azure/webapps-deploy@v2
+      # Remove publish-profile.
+      uses: azure/webapps-deploy@v2
       with:
         app-name: '<app-name>'
         slot-name: 'production'

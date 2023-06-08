@@ -21,7 +21,7 @@ To log in to the registry to work with container images, this quickstart require
 
 ---
 
-You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
+You must also have Docker installed locally with the daemon running. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
 ## Sign in to Azure
 

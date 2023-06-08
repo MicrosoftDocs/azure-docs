@@ -2,7 +2,7 @@
 title: Enable Profiler for Azure Service Fabric applications
 description: Profile live Azure Service Fabric apps with Application Insights.
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
+ms.custom:
 ms.date: 07/15/2022
 ---
 
@@ -19,8 +19,8 @@ In this article, you:
 
 ## Prerequisites
 
-- Profiler supports .NET Framework, .NET Core, and .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) and newer applications.
-  - Verify you're using [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. 
+- Profiler supports .NET Framework and .NET applications.
+  - Verify you're using [.NET Framework 4.6.2](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. 
   - Confirm that the deployed OS is `Windows Server 2012 R2` or later. 
 - [An Azure Service Fabric managed cluster](../../service-fabric/quickstart-managed-cluster-portal.md).
 

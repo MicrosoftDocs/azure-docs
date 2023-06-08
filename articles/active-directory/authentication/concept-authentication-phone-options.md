@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to understand how to use phone authentication methods in Azure AD to improve and secure user sign-in events.
 ---
+
 # Authentication methods in Azure Active Directory - phone options
 
 For direct authentication using text message, you can [Configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md). SMS-based sign-in is great for Frontline workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
@@ -40,7 +41,7 @@ If users don't want their mobile phone number to be visible in the directory but
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Screenshot of the Azure portal that shows authentication methods with a phone number populated":::
 
-Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries / regions besides the United States and Canada.
+Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries/regions besides the United States and Canada.
 
 ### Text message verification
 
@@ -84,6 +85,12 @@ If you have problems with phone authentication for Azure AD, review the followin
    * Have the user attempt to log in using a wi-fi connection by installing the Authenticator app.
    * Or, use SMS authentication instead of phone (voice) authentication.
 
+* Phone number is blocked and unable to be used for Voice MFA 
+
+   - There are a few country codes blocked for voice MFA unless your Azure AD administrator has opted in for those country codes. Have your Azure AD administrator opt-in to receive MFA for those country codes. 
+
+   - Or, use Microsoft Authenticator instead of voice authentication.
+
 ## Next steps
 
 To get started, see the [tutorial for self-service password reset (SSPR)][tutorial-sspr] and [Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
@@ -96,6 +103,11 @@ Learn more about configuring authentication methods using the [Microsoft Graph R
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md
+
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
+
 [concept-sspr]: concept-sspr-howitworks.md
+
 [concept-mfa]: concept-mfa-howitworks.md
+
+

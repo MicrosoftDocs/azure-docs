@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 07/14/2022
 ms.author: jomondi
 ms.reviewer: phsignor
+ms.custom: enterprise-apps
 ---
 
 # Manage consent to applications and evaluate consent requests

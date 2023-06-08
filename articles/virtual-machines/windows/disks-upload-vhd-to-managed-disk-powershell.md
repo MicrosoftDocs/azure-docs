@@ -52,7 +52,7 @@ For guidance on how to copy a managed disk from one region to another, see [Copy
 
 ### Prerequisites
 
-- [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+- [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - A VHD [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
     - On Windows: You don't need to convert your VHD to VHDx, convert it a fixed size, or resize it to include the 512-byte offset. `Add-AZVHD` performs these functions for you.
         - [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) must be enabled for Add-AzVHD to perform these functions.
@@ -99,7 +99,7 @@ Add-AzVhd -LocalFilePath $path -ResourceGroupName $resourceGroup -Location $loca
 ### Prerequisites
 
 - Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
-- [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+- [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - A fixed size VHD that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
 
 To upload your VHD to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.

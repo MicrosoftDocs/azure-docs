@@ -4,7 +4,7 @@ description: Learn to configure telemetry processors in Azure Monitor Applicatio
 ms.topic: conceptual
 ms.date: 05/13/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 

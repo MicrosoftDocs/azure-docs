@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 04/13/2023
+ms.date: 05/15/2023
 ms.cutom: engagement-fy23
 ---
 
@@ -68,7 +68,7 @@ In addition to discovering servers, Azure Migrate: Discovery and assessment can 
 Support | Details
 --- | ---
 **Supported servers** | You can perform software inventory on up to 5,000 servers running across Hyper-V host(s)/cluster(s) added to each Azure Migrate appliance.
-**Operating systems** | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/about/supported-guest-os) enabled.
+**Operating systems** | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/reference/integration-services) enabled.
 **Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on OS type and the type of package manager being used, here are some additional commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
 **Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
 **Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
@@ -82,7 +82,7 @@ After the appliance is connected, it gathers configuration and performance data 
 
 Support | Details
 --- | ---
-**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. You can discover up to 300 SQL Server instances or 6,000 SQL databases, whichever is less.
+**Supported servers** | Supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. <br /><br /> You can discover up to 750 SQL Server instances or 15,000 SQL databases, whichever is less, from a single appliance. It is recommended that you ensure that an appliance is scoped to discover less than 600 servers running SQL to avoid scaling issues.
 **Windows servers** | Windows Server 2008 and later are supported.
 **Linux servers** | Currently not supported.
 **Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.

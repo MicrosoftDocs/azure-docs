@@ -7,10 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 05/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Form Recognizer W-2 form model
@@ -94,7 +93,7 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You need th
 | AllocatedTips | 8 | Number | Allocated tips | 1111 |
 | Verification&#8203;Code | 9 | String | Verification Code on Form W-2 | A123-B456-C789-DXYZ |
 | DependentCareBenefits | 10 | Number | Dependent care benefits | 1111 |
-| NonqualifiedPlans | 11 | Number | The non-qualified plan, a type of retirement savings plan that is employer-sponsored and tax-deferred | 1111 |
+| NonqualifiedPlans | 11 | Number | The nonqualified plan, a type of retirement savings plan that is employer-sponsored and tax-deferred | 1111 |
 | AdditionalInfo |  | Array of objects | An array of LetterCode and Amount |  |
 | LetterCode | 12a, 12b, 12c, 12d | String | Letter code Refer to [IRS/W-2](https://www.irs.gov/pub/irs-prior/fw2--2014.pdf) for the semantics of the code values. | D |
 | Amount | 12a, 12b, 12c, 12d | Number | Amount | 1234 |

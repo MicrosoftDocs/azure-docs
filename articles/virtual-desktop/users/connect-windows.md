@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with the Remote Desktop client for Windo
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client for Windows.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 05/16/2023
 ms.author: daknappe
 ---
 
@@ -34,9 +34,9 @@ Before you can access your resources, you'll need to meet the prerequisites:
    > Support for Windows 7 ended on January 10, 2023.
 
 - Download the Remote Desktop client installer, choosing the correct version for your device:
-  - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2068602) *(most common)*
-  - [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2098960)
-  - [Windows on Arm](https://go.microsoft.com/fwlink/?linkid=2098961)
+  - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*
+  - [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)
+  - [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 - .NET Framework 4.6.2 or later. You may need to install this on Windows Server 2012 R2, Windows Server 2016, and some versions of Windows 10. To download the latest version, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 

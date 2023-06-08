@@ -6,7 +6,7 @@ author: akashraokm
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 05/16/2023
 ---
 # Enable data encryption with customer-managed keys (preview) in Azure Cosmos DB for PostgreSQL
 
@@ -68,7 +68,8 @@ Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to 
 
 ### Add an Access Policy to the Key Vault
 
-1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
+1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu. 
+Make sure <b>Vault access policy</b> is selected under Permission model and then select Go to access policies.
 
    [ ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png) ](media/how-to-customer-managed-keys/access-policy.png#lightbox)
 

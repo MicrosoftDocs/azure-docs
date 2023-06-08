@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 02/14/2023
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
+ms.custom: devx-track-js
 ---
 
 # Handling errors in Durable Functions (Azure Functions)

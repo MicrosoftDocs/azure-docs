@@ -14,7 +14,7 @@ ms.author: danlep
 
 The `invoke-dapr-binding` policy instructs API Management gateway to trigger an outbound Dapr [binding](https://github.com/dapr/docs/blob/master/README.md). The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/bindings/{{bind-name}},` replacing the template parameter and adding content specified in the policy statement.
 
-The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime is responsible for invoking the external resource represented by the binding. Learn more about [Dapr integration with API Management](api-management-dapr-policies.md).
+The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime is responsible for invoking the external resource represented by the binding. Learn more about [Dapr integration with API Management](self-hosted-gateway-enable-dapr.md).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -58,7 +58,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 ### Usage notes
 
-Dapr support must be [enabled](api-management-dapr-policies.md#enable-dapr-support-in-the-self-hosted-gateway) in the self-hosted gateway.
+Dapr support must be [enabled](self-hosted-gateway-enable-dapr.md) in the self-hosted gateway.
 
 
 ## Example

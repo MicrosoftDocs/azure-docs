@@ -210,7 +210,7 @@ In this example, you'll update a web page to display its content using the setti
 
         h1 {
             color: @Model.Settings.FontColor;
-            font-size: @Model.Settings.FontSize;
+            font-size: @(Model.Settings.FontSize)px;
         }
     </style>
 

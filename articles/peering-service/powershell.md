@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you decide to install and use PowerShell locally instead, this article requires you to use Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-Module -ListAvailable Az`. For installation and upgrade information, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+If you decide to install and use PowerShell locally instead, this article requires you to use Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-Module -ListAvailable Az`. For installation and upgrade information, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Finally, if you're running PowerShell locally, you'll also need to run `Connect-AzAccount`. That command creates a connection with Azure.
 
@@ -106,6 +106,5 @@ Remove-AzPeeringServicePrefix -ResourceGroupName myResourceGroup -Name myPeering
 
 ## Next steps
 
-- To learn more about Peering Service connection, see [Peering Service connection](connection.md).
-- To learn more about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To measure Peering Service connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn more about Peering Service connections, see [Peering Service connection](connection.md).
+- To learn more about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).

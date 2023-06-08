@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 06/06/2023
 ---
 
 # Connection pooling in Azure Cosmos DB for PostgreSQL
@@ -44,6 +44,8 @@ To connect through PgBouncer, follow these steps:
 2. Select the checkbox next to **PgBouncer connection strings**. The listed connection
    strings change.
 3. Update client applications to connect with the new string.
+
+Azure Cosmos DB for PostgreSQL allows you to configure [the managed PgBouncer parameters](./reference-parameters.md#managed-pgbouncer-parameters) as coordinator node parameters.
 
 ## Next steps
 

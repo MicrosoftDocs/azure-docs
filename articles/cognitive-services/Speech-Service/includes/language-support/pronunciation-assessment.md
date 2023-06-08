@@ -12,7 +12,7 @@ ms.author: eur
 |Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> |
 |Chinese (Mandarin, Simplified)|`zh-CN`|
 |English (Australia)|`en-AU`|
-|English (Canada)|`en-CA`<sup>1</sup> |
+|English (Canada)|`en-CA` |
 |English (India)|`en-IN`<sup>1</sup> |
 |English (United Kingdom)|`en-GB`|
 |English (United States)|`en-US`|  
@@ -20,10 +20,13 @@ ms.author: eur
 |French (France)|`fr-FR`|  
 |German (Germany)|`de-DE`|
 |Japanese (Japan)|`ja-JP`|
+|Korean (Korea)|`ko-KR`<sup>1</sup>|
 |Malay (Malaysia)|`ms-MY`<sup>1</sup>|
 |Norwegian Bokmål (Norway)|`nb-NO`<sup>1</sup>|
-|Spanish (Mexico)|`es-MX`<sup>1</sup> | 
+|Portuguese (Brazil)|`pt-BR`<sup>1</sup>|
+|Spanish (Mexico)|`es-MX` | 
 |Spanish (Spain)|`es-ES` | 
+|Tamil (India)|`ta-IN`<sup>1</sup> | 
 |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
 
 <sup>1</sup> The language is in public preview for pronunciation assessment.

@@ -92,7 +92,7 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 1. Open a Windows PowerShell command window.
 
-2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 

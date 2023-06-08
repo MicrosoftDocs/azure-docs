@@ -22,7 +22,7 @@ Azure Files offers soft delete for file shares so that you can more easily recov
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
-- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
+- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Getting started
