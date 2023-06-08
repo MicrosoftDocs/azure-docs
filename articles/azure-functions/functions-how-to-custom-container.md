@@ -141,21 +141,21 @@ When you create a function app in the [Azure portal](https://portal.azure.com), 
     |**Operating system**| Linux | Container deployment is only supported on Linux. |
 ::: zone-end
 :::zone pivot="azure-functions"
-1. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md). 
+4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md). 
 ::: zone-end
 :::zone pivot="container-apps"
-1. In **[Hosting options and plans](functions-scale.md)**, choose **Azure Container Apps Environment plan**. This creates a new **Azure Container Apps Environment** resource to host your function app container. By default, the environment is created in a Consumption plan without zone redundancy, to minimize costs. You can also choose an existing Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
+4. In **[Hosting options and plans](functions-scale.md)**, choose **Azure Container Apps Environment plan**. This creates a new **Azure Container Apps Environment** resource to host your function app container. By default, the environment is created in a Consumption plan without zone redundancy, to minimize costs. You can also choose an existing Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 ::: zone-end
 :::zone pivot="azure-functions,container-apps"
-1. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
+5. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
 
-1. Select the **Deployment** tab and unselect **Use quickstart image**. If you don't do this, the function app is deployed from the base image for your function app language.
+6. Select the **Deployment** tab and unselect **Use quickstart image**. If you don't do this, the function app is deployed from the base image for your function app language.
 
-1. Choose your **Image type**, public or private. Choose **Private** if you're using Azure Container Registry or some other private registry. Supply the **Image** name, including the registry prefix. If you're using a private registry, provide the image registry authentication credentials.
+7. Choose your **Image type**, public or private. Choose **Private** if you're using Azure Container Registry or some other private registry. Supply the **Image** name, including the registry prefix. If you're using a private registry, provide the image registry authentication credentials.
    
-1. Select **Review + create** to review the app configuration selections.
+8. Select **Review + create** to review the app configuration selections.
 
-1. On the **Review + create** page, review your settings, and then select **Create** to provision the function app and deploy your container image from the registry.
+9. On the **Review + create** page, review your settings, and then select **Create** to provision the function app and deploy your container image from the registry.
 ::: zone-end
 
 ## Work with images in Azure Functions
