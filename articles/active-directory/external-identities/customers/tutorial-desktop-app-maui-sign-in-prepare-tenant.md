@@ -13,19 +13,19 @@ ms.date: 06/05/2023
 
 # Tutorial: Register and configure .NET MAUI app in a customer tenant
 
-This tutorial shows you how to register and configure .NET Multi-platform App UI (.NET MAUI) in Azure Active Directory (Azure AD) for customers tenant.
+This tutorial demonstrates how to register and configure a .NET Multi-platform App UI (.NET MAUI) in customer's tenant.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Register a .NET MAUI desktop application in the Azure AD for customers tenant.
-> - Create a sign-in and sign-out user flow in the Azure AD for customers tenant.
+> - Register a .NET MAUI desktop application in customers tenant.
+> - Create a sign-in and sign-out user flow in customers tenant.
 > - Associate your .NET MAUI desktop application with the user flow.
 
 ## Prerequisites
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- Azure Active Directory (Azure AD) for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 ## Register .NET MAUI desktop application
 
@@ -47,4 +47,4 @@ In this tutorial, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Create .NET MAUI shell app and add MSAL client](tutorial-desktop-app-maui-sign-in-prepare-app.md)
+> [Tutorial: Create a .NET MAUI shell app](tutorial-desktop-app-maui-sign-in-prepare-app.md)
