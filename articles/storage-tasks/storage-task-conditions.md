@@ -25,17 +25,13 @@ To learn how to add and edit Storage Tasks conditions, see [Define conditions](s
 
 ## Anatomy of a condition
 
-Describe a condition here
-
-The following table lists supported properties, operands, actions, and values.
-
-| Properties | Operands | actions | values | 
-|--|--|--|--|
-|Property 1<br>Property2<br>Property 3 | Operand 1<br>Operand 2<br>Operand 3  | action 1<br>action 2<br>action3  | value 1<br>value 2<br>value 3  |
+Describe a condition here.
 
 ## Assembling conditions
 
 - Show adding, nesting, and other constructions with their impact on results (if - else conditions etc.)
+
+For more information, see [Supported operands, properties, operands and values](storage-task-conditions-reference.md)
 
 ## String matching in conditions
 

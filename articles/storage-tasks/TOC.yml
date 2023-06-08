@@ -35,6 +35,8 @@ items:
   items:
   - name: REST API
     href: /rest/api/storageservices/blob-service-rest-api
+  - name: Supported operands, properties, operands and values
+    href: storage-task-conditions-reference.md
   - name: Monitoring data Reference
     href: storage-tasks-monitor-data-reference.md
   expanded: true
