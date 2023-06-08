@@ -11,18 +11,13 @@ ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
 ms.date: 11/07/2022
-monikerRange: 'azureml-api-2 || azureml-api-1'
+monikerRange: 'azureml-api-2'
 #Customer intent: As an IT pro, understand how to enable data protection capabilities, to protect against accidental deletion.
 ---
 
-# Recover workspace data while soft-deleted (Preview)
+# Recover workspace data while soft-deleted
 
 The soft-delete feature for Azure Machine Learning workspace provides a data protection capability that enables you to attempt recovery of workspace data after accidental deletion. Soft delete introduces a two-step approach in deleting a workspace. When a workspace is deleted, it's first soft deleted. While in soft-deleted state, you can choose to recover or permanently delete a workspace and its data during a data retention period.
-
-> [!IMPORTANT]    
-> Workspace soft delete is currently in public preview and will start regional roll out for general availability from June 9th 2023. The preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.     
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> To enroll your Azure Subscription, see [Register soft-delete on an Azure subscription](#register-soft-delete-on-an-azure-subscription).
 
 ## How workspace soft delete works
 
@@ -61,7 +56,7 @@ During the retention period, soft-deleted workspaces can be recovered or permane
 
 ## Deleting a workspace
 
-The default deletion behavior when deleting a workspace is soft delete. Optionally, you may permanently delete a workspace going to soft delete state first by checking __Delete the workspace permanently__ in the Azure portal or by setting the `permanently_delete` flag when you use the [Azure ML SDK or CLI](../..//python/api/azure-ai-ml/azure.ai.ml.operations.workspaceoperations#azure-ai-ml-operations-workspaceoperations-begin-delete). Permanently deleting workspaces can only be done one workspace at time, and not using a batch operation.
+The default deletion behavior when deleting a workspace is soft delete. Optionally, you may permanently delete a workspace going to soft delete state first by checking __Delete the workspace permanently__ in the Azure portal or by setting the `permanently_delete` flag when you use the [Azure Machine Learning SDK or CLI](../..//python/api/azure-ai-ml/azure.ai.ml.operations.workspaceoperations#azure-ai-ml-operations-workspaceoperations-begin-delete). Permanently deleting workspaces can only be done one workspace at time, and not using a batch operation.
 
 Permanently deleting a workspace allows a workspace name to be reused immediately after deletion. This behavior may be useful in dev/test scenarios where you want to create and later delete a workspace. Permanently deleting a workspace may also be required for compliance if you manage highly sensitive data. See [General Data Protection Regulation (GDPR) implications](#general-data-protection-regulation-gdpr-implications) to learn more on how deletions are handled when soft delete is enabled.
 
@@ -86,26 +81,18 @@ When you select *Recover* on a soft-deleted workspace, it initiates an operation
 
 Azure Machine Learning recovers Azure RBAC role assignments for the workspace identity, but doesn't recover role assignments you have added on the workspace. It may take up to 15 minutes for role assignments to propagate after workspace recovery.
 
-Recovery of a workspace may not always be possible. Azure Machine Learning stores workspace metadata on [other Azure resources associated with the workspace](concept-workspace.md#associated-resources). In the event these dependent Azure resources were deleted, it may prevent the workspace from being recovered or correctly restored. Dependencies of the Azure Machine Learning workspace must be recovered first, before recovering a deleted workspace. Below table outlines recovery options for each dependency of the Azure Machine Learning workspace.
+Recovery of a workspace may not always be possible. Azure Machine Learning stores workspace metadata on [other Azure resources associated with the workspace](concept-workspace.md#associated-resources). In the event these dependent Azure resources were deleted, it may prevent the workspace from being recovered or correctly restored. Dependencies of the Azure Machine Learning workspace must be recovered first, before recovering a deleted workspace. The following table outlines recovery options for each dependency of the Azure Machine Learning workspace.
 
 |Dependency|Recovery approach|
 |---|---|
 |Azure Key Vault| [Recovery a deleted Azure Key Vault instance](../key-vault/general/soft-delete-overview.md) |
 |Azure Storage|[Recover a deleted Azure storage account](../storage/common/storage-account-recover.md).|
-|Azure Container Registry|Azure Container Registry is not a hard requirement for workspace recovery. Azure ML can regenerate images for custom environments.|
+|Azure Container Registry|Azure Container Registry is not a hard requirement for workspace recovery. Azure Machine Learning can regenerate images for custom environments.|
 |Azure Application Insights| First, [recover your log analytics workspace](../azure-monitor/logs/delete-workspace.md). Then recreate an application insights with the original name.|
 
 ## Permanently delete a soft-deleted workspace
 
 When you select *Permanently delete* on a soft-deleted workspace, it triggers hard deletion of workspace data. Once deleted, workspace data can no longer be recovered. Permanent deletion of workspace data is also triggered when the soft delete retention period expires.
-
-## Register soft-delete on an Azure subscription
-
-During the time of preview, workspace soft delete is enabled on an opt-in basis per Azure subscription. When soft delete is enabled for a subscription, it's enabled for all Azure Machine Learning workspaces in that subscription.
-
-To enable workspace soft delete on your Azure subscription, [register the preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature) in the Azure portal. Select `wssoftdeete` or `Workspace soft delete` under the `Microsoft.MachineLearningServices` resource provider. It may take 15 minutes for the UX to appear in the Azure portal after registering your subscription.
-
-Before disabling workspace soft delete on an Azure subscription, purge or recover soft-deleted workspaces. After you disable soft delete on a subscription, workspaces that remain in soft deleted state are automatically purged when the retention period elapses.
 
 ## Billing implications
 
