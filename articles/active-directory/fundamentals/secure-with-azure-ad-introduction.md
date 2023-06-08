@@ -253,7 +253,7 @@ Who should have the ability to administer the environment and its resources? The
 
 * Separation of tenant-wide administrative responsibilities to further mitigate the risk of security and operational errors affecting critical resources.
 
-* Regulations that constrain who can administer the environment based on conditions such as country of citizenship, country of residency, clearance level, etc. that can't be accommodated with existing staff.
+* Regulations that constrain who can administer the environment based on conditions such as country/region of citizenship, country/region of residency, clearance level, etc. that can't be accommodated with existing staff.
 
 ## Security and operational considerations
 

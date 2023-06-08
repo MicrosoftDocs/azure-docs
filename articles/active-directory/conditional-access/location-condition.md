@@ -69,7 +69,7 @@ Locations such as your organization's public network ranges can be marked as tru
 
 ### Countries
 
-Organizations can determine country location by IP address or GPS coordinates. 
+Organizations can determine country/region location by IP address or GPS coordinates. 
 
 To define a named location by country/region, you need to provide: 
 
