@@ -43,7 +43,7 @@ To minimize issues related to throttling, it's a good idea to use the following 
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
 - Test different load increase patterns.
-- Increase the capacity assigned to your deployment. Move capacity from another deployment, if necessary.
+- Increase the quota assigned to your deployment. Move quota from another deployment, if necessary.
 
 ### How to request increases to the default quotas and limits
 
