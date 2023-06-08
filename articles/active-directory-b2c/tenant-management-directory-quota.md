@@ -80,6 +80,11 @@ The response from the API call looks similar to the following json:
 
 1. Alert if the ratio between used and total is higher that 90% 
 
+
+## Request increase Directory Quota Size
+
+You can request to increase the quota size by opening a support ticket as described [here](find-help-open-support-ticket.md) 
+
 ## Next steps
 
 - Learn [how to manage inactive user accounts](user-manage-inactive.md).
