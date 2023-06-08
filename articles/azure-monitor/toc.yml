@@ -463,18 +463,20 @@ items:
         href: /troubleshoot/azure/azure-monitor/welcome-azure-monitor
   - name: Monitor virtual machines
     items:
-    - name: Overview
-      href: vm/monitor-virtual-machine.md
     - name: Best practices
       href: best-practices-vm.md
-    - name: Deploy agents
-      href: vm/monitor-virtual-machine-agent.md
-    - name: Collect data
-      href: vm/monitor-virtual-machine-data-collection.md
-    - name: Analyze data
-      href: vm/monitor-virtual-machine-analyze.md
-    - name: Create alerts
-      href: vm/monitor-virtual-machine-alerts.md
+    - name: Deployment guides
+      items:
+      - name: Overview
+        href: vm/monitor-virtual-machine.md
+      - name: Deploy agents
+        href: vm/monitor-virtual-machine-agent.md
+      - name: Collect data
+        href: vm/monitor-virtual-machine-data-collection.md
+      - name: Analyze data
+        href: vm/monitor-virtual-machine-analyze.md
+      - name: Create alerts
+        href: vm/monitor-virtual-machine-alerts.md
     - name: VM insights
       items:
       - name: Overview
