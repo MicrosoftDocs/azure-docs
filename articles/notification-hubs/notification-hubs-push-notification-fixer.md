@@ -175,12 +175,6 @@ You can also send test notifications from Visual Studio.
 
 ![Test Send functionality in Visual Studio][10]
 
-For more information about using Notification Hubs with Visual Studio Server Explorer, see these articles:
-
-* [How to view device registrations for notification hubs](/previous-versions/windows/apps/dn792122(v=win.10))
-* [Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]
-* [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]
-
 ### Debug failed notifications and review notification outcome
 
 #### EnableTestSend property
@@ -283,10 +277,6 @@ For more information about programmatic access, see [Programmatic access](/previ
 [Templates]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: /previous-versions/azure/azure-services/dn790624(v=azure.100)
-[Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
 [Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend
-[Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)
