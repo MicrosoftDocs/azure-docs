@@ -207,14 +207,14 @@ The example below shows how to add a recurring autoscale profile, recurring on T
 ``` azurecli
 
 export autoscaleName=vmss-autoscalesetting=002
-export resourceGroup=rg-vmss-001
+export resourceGroupName=rg-vmss-001
 
 
 az monitor autoscale profile create \
 --autoscale-name $autoscaleName \
 --count 2 \
 --name Thursdays \
---resource-group $resourceGroup \
+--resource-group $resourceGroupName \
 --max-count 10 \
 --min-count 1 \
 --recurrence week thu \
@@ -225,14 +225,14 @@ az monitor autoscale profile create \
 
 az monitor autoscale rule create \
 --autoscale-name $autoscaleName \
--g $resourceGroup  \
+-g $resourceGroupName  \
 --scale in 1 \
 --condition "Percentage CPU < 25 avg 5m" \
 --profile-name Thursdays
 
 az monitor autoscale rule create \
 --autoscale-name $autoscaleName \
--g $resourceGroup   \
+-g $resourceGroupName   \
 --scale out 2 \
 --condition "Percentage CPU > 50 avg 5m"  \
 --profile-name Thursdays
@@ -240,7 +240,7 @@ az monitor autoscale rule create \
 
 az monitor autoscale profile list \
 --autoscale-name $autoscaleName \
---resource-group $resourceGroup
+--resource-group $resourceGroupName
                                   
 ```
 
@@ -282,7 +282,7 @@ The default profile uses the  `CpuIn` and `CpuOut` Rules. The recurring profile 
 
 ```azurepowershell
 
-$ResourceGroup="rg-vmss-001"
+$ResourceGroupName="rg-vmss-001"
 $TargetResourceId="/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss-001/providers/Microsoft.Compute/virtualMachineScaleSets/vmss-001"
 $ScaleSettingName="vmss-autoscalesetting=001"
 
@@ -386,7 +386,7 @@ $DefaultProfile2=New-AzAutoscaleProfileObject `
 
 Update-AzAutoscaleSetting  `
 -name $ScaleSettingName `
--ResourceGroup $ResourceGroup `
+-ResourceGroup $ResourceGroupName `
 -Enabled $true `
 -TargetResourceUri $TargetResourceId `
 -Profile $DefaultProfile, $RecurringProfile, $DefaultProfile2
