@@ -15,7 +15,7 @@ ms.subservice: disks
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-See [VM sizes](sizes.md) for additional details.
+See [VM sizes](sizes.md) for more details.
 
 ## Managed virtual machine disks
 
