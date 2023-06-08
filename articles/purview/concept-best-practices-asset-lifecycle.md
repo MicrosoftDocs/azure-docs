@@ -11,9 +11,9 @@ ms.date: 05/26/2023
 
 # Business processes for managing data effectively
 
-As data and content has a lifecycle that requires active management (for example, acquisition - processing - disposal) assets in the Microsoft Purview Data Catalog need active management in a similar way. "Assets" in the catalog include the technical metadata that describes collection, lineage and scan information. Metadata describing the business structure of data such as glossary, classifications and ownership also needs to be managed. 
- 
-To manage data assets, responsible people in the organization must understand how and when to apply data governance processes and manage workflows. 
+As data and content has a lifecycle that requires active management (for example, acquisition - processing - disposal) assets in the Microsoft Purview Data Catalog need active management in a similar way. "Assets" in the catalog include the technical metadata that describes collection, lineage and scan information. Metadata describing the business structure of data such as glossary, classifications and ownership also needs to be managed.
+
+To manage data assets, responsible people in the organization must understand how and when to apply data governance processes and manage workflows.
 
 ## Why do you need business processes for managing assets in Microsoft Purview data governance?
 
@@ -21,16 +21,16 @@ An organization employing [Microsoft Purview data governance solutions](/purview
 
 ### Benefits
 
-- Agreed definition and structure of data is required for the Microsoft Purview Data Catalog to provide effective data search and protection functionality at scale across organizations' data estates. 
- 
-- Defining and using processes for asset lifecycle management is key to maintaining accurate asset metadata, which will improve usability of the catalog and the ability to protect relevant data. 
- 
+- Agreed definition and structure of data. This is required for the Microsoft Purview Data Catalog to provide effective data search and protection functionality at scale across organizations' data estates. 
+
+- A well defined processes for asset lifecycle management. This is key to maintain accurate asset metadata, which will improve usability of the catalog and the ability to protect relevant data. 
+
 - Business users looking for data will be more likely to use the catalog to search for data when it is maintained using data governance processes.
 
-### Best practice processes that should be considered when starting the data governance journey with Microsoft Purview: 
+### Best practice processes that should be considered when starting the data governance journey with Microsoft Purview:
 
-- **Capture and maintain assets** - Understand how to initially structure and record assets in the catalog for management 
-- **Glossary and Classification management** - Understand how to effectively manage the catalog metadata needed to apply and maintain a business glossary
+- **Capture and maintain assets** - Understand how to initially structure and record assets in the catalog for management
+- **Glossary and Classification management** - Understand how to effectively manage the catalog metadata needed to apply for the ingested assets and how to and maintain a business glossary and custom classifications
 - **Moving and deleting assets** – Managing collections and assets by understanding how to move assets from one collection to another or delete asset metadata from Microsoft Purview
 
 ## Data curator organizational personas
@@ -66,7 +66,7 @@ This process describes the high-level steps and suggested roles to capture and m
 | 2 | [How to create and manage collections](how-to-create-and-manage-collections.md)
 | 3 & 4 | [Understand Microsoft Purview access and permissions](catalog-permissions.md)
 | 5 | [Microsoft Purview supported sources](purview-connector-overview.md) <br> [Microsoft Purview private endpoint networking](catalog-private-link.md) |
-| 6 | [How to manage multicloud data sources](manage-data-sources.md)
+| 6 | [How to manage data sources in Microsoft Purview](manage-data-sources.md)
 | 7 | [Best practices for scanning data sources in Microsoft Purview](concept-best-practices-scanning.md)
 | 8, 9 & 10 | [Search the data catalog](how-to-search-catalog.md)  <br>   [Browse the data catalog](how-to-browse-catalog.md)
 
