@@ -357,33 +357,31 @@ For example, if your java application would return a response like:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Title</title>
-</head>
-<body>
-
-</body>
+  <head>
+    <title>Title</title>
+  </head>
+  <body>
+  </body>
 </html>
 ```
 
-Then it would be changed to
+Then it would be updated to
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <script type="text/javascript">
-  ... script
-    connectionString: "YOUR_CONNECTION_STRING"
-  ... script
-  </script>
-</head>
-<body>
-
-</body>
+  <head>
+    <script type="text/javascript">
+    ... script
+      connectionString: "YOUR_CONNECTION_STRING"
+    ... script
+    </script>
+  </head>
+  <body>
+  </body>
 </html>
 ```
 
-The script is aiming at helping customers to track the web user data, and sent the telemetry back to the Azure portal, detailed information that could be found at this [link](https://github.com/microsoft/ApplicationInsights-JS)
+The script is aiming at helping customers to track the web user data, and sent the telemetry back to the Azure portal, detailed information could be found at this [link](https://github.com/microsoft/ApplicationInsights-JS)
 
 If you want to enable this feature:
 
