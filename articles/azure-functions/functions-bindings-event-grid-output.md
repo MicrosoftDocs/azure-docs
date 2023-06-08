@@ -401,14 +401,13 @@ import logging
 import azure.functions as func
 import datetime
 
-@app.function_name(name="eventgrid_output_binding")
-@app.route(route="eventgrid_output_binding")
+@app.function_name(name="eventgrid_output")
+@app.route(route="eventgrid_output")
 @app.event_grid_output(
     arg_name="outputEvent",
     topic_endpoint_uri="MyEventGridTopicUriSetting",
     topic_key_setting="MyEventGridTopicKeySetting")
-
-def main(eventGridEvent: func.EventGridEvent, 
+def eventgrid_output(eventGridEvent: func.EventGridEvent, 
          outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
 
     logging.log("eventGridEvent: ", eventGridEvent)

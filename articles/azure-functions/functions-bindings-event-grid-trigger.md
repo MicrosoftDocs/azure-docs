@@ -299,13 +299,14 @@ The following example shows an Event Grid trigger binding and a Python function 
 
 ```python
 import logging
+import json
 import azure.functions as func
 
 app = func.FunctionApp()
 
 @app.function_name(name="eventGridTrigger")
 @app.event_grid_trigger(arg_name="event")
-def main(event: func.EventGridEvent):
+def eventGridTest(event: func.EventGridEvent):
     result = json.dumps({
         'id': event.id,
         'data': event.get_json(),
