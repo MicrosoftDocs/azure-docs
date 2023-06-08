@@ -45,7 +45,7 @@ When updating a connector, ensure that the dll is updated in all required locati
 4. Start the Microsoft ECMA2Host service.
    
  > [!NOTE]
- > Note: If multiple connectors are using the same custom dll, you will need to complete step 3.ii and 3.iii for each connector. 
+ > If multiple connectors are using the same custom dll, you will need to complete step 3.ii and 3.iii for each connector. 
  
 ## Requirements
 
