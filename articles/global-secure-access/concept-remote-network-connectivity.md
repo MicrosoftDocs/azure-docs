@@ -1,6 +1,6 @@
 ---
-title: Global Secure Access remote network connectivity
-description: Learn about remote network connectivity in Global Secure Access.
+title: Global Secure Access (preview) remote network connectivity
+description: Learn about remote network connectivity in Global Secure Access (preview).
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -12,7 +12,7 @@ ms.custom:
 
 # Understand remote network connectivity
 
-Global Secure Access supports two connectivity options: installing a client on end-user device and configuring a remote network with a router in a branch location. Remote network connectivity streamlines how your end-users and guests connect from a remote network.
+Global Secure Access (preview) supports two connectivity options: installing a client on end-user device and configuring a remote network with a router in a branch location. Remote network connectivity streamlines how your end-users and guests connect from a remote network.
 
 This article describes the key concepts of remote network connectivity along with common scenarios where it may be useful.
 

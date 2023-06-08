@@ -1,6 +1,6 @@
 ---
 title: How to enable the Microsoft 365 profile
-description: Learn how to enable the Microsoft 365 traffic forwarding profile for Global Secure Access.
+description: Learn how to enable the Microsoft 365 traffic forwarding profile for Global Secure Access (preview).
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino

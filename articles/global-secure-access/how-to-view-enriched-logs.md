@@ -1,6 +1,6 @@
 ---
 title: How to use enriched Microsoft 365 logs
-description: Learn how to use enriched Microsoft 365 logs for Global Secure Access.
+description: Learn how to use enriched Microsoft 365 logs for Global Secure Access (preview).
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -10,7 +10,7 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# How to use the Global Secure Access enriched Microsoft 365 logs
+# How to use the Global Secure Access (preview) enriched Microsoft 365 logs
 
 With your Microsoft 365 traffic flowing through the Microsoft Entra Private Access service, you want to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. The enriched Microsoft 365 logs provide you with the information you need to gain these insights. You can integrate the logs with a third-party security information and event management (SIEM) tool for further analysis.
 

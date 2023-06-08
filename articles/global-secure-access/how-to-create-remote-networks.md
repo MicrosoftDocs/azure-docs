@@ -1,6 +1,6 @@
 ---
-title: How to create remote networks for Global Secure Access
-description: Learn how to create remote networks for Global Secure Access.
+title: How to create remote networks for Global Secure Access (preview)
+description: Learn how to create remote networks for Global Secure Access (preview).
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -13,7 +13,7 @@ ms.custom:
 
 Remote networks are remote locations, such as a branch location, or networks that require internet connectivity. Setting up remote networks connects your users in remote locations to Global Secure Access. Once a remote network is configured, you can assign a traffic forwarding profile to manage your corporate network traffic.
 
-This article explains how to create a remote network for Global Secure Access.
+This article explains how to create a remote network for Global Secure Access (preview).
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

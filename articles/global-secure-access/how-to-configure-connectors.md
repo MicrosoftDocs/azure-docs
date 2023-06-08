@@ -1,5 +1,5 @@
 ---
-title: How to configure connectors for Global Secure Access
+title: How to configure connectors for Microsoft Entra Private Access
 description: Learn how to App Proxy connectors for Microsoft Entra Private Access.
 author: shlipsey3
 ms.author: sarahlipsey
@@ -10,7 +10,7 @@ ms.service: network-access
 ms.custom: 
 
 ---
-# How to configure App Proxy connectors for Global Secure Access (preview)
+# How to configure App Proxy connectors for Microsoft Entra Private Access
 
 Microsoft Entra ID Application Proxy is used for on-premises access for web applications. To learn more about App Proxy, see [Using Azure AD Application Proxy to publish on-premises apps for remote users](../active-directory/app-proxy/what-is-application-proxy.md).
 
