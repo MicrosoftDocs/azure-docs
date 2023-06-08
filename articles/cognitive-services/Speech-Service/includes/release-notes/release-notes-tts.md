@@ -6,9 +6,17 @@ ms.date: 02/28/2023
 ms.author: eur
 ---
 
+### May 2023 release
+
+#### Audio Content Creation
+
+- All prebuilt voices with speaking styles and multi-style custom voices support style degree adjustment.
+- Now you can fix the pronunciation of a word by simply speaking the word and recording it. The phonemes can be automatically recognized from your recording. The **Recognize by speaking** feature is now in public previw.
+
 ### April 2023 release
 
 #### Prebuilt Neural TTS Voices
+
 - The following features of these voices moved from public preview to GA:
 
 | Style | Text to speech voices |
