@@ -44,9 +44,7 @@ Before you can start configuring Backup from the VIS resource or viewing Backup 
 2. Search for **ACSS** and select **Azure Center for SAP solutions** from search results.
 3. On the left navigation, select **Virtual Instance for SAP solutions**.
 4. Select the **Backup (preview)** tab on the left navigation.
-       :::image type="content" source="media/Backup Preview Navigation.png" lightbox="media/Backup Preview Navigation.png" alt-text="Screenshot of the VIS resource menu in the Azure portal, showing the Backup (preview) in left navigation.":::
 5. Select the **Register for Preview** button.
-       :::image type="content" source="media/Register for Preview feature.png" lightbox="media/Register for Preview feature.png" alt-text="Screenshot of the VIS resource menu in the Azure portal, showing the Register for Preview button.":::
 6. Registration for features can take upto 30 minutes and once it is complete, you can configure backup or view status of already configured backup. 
 
 ## Configure Backup for your SAP system
@@ -58,9 +56,7 @@ You can configure Backup for your Central service and Application server virtual
 4. Select the **Backup (preview)** tab on the left navigation.
 5. If you have not registered for the preview feature, complete the registration process by selecting the **Register** button. This step is needed only once per Subscription. 
 6. Select **Configure** button on the Backup (preview) page.
-      :::image type="content" source="media/Configure Backup Landing page.png" lightbox="media/Configure Backup Landing page.png" alt-text="Screenshot of the VIS resource menu in the Azure portal, showing the configure button on Backup page.":::
 7. Select the checkboxes **Central service + App server VMs Backup** and **Database Backup**.
-      :::image type="content" source="media/Configure VM & DB Backup.png" alt-text="Screenshot of Backup configuration page.":::
 8. For Central service + App server VMs Backup, select an existing Recovery Services vault or Create new.
    - Select a Backup policy that is to be used for backing up Central service and App server VMs.
 9. For Database Backup, select an existing Recovery Services vault or Create new.
@@ -81,7 +77,6 @@ To monitor Backup status:
 4. Select the **Backup (preview)** tab on the left navigation.
 5. If you have not registered for the preview feature, complete the registration process by selecting the **Register** button. This step is needed only once per Subscription.
 6. For Central service + App server VMs and HANA Database, view protection status of **Backup instances** and status of **Backup jobs** in the last 24 hours.
-         :::image type="content" source="media/Status of Backups.png" lightbox="media/Status of Backups.png" alt-text="Screenshot of Backup status on VIS resource page.":::
 
 > [!NOTE]
 > For a highly available HANA database, if you have configured Backup using the HSR Backup feature from Backup Center, that would not be detected and displayed under Database Backup section.
