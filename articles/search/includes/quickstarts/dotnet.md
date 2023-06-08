@@ -10,7 +10,7 @@ Use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overvie
 
 You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow the steps in this article to create your own.
 
-#### Start a project and install the NuGet package
+#### Set up your environment
 
 After the project is created, add the client library. The [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) consists of one client library that provides all of the APIs used to work with a search service in .NET.
 

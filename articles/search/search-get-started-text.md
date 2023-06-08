@@ -12,27 +12,27 @@ ms.date: 06/09/2023
 
 # Quickstart: Create a search index using the Azure SDKs
 
-Learn how to use the **Azure.Search.Documents** client library in the Azure SDKs to create, load, and query a search index using sample data.
+Learn how to use the **Azure.Search.Documents** client library in an Azure SDKs to create, load, and query a search index using sample data.
 
 ## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart.
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) if you don't have one. You can use a free tier for this quickstart.
 
 + An API key and search endpdoint:
 
-  1. [Sign in to the Azure portal](https://portal.azure.com/).
+  [Sign in to the Azure portal](https://portal.azure.com/) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-  1. In your search service **Overview** page, copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+  In **Overview**, copy the URL and save to Notepad for a later step. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-  1. In **Settings** > **Keys**, get an admin key for full rights on the service, required if you're creating or deleting objects. There are two interchangeable primary and secondary keys. Choose either one.
+  In **Keys**, copy an admin key for full rights to create and delete objects. There are two interchangeable primary and secondary keys. Choose either one.
 
-     ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
+  ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
 
 ## Create, load, and query an index
 
-**Azure.Search.Documents** client libraries are available in Azure SDK for .NET, Python, Java, and JavaScript.
+Choose a programming language for the next step. The **Azure.Search.Documents** client libraries are available in Azure SDKs for .NET, Python, Java, and JavaScript.
 
 ## [**.NET**](#tab/dotnet)
 
