@@ -28,7 +28,7 @@ To view the SKU for your bastion host, use the following steps.
 
    :::image type="content" source="./media/upgrade-sku/view-sku.png" alt-text="Screenshot of the configuration page with the Basic SKU." lightbox="./media/upgrade-sku/view-sku.png":::
 
-## Configuration steps
+## Upgrade a SKU
 
 Use the following steps to upgrade to the Standard SKU.
 
