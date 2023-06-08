@@ -25,7 +25,7 @@ The Microsoft Graph Inbound Provisioning API endpoint opens the provisioning pip
 
 ## Supported Scenarios
 
-Several inbound user provisioning scenarios are enabled using the inbound provisioning API endpoint. The diagram below demonstrates the most common scenarios. 
+Several inbound user provisioning scenarios are enabled using the inbound provisioning API endpoint. This diagram demonstrates the most common scenarios. 
 
 :::image type="content" source="media/application-provisioning-api-concepts/api-workflow-scenarios.png" alt-text="Diagram that shows API scenarios." lightbox="media/application-provisioning-api-concepts/api-workflow-scenarios.png":::
 
@@ -56,13 +56,13 @@ Partners who specialize in reading data from HR systems can build an integration
     11)	IT Admin can check the status of the provisioning job and view events in the provisioning logs at any time.
 
 ### Key features of the Inbound Provisioning API
-- It is a Microsoft Graph API endpoint that can be accessed using valid OAuth token.
+- It's a Microsoft Graph API endpoint that can be accessed using valid OAuth token.
 - The API endpoint accepts valid SCIM bulk request payloads.
 - With SCIM schema extensions, you can send any attribute in the payload. 
 - Each SCIM bulk request can contain a maximum of 50 records.
 - The API endpoint accepts SCIM bulk request payload in async mode.
 - Each API endpoint is associated with a specific provisioning app in Azure AD. You can integrate multiple data sources by creating a provisioning app for each data source. 
-- Incoming request payloads are staged for processing at regular sync intervals (currently about 40 minutes). [!NOTE] While testing, if you want to process a request payload faster, you can stop and start the provisioning job from the portal. In a future release, a provision-on-demand capability will be provided.
+- Incoming request payloads are staged for processing at regular sync intervals (currently about 40 minutes). [!NOTE] While testing, if you want to process a request payload faster, you can stop and start the provisioning job from the portal. In a future release, we anticipate provision-on-demand capability.
 - Admins can check provisioning progress by viewing the provisioning logs. 
 - API clients can track progress by querying provisioning logs.
 - Refer to [Quick start with PowerShell](**LINK TO QUICK START ARTICLE**) the extensibility of this API approach and how it can be used to upload user data from CSV files. 
@@ -71,20 +71,20 @@ Partners who specialize in reading data from HR systems can build an integration
 | # | Limitations | Workarounds
 | --- | --- | --- |
 | 1. | In each API call, using the SCIM bulk request, you can at send a maximum of 50 records. 
-How this impacts your testing: If you need to upload 100 users using the API, you need to make two API calls. 
+How this issue impacts your testing: If you need to upload 100 users using the API, you need to make two API calls. 
  | None. |
 | 2. | The sync cycle that processes incoming requests runs every 40 minutes. 
-How this impacts your testing: After you send a SCIM bulk request to the API endpoint, at maximum it could take 40 minutes before you can start the verification process. 
-| While testing, if you want to process a request payload faster, you can stop and start the provisioning job from the portal. In a future release, we will provide provision-on-demand capability. |
+How this issue impacts your testing: After you send a SCIM bulk request to the API endpoint, at maximum it could take 40 minutes before you can start the verification process. 
+| While testing, if you want to process a request payload faster, you can stop and start the provisioning job from the portal. In a future release, we anticipate provision-on-demand capability. |
 | 3. | On-premises AD as target directory is not yet supported. | None. We plan to support on-premises AD as target directory in the next iteration. The API usage model remains the same. So, you can still proceed with the testing using Azure AD to get familiar with the APIs. |
-| 4. | The provisioning service does not provide the ability to check for duplicate ``userPrincipalName`` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. | Update the sync rule to use the [RandomString](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data#randomstring) function. Example:
+| 4. | The provisioning service doesn't check for duplication ``userPrincipalName`` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. | Update the sync rule to use the [RandomString](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data#randomstring) function. Example:
 
 ``Join("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())`` |
-| 5. | Only a user or service principal with “Application Administrator” role can invoke this API. 
-How this impacts your testing: Application Administrator is a very broad role and does not align with the model of least privilege access. 
-| None. In a future release, we intend to provide a more granular application scope that can be used to invoke this API. |
-| 6. | Certain attributes like mail or ``extensionAttributes`` mastered by Exchange Online cannot be updated using inbound provisioning. 
-How this impacts your testing: If you include the mail attribute in the mapping, it will be ignored. Trying to update ``extensionAttributes`` mastered by Exchange Online causes an error. 
+| 5. | Only a user or service principal with the **Application Administrator** role can invoke this API. 
+How this issue impacts your testing: Application Administrator is a broad role and doesn't align with the model of least privilege access. 
+| None. In a future release, we intend to provide a more granular application scope to invoke this API. |
+| 6. | Certain attributes like mail or ``extensionAttributes`` mastered by Exchange Online can't be updated using inbound provisioning. 
+How this issue impacts your testing: If you include the mail attribute in the mapping, it's ignored. Trying to update ``extensionAttributes`` mastered by Exchange Online causes an error. 
 | None. This behavior is by design. |
 
 
