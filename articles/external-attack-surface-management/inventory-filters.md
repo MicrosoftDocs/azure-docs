@@ -60,7 +60,7 @@ These filters apply to all kinds of assets within inventory. These filters can b
  ### Defined value filters 
  The following filters provide a drop-down list of options to select. The available values are pre-defined.  
 
- |       Filter name           |     Description                                                                                                               |     Selectable values                                                     |     Available operators                                      |
+ |       Filter name           |     Description                                     |     Selectable values                                                     |     Available operators                                      |
 |-----------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|--------------------------------------------------------------|
 |     Kind                    |   Filters by specific web property types that comprise your inventory.                                                        |   ASN, Contact, Domain, Host, IP Address, IP Block, Page, SSL Cert        |   `Equals` `Not Equals` `In` `Not In` `Empty` `Not Empty`           |
 |     State                   |   The state assigned to assets to distinguish their relevance to your organization and how Defender EASM monitors them.       |   Approved, Candidate, Dependency, Monitor only, Requires investigation   |                                                              |
@@ -102,7 +102,7 @@ The following filters require that the user manually enters the value with which
 ![Screenshot of query editor searching for a specific named asset.](media/filters-5.png)
 ![Screenshot of results returned when filtering for an asset by name.](media/filters-6.png)
 
-4. Once your inventory list contains the unapproved assets that you were searching for, you can modify the assets. For more information on updating assets, see the [Modifying inventory assets](https://learn.microsoft.com/azure/external-attack-surface-management/labeling-inventory-assets) article. 
+4. Once your inventory list contains the unapproved assets that you were searching for, you can modify the assets. For more information on updating assets, see the [Modifying inventory assets](labeling-inventory-assets.md) article. 
 
 
 
