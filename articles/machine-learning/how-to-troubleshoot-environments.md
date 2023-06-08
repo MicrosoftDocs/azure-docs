@@ -393,7 +393,7 @@ ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<userna
 ```
 :::moniker-end
 
-[!INCLUDE [machine-learning-cli-v1](../../includes/machine-learning-cli-v1.md)]
+:::moniker range="azureml-api-2"
 [!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
 
 Create a workspace connection from a YAML specification file
@@ -404,11 +404,18 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 > [!NOTE]
 > * Providing credentials in your environment definition is no longer supported. Use workspace connections instead.
- 
+
+:::moniker-end
+
 **Resources**
+
+:::moniker range="azureml-api-1"
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+:::moniker-end
+:::moniker range="azureml-api-2"
 * [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
+:::moniker-end
 
 ### Multiple credentials for base image registry
 <!--issueDescription-->
@@ -423,7 +430,8 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 If you're using workspace connections, view the connections you have set, and delete whichever one(s) you don't want to use
 
@@ -443,11 +451,18 @@ myEnv.docker.base_image_registry.registry_identity = None
 > [!NOTE]
 > * Providing credentials in your environment definition is no longer supported. Use workspace connections instead.
  
+:::moniker-end
+
 **Resources**
+
+:::moniker range="azureml-api-1"
 * [Delete a workspace connection v1](https://aka.ms/azureml/environment/delete-connection-v1)
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+:::moniker-end
+:::moniker range="azureml-api-2"
 * [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
+:::moniker-end
 
 ### Secrets in base image registry
 <!--issueDescription-->
