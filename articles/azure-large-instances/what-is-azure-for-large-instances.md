@@ -84,3 +84,70 @@ You're set to register your OS licenses (BYOL), configure the OS, and install th
 
 You'll see all the Azure Large instance resources, and their state and attributes, in the Azure portal. 
 You can also operate the instances and open service requests and support tickets from there. 
+
+## Azure Large instances stamp 
+
+The Azure Large instance stamp itself combines the following components: 
+
+### Computing
+Servers based on the generation of Intel Xeon processors that provide the necessary computing capability and are certified for the specialized workload. 
+
+### Network
+A unified high-speed network fabric interconnects computing, storage, and LAN components. 
+
+### Storage
+An infrastructure accessed through a unified network fabric. 
+
+Within the multi-tenant infrastructure of the Azure Large instance stamp, customers are deployed in isolated tenants. 
+When deploying a tenant, you name an Azure subscription within your Azure enrollment. This Azure subscription is the one billed for your implementation of Azure Large instances. 
+
+>[!Note] 
+>A customer deploying a Azure Large instance is isolated into a tenant. A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to different tenants cannot see each other or communicate with each other on their Azure Large instances. 
+
+## Operating system 
+
+During the provisioning of the Azure Large instances, you can select the OS you want to install on the machines. 
+
+>[!Note} 
+> Remember, Azure Large instances is a BYOL model. 
+
+The available Linux OS version is Red Hat Enterprise Linux (RHEL)8.4.  
+
+Microsoft loads base image with RHEL 8.4, but customers can choose to upgrade to newer versions in collaboration with Microsoft team. 
+
+## Storage 
+
+Azure Large instances provides highly redundant Fiber Channel storage. The infrastructure offers deep integration for enterprise workloads like SAP, SQL, and others. 
+It also provides application-consistent data protection and data-management capabilities. 
+The self-service management tools offer space-efficient snapshot, cloning, and granular replication capabilities along with single pane of glass monitoring. 
+The infrastructure enables zero Recovery Point Objective (RPO) and Recovery Time Objective (RTO) capabilities for data availability and business continuity needs. 
+
+The storage infrastructure offers: 
+
+* Up to 4 x 100-GB uplinks. 
+* Up to 32-GB Fiber channel uplinks. 
+* All flash SSD and NVMe drive. 
+* Ultra-low latency and high throughput. 
+* Scales up to 4 PB of raw storage. 
+* Up to 11 million IOPS. 
+
+These Data access protocols are supported: 
+
+* iSCSI 
+* NVMe over FC 
+
+Networking 
+
+The architecture of Azure network services is a key component for a successful deployment of specialized workloads in Azure Large instances. It's likely that not all IT systems are located in Azure already. Azure offers you network technology to make Azure look like a virtual data center to your on-premises software deployments. The Azure network functionality required for BareMetal instances includes: 
+
+Azure virtual networks connected to the Azure ExpressRoute circuit that connects to your on-premises network assets. 
+
+The ExpressRoute circuit that connects on-premises to Azure should have a minimum bandwidth of 1 Gbps or higher. 
+
+Extended Active Directory and DNS in Azure, or completely running in Azure. 
+
+ExpressRoute lets you extend your on-premises network into the Microsoft cloud over a private connection with a connectivity provider's help. You can use ExpressRoute Local for cost-effective data transfer between your on-premises location and the Azure region you want. To extend connectivity across geopolitical boundaries, you can enable ExpressRoute Premium. 
+
+Azure Large instances are provisioned within your Azure VNet server IP address range. 
+
+:::image type="content" source="media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of Azure BareMetal Infrastructure diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
