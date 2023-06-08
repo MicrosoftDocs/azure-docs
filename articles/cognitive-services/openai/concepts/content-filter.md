@@ -6,7 +6,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 06/05/2023
+ms.date: 06/06/2023
 ms.custom: template-concept
 manager: nitinme
 keywords: 
@@ -18,11 +18,13 @@ Azure OpenAI Service includes a content filtering system  that works alongside c
 
 In addition to the content filtering system, the Azure OpenAI Service performs monitoring to detect content and/or behaviors that suggest use of the service in a manner that may violate applicable product terms. For more information about understanding and mitigating risks associated with your application, see the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?tabs=text). For more information about how data is processed in connection with content filtering and abuse monitoring, see [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#preventing-abuse-and-harmful-content-generation).  
 
-The following sections provide information about the content filtering categories, the filtering severity levels and their configurability, and API scenarios to be considered in application design and implementation.
+The following sections provide information about the content filtering categories, the filtering severity levels, and API scenarios to be considered in application design and implementation.
 
 ## Content filtering categories
 
-The content filtering system integrated in Azure OpenAI Service contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but is not subject to filtering and is not configurable.
+The content filtering system integrated in Azure OpenAI Service contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering.
+
+The default content filtering configuration is set to filter at the medium severity threshold for all four content harms categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low is not filtered by the content filters.
 
 ### Categories
 
@@ -41,23 +43,6 @@ The content filtering system integrated in Azure OpenAI Service contains neural 
 |Low | Content that expresses prejudiced, judgmental, or opinionated views, includes offensive use of language, stereotyping, use cases exploring a fictional world (for example, gaming, literature) and depictions at low intensity.|
 | Medium | Content that uses offensive, insulting, mocking, intimidating, or demeaning language towards specific identity groups, includes depictions of seeking and executing harmful instructions, fantasies, glorification, promotion of harm at medium intensity. |
 |High | Content that displays explicit and severe harmful instructions, actions, damage, or abuse; includes endorsement, glorification, or promotion of severe harmful acts, extreme or illegal forms of harm, radicalization, or non-consensual power exchange or abuse.|
-
-## Configurability (preview)
-
-The default content filtering configuration is set to filter at the medium severity threshold for all four content harm categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low is not filtered by the content filters. The configurability feature is available in preview and allows customers to adjust the settings, separately for prompts and completions, to filter content for each content category at different severity levels as described in the table below:
-
-| Severity filtered | Configurable for prompts | Configurable for completions | Descriptions |
-|-------------------|--------------------------|------------------------------|--------------|
-| Low, medium, high | Yes | Yes | Strictest filtering configuration. Content detected at severity levels low, medium and high is filtered.|
-| Medium, high      | Yes | Yes | Default setting. Content detected at severity level low is not filtered, content at medium and high is filtered.|
-| High              | If approved<sup>\*</sup>| If approved<sup>\*</sup> | Content detected at severity levels low and medium is not filtered. Only content at severity level high is filtered. Requires approval<sup>\*</sup>.|
-| No filters | If approved<sup>\*</sup>| If approved<sup>\*</sup>| No content is filtered regardless of severity level detected. Requires approval<sup>\*</sup>.|
-
-<sup>\*</sup> Only customers who have been approved for modified content filtering  have full content filtering control, including configuring content filters at severity level high only or turning content filters off. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
-
-Content filtering configurations are created within a Resource in Azure AI Studio, and can be associated with Deployments. [Learn more about configurability here](../how-to/content-filters.md).  
-
-   :::image type="content" source="../media/content-filters/configuration.png" alt-text="Screenshot of the content filter configuration UI" lightbox="../media/content-filters/configuration.png":::
 
 ## Scenario details
 
@@ -287,23 +272,25 @@ The table below outlines the various ways content filtering can appear:
 
 When annotations are enabled as shown in the code snippet below, the following information is returned via the API: content filtering category (hate, sexual, violence, self-harm); within each content filtering category, the severity level (safe, low, medium or high); filtering status (true or false).
 
-Annotations are currently in preview for GPT models. The following code snippet shows how to use annotations in preview:
+Annotations are currently in preview for Completions and Chat Completions (GPT models); the following code snippet shows how to use annotations in preview:
 
 ```python
 # Note: The openai-python library support for Azure OpenAI is in preview.
+# os.getenv() for the endpoint and key assumes that you are using environment variables.
 
 import os
 import openai
 openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
 openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
 openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
 response = openai.Completion.create(
     engine="text-davinci-003", # engine = "deployment_name".
-    prompt="When was Microsoft founded?"
+    prompt="{Example prompt where a severity level of low is detected}" 
+    # Content that is detected at severity level medium or high is filtered, 
+    # while content detected at severity level low isn't filtered by the content filters.
 )
-
 
 print(response)
 
@@ -330,13 +317,13 @@ print(response)
         },
         "violence": {
           "filtered": false,
-          "severity": "safe"
+          "severity": "low"
         }
       },
       "finish_reason": "length",
       "index": 0,
       "logprobs": null,
-      "text": "\").contains(KEYWORDS_WHEN))\nprint(test(\"When was Microsoft founded?\")."
+      "text": {"\")(\"Example model response will be returned\").}"
     }
   ],
   "created": 1685727831,
@@ -373,6 +360,38 @@ print(response)
   }
 }
 ```
+
+The following code snippet shows how to retrieve annotations when content was filtered:
+
+```python
+# Note: The openai-python library support for Azure OpenAI is in preview.
+# os.getenv() for the endpoint and key assumes that you are using environment variables.
+
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
+openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+
+try:
+    openai.Completion.create(
+        prompt="<HARMFUL_PROMPT>",
+        engine="<MODEL_DEPLOYMENT_NAME>",
+    )
+except openai.error.InvalidRequestError as e:
+    if e.error.code == "content_filter" and e.error.innererror:
+        content_filter_result = e.error.innererror.content_filter_result
+        # print the formatted JSON
+        print(content_filter_result)
+
+        # or access the individual categories and details
+        for category, details in content_filter_result.items():
+            print(f"{category}:\n filtered={details['filtered']}\n severity={details['severity']}")
+
+```
+
+For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using `2023-06-01-preview`.
 
 ### Example scenario: An input prompt containing content that is classified at a filtered category and severity level is sent to the completions API
 
@@ -422,8 +441,7 @@ As part of your application design, consider the following best practices to del
 ## Next steps
 
 - Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
-- Read more about how to [configure content filters](../how-to/content-filters.md).
 - Apply for modified content filters via [this form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu).
 - Azure OpenAI content filtering is powered by the models that power [Azure AI Content Safety](https://azure.microsoft.com/products/cognitive-services/ai-content-safety).
 - Learn more about understanding and mitigating risks associated with your application: [Overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
-- Learn more about how data is processed in connection with content filtering and abuse monitoring: [Data, privacy, and security for Azure OpenAI Service](https://learn.microsoft.com/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#preventing-abuse-and-harmful-content-generation).
+- Learn more about how data is processed in connection with content filtering and abuse monitoring: [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#preventing-abuse-and-harmful-content-generation).
