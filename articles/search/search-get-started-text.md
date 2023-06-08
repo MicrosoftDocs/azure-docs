@@ -1,16 +1,15 @@
 ---
 title: 'Quickstart: Use Azure SDKs'
 titleSuffix: Azure Cognitive Search
-description: "Learn how to create, load, and query a search index using the Azure SDKs for .NET, Python, Java, and JavaScript."
+description: "Create, load, and query a search index using the Azure SDKs for .NET, Python, Java, and JavaScript."
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 01/27/2023
-ms.custom: devx-track-csharp, mode-api, devx-track-dotnet
+ms.date: 06/09/2023
 ---
+
 # Quickstart: Create a search index using the Azure SDKs
 
 Learn how to use the **Azure.Search.Documents** client library in the Azure SDKs to create, load, and query a search index using sample data.
@@ -500,9 +499,15 @@ Output includes messages from [Console.WriteLine](/dotnet/api/system.console.wri
 
 ## [**Python**](#tab/python)
 
+[!INCLUDE [python-sdk-quickstart](includes/quickstarts/python.md)]
+
 ## [**Java**](#tab/java)
 
+[!INCLUDE [java-sdk-quickstart](includes/quickstarts/java.md)]
+
 ## [**JavaScript**](#tab/javascript)
+
+[!INCLUDE [javascript-sdk-quickstart](includes/quickstarts/javascript.md)]
 
 ---
 
