@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 06/07/2023
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -185,6 +185,7 @@ keyVaultUri=$(az keyvault show \
     --query properties.vaultUri \
     --output tsv)
 
+# Use this command with a system-assigned managed identity
 az storage account update \
     --name $accountName \
     --resource-group $rgName \
@@ -192,6 +193,9 @@ az storage account update \
     --encryption-key-version "" \
     --encryption-key-source Microsoft.Keyvault \
     --encryption-key-vault $keyVaultUri
+
+# Use this command with a user-assigned managed identity
+
 ```
 
 ---
