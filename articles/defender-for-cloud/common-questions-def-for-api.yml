@@ -6,23 +6,14 @@ metadata:
   ms.author: alizabernstein
   ms.service: 
   ms.topic: faq
-  ms.date: 06/05/2023
+  ms.date: 06/08/2023
 title: Common Questions - Defender for APIs troubleshooting guide
 
 ## Common questions for Defender for APIs
 
 sections:
   - name: Availability and Onboarding
-    questions:
-      - question: What type of APIs can I secure using Defender for APIs?
-        answer: Currently, Defender for APIs supports REST APIs only.
-          
-      - question: Is Defender for APIs available in my region?
-        answer: Review the list of supported regions in [Defender for APIs Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction).
-
-      - question: Are there any pricing and business models associated with the Defender for APIs plan?
-        answer: No, Defender for APIs is free to use in Public Preview.
-
+    questions:      
       - question: I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page.
         answer: If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", or "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction). 
                 The error "Request Header or Cookie Too Large" can typically be fixed by clearing all cookies; clear your browser cookies and try the operation again.
@@ -33,9 +24,6 @@ sections:
       - question: I use Azure API Management Consumption tier offering. Can I use Defender for APIs?
         answer: No, support for Azure API Management consumption tier is currently not available.
 
-      - question: I enabled the Defender for APIs plan on the Defender plans page of Microsoft Defender for Cloud. How do I see security findings for my APIs in Azure API Management?
-        answer: Onboarding APIs from Azure API Management to Defender for APIs is a two step process; first, enable the Defender for APIs plan for a subscription; then onboard unprotected APIs to Defender for APIs. Follow the instructions in the [Quickstart Guide](https://aka.ms/apiSecurityOnboarding) to complete the onboarding steps.
-  
   - name: Questions related to region/geo 
     questions:
       - question: Does Defender for APIs move API traffic data out of my region/geo?
@@ -69,11 +57,4 @@ sections:
     questions:
       - question: How soon can we receive alerts on anomalous APIs? 
         answer: APIs are assessed against their behavior studying traffic for the past 30 days. The alerts on anomalous APIs may be generated sooner if the API receives significant traffic for the ML models to learn traffic behavior. 
-     
-      - question: How do I see some alerts for Defender for APIs? 
-        answer: You can use the [sample alerts functionality](defender-for-apis-posture.md#create-sample-security-alerts) to get a quick overview of Defender for APIs alerts and how they operate. You can also use an [alert simulator](defender-for-apis-validation.md#simulate-an-alert) to test our rule-based detections.
-
-      - question: How do I offboard APIs from Defender for APIs? 
-        answer: Follow the instructions for [offboarding](defender-for-apis-manage.md#offboard-an-api) to remove APIs one at a time from Defender for APIs. 
-
 

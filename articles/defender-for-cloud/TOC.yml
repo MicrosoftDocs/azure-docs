@@ -23,7 +23,8 @@
       href: faq-data-collection-agents.yml
     - name: Azure Virtual Machines questions
       href: faq-vms.yml
-
+    - name: Common questions about Defender for APIs
+      href: faq-defender-for-apis.yml
 - name: Quickstarts
   items:
   - name: 1. Enable Defender for Cloud on your subscriptions
@@ -408,8 +409,6 @@
       href: defender-for-apis-posture.md
     - name: Manage Defender for APIs
       href: defender-for-apis-manage.md
-    - name: Common questions about Defender for APIs
-      href: common-questions-def-for-api.yml
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
