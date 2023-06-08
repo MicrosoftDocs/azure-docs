@@ -53,11 +53,11 @@ Repeat to add more rules.
 Use the following Azure PowerShell commands to enable and configure log scrubbing:
 
 ```azurepowershell
-$logScrubbingRule1 = New-AzApplicationGatewayFirewallPolicyLogScrubbingRule 
-  -State Enabled -MatchVariable RequestArgNames 
+$logScrubbingRule1 = New-AzApplicationGatewayFirewallPolicyLogScrubbingRule `
+  -State Enabled -MatchVariable RequestArgNames `
   -SelectorMatchOperator Equals -Selector test
 
-$logScrubbingRuleConfig = New-AzApplicationGatewayFirewallPolicyLogScrubbingConfiguration
+$logScrubbingRuleConfig = New-AzApplicationGatewayFirewallPolicyLogScrubbingConfiguration `
   -State Enabled -ScrubbingRule $logScrubbingRule1
 ```
 #### [CLI](#tab/cli)
