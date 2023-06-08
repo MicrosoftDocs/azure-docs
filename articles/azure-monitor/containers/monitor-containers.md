@@ -24,12 +24,21 @@ Your choice of monitoring tools will depend on the requirements of your particul
 ## Azure services
 The following Azure services are used to monitor Kubernetes clusters. 
 
-| Service | Description |
-|:---|:---|
-| Azure Monitor managed service for Prometheus | Prometheus is a project from the Cloud Native Compute Foundation and is the most common tool used for collecting and analyzing metric data from Kubernetes clusters. [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed Prometheus-compatible monitoring solution that allows you to monitor Kubernetes clusters at scale whether they're running in [Azure Kubernetes service]() or in another cloud. |
+| Service | Description | Decision Criteria |
+|:---|:---|:---|
+| Azure Monitor managed service for Prometheus | Prometheus is a project from the Cloud Native Compute Foundation and is the most common tool used for collecting and analyzing metric data from Kubernetes clusters. [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed Prometheus-compatible monitoring solution that allows you to monitor Kubernetes clusters at scale whether they're running in [Azure Kubernetes service]() or in another cloud. | 
 | Container Insights | [Container Insights](container-insights-overview.md) is a feature in Azure Monitor that monitors the health and performance of managed Kubernetes clusters. It collects log data from your clusters and provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios. |
 | Azure Arc-enabled Kubernetes | [Azure Arc-enabled Kubernetes](container-insights-enable-arc-enabled-clusters.md) allows you to attach Kubernetes clusters running anywhere so that you can manage and configure them in Azure. With the Arc agent installed, you can monitor AKS and hybrid clusters together using the same methods and tools. |
 | Azure Managed Grafana | [Azure Managed Grafana](../../managed-grafana/overview.md) is a data visualization platform built on top of the [Grafana](https://grafana.com/), which is an open-source tool commonly used to present Prometheus data. Multiple predefined Grafana dashboards are available for monitoring Kubernetes.  |
+
+
+## Decision criteria
+
+Prometheus metrics - Requirement for monitoring Kubernetes clusters. Azure Monitor managed service for Prometheus is recommended in all scenarios. If customer already has a Prometheus environment, then use remote write to send from Azure to existing environment.
+Grafana - Requirement for visualization of Prometheus metrics. If customer already has a Grafana environment, then configure appropriate Prometheus environment as a data source. If customer does not have a Grafana environment, then use Azure Managed Grafana.
+Container insights - Use for collection of Kubernetes logs (including stderr/stdout) and for included workbooks. If customer already has a solution for collection of Kubernetes logs, then use that solution. If they prefer to focus on Grafana, they may choose 
+
+
 
 
 ## Data
