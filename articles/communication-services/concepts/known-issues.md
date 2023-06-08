@@ -197,6 +197,12 @@ The environment in which this problem occurs is the following:
 
 The cause of this problem might be that acquiring your own stream from the same device will have a side effect of running into race conditions. Acquiring streams from other devices might lead the user into insufficient USB/IO bandwidth, and the `sourceUnavailableError` rate will skyrocket.  
 
+### Excessive use of certain APIs like mute/unmute will result in throttling on ACS infrastructure
+
+As a result of mute/unmute api call - ACS infrastructure informs other participants in the call about the state of audio of a local participant who invokved mute/unmute, so that participants in the call know who is muted/unmuted.
+Excessive use of mute/unmute will be blocked in ACS Infrastructure. That will happen if participant (or application on behavlf of participant) will attempt to mute/unmute continuisly, every second, more than 15 times in a 30s rolling window.
+
+
 ## Communication Services Call Automation APIs
 
 The following are known issues in the Communication Services Call Automation APIs:
