@@ -183,11 +183,11 @@ Modify the `LocalAccountSignUpWithLogonEmail` technical profile in the Azure AD 
 
 The **ValidationTechnicalProfiles** will perform the following logic:
 
-1.    Get a token to call your protected API endpoints using the `REST-getTokenforExternalApiCalls` technical profile.
+1. Get a token to call your protected API endpoints using the `REST-getTokenforExternalApiCalls` technical profile.
 
     * Follow the documentation [here](secure-rest-api.md?tabs=windows&pivots=b2c-custom-policy#using-oauth2-bearer) to obtain and protect your API using an Azure AD bearer token.
 
-1.    Verify if the user already exists in the user-region mapping via your secured external REST API endpoint:
+1. Verify if the user already exists in the user-region mapping via your secured external REST API endpoint:
     * This API call is made before all sign-up's, it's critical to make sure this API has appropriate load balancing, resiliency, and failover mechanisms to uphold uptime requirements.
 
     * An example of a technical profile to query a user-region mapping via an external REST API is as follows:
@@ -213,7 +213,7 @@ The **ValidationTechnicalProfiles** will perform the following logic:
 
      * This API should respond with HTTP 409 if the user exists, with appropriate error message to be displayed on screen. Otherwise, respond with an HTTP 200 if the user doesn't exist.
 
-1.    Write the user-region mapping via your secured external REST API endpoint
+1. Write the user-region mapping via your secured external REST API endpoint
 
       * This API call is made before all sign up's, it's critical to make sure this API has appropriate load balancing, resiliency, and failover mechanisms to uphold uptime requirements.
 
@@ -285,11 +285,11 @@ Modify the `SelfAsserted-LocalAccountSignin-Email` technical profile in the Azur
 
 The **ValidationTechnicalProfiles** will perform the following logic when the user submits their credentials:
 
-1.    Get a token to call your protected API endpoints using the `REST-getTokenforExternalApiCalls` technical profile.
+1. Get a token to call your protected API endpoints using the `REST-getTokenforExternalApiCalls` technical profile.
 
     * Follow the documentation [here](secure-rest-api.md?tabs=windows&pivots=b2c-custom-policy#using-oauth2-bearer) to obtain and protect your API using an Azure AD bearer token.
 
-1.    Look up the user-region mapping via your secured external REST API endpoint
+1. Look up the user-region mapping via your secured external REST API endpoint
     * This API call is made before all sign-up's, it's critical to make sure this API has appropriate load balancing, resiliency, and failover mechanisms to uphold uptime requirements.
 
     * An example of a technical profile to query a user-region mapping via an external REST API is as follows:
@@ -317,9 +317,9 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
       </TechnicalProfile>
       ```
   
-1.    Perform local account authentication via the `login-NonInteractive` technical profile for users who signed up in this tenant. This is the default technical profile found in the Azure AD B2C starter pack.
+1. Perform local account authentication via the `login-NonInteractive` technical profile for users who signed up in this tenant. This is the default technical profile found in the Azure AD B2C starter pack.
 
-1.    Conditionally, perform a cross tenant authentication via the `REST-login-NonInteractive-[region]` technical profiles for each respective region.
+1. Conditionally, perform a cross tenant authentication via the `REST-login-NonInteractive-[region]` technical profiles for each respective region.
 
     * This will also obtain an MS Graph API token from the users home tenant. Register a **Native App** Application Registration in each regional tenant with permissions to MS Graph API for the delegated permission `user.read`.
 
@@ -354,7 +354,7 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
     
     * Use the application registration `ApplicationId` to populate the `DefaultValue` for the `apac_client_id` input claim.
 
-1.    Conditionally, fetch the user profile using a cross tenant REST API call via the `REST-fetchUserProfile-[region]` technical profiles for each respective region.
+1. Conditionally, fetch the user profile using a cross tenant REST API call via the `REST-fetchUserProfile-[region]` technical profiles for each respective region.
 
     * An example technical profile to read the user's profile via MS Graph API is as follows:
 
@@ -413,9 +413,9 @@ Modify the `LocalAccountSignUpWithLogonEmail` technical profile in the Azure AD 
 
 The **ValidationTechnicalProfiles** will perform the following logic when the user submits a verified email to update their password:
 
-1.    Get a token to call your protected API endpoints
+1. Get a token to call your protected API endpoints
 
-1.    Look up the user-region mapping via your secured external REST API endpoint
+1. Look up the user-region mapping via your secured external REST API endpoint
     * This API call is made before all password reset attempts, it's critical to make sure this API has appropriate load balancing, resiliency, and failover mechanisms to uphold uptime requirements.
 
 Modify the `LocalAccountWritePasswordUsingObjectId` technical profile to write the new password to the local tenant or conditionally to the cross regional tenant.
@@ -448,9 +448,9 @@ Modify the `LocalAccountWritePasswordUsingObjectId` technical profile to write t
 
 The **ValidationTechnicalProfiles** will perform the following logic when the user submits a new password:
 
-1.    Write the users new password to the directory if the user existed in the EMEA tenant (this tenant).
+1. Write the users new password to the directory if the user existed in the EMEA tenant (this tenant).
 
-1.    Conditionally, write the new password to the user profile in the region where the user profile lives, using a REST API call.
+1. Conditionally, write the new password to the user profile in the region where the user profile lives, using a REST API call.
 
     ```xml
     <TechnicalProfile Id="REST-UserWritePasswordUsingObjectId-APAC">
