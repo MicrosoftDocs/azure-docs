@@ -36,56 +36,60 @@ content-type: application/fhir+json
 
 Leave the `"parameter": []` field blank (as shown) if you don't need to tweak the compute resources allocated to the reindex job.
 
-If the request is successful, you will receive a **201 Created** status code in addition to a `Parameters` resource in response
+If the request is successful, you will receive a **201 Created** status code in addition to a `Parameters` resource in the response.
 
 ```json
 HTTP/1.1 201 Created 
 Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e 
 
 {
-  "resourceType": "Parameters",
-  "id": "560c7c61-2c70-4c54-b86d-c53a9d29495e",
-  "meta": {
-    "versionId": "\"4c0049cd-0000-0100-0000-607dc5a90000\""
-  },
-  "parameter": [
-    {
-      "name": "id",
-      "valueString": "560c7c61-2c70-4c54-b86d-c53a9d29495e"
+    "resourceType": "Parameters",
+    "id": "2a369d08-e396-413a-9b2e-96b217b7f599",
+    "meta": {
+        "versionId": "138035"
     },
-    {
-      "name": "queuedTime",
-      "valueDateTime": "2021-04-19T18:02:17.0118558+00:00"
-    },
-    {
-      "name": "totalResourcesToReindex",
-      "valueDecimal": 0.0
-    },
-    {
-      "name": "resourcesSuccessfullyReindexed",
-      "valueDecimal": 0.0
-    },
-    {
-      "name": "progress",
-      "valueDecimal": 0.0
-    },
-    {
-      "name": "status",
-      "valueString": "Queued"
-    },
-    {
-      "name": "maximumConcurrency",
-      "valueDecimal": 1.0
-    },
-    {
-      "name": "resources",
-      "valueString": ""
-    },
-    {
-      "name": "searchParams",
-      "valueString": ""
-    }
-  ]
+    "parameter": [
+        {
+            "name": "id",
+            "valueString": "2a369d08-e396-413a-9b2e-96b217b7f599"
+        },
+        {
+            "name": "lastModified",
+            "valueDateTime": "2023-06-08T04:52:44.0974408+00:00"
+        },
+        {
+            "name": "queuedTime",
+            "valueDateTime": "2023-06-08T04:52:44.0974406+00:00"
+        },
+        {
+            "name": "totalResourcesToReindex",
+            "valueDecimal": 0.0
+        },
+        {
+            "name": "resourcesSuccessfullyReindexed",
+            "valueDecimal": 0.0
+        },
+        {
+            "name": "progress",
+            "valueDecimal": 0.0
+        },
+        {
+            "name": "status",
+            "valueString": "Queued"
+        },
+        {
+            "name": "maximumConcurrency",
+            "valueDecimal": 3.0
+        },
+        {
+            "name": "queryDelayIntervalInMilliseconds",
+            "valueDecimal": 500.0
+        },
+        {
+            "name": "maximumNumberOfResourcesPerQuery",
+            "valueDecimal": 100.0
+        }
+    ]
 }
 ```
 ### Run reindex job against specific custom search parameter
@@ -121,66 +125,73 @@ An example response is shown below:
 
 ```json
 {
-
-  "resourceType": "Parameters",
-  "id": "b65fd841-1c62-47c6-898f-c9016ced8f77",
-  "meta": {
-
-    "versionId": "\"1800f05f-0000-0100-0000-607a1a7c0000\""
-  },
-  "parameter": [
-
-    {
-
-      "name": "id",
-      "valueString": "b65fd841-1c62-47c6-898f-c9016ced8f77"
+    "resourceType": "Parameters",
+    "id": "2a369d08-e396-413a-9b2e-96b217b7f599",
+    "meta": {
+        "versionId": "138087"
     },
-    {
-
-      "name": "startTime",
-      "valueDateTime": "2021-04-16T23:11:35.4223217+00:00"
-    },
-    {
-      "name": "lastModified",
-      "valueDateTime": "2023-04-16T23:24:49.4543978+00:00"
-    },
-    {
-
-      "name": "queuedTime",
-      "valueDateTime": "2021-04-16T23:11:29.0288163+00:00"
-    },
-    {
-
-      "name": "totalResourcesToReindex",
-      "valueDecimal": 262544.0
-    },
-    {
-
-      "name": "resourcesSuccessfullyReindexed",
-      "valueDecimal": 5754.0
-    },
-    {
-
-      "name": "progress",
-      "valueDecimal": 2.0
-    },
-    {
-
-      "name": "status",
-      "valueString": "Running"
-    },
-    {
-
-      "name": "maximumConcurrency",
-      "valueDecimal": 1.0
-    },
-    {
-
-      "name": "resources",
-      "valueString": 
-      "{{LIST_OF_IMPACTED_RESOURCES}}"
-    }
-  ]
+    "parameter": [
+        {
+            "name": "id",
+            "valueString": "2a369d08-e396-413a-9b2e-96b217b7f599"
+        },
+        {
+            "name": "startTime",
+            "valueDateTime": "2023-06-08T04:54:53.2943069+00:00"
+        },
+        {
+            "name": "endTime",
+            "valueDateTime": "2023-06-08T04:54:54.4052272+00:00"
+        },
+        {
+            "name": "lastModified",
+            "valueDateTime": "2023-06-08T04:54:54.4053002+00:00"
+        },
+        {
+            "name": "queuedTime",
+            "valueDateTime": "2023-06-08T04:52:44.0974406+00:00"
+        },
+        {
+            "name": "totalResourcesToReindex",
+            "valueDecimal": 2.0
+        },
+        {
+            "name": "resourcesSuccessfullyReindexed",
+            "valueDecimal": 2.0
+        },
+        {
+            "name": "progress",
+            "valueDecimal": 100.0
+        },
+        {
+            "name": "status",
+            "valueString": "Completed"
+        },
+        {
+            "name": "maximumConcurrency",
+            "valueDecimal": 3.0
+        },
+        {
+            "name": "resources",
+            "valueString": "{{LIST_OF_IMPACTED_RESOURCES}}"
+        },
+        {
+            "name": "resourceReindexProgressByResource (CountReindexed of Count)",
+            "valueString": "{{RESOURCE_TYPE:REINDEXED_COUNT OF TOTAL_COUNT}}"
+        },
+        {
+            "name": "searchParams",
+            "valueString": "{{LIST_OF_SEARCHPARAM_URLS}}h"
+        },
+        {
+            "name": "queryDelayIntervalInMilliseconds",
+            "valueDecimal": 500.0
+        },
+        {
+            "name": "maximumNumberOfResourcesPerQuery",
+            "valueDecimal": 100.0
+        }
+    ]
 }
 ```
 
@@ -195,6 +206,10 @@ The following information is shown in the above response:
 * `status`: States if the reindex job is queued, running, complete, failed, or canceled.
 
 * `resources`: Lists all the resource types impacted by the reindex job.
+
+* 'resourceReindexProgressByResource (CountReindexed of Count)': Provides the reindexed count of the total count, per resource type. In case when CountReindexed is not provided, it means reindexing for specific resource type is queued.
+
+* 'searchParams': Lists url of the search parameters impacted by the reindex job.
 
 ## Delete a reindex job
 
