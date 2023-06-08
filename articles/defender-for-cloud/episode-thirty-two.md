@@ -20,7 +20,7 @@ ms.date: 06/08/2023
 - [15:53](/shows/mdc-in-the-field/api-security#time=15m53s) - Demonstration
 -  
 ## Recommended resources
-  - Learn more about  [Defender for APIs](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction) 
+  - Learn more about  [Defender for APIs](defender-for-apis-introduction.md) 
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Learn more about [Microsoft Security](https://msft.it/6002T9HQY)
 
