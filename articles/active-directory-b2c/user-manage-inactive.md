@@ -24,9 +24,9 @@ We recommend that you monitor your user accounts. Monitoring your user accounts 
  
 1. Use the steps in [Register an application](client-credentials-grant-flow.md#step-2-register-an-application) to register an app in your tenant, which uses client credentials flow. Record the **Application (client) ID** for use in a later. 
 
-1. Use the steps in [Create a client secret](client-credentials-grant-flow#step-2-register-an-application) to configure a client secret for your app. Record the secret's **Value**. You will use this value for configuration in a later step.
+1. Use the steps in [Create a client secret](client-credentials-grant-flow.md#step-2-register-an-application) to configure a client secret for your app. Record the secret's **Value**. You will use this value for configuration in a later step.
 
-1. For your app to call Microsoft Graph API, you need to grant it the required permissions. To do so, use the steps in [Grant API access](microsoft-graph-get-started?tabs=app-reg-ga#grant-api-access), but only grant **User.Read.All** and **AuditLog.Read.All** permissions.
+1. For your app to call Microsoft Graph API, you need to grant it the required permissions. To do so, use the steps in [Grant API access](microsoft-graph-get-started.md?tabs=app-reg-ga#grant-api-access), but only grant **User.Read.All** and **AuditLog.Read.All** permissions.
 
 1. Run the following PowerShell script. Replace: 
 
