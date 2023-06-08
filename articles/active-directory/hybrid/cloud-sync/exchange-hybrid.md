@@ -63,9 +63,9 @@ Cloud sync writes Exchange On-line attributes back to users and groups in order 
 
 
 ## Provisioning on-demand
-Provisioning on-demand with Exchange hybrid writeback requires two steps.  You need to first provision or create the user.  This allows Exchange online to populate the necessary attributes on the user or group.  Then cloud sync can then be "write back" these attributes to the user or group.  The steps are:
+Provisioning on-demand with Exchange hybrid writeback requires two steps.  You need to first provision or create the user.  Exchange online then populates the necessary attributes on the user or group.  Then cloud sync can then be "write back" these attributes to the user or group.  The steps are:
 
-- Provision and synch the intial user or group - this brings the user/group into the cloud and allows them to be populated with Exchange online attributes.
+- Provision and synch the initial user or group - this brings the user/group into the cloud and allows them to be populated with Exchange online attributes.
 - Writeback exchange attributes to Active Directory - this writes the Exchange online attributes to the user/group on-premises.
 
 Provisioning on-demand with Exchange hybrid use the following steps
@@ -77,9 +77,9 @@ Provisioning on-demand with Exchange hybrid use the following steps
  4. Under **Configuration**, select your configuration.
  5. On the left, select **Provision on demand**.
  6. Enter the distinguished name of a user and select the **Provision** button.
- 7. When provisioning finishes, a success screen appears with four green check marks. 
+ 7. A success screen appears with four green check marks. 
  8. Click **Next**.  On the **Writeback exchange attributes to Active Directory** tab, the synchronization starts.  
- 9. When this has finished you should see the success details.
+ 9. You should see the success details.
 
 ## API for schema detection
 Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  The refresh can be done automatically by restarting the provisioning agent or manually using an API call.
