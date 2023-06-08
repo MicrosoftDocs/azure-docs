@@ -5,7 +5,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/17/2023
+ms.date: 06/02/2023
 ---
 
 # About Bastion configuration settings
@@ -25,14 +25,12 @@ The following table shows the availability of features per corresponding SKU.
 
 ### Specify SKU
 
-Currently, you must use the Azure portal if you want to specify the Standard SKU. If you use the Azure CLI or Azure PowerShell to configure Bastion, the SKU can't be specified and defaults to the Basic SKU.
-
 | Method | SKU Value | Links |
 | --- | --- | --- |
 | Azure portal | Tier - Basic or Standard | [Tutorial](tutorial-create-host-portal.md) |
 | Azure portal | Tier - Basic| [Quickstart](quickstart-host-portal.md) |
-| Azure PowerShell | Basic |[How-to](bastion-create-host-powershell.md) |
-| Azure CLI |  Basic| [How-to](create-host-cli.md) |
+| Azure PowerShell | Tier - Basic or Standard |[How-to](bastion-create-host-powershell.md) |
+| Azure CLI | Tier - Basic or Standard | [How-to](create-host-cli.md) |
 
 ### <a name="upgradesku"></a>Upgrade a SKU
 

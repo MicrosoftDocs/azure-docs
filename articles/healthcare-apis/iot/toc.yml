@@ -44,10 +44,10 @@ items:
       items:
       - name: Overview of the device mapping
         href: overview-of-device-mapping.md
-      - name: Use CalculatedContent mappings
-        href: how-to-use-calculatedcontent-mappings.md
-      - name: Use IotJsonPathContent mappings
-        href: how-to-use-iotjsonpathcontent-mappings.md
+      - name: Use CalculatedContent templates
+        href: how-to-use-calculatedcontent-templates.md
+      - name: Use IotJsonPathContent templates
+        href: how-to-use-iotjsonpathcontent-templates.md
       - name: Use custom functions
         href: how-to-use-custom-functions.md 
     - name: Destination

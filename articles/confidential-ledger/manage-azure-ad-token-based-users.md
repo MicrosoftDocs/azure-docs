@@ -5,6 +5,7 @@ author: settiy
 ms.author: settiy
 ms.date: 02/09/2023
 ms.service: confidential-ledger
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
 ---
 

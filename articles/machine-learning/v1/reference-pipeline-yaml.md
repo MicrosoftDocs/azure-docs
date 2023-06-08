@@ -11,7 +11,7 @@ ms.reviewer: lagayhar
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
-ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, cliv1
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1
 ---
 
 # CLI (v1) pipeline job YAML schema
