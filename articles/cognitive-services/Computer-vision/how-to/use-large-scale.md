@@ -19,7 +19,9 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-This guide is an advanced article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. This guide demonstrates the migration process. It assumes a basic familiarity with PersonGroup and FaceList objects, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [face recognition](../concept-face-recognition.md) conceptual guide.
+This guide is an advanced article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. PersonGroups can hold up to 1000 persons in the free tier and 10,000 in the paid tier, while LargePersonGroups can hold up to one million persons in the paid tier.
+
+This guide demonstrates the migration process. It assumes a basic familiarity with PersonGroup and FaceList objects, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [face recognition](../concept-face-recognition.md) conceptual guide.
 
 LargePersonGroup and LargeFaceList are collectively referred to as large-scale operations. LargePersonGroup can contain up to 1 million persons, each with a maximum of 248 faces. LargeFaceList can contain up to 1 million faces. The large-scale operations are similar to the conventional PersonGroup and FaceList but have some differences because of the new architecture. 
 
@@ -30,20 +32,7 @@ The samples are written in C# by using the Azure Cognitive Services Face client 
 
 ## Step 1: Initialize the client object
 
-When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. For example:
-
-```csharp
-string SubscriptionKey = "<Key>";
-// Use your own subscription endpoint corresponding to the key.
-string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
-private readonly IFaceClient faceClient = new FaceClient(
-            new ApiKeyServiceClientCredentials(subscriptionKey),
-            new System.Net.Http.DelegatingHandler[] { });
-faceClient.Endpoint = SubscriptionEndpoint
-```
-
-To get the key with its corresponding endpoint, go to the Azure Marketplace from the Azure portal.
-For more information, see [Subscriptions](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
+When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/identity-client-library?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
 
 ## Step 2: Code migration
 

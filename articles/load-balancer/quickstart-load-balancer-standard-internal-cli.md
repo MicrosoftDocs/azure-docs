@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 05/01/2023
 ms.author: mbender
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api, template-quickstart,engagement-fy23
+ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 
