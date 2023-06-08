@@ -282,7 +282,7 @@ The default profile uses the  `CpuIn` and `CpuOut` Rules. The recurring profile 
 
 ```azurepowershell
 
-$resourceGroupName="rg-vmss-001"
+$ResourceGroupName="rg-vmss-001"
 $TargetResourceId="/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss-001/providers/Microsoft.Compute/virtualMachineScaleSets/vmss-001"
 $ScaleSettingName="vmss-autoscalesetting=001"
 
@@ -386,7 +386,7 @@ $DefaultProfile2=New-AzAutoscaleProfileObject `
 
 Update-AzAutoscaleSetting  `
 -name $ScaleSettingName `
--ResourceGroup $resourceGroupName `
+-ResourceGroup $ResourceGroupName `
 -Enabled $true `
 -TargetResourceUri $TargetResourceId `
 -Profile $DefaultProfile, $RecurringProfile, $DefaultProfile2
