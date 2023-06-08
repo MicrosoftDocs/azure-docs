@@ -17,9 +17,7 @@ This quickstart shows you how to create a virtual network by using the Azure por
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
-<!---place holder for image
-:::image type="content" source="./media/quick-create-portal/virtual-network-quickstart-resources.png" alt-text="Diagram of resources created in virtual network quickstart.":::
---->
+:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in virtual network quickstart.":::
 
 ## Prerequisites
 
