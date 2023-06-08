@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Handle authentication flows in a Vanilla JavaScript single-page app
-description: Learn how to configure authentication for a Vanilla JavaScript single-page app (SPA) with your Azure Active Directory (AD) for customers tenant.
+title: Tutorial - Handle authentication flows in a vanilla JavaScript single-page app
+description: Learn how to configure authentication for a vanilla JavaScript single-page app (SPA) with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -11,22 +11,95 @@ ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 05/25/2023
 
-#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
+#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Tutorial: Handle authentication flows in a Vanilla JavaScript single-page app
+# Tutorial: Handle authentication flows in a vanilla JavaScript single-page app
 
-In the [previous article](./how-to-single-page-app-vanillajs-sign-in-prepare-app.md), you created a Vanilla JavaScript (JS) single-page application (SPA) and a server to host it, and configured the file for authentication.
+In the [previous article](./how-to-single-page-app-vanillajs-sign-in-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you'll configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). 
 
 In this tutorial you'll;
 
 > [!div class="checklist"]
+> * Configure the settings for the application
 > * Add code to *authRedirect.js* to handle the authentication flow
 > * Add code to *authPopup.js* to handle the authentication flow
 
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Prepare a single-page application for authentication](how-to-single-page-app-vanillajs-sign-in-prepare-app.md).
+
+## Edit the authentication configuration file
+
+The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-grant-flow.md) to authenticate users. The Implicit Grant Flow is a browser-based flow that doesn't require a back-end server. The flow redirects the user to the sign-in page, where the user signs in and consents to the permissions that are being requested by the application. The purpose of *authConfig.js* is to configure the authentication flow.
+
+1. Open *public/authConfig.js* and add the following code snippet:
+
+    ```javascript
+    /**
+     * Configuration object to be passed to MSAL instance on creation. 
+     * For a full list of MSAL.js configuration parameters, visit:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
+     */
+    const msalConfig = {
+        auth: {
+            clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
+            authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace "Enter_the_Tenant_Subdomain_Here" with your tenant subdomain
+            redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.href e.g. http://localhost:3000/
+            navigateToLoginRequestUrl: true, // If "true", will navigate back to the original request location before processing the auth code response.
+        },
+        cache: {
+            cacheLocation: 'sessionStorage', // Configures cache location. "sessionStorage" is more secure, but "localStorage" gives you SSO.
+            storeAuthStateInCookie: false, // set this to true if you have to support IE
+        },
+        system: {
+            loggerOptions: {
+                loggerCallback: (level, message, containsPii) => {
+                    if (containsPii) {
+                        return;
+                    }
+                    switch (level) {
+                        case msal.LogLevel.Error:
+                            console.error(message);
+                            return;
+                        case msal.LogLevel.Info:
+                            console.info(message);
+                            return;
+                        case msal.LogLevel.Verbose:
+                            console.debug(message);
+                            return;
+                        case msal.LogLevel.Warning:
+                            console.warn(message);
+                            return;
+                    }
+                },
+            },
+        },
+    };
+    
+    /**
+     * An optional silentRequest object can be used to achieve silent SSO
+     * between applications by providing a "login_hint" property.
+     */
+    
+    // const silentRequest = {
+    //   scopes: ["openid", "profile"],
+    //   loginHint: "example@domain.net"
+    // };
+    
+    // exporting config object for jest
+    if (typeof exports !== 'undefined') {
+        module.exports = {
+            msalConfig: msalConfig,
+            loginRequest: loginRequest,
+        };
+    }
+     ```
+
+1. Replace the following values with the values from the Azure portal:
+    - Find the `Enter_the_Application_Id_Here` value and replace it with the **application ID (clientId)** of the app you registered in the Microsoft Entra admin center.
+    - In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
+1. Save the file.
 
 ## Adding code to the redirection file
 

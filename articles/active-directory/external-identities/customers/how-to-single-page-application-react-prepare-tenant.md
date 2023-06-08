@@ -20,7 +20,7 @@ This tutorial series demonstrates how to build a React single-page application f
 
 In this tutorial, you'll;
 
-> * [!div class="checklist"]
+> [!div class="checklist"]
 > * Register a web application in the Microsoft Entra admin center, and record its identifiers
 > * Create a client secret for the web application
 > * Define the platform and URLs

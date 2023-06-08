@@ -30,12 +30,10 @@ In this tutorial you'll;
 
 * Completion of the prerequisites and steps in [Prepare an single-page app for authentication](./how-to-single-page-app-react-sign-in-prepare-app.md).
 
-
 ## Adding components to the application
 
 Functional components are the building blocks of React apps, and are used to build the sign in and sign out experiences in a React SPA. 
 
-1. Navigate to the *src* folder in the left panel.
 1. Right click on *src*, select **New Folder** and call it *components*.
 1. Right click on *components* and using the **New File** option, create the following files to create a structure as depicted in the following code block;
     - *PageLayout.jsx*
