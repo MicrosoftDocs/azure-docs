@@ -62,17 +62,17 @@ items:
         href: concept-traffic-dashboard.md
       - name: Audit logs
         href: how-to-access-audit-logs.md
-      - name: Enriched Office 365 logs
+      - name: Enriched Microsoft 365 logs
         href: how-to-view-enriched-logs.md
       - name: Traffic logs
         href: how-to-view-traffic-logs.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
   - name: Remote network connectivity
     href: concept-remote-network-connectivity.md
 - name: Reference
-  expanded: true
+  expanded: false
   items:
   - name: Remote network valid configurations
     href: reference-remote-network-configurations.md

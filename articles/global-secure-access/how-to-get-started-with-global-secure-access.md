@@ -24,6 +24,11 @@ Administrators who interact with **Global Secure Access preview** features must 
 
 A working Microsoft Entra ID tenant with the appropriate license is required. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Global Secure Access is dependent upon some features that require additional licensing.
 
+### Known limitations
+
+- Global Secure Access is currently available in North America and Europe.
+- At this time, only IPv4 is supported.
+
 ## Microsoft Entra Private Access
 
 Microsoft Entra Private Access provides a secure, zero-trust access solution for accessing internal resources without requiring a VPN. Configure Quick Access and enable the Private access traffic forwarding profile to specify the sites and apps you want routed through Microsoft Entra Private Access. At this time, the Global Secure Access client must be installed on end-user devices to use Microsoft Entra Private Access.

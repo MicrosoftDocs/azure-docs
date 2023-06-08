@@ -14,22 +14,21 @@ ms.reviewer: mamkumar
 ---
 # Traffic profiles as a target resource in Conditional Access 
 
-In addition to sending traffic to Global Secure Access, administrators can use Conditional Access policies to secure traffic profiles. They can mix and match controls as needed like requiring multifactor authentication, requiring a compliant device, or defining an acceptable sign in risk.
+In addition to sending traffic to Global Secure Access, administrators can use Conditional Access policies to secure traffic profiles. They can mix and match controls as needed like requiring multifactor authentication, requiring a compliant device, or defining an acceptable sign-in risk.
 
 Conditional Access on traffic profiles provides administrators with enormous control over their security posture. Administrators can enforce [Zero Trust principles](/security/zero-trust/) using policy to manage access to the network. Using traffic profiles allows consistent application of policy. For example, applications that don't support modern authentication can now be protected behind a traffic profile.
 
-This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profiles](concept-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365, private, or internet with these policies. Users can access these configured endpoints or traffic profiles only when they satisfy the configured Conditional Access policies. 
+This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profiles](concept-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365 or private, internal resources with these policies. Users can access these configured endpoints or traffic profiles only when they satisfy the configured Conditional Access policies. 
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Prerequisites
 
-* A working Microsoft Entra ID tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
+* Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running.
-* You must be routing your Microsoft 365, Internet, or private network traffic through the **Global Secure Access preview** using the steps in [How to enable the Microsoft 365 traffic forwarding profile](how-to-manage-microsoft-365-profile.md).
+* You must be routing your Microsoft 365 and private network traffic through the **Global Secure Access preview**.
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 
@@ -70,8 +69,12 @@ When a user signs in the Global Secure Access Client has a green circle that you
 <!--- To be added
 ## FAQs
 ## Known limitations
-## Next steps
 Tenant restrictions
 Source IP restoration
 Compliant network policy
 --->
+
+## Next steps
+
+- [Manage the Microsoft 365 traffic profile](how-to-manage-microsoft-365-profile.md)
+- [Manage the private access traffic profile](how-to-manage-private-access-profile.md)
