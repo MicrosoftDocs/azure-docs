@@ -6,7 +6,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 06/06/2023
+ms.date: 06/08/2023
 ms.custom: template-concept
 manager: nitinme
 keywords: 
