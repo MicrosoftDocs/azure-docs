@@ -100,16 +100,16 @@ groups:
     title: "JavaScript: Node.js"
   - id: programming-language-python
     title: Python
-- id: programming-languages-set-two
-# Owner: lajanuar
+- id: programming-languages-document-sdk
+  # Owner: lajanuar
   title: Programming languages
   prompt: Choose a programming language
   pivots:
   - id: programming-language-csharp
-    title: "C#"
+    title: C#"
   - id: programming-language-python
-    title: Python
-- id: programming-languages-document-sdk
+    title: Python  
+- id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language

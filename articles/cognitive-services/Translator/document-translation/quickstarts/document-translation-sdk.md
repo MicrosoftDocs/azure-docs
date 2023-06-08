@@ -24,7 +24,7 @@ Document Translation is a cloud-based feature of the [Azure Translator](../../tr
 >
 > * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 >
-> * Document Translation is **only** supported in paid tiers. We suggest that you select Standard S1 to try the feature.. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Document Translation is supported in paid tiers. The Language Studio only supports the S1 or D3 instance tiers. We suggest that you select Standard S1 to try Document Translation.  *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ To get started, you need:
 
 You can choose one of the following options to authorize access to your Translator resource.
 
-**✔️ Managed Identity**. A managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources that enables you to run your Translator application without having to embed credentials in your code. Managed identities are a safer way to grant access to storage data and replace the requirement for you to include shared access signature tokens (SAS) with your source and target URLs.
+**✔️ Managed Identity**. A managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for an Azure managed resource. Managed identities enable you to run your Translator application without having to embed credentials in your code. Managed identities are a safer way to grant access to storage data and replace the requirement for you to include shared access signature tokens (SAS) with your source and target URLs.
 
   :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
@@ -68,7 +68,7 @@ To learn more, *see* [Create SAS tokens](../how-to-guides/create-sas-tokens.md).
 
 ## Build your application
 
-There are several tools available for creating, building, and running your Translator C#/.NET application. Here we guide your through using the command-line interface (CLI) or Visual Studio. Select one of following tabs to get started:
+There are several tools available for creating, building, and running your Translator C#/.NET application. Here, we guide you through using the command-line interface (CLI) or Visual Studio. Select one of following tabs to get started:
 
 
 
