@@ -31,9 +31,9 @@ In this article, you learn how to create, change, enable, disable, or delete a V
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
-- A virtual network. If you need to create a virtual network, see [create a virtual network using the Azure CLI](../virtual-network/quick-create-cli.md).
+- A virtual network. If you need to create a virtual network, see [Create a virtual network using the Azure CLI](../virtual-network/quick-create-cli.md).
 
-- An Azure storage account. If you need to create a storage account, see [create a storage account using the Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli).
+- An Azure storage account. If you need to create a storage account, see [Create a storage account using the Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli).
 
 - Bash environment in [Azure Cloud Shell](https://shell.azure.com) or the Azure CLI installed locally. To learn more about using Bash in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - Bash](../cloud-shell/quickstart.md). 
 

@@ -31,7 +31,7 @@ In this article, you learn how to create, change, enable, disable, or delete a V
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
-- A virtual network. If you need to create a virtual network, see [create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
+- A virtual network. If you need to create a virtual network, see [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
 - An Azure storage account. If you need to create a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal).
 

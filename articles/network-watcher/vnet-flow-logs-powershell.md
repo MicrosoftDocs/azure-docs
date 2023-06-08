@@ -31,9 +31,9 @@ In this article, you learn how to create, change, enable, disable, or delete a V
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
-- A virtual network. If you need to create a virtual network, see [create a virtual network using PowerShell](../virtual-network/quick-create-powershell.md).
+- A virtual network. If you need to create a virtual network, see [Create a virtual network using PowerShell](../virtual-network/quick-create-powershell.md).
 
-- An Azure storage account. If you need to create a storage account, see [create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell).
+- An Azure storage account. If you need to create a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell).
 
 - PowerShell environment in [Azure Cloud Shell](https://shell.azure.com) or Azure PowerShell installed locally. To learn more about using PowerShell in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - PowerShell](../cloud-shell/quickstart-powershell.md). 
 
