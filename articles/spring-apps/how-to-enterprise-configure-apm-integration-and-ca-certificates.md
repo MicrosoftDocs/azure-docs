@@ -217,15 +217,6 @@ You can configure the CA certificates on the **Edit binding** page. The `succeed
 
 :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/ca-certificates-buildpack-binding.png" alt-text="Screenshot of the Azure portal showing the Edit bindings for default builder page with the Edit binding for CA Certificates panel open." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/ca-certificates-buildpack-binding.png":::
 
-## Manage APM integration and CA certificates in Azure Spring Apps
-
-With the build service enabled, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against the CA certificates type. For APM integration, derived from the previous configuration instructions the necessary environment variables or secrets for your APM.
-
-> [!NOTE]
-> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
-
-You can manage buildpack bindings with the Azure portal or the Azure CLI.
-
 ### [Build service disabled](#tab/disable-build-service)
 
 If you disable the build service, you can only deploy an application with a container image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
@@ -326,13 +317,22 @@ This section lists the supported languages and required environment variables fo
 
 ---
 
+## Manage APM integration and CA certificates in Azure Spring Apps
+
+This section applies only to an Azure Spring Apps Enterprise service instance with the build service enabled. With the build service enabled, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against the CA certificates type. For APM integration, follow the earlier instructions to configure the necessary environment variables or secrets for your APM.
+
+> [!NOTE]
+> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
+
+You can manage buildpack bindings with the Azure portal or the Azure CLI.
+
 ### [Azure portal](#tab/azure-portal)
 
-To edit buildpack bindings using the Azure portal, use the following steps:
+Use the following steps to view the buildpack bindings:
 
 1. In the Azure portal, go to your Azure Spring Apps Enterprise service instance.
 1. In the navigation pane, select **Build Service**.
-1. On the **Build Service** page, for **Bindings** select **Edit**.
+1. Select **Edit** under the **Bindings** column to view the bindings configured for a builder.
 
    After a builder is bound to the buildpack bindings, the buildpack bindings are enabled for an app deployed with the builder.
 
