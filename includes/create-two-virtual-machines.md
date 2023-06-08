@@ -58,6 +58,8 @@ The following procedure creates two virtual machines (VMs) named **vm-1** and **
 
 1. Review the settings and select **Create**.
 
+[!INCLUDE [ephemeral-ip-note.md](./ephemeral-ip-note.md)]
+
 1. Repeat the previous steps to create a second virtual machine with the following settings:
 
     | Setting | Value |
