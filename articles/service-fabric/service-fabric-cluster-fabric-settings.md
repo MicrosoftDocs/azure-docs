@@ -929,7 +929,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|
 |ServiceRunAsAccountName |String | Not Allowed |The account name under which to run fabric host service. |
 |SkipContainerNetworkResetOnReboot|bool, default is FALSE|NotAllowed|Whether to skip resetting container network on reboot.|
-|SkipFirewallConfiguration |Bool, default is false | Not Allowed |Specifies if firewall settings need to be set by the system or not. This applies only if you are using windows firewall. If you are using third party firewalls, then you must open the ports for the system and applications to use |
+|SkipFirewallConfiguration |Bool, default is false | Dynamic |Specifies if firewall settings need to be set by the system or not. This applies only if you are using windows firewall. If you are using third party firewalls, then you must open the ports for the system and applications to use |
 
 ## TokenValidationService
 

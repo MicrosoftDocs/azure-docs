@@ -32,7 +32,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * [🆕 Form Recognizer Overview](overview.md?view=form-recog-3.0.0&preserve-view=true) has enhanced navigation, structured access points, and enriched images.
 
-* [🆕 Choose a Form Recognizer model](choose-model-feature.md?view=form-recog-3.0.0&preserve-view=true) is now a standalone that provides guidance for choosing the best Form Recognizer solution for your projects and workflows.
+* [🆕 Choose a Form Recognizer model](choose-model-feature.md?view=form-recog-3.0.0&preserve-view=true) provides guidance for choosing the best Form Recognizer solution for your projects and workflows.
 
 ## April 2023
 
@@ -377,7 +377,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields now resolves to the existing fields TotalTax and Line/Tax respectively.
   * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
-  * [**prebuilt-businessCard**](concept-business-card.md). Address parse support to extract subfields for address components like address, city, state, country, and zip code.
+  * [**prebuilt-businessCard**](concept-business-card.md). Address parse support to extract subfields for address components like address, city, state, country/region, and zip code.
 
 * **AI quality improvements**
 
@@ -904,7 +904,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## August 2020
 
-* **Form Recognizer v2.1-preview.1 has been released and includes the following features:
+* **Form Recognizer `v2.1-preview.1` has been released and includes the following features:
 
   * **REST API reference is available** - View the [`v2.1-preview.1 reference`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
   * **New languages supported In addition to English**, the following [languages](language-support.md) are now supported: for `Layout` and `Train Custom Model`: English (`en`), Chinese (Simplified) (`zh-Hans`), Dutch (`nl`), French (`fr`), German (`de`), Italian (`it`), Portuguese (`pt`) and Spanish (`es`).

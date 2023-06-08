@@ -21,6 +21,7 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 |--|--|
 | [GPT-4](#gpt-4-models) | A set of models that improve on GPT-3.5 and can understand as well as generate natural language and code. |
 | [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo). |
+| [DALL-E](#dall-e-models) | A series of models that can generate original images from natural language. |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
@@ -109,6 +110,10 @@ Ada is usually the fastest model and can perform tasks like parsing text, addres
 The ChatGPT model (gpt-35-turbo) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
 
 To learn more about the ChatGPT model and how to interact with the Chat API check out our [in-depth how-to](../how-to/chatgpt.md).
+
+### DALL-E models
+
+The DALL-E models, currently in preview, generate images from text prompts that the user provides.
 
 ## Codex models
 
@@ -213,6 +218,13 @@ These models can only be used with the Chat Completion API.
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
+
+### Dall-E Models
+
+|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (characters) | Training Data (up to)  |
+|  --- |  --- | --- | --- | --- |
+| dalle2 | East US | N/A | 1000 | N/A |
+
 
 ### Codex Models
 

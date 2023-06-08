@@ -105,7 +105,7 @@ The following example is an Azure Resource Manager template (ARM template) that 
 
 * **Linux Admin Username**: Enter a username to connect using SSH, such as azureuser.
 
-* **SSH RSA Public Key**: Copy and paste the public part of your SSH key pair (by default, the contents of ~/.ssh/id_rsa.pub).
+* **SSH RSA Public Key**: Copy and paste the public part of your SSH key pair (by default, the contents of the `~/.ssh/id_rsa.pub` file).
 
 If you're unfamiliar with ARM templates, see the tutorial on [deploying a local ARM template][arm-template-deploy].
 
