@@ -28,23 +28,29 @@ You can also use a stored access policy to define the permissions and duration o
 
 ## Create a service SAS for a blob
 
-You can create a service delegation SAS to delegate limited access to a blob resource using the following method:
+You can create a service SAS to delegate limited access to a blob resource using the following method:
 
 - [generate_blob_sas](/python/api/azure-storage-blob/azure.storage.blob#azure-storage-blob-generate-blob-sas)
 
 The storage account access key used to sign the SAS is passed to the method as the `account_key` argument. Allowed permissions are passed to the method as the `permission` argument, and are defined in the [BlobSasPermissions](/python/api/azure-storage-blob/azure.storage.blob.blobsaspermissions) class. 
 
+The following code example shows how to create service SAS for a blob resource with read permissions:
+
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_create_service_sas_blob":::
 
 ## Use a service SAS to authorize a client object
 
-The following code example shows how to use the service SAS to authorize a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
+The following code example shows how to use the service SAS created in the earlier example to authorize a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_use_service_sas_blob":::
 
 ## Resources
 
 To learn more about creating a service SAS using the Azure Blob Storage client library for Python, see the following resources.
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py)
 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
 

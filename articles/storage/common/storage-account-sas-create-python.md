@@ -54,6 +54,10 @@ To use the account SAS to access service-level APIs for the Blob service, create
 
 To learn more about creating an account SAS using the Azure Blob Storage client library for Python, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py)
+
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 
 ### See also

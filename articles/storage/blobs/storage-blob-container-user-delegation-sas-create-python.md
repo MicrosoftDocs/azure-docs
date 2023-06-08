@@ -57,6 +57,10 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 - [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key) (REST API)
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py)
+
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 
 ### See also
