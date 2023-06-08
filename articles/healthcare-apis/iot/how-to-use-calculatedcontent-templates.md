@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/07/2023
 ms.author: jasteppe
 ---
 
@@ -194,9 +194,9 @@ The resulting normalized message will look like this after the normalization sta
 ```
 
 > [!TIP]
-> For assistance fixing common MedTech service deployment errors, see [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md).
+> For assistance troubleshooting MedTech service deployment errors, see [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md).
 >
-> For assistance fixing MedTech service errors, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).
+> For assistance troubleshooting MedTech service errors, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).
 
 ## Next steps
 

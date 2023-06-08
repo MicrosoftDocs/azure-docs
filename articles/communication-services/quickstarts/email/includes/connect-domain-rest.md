@@ -33,15 +33,13 @@ If you are using an Azure Managed Domain, the `domain-name` is "AzureManagedDoma
 Once these values are populated make a PATCH request to the using the following Request URL and Body. 
 
 ```
-https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Communication/CommunicationServices/{communication-services-resource-name}?api-version=2022-07-01
+https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Communication/CommunicationServices/{communication-services-resource-name}?api-version=2023-03-31
 ```
 
 ```
 {
-    "location": "Global",
     "properties": {
-        "dataLocation": "United States"
-        "linkedDomains": "{linked-domain-resource-id}"
+        "linkedDomains": ["{linked-domain-resource-id}"]
     }
 }
 ```
@@ -53,14 +51,13 @@ Replace the `{subscription-id}`, `{resource-group-name}`, and `{communication-se
 Once these values are populated, make a PATCH request to the using the following Request URL and Body. 
 
 ```
-https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Communication/CommunicationServices/{communication-services-resource-name}?api-version=2022-07-01
+https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Communication/CommunicationServices/{communication-services-resource-name}?api-version=2023-03-31
 ```
 
 ```
 {
-    "location": "Global",
     "properties": {
-        "dataLocation": "United States"
+        "linkedDomains": []
     }
 }
 ```
