@@ -1,5 +1,5 @@
 ---
-title: Prepare your customer tenant to authenticate users in an ASP.NET web app
+title: Tutorial - Prepare your customer tenant to authenticate users in an ASP.NET web app
 description: Learn how to configure your Azure Active Directory (AD) for customers tenant for authentication with an ASP.NET web application
 services: active-directory
 author: cilwerner
@@ -14,7 +14,7 @@ ms.date: 05/23/2023
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Prepare your customer tenant to authenticate users in an ASP.NET web app
+# Tutorial: Prepare your customer tenant to authenticate users in an ASP.NET web app
 
 This tutorial series demonstrates how to build an ASP.NET web application from scratch and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for .NET](/entra/msal/dotnet) and [Microsoft Identity Web](/dotnet/api/microsoft-authentication-library-dotnet/confidentialclient) libraries to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
 
