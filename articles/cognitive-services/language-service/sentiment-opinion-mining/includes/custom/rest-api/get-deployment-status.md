@@ -6,7 +6,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/05/2022
+ms.date: 06/08/2023
 ms.author: aahi
 ---
 
@@ -33,7 +33,7 @@ Use the following header to authenticate your request.
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
 
-### Response Body
+### Response body
 
 Once you send the request, you'll get the following response. Keep polling this endpoint until the **status** parameter changes to "succeeded". You should get a `200` code to indicate the success of the request. 
 

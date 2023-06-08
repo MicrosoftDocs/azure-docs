@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 01/25/2023
+ms.date: 06/08/2023
 ms.author: aahi
 ---
 
@@ -31,9 +31,7 @@ After you have created an Azure storage account and connected it to your Languag
 
 1. [Download the sample dataset for Custom sentiment analysis projects](https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/language-service/Custom%20sentiment%analysis).
 
-1. Open the .zip file, and extract the folder containing the documents. 
-
-    The provided sample dataset contains documents, each of which is a short example of a customer review.
+1. Open the .zip file, and extract the folder containing the documents. The provided sample dataset contains documents, each of which is a short example of a customer review.
 
 [!INCLUDE [Uploading sample data for Custom sentiment analysis](../../../../includes/custom/language-studio/upload-data-to-storage.md)]
 
@@ -49,7 +47,7 @@ Once your resource and storage container are configured, create a new Custom sen
 
 
 
-### Get import job Status
+### Get import job status
 
 [!INCLUDE [get import project status](../rest-api/get-import-status.md)]
 
