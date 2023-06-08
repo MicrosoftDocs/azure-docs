@@ -59,12 +59,9 @@ A default retention period of 14 days holds for deleted workspaces. The retentio
 
 During the retention period, soft-deleted workspaces can be recovered or permanently deleted. Any other operations on the workspace, like submitting a training job,  will fail. You can't reuse the name of a workspace that has been soft-deleted until the retention period has passed. Once the retention period elapses, a soft deleted workspace automatically gets permanently deleted.
 
-> [!TIP]
-> During preview of workspace soft-delete, the retention period is fixed to 14 days and can't be modified. 
-
 ## Deleting a workspace
 
-The default deletion behavior when deleting a workspace is soft delete. Optionally, you may permanently delete a workspace going to soft delete state first by checking __Delete the workspace permanently__ in the Azure portal or by setting the `permanently_delete` flag when you use the [Azure ML SDK or CLI](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.operations.workspaceoperations?view=azure-python#azure-ai-ml-operations-workspaceoperations-begin-delete). Permanently deleting workspaces can only be done one workspace at time, and not using a batch operation.
+The default deletion behavior when deleting a workspace is soft delete. Optionally, you may permanently delete a workspace going to soft delete state first by checking __Delete the workspace permanently__ in the Azure portal or by setting the `permanently_delete` flag when you use the [Azure ML SDK or CLI](../..//python/api/azure-ai-ml/azure.ai.ml.operations.workspaceoperations#azure-ai-ml-operations-workspaceoperations-begin-delete). Permanently deleting workspaces can only be done one workspace at time, and not using a batch operation.
 
 Permanently deleting a workspace allows a workspace name to be reused immediately after deletion. This behavior may be useful in dev/test scenarios where you want to create and later delete a workspace. Permanently deleting a workspace may also be required for compliance if you manage highly sensitive data. See [General Data Protection Regulation (GDPR) implications](#general-data-protection-regulation-gdpr-implications) to learn more on how deletions are handled when soft delete is enabled.
 
