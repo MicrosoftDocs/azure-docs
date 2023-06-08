@@ -20,6 +20,10 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Microsoft Entra Verified ID service.
 
+## May 2023
+
+- Wallet Library was announced at Build 2023 in session [Reduce fraud and improve engagement using Digital Wallets](https://build.microsoft.com/en-US/sessions/4ca41843-1b3f-4ee6-955e-9e2326733be8). The Wallet Library enables customers to addverifiable credentials technology to their own mobile apps. The libararies are available for [Android](https://github.com/microsoft/entra-verifiedid-wallet-library-android/tree/dev) and [iOS](https://github.com/microsoft/entra-verifiedid-wallet-library-ios/tree/dev).
+
 ## March 2023
 
 - Admin API now supports [application access tokens](admin-api.md#authentication) and in addition to user bearer tokens.
