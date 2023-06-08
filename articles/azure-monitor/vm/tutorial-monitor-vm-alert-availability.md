@@ -48,7 +48,7 @@ There are multiple methods to create an alert rule in Azure Monitor. In this tut
 
 7. Click **New Alert Rule** to create an alert rule and open its configuration.
 
-9. Set the following values for the **Alert logic**. This specifies that the alert will fire whenever the average value of the availability metric falls below 1, which indicates that one of the VMs in the selected scope isn't running.
+8. Set the following values for the **Alert logic**. This specifies that the alert will fire whenever the average value of the availability metric falls below 1, which indicates that one of the VMs in the selected scope isn't running.
 
     | Setting | Value |
     |:---|:---|
@@ -58,12 +58,13 @@ There are multiple methods to create an alert rule in Azure Monitor. In this tut
     | Unit | Count |
     | Threshold value | 1 |
 
-Set the following values for **When to evaluate**. This specifies that the rule will run every minute, using the collected values from the previous minute.
+9. Set the following values for **When to evaluate**. This specifies that the rule will run every minute, using the collected values from the previous minute.
 
     | Setting | Value |
     |:---|:---|
     | Check every | 1 minute |
     | Loopback period | 1 minute |
+
 
     :::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-alert-logic.png" alt-text="Screenshot of alert rule details for VM Availability metric." lightbox="media/tutorial-monitor-vm/vm-availability-metric-alert-logic.png":::
 
@@ -75,33 +76,34 @@ The **Actions** page allows you to add one or more [action groups](../alerts/act
 > [!TIP]
 > If you already have an action group, click **Add action group** to add an existing group to the alert rule instead of creating a new one.
 
-Click **Create action group** to create a new one. 
+1. Click **Create action group** to create a new one. 
 
-:::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-create-action-group.png" alt-text="Screenshot of option to create new action group." lightbox="media/tutorial-monitor-vm/vm-availability-metric-create-action-group.png":::
+    :::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-create-action-group.png" alt-text="Screenshot of option to create new action group." lightbox="media/tutorial-monitor-vm/vm-availability-metric-create-action-group.png":::
 
-Select a **Subscription** and **Resource group** for the action group and give it an **Action group name** that will appear in the portal and a **Display name** that will appear in email and SMS notifications.
+2. Select a **Subscription** and **Resource group** for the action group and give it an **Action group name** that will appear in the portal and a **Display name** that will appear in email and SMS notifications.
 
-:::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-action-group-basics.png" lightbox="./media/tutorial-monitor-vm/vm-availability-metric-action-group-basics.png" alt-text="Screenshot of action group basics":::
+    :::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-action-group-basics.png" lightbox="./media/tutorial-monitor-vm/vm-availability-metric-action-group-basics.png" alt-text="Screenshot of action group basics":::
 
-Select **Notifications** and add one or more methods to notify appropriate people when the alert is fired.
+3. Select **Notifications** and add one or more methods to notify appropriate people when the alert is fired.
 
-:::image type="content" source="media/tutorial-monitor-vm/action-group-notifications.png" lightbox="./media/tutorial-monitor-vm/action-group-notifications.png" alt-text="Action group notifications":::
+    :::image type="content" source="media/tutorial-monitor-vm/action-group-notifications.png" lightbox="./media/tutorial-monitor-vm/action-group-notifications.png" alt-text="Action group notifications":::
 
 ## Configure details
-The **Details** page allows you to configure different settings for the alert rule.
 
-| Setting | Description |
-|:---|:---|
-| Subscription | Subscription where the alert rule will be stored. |
-| Resource group | Resource group where the alert rule will be stored. This doesn't need to be in the same resource group as the resource that you're monitoring. |
-| Severity | The severity allows you to group alerts with a similar relative importance. A severity of **Error** is appropriate for an unresponsive virtual machine. |
-| Alert rule name | Name of the alert that's displayed when it fires. |
-| Alert rule description | Optional description of the alert rule. |
+1. Configure different settings for the alert rule on the **Details** page.
 
+    | Setting | Description |
+    |:---|:---|
+    | Subscription | Subscription where the alert rule will be stored. |
+    | Resource group | Resource group where the alert rule will be stored. This doesn't need to be in the same resource group as the resource that you're monitoring. |
+    | Severity | The severity allows you to group alerts with a similar relative importance. A severity of **Error** is appropriate for an unresponsive virtual machine. |
+    | Alert rule name | Name of the alert that's displayed when it fires. |
+    | Alert rule description | Optional description of the alert rule. |
+    
 
-:::image type="content" source="media/tutorial-monitor-vm/alert-rule-details.png" lightbox="media/tutorial-monitor-vm/alert-rule-details.png" alt-text="Alert rule details.":::
+    :::image type="content" source="media/tutorial-monitor-vm/alert-rule-details.png" lightbox="media/tutorial-monitor-vm/alert-rule-details.png" alt-text="Alert rule details.":::
 
-Click **Review + create** to create the alert rule.
+2. Click **Review + create** to create the alert rule.
 
 ## View the alert
 To test the alert rule, stop one or more virtual machines in the scope you specified. If you configured a notification in your action group, then you should receive that notification within a few seconds. You'll also see an alert for each VM on the **Alerts** page.
