@@ -3,7 +3,7 @@ title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Serv
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 04/12/2023
+ms.date: 06/08/2023
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
@@ -33,7 +33,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * Deletion of the key, Key Vault, or the associated identity isn't supported.
 * KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy is required to be set before the feature is enabled. In addition, system-assigned managed identity isn't available until cluster creation, thus there's a cycle dependency.
 * Azure Key Vault with Firewall enabled to allow public access isn't supported because it blocks traffic from KMS plugin to the Key Vault.
-* The maximum number of secrets that a cluster enabled with KMS supports is 2,000.
+* The maximum number of secrets that a cluster enabled with KMS supports is 2,000 ([KMS V2][kms-v2-support] is not limited by it).
 * Bring your own (BYO) Azure Key Vault from another tenant isn't supported.
 * With KMS enabled, you can't  change associated Azure Key Vault model (public, private). To [change associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
 * If a cluster is enabled KMS with private key vault and not using the `API Server VNet integration` tunnel, then stop/start cluster is not allowed.
@@ -347,6 +347,41 @@ Use the following command to update all secrets. Otherwise, the old secrets will
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
+## KMS V2 support 
+Since AKS version 1.27+, KMS V2 is configured once you enable KMS feature. KMS V2 doesn't have the limitation of 2000 secrets support. You can refer to [KMS V2 Improvements](https://kubernetes.io/blog/2022/09/09/kms-v2-improvements/) for more details.
+
+### Migration to KMS v2
+
+If your cluster version < 1.27 and alredy enabled with KMS, to migrate to KMS V2, you need to disable KMS, do storage migration, upgrade the cluster to version 1.27 +,  then re-enable the KMS.  
+
+#### Disable KMS
+Use the following command to disable KMS on existing cluster.
+
+```azurecli-interactive
+az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
+```
+
+#### Storage migration
+Use the following command to update all secrets. 
+
+```azurecli-interactive
+kubectl get secrets --all-namespaces -o json | kubectl replace -f -
+```
+
+#### Upgrade AKS cluster
+Use the following command to upgrade the AKS cluster to 1.27+
+```azurecli-interactive
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version <AKS version>
+```
+Example:
+```azurecli-interactive
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.27.1
+```
+
+#### Re-enable KMS
+You can re-enable KMS feature on the cluster to encrypt the secrets. After that, AKS cluster is using KMS V2. 
+If you don’t want to do the KMS v2 migration, you can create a new 1.27+ cluster with KMS enabled.
+
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
@@ -367,3 +402,4 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [changing-associated-key-vault-mode]: use-kms-etcd-encryption.md#update-key-vault-mode
 [install-azure-cli]: /cli/azure/install-azure-cli
 [api-server-vnet-integration]: api-server-vnet-integration.md
+[kms-v2-support]: use-kms-etcd-encryption.md#kms-v2-support
