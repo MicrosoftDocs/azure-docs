@@ -93,10 +93,10 @@ Recovery of a workspace may not always be possible. Azure Machine Learning store
 
 |Dependency|Recovery approach|
 |---|---|
-|Azure Key Vault| [Recovery a deleted Azure Key Vault instance](https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview) |
-|Azure Storage|[Recover a deleted Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-recover).|
+|Azure Key Vault| [Recovery a deleted Azure Key Vault instance](../key-vault/general/soft-delete-overview.md) |
+|Azure Storage|[Recover a deleted Azure storage account](../storage/common/storage-account-recover.md).|
 |Azure Container Registry|Azure Container Registry is not a hard requirement for workspace recovery. Azure ML can regenerate images for custom environments.|
-|Azure Application Insights| First, [recover your log analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/delete-workspace). Then recreate an application insights with the original name.|
+|Azure Application Insights| First, [recover your log analytics workspace](../azure-monitor/logs/delete-workspace.md). Then recreate an application insights with the original name.|
 
 ## Permanently delete a soft-deleted workspace
 
