@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-Create a console application that uses the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to create, load, and query a search index. You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow these steps to create your own.
+Build a console application using the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to create, load, and query a search index. Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow these steps to create your own.
 
 #### Set up your environment
 

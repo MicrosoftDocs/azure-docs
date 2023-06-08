@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-Create a Node.js application using the [**@azure/search-documents**](/javascript/api/overview/azure/search-documents-readme) library to create, load, and query a search index. Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/quickstart) to start with a finished project or follow these steps to create your own.
+Build a Node.js application using the [**@azure/search-documents**](/javascript/api/overview/azure/search-documents-readme) library to create, load, and query a search index. Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/quickstart) to start with a finished project or follow these steps to create your own.
 
 #### Set up your environment
 
@@ -320,7 +320,7 @@ You should see a series of messages describing the actions being taken by the pr
 
 Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following example:
 
-:::image type="content" source="media/search-get-started-javascript/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab" border="false":::
+:::image type="content" source="../../media/search-get-started-javascript/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab" border="false":::
 
 In the next step, you'll add data to index. 
 

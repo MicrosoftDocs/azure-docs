@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-In this exercise, build a Jupyter Notebook that uses the [**azure-search-documents**](/python/api/overview/azure/search-documents-readme) library to create, load, and query an index. You can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11) or follow these steps to create your own.
+Build a Jupyter Notebook using the [**azure-search-documents**](/python/api/overview/azure/search-documents-readme) library to create, load, and query an index. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11) or follow these steps to create your own.
 
 #### Set up your environment
 

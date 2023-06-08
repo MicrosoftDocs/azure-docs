@@ -14,10 +14,10 @@ ms.date: 06/09/2023
 
 Learn how to use the **Azure.Search.Documents** client library in an Azure SDKs to create, load, and query a search index using sample data for [full text search](search-lucene-query-architecture.md) scenarios. This quickstart has steps for the following SDKs:
 
-+ **Azure SDK for .NET**
-+ **Azure SDK for Python**
-+ **Azure SDK for Java**
-+ **Azure SDK for JavaScript**
++ [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme)
++ [Azure SDK for Python](/python/api/overview/azure/search-documents-readme)
++ [Azure SDK for Java](/java/api/overview/azure/search-documents-readme)
++ [Azure SDK for JavaScript](/javascript/api/overview/azure/search-documents-readme)
 
 ## Prerequisites
 
