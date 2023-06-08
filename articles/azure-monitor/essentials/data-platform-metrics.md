@@ -64,6 +64,11 @@ Azure Monitor provides REST APIs that allow you to get data in and out of Azure 
 - **Azure Monitor Metrics REST API** - Allows you to access Azure Monitor platform metrics definitions and values. For more information, see [Azure Monitor REST API](/rest/api/monitor/).  For information on how to use the API, see the [Azure monitoring REST API walkthrough](./rest-api-walkthrough.md).
 - **Azure Monitor Metrics Data plane REST API**  - [Azure Monitor Metrics data plane API](/rest/api/monitor/metrics-data-plane/) is a high-volume API designed for customers with large volume metrics queries. It's similar to the existing standard Azure Monitor Metrics REST API, but provides the capability to retrieve metric data for up to 50 resource IDs in the same subscription and region in a single batch API call. This improves query throughput and reduces the risk of throttling.   
 
+## Security
+
+All communication between connected systems and the Azure Monitor service is encrypted using the TLS (HTTPS) protocol. The Microsoft SDL process is followed to ensure all Azure services are up-to-date with the most recent advances in cryptographic protocols. 
+
+Secure connection is established between the agent and the Azure Monitor service using certificate-based authentication and TLS with port 443. Azure Monitor uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices. For more information on security, see [Azure Monitor Logs data security](../logs/data-security.md)
 
 ## Metrics Explorer
 
