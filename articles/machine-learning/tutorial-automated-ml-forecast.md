@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.date: 10/21/2021
+ms.date: 06/08/2023
 ms.custom: automl, ignite-2022
 #Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
@@ -140,12 +140,12 @@ After you load and configure your data, set up your remote compute target and se
 
 Complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
 
-1. On the **Task type and settings** form, select **Time series forecasting** as the machine learning task type.
+1. On the **Task type and settings** form, select **Time series forecasting** as the machine learning task type. 
 
 1. Select **date** as your **Time column** and leave **Time series identifiers** blank. 
 
 1. The **Frequency** is how often your historic data is collected. Keep **Autodetect** selected. 
-1.
+
 1. The **forecast horizon** is the length of time into the future you want to predict.  Deselect **Autodetect** and type 14 in the field. 
 
 1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
