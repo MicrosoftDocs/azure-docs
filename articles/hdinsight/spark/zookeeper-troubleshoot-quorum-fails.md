@@ -3,7 +3,7 @@ title: Apache ZooKeeper server fails to form a quorum in Azure HDInsight
 description: Apache ZooKeeper server fails to form a quorum in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 05/28/2022
+ms.date: 06/08/2023
 ---
 # Apache ZooKeeper server fails to form a quorum in Azure HDInsight
 
