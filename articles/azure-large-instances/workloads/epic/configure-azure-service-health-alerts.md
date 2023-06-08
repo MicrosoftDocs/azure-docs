@@ -8,10 +8,12 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-# Configure Azure service health alerts
-
-content
-
+# Configure Azure Service Health alerts
+You can get automatic notifications when there are planned maintenance events or unplanned 
+downtime that affects your infrastructure.
+Please follow these steps to ensure you have Service Health alerts configured:
+Step1. Please go to the Microsoft Azure portal http://portal.Azure.Com
+Step2. Please search for “service health” in the search bar and click on Service Health.
 
 
 

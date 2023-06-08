@@ -150,4 +150,26 @@ ExpressRoute lets you extend your on-premises network into the Microsoft cloud o
 
 Azure Large instances are provisioned within your Azure VNet server IP address range. 
 
-:::image type="content" source="media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of Azure BareMetal Infrastructure diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
+:::image type="content" source="/media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of Azure BareMetal Infrastructure diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
+
+ "![alt text](/media/what-is-azure-for-large-instances/ali-networking.png) lightbox="media/what-is-azure-for-large-instances/ali-networking.png"
+ 
+
+ <img title="a title" alt="Alt1" src="/media/what-is-azure-for-large-instances/ali-networking.png">
+
+The architecture shown is divided into three sections: 
+
+### On-premises (left
+Shows the customer on-premises infrastructure that runs different applications, connecting through the partner or local edge router like Equinix. For more information, see Connectivity providers and locations: Azure ExpressRoute. 
+
+### ExpressRoute (center)
+Shows ExpressRoute provisioned using your Azure subscription offering connectivity to Azure edge network. 
+
+### Azure IaaS with VMs (right)
+Shows Azure IaaS, and in this case, use of VMs to host your applications, which are provisioned within your Azure virtual network. 
+
+### ExpressRoute Gateway (lower)
+Shows using your ExpressRoute Gateway enabled with ExpressRoute FastPath for Azure Large instances connectivity offering low latency. 
+
+>[!Note]
+>To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, see About ExpressRoute virtual network gateways. 
