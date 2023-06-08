@@ -68,9 +68,9 @@ Provisioning on-demand with Exchange hybrid writeback requires two steps.  You n
 Provisioning on-demand with Exchange hybrid use the following steps
 
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
+ 1. In the Azure portal, select **Azure Active Directory**.
+ 2. On the left, select **Azure AD Connect**.
+ 3. On the left, select **Cloud sync**.
  4. Under **Configuration**, select your configuration.
  5. On the left, select **Provision on demand**.
  6. Enter the distinguished name of a user and select the **Provision** button.
