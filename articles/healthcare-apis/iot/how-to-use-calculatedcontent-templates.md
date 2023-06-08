@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/07/2023
 ms.author: jasteppe
 ---
 
@@ -18,7 +18,7 @@ This article provides an overview of how to use CalculatedContent templates with
 
 ## CalculatedContent template basics
 
-The MedTech service CalculatedContent template supports two JSON expression languages: JSONPath and JMESPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: TimestampExpression, DeviceIdExpression, etc.).
+The MedTech service CalculatedContent templates support two JSON expression languages: JSONPath and JMESPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: TimestampExpression, DeviceIdExpression, etc.).
 
 > [!NOTE] 
 >If you don't define an expression language, the MedTech service device mapping templates use the default expression language that's configured for the template. The default is JSONPath, but you can overwrite it if necessary.
@@ -46,7 +46,7 @@ In the following example, `typeMatchExpression` is defined as:
 }
 ```
 
-The CalculatedContent template allows matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
+The CalculatedContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
 |Element|Description|JSONPath expression|JMESPath expression|
 |:------|:----------|:------------------|:------------------|
@@ -194,9 +194,9 @@ The resulting normalized message will look like this after the normalization sta
 ```
 
 > [!TIP]
-> For assistance fixing common MedTech service deployment errors, see [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md).
+> For assistance troubleshooting MedTech service deployment errors, see [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md).
 >
-> For assistance fixing MedTech service errors, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).
+> For assistance troubleshooting MedTech service errors, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).
 
 ## Next steps
 

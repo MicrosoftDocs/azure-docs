@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/19/2023
+ms.date: 06/2/2023
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -25,12 +25,12 @@ Azure AD supports preintegrated connectors for applications that support the fol
 > - [REST](on-premises-ldap-connector-configure.md)
 > - [SOAP](on-premises-ldap-connector-configure.md)
 
-For connectivity to applications that don't support the aforementioned protocols and standards, customers and [partners](https://social.technet.microsoft.com/wiki/contents/articles/1589.fim-2010-mim-2016-management-agents-from-partners.aspx) have built custom [ECMA 2.0](/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)) connectors for Microsoft Identity Manager (MIM) 2016. You can now use those ECMA 2.0 connectors with the lightweight Azure AD provisioning agent, without needing MIM sync deployed.  \
+For connectivity to applications that don't support the aforementioned protocols and standards, customers and [partners](https://social.technet.microsoft.com/wiki/contents/articles/1589.fim-2010-mim-2016-management-agents-from-partners.aspx) have built custom [ECMA 2.0](/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)) connectors for Microsoft Identity Manager (MIM) 2016. You can now use those ECMA 2.0 connectors with the lightweight Azure AD provisioning agent, without needing MIM sync deployed.
 
 
 
 ## Exporting and importing a MIM connector
-If you've got a customer connector in MIM, you can export it by following the instructions [here](on-premises-migrate-microsoft-identity-manager.md#export-a-connector-configuration-from-mim-sync).  You need to save the XML file, the DLL, and related software for your connector.
+If you have a custom ECMA 2.0 connector in MIM, you can export it by following the instructions [here](on-premises-migrate-microsoft-identity-manager.md#export-a-connector-configuration-from-mim-sync).  You need to save the XML file, the DLL, and related software for your connector.
 
 To import your connector, you can use the instructions [here](on-premises-migrate-microsoft-identity-manager.md#import-a-connector-configuration).  You will need to copy the DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.  After the xml has been imported, continue through the wizard and ensure that all the required fields are populated.
 

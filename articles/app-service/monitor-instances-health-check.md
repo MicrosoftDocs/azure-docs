@@ -12,9 +12,11 @@ ms.custom: contperf-fy22q1
 
 # Monitor App Service instances using Health check
 
-This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances, and replacing instances if they remain unhealthy. Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy. Also, if the path does not return a response within 1 minute the health check ping is considered unhealthy.
+This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances and replacing instances if they remain unhealthy. It does that by pinging every minute a path of your web application of your choice. 
 
 ![Health check failure][1]
+
+Please note that _/api/health_ is just an example added for illustration purposes. You should make sure that the path you are selecting is a valid path and we do not create a healthcheck path by default but it needs to exist for your application.
 
 ## What App Service does with Health checks
 
@@ -29,14 +31,18 @@ This article uses Health check in the Azure portal to monitor App Service instan
 >- At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
 >- If your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
 
-## Enable Health Check
+## Enable Health check
 
-![Health check navigation in Azure Portal][3]
+![Health check navigation in Azure portal][3]
 
-- To enable Health check, browse to the Azure portal and select your App Service app.
-- Under **Monitoring**, select **Health check**.
-- Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`.
-- Select **Save**.
+1. To enable Health check, browse to the Azure portal and select your App Service app.
+2. Under **Monitoring**, select **Health check**.
+3. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`.
+4. Select **Save**.
+
+> [!NOTE]
+> - Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy. Also, if the path does not return a response within 1 minute, the health check ping is considered unhealthy.
+> - When selecting the Health check path, make sure you're selecting a path that returns 200 status code only when the app is fully warmed up.
 
 > [!CAUTION]
 > Health check configuration changes restart your app. To minimize impact to production apps, we recommend [configuring staging slots](deploy-staging-slots.md) and swapping to production.
@@ -149,6 +155,8 @@ After providing your application's Health check path, you can monitor the health
 ## Limitations
 
 - Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and setup alerts, but because **Free** and **Shared** sites can't scale out, any unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it will increase your app's availability and performance.
+- The App Service plan can have a maximum of one unhealthy instance replaced per hour and, at most, three instances per day.
+- There's a limit of replaced instances we have per scale unit, and its value is reset once at 12h.
 
 ## Frequently Asked Questions
 
@@ -186,7 +194,7 @@ Imagine you have two applications (or one app with a slot) with Health check ena
 
 In the scenario where all instances of your application are unhealthy, App Service will remove instances from the load balancer up to the percentage specified in `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application.
 
-### Does Health Check work on App Service Environments?
+### Does Health check work on App Service Environments?
 
 Yes, health check is available for the App Service Environment v3, but not for versions 1 or 2. If you are using the older versions of the App Service Environment, you can use the [migration feature](environment/migrate.md) to migrate your App Service Environment to version 3.
 
