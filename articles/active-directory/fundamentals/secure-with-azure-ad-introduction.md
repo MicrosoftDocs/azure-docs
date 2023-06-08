@@ -178,7 +178,7 @@ Configurations, controlled by Global Administrators, affect resources. While som
 
 * External user access requirements that conflict with production or sensitive resource policies.
 
-* Organizations that span multiple countries and companies hosted in a single Azure AD Tenant. For example, what settings and licenses are used in different countries or business subsidiaries.
+* Organizations that span multiple countries/regions and companies hosted in a single Azure AD Tenant. For example, what settings and licenses are used in different countries/regions or business subsidiaries.
 
 ## Administration in a tenant
 

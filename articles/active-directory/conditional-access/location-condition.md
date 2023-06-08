@@ -67,7 +67,7 @@ Locations such as your organization's public network ranges can be marked as tru
 > [!WARNING]
 > Even if you know the network and mark it as trusted does not mean you should exclude it from policies being applied. Verify explicitly is a core principle of a Zero Trust architecture. To find out more about Zero Trust and other ways to align your organization to the guiding principles, see the [Zero Trust Guidance Center](/security/zero-trust/).
 
-### Countries
+### Countries/regions
 
 Organizations can determine country/region location by IP address or GPS coordinates. 
 
