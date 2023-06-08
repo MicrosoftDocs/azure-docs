@@ -83,7 +83,7 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings "global.daprControlPlaneArch=amd64”
 ```
 
-## Install Dapr in  multiple availability zones while in HA mode
+## Install Dapr in multiple availability zones while in HA mode
 
 By default, the placement service uses a storage class of type `standard_LRS`. It is recommended to create a `zone redundant storage class` while installing Dapr in HA mode across multiple availability zones. For example, to create a `zrs` type storage class: 
 
