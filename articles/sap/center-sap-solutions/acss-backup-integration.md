@@ -16,7 +16,7 @@ author: kalyaninamuduri
 
 In this how-to guide, you'll learn to configure and monitor Azure Backup for your SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions.
 
-When you configure Azure Backup from the VIS resource, you get to enable Backup for all your **Central service and Application server virtual machines** and **HANA Database** in one go. For HANA Database, Azure Center for SAP solutions automates the step of running the [Pre-Registration script](https://learn.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does).
+When you configure Azure Backup from the VIS resource, you get to enable Backup for all your **Central service and Application server virtual machines** and **HANA Database** in one go. For HANA Database, Azure Center for SAP solutions automates the step of running the [Pre-Registration script](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does).
 
 Once backup is configured, you can monitor the status of your Backup Jobs for both virtual machines and HANA DB from the VIS.
 
