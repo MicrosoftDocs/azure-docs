@@ -479,7 +479,8 @@ myEnv.docker.base_image_registry.registry_identity = None
 
 Specifying credentials in your environment definition is no longer supported. Delete credentials from your environment definition and use workspace connections instead.
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Set a workspace connection on your workspace
 
@@ -488,20 +489,27 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
 ```
-
-*Applies to: Azure CLI extensions v1 & v2*
+:::moniker-end
+:::moniker range="azureml-api-2"
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
 
 Create a workspace connection from a YAML specification file
 
 ```
 az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
 ```
+:::moniker-end
  
 **Resources**
+:::moniker range="azureml-api-1"
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+:::moniker-end
+:::moniker range="azureml-api-2"
 * [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
+:::moniker-end
 
+:::moniker range="azureml-api-1"
 ### Deprecated Docker attribute
 <!--issueDescription-->
 
@@ -522,12 +530,13 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Instead of specifying these attributes in the `DockerSection` of your environment definition, use [DockerConfiguration](https://aka.ms/azureml/environment/docker-configuration-class)
  
 **Resources**
 * See `DockerSection` [deprecated variables](https://aka.ms/azureml/environment/docker-section-class)
+:::moniker-end
 
 ### Dockerfile length over limit
 <!--issueDescription-->
@@ -557,16 +566,20 @@ Shorten your Dockerfile to get it under this limit
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Include a path in the `build_context` of your [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
-
-*Applies to: Azure CLI & Python SDK v2*
+:::moniker-end
+:::moniker range="azureml-api-2"
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
 
 Ensure that you include a path for your build context
 * See [BuildContext class](https://aka.ms/azureml/environment/build-context-class)
 * See this [sample](https://aka.ms/azureml/environment/create-env-build-context-v2)
+:::moniker-end
 
 **Resources**
 * [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
@@ -585,19 +598,25 @@ This issue can happen when Azure Machine Learning fails to find your Dockerfile.
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 In the `build_context` of your [DockerSection](https://aka.ms/azureml/environment/docker-section-class), include a `dockerfile_path`
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
-
-*Applies to: Azure CLI & Python SDK v2*
+:::moniker-end
+:::moniker range="azureml-api-2"
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
 
 Specify a Dockerfile path
 * [See BuildContext class](https://aka.ms/azureml/environment/build-context-class)
 * See this [sample](https://aka.ms/azureml/environment/create-env-build-context-v2)
+:::moniker-end
 
 **Resources**
 * [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
+
+:::moniker range="azureml-api-1"
 
 ### Not allowed to specify attribute with Docker build context
 <!--issueDescription-->
@@ -616,7 +635,7 @@ This issue can happen when you've specified properties in your environment defin
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 If you specified any of the above-listed properties in your environment definition, remove them
 * If you're using a Docker build context and want to specify conda dependencies, your conda specification should reside in your build context directory
@@ -625,6 +644,9 @@ If you specified any of the above-listed properties in your environment definiti
 * [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
 * Python SDK v1 [Environment Class](https://aka.ms/azureml/environment/environment-class-v1)
 
+:::moniker-end
+
+:::moniker range="azureml-api-1"
 ### Location type not supported/Unknown location type
 <!--issueDescription-->
 **Potential causes:**
@@ -636,7 +658,7 @@ If you specified any of the above-listed properties in your environment definiti
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 The following are accepted location types:
 * Git
@@ -649,6 +671,9 @@ The following are accepted location types:
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
 * [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
 
+:::moniker-end
+
+:::moniker range="azureml-api-1"
 ### Invalid location
 <!--issueDescription-->
 **Potential causes:**
@@ -660,7 +685,7 @@ The following are accepted location types:
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 For scenarios in which you're storing your Docker build context in a storage account
 * You must specify the path of the build context as 
@@ -673,6 +698,8 @@ For scenarios in which you're storing your Docker build context in a storage acc
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
 * [Python SDK/Azure CLI v2 sample](https://aka.ms/azureml/environment/create-env-build-context-v2)
 * [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
+
+:::moniker-end
 
 ## *Base image issues*
 ### Base image is deprecated
@@ -726,6 +753,8 @@ Include at least one of the following specifiers on your base image
 * Digest
 * See [image with immutable identifier](https://aka.ms/azureml/environment/pull-image-by-digest)
 
+:::moniker range="azureml-api-1"
+
 ## *Environment variable issues*
 ### Misplaced runtime variables
 <!--issueDescription-->
@@ -738,11 +767,16 @@ Include at least one of the following specifiers on your base image
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Use the `environment_variables` attribute on the [RunConfiguration object](https://aka.ms/azureml/environment/environment-variables-on-run-config) instead
 
+:::moniker-end
+
 ## *Python issues*
+
+:::moniker range="azureml-api-1"
+
 ### Python section missing
 <!--issueDescription-->
 **Potential causes:**
@@ -754,10 +788,12 @@ Use the `environment_variables` attribute on the [RunConfiguration object](https
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Populate the Python section of your environment definition
 * See [PythonSection class](https://aka.ms/azureml/environment/environment-python-section)
+
+:::moniker-end
 
 ### Python version missing
 <!--issueDescription-->
@@ -770,7 +806,9 @@ Populate the Python section of your environment definition
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Add Python as a conda package and specify the version
 
@@ -782,8 +820,7 @@ conda_dep = CondaDependencies()
 conda_dep.add_conda_package("python==3.8")
 env.python.conda_dependencies = conda_dep
 ```
-
-*Applies to: all scenarios*
+:::moniker-end
 
 If you're using a YAML for your conda specification, include Python as a dependency
 
@@ -797,8 +834,12 @@ channels:
   - anaconda
 ```
 
+
+:::moniker range="azureml-api-1"
 **Resources**
+
 * [Add conda package v1](https://aka.ms/azureml/environment/add-conda-package-v1)
+:::moniker-end
 
 ### Multiple Python versions
 <!--issueDescription-->
@@ -811,7 +852,9 @@ channels:
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Choose which Python version you want to use, and remove all other versions 
 
@@ -819,12 +862,16 @@ Choose which Python version you want to use, and remove all other versions
 myenv.python.conda_dependencies.remove_conda_package("python=3.6")
 ```
 
-*Applies to: all scenarios*
+:::moniker-end
 
 If you're using a YAML for your conda specification, include only one Python version as a dependency
 
+
+:::moniker range="azureml-api-1"
 **Resources**
+
 * [CondaDependencies Class v1](https://aka.ms/azureml/environment/conda-dependencies-class)
+:::moniker-end
 
 ### Python version not supported
 <!--issueDescription-->
@@ -863,7 +910,9 @@ Specify a [python version](https://aka.ms/azureml/environment/python-versions) t
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Use correct syntax to specify a Python version using the SDK
 
@@ -871,7 +920,7 @@ Use correct syntax to specify a Python version using the SDK
 myenv.python.conda_dependencies.add_conda_package("python=3.8")
 ```
 
-*Applies to: all scenarios*
+:::moniker-end
 
 Use correct syntax to specify a Python version in a conda YAML
 
@@ -886,6 +935,7 @@ channels:
 ```
 
 **Resources**
+
 * See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
 ## *Conda issues*
@@ -900,7 +950,9 @@ channels:
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 If you don't want Azure Machine Learning to create a Python environment for you based on `conda_dependencies,` set `user_managed_dependencies` to `True`
 
@@ -920,16 +972,23 @@ conda_dep.add_conda_package("python==3.8")
 env.python.conda_dependencies = conda_dep
 ```
 
-*Applies to: Azure CLI & Python SDK v2*
+:::moniker-end
+:::moniker range="azureml-api-2"
+
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
 
 You must specify a base Docker image for the environment, and Azure Machine Learning then builds the conda environment on top of that image
 * Provide the relative path to the conda file
 * See how to [create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
+:::moniker-end
 
 **Resources**
 * See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
+:::moniker range="azureml-api-1"
 * See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
 * See [how to set a conda specification on the environment definition](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
+:::moniker-end
 
 ### Invalid conda dependencies
 <!--issueDescription-->
@@ -942,7 +1001,9 @@ You must specify a base Docker image for the environment, and Azure Machine Lear
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Ensure that `conda_dependencies` is a JSONified version of the conda dependencies YAML structure
 
@@ -975,17 +1036,25 @@ conda_dep.add_conda_package("python==3.8")
 env.python.conda_dependencies = conda_dep
 ```
 
-*Applies to: Azure CLI & Python SDK v2*
+:::moniker-end
+:::moniker range="azureml-api-2"
+
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
 
 You must specify a base Docker image for the environment, and Azure Machine Learning then builds the conda environment on top of that image
 * Provide the relative path to the conda file
 * See how to [create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
+:::moniker-end
+
+:::moniker range="azureml-api-1"
 **Resources**
 * See [more extensive examples](https://github.com/Azure/MachineLearningNotebooks/blob/9b1e130d18d3c61d41dc225488a4575904897c85/how-to-use-azureml/training/using-environments/using-environments.ipynb)
 * See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
 * See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
 * See [how to set a conda specification on the environment definition](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
+:::moniker-end
 
 ### Missing conda channels
 <!--issueDescription-->
