@@ -18,7 +18,7 @@ Azure CLI is used to create and manage Azure resources from the command line or 
 Azure Backup also supports backup and restore of SAP HANA System Replication (HSR) databases.
 
 >[!Note]
->- Original Location Recovery (OLR) is currently not support for HSR.
+>- Original Location Recovery (OLR) is currently not supported for HSR.
 >- Restore to HSR instance isn't supported. However, restore only to HANA instance is supported.
 
 Use [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) to run CLI commands.
@@ -40,6 +40,8 @@ To view the list of all the recovery points for a database, use the [az backup r
 **Choose a database type**:
 
 # [HANA database](#tab/hana-database)
+
+To view the available recovery points, run the following command:
 
 ```azurecli-interactive
 az backup recoverypoint list --resource-group saphanaResourceGroup \
@@ -63,6 +65,7 @@ As you can see, the list above contains three recovery points: one each for full
 
 # [HSR database](#tab/hsr-database)
 
+To view the available recovery points, run the following command:
 
 ```azurecli
 az backup recoverypoint list --resource-group hanarghsr2 --vault-name hanavault10 --container-name "hanahsrcontainer;hsrtestps2" --item-name "saphanadatabase;hsrtestpradeep2;db1" --output table
@@ -120,11 +123,11 @@ By using the above restore point name and the restore mode, let's create the rec
 * **--target-server-name** This is the name of an SAP HANA server that's successfully registered to a Recovery Services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database to the same SAP HANA server that we've protected, named *hxehost*.
 * **--target-server-type** For the restore of SAP HANA databases, **HANAInstance** must be used.
 
-To start the restore operation, run the following command:
-
 **Choose a database type**:
 
 # [HANA database](#tab/hana-database)
+
+To start the restore operation, run the following command:
 
 ```azurecli-interactive
 
@@ -143,7 +146,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 
 The response to the above query will be a recovery config object that looks something like this:
 
-```output
+```Output
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
@@ -167,6 +170,8 @@ Name                                  Resource
 The response will give you the job name. This job name can be used to track the job status using [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 # [HSR database](#tab/hsr-database)
+
+To start the restore operation, run the following command:
 
 ```azurecli
 az backup recoveryconfig show --resource-group hanarghsr2 --vault-name hanavault10 --container-name "hanahsrcontainer;hsrtestps2" --item-name "saphanadatabase;hsrtestps2;db1" --restore-mode AlternateWorkloadRestore --log-point-in-time 04-05-2023-08:27:54 --target-item-name restored_DB_pradeep  --target-server-name hsr-primary --target-container-name  hsr-primary --target-server-type HANAInstance --backup-management-type AzureWorkload --workload-type SAPHANA --output json > recoveryInput.json

@@ -17,7 +17,7 @@ This quickstart describes how to restore SAP HANA System Replication (HSR) using
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. This article describes how you can back up SAP HANA databases that are running on Azure virtual machines (VMs) to an Azure Backup Recovery Services vault by using Azure Backup.
 
 >[!Note]
->- Original Location Recovery (OLR) is currently not support for HSR.
+>- Original Location Recovery (OLR) is currently not supported for HSR.
 >- Restore to HSR instance isn't supported. However, restore only to HANA instance is supported.
 
 For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
@@ -32,6 +32,7 @@ az backup recoverypoint list --resource-group hanarghsr2 --vault-name hanavault1
 abc@Azure:~$ az backup recoverypoint list --resource-group hanarghsr2 --vault-name hanavault10 --container-name "hanahsrcontainer;hsrtestps2" --item-name "saphanadatabase;hsrtestps2;db1" --output table
 ```
 
+The list of recovery points will look as follows:
 
 ```Output
 Name                       Time                              BackupManagementType    Item Name                            RecoveryPointType
@@ -46,7 +47,7 @@ arvind@Azure:~$
 >[!Note]
 >If the command fails to extract the backup management type, check if the container name specified is complete or try using container friendly name instead.
 
-## 
+## Restore to an alternate location
 
 To restore the database using Alternate Location Restore (ALR), run the following command:
 

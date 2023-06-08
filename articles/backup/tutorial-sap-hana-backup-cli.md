@@ -68,7 +68,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 # [HSR database](#tab/hsr-database)
 
-Run the following command:
+To create the Recovery Services vault for HSR database instance protection, run the following command:
 
 ```azurecli
 az backup vault create --resource-group hanarghsr2     --name hanavault10     --location westus2
@@ -86,7 +86,9 @@ Once the script is run, the SAP HANA instance can be registered with the Recover
 
 # [HANA database](#tab/hana-database)
 
-1. To register the instance, use the [az backup container register](/cli/azure/backup/container#az-backup-container-register) cmdlet. *VMResourceId* is the resource ID of the VM that you created to install SAP HANA.
+To register and protect database instance, follow these steps:
+
+1. To register the instance, use the [az backup container register](/cli/azure/backup/container#az-backup-container-register) command. *VMResourceId* is the resource ID of the VM that you created to install SAP HANA.
 
     ```azurecli-interactive
     az backup container register --resource-group saphanaResourceGroup \
@@ -114,6 +116,8 @@ Once the script is run, the SAP HANA instance can be registered with the Recover
 
 
 # [HSR database](#tab/hsr-database)
+
+To register and protect database instance, follow these steps:
 
 1. To register and protect the SAP HANA database running on primary Azure VM, run the following command:
 
@@ -155,7 +159,7 @@ The [az backup protectable-item list](/cli/azure/backup/protectable-item#az-back
 
 # [HANA database](#tab/hana-database)
 
-Follow these steps:
+To enable database instance backup, follow these steps:
 
 1. To list the database to be protected, run the following command:
 
@@ -217,7 +221,7 @@ To get container name, run the following command. [Learn about this CLI command]
 
 # [HSR database](#tab/hsr-database)
 
-Follow these steps:
+To enable database instance backup, follow these steps:
 
 1. To check the items that you can protect, run the following command:
 
@@ -265,6 +269,8 @@ While the section above details how to configure a scheduled backup, this sectio
 
 # [HANA database](#tab/hana-database)
 
+To run an on-demand backup, run the following command:
+
 ```azurecli-interactive
 az backup protection backup-now --resource-group saphanaResourceGroup \
     --item-name saphanadatabase;hxe;hxe \
@@ -290,9 +296,15 @@ The response will give you the job name. This job name can be used to track the 
 
 # [HSR database](#tab/hsr-database)
 
+To run an on-demand backup, run the following command:
+
 ```azurecli
 az backup protection backup-now --resource-group hanarghsr2 --item-name "saphanadatabase;hsrtestps2;db1" --container-name "hanahsrcontainer;hsrtestp2" --vault-name hanavault10  --backup-type Full --retain-until 01-01-2030 --output table  
+```
 
+The output will display as follows:
+
+```Output
 Name                                  Operation      Status      Item Name          Backup Management Type    Start Time UTC                    Duration
 ------------------------------------  -------------  ----------  -----------------  ------------------------  --------------------------------  --------------
 
