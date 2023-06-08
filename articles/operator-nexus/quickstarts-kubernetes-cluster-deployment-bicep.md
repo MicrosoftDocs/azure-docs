@@ -57,7 +57,7 @@ The cluster created in the previous step has a single node pool. Let's add a sec
 
 Before adding the agent pool template, let's review the content to understand its structure. 
 
-:::code language="json" source="includes/kubernetes-cluster/quickstart-bicep-add-node-pool.bicep":::
+:::code language="bicep" source="includes/kubernetes-cluster/quickstart-bicep-add-node-pool.bicep":::
 
 Once you have reviewed and saved the template file named ```kubernetes-add-agentpool.bicep```, proceed to the next section to deploy the template.
 
