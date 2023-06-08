@@ -18,7 +18,7 @@ The best experience is obtained by installing Application Insights both in your 
 
     * If you don't want to install server code, [create an Application Insights resource](./create-new-resource.md).
 
-1. **Webpage code:** Add the [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights) to your webpage before the closing ``</head>``. Replace the connection string with the appropriate value for your Application Insights resource.
+1. **Webpage code:** Use the JavaScript SDK to collect data from webpages. See [Get started with the JavaScript SDK](./javascript-sdk.md).
     
    [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 

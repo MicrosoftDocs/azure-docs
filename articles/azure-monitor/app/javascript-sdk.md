@@ -111,9 +111,9 @@ This option is only needed for developers who require more custom events and con
 
 ---
 
-### 2. Add your connection string
+### 2. Paste the connection string in your environment
 
-To add your connection string, follow these steps:
+To paste the connection string in your environment, follow these steps:
 
    1. Navigate to the **Overview** pane of your Application Insights resource.
    1. Locate the **Connection String**.
