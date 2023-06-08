@@ -44,7 +44,7 @@ Nvidia NVLink Interconnect: Not Supported <br>
 | Standard_NC24s_v2   | 24 | 448 | 2948 | 4 | 64 | 32 | 80000/800 | 8 |
 | Standard_NC24rs_v2* | 24 | 448 | 2948 | 4 | 64 | 32 | 80000/800 | 8 |
 
-1 GPU = one P100 card.
+One GPU = one P100 card.
 
 *RDMA capable
 
@@ -69,7 +69,7 @@ If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver s
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+Pricing Calculator [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
