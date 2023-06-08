@@ -726,7 +726,7 @@ items:
           - name: Troubleshooting
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
           - name: FAQ
-            href: /azure/azure-monitor/faq#application-insights
+            href: /azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry
         - name: SDK support policy
           href: app/sdk-support-guidance.md
       - name: OpenTelemetry instrumentation
