@@ -11609,7 +11609,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/firewall/sample-create-firewall-test.md",
+            "source_path_from_root": "/articles/firewall/scripts/sample-create-firewall-test.md",
             "redirect_url": "/azure/firewall/deploy-ps",
             "redirect_document_id": false
         },
