@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: concept
+ms.topic: reference
 ms.date: 06/08/2023
 ms.author: jfields
 ms.reviewer: chmutali
@@ -39,7 +39,7 @@ ISV partners who ship apps that act as the source of truth/system of records for
 Partners who specialize in reading data from HR systems can build an integration service that transforms the HR data to a SCIM bulk request for provisioning users to Azure AD.  
 
 ## End-to-end flow
-:::image type="content" source="media/application-provisioning-api-concepts/end-to-end-flow.png" alt-text="Diagram of the end-to-end workflow of inbound provisioning." lightbox="media/application-provisioning-api-concepts/end-to-end-workflow.png":::
+:::image type="content" source="media/application-provisioning-api-concepts/end-to-end-workflow.png" alt-text="Diagram of the end-to-end workflow of inbound provisioning." lightbox="media/application-provisioning-api-concepts/end-to-end-workflow.png":::
 
 ### Steps of the workflow
     1) IT Admin creates a generic inbound provisioning app in the Azure AD Portal from the Enterprise App gallery. Specify worker data accepted by the API endpoint using SCIM schema   
@@ -79,7 +79,7 @@ Partners who specialize in reading data from HR systems can build an integration
 </thead>
 <tbody>
 <tr>
-<td><strong>1. Top tasks</strong></td>
+<td><strong>1.</strong></td>
 <td>In each API call, using the SCIM bulk request, you can send a maximum of 50 records. 
 How this issue impacts your testing: If you need to upload 100 users using the API, you need to make two API calls. </td>
 <td>None.</td>
@@ -100,13 +100,24 @@ How this issue impacts your testing: After you send a SCIM bulk request to the A
 <td>The provisioning service doesn't check for duplication ``userPrincipalName`` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. </td>
 <td>Update the sync rule to use the [RandomString](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data#randomstring) function. Example:
 
-```Join ("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())``` </td>
+```
+{
+    Join ("", Replace([userName],
+    "(?<Suffix>@(.)*)", "Suffix", 
+    "", , ), RandomString(3, 3, 0, 0, 0, )",
+    "@", DefaultDomain())
+
+}
+
+``` 
+</td>
 </tr>
 <tr>
 <td><strong>5.</td>
 <td>Only a user or service principal with the **Application Administrator** role can invoke this API. 
 How this issue impacts your testing: Application Administrator is a broad role and doesn't align with the model of least privilege access. </td>
-<td>None. In a future release, we intend to provide a more granular application scope to invoke this API.</td>
+<td>None. In a future release, we intend to provide a more granular application scope to invoke this API.</td></tr>
+<tr>
 <td><strong>6.</td>
 <td>Certain attributes like mail or ``extensionAttributes`` mastered by Exchange Online can't be updated using inbound provisioning. 
 How this issue impacts your testing: If you include the mail attribute in the mapping, it's ignored. Trying to update ``extensionAttributes`` mastered by Exchange Online causes an error.</td>
