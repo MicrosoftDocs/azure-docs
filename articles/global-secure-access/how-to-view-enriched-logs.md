@@ -55,7 +55,7 @@ If you need long-term storage for your logs and you don't plan on querying them 
 1. Go to **Microsoft Entra ID** > **Monitoring and health** > **Diagnostic settings**.
 1. Select **Add Diagnostic setting**.
 1. Give your diagnostic setting a name.
-1. Select `EnrichedMicrosoft365AuditLogs`.
+1. Select `EnrichedOffice365AuditLogs`.
 1. Select either **Stream to an event hub** or **Archive to a storage account** option, and complete the fields that appear.
     - To archive to a storage account, provide the number of days to retain the logs and select the appropriate subscription and storage account.
     - To stream to an event hub, select the subscription and event hub details. Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool.
