@@ -350,7 +350,7 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 
 ## Snippet Injection (preview)
 
-By enabling snippet injection, your java application could get [snippet](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup), configured by your Connection String, injected in the server response head tag automatically. 
+By enabling snippet injection, your java application could get [snippet](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup), configured by your Connection String, injected in the server response header automatically. 
 
 For example, if your java application would return a response like:
 
