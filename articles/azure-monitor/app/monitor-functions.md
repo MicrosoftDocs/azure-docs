@@ -77,7 +77,7 @@ Your Java functions might have slow startup times if you adopted this feature be
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
-#### Duplicate Logs
+#### Duplicate logs
 
 If you're using log4j or logback for console logging, distributed tracing for Java Functions creates duplicate logs. These duplicate logs are then sent to Application Insights. To avoid this behavior, use the following workarounds.
 
