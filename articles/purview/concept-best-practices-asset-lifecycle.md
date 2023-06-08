@@ -1,6 +1,6 @@
 ---
 title: Microsoft Purview asset management processes 
-description: This article provides process and best practice guidance to effectively manage the lifecycle of assets in the Microsoft Purview data catalog.
+description: This article provides process and best practice guidance to effectively manage the lifecycle of assets in the Microsoft Purview Data Catalog.
 author: Jubairp
 ms.author: jubairpatel
 ms.service: purview
@@ -23,9 +23,9 @@ An organization employing [Microsoft Purview data governance solutions](/purview
 
 - Agreed definition and structure of data. This is required for the Microsoft Purview Data Catalog to provide effective data search and protection functionality at scale across organizations' data estates. 
 
-- A well defined processes for asset lifecycle management. This is key to maintain accurate asset metadata, which will improve usability of the catalog and the ability to protect relevant data. 
+- A well defined process for asset lifecycle management. This is key to maintain accurate asset metadata, which improves usability of the catalog and the ability to protect relevant data. 
 
-- Business users looking for data will be more likely to use the catalog to search for data when it is maintained using data governance processes.
+- Business users looking for data are more likely to use the catalog to search for data when it's maintained using data governance processes.
 
 ### Best practice processes that should be considered when starting the data governance journey with Microsoft Purview:
 
@@ -42,13 +42,13 @@ The [Data Curator](catalog-permissions.md) role in Microsoft Purview controls re
 
 - Data Owner or Data Expert:
 
-    - A Data Owner is typically a senior business stakeholder with authority and budget who is accountable for overseeing the quality and protection of a data subject area. This person is accountable for making decisions on who has the right to access data and how it is used.
+    - A Data Owner is typically a senior business stakeholder with authority and budget who is accountable for overseeing the quality and protection of a data subject area. This person is accountable for making decisions on who has the right to access data and how it's used.
 
     - A Data Expert is an individual who is an authority in the business process, data manufacturing process or data consumption patterns. 
 
 - Data Steward or Data Custodian
 
-    - A Data Steward is typically a business professional responsible for overseeing the definition, quality and management of a data subject area or data entity. They are typically experts in the data domain and work with other data stewards to make decisions on how to apply all aspects of data management. 
+    - A Data Steward is typically a business professional responsible for overseeing the definition, quality and management of a data subject area or data entity. They're typically experts in the data domain and work with other data stewards to make decisions on how to apply all aspects of data management. 
     
     - A Data Custodian is an individual responsible for performing one or more data controls. 
 
@@ -118,7 +118,7 @@ This process describes the high-level steps and roles to delete asset metadata f
 
 Asset Metadata may need to be deleted manually for many reasons: 
 
-- To remove asset metadata where the data is deleted (if a full re-scan is not performed)
+- To remove asset metadata where the data is deleted (if a full re-scan isn't performed)
 - To remove asset metadata where the data is purged according to its retention period
 - To reduce/manage the size of the data map 
 
