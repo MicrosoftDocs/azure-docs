@@ -465,7 +465,7 @@ items:
     items:
     - name: Best practices
       href: best-practices-vm.md
-    - name: Deployment guides
+    - name: Deployment guide
       items:
       - name: Overview
         href: vm/monitor-virtual-machine.md
@@ -535,8 +535,6 @@ items:
         href: vm/tutorial-monitor-vm-enable-insights.md
       - name: Collect guest logs and metrics
         href: vm/tutorial-monitor-vm-guest.md
-    - name: Monitor virtual machines reference
-      href: ../virtual-machines/monitor-vm-reference.md?toc=/azure/azure-monitor/toc.json
   - name: Monitor containers
     items:
     - name: Monitor Azure Kubernetes Service (AKS)
