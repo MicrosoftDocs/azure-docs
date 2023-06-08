@@ -16,8 +16,8 @@ Agentless secret scanning can proactively discover the following types of secret
 - **Plaintext AWS access keys** - CLI & plaintext on many file extensions.
 - **Plaintext AWS RDS SQL connection string (SQL PAAS)** - Detects Microsoft SQL server connection string.
 - **Plaintext SQL connection strings (SQL PAAS)** - Detects Microsoft SQL server connection string.  
-- Plaintext storage account connection strings.  
-- Plaintext storage account SAS tokens.
+- **Plaintext storage account connection strings**.  
+- **Plaintext storage account SAS tokens**.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Agentless secret scanning can proactively discover the following types of secret
 - Access to [Defender for Cloud](get-started.md)
 
 - [Enable](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) either or both of the following two plans: 
-    - [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)
+    - [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md)
     - [Defender CSPM](concept-cloud-security-posture-management.md)
 
 > [!NOTE]
@@ -53,9 +53,9 @@ If you only enable one of the two plans, you gain only part of the available fea
 | Plan Feature | Defender for servers plan 2 | Defender CSPM |
 |--|--|--|
 | [Attack path](#remediate-secrets-with-attack-path) | No | Yes |
-| Cloud security explorer | No | Yes |
-| Recommendations | Yes | Yes |
-| Asset Inventory - Secrets | Yes | No |
+| [Cloud security explorer](#remediate-secrets-with-cloud-security-explorer) | No | Yes |
+| [Recommendations](#remediate-secrets-with-recommendations) | Yes | Yes |
+| [Asset Inventory](#remediate-secrets-from-your-asset-inventory) - Secrets | Yes | No |
 
 ## Remediate secrets with Attack path
 
