@@ -45,7 +45,7 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
     - You need permissions to __delete__ resources from the source location.
     - You need permissions to __create__ resources in the destination location.
     - Thee move mustn't violate Azure Policies in the destination location.
-    - Any role assignments to the source workspace scope are not moved; you must recreate them in the destination.
+    - Any role assignments to the source workspace scope aren't moved; you must recreate them in the destination.
 
 - The destination subscription must be registered for required resource providers. The following table contains a list of the resource providers required by Azure Machine Learning:
 
@@ -83,11 +83,11 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 
 * Manual workspace move (across different regions). You have to copy the resources associated with the workspace - storage, container registry, etc. - to the new region. Then recreate the workspace in the new region.
 
-* Moving a workspace that has private endpoints configured is supported. The private endpoints are disconnected and transitive private endpoints are recreated after the move. However, you are responsible for approving the new private endpoints (including the workspace private endpoint) after the move.
+* Moving a workspace that has private endpoints configured is supported. The private endpoints are disconnected and transitive private endpoints are recreated after the move. However, you're responsible for approving the new private endpoints (including the workspace private endpoint) after the move.
 
 ## Limitations
 
-* Workspace move is not meant for replicating workspaces, or moving individual assets such as models or datasets from one workspace to another.
+* Workspace move isn't meant for replicating workspaces, or moving individual assets such as models or datasets from one workspace to another.
 * Workspace move doesn't support migration across Azure regions.
 * Workspace move doesn't support migration across Azure Active Directory tenants.
 
@@ -95,7 +95,7 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
     > For information on manually moving tenants, see the [Transfer an Azure subscription to a different Azure Active Directory](/azure/role-based-access-control/transfer-subscription) article.
 
 * The workspace mustn't be in use during the move operation. Verify that all experiment jobs, data profiling jobs, and labeling projects have completed. Also verify that inference endpoints aren't being invoked.
-* The workspace will become unavailable during the move.
+* The workspace becomes unavailable during the move.
 * Before to the move, you must delete or detach computes and inference endpoints from the workspace.
 * Datastores may still show the old subscription information after the move. For steps to manually update the datastores, see [Scenario: Move workspace to a different subscription](#scenario-move-workspace-to-a-different-subscription).
 
@@ -105,7 +105,7 @@ The following scenarios __are not__ supported:
 * Workspace with deployed services.
 * Workspace with online endpoints/deployments.
 * Workspace configured for [customer managed-key](how-to-setup-customer-managed-keys.md).
-* Workspace with currently running labelling projects.
+* Workspace with currently running labeling projects.
 * Workspace linked with Azure Databricks.
 * Workspace move across regions.
 
@@ -119,7 +119,7 @@ The following scenarios __are not__ supported:
 
 2. Verify that the origin workspace isn't being used. Check that any experiment jobs, data profiling jobs, or labeling projects have completed. Also verify that inferencing endpoints aren't being invoked. 
 
-3. Delete or detach any computes from the workspace, and delete any inferencing endpoints. Moving computes and endpoints isn't supported. Also note that the workspace will become unavailable during the move.
+3. Delete or detach any computes from the workspace, and delete any inferencing endpoints. Moving computes and endpoints isn't supported. Also note that the workspace becomes unavailable during the move.
 
 4. Create a destination resource group in the new subscription. This resource group will contain the workspace after the move. The destination must be in the same region as the origin.
 
@@ -127,7 +127,7 @@ The following scenarios __are not__ supported:
     az group create -g destination-rg -l my-region --subscription destination-sub-id                  
     ```
 
-5. The following command demonstrates how to validate the move operation for workspace. You can include associated resources such as storage account, container registry, key vault, and application insights into the move by adding them to the ```resources``` list. The validation may take several minutes. In this command, `origin-rg` is the origin resource group, while `destination-rg` is the destination. The subscription IDs are represented by `origin-sub-id` and `destination-sub-id`, while the workspace is `origin-workspace-name`:
+5. The following command demonstrates how to validate the move operation for workspace. You can include associated resources such as storage account, container registry, key vault, and application insights into the move by adding them to the ```resources``` list. The validation may take several minutes. In this command, `origin-rg` is the origin resource group, while `destination-rg` is the destination. The subscription IDs are `origin-sub-id` and `destination-sub-id`, while the workspace is `origin-workspace-name`:
 
     ```azurecli-interactive
     az resource invoke-action --action validateMoveResources --ids "/subscriptions/origin-sub-id/resourceGroups/origin-rg" --request-body "{  \"resources\": [\"/subscriptions/origin-sub-id/resourceGroups/origin-rg/providers/Microsoft.MachineLearningServices/workspaces/origin-workspace-name\"],\"targetResourceGroup\":\"/subscriptions/destination-sub-id/resourceGroups/destination-rg\" }"
@@ -143,11 +143,11 @@ az resource move --destination-group destination-rg --destination-subscription-i
 
 After the move has completed, recreate any computes and redeploy any web service endpoints at the new location.
 
-## Scenario: Moving a workspace with non-default data stores
+## Scenario: Moving a workspace with nondefault data stores
 
-The automated workspace move operation doesn't move non-default data stores. Use the following steps to manually update the data store credentials after the move.
+The automated workspace move operation doesn't move nondefault data stores. Use the following steps to manually update the data store credentials after the move.
 
-1. Within [Azure Machine Learning studio](https://ml.azure.com), select __Data__ and then select a non-default data store. For each non-default data store, check if the __Subscription ID__ and __Resource group name__ fields are empty. If they are, select __Update authentication__.
+1. Within [Azure Machine Learning studio](https://ml.azure.com), select __Data__ and then select a nondefault data store. For each nondefault data store, check if the __Subscription ID__ and __Resource group name__ fields are empty. If they are, select __Update authentication__.
 
     :::image type="content" source="./media/how-to-move-workspace/update-authentication.png" alt-text="Screenshot of the data asset overview." lightbox="./media/how-to-move-workspace/update-authentication.png":::
 
@@ -155,7 +155,7 @@ The automated workspace move operation doesn't move non-default data stores. Use
     
     :::image type="content" source="./media/how-to-move-workspace/update-datastore-credentials.png" alt-text="Screenshot of the update datastore credentials dialog." lightbox="./media/how-to-move-workspace/update-datastore-credentials.png":::
 
-1. If the __Subscription ID__ and __Resource group name__ fields are populated for the non-default data assets, and refer to the subscription ID and resource group prior to the move, use the following steps:
+1. If the __Subscription ID__ and __Resource group name__ fields are populated for the nondefault data assets, and refer to the subscription ID and resource group prior to the move, use the following steps:
 
     1. Navigate to the __Datastores__ tab, select the datastore, and then select __Unregister__.
     
