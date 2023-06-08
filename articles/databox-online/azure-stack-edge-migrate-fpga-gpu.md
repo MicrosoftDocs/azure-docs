@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/07/2023
+ms.date: 06/08/2023
 ms.author: alkohli  
 ---
 # Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro 2
@@ -26,7 +26,8 @@ In this article, the Azure Stack Edge Pro FPGA device is referred to as the *sou
 
 ## Comparison summary
 
-This section provides a comparative summary of capabilities between the Azure Stack Edge Pro FPGA devices and Azure Stack Edge Pro 2 and Pro GPU devices. Azure Stack Edge Pro 2 devices are offered in a range of options. The hardware in both the source and the target devices is largely identical; only the hardware acceleration card and the storage capacity may differ.<!--Please verify: These components MAY, but need not necessarily, differ?-->
+This section provides a comparative summary of capabilities between the Azure Stack Edge Pro FPGA device and Azure Stack Edge Pro 2 and Pro GPU devices. Azure Stack Edge Pro 2 devices are offered in a range of options to meet a variety of cost and functionality needs.
+<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
 ### [Migrate to Azure Stack Edge Pro 2](#tab/migrate-to-ase-pro2)
 
