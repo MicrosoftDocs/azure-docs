@@ -352,6 +352,39 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 
 By enabling snippet injection, your java application could get [snippet](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup), configured by your Connection String, injected in the server response head tag automatically. 
 
+For example, if your java application would return a response like:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+Then it would be changed to
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript">
+  ... script
+    connectionString: "YOUR_CONNECTION_STRING"
+  ... script
+  </script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+The script is aiming at helping customers to track the web user data, and sent the telemetry back to the Azure portal, detailed information that could be found at this [link](https://github.com/microsoft/ApplicationInsights-JS)
+
 If you want to enable this feature:
 
 ```json
