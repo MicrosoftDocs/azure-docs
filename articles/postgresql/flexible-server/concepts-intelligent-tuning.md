@@ -29,6 +29,8 @@ automatic tuning functionalities:
   adjustments is to enhance both system performance and reliability, thereby proactively averting potential
   complications.
 
+Learn how to enable intelligent tuning using [Azure portal](how-to-enable-intelligent-performance-portal.md) or [CLI](how-to-enable-intelligent-performance-cli.md).
+
 ## Why intelligent tuning?
 
 The autovacuum process is a critical part of maintaining the health and performance of a PostgreSQL database. It helps
@@ -98,25 +100,16 @@ On the other hand, if the bloat is minimal and the autovacuum process is too agg
 scale factor, and naptime may be increased. This balance ensures minimal bloat and the efficient use of the resources by
 the autovacuum process.
 
-### Benefits of autovacuum tuning
-
-Our internal benchmarks have demonstrated that autovacuum tuning can significantly enhance the performance of the database server. The extent of these performance gains can depend on several factors, including workload characteristics, the [SKU](concepts-compute-storage#compute-tiers-vcores-and-server-types), and the PostgreSQL server version.
-
-For instance, our benchmarks revealed that the most substantial improvements are generally observed with larger SKUs (over 8vCores) and on newer versions of PostgreSQL, from version 13 onward. On these larger instances, the performance boost can range from a modest increase to as much as a sixteen-fold improvement in the transactions-per-second (TPS) ratio.
-
-In contrast, for older versions of PostgreSQL and smaller SKUs, users can still gain a performance boost, albeit at the cost of higher resource utilization (CPU, IOPS). In these cases, careful management of autovacuum tuning is crucial, and resource usage should be closely monitored.
 
 ## Writes tuning
 
 Intelligent tuning adjusts four parameters related to writes
-tuning:`bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`.
+tuning:`bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`. The behavior and benefits of adjusting some of these are described below.
 
-The `bgwriter_delay` parameter determines the frequency at which the background writer process is awakened to clean "
-dirty" buffers (those buffers that are new or modified). The background writer process is one of three processes in PostgreSQL
+The `bgwriter_delay` parameter determines the frequency at which the background writer process is awakened to clean "dirty" buffers (those buffers that are new or modified). The background writer process is one of three processes in PostgreSQL
 that handle write operations, the other two being the checkpointer process and backends (standard client processes, such
 as application connections). The background writer process's primary role is to alleviate the load from the main
-checkpointer process and decrease the strain of backend writes. Intelligent performance checks ??? the
-amount ..............
+checkpointer process and decrease the strain of backend writes. By adjusting the `bgwriter_delay` parameter, which governs the frequency of background writer rounds, we can optimize the performance of DML queries.
 
 The `checkpoint_completion_target` parameter is part of the second write mechanism supported by PostgreSQL, specifically
 the checkpointer process. Checkpoints occur at constant intervals defined by `checkpoint_timeout` (unless forced by
@@ -129,7 +122,6 @@ spreads the I/O load over the maximum time period, there might be rare instances
 in the number of WAL segments needed, checkpoints may not complete in time. Hence, due to its potential impact on
 performance, `checkpoint_completion_target` has been chosen as a target metric for intelligent tuning.
 
-The `min_wal_size` parameter ..........................?????
 
 ## Limitations and known issues
 
@@ -138,6 +130,8 @@ The `min_wal_size` parameter ..........................?????
 
 ## Next Steps
 
+* [Configure intelligent performance for Azure Database for PostgreSQL - Flexible Server using Azure portal](how-to-enable-intelligent-performance-portal.md)
+* [Configure intelligent performance for Azure Database for PostgreSQL - Flexible Server using Azure CLI](how-to-enable-intelligent-performance-cli.md)
 * [Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server](concepts-troubleshooting-guides.md)
 * [Autovacuum Tuning in Azure Database for PostgreSQL - Flexible Server](how-to-autovacuum-tuning.md)
 * [Troubleshoot high IOPS utilization for Azure Database for PostgreSQL - Flexible Server](how-to-high-io-utilization.md)

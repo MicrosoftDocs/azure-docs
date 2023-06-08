@@ -17,6 +17,8 @@ ms.custom: devx-track-azurecli
 
 You can verify and update intelligent performance configuration for an Azure PostgreSQL server using the Command Line Interface (Azure CLI). 
 
+To learn more about intelligent tuning, see the [overview](concepts-intelligent-tuning.md).
+
 ## Prerequisites
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
@@ -103,6 +105,12 @@ When choosing values from the `intelligent_tuning.metric_targets` server paramet
 1. The `NONE` value takes precedence over all other values. If `NONE` is chosen alongside any combination of other values, the parameter will be perceived as set to `NONE`. This is equivalent to `intelligent_tuning = OFF`, implying that no tuning will occur.
 
 2. The `ALL` value takes precedence over all other values, with the exception of `NONE` as detailed above. If `ALL` is chosen with any combination, barring `NONE`, all the listed parameters will undergo tuning.
+
+3. If you wish to include an additional tuning target, you will need to specify both the existing and new tuning targets. For example, if `bgwriter_delay` is already enabled, and you want to add autovacuum tuning, your command would look like this:
+```azurecli-interactive
+az postgres flexible-server parameter set --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning.metric_targets --value tuning-autovacuum,Storage-bgwriter_delay
+```
+Please note that specifying only a new value would overwrite the current settings. So, when adding a new tuning target, always ensure that you include the existing tuning targets in your command.
 
 
 ## Next steps
