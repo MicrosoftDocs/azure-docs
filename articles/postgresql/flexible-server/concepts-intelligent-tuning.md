@@ -109,7 +109,7 @@ tuning:`bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `mi
 The `bgwriter_delay` parameter determines the frequency at which the background writer process is awakened to clean "dirty" buffers (those buffers that are new or modified). The background writer process is one of three processes in PostgreSQL
 that handle write operations, the other two being the checkpointer process and backends (standard client processes, such
 as application connections). The background writer process's primary role is to alleviate the load from the main
-checkpointer process and decrease the strain of backend writes. By adjusting the `bgwriter_delay` parameter, which governs the frequency of background writer rounds, we can optimize the performance of DML queries.
+checkpointer process and decrease the strain of backend writes. By adjusting the `bgwriter_delay` parameter, which governs the frequency of background writer rounds, we can also optimize the performance of DML queries.
 
 The `checkpoint_completion_target` parameter is part of the second write mechanism supported by PostgreSQL, specifically
 the checkpointer process. Checkpoints occur at constant intervals defined by `checkpoint_timeout` (unless forced by

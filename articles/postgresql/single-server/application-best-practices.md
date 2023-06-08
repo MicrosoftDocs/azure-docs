@@ -81,11 +81,11 @@ Here are few tips to keep in mind when you build your database schema and your q
 
 ### Use BIGINT or UUID for Primary Keys
 
-When building custom application or some frameworks they maybe using `INT` instead of `BIGINT` for primary keys. When you use ```INT```, you run the risk of where the value in your database can exceed storage capacity of ```INT``` data type. Making this change to an existing production application can be time consuming with cost more development time. Another option is to use [UUID](https://www.postgresql.org/docs/current/datatype-uuid.html) for primary keys.This identifier uses an auto-generated 128-bit string, for example ```a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11```. Learn more about [PostgreSQL data types](https://www.postgresql.org/docs/8.1/datatype.html).
+When building custom application or some frameworks they maybe using `INT` instead of `BIGINT` for primary keys. When you use ```INT```, you run the risk of where the value in your database can exceed storage capacity of ```INT``` data type. Making this change to an existing production application can be time consuming with cost more development time. Another option is to use [UUID](https://www.postgresql.org/docs/current/datatype-uuid.html) for primary keys.This identifier uses an auto-generated 128-bit string, for example ```a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11```. Learn more about [PostgreSQL data types](https://www.postgresql.org/docs/current/datatype.html).
 
 ### Use indexes
 
-There are many types of [indexes](https://www.postgresql.org/docs/9.1/indexes.html) in Postgres which can be used in different ways. Using an index helps the server find and retrieve specific rows much faster than it could do without an index. But indexes also add overhead to the database server, hence avoid having too many indexes.
+There are many types of [indexes](https://www.postgresql.org/docs/current/indexes.html) in Postgres which can be used in different ways. Using an index helps the server find and retrieve specific rows much faster than it could do without an index. But indexes also add overhead to the database server, hence avoid having too many indexes.
 
 ### Use autovacuum
 
@@ -103,12 +103,9 @@ Pg_stat_statements is a PostgreSQL extension that's enabled by default in Azure 
 
 ### Use the Query Store
 
-The [Query Store](./concepts-query-store.md) feature in Azure Database for PostgreSQL provides a more effective method to track query statistics. We recommend this feature as an alternative to using pg_stats_statements.
+The [Query Store](./concepts-query-store.md) feature in Azure Database for PostgreSQL provides a method to track query statistics. We recommend this feature as an alternative to using pg_stats_statements.
 
 ### Optimize bulk inserts and use transient data
 
 If you have workload operations that involve transient data or that insert large datasets in bulk, consider using unlogged tables. It provides atomicity and durability, by default. Atomicity, consistency, isolation, and durability make up the ACID properties. See [how to optimize bulk inserts](how-to-optimize-bulk-inserts.md).
 
-## Next Steps
-
-[Postgres Guide](http://postgresguide.com/)

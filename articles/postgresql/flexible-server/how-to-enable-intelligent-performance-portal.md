@@ -41,7 +41,10 @@ When choosing values from the `intelligent_tuning.metric_targets` server paramet
 
 1. The `NONE` value takes precedence over all other values. If `NONE` is chosen alongside any combination of other values, the parameter will be perceived as set to `NONE`. This is equivalent to `intelligent_tuning = OFF`, implying that no tuning will occur.
 
-2. The `ALL` value takes precedence over all other values, with the exception of `NONE` as detailed above. If `ALL` is chosen with any combination, barring `NONE`, all the listed parameters will undergo tuning.
+2. The `ALL` value takes precedence over all other values, with the exception of `NONE` as detailed above. If `ALL` is chosen with any combination, barring `NONE`, all the listed parameters will undergo tuning. 
+
+> [!NOTE]
+> The `ALL` value encompasses all existing metric targets. Moreover, this value will also automatically apply to any new metric targets that might be added in the future. This allows for comprehensive and future-proof tuning of your PostgreSQL server.
 
 ## Next steps
 
