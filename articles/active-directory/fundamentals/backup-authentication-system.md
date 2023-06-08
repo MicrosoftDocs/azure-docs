@@ -35,9 +35,9 @@ Microsoft is continuously expanding the number of supported scenarios.
 
 ## Which non-Microsoft workloads are supported?
 
-The backup authentication system automatically provides incremental resilience to tens of thousands of supported non-Microsoft applications based on their authentication patterns. Seethe appendix for a list of the most [common non-Microsoft applications and their coverage status](#appendix). For an in depth explanation of which authentication patterns are supported, see the article [Understanding Application Support for the backup authentication system](backup-authentication-system-apps.md) article. 
+The backup authentication system automatically provides incremental resilience to tens of thousands of supported non-Microsoft applications based on their authentication patterns. See the appendix for a list of the most [common non-Microsoft applications and their coverage status](#appendix). For an in depth explanation of which authentication patterns are supported, see the article [Understanding Application Support for the backup authentication system](backup-authentication-system-apps.md) article. 
 
-- Native applications using the OAuth 2.0 protocol to access resource applications, such as popular non-Microsoft e-mail and IM clients like: Apple Mail, Aqua Mail, Gmail, Samsung Email, Spark, and Thunderbird
+- Native applications using the OAuth 2.0 protocol to access resource applications, such as popular non-Microsoft e-mail and IM clients like: Apple Mail, Aqua Mail, Gmail, Samsung Email, and Spark
 - Line of business web applications configured to authenticate with OpenID Connect using only ID tokens.
 - Web applications authenticating with the SAML protocol, when configured for IDP-Initiated Single Sign On (SSO) like: ADP, Atlassian Cloud, AWS, GoToMeeting, Kronos, Marketo, Palo Alto Networks, SAP Cloud Identity Trello, Workday, and Zscaler.
 
@@ -146,7 +146,6 @@ The backup authentication system is supported in all cloud environments except A
 | Slack | No | SAML SP-initiated |
 | Smartsheet | No | SAML SP-initiated |
 | Spark | Yes | Protected |
-| Thunderbird | Yes | Protected |
 | UKG pro | Yes \* | Protected |
 | VMware Boxer | Yes | Protected |
 | walkMe | No | SAML SP-initiated |
