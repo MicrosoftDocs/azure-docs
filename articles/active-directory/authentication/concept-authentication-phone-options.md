@@ -41,7 +41,7 @@ If users don't want their mobile phone number to be visible in the directory but
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Screenshot of the Azure portal that shows authentication methods with a phone number populated":::
 
-Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries / regions besides the United States and Canada.
+Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries/regions besides the United States and Canada.
 
 ### Text message verification
 

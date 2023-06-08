@@ -4341,6 +4341,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/azure-ad-account.md",
+      "redirect_url": "/azure/active-directory/external-identities/default-account",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
       "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
       "redirect_document_id": false
