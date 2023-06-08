@@ -12,13 +12,13 @@ ms.custom: template-concept
 
 # Elastic data map in Microsoft Purview
 
-The Microsoft Purview Data Map provides the foundation for data discovery and data governance. It captures metadata about data present in analytics, software-as-a-service (SaaS), and operation systems in hybrid, on-premises, and multicloud environments. The data map stays up to date with its built-in scanning and classification system.
+The Microsoft Purview Data Map provides the foundation for data discovery and data governance. It captures metadata about data present in analytics, software-as-a-service (SaaS), and operational systems in hybrid, on-premises, and multicloud environments. The data map stays up to date with its built-in scanning and classification system.
 
 All Microsoft Purview accounts have a data map that starts at one capacity unit, and can elastically grow. They scale up and down based on request load and metadata stored within the data map.
 
 ## Data map capacity unit
 
-The elastic data map has two components, metadata storage and operation throughput, represented as a capacity unit (CU). All Microsoft Purview accounts, by default, start with one capacity unit and elastically grow based on usage. Each data Map capacity unit includes a throughput of 25 operations/sec and 10 GB of metadata storage limit.  
+The elastic data map has two components- metadata storage and operation throughput, represented as a capacity unit (CU). All Microsoft Purview accounts, by default, start with one capacity unit and elastically grow based on usage. Each data Map capacity unit includes a throughput of 25 operations/sec and 10 GB of metadata storage limit.  
 
 ### Operations
 
@@ -33,13 +33,13 @@ Operations are the throughput measure of the Microsoft Purview Data Map. They in
 
 Storage is the second component of Data Map and includes the storage of technical, business, operational, and semantic metadata.
 
-The technical metadata includes schema, data type, columns, and so on, that are discovered from Microsoft Purview [scanning](concept-scans-and-ingestion.md). The business metadata includes automated (for example, promoted from Power BI datasets, or descriptions from SQL tables) and manual tagging of descriptions, glossary terms, and so on. Examples of semantic metadata include the collection mapping to data sources, or classifications. The operational metadata includes Data factory copy and data flow activity run status, and runs time.
+The technical metadata includes schema, data type, columns, and so on, that are discovered from Microsoft Purview [scanning](concept-scans-and-ingestion.md). The business metadata includes automated (for example, promoted from Power BI datasets, or descriptions from SQL tables) and manual tagging of descriptions, glossary terms, and so on. Examples of semantic metadata include the collection mapping to data sources, or classifications. The operational metadata includes Data factory copy and data flow activity run status, and run time.
 
 ## Work with elastic data map
 
 - **Elastic Data Map with auto-scale** – you'll start with a Data Map as low as one capacity unit that can autoscale based on load. For most organizations, this feature will lead to increased savings and a lower price point for starting data governance projects. This feature will impact pricing.
 
-- **Enhanced scanning & ingestion** – you can track and control the population of the data assets, and classification and lineage across both the scanning and ingestion processes. This feature will impact pricing.
+- **Enhanced scanning & ingestion** – you can track and control the population of the data assets, classification, and lineage across both the scanning and ingestion processes. This feature will impact pricing.
 
 ## Scenario
 
@@ -47,7 +47,7 @@ Claudia is an Azure admin at Contoso who wants to provision a new Microsoft Purv
 
 Claudia can create a Microsoft Purview account with the default Data Map size of one capacity unit that can automatically scale up and down. The autoscaling feature also allows for capacity to be tuned based on intermittent or planned data bursts during specific periods. Claudia follows the next steps in provisioning experience to set up network configuration and completes the provisioning.  
 
-In the Azure monitor metrics page, Claudia can see the consumption of the Data Map storage and operations throughput. She can further set up an alert when the storage or operations throughput reaches a certain limit to monitor the consumption and billing of the new Microsoft Purview account.  
+In the Azure portal, in the metrics tab for the Microsoft Purview account, Claudia can see the consumption of the Data Map storage and operations throughput. She can further set up an alert when the storage or operations throughput reaches a certain limit to monitor the consumption and billing of the new Microsoft Purview account.  
 
 ## Data map billing
 
