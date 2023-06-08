@@ -9,11 +9,7 @@ ms.author: kengaderdus
 To specify your app type to your app registration, follow these steps: 
 
 1. Under **Manage**, select **Authentication**.
-
 1. On the **Platform configurations** page, select **Add a platform**, and then select **Web** option.
-    
 1. For the **Redirect URIs** enter `http://localhost:3000/`.
-
 1. Under **Front-channel logout URL**, enter `http://localhost:3000/auth/redirect`.
-
 1. Select **Save** to save your changes.

@@ -8,11 +8,7 @@ ms.author: kengaderdus
 ---
 
 1. Under **Manage**, select **Token configuration**.
-
 1. Select **Add optional claim**.
-
 1. Under **Token type**, choose **Access**.
-
 1. Select the optional claim **idtyp**.
-
 1. Select **Add** to save your changes.
