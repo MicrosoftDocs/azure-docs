@@ -112,3 +112,31 @@ If a secret is found on your resource, that resource will trigger an affiliated 
 - **Azure resources**: `Machines should have secrets findings resolved`
 
 - **AWS resources**: `EC2 instances should have secret findings resolved`
+
+**To remediate secrets from the recommendations page**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
+
+1. Expand the **Remediate vulnerabilities** security control.
+
+1. Select either
+
+    - **Azure resources**: `Machines should have secrets findings resolved`
+
+    - **AWS resources**: `EC2 instances should have secret findings resolved`
+
+1. Expand **Affected resources** to review the list of all resources that contain secrets.
+
+1. In the Findings section, select a secret to view detailed information about the secret.
+
+1. Expand **Remediation steps** and follow the listed steps.
+
+1. Expand **Affected resources** to review the resources affected by this secret.
+
+1. (Optional) You can select an affected resource to see that resources information.
+
+Secrets that do not have a known attack path, are referred to as `secrets without an identified target resource`.
+
+## Remediate secrets with cloud security explorer
