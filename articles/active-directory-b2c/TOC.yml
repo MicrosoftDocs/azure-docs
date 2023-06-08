@@ -48,6 +48,9 @@
     - name: Find tenant name and ID  
       href: tenant-management-read-tenant-name.md
       displayName: tenant name, tenant ID, tenant details    
+    - name: Manage directory quota    
+      href: tenant-management-directory-quota.md
+      displayName: Monitor directory size quota           
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 # Node Samples
@@ -78,15 +81,15 @@
   - name: Azure AD B2C global identity framework
     items:
       - name: Global identity solutions
-        href: azure-ad-b2c-global-identity-solutions.md
+        href: b2c-global-identity-solutions.md
       - name: Funnel-based design
-        href: azure-ad-b2c-global-identity-funnel-based-design.md
+        href: b2c-global-identity-funnel-based-design.md
       - name: Region-based design
-        href: azure-ad-b2c-global-identity-region-based-design.md
+        href: b2c-global-identity-region-based-design.md
       - name: Funnel-based proof of concept 
-        href: azure-ad-b2c-global-identity-proof-of-concept-funnel.md
+        href: b2c-global-identity-proof-of-concept-funnel.md
       - name: Region-based proof of concept 
-        href: azure-ad-b2c-global-identity-proof-of-concept-regional.md
+        href: b2c-global-identity-proof-of-concept-regional.md
   - name: Azure AD B2C best practices
     href: best-practices.md
     displayName: cache, caching, plan, planning
@@ -401,6 +404,9 @@
     - name: Migrate users
       href: user-migration.md
       displayName: bulk import
+    - name: Manage inactive users   
+      href: user-manage-inactive.md
+      displayName: Manage and delete inactive users          
     - name: Partner integration
       items:
       - name: N8identity

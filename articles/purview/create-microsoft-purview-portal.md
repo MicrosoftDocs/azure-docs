@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account'
 description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
-ms.date: 01/13/2023
+ms.date: 06/07/2023
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-ui
@@ -66,6 +66,18 @@ For more information about the governance capabilities of Microsoft Purview, for
     > [These options can be configured after you have created your account](configure-event-hubs-for-kafka.md) in **Kafka configuration** under settings on your Microsoft Purview account page in the Azure Portal.
     >
     > :::image type="content" source="media/create-catalog-portal/select-kafka-configuration.png" alt-text="Screenshot showing Kafka configuration option on the Microsoft Purview account page in the Azure Portal.":::
+
+1. On the **Tags** tab, add a tag called **Purview environment**, and give it one of the below values:
+
+    |Value   |Meaning  |
+    |----------|-----------|
+    |Production|This account is being used or will be used in the future to support all my cataloging and governance requirements in production.|
+    |Pre-Production|This account is being used or will be used in the future to validate cataloging and governance requirements before making it available to my users in production.|
+    |Test|This account is being used or will be used in the future to test out capabilities in Microsoft Purview Governance. |
+    |Dev|This account is being used or will be used in the future to test out capabilities or develop custom code, scripts etc. in Microsoft Purview Governance.|
+    |Proof of Concept|This account is being used or will be used in the future to test out capabilities or develop custom code, scripts etc. in Microsoft Purview Governance.|
+
+    :::image type="content" source="media/create-catalog-portal/tag-resource.png" alt-text="Screenshot showing the tags tab, with a Purview environment tag added with the value Production.":::
 
 1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created account will appear in the list on your **Microsoft Purview accounts** page.
 
