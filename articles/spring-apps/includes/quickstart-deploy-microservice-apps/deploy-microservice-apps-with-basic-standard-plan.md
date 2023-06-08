@@ -17,76 +17,78 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 Use the following steps to prepare the sample locally.
 
-1. The sample project is ready on GitHub. Clone sample project by using the following command:
+1. The sample project is available on GitHub. Use the following command to clone the sample project:
 
    ```bash
    git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
    ```
 
-1. Change to the sample root path, and execute the below shell script to run the sample project locally:
+1. Use the following command to change to the sample root path and execute the shell script to run the sample project locally:
 
    ```bash
    ./script/run_all_without_infra.sh
    ```
 
-1. After the script is successfully executed, go to `http://localhost:8080` in your browser to access the PetClinic.
+1. After the script is successfully executed, go to `http://localhost:8080` in your browser to access the PetClinic app.
 
 ## 3 Provision
 
-The main resources you need to run this sample is an Azure Spring Apps instance. Use the following steps to create these resources.
+The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
 
 ### 3.1 Sign in to the Azure portal
 
-Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2 Provision an instance of Azure Spring Apps
 
-1. Select Create a resource (+) in the upper-left corner of the portal.
+1. Select **Create a resource**.
 
-1. Select **Compute** > **Azure Spring Apps**.
+1. On the **Create a resource** page, select **Compute** in the navigation pane and in **Azure Services** select **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/1-create-azure-spring-apps.png" alt-text="The Azure Spring Apps in menu":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/1-create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal showing the Create a Resource Page page with Azure Spring Apps highlighted.":::
 
-1. Fill out the **Basics** form with the following information:
+1. On the **Create Azure Spring Apps** page, fill out the **Basics** form.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/2-create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Basics tab selected.":::
+
+   Use the following table as a guide for completing the form.
 
    | Setting        |Suggested Value|Description|
    |----------------|---------------|-----------|
    | Subscription   |Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
    | Resource group |*myresourcegroup*| A new resource group name or an existing one from your subscription.|
    | Name           |*myasa*|A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.|
-   | Plan           |*Basic*|Pricing Tier determines the resource and cost associated with your instance.|
+   | Plan           |*Basic*|Pricing plan determines the resource and cost associated with your instance.|
    | Region         |The region closest to your users| The location that is closest to your users.|
-   | Zone Redundant |Unchecked|Whether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.|
+   | Zone Redundant |Unchecked|Creates your Azure Spring Apps service in an Azure availability zone. Not currently supported in all regions.|
 
-1. Navigate to the tab **Diagnostic settings** on the Azure Spring Apps **Create** page, select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
+1. Navigate to **Diagnostic settings** on the **Crete Azure Spring Apps** page and then select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png" alt-text="Screenshot of Azure portal showing diagnostic settings configuration" lightbox="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Diagnostics tab selected and the Create new button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png":::
 
-1. Navigate to the tab **Application Insights** on the Azure Spring Apps **Create** page, select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select the **Classic** for **Resource mode**, then select **OK** to confirm the creation.
+1. Navigate **Application Insights** on the **Crete Azure Spring Apps** page and select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select the **Classic** for **Resource mode**, then select **OK** to confirm the creation.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png" alt-text="Screenshot of Azure portal showing application insights creation" lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Create new Application Insights resource pane showing." lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png":::
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard** to create a shortcut on your Azure portal dashboard to the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/3-asa-notifications.png" alt-text="The Notifications pane for Azure Spring Apps Creation":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/3-asa-notifications.png" alt-text="Screenshot of the Azure portal showing a deployment of a resource showing the Notification pane with the Go to resource and Pin to dashboard buttons.":::
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
-1. Select **Config Server** in the left navigational menu, on the **Config Server** page, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* as **URI** and select **Validate**.
+1. Select **Config Server** in the navigation pane, and then on the **Config Server** page, for **URI** enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* and select **Validate**.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of Azure portal showing config server for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of the Azure portal showing the Config Server page with the Default URI and the Validate button highlighted and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
 1. After validation, select **Apply** to finish the Config Server configuration.
 
 ## 4 Deployment
 
-Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
+Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy microservice applications.
 
-1. Navigate to the sample project directory and execute the following command to config the apps in Azure Spring Apps:
+1. Navigate to the sample project directory and use the following command to config the apps in Azure Spring Apps:
 
    ```bash
    ./mvnw -P spring-apps com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
@@ -112,7 +114,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    > [!NOTE]
    > Deployment to Azure Spring Apps can take up to 25 minutes.
 
-   After the command is executed, you can finally see a log similar to the following, indicating that all deployments are successful.
+   After the command is executed, a log displays similar to the following output that indicates that all deployments are successful.
 
    ```text
    [INFO] Deployment(default) is successfully updated.
