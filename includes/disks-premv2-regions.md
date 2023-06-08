@@ -12,6 +12,10 @@
 Currently only available in the following regions:
 - North Europe
 - West Europe
+- UK South
 - East US
 - East US 2
 - West US 2
+- West US 3
+- South Central US (Two availability zones)
+- Southeast Asia (Two availability zones)
