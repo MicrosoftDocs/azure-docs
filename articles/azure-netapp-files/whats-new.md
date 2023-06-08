@@ -19,6 +19,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+<!-- date TBD -->
+* [Moving volumes from *manual* QoS capacity pool to *auto* QoS capacity pool](dynamic-change-volume-service-level.md)   
+
+    You can now move volumes from a manual QoS capacity pool to an auto QoS capacity pool. When you move a volume to an auto QoS capacity pool, the throughput is changed according to the allocated volume size (quota) of the target pool's service level:  `<throughput> = <volume quota> x <Service Level Throughput / TiB>` 
+
 ## June 2023
 
 * [Customer-managed keys](configure-customer-managed-keys.md) for Azure NetApp Files now supports the option to Disable public access on the key vault that contains your encryption key. Selecting this option enhances network security by denying public configurations and allowing only connections through private endpoints. 
