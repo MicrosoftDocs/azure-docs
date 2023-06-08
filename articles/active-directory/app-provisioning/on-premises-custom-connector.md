@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/2/2023
+ms.date: 06/8/2023
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -34,6 +34,19 @@ If you have a custom ECMA 2.0 connector in MIM, you can export it by following t
 
 To import your connector, you can use the instructions [here](on-premises-migrate-microsoft-identity-manager.md#import-a-connector-configuration).  You will need to copy the DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.  After the xml has been imported, continue through the wizard and ensure that all the required fields are populated.
 
+## Updating a custom connector dll
+When updating a connector, ensure that the dll is updated in all required locations. Use the steps below to properly update your custom connector dll:
+1. Close the Microsoft ECMA2Host Configuration Wizard.
+2. Stop the Microsoft ECMA2Host service.
+3. Manually update the custom connector dll into the following folders.
+    1. ECMA
+    2. ECMA -> Cache -> <Connector Name>
+    3. ECMA -> Cache -> <Connector Name> -> AutosyncService
+4. Start the Microsoft ECMA2Host service.
+   
+ > [!NOTE]
+ > Note: If multiple connectors are using the same custom connector, you will need to complete step 3.ii and 3.iii for each connector. 
+ 
 ## Limitations 
 
 Custom connectors built for MIM rely on the [ECMA framework](/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)). The following table includes capabilities of the ECMA framework that are either partially supported or not supported by the Azure AD provisioning agent. For a list of known limitations for the Azure AD provisioning service and on-premises application provisioning, see [here](known-issues.md#on-premises-application-provisioning).  
@@ -50,7 +63,6 @@ Custom connectors built for MIM rely on the [ECMA framework](/previous-versions/
 | Normalizations  | Not supported  |   | 
 | Concurrent operations  | Not supported  |   |
  
-
 ## Next steps
 
 - [App provisioning](user-provisioning.md)
