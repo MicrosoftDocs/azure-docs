@@ -89,6 +89,7 @@
         href: azure-ad-b2c-global-identity-proof-of-concept-regional.md
   - name: Azure AD B2C best practices
     href: best-practices.md
+    displayName: cache, caching, plan, planning
   - name: Application types
     href: application-types.md
   - name: Authentication protocols

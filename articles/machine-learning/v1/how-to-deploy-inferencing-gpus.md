@@ -10,7 +10,7 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 11/16/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy a deep learning model for inference with GPU
@@ -53,7 +53,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment-v1.md).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md).
 
 ```python
 from azureml.core import Workspace

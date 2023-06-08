@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 05/31/2023
 ms.custom: template-how-to
 ---
 
