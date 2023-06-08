@@ -167,16 +167,16 @@ In this section, we describe the interface and behavioral changes you can expect
 
 #### New CmdLets
 
-* `Invoke-DurableSubOrchestrator` is a new CmdLet that allows users to leverage suborchestrators in their workflows.
+* `Invoke-DurableSubOrchestrator -FunctionName <Name> -Input <Input>` is a new CmdLet that allows users to utilize suborchestrators in their workflows.
 
 #### Modified CmdLets
 
-* The CmdLet `Get-DurableTaskResult` now only accepts a single Task as it's argument, instead of a list of Tasks. To obtain the results of a successful list of tasks, use `Wait-DurableTask`.
+* The CmdLet `Get-DurableTaskResult -Task <task>` now only accepts a single Task as it's argument, instead of accepting a list of Tasks.
 
 #### Behavioral changes
 
-* Exceptions thrown by activities scheduled with `Wait-DurableTask` (as in the Fan-Out/Fan-In pattern) are no longer ignored. Instead, on an exception, the CmdLet propagates it to the orchestrator so that it may be handled by user-code.
-* Null-valued task results in a `Wait-DurableTask` (i.e WhenAll) invocation are no longer dropped. Instead, `Wait-DurableTask`'s result array includes null values in the corresponding to position of the tasks that returned them. This means that a successful invocation of `Wait-DurableTask` without the `-Any` flag should return an array of the same size as the number of tasks it scheduled.
+* Exceptions thrown by activities scheduled with `Wait-DurableTask` (as in the Fan-Out/Fan-In pattern) are no longer silently ignored. Instead, on an exception, the CmdLet propagates that exception to the orchestrator so that it may be handled by user-code.
+* Null-valued task-results in a `Wait-DurableTask` (i.e WhenAll) invocation are no longer dropped. Instead, `Wait-DurableTask`'s result array includes null values in the corresponding to position of the input tasks that returned them. This means that a successful invocation of `Wait-DurableTask` without the `-Any` flag should return an array of the same size as the number of tasks it scheduled.
 
 #### Where to get support, provide feedback, and suggest changes
 
