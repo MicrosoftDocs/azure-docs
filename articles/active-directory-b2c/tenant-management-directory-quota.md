@@ -76,7 +76,7 @@ The response from the API call looks similar to the following json:
 
 - The attribute `used` is the number of objects you already have in the directory.
 
-1. Consider deleting inactive users or request a quota increase when the ratio between `used` and `total` is higher that 80% 
+If your tenant usage is higher that 80%, you can remove inactive users or request for a quota increase.
 
 
 ## Request increase Directory Quota Size
