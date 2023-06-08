@@ -16,7 +16,7 @@ ms.date: 05/25/2023
 
 # Tutorial: Handle authentication flows in a Vanilla JavaScript single-page app
 
-In the [previous article](./tutorial-single-page-app-vanillajs-sign-in-prepare-app.md), you created a Vanilla JavaScript (JS) single-page application (SPA) and a server to host it, and configured the file for authentication.
+In the [previous article](./how-to-single-page-app-vanillajs-sign-in-prepare-app.md), you created a Vanilla JavaScript (JS) single-page application (SPA) and a server to host it, and configured the file for authentication.
 
 In this tutorial you'll;
 
@@ -26,7 +26,7 @@ In this tutorial you'll;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare a single-page application for authentication](tutorial-single-page-app-vanillajs-sign-in-prepare-app.md).
+* Completion of the prerequisites and steps in [Prepare a single-page application for authentication](how-to-single-page-app-vanillajs-sign-in-prepare-app.md).
 
 ## Adding code to the redirection file
 
@@ -205,4 +205,4 @@ The application uses *authPopup.js* to handle the authentication flow when the u
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out of the Vanilla JS SPA](./tutorial-single-page-app-vanillajs-sign-in-sign-in-sign-out.md)
+> [Sign in and sign out of the Vanilla JS SPA](./how-to-single-page-app-vanillajs-sign-in-sign-in-sign-out.md)

@@ -62,4 +62,4 @@ In this tutorial, you'll;
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare React SPA](./tutorial-single-page-app-react-sign-in-prepare-app.md)
+> [Prepare React SPA](./how-to-single-page-app-react-sign-in-prepare-app.md)
