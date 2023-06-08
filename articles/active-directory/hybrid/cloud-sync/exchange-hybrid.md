@@ -30,7 +30,13 @@ This scenario is now supported in cloud sync.  Cloud sync detects the Exchange o
 For more information on Exchange Hybrid deployments, see [Exchange Hybrid](/exchange/exchange-hybrid)
 
 ## Prerequisites
-Before deploying Exchange Hybrid with cloud sync, you need to ensure that the [provisioning agent](what-is-provisioning-agent.md) must be version 1.1.1107.0 or later.
+Before deploying Exchange Hybrid with cloud sync you must meet the following prerequisites.
+
+ - The [provisioning agent](what-is-provisioning-agent.md) must be version 1.1.1107.0 or later.
+ - Your on-premises Active Directory must be extended to contain the Exchange schema.
+      - To find see if you have the Exchange schema or to verify the version see [Find the current Exchange Schema Version](/troubleshoot/windows-server/identity/find-current-schema-version#find-the-current-exchange-schema-version)
+     >[!NOTE]
+     >If your schema has been extended after you have installed the provisioning agent, you will need to restart it in order to pick up the schema changes.
 
 ## How to enable
 Exchange Hybrid Writeback is disabled by default.  
@@ -42,10 +48,10 @@ Exchange Hybrid Writeback is disabled by default.
  5.  At the top, select **Properties**.  You should see Exchange hybrid writeback disabled.
  6.  Select the pencil next to **Basic**. 
  
-   :::image type="content" source="media/exchange-hybrid/exchange-hybrid-1.png" alt-text="Conceptual image of exchange hybrid scenario." lightbox="media/exchange-hybrid/exchange-hybrid-1.png":::
+   :::image type="content" source="media/exchange-hybrid/exchange-hybrid-1.png" alt-text="Screenshot of the basic properties." lightbox="media/exchange-hybrid/exchange-hybrid-1.png":::
  7. On the right, place a check in **Exchange hybrid writeback** and click **Apply**.
    
-   :::image type="content" source="media/exchange-hybrid/exchange-hybrid-2.png" alt-text="Conceptual image of exchange hybrid scenario." lightbox="media/exchange-hybrid/exchange-hybrid-2.png":::
+   :::image type="content" source="media/exchange-hybrid/exchange-hybrid-2.png" alt-text="Screen shot of enabling Exchange writeback." lightbox="media/exchange-hybrid/exchange-hybrid-2.png":::
 
 ## Attributes synchronized
 Cloud sync writes Exchange On-line attributes back to users and groups in order to enable Exchange hybrid scenarios.  The following table is a list of the attributes and the mappings.
@@ -63,10 +69,10 @@ Cloud sync writes Exchange On-line attributes back to users and groups in order 
 
 
 ## Provisioning on-demand
-Provisioning on-demand with Exchange hybrid writeback requires two steps.  You need to first provision or create the user.  Exchange online then populates the necessary attributes on the user or group.  Then cloud sync can then be "write back" these attributes to the user or group.  The steps are:
+Provisioning on-demand with Exchange hybrid writeback requires two steps.  You need to first provision or create the user.  Exchange online then populates the necessary attributes on the user or group.  Then cloud sync can then be "write back" these attributes to the user.  The steps are:
 
-- Provision and synch the initial user or group - this brings the user/group into the cloud and allows them to be populated with Exchange online attributes.
-- Writeback exchange attributes to Active Directory - this writes the Exchange online attributes to the user/group on-premises.
+- Provision and synch the initial user - this brings the user into the cloud and allows them to be populated with Exchange online attributes.
+- Writeback exchange attributes to Active Directory - this writes the Exchange online attributes to the user on-premises.
 
 Provisioning on-demand with Exchange hybrid use the following steps
 
@@ -78,8 +84,11 @@ Provisioning on-demand with Exchange hybrid use the following steps
  5. On the left, select **Provision on demand**.
  6. Enter the distinguished name of a user and select the **Provision** button.
  7. A success screen appears with four green check marks. 
+
+    :::image type="content" source="media/exchange-hybrid/exchange-hybrid-3.png" alt-text="Screenshot of the intital Exchange writeback." lightbox="media/exchange-hybrid/exchange-hybrid-3.png":::
  8. Click **Next**.  On the **Writeback exchange attributes to Active Directory** tab, the synchronization starts.  
  9. You should see the success details.
+    :::image type="content" source="media/exchange-hybrid/exchange-hybrid-4.png" alt-text="Screenshot of Exchange attributes being written back." lightbox="media/exchange-hybrid/exchange-hybrid-4.png":::
 
 ## API for schema detection
 Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  The refresh can be done automatically by restarting the provisioning agent or manually using an API call.
