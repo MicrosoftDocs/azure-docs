@@ -13,7 +13,7 @@ ms.author: sujaj
 
 In this how-to guide, you learn how to configure an Azure virtual network so that you can deploy Azure Monitor for SAP solutions. You learn how to:
 
-- [Create a new subnet](#create-new-subnet) for use with Azure Functions.
+- [Create a new subnet](#create-a-new-subnet) for use with Azure Functions.
 - [Set up outbound internet access](#configure-outbound-internet-access) to the SAP environment that you want to monitor.
 
 ## Create a new subnet
