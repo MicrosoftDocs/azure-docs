@@ -1,6 +1,6 @@
 ---
-title: Use the REST API to add device templates in Azure IoT Central
-description: How to use the IoT Central REST API to add device templates in an application
+title: Add device templates in Azure IoT Central with the REST API
+description: How to use the IoT Central REST API to add, update, delete, and manage device templates in an application
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/17/2022
@@ -27,6 +27,9 @@ To learn how to manage device templates by using the IoT Central UI, see [How to
 A device template contains a device model and view definitions. The REST API lets you manage the device model including cloud property definitions. Use the UI to create and manage views.
 
 The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
+
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Device templates REST API
 

@@ -10,7 +10,7 @@ ms.reviewer: lagayhar
 ms.author: mithigpe
 author: minthigpen
 ms.date: 11/09/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.custom: responsible-ml, event-tier1-build-2022, devx-track-python
 ---
 
 # Generate a Responsible AI insights with YAML and Python

@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: java
 ms.topic: how-to
 ms.date: 02/17/2023
-ms.custom: mqtt, devx-track-java
+ms.custom: mqtt, devx-track-java, devx-track-extended-java
 ---
 
 # Get started with device twins (Java)

@@ -64,7 +64,7 @@
   - name: Container groups
     href: container-instances-container-groups.md
   - name: Region and resource availability
-    href: container-instances-resource-and-quota-limits.md
+    href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
   - name: Security

@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-extended-java
 ---
 # Call recording: Bring your own Azure storage quickstart
 
@@ -109,4 +109,3 @@ For more information, see the following articles:
 - Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording) and [.NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording) call recording sample apps 
 - Learn more about [Call Recording](../../../concepts/voice-video-calling/call-recording.md)
 - Learn more about [Call Automation](../../../concepts/call-automation/call-automation.md)
-

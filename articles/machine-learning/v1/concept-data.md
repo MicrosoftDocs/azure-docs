@@ -10,7 +10,7 @@ ms.reviewer: ssalgado
 author: ssalgadodev
 ms.author: xunwan
 ms.date: 10/21/2021
-ms.custom: UpdateFrequency5, devx-track-python, data4ml, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
 
@@ -107,7 +107,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 + Create a [data labeling project](#label-data-with-data-labeling-projects).
 + Train machine learning models:
      + [automated ML experiments](../how-to-use-automated-ml-for-ml-models.md)
-     + the [designer](../tutorial-designer-automobile-price-train-score.md#import-data)
+     + the [designer](tutorial-designer-automobile-price-train-score.md#import-data)
      + [notebooks](how-to-train-with-datasets.md)
      + [Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
 + Access datasets for scoring with [batch inference](../tutorial-pipeline-batch-scoring-classification.md) in [machine learning pipelines](how-to-create-machine-learning-pipelines.md).
