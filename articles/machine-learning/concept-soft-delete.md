@@ -87,11 +87,16 @@ Soft-deleted workspaces can be managed under the Azure Machine Learning resource
 
 When you select *Recover* on a soft-deleted workspace, it initiates an operation to restore the workspace state. The service attempts recreation or reattachment of a subset of resources, including Azure RBAC role assignments. Hard-deleted resources including compute clusters should be recreated by you.
 
-Azure Machine Learning recovers Azure RBAC role assignments for the workspace identity, but doesn't recover role assignments you may have added for users or user groups. It may take up to 15 minutes for role assignments to propagate after workspace recovery.
+Azure Machine Learning recovers Azure RBAC role assignments for the workspace identity, but doesn't recover role assignments you have added on the workspace. It may take up to 15 minutes for role assignments to propagate after workspace recovery.
 
-Recovery of a workspace may not always be possible. Azure Machine Learning stores workspace metadata on [other Azure resources associated with the workspace](concept-workspace.md#associated-resources). In the event these dependent Azure resources were deleted, it may prevent the workspace from being recovered or correctly restored. Dependencies of the Azure Machine Learning workspace must be recovered first, before recovering a deleted workspace. Azure Container Registry isn't a hard requirement required for recovery.
+Recovery of a workspace may not always be possible. Azure Machine Learning stores workspace metadata on [other Azure resources associated with the workspace](concept-workspace.md#associated-resources). In the event these dependent Azure resources were deleted, it may prevent the workspace from being recovered or correctly restored. Dependencies of the Azure Machine Learning workspace must be recovered first, before recovering a deleted workspace. Below table outlines recovery options for each dependency of the Azure Machine Learning workspace.
 
-Enable [data protection capabilities on Azure Storage](../storage/blobs/soft-delete-blob-overview.md) to improve chances of successful recovery.
+|Dependency|Recovery approach|
+|---|---|
+|Azure Key Vault| [Recovery a deleted Azure Key Vault instance](https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview) |
+|Azure Storage|[Recover a deleted Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-recover).|
+|Azure Container Registry|Azure Container Registry is not a hard requirement for workspace recovery. Azure ML can regenerate images for custom environments.|
+|Azure Application Insights| First, [recover your log analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/delete-workspace). Then recreate an application insights with the original name.|
 
 ## Permanently delete a soft-deleted workspace
 
