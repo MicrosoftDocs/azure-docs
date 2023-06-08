@@ -16,7 +16,7 @@ ms.date: 05/25/2023
 
 # Tutorial: Handle authentication flows in a vanilla JavaScript single-page app
 
-In the [previous article](./how-to-single-page-app-vanillajs-sign-in-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you'll configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). 
+In the [previous article](./how-to-single-page-app-vanillajs-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you'll configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). 
 
 In this tutorial you'll;
 
@@ -27,7 +27,7 @@ In this tutorial you'll;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare a single-page application for authentication](how-to-single-page-app-vanillajs-sign-in-prepare-app.md).
+* Completion of the prerequisites and steps in [Prepare a single-page application for authentication](how-to-single-page-app-vanillajs-prepare-app.md).
 
 ## Edit the authentication configuration file
 
@@ -278,4 +278,4 @@ The application uses *authPopup.js* to handle the authentication flow when the u
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out of the Vanilla JS SPA](./how-to-single-page-app-vanillajs-sign-in-sign-in-sign-out.md)
+> [Sign in and sign out of the Vanilla JS SPA](./how-to-single-page-app-vanillajs-sign-in-sign-out.md)

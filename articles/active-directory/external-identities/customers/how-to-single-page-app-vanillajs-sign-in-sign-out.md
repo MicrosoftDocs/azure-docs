@@ -14,7 +14,7 @@ ms.date: 05/25/2023
 
 # Tutorial: Add sign-in and sign-out to a Vanilla JavaScript single-page app (SPA) for a customer tenant
 
-In the [previous article](how-to-single-page-app-vanillajs-sign-in-configure-authentication-flows.md), you edited the popup and redirection files that handle the sign-in page response. This tutorial demonstrates how to build a responsive user interface (UI) that contains a **Sign-In** and **Sign-Out** button and run the project to test the sign-in and sign-out functionality.
+In the [previous article](how-to-single-page-app-vanillajs-configure-authentication.md), you edited the popup and redirection files that handle the sign-in page response. This tutorial demonstrates how to build a responsive user interface (UI) that contains a **Sign-In** and **Sign-Out** button and run the project to test the sign-in and sign-out functionality.
 
 In this tutorial you'll;
 
@@ -25,7 +25,7 @@ In this tutorial you'll;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Create components for authentication and authorization](how-to-single-page-app-vanillajs-sign-in-configure-authentication-flows.md).
+* Completion of the prerequisites and steps in [Create components for authentication and authorization](how-to-single-page-app-vanillajs-configure-authentication.md).
 
 ## Add code to the *index.html* file
 

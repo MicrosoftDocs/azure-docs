@@ -16,7 +16,7 @@ ms.author: godonnell
 
 # Tutorial: Add sign-in and sign-out to a React single-page app (SPA) for a customer tenant
 
-In the [previous article](./how-to-single-page-app-react-sign-in-prepare-app.md), you created a React single-page app (SPA) in Visual Studio Code and configured it for authentication.
+In the [previous article](./how-to-single-page-application-react-prepare-app.md), you created a React single-page app (SPA) in Visual Studio Code and configured it for authentication.
 
 In this tutorial you'll;
 
@@ -28,7 +28,7 @@ In this tutorial you'll;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare an single-page app for authentication](./how-to-single-page-app-react-sign-in-prepare-app.md).
+* Completion of the prerequisites and steps in [Prepare an single-page app for authentication](./how-to-single-page-application-react-prepare-app.md).
 
 ## Add components to the application
 

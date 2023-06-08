@@ -63,4 +63,4 @@ In this tutorial, you'll;
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare your Vanilla JS SPA](how-to-single-page-app-vanillajs-sign-in-prepare-app.md)
+> [Prepare your Vanilla JS SPA](how-to-single-page-app-vanillajs-prepare-app.md)

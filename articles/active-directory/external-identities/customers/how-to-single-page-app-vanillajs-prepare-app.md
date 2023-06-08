@@ -16,7 +16,7 @@ ms.date: 05/25/2023
 
 # Tutorial: Prepare a vanilla JavaScript single-page app (SPA) for authentication in a customer tenant
 
-In the [previous article](./how-to-single-page-app-vanillajs-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a vanilla JavaScript SPA
+In the [previous article](./how-to-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a vanilla JavaScript SPA
 
 In this tutorial you'll;
 
@@ -27,7 +27,7 @@ In this tutorial you'll;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-sign-in-prepare-tenant.md).
+* Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-prepare-tenant.md).
 * Although any integrated development environment (IDE) that supports Vanilla JS applications can be used, **Visual Studio Code** is recommended for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
 
@@ -113,4 +113,4 @@ In this code, the **app** variable is initialized with the **express** module an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure SPA for authentication](how-to-single-page-app-vanillajs-sign-in-configure-authentication-flows.md)
+> [Configure SPA for authentication](how-to-single-page-app-vanillajs-configure-authentication.md)
