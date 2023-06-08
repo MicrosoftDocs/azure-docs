@@ -79,7 +79,7 @@ The response from the API call looks similar to the following json:
 If your tenant usage is higher that 80%, you can remove inactive users or request for a quota increase.
 
 
-## Request increase Directory Quota Size
+## Request increase directory quota size
 
 You can request to increase the quota size by opening a support ticket as described [here](find-help-open-support-ticket.md) 
 
