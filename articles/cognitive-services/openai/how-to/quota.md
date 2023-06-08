@@ -59,6 +59,9 @@ Different model deployments, also called model classes have unique max TPM value
 
 All other model classes have a common max TPM value.
 
+> [!NOTE]
+> Quota Tokens-Per-Minute (TPM) allocation is not related to the max input token limit of a model. Model input token limits are defined in the [models table](../concepts/models.md) and are not impacted by changes made to TPM.  
+
 ## View and request quota
 
 For an all up view of your quota allocations across deployments in a given region, select **Management** > **Quota** in Azure AI Studio:
