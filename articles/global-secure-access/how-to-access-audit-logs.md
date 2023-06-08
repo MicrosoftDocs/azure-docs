@@ -1,6 +1,6 @@
 ---
-title: How to access Global Secure Access audit logs
-description: Learn how to access Global Secure Access audit logs.
+title: How to access Global Secure Access (preview) audit logs
+description: Learn how to access Global Secure Access (preview) audit logs.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -10,9 +10,9 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# How to access the Global Secure Access audit logs
+# How to access the Global Secure Access (preview) audit logs
 
-The Microsoft Entra ID audit logs are a valuable source of information when researching or troubleshooting changes to your Microsoft Entra ID environment. Changes related to Global Secure Access are captured in the audit logs in several categories, such as filtering policy, forwarding profiles, remote network management, and more. This article describes how to use the audit log to track changes to your Global Secure Access environment.
+The Microsoft Entra ID audit logs are a valuable source of information when investigating or troubleshooting changes to your Microsoft Entra ID environment. Changes related to Global Secure Access are captured in the audit logs in several categories, such as traffic forwarding profiles, remote network management, and more. This article describes how to use the audit log to track changes to your Global Secure Access environment.
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
@@ -48,7 +48,7 @@ You can access the audit logs from **Global Secure Access** and from **Microsoft
 
 ## Save audit logs
 
-Audit log data is only kept for 30 days by default, which may not be long enough for every organization. You may also want to integrate your logs with other services for enhanced monitoring and analysis.
+Audit log data is only kept for 30 days by default, which may not be long enough for every organization. You may also want to integrate your logs with other services for enhanced monitoring and analysis if you need to view or query logs after 30 days.
 
 - [Stream activity logs to an event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) to integrate with other tools, like Azure Monitor or Splunk.
 - [Export activity logs for storage](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
@@ -56,5 +56,5 @@ Audit log data is only kept for 30 days by default, which may not be long enough
 
 ## Next steps
 
-- [Stream Enriched Office 365 logs](how-to-view-enriched-logs.md)
+- [Stream Enriched Microsoft 365 logs](how-to-view-enriched-logs.md)
 - [View network traffic logs](how-to-view-traffic-logs.md)
