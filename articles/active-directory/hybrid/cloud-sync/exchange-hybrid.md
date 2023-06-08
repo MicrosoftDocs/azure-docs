@@ -45,7 +45,7 @@ Exchange Hybrid Writeback is disabled by default.
 
 
 ## Attributes synchronized
-Cloud sync synchronizes Exchange On-line attributes back to users and groups in order to enable Exchange hybrid scenarios.  The following table is a list of the attributes and the mappings.
+Cloud sync writes Exchange On-line attributes back to users and groups in order to enable Exchange hybrid scenarios.  The following table is a list of the attributes and the mappings.
 
 |Azure AD attribute|AD attribute|Object Class|Mapping Type|
 |-----|-----|-----|-----|
@@ -60,10 +60,10 @@ Cloud sync synchronizes Exchange On-line attributes back to users and groups in 
 
 
 ## Provisioning on-demand
-Provisioning on-demand with Exchange hybrid writeback requires two steps.  You need to first provision or create the user, so that the Exchange online attributes can then be written back to the user or group.  The steps are:
+Provisioning on-demand with Exchange hybrid writeback requires two steps.  You need to first provision or create the user.  This allows Exchange online to populate the necessary attributes on the user or group.  Then cloud sync can then be "write back" these attributes to the user or group.  The steps are:
 
-- Provision and synch the intial user or group - this brings the user/group into the cloud.
-- Writeback the attributes back - this writes the attributes to the user/group on-premises.
+- Provision and synch the intial user or group - this brings the user/group into the cloud and allows them to be populated with Exchange online attributes.
+- Writeback exchange attributes to Active Directory - this writes the Exchange online attributes to the user/group on-premises.
 
 Provisioning on-demand with Exchange hybrid use the following steps
 
