@@ -153,7 +153,7 @@ Resource group, Azure storage account, and Blob container from the corresponding
     ### 1b - Azure Blob storage network configuration
     If your SHIR is hosted on an Azure VM, you need to add the virtual network of the VM to the Azure Storage account since the Virtual Machine has a nonpublic IP address that can't be added to the IP address range section. 
     
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/storage-networking-firewall.png" alt-text="Screenshot that shows the storage account network firewall configuration":::
+    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/storage-networking-firewall.png" alt-text="Screenshot that shows the storage account network firewall configuration.":::
     
     To apply this specific configuration, locate your Azure Storage account, from the **Data storage** panel select **Networking**, then mark the **Add existing virtual network** checkbox. A new panel opens up, select the subscription, virtual network, and subnet of the Azure VM hosting the Integration Runtime. This information can be found on the **Overview** page of the Azure Virtual Machine. The subnet may say **Service endpoint required** if so, select **Enable**. Once everything is ready, save the updates. Refer to section [2a - Azure Blob storage network configuration (Private endpoint)a](#2a---azure-blob-storage-network-configuration-private-endpoint) for the remaining required steps.
     

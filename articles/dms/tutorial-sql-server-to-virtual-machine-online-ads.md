@@ -91,7 +91,7 @@ To complete this tutorial, you need to:
 
 1. Select the database(s) to run assessment and select **Next**.
 1. Select SQL Server on Azure Virtual Machine as the target.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
+    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/assessment-complete-target-selection.png" alt-text="Screenshot of assessment confirmation.":::
 1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**.
 1. Select the **Get Azure recommendation** button.
 2. Pick the **Collect performance data now** option and enter a path for performance logs to be collected and select the **Start** button.
@@ -144,14 +144,14 @@ Resource group, Azure storage account, Blob container from the corresponding dro
     ### 1a - Azure Blob storage network configuration
     If you have your Self-Hosted Integration Runtime (SHIR) installed on an Azure VM, see section [1b - Azure Blob storage network configuration](#1b---azure-blob-storage-network-configuration). If you have your Self-Hosted Integration Runtime (SHIR) installed on your on-premises network, you need to add your client IP address of the hosting machine in your Azure Storage account as so: 
     
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/storage-networking-details.png" alt-text="Screenshot that shows the storage account network details":::
+    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/storage-networking-details.png" alt-text="Screenshot that shows the storage account network details.":::
     
     To apply this specific configuration, connect to the Azure portal from the SHIR machine, open the Azure Storage account configuration, select **Networking**, and then mark the **Add your client IP address** checkbox. Select **Save** to make the change persistent. See section [2a - Azure Blob storage network configuration (Private endpoint)](#2a---azure-blob-storage-network-configuration-private-endpoint) for the remaining steps.
     
     ### 1b - Azure Blob storage network configuration
     If your SHIR is hosted on an Azure VM, you need to add the virtual network of the VM to the Azure Storage account since the Virtual Machine has a nonpublic IP address that can't be added to the IP address range section. 
     
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/storage-networking-firewall.png" alt-text="Screenshot that shows the storage account network firewall configuration":::
+    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/storage-networking-firewall.png" alt-text="Screenshot that shows the storage account network firewall configuration.":::
     
     To apply this specific configuration, locate your Azure Storage account, from the **Data storage** panel select **Networking**, then mark the **Add existing virtual network** checkbox. A new panel opens up, select the subscription, virtual network, and subnet of the Azure VM hosting the Integration Runtime. This information can be found on the **Overview** page of the Azure Virtual Machine. The subnet may say **Service endpoint required** if so, select **Enable**. Once everything is ready, save the updates. Refer to section [2a - Azure Blob storage network configuration (Private endpoint)a](#2a---azure-blob-storage-network-configuration-private-endpoint) for the remaining required steps.
     
