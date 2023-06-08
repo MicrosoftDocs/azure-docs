@@ -31,7 +31,7 @@ When a deployment is created, the assigned TPM will directly map to the token-pe
 The flexibility to distribute TPM globally within a subscription and region has allowed Azure OpenAI Service to loosen other restrictions:
 
 - The maximum resources per region are increased to 30.
-- The limit on creating no more than two deployments of the same model in a resource has been removed.
+- The limit on creating no more than one deployments of the same model in a resource has been removed.
 
 ## Assign quota
 
@@ -41,7 +41,7 @@ To create a new deployment from within the Azure AI Studio under **Management** 
 
 The option to set the TPM is under the **Advanced options** drop-down:
 
-:::image type="content" source="../media/quota/deployment.png" alt-text="Screenshot of the deployment UI of Azure OpenAI Studio" lightbox="../media/quota/deployment.png":::
+:::image type="content" source="../media/quota/deployment.png" alt-text="Screenshot of the deployment UI of Azure AI Studio" lightbox="../media/quota/deployment.png":::
 
 Post deployment you can adjust your TPM allocation by selecting **Edit deployment** under **Management** > **Deployments** in Azure AI Studio. You can also modify this selection within the new quota management experience under **Management** > **Quotas**.
 
@@ -61,9 +61,9 @@ All other model classes have a common max TPM value.
 
 ## View and request quota
 
-For an all up view of your quota allocations across deployments in a given region, select **Management** > **Quota** in Azure OpenAI Studio:
+For an all up view of your quota allocations across deployments in a given region, select **Management** > **Quota** in Azure AI Studio:
 
-:::image type="content" source="../media/quota/quota.png" alt-text="Screenshot of the quota UI of Azure OpenAI Studio" lightbox="../media/quota/quota.png":::
+:::image type="content" source="../media/quota/quota.png" alt-text="Screenshot of the quota UI of Azure AI Studio" lightbox="../media/quota/quota.png":::
 
 - **Quota Name**: There's one quota value per region for each model type. The quota covers all versions of that model.  The quota name can be expanded in UI to show the deployments that are using the quota.
 - **Deployment**: Model deployments divided by model class.
