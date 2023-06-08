@@ -30,7 +30,7 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 
 ```bash
 devtunnel create --allow-anonymous
-devtunnel port create -p 8080 --protocol http
+devtunnel port create -p 8080
 devtunnel host
 ```
 
@@ -65,7 +65,7 @@ To make the outbound call from ACS, this sample uses the `targetPhonenumber` you
 PhoneNumberIdentifier target = new PhoneNumberIdentifier(targetPhonenumber);
 PhoneNumberIdentifier caller = new PhoneNumberIdentifier(acsPhonenumber);
 CallInvite callInvite = new CallInvite(target, caller);
-CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(callInvite, new Uri(callbackUriHost + "/api/callbacks"));"
+CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(callInvite, new Uri(callbackUriHost + "/api/callbacks"));
 ```
 
 ## Handle call automation events
@@ -79,10 +79,12 @@ app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, ILogger<Program> 
     {
         logger.LogInformation($"Event received: {JsonConvert.SerializeObject(cloudEvent)}");
 
-        CallAutomationEventBase @event = CallAutomationEventParser.Parse(cloudEvent);
-        var callConnection = callAutomationClient.GetCallConnection(@event.CallConnectionId);
+        CallAutomationEventBase parsedEvent = CallAutomationEventParser.Parse(cloudEvent);
+        logger.LogInformation($"{parsedEvent?.GetType().Name} parsedEvent received for call connection id: {parsedEvent?.CallConnectionId}");
+        var callConnection = callAutomationClient.GetCallConnection(parsedEvent.CallConnectionId);
         var callMedia = callConnection.GetCallMedia();
-        if (@event is CallConnected)
+
+        if (parsedEvent is CallConnected)
         {
             //Handle Call Connected Event
         }
@@ -95,7 +97,7 @@ app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, ILogger<Program> 
 The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording).
 
 ```csharp
-CallLocator callLocator = new ServerCallLocator(@event.ServerCallId);
+CallLocator callLocator = new ServerCallLocator(parsedEvent.ServerCallId);
 var recordingResult = await callAutomationClient.GetCallRecording().StartAsync(new StartRecordingOptions(callLocator));
 recordingId = recordingResult.Value.RecordingId;
 ```
