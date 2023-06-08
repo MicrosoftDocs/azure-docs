@@ -72,7 +72,7 @@ For an all up view of your quota allocations across deployments in a given regio
 
 ## Migrating existing deployments
 
-As part of the transition to the new quota system and TPM based capacity allocation, all existing Azure OpenAI model deployments have been automatically migrated to use quota. In cases where the existing TPM/RPM allocation exceeds the default values due to previous custom rate-limit increases, equivalent TPM were assigned to the impacted deployments.
+As part of the transition to the new quota system and TPM based allocation, all existing Azure OpenAI model deployments have been automatically migrated to use quota. In cases where the existing TPM/RPM allocation exceeds the default values due to previous custom rate-limit increases, equivalent TPM were assigned to the impacted deployments.
 
 ## How throttling works
 
