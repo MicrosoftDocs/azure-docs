@@ -31,7 +31,7 @@ Microsoft Entra Internet Access secures access to Microsoft 365, SaaS, and publi
 - Prevent stolen tokens from being replayed with the compliant network check in Conditional Access.
 - Apply universal tenant restrictions to prevent data exfiltration to other tenants or personal accounts including anonymous access.
 - Detect threats faster using near real-time logs
-- Enriched logs with network and device signals for SharePoint Online traffic
+- Enriched logs with network and device signals currently supported for SharePoint Online traffic
 - Improve the precision of risk assessments on users, locations, and devices. 
 - Deploy side-by-side with third party SSE solutions.
 - Acquire network traffic from the desktop client or from a remote network, such as a branch location.
@@ -39,10 +39,9 @@ Microsoft Entra Internet Access secures access to Microsoft 365, SaaS, and publi
 #### Private preview features
 The following new capabilities are available in the private preview of Microsoft Entra Internet Access. To request access to the private preview, complete [this form](https://aka.ms/entra-ia-signup).
 
-- Configure a dedicated public internet traffic forwarding profile
+- Dedicated public internet traffic forwarding profile
 - Protect user access to the public internet while leveraging Microsoft's cloud-delivered, identity-aware SWG solution 
-- Enable web content filtering to regulate access to websites based on their content categories.
-- Filter unauthorized traffic from accessing a specific network through secure web gateway.
+- Enable web content filtering to regulate access to websites based on their content categories through secure web gateway.
 - Apply universal Conditional Access policies for all internet destinations, even if not federated with Microsoft Entra ID.
 
 ## Microsoft Entra Private Access
@@ -53,13 +52,10 @@ Remote users can connect to private apps across hybrid and multicloud environmen
 
 ### Key features
 
-- Enable zero-trust based access to a range of IP addresses and/or FQDNs without requiring a legacy VPN.
-- Detect threats faster using near real-time logs, enriched with network and device signals
-- Improve the precision of risk assessments on users, locations, and devices. 
-- Deploy side-by-side with third party SSE solutions.
-- Acquire network traffic from the desktop client.
-- The product will support all ports and protocols (UDP); however, at this time only TCP-based apps are supported.
-- Modernize legacy app authentication with deep Conditional Access integration
+- Quick Access: Zero-trust based access to a range of IP addresses and/or FQDNs without requiring a legacy VPN.
+- Per-app access for TCP apps (UDP support in development)
+- Modernize legacy app authentication with deep Conditional Access integration.
+- Provide a seamless end-user experience by acquiring network traffic from the desktop client and deploying side-by-side with your existing third-party SSE solutions.
 
 ## Next steps
 

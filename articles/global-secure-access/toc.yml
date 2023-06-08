@@ -53,6 +53,8 @@ items:
         href: how-to-configure-quick-access.md 
       - name: Configure per-app access
         href: how-to-configure-per-app-access.md
+      - name: Configure connectors
+        href: how-to-configure-connectors.md
   - name: Logs and monitoring
     expanded: false
     items:
