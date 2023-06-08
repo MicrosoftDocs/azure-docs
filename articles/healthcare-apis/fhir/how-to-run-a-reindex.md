@@ -10,7 +10,7 @@ ms.author: kesheth
 ---
 # Running a reindex job
 
-There are scenarios where you may have search parameters in the FHIR service in Azure Health Data Services that haven't yet been indexed. This is the case when you define your own custom search parameters. Until the search parameter is indexed, it can't be used in live production. This article covers how to run a reindex job to index any custom search parameters that haven't yet been indexed in your FHIR service database.
+There are scenarios where you may have search parameters in the FHIR service in Azure Health Data Services that haven't yet been indexed. This scenario is relevant when you define your own custom search parameters. Until the search parameter is indexed, it can't be used in live production. This article covers how to run a reindex job to index any custom search parameters that haven't yet been indexed in your FHIR service database.
 
 > [!Warning]
 > It's important that you read this entire article before getting started. A reindex job can be very performance intensive. This article discusses options for how to throttle and control a reindex job.
@@ -34,7 +34,7 @@ content-type: application/fhir+json
 }
  ```
 
-Leave the `"parameter": []` field blank (as shown) if you don't need to tweak the compute resources allocated to the reindex job.
+Leave the `"parameter": []` field blank (as shown) if you don't need to tweak the resources allocated to the reindex job.
 
 If the request is successful, you receive a **201 Created** status code in addition to a `Parameters` resource in the response.
 
@@ -110,8 +110,6 @@ content-type: application/fhir+json
 
 }
  ```
-
-
 > [!NOTE]
 > To check the status of a reindex job or to cancel the job, you'll need the reindex ID. This is the `"id"` carried in the `"parameter"` value returned in the response. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
