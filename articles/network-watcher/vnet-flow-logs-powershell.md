@@ -1,22 +1,29 @@
 ---
 title: Manage VNet flow logs - PowerShell
 titleSuffix: Azure Network Watcher
-description: Learn how to manage Azure Network Watcher VNet flow logs using Azure PowerShell. 
+description: Learn how to create, change, enable, disable, or delete Azure Network Watcher VNet flow logs using Azure PowerShell. 
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 06/08/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Manage VNet flow logs using Azure PowerShell
+# # Create, change, enable, disable, or delete VNet flow logs using Azure PowerShell
 
 > [!div class="op_single_selector"]
+> - [Azure portal](vnet-flow-logs-portal.md)
 > - [PowerShell](vnet-flow-logs-powershell.md)
 > - [Azure CLI](vnet-flow-logs-cli.md)
 
-Learn how to create, change, disable, or delete a VNet flow log using Azure PowerShell. VNet flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a virtual network.
+> [!IMPORTANT]
+> VNet flow logs is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [VNet flow logs overview](vnet-flow-logs-overview.md).
+
+In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using Azure PowerShell.
 
 ## Prerequisites
 
@@ -24,7 +31,7 @@ Learn how to create, change, disable, or delete a VNet flow log using Azure Powe
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
-- An Azure virtual network. If you need to create a virtual network, see [create a virtual network using PowerShell](../virtual-network/quick-create-powershell.md).
+- A virtual network. If you need to create a virtual network, see [create a virtual network using PowerShell](../virtual-network/quick-create-powershell.md).
 
 - An Azure storage account. If you need to create a storage account, see [create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell).
 
