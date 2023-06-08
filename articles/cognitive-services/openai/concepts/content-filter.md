@@ -376,7 +376,7 @@ openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
 try:
     response = openai.Completion.create(
-        prompt="<HARMFUL_PROMPT>",
+        prompt="<PROMPT>",
         engine="<MODEL_DEPLOYMENT_NAME>",
     )
     print(response)
