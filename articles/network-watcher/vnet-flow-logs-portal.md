@@ -1,7 +1,7 @@
 ---
 title: Manage VNet flow logs - Azure portal
 titleSuffix: Azure Network Watcher
-description: Learn how to create, change, disable, or delete Azure Network Watcher VNet flow logs using the Azure portal.
+description: Learn how to create, change, enable, disable, or delete Azure Network Watcher VNet flow logs using the Azure portal.
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Create, change, disable, enable, or delete VNet flow logs using the Azure portal
+# Create, change, enable, disable, or delete VNet flow logs using the Azure portal
 
 > [!div class="op_single_selector"]
 > - [Azure portal](vnet-flow-logs-portal.md)
@@ -23,7 +23,7 @@ ms.custom: template-how-to, engagement-fy23
 
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [VNet flow logs overview](vnet-flow-logs-overview.md).
 
-In this article, you learn how to create, change, disable, or delete a VNet flow log using the Azure portal.
+In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using the Azure portal.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ In this article, you learn how to create, change, disable, or delete a VNet flow
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
-- A virtual network. If you need to create a virtual network, see [create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
+- A virtual network. If you need to create a virtual network, see [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
 - An Azure storage account. If you need to create a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal).
 
