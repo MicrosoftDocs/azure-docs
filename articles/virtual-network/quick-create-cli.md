@@ -187,9 +187,9 @@ The VMs take a few minutes to create. After Azure creates each VM, Azure CLI ret
 When you're done with the virtual network and the VMs, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources.
 
 ```azurecli-interactive
-    az group delete \
-        --name test-rg \
-        --yes
+az group delete \
+    --name test-rg \
+    --yes
 ```
 
 ## Next steps
