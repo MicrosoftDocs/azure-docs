@@ -465,6 +465,8 @@ items:
     items:
     - name: Overview
       href: vm/monitor-virtual-machine.md
+    - name: Best practices
+      href: vm/monitor-virtual-machine-best-practices.md
     - name: Deploy agents
       href: vm/monitor-virtual-machine-agent.md
     - name: Collect data

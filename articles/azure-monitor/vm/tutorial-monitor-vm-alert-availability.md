@@ -1,6 +1,6 @@
 ---
-title: Create availability alert rule for Azure virtual machine (preview)
-description: Create an alert rule in Azure Monitor to proactively notify you if a virtual machine is unavailable.
+title: Create availability alert rule for multiple Azure virtual machines (preview)
+description: Create a single alert rule in Azure Monitor to proactively notify you if any virtual machines in a subscription or resource group is unavailable.
 ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
@@ -8,10 +8,10 @@ ms.date: 06/07/2023
 ms.reviewer: Xema Pathak
 ---
 
-# Tutorial: Create availability alert rule for Azure virtual machines (preview)
+# Tutorial: Create availability alert rule for multiple Azure virtual machines (preview)
 One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the [VM availability](../../virtual-machines/monitor-vm-reference.md#vm-availability-metric-preview) metric which is currently in public preview.
 
-You can create an availability alert rule for a single VM using the VM Availability metrics with [recommended alerts](tutorial-monitor-vm-alert-recommended.md). This tutorial shows how to create a single rule that will apply to all virtual machines in a subscription or resource group in a particular region.
+You can create an availability alert rule for a single VM using the VM Availability metric with [recommended alerts](tutorial-monitor-vm-alert-recommended.md). This tutorial shows how to create a single rule that will apply to all virtual machines in a subscription or resource group in a particular region.
 
 > [!TIP]
 > While this article uses the metric value *VM availability metric,* you can use the same process to alert on any metric value. 
@@ -20,7 +20,7 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * View the VM availability metric in metrics explorer.
-> * Create an alert rule using the VM availability metric to notify you if the virtual machine is unavailable.
+> * Create an alert rule targeting a subscription or resources group .
 > * Create an action group to be proactively notified when an alert is created.
 
  
@@ -35,7 +35,7 @@ There are multiple methods to create an alert rule in Azure Monitor. In this tut
 
 
 1. Select **Metrics** from the **Monitor** menu in the Azure portal.
-2. Select either a subscription or a resource group with VMs to monitor.
+2. In **Select a scope**, select either a subscription or a resource group with VMs to monitor.
 3. Under **Refine scope**, for **Resource type**, select *Virtual machines*, and select the **Location** with VMs to monitor.
 5. Click **Apply** to set the scope for metrics explorer.
 
