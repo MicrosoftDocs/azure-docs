@@ -42,6 +42,12 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone-end
 
+::: zone pivot="sc-standard"
+
+[!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-event-driven-app/quickstart-tool-introduction.md)]
+
+::: zone-end
+
 ## 1 Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -79,12 +85,6 @@ Diagram of Spring event-driven app architecture:
 ::: zone pivot="sc-standard,sc-enterprise"
 
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-
-::: zone-end
-
-::: zone pivot="sc-standard"
-
-[!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-event-driven-app/quickstart-tool-introduction.md)]
 
 ::: zone-end
 
