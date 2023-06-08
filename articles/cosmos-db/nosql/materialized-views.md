@@ -81,6 +81,9 @@ Use the Azure CLI to enable the materialized views feature either with a native 
     
     # Variable for account name
     accountName="<account-name>"
+    
+    # Variable for Subscription
+    subscriptionId="<subscription-id>"
     ```
 
 1. Create a new JSON file named **capabilities.json** with the capabilities manifest.
@@ -96,13 +99,7 @@ Use the Azure CLI to enable the materialized views feature either with a native 
 1. Get the identifier of the account and store it in a shell variable named `$accountId`.
 
     ```azurecli
-    accountId=$(\
-        az cosmosdb show \
-            --resource-group $resourceGroupName \
-            --name $accountName \
-            --query id \
-            --output tsv \
-    )
+    accountId="/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/$accountName"
     ```
 
 1. Enable the preview materialized views feature for the account using the REST API and [`az rest`](/cli/azure/reference-index#az-rest) with an HTTP `PATCH` verb.
@@ -110,7 +107,7 @@ Use the Azure CLI to enable the materialized views feature either with a native 
     ```azurecli
     az rest \
         --method PATCH \
-        --uri "https://management.azure.com$accountId?api-version=2022-11-15-preview" \
+        --uri "https://management.azure.com/$accountId?api-version=2022-11-15-preview" \
         --body @capabilities.json
     ```
 
@@ -154,7 +151,7 @@ Create a materialized view builder to automatically transform data and write to 
     ```azurecli
     az rest \
         --method PUT \
-        --uri "https://management.azure.com$accountIdservices/materializedViewsBuilder?api-version=2022-11-15-preview" \
+        --uri "https://management.azure.com$accountId/services/materializedViewsBuilder?api-version=2022-11-15-preview" \
         --body @builder.json
     ```
 
@@ -163,7 +160,7 @@ Create a materialized view builder to automatically transform data and write to 
     ```azurecli
     az rest \
         --method GET \
-        --uri "https://management.azure.com$accountIdservices/materializedViewsBuilder?api-version=2022-11-15-preview"
+        --uri "https://management.azure.com$accountId/services/materializedViewsBuilder?api-version=2022-11-15-preview"
     ```
 
 ---
