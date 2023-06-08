@@ -679,6 +679,18 @@
         href: flexible-server/how-to-connect-with-managed-identity.md
       - name: Manage Azure AD users
         href: flexible-server/how-to-manage-azure-ad-users.md
+      - name: Connect with SCRAM authentication
+        href: flexible-server/how-to-connect-scram.md
+    - name: Scale a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-scale-compute-storage-portal.md
+    - name: Restart a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-restart-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-restart-server-cli.md
     - name: Major Version Upgrade
       items:
       - name: Azure portal

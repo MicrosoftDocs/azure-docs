@@ -24,19 +24,19 @@ Azure Active Directory is available as an identity provider option for B2B colla
 
 If you want to enable guest users to sign in with their Azure AD account, you can use either the invitation flow or a self-service sign-up user flow. No additional configuration is required.
 
-:::image type="content" source="media/azure-ad-account/azure-ad-account-identity-provider.png" alt-text="Screenshot of Azure AD account in the identity provider list." lightbox="media/azure-ad-account/azure-ad-account-identity-provider.png":::
+:::image type="content" source="media/default-account/default-account-identity-provider.png" alt-text="Screenshot of Azure AD account in the identity provider list." lightbox="media/default-account/default-account-identity-provider.png":::
 
 ### Azure AD account in the invitation flow
 
 When you [invite a guest user](add-users-administrator.md) to B2B collaboration, you can specify their Azure AD account as the **Email address** they'll use to sign in.
 
-:::image type="content" source="media/azure-ad-account/azure-ad-account-invite.png" alt-text="Screenshot of inviting a guest user using the Azure AD account." lightbox="media/azure-ad-account/azure-ad-account-invite.png":::
+:::image type="content" source="media/default-account/default-account-invite.png" alt-text="Screenshot of inviting a guest user using the Azure AD account." lightbox="media/default-account/default-account-invite.png":::
 
 ### Azure AD account in self-service sign-up user flows
 
 Azure AD account is an identity provider option for your self-service sign-up user flows. Users can sign up for your applications using their own Azure AD accounts. First, you'll need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. Then you can set up a user flow for the application and select Azure Active Directory as one of the sign-in options.
 
-:::image type="content" source="media/azure-ad-account/azure-ad-account-user-flow.png" alt-text="Screenshot of Azure Ad account in a self-service sign-up user flow." lightbox="media/azure-ad-account/azure-ad-account-user-flow.png":::
+:::image type="content" source="media/default-account/default-account-user-flow.png" alt-text="Screenshot of Azure Ad account in a self-service sign-up user flow." lightbox="media/default-account/default-account-user-flow.png":::
 
 ## Verifying the application's publisher domain
 As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../develop/howto-configure-publisher-domain.md), ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../develop/publisher-verification-overview.md) about this change.) For Azure AD user flows, the publisher’s domain appears only when using a [Microsoft account](microsoft-account.md) or other Azure AD tenant as the identity provider. To meet these new requirements, follow these steps:

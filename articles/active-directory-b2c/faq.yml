@@ -8,7 +8,7 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 06/06/2023
+  ms.date: 06/08/2023
   ms.author: godonnell
   ms.subservice: B2C
   ms.custom: "b2c-support"
@@ -180,7 +180,7 @@ sections:
       - question: |
           How do I know that the Go-Local add-on is available in my country/region? 
         answer: |
-          While [creating your Azure AD B2C tenant](tutorial-create-tenant.md), if the Go-Local add-on is available in your country, you're asked to enable it if you need it. 
+          While [creating your Azure AD B2C tenant](tutorial-create-tenant.md), if the Go-Local add-on is available in your country/region, you're asked to enable it if you need it. 
       
       - question: |
           Do I still get 50,000 free MAUs per month on the Go-Local add-on when I enable it?
@@ -289,6 +289,11 @@ sections:
           Currently, Azure AD B2C doesn't support single sign out for this specific scenario. It's caused by cookie contention as all the applications operates on the same cookie simultaneously.
           
       - question: |
-          How do I report issues with Azure AD B2C?
+          How do I report a problem with Azure AD B2C?
         answer: |
           See [File support requests for Azure Active Directory B2C](find-help-open-support-ticket.md).
+
+      - question: |
+          In Azure AD B2C, I revoke all sessions of a user by using the Azure portals Revoke sessions button, but it doesn't work?
+        answer: |
+          Currently, Azure AD B2C doesn't support user session revocation from the Azure portal. However, you can achieve this task by using [Microsoft Graph PowerShell](manage-users-portal.md#revoke-a-consumer-users-session) or [Microsoft Graph API](/graph/api/user-revokesigninsessions).
