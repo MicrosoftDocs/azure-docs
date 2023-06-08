@@ -68,24 +68,53 @@ Partners who specialize in reading data from HR systems can build an integration
 - Refer to [Quick start with PowerShell](**LINK TO QUICK START ARTICLE**) the extensibility of this API approach and how it can be used to upload user data from CSV files. 
 
 ### Known limitations and workarounds
-| # | Limitations | Workarounds |
-| --- | --- | --- |
-| 1. | In each API call, using the SCIM bulk request, you can send a maximum of 50 records. 
-How this issue impacts your testing: If you need to upload 100 users using the API, you need to make two API calls. | None. |
-| 2. | The sync cycle that processes incoming requests runs every 40 minutes. 
-How this issue impacts your testing: After you send a SCIM bulk request to the API endpoint, at maximum it could take 40 minutes before you can start the verification process. 
-| While testing, if you want to process a request payload faster, you can stop and start the provisioning job from the portal. In a future release, we anticipate provision-on-demand capability. |
-| 3. | On-premises AD as target directory isn't yet supported. | None. We plan to support on-premises AD as target directory in the next iteration. The API usage model remains the same. So, you can still proceed with the testing using Azure AD to get familiar with the APIs. |
-| 4. | The provisioning service doesn't check for duplication ``userPrincipalName`` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. | Update the sync rule to use the [RandomString](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data#randomstring) function. Example:
 
-```Join ("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())``` |
-| 5. | Only a user or service principal with the **Application Administrator** role can invoke this API. 
-How this issue impacts your testing: Application Administrator is a broad role and doesn't align with the model of least privilege access. 
-| None. In a future release, we intend to provide a more granular application scope to invoke this API. |
-| 6. | Certain attributes like mail or ``extensionAttributes`` mastered by Exchange Online can't be updated using inbound provisioning. 
-How this issue impacts your testing: If you include the mail attribute in the mapping, it's ignored. Trying to update ``extensionAttributes`` mastered by Exchange Online causes an error. 
-| None. This behavior is by design. |
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Limitations</th>
+<th>Workarounds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Top tasks</strong></td>
+<td>In each API call, using the SCIM bulk request, you can send a maximum of 50 records. 
+How this issue impacts your testing: If you need to upload 100 users using the API, you need to make two API calls. </td>
+<td>None.</td>
+</tr>
+<tr>
+<td><!-- platform-navigation --> <strong>2.</td>
+<td>The sync cycle that processes incoming requests runs every 40 minutes. 
+How this issue impacts your testing: After you send a SCIM bulk request to the API endpoint, at maximum it could take 40 minutes before you can start the verification process. </td>
+<td>While testing, if you want to process a request payload faster, you can stop and start the provisioning job from the portal. In a future release, we anticipate provision-on-demand capability.</td>
+</tr>
+<tr>
+<td><!-- platform-navigation --> <strong>3.</td>
+<td>On-premises AD as target directory isn't yet supported.</td>
+<td> None. We plan to support on-premises AD as target directory in the next iteration. The API usage model remains the same. So, you can still proceed with the testing using Azure AD to get familiar with the APIs. </td>
+</tr>
+<tr>
+<td><strong>4.</td>
+<td>The provisioning service doesn't check for duplication ``userPrincipalName`` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. </td>
+<td>Update the sync rule to use the [RandomString](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data#randomstring) function. Example:
 
+```Join ("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())``` </td>
+</tr>
+<tr>
+<td><strong>5.</td>
+<td>Only a user or service principal with the **Application Administrator** role can invoke this API. 
+How this issue impacts your testing: Application Administrator is a broad role and doesn't align with the model of least privilege access. </td>
+<td>None. In a future release, we intend to provide a more granular application scope to invoke this API.</td>
+<td><strong>6.</td>
+<td>Certain attributes like mail or ``extensionAttributes`` mastered by Exchange Online can't be updated using inbound provisioning. 
+How this issue impacts your testing: If you include the mail attribute in the mapping, it's ignored. Trying to update ``extensionAttributes`` mastered by Exchange Online causes an error.</td>
+<td>None. This behavior is by design.</td>
+</tr>
+</tbody>
+</thead>
+</table>
 
 ## Next steps
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md)
