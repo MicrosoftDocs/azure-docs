@@ -194,7 +194,7 @@ Now that all the required code snippets have been added, the application can be 
     npm start
     ```
 
-1. Open a new private browser, and enter the application URI into the browser, `https://localhost:3000/`.
+1. Open a new private browser, and enter the application URI into the browser, `http://localhost:3000/`.
 1. Select **No account? Create one**, which starts the sign-up flow.
 1. In the **Create account** window, enter the email address registered to your Azure Active Directory (AD) for customers tenant, which starts the sign-up flow as a user for your application.
 1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
