@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/09/2023
 ---
 
 # Materialized views for Azure Cosmos DB for NoSQL (preview)
