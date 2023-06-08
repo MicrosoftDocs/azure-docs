@@ -51,7 +51,7 @@ There are multiple built-in Azure Policy definitions to manage WAF resources. A 
 
 - **Migrate WAF from WAF Config to WAF Policy on Application Gateway**: If you have WAF Config instead of WAF Policy, then you may want to move to the new WAF Policy. Web Application Firewall (WAF) policies offer a richer set of advanced features over WAF config, provide a higher scale, better performance, and unlike legacy WAF configuration, WAF policies can be defined once and shared across multiple gateways, listeners, and URL paths. Going forward, the latest features and future enhancements are only available via WAF policies.
 
-## Launch an Azure Policy
+## Create an Azure Policy
 
 1.	On the Azure home page, type Policy in the search bar and select the Azure Policy icon
 
