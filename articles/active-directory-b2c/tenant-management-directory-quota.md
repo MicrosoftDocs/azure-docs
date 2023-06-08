@@ -81,7 +81,7 @@ If your tenant usage is higher that 80%, you can remove inactive users or reques
 
 ## Request increase directory quota size
 
-You can request to increase the quota size by opening a support ticket as described [here](find-help-open-support-ticket.md) 
+You can request to increase the quota size by [contacting support](find-help-open-support-ticket.md) 
 
 ## Next steps
 
