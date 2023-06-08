@@ -23,7 +23,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | July 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
-| [Business model and pricing updates for three Defender for Cloud plans](#business-model-and-pricing-updates-for-three-defender-for-cloud-plans) | July 2023 |
+| [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
 
 ### Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
 
@@ -108,9 +108,11 @@ Customers with both Defender for Containers plan and Defender CSPM plan should [
 
 Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
-### Business model and pricing updates for three Defender for Cloud plans
+### Business model and pricing updates for Defender for Cloud plans
 
-Microsoft Defender for Cloud’s Defender plans that offer service layer protection, are available through the following three plans: 
+**Estimated date for change: July 2023**
+
+Microsoft Defender for Cloud has three plans that offer service layer protection: 
 
 - Defender for Key Vault 
 
@@ -118,9 +120,7 @@ Microsoft Defender for Cloud’s Defender plans that offer service layer protect
 
 - Defender for DNS 
 
-These plans are transitioning to a new business model with different pricing and packaging. The new models will be publicly available starting on July 7, 2023.  
-
-These changes are being made to address customer feedback regarding spending predictability and simplifying the overall cost structure. 
+These plans are transitioning to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure. 
 
 **Business model and pricing changes summary**: 
  
@@ -130,10 +130,9 @@ Existing customers of Defender for Key-Vault, Defender for Azure Resource Manage
 
 - **Defender for Key Vault**: This plan will have a fixed price per vault at per month with no overage charge. Customers will have the option to switch to the new business model by selecting the Defender for Key Vault new per-vault model 
 
-- **Defender for DNS**:  Starting July 7, 2023, Defender for Servers Plan 2 customers will 
-have access to Defender for DNS value as part of Defender for Servers Plan 2 at no additional cost. Customers that have both Defender for Server Plan 2 and Defender for DNS will no longer be charged for Defender for DNS. Defender for DNS will no longer be available as a standalone plan. 
+- **Defender for DNS**: Defender for Servers Plan 2 customers will gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS will no longer be charged for Defender for DNS. Defender for DNS will no longer be available as a standalone plan. 
 
-For more information on all of these plans check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h) 
+For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h) 
 
 ## Next steps
 
