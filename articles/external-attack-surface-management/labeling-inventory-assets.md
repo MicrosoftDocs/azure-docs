@@ -40,11 +40,11 @@ You should modify assets from the inventory list page if you want to update nume
 
 1. Select the **Inventory** page from the left-hand navigation pane of your Defender EASM resource.  
 
-2. Apply filters to produce your intended results. In this example, we are looking for domains expiring within 30 days that require renewal. The applied label will help you more quickly access any expiring domains, simplifying the remediation process. This is a simple use case; users can apply as many filters as needed to obtain the specific results needed. For more information on filters, see the [Inventory filters overview](inventory-filters.md) article. 
+2. Apply filters to produce your intended results. In this example, we are looking for domains expiring within 30 days that require renewal. The applied label helps you more quickly access any expiring domains, simplifying the remediation process. This is a simple use case; users can apply as many filters as needed to obtain the specific results needed. For more information on filters, see the [Inventory filters overview](inventory-filters.md) article. 
 
 ![Screenshot of inventory list view with 'add filter' dropdown opened, displaying the query editor.](media/labels-2.png)
 
-3. Once your inventory list is filtered, select the dropdown by checkbox next to the "Asset" table header. This dropdown gives you the option to select all results that match your query, the results on that specific page (up to 25), or "none" which unselects all assets. You can also choose to select only specific results on the page by selecting the individaul checkmarks next to each asset. 
+3. Once your inventory list is filtered, select the dropdown by checkbox next to the "Asset" table header. This dropdown gives you the option to select all results that match your query, the results on that specific page (up to 25), or "none" which unselects all assets. You can also choose to select only specific results on the page by selecting the individual checkmarks next to each asset. 
 
 ![Screenshot of inventory list view with bulk selection dropdown opened.](media/labels-14.png) 
  
@@ -54,7 +54,7 @@ You should modify assets from the inventory list page if you want to update nume
 
 6. Determine the label name and display text values. The label name cannot be changed after you initially create the label, but the display text can be edited at a later time. The label name is used to query for the label in the product interface or via API, so edits are disabled to ensure these queries work properly. To edit a label name, you need to delete the original label and create a new one.  
  
-Select a color for your new label, then select **Add**. This action will navigate you back to the “Modify Assets” screen. 
+Select a color for your new label, then select **Add**. This action navigates you back to the “Modify Assets” screen. 
 
 ![Screenshot of "Add label" pane that displays the configuration fields.](media/labels-4.png)
 
@@ -63,7 +63,7 @@ Select a color for your new label, then select **Add**. This action will navigat
 
 ![Screenshot of "Modify Asset" pane with newly created label applied.](media/labels-5.png)
 
-8. Allow a few moments for the labels to be applied. You will immediately see a notification that confirms the update is in progress. Once complete, you'll see a "completed" notification and the page automatically refreshes, displaying your asset list with the labels visible. A banner at the top of the screen will confirm that your labels have been applied.  
+8. Allow a few moments for the labels to be applied. You will immediately see a notification that confirms the update is in progress. Once complete, you'll see a "completed" notification and the page automatically refreshes, displaying your asset list with the labels visible. A banner at the top of the screen confirms that your labels have been applied.  
 
 [![Screenshot of inventory list view with the selected assets now displaying the new label.](media/labels-6.png)](media/labels-6.png#lightbox)
 
@@ -75,7 +75,7 @@ Users can also modify a single asset from the asset details page. This is ideal 
 
 1. Select the **Inventory** page from the left-hand navigation pane of your Defender EASM resource. 
  
-2. Select the specific asset to which you want modify to open the asset details page. 
+2. Select the specific asset to which you want to modify to open the asset details page. 
  
 3. From this page, select **Modify asset**. 
 
@@ -83,7 +83,7 @@ Users can also modify a single asset from the asset details page. This is ideal 
 
 4. Follow steps 5-7 as listed above in the “Inventory list page” section.  
 
-5. Once complete, the asset details page will refresh, displaying the newly applied label or state change and a banner that indicates the asset was successfully updated.  
+5. Once complete, the asset details page refreshes, displaying the newly applied label or state change and a banner that indicates the asset was successfully updated.  
 
 
 ## Modify, remove or delete labels
@@ -101,13 +101,13 @@ This page displays all the labels within your Defender EASM inventory. Please no
 
 2. To edit a label, select the pencil icon in the **Actions** column of the label you wish to edit.  This action will open the right-hand pane that allows you to modify the name or color of a label. Once done, select **Update**.  
 
-3. To remove a label, select the trash can icon from the **Actions** column of the label you wish to delete. A box will appear that asks you to confirm the removal of this label; select **Remove Label** to confirm.  
+3. To remove a label, select the trash can icon from the **Actions** column of the label you wish to delete. A box appears that asks you to confirm the removal of this label; select **Remove Label** to confirm.  
 
 ![Screenshot of "Confirm Remove" option from Labels management page.](media/labels-9a.png)
 
  
  
-The Labels page will automatically refresh and the label will be removed from the list, as well as removed from any assets that had the label applied. A banner will appear to confirm the removal.  
+The Labels page will automatically refresh and the label will be removed from the list, as well as removed from any assets that had the label applied. A banner appears to confirm the removal.  
 
 
 ## Task manager and notifications
@@ -117,7 +117,7 @@ Once a task is submitted, you will immediately see a notification pop-up that co
 ![Screenshot of "Task submitted" notification immediately after submitting a task.](media/labels-12.png) ![Screenshot of opened Notifications panel displaying recent task statuses.](media/labels-13.png)
 
 
-The Defender EASM system can take seconds to udpdate a handful of assets or minutes to update thousands. The Task Manager enables you to check on the status of any modification tasks in progress. This section outlines how to access the Task Manager and use it to better undertand the completion of submitted updates. 
+The Defender EASM system can take seconds to udpdate a handful of assets or minutes to update thousands. The Task Manager enables you to check on the status of any modification tasks in progress. This section outlines how to access the Task Manager and use it to better understand the completion of submitted updates. 
 
 1. From your Defender EASM resource, select **Task Manager** on the left-hand navigation menu. 
 
