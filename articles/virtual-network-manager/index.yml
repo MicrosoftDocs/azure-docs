@@ -100,6 +100,8 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: Create a mesh network topology with Azure Virtual Network Manager using Terraform
+            url: create-virtual-network-manager-terraform.md
           - text: Hub-and-Spoke Deployment with Connected Groups - ARM Template
             url: /samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/
         
