@@ -68,9 +68,10 @@ When deleting a workspace from the Azure Portal, check __Delete the workspace pe
 If you are using the [Azure Machine Learning SDK or CLI](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.operations.workspaceoperations#azure-ai-ml-operations-workspaceoperations-begin-delete), you can set the `permanently_delete` flag.
 
 ```python
-from azure.ai.ml.entities import Workspace
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
 
-ws = MLClient(
+ml_client = MLClient(
     DefaultAzureCredential(),
     subscription_id="<SUBSCRIPTION_ID>",
     resource_group_name="<RESOURCE_GROUP>"
@@ -78,7 +79,8 @@ ws = MLClient(
 
 result = ml_client.workspaces.begin_delete(
     name="myworkspace",
-    permanently_delete=True
+    permanently_delete=True,
+    delete_dependent_resources=False
 ).result()
 
 print(result)
