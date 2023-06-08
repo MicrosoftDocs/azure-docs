@@ -61,8 +61,6 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Selective disk backup and restore for Azure VMs
-            url: selective-disk-backup-restore.md
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: Enhanced soft delete for Azure Backup (preview)
@@ -81,6 +79,8 @@ landingContent:
             url: blob-backup-overview.md
           - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
             url: selective-disk-backup-restore.md
+          - text: SAP HANA System Replication backup
+            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled
   # Card
   - title: Back up Azure VMs
     linkLists:
@@ -129,7 +129,7 @@ landingContent:
         links:
           - text: Back up SAP HANA databases on Azure VMs
             url: backup-azure-sap-hana-database.md
-          - text: Back up SAP HSR databases on Azure VMs (preview)
+          - text: Back up SAP HSR databases on Azure VMs
             url: sap-hana-database-with-hana-system-replication-backup.md
           - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
             url: sap-hana-database-instances-backup.md
