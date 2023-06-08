@@ -30,7 +30,7 @@ This scenario is now supported in cloud sync.  Cloud sync detects the Exchange o
 For more information on Exchange Hybrid deployments, see [Exchange Hybrid](/exchange/exchange-hybrid)
 
 ## Prerequisites
-Before deploying Exchange Hybrid with cloud sync, you need to ensure that the [provisioning agent](what-is-provisioning-agent.md) must be version 1.1.1107.0.
+Before deploying Exchange Hybrid with cloud sync, you need to ensure that the [provisioning agent](what-is-provisioning-agent.md) must be version 1.1.1107.0 or later.
 
 ## How to enable
 Exchange Hybrid Writeback is disabled by default.  
