@@ -40,8 +40,8 @@ When updating a connector, ensure that the dll is updated in all required locati
 2. Stop the Microsoft ECMA2Host service.
 3. Manually update the custom connector dll into the following folders.
     1. ECMA
-    2. ECMA > Cache > connector name
-    3. ECMA > Cache > connector name > AutosyncService
+    2. ECMA > Cache > {connector name}
+    3. ECMA > Cache > {connector name} > AutosyncService
 4. Start the Microsoft ECMA2Host service.
    
  > [!NOTE]
@@ -51,7 +51,7 @@ When updating a connector, ensure that the dll is updated in all required locati
 
 Custom connectors built for MIM rely on the [ECMA framework](/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)). Please ensure that you are following best practices such as:
 * Ensuring that methods in your connector are declared as public
-* Excluding prefixes from method names
+* Excluding prefixes from method names. For example: 
   * **Correct:** public Schema GetSchema (KeyedCollection<string, ConfigParameter> configParameters)
   * **Incorrect:** Schema PrefixGetSchema.GetSchema (KeyedCollection<string, ConfigParameter> configParameters)
     
@@ -64,11 +64,10 @@ The following table includes capabilities of the ECMA framework that are either 
 | Partitions  | Partially supported  | Supports one partition  | 
 | Hierarchies  | Not supported  |   | 
 | Full export   | Not supported  |   | 
-| DeleteAddAsReplace  | Not supported  |   | 
 | ExportPasswordInFirstPass  | Not supported  |   | 
 | Normalizations  | Not supported  |   | 
 | Concurrent operations  | Ignored  |   |
-
+| DeleteAddAsReplace  | Ignored  |   | 
 
 ## Next steps
 
