@@ -52,7 +52,10 @@ After soft deletion, the service keeps necessary data and metadata during the re
 
 A default retention period of 14 days holds for deleted workspaces. The retention period indicates how long workspace data remains available after it's deleted. The clock starts on the retention period as soon as a workspace is soft deleted.
 
-During the retention period, soft deleted workspaces can be recovered or permanently deleted. Any other operations on the workspace, like submitting a training job,  will fail. You can't reuse the name of a workspace that has been soft deleted until the retention period has passed. Once the retention period elapses, a soft deleted workspace automatically gets permanently deleted.
+During the retention period, soft deleted workspaces can be recovered or permanently deleted. Any other operations on the workspace, like submitting a training job, will fail. 
+
+> [!IMPORTANT]    
+> You can't reuse the name of a workspace that has been soft deleted until the retention period has passed or the workspace is permanently deleted. Once the retention period elapses, a soft deleted workspace automatically gets permanently deleted.
 
 ## Deleting a workspace
 
