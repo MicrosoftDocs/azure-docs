@@ -53,7 +53,7 @@ There are multiple built-in Azure Policy definitions to manage WAF resources. A 
 
 ## Create an Azure Policy
 
-1.	On the Azure home page, type Policy in the search bar and select the Azure Policy icon
+1.	On the Azure home page, type Policy in the search bar and select the Azure Policy icon.
 
 2.	On the Azure Policy service, under **Authoring**, select **Assignments**.
 
