@@ -25,6 +25,8 @@
     href: quickstart-create-bicep-use-visual-studio.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
+  - name: Create deployment stacks
+    href: quickstart-create-deployment-stacks.md
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
@@ -365,6 +367,8 @@
       href: deployment-script-bicep.md
     - name: Template specs
       href: template-specs.md
+    - name: Deployment stacks
+      href: deployment-stacks.md
     - name: Bicep extensibility
       items:
       - name: Kubernetes provider
