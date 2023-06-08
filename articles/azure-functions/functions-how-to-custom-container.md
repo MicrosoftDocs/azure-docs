@@ -58,9 +58,9 @@ For a complete example, see [Create a function app in a local container](functio
 
 The Azure Functions extension for Visual Studio Code doesn't provide a way to create a Dockerfile when you create the project. However, you can instead create the Dockerfile for an existing project by using the `--docker-only` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command in the Terminal windows of an existing project folder, as in the following example:
 
-    ```console 
-    func init --docker-only
-    ```  
+```console 
+func init --docker-only
+```  
 
 # [Visual Studio](#tab/vs)
 
@@ -132,19 +132,19 @@ When you create a function app in the [Azure portal](https://portal.azure.com), 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which you'll create your new function app. |
-    | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you'll create your function app. You should create a new resource group because there are [known limitations when creating new function apps in an existing resource group](../articles/azure-functions/functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you'll create your function app. You should create a new resource group because there are [known limitations when creating new function apps in an existing resource group](functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     | **Do you want to deploy code or container image?**| Container image | Deploy a containerized function app. |
-    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. In-portal editing is only available for JavaScript, PowerShell, TypeScript, and C# script. C# class library, Java, and Python functions must be [developed locally](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |
+    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. In-portal editing is only available for JavaScript, PowerShell, TypeScript, and C# script. C# class library, Java, and Python functions must be [developed locally](functions-develop-local.md#local-development-environments).  |
     |**Version**| Version number | Choose the version of your installed runtime. |
     |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. |
     |**Operating system**| Linux | Container deployment is only supported on Linux. |
 ::: zone-end
 :::zone pivot="azure-functions"
-4. In **[Hosting options and plans](../articles/azure-functions/functions-scale.md)**, choose **Functions Premium**. This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](../articles/azure-functions/functions-scale.md). 
+4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md). 
 ::: zone-end
 :::zone pivot="container-apps"
-4. In **[Hosting options and plans](../articles/azure-functions/functions-scale.md)**, choose **Azure Container Apps Environment plan**. This creates a new **Azure Container Apps Environment** resource to host your function app container. By default, the environment is created in a Consumption plan without zone redundancy, to minimize costs. You can also choose an existing Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
+4. In **[Hosting options and plans](functions-scale.md)**, choose **Azure Container Apps Environment plan**. This creates a new **Azure Container Apps Environment** resource to host your function app container. By default, the environment is created in a Consumption plan without zone redundancy, to minimize costs. You can also choose an existing Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 ::: zone-end
 :::zone pivot="azure-functions,container-apps"
 5. Select the **Deployment** tab, unselect **Use quickstart image**.

@@ -133,14 +133,13 @@ Use zip deploy to push a .zip file that contains your function app to Azure. Opt
 
 You can deploy a function app running in a Linux container.
 
->__How to use it:__ Create your functions in a Linux container then deploy the container to a Premium or Dedicated plan in Azure Functions or another container host. Use the [Azure Functions Core Tools](functions-run-local.md#) to create a Dockerfile for your project that you use to build a containerized function app. You can use the container in the following deployments: 
+>__How to use it:__ [Create your functions in a Linux container](functions-create-container-registry.md) then deploy the container to a Premium or Dedicated plan in Azure Functions or another container host. Use the [Azure Functions Core Tools](functions-run-local.md#) to create a customized Dockerfile for your project that you use to build a containerized function app. You can use the container in the following deployments: 
 >
->+ Deploy to Azure Functions resources you create in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted. Requires either [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. 
+>+ Deploy to Azure Functions resources you create in the Azure portal. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
 >+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
 >+ Deploy to Azure Container Apps (preview). To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
 >+ Deploy to Azure Arc (preview). To learn how, see [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
 >+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
->
 
 >__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs and where the container is hosted. This deployment mechanism is available only for functions running on Linux.
 
