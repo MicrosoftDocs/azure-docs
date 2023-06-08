@@ -171,6 +171,9 @@ var loggerFactory = LoggerFactory.Create(builder =>
 });
 ```
 
+> [!NOTE]
+> For more information, see the [getting-started tutorial for OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main#getting-started)
+
 ##### [Java](#tab/java)
 
 Java autoinstrumentation is enabled through configuration changes; no code changes are required.
