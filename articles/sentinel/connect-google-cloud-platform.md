@@ -47,7 +47,7 @@ You can set up the GCP environment in one of two ways:
     gcloud config set project {projectId}  
     ```
 1. In the next window, select **Authorize**. 							 
-1. Copy the Terraform [GCPInitialAuthenticationSetup script](https://github.com/danielohfeld/Azure-Sentinel/tree/feature/danielohfeld/add_gcp_terraform/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup), paste the script to a new file, and save it as a .tf file.  
+1. Copy the Terraform [GCPInitialAuthenticationSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup), paste the script to a new file, and save it as a .tf file.  
 1. In the editor, type:  
 
     ```
