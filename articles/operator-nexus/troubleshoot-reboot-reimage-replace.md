@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot cluster baremetalmachine with three R's for Azure Operator Nexus
-description: Troubleshoot cluster baremetalmachine with three R's for Azure Operator Nexus
+title: Troubleshoot cluster baremetalmachine with three Rs for Azure Operator Nexus
+description: Troubleshoot cluster baremetalmachine with three Rs for Azure Operator Nexus
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -16,13 +16,13 @@ The time required to complete each of these actions is relatively similar, with 
 
 ## Prerequisites
 
-1. Familiarize yourself with the capabilities referenced in this article by reviewing the  [Bare Metal Machine Actions](howto-baremetal-functions.md)
+1. Familiarize yourself with the capabilities referenced in this article by reviewing the [Bare Metal Machine Actions](howto-baremetal-functions.md)
 1. Get the name of the resource group for the BMM
 1. Get the name of the bare metal machine  that requires a lifecycle management operation
 
 ## Identifying the corrective action
 
-When troubleshooting a BMM for failures and determining the best corrective action, it’s important to understand the options available. Rebooting or reimaging a BMM server can be an efficient and effective way to fix problems or simply restore the software to a known-good place. This article provides direction on the best practices to be followed for each of the three R’s.
+When troubleshooting a BMM for failures and determining the best corrective action, it’s important to understand the options available. Rebooting or reimaging a BMM server can be an efficient and effective way to fix problems or simply restore the software to a known-good place. This article provides direction on the best practices to be followed for each of the three Rs.
 
 It's important to have a systematic approach when troubleshooting technical issues. One effective method is to start with the simplest and least invasive solution and work your way up to more complex and drastic measures, if necessary.
 
@@ -49,6 +49,7 @@ Servers contain many physical components that can fail over time. It's important
 
 As a best practice, the BMM should be cordoned and shut down in advance of physical repair.
 When performing the following physical repairs, a replace action isn't required, as the BMM host will continue to function normally after the repair.  
+
 - Hot swappable power supply 
 
 When performing the following physical repairs, a replace action is recommended but not necessary to bring the BMM back into service:
@@ -61,6 +62,7 @@ When performing the following physical repairs, a replace action is recommended 
 - Ethernet or fiber cable replacement
 
 When performing the following physical repairs, a replace action is required to bring the BMM back into service:
+
 - Backplane 
 - System board
 - SSD disk
