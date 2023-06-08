@@ -30,7 +30,7 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 
 ```bash
 devtunnel create --allow-anonymous
-devtunnel port create -p 8080
+devtunnel port create -p 8080 --protocol http
 devtunnel host
 ```
 
@@ -54,7 +54,7 @@ var acsPhonenumber = "<ACS_PHONE_NUMBER>";
 var targetPhonenumber = "<TARGET_PHONE_NUMBER>";
 
 // Base url of the app
-var callbackUriHost = Environment.GetEnvironmentVariable("VS_TUNNEL_URL")?.TrimEnd('/');
+var callbackUriHost = "<CALLBACK_URI_HOST_WITH_PROTOCOL>";
 ```
 
 ## Make an outbound call
@@ -65,7 +65,7 @@ To make the outbound call from ACS, this sample will use the `targetPhonenumber`
 PhoneNumberIdentifier target = new PhoneNumberIdentifier(targetPhonenumber);
 PhoneNumberIdentifier caller = new PhoneNumberIdentifier(acsPhonenumber);
 CallInvite callInvite = new CallInvite(target, caller);
-CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(callInvite, new Uri(callbackUriHost + "/api/callbacks")).ConfigureAwait(false);
+CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(callInvite, new Uri(callbackUriHost + "/api/callbacks"));"
 ```
 
 ## Handle call automation events
@@ -73,7 +73,7 @@ CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(c
 Earlier in our application, we registerd the `callbackUriHost` to the Call Automation Service. This indicates the endpoint the service will use to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. In the code be below we respond to the `CallConnected` event.
 
 ```csharp
-app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, CallAutomationClient callAutomationClient, IOptions<CallConfiguration> callConfiguration, ILogger<Program> logger) =>
+app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, ILogger<Program> logger) =>
 {
     foreach (var cloudEvent in cloudEvents)
     {
@@ -92,7 +92,7 @@ app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, CallAutomationCli
 
 ## Start recording a call
 
-The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording).
+The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording).
 
 ```csharp
 CallLocator callLocator = new ServerCallLocator(@event.ServerCallId);
@@ -107,12 +107,14 @@ Using the `FileSource` API, you can provide the service the audio file you want 
 In the code below, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `StartRecognizingAsync`. This recognize and options API enables the telephony client to send DTMF tones that we can recognize.
 
 ```csharp
+// prepare recognize tones
 CallMediaRecognizeDtmfOptions callMediaRecognizeDtmfOptions = new CallMediaRecognizeDtmfOptions(new PhoneNumberIdentifier(targetPhonenumber), maxTonesToCollect: 1);
 callMediaRecognizeDtmfOptions.Prompt = new FileSource(new Uri(callbackUriHost + "/audio/MainMenu.wav"));
 callMediaRecognizeDtmfOptions.InterruptPrompt = true;
 callMediaRecognizeDtmfOptions.InitialSilenceTimeout = TimeSpan.FromSeconds(5);
 callMediaRecognizeDtmfOptions.InterToneTimeout = TimeSpan.FromSeconds(10);
 callMediaRecognizeDtmfOptions.StopTones = new List<DtmfTone> { DtmfTone.Pound, DtmfTone.Asterisk };
+
 // Send request to recognize tones
 await callMedia.StartRecognizingAsync(callMediaRecognizeDtmfOptions);
 ```
@@ -122,22 +124,26 @@ await callMedia.StartRecognizingAsync(callMediaRecognizeDtmfOptions);
 When the telephony endpoint selects a DTMF tone, ACS Call Automation will trigger the `api/callbacks` webhook we have setup and notify us with the `RecognizeCompleted` event. This gives us the ability to respond to a specific DTMF tone and trigger an action. In the code below, the application plays an audio file in response to DTMF tone one.
 
 ```csharp
-// Play audio once recognition is completed sucessfully
-var recognizeCompleted = (RecognizeCompleted)@event;
-string selectedTone = ((DtmfResult)recognizeCompleted.RecognizeResult).ConvertToString();
-
-switch (selectedTone)
+if (parsedEvent is RecognizeCompleted recognizeCompleted)
 {
-    case "1":
-        await callMedia.PlayToAllAsync(new FileSource(new Uri(callbackUriHost + "/audio/Confirmed.wav")));
-        break;
-    case "2":
-        await callMedia.PlayToAllAsync(new FileSource(new Uri(callbackUriHost + "/audio/Goodbye.wav")));         
-        break;
-    default:
-        //invalid tone
-        await callMedia.PlayToAllAsync(new FileSource(new Uri(callbackUriHost + "/audio/Invalid.wav")));
-        break;
+    // Play audio once recognition is completed sucessfully
+    string selectedTone = ((DtmfResult)recognizeCompleted.RecognizeResult).ConvertToString();
+
+    switch (selectedTone)
+    {
+        case "1":
+            await callMedia.PlayToAllAsync(new FileSource(new Uri(callbackUriHost + "/audio/Confirmed.wav")));
+            break;
+
+        case "2":
+            await callMedia.PlayToAllAsync(new FileSource(new Uri(callbackUriHost + "/audio/Goodbye.wav")));         
+            break;
+
+        default:
+            //invalid tone
+            await callMedia.PlayToAllAsync(new FileSource(new Uri(callbackUriHost + "/audio/Invalid.wav")));
+            break;
+    }
 }
 ```
 ## Hang up and stop recording
@@ -145,12 +151,12 @@ switch (selectedTone)
 Finally, when we detect a condition that makes sense for us to terminate the call, we can use the `HangUpAsync` method to hang up the call.
 
 ```csharp
-  if ((@event is PlayCompleted) || (@event is PlayFailed))
-  {
-      logger.LogInformation($"Stop recording and terminating call.");
-      callAutomationClient.GetCallRecording().Stop(recordingId);
-      await callConnection.HangUpAsync(true);
-  }
+if ((parsedEvent is PlayCompleted) || (parsedEvent is PlayFailed))
+{
+    logger.LogInformation($"Stop recording and terminating call.");
+    callAutomationClient.GetCallRecording().Stop(recordingId);
+    await callConnection.HangUpAsync(true);
+}
 ```
 
 ## Run the code
