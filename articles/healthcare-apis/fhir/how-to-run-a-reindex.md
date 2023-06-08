@@ -36,7 +36,7 @@ content-type: application/fhir+json
 
 Leave the `"parameter": []` field blank (as shown) if you don't need to tweak the compute resources allocated to the reindex job.
 
-If the request is successful, you will receive a **201 Created** status code in addition to a `Parameters` resource in the response.
+If the request is successful, you receive a **201 Created** status code in addition to a `Parameters` resource in the response.
 
 ```json
 HTTP/1.1 201 Created 
@@ -44,14 +44,14 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 
 {
     "resourceType": "Parameters",
-    "id": "2a369d08-e396-413a-9b2e-96b217b7f599",
+    "id": "560c7c61-2c70-4c54-b86d-c53a9d29495e",
     "meta": {
         "versionId": "138035"
     },
     "parameter": [
         {
             "name": "id",
-            "valueString": "2a369d08-e396-413a-9b2e-96b217b7f599"
+            "valueString": "560c7c61-2c70-4c54-b86d-c53a9d29495e"
         },
         {
             "name": "lastModified",
@@ -121,19 +121,19 @@ Once you’ve started a reindex job, you can check the status of the job using t
 
 `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`
 
-An example response is shown below:
+An example response:
 
 ```json
 {
     "resourceType": "Parameters",
-    "id": "2a369d08-e396-413a-9b2e-96b217b7f599",
+    "id": "560c7c61-2c70-4c54-b86d-c53a9d29495e",
     "meta": {
         "versionId": "138087"
     },
     "parameter": [
         {
             "name": "id",
-            "valueString": "2a369d08-e396-413a-9b2e-96b217b7f599"
+            "valueString": "560c7c61-2c70-4c54-b86d-c53a9d29495e"
         },
         {
             "name": "startTime",
@@ -219,7 +219,7 @@ If you need to cancel a reindex job, use a `DELETE` call and specify the reindex
 
 ## Performance considerations
 
-A reindex job can be quite performance intensive. The FHIR service offers some throttling controls to help you manage how a reindex job will run on your database.
+A reindex job can be quite performance intensive. The FHIR service offers some throttling controls to help you manage how a reindex job run on your database.
 
 > [!NOTE]
 > It is not uncommon on large datasets for a reindex job to run for days.
@@ -228,7 +228,7 @@ Below is a table outlining the available parameters, defaults, and recommended r
 
 | **Parameter**                     | **Description**              | **Default**        | **Available Range**            |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
-| `QueryDelayIntervalInMilliseconds`  | The delay between each batch of resources being kicked off during the reindex job. A smaller number will speed up the job while a larger number will slow it down. | 500 MS (.5 seconds) | 50 to 500000 |
+| `QueryDelayIntervalInMilliseconds`  | The delay between each batch of resources being kicked off during the reindex job. A smaller number speeds up the job while a larger number slows it down. | 500 MS (.5 seconds) | 50 to 500000 |
 | `MaximumResourcesPerQuery`  | The maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-5000 |
 | `MaximumConcurrency`  | The number of batches done at a time.  | 1 | 1-10 |
 
