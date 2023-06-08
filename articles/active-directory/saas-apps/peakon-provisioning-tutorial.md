@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Peakon automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Peakon automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Peakon .
 services: active-directory
 author: twimmers

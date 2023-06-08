@@ -1,9 +1,10 @@
 ---
-title: Access Azure Blob Storage using Azure Databricks and Azure Key Vault #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
-description: In this tutorial, you'll learn how to access Azure Blob Storage from Azure Databricks using a secret stored in Azure Key Vault #Required; article description that is displayed in search results. Include the word "tutorial".
-author: msmbaldwin #Required; your GitHub user alias, with correct capitalization.
-ms.author: mbaldwin #Required; microsoft alias of author; optional team alias.
-ms.service: key-vault #Required; service per approved list. service slug assigned to your service by ACOM.
+title: Access Azure Blob Storage using Azure Databricks and Azure Key Vault
+description: In this tutorial, you'll learn how to access Azure Blob Storage from Azure Databricks using a secret stored in Azure Key Vault
+author: msmbaldwin
+ms.author: mbaldwin
+ms.service: key-vault
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 01/20/2023
 ---

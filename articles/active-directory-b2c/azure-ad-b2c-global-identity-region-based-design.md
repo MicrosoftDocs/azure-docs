@@ -104,7 +104,7 @@ This use case demonstrates how a user can travel across regions and maintain the
 
 ### Local user forgot password
 
-This use case demonstrates how a user can reset their password when they are within their home country.
+This use case demonstrates how a user can reset their password when they are within their home country/region.
 
 ![Screenshot shows the local user forgot password flow.](media/azure-ad-b2c-global-identity-regional-design/local-user-forgot-password.png)
 

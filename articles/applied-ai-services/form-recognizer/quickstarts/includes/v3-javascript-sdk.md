@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
@@ -17,11 +16,11 @@ recommendations: false
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
+* [**General document**](#general-document-model)—Analyze and extract key-value pairs, and selection marks from documents.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pretrained invoice model.
 
 ## Prerequisites
 
@@ -40,8 +39,8 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
 
 ## Set up
 
@@ -80,8 +79,8 @@ In this quickstart you'll, use the following features to analyze and extract dat
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item index.js**.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=setup)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=setup) -->
 
 ## Build your application
 
@@ -102,7 +101,7 @@ To interact with the Form Recognizer service, you need to create an instance of 
 
 ## General document model
 
-Extract text, tables, structure, key-value pairs, and named entities from documents.
+Extract text, tables, structure, and key-value pairs from documents.
 
 > [!div class="checklist"]
 >
@@ -161,8 +160,8 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-general-document) -->
 
 ### General document model output
 
@@ -184,12 +183,6 @@ Key-Value Pairs:
   Value: "Common Stock, $0.00000625 par value per share" (0.748)
 - Key  : "Outstanding as of April 24, 2020"
   Value: "7,583,440,247 shares" (0.838)
-Entities:
-- "$0.00000625" Quantity - Currency (0.8)
-- "MSFT" Organization - <none> (0.99)
-- "NASDAQ" Organization - StockExchange (0.99)
-- "2.125%" Quantity - Percentage (0.8)
-- "2021" DateTime - DateRange (0.8)
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-general-document-output.md)
@@ -269,8 +262,8 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-layout)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-layout) -->
 
 ### Layout model output
 
@@ -308,12 +301,13 @@ In this example, we analyze an invoice using the **prebuilt-invoice** model.
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
       const key = "<your-key>";
       const endpoint = "<your-endpoint>";
-
+// sample document
+    invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
 async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrlLayout);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
 
     const {
         pages,
@@ -361,8 +355,8 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt) -->
 
 ### Prebuilt model output
 

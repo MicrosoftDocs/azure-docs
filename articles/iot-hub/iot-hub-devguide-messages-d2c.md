@@ -3,11 +3,11 @@ title: Understand Azure IoT Hub message routing
 titleSuffix: Azure IoT Hub
 description: This article describes how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and non-telemetry data.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 02/22/2023
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: concept-article
+ms.date: 02/22/2023
 ms.custom: ['Role: Cloud Development', devx-track-csharp]
 ---
 
@@ -168,7 +168,7 @@ For example, if a route is created with the data source set to **Device Twin Cha
 
 ### Limitations for device connection state events
 
-Device connection state events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS won't trigger device connection state notifications. For IoT Hub to start sending device connection state events, after opening a connection a device must call either the *cloud-to-device receive message* operation or the *device-to-cloud send telemetry* operation. Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging [topics](iot-hub-mqtt-support.md). Over AMQP these operations equate to attaching or transferring a message on the [appropriate link paths](iot-hub-amqp-support.md).
+Device connection state events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS won't trigger device connection state notifications. For IoT Hub to start sending device connection state events, after opening a connection a device must call either the *cloud-to-device receive message* operation or the *device-to-cloud send telemetry* operation. Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging [topics](../iot/iot-mqtt-connect-to-iot-hub.md). Over AMQP these operations equate to attaching or transferring a message on the [appropriate link paths](iot-hub-amqp-support.md).
 
 IoT Hub doesn't report each individual device connect and disconnect, but rather publishes the current connection state taken at a periodic, 60-second snapshot. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state during the 60-second window.
 

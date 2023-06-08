@@ -62,13 +62,15 @@ The example below defines logging based on the following rules:
 + For logs of `Host.Results` or `Function`, only log events at `Error` or a higher level.
 + For logs of `Host.Aggregator`, log all generated metrics (`Trace`).
 + For all other logs, including user logs, log only `Information` level and higher events.
++ For `fileLoggingMode` the default is `debugOnly`. The value `always` should only be used for short periods of time to review logs in the filesystem. Revert this setting when you are done debugging. 
+
 
 # [v2.x+](#tab/v2)
 
 ```json
 {
   "logging": {
-    "fileLoggingMode": "always",
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "default": "Information",
       "Host.Results": "Error",
@@ -307,7 +309,7 @@ Function apps are an essential part of solutions that can cause high volumes of 
 
 The generated telemetry can be consumed in real-time dashboards, alerting, detailed diagnostics, and so on. Depending on how the generated telemetry is going to be consumed, you'll need to define a strategy to reduce the volume of data generated. This strategy will allow you to properly monitor, operate, and diagnose your function apps in production. You can consider the following options:
 
-+ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still a get high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
++ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still get a high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
 
 + **Default log level**: Use `Warning` or `Error` as the default value for all telemetry categories. Now, you can decide which [categories](#configure-categories) you want to set at `Information` level so that you can monitor and diagnose your functions properly.
 

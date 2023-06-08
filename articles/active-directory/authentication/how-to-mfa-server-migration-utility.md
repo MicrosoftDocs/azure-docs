@@ -1,16 +1,16 @@
 ---
-title: How to use the MFA Server Migration Utility to migrate to Azure AD MFA - Azure Active Directory
+title: How to use the MFA Server Migration Utility to migrate to Azure AD MFA
 description: Step-by-step guidance to migrate MFA server settings to Azure AD using the MFA Server Migration Utility.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 05/01/2023
 
 ms.author: justinha
 author: justinha
-manager: martinco
+manager: amycolannino
 ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
@@ -24,6 +24,12 @@ This topic covers how to migrate MFA settings for Azure Active Directory (Azure 
 The MFA Server Migration Utility helps synchronize multifactor authentication data stored in the on-premises Azure MFA Server directly to Azure AD MFA. 
 After the authentication data is migrated to Azure AD, users can perform cloud-based MFA seamlessly without having to register again or confirm authentication methods. 
 Admins can use the MFA Server Migration Utility to target single users or groups of users for testing and controlled rollout without having to make any tenant-wide changes.
+
+## Video: How to use the MFA Server Migration Utility
+
+Take a look at our video for an overview of the MFA Server Migration Utility and how it works.
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RW11N1N]
 
 ## Limitations and requirements
 
@@ -174,7 +180,7 @@ You'll also need access to the following URLs:
 - `https://graph.microsoft.com/*` (or `https://graph.microsoft.us/*` for government cloud customers)
 - `https://login.microsoftonline.com/*` (or `https://login.microsoftonline.us/*` for government cloud customers)
 
-The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Azure AD portal, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
+The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Azure portal, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/permissions.png" alt-text="Screenshot of permissions.":::
 
@@ -185,22 +191,29 @@ Once complete, navigate to the Multi-factor Authentication Server folder, and op
 You've successfully installed the Migration Utility.
 
 >[!NOTE]
-> To ensure no changes in behavior during migration, if your MFA Server is associated with an MFA Provider with no tenant reference, you'll need to update the default MFA settings (e.g. custom greetings) for the tenant you're migrating to match the settings in your MFA Provider. We recommend doing this before migrating any users.
+> To ensure no changes in behavior during migration, if your MFA Server is associated with an MFA Provider with no tenant reference, you'll need to update the default MFA settings (such as custom greetings) for the tenant you're migrating to match the settings in your MFA Provider. We recommend doing this before migrating any users.
+
+### Run a secondary MFA Server (optional)
+
+If your MFA Server implementation has a large number of users or a busy primary MFA Server, you may want to consider deploying a dedicated secondary MFA Server for running the MFA Server Migration Utility and Migration Sync services. After upgrading your primary MFA Server, either upgrade an existing secondary server or deploy a new secondary server. The secondary server you choose should not be handling other MFA traffic. 
+
+The Configure-MultiFactorAuthMigrationUtility.ps1 script should be run on the secondary server to register a certificate with the MFA Server Migration Utility app registration. The certificate is used to authenticate to Microsoft Graph. Running the Migration Utility and Sync services on a secondary MFA Server should improve performance of both manual and automated user migrations.
+
 
 ### Migrate user data
 Migrating user data doesn't remove or alter any data in the Multi-Factor Authentication Server database. Likewise, this process won't change where a user performs MFA. This process is a one-way copy of data from the on-premises server to the corresponding user object in Azure AD.
 
 The MFA Server Migration utility targets a single Azure AD group for all migration activities. You can add users directly to this group, or add other groups. You can also add them in stages during the migration.
 
-To begin the migration process, enter the name or GUID of the Azure AD group you want to migrate. Once complete, press Tab or click outside the window and the utility will begin searching for the appropriate group. The window will populate all users in the group. A large group can take several minutes to finish.
+To begin the migration process, enter the name or GUID of the Azure AD group you want to migrate. Once complete, press Tab or click outside the window to begin searching for the appropriate group. All users in the group are populated. A large group can take several minutes to finish.
 
 To view attribute data for a user, highlight the user, and select **View**:
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/view-user.png" alt-text="Screenshot of how to view use settings.":::
 
-This window displays the attributes for the selected user in both Azure AD and the on-premises MFA Server. You can use this window to view how data was written to a user after they’ve been migrated.
+This window displays the attributes for the selected user in both Azure AD and the on-premises MFA Server. You can use this window to view how data was written to a user after migration.
 
-The settings option allows you to change the settings for the migration process:
+The **Settings** option allows you to change the settings for the migration process:
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/settings.png" alt-text="Screenshot of settings.":::
 
@@ -209,17 +222,21 @@ The settings option allows you to change the settings for the migration process:
   - The migration utility tries direct matching to UPN before using the on-premises Active Directory attribute.  
   - If no match is found, it calls a Windows API to find the Azure AD UPN and get the SID, which it uses to search the MFA Server user list. 
   - If the Windows API doesn’t find the user or the SID isn’t found in the MFA Server, then it will use the configured Active Directory attribute to find the user in the on-premises Active Directory, and then use the SID to search the MFA Server user list.
-- Automatic synchronization – Starts a background service that will continually monitor any authentication method changes to users in the on-premises MFA Server, and write them to Azure AD at the specified time interval defined
+- Automatic synchronization – Starts a background service that will continually monitor any authentication method changes to users in the on-premises MFA Server, and write them to Azure AD at the specified time interval defined.
+- Synchronization server – Allows the MFA Server Migration Sync service to run on a secondary MFA Server rather than only run on the primary. To configure the Migration Sync service to run on a secondary server, the `Configure-MultiFactorAuthMigrationUtility.ps1` script must be run on the server to register a certificate with the MFA Server Migration Utility app registration. The certificate is used to authenticate to Microsoft Graph. 
 
-The migration process can be an automatic process, or a manual process.
+The migration process can be automatic or manual.
 
 The manual process steps are:
 
 1. To begin the migration process for a user or selection of multiple users, press and hold the Ctrl key while selecting each of the user(s) you wish to migrate. 
 1. After you select the desired users, click **Migrate Users** > **Selected users** > **OK**.
 1. To migrate all users in the group, click **Migrate Users** > **All users in AAD group** > **OK**.
+1. You can migrate users even if they are unchanged. By default, the utility is set to **Only migrate users that have changed**. Click **Migrate all users** to re-migrate previously migrated users that are unchanged. Migrating unchanged users can be useful during testing if an administrator needs to reset a user’s Azure MFA settings and wants to re-migrate them.
 
-For the automatic process, click **Automatic synchronization** in the settings dialog, and then select whether you want all users to be synced, or only members of a given Azure AD group.
+   :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/migrate-users.png" alt-text="Screenshot of Migrate users dialog.":::
+
+For the automatic process, click **Automatic synchronization** in **Settings**, and then select whether you want all users to be synced, or only members of a given Azure AD group.
 
 The following table lists the sync logic for the various methods.
 

@@ -20,7 +20,7 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 
 - [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 - [Azure Maps Creator resource](how-to-manage-creator.md)
-- [Subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+- [Subscription key](quick-demo-map-app.md#get-the-subscription-key-for-your-account).
 - [Map configuration][mapConfiguration] alias or ID. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
 
 You'll need the map configuration `alias` (or `mapConfigurationId`) to render indoor maps with custom styles via the Azure Maps Indoor Maps module.
@@ -32,8 +32,8 @@ You can install and embed the *Azure Maps Indoor* module in one of two ways.
 To use the globally hosted Azure Content Delivery Network version of the *Azure Maps Indoor* module, reference the following JavaScript and Style Sheet references in the `<head>` element of the HTML file:
 
 ```html
-<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
-<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.2/atlas-indoor.min.css" type="text/css"/>
+<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.2/atlas-indoor.min.js"></script>
 ```
 
  Or, you can download the *Azure Maps Indoor* module. The *Azure Maps Indoor* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor* module into your web application.  
@@ -64,7 +64,7 @@ Next, instantiate a *Map object* with the map configuration object set to the `a
 The *Map object* will be used in the next step to instantiate the *Indoor Manager* object. The code below shows you how to instantiate the *Map object* with `mapConfiguration`, `styleAPIVersion` and map domain set:
 
 ```javascript
-const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
+const subscriptionKey = "<Your Azure Maps Subscription Key>";
 const region = "<Your Creator resource region: us or eu>"  
 const mapConfiguration = "<map configuration alias or ID>"  
 atlas.setDomain(`${region}.atlas.microsoft.com`);
@@ -154,7 +154,7 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 5. Set the map domain with a prefix matching a location of your Creator resource: `atlas.setDomain('us.atlas.microsoft.com');` if your Creator resource has been created in US region, or `atlas.setDomain('eu.atlas.microsoft.com');` if your Creator resource has been created in EU region.
 
 6. Initialize a *Map object*. The *Map object* supports the following options:
-    - `Subscription key` is your Azure Maps primary subscription key.
+    - `Subscription key` is your Azure Maps subscription key.
     - `center` defines a latitude and longitude for your indoor map center location. Provide a value for `center` if you don't want to provide a value for `bounds`. Format should appear as `center`: [-122.13315, 47.63637].
     - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you don't want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](/rest/api/maps/v2/tileset/list). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [# west, # south, # east, # north].
     - `mapConfiguration` the ID or alias of the map configuration that defines the custom styles you want to display on the map, use the map configuration ID or alias from step 1.
@@ -180,10 +180,10 @@ Your file should now look similar to the HTML below.
       <title>Indoor Maps App</title>
       
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.2/atlas-indoor.min.css" type="text/css"/>
 
       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-      <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+      <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.2/atlas-indoor.min.js"></script>
         
       <style>
         html,

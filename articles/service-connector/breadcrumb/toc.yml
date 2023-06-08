@@ -14,6 +14,9 @@
   - name: Service Connector
     tocHref: /rest/api/serviceconnector
     topicHref: /azure/service-connector/index
+  - name: Service Connector
+    tocHref: /azure/azure-app-configuration/
+    topicHref: /azure/service-connector/index
 - name: Azure
   tocHref: /rest/
   topicHref: /azure/index

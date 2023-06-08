@@ -27,9 +27,11 @@ For more information about adding lab plans to Microsoft Teams, see [Configure M
 
 ## Prerequisites
 
-- An Azure Lab Services lab plan. If you don't have a lab plan yet, see For information, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
+
 - The Azure Lab Services Teams app is added to your Teams channel. Learn how to [configure Teams for Azure Lab Services](./how-to-configure-teams-for-lab-plans.md).
-- To create and manage labs, your account should have the Lab Creator, or Lab Contributor role on the lab plan.
 
 ## Create a lab in Teams
 

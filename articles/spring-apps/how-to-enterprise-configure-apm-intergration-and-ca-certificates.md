@@ -1,6 +1,6 @@
 ---
 title: How to configure APM integration and CA certificates
-titleSuffix: Azure Spring Apps Enterprise tier
+titleSuffix: Azure Spring Apps Enterprise plan
 description: How to configure APM integration and CA certificates
 author: karlerickson
 ms.author: fenzho
@@ -15,17 +15,17 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to configure application performance monitor (APM) integration and certificate authority (CA) certificates in Azure Spring Apps Enterprise tier.
+This article shows you how to configure application performance monitor (APM) integration and certificate authority (CA) certificates in the Azure Spring Apps Enterprise plan.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
 ## Supported scenarios - APM and CA certificates integration
 
-Azure Spring Apps Enterprise tier uses buildpack bindings to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other Cloud Native Buildpack like [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates).
+The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other Cloud Native Buildpack like [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates).
 
 Currently, the following APM types and CA certificates are supported:
 
@@ -56,7 +56,6 @@ The following languages are supported:
 The following list shows the required environment variables:
 
 - `connection-string`
-- `sampling-percentage`
 
 Upper-case keys are allowed, and you can also replace `_` with `-`.
 
@@ -135,7 +134,7 @@ For other supported environment variables, see [AppDynamics Environment Variable
 
 CA certificates use [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates) to support providing CA certificates to the system trust store at build and runtime.
 
-In Azure Spring Apps Enterprise tier, the CA certificates will use the **Public Key Certificates** tab on the **TLS/SSL settings** page in the Azure portal, as shown in the following screenshot:
+In the Azure Spring Apps Enterprise plan, the CA certificates will use the **Public Key Certificates** tab on the **TLS/SSL settings** page in the Azure portal, as shown in the following screenshot:
 
 :::image type="content" source="media/how-to-enterprise-build-service/public-key-certificates.png" alt-text="Screenshot of Azure portal showing the public key certificates in SSL/TLS setting page." lightbox="media/how-to-enterprise-build-service/public-key-certificates.png":::
 

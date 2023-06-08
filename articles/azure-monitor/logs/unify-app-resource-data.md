@@ -26,7 +26,7 @@ You can modify the listed applications at any time in the portal by navigating t
 >[!NOTE]
 >This method can’t be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or with a Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
 
-The `withsource= SourceApp` command adds a column to the results that designates the application that sent the log. The parse operator is optional in this example and uses to extracts the application name from SourceApp property. 
+The `withsource= SourceApp` command adds a column to the results that designates the application that sent the log. The parse operator is optional in this example and used to extract the application name from SourceApp property. 
 
 ```
 union withsource=SourceApp 

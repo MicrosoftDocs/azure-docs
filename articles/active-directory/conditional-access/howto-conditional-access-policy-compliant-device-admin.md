@@ -1,5 +1,5 @@
 ---
-title: Require administrators use compliant or hybrid joined devices - Azure Active Directory
+title: Require administrators use compliant or hybrid joined devices
 description: Create a custom Conditional Access policy to require compliant or hybrid joined devices for admins
 
 services: active-directory
@@ -42,6 +42,7 @@ Microsoft recommends you require enable this policy for the following roles at a
 
 Organizations can choose to include or exclude roles as they see fit.
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 [!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]

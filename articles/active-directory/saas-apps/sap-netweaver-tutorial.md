@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver | Microsoft Docs'
+title: 'Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP NetWeaver.
 services: active-directory
 author: jeevansd
@@ -159,7 +159,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. SAP NetWeaver application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![edit attribue](common/edit-attribute.png)
+	![edit attribute](common/edit-attribute.png)
 
 1. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 

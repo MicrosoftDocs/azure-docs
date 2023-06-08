@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Whimsical | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Whimsical'
 description: Learn how to configure single sign-on between Azure Active Directory and Whimsical.
 services: active-directory
 author: jeevansd
@@ -134,15 +134,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Whimsical SSO
 
-1. To automate the configuration within Whimsical, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up Whimsical** will direct you to the Whimsical application. From there, provide the admin credentials to sign into Whimsical. The browser extension will automatically configure the application for you and automate steps 3-4.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Whimsical manually, in a different web browser window, sign in to your Whimsical company site as an administrator.
+1. In a different web browser window, sign in to your Whimsical company site as an administrator
 
 4. To configure single sign-on on the **Whimsical** side, you need to upload the **Federation Metadata XML** you just downloaded to your [workspace settings](https://whimsical.com/workspace/settings).
 

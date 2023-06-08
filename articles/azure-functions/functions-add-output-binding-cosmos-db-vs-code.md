@@ -5,7 +5,7 @@ ms.date: 02/09/2023
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp, javascript, python
-ms.custom: mode-ui, vscode-azure-extension-update-completed, ignite-2022
+ms.custom: mode-ui, vscode-azure-extension-update-completed, ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
@@ -222,7 +222,7 @@ A binding is added to the `bindings` array in your *function.json*, which should
 
 # [v2](#tab/v2)
 
-Binding attributes are defined directly in the *function_app.py* file. You use the `cosmos_db_output` decorator to add an [Azure Cosmos DB output binding](/azure/azure-functions/functions-bindings-triggers-python#azure-cosmos-db-output-binding):
+Binding attributes are defined directly in the *function_app.py* file. You use the `cosmos_db_output` decorator to add an [Azure Cosmos DB output binding](./functions-bindings-triggers-python.md#azure-cosmos-db-output-binding):
 
 ```python
 @app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", 
@@ -489,10 +489,10 @@ You've updated your HTTP triggered function to write JSON documents to an Azure 
 ::: zone pivot="programming-language-javascript"  
 + [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
-+ [Azure Functions JavaScript developer guide](functions-reference-node.md)  
++ [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
 
-+ [Azure Functions Python developer guide](functions-reference-node.md)  
-::: zone-end  
++ [Azure Functions Python developer guide](functions-reference-python.md)  
+::: zone-end

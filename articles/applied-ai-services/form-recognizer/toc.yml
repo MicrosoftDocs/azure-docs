@@ -4,15 +4,25 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Form Recognizer?
+  - name: 🆕 What is Azure Form Recognizer?
     displayName: models, develop, development
     href: overview.md
+  - name: 🆕 Choose a model
+    href: choose-model-feature.md
   - name: Form Recognizer Studio
     displayName: get started
     href: form-recognizer-studio-overview.md
   - name: Form Recognizer SDK
-    displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, preview, beta, package, version,AzureKeyCredential, Azure key credential, key, endpoint
-    href: sdk-overview.md
+    items:
+      - name: Public preview
+        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, package, version,AzureKeyCredential, Azure key credential, key, endpoint
+        href: sdk-preview.md
+      - name: General availability
+        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, preview, beta, package, version,AzureKeyCredential, Azure key credential, key, endpoint
+        href: sdk-overview.md
+      - name: Changelog and release history
+        displayName: latest, update, beta, package, preview, version
+        href: changelog-release-history.md  
   - name: Language support
     displayName: locale, handwritten, handwriting, text, detect, detection
     href: language-support.md
@@ -32,7 +42,7 @@ items:
   items:
     - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
-      href: quickstarts/try-form-recognizer-studio.md
+      href: quickstarts/try-v3-form-recognizer-studio.md
     - name: "Get started with Form Recognizer"
       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
@@ -58,10 +68,16 @@ items:
     href:  create-sas-tokens.md
   - name: Custom models
     items:
-    - name: Build a custom model
+    - name: Build a custom extraction model
       displayName: tables, labels, ocr, input, train, training, sets, testing
       href: how-to-guides/build-a-custom-model.md
-    - name: Compose custom models
+    - name: 🆕 Build a custom classification model (preview)
+      displayName: custom, classifier, splitter
+      href: how-to-guides/build-a-custom-classifier.md
+    - name: Project sharing with custom models
+      displayName: project, share, sharing
+      href: how-to-guides/project-share-custom-models.md  
+    - name: Compose custom extraction models
       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
       href: how-to-guides/compose-custom-models.md
     - name: Deploy the sample-labeling tool
@@ -136,6 +152,12 @@ items:
     href: concept-model-overview.md
   - name: Form Recognizer Studio
     href: concept-form-recognizer-studio.md
+  - name: Accuracy and confidence scores
+    displayName: tables, labels, ocr, performance, signatures
+    href: concept-accuracy-confidence.md
+  - name: Analyze document API response
+    displayName: words, lines, pages, bounding regions, documents
+    href: concept-analyze-document-response.md
   - name: Read OCR model
     displayName: text
     href: concept-read.md
@@ -145,6 +167,15 @@ items:
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
+  - name: 🆕 Query field extraction (preview)
+    displayName: queries, fields, OpenAI, chat
+    href: concept-query-fields.md
+  - name: 🆕 Add-on capabilities (preview)
+    displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
+    href: concept-add-on-capabilities.md
+  - name: 🆕 Health insurance card model
+    displayName: health, proof, hospital
+    href: concept-insurance-card.md
   - name: W-2 form model
     displayName: wages, taxes, salary, employees
     href: concept-w2.md
@@ -162,7 +193,7 @@ items:
     href: concept-business-card.md
   - name: Custom models
     items:
-    - name: Custom model
+    - name: Custom model overview
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
     - name: Custom template model
@@ -171,21 +202,18 @@ items:
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-neural.md
-    - name: Create labeled datasets
+    - name: 🆕 Custom classification model (preview)
+      displayName: custom, train, classification, splitting
+      href: concept-custom-classifier.md
+    - name: Custom labels
       displayName: structure, selection, labels, tables, tabular, train
       href: concept-custom-label.md
-    - name: Labeling tips and pointers
+    - name: Custom labeling tips
       displayName: structure, selection, labels, tables, tabular, train, tips
       href: concept-custom-label-tips.md
     - name: Composed models
       displayName: custom, assign, modelId, model ID
       href:  concept-composed-models.md
-  - name: Accuracy and confidence scores
-    displayName: tables, labels, ocr, performance, signatures
-    href: concept-accuracy-confidence.md
-  - name: Analyze document API response
-    displayName: words, lines, pages, bounding regions, documents
-    href: concept-analyze-document-response.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Azure Logic Apps

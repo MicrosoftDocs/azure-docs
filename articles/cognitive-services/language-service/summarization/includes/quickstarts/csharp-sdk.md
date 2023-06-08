@@ -27,15 +27,18 @@ Use this quickstart to create a text summarization application with the client l
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint.  After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Summarization&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Setting up
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+
 
 ### Create a new .NET Core application
 
@@ -51,12 +54,11 @@ Install the client library by right-clicking on the solution in the **Solution E
 
 ---
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Summarization&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 
 ## Code example
 
-Copy the following code into your *program.cs* file. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
+Copy the following code into your *program.cs* file. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
@@ -73,8 +75,12 @@ namespace Example
 {
     class Program
     {
-        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
-        private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
+        // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+        static string languageKey = Environment.GetEnvironmentVariable("LANGUAGE_KEY");
+        static string languageEndpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
+
+        private static readonly AzureKeyCredential credentials = new AzureKeyCredential(languageKey);
+        private static readonly Uri endpoint = new Uri(languageEndpoint);
 
         // Example method for summarizing text
         static async Task TextSummarizationExample(TextAnalyticsClient client)
@@ -321,5 +327,4 @@ Aspect: resolution
 
 ---
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+

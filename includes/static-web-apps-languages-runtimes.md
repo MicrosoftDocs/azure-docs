@@ -20,7 +20,7 @@ To configure the API language runtime version, set the `apiRuntime` property in 
 | Node.js 18.x <br>(public preview) | Linux | 4.x | `node:18` | - |
 | Python 3.8 | Linux | 4.x | `python:3.8` | - |
 | Python 3.9 | Linux | 4.x | `python:3.9` | - |
-| Python 3.10 <br>(public preview) | Linux | 4.x | `python:3.10` | - |
+| Python 3.10 | Linux | 4.x | `python:3.10` | - |
 
 ### .NET
 

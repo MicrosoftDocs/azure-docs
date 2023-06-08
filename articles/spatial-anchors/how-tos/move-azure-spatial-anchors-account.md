@@ -8,7 +8,7 @@ services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 04/07/2022
 ms.topic: how-to
-ms.custom: subject-moving-resources
+ms.custom: subject-moving-resources, devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-spatial-anchors
 #Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region.
 ---

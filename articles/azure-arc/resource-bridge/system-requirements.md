@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge (preview) system requirements
 description: Learn about system requirements for Azure Arc resource bridge (preview).
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 03/23/2023
 ---
 
 # Azure Arc resource bridge (preview) system requirements
@@ -18,6 +18,9 @@ Arc resource bridge is used with other partner products, such as [Azure Stack HC
 If you're deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required.
 
 If you're deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
+
+
+Arc Appliance CLI extension, 'arcappliance', needs to be installed on the CLI. This can be done by running: `az extension add --name arcappliance`
 
 ## Minimum resource requirements
 
@@ -42,14 +45,14 @@ The management machine has the following requirements:
 
 - [Azure CLI x64](/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed.
 - Open communication to Control Plane IP (`controlplaneendpoint` parameter in `createconfig` command).
-- Open communication to Appliance VM IP (`k8snodeippoolstart` parameter in `createconfig` command).
-- Open communication to the reserved Appliance VM IP for upgrade (`k8snodeippoolend` parameter in `createconfig` command).
+- Open communication to Appliance VM IP (`k8snodeippoolstart` parameter in `createconfig` command. May be referred to in partner products as Start Range IP, RB IP Start or VM IP 1).
+- Open communication to the reserved Appliance VM IP for upgrade (`k8snodeippoolend` parameter in `createconfig` command. (May be referred to as End Range IP, RB IP End or VM IP 2).
 - Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
 - If using a proxy, the proxy server configuration on the management machine must allow the machine to have internet access and to connect to [required URLs](network-requirements.md#outbound-connectivity) needed for deployment, such as the URL to download OS images.
 
 ## Appliance VM requirements
 
-Arc resource bridge consists of an appliance VM that is deployed on-premises. The appliance VM has visibility into the on-premises infrastructure and can tag on-premises resources (guest management) for availability in Azure Resource Manager (ARM). The appliance VM is assigned an IP address from the `k8snodeippoolstart` parameter in the `createconfig` command.  
+Arc resource bridge consists of an appliance VM that is deployed on-premises. The appliance VM has visibility into the on-premises infrastructure and can tag on-premises resources (guest management) for projection into Azure Resource Manager (ARM). The appliance VM is assigned an IP address from the `k8snodeippoolstart` parameter in the `createconfig` command (May be referred to in partner products as Start Range IP, RB IP Start or VM IP 1).  
 
 The appliance VM has the following requirements:
 
@@ -63,7 +66,7 @@ The appliance VM has the following requirements:
 
 ## Reserved appliance VM IP requirements
 
-Arc resource bridge reserves an additional IP address to be used for the appliance VM upgrade. During upgrade, a new appliance VM is created with the reserved appliance VM IP. Once the new appliance VM is created, the old appliance VM is deleted, and its IP address becomes reserved for a future upgrade. The reserved appliance VM IP is assigned an IP address from the `k8snodeippoolend` parameter in the `az arcappliance createconfig` command.  
+Arc resource bridge reserves an additional IP address to be used for the appliance VM upgrade. During upgrade, a new appliance VM is created with the reserved appliance VM IP. Once the new appliance VM is created, the old appliance VM is deleted, and its IP address becomes reserved for a future upgrade. The reserved appliance VM IP is assigned an IP address from the `k8snodeippoolend` parameter in the `az arcappliance createconfig` command (May be referred to as End Range IP, RB IP End or VM IP 2).  
 
 The reserved appliance VM IP has the following requirements:  
 
@@ -86,9 +89,9 @@ The control plane IP has the following requirements:
 
 ## User account and credentials
 
-Arc resource bridge may require a separate user account with the necessary roles to view and manage resources in the on-premises infrastructure (such as Arc-enabled VMware vSphere or Arc-enabled SCVMM). If so, during creation of the configuration files, the `username` and `password` parameters will be required. The account credentials are then stored in a configuration file locally within the appliance VM.  
+Arc resource bridge may require a separate user account with the necessary roles to view and manage resources in the on-premises infrastructure (ex:  Arc-enabled VMware vSphere). If so, during creation of the configuration files, the `username` and `password` parameters will be required. The account credentials are then stored in a configuration file locally within the appliance VM.  
 
-If the user account is set to periodically change passwords, the credentials must be immediately updated on the resource bridge. This user account may also be set with a lockout policy to protect the on-premises infrastructure, in case the credentials aren't updated and the resource bridge makes multiple attempts to use expired credentials to access the on-premises control center.
+If the user account is set to periodically change passwords, [the credentials must be immediately updated on the resource bridge](maintenance.md#update-credentials-in-the-appliance-vm). This user account may also be set with a lockout policy to protect the on-premises infrastructure, in case the credentials aren't updated and the resource bridge makes multiple attempts to use expired credentials to access the on-premises control center.
 
 For example, with Arc-enabled VMware, Arc resource bridge needs a separate user account for vCenter with the necessary roles. If the [credentials for the user account change](troubleshoot-resource-bridge.md#insufficient-permissions), then the credentials stored in Arc resource bridge must be immediately updated by running `az arcappliance update-infracredentials` from the [management machine](#management-machine-requirements). Otherwise, the appliance will make repeated attempts to use the expired credentials to access vCenter, which will result in a lockout of the account.
 
@@ -100,7 +103,7 @@ There are several different types of configuration files, based on the on-premis
 
 ### Appliance configuration files
 
-Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): resource.yaml, appliance.yaml and infra.yaml.
+Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): \<resourcename\>-resource.yaml, \<resourcename\>-appliance.yaml and \<resourcename\>-infra.yaml.
 
 By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 
@@ -116,49 +119,12 @@ Arc resource bridge uses a MOC login credential called [KVA token](/azure-stack/
 
 To use AKS and Arc resource bridge together on Azure Stack HCI, the AKS cluster must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS can't be deployed unless you delete Arc resource bridge first. Once your AKS cluster is deployed to Azure Stack HCI, you can deploy Arc resource bridge.
 
-The following example shows a network configuration setup for Arc resource bridge and AKS clusters when deployed on Azure Stack HCI. Key details are that Arc resource bridge and AKS share the same switch and `ipaddressprefix`, but require different IP addresses for `vippoolstart/end` and `k8snodeippoolstart/end`.
-
-### AKS hybrid
-
-```
-azurestackhciprovider: 
-   virtualnetwork: 
-      name: "mgmtvnet" 
-      vswitchname: "Default Switch" 
-      type: "Transparent" 
-      macpoolname:  
-      vlanid: 0 
-      ipaddressprefix: 172.16.0.0/16 
-      gateway: 17.16.1.1  
-      dnsservers: 17.16.1.1 
-      vippoolstart: 172.16.255.0 
-      vippoolend: 172.16.255.254 
-      k8snodeippoolstart: 172.16.10.0 
-      k8snodeippoolend: 172.16.10.254  
-```
-
-### Arc resource bridge
-
-```
-azurestackhciprovider: 
-   virtualnetwork: 
-      name: "mgmtvnet" 
-      vswitchname: "Default Switch" 
-      type: "Transparent" 
-      macpoolname:  
-      vlanid: 0 
-      ipaddressprefix: 172.16.0.0/16 
-      gateway: 17.16.1.1 
-      dnsservers: 17.16.0.1 
-      vippoolstart: 172.16.250.0 
-      vippoolend: 172.16.250.254 
-      k8snodeippoolstart: 172.16.30.0 
-      k8snodeippoolend: 172.16.30.254 
-```
-
-For instructions for how to deploy Arc resource bridge on Hybrid AKS, see [How to install Azure Arc Resource Bridge on Windows Server - AKS hybrid](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server). 
+When deploying Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the resource bridge should share the same 'vswitchname' and `ipaddressprefix`, but require different IP addresses for `vippoolstart/end` and `k8snodeippoolstart/end`. Arc resource bridge should be given a unique 'vnetname' that is different from the one used for AKS Hybrid. For full instructions to deploy Arc resource bridge on AKS Hybrid, see [How to install Azure Arc Resource Bridge on Windows Server - AKS hybrid](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server). 
 
 ## Next steps
 
-- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
+- Understand [network requirements for Azure Arc resource bridge (preview)](network-requirements.md).
+- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
+

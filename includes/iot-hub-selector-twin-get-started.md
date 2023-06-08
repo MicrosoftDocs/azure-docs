@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 02/17/2023
 ---
 > [!div class="op_single_selector"]
-> * [CLI](../articles/iot-hub/twin-get-started-cli.md)
-> * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
-> * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
-> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
+> * [CLI](../articles/iot-hub/device-twins-cli.md)
+> * [.NET](../articles/iot-hub/device-twins-dotnet.md)
+> * [Python](../articles/iot-hub/device-twins-python.md)
+> * [Node.js](../articles/iot-hub/device-twins-node.md)
+> * [Java](../articles/iot-hub/device-twins-java.md)
 
 Device twins are JSON documents that store device state information, including metadata, configurations, and conditions. IoT Hub persists a device twin for each device that connects to it.
 

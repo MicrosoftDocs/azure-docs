@@ -50,7 +50,7 @@ The table below summarizes these phone number types:
 | Local (Geographic)        | +1 (local area code) XXX XX XX  | US*                      | Calling (Outbound) | Assigning phone numbers to users in your applications  |
 | Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US*                      | Calling (Outbound), SMS (Inbound/Outbound)| Assigning phone numbers to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
 
-*To find all countries where telephone numbers are available, please refer to [subscription eligibility and number capabilities page](../numbers/sub-eligibility-number-capability.md).
+*To find all countries/regions where telephone numbers are available, please refer to [subscription eligibility and number capabilities page](../numbers/sub-eligibility-number-capability.md).
 
 ### Phone number capabilities in Azure Communication Services
 

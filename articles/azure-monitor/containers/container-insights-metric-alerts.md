@@ -2,7 +2,7 @@
 title: Create metric alert rules in Container insights (preview)
 description: Describes how to create recommended metric alerts rules for a Kubernetes cluster in Container insights.
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 03/13/2023
 ms.reviewer: aul
 ---
 
@@ -11,7 +11,7 @@ ms.reviewer: aul
 Metric alerts in Azure Monitor proactively identify issues related to system resources of your Azure resources, including monitored Kubernetes clusters. Container insights provides preconfigured alert rules so that you don't have to create your own. This article describes the different types of alert rules you can create and how to enable and configure them.
 
 > [!IMPORTANT]
-> Container insights in Azure Monitor now supports alerts based on Prometheus metrics. If you already use alerts based on custom metrics, you should migrate to Prometheus alerts and disable the equivalent custom metric alerts.
+> Container insights in Azure Monitor now supports alerts based on Prometheus metrics, and metric rules will be retired on March 14, 2026. If you already use alerts based on custom metrics, you should migrate to Prometheus alerts and disable the equivalent custom metric alerts.
 
 ## Types of metric alert rules
 
@@ -20,7 +20,7 @@ There are two types of metric rules used by Container insights based on either P
 | Alert rule type | Description |
 |:---|:---|
 | [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus (preview)](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are handpicked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>- *Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
-| [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. |
+| [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. Metric rules will be retired on March 14, 2026. |
 
 ## Prometheus alert rules
 
@@ -30,21 +30,29 @@ There are two types of metric rules used by Container insights based on either P
 
 Your cluster must be configured to send metrics to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). For more information, see [Collect Prometheus metrics with Container insights](container-insights-prometheus-metrics-addon.md).
 
-### Enable alert rules
+### Enable Prometheus alert rules
 
-The only method currently available for creating Prometheus alert rules is an Azure Resource Manager template (ARM template).
+The methods currently available for creating Prometheus alert rules are Azure Resource Manager template (ARM template) and Bicep template.
+
+> [!NOTE]
+> Although you can create the Prometheus alert in a resource group different from the target resource, you should use the same resource group.
+
+### [ARM template](#tab/arm-template)
 
 1. Download the template that includes the set of alert rules you want to enable. For a list of the rules for each, see [Alert rule details](#alert-rule-details).
 
    - [Community alerts](https://aka.ms/azureprometheus-communityalerts)
    - [Recommended alerts](https://aka.ms/azureprometheus-recommendedalerts)
 
-1. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md#deploy-the-sample-templates).
+2. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md#deploy-the-sample-templates).
 
-> [!NOTE]
-> Although you can create the Prometheus alert in a resource group different from the target resource, use the same resource group as your target resource.
+### [Bicep template](#tab/bicep)
 
-### Edit alert rules
+1. To deploy community and recommended alerts, follow this [template](https://aka.ms/azureprometheus-alerts-bicep) and follow the README.md file in the same folder for how to deploy.
+
+---
+
+### Edit Prometheus alert rules
 
  To edit the query and threshold or configure an action group for your alert rules, edit the appropriate values in the ARM template and redeploy it by using any deployment method.
 
@@ -94,18 +102,19 @@ The configuration change can take a few minutes to finish before it takes effect
 
 ## Metric alert rules
 
-[Metric alert rules](../alerts/alerts-types.md#metric-alerts) use [custom metric data from your Kubernetes cluster](container-insights-custom-metrics.md).
+> [!IMPORTANT]
+> Metric alerts (preview) are retiring and no longer recommended. Please refer to the migration guidance at [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](#migrate-from-metric-rules-to-prometheus-rules-preview).
 
 ### Prerequisites
 
   - You might need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
   - See the supported regions for custom metrics at [Supported regions](../essentials/metrics-custom-overview.md#supported-regions).
 
-### Enable and configure alert rules
+### Enable and configure metric alert rules
 
 #### [Azure portal](#tab/azure-portal)
 
-#### Enable alert rules
+#### Enable metric alert rules
 
 1. On the **Insights** menu for your cluster, select **Recommended alerts**.
 
@@ -119,7 +128,7 @@ The configuration change can take a few minutes to finish before it takes effect
 
     :::image type="content" source="media/container-insights-metric-alerts/select-action-group.png" lightbox="media/container-insights-metric-alerts/select-action-group.png" alt-text="Screenshot that shows selecting an action group.":::
 
-#### Edit alert rules
+#### Edit metric alert rules
 
 To edit the threshold for a rule or configure an [action group](../alerts/action-groups.md) for your Azure Kubernetes Service (AKS) cluster.
 
@@ -127,7 +136,7 @@ To edit the threshold for a rule or configure an [action group](../alerts/action
 2. Select the **Rule Name** to open the alert rule.
 3. See [Create an alert rule](../alerts/alerts-create-new-alert-rule.md?tabs=metric) for information on the alert rule settings.
 
-#### Disable alert rules
+#### Disable metric alert rules
 
 1. From Container insights for your cluster, select **Recommended alerts**.
 1. Change the status for the alert rule to **Disabled**.
@@ -136,17 +145,24 @@ To edit the threshold for a rule or configure an [action group](../alerts/action
 
 For custom metrics, a separate ARM template is provided for each alert rule.
 
-#### Enable alert rules
+#### Enable metric alert rules
 
 1. Download one or all of the available templates that describe how to create the alert from [GitHub](https://github.com/microsoft/Docker-Provider/tree/ci_dev/alerts/recommended_alerts_ARM).
 1. Create and use a [parameters file](../../azure-resource-manager/templates/parameter-files.md) as a JSON to set the values required to create the alert rule.
 1. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md).
 
-#### Disable alert rules
+#### Disable metric alert rules
 
 To disable custom alert rules, use the same ARM template to create the rule, but change the `isEnabled` value in the parameters file to `false`.
 
 ---
+
+
+## Migrate from metric rules to Prometheus rules (preview)
+If you're using metric alert rules to monitor your Kubernetes cluster, you should transition to Prometheus recommended alert rules (preview) before March 14, 2026 when metric alerts are retired.
+
+1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview).
+2. Follow the steps at [Disable metric alert rules](#disable-metric-alert-rules) to remove metric alert rules from your clusters.
 
 ## Alert rule details
 
@@ -154,24 +170,28 @@ The following sections present information on the alert rules provided by Contai
 
 ### Community alert rules
 
-These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-mixins):
+These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-communityalerts):
 
-- KubeJobNotCompleted
-- KubeJobFailed
-- KubePodCrashLooping
-- KubePodNotReady
-- KubeDeploymentReplicasMismatch
-- KubeStatefulSetReplicasMismatch
-- KubeHpaReplicasMismatch
-- KubeHpaMaxedOut
-- KubeQuotaAlmostFull
-- KubeMemoryQuotaOvercommit
-- KubeCPUQuotaOvercommit
-- KubeVersionMismatch
-- KubeNodeNotReady
-- KubeNodeReadinessFlapping
-- KubeletTooManyPods
-- KubeNodeUnreachable
+| Alert name | Description | Default threshold |
+|:---|:---|:---|
+| NodeFilesystemSpaceFillingUp | An extrapolation algorithm predicts that disk space usage for a node on a device in a cluster will run out of space within the upcoming 24 hours. | NA |
+| NodeFilesystemSpaceUsageFull85Pct | Disk space usage for a node on a device in a cluster is greater than 85%. | 85% |
+| KubePodCrashLooping | Pod is in CrashLoop which means the app dies or is unresponsive and kubernetes tries to restart it automatically. | NA |
+| KubePodNotReady | Pod has been in a non-ready state for more than 15 minutes. | NA |
+| KubeDeploymentReplicasMismatch  | Deployment has not matched the expected number of replicas.  | NA |
+| KubeStatefulSetReplicasMismatch | StatefulSet has not matched the expected number of replicas. | NA |
+| KubeJobNotCompleted | Job is taking more than 1h to complete. | NA |
+| KubeJobFailed | Job failed complete. | NA |
+| KubeHpaReplicasMismatch | Horizontal Pod Autoscaler has not matched the desired number of replicas for longer than 15 minutes. | NA |
+| KubeHpaMaxedOut | Horizontal Pod Autoscaler has been running at max replicas for longer than 15 minutes. | NA |
+| KubeCPUQuotaOvercommit | Cluster has overcommitted CPU resource requests for Namespaces and cannot tolerate node failure. | 1.5 |
+| KubeMemoryQuotaOvercommit | Cluster has overcommitted memory resource requests for Namespaces. | 1.5 |
+| KubeQuotaAlmostFull | Cluster reaches to the allowed limits for given namespace. | Between 0.9 and 1 |
+| KubeVersionMismatch | Different semantic versions of Kubernetes components running. | NA |
+| KubeNodeNotReady | KubeNodeNotReady alert is fired when a Kubernetes node is not in Ready state for a certain period.  | NA |
+| KubeNodeUnreachable | Kubernetes node is unreachable and some workloads may be rescheduled. | NA |
+| KubeletTooManyPods | The alert fires when a specific node is running >95% of its capacity of pods  | 0.95 |
+| KubeNodeReadinessFlapping | The readiness status of node has changed few times in the last 15 minutes. | 2 |
 
 ### Recommended alert rules
 
@@ -187,7 +207,7 @@ Source code for the recommended alerts can be found in [GitHub](https://github.c
 | Average Persistent Volume Usage % | Average Persistent Volume Usage % | Calculates average persistent volume usage per pod. | 80% |
 | Average Working set memory % | Average Working set memory % | Calculates average Working set memory for a node. | 80% |
 | Restarting container count | Restarting container count | Calculates number of restarting containers. | 0 |
-| Failed Pod Counts | Failed Pod Counts | Calculates number of restarting containers. | 0 |
+| Failed Pod Counts | Failed Pod Counts | Calculates number of pods in failed state. | 0 |
 | Node NotReady status | Node NotReady status | Calculates if any node is in NotReady state. | 0 |
 | OOM Killed Containers | OOM Killed Containers | Calculates number of OOM killed containers. | 0 |
 | Pods ready % | Pods ready % | Calculates the average ready state of pods. | 80% |

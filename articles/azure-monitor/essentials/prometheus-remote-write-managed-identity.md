@@ -1,12 +1,12 @@
 ---
-title: Remote-write in Azure Monitor Managed Service for Prometheus using managed identity (preview)
+title: Remote-write in Azure Monitor Managed Service for Prometheus using managed identity
 description: Describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. 
-author: bwren 
+author: EdB-MSFT 
 ms.topic: conceptual
 ms.date: 11/01/2022
 ---
 
-# Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication (preview)
+# Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication
 This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. You either use an existing identity created by AKS or [create one of your own](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Both options are described here.
 
 ## Cluster configurations
@@ -16,10 +16,10 @@ This article applies to the following cluster configurations:
 - Azure Arc-enabled Kubernetes cluster
 
 > [!NOTE]
-> For a Kubernetes cluster running in another cloud or on-premises, see [Azure Monitor managed service for Prometheus remote write - Azure Active Directory (preview)](prometheus-remote-write-active-directory.md).
+> For a Kubernetes cluster running in another cloud or on-premises, see [Azure Monitor managed service for Prometheus remote write - Azure Active Directory](prometheus-remote-write-active-directory.md).
 
 ## Prerequisites
-See prerequisites at [Azure Monitor managed service for Prometheus remote write (preview)](prometheus-remote-write.md#prerequisites).
+See prerequisites at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
 
 ## Locate AKS node resource group
 The node resource group of the AKS cluster contains resources that you will require for other steps in this process. This resource group has the name `MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>`. You can locate it from the **Resource groups** menu in the Azure portal. Start by making sure that you can locate this resource group since other steps below will refer to it.
@@ -94,38 +94,56 @@ This step isn't required if you're using an AKS identity since it will already h
 
 			## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
 			remoteWrite:
-			  - url: 'http://localhost:8081/api/v1/write'
+			- url: 'http://localhost:8081/api/v1/write'
+
+		##	Azure Managed Prometheus currently exports some default mixins in Grafana. 
+		##      These mixins are compatible with Azure Monitor agent on your Azure Kubernetes Service cluster. 
+		##      However, these mixins aren't compatible with Prometheus metrics scraped by the Kube Prometheus stack. 
+		##      In order to make these mixins compatible, uncomment remote write relabel configuration below:
+		
+
+		##	writeRelabelConfigs:
+		##	  - sourceLabels: [metrics_path]
+		##	    regex: /metrics/cadvisor
+		##	    targetLabel: job
+		##	    replacement: cadvisor
+		##	    action: replace
+		##	  - sourceLabels: [job]
+		##	    regex: 'node-exporter'
+		##	    targetLabel: job
+		##	    replacement: node
+		##	    action: replace
 			containers:
-			  - name: prom-remotewrite
-				image: <CONTAINER-IMAGE-VERSION>
-				imagePullPolicy: Always
-				ports:
-				  - name: rw-port
-					containerPort: 8081
-				livenessProbe:
-				  httpGet:
-					path: /health
-					port: rw-port
-				  initialDelaySeconds: 10
-				  timeoutSeconds: 10
-				readinessProbe:
-				  httpGet:
-					path: /ready
-					port: rw-port
-				  initialDelaySeconds: 10
-				  timeoutSeconds: 10
-				env:
-				  - name: INGESTION_URL
-					value: <INGESTION_URL>
-				  - name: LISTENING_PORT
-					value: '8081'
-				  - name: IDENTITY_TYPE
-					value: userAssigned
-				  - name: AZURE_CLIENT_ID
-					value: <MANAGED-IDENTITY-CLIENT-ID>
-				  # Optional parameter
-				  - name: CLUSTER
-					value: <CLUSTER-NAME>
+			- name: prom-remotewrite
+		          image: <CONTAINER-IMAGE-VERSION>
+			  imagePullPolicy: Always
+			  ports:
+			  - name: rw-port
+			    containerPort: 8081
+			  livenessProbe:
+			    httpGet:
+			      path: /health
+			      port: rw-port
+			      initialDelaySeconds: 10
+			      timeoutSeconds: 10
+			  readinessProbe:
+			    httpGet:
+			      path: /ready
+			      port: rw-port
+			      initialDelaySeconds: 10
+			      timeoutSeconds: 10
+			  env:
+			    - name: INGESTION_URL
+			      value: <INGESTION_URL>
+			    - name: LISTENING_PORT
+			      value: '8081'
+			    - name: IDENTITY_TYPE
+			      value: userAssigned
+			    - name: AZURE_CLIENT_ID
+			      value: <MANAGED-IDENTITY-CLIENT-ID>
+			      # Optional parameter
+			    - name: CLUSTER
+			      value: <CLUSTER-NAME>
     ```
 
 
@@ -134,7 +152,7 @@ This step isn't required if you're using an AKS identity since it will already h
     | Value | Description |
     |:---|:---|
     | `<AKS-CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221103.1`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>This is the remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<MANAGED-IDENTITY-CLIENT-ID>` | **Client ID** from the **Overview** page for the managed identity |
     | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
@@ -155,7 +173,7 @@ This step isn't required if you're using an AKS identity since it will already h
     ```
 
 ## Verification and troubleshooting
-See [Azure Monitor managed service for Prometheus remote write (preview)](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
+See [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
 
 ## Next steps
 

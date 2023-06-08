@@ -1,6 +1,6 @@
 ---
 title: Group writeback portal operations (preview) in Azure Active Directory
-description: The access points for group writeback to on-premises Active Directory in the Azure Active Directory admin center.
+description: The access points for group writeback to on-premises Active Directory in the Azure portal.
 keywords:
 author: barclayn
 manager: amycolannino
@@ -18,9 +18,9 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Group writeback in the Azure Active Directory admin center (preview)
+# Group writeback in the Azure portal (preview)
 
-Group writeback is a valuable tool for administrators of Azure Active Directory (Azure AD) tenants being synced with on-premises Active Directory groups. Microsoft is now previewing new capabilities for group writeback for tenants with an Azure AD Premium license and Azure AD Connect version 2021 December release or later. In this preview, once you have [enabled Azure AD Connect group writeback](..//hybrid/how-to-connect-group-writeback-v2.md), you can specify in the Azure AD admin center which groups you want to write back and what you’d like each group to write back as. You can write Microsoft 365 groups back to on-premises Active Directory as Distribution, Mail-enabled Security, or Security groups, and write Security groups back as Security groups. Groups are written back with a scope of universal​.
+Group writeback is a valuable tool for administrators of Azure Active Directory (Azure AD) tenants being synced with on-premises Active Directory groups. Microsoft is now previewing new capabilities for group writeback for tenants with an Azure AD Premium license and Azure AD Connect version 2021 December release or later. In this preview, once you have [enabled Azure AD Connect group writeback](..//hybrid/how-to-connect-group-writeback-v2.md), you can specify in the Azure portal which groups you want to write back and what you’d like each group to write back as. You can write Microsoft 365 groups back to on-premises Active Directory as Distribution, Mail-enabled Security, or Security groups, and write Security groups back as Security groups. Groups are written back with a scope of universal​.
 
 >[!NOTE]
 > If you were previously writing Microsoft 365 groups back to on-premises Active Directory as universal distribution groups, they will appear in the Azure portal as not enabled for writeback in both the **Groups** page and in the properties page for a group. These pages display a new property introduced for the preview, “writeback enabled”. This property is not set by the current version of group writeback to ensure backward compatibility with the legacy version of group writeback and to avoid breaking existing customer setups.
@@ -66,7 +66,7 @@ You can use PowerShell to get a list of writeback enabled group using the follow
 ```powershell-console
 Connect-MgGraph -Scopes @('Group.Read.all')
 Select-MgProfile -Name beta
-PS D:\> Get-MgGroup -All |Where-Object {$_.AdditionalProperties.writebackConfiguration.isEnabled -Like $true} |Select-Object Displayname,@{N="WriteBackEnabled";E={$_.AdditionalProperties.writebackConfiguration.isEnabled}}
+PS D:\> Get-MgGroup -All |Where-Object {$_.writebackConfiguration.isEnabled -Like $true} |Select-Object Displayname,@{N="WriteBackEnabled";E={$_.writebackConfiguration.isEnabled}}
 
 DisplayName WriteBackEnabled
 ----------- ----------------

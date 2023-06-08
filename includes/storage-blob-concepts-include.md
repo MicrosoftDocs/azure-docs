@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 11/07/2022
+ms.date: 03/28/2023
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -30,8 +30,6 @@ Users or client applications can access objects in Blob Storage via HTTP/HTTPS, 
 * [Node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)
 * [Python](../articles/storage/blobs/storage-quickstart-blobs-python.md)
 * [Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob)
-* [PHP](https://azure.github.io/azure-storage-php/)
-* [Ruby](https://azure.github.io/azure-storage-ruby)
 
 Clients can also securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) and mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
 

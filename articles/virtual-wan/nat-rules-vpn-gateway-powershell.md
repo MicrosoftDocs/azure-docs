@@ -5,10 +5,10 @@ description: Learn how to configure NAT rules for your VWAN VPN gateway using Po
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/11/2022
 ms.author: cherylmc
-
 ---
 
 # Configure NAT Rules for your Virtual WAN VPN gateway using PowerShell

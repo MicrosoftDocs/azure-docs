@@ -32,14 +32,21 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Configure the Microsoft Dev Box service
+          - text: Configure Microsoft Dev Box
             url: quickstart-configure-dev-box-service.md
-          - text: Create a Dev Box
-            url: quickstart-create-dev-box.md  
-          - text: Use the Remote Desktop client to connect to a dev box
-            url: quickstart-connect-to-dev-box-with-remote-desktop-app.md
+          - text: Create a dev box
+            url: quickstart-create-dev-box.md
+
   # Card
-  - title: Provide access to dev box
+  - title: Connect to a dev box
+    linkLists:
+      - linkListType: tutorial
+        links:              
+          - text: Configure the Remote Desktop client to connect to a dev box with multiple monitors
+            url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+
+  # Card
+  - title: Provide access to Microsoft Dev Box
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -53,17 +60,17 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure an Azure Compute Gallery
+          - text: Configure Azure Compute Gallery
             url: how-to-configure-azure-compute-gallery.md
-          - text: Provision a custom image with Azure Image Builder
+          - text: Provision a custom image by using Azure VM Image Builder
             url: how-to-customize-devbox-azure-image-builder.md
 
    # Card
-  - title: Reference docs
+  - title: References
     linkLists:
       - linkListType: reference
         links:
-          - text: CLI
+          - text: Azure CLI
             url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
           - text: REST API
             url: https://aka.ms/dev-box/restapidocs

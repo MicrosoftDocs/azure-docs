@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nintex Promapp | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nintex Promapp'
 description: Learn how to configure single sign-on between Azure Active Directory and Nintex Promapp.
 services: active-directory
 author: jeevansd

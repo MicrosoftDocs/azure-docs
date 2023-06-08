@@ -1,5 +1,5 @@
 ---
-title: Two-way SMS no longer supported - Azure Active Directory
+title: Two-way SMS no longer supported
 description: Explains how to enable another method for users who still use two-way SMS. 
 
 services: active-directory

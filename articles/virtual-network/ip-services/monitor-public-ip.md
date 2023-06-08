@@ -7,7 +7,7 @@ ms.author: allensu
 ms.topic: how-to
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.custom: subject-monitoring
+ms.custom: subject-monitoring, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 06/29/2022
 ---
 

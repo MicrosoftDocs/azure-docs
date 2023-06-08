@@ -2,7 +2,8 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
+ms.date: 04/18/2023
 ---
 
 # Bicep CLI commands
@@ -134,18 +135,18 @@ The `publish` command adds a module to a registry. The Azure container registry 
 
 After publishing the file to the registry, you can [reference it in a module](modules.md#file-in-registry).
 
-To use the publish command, you must have Bicep CLI version **0.4.1008 or later**.
+To use the publish command, you must have Bicep CLI version **0.4.1008 or later**. To use the `--documentationUri`/`-d` parameter, you must have Bicep CLI version **0.14.46 or later**.
 
 To publish a module to a registry, use:
 
 ```azurecli
-az bicep publish --file <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag>
+az bicep publish --file <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag> --documentationUri <documentation-uri>
 ```
 
 For example:
 
 ```azurecli
-az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config-modules.md) file. Provide the full module path.
@@ -190,6 +191,12 @@ The local cache is found in:
 
     ```path
     /home/<username>/.bicep
+    ```
+
+- On Mac
+
+    ```path
+    ~/.bicep
     ```
 
 The `restore` command doesn't refresh the cache if a module is already cached. To fresh the cache, you can either delete the module path from the cache or use the `--force` switch with the `restore` command.

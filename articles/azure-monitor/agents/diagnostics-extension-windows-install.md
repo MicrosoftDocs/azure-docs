@@ -6,7 +6,7 @@ author: bwren
 ms.topic: conceptual
 ms.date: 07/12/2022
 ms.author: bwren 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.reviewer: luki
 ---

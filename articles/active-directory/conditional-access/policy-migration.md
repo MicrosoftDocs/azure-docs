@@ -1,5 +1,5 @@
 ---
-title: Migrate Conditional Access policies - Azure Active Directory 
+title: Migrate Conditional Access policies 
 description: Learn what you need to know to migrate classic policies in the Azure portal.
 
 services: active-directory

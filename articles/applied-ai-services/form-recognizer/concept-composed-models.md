@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 # Composed custom models
@@ -38,7 +37,11 @@ With composed models, you can assign multiple custom models to a composed model 
 
 * For ```Custom neural``` models the best practice is to add all the different variations of a single document type into a single training dataset and train on custom neural model. Model compose is best suited for scenarios when you have documents of different types being submitted for analysis.
 
-* Pricing is the same whether you're using a composed model or selecting a specific model. One model analyzes each document. With composed models, the system performs a classification to check which of the composed custom models should be invoked and invokes the single best model for the document.
+::: moniker-end
+
+::: moniker range="form-recog-3.0.0"
+
+With the introduction of [**custom classification models**](./concept-custom-classifier.md), you can choose to use a [**composed model**](./concept-composed-models.md) or [**classification model**](concept-custom-classifier.md) as an explicit step before analysis. For a deeper understanding of when to use a classification or composed model, _see_ [**Custom classification models**](concept-custom-classifier.md#compare-custom-classification-and-composed-models).
 
 ## Compose model limits
 
@@ -57,7 +60,7 @@ With composed models, you can assign multiple custom models to a composed model 
 
 * To compose a model trained with a prior version of the API (v2.1 or earlier), train a model with the v3.0 API using the same labeled dataset. That addition ensures that the v2.1 model can be composed with other models.
 
-* Models composed with v2.1 of the API continue to be supported, requiring no updates.
+* Models composed with v2.1 of the API continues to be supported, requiring no updates.
 
 * The limit for maximum number of custom models that can be composed is 100.
 

@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 04/19/2022
 ms.author: chschrae
 zone_pivot_groups: programming-languages-set-thirteen
-ms.custom: devx-track-cpp, devx-track-csharp, mode-other
+ms.custom: devx-track-cpp, devx-track-csharp, mode-other, devx-track-extended-java
 ---
 
 # How to recognize intents with simple language pattern matching
@@ -31,7 +31,7 @@ In this guide, you use the Speech SDK to develop a C++ console application that 
 ## When to use pattern matching
 
 Use pattern matching if: 
-* You're only interested in matching strictly what the user said. These patterns match more aggressively than [conversational language understanding (CLU)](/azure/cognitive-services/language-service/conversational-language-understanding/overview).
+* You're only interested in matching strictly what the user said. These patterns match more aggressively than [conversational language understanding (CLU)](../language-service/conversational-language-understanding/overview.md).
 * You don't have access to a CLU model, but still want intents. 
 
 For more information, see the [pattern matching overview](./pattern-matching-overview.md).

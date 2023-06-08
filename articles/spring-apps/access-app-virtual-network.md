@@ -1,6 +1,6 @@
 ---
-title:  "Azure Spring Apps access app in virtual network"
-description: Access app in Azure Spring Apps in a virtual network.
+title: Access your application in a private network
+description: Access an app in Azure Spring Apps in a virtual network.
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article explains how to access an endpoint for your application in a private network.
 
@@ -29,7 +29,10 @@ When **Assign Endpoint** on applications in an Azure Spring Apps service instanc
 
 2. In the **Connected devices** search box, enter *kubernetes-internal*.
 
-3. In the filtered result, find the **Device** connected to the service runtime **Subnet** of the service instance, and copy its **IP Address**. In this sample, the IP Address is *10.1.0.7*.
+3. In the filtered result, find the **Device** connected to the **Service Runtime Subnet** of the service instance, and copy its **IP Address**. In this sample, the IP Address is *10.1.0.7*.
+
+   > [!WARNING]
+   > Be sure that the IP Address belongs to **Service Runtime subnet** instead of **Spring Boot microservice apps subnet**. Subnet specifications are provided when you deploy an Azure Spring Apps instance. For more information, see the [Deploy an Azure Spring Apps instance](./how-to-deploy-in-azure-virtual-network.md#deploy-an-azure-spring-apps-instance) section of [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 
    :::image type="content" source="media/spring-cloud-access-app-vnet/create-dns-record.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network, filtered for kubernetes-internal devices, with the IP Address for the service runtime subnet highlighted." lightbox="media/spring-cloud-access-app-vnet/create-dns-record.png":::
 
@@ -37,19 +40,19 @@ When **Assign Endpoint** on applications in an Azure Spring Apps service instanc
 
 Find the IP Address for your Spring Cloud services. Customize the value of your Azure Spring Apps instance name based on your real environment.
 
-   ```azurecli
-   SPRING_CLOUD_NAME='spring-cloud-name'
-   SERVICE_RUNTIME_RG=`az spring show \
-       --resource-group $RESOURCE_GROUP \
-       --name $SPRING_CLOUD_NAME \
-       --query "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
-       --output tsv`
-   IP_ADDRESS=`az network lb frontend-ip list \
-       --lb-name kubernetes-internal \
-       --resource-group $SERVICE_RUNTIME_RG \
-       --query "[0].privateIpAddress" \
-       --output tsv`
-   ```
+```azurecli
+SPRING_CLOUD_NAME='spring-cloud-name'
+SERVICE_RUNTIME_RG=`az spring show \
+    --resource-group $RESOURCE_GROUP \
+    --name $SPRING_CLOUD_NAME \
+    --query "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
+    --output tsv`
+IP_ADDRESS=`az network lb frontend-ip list \
+    --lb-name kubernetes-internal \
+    --resource-group $SERVICE_RUNTIME_RG \
+    --query "[0].privateIpAddress" \
+    --output tsv`
+```
 
 ---
 
@@ -58,7 +61,7 @@ Find the IP Address for your Spring Cloud services. Customize the value of your 
 If you have your own DNS solution for your virtual network, like Active Directory Domain Controller, Infoblox, or another, you need to point the domain `*.private.azuremicroservices.io` to the [IP address](#find-the-ip-for-your-application). Otherwise, you can follow the following instructions to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
 > [!NOTE]
-> If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you're using Azure China, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 ## Create a private DNS zone
 
@@ -111,7 +114,7 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
 #### [Portal](#tab/azure-portal)
 
-1. Select the private DNS zone resource created above: *private.azuremicroservices.io*
+1. Select the private DNS zone resource you created previously: *private.azuremicroservices.io*
 
 2. On the left pane, select **Virtual network links**, then select **Add**.
 
@@ -127,14 +130,15 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
 Link the private DNS zone you created to the virtual network holding your Azure Spring Apps service.
 
-   ```azurecli
-   az network private-dns link vnet create \
-       --resource-group $RESOURCE_GROUP \
-       --name azure-spring-apps-dns-link \
-       --zone-name private.azuremicroservices.io \
-       --virtual-network $VIRTUAL_NETWORK_NAME \
-       --registration-enabled false
-   ```
+```azurecli
+az network private-dns link vnet create \
+    --resource-group $RESOURCE_GROUP \
+    --name azure-spring-apps-dns-link \
+    --zone-name private.azuremicroservices.io \
+    --virtual-network $VIRTUAL_NETWORK_NAME \
+    --registration-enabled false
+```
+
 ---
 
 ## Create DNS record
@@ -143,7 +147,7 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
 
 #### [Portal](#tab/azure-portal)
 
-1. Select the private DNS zone resource created above: *private.azuremicroservices.io*.
+1. Select the private DNS zone resource you created previously: *private.azuremicroservices.io*.
 
 1. Select **Record set**.
 
@@ -165,13 +169,13 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
 
 Use the [IP address](#find-the-ip-for-your-application) to create the A record in your DNS zone. 
 
-   ```azurecli
-   az network private-dns record-set a add-record \
-     --resource-group $RESOURCE_GROUP \
-     --zone-name private.azuremicroservices.io \
-     --record-set-name '*' \
-     --ipv4-address $IP_ADDRESS
-   ```
+```azurecli
+az network private-dns record-set a add-record \
+  --resource-group $RESOURCE_GROUP \
+  --zone-name private.azuremicroservices.io \
+  --record-set-name '*' \
+  --ipv4-address $IP_ADDRESS
+```
 
 ---
 

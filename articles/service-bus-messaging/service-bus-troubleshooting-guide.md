@@ -3,7 +3,6 @@ title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
 ms.date: 08/29/2022
-ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshooting guide for Azure Service Bus
@@ -30,7 +29,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
         </Detail>
     </Error>
     ```
-- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here is the sample command that check whether the 5671 port is blocked. C 
+- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here's the sample command that check whether the 5671 port is blocked. C 
 
     ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671
@@ -41,7 +40,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     ```shell
     telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command will try to establish 25 different TCP connections every 1 second with the service. Then, you can check how many of them succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
+- When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command tries to establish 25 different TCP connections every 1 second with the service. Then, you can check how many of them succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
 
     ```shell
     .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
@@ -63,7 +62,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
 Backend service upgrades and restarts may cause these issues in your applications.
 
 ### Resolution
-If the application code uses SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow.
+If the application code uses SDK, the [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) is already built in and active. The application reconnects without significant impact to the application/workflow.
 
 ## Unauthorized access: Send claims are required
 
@@ -85,7 +84,7 @@ To learn how to assign permissions to roles, see [Authenticate a managed identit
 ## Service Bus Exception: Put token failed
 
 ### Symptoms
-You'll receive the following error message: 
+You receive the following error message: 
 
 `Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
 
@@ -117,6 +116,17 @@ Specify the full Azure Resource Manager ID of the subnet that includes the name 
 ```azurepowershell-interactive
 Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
 ```
+
+## Resource locks don't work when using the data plane SDK
+
+### Symptoms
+You have configured a delete lock on a Service Bus namespace, but you're able to delete resources in the namespace (queues, topics, etc.) by using the Service Bus Explorer. 
+
+### Cause
+Resource lock is preserved in Azure Resource Manager (control plane) and it doesn't prevent the data plane SDK call from deleting the resource directly from the namespace. The standalone Service Bus Explorer uses the data plane SDK, so the deletion goes through. 
+
+### Resolution
+We recommend that you use the Azure Resource Manager based API via Azure portal, PowerShell, CLI, or Resource Manager template to delete entities so that the resource lock will prevent the resources from being accidentally deleted.
 
 ## Next steps
 See the following articles: 

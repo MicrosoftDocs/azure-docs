@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ReadCube Papers | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ReadCube Papers'
 description: Learn how to configure single sign-on between Azure Active Directory and ReadCube Papers.
 services: active-directory
 author: jeevansd

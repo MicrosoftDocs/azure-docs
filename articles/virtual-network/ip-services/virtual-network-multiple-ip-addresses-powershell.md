@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 12/12/2022
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Assign multiple IP addresses to virtual machines using Azure PowerShell
 
-An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it. 
+An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it.
 
 Assigning multiple IP addresses to a VM enables the following capabilities:
 
@@ -31,15 +31,15 @@ Every NIC attached to a VM has one or more IP configurations associated to it. E
 
 There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See the [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article for details.
 
-This article explains how to add multiple IP addresses to a virtual machine using PowerShell. 
+This article explains how to add multiple IP addresses to a virtual machine using PowerShell.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- PowerShell environment in [Azure Cloud Shell](https://shell.azure.com/powershell) or Azure PowerShell installed locally. To learn more about using PowerShell in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - PowerShell](../../cloud-shell/quickstart-powershell.md). 
+- PowerShell environment in [Azure Cloud Shell](https://shell.azure.com/powershell) or Azure PowerShell installed locally. To learn more about using PowerShell in Azure Cloud Shell, see [Azure Cloud Shell Quickstart](/azure/cloud-shell/quickstart?tabs=powershell).
 
-	- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-InstalledModule -Name Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). Ensure your Az.Network module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name "Az.Network"` if necessary.
+    - If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-InstalledModule -Name Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). Ensure your Az.Network module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name "Az.Network"` if necessary.
 
 - Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
@@ -66,7 +66,7 @@ New-AzResourceGroup @rg
 
 ## Create a virtual network
 
-In this section, you'll create a virtual network for the virtual machine.
+In this section, you create a virtual network for the virtual machine.
 
 Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) and [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a virtual network with one subnet.
 
@@ -76,7 +76,7 @@ $subnet = @{
     Name = 'myBackendSubnet'
     AddressPrefix = '10.1.0.0/24'
 }
-$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
+$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet
 
 ## Create the virtual network ##
 $vnet = @{
@@ -109,7 +109,7 @@ New-AzPublicIpAddress @ip1
 
 ## Create a network security group
 
-In this section, you'll create a network security group for the virtual machine and virtual network. You'll create a rule to allow connections to the virtual machine on port 22 for SSH.
+In this section, you create a network security group for the virtual machine and virtual network. You create a rule to allow connections to the virtual machine on port 22 for SSH.
 
 Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) and [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create the network security group and rules.
 
@@ -200,15 +200,15 @@ New-AzNetworkInterface @nic
 ## Create a virtual machine
 
 Use the following commands to create the virtual machine:
-    
+
 * [New-AzVM](/powershell/module/az.compute/new-azvm)
-    
+
 * [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)
-    
+
 * [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem)
-    
+
 * [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
-    
+
 * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
 ```azurepowershell-interactive
@@ -224,7 +224,7 @@ $nicVM = Get-AzNetworkInterface @nic
 ## Create a virtual machine configuration for VMs ##
 $vmsz = @{
     VMName = 'myVM'
-    VMSize = 'Standard_DS1_v2'  
+    VMSize = 'Standard_DS1_v2'
 }
 $vmos = @{
     ComputerName = 'myVM'
@@ -234,7 +234,7 @@ $vmimage = @{
     PublisherName = 'Debian'
     Offer = 'debian-11'
     Skus = '11'
-    Version = 'latest'    
+    Version = 'latest'
 }
 $vmConfig = New-AzVMConfig @vmsz `
       | Set-AzVMOperatingSystem @vmos -Linux `

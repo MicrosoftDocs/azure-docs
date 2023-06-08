@@ -6,11 +6,12 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
+ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: quickstart
-author: ChrisHMSFT
-ms.author: chrhoder
-ms.date: 02/02/2023
-zone_pivot_groups: openai-quickstart
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/23/2023
+zone_pivot_groups: openai-quickstart-new
 recommendations: false
 ---
 
@@ -21,6 +22,24 @@ Use this article to get started making your first calls to Azure OpenAI.
 ::: zone pivot="programming-language-studio"
 
 [!INCLUDE [Studio quickstart](includes/studio.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [Csharp quickstart](includes/dotnet.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java quickstart](includes/java.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [JavaScript quickstart](includes/javascript.md)]
 
 ::: zone-end
 

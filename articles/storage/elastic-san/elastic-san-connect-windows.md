@@ -1,24 +1,24 @@
 ---
-title: Connect to an Azure Elastic SAN (preview) volume - Windows
-description: Learn how to connect to an Azure Elastic SAN (preview) volume from a Windows client.
+title: Connect to an Azure Elastic SAN Preview volume - Windows
+description: Learn how to connect to an Azure Elastic SAN Preview volume from a Windows client.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 04/24/2023
 ms.author: rogarana
 ms.subservice: elastic-san
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions, ignite-2022, devx-track-azurepowershell
 ---
 
-# Connect to Elastic SAN (preview) volumes - Windows
+# Connect to Elastic SAN Preview volumes - Windows
 
-This article explains how to connect to an Elastic storage area network (SAN) volume from a Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN (preview) volumes - Linux](elastic-san-connect-linux.md).
+This article explains how to connect to an Elastic storage area network (SAN) volume from a Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md).
 
 In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
 
 ## Prerequisites
 
-- Complete [Deploy an Elastic SAN (preview)](elastic-san-create.md)
+- Complete [Deploy an Elastic SAN Preview](elastic-san-create.md)
 - An Azure Virtual Network, which you'll need to establish a connection from compute clients in Azure to your Elastic SAN volumes.
 
 ## Limitations
@@ -39,7 +39,7 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 # [Portal](#tab/azure-portal)
 
 1. Navigate to your virtual network and select **Service Endpoints**.
-1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
+1. Select **+ Add** and for **Service** select **Microsoft.Storage.Global**.
 1. Select any policies you like, and the subnet you deploy your Elastic SAN into and select **Add**.
 
 :::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
@@ -55,13 +55,13 @@ $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Na
 
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
 
-$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
+az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage.Global"
 ```
 ---
 
@@ -69,7 +69,7 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 Now that you've enabled the service endpoint, configure the network security settings on your volume groups. You can grant network access to a volume group from one or more Azure virtual networks.
 
-By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For details on accessing your volumes from another region, see [Enabling access to virtual networks in other regions (preview)](elastic-san-networking.md#enabling-access-to-virtual-networks-in-other-regions-preview).
+By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For details on accessing your volumes from another region, see [Azure Storage cross-region service endpoints](elastic-san-networking.md#azure-storage-cross-region-service-endpoints).
 
 # [Portal](#tab/azure-portal)
 
@@ -248,4 +248,4 @@ iscsicli PersistentLoginTarget yourStorageTargetIQN t yourStorageTargetPortalHos
 
 ## Next steps
 
-[Configure Elastic SAN networking (preview)](elastic-san-networking.md)
+[Configure Elastic SAN networking Preview](elastic-san-networking.md)

@@ -2,13 +2,16 @@
 title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: This article provides instructions on how to wire up OpenCensus Python with Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/04/2023
+ms.date: 05/01/2023
 ms.devlang: python
 ms.custom: devx-track-python
 ms.reviewer: mmcc
 ---
 
 # Set up Azure Monitor for your Python application
+
+> [!NOTE]
+> OpenTelemetry announced the [sunsetting of OpenCensus](https://opentelemetry.io/blog/2023/sunsetting-opencensus/). Azure continues to support the Python OpenCensus SDK and will not drop support for it without at least one year of advance notification. A preview of our [OpenTelemetry-based Python offering](opentelemetry-enable.md?tabs=python) is available.
 
 Azure Monitor supports distributed tracing, metric collection, and logging of Python applications.
 
@@ -17,9 +20,6 @@ Microsoft's supported solution for tracking and exporting data for your Python a
 Microsoft doesn't recommend using any other telemetry SDKs for Python as a telemetry solution because they're unsupported.
 
 OpenCensus is converging into [OpenTelemetry](https://opentelemetry.io/). We continue to recommend OpenCensus while OpenTelemetry gradually matures.
-
-> [!NOTE]
-> A preview [OpenTelemetry-based Python offering](opentelemetry-enable.md?tabs=python) is available. To learn more, see the [OpenTelemetry overview](opentelemetry-overview.md).
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ OpenCensus maps the following exporters to the types of telemetry that you see i
    logger.addHandler(AzureLogHandler())
 
    # Alternatively manually pass in the connection_string
-   # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+   # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
    """Generate random log data."""
    for num in range(5):
@@ -122,7 +122,7 @@ OpenCensus maps the following exporters to the types of telemetry that you see i
     logger = logging.getLogger(__name__)
     logger.addHandler(AzureLogHandler())
     # Alternatively manually pass in the connection_string
-    # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+    # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
     properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
 
@@ -184,7 +184,7 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler())
 # Alternatively, manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
 properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
 
@@ -206,9 +206,9 @@ import logging
 from opencensus.ext.azure.log_exporter import AzureEventHandler
 
 logger = logging.getLogger(__name__)
-logger.addHandler(AzureLogHandler())
+logger.addHandler(AzureEventHandler())
 # Alternatively manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+# logger.addHandler(AzureEventHandler(connection_string=<appinsights-connection-string>))
 
 logger.setLevel(logging.INFO)
 logger.info('Hello, World!')
@@ -220,7 +220,7 @@ For information on sampling in OpenCensus, see [Sampling in OpenCensus](sampling
 
 #### Log correlation
 
-For information on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](./correlation.md#log-correlation).
+For information on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](distributed-tracing-telemetry-correlation.md#log-correlation).
 
 #### Modify telemetry
 
@@ -478,7 +478,7 @@ For information on sampling in OpenCensus, see [Sampling in OpenCensus](sampling
 
 #### Trace correlation
 
-For more information on telemetry correlation in your trace data, see OpenCensus Python [telemetry correlation](./correlation.md#telemetry-correlation-in-opencensus-python).
+For more information on telemetry correlation in your trace data, see OpenCensus Python [telemetry correlation](distributed-tracing-telemetry-correlation.md#telemetry-correlation-in-opencensus-python).
 
 #### Modify telemetry
 
@@ -540,6 +540,12 @@ For more information about how to use queries and logs, see [Logs in Azure Monit
 ## Troubleshooting
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
+## Release Notes
+
+For the latest release notes, see [Python Azure Monitor Exporter](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/CHANGELOG.md)
+
+Our [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) also summarize major Application Insights improvements.
 
 ## Next steps
 

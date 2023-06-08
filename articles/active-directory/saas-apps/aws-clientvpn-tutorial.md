@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS ClientVPN | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS ClientVPN'
 description: Learn how to configure single sign-on between Azure Active Directory and AWS ClientVPN.
 services: active-directory
 author: jeevansd

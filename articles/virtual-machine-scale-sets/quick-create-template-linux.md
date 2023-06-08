@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.collection: linux
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs, mode-arm
+ms.custom: mimckitt, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a Linux Virtual Machine Scale Set with an ARM template

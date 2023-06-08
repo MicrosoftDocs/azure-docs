@@ -4,10 +4,10 @@ description: Learn how to redirect (force) all Internet-bound traffic back to yo
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cherylmc
-
 ---
 # Configure forced tunneling
 

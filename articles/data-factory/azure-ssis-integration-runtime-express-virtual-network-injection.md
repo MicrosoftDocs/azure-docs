@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 12/16/2022
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Express virtual network injection method

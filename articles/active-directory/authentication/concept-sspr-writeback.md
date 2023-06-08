@@ -1,5 +1,5 @@
 ---
-title: On-premises password writeback with self-service password reset - Azure Active Directory
+title: On-premises password writeback with self-service password reset
 description: Learn how password change or reset events in Azure Active Directory can be written back to an on-premises directory environment
 services: active-directory
 ms.service: active-directory
@@ -38,7 +38,7 @@ Password writeback provides the following features:
 * **Supports side-by-side domain-level deployment** using [Azure AD Connect](tutorial-enable-sspr-writeback.md) or [cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md) to target different sets of users depending on their needs, including users who are in disconnected domains.  
 
 > [!NOTE]
-> Administrator accounts that exist within protected groups in on-premises AD can be used with password writeback. Administrators can change their password in the cloud but can't reset a forgotten password. For more information about protected groups, see [Protected accounts and groups in AD DS](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> The on-premises service account that handles password write-back requests cannot change the passwords for users that belong to protected groups. Administrators can change their password in the cloud but they cannot use password write-back to reset a forgotten password for their on-premises user. For more information about protected groups, see [Protected accounts and groups in AD DS](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
 To get started with SSPR writeback, complete either one or both of the following tutorials:
 

@@ -1,5 +1,5 @@
 ---
-title: Take a tour of the Azure IoT Central API | Microsoft Docs
+title: Take a tour of the Azure IoT Central API
 description: Become familiar with the key areas of the Azure IoT Central REST API. Use the API to create, manage, and use your IoT solution from client applications.
 author: dominicbetts
 ms.author: dobett

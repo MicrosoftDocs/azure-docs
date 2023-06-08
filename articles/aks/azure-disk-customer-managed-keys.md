@@ -2,8 +2,8 @@
 title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Service (AKS)
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 ms.topic: article
-ms.date: 07/18/2022
-
+ms.custom: devx-track-azurecli
+ms.date: 05/10/2023
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
@@ -78,7 +78,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 Create a **new resource group** and AKS cluster, then use your key to encrypt the OS disk.
 
 > [!IMPORTANT]
-> Ensure you create a new resoruce group for your AKS cluster
+> Ensure you create a new resource group for your AKS cluster
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
@@ -93,42 +93,16 @@ az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset
 
 When new node pools are added to the cluster created above, the customer-managed key provided during the create process is used to encrypt the OS disk.
 
-## Encrypt your AKS cluster data disk(optional)
+## Encrypt your AKS cluster data disk
 
-OS disk encryption key is used to encrypt the data disk if the key isn't provided for data disk from AKS version 1.17.2. You can also encrypt AKS data disks with your other keys.
+If you have already provided a disk encryption set during cluster creation, encrypting data disks with the same disk encryption set is the default option. Therefore, this step is optional. However, if you want to encrypt data disks with a different disk encryption set, you can follow these steps.
 
 > [!IMPORTANT]
 > Ensure you have the proper AKS credentials. The managed identity needs to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you'll get an error suggesting that the managed identity does not have permissions.
 
-```azurecli-interactive
-# Retrieve your Azure Subscription Id from id property as shown below
-az account list
-```
+Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace *myAzureSubscriptionId*, *myResourceGroup*, and *myDiskEncrptionSetName* with your values, and apply the yaml.  Make sure to use the resource group where your DiskEncryptionSet is deployed.  
 
-The following example resembles output from the command:
-
-```output
-someuser@Azure:~$ az account list
-[
-  {
-    "cloudName": "AzureCloud",
-    "id": "666e66d8-1e43-4136-be25-f25bb5de5893",
-    "isDefault": true,
-    "name": "MyAzureSubscription",
-    "state": "Enabled",
-    "tenantId": "3ebbdf90-2069-4529-a1ab-7bdcb24df7cd",
-    "user": {
-      "cloudShellID": true,
-      "name": "someuser@azure.com",
-      "type": "user"
-    }
-  }
-]
-```
-
-Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace myAzureSubscriptionId, myResourceGroup, and myDiskEncrptionSetName with your values, and apply the yaml.  Make sure to use the resource group where your DiskEncryptionSet is deployed.  If you use the Azure Cloud Shell, this file can be created using vi or nano as if working on a virtual or physical system:
-
-```
+```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1  
 metadata:

@@ -2,8 +2,6 @@
 title: Monitor Azure Arc-enabled Kubernetes clusters
 ms.date: 05/24/2022
 ms.topic: article
-author: shashankbarsin
-ms.author: shasb
 description: Collect metrics and logs of Azure Arc-enabled Kubernetes clusters using Azure Monitor.
 ms.reviewer: aul
 ---
@@ -30,7 +28,7 @@ ms.reviewer: aul
 - Log Analytics workspace. Azure Monitor Container Insights supports a Log Analytics workspace in the regions listed under Azure [products by region page](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). You can create your own workspace using [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md), or [Azure portal](../logs/quick-create-workspace.md).
 - [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Azure Arc-enabled Kubernetes resource. If the Log Analytics workspace is in a different subscription, then [Log Analytics Contributor](../logs/manage-access.md#azure-rbac) role assignment is needed on the resource group containing the Log Analytics Workspace
 - To view the monitoring data, you need to have [Log Analytics Reader](../logs/manage-access.md#azure-rbac) role assignment on the Log Analytics workspace.
-- The following endpoints need to be enabled for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
+- The following endpoints need to be enabled for outbound access in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
 
     **Azure public cloud**
 
@@ -114,7 +112,7 @@ This option uses the following defaults:
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
 ```
 
-To use [managed identity authentication (preview)](container-insights-onboard.md#authentication), add the `configuration-settings` parameter as in the following:
+To use [managed identity authentication](container-insights-onboard.md#authentication), add the `configuration-settings` parameter as in the following:
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
@@ -173,7 +171,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 4. You can now choose the [Log Analytics workspace](../logs/quick-create-workspace.md) to send your metrics and logs data to.
 
-5. To use managed identity authentication, select the *Use managed identity (preview)* checkbox.
+5. To use managed identity authentication, select the *Use managed identity* checkbox.
 
 6. Select the 'Configure' button to deploy the Azure Monitor Container Insights cluster extension.
 
@@ -187,7 +185,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 4. Choose the Log Analytics workspace. 
 
-5. To use managed identity authentication, select the *Use managed identity (preview)* checkbox.
+5. To use managed identity authentication, select the *Use managed identity* checkbox.
 
 6. Select the 'Configure' button to continue.
 
@@ -227,8 +225,8 @@ az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-nam
 
 ---
 
-## Migrate to managed identity authentication (preview)
-Use the flowing guidance to migrate an existing extension instance to managed identity authentication (preview).
+## Migrate to managed identity authentication
+Use the flowing guidance to migrate an existing extension instance to managed identity authentication.
 
 ## [CLI](#tab/migrate-cli)
 First retrieve the Log Analytics workspace configured for Container insights extension.

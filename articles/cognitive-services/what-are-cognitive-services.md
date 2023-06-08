@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 02/17/2023
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021, build-2023, build-2023-dataai
 ---
 
 # What are Azure Cognitive Services?
@@ -41,7 +41,7 @@ See the tables below to learn about the services offered within those categories
 
 |Service Name|Service Description| Quickstart|
 |:-----------|:------------------|--|
-|[Speech service](./speech-service/index.yml "Speech service")|Speech service adds speech-enabled features to applications. Speech service includes various capabilities like speech-to-text, text-to-speech, speech translation, and many more.| Go to the [Speech documentation](./speech-service/index.yml) to choose a subservice quickstart.|
+|[Speech service](./speech-service/index.yml "Speech service")|Speech service adds speech-enabled features to applications. Speech service includes various capabilities like speech to text, text to speech, speech translation, and many more.| Go to the [Speech documentation](./speech-service/index.yml) to choose a subservice quickstart.|
 <!--
 |[Speaker Recognition API](./speech-service/speaker-recognition-overview.md "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
 |[Bing Speech](./speech-service/how-to-migrate-from-bing-speech.md "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|

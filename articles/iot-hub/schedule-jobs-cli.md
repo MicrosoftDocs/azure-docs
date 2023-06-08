@@ -1,13 +1,13 @@
 ---
-title: Schedule jobs with Azure IoT Hub (Azure CLI)
-description: How to schedule an Azure IoT Hub job to invoke a direct method and update device twin properties. You use the Azure CLI to simulate a device and schedule jobs for that simulated device.
+title: Use jobs to schedule tasks for groups of devices (CLI)
+titleSuffix: Azure IoT Hub
+description: Use the Azure CLI to schedule jobs that invoke a direct method and update device twin properties of a simulated device.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2023
 ms.custom: mqtt, devx-track-azurecli
 ---
@@ -26,7 +26,7 @@ Conceptually, a job wraps one of these actions and tracks the progress of execut
 
 Learn more about each of these capabilities in these articles:
 
-* Device twin and properties: [Get started with device twins](iot-hub-node-node-twin-getstarted.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
+* Device twin and properties: [Get started with device twins](device-twins-node.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
 
 * Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: direct methods](./quickstart-control-device.md?pivots=programming-language-nodejs)
 
@@ -40,11 +40,11 @@ This article shows you how to create two Azure CLI sessions:
 
 ## Prerequisites
 
-* Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](/azure/cloud-shell/overview), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](../cloud-shell/overview.md), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 ## Prepare the Cloud Shell
 

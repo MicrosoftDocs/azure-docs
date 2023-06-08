@@ -19,7 +19,7 @@ This article explains the key concepts of domains, DNS zones, DNS records, and r
 
 The Domain Name System is a hierarchy of domains. The hierarchy starts from the 'root' domain, whose name is simply '**.**'.  Below this come top-level domains, such as 'com', 'net', 'org', 'uk' or 'jp'.  Below the top-level domains are second-level domains, such as 'org.uk' or 'co.jp'. The domains in the DNS hierarchy are globally distributed, hosted by DNS name servers around the world.
 
-A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. The registrar may host the domain in its own name servers on your behalf, or allow you to specify alternative name servers.
+A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. The registrar may host the domain in its own name servers on your behalf or allow you to specify alternative name servers.
 
 Azure DNS provides a globally distributed and high-availability name server infrastructure that you can use to host your domain. By hosting your domains in Azure DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services.
 
@@ -35,7 +35,7 @@ Azure DNS currently doesn't support purchasing of domain names. If you want to p
 
 ### Time-to-live
 
-The time to live, or TTL, specifies how long each record is cached by clients before being requeried. In the above example, the TTL is 3600 seconds or 1 hour.
+The time to live, or TTL, specifies how long each record is cached by clients before being queried. In the above example, the TTL is 3600 seconds or 1 hour.
 
 In Azure DNS, the TTL gets specified for the record set, not for each record, so the same value is used for all records within that record set.  You can specify any TTL value between 1 and 2,147,483,647 seconds.
 
@@ -65,7 +65,7 @@ These constraints arise from the DNS standards and aren't limitations of Azure D
 
 ### NS records
 
-The NS record set at the zone apex (name '\@') gets created automatically with each DNS zone, and gets deleted automatically when the zone gets deleted. It can't be deleted separately.
+The NS record set at the zone apex (name '\@') gets created automatically with each DNS zone and gets deleted automatically when the zone gets deleted. It can't be deleted separately.
 
 This record set contains the names of the Azure DNS name servers assigned to the zone. You can add more name servers to this NS record set, to support cohosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, removing or modifying the pre-populated Azure DNS name servers isn't allowed. 
 

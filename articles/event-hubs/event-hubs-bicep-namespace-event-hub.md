@@ -4,7 +4,7 @@ description: 'Quickstart: Create an Event Hubs namespace with an event hub and a
 author: spelluru 
 ms.topic: quickstart
 ms.author: spelluru 
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 03/22/2022
 ---
 

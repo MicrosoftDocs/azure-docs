@@ -12,7 +12,7 @@ ms.date: 08/21/2022
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-Although Azure Logic Apps offers [hundreds of connectors](../connectors/apis-list.md) 
+Although Azure Logic Apps offers hundreds of connectors 
 that you can use in logic app workflows, you might want to call APIs, 
 systems, and services that aren't available as connectors. 
 You can create your own APIs that provide actions and triggers to use in workflows. 

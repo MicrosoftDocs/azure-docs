@@ -4,6 +4,7 @@ description: Learn how to create a custom profile in Azure Automanage and select
 author: ju-shim
 ms.service: automanage
 ms.workload: infrastructure
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 08/01/2022
 ms.author: jushiman

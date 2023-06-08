@@ -7,8 +7,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/27/2023
+ms.date: 03/17/2023
 ms.author: lajanuar
+ms.custom: references_regions, build-2023
 recommendations: false
 ---
 
@@ -17,11 +18,29 @@ recommendations: false
 > [!IMPORTANT]
 > Document Translation in Language Studio is currently in Public Preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 
- Document Translation in [**Azure Cognitive Services Language Studio**](https://language.cognitive.azure.com/home) is a no-code user interface that lets you interactively translate documents from local or Azure blob storage .
+ Document Translation in [**Azure Cognitive Services Language Studio**](https://language.cognitive.azure.com/home) is a no-code user interface that lets you interactively translate documents from local or Azure Blob Storage.
+
+## Supported regions
+
+The Document Translation feature in the Language Studio is currently available in the following regions;
+
+|DisplayName|Name|
+|-----------|------|
+|East US |`eastus`|
+|East US 2 |`eastus2`|
+|West US 2 | `westus2`|
+|West US 3| `westus3`|
+|UK South| `uksouth`|
+|South Central US| `southcentralus` |
+|Australia East|`australiaeast` |
+|Central India| `centralindia` |
+|North Europe| `northeurope` |
+|West Europe|`westeurope`|
+|Switzerland North| `switzerlandnorth` |
 
 ## Prerequisites
 
-If you or an administrator have previously setup a Translator resource with a **system-assigned managed identity**, enabled a **Storage Blob Data Contributor** role assignment, and created an Azure Blob storage account, you can skip this section and [**Get started**](#get-started) right away.
+If you or an administrator have previously setup a Translator resource with a **system-assigned managed identity**, enabled a **Storage Blob Data Contributor** role assignment, and created an Azure Blob Storage account, you can skip this section and [**Get started**](#get-started) right away.
 
 > [!NOTE]
 >
@@ -34,18 +53,19 @@ Document Translation in Language Studio requires the following resources:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource) with [**system-assigned managed identity**](how-to-guides/create-use-managed-identities.md#enable-a-system-assigned-managed-identity) enabled and a [**Storage Blob Data Contributor**](how-to-guides/create-use-managed-identities.md#grant-access-to-your-storage-account) role assigned. For more information, *see* [**Managed identities for Document Translation**](how-to-guides/create-use-managed-identities.md). Also, make sure the region and pricing sections are completed as follows:
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource) with [**system-assigned managed identity**](how-to-guides/create-use-managed-identities.md#enable-a-system-assigned-managed-identity) enabled and a [**Storage Blob Data Contributor**](how-to-guides/create-use-managed-identities.md#grant-storage-account-access-for-your-translator-resource) role assigned. For more information, *see* [**Managed identities for Document Translation**](how-to-guides/create-use-managed-identities.md). Also, make sure the region and pricing sections are completed as follows:
 
-  * **Resource Region**. For this project, choose a **non-global** region. For Document Translation, [system-assigned managed identity](how-to-guides/create-use-managed-identities.md) isn't supported in the global region.
+  * **Resource Region**. For this project, choose a geographic region such as **East US**. For Document Translation, [system-assigned managed identity](how-to-guides/create-use-managed-identities.md) isn't supported for the **Global** region.
+
   * **Pricing tier**. Select Standard S1 or D3 to try the service. Document Translation isn't supported in the free tier.
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). An active Azure blob storage account is required to use Document Translation in the Language Studio.
+* An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). An active Azure Blob Storage account is required to use Document Translation in the Language Studio.
 
 Now that you've completed the prerequisites, let's start translating documents!
 
 ## Get started
 
-At least one **source document** is required. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx).
+At least one **source document** is required. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx). The source language is English.
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
@@ -75,7 +95,7 @@ At least one **source document** is required. You can download our [document tra
 
 ## File location and destination
 
-Your source and target files can be located in your local environment or your Azure Blob storage [container](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). Follow the steps to select where to retrieve your source and store your target files:
+Your source and target files can be located in your local environment or your Azure Blob Storage [container](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). Follow the steps to select where to retrieve your source and store your target files:
 
 ### Choose a source file location
 
@@ -87,7 +107,7 @@ Your source and target files can be located in your local environment or your Az
 
    :::image type="content" source="media/language-studio/upload-file.png" alt-text="Screenshot of the select files for translation page.":::
 
-#### [**Azure blob storage**](#tab/blob-storage)
+#### [**Azure Blob Storage**](#tab/blob-storage)
 
 1. In the **files and destination** section, choose the files for translation by selecting the **Select for Blob storage** button.
 
@@ -105,9 +125,9 @@ While still in the **files and destination** section, select **Download translat
 
    :::image type="content" source="media/language-studio/target-file-upload.png" alt-text="Screenshot of the select destination for target files page.":::
 
-#### [**Azure blob storage**](#tab/blob-storage)
+#### [**Azure Blob Storage**](#tab/blob-storage)
 
-1. While still in the **files and destination** section, select **Upload to Azure blob storage**.
+1. While still in the **files and destination** section, select **Upload to Azure Blob Storage**.
 1. Next, choose your *target* **Blob container** and select **Next**:
 
    :::image type="content" source="media/language-studio/target-file-upload.png" alt-text="Screenshot of target file upload drop-down menu.":::

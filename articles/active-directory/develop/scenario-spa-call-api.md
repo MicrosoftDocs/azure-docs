@@ -38,7 +38,7 @@ Use the acquired access token as a bearer in an HTTP request to call any web API
     fetch(graphEndpoint, options)
         .then(function (response) {
              //do something with response
-        }
+        })
 ```
 
 # [Angular](#tab/angular)

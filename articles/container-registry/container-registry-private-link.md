@@ -2,10 +2,10 @@
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
-
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -468,6 +468,19 @@ If you created all the Azure resources in the same resource group and no longer 
 az group delete --name $RESOURCE_GROUP
 ```
 
+## Integrating with a registry with private link enabled
+
+To pull content from a registry with private link enabled, clients must allow access to the registry REST endpoint, as well as all regional data endpoints. The client proxy or firewall must allow access to
+
+REST endpoint: `{REGISTRY_NAME}.azurecr.io`
+Data endpoint(s): `{REGISTRY_NAME}.{REGISTRY_LOCATION}.data.azurecr.io`
+
+For a geo-replicated registry, customer needs to configure access to the data endpoint for each regional replica.
+
+You have to update the routing configuration for the client proxy and client firewall with the data endpoints to handle the pull requests successfully. A client proxy will provide central traffic control to the [outbound requests][outbound-connection]. To handle local traffic a client proxy is not required, you can add into `noProxy` section to bypass the proxy. Learn more about [HTTP proxy doc](../aks/http-proxy.md) to integrate with AKS. 
+
+Requests to token server over private endpoint connection doesn't require the data endpoint configuration.
+
 ## Next steps
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
@@ -515,3 +528,4 @@ az group delete --name $RESOURCE_GROUP
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com
+[outbound-connection]: /azure/firewall/rule-processing#outbound-connectivity

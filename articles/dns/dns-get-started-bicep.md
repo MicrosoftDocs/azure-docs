@@ -8,7 +8,7 @@ ms.author: greglin
 ms.date: 09/27/2022
 ms.topic: quickstart
 ms.service: dns
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Bicep so I can use Azure DNS for my name resolution.
 ---
 

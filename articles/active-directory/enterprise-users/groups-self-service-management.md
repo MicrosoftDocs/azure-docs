@@ -1,5 +1,5 @@
 ---
-title: Set up self-service group management - Azure Active Directory | Microsoft Docs
+title: Set up self-service group management
 description: Create and manage security groups or Microsoft 365 groups in Azure Active Directory and request security group or Microsoft 365 group memberships
 services: active-directory
 documentationcenter: ''
@@ -42,9 +42,9 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 
 ## Make a group available for user self-service
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
 
-1. Select **Groups**, and then select **General** settings.
+1. Browse to **Azure Active Directory** > **Groups**, and then select **General** settings.
 
     ![Azure Active Directory groups general settings.](./media/groups-self-service-management/groups-settings-general.png)
 
@@ -87,6 +87,12 @@ Here are some additional details about these group settings.
 - These setting can take up to 15 minutes to take effect.
 - If you want to enable some, but not all, of your users to create groups, you can assign those users a role that can create groups, such as [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
 - These settings are for users and don't impact service principals. For example, if you have a service principal with permissions to create groups, even if you set these settings to **No**, the service principal will still be able to create groups. 
+
+## Configure group settings using Microsoft Graph
+
+To configure the _Users can create security groups in Azure portals, API or PowerShell_ setting using Microsoft Graph, configure the **EnableGroupCreation** object in the groupSettings object. For more information, see [Overview of group settings](/graph/group-directory-settings).
+
+To configure the _Users can create security groups in Azure portals, API or PowerShell_ setting using Microsoft Graph, update the **allowedToCreateSecurityGroups** property of **defaultUserRolePermissions** in the [authorizationPolicy](/graph/api/resources/authorizationpolicy) object.
 
 ## Next steps
 

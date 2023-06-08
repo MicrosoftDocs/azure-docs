@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/03/2023
+ms.date: 05/18/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,42 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.4.5         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.4.6         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.4.7         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.4.7         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.4.7
+
+*Date published: May 17, 2023*
+
+In this release we've made some tweaks around the behavior of the connection bar on iPads and fixed some bugs to keep things running smoothly.
+
+We've made the following changes to the iPad connection bar:
+
+- We fixed an issue that caused the connection bar to get stuck under the Stage Manager ellipsis menu.
+- The connection bar will now be docked on the right side of the screen when you turn your iPad on. The iOS client will also save the position you dock your screen in across all your iPad and iPhone devices.
+- We moved the Add a PC or Workspace button to the center of the toolbar at the bottom of the screen.
+
+We've also made the following other changes:
+
+- Fixed an issue where session rotation wasn't working on iOS 16.
+- Resolved an issue where the search box in the Connection Center went out of focus when the user tried entering characters.
+- Improved audio rendering for low-bandwidth scenarios.
+
+## Updates for version 10.4.6 
+
+*Date published: March 7, 2023*
+
+In this release, we've removed the global prompt for camera and microphone access when you first open and run the iOS client. Instead, whenever a connection bookmark or published resource requests access, you'll receive a prompt asking whether you want to give permission.
+
+We also fixed some bugs and added some small additional features:
+
+- Integrated privacy statement compliance flows for select geographical regions.
+- Added functionality to delete all Azure VIrtual Desktop workspaces and associated keychain items.
+- Worked around an iOS 16 change that broke Korean language input.
+- Addressed a bug that stopped the Apple Pencil from working when connected to Windows 8.1 and Windows Server 2012 R2 and earlier.
+
+>[!NOTE]
+>This release removes support for iOS 14 and is only compatible with iOS 15 and 16.
 
 ## Updates for version 10.4.5
 

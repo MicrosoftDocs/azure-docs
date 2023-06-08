@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Harness | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Harness'
 description: Learn how to configure single sign-on between Azure Active Directory and Harness.
 services: active-directory
 author: jeevansd
@@ -122,15 +122,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Harness SSO
 
-1. To automate the configuration within Harness, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Setup Harness** will direct you to the Harness application. From there, provide the admin credentials to sign into Harness. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Harness manually, open a new web browser window and sign into your Harness company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Harness company site as an administrator
 
 4. On the top-right of the page, click on **Continuous Security** > **Access Management** > **Authentication Settings**.
 
@@ -142,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. On the **SAML Provider** pop-up, perform the following steps:
 
-	![Screenshot that shows teh "S A M L Provider" pop-up with the "U R L" and "Display Name" fields highlighted, and the "Choose File" and "Submit" buttons selected.](./media/harness-tutorial/file.png)
+	![Screenshot that shows the "S A M L Provider" pop-up with the "U R L" and "Display Name" fields highlighted, and the "Choose File" and "Submit" buttons selected.](./media/harness-tutorial/file.png)
 
     a. Copy the **In your SSO Provider, please enable SAML-based login, then enter the following URL** instance and paste it in Reply URL textbox in **Basic SAML Configuration** section on Azure portal.
 

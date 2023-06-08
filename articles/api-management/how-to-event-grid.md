@@ -51,7 +51,7 @@ Once the deployment has succeeded (it might take a few minutes), open a browser 
 
 You should see the sample app rendered with no event messages displayed.
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](../../articles/event-grid/includes/register-provider.md)]
 
 ## Subscribe to API Management events
 
@@ -86,5 +86,4 @@ API Management event data includes the `resourceUri`, which identifies the API M
 
 ## Next steps
 
-* [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md)
 * Learn more about [subscribing to events](../event-grid/subscribe-through-portal.md).

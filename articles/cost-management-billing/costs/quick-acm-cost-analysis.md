@@ -1,111 +1,150 @@
 ---
-title: Quickstart - Explore Azure costs with cost analysis
+title: Quickstart - Start using Cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2022
+ms.date: 03/10/2023
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy22q2, mode-other
 ---
-# Quickstart: Explore and analyze costs with cost analysis
 
-Before you can properly control and optimize your Azure costs, you need to understand where costs originated within your organization. It's also useful to know how much money your services cost, and in support of which environments and systems. Visibility into the full spectrum of costs is critical to accurately understand organizational spending patterns. You can use spending patterns to enforce cost control mechanisms, like budgets.
+# Quickstart: Start using Cost analysis
 
-In this quickstart, you use cost analysis to explore and analyze your organizational costs. You can view aggregated costs or break them down to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. You can use budgets to get notified as cost exceeds specific thresholds.
+Before you can control and optimize your costs, you first need to understand where they originated – from the underlying resources used to support your cloud projects to the environments they're deployed in and the owners who manage them. Full visibility backed by a thorough tagging strategy is critical to accurately understand your spending patterns and enforce cost control mechanisms.
 
-In this quickstart, you learn how to:
-
-- Get started in cost analysis
-- Select a cost view
-- View costs
+In this quickstart, you use Cost analysis to explore and get quick answers about your costs. You can see a summary of your cost over time to identify trends and break costs down to understand how you're being charged for the services you use. For advanced reporting, use Power BI or export raw cost details.
 
 ## Prerequisites
 
-Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account.
+Cost Management isn't available for classic Cloud Solution Provider and sponsorship subscriptions. For more information about supported subscription types, see [Understand Cost Management data](understand-cost-mgt-data.md).
 
-If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
+You must have Read access to use Cost Management. You might need to wait 48 hours to view new subscriptions in Cost Management.
 
-## Sign in to Azure
+## Get started
 
-- Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis).
+Cost analysis is your tool for interactive analytics and insights. It should be your first stop when you need to explore or get quick answers about your costs. You explore and analyze costs using _views_. A view is a customizable report that summarizes and allows you to drill into your costs. Cost analysis comes with various built-in views that summarize:
 
-## Get started in Cost analysis
+- Cost of your resources at various levels.
+- Overarching services spanning all your resources.
+- Amortized reservation usage.
+- Cost trends over time.
 
-To review your costs in cost analysis, open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu.
+Depending on how you access Cost analysis, you may see two options. If available, we recommend starting with **Cost analysis (preview)** since you can access all views from one central page.
 
-Use the **Scope** pill to switch to a different scope in cost analysis.
+The first time you open Cost analysis, you start with either a list of available cost views or a customizable area chart. This section walks through the list of views. If Cost analysis shows an area chart by default, see [Analyze costs with customizable views](#analyze-costs-with-customizable-views).
 
-The scope you select is used throughout Cost Management to provide data consolidation and control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope, which others roll up to, and then filter down to the nested scopes you need. This approach is important to understand because some people may not have access to a single parent scope, which covers multiple nested scopes.
+Cost analysis has two types of views: **smart views** that offer intelligent insights and more details by default and **customizable views** you can edit, save, and share to meet your needs. Smart views open in tabs in Cost analysis. To open a second view, select the **+** symbol to the right of the list of tabs. You can open up to five tabs at one time. Customizable views open outside of the tabs in the custom view editor.
 
->[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
+As you explore the different views, notice that Cost analysis remembers which views you've used in the **Recent** section. Switch to the **All views** section to explore all of your saved views and the ones Microsoft provides out of the box. If there's a specific view that you want quick access to, select **Pin to recent** from the **All views** list.
 
-The initial cost analysis view includes the following areas:
+:::image type="content" source="./media/quick-acm-cost-analysis/pin-to-recent.png" alt-text="Screenshot showing the Pin to recent option." lightbox="./media/quick-acm-cost-analysis/pin-to-recent.png" :::
 
-**Currently selected view**: Represents the predefined cost analysis view configuration. Each view includes date range, granularity, group by, and filter settings. The default view shows a running total of your costs for the current billing period with the Accumulated costs view, but you can select other built-in views from the menu. The view menu is between the scope pill and the date selector. For details about saved views, see [Save and share customized views](save-share-views.md).
+Views in the **Recommended** list may vary based on what users most commonly use across Azure.
 
-**Filters**: Allow you to limit the results to a subset of your total charges. Filters apply to all summarized totals and charts.
+## Analyze costs with smart views
 
-**Cost**: Shows the total usage and purchase costs for the selected period, as they're accrued and will show on your bill. Costs are shown in your billing currency by default. If you have charges in multiple currencies, cost will automatically be converted to USD.
+If you're new to Cost analysis, we recommend starting with a smart view, like the Resources view. Smart views include:
 
-**Forecast**: Shows the total forecasted costs the selected period.
+- Key performance indicators (KPIs) to summarize your cost
+- Intelligent insights about your costs like anomaly detection
+- Expandable details with the top contributors
+- A breakdown of costs at the next logical level in the resource or product hierarchy
 
-**Budget (if selected)**: Shows the current budget amount for the selected scope, if already defined.
+When you first open a smart view, note the date range for the period. Most views show the current calendar month, but some use a different period that better aligns to the goals for the view. As an example, the Reservations view shows the last 30 days by default to give you a clearer picture of reservation utilization over time. To choose a different date range, use the arrows in the date pill to switch to the previous or next period, or select the text to open a menu with other options.
 
-**Granularity**: Indicates how to show data over time. Select **Daily** or **Monthly** to view costs broken down by day or month. Select **Accumulated** to view the running total for the period. Select **None** to view the total cost for the period, with no breakdown.
+Check the **Total** cost KPI at the top of the page to confirm it matches your expectations. Note the small percentage next to the total – it's the change compared to the previous period. Check the **Average** cost KPI to note whether costs are trending up or down unexpectedly.
 
-**Pivot (donut) charts**: Provide dynamic pivots, breaking down the total cost by a common set of standard properties. They show the largest to smallest costs for the current month. 
+If showing three months or less, the Average cost API compares the cost from the start of the period (up to but not including today) to the same number of days in the previous period. If showing more than three months, the comparison looks at the cost up to but not including the current month.
 
-![Initial view of cost analysis in the Azure portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+We recommend checking your cost weekly to ensure each KPI remains within the expected range. If you recently deployed or changed resources, we recommend checking daily for the first week or two to monitor the cost changes.
 
-### Understand forecast
+> [!NOTE]
+> If you want to monitor your forecasted cost, you can enable the [Forecast KPI preview feature](enable-preview-features-cost-management-labs.md#forecast-in-the-cost-analysis-preview) in Cost Management Labs, available from the **Try preview** command.
 
-Based on your recent usage, cost forecasts show a projection of your estimated costs for the selected time period. If a budget is set up in Cost analysis, you can view when forecasted spend is likely to exceed budget threshold. The forecast model can predict future costs for up to a year. Select filters to view the granular forecasted cost for your selected dimension.
+If you don't have a budget, select the **create** link in the **Budget** KPI and specify the amount you expect to stay under each month. To create a quarterly or yearly budget, select the **Configure advanced settings** link.
 
-## Select a cost view
+:::image type="content" source="./media/quick-acm-cost-analysis/create-budget.png" alt-text="Screenshot showing the Create budget - advanced setting link." lightbox="./media/quick-acm-cost-analysis/create-budget.png" :::
 
-Cost analysis has many built-in views, optimized for the most common goals:
+Depending on the view and scope you're using, you may also see cost insights below the KPIs. Cost insights show important datapoints about your cost – from discovering top cost contributors to identifying anomalies based on usage patterns. Select the **See insights** link to review and provide feedback on all insights. Here's an insights example.
 
-View | Answer questions like
---- | ---
-Accumulated cost | How much have I spent so far this month? Will I stay within my budget?
-Daily cost | Have there been any increases in the costs per day for the last 30 days?
-Cost by service | How has my monthly usage vary over the past three invoices?
-Cost by resource | Which resources cost the most so far this month?
-Invoice details | What charges did I have on my last invoice?
-Resources (preview)	| Which resources cost the most so far this month? Are there any subscription cost anomalies?
-Resource groups (preview) | Which resource groups cost the most so far this month?
-Subscriptions (preview)	| Which subscriptions cost the most so far this month?
-Services (preview)	| Which services cost the most so far this month?
-Reservations (preview)	| How much are reservations being used? Which resources are utilizing reservations?
+:::image type="content" source="./media/quick-acm-cost-analysis/see-insights.png" alt-text="Screenshot showing insights." lightbox="./media/quick-acm-cost-analysis/see-insights.png" :::
 
-The Cost by resource and Resources views are only available for subscriptions and resource groups.
+Lastly, use the table to find your top cost contributors and expand each row to understand how costs are broken down to the next level. Examples include resources with their product meters and services with a breakdown of products.
 
-![View selector showing an example selection for this month](./media/quick-acm-cost-analysis/view-selector.png)
+:::image type="content" source="./media/quick-acm-cost-analysis/table-show-cost-contributors.png" alt-text="Screenshot showing a table view of subscription costs with their nested resources." lightbox="./media/quick-acm-cost-analysis/table-show-cost-contributors.png" :::
 
-For more information about views, see:
-- [Use built-in views in Cost analysis](cost-analysis-built-in-views.md)
-- [Save and share customized views](save-share-views.md)
-- [Customize views in cost analysis](customize-cost-analysis-views.md)
+This view is where you spend most of your time in Cost analysis. To explore further:
 
-## View costs
+1. Open other smart views to get different perspectives on your cost.
+2. If you want to drill into data further, you might need to [Change scope](understand-work-scopes.md#switch-between-scopes-in-cost-management) to a lower level. For example, you can't view the Subscriptions smart view if your current scope is a subscription.
+3. Open a custom view and apply other filters or group the data to explore.
 
-Cost analysis shows **accumulated** costs by default. Accumulated costs include all costs for each day plus the previous days, for a constantly growing view of your daily aggregate costs. This view is optimized to show how you're trending against a budget for the selected time range.
+> [!NOTE]
+> If you want to visualize and monitor daily trends within the period, enable the [chart preview feature](enable-preview-features-cost-management-labs.md#chartsfeature) in Cost Management Labs, available from the **Try preview** command.
 
-Use the forecast chart view to identify potential budget breaches. When there's a potential budget breach, projected overspending is shown in red. An indicator symbol is also shown in the chart. Hovering over the symbol shows the estimated date of the budget breach.
+## Analyze costs with customizable views
 
-![Example showing potential budget breach](./media/quick-acm-cost-analysis/budget-breach.png)
+While smart views offer a highly curated experience for targeted scenarios, custom views allow you to drill in further and answer more specific questions. Like smart views, custom views include a specific date range, granularity, group by, and one or more filters. Five custom views are provided for you to show how costs change over time. They're separated by resource and product. All aspects of custom views can be changed to help answer simple questions. If you require more advanced reporting, like grouping by multiple attributes or fully customizable reports, use Power BI or export raw cost details.
 
-There's also the **daily** view that shows costs for each day. The daily view doesn't show a growth trend. The view is designed to show irregularities as cost spikes or dips from day to day. If you've selected a budget, the daily view also shows an estimate of your daily budget.
+Here's an example of the Accumulated Costs customizable view.
 
-Here's a daily view of recent spending with spending forecast turned on.
-![Daily view showing example daily costs for the current month](./media/quick-acm-cost-analysis/daily-view.png)
+:::image type="content" source="./media/quick-acm-cost-analysis/accumulated-costs-view.png" alt-text="Screenshot showing the Accumulated costs customizable view." lightbox="./media/quick-acm-cost-analysis/accumulated-costs-view.png" :::
 
-When the forecast is disabled, you won't see projected spending for future dates. Also, when you look at costs for past time periods, cost forecast doesn't show costs.
+After you customize your view to meet your needs, you may want to save and share it with others. To share views with others:
 
-Generally, you can expect to see data or notifications for consumed resources within 24 to 48 hours.
+1. Save the view on a subscription, resource group, management group, or billing account.
+2. Share a URL with view configuration details, which they can use on any scope they have access to.
+3. Ping the view to an Azure portal dashboard. Pinning requires access to the same scope.
+4. Download an image of the chart or summarized cost details in an Excel or CSV file.
+5. Subscribe to scheduled alerts on a daily, weekly, or monthly basis.
+
+All saved views are available from the **All views** list discussed previously.
+
+## Download cost details
+
+While all smart and custom views can be downloaded, there are a few differences between them.
+
+Customizable chart views are downloaded as an image, smart views aren't. To download an image of the chart, use customizable views.
+
+When you download table data, smart views include an extra option to include nested details. There are a few extra columns available in smart views. We recommend starting with smart views when you download data.
+
+:::image type="content" source="./media/quick-acm-cost-analysis/download-file.png" alt-text="Screenshot showing the Download options in cost analysis. " lightbox="./media/quick-acm-cost-analysis/download-file.png" :::
+
+Although Power BI is available for all Microsoft Customer Agreement billing profiles and Enterprise Agreement billing accounts, you only see the option from the smart view Download pane when using a supported scope.
+
+:::image type="content" source="./media/quick-acm-cost-analysis/open-in-power-bi.png" alt-text="Screenshot showing the Download - Open in Power BI options." lightbox="./media/quick-acm-cost-analysis/open-in-power-bi.png" :::
+
+Regardless of whether you start on smart or customizable views, if you need more details, we recommend that you export raw details for full flexibility. Smart views include the option under the **Automate the download** section.
+
+:::image type="content" source="./media/quick-acm-cost-analysis/automate-download.png" alt-text="Screenshot showing the Download - Automate the download options." lightbox="./media/quick-acm-cost-analysis/automate-download.png" :::
+
+## Understand your forecast
+
+Forecast costs are available from both smart and custom views. In either case, the forecast is calculated the same way based on your historical usage patterns for up to a year in the future.
+
+Your forecast is a projection of your estimated costs for the selected period. Your forecast changes depending on what data is available for the period, how long of a period you select, and what filters you apply. If you notice an unexpected spike or drop in your forecast, expand the date range and use grouping to identify large increases or decreases in historical cost. You can filter them out to normalize the forecast.
+
+When you select a budget in a custom view, you can also see if or when your forecast would exceed your budget.
+
+## More information
+
+For more information about using features in costs analysis, see the following articles:
+
+- For built-in views, see [Use built-in views in Cost analysis](cost-analysis-built-in-views.md).
+- To learn more about customizing views, see [Customize views in cost analysis](customize-cost-analysis-views.md).
+- Afterward you can [Save and share customized views](save-share-views.md).
+
+If you need advanced reporting outside of cost analysis, like grouping by multiple attributes or fully customizable reports, you can use:
+
+- [Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
+- [Cost Management Power BI App](analyze-cost-data-azure-cost-management-power-bi-template-app.md)
+- Usage data from exports or APIs
+  - See [Choose a cost details solution](../automate/usage-details-best-practices.md) to help you determine if exports from the Azure portal or if cost details from APIs are right for you.
+
+Be sure to [configure subscription anomaly alerts](../understand/analyze-unexpected-charges.md#create-an-anomaly-alert) and set up a [budget](tutorial-acm-create-budgets.md) to help drive accountability and cost control.
 
 ## Next steps
 

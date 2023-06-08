@@ -16,9 +16,9 @@ ms.devlang: csharp, golang, java, javascript, php, python, ruby
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security(TLS) encryption. TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
+Azure Database for MySQL - Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security(TLS) encryption. TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
-Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default and all incoming connections with TLS 1.0 and TLS 1.1 are denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be changed as discussed in this article.
+Azure Database for MySQL - Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default and all incoming connections with TLS 1.0 and TLS 1.1 are denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be changed as discussed in this article.
 
 Following are the different configurations of SSL and TLS settings you can have for your flexible server:
 
@@ -48,7 +48,7 @@ In this article, you learn how to:
 
 If your client application doesn't support encrypted connections, you need to disable encrypted connections enforcement on your flexible server. To disable encrypted connections enforcement, you need to set require_secure_transport server parameter to OFF as shown in the screenshot, and save the server parameter configuration for it to take effect. require_secure_transport is a **dynamic server parameter** which takes effect immediately and doesn't require server restart to take effect.
 
-> :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Screenshot showing how to disable SSL with Azure Database for MySQL flexible server.":::
+> :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Screenshot showing how to disable SSL with Azure Database for MySQL - Flexible Server.":::
 
 ### Connect using mysql command-line client with SSL disabled
 
@@ -190,7 +190,7 @@ define('MYSQL_SSL_CERT','/FULLPATH/on-client/to/DigiCertGlobalRootCA.crt.pem');
 $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
 mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL);
-if (mysqli_connect_errno($conn)) {
+if (mysqli_connect_errno()) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
@@ -375,8 +375,8 @@ conn.connect(function(err) {
 
 ## Next steps
 
-- [Use MySQL Workbench to connect and query data in Azure Database for MySQL Flexible Server](./connect-workbench.md)
-- [Use PHP to connect and query data in Azure Database for MySQL Flexible Server](./connect-php.md)
-- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
-- Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking.md)
-- Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)
+- [Use MySQL Workbench to connect and query data in Azure Database for MySQL - Flexible Server](./connect-workbench.md)
+- [Use PHP to connect and query data in Azure Database for MySQL - Flexible Server](./connect-php.md)
+- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
+- Learn more about [networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md)
+- Understand more about [Azure Database for MySQL - Flexible Server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)

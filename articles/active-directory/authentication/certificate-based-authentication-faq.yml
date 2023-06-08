@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure AD certificate-based authentication (CBA) FAQ - Azure Active Directory
+  title: Azure AD certificate-based authentication (CBA) FAQ
   description: Frequently asked questions and answers related to Azure AD certificate-based authentication (CBA). 
   
   services: multi-factor-authentication
@@ -37,7 +37,9 @@ sections:
           How can an administrator enable Azure AD CBA?
         answer: |
           1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-          1. Click **Azure Active Directory** > **Security** > **Authentication methods** > **Certificate-based Authentication** > **Basics**, click **Yes** to enable certificate-based authentication.
+          2. Select **Azure Active Directory** > **Security** > **Authentication methods** > **Policies**.
+          3. Select policy: **Certificate-based Authentication**.
+          4. On the **Enable and Target** tab, select the **Enable** toggle to enable certificate-based authentication.
 
       - question: |
           Is Azure AD CBA a free feature?

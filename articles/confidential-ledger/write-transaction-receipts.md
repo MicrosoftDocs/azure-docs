@@ -17,7 +17,7 @@ More details about how a Merkle Tree is used in a Confidential Ledger can be fou
 
 ## Get write transaction receipts
 
-### Setup and pre-requisites
+### Setup and prerequisites
 
 Azure Confidential Ledger users can get a receipt for a specific transaction by using the [Azure Confidential Ledger client library](quickstart-python.md#use-the-data-plane-client-library). The following example shows how to get a write receipt using the [client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger), but the steps are the same with any other supported SDK for Azure Confidential Ledger.
 
@@ -108,7 +108,7 @@ get_receipt_result = get_receipt_poller.result()
 
 ### Sample code
 
-The full sample code used in the code walkthrough can be found below.
+The full sample code used in the code walkthrough is provided.
 
 ```python
 import json 
@@ -203,13 +203,13 @@ The JSON response contains the following fields at the root level.
 * **state**: The status of the returned JSON response. The following are the possible values allowed:
   
   * `Ready`: The receipt returned in the response is available
-  * `Loading`: The receipt isn't yet available to be retrieved and the request will have to be retried
+  * `Loading`: The receipt isn't yet available to be retrieved and the request have to be retried
 
 * **transactionId**: The transaction ID associated with the write transaction receipt.
 
 The `receipt` field contains the following fields.
 
-* **cert**: String with the [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) public key certificate of the CCF node that signed the write transaction. The certificate of the signing node should always be endorsed by the service identity certificate. See also more details about how transactions get regularly signed and how the signature transactions are appended to the ledger in CCF at the following [link](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html).
+* **cert**: String with the [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) public key certificate of the CCF node that signed the write transaction. The service identity certificate should always endorse the certificate of the signing node. See also more details about how transactions get regularly signed and how the signature transactions are appended to the ledger in CCF at the following [link](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html).
 
 * **nodeId**: Hexadecimal string representing the [SHA-256](https://en.wikipedia.org/wiki/SHA-2) hash digest of the public key of the signing CCF node.
 
@@ -229,6 +229,80 @@ The `leafComponents` field contains the following fields.
 
 * **writeSetDigest**: Hexadecimal string representing the SHA-256 hash digest of the [Key-Value store](https://microsoft.github.io/CCF/main/build_apps/kv/index.html), which contains all the keys and values written at the time the transaction was completed. For more information about the write set, see the related [CCF documentation](https://microsoft.github.io/CCF/main/overview/glossary.html#term-Write-Set).
 
+## Application claims
+Azure Confidential Ledger applications can attach arbitrary data, called [application claims](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#application-claims), to write transactions. These claims represent the actions executed during a write operation. When attached to a transaction, the SHA-256 digest of the claims object is included in the ledger and committed as part of the write transaction. The inclusion of the claim in the write transaction guarantees that the claim digest is signed in place and can't be tampered with.
+
+Later, application claims can be revealed in their plain format in the receipt payload corresponding to the same transaction where they were added. The exposed claims allow users to recompute the same claims digest that was attached and signed in place by the ledger during the transaction. The claims digest can be used as part of the write transaction receipt verification process, providing an offline way for users to fully verify the authenticity of the recorded claims.
+
+Application claims are currently supported in the preview API version `2023-01-18-preview`.
+
+### Write transaction receipt content with application claims 
+
+Here's an example of a JSON response payload returned by an Azure Confidential Ledger instance that recorded application claims, when calling the `GET_RECEIPT` endpoint.
+
+```json
+{
+  "applicationClaims": [
+    {
+      "kind": "LedgerEntry",
+      "ledgerEntry": {
+        "collectionId": "subledger:0",
+        "contents": "Hello world",
+        "protocol": "LedgerEntryV1",
+        "secretKey": "Jde/VvaIfyrjQ/B19P+UJCBwmcrgN7sERStoyHnYO0M="
+      }
+    }
+  ],
+  "receipt": {
+    "cert": "-----BEGIN CERTIFICATE-----\nMIIBxTCCAUygAwIBAgIRAMR89lUNeIghDUfpyHi3QzIwCgYIKoZIzj0EAwMwFjEU\nMBIGA1UEAwwLQ0NGIE5ldHdvcmswHhcNMjMwNDI1MTgxNDE5WhcNMjMwNzI0MTgx\nNDE4WjATMREwDwYDVQQDDAhDQ0YgTm9kZTB2MBAGByqGSM49AgEGBSuBBAAiA2IA\nBB1DiBUBr9/qapmvAIPm1o3o3LRViSOkfFVI4oPrw3SodLlousHrLz+HIe+BqHoj\n4nBjt0KAS2C0Av6Q+Xg5Po6GCu99GQSoSfajGqmjy3j3bwjsGJi5wHh1pNbPmMm/\nTqNhMF8wDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQUCPaDohOGjVgQ2Lb8Pmubg7Y5\nDJAwHwYDVR0jBBgwFoAU25KejcEmXDNnKvSLUwW/CQZIVq4wDwYDVR0RBAgwBocE\nfwAAATAKBggqhkjOPQQDAwNnADBkAjA8Ci9myzieoLoIy+7mUswVEjUG3wrEXtxA\nDRmt2PK9bTDo2m3aJ4nCQJtCWQRUlN0CMCMOsXL4NnfsSxaG5CwAVkDwLBUPv7Zy\nLfSh2oZ3Wn4FTxL0UfnJeFOz/CkDUtJI1A==\n-----END CERTIFICATE-----\n",
+    "leafComponents": {
+      "claimsDigest": "d08d8764437d09b2d4d07d52293cddaf40f44a3ea2176a0528819a80002df9f6",
+      "commitEvidence": "ce:2.13:850a25da46643fa41392750b6ca03c7c7d117c27ae14e3322873de6322aa7cd3",
+      "writeSetDigest": "6637eddb8741ab54cc8a44725be67fd9be390e605f0537e5a278703860ace035"
+    },
+    "nodeId": "0db9a22e9301d1167a2a81596fa234642ad24bc742451a415b8d653af056795c",
+    "proof": [
+      {
+        "left": "bcce25aa51854bd15257cfb0c81edc568a5a5fa3b81e7106c125649db93ff599"
+      },
+      {
+        "left": "cc82daa27e76b7525a1f37ed7379bb80f6aab99f2b36e2e06c750dd9393cd51b"
+      },
+      {
+        "left": "c53a15cbcc97e30ce748c0f44516ac3440e3e9cc19db0852f3aa3a3d5554dfae"
+      }
+    ],
+    "signature": "MGYCMQClZXVAFn+vflIIikwMz64YZGoH71DKnfMr3LXkQ0lhljSsvDrmtmi/oWwOsqy28PsCMQCMe4n9aXXK4R+vY0SIfRWSCCfaADD6teclFCkVNK4317ep+5ENM/5T/vDJf3V4IvI="
+  },
+  "state": "Ready",
+  "transactionId": "2.13"
+}
+```
+
+Compared to the receipt example shown in the previous section, the JSON response contains another `applicationClaims` field that represents the list of application claims recorded by the ledger during the write transaction. Each object inside the `applicationClaims` list contains the following fields.
+
+* **kind**: It represents the kind of the application claim. The value indicates how to parse the application claim object for the provided type.
+
+* **ledgerEntry**: It represents an application claim derived from ledger entry data. The claim would contain the data recorded by the application during a write transaction (for example, the collection ID and the contents provided by the user) and the required information to compute the digest corresponding to the single claim object.
+
+* **digest**: It represents an application claim in digested form. This claim object would contain the precomputed digest by the application and the protocol used for the computation.    
+
+The `ledgerEntry` field contains the following fields.
+
+* **protocol**: It represents the protocol to be used to compute the digest of a claim from the given claim data.
+
+* **collectionId**: The identifier of the collection written during the corresponding write transaction.
+
+* **contents**: The contents of the ledger written during the corresponding write transaction.
+
+* **secretKey**: A base64-encoded secret key. This key is to be used in the HMAC algorithm with the values provided in the application claim to obtain the claim digest. 
+
+The `digest` field contains the following fields.
+
+* **protocol**: It represents the protocol used to compute the digest of the given claim.
+
+* **value**: The digest of the application claim, in hexadecimal form. This value would have to be hashed with the `protocol` value to compute the complete digest of the application claim.
+
 ### More resources
 
 For more information about write transaction receipts and how CCF ensures the integrity of each transaction, see the following links:
@@ -239,6 +313,8 @@ For more information about write transaction receipts and how CCF ensures the in
 * [Merkle Tree](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html)
 * [Cryptography](https://microsoft.github.io/CCF/main/architecture/cryptography.html)
 * [Certificates](https://microsoft.github.io/CCF/main/operations/certificates.html)
+* [Application Claims](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#application-claims)
+* [User-Defined Claims in Receipts](https://microsoft.github.io/CCF/main/build_apps/example_cpp.html#user-defined-claims-in-receipts)
 
 ## Next steps
 

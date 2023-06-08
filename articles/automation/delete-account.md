@@ -6,7 +6,6 @@ ms.service: automation
 ms.subservice: process-automation
 ms.date: 06/04/2021
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Manage your Azure Automation account

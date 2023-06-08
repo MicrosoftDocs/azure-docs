@@ -5,7 +5,7 @@ author: vatsal-parikh
 ms.author: vatsalparikh
 ms.date: 01/30/2023
 ms.topic: how-to
-ms.service: azure 
+ms.service: azure-operator-nexus 
 ---
 
 # How to pre-certify network functions on Azure Operator Nexus
@@ -42,7 +42,7 @@ Microsoft will work with the partner to enable this offering in the marketplace.
 
 ### Azure Network Function Manager
 
-The Azure [Network Function Manager (ANFM)](/azure/network-function-manager/overview)
+The Azure [Network Function Manager (ANFM)](../network-function-manager/overview.md)
 provides a cloud native orchestration and managed experience for
 pre-certified network functions (from the Azure Marketplace). The ANFM
 provides consistent Azure managed applications experience for network functions.

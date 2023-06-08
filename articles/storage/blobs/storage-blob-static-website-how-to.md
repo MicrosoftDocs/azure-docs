@@ -90,7 +90,7 @@ You can enable static website hosting by using the Azure PowerShell module.
    Get-InstalledModule -Name Az -AllVersions | select Name,Version
    ```
 
-   If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+   If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 

@@ -4,6 +4,7 @@ description: Describes the shared variable file pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 07/01/2022
 ---
 # Shared variable file pattern

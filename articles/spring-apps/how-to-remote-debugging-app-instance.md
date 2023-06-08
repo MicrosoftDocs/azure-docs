@@ -5,7 +5,7 @@ ms.service: spring-apps
 ms.topic: how-to
 author: KarlErickson
 ms.author: jialuogan
-ms.date: 12/01/2022
+ms.date: 4/18/2023
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This feature describes how to enable remote debugging of your applications in Azure Spring Apps.
 
@@ -79,6 +79,44 @@ az spring app get-remote-debugging-config \
 
 ---
 
+## Assign an Azure role
+
+To remotely debug an app instance, you must be granted the role `Azure Spring Apps Remote Debugging Role`, which includes the `Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action` data action permission.
+
+You can assign an Azure role using the Azure portal or Azure CLI.
+
+### [Azure portal](#tab/azure-portal)
+
+Use the following steps to assign an Azure role using the Azure portal.
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. Open your Azure Spring Apps service instance.
+1. In the navigation pane, select **Access Control (IAM)**.
+1. On the **Access Control (IAM)** page, select **Add**, and then select **Add role assignment**.
+
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/add-role-assignment.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page for an Azure Spring Apps instance with the Add role assignment option highlighted." lightbox="media/how-to-remote-debugging-app-instance/add-role-assignment.png":::
+
+1. On the **Add role assignment** page, in the **Name** list, search for and select *Azure Spring Apps Remote Debugging Role*, and then select **Next**.
+
+   :::image type="content" source="media/how-to-remote-debugging-app-instance/remote-debugging-role.png" alt-text="Screenshot of the Azure portal showing the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Remote Debugging Role name highlighted." lightbox="media/how-to-remote-debugging-app-instance/remote-debugging-role.png":::
+
+1. Select **Members**, and then search for and select your username.
+
+1. Select **Review + assign**.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use the following command to obtain the Azure Spring Apps Remote Debugging Role.
+
+   ```azurecli
+   az role assignment create \
+       --role "Azure Spring Apps Remote Debugging Role" \
+       --scope "<service-instance-resource-id>" \
+       --assignee "<your-identity>"
+   ```
+
+---
+
 ## Debug an app instance remotely
 
 You can debug an app instance remotely using the Azure Toolkit for IntelliJ or the Azure Spring Apps for VS Code extension.
@@ -104,15 +142,6 @@ Use the following steps to enable or disable remote debugging:
 ### Attach debugger
 
 Use the following steps to attach debugger.
-
-1. Use the following Azure CLI command to obtain the **Azure Spring Apps Remote Debugging Role** role, which includes the `Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action` data action permission.
-
-   ```azurecli
-   az role assignment create \
-       --role "Azure Spring Apps Remote Debugging Role" \
-       --scope "<service-instance-resource-id>" \
-       --assignee "<your-identity>"
-   ```
 
 1. Select an app instance, and then select **Attach Debugger**. IntelliJ connects to the app instance and starts remote debugging.
 
@@ -160,15 +189,6 @@ Use the following steps to enable or disable remote debugging:
 
 Use the following steps to attach debugger.
 
-1. Use the following Azure CLI command to obtain the **Azure Spring Apps Remote Debugging Role** role, which includes the `Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action` data action permission.
-
-   ```azurecli
-   az role assignment create \
-       --role "Azure Spring Apps Remote Debugging Role" \
-       --scope "<service-instance-resource-id>" \
-       --assignee "<your-identity>"
-   ```
-
 1. Select an app instance, and then select **Attach Debugger**. VS Code connects to the app instance and starts remote debugging.
 
    :::image type="content" source="media/how-to-remote-debugging-app-instance/visual-studio-code-remote-debugging-instance.png" alt-text="Screenshot showing the Attach Debugger option." lightbox="media/how-to-remote-debugging-app-instance/visual-studio-code-remote-debugging-instance.png":::
@@ -194,14 +214,14 @@ This section provides troubleshooting information.
 
 Remote debugging is only supported for Java applications.
 
-| Tier                    | Deployment type   | Supported |
+| Plan                    | Deployment type   | Supported |
 |-------------------------|-------------------|-----------|
-| Standard and basic tier | Jar               | Yes       |
-| Standard and basic tier | Source code(Java) | Yes       |
-| Standard and basic tier | Custom Image      | No        |
-| Enterprise tier         | Java Application  | Yes       |
-| Enterprise tier         | Source code(Java) | Yes       |
-| Enterprise tier         | Custom Image      | No        |
+| Standard and basic plan | Jar               | Yes       |
+| Standard and basic plan | Source code(Java) | Yes       |
+| Standard and basic plan | Custom Image      | No        |
+| Enterprise plan         | Java Application  | Yes       |
+| Enterprise plan         | Source code(Java) | Yes       |
+| Enterprise plan         | Custom Image      | No        |
 
 ## Tips
 

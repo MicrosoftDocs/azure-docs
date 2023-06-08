@@ -8,7 +8,7 @@ ms.author: tejaswikolli
 
 # Troubleshoot guide for Caching for ACR (Preview)
 
-This article is part four in a four-part tutorial series. [Part one](tutorial-registry-cache.md) provides information about the Caching for ACR (preview) feature, its limitations, and benefits of the implementation in your registry. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR (preview) feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR feature with authentication by using the Azure portal.
+This article is part six in a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md), you learn how to enable Caching for ACR feature by using the Azure CLI. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR feature with authentication by using Azure portal. In [part five](tutorial-enable-registry-cache-auth-cli.md), you learn how to enable Caching for ACR feature with authentication by using Azure CLI. 
 
 This article helps you troubleshoot problems you might encounter when attempting to use Caching for ACR (preview).
 
@@ -73,4 +73,4 @@ We recommend deleting any unwanted cache rules to avoid hitting the limit.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
-[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy.md#assign-an-access-policy
+[az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy

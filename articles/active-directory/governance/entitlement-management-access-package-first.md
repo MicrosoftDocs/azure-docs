@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -142,14 +142,10 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. For **Enable requests**, select **Yes** to enable this access package to be requested as soon as it's created.
 
-1. To add a Verified ID requirement to the access package, select on **Add issuer** in the **Required Verified IDs** section. If you don't have the Verified ID service set up in your tenant, navigate to the **Verified ID** section of the Azure portal.
+1. If your organization is set up to receive verified IDs, there is an option to configure an access package to require requestors to provide a verified ID.  To learn more, see: [Configure verified ID settings for an access package in entitlement management (Preview)](entitlement-management-verified-id-settings.md)
 
     :::image type="content" source="media/entitlement-management-access-package-first/verified-id-picker.png" alt-text="Screenshot of the Verified ID picker selection.":::
 
-1. Search for an issuer in the dropdown and select the credential type you want users to present when requesting access.
-
-    > [!NOTE]   
-    > If you select multiple issuers / credential types, users requesting access will be required to present **all** of the credential types you have included in this policy. To give users the option of presenting one of many credential types, please include each acceptable option in a separate policy. 
 
 1. Select **Next** to open the **Requestor information** tab.
 
@@ -264,31 +260,6 @@ In this step, you remove the changes you made and delete the **Marketing Campaig
 1. In Azure Active Directory, delete any users you created such as **Requestor1** and **Admin1**.
 
 1. Delete the **Marketing resources** group.
-
-## Set up group writeback in entitlement management
-
-To set up group writeback for Microsoft 365 groups in access packages, you must complete the following prerequisites:
-
-- Set up group writeback in the Azure Active Directory admin center. 
-- The Organizational Unit (OU) that will be used to set up group writeback in Azure AD Connect Configuration.
-- Complete the [group writeback enablement steps](../hybrid/how-to-connect-group-writeback-enable.md) for Azure AD Connect. 
- 
-Using group writeback, you can now sync Microsoft 365 groups that are part of access packages to on-premises Active Directory. To sync the groups, follow the steps below: 
-
-1. Create an Azure Active Directory Microsoft 365 group.
-
-1. Set the group to be written back to on-premises Active Directory. For instructions, see [Group writeback in the Azure Active Directory admin center](../enterprise-users/groups-write-back-portal.md). 
-
-1. Add the group to an access package as a resource role. See [Create a new access package](entitlement-management-access-package-create.md#resource-roles) for guidance. 
-
-1. Assign the user to the access package. See [View, add, and remove assignments for an access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) for instructions to directly assign a user. 
-
-1. After you've assigned a user to the access package, confirm that the user is now a member of the on-premises group once Azure AD Connect Sync cycle completes:
-    1. View the member property of the group in the on-premises OU OR 
-    1. Review the member Of on the user object. 
-
-> [!NOTE]   
-> Azure AD Connect's default sync cycle schedule is every 30 minutes. You may need to wait until the next cycle occurs to see results on-premises or choose to run the sync cycle manually to see results sooner. 
 
 ## Next steps
 

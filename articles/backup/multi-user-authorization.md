@@ -5,6 +5,7 @@ ms.topic: how-to
 zone_pivot_groups: backup-vaults-recovery-services-vault-backup-vault
 ms.date: 11/08/2022
 ms.service: backup
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -688,4 +689,3 @@ To disable the MUA, the Backup admins must follow these steps:
 ## Next steps
 
 [Learn more about Multi-user authorization using Resource Guard](multi-user-authorization-concept.md).
-

@@ -1,8 +1,9 @@
 ---
-title: 'Quickstart: Create an Azure DB for MySQL - Flexible Server - Bicep'
+title: 'Quickstart: Create an Azure Database for MySQL - Flexible Server - Bicep'
 description: In this Quickstart, learn how to create an Azure Database for MySQL - Flexible Server by using Bicep.
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-bicep
 ms.topic: quickstart
 author: shreyaaithal
 ms.author: shaithal
@@ -25,7 +26,7 @@ ms.date: 02/16/2023
 
 ## Create server with public access
 
-Create a **main.bicep** file and a **crateFirewallRules.bicep** file with the following content to create a server using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
+Create a **main.bicep** file and a **CreateFirewallRules.bicep** file with the following content to create a server using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
 
 **main.bicep**
 
@@ -157,7 +158,7 @@ resource database 'Microsoft.DBforMySQL/flexibleServers/databases@2021-12-01-pre
 }
 ```
 
-**crateFirewallRules.bicep**
+**CreateFirewallRules.bicep**
 
 ```bicep
 param serverName string

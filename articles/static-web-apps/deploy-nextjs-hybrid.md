@@ -31,7 +31,7 @@ Begin by initializing a new Next.js application.
 1. Initialize the application using `npm init`. If you are prompted to install `create-next-app`, say yes.
 
     ```bash
-    npm init next-app@latest --typescript
+    npm init next-app@next-12-3-2 --typescript
     ```
 
 1. When prompted for an app name, enter **nextjs-app**.
@@ -54,7 +54,17 @@ Begin by initializing a new Next.js application.
 
 1. Stop the development server by pressing **CMD/CTRL + C**.
 
-## Deploy your static website
+## Configure your Next.js app for deployment to Static Web Apps
+
+To configure your Next.js app for deployment to Static Web Apps, enable the standalone feature for your Next.js project. This step reduces the size of your Next.js project to ensure it's below the size limits for Static Web Apps. Refer to the [standalone](#enable-standalone-feature) section for more information.
+
+```js
+module.exports = {
+    output: "standalone",
+}
+```
+
+## Deploy your Next.js app
 
 The following steps show how to link your app to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 
@@ -111,11 +121,17 @@ Once the workflow is complete, you can refresh the browser to view your web app.
 
 Now any changes made to the `main` branch starts a new build and deployment of your website.
 
+
+>[!NOTE]
+>If you have trouble deploying a Next.js Hybrid application with more than 100Mb app size, use the `standalone` feature of Next.js. Refer to the [standalone](#enable-standalone-feature) section for more information. 
+
+
 ### Sync changes
 
 When you created the app, Azure Static Web Apps created a GitHub Actions file in your repository. Synchronize with the server by pulling down the latest to your local repository.
 
 Return to the terminal and run the following command `git pull origin main`.
+
 
 ## Add Server-Rendered data
 

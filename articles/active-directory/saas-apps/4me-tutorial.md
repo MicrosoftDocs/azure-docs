@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with 4me | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with 4me'
 description: Learn how to configure single sign-on between Azure Active Directory and 4me.
 services: active-directory
 author: jeevansd

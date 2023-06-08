@@ -4,15 +4,15 @@ title: Computer Vision documentation # < 60 chars
 summary: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
 
 metadata:
-  title: Computer Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # Required; article description that is displayed in search results. < 160 chars.
+  title: Computer Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
   services: cognitive-services
-  ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.topic: hub-page # Required
-  author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
-  ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 11/03/2022 #Required; mm/dd/yyyy format.
+  ms.topic: hub-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 11/03/2022
 
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -62,16 +62,22 @@ conceptualContent:
           url: overview-image-analysis.md
         - itemType: quickstart
           text: Get started with Image Analysis
-          url: quickstarts-sdk/image-analysis-client-library.md
+          url: quickstarts-sdk/image-analysis-client-library-40.md
         - itemType: concept
-          text: Content tags
-          url: concept-tagging-images.md
+          text: Image tagging
+          url: concept-tag-images-40.md
         - itemType: concept
-          text: Image descriptions
-          url: concept-describing-images.md
+          text: Image captions
+          url: concept-describe-images-40.md
         - itemType: concept
-          text: Face detection
-          url: concept-detecting-faces.md
+          text: Optical Character Recognition
+          url: concept-ocr.md
+        - itemType: concept
+          text: Model customization
+          url: concept-model-customization.md
+        - itemType: concept
+          text: Background removal
+          url: concept-background-removal.md
         - itemType: tutorial
           text: Generate metadata for images
           url: Tutorials/storage-lab-tutorial.md
@@ -143,13 +149,16 @@ tools:
   items:
   - title: C#
     imageSrc: media/index/logo_Csharp.svg
-    url: /dotnet/api/overview/azure/computer-vision
+    url: /dotnet/api/azure.ai.vision.imageanalysis
   - title: Node.js
     imageSrc: media/index/logo_nodejs.svg
     url: /javascript/api/@azure/cognitiveservices-computervision/
   - title: Python
     imageSrc: media/index/logo_python.svg
-    url: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
+    url: /python/api/azure-ai-vision
+  - title: C++
+    imageSrc: media/index/logo-cplusplus.svg
+    url: /cpp/cognitive-services/vision
   - title: Go
     imageSrc: media/index/logo_go.svg
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
@@ -166,7 +175,7 @@ additionalContent:
         - text: Optical character recognition (OCR)
           url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
         - text: Image Analysis
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+          url: https://aka.ms/vision-4-0-ref
         - text: Face
           url: /rest/api/face/
       - title: Resources

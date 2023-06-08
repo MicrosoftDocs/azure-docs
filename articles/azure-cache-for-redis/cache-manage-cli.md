@@ -8,8 +8,7 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: franlanglois 
-ms.custom: devx-track-azurecli,engagement-fy23
-
+ms.custom: engagement-fy23
 ---
 # How to create and manage Azure Cache for Redis using the Azure classic CLI
 

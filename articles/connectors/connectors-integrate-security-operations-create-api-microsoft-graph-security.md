@@ -45,7 +45,7 @@ To learn more about Microsoft Graph Security, see the [Microsoft Graph Security 
 
   * During your logic app's first run, your app can request consent from your Azure AD tenant administrator through the [application consent experience](../active-directory/develop/application-consent-experience.md).
    
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about how to create logic apps
 
 * The logic app where you want to access your Microsoft Graph Security entities, such as alerts. To use a Microsoft Graph Security trigger, you need a blank logic app. To use a Microsoft Graph Security action, you need a logic app that starts with the appropriate trigger for your scenario.
 
@@ -164,4 +164,5 @@ For technical details about triggers, actions, and limits, which are described b
 
 ## Next steps
 
-Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

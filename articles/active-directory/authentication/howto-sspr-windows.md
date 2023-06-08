@@ -1,12 +1,12 @@
 ---
-title: Self-service password reset for Windows devices - Azure Active Directory
+title: Self-service password reset for Windows devices
 description: Learn how to enable Azure Active Directory self-service password reset at the Windows sign-in screen.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 04/05/2023
 
 ms.author: justinha
 author: justinha
@@ -93,7 +93,7 @@ Deploying the configuration change to enable SSPR from the login screen using Mi
     Select **Add**, then **Next**.
 1. The policy can be assigned to specific users, devices, or groups. Assign the profile as desired for your environment, ideally to a test group of devices first, then select **Next**.
 
-    For more information, see [Assign user and device profiles in Microsoft Microsoft Intune](/mem/intune/configuration/device-profile-assign).
+    For more information, see [Assign user and device profiles in Microsoft Intune](/mem/intune/configuration/device-profile-assign).
 
 1. Configure applicability rules as desired for your environment, such as to *Assign profile if OS edition is Windows 10 Enterprise*, then select **Next**.
 1. Review your profile, then select **Create**.

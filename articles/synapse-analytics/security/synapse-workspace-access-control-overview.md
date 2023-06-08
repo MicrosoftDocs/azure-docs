@@ -47,7 +47,7 @@ Synapse supports two development models.
 - **Synapse live development**. You develop and debug code in Synapse Studio and then **publish** it to save and execute.  The Synapse service is the source of truth for code editing and execution.  Any unpublished work is lost when you close Synapse Studio.  
 - **Git-enabled development**. You develop and debug code in Synapse Studio and **commit** changes to a working branch of a Git repo. Work from one or more branches is integrated into a collaboration branch, from where you **publish** it to the service. The Git repo is the source of truth for code editing, while the service is the source of truth for execution. Changes must be committed to the Git repo or published to the service before closing Synapse Studio. [Learn more](../cicd/continuous-integration-delivery.md) about using Synapse Analytics with Git.
 
-In both development models, any user with access to Synapse Studio can create code artifacts. However, you need additional permissions to publish artifacts to the service, read published artifacts, to commit changes to Git, to execute code, and to access linked data protected by credentials.
+In both development models, any user with access to Synapse Studio can create code artifacts. However, you need additional permissions to publish artifacts to the service, read published artifacts, to commit changes to Git, to execute code, and to access linked data protected by credentials. Users must have the Azure Contributor (Azure RBAC) or higher role on the Synapse workspace to configure, edit settings and disconnect a Git repository with Synapse.
 
 ### Azure Synapse roles
 

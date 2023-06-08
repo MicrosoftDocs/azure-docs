@@ -28,14 +28,14 @@ The `limit-concurrency` policy prevents enclosed policies from executing by more
 
 | Attribute | Description                                                                                        | Required | Default |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | A string. Policy expression allowed. Specifies the concurrency scope. Can be shared by multiple policies. | Yes      | N/A     |
-| max-count | An integer. Specifies a maximum number of requests that are allowed to enter the policy.           | Yes      | N/A     |
+| key       | A string. Specifies the concurrency scope. Can be shared by multiple policies. Policy expressions are allowed. | Yes      | N/A     |
+| max-count | An integer. Specifies a maximum number of requests that are allowed to enter the policy. Policy expressions aren't allowed.           | Yes      | N/A     |
 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Example

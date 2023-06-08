@@ -1,14 +1,14 @@
 ---
 title: What is Image Analysis?
 titleSuffix: Azure Cognitive Services
-description: The Image Analysis service uses pre-trained AI models to extract many different visual features from images. 
+description: The Image Analysis service uses pretrained AI models to extract many different visual features from images. 
 services: cognitive-services 
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
-ms.custom: ignite-2022
+ms.custom: ignite-2022, references_regions, build-2023, build-2023-dataai
 ms.topic: overview
 ms.date: 11/06/2022
 ms.author: pafarley
@@ -40,84 +40,56 @@ This documentation contains the following types of articles:
 For a more structured approach, follow a Training module for Image Analysis.
 * [Analyze images with the Computer Vision service](/training/modules/analyze-images-computer-vision/)
 
-## Image Analysis features
+[!INCLUDE [image analysis versions](./includes/image-analysis-versions.md)]
 
-You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to get started.
+## Analyze Image
 
-### Extract text from images (preview)
+You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the Analyze Image API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
 
-Version 4.0 preview of Image Analysis offers the ability to extract text from images. Compared with the async Computer Vision 3.2 GA Read, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR in a single API operation. [Extract text from images](concept-ocr.md)
-
-
-### Detect people in images (preview)
-
-Version 4.0 preview of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. [People detection](concept-people-detection.md)
-
-### Tag visual features
-
-Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. [Tag visual features](concept-tagging-images.md)
-
-:::image type="content" source="Images/tagging.png" alt-text="An images of a skateboarder with tags listen on the right":::
-
-
-### Detect objects
-
-Object detection is similar to tagging, but the API returns the bounding box coordinates for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process further relationships between the objects in an image. It also lets you know when there are multiple instances of the same tag in an image. [Detect objects](concept-object-detection.md)
-
-:::image type="content" source="Images/detect-objects.png" alt-text="An image of an office with a rectangle drawn around a laptop":::
+| Name | Description | Concept page |
+|---|---|---|
+|**Model customization** (v4.0 preview only)|You can create and train custom models to do image classification or object detection. Bring your own images, label them with custom tags, and Image Analysis will train a model customized for your use case.|[Model customization](./concept-model-customization.md)|
+|**Read text from images** (v4.0 preview only)| Version 4.0 preview of Image Analysis offers the ability to extract readable text from images. Compared with the async Computer Vision 3.2 Read API, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get OCR along with other insights in a single API call. |[OCR for images](concept-ocr.md)|
+|**Detect people in images** (v4.0 preview only)|Version 4.0 preview of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. |[People detection](concept-people-detection.md)|
+|**Generate image captions** | Generate a caption of an image in human-readable language, using complete sentences. Computer Vision's algorithms generate captions based on the objects identified in the image. <br/><br/>The version 4.0 image captioning model is a more advanced implementation and works with a wider range of input images. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. <br/><br/>Version 4.0 also lets you use dense captioning, which generates detailed captions for individual objects that are found in the image. The API returns the bounding box coordinates (in pixels) of each object found in the image, plus a caption. You can use this functionality to generate descriptions of separate parts of an image.<br/><br/>:::image type="content" source="Images/description.png" alt-text="Photo of cows with a simple description on the right.":::| [Generate image captions (v3.2)](concept-describing-images.md)<br/>[(v4.0 preview)](concept-describe-images-40.md)|
+|**Detect objects** |Object detection is similar to tagging, but the API returns the bounding box coordinates for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process further relationships between the objects in an image. It also lets you know when there are multiple instances of the same tag in an image. <br/><br/>:::image type="content" source="Images/detect-objects.png" alt-text="Photo of an office with a rectangle drawn around a laptop.":::| [Detect objects (v3.2)](concept-object-detection.md)<br/>[(v4.0 preview)](concept-object-detection-40.md)
+|**Tag visual features**| Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on.<br/><br/>:::image type="content" source="Images/tagging.png" alt-text="Photo of a skateboarder with tags listed on the right.":::|[Tag visual features (v3.2)](concept-tagging-images.md)<br/>[(v4.0 preview)](concept-tag-images-40.md)|
+|**Get the area of interest / smart crop** |Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. <br/><br/>The version 4.0 smart cropping model is a more advanced implementation and works with a wider range of input images. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. | [Generate a thumbnail (v3.2)](concept-generating-thumbnails.md)<br/>[(v4.0 preview)](concept-generate-thumbnails-40.md)|
+|**Detect brands** (v3.2 only) | Identify commercial brands in images or videos from a database of thousands of global logos. You can use this feature, for example, to discover which brands are most popular on social media or most prevalent in media product placement. |[Detect brands](concept-brand-detection.md)|
+|**Categorize an image** (v3.2 only)|Identify and categorize an entire image, using a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies. Categories can be used alone, or with our new tagging models.<br/><br/>Currently, English is the only supported language for tagging and categorizing images. |[Categorize an image](concept-categorizing-images.md)|
+| **Detect faces** (v3.2 only) |Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/><br/>You can also use the dedicated [Face API](./index-identity.yml) for these purposes. It provides more detailed analysis, such as facial identification and pose detection.|[Detect faces](concept-detecting-faces.md)|
+|**Detect image types** (v3.2 only)|Detect characteristics about an image, such as whether an image is a line drawing or the likelihood of whether an image is clip art.| [Detect image types](concept-detecting-image-types.md)|
+| **Detect domain-specific content** (v3.2 only)|Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Computer Vision can use a domain model for celebrities to determine if the people detected in the image are known celebrities.| [Detect domain-specific content](concept-detecting-domain-content.md)|
+|**Detect the color scheme** (v3.2 only) |Analyze color usage within an image. Computer Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors.| [Detect the color scheme](concept-detecting-color-schemes.md)|
+|**Moderate content in images** (v3.2 only) |You can use Computer Vision to detect adult content in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.|[Detect adult content](concept-detecting-adult-content.md)|
 
 
-### Detect brands
+## Product Recognition (v4.0 preview only)
 
-Identify commercial brands in images or videos from a database of thousands of global logos. You can use this feature, for example, to discover which brands are most popular on social media or most prevalent in media product placement. [Detect brands](concept-brand-detection.md)
+The Product Recognition APIs let you analyze photos of shelves in a retail store. You can detect the presence or absence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Product Recognition results to your store's planogram document.
 
-### Categorize an image
+[Product Recognition](./concept-shelf-analysis.md)
 
-Identify and categorize an entire image, using a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies. Categories can be used alone, or with our new tagging models.<br/>Currently, English is the only supported language for tagging and categorizing images. [Categorize an image](concept-categorizing-images.md)
+## Image Retrieval (v4.0 preview only)
 
-### Describe an image
+The Image Retrieval APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
 
-Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. [Describe an image](concept-describing-images.md)
+These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-:::image type="content" source="Images/description.png" alt-text="An image of cows with a simple description on the right":::
+[Image Retrieval](./concept-image-retrieval.md)
 
-### Detect faces
+## Background removal (v4.0 preview only)
 
-Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face. [Detect faces](concept-detecting-faces.md)
+Image Analysis 4.0 (preview) offers the ability to remove the background of an image. This feature can either output an image of the detected foreground object with a transparent background, or a grayscale alpha matte image showing the opacity of the detected foreground object. [Background removal](./concept-background-removal.md)
 
-You can also use the dedicated [Face API](./index-identity.yml) for these purposes. It provides more detailed analysis, such as facial identification and pose detection.
+|Original image  |With background removed  |Alpha matte  |
+|:---------:|:---------:|:---------:|
 
-### Detect image types
-
-Detect characteristics about an image, such as whether an image is a line drawing or the likelihood of whether an image is clip art. [Detect image types](concept-detecting-image-types.md)
-
-### Detect domain-specific content
-
-Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Computer Vision can use a domain model for celebrities to determine if the people detected in the image are known celebrities. [Detect domain-specific content](concept-detecting-domain-content.md)
-
-### Detect the color scheme
-
-Analyze color usage within an image. Computer Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors. [Detect the color scheme](concept-detecting-color-schemes.md)
-
-### Get the area of interest / smart crop
-
-Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. [Generate a thumbnail](concept-generating-thumbnails.md)
-
-:::image type="content" source="Images/thumbnail-demo.png" alt-text="An image of a person on a mountain, with cropped versions to the right":::
-
-### Moderate content in images
-
-You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
+| | | |
+|---------|---------|---------|
+|   :::image type="content" source="media/background-removal/person-5.png" alt-text="Photo of a group of people using a tablet.":::  |    :::image type="content" source="media/background-removal/person-5-result.png" alt-text="Photo of a group of people using a tablet; background is transparent.":::     |   :::image type="content" source="media/background-removal/person-5-matte.png" alt-text="Alpha matte of a group of people.":::      |
 
 ## Image requirements
-
-#### [Version 3.2](#tab/3-2)
-
-Image Analysis works on images that meet the following requirements:
-
-- The image must be presented in JPEG, PNG, GIF, or BMP format
-- The file size of the image must be less than 4 megabytes (MB)
-- The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
 #### [Version 4.0](#tab/4-0)
 
@@ -125,6 +97,15 @@ Image Analysis works on images that meet the following requirements:
 
 - The image must be presented in JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, or MPO format
 - The file size of the image must be less than 20 megabytes (MB)
+- The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
+
+
+#### [Version 3.2](#tab/3-2)
+
+Image Analysis works on images that meet the following requirements:
+
+- The image must be presented in JPEG, PNG, GIF, or BMP format
+- The file size of the image must be less than 4 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
 ---
@@ -137,4 +118,5 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Image Analysis by following the quickstart guide in your preferred development language:
 
-- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md)
+- [Quickstart (v4.0 preview): Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md)
+- [Quickstart (v3.2): Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md)

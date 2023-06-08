@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.date: 10/02/2020
 ms.topic: quickstart
 ms.service: signalr
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Use an ARM template to deploy Azure SignalR Service
@@ -28,7 +28,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 # [PowerShell](#tab/PowerShell)
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 

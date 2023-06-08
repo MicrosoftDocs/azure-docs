@@ -54,6 +54,9 @@ The following additional limitations apply to Windows Server node pools:
 * The AKS cluster can have a maximum of 100 nodes in each node pool.
 * The Windows Server node pool name has a limit of 6 characters.
 
+> [!NOTE]
+> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+
 ## Create a resource group
 
 An [Azure resource group](../../azure-resource-manager/management/overview.md)
@@ -308,11 +311,12 @@ Kubernetes cluster tutorial.
 > [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[aks-release-notes]: https://github.com/Azure/AKS/releases
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md

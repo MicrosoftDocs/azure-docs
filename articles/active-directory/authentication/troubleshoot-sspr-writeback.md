@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot self-service password reset writeback- Azure Active Directory
+title: Troubleshoot self-service password reset writeback
 description: Learn how to troubleshoot common problems and resolution steps for self-service password reset writeback in Azure Active Directory
 
 services: active-directory
@@ -45,7 +45,11 @@ Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azu
 * *\*.passwordreset.microsoftonline.us*
 * *\*.servicebus.usgovcloudapi.net*
 
-If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
+If you need more granularity, see the [list of Microsoft Azure IP Ranges and Service Tags for Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
+
+For Azure GOV, see the [list of Microsoft Azure IP Ranges and Service Tags for US Government Cloud](https://www.microsoft.com/download/details.aspx?id=57063).
+
+These files are updated weekly.
 
 To determine if access to a URL and port are restricted in an environment, run the following cmdlet:
 
@@ -193,6 +197,7 @@ A best practice when you troubleshoot problems with password writeback is to ins
 | 31016| WriteBackServiceStopped| This event indicates that the password writeback service has stopped. Any password management requests from the cloud won't be successful.|
 | 31017| AuthTokenSuccess| This event indicates that we successfully retrieved an authorization token for the Global Administrator specified during Azure AD Connect setup to start the offboarding or onboarding process.|
 | 31018| KeyPairCreationSuccess| This event indicates that we successfully created the password encryption key. This key is used to encrypt passwords from the cloud to be sent to your on-premises environment.|
+| 31019| ServiceBusHeartBeat| This event indicates that we successfully sent a request to your tenant's Service Bus instance.|
 | 31034| ServiceBusListenerError| This event indicates that there was an error connecting to your tenant's Service Bus listener. If the error message includes "The remote certificate is invalid", check to make sure that your Azure AD Connect server has all the required Root CAs as described in [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md). |
 | 31044| PasswordResetService| This event indicates that password writeback is not working. The Service Bus listens for requests on two separate relays for redundancy. Each relay connection is managed by a unique Service Host. The writeback client returns an error if either Service Host is not running.|
 | 32000| UnknownError| This event indicates an unknown error occurred during a password management operation. Look at the exception text in the event for more details. If you're having problems, try disabling and then re-enabling password writeback. If this doesn't help, include a copy of your event log along with the tracking ID specified when you open a support request.|

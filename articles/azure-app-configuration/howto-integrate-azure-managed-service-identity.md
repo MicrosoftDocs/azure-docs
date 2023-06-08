@@ -2,8 +2,8 @@
 title: Use managed identities to access App Configuration
 titleSuffix: Azure App Configuration
 description: Authenticate to Azure App Configuration using managed identities
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
@@ -210,7 +210,7 @@ spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
 
 :::zone target="docs" pivot="framework-dotnet"
 
-You must deploy your app to an Azure service when you use managed identities. Managed identities can't be used for authentication of locally running apps. To deploy the .NET Core app that you created in the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#publish-your-web-app).
+You must deploy your app to an Azure service when you use managed identities. Managed identities can't be used for authentication of locally running apps. To deploy the .NET Core app that you created in the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#2-publish-your-web-app).
 
 :::zone-end
 

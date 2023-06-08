@@ -17,7 +17,7 @@ ms.custom: sdkv2, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
-> * [v1](v1/how-to-use-secrets-in-runs.md)
+> * [v1](v1/how-to-use-secrets-in-runs.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-use-secrets-in-runs.md)
 
 Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote job context. Coding such values into training scripts in clear text is insecure as it would potentially expose the secret.
@@ -36,9 +36,9 @@ Before following the steps in this article, make sure you have the following pre
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
  
-* An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [Create resources to get started](quickstart-create-resources.md) article to create one.
 
-* An Azure Key Vault. If you used the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create your workspace, a key vault was created for you. You can also create a separate key vault instance using the information in the [Quickstart: Create a key vault](../key-vault/general/quick-create-portal.md) article.
+* An Azure Key Vault. If you used the [Create resources to get started](quickstart-create-resources.md) article to create your workspace, a key vault was created for you. You can also create a separate key vault instance using the information in the [Quickstart: Create a key vault](../key-vault/general/quick-create-portal.md) article.
 
     > [!TIP]
     > You do not have to use same key vault as the workspace.

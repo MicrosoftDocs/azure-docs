@@ -6,9 +6,10 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 6/30/2022
-keywords: 
+keywords:
 ---
 
 ## Prerequisites
@@ -28,7 +29,7 @@ You must have an Azure resource group in order to create an OpenAI resource. Whe
 
 ```azurecli
 az group create \
---name OAIResourceGroup\
+--name OAIResourceGroup \
 --location eastus
 ```
 
@@ -43,8 +44,7 @@ az cognitiveservices account create \
 --kind OpenAI \
 --sku s0 \
 --subscription 00000000-0000-0000-0000-000000000000
- ```
-    
+```
 
 ## Retrieve information from your resource
 Once your resource has been created, you can use the Azure CLI to find useful information about your service such as your REST API endpoint base URL and the access keys. Below are examples on how to do both. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true).
@@ -69,11 +69,12 @@ Once your resource has been created, you can use the Azure CLI to find useful in
 
 To deploy a model, you can use the Azure CLI to run the following command to deploy an instance of text-curie-001. In this example, we deploy a model called MyModel. Make sure to update with your own values. You don't need to change the `model-version`, `model-format` or `scale-settings-scale-type` values. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true).
 
+
 ```azurecli
 az cognitiveservices account deployment create \
    -g $myResourceGroupName \
    -n $myResourceName \
-   -deployment-name MyModel \
+   --deployment-name MyModel \
    --model-name text-curie-001 \
    --model-version "1"  \
    --model-format OpenAI \
@@ -103,3 +104,4 @@ az cognitiveservices account delete \
 --name MyOpenAIResource  \
 -g OAIResourceGroup
 ```
+

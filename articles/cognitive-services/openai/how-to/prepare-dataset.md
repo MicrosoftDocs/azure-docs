@@ -24,6 +24,7 @@ The first step of customizing your model is to prepare a high quality dataset. T
 - Each completion should start with a whitespace due to our tokenization, which tokenizes most words with a preceding whitespace.
 - Each completion should end with a fixed stop sequence to inform the model when the completion ends. A stop sequence could be `\n`, `###`, or any other token that doesn't appear in any completion.
 - For inference, you should format your prompts in the same way as you did when creating the training dataset, including the same separator. Also specify the same stop sequence to properly truncate the completion.
+- The dataset cannot exceed 100 MB in total file size.
 
 ## Best practices
 
@@ -48,7 +49,7 @@ Classifiers are the easiest models to get started with. For classification probl
 
 #### Case study: Is the model making untrue statements?
 
-Let's say you'd like to ensure that the text of the ads on your website mention the correct product and company. In other words, you want to ensure the model isn't making things up. You may want to fine-tune a classifier which filters out incorrect ads.
+Let's say you'd like to ensure that the text of the ads on your website mentions the correct product and company. In other words, you want to ensure the model isn't making things up. You may want to fine-tune a classifier which filters out incorrect ads.
 
 The dataset might look something like the following:
 
@@ -64,7 +65,7 @@ For this use case we fine-tuned an ada model since it is faster and cheaper, and
 Now we can query our model by making a Completion request.
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01\ \
+curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15\ \
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{
@@ -89,7 +90,7 @@ Once the model is fine-tuned, you can get back the log probabilities for the fir
 Now we can query our model by making a Completion request.
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01\ \
+curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15\ \
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{
