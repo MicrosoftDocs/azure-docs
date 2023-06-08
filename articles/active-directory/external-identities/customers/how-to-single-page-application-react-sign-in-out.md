@@ -30,7 +30,7 @@ In this tutorial you'll;
 
 * Completion of the prerequisites and steps in [Prepare an single-page app for authentication](./how-to-single-page-app-react-sign-in-prepare-app.md).
 
-## Adding components to the application
+## Add components to the application
 
 Functional components are the building blocks of React apps, and are used to build the sign in and sign out experiences in a React SPA. 
 
@@ -51,7 +51,7 @@ Functional components are the building blocks of React apps, and are used to bui
     └── ...
     ```
 
-### Adding the page layout
+### Add the page layout
 
 1. Open *PageLayout.jsx* and add the following code to render the page layout. The [useIsAuthenticated](/javascript/api/@azure/msal-react) hook returns whether or not a user is currently signed-in.
 
@@ -103,7 +103,7 @@ Functional components are the building blocks of React apps, and are used to bui
 
 1. Save the file.
 
-### Adding the sign in experience
+### Add the sign in experience
 
 1. Open *SignInButton.jsx* and add the following code, which creates a button that signs in the user using either a pop-up or redirect. The `useMsal` hook is used to retrieve an access token to allow user sign in:
 
@@ -156,7 +156,7 @@ Functional components are the building blocks of React apps, and are used to bui
 
 1. Save the file.
 
-### Adding the sign out experience
+### Add the sign out experience
 
 1. Open *SignOutButton.jsx* and add the following code, which creates a button that signs out the user using either a pop-up or redirect.
 
