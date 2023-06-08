@@ -65,7 +65,7 @@ You can configure Backup for your Central service and Application server virtual
 11. If SSL enforce is enabled for the HANA database, provide the key store, trust store path and SSL hostname and crypto provider details.
 
 > [!NOTE]
-> If you are configuring backup for an HSR enabled HANA database from the Virtual Instance for SAP solutions resource, then the [Backup pre-registration script](https://learn.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does) is run and backup configured only for the Primary HANA database node. In case of a failover, you will need to configure Backup on the new primary node.
+> If you are configuring backup for an HSR enabled HANA database from the Virtual Instance for SAP solutions resource, then the [Backup pre-registration script](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does) is run and backup configured only for the Primary HANA database node. In case of a failover, you will need to configure Backup on the new primary node.
 
 ## Monitor Backup status of your SAP system
 After you configure Backup for the Virtual Machines and HANA Database of your SAP system either from the Virtual Instance for SAP solutions resource or from the Backup Center, you can monitor the status of Backup from the Virtual Instance for SAP solutions resource.
