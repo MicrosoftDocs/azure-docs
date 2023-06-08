@@ -11604,6 +11604,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/firewall/sample-powershell.md",
+            "redirect_url": "/azure/firewall/deploy-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/firewall/scripts/sample-create-firewall-test.md",
+            "redirect_url": "/azure/firewall/deploy-ps",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security/governance-in-azure.md",
             "redirect_url": "/azure/governance/",
             "redirect_document_id": false
@@ -17626,6 +17636,21 @@
         {
             "source_path_from_root": "/articles/vs-azure-tools-storage-explorer-relnotes-0-8-7.md",
             "redirect_url": "/azure/vs-azure-tools-storage-explorer-relnotes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/ag/powershell-samples.md",
+            "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/ag/resource-manager-template-samples.md",
+            "redirect_url": "/azure/web-application-firewall/ag/quick-create-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/afds/resource-manager-template-samples.md",
+            "redirect_url": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-waf-managed/",
             "redirect_document_id": false
         },
         {
