@@ -36,7 +36,7 @@ Add a tag called **Purview environment**, and give it one of the below values:
 |Production|This account is being used or will be used in the future to support all my cataloging and governance requirements in production.|
 |Pre-Production|This account is being used or will be used in the future to validate cataloging and governance requirements before making it available to my users in production.|
 |Test|This account is being used or will be used in the future to test out capabilities in Microsoft Purview Governance. |
-|Dev|This account is being used or will be used in the future to test out capabilities or develop custom code, scripts etc. inMicrosoft Purview Governance.|
+|Dev|This account is being used or will be used in the future to test out capabilities or develop custom code, scripts etc. in Microsoft Purview Governance.|
 |Proof of Concept|This account is being used or will be used in the future to test out capabilities or develop custom code, scripts etc. in Microsoft Purview Governance.|
 
 ### Testing new features
