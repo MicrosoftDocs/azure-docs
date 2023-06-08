@@ -581,7 +581,9 @@
         - name: Access token
           href: access-token-claims-reference.md
         - name: ID token
-          href: id-token-claims-reference.md            
+          href: id-token-claims-reference.md 
+        - name: Optional claims
+          href: optional-claims-reference.md           
         - name: SAML token
           href: reference-saml-tokens.md
     - name: Microsoft Authentication Library (MSAL) reference
