@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add sign-in and sign-out to an ASP.NET web application for a customer tenant
-description: Learn how to configure an ASP.NET web application to sign in and sign out users with your Azure Active Directory (AD) for customers tenant.
+description: Learn how to configure an ASP.NET web application to sign in and sign out users with your Azure Active Directory (Azure AD) for customers tenant.
 services: active-directory
 author: cilwerner
 ms.author: cwerner
@@ -16,7 +16,7 @@ ms.date: 05/23/2023
 
 In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-app.md), you created an ASP.NET project in Visual Studio Code and configured it for authentication.
 
-In this tutorial you'll;
+In this tutorial you'll:
 
 > [!div class="checklist"]
 > * Add sign-in and sign-out experiences

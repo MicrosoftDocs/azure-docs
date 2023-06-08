@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Prepare an ASP.NET web app for authentication in a customer tenant
-description: Learn how to prepare an ASP.NET web app for authentication with your Azure Active Directory (AD) for customers tenant.
+description: Learn how to prepare an ASP.NET web app for authentication with your Azure Active Directory (Azure AD) for customers tenant.
 services: active-directory
 author: cilwerner
 ms.author: cwerner
@@ -16,7 +16,7 @@ ms.date: 05/23/2023
 
 # Tutorial: Prepare an ASP.NET web app for authentication in a customer tenant
 
-In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant.
+In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (Azure AD) for customers tenant.
 
 In this tutorial you'll;
 
