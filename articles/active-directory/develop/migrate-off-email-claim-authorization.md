@@ -125,4 +125,4 @@ If your application uses `email` (or any other mutable claim) for authorization 
 ## Next steps
 
 - To learn more about using claims-based authorization securely, see [Secure applications and APIs by validating claims](claims-validation.md)
-- For more information about optional claims, see [Provide optional claims to your application](./active-directory-optional-claims.md)
+- For more information about optional claims, see the [optional claims reference](./optional-claims-reference.md)
