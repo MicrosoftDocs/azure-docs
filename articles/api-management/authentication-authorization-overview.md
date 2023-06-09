@@ -16,7 +16,7 @@ This article is an introduction to a rich, flexible set of features in API Manag
 
 API authentication and authorization in API Management involve securing the end-to-end communication of client apps to the API Management gateway and through to backend APIs. In many customer environments, OAuth 2.0 is the preferred API authorization protocol. API Management supports OAuth 2.0 authorization between the client and the API Management gateway, between the gateway and the backend API, or both independently.
 
-:::image type="content" source="media/authentication-authorization-overview/data-plane-security.svg" alt-text="Diagram showing points of interaction for securing APIs." border="false":::
+:::image type="content" source="media/authentication-authorization-overview/data-plane-security.svg" alt-text="Diagram showing points of interaction for securing APIs.":::
 
 API Management supports other client-side and service-side authentication and authorization mechanisms that supplement OAuth 2.0 or that are useful when OAuth 2.0 authorization for APIs isn't possible. How you choose from among these options depends on the maturity of your organization's API environment, your security and compliance requirements, and your organization's approach to [mitigating common API threats](mitigate-owasp-api-threats.md). 
 
@@ -65,7 +65,7 @@ A common authorization scenario is when the calling application requests access 
 
 The following image shows an example where Azure AD is the authorization provider. The client app might be a single-page application (SPA). 
 
-:::image type="content" source="media/authentication-authorization-overview/oauth-token-backend.svg" alt-text="Diagram showing OAuth communication where audience is the backend." border="false":::
+:::image type="content" source="media/authentication-authorization-overview/oauth-token-backend.svg" alt-text="Diagram showing OAuth communication where audience is the backend.":::
 
 Although the access token sent along with the HTTP request is intended for the backend API, API Management still allows for a defense in depth approach. For example, configure policies to [validate the JWT](validate-jwt-policy.md), rejecting requests that arrive without a token, or a token that's not valid for the intended backend API. You can also configure API Management to check other claims of interest extracted from the token. 
 
@@ -82,7 +82,7 @@ In this scenario, the API Management service acts on behalf of the API, and the 
 
 In the following example, Azure AD is again the authorization provider, and mutual TLS (mTLS) authentication secures the connection between the gateway and the backend.
 
-:::image type="content" source="media/authentication-authorization-overview/oauth-token-gateway.svg" alt-text="Diagram showing OAuth communication where audience is the API Management gateway." border="false":::
+:::image type="content" source="media/authentication-authorization-overview/oauth-token-gateway.svg" alt-text="Diagram showing OAuth communication where audience is the API Management gateway.":::
 
 There are different reasons for doing this. For example:
 
@@ -108,7 +108,7 @@ With [API authorizations](authorizations-overview.md), you configure API Managem
 
 In the following example, a subscription key is used between the client and the gateway, and GitHub is the authorization provider for the backend API.
 
-:::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagraming showing authorization to backend SaaS service using API authorization." border="false":::
+:::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagraming showing authorization to backend SaaS service using API authorization.":::
 
 With an API authorization, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Authorizations simplify token management in multiple scenarios, such as:
 
