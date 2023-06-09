@@ -19,11 +19,13 @@ IP addresses are associated with function apps, not with individual functions. I
 
 ## Function app inbound IP address
 
-Each function app starts out by using a single inbound IP address. When running in a dynamic plan (Consumption and Premium), additional inbound IP addressed may be added as dynamic scale-out occurs. To find the inbound IP address or addresses being used by your app, use the `nslookup` utility from your local client computer:
+Each function app starts out by using a single inbound IP address. When running in a Consumption or Premium plan, additional inbound IP addresses may be added as event-driven scale-out occurs. To find the inbound IP address or addresses being used by your app, use the `nslookup` utility from your local computer, as in the following example:
 
 ```command
 nslookup <APP_NAME>.azurewebsites.net
 ```
+
+In this example, replace `<APP_NAME>` with your function app name. If your app uses a [custom domain name](../app-service/app-service-web-tutorial-custom-domain.md), use `nslookup` for that custom domain name instead.
 
 ## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
 
