@@ -14,7 +14,7 @@ ms.reviewer: mamkumar
 ---
 # Enable compliant network check with Conditional Access
 
-Organizations who use Conditional Access along with Global Secure Access, can prevent malicious access to Microsoft apps, third-party SaaS apps, and private line-of-business (LoB) apps using multiple conditions to provide defense-in-depth. These conditions may include device compliance, location, and more to provide protection against user identity or token theft. Global Secure Access introduces the concept of a compliant network within Conditional Access and continuous access evaluation. This compliant network check ensures users connect from a verified network connectivity model for their specific tenant and are compliant with security policies enforced by administrators. 
+Organizations who use Conditional Access along with the Global Secure Access preview, can prevent malicious access to Microsoft apps, third-party SaaS apps, and private line-of-business (LoB) apps using multiple conditions to provide defense-in-depth. These conditions may include device compliance, location, and more to provide protection against user identity or token theft. Global Secure Access introduces the concept of a compliant network within Conditional Access and continuous access evaluation. This compliant network check ensures users connect from a verified network connectivity model for their specific tenant and are compliant with security policies enforced by administrators. 
 
 The Global Secure Access client installed on devices or configured remote network allows administrators to secure resources behind a compliant network with advanced Conditional Access controls. This compliant network makes it easier for administrators to manage and maintain, without having to maintain a list of all of an organization's locations IP addresses. Administrators don't need to hairpin traffic through their organization's VPN egress points to ensure security.
 
@@ -29,18 +29,10 @@ The compliant network is different than [IPv4, IPv6, or geographic locations](/a
 ## Prerequisites
 
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
-   * A **Global Secure Access Administrator** role to manage the Global Secure Access preview features
+   * The **Global Secure Access Administrator** role to manage the Global Secure Access preview features
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
 * You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [How to manage the Microsoft 365 profile](how-to-manage-microsoft-365-profile.md).
-
-<!--- Remove to this to general page
-### Known limitations
-
-The preview doesn't support IPv6 traffic. IPv6 must be turned off for this preview.
-
-Some Outlook traffic may use the QUIC protocol. Global Secure Access doesn’t yet support the QUIC protocol.
---->
 
 ## Enable Global Secure Access signaling for Conditional Access
 

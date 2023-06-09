@@ -45,7 +45,7 @@ The most current version of the Global Secure Access Client can be downloaded fr
 
 ## Install the client
 
-Organizations can install the client interactively, silently with the `/quiet` switch, or use mobile device management platforms like [Microsoft Intune to deploy it](/mem/intune/apps/apps-win32-app-management) to their devices. 
+Organizations can install the client interactively, silently with the `/quiet` switch, or use mobile device management platforms like [Microsoft Intune to deploy it](/mem/intune/apps/apps-win32-app-management) to their devices.
 
 1. Copy the Global Secure Access Client setup file to your client machine.
 1. Run the setup file, like *GlobalSecureAccessInstaller 1.5.527*. Accept the software license terms.
@@ -66,7 +66,7 @@ To troubleshoot the Global Secure Access Client, right-click the client icon in 
 - **Switch user**
    - Forces sign-in screen to change user or reauthenticate the existing user.
 - **Pause**
-   - This option can be used to temporarily disable traffic tunneling.
+   - This option can be used to temporarily disable traffic tunneling. As this client is part of your organization's security posture we recommend leaving it running always.
    - This option stops the Windows services related to client. When these services are stopped, traffic is no longer tunneled from the client machine to the cloud service. Network traffic behaves as if the client isn't installed while the client is paused. If the client machine is restarted, the services automatically restart with it.
 - **Resume**
    - This option starts the underlying services related to the Global Secure Access Client. This option would be used to resume after temporarily pausing the client for troubleshooting. Traffic resumes tunneling from the client to the cloud service.

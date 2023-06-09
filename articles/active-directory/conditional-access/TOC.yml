@@ -23,7 +23,7 @@
     items: 
      - name: Users and groups
        href: concept-conditional-access-users-groups.md
-     - name: Cloud apps or actions
+     - name: Target resources
        href: concept-conditional-access-cloud-apps.md
      - name: Conditions
        href: concept-conditional-access-conditions.md

@@ -59,20 +59,11 @@ After administrators confirm the policy settings using [report-only mode](../act
 
 When users sign in to a machine with the Global Secure Access client installed, configured, and running they may be prompted to sign in. When users attempt to access a resource protected by a policy like the example above the policy is enforced and they're prompted to sign in if they haven't already. Looking at the system tray icon for the Global Secure Access client you see a red circle indicating it's signed out or not running.
 
-<!---Try to make the icon and state appear larger in some way clean up the notifications area--->
 :::image type="content" source="media/how-to-target-resource/windows-client-pick-an-account.png" alt-text="Screenshot showing the pick an account window for the Global Secure Access Client.":::
 
 When a user signs in the Global Secure Access Client has a green circle that you're signed in, and the client is running.
 
 :::image type="content" source="media/how-to-target-resource/global-secure-access-client-signed-in.png" alt-text="Screenshot showing the Global Secure Access Client is signed in and running.":::
-
-<!--- To be added
-## FAQs
-## Known limitations
-Tenant restrictions
-Source IP restoration
-Compliant network policy
---->
 
 ## Next steps
 

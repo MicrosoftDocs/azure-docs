@@ -78,8 +78,6 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
    1. The Fabrikam user should be blocked from accessing SharePoint Online with an error message saying: 
       1. **Access is blocked, The Contoso IT department has restricted which organizations can be accessed. Contact the Contoso IT department to gain access.**
 
-<!--Add screenshot of error when blocked-->
-
 ### Try the data path  
 
 1. With universal tenant restrictions turned off in Global Secure Access global settings.
@@ -98,11 +96,16 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
       1. `Restrict-Access-Confirm: 1`
       1. `x-ms-diagnostics: 2000020;reason="xms_trpid claim was not present but sec-tenant-restriction-access-policy header was in requres";error_category="insufficiant_claims"`
 
-<!--- To be added
-## FAQs
 ## Known limitations
+
+Outlook uses the QUIC protocol for some communications, we don't currently support the QUIC protocol. Organizations can use a firewall policy to block QUIC and fallback to non-QUIC protocol. The following PowerShell command creates a firewall rule to block this protocol.
+
+```PowerShell
+New-NetFirewallRule -DisplayName "Block QUIC for Exchange" -Direction Outbound -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32 -Protocol UDP -RemotePort 443 -Action Block 
+```
+
 ## Next steps
-Tenant restrictions
-Source IP restoration
-Compliant network policy
---->
+
+- [Set up tenant restrictions V2 (Preview)](../active-directory/external-identities/tenant-restrictions-v2.md)
+- [Source IP restoration](how-to-source-ip-restoration.md)
+- [Enable compliant network check with Conditional Access](how-to-compliant-network.md)

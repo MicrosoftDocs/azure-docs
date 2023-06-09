@@ -16,6 +16,8 @@ items:
   - name: Remote networks
     expanded: false
     items:
+      - name: Remote network connectivity
+        href: concept-remote-network-connectivity.md
       - name: Create a remote network
         href: how-to-create-remote-networks.md
       - name: Manage remote network device links
@@ -66,11 +68,6 @@ items:
         href: how-to-view-enriched-logs.md
       - name: Traffic logs
         href: how-to-view-traffic-logs.md
-- name: Concepts
-  expanded: false
-  items:
-  - name: Remote network connectivity
-    href: concept-remote-network-connectivity.md
 - name: Reference
   expanded: false
   items:

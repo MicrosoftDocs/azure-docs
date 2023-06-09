@@ -1,5 +1,5 @@
 ---
-title: Enable source IP restoration
+title: Enable source IP restoration with the Global Secure Access preview
 description: Learn how to enable source IP restoration to ensure source IP match in downstream resources.
 
 ms.service: network-access
@@ -16,7 +16,7 @@ ms.reviewer: mamkumar
 
 With a cloud based network proxy between users and their resources, the IP address that the resources see doesn't match the actual source IP address. In place of the end-users’ source IP, the resource endpoints see the cloud proxy as the source IP address. Customers with these cloud proxy solutions can't use this source IP information. 
 
-Microsoft’s existing solutions such as Conditional Access and continuous access evaluation (CAE) enforcement for Microsoft 365 apps rely on source IP information. With Global Secure Access and source IP restoration, organizations can continue using IP location-based Conditional Access policies, including CAE enforcement.
+Microsoft’s existing solutions such as Conditional Access and continuous access evaluation (CAE) enforcement for Microsoft 365 apps rely on source IP information. With the Global Secure Access preview and source IP restoration, organizations can continue using IP location-based Conditional Access policies, including CAE enforcement.
 
 Source IP restoration allows services to see the real source IP address, these services include: [Conditional Access](/azure/active-directory/conditional-access/overview), [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation), [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks), [sign-in logs](/azure/active-directory/reports-monitoring/concept-sign-ins), and [endpoint detection & response (EDR)](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
 
@@ -55,13 +55,7 @@ To see source IP restoration in action, administrators can take the following st
 
 Sign-in log data may take some time to appear, this delay is normal as there's some processing that must take place.
 
-<!--Add screenshot of Sign-in logs here-->
+:::image type="content" source="media/how-to-source-ip-restoration/sign-in-logs-enabled-disabled.png" alt-text="Screenshot of the sign-in logs showing events with source IP restoration on, then off, then on again." lightbox="media/how-to-source-ip-restoration/sign-in-logs-enabled-disabled.png":::
 
-<!--- To be added
-## FAQs
-## Known limitations
-## Next steps
-Tenant restrictions
-Source IP restoration
-Compliant network policy
---->
+- [Set up tenant restrictions V2 (Preview)](../active-directory/external-identities/tenant-restrictions-v2.md)
+- [Enable compliant network check with Conditional Access](how-to-compliant-network.md)
