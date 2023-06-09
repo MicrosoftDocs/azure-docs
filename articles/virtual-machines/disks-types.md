@@ -37,7 +37,11 @@ The following table provides a comparison of the five disk types to help you dec
 
 \* Only applies to disks with performance plus (preview) enabled.
 
-For a video that covers some high level differences for the different disk types, and some ways for determining what impacts your workload requirements, see [Block storage options with Azure Disk Storage and Elastic SAN](https://youtu.be/igfNfUvgaDw).
+For more help deciding which disk type suits your needs, this decision tree should help with typical scenarios:
+
+:::image type="content" source="media/disks-types/managed-disk-decision-tree.png" alt-text="Diagram of a decision tree for managed disk types." lightbox="media/disks-types/managed-disk-decision-tree.png":::
+
+For a video that covers some high level differences for the different disk types, as well as some ways for determining what impacts your workload requirements, see [Block storage options with Azure Disk Storage and Elastic SAN](https://youtu.be/igfNfUvgaDw).
 
 ## Ultra disks
 

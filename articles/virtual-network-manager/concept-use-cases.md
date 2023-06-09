@@ -56,6 +56,7 @@ For a walk-through of use cases, see [Securing Your Virtual Networks with Azure 
 
 ## Next steps
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
+- Deploy an [Azure Virtual Network Manager](create-virtual-network-manager-terraform.md) instance using Terraform.
 - Learn more about [network groups](concept-network-groups.md) in Azure Virtual Network Manager.
 - Learn what you can do with a [connectivity configuration](concept-connectivity-configuration.md).
 - Learn more about [security admin configurations](concept-security-admins.md).
