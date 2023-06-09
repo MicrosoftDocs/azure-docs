@@ -18,12 +18,12 @@ author: padmalathas
 
 Performance expectations using common HPC microbenchmarks are as follows:
 
-| Workload                                        | HX                                                              |
+| Workload                                        | HX                                                                |
 |-------------------------------------------------|-------------------------------------------------------------------|
 | STREAM Triad                                    | 750-780GB/s                                                       |
 | High-Performance Linpack (HPL)                  | Up to 7.6 TF (Rpeak, FP64) for 144-core VM size                   |
 | RDMA latency & bandwidth                        | < 2 microseconds (1 byte), 400 Gb/s (one-way)                     |
-| FIO on local NVMe SSDs (RAID0)                  | 12 GB/s reads, 7 GB/s writes; 186k IOPS reads, 201k IOPS writes |
+| FIO on local NVMe SSDs (RAID0)                  | 12 GB/s reads, 7 GB/s writes; 186k IOPS reads, 201k IOPS writes   |
 
 ## Memory bandwidth test
 
@@ -47,7 +47,7 @@ sh hpl_run_scr_hbv4.sh $PWD
 
 ## MPI latency
 
-The MPI latency test from the OSU microbenchmark suite can be executed as shown. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
+The MPI latency test from the OSU microbenchmark suite can be executed as shown. Sample scripts are on [GitHub](https://github.com/Azure/azurehpc/tree/master/apps/health_checks).
 
 ```bash
 module load mpi/hpcx 
@@ -55,17 +55,18 @@ mpirun -np 2 --host $src,$dst --map-by node -x LD_LIBRARY_PATH $HPCX_OSU_DIR/osu
 ```
 
 ## MPI bandwidth
-The MPI bandwidth test from the OSU microbenchmark suite can be executed as shown. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
+The MPI bandwidth test from the OSU microbenchmark suite can be executed as shown. Sample scripts are on [GitHub](https://github.com/Azure/azurehpc/tree/master/apps/health_checks).
 
 ```bash
 module load mpi/hpcx 
-mpirun -np 2 --host $src,$dst --map-by node -x LD_LIBRARY_PATH $HPCX_OSU_DIR/osu_bw ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
+mpirun -np 2 --host $src,$dst --map-by node -x LD_LIBRARY_PATH $HPCX_OSU_DIR/osu_bw
 ```
+
 [!NOTE]
 Define source(src) and destination(dst).
 
 ## Mellanox Perftest
-The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is shown.
+The [Mellanox Perftest package](https://github.com/linux-rdma/perftest) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is shown.
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
