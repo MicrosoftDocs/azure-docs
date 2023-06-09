@@ -8,7 +8,7 @@ ms.reviewer: mmcc
 
 # Data Collection Basics of Azure Monitor Application Insights
 
-In the following sections, we'll cover some data collection basics of Azure Monitor Application Insights.
+In the following sections, we cover some data collection basics of Azure Monitor Application Insights.
 
 ## Instrumentation Options
 
@@ -23,10 +23,10 @@ There are two methods to instrument your application:
 
 **Manual instrumentation** is coding against the Application Insights or OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. There are two options for manual instrumentation:
 
-1. [Application Insights SDKs](asp-net-core.md)
-2. [Azure Monitor OpenTelemetry Distros](opentelemetry-enable.md).
+- [Application Insights SDKs](asp-net-core.md)
+- [Azure Monitor OpenTelemetry Distros](opentelemetry-enable.md).
 
-While we see OpenTelemetry as our future direction, we have no plans to stop collecting data from older SDKs. We still have a ways to go before our Azure OpenTelemetry Distros [reach feature parity with our Application Insights SDKs](../faq.yml#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-). In many cases, customers will continue to choose to use Application Insights SDKs for quite some time.
+While we see OpenTelemetry as our future direction, we have no plans to stop collecting data from older SDKs. We still have a way to go before our Azure OpenTelemetry Distros [reach feature parity with our Application Insights SDKs](../faq.yml#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-). In many cases, customers will continue to choose to use Application Insights SDKs for quite some time.
 
 > [!IMPORTANT]
 > "Manual" doesn't mean you'll be required to write complex code to define spans for distributed traces, although it remains an option. Instrumentation Libraries packaged into our Distros enable you to effortlessly capture telemetry signals across common frameworks and libraries. We're actively working to [instrument the most popular Azure Service SDKs using OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/) so these signals are available to customers who use the Azure Monitor OpenTelemetry Distro.
@@ -58,7 +58,7 @@ A direct exporter sends telemetry in-process (from the application's code) direc
 
 *The currently available Application Insights SDKs and Azure Monitor OpenTelemetry Distros rely on a direct exporter*.
 
-Alternatively, sending application telemetry via an agent like OpenTelemetry-Collector can have some benefits including sampling, post-processing, and more. Azure Monitor is developing an agent and ingestion endpoint that supports [Open Telemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will provide a path for any OpenTelemetry-supported programming language beyond our [supported languages](platforms.md) to use to Azure Monitor.
+Alternatively, sending application telemetry via an agent like OpenTelemetry-Collector can have some benefits including sampling, post-processing, and more. Azure Monitor is developing an agent and ingestion endpoint that supports [Open Telemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md), providing a path for any OpenTelemetry-supported programming language beyond our [supported languages](platforms.md) to use to Azure Monitor.
 
 > [!NOTE]
 > For Azure Monitor's position on the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md), see the [OpenTelemetry FAQ](../faq.yml#can-i-use-the-opentelemetry-collector-).
@@ -74,7 +74,7 @@ Microsoft worked with project stakeholders from two previously popular open-sour
 
 For terminology, see the [glossary](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/glossary.md) in the OpenTelemetry specifications.
 
-Some legacy terms in Application Insights are confusing because of the industry convergence on OpenTelemetry. The following table highlights these differences. Eventually, Application Insights terms will be replaced by OpenTelemetry terms.
+Some legacy terms in Application Insights are confusing because of the industry convergence on OpenTelemetry. The following table highlights these differences. Eventually, OpenTelemetry terms will replace Application Insights terms.
 
 Application Insights | OpenTelemetry
 ------ | ------
@@ -83,19 +83,19 @@ Channel | Exporter
 Codeless / Agent-based | Auto-instrumentation
 Traces | Logs
 Requests | Server Spans
-Dependencies | Other Span Types (Client, Internal, etc)
+Dependencies | Other Span Types (Client, Internal, etc.)
 
 ## Next steps
 
 Select your enablement approach:
 
-1. [Auto-instrumentation](codeless-overview.md)
-2. Application Insights SDKs
+- [Auto-instrumentation](codeless-overview.md)
+- Application Insights SDKs
     - [ASP.NET](./asp-net.md)
     - [ASP.NET Core](./asp-net-core.md)
     - [Node.js](./nodejs.md)
     - [Python](./opencensus-python.md)
     - [JavaScript: Web](./javascript.md)
-3. [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md)
+- [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md)
 
 Check out the [Azure Monitor Application Insights FAQ](/azure/azure-monitor/faq#application-insights) and [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry) for more information.
