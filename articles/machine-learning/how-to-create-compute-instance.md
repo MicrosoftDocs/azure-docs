@@ -54,6 +54,8 @@ No additional prerequisites.
 
 * To use the Studio (preview) version, enable the preview feature:
 
+---
+
 ## Create
 
 **Time estimate**: Approximately 5 minutes.
