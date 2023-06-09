@@ -891,6 +891,14 @@ items:
             href: storage-blob-container-lease-python.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-python.md
+          - name: Generate a shared access signature (SAS)
+            items:
+            - name: Create a user delegation SAS for a container
+              href: storage-blob-container-user-delegation-sas-create-python.md
+            - name: Create a service SAS for a container
+              href: sas-service-create-python-container.md
+            - name: Create an account SAS
+              href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -915,6 +923,14 @@ items:
             href: storage-blob-lease-python.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-python.md
+          - name: Generate a shared access signature (SAS)
+            items:
+            - name: Create a user delegation SAS for a blob
+              href: storage-blob-user-delegation-sas-create-python.md
+            - name: Create a service SAS for a blob
+              href: sas-service-create-python.md
+            - name: Create an account SAS
+              href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
