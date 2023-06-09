@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Markit Procurement Service](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Markit Procurement Service to support provisioning with Azure AD
-Contact Markit Procurement Service support to configure Markit Procurement Service to support provisioning with Azure AD.
+You can begin the process of connecting your Markit environment to Azure AD provisioning by reaching out to the [Markit support team](mailto:support@markit.eu) or directly with your Markit account manager. You will be provided a document that will contain your **Tenant URL**, along with a **Secret Token**. Markit account managers can assist you with setting up this integration and are available to answer any questions about its configuration or use.
 
 ## Step 3. Add Markit Procurement Service from the Azure AD application gallery
 
@@ -57,7 +57,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to Markit Procurement Service 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in TestApp based on user assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Markit Procurement Service  based on user assignments in Azure AD.
 
 ### To configure automatic user provisioning for Markit Procurement Service in Azure AD:
 
@@ -88,6 +88,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 1. Select **Save**.
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Markit Procurement Service**.
+
+1. Uncheck **Create** checkbox. Markit recommends unchecking the create option. By unchecking create options users are created on demand during first time user login.
+
+	![Screenshot of Uncheck create option.](media/markit-procurement-service-provisioning-tutorial/create-uncheck.png)
 
 1. Review the user attributes that are synchronized from Azure AD to Markit Procurement Service in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Markit Procurement Service for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you need to ensure that the Markit Procurement Service API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
