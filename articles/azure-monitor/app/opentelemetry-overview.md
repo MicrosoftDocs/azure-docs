@@ -91,11 +91,11 @@ Select your enablement approach:
 
 1. [Auto-instrumentation](codeless-overview.md)
 2. Application Insights SDKs
-  - [ASP.NET](./asp-net.md)
-  - [ASP.NET Core](./asp-net-core.md)
-  - [Node.js](./nodejs.md)
-  - [Python](./opencensus-python.md)
-  - [JavaScript: Web](./javascript.md)
+    - [ASP.NET](./asp-net.md)
+    - [ASP.NET Core](./asp-net-core.md)
+    - [Node.js](./nodejs.md)
+    - [Python](./opencensus-python.md)
+    - [JavaScript: Web](./javascript.md)
 3. [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md)
 
 Check out the [Azure Monitor Application Insights FAQ](/azure/azure-monitor/faq#application-insights) and [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry) for more information.
