@@ -445,7 +445,7 @@
             - name: Restrict your app to a set of users
               href: howto-restrict-your-app-to-a-set-of-users.md
             - name: Add app roles in your application
-              href: howto-add-app-roles-in-azure-ad-apps.md
+              href: howto-add-app-roles-in-apps.md
             - name: Implement RBAC in your application
               href: howto-implement-rbac-for-apps.md
             - name: Support FIDO2 authentication
