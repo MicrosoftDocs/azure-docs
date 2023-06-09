@@ -16,7 +16,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Exception Policy
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 An Exception Policy is a set of rules that defines what actions to execute when a condition is triggered.  You can save these policies inside Job Router and then attach them to one or more Queues.
 

@@ -15,7 +15,9 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Target a Preferred Worker
 
-In the context of a call center, customers might be assigned an account manager or have a relationship with a specific worker. In that event, you might want to route a specific job to a specific worker if possible.
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
+In the context of a call center, customers might be assigned an account manager or have a relationship with a specific worker. As such, You'd want to route a specific job to a specific worker if possible.
 
 ## Prerequisites
 

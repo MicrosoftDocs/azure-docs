@@ -14,6 +14,8 @@ ms.custom: template-how-to
 
 # Manage a queue
 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
 This guide outlines the steps to create and manage a Job Router queue.
 
 ## Prerequisites

@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Job classification
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 When you submit a job to Job Router, you can either specify the queue, priority, and worker selectors manually or you can specify a classification policy to drive these values.
 

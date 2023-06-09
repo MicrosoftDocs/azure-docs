@@ -15,7 +15,9 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # How to get estimated wait time and job position
 
-In the context of a call center, customers might want to know how long they need to wait before they are connected to an agent. As such, Job Router can calculate the estimated wait time or position of a job in a queue.
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
+In the context of a call center, customers might want to know how long they need to wait before they're connected to an agent. As such, Job Router can calculate the estimated wait time or position of a job in a queue.
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -28,7 +30,7 @@ In the context of a call center, customers might want to know how long they need
 
 ## Get estimated wait time and length of a queue
 
-Estimated wait time for a queue with is retrieved by calling `GetQueueStatisticsAsync` and checking the `EstimatedWaitTimeMinutes` property.  It is grouped by Job priority. Job Router also returns the length of the queue and the longest waiting job in the queue.
+Estimated wait time for a queue with is retrieved by calling `GetQueueStatisticsAsync` and checking the `EstimatedWaitTimeMinutes` property. The estimated wait time is grouped by job priority. Job Router also returns the length of the queue and the longest waiting job in the queue.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -66,7 +68,7 @@ System.out.println("Queue statistics: " + new GsonBuilder().toJson(queueStatisti
 
 ::: zone-end
 
-Executing the above code should print out a message similar to the following snippet:
+Executing the above code should print a message similar to the following snippet:
 
 ```json
 Queue statistics: { "QueueId":"queue1", "Length": 15, "EstimatedWaitTimeMinutes": { "1": 10 }, "LongestJobWaitTimeMinutes": 4.724 }
@@ -74,7 +76,7 @@ Queue statistics: { "QueueId":"queue1", "Length": 15, "EstimatedWaitTimeMinutes"
 
 ## Get estimated wait time and position of a job in a queue
 
-Estimated wait time for a job with Id `job1` is retrieved by calling `GetQueuePositionAsync` and checking the `EstimatedWaitTimeMinutes` property.  This also returns the position of the job in the queue.
+Estimated wait time for a job with Id `job1` is retrieved by calling `GetQueuePositionAsync` and checking the `EstimatedWaitTimeMinutes` property.  Job Router also returns the position of the job in the queue.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -112,7 +114,7 @@ System.out.println("Queue position details: " + new GsonBuilder().toJson(queuePo
 
 ::: zone-end
 
-Executing the above code should print out a message similar to the following snippet:
+Executing the above code should print a message similar to the following snippet:
 
 ```json
 Queue position details: { "JobId": "job1", "Position": 4, "QueueId": "queue1", "QueueLength":15, "EstimatedWaitTimeMinutes": 5 }

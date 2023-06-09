@@ -13,7 +13,7 @@ ms.custom: mode-other
 ---
 # Quickstart: Submit a job for queuing and routing
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 Get started with Azure Communication Services Job Router by setting up your client. Then can configure core functionality such as queues, policies, workers, and Jobs. To learn more about Job Router concepts, visit [Job Router conceptual documentation](../../concepts/router/concepts.md)
 

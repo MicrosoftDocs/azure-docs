@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Classifying a job
 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
 Learn to use a classification policy in Job Router to dynamically resolve the queue and priority while also attaching worker selectors to a Job.
 
 ## Prerequisites
@@ -120,22 +122,6 @@ The following example will cause the classification policy to evaluate the Job l
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-<<<<<<< Updated upstream
-var job = await routerClient.CreateJobAsync(
-    options: new CreateJobWithClassificationPolicyOptions(
-        jobId: "<job id>",
-        channelId: "voice",
-        classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10")
-    {
-        Labels = new Dictionary<string, LabelValue>()
-        {
-            {"Region", new LabelValue("NA")},
-            {"Caller_Id", new LabelValue("tel:7805551212")},
-            {"Caller_NPA_NXX", new LabelValue("780555")},
-            {"XBOX_Hardware", new LabelValue(7)}
-        }
-    });
-=======
 await client.CreateJobAsync(new CreateJobWithClassificationPolicyOptions(
     jobId: "job1",
     channelId: "voice",
@@ -149,7 +135,6 @@ await client.CreateJobAsync(new CreateJobWithClassificationPolicyOptions(
         ["XBOX_Hardware"] = new(7)
     }
 });
->>>>>>> Stashed changes
 ```
 
 ::: zone-end
@@ -213,14 +198,6 @@ In this example, the Classification Policy is configured with a static attachmen
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-<<<<<<< Updated upstream
-await routerAdministrationClient.CreateClassificationPolicyAsync(
-    options: new CreateClassificationPolicyOptions("policy-1")
-    {
-        WorkerSelectors = new List<WorkerSelectorAttachment>()
-        {
-            new StaticWorkerSelectorAttachment(new WorkerSelector("Foo", LabelOperator.Equal, new LabelValue("Bar")))
-=======
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1")
     {
@@ -228,7 +205,6 @@ await administrationClient.CreateClassificationPolicyAsync(
         {
             new StaticWorkerSelectorAttachment(new WorkerSelector(
                 key: "Foo", labelOperator: LabelOperator.Equal, value: new LabelValue("Bar")))
->>>>>>> Stashed changes
         }
     });
 ```
@@ -280,18 +256,6 @@ In this example, the Classification Policy is configured with a conditional atta
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-<<<<<<< Updated upstream
-await routerAdministrationClient.CreateClassificationPolicyAsync(
-    options: new CreateClassificationPolicyOptions("policy-1")
-    {
-        WorkerSelectors = new List<WorkerSelectorAttachment>()
-        {
-            new ConditionalWorkerSelectorAttachment(
-                condition: new ExpressionRule("job.Urgent = true")),
-                labelSelectors: new List<WorkerSelector>()
-                {
-                    new WorkerSelector("Foo", LabelOperator.Equal, "Bar")
-=======
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1")
     {
@@ -302,7 +266,6 @@ await administrationClient.CreateClassificationPolicyAsync(
                 labelSelectors: new List<WorkerSelector>
                 {
                     new(key: "Foo", labelOperator: LabelOperator.Equal, value: new LabelValue("Bar"))
->>>>>>> Stashed changes
                 })
         }
     });
@@ -361,21 +324,12 @@ In this example, the Classification Policy is configured to attach a worker sele
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-<<<<<<< Updated upstream
-await routerAdministrationClient.CreateClassificationPolicyAsync(
-    options: new CreateClassificationPolicyOptions("policy-1")
-    {
-        WorkerSelectors = new List<WorkerSelectorAttachment>()
-        {
-            new PassThroughQueueSelectorAttachment("Foo", LabelOperator.Equal)
-=======
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1")
     {
         WorkerSelectors = new List<WorkerSelectorAttachment>
         {
             new PassThroughWorkerSelectorAttachment(key: "Foo", labelOperator: LabelOperator.Equal)
->>>>>>> Stashed changes
         }
     });
 ```
@@ -429,27 +383,6 @@ In this example, the Classification Policy is configured with a weighted allocat
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-<<<<<<< Updated upstream
-await routerAdministrationClient.CreateClassificationPolicyAsync(
-    options: new CreateClassificationPolicyOptions("policy-1")
-    {
-        WorkerSelectors = new List<WorkerSelectorAttachment>()
-        {
-            new WeightedAllocationWorkerSelectorAttachment(
-                new List<WorkerWeightedAllocation>()
-                {
-                    new WorkerWeightedAllocation(0.3, 
-                        new List<WorkerSelector>()
-                        {
-                            new WorkerSelector("Vendor", LabelOperator.Equal, "A")
-                        }),
-                    new WorkerWeightedAllocation(0.7, 
-                        new List<WorkerSelector>()
-                        {
-                            new WorkerSelector("Vendor", LabelOperator.Equal, "B")
-                        })
-                })
-=======
 await administrationClient.CreateClassificationPolicyAsync(new CreateClassificationPolicyOptions("policy-1")
     {
         WorkerSelectors = new List<WorkerSelectorAttachment>
@@ -465,7 +398,6 @@ await administrationClient.CreateClassificationPolicyAsync(new CreateClassificat
                     new (key: "Vendor", labelOperator: LabelOperator.Equal, value: new LabelValue("B"))
                 })
             })
->>>>>>> Stashed changes
         }
     });
 ```

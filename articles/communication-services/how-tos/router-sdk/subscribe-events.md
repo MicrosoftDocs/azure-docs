@@ -13,6 +13,8 @@ ms.custom: template-how-to
 
 # Subscribe to Job Router events
 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
 This guide outlines the steps to set up a subscription for Job Router events and how to receive them.
 
 For more details on Event Grid, see the [Event Grid documentation][event-grid-overview].

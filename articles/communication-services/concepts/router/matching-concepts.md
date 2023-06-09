@@ -16,7 +16,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # How jobs are matched to workers
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 This document describes the registration of workers, the submission of jobs and how they're matched to each other.
 

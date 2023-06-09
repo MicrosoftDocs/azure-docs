@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Distribution modes
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 When creating a distribution policy, we specify one of the following distribution modes to define the strategy to use when distributing jobs to workers:
 

@@ -14,6 +14,8 @@ ms.custom: kr2b-contr-experiment
 
 # Discover how to accept or decline Job Router job offers
 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
 This guide lays out the steps you need to take to observe a Job Router offer. It also outlines how to accept or decline job offers.
 
 ## Prerequisites

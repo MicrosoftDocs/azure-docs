@@ -14,6 +14,8 @@ ms.custom: template-how-to
 
 # Escalate a job
 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
 This guide shows you how to escalate a Job in a Queue by using an Exception Policy.
 
 ## Prerequisites

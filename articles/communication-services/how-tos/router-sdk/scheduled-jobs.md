@@ -18,9 +18,9 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Scheduling a job
 
-In the context of a call center, customers may want to receive a scheduled callback at a later time. As such, you will need to create a scheduled job in Job Router.
-
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
+In the context of a call center, customers may want to receive a scheduled callback at a later time. As such, you will need to create a scheduled job in Job Router.
 
 ## Prerequisites
 

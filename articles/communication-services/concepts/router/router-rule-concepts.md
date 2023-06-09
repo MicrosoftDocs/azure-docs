@@ -16,7 +16,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Job Router rule engines
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 Job Router can use one or more rule engines to process data and make decisions about your Jobs and Workers. This document covers what the rule engines do and why you may want to apply them in your implementation.
 

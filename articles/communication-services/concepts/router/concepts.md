@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Job Router key concepts
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 Azure Communication Services Job Router solves the problem of matching supply with demand.
 
