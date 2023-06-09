@@ -181,7 +181,7 @@ To install Bind, use the following procedure:
     vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    The `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` text is the __DNS suffix__ for this virtual network. Save this value, as it is used later.
+    The `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` text is the __DNS suffix__ for this virtual network. Save this value, as it's used later.
 
     You must also find out the DNS suffix from the other DNS server. You need it in the next step.
 
@@ -349,14 +349,14 @@ The following list shows you some general usage cases and their parameter settin
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta`
 
-### Setup Replication between ESP clusters
+### Set up replication between ESP clusters
 
 **Prerequisites**
 1. Both ESP clusters should be there in the same realm (domain). Check `/etc/krb5.conf` file default realm property to confirm. 
 1. Common user should be there who has read and write access to both the clusters
    1. For example, if both clusters have same cluster admin user (For example, `admin@abc.example.com`), that user can be used to run the replication script.
-   1. If both clusters using same user group, we can add a new user or use existing user from the group.
-   1. If both clusters using different user group, we can add a new user to both use existing user from the groups.
+   1. If both the clusters using same user group, you can add a new user or use existing user from the group.
+   1. If both the clusters using different user group, you can add a new user to both use existing user from the groups.
  
 **Steps to Execute Replication script**
 
