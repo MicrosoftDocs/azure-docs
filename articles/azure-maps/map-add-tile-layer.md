@@ -34,7 +34,7 @@ The tile URL passed into a Tile layer must be an http or an https URL to a TileJ
 
 ## Add a tile layer
 
- This sample shows how to create a tile layer that points to a set of tiles. This sample uses the x, y, zoom tiling system. The source of this tile layer is the [OpenSeaMap project], which contains crowd sourced nautical charts. Ideally users would clearly see the labels of cities as they navigate the map hen viewing radar data. This behavior can be implemented by inserting the tile layer below the `labels` layer.
+ This sample shows how to create a tile layer that points to a set of tiles. This sample uses the x, y, zoom tiling system. The source of this tile layer is the [OpenSeaMap project], which contains crowd sourced nautical charts. Ideally users would clearly see the labels of cities as they navigate the map when viewing radar data. This behavior can be implemented by inserting the tile layer below the `labels` layer.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
