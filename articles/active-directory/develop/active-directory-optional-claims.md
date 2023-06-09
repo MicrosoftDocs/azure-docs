@@ -482,3 +482,4 @@ Learn more about the standard claims provided by Azure AD.
 
 - [ID tokens](id-tokens.md)
 - [Access tokens](access-tokens.md)
+

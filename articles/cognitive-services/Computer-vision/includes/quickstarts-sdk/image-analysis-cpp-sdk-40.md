@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Image Analysis 4.0 client library for .NET"
-description: In this quickstart, get started with the Image Analysis 4.0 client library for .NET.
+title: "Quickstart: Image Analysis 4.0 client SDK for .NET"
+description: In this quickstart, get started with the Image Analysis 4.0 client SDK for .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for C++ to analyze an image to read text and generate an image caption. This quickstart defines a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console.
+Use the Image Analysis client SDK for C++ to analyze an image to read text and generate an image caption. This quickstart defines a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console.
 
 [Reference documentation](/cpp/cognitive-services/vision) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
@@ -25,7 +25,7 @@ Use the Image Analysis client library for C++ to analyze an image to read text a
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * For Windows development, the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **Desktop development with C++** enabled.
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia, East Asia. After it deploys, click **Go to resource**.
     * You need the key and endpoint from the resource you create to connect your application to the Computer Vision service. 
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -40,9 +40,9 @@ Create a new C++ application.
 
 Open Visual Studio, and under **Get started** select **Create a new project**. Set the template filters to _C++/Windows/Console_. Select **Console App** and choose **Next**. Update the project name to _ImageAnalysisQuickstart_ and choose **Create** to create the project.
 
-### Install the client library 
+### Install the client SDK 
 
-Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. 
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. 
 
 #### [Linux](#tab/linux)
 
@@ -147,7 +147,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to install the Image Analysis client library and make basic image analysis calls. Next, learn more about the Analysis 4.0 API features.
+In this quickstart, you learned how to install the Image Analysis client SDK and make basic image analysis calls. Next, learn more about the Analysis 4.0 API features.
 
 
 > [!div class="nextstepaction"]

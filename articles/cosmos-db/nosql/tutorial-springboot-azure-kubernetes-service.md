@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: mode-api, devx-track-azurecli
+ms.custom: mode-api, devx-track-azurecli, build-2023, build-2023-dataai
 ---
 
 # Tutorial - Spring Boot Application with Azure Cosmos DB for NoSQL and Azure Kubernetes Service

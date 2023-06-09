@@ -24,7 +24,7 @@ To obtain an embedding vector for a piece of text, we make a request to the embe
 
 # [console](#tab/console)
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-12-01\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15\
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{"input": "Sample Document goes here"}'
@@ -37,7 +37,7 @@ import openai
 openai.api_type = "azure"
 openai.api_key = YOUR_API_KEY
 openai.api_base = "https://YOUR_RESOURCE_NAME.openai.azure.com"
-openai.api_version = "2022-12-01"
+openai.api_version = "2023-05-15"
 
 response = openai.Embedding.create(
     input="Your text string goes here",
@@ -71,7 +71,7 @@ foreach (float item in returnValue.Value.Data[0].Embedding)
 
 ---
 
-## Best Practices
+## Best practices
 
 ### Verify inputs don't exceed the maximum length
 

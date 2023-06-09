@@ -74,7 +74,7 @@ We don't encourage customers to increase VM MTUs. This discussion is meant to ex
 
 > [!IMPORTANT]
 >Increasing MTU isn't known to improve performance and could have a negative effect on application performance.
->
+>Hybrid networking services, such as VPN, ExpressRoute, and vWAN, support a maximum MTU of 1400 bytes.
 >
 
 #### Large send offload

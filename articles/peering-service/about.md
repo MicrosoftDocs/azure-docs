@@ -124,4 +124,3 @@ BGP route anomalies are reported in the Azure portal, if any.
 - To find a service provider partner, see [Peering Service partners and locations](location-partners.md).
 - To onboard a Peering Service connection, see [Onboarding Peering Service model](onboarding-model.md).
 - To register Peering Service, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md).
-- To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).

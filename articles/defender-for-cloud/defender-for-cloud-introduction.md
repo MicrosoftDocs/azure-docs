@@ -3,8 +3,9 @@ title: What is Microsoft Defender for Cloud?
 titleSuffix: Microsoft Defender for Cloud
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
-ms.date: 05/08/2023
+ms.date: 05/21/2023
 ---
+
 # What is Microsoft Defender for Cloud?
 
 Microsoft Defender for Cloud is a cloud-native application protection platform (CNAPP) with a set of security measures and practices designed to protect cloud-based applications from various cyber threats and vulnerabilities. Defender for Cloud combines the capabilities of:
@@ -17,7 +18,7 @@ Microsoft Defender for Cloud is a cloud-native application protection platform (
 
 ## Secure cloud applications
 
-Defender for Cloud helps you to incorporate good security practices early during the software development process, or DevSecOps. You can protect your code management environments and your code pipelines, and get insights into your development environment security posture from a single location. Defender for Cloud currently includes Defender for DevOps.
+Defender for Cloud helps you to incorporate good security practices early during the software development process, or DevSecOps. You can protect your code management environments and your code pipelines, and get insights into your development environment security posture from a single location. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments.
 
 Today’s applications require security awareness at the code, infrastructure, and runtime levels to make sure that deployed applications are hardened against attacks.
 
@@ -29,11 +30,11 @@ Today’s applications require security awareness at the code, infrastructure, a
 
 The security of your cloud and on-premises resources depends on proper configuration and deployment. Defender for Cloud recommendations identify the steps that you can take to secure your environment.
 
-Defender for Cloud includes Foundational CSPM capabilities for free. You can also enable advanced CSPM capabilities by enabling paid Defender plans.
+Defender for Cloud includes Foundational CSPM capabilities for free. You can also enable advanced CSPM capabilities by enabling the Defender CSPM plan.
 
 | Capability | What problem does it solve? | Get started | Defender plan and pricing |
-| ---------- | --------------------------- | ----------- | ------------------------- |
-| [Centralized policy management](security-policy-concept.md)       | Define the security conditions that you want to maintain across your environment. The policy translates to recommendations that identify resource configurations that violate your security policy. The [Microsoft cloud security benchmark](concept-regulatory-compliance.md) is a built-in standard that applies security principles with detailed technical implementation guidance for Azure, for other cloud providers (such as AWS and GCP), and for other Microsoft clouds.            | [Customize security a policy](custom-security-policies.md)                          | Foundational CSPM (Free) |
+|--|--|--|--|
+| [Centralized policy management](security-policy-concept.md) | Define the security conditions that you want to maintain across your environment. The policy translates to recommendations that identify resource configurations that violate your security policy. The [Microsoft cloud security benchmark](concept-regulatory-compliance.md) is a built-in standard that applies security principles with detailed technical implementation guidance for Azure and other cloud providers (such as AWS and GCP). | [Customize a security policy](custom-security-policies.md) | Foundational CSPM (Free) |
 | [Secure score]( secure-score-security-controls.md) | Summarize your security posture based on the security recommendations. As you remediate recommendations, your secure score improves. | [Track your secure score](secure-score-access-and-track.md) | Foundational CSPM (Free) |
 | [Multicloud coverage](plan-multicloud-security-get-started.md) | Connect to your multicloud environments with agentless methods for CSPM insight and CWP protection. | Connect your [Amazon AWS](quickstart-onboard-aws.md) and [Google GCP](quickstart-onboard-gcp.md) cloud resources to Defender for Cloud | Foundational CSPM (Free) |
 | [Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) | Use the dashboard to see weaknesses in your security posture. | [Enable CSPM tools](enable-enhanced-security.md) | Foundational CSPM (Free) |

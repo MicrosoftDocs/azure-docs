@@ -1,11 +1,11 @@
 ---
 title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
-author: asudbring
+author: steveesp
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 04/18/2023
-ms.author: allensu
+ms.author: steveesp
 ---
 
 # Accelerated Networking (AccelNet) overview
@@ -99,7 +99,7 @@ The following example shows a sample configuration drop-in for `NetworkManager` 
 
 ```bash
 sudo mkdir -p /etc/NetworkManager/conf.d 
-sudo cat /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF 
+sudo cat > /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF 
 # Ignore SR-IOV interface on Azure, since it's transparently bonded 
 # to the synthetic interface 
 [keyfile] 
@@ -113,7 +113,7 @@ The following example shows a sample configuration drop-in for `networkd` on ope
 
 ```bash
 sudo mkdir -p /etc/systemd/network 
-sudo cat /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
+sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
 # Ignore SR-IOV interface on Azure, since it's transparently bonded 
 # to the synthetic interface 
 [Match] 
@@ -129,7 +129,7 @@ The following example shows a sample configuration drop-in for `networkd` on Ubu
 
 ```bash
 sudo mkdir -p /etc/systemd/network 
-sudo cat /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
+sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
 # Ignore SR-IOV interface on Azure, since it's transparently bonded 
 # to the synthetic interface 
 [Match] 
@@ -138,6 +138,9 @@ Driver=mlx4_en mlx5_en mlx4_core mlx5_core
 Unmanaged=yes 
 EOF 
 ```
+
+>[!NOTE]
+>It is strongly advised that custom images do not run competing network interface software (such as ifupdown and networkd) and do not run dhcpclient directly on multiple interfaces.
 
 --- 
 

@@ -31,7 +31,7 @@ This section describes the steps required to enable pronoun data in Workday. We 
    - [Steps: Set Up Gender Pronouns to Display on a Worker Profile * Human Capital Management * Reader * Administrator Guide (workday.com)](https://doc.workday.com/r/gJQvxHUyQOZv_31Vknf~3w/7gZPvVfbRhLiPissprv6lQ)
    - [Steps: Set Up Public Profile Preferences * Human Capital Management * Reader * Administrator Guide (workday.com)](https://doc.workday.com/r/gJQvxHUyQOZv_31Vknf~3w/FuENV1VTRTHWo_h93KIjJA)
 1. Use Workday **Maintain Pronouns** task to define preferred pronoun data (HE/HIM, SHE/HER, and THEY/THEM) in your Workday tenant.
-1. Use Workday **Maintain Localization Settings task -> Personal Information** area to activate pronoun data for different countries. 
+1. Use Workday **Maintain Localization Settings task -> Personal Information** area to activate pronoun data for different countries/regions. 
 1. Select the Workday Integration System Security Group used with your Azure AD integration. Update the [domain permissions for the security group](../saas-apps/workday-inbound-tutorial.md#configuring-domain-security-policy-permissions), so it has GET access for the Workday domain **Reports: Public Profile**.
     >[!div class="mx-imgBorder"] 
     >![Screenshot of permissions to setup in Workday.](./media/workday-pronoun-data/workday-pronoun-permissions.png)

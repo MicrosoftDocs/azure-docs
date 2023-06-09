@@ -2,6 +2,7 @@
 title: Monitor applications running on Azure Functions with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor integrates with your Azure Functions application, allowing performance monitoring and quickly identifying problems.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-python
 ms.date: 04/24/2023
 ms.reviewer: abinetabate
 ---
@@ -16,7 +17,7 @@ The required Application Insights instrumentation is built into Azure Functions.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-For a list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 ## Distributed tracing for Java applications (preview)
 
@@ -40,7 +41,7 @@ On the function app **Overview** pane, go to **Application Insights**. Under **C
 
 ### Troubleshooting
 
-Your Java functions might have slow startup times if you adopted this feature before February 2023. From the function app **Overview** pane, go to **Configuration** in the left-hand side navigation menu. Then click on **Application settings** and follow the steps below to fix the issue.
+Your Java functions might have slow startup times if you adopted this feature before February 2023. From the function app **Overview** pane, go to **Configuration** in the left-hand side navigation menu. Then select **Application settings** and use the following steps to fix the issue.
 
 #### Windows
 
@@ -76,6 +77,71 @@ Your Java functions might have slow startup times if you adopted this feature be
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
+#### Duplicate logs
+
+If you're using log4j or logback for console logging, distributed tracing for Java Functions creates duplicate logs. These duplicate logs are then sent to Application Insights. To avoid this behavior, use the following workarounds.
+
+##### Log4j
+
+Add the following filter to your log4j.xml:
+
+```xml
+<Filters>
+  <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
+</Filters>
+```
+
+Example:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <Filters>
+        <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
+      </Filters>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="error">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
+```
+
+##### Logback
+
+Add the following filter to your logback.xml: 
+
+```xml
+<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+  <level>OFF</level>
+</filter>  
+```
+
+Example:
+
+```xml
+<configuration debug="true">
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are  by default assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
+      <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <level>OFF</level>
+      </filter>  
+    </encoder>
+  </appender>
+  <root level="debug">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>
+```
+
 ## Distributed tracing for Python function apps
 
 To collect custom telemetry from services such as Redis, Memcached, and MongoDB, use the [OpenCensus Python extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure) and [log your telemetry](../../azure-functions/functions-reference-python.md?tabs=azurecli-linux%2capplication-level#log-custom-telemetry). You can find the list of supported services in this [GitHub folder](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
@@ -87,5 +153,3 @@ To collect custom telemetry from services such as Redis, Memcached, and MongoDB,
 * See what [Application Map](./app-map.md?tabs=net) can do for your business.
 * Read about [requests and dependencies for Java apps](./java-in-process-agent.md).
 * Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md).
-
-

@@ -7,7 +7,7 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.date: 08/18/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, devx-track-dotnet
 ---
 
 # Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions
