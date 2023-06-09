@@ -695,7 +695,7 @@ sections:
       - question: |
           How would I measure the impact of a monitoring campaign?
         answer: |
-          PageView Telemetry includes URL and you could parse the UTM parameter using a [regex function](/azure/data-explorer/kusto/query/re2.md) in Kusto.
+          PageView Telemetry includes URL and you could parse the UTM parameter using a regex function in Kusto.
           
           Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
                     
@@ -990,7 +990,7 @@ sections:
       - question: |
           What's the difference between manual and auto-instrumentation?
         answer: |
-          See the [OpenTelemetry Overview](app/opentelemetry-overview.md#instrument-your-application).
+          See the [OpenTelemetry Overview](app/opentelemetry-overview.md#instrumentation-options).
           
       - question: |
           Can I use the OpenTelemetry Collector?
