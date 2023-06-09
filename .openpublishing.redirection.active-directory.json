@@ -12680,6 +12680,24 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory/standards/azure-ad-pci-dss-guidance.md",
+        "redirect_url": "/azure/active-directory/standards/pci-dss-guidance",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/standards/azure-ad-pci-dss-mfa.md",
+        "redirect_url": "/azure/active-directory/standards/pci-dss-mfa",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/standards/hipaa-configure-azure-active-directory-for-compliance.md",
+        "redirect_url": "/azure/active-directory/standards/hipaa-configure-for-compliance",
+        "redirect_document_id": true
+      },
+
+      {
         "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-introduction.md",
         "redirect_url": "/azure/active-directory/fundamentals/secure-introduction",
         "redirect_document_id": true
