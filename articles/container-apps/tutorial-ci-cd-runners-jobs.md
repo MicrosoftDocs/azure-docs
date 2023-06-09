@@ -329,7 +329,7 @@ To verify the job was configured correctly, you modify the workflow to use a sel
 
 ## Create an Azure DevOps project and repository
 
-To execute a pipeline, you need an Azure DevOps project and repostory.
+To execute a pipeline, you need an Azure DevOps project and repository.
 
 1. Navigate to [Azure DevOps](https://aex.dev.azure.com/) and sign in to your account.
 
@@ -363,7 +363,7 @@ Create a new agent pool to run the self-hosted runner.
 
 ## Obtain an Azure DevOps personal access token
 
-To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps. It is also used by the scale rule to determine the number of pending pipeline runs and trigger new job executions.
+To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps. It's also used by the scale rule to determine the number of pending pipeline runs and trigger new job executions.
 
 1. In Azure DevOps, select *User settings* next to your profile picture in the upper-right corner. Select **Personal access tokens**.
 
@@ -432,7 +432,7 @@ To create a self-hosted agent, you need to build a container image that runs the
 
 ## Create a placeholder self-hosted agent
 
-Before you can run a self-hosted agent in your new agent pool, you need to create a placeholder agent. Without a placeholder agent, any pipelines that use the agent pool fails. You can create a placeholder agent by running a job that registers an offline placeholder agent.
+Before you can run a self-hosted agent in your new agent pool, you need to create a placeholder agent. Pipelines that use the agent pool fail when there's no placeholder agent. You can create a placeholder agent by running a job that registers an offline placeholder agent.
 
 1. Create a manual job in the Container Apps environment that creates the placeholder agent.
 
