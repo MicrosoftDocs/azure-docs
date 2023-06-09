@@ -157,9 +157,19 @@ By restricting operating system capabilities, you can strengthen the security of
 
 Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
-## Azure Confidential Computing virtual machines
+### Azure Confidential Computing virtual machines
 
-Azure Virtual Desktop support for Azure Confidential Computing virtual machines ensures a user’s virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust. Deploying confidential VMs with Azure Virtual Desktop gives users access to Microsoft 365 and other applications on session hosts that use hardware-based isolation, which hardens isolation from other virtual machines, the hypervisor, and the host OS. These virtual desktops are powered by the latest Third-generation (Gen 3) Advanced Micro Devices (AMD) EPYC™ processor with Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP) technology. Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the AMD CPU that can't be read from software. For more information, see the [Azure Confidential Computing overview](../confidential-computing/overview.md) and [Set up Confidential Computing for Azure Virtual Desktop](confidential-computing.md).
+Azure Virtual Desktop support for Azure Confidential Computing virtual machines ensures a user’s virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust. Deploying confidential VMs with Azure Virtual Desktop gives users access to Microsoft 365 and other applications on session hosts that use hardware-based isolation, which hardens isolation from other virtual machines, the hypervisor, and the host OS. These virtual desktops are powered by the latest Third-generation (Gen 3) Advanced Micro Devices (AMD) EPYC™ processor with Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP) technology. Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the AMD CPU that can't be read from software. For more information, see the [Azure Confidential Computing overview](../confidential-computing/overview.md) and [Create an Azure Confidential Computing VM](add-session-hosts-host-pool.md#create-an-azure-confidential-computing-vm).
+
+### Disk OS encryption
+
+Disk OS encryption is an extra layer of encryption that binds disk encryption keys to the Confidential Computing VM's rusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and sends you alerts when the VM didn't start up properly. For more information about integrity monitoring, see [Microsoft Defender for Cloud Integration](../virtual-machines/trusted-launch.md#microsoft-defender-for-cloud-integration) and [Create an Azure Confidential Computing VM](add-session-hosts-host-pool.md#create-an-azure-confidential-computing-vm).
+
+### Enable trusted launch as default
+
+Trusted launch protects against advanced and persistent attack techniques. This feature also allows for secure deployment of VMs with verified boot loaders, OS kernels, and drivers. Trusted launch also protects keys, certificates, and secrets in VMs. Learn more about trusted launch at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+
+When you have this feature enabled, whenever you create a VM, the security type automatically changes to **Trusted virtual machines**. This ensures that your VM meets the mandatory requirements for Windows 11. For more information about these requirements, see [Virtual machine support](/windows/whats-new/windows-11-requirements#virtual-machine-support).
 
 ### Secure Boot
 
@@ -189,10 +199,6 @@ HVCI is a powerful system mitigation that uses VBS to protect Windows kernel-mod
 #### Windows Defender Credential Guard
 
 Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks.
-
-### Disk OS encryption
-
-Disk OS encryption is an extra layer of encryption that binds disk encryption keys to the Confidential Computing VM's rusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and sends you alerts when the VM didn't start up properly. For more information about integrity monitoring, see [Enable OS disk encryption](confidential-computing.md#enable-os-disk-encryption) and [Microsoft Defender for Cloud Integration](../virtual-machines/trusted-launch.md#microsoft-defender-for-cloud-integration).
 
 ## Nested virtualization
 

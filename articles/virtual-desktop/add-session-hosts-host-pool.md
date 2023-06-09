@@ -133,7 +133,7 @@ Here's how to create session hosts and register them to a host pool using the Az
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Host pools**, then select the name of the host pool you want to add session hosts to.
 
@@ -180,6 +180,22 @@ Here's how to create session hosts and register them to a host pool using the Az
 
 > [!IMPORTANT]
 > Once you've added session hosts with the Azure Virtual Desktop service, skip to the section [Post deployment](#post-deployment) for some extra configuration you may need to do.
+
+### Create an Azure Confidential Computing VM
+
+You also have the option to create an Azure Confidential Computing VM, which lets you secure and encrypt information on the VM while it's in use. 
+
+You can create Confidential Computing VMs in the Azure portal by selecting **Confidential virtual machines** as your security type during step 6 of [the VM creation process](#create-and-register-session-hosts-with-the-azure-virtual-desktop-service). You must also select the **Integrity Monitoring** check box under Security Type to enable OS disk encryption.
+
+When you select which image to use, you must select an image that's compatible with Confidential Computing VMs.
+
+Azure Confidential Computing VMs currently support the following images:
+
+- Windows 11
+- Windows Server 2022
+- Windows Server 2019
+
+To learn more about Confidential Computing, see [Azure Confidential Computing virtual machines](security-guide.md#azure-confidential-computing-virtual-machines).
 
 ## Register session hosts to a host pool
 

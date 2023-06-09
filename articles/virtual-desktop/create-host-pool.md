@@ -193,6 +193,22 @@ Here's how to create a host pool using the Azure portal.
 
 1. Once the host pool has been created, select **Go to resource** to go to the overview of your new host pool, then select **Properties** to view its properties.
 
+### Create an Azure Confidential Computing VM
+
+You also have the option to create an Azure Confidential Computing VM, which lets you secure and encrypt information on the VM while it's in use. 
+
+You can create Confidential Computing VMs in the Azure portal by selecting **Confidential virtual machines** as your security type during step 5 of the host pool creation process. You must also select the **Integrity Monitoring** check box under Security Type to enable OS disk encryption.
+
+When you select which image to use, you must select an image that's compatible with Confidential Computing VMs.
+
+Azure Confidential Computing VMs currently support the following images:
+
+- Windows 11
+- Windows Server 2022
+- Windows Server 2019
+
+To learn more about Confidential Computing, see [Azure Confidential Computing virtual machines](security-guide.md#azure-confidential-computing-virtual-machines).
+
 ## Optional: Post deployment
 
 If you also added session hosts to your host pool, there's some extra configuration you may need to do, which is covered in the following sections.
