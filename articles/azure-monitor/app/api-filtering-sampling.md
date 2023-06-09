@@ -321,7 +321,7 @@ For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers)
 ```
 ### JavaScript telemetry initializers
 
-Insert a JavaScript telemetry initializer, if needed. For more information on the telemetry initializers for the JavaScript SDK, see [Telemetry initializers](https://github.com/microsoft/ApplicationInsights-JS#telemetry-initializers).
+Insert a JavaScript telemetry initializer, if needed. For more information on the telemetry initializers for the Application Insights JavaScript SDK, see [Telemetry initializers](https://github.com/microsoft/ApplicationInsights-JS#telemetry-initializers).
 
 #### [SDK Loader Script](#tab/sdkloaderscript)
 
