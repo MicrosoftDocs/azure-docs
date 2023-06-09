@@ -4,7 +4,7 @@ titleSuffix: Azure Event Hubs
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security with Azure Event Hubs.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/09/2023
+ms.date: 06/06/2023
 ms.service: event-hubs
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
