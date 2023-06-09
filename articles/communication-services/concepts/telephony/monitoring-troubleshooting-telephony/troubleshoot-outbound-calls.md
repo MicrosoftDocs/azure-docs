@@ -27,10 +27,10 @@ When you use direct routing, the caller ID information that is delivered to the 
 
 The `From` header contains any of the following items:
 
-- The phone number that's used as an `alternateCallerId` property of a `startCall` method in ACS [Client Calling SDK](../../../quickstarts/telephony/pstn-call.md).
+- The phone number that's used as an `alternateCallerId` property of a `startCall` method in [Client Calling SDK](../../../quickstarts/telephony/pstn-call.md).
   If an `alternateCallerId` wasn't provided, it's replaced with "anonymous".
-- The phone number that's used as a `PhoneNumberIdentifier` with a `callSource.CallerId` method in ACS [Call Automation SDK](../../../how-tos/call-automation/actions-for-call-control.md#make-an-outbound-call)
-- The phone number of the original caller if an ACS Call Automation SDK [redirects the call](../../../how-tos/call-automation/actions-for-call-control.md#redirect-a-call).
+- The phone number string that's passed when creating a `PhoneNumberIdentifier` object in [Call Automation SDK](../../../how-tos/call-automation/actions-for-call-control.md#make-an-outbound-call)
+- The phone number of the original caller if an Call Automation SDK [redirects the call](../../../how-tos/call-automation/actions-for-call-control.md#redirect-a-call).
 - - The phone number selected as a Caller ID in Omnichannel Agent client application.
 
 The `P-Asserted-Identity` header contains the phone number of the user who is billed for the call. The `Privacy:id` indicates that the information in the header has to be hidden from the call recipient.
