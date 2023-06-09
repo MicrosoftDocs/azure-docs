@@ -70,7 +70,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
 1. Before starting a scan in the Microsoft Purview governance portal:
 
     1. Navigate to the machine where the self-hosted integration runtime is installed and open the Windows Event Viewer.
-    1. Clear the windows event viewer logs in the **Integration Runtime** section. Right-click on the logs and select the clear logs option.
+    1. Clear the Windows Event Viewer logs in the **Integration Runtime** section. Right-click on the logs and select the clear logs option.
     1. Navigate back to the Microsoft Purview governance portal and start the scan.
 
 1. Once the scan shows status **Failed**, navigate back to the SHIR VM, or machine and refresh the event viewer in the **Integration Runtime** section.
