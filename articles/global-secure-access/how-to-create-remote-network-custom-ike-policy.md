@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Create a remote network with a customer IKE policy for Global Secure Access (preview)
 
-IPSec tunnel is a bidirectional communication. One side of the communication is established when [adding a device link to a remote network](how-to-manage-remote-network-device-links.md). During that process you enter your public IP address and BGP addresses. This article provides the steps to set up the other side of the communication channel.
+This article provides the steps to set up the other side of the communication channel.
 
 ## Prerequisites
 
@@ -33,9 +33,66 @@ To get started, follow these instructions to work with remote networks using Mic
 1. Set the API version to **beta**.
 1. Add the following query to retrieve recommendations, then select the **Run query** button.
 
-```http
+```json
     POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches
+{
+    "name": "BranchOffice_CustomIKE",
+    "country": "United States", 
+    "region": "eastUS", 
+    "version": "1.0.0",
+    "bandwidthCapacity": 500,
+    "deviceLinks": [
+        {
+            "name": "CPE Link 1",
+            "ipAddress": "20.125.118.219",
+            "version": "1.0.0",
+            "deviceVendor": "Other",
+            "bgpConfiguration": {
+                "ipAddress": "172.16.11.5",
+                "asn": 8888
+            },
+            
+		"tunnelConfiguration": {
+			"@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Custom",
+			"preSharedKey": "Detective5OutgrowDiligence",
+			"saLifeTimeSeconds": 300,
+			"ipSecEncryption": "gcmAes128",
+			"ipSecIntegrity": "gcmAes128",
+			"ikeEncryption": "gcmAes128",
+			"ikeIntegrity": "gcmAes128",
+			"dhGroup": "dhGroup14",
+			"pfsGroup": "pfs14"
+		}
+        },
+		
+		{
+		   "name": "CPE Link 2",
+            "ipAddress": "20.125.118.220",
+            "version": "1.0.0",
+            "deviceVendor": "Other",
+            "bgpConfiguration": {
+                "ipAddress": "172.16.11.6",
+                "asn": 8888
+            },
+
+		"tunnelConfiguration": {
+			"@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Custom",
+			"preSharedKey": "Detective5OutgrowDiligence",
+			"saLifeTimeSeconds": 300,
+			"ipSecEncryption": "gcmAes128",
+			"ipSecIntegrity": "gcmAes128",
+			"ikeEncryption": "gcmAes128",
+			"ikeIntegrity": "gcmAes128",
+			"dhGroup": "dhGroup14",
+			"pfsGroup": "pfs14"
+		}
+		}
+		
+    ]
+}
 ```
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

@@ -18,8 +18,6 @@ Microsoft Entra Private Access provides secure access to your organization's int
 
 This article describes how to configure per-app access for Microsoft Entra Private Access.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 To configure per-app access, you must have:
@@ -62,6 +60,9 @@ To create a new app, you provide a name, select a connector group, and add websi
 
 ### Name and connector group
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
+1. Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**.
+1. Select **New application**.
 1. Enter a name for the app.
 1. Select a Connector group from the dropdown menu.    
     - Before you can set up per-app access, you must have an App proxy connector group set up.
@@ -132,6 +133,8 @@ Once you have your app configured, your private websites and apps added, users a
 1. Select the checkbox for **Private access profile**.
 
 ![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-configure-per-app-access/traffic-forwarding-microsoft-365-and-private-access.png)
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

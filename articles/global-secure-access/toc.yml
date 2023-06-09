@@ -31,7 +31,7 @@ items:
       - name: Manage remote networks
         href: how-to-manage-remote-networks.md
       - name: Assign a traffic forwarding profile to remote networks
-        href: how-to-assign-traffic-profile-to-branch-office-location.md
+        href: how-to-assign-traffic-profile-to-remote-network.md
   - name: Conditional Access
     expanded: false
     items:

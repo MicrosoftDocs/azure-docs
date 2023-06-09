@@ -31,8 +31,6 @@ All details of your remote networks can be updated at any time.
 
 On the **Basics** page you can update the remote network name, region, and bandwidth. Select the pencil icon to edit the details.
 
-![Screenshot of the edit remote network details option.](media/how-to-manage-remote-networks/update-branch-details.png)
-
 ### Update remote network details with the Microsoft Graph API
 
 To edit the name, location, or region of a remote network:
@@ -57,8 +55,6 @@ To edit the name, location, or region of a remote network:
 1. Select the remote network you need to delete.
 1. Select the **Delete** button. 
 1. Select **Delete** from the confirmation message.
-
-![Screenshot of the delete remote network button.](media/how-to-manage-remote-networks/delete-branch.png)
 
 ### Delete a remote network using the API
 
