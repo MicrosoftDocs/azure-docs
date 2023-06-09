@@ -75,7 +75,6 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
    1. For example, a Fabrikam user in the Fabrikam tenant. 
    1. The Fabrikam user should be blocked from accessing SharePoint Online with an error message saying: 
       1. **Access is blocked, The Contoso IT department has restricted which organizations can be accessed. Contact the Contoso IT department to gain access.**
-<!---Screenshot if possible--->
 
 ### Try the data path  
 

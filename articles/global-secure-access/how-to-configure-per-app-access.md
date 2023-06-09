@@ -12,7 +12,7 @@ ms.custom:
 ---
 # How to configure per-app access for Global Secure Access
 
-With Global Secure Access, you can define specific fully-qualified domain names (FQDNs) or IP addresses to include in the traffic for Microsoft Entra Private Access. Your organization's employees can then access the apps and sites that you specify. This article describes how to configure per-app access for Microsoft Entra Private Access.
+With Global Secure Access, you can define specific fully qualified domain names (FQDNs) or IP addresses to include in the traffic for Microsoft Entra Private Access. Your organization's employees can then access the apps and sites that you specify. This article describes how to configure per-app access for Microsoft Entra Private Access.
 
 Microsoft Entra Private Access provides secure access to your organization's internal resources. You can specify the internal, private resources that you want to secure by configuring and enabling per-app access through Enterprise applications. 
 

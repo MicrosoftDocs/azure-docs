@@ -61,7 +61,7 @@ The following example shows a Conditional Access policy that requires Exchange O
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-1. Under **Target resourcess** > **Include**, and select **Select apps**.
+1. Under **Target resources** > **Include**, and select **Select apps**.
    1. Choose **Office 365 Exchange Online** and **Office 365 SharePoint Online**.
 1. Under **Conditions** > **Location**.
    1. Set **Configure** to **Yes**
@@ -84,7 +84,7 @@ After administrators confirm the policy settings using [report-only mode](../act
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), you're blocked from accessing resources with an error message that says **You cannot access this right now**.
 
 <!---Add lightbox with more details-->
-:::image type="content" source="media/how-to-compliant-network/you-cannot-access-this-right-now-error.png" alt-text="Screenshot showing error message in browser window You cannot access this right now.":::
+:::image type="content" source="media/how-to-compliant-network/you-cannot-access-this-right-now-error.png" alt-text="Screenshot showing error message in browser window You can't access this right now.":::
 
 ## Troubleshooting
 
