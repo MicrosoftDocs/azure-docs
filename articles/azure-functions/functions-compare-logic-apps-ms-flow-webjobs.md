@@ -2,7 +2,7 @@
 title: Integration and automation platform options in Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Power Automate, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
-ms.date: 04/09/2018
+ms.date: 06/09/2023
 ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
@@ -17,9 +17,12 @@ This article compares the following Microsoft cloud services:
 
 All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. Each service has unique advantages, and this article explains the differences. 
 
-If you're looking for a more general comparison between Azure Functions and other Azure compute options, see [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) and [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options).
+> If you're looking for a more general comparison between Azure Functions and other Azure compute options:
+> + [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) 
+> + [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
 
-For a good summary and comparison of automation service options in Azure, see [Choose the Automation services in Azure](../automation/automation-services.md). 
+> For a summary and comparison of automation service options in Azure:
+> + [Choose the Automation services in Azure](../automation/automation-services.md)
 
 ## Compare Microsoft Power Automate and Azure Logic Apps
 
