@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Store and get a MySQL connection string in Azure Key vault"
-description: "This tutorial shows how to store and get a Azure Database for MySQL Flexible Server connection string in Azure Key vault"
+title: "Tutorial: Manage MySQL credentials in Azure Key Vault"
+description: "This tutorial shows how to store and get an Azure Database for MySQL Flexible Server connection string in Azure Key Vault"
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -9,14 +9,14 @@ ms.author: sumuth
 ms.date: 12/07/2022
 ---
 
-# Tutorial: Store and get a MySQL connection string in Azure Key vault
+# Tutorial: Manage MySQL credentials in Azure Key Vault
 You can store the MySQL connection string in Azure Key Vault to ensure that sensitive information is securely managed and accessed only by authorized users or applications. Additionally, any changes to the connection string can be easily updated in the Key Vault without modifying the application code.
 
 ## Prerequisites
 
-1. You need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-2. All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using [Azure portal](../../key-vault/general/quick-create-portal.md), [Azure CLI](../../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../../key-vault/general/quick-create-powershell.md). Make sure you have the necessary permissions to manage and access the Key Vault.
-3. Install .NET or Java or PHP or Python based on the framework you are using for your application. 
+- You need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using [Azure portal](../../key-vault/general/quick-create-portal.md), [Azure CLI](../../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../../key-vault/general/quick-create-powershell.md). Make sure you have the necessary permissions to manage and access the Key Vault.
+- Install .NET or Java or PHP or Python based on the framework you are using for your application. 
 
 ## Add a secret to Key Vault
 
@@ -52,7 +52,7 @@ In your application or script, use the Azure Key Vault SDK or client libraries t
 Here are few code samples to retrieve the connection string from the key vault secret. 
 
 ### [.NET](#tab/dotnet)
-In this code, we aure using [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net). We define the URI of our Key Vault and the name of the secret (connection string) we want to retrieve. We then create a new DefaultAzureCredential object, which represents the authentication information for our application to access the Key Vault.
+In this code, we are using [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net). We define the URI of our Key Vault and the name of the secret (connection string) we want to retrieve. We then create a new DefaultAzureCredential object, which represents the authentication information for our application to access the Key Vault.
 
 ```net
 using System;
@@ -135,9 +135,9 @@ echo 'Connection string retrieved: ' . $connString;
 ```
 
 ### [Python](#tab/python)
-In this Python code, we first import the necessary modules from the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python). We define the _key_vault_url_ variable with the URL of your Azure Key Vault and _secret_name_ variable with the name of the secret (connection string) you want to retrieve. Next, we create a **DefaultAzureCredential **object to authenticate with Azure AD. The **DefaultAzureCredential** automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
+In this Python code, we first import the necessary modules from the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python). We define the _key_vault_url_ variable with the URL of your Azure Key Vault and _secret_name_ variable with the name of the secret (connection string) you want to retrieve. Next, we create a **DefaultAzureCredential** object to authenticate with Azure AD. The **DefaultAzureCredential** automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
 
-Then, we create a **SecretClient ** object, passing the Key Vault URL and the credential object to authenticate with the Key Vault. The _get_secret_ method on the **SecretClient** can retrieve the secret by passing the secret_name. The method returns a **KeyVaultSecret** object, from which we can obtain the secret value using the value property. Finally, we print the retrieved connection string to the console. Make sure to replace the _key_vault_url_ and _secret_name_ variables with your own Key Vault URL and secret name.
+Then, we create a **SecretClient** object, passing the Key Vault URL and the credential object to authenticate with the Key Vault. The _get_secret_ method on the **SecretClient** can retrieve the secret by passing the secret_name. The method returns a **KeyVaultSecret** object, from which we can obtain the secret value using the value property. Finally, we print the retrieved connection string to the console. Make sure to replace the _key_vault_url_ and _secret_name_ variables with your own Key Vault URL and secret name.
 
 ```python
 from azure.identity import DefaultAzureCredential
