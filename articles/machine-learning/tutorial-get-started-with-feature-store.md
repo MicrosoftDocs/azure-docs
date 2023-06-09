@@ -55,21 +55,19 @@ Note: This tutorial uses an Azure Machine Learning spark notebook for developmen
 
    You can also download a zip file from the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples). At this page, first select the `code` dropdown, and then select `Download ZIP`. Then, unzip the contents into a folder on your local device.
 
-<<<<<<< HEAD
 1. Upload the feature store samples directory to the project workspace.
    * Open the [Azure Machine Learning studio UI](https://ml.azure.com/) resource of your Azure Machine Learning workspace
    * Select **Notebooks** in left nav
    * Select your user name in the directory listing
    * Select **upload folder**
    * Select the feature store samples folder from the cloned directory path: `azureml-examples/sdk/python/featurestore-sample`
-=======
+
 1. Upload the feature store samples directory to project workspace.
       * Open the [Azure Machine Learning studio UI](https://ml.azure.com/) resource of your Azure Machine Learning workspace
       * Select **Notebooks** in left nav
       * Select your user name in the directory listing
       * Select **upload folder**
       * Select the feature store samples folder from the cloned directory path: `azureml-examples/sdk/python/featurestore-sample`
->>>>>>> 06c109a44ba7c46a8b293a372bb9ecb844ffdf09
 
 1. Running the tutorial:
    * Option 1: Create a new notebook, and execute the instructions in this document step-by-step
