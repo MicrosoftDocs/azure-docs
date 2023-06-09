@@ -27,6 +27,8 @@
     href: quickstart-create-template-specs.md
   - name: Create deployment stacks
     href: quickstart-create-deployment-stacks.md
+  - name: Create deployment stacks from template specs
+    href: quickstart-create-deployment-stacks-template-specs.md
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md

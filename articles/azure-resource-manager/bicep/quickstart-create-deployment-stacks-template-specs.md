@@ -1,15 +1,15 @@
 ---
-title: Create and deploy a deployment stack with Bicep
-description: Learn how to use Bicep to create and deploy a deployment stack in your Azure subscription.
+title: Create and deploy a deployment stack with Bicep from template specs
+description: Learn how to use Bicep to create and deploy a deployment stack from template specs.
 ms.date: 06/08/2023
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-# Customer intent: As a developer I want to use Bicep to create a deployment stack.
+# Customer intent: As a developer I want to use Bicep to create a deployment stack from a template spec.
 ---
 
-# Quickstart: Create and deploy a deployment stack with Bicep
+# Quickstart: Create and deploy a deployment stack with Bicep from template specs
 
-This quickstart describes how to create a [deployment stack](deployment-stacks.md).
+This quickstart describes how to create a [deployment stack](deployment-stacks.md) from a template spec.
 
 ## Prerequisites
 
@@ -64,9 +64,45 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-11-01' = {
 
 Save the Bicep file as _main.bicep_.
 
+## Create template spec
+
+Create a template spec with the following command.
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name templateSpecRG \
+  --location centralus
+
+az ts create \
+  --name stackSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location centralus \
+  --template-file "main.bicep"
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroup `
+  -Name templateSpecRG `
+  -Location centralus
+
+New-AzTemplateSpec `
+  -Name stackSpec `
+  -Version "1.0" `
+  -ResourceGroupName templateSpecRG `
+  -Location centralus `
+  -TemplateFile "main.bicep"
+```
+
+---
+
 ## Create a deployment stack
 
-In this quickstart, you'll create the deployment stack at the resource group scope.  You can also create the deployment stack at the subscription scope or the management group scope.  For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stacks).
+Create a deployment stack from the template spec.
 
 # [CLI](#tab/azure-cli)
 
@@ -75,10 +111,12 @@ az group create \
   --name demoRg \
   --location centralus
 
+id=$(az ts show --name stackSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
 az stack group create \
   --name demoStack \
   --resource-group 'demoRg' \
-  --template-file ./main.bicep \
+  --template-spec $id \
   --deny-settings-mode none
 ```
 
@@ -91,10 +129,12 @@ New-AzResourceGroup `
   -Name demoRg `
   -Location eastus
 
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name stackSpec -Version "1.0").Versions.Id
+
 New-AzResourceGroupDeploymentStack `
   -Name 'demoStack' `
   -ResourceGroupName 'demoRg' `
-  -TemplateFile './main.bicep' `
+  -TemplateSpecId $id `
   -DenySettingsMode none
 ```
 
@@ -279,40 +319,6 @@ managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceG
 ```
 
 ---
-
-## Update the deployment stack
-
-To update a deployment stack, you can modify the underlying Bicep file and re-running the create deployment stack command.
-
-Edit **main.bicep** to set the sku name to `Standard_GRS` from `Standard_LRS`:
-
-Run the following command:
-
-# [CLI](#tab/azure-cli)
-
-```azurecli
-az stack group create \
-  --name demoStack \
-  --resource-group demoRg \
-  --template-file ./main.bicep \
-  --deny-settings-mode none
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Set-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupname 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none
-```
-
----
-
-From the Azure portal, check the properties of the storage account to confirm the change.
-
-Using the same method, you can add a resource to the deployment stack or remove a managed resource from the deployment stack.  For more information, see [Add resources to a deployment stack](./deployment-stacks.md#add-resources-to-deployment-stack) and [Delete managed resources from a deployment stack](./deployment-stacks.md#delete-managed-resources-from-deployment-stack).
 
 ## Delete the deployment stack
 

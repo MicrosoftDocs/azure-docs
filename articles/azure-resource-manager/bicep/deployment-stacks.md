@@ -538,7 +538,7 @@ az stack sub create \
 
 By default, deployment stacks detach and don't delete unmanaged resources when they're no longer contained within the stack's management scope. For more information, see [Update deployment stacks](#update-deployment-stacks).
 
-## Export tempaltes from deployment stacks
+## Export templates from deployment stacks
 
 You can export the resources from a deployment stack to a Bicep template file.
 
