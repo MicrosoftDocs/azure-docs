@@ -46,9 +46,9 @@ Each HBv4 VM size is similar in physical layout, features, and performance of a 
 |---------------------------------|--------------|------------------------|----------------------------------|
 Standard_HB176rs_v4               | 4            | 44                     | Dual-socket EPYC 9V33X           |
 Standard_HB176-144rs_v4           | 4            | 36                     | Dual-socket EPYC 9V33X           |
-Standard_HB120-64rs_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
-Standard_HB120-32rs_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
-Standard_HB120-16rs_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
+Standard_HB176-64rs_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
+Standard_HB176-32rs_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
+Standard_HB176-16rs_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
 
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
