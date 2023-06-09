@@ -1,5 +1,5 @@
 ---
-title: Isovalent Cilium Enterprise on Azure Marketplace (Preview)
+title: Isovalent Cilium Enterprise on Azure Marketplace 
 titleSuffix: Azure Kubernetes Service (AKS)
 description: Learn about Isovalent Cillium Enterprise on Azure Marketplace and how to deploy it on Azure. 
 author: asudbring
@@ -11,17 +11,13 @@ ms.date: 04/18/2023
 ms.custom: template-how-to
 ---
 
-# Isovalent Cilium Enterprise on Azure Marketplace (Preview)
+# Isovalent Cilium Enterprise on Azure Marketplace
 
 Isovalent Cilium Enterprise on Azure Marketplace is a powerful tool for securing and managing Kubernetes’ workloads on Azure. Cilium Enterprise's range of features and easy deployment make it an ideal solution for organizations of all sizes looking to secure their cloud-native applications. 
 
 Isovalent Cilium Enterprise is a network security platform for modern cloud-native workloads that provides visibility, security, and compliance across Kubernetes clusters. It uses eBPF technology to deliver network and application-layer security, while also providing observability and tracing for Kubernetes workloads. Azure Marketplace is an online store for buying and selling cloud computing solutions that allows you to deploy Isovalent Cilium Enterprise to Azure with ease. 
 
 :::image type="content" source="./media/cilium-enterprise-marketplace/cilium-enterprise-diagram.png" alt-text="Diagram of Isovalent Cilium Enterprise.":::
-
-> [!IMPORTANT]
-> Isovalent Cilium Enterprise is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Designed for platform teams and using the power of eBPF, Isovalent Cilium Enterprise:
 
@@ -34,13 +30,13 @@ Designed for platform teams and using the power of eBPF, Isovalent Cilium Enterp
 * Enables self-service for monitoring, troubleshooting, and security workflows in Kubernetes. Teams can access current and historical views of flow data, metrics, and visualizations for their specific namespaces.
 
 > [!NOTE]
-> If you are upgrading an existing AKS cluster, then it must be created with Azure CNI powered by Cilium. For more information, see [Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)](azure-cni-powered-by-cilium.md).
+> If you are upgrading an existing AKS cluster, then it must be created with Azure CNI powered by Cilium. For more information, see [Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS)](azure-cni-powered-by-cilium.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing Azure Kubernetes Service (AKS) cluster running Azure CNI powered by Cilium. If you don't have an existing AKS cluster, you can create one from the Azure portal. For more information, see [Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)](azure-cni-powered-by-cilium.md).
+- An existing Azure Kubernetes Service (AKS) cluster running Azure CNI powered by Cilium. If you don't have an existing AKS cluster, you can create one from the Azure portal. For more information, see [Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS)](azure-cni-powered-by-cilium.md).
 
 ## Deploy Isovalent Cilium Enterprise on Azure Marketplace
 
@@ -84,6 +80,6 @@ You can uninstall an Isovalent Cilium Enterprise offer using the AKS extension d
 
 ## Next steps
 
-- [Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)](azure-cni-powered-by-cilium.md)
+- [Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS)](azure-cni-powered-by-cilium.md)
 
 - [What is Azure Kubernetes Service?](intro-kubernetes.md)
