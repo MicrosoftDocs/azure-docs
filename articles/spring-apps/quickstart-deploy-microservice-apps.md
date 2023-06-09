@@ -4,7 +4,7 @@ description: Learn how to deploy microservice applications to Azure Spring Apps.
 author: karlerickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 05/17/2023
+ms.date: 6/9/2023
 ms.author: v-shilichen
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
@@ -14,6 +14,8 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 > [!NOTE]
 > The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
 
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
@@ -21,11 +23,11 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 ![Architecture of PetClinic on Azure Spring Apps](media/quickstart-deploy-microservice-apps/petclinic-architecture-on-asa.png)
 
-The diagram shows the following architectural flows and relationships about the Pet Clinic sample:
+The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
 - Uses Azure Spring Apps to manage the Spring Boot apps.
 - Uses the managed components Spring Cloud Config Server and Eureka Service Discovery on Azure Spring Apps. The Config Server reads Git repository configuration.
-- Exposes the URL of `api-gateway` to load balance requests to service apps, and exposes the URL of the `admin-server` to manage the applications.
+- Exposes the URL of API Gateway to load balance requests to service apps, and exposes the URL of the Admin Server to manage the applications.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
 
@@ -49,17 +51,17 @@ According to the content output by the deployment, open the URL exposed by the a
 
 After you browse each function of the Pet Clinic, the Log Analytics workspace collects logs of each application. You can check the logs by using your custom queries.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png" alt-text="Screenshot of Log query for PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png" alt-text="Screenshot of the Azure portal showing the Logs page of the query on PetClinic application and the results." lightbox="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png":::
 
 ### 5.2 Monitor application
 
 Application Insights monitors the application dependencies, as shown by the following application tracing map:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of Application Insights map for PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/application-insights-map.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of the Azure portal showing the Application map page for an Application Insights."  lightbox="media/quickstart-deploy-microservice-apps/application-insights-map.png":::
 
 Open the URL exposed by the app `admin-server` to manage the applications through the Spring Boot Admin Server.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/admin-server-ui.png" alt-text="Screenshot of Admin Server for PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/admin-server-ui.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/admin-server-ui.png" alt-text="Screenshot of Admin Server for the PetClinic application listing the current application instances." lightbox="media/quickstart-deploy-microservice-apps/admin-server-ui.png":::
 
 [!INCLUDE [clean-up-resources](includes/quickstart-deploy-microservice-apps/clean-up-resources.md)]
 

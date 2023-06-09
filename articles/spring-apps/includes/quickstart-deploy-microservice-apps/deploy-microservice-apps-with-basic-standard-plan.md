@@ -3,7 +3,7 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 05/17/2023
+ms.date: 06/9/2023
 ---
 
 <!-- 
@@ -17,7 +17,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 Use the following steps to prepare the sample locally.
 
-1. The sample project is available on GitHub. Use the following command to clone the sample project:
+1. Use the following command to clone the sample GitHub project:
 
    ```bash
    git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
@@ -29,7 +29,7 @@ Use the following steps to prepare the sample locally.
    ./script/run_all_without_infra.sh
    ```
 
-1. After the script is successfully executed, go to `http://localhost:8080` in your browser to access the PetClinic app.
+1. After the script executes successfully, go to `http://localhost:8080` in your browser to access the PetClinic app.
 
 ## 3 Provision
 
@@ -43,11 +43,11 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. Select **Create a resource**.
 
-1. On the **Create a resource** page, select **Compute** in the navigation pane and in **Azure Services** select **Azure Spring Apps**.
+1. On the **Create a resource** page, select **Compute** in the navigation pane and on the **Azure Services** tab select **Azure Spring Apps**.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/1-create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal showing the Create a Resource Page page with Azure Spring Apps highlighted.":::
 
-1. On the **Create Azure Spring Apps** page, fill out the **Basics** form.
+1. On the **Create Azure Spring Apps** page, fill out the form on the **Basics** tab.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/2-create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Basics tab selected.":::
 
@@ -62,19 +62,19 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
    | Region         |The region closest to your users| The location that is closest to your users.|
    | Zone Redundant |Unchecked|Creates your Azure Spring Apps service in an Azure availability zone. Not currently supported in all regions.|
 
-1. Navigate to **Diagnostic settings** on the **Crete Azure Spring Apps** page and then select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
+1. Navigate to the **Diagnostic settings** tab on the **Crete Azure Spring Apps** page and then select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Diagnostics tab selected and the Create new button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png":::
 
-1. Navigate **Application Insights** on the **Crete Azure Spring Apps** page and select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select the **Classic** for **Resource mode**, then select **OK** to confirm the creation.
+1. Navigate to the **Application Insights** tab on the **Crete Azure Spring Apps** page and then select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select the **Classic** for **Resource mode**, then select **OK** to confirm the creation.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Create new Application Insights resource pane showing." lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png":::
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard** to create a shortcut on your Azure portal dashboard to the service's **Overview** page.
+1. Select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard** to create a shortcut on your Azure portal dashboard to the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/3-asa-notifications.png" alt-text="Screenshot of the Azure portal showing a deployment of a resource showing the Notification pane with the Go to resource and Pin to dashboard buttons.":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/3-asa-notifications.png" alt-text="Screenshot of the Azure portal showing a deployment of a resource and the Notification pane with Go to resource and Pin to dashboard buttons.":::
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
@@ -100,7 +100,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press `Enter` directly.
    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press `Enter` directly.
    - **Select apps to expose public access:(input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter `1,5` for `admin-server` and `api-gateway`.
-   - **Confirm to save all the above configurations (Y/n)**: Enter `y`. If Enter `n`, the configuration won't be saved in the POM files.
+   - **Confirm to save all the above configurations (Y/n)**: Enter `y`. If Enter `n`, the configuration isn't saved in the POM files.
 
 1. Use the following command to build and deploy each application:
 
