@@ -1681,6 +1681,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-train-with-datasets",
+        "redirect_url": "/azure/machine-learning/how-to-read-write-data-v2.md",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-with-datasets.md",
         "redirect_url": "/azure/machine-learning/how-to-train-with-datasets",
         "redirect_document_id": true
