@@ -141,7 +141,7 @@ If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in
 
 ### All Network Access locations of my tenant
 
-Organizations with access to Global Secure Access features will have an additional location listed that is made up of users and devices that comply with your organization's security policies.
+Organizations with access to Global Secure Access preview features will have an additional location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](../../global-secure-access/how-to-compliant-network.md#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
 
 ### Selected locations
 

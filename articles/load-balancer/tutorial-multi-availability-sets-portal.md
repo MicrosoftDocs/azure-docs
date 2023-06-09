@@ -88,6 +88,12 @@ In this section, you'll create a virtual network for the load balancer and the o
 
 15. Select **Create**.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
+
 ## Create NAT gateway 
 
 In this section, you'll create a NAT gateway for outbound connectivity of the virtual machines.
