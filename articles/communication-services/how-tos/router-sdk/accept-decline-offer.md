@@ -29,8 +29,7 @@ After you create a job, observe the [worker offer-issued event](subscribe-events
 ```csharp
 var workerId = event.data.workerId;
 var offerId = event.data.offerId;
-Console.WriteLine($"Job Offer ID: {offerId} offered to worker {workerId} ");
-     
+Console.WriteLine($"Job Offer ID: {offerId} offered to worker {workerId}.");
 ```
 
 ## Accept job offers
@@ -39,7 +38,6 @@ The worker can accept job offers by using the SDK:
 
 ```csharp
 var result = await client.AcceptJobOfferAsync(workerId, offerId);
-
 ```
 
 ## Decline job offers
@@ -48,7 +46,6 @@ The worker can decline job offers by using the SDK:
 
 ```csharp
 var result = await client.DeclineJobOfferAsync(workerId, offerId);
-
 ```
 
 ## Next steps

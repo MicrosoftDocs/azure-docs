@@ -67,9 +67,6 @@ Once a Job has been classified, it can be reclassified in the following ways:
 2. You can update the Classification Policy ID of a Job, which causes Job Router to process the existing Job against the new policy.
 3. An Exception Policy **trigger** can take the **action** of requesting a Job be reclassified.
 
-> [!NOTE]
-> The Job Router SDK includes an `UpdateJobLabels` method which simply updates the labels without causing the Job Router to execute the reclassification process.
-
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified

@@ -19,14 +19,11 @@ For more details on Event Grid, see the [Event Grid documentation][event-grid-ov
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 
 ## Create an Event Grid subscription
-
-> [!NOTE]
-> Since Job Router is still in preview, the events are not included in the portal UI. You have to use an Azure Resource Manager (ARM) template to create a subscription that references them.
 
 This template deploys an Event Grid subscription on a Storage Queue for Job Router events.
 If the storage account, queue or system topic doesn't exist, they'll be created as well.
@@ -115,6 +112,8 @@ dotnet run
 
 ## Events Catalog
 
+## Router Events
+
 | Events | Subdomain | Description |
 |------|:------------:| ---------- |
 | [`RouterJobReceived`](#microsoftcommunicationrouterjobreceived) | `Job` | A new job was created for routing |
@@ -126,6 +125,10 @@ dotnet run
 | [`RouterJobCancelled`](#microsoftcommunicationrouterjobcancelled) | `Job` | A job was canceled |
 | [`RouterJobExceptionTriggered`](#microsoftcommunicationrouterjobexceptiontriggered) | `Job` | A job exception has been triggered |
 | [`RouterJobWorkerSelectorsExpired`](#microsoftcommunicationrouterjobworkerselectorsexpired)  | `Job` |  One or more worker selectors on a job have expired  |
+| [`RouterJobUnassigned`](#microsoftcommunicationrouterjobunassigned)  | `Job` |  An already assigned job  has been uassigned from a worker |
+| [`RouterScheduledJobWaitingForActivation`](#microsoftcommunicationrouterjobwaitingforactivation)  | `Job` |  A scheduled job's requested scheduled time has arrive, Router is waiting on contoso to act on the job |
+| [`RouterScheduledJobFailed`](#microsoftcommunicationrouterjobschedulingfailed)  | `Job` |  A scheduled job was requested however, Router failed to create one |
+| [`RouterJobDeleted`](#microsoftcommunicationrouterjobdeleted)  | `Job` |  A job has been deleted |
 | [`RouterWorkerOfferIssued`](#microsoftcommunicationrouterworkerofferissued) | `Worker` | A job was offered to a worker |
 | [`RouterWorkerOfferAccepted`](#microsoftcommunicationrouterworkerofferaccepted) | `Worker` | An offer to a worker was accepted |
 | [`RouterWorkerOfferDeclined`](#microsoftcommunicationrouterworkerofferdeclined) | `Worker` | An offer to a worker was declined |
@@ -133,8 +136,7 @@ dotnet run
 | [`RouterWorkerOfferExpired`](#microsoftcommunicationrouterworkerofferexpired)  | `Worker` | An offer to a worker has expired |
 | [`RouterWorkerRegistered`](#microsoftcommunicationrouterworkerregistered)  | `Worker` | A worker has been registered |
 | [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered |
-
-## Router Events
+| [`RouterWorkerDeleted`](#microsoftcommunicationrouterworkerdeleted)  | `Worker` | A worker has been deleted |
 
 ### Microsoft.Communication.RouterJobReceived
 
@@ -170,7 +172,9 @@ dotnet run
         "value": 5,
         "ttl": "P3Y6M4DT12H30M5S"
       }
-    ]
+    ],
+    "scheduledTimeUtc": "3/28/2007 7:13:50 PM +00:00",
+    "unavailableForMatching": false
   },
   "eventType": "Microsoft.Communication.RouterJobReceived",
   "dataVersion": "1.0",
@@ -179,13 +183,12 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
-| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li><li>Queued</li> </ul> | When a this event is sent out, classification process is yet to have been executed or job was created with an associated queueId.
+| jobStatus| `enum` | ❌ | Possible values PendingClassification, Queued | When a this event is sent out, classification process is yet to have been executed or job was created with an associated queueId.
 |channelId | `string` | ❌ |
 | classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job
 | queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
@@ -193,6 +196,9 @@ dotnet run
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input
+| scheduledTimeUtc | `DateTimeOffset` | ✔️ | | Based on user input
+| unavailableForMatching | `bool` | ✔️ | | Based on user input
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClassified
 
@@ -245,8 +251,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | queueInfo | `QueueInfo` | ❌ |
@@ -259,6 +264,8 @@ dotnet run
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobQueued
 
@@ -309,8 +316,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -322,6 +328,8 @@ dotnet run
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input while creating job
 | attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClassificationFailed
 
@@ -364,8 +372,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | errors| `List<CommunicationError>` | ❌ |
@@ -375,6 +382,8 @@ dotnet run
 | classificationPolicyId | `string` | ❌ | |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobCompleted
 
@@ -410,8 +419,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -422,6 +430,8 @@ dotnet run
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | assignmentId| `string` | ❌ | |
 | workerId | `string` | ❌ | |
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClosed
 
@@ -458,8 +468,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -471,6 +480,8 @@ dotnet run
 | dispositionCode| `string` | ✔️ | | Based on user input
 | workerId | `string` | ❌ | |
 | assignmentId | `string` | ❌ | |
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobCancelled
 
@@ -506,8 +517,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | note| `string` | ✔️ | | Based on user input
@@ -518,6 +528,8 @@ dotnet run
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | queueId | `string` | ✔️ | |
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobExceptionTriggered
 
@@ -552,8 +564,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
@@ -563,6 +574,8 @@ dotnet run
 | channelId | `string` | ❌ |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobWorkerSelectorsExpired
 
@@ -612,8 +625,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -624,6 +636,226 @@ dotnet run
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
 | attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
+---------------------------------------------------------------------------------------------------------
+
+### Microsoft.Communication.RouterJobUnassigned
+
+[Back to Event Catalog](#events-catalog)
+
+```json
+{
+  "id": "acdf8fa5-8ab4-4a65-874a-c1d2a4a97f2e",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "job/{job-id}/channel/{channel-id}/assignment/{assignment-id}",
+  "data": {
+    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
+    "assignmentId": "",
+    "workerId": "",
+    "channelId": "FooVoiceChannelId",
+    "channelReference": "test-abc",
+    "queueId": "queue-id",    
+    "labels": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    }
+  },
+  "eventType": "Microsoft.Communication.RouterJobUnassigned",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
+}
+```
+
+_**Attribute list**_
+| Attribute | Type | Nullable |Description | Notes |
+|:--------- |:-----:|:-------:|-------------|-------|
+| jobId| `string` | ❌ |
+| assignmentId | `string` | ❌ |
+| workerId | `string` | ❌ |
+| channelId | `string` | ❌ |
+| channelReference | `string` | ❌ |
+| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+---------------------------------------------------------------------------------------------------------
+
+### Microsoft.Communication.RouterJobWaitingForActivation
+
+[Back to Event Catalog](#events-catalog)
+
+```json
+{
+  "id": "acdf8fa5-8ab4-4a65-874a-c1d2a4a97f2e",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "job/{job-id}/channel/{channel-id}",
+  "data": {
+    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
+    "channelId": "FooVoiceChannelId",
+    "channelReference": "test-abc",
+    "queueId": "queue-id",    
+    "priority": 1,
+    "labels": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "requestedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ],
+    "attachedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ],
+    "scheduledTimeUtc": "2022-02-17T00:55:25.1736293Z",
+    "unavailableForMatching": false
+  },
+  "eventType": "Microsoft.Communication.RouterJobWaitingForActivation",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
+}
+```
+
+_**Attribute list**_
+| Attribute | Type | Nullable |Description | Notes |
+|:--------- |:-----:|:-------:|-------------|-------|
+| jobId| `string` | ❌ |
+| channelId | `string` | ❌ |
+| channelReference | `string` | ❌ |
+| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
+| attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
+| scheduledTimeUtc | `DateTimeOffset` |✔️ | | Based on user input while creating a job
+| unavailableForMatching | `bool` |✔️ | | Based on user input while creating a job
+| priority| `int` | ❌ | | Based on user input while creating a job
+---------------------------------------------------------------------------------------------------------
+
+### Microsoft.Communication.RouterJobSchedulingFailed
+
+[Back to Event Catalog](#events-catalog)
+
+```json
+{
+  "id": "acdf8fa5-8ab4-4a65-874a-c1d2a4a97f2e",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "job/{job-id}/channel/{channel-id}",
+  "data": {
+    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
+    "channelId": "FooVoiceChannelId",
+    "channelReference": "test-abc",
+    "queueId": "queue-id",    
+    "priority": 1,
+    "labels": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "requestedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ],
+    "attachedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ],
+    "scheduledTimeUtc": "2022-02-17T00:55:25.1736293Z",
+    "failureReason": "Error"
+  },
+  "eventType": "Microsoft.Communication.RouterJobSchedulingFailed",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
+}
+```
+
+_**Attribute list**_
+| Attribute | Type | Nullable |Description | Notes |
+|:--------- |:-----:|:-------:|-------------|-------|
+| jobId| `string` | ❌ |
+| channelId | `string` | ❌ |
+| channelReference | `string` | ❌ |
+| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
+| attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
+| scheduledTimeUtc | `DateTimeOffset` |✔️ | | Based on user input while creating a job
+| failureReason | `string` |✔️ | | System determined
+| priority| `int` |❌ | | Based on user input while creating a job
+
+### Microsoft.Communication.RouterJobDeleted
+
+[Back to Event Catalog](#events-catalog)
+
+```json
+{
+  "id": "acdf8fa5-8ab4-4a65-874a-c1d2a4a97f2e",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "job/{job-id}/channel/{channel-id}",
+  "data": {
+    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
+    "channelReference": "test-abc",
+    "channelId": "FooVoiceChannelId",
+    "labels": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "queueId": ""
+  },
+  "eventType": "Microsoft.Communication.RouterJobDeleted",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
+}
+```
+
+_**Attribute list**_
+| Attribute | Type | Nullable |Description | Notes |
+|:--------- |:-----:|:-------:|-------------|-------|
+| jobId| `string` | ❌ |
+
+---------------------------------------------------------------------------------------------------------
 
 ## Worker Events
 
@@ -664,8 +896,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -679,6 +910,7 @@ dotnet run
 | jobPriority| `int` | ❌ |
 | jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | jobTags | `Dictionary<string, object>` | ✔️ | | Based on user input
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerOfferAccepted
 
@@ -716,8 +948,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -730,6 +961,8 @@ dotnet run
 | queueId | `string` | ❌ |
 | offerId | `string` | ❌ |
 | assignmentId | `string` | ❌ |
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerOfferDeclined
 
@@ -755,8 +988,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -765,6 +997,8 @@ dotnet run
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
 | offerId | `string` | ❌ |
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerOfferRevoked
 
@@ -790,8 +1024,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
@@ -800,6 +1033,7 @@ dotnet run
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerOfferExpired
 
@@ -825,8 +1059,7 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -835,6 +1068,7 @@ dotnet run
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerRegistered
 
@@ -866,9 +1100,15 @@ dotnet run
     "channelConfigurations": [
       {
         "channelId": "FooVoiceChannelId",
-        "capacityCostPerJob": 10
+        "capacityCostPerJob": 10,
+        "maxNumberOfJobs": 5
       }
-    ]
+    ],
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    }
   },
   "eventType": "Microsoft.Communication.RouterWorkerRegistered",
   "dataVersion": "1.0",
@@ -877,15 +1117,17 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
-| Attribute | Type | Nullable |Description | Notes |
+_**Attribute list**_
+| Attribute | Type | Nullable | Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
 | totalCapacity | `int` | ❌ |
-| queueAssignments| `List<QueueInfo>` | ❌ |
-| labels| `Dictionary<string, object>` | ✔️ | | Based on user input |
+| queueAssignments | `List<QueueInfo>` | ❌ |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+
+---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterWorkerDeregistered
 
@@ -897,7 +1139,7 @@ dotnet run
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
   "subject": "worker/{worker-id}",
   "data": {
-    "workerId": "worker3",
+    "workerId": "worker3"
   },
   "eventType": "Microsoft.Communication.RouterWorkerDeregistered",
   "dataVersion": "1.0",
@@ -906,11 +1148,135 @@ dotnet run
 }
 ```
 
-**Attribute list**
-
+_**Attribute list**_
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
+
+### Microsoft.Communication.RouterWorkerDeleted
+
+[Back to Event Catalog](#events-catalog)
+
+```json
+{
+  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "worker/{worker-id}",
+  "data": {
+    "workerId": "worker3",
+    "totalCapacity": 100,
+    "queueAssignments": [
+      {
+        "id": "MyQueueId2",
+        "name": "Queue 3",
+        "labels": {
+          "Language": "en",
+          "Product": "Office",
+          "Geo": "NA"
+        }
+      }
+    ],
+    "labels": {
+      "x": "111",
+      "y": "111"
+    },
+    "channelConfigurations": [
+      {
+        "channelId": "FooVoiceChannelId",
+        "capacityCostPerJob": 10,
+        "maxNumberOfJobs": 5
+      }
+    ],
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    }
+  },
+  "eventType": "Microsoft.Communication.RouterWorkerDeleted",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
+}
+```
+
+_**Attribute list**_
+| Attribute | Type | Nullable | Description | Notes |
+|:--------- |:-----:|:-------:|-------------|-------|
+| workerId | `string` | ❌ |
+| totalCapacity | `int` | ❌ |
+| queueAssignments | `List<QueueInfo>` | ❌ |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| channelConfigurations| `List<ChannelConfiguration>` | ❌ |
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+---------------------------------------------------------------------------------------------------------
+
+## Model Definitions
+
+### QueueInfo
+
+```csharp
+public class QueueInfo
+{
+    public string Id { get; set; }
+    public string Name { get; set; }
+    public Dictionary<string, object>? Labels { get; set; }
+}
+```
+
+### CommunicationError
+
+```csharp
+public class CommunicationError
+{
+    public string? Code { get; init; }
+    public string Message { get; init; }
+    public string? Target { get; init; }
+    public CommunicationError? InnerError { get; init; }
+    public IEnumerable<CommunicationError>? Details { get; init; }
+}
+```
+
+### ChannelConfiguration
+
+```csharp
+public class ChannelConfiguration
+{
+    public string ChannelId { get; set; }
+    public int CapacityCostPerJob { get; set; }
+    public int? MaxNumberOfJobs { get; set; }
+}
+```
+
+### WorkerSelector
+
+```csharp
+public class WorkerSelector
+{
+    public string Key { get; set; }
+    public LabelOperator LabelOperator { get; set; }
+    public object Value { get; set; }
+    public double? TTLSeconds { get; set; }
+    public WorkerSelectorState State { get; set; }
+    public DateTimeOffset? ExpireTime { get; set; }
+}
+
+public enum WorkerSelectorState
+{
+    Active = 0,
+    Expired = 1
+}
+
+public enum LabelOperator
+{
+    Equal,
+    NotEqual,
+    LessThan,
+    LessThanEqual,
+    GreaterThan,
+    GreaterThanEqual,
+}
+```
 
 <!-- LINKS -->
 [event-grid-overview]: ../../../event-grid/overview.md

@@ -129,17 +129,20 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 
 ## Next steps
 
+- [Quickstart: Submit a job for queuing and routing](../../quickstarts/router/get-started-router.md)
 - [How jobs are matched to workers](matching-concepts.md)
+- [How worker capacity is configured](worker-capacity-concepts.md)
 - [Router Rule concepts](router-rule-concepts.md)
 - [Classification concepts](classification-concepts.md)
 - [Distribution modes](distribution-concepts.md)
 - [Exception Policies](exception-policy.md)
-- [Quickstart guide](../../quickstarts/router/get-started-router.md)
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
 - [How to classify a Job](../../how-tos/router-sdk/job-classification.md)
 - [Target a preferred worker](../../how-tos/router-sdk/preferred-worker.md)
 - [Escalate a Job](../../how-tos/router-sdk/escalate-job.md)
 - [Subscribe to events](../../how-tos/router-sdk/subscribe-events.md)
+- [Scheduling a job](../../how-tos/router-sdk/scheduled-jobs.md)
+- [How to get estimated wait time and job position](../../how-tos/router-sdk/estimated-wait-time.md)
 
 <!-- LINKS -->
 [azure_sub]: https://azure.microsoft.com/free/dotnet/

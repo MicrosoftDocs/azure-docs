@@ -62,15 +62,15 @@ static async Task Main(string[] args)
 }
 ```
 
-## Authenticate the Job Router clients
+## Authenticate the Job Router client and administration client
 
-Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.
+Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We will generate both a client and an administration client to interact with the Job Router service.  The admin client will be used to provision queues and policies, while the client will be used to submit jobs and register workers.
 
 ```csharp
 // Get a connection string to our Azure Communication Services resource.
 var connectionString = "your_connection_string";
+var routerAdminClient = new RouterAdministrationClient(connectionString);
 var routerClient = new RouterClient(connectionString);
-var routerAdministrationClient = new RouterAdministrationClient(connectionString);
 ```
 
 ## Create a distribution policy
@@ -94,12 +94,11 @@ var distributionPolicy = await routerAdministrationClient.CreateDistributionPoli
 Create the Queue by specifying an **ID**, **name**, and provide the **Distribution Policy** object's ID you created above.
 
 ```csharp
-var queue = await routerAdministrationClient.CreateQueueAsync(
-    options: new CreateQueueOptions("queue-1", distributionPolicy.Value.Id)
+var queue = await routerAdminClient.CreateQueueAsync(
+    new CreateQueueOptions(queueId: "queue-1", distributionPolicyId: distributionPolicy.Value.Id)
     {
-        Name = "My job queue"
-    }
-);
+        Name = "My Queue" 
+    });
 ```
 
 ## Submit a job
@@ -108,48 +107,37 @@ Now, we can submit a job directly to that queue, with a worker selector that req
 
 ```csharp
 var job = await routerClient.CreateJobAsync(
-    options: new CreateJobOptions(
-            jobId: jobId,
-            channelId: "my-channel",
-            queueId: queue.Value.Id)
+    new CreateJobOptions(jobId: "job-1", channelId: "voice", queueId: queue.Value.Id)
     {
-        Priority = 1,
-        RequestedWorkerSelectors = new List<WorkerSelector>
+        priority: 1,
+        requestedWorkerSelectors: new List<WorkerSelector>
         {
-            new WorkerSelector(
-                key: "Some-Skill", 
-                labelOperator: LabelOperator.GreaterThan, 
-                value: 10)
+            new (key: "Some-Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
         }
-    }
-);
+    });
 ```
 
 ## Create a worker
 
-Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.  In order for the worker to receive offers make sure that the property **AvailableForOffers** is set to **true**.
+Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.
 
 ```csharp
-var worker = await routerClient.CreateWorkerAsync(
-    new CreateWorkerOptions(
-        workerId: "worker-1",
-        totalCapacity: 1)
+var worker = await client.CreateWorkerAsync(
+    new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 1)
     {
-        QueueIds = new Dictionary<string, QueueAssignment>()
+        QueueIds = new Dictionary<string, QueueAssignment>
         {
-            [queue.Value.Id] = new QueueAssignment()
+            [queue.Value.Id] = new()
         },
-        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>()
+        Labels = new Dictionary<string, LabelValue>
         {
-            ["my-channel"] = new ChannelConfiguration(1)
+            ["Some-Skill"] = new(11)
         },
-        Labels = new Dictionary<string, LabelValue>()
+        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>
         {
-            ["Some-Skill"] = new LabelValue(11)
-        },
-        AvailableForOffers = true
-    }
-);
+            ["voice"] = new (capacityCostPerJob: 1)
+        }
+    });
 ```
 
 ### Offer
@@ -158,9 +146,9 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```csharp
-await Task.Delay(TimeSpan.FromSeconds(2));
-var result = await routerClient.GetWorkerAsync(worker.Value.Id);
-foreach (var offer in result.Value.Offers)
+await Task.Delay(TimeSpan.FromSeconds(3));
+worker = await routerClient.GetWorkerAsync(worker.Value.Id);
+foreach (var offer in worker.Value.Offers)
 {
     Console.WriteLine($"Worker {worker.Value.Id} has an active offer for job {offer.JobId}");
 }
@@ -171,12 +159,37 @@ Run the application using `dotnet run` and observe the results.
 ```console
 dotnet run
 
-
 Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 ```
 
 > [!NOTE]
 > Running the application more than once will cause a new Job to be placed in the queue each time. This can cause the Worker to be offered a Job other than the one created when you run the above code. Since this can skew your request, considering removing Jobs in the queue each time. Refer to the SDK documentation for managing a Queue or a Job.
+
+## Accept the job offer
+
+Then, the worker can accept the job offer by using the SDK, which will assign the job to the worker.
+
+```csharp
+var accept = await routerClient.AcceptJobOfferAsync(worker.Value.Id, worker.Value.Offers.FirstOrDefault().OfferId);
+```
+
+## Complete the job
+
+Once the worker has completed the work associated with the job (e.g. completed the call).
+
+```csharp
+var complete = await routerClient.CompleteJobAsync(new CompleteJobOptions("job-1", accept.Value.AssignmentId));
+```
+
+## Close the job
+
+Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
+
+```csharp
+var close = await routerClient.CloseJobAsync(new CloseJobOptions("job-1", accept.Value.AssignmentId) {
+    DispositionCode = "Resolved"
+});
+```
 
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md

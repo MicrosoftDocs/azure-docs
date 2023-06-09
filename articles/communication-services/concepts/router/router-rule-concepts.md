@@ -11,7 +11,7 @@ ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: devx-track-extended-java, devx-track-js
-zone_pivot_groups: acs-js-csharp
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Job Router rule engines
@@ -43,7 +43,7 @@ In this example a `StaticRule`, which is a subtype of `RouterRule` can be used t
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await routerAdministration.CreateClassificationPolicyAsync(
+await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions(classificationPolicyId: "my-policy-id")
     {
         PrioritizationRule = new StaticRule(new LabelValue(5))
@@ -55,25 +55,40 @@ await routerAdministration.CreateClassificationPolicyAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.upsertClassificationPolicy({
-    id: "my-policy-id",
-    prioritizationRule: {
-        kind: "static-rule",
-        value: 5
-    }
+await administrationClient.createClassificationPolicy("my-policy-id", {
+    prioritizationRule: { kind: "static-rule", value: 5 }
 });
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```python
+administration_client.create_classification_policy(
+    classification_policy_id = "my-policy-id",
+    classification_policy = ClassificationPolicy(prioritization_rule = StaticRule(value = 5)))
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("my-policy-id")
+    .setPrioritizationRule(new StaticRule(new LabelValue(5))));
 ```
 
 ::: zone-end
 
 ### Example: Use an expression rule to set the priority of a job
 
-In this example a `ExpressionRule`, which is a subtype of `RouterRule` can be used to set the priority of all Jobs, which use this classification policy.
+In this example an `ExpressionRule` which is a subtype of `RouterRule`, evaluates a PowerFX expression to set the priority of all jobs that use this classification policy.
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await routerAdministration.CreateClassificationPolicyAsync(
+await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions(classificationPolicyId: "my-policy-id")
     {
         PrioritizationRule = new ExpressionRule("If(job.Escalated = true, 10, 5)") // this will check whether the job has a label "Escalated" set to "true"
@@ -85,13 +100,33 @@ await routerAdministration.CreateClassificationPolicyAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.upsertClassificationPolicy({
-    id: "my-policy-id",
+await administrationClient.createClassificationPolicy("my-policy-id", {
     prioritizationRule: {
         kind: "expression-rule",
         expression: "If(job.Escalated = true, 10, 5)"
     }
-});
+  });
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```python
+administration_client.create_classification_policy(
+    classification_policy_id = "my-policy-id",
+    classification_policy = ClassificationPolicy(
+        prioritization_rule = ExpressionRule(expression = "If(job.Urgent = true, 10, 5)")))
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+administrationClient.createClassificationPolicy(
+    new CreateClassificationPolicyOptions("my-policy-id")
+        .setPrioritizationRule(new ExpressionRule("If(job.Urgent = true, 10, 5)")));
 ```
 
 ::: zone-end

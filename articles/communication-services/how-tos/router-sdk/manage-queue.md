@@ -18,7 +18,7 @@ This guide outlines the steps to create and manage a Job Router queue.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 
@@ -30,47 +30,43 @@ To create a simple queue in Job Router, use the SDK to specify the **queue ID**,
 var distributionPolicy = await administrationClient.CreateDistributionPolicyAsync(
     new CreateDistributionPolicyOptions(
         distributionPolicyId: "Longest_Idle_45s_Min1Max10",
-        offerTtl: TimeSpan.FromSeconds(45),
-        mode: new LongestIdleMode(
-            minConcurrentOffers: 1,
-            maxConcurrentOffers: 10)
+        offerExpiresAfter: TimeSpan.FromSeconds(45),
+        mode: new LongestIdleMode(minConcurrentOffers: 1, maxConcurrentOffers: 10))
     {
-        Name = "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"
-    }
-);
+        Name = "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers",
+    });
 
 var queue = await administrationClient.CreateQueueAsync(
-    options: new CreateQueueOptions("XBOX_DEFAULT_QUEUE", "Longest_Idle_45s_Min1Max10")
+    new CreateQueueOptions(
+        queueId: "XBOX_DEFAULT_QUEUE", 
+        distributionPolicyId: "Longest_Idle_45s_Min1Max10")
     {
         Name = "XBOX Default Queue"
-    }
-);
+    });
 ```
+
 ## Update a queue
 
-The Job Router SDK will update an existing queue when the `UpdateQueue` or `UpdateQueueAsync` method is called.
+The Job Router SDK will update an existing queue when the `UpdateQueueAsync` method is called.
 
 ```csharp
-var queue = await administrationClient.UpdateQueueAsync(
-    options: new UpdateQueueOptions("XBOX_DEFAULT_QUEUE")
+await administrationClient.UpdateQueueAsync(new UpdateQueueOptions(queue.Value.Id)
+{
+    Name = "XBOX Updated Queue",
+    Labels = new Dictionary<string, LabelValue>()
     {
-        Name = "XBOX Default Queue",
-        DistributionPolicyId = "Longest_Idle_45s_Min1Max10",
-        Labels = new Dictionary<string, LabelValue>()
-        {
-            ["Additional-Queue-Label"] = new LabelValue("ChatQueue")
-        }
-    });
-);
+        ["Additional-Queue-Label"] = new LabelValue("ChatQueue")
+    }
+});
 ```
 
 ## Delete a queue
 
-To delete a queue using the Job Router SDK call the `DeleteQueue` or `DeleteQueueAsync` method passing the **queue ID**.
+To delete a queue using the Job Router SDK, call the `DeleteQueueAsync` method passing the **queue ID**.
 
 ```csharp
-var result = await client.DeleteQueueAsync("XBOX_DEFAULT_QUEUE");
+await administrationClient.DeleteQueueAsync(queue.Value.Id);
 ```
 
 > [!NOTE]
-> To delete a queue you must make sure there are no active jobs assigned to it. Additionally, make sure there are no references to the queue in any classification policies or rules that use an expression to select the queue by ID using a string value.
+> To delete a queue you must make sure there are no active jobs assigned to it. Additionally, make sure there are no references to the queue in any classification policies.
