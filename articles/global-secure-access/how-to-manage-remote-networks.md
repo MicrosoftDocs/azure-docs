@@ -15,8 +15,6 @@ Remote networks connect your users in remote locations to Global Secure Access (
 
 This article explains how to manage your existing remote networks for Global Secure Access.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
@@ -70,6 +68,8 @@ To edit the name, location, or region of a remote network:
     DELETE https://graph.microsoft.com/beta/networkaccess/branches/97e2a6ea-c6c4-4bbe-83ca-add9b18b1c6b 
     ```
 1. Select **Run query** to delete the remote network. 
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

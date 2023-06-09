@@ -31,6 +31,7 @@ Once you have the details you need, go to the preferred interface of your CPE (U
 > [!IMPORTANT]
 >The crypto profile you specified for the device link should match with what you specify on your CPE. If you chose the "default" IKE policy when configuring the device link, use the configurations described in the [Remote network configurations](reference-remote-network-configurations.md) article.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

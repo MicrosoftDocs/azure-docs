@@ -37,6 +37,8 @@ To get started, follow these instructions to work with remote networks using Mic
     POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches
 ```
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Next steps
 
 - [How to manage remote networks](how-to-manage-remote-networks.md)

@@ -19,8 +19,6 @@ There are multiple ways to connect remote networks to Global Secure Access. In a
 
 This article explains how to create a remote network for Global Secure Access (preview).
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 - **Global Secure Access Administrator** role in Microsoft Entra ID
@@ -100,7 +98,7 @@ You can assign the remote network to a traffic forwarding profile when you creat
 1. Select the **Review + Create** button.
 
 > [!IMPORTANT]
-> At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile. The private access traffic forwarding profile requires that your end users connect to Global Secure Access with the Global Secure Access client.
+> At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile. The private access traffic forwarding profile requires that your end users connect to Global Secure Access with the Global Secure Access Client.
 
 ### Review and create
 
@@ -168,6 +166,8 @@ Associating a traffic forwarding profile to your remote network using the Micros
         }
     ```
 1. Select **Run query** to update the remote network.
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

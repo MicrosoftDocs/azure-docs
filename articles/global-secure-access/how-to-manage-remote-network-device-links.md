@@ -16,8 +16,6 @@ Device links are the customer premises equipment (CPE) used in your remote netwo
 
 This article explains how to add, edit, and delete device links for remote networks for Global Secure Access.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites 
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
@@ -83,6 +81,8 @@ The following ASNs are reserved by Azure and can't be used for your on-premises 
 <!--- need to understand what this means - pulled it from the tooltip --->
 
 While setting up IPsec connectivity from virtual network gateways to Azure virtual WAN VPN, the ASN for Local Network Gateway is required to be 65515.
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 - [List remote networks](how-to-list-remote-networks.md)
