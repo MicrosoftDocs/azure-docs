@@ -19,7 +19,7 @@ ms.custom: seodec18, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
-> * [v1](v1/samples-notebooks-v1.md?view=azureml-api-1&preserve-view=true)
+> * [v1](v1/samples-notebooks.md?view=azureml-api-1&preserve-view=true)
 > * [v2](samples-notebooks.md)
 
 The [AzureML-Examples](https://github.com/Azure/azureml-examples) repository includes the latest (v2) Azure Machine Learning Python CLI and SDK samples. For information on the various example types, see the [readme](https://github.com/Azure/azureml-examples#azure-machine-learning-examples).

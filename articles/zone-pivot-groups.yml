@@ -1184,7 +1184,7 @@ groups:
   prompt: Choose a programming language
   pivots:
   - id: azure-portal
-    title: Azure Portal
+    title: Azure portal
   - id: programming-language-rest
     title: REST
   - id: programming-language-csharp
@@ -1282,7 +1282,7 @@ groups:
   prompt: Choose a programming language
   pivots:
   - id: platform-azportal
-    title: Azure Portal
+    title: Azure portal
   - id: platform-azcli
     title: Azure CLI
   - id: programming-language-csharp
@@ -1689,6 +1689,15 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: pafarley
+- id: openai-quickstart-dall-e
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: rest-api
+    title: REST
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
@@ -2016,6 +2025,14 @@ groups:
     title: REST
   - id: static-web-apps-graphql
     title: GraphQL
+- id: static-web-apps-afd-methods
+  title: Azure Front Door integration method
+  prompt: Select an Azure Front Door configuration method
+  pivots:
+  - id: swa-afd-enterprise-grade-edge
+    title: Enterprise-grade edge (recommended)
+  - id: swa-afd-manual-afd
+    title: Manual Azure Front Door configuration
 # Owner: cshoe
 - id: container-apps-config-types
   title: Configuration method
@@ -2455,6 +2472,30 @@ groups:
     title: Azure CLI
   - id: method-bicep
     title: Bicep template
+- id: azure-web-pubsub-samples-authenticate-and-connect
+  title: Authenticate and connect to your Web PubSub resource(s) using one of the methods
+  prompt: Choose an option
+  pivots: 
+  - id: method-sdk-csharp
+    title: C#
+  - id: method-sdk-javascript
+    title: JavaScript
+  - id: method-sdk-java
+    title: Java
+  - id: method-sdk-python
+    title: Python
+- id: azure-web-pubsub-samples-app-scenarios
+  title: App scenarios built with Azure Web PubSub
+  prompt: Choose an option
+  pivots: 
+  - id: method-csharp
+    title: C#
+  - id: method-javascript
+    title: JavaScript
+  - id: method-java
+    title: Java
+  - id: method-python
+    title: Python
 # Owner: juliakm, ggailey777
 - id: functions-task-versions
   title: Select your version of the Pipelines task

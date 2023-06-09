@@ -25,7 +25,7 @@ Learn to configure F5 BIG-IP Access Policy Manager (APM) and Azure Active Direct
 
 Learn more:
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description

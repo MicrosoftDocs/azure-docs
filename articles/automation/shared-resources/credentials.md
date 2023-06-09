@@ -3,6 +3,7 @@ title: Manage credentials in Azure Automation
 description: This article tells how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
 ms.subservice: shared-capabilities
+ms.custom: devx-track-python
 ms.date: 05/26/2023
 ms.topic: conceptual 
 ---

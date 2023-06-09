@@ -61,7 +61,7 @@ In order for the [User Administrator](permissions-reference.md#user-administrato
 
 ## License requirements
 
-Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and an Azure AD Free license for each administrative unit member. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator who is assigned directory roles over the scope of the administrative unit, and an Azure AD Free license for each administrative unit member. Creating administrative units is available with an Azure AD Free license. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Manage administrative units
 

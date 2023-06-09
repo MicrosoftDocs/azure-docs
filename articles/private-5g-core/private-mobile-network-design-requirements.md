@@ -70,7 +70,7 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - AP5GC can support multiple attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - AP5GC can support up to three attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
 

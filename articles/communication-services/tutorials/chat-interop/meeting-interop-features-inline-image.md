@@ -8,7 +8,7 @@ ms.date: 03/27/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-js
 ---
 
 # Tutorial: Enable inline image support in your Chat app

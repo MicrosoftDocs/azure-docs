@@ -91,7 +91,10 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
 ### SAP built-in connector
 
-The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). You must also set up the following environment variables on the computer where you install Visual Studio Code:
+ 
+ - **WEBSITE_PRIVATE_IP**: Set this environment variable value to **127.0.0.1** as the localhost address. 
+ - **WEBSITE_PRIVATE_PORTS**: Set this environment variable value to two free and usable ports on your local computer, separating the values with a comma (**,**), for example, **8080,8088**.
 
 ## Prerequisites
 
@@ -538,7 +541,10 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *
 
 #### SAP trigger requirements
 
-The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). You must also set up the following environment variables on the computer where you install Visual Studio Code:
+ 
+ - **WEBSITE_PRIVATE_IP**: Set this environment variable value to **127.0.0.1** as the localhost address. 
+ - **WEBSITE_PRIVATE_PORTS**: Set this environment variable value to two free and usable ports on your local computer, separating the values with a comma (**,**), for example, **8080,8088**.
 
 ### [ISE](#tab/ise)
 
@@ -1073,7 +1079,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
-1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](../azure-monitor/app/sdk-connection-string.md) by uncommenting the line with the `<InstrumentationKey></Instrumentation>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
+1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](../azure-monitor/app/sdk-connection-string.md) by uncommenting the line with the `<InstrumentationKey></InstrumentationKey>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
 
       ```xml
       <?xml version="1.0" encoding="utf-8"?>

@@ -8,7 +8,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: UpdateFrequency5, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, event-tier1-build-2022, ignite-2022, devx-track-python
 ms.date: 10/26/2022
 ms.topic: how-to
 ---

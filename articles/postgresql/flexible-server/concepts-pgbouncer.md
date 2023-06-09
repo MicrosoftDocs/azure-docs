@@ -98,8 +98,7 @@ psql "host=myPgServer.postgres.database.azure.com port=6432 dbname=postgres user
 2. Test your application in a QA environment against PgBouncer, to make sure you don’t have any compatibility problems. The PgBouncer project provides a compatibility matrix, and we recommend using **transaction pooling** for most users: https://www.PgBouncer.org/features.html#sql-feature-map-for-pooling-modes.
 3. Change your production application to connect to port **6432** instead of **5432**, and monitor for any application side errors that may point to any compatibility issues.
 
-> [!Note] 
-> Even if you had enabled PgBouncer, you can still connect to the database server directly over port 5432 using the same host name.
+
 
 ## PgBouncer in Zone-redundant high availability
 
@@ -113,11 +112,14 @@ Utilizing an application side pool together with PgBouncer on the database serve
 
 ## Limitations
  
-* PgBouncer is currently not supported with Burstable server compute tier. 
-* If you change the compute tier from General Purpose or Memory Optimized to Burstable tier, you lose the PgBouncer capability.
+* PgBouncer feature is currently not supported with Burstable server compute tier. 
+* If you change the compute tier from General Purpose or Memory Optimized to Burstable tier, you lose the built-in PgBouncer capability.
 * Whenever the server is restarted during scale operations, HA failover, or a restart, the PgBouncer is also restarted along with the server virtual machine. Hence the existing connections have to be re-established.
 * Due to a known issue, the portal doesn't show all PgBouncer parameters. Once you enable PgBouncer and save the parameter, you have to exit Parameter screen (for example, click Overview) and then get back to Parameters page. 
 * Transaction and statement pool modes can't be used along with prepared statements. Refer to the [PgBouncer documentation](https://www.pgbouncer.org/features.html) to check other limitations of chosen pool mode.
+
+> [!IMPORTANT]
+> Parameter pgbouncer.client_tls_sslmode for built-in PgBouncer feature has been deprecated in Azure Database for PostgreSQL - Flexible Server with built-in PgBouncer feature enabled. When TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server is enforced via setting the **require_secure_transport** server parameter to ON, TLS\SSL is automatically enforced for connections to built-in PgBouncer. This setting to enforce SSL\TLS is on by default on creation of new PostgreSQL Flexible Server and enabling  built-in PgBouncer feature.  For more on SSL\TLS in Flexible Server see this [doc.](./concepts-networking.md#tls-and-ssl)
 
   
 For those customers that are looking for simplified management, built-in high availability, easy connectivity with containerized applications and are interested in utilizing most popular configuration parameters with PGBouncer built-in PGBouncer feature is good choice. For customers looking for full control of all parameters and debugging experience another choice could be setting up PGBouncer on Azure VM as an alternative. 

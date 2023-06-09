@@ -3,7 +3,7 @@ title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
 ms.date: 11/15/2022
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---
 
@@ -19,7 +19,7 @@ Key-value pairs provide an easy way for users to define a prefix suffix combinat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-Don't use a connection string and instrumentation key simultaneously. Whichever was set last will take precedence.
+ 
 
 ## Scenario overview
 

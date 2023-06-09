@@ -85,6 +85,30 @@
         href: manage-consent-requests.md
       - name: Protect against consent phishing
         href: protect-against-consent-phishing.md
+    - name: AD FS to Azure AD Migration
+      items:
+      - name: Plan AD FS migration
+        items:
+        - name: Migration phases
+          href: migrate-application-authentication-to-azure-active-directory.md
+        - name: Phase 1 - Discover and Scope
+          href: migrate-adfs-discover-scope-apps.md
+        - name: Phase 2 - Classify apps and plan pilot
+          href: migrate-adfs-classify-apps-plan-pilot.md
+        - name: Phase 3 - Plan migration and testing
+          href: migrate-adfs-plan-migration-test.md
+        - name: Phase 4 - Manage and gain insights
+          href: migrate-adfs-plan-management-insights.md
+      - name: Migrate apps
+        items:
+        - name: Migration process
+          href: migrate-adfs-apps-to-azure.md
+        - name: SAML-based single sign-on
+          href: migrate-adfs-saml-based-sso.md
+        - name: Represent AD FS security policies in Azure AD
+          href: migrate-adfs-represent-security-policies.md
+        - name: Use the AD FS application activity report
+          href: migrate-adfs-application-activity.md
   - name: How-to guides
     expanded: false
     items:
@@ -140,23 +164,17 @@
         href: hide-application-from-user-portal.md
     - name: Migrate applications
       items:
-      - name: Migrate an AD FS app to Azure AD
-        href: migrate-adfs-apps-to-azure.md
-      - name: Migrate application authentication to Azure Active Directory
-        href: migrate-application-authentication-to-azure-active-directory.md
-      - name: Use the AD FS application activity report
-        href: migrate-adfs-application-activity.md
       - name: Migrate applications from Okta to Azure AD 
         items:
         - name: Migrate applications from Okta to Azure AD
-          href: migrate-applications-from-okta-to-azure-active-directory.md
+          href: migrate-applications-from-okta.md
         - name: Migrate Okta sign on policies to Azure AD Conditional Access
-          href: migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md
+          href: migrate-okta-sign-on-policies-conditional-access.md
         - name: Migrate Okta sync provisioning to Azure AD Connect based synchronization
-          href: migrate-okta-sync-provisioning-to-azure-active-directory.md
+          href: migrate-okta-sync-provisioning.md
         - name: Migrate Okta federation to Azure AD managed authentication
-          href: migrate-okta-federation-to-azure-active-directory.md
-    - name: Secure legacy apps 
+          href: migrate-okta-federation.md
+    - name: Secure legacy apps
       items:
       - name: Secure hybrid access with Azure AD 
         href: secure-hybrid-access.md
@@ -165,19 +183,19 @@
       - name: Cloudflare
         items:
         - name: Configure Cloudflare with Azure AD
-          href: cloudflare-azure-ad-integration.md
+          href: cloudflare-integration.md
         - name: Configure Conditional Access policies in Cloudflare Access
           href: cloudflare-conditional-access-policies.md
       - name: Datawiza
         items:
         - name: Integrate Datawiza with Azure AD
-          href: datawiza-with-azure-ad.md 
+          href: datawiza-configure-sha.md
         - name: Configure Oracle JDE with Azure AD 
-          href: datawiza-azure-ad-sso-oracle-jde.md
+          href: datawiza-sso-oracle-jde.md
         - name: Configure Oracle PeopleSoft with Azure AD 
-          href: datawiza-azure-ad-sso-oracle-peoplesoft.md
+          href: datawiza-sso-oracle-peoplesoft.md
         - name: Configure Datawiza for Azure AD SSO and MFA to Oracle EBS
-          href: datawiza-azure-ad-sso-mfa-oracle-ebs.md
+          href: datawiza-sso-mfa-oracle-ebs.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
@@ -185,7 +203,7 @@
         - name: F5 BIG-IP and Azure AD integration
           items:
           - name: Integrate F5 BIG-IP with Azure AD
-            href: f5-aad-integration.md
+            href: f5-integration.md
           - name: Easy Button guided configuration
             items:
             - name: Kerberos
@@ -211,11 +229,11 @@
               - name: Form-based
                 href: f5-big-ip-forms-advanced.md 
               - name: SSL-VPN
-                href: f5-aad-password-less-vpn.md  
+                href: f5-passwordless-vpn.md  
               - name: B2C
                 href: ../../active-directory-b2c/partner-f5.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
       - name: Silverfort
-        href: silverfort-azure-ad-integration.md
+        href: silverfort-integration.md
     - name: Single sign-on
       items:
       - name: Enable Single sign-on with SAML

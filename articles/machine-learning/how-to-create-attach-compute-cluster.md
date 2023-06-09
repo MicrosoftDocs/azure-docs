@@ -37,7 +37,7 @@ In this article, learn how to:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service (v2)](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* The [Azure CLI extension for Machine Learning service (v2)](how-to-configure-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 * If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 

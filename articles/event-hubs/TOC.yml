@@ -285,12 +285,12 @@
             href: event-hubs-kafka-mirror-maker-tutorial.md
         - name: Kafka Connect with Event Hubs
           items:
+          - name: Integrate Apache Kafka Connect 
+            href: event-hubs-kafka-connect-tutorial.md
           - name: Connect Apache Spark to an event hub
             href: event-hubs-kafka-spark-tutorial.md
           - name: Connect Apache Flink to an event hub
             href: event-hubs-kafka-flink-tutorial.md
-          - name: Integrate Apache Kafka Connect 
-            href: event-hubs-kafka-connect-tutorial.md
           - name: Integrate Apache Kafka Connect with Debezium
             href: event-hubs-kafka-connect-debezium.md
           - name: Connect Akka Streams to an event hub

@@ -88,7 +88,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 When ACR is behind a virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
 > [!IMPORTANT]
-> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images (SDK v1)](v1/how-to-train-with-custom-image.md?view=azureml-api-1&preserve-view=true) that already include the packages.
+> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](concept-vulnerability-management.md#using-a-private-package-repository), or use [custom Docker images (SDK v1)](v1/how-to-train-with-custom-image.md?view=azureml-api-1&preserve-view=true) that already include the packages.
 
 > [!WARNING]
 > If your Azure Container Registry uses a private endpoint or service endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster.

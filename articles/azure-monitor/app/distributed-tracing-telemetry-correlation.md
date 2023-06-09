@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/30/2023
 ms.reviewer: rijolly
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-extended-java
 ---
 
 # What is distributed tracing and telemetry correlation?

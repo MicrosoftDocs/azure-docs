@@ -98,7 +98,7 @@
   - name: Select identity providers
     items:
     - name: Azure Active Directory
-      href: azure-ad-account.md
+      href: default-account.md
     - name: Microsoft account
       href: microsoft-account.md
     - name: Google federation
