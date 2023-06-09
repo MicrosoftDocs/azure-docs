@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/08/2023
+ms.date: 06/09/2023
 ms.author: alkohli  
 ---
 # Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro 2
@@ -33,7 +33,7 @@ This section provides a comparative summary of capabilities between the Azure St
 
 |    Capability  | Azure Stack Edge Pro 2 (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
-| Hardware       | Hardware acceleration: 0, 1, or 2 Nvidia A2 GPUs <br> CPU usable - 32 vCPUs <br> Memory - 48 GiB - 224 GiB usable RAM <br> Network interface - 4 <br> Power supply units - 1 <br> For more information, see [Azure Stack Edge Pro 2 technical specifications](azure-stack-edge-pro-2-technical-specifications-compliance.md).   | Hardware acceleration: Intel Arria 10 FPGA <br> Compute - 32 vCPUs <br> Memory - 102 GiB usable RAM <br> Network interface - 6 <br> Power supply units - 2 <br> For more information, see [Azure Stack Edge Pro FPGA technical specifications](azure-stack-edge-technical-specifications-compliance.md).  |
+| Hardware       | Hardware acceleration: 1 or 2 Nvidia A2 GPUs <br> 64 GB, 128 GB, or 256 GB of memory <br> 2x 10 GB ASE-T iWap RDMA-capable network ports <br> 2x optical 100 GB/sec RoCE RDMA-capable network ports<br> Power supply units - 1 <br> For more information, see [Azure Stack Edge Pro 2 technical specifications](azure-stack-edge-pro-2-technical-specifications-compliance.md).   | Hardware acceleration: Intel Arria 10 FPGA <br> 128 GB of memory <br> 2x copper 1 GB/sec network ports <br> 4x optical 25 GB/sec RDMA-capable network ports <br> Power supply units - 2 <br> For more information, see [Azure Stack Edge Pro FPGA technical specifications](azure-stack-edge-technical-specifications-compliance.md).  |
 | Usable storage | Storage - 720 GB - 2.5 TB <br> After reserving space for parity resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
@@ -43,8 +43,8 @@ This section provides a comparative summary of capabilities between the Azure St
 
 |    Capability  | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
-| Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with FPGA.  | Hardware acceleration: Intel Arria 10 FPGA <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with GPU.          |
-| Usable storage | 4.19 TB <br> After reserving space for parity resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
+| Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs  | Hardware acceleration: Intel Arria 10 FPGA <br> 128 GB of memory <br> 2x copper 1 GB/sec network ports <br> 4x optical 25 GB/sec RDMA-capable network ports  |
+| Usable storage | 1, 2, or 3 TB <br> After reserving space for resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
 | Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)  |
@@ -225,8 +225,7 @@ After migration, verify that all the data has migrated and the workloads have be
 
 ## Erase data, return
 
-After the data migration is complete, erase local data and return the source device. Follow the steps in [Return your Azure Stack Edge Pro device](azure-stack-edge-return-device.md).
-
+After the data migration is complete, erase local data and return the source device. Follow the steps in [Return your Azure Stack Edge Pro FPGA device](azure-stack-edge-return-device.md).
 
 ## Next steps
 
