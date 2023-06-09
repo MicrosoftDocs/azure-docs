@@ -1104,11 +1104,13 @@ channels:
 :::moniker range="azureml-api-1"
 * See [how to set a conda specification on the environment definition v1](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
 * See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
+* See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
 :::moniker-end
 :::moniker range="azureml-api-2"
 * See how to [create an environment from a conda specification v2](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
-:::moniker-end
 * See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
+:::moniker-end
+
 
 ### Base conda environment not recommended
 <!--issueDescription-->
@@ -1155,8 +1157,11 @@ Define an environment using a standard conda YAML configuration file
 :::moniker range="azureml-api-1"
 * See [how to set a conda specification on the environment definition v1](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
 * See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
-:::moniker-end
 * See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
+:::moniker-end
+:::moniker range="azureml-api-2"
+* See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
+:::moniker-end
 
 ### Unpinned dependencies
 <!--issueDescription-->
