@@ -85,9 +85,9 @@ When you create a private endpoint, you must specify the Elastic SAN and the vol
 
 # [Portal](#tab/azure-portal)
 
-There are two entry points in the Azure portal for creating private endpoints:
+There are two entry points in the Azure portal for creating private endpoints for your Elastic SAN:
 
-- The Elastic SAN volume group page.
+- The Elastic SAN volume group page
 - The private endpoint management page
 
 If you create your private endpoint from the volume group page, it is done in the context of the volume group and might give you the most straightforward experience, as show in the following steps:
@@ -163,12 +163,14 @@ VnetName="<virtual network name>"
 SubnetName="<subnet name>"
 PeName="<private endpoint name>"
 PeConnName="<private endpoint connection name>"
+
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
     --resource-group $RgName \
     --query '[].[id]' \
     --output tsv)
 
+# Create private endpoint
 az network private-endpoint create \
     --connection-name $PeConnName
     --name $PeName \
