@@ -20,26 +20,24 @@ The Microsoft Azure Monitor Application Insights JavaScript SDK allows you to mo
 
 ## Get started
 
-To enable Application Insights, follow these steps.
+Follow the steps in this section to instrument your application with the Application Insights JavaScript SDK.
 
 > [!TIP] 
 > Good news! We're making it even easier to enable JavaScript. Check out where [SDK Loader Script injection by configuration is available](./codeless-overview.md#sdk-loader-script-injection-by-configuration)!
 
 > [!NOTE]
-> If you have a React, React Native, or Angular application, we offer the React, React Native, and Angular plug-ins, which will improve your data collection experience. The following documentation still applies to you, but you can [optionally add these plug-ins after you enable Application Insights](#5-optional-advanced-sdk-configuration).
+> If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#5-optional-advanced-sdk-configuration).
 
 ### 1. Add the JavaScript code
 
-Two methods are available to add the code to enable Application Insights via the Application Insights JavaScript SDK.
+Two methods are available to add the code to enable Application Insights via the Application Insights JavaScript SDK:
+
+| Method | When would I use this method? |
+|:-------|:------------------------------|
+| SDK Loader Script | For most customers, we recommend the SDK Loader Script because you never have to update the SDK and you get the latest updates automatically. Also, you have control over which pages you add the Application Insights JavaScript SDK to. |
+| npm package | You want to bring the SDK into your code and enable IntelliSense. This option is only needed for developers who require more custom events and configuration. |
 
 #### [SDK Loader Script](#tab/sdkloaderscript)
-
-The benefits of this method are:
- 
-- You never have to update the SDK because you get the latest updates automatically.
-- You have control over which pages you add the Application Insights JavaScript SDK to.
-
-To add the SDK Loader Script and its optional configuration, follow these steps: 
 
 1. Paste the SDK Loader Script at the top of each page for which you want to enable Application Insights. 
 
@@ -77,12 +75,6 @@ To add the SDK Loader Script and its optional configuration, follow these steps:
    | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). This callback function is useful when you need to insert a telemetry initializer. It's passed one argument, which is a reference to the SDK instance that's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of SDK Loader Script version 5--the sv:"5" value within the script). |
 
 #### [npm package](#tab/npmpackage)
-
-Use this method if you're creating your own bundles and you want to include the Application Insights code in your own bundle. 
-
-The npm setup installs the JavaScript SDK as a dependency to your project and enables IntelliSense.
-
-This option is only needed for developers who require more custom events and configuration.
 
 1. Use the following command to install the Microsoft Application Insights JavaScript SDK - Web package.
 
@@ -161,6 +153,7 @@ If you want to use the extra features provided by plugins for specific framework
 ## Support
 
 - If you're having trouble with enabling Application Insights, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
+- For common question about the JavaScript SDK, see the [FAQ](/azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-).
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For a list of open issues related to the Application Insights JavaScript SDK, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-JS/issues).
 
