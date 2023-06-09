@@ -27,11 +27,11 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
 ## Prerequisites
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-- Optional: [Azure Developer CLI](/developer/azure-developer-cli/install-azd) of following AZD instructions
+- Optional: [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) of following AZD instructions
 
 
 > [!NOTE]
-> For a one command deployment, skip to the last `azd` template step.
+> For a one command deployment, skip to the last `azd` [template step](#final-azd-template-for-all-resource).
 
 ## Setup
 
@@ -654,89 +654,89 @@ Then using the CLI (or bicep) you can update the app to add a `--bind $PG_SVC` t
 
 For example, we can deploy [pgweb](https://github.com/sosedoff/pgweb) to view and manage the PostgreSQL instance we have.
 
-    # [Bicep](#tab/bicep)
+# [Bicep](#tab/bicep)
 
-    ```bicep
-    resource pgweb 'Microsoft.App/containerApps@2023-04-01-preview' = {
-      name: 'pgweb'
-      location: location
-      properties: {
-        environmentId: appEnvironment.id
-        configuration: {
-          ingress: {
-            external: true
-            targetPort: 8081
-          }
-        }
-        template: {
-          serviceBinds: [
-            {
-              serviceId: postgres.id
-              name: 'postgres'
-            }
-          ]
-          containers: [
-            {
-              name: 'pgweb'
-              image: 'docker.io/sosedoff/pgweb:latest'
-              command: [
-                '/bin/sh'
-              ]
-              args: [
-                '-c'
-                'PGWEB_DATABASE_URL=$POSTGRES_URL /usr/bin/pgweb --bind=0.0.0.0 --listen=8081'
-              ]
-            }
-          ]
-        }
-      }
-    }
-    
-    output pgwebUrl string = 'https://${pgweb.properties.configuration.ingress.fqdn}'
-    ```
-
-    deploy the bicep template with the same command
-
-    ```bash
-    az deployment group create -g $RESOURCE_GROUP \
-        --query 'properties.outputs.*.value' \
-        --template-file postgres-dev.bicep
-    ```
-
-    and visit the url printed url
-
-    # [azd](#tab/azd)
-
-    Update `./infra/main.bicep` with the following 
-
-    ```bicep
-    module pgweb './core/host/container-app.bicep' = {
-      name: 'pgweb'
-      scope: rg
-      params: {
-        name: 'pgweb'
-        location: location
-        tags: tags
-        environmentId: appEnvironment.outputs.appEnvironmentId
-        serviceId: postgres.outputs.serviceId
-        containerImage: 'docker.io/sosedoff/pgweb:latest'
-        containerName: 'pgweb'
-        maxReplicas: 1
-        minReplicas: 1
-        containerCommands: [ '/bin/sh' ]
-        containerArgs: [ 
-          '-c'
-          'PGWEB_DATABASE_URL=$POSTGRES_URL /usr/bin/pgweb --bind=0.0.0.0 --listen=8081'
-        ]
+```bicep
+resource pgweb 'Microsoft.App/containerApps@2023-04-01-preview' = {
+  name: 'pgweb'
+  location: location
+  properties: {
+    environmentId: appEnvironment.id
+    configuration: {
+      ingress: {
+        external: true
         targetPort: 8081
-        externalIngress: true
       }
     }
-    ```
+    template: {
+      serviceBinds: [
+        {
+          serviceId: postgres.id
+          name: 'postgres'
+        }
+      ]
+      containers: [
+        {
+          name: 'pgweb'
+          image: 'docker.io/sosedoff/pgweb:latest'
+          command: [
+            '/bin/sh'
+          ]
+          args: [
+            '-c'
+            'PGWEB_DATABASE_URL=$POSTGRES_URL /usr/bin/pgweb --bind=0.0.0.0 --listen=8081'
+          ]
+        }
+      ]
+    }
+  }
+}
 
-    then deploy the template with `azd up`
+output pgwebUrl string = 'https://${pgweb.properties.configuration.ingress.fqdn}'
+```
 
-    ---
+deploy the bicep template with the same command
+
+```bash
+az deployment group create -g $RESOURCE_GROUP \
+    --query 'properties.outputs.*.value' \
+    --template-file postgres-dev.bicep
+```
+
+and visit the url printed url
+
+# [azd](#tab/azd)
+
+Update `./infra/main.bicep` with the following 
+
+```bicep
+module pgweb './core/host/container-app.bicep' = {
+  name: 'pgweb'
+  scope: rg
+  params: {
+    name: 'pgweb'
+    location: location
+    tags: tags
+    environmentId: appEnvironment.outputs.appEnvironmentId
+    serviceId: postgres.outputs.serviceId
+    containerImage: 'docker.io/sosedoff/pgweb:latest'
+    containerName: 'pgweb'
+    maxReplicas: 1
+    minReplicas: 1
+    containerCommands: [ '/bin/sh' ]
+    containerArgs: [ 
+      '-c'
+      'PGWEB_DATABASE_URL=$POSTGRES_URL /usr/bin/pgweb --bind=0.0.0.0 --listen=8081'
+    ]
+    targetPort: 8081
+    externalIngress: true
+  }
+}
+```
+
+then deploy the template with `azd up`
+
+---
 
 
 :::image type="content" source="media/services/azure-container-apps-postgresql-pgweb.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::

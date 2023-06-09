@@ -27,10 +27,10 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 ## Prerequisites
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-- Optional: [Azure Developer CLI](/developer/azure-developer-cli/install-azd) of following AZD instructions
+- Optional: [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) of following AZD instructions
 
 > [!NOTE]
-> For a one command deployment, skip to the last `azd` template step.
+> For a one command deployment, skip to the last `azd` [template step](#final-azd-template-for-all-resource).
 
 ## Setup
 
@@ -702,93 +702,93 @@ Then using the CLI (or bicep) you can update the app to add a `--bind $KAFKA_SVC
 
 For example, we can deploy [kafka-ui](https://github.com/provectus/kafka-ui) to view and manage the Kafka instance we have.
 
-    # [Bicep](#tab/bicep)
+# [Bicep](#tab/bicep)
 
-    ```bicep
-    resource kafkaUi 'Microsoft.App/containerApps@2023-04-01-preview' = {
-      name: kafkaUiAppName
-      location: location
-      properties: {
-        environmentId: appEnvironment.id
-        configuration: {
-          ingress: {
-            external: true
-            targetPort: 8080
+```bicep
+resource kafkaUi 'Microsoft.App/containerApps@2023-04-01-preview' = {
+  name: kafkaUiAppName
+  location: location
+  properties: {
+    environmentId: appEnvironment.id
+    configuration: {
+      ingress: {
+        external: true
+        targetPort: 8080
+      }
+    }
+    template: {
+      serviceBinds: [
+        {
+          serviceId: kafka.id
+          name: 'kafka'
+        }
+      ]
+      containers: [
+        {
+          name: 'kafka-ui'
+          image: 'docker.io/provectuslabs/kafka-ui:latest'
+          command: [
+            '/bin/sh'
+          ]
+          args: [
+            '-c'
+            '''export KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS="$KAFKA_BOOTSTRAP_SERVERS" && \
+            export KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG="$KAFKA_PROPERTIES_SASL_JAAS_CONFIG" && \
+            export KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM="$KAFKA_SASL_MECHANISM" && \
+            export KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL="$KAFKA_SECURITY_PROTOCOL" && \
+            java $JAVA_OPTS -jar kafka-ui-api.jar'''
+          ]
+          resources: {
+            cpu: json('1.0')
+            memory: '2.0Gi'
           }
         }
-        template: {
-          serviceBinds: [
-            {
-              serviceId: kafka.id
-              name: 'kafka'
-            }
-          ]
-          containers: [
-            {
-              name: 'kafka-ui'
-              image: 'docker.io/provectuslabs/kafka-ui:latest'
-              command: [
-                '/bin/sh'
-              ]
-              args: [
-                '-c'
-                '''export KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS="$KAFKA_BOOTSTRAP_SERVERS" && \
-                export KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG="$KAFKA_PROPERTIES_SASL_JAAS_CONFIG" && \
-                export KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM="$KAFKA_SASL_MECHANISM" && \
-                export KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL="$KAFKA_SECURITY_PROTOCOL" && \
-                java $JAVA_OPTS -jar kafka-ui-api.jar'''
-              ]
-              resources: {
-                cpu: json('1.0')
-                memory: '2.0Gi'
-              }
-            }
-          ]
-        }
-      }
+      ]
     }
-    
-    output kafkaUiUrl string = 'https://${kafkaUi.properties.configuration.ingress.fqdn}'
-    ```
-    
-    and visit the url printed url
+  }
+}
 
-    # [azd](#tab/azd)
+output kafkaUiUrl string = 'https://${kafkaUi.properties.configuration.ingress.fqdn}'
+```
 
-    Update `./infra/main.bicep` with the following
+and visit the url printed url
 
-    ```bicep
-    module kafkaUi './core/host/container-app.bicep' = {
-      name: 'kafka-ui'
-      scope: rg
-      params: {
-        name: kafkaUiAppName
-        location: location
-        tags: tags
-        environmentId: appEnvironment.outputs.appEnvironmentId
-        serviceId: kafka.outputs.serviceId
-        containerImage: 'docker.io/provectuslabs/kafka-ui:latest'
-        containerName: 'kafka-ui'
-        maxReplicas: 1
-        minReplicas: 1
-        containerCommands: [ '/bin/sh' ]
-        containerArgs: [ 
-          '-c'
-          '''export KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS="$KAFKA_BOOTSTRAP_SERVERS" && \
-          export KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG="$KAFKA_PROPERTIES_SASL_JAAS_CONFIG" && \
-          export KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM="$KAFKA_SASL_MECHANISM" && \
-          export KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL="$KAFKA_SECURITY_PROTOCOL" && \
-          java $JAVA_OPTS -jar kafka-ui-api.jar'''
-        ]
-        targetPort: 8080
-        externalIngress: true
-      }
-    }
-    ```
+# [azd](#tab/azd)
 
-    then deploy the template with `azd up`
+Update `./infra/main.bicep` with the following
 
-    ---
+```bicep
+module kafkaUi './core/host/container-app.bicep' = {
+  name: 'kafka-ui'
+  scope: rg
+  params: {
+    name: kafkaUiAppName
+    location: location
+    tags: tags
+    environmentId: appEnvironment.outputs.appEnvironmentId
+    serviceId: kafka.outputs.serviceId
+    containerImage: 'docker.io/provectuslabs/kafka-ui:latest'
+    containerName: 'kafka-ui'
+    maxReplicas: 1
+    minReplicas: 1
+    containerCommands: [ '/bin/sh' ]
+    containerArgs: [ 
+      '-c'
+      '''export KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS="$KAFKA_BOOTSTRAP_SERVERS" && \
+      export KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG="$KAFKA_PROPERTIES_SASL_JAAS_CONFIG" && \
+      export KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM="$KAFKA_SASL_MECHANISM" && \
+      export KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL="$KAFKA_SECURITY_PROTOCOL" && \
+      java $JAVA_OPTS -jar kafka-ui-api.jar'''
+    ]
+    targetPort: 8080
+    externalIngress: true
+  }
+}
+```
+
+then deploy the template with `azd up`
+
+---
 
 :::image type="content" source="media/services/azure-container-apps-kafka-ui-data.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
 
