@@ -64,6 +64,8 @@ The first step is to provide the basic details of your remote network, including
     - **Name**
     - **Region**
 
+![Screenshot of the General tab of the create device link process.](media/how-to-create-remote-networks/create-basics-tab.png)
+
 ### Connectivity
 
 The connectivity tab is where you add the device links for the remote network. You need to provide the device type, IP address, border gateway protocol (BGP) address, and autonomous system number (ASN) for each device link. You can also add device links after creating the remote network. For more information on device links, see [How to manage remote network device links](how-to-manage-remote-network-device-links.md).
@@ -82,7 +84,7 @@ The connectivity tab is where you add the device links for the remote network. Y
     - **Bandwidth capacity (Mbps)**: Choose the bandwidth for your IPSec tunnel.
 1. Select the **Next** button.
 
-![Screenshot of the General tab of the create device link process.](media/how-to-create-remote-networks/create-basics-tab.png)
+![Screenshot of the general tab of the create device link process.](media/how-to-create-remote-networks/device-link-general-tab.png)
 
 **Details**
 

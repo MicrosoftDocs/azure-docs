@@ -1,6 +1,6 @@
 ---
-title: How to manage device links for remote networks for Global Secure Access (preview)
-description: Learn how to create, edit, and delete device links for remote networks for Global Secure Access (preview).
+title: How to add device links to remote networks for Global Secure Access (preview)
+description: Learn how to add device links to remote networks for Global Secure Access (preview).
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -10,11 +10,11 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# Manage device links on remote networks
+# Add device links to remote networks
 
 You can create device links when you create a new remote network or add them after the remote network is created.
 
-This article explains how to add, edit, and delete device links for remote networks for Global Secure Access.
+This article explains how to add and and delete device links for remote networks for Global Secure Access.
 
 ## Prerequisites 
 
@@ -24,9 +24,12 @@ This article explains how to add, edit, and delete device links for remote netwo
 
 If you didn't add device links when you created the remote networks or you want to add a new device link, you can add a device link at any time.
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
+1. Go to **Global Secure Access (preview)** > **Devices** > **Remote network**.
+
 **General**
 
-1. Enter the following details: 
+1. Enter the following details:
     - **Link name**: Name of your CPE.
     - **Device type**: Choose one of the options from the dropdown list.
     - **IP address**: Public IP address of your device.
