@@ -348,7 +348,7 @@ Azure Monitor Logs are designed to scale and support collecting, indexing, and s
 
 ## Disable monitoring data collection
 
-To stop collecting logs to your Log Analytics workspace, delete the diagnostic settings you created. You might still be charged for retaining log data you've already collected into your workspace. If you no longer need the monitoring data you've collected, you can delete your Log Analytics workspace and the resource group you created for Azure Monitor. Deleting the Log Analytics workspace deletes all data in the workspace and prevents you from incurring additional data retention charges.
+To stop collecting logs to your Log Analytics workspace, delete the diagnostic settings you created. You'll continue to incur charges for retaining log data you've already collected into your workspace. If you no longer need the monitoring data you've collected, you can delete your Log Analytics workspace and the resource group you created for Azure Monitor. Deleting the Log Analytics workspace deletes all data in the workspace and prevents you from incurring additional data retention charges.
 
 ## Delete Log Analytics workspace and resource group
 
@@ -358,7 +358,7 @@ To stop collecting logs to your Log Analytics workspace, delete the diagnostic s
    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to it.
 1. Choose the resource group that contains the Log Analytics workspace. This example uses a resource group named _azure-ad-b2c-monitor_ and a Log Analytics workspace named `AzureAdB2C`.
 1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md#azure-portal).
-1. Delete the resource group.
+1. Delete the resource group by clicking the Delete button.
 ## Next steps
 
 - Find more samples in the Azure AD B2C [SIEM gallery](https://aka.ms/b2csiem).
