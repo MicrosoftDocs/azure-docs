@@ -23,7 +23,7 @@ Azure OpenAI's quota feature enables assignment of rate limits to your deploymen
 > [!NOTE]
 > With a quota of 240,000 TPM for GPT-35-Turbo in East US, a customer can create a single deployment of 240K TPM, 2 deployments of 120K TPM each, or any number of deployments in one or multiple Azure OpenAI resources as long as their TPM adds up to less than 240K total in that region.
 
-When a deployment is created, the assigned TPM will directly map to the token-per-minute rate limit enforced on its inferencing requests. A request-per-minute rate limit will also be enforced whose value is set proportionally to the TPM assignment using the following ratio:
+When a deployment is created, the assigned TPM will directly map to the tokens-per-minute rate limit enforced on its inferencing requests. A **Requests-Per-Minute (RPM)** rate limit will also be enforced whose value is set proportionally to the TPM assignment using the following ratio:
 
 6 RPM per 1000 TPM.
 
@@ -67,7 +67,7 @@ For an all up view of your quota allocations across deployments in a given regio
 
 :::image type="content" source="../media/quota/quota.png" alt-text="Screenshot of the quota UI of Azure AI Studio" lightbox="../media/quota/quota.png":::
 
-- **Quota Name**: There's one quota value per region for each model type. The quota covers all versions of that model.  The quota name can be expanded in UI to show the deployments that are using the quota.
+- **Quota Name**: There's one quota value per region for each model type. The quota covers all versions of that model.  The quota name can be expanded in the UI to show the deployments that are using the quota.
 - **Deployment**: Model deployments divided by model class.
 - **Usage/Limit**: For the quota name, this shows how much quota is used by deployments and the total quota approved for this subscription and region. This amount of quota used is also represented in the bar graph.
 - **Request Quota**: The icon in this field navigates to a form where requests to increase quota can be submitted.
@@ -86,9 +86,9 @@ As each request is received, Azure OpenAI computes an estimated max processed-to
 - The max_tokens parameter setting
 - The best_of parameter setting
 
-As requests come into the deployment endpoint, the estimated max-processed-token count is added to a running token count of all requests that is reset each minute.  If at any time during that minute, the TPM rate limit value is reached, then further requests will receive a 429 response code until the counter resets.
+As requests come into the deployment endpoint, the estimated max-processed-token count is added to a running token count of all requests that is reset each minute. If at any time during that minute, the TPM rate limit value is reached, then further requests will receive a 429 response code until the counter resets.
 
-RPM rate limits are based on the number of requests received over time. The rate limit expects that requests be evenly distributed over a one-minute period. If this average flow isn't maintained, then requests may receive a 429 response even though the limit isn't met when measured over the course of a minute.To implement this behavior, Azure OpenAI Service evaluates the rate of incoming requests over a small period of time, typically 1 or 10 seconds. If the number of requests received during that time exceeds what would be expected at the set RPM limit, then new requests will receive a 429 response code until the next evaluation period. For example, if Azure OpenAI is monitoring request rate on 1-second intervals, then rate limiting will occur for a 600-RPM deployment if more than 10 requests are received during each 1-second period (600 requests per minute = 10 requests per second).
+RPM rate limits are based on the number of requests received over time. The rate limit expects that requests be evenly distributed over a one-minute period. If this average flow isn't maintained, then requests may receive a 429 response even though the limit isn't met when measured over the course of a minute. To implement this behavior, Azure OpenAI Service evaluates the rate of incoming requests over a small period of time, typically 1 or 10 seconds. If the number of requests received during that time exceeds what would be expected at the set RPM limit, then new requests will receive a 429 response code until the next evaluation period. For example, if Azure OpenAI is monitoring request rate on 1-second intervals, then rate limiting will occur for a 600-RPM deployment if more than 10 requests are received during each 1-second period (600 requests per minute = 10 requests per second).
 
 ### Rate limit best practices
 
