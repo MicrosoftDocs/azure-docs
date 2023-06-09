@@ -18,9 +18,6 @@ ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning CLI extension you use:"]
-> * [v1](v1/how-to-train-with-datasets.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-read-write-data-v2.md)
 
 In this article you learn:
 
