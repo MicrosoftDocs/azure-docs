@@ -713,7 +713,7 @@ items:
             href: app/opencensus-python-request.md
         - name: JavaScript
           items:
-          - name: Get started
+          - name: JavaScript SDK
             displayName: browser, client-side, SDK Loader Script
             href: app/javascript-sdk.md
           - name: JavaScript SDK advanced topics
@@ -726,8 +726,6 @@ items:
             href: app/javascript-sdk-upgrade.md
           - name: Troubleshooting
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
-          - name: FAQ
-            href: /azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-
         - name: SDK support policy
           href: app/sdk-support-guidance.md
       - name: OpenTelemetry instrumentation
