@@ -16,10 +16,10 @@ ms.date: 05/25/2023
 
 In the [previous article](how-to-single-page-app-vanillajs-configure-authentication.md), you edited the popup and redirection files that handle the sign-in page response. This tutorial demonstrates how to build a responsive user interface (UI) that contains a **Sign-In** and **Sign-Out** button and run the project to test the sign-in and sign-out functionality.
 
-In this tutorial you'll;
+In this tutorial;
 
 > [!div class="checklist"]
-> * Add code to the *index.html* file to create the user interface (UI) 
+> * Add code to the *index.html* file to create the user interface
 > * Add code to the *signout.html* file to create the sign-out page
 > * Sign in and sign out of the application
 
@@ -30,6 +30,7 @@ In this tutorial you'll;
 ## Add code to the *index.html* file
 
 The main page of the SPA, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign-Out** button. 
+
 1. Open *public/index.html* and add the following code snippet:
 
    ```html
@@ -135,6 +136,7 @@ The main page of the SPA, *index.html*, is the first page that is loaded when th
 When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, [Bootstrap](https://getbootstrap.com/) is used to create a responsive UI that contains a **Sign-In** and **Sign-Out** button.
 
 1. Open *public/ui.js* and add the following code snippet:
+
     ```javascript
     // Select DOM elements to work with
     const signInButton = document.getElementById('signIn');
@@ -177,7 +179,7 @@ When authorization has been configured, the user interface can be created to all
 
     ```css
     .navbarStyle {
-    padding: .5rem 1rem !important;
+        padding: .5rem 1rem !important;
     }
     
     .table-responsive-ms {
@@ -201,8 +203,11 @@ Now that all the required code snippets have been added, the application can be 
 1. Select **No account? Create one**, which starts the sign-up flow.
 1. In the **Create account** window, enter the email address registered to your Azure Active Directory (AD) for customers tenant, which starts the sign-up flow as a user for your application.
 1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
+
     1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
+
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
+
     :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into a vanilla JS SPA." lightbox="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png":::
 
 ## Sign out of the application
