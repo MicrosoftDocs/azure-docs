@@ -77,7 +77,7 @@ Unless you are using the portal, an index must exist on the service before you c
 
 Required elements of an index include a name and a fields collection. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walk through articles. The field definitions have been trimmed in this quickstart for brevity.
+This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walk-through articles. The field definitions have been trimmed in this quickstart for brevity.
 
 1. Paste this example into PowerShell to create a **$body** object containing the index schema.
 
@@ -167,7 +167,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
 
 ## 2 - Load documents
 
-To push documents, use a HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
+To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Paste this example into PowerShell to create a **$body** object containing the documents you want to upload. 
 
