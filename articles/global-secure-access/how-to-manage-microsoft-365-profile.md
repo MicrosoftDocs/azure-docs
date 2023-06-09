@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/09/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -27,13 +27,16 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 ## Microsoft 365 traffic policies
 
-To manage the domain names and IP addresses included in the policy, select the **View** link for **Microsoft 365 traffic policies**. 
+To manage the domain names and IP addresses included in the Microsoft 365 traffic forwarding policy:
 
-![Screenshot of the Microsoft 365 traffic policies.](media/how-to-enable-microsoft-365-profile/microsoft-365-traffic-profile.png)
+1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
+1. Select the **View** link for **Microsoft 365 traffic policies**. 
+
+![Screenshot of the Microsoft 365 traffic policies.](media/how-to-manage-microsoft-365-profile/microsoft-365-traffic-profile.png)
 
 The policy groups are listed, with a checkbox to indicate if the policy group is enabled. Expand a policy group to view all of the IPs and FQDNs included in the group.
 
-![Screenshot of the Microsoft 365 profile details.](media/how-to-enable-microsoft-365-profile/microsoft-365-profile-details.png)
+![Screenshot of the Microsoft 365 profile details.](media/how-to-manage-microsoft-365-profile/microsoft-365-profile-details.png)
 
 The policy groups include the following details:
 
@@ -55,11 +58,11 @@ Conditional Access policies are created and applied to the profile in the Condit
 
 1. Select the **View** link for **Conditional Access policies applicable**.
 
-    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-enable-microsoft-365-profile/Microsoft-365-profile-view-link.png)
+    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-manage-microsoft-365-profile/microsoft-365-ca-policy-link.png)
 
 1. Select a link from the list to view the policy details. 
 
-    ![Screenshot of the applied Conditional Access policies.](media/how-to-enable-microsoft-365-profile/conditional-access-applied-policies.png)
+    ![Screenshot of the applied Conditional Access policies.](media/how-to-manage-microsoft-365-profile/conditional-access-applied-policies.png)
 
 **To create a Conditional Access policy for the Microsoft 365 profile**:
 
@@ -68,11 +71,11 @@ Conditional Access policies are created and applied to the profile in the Condit
 1. Select **Network Access (Preview)** from the menu.
 1. From the new menu that appears, select one or more traffic profiles to apply the policy to. 
 
-    ![Screenshot of the Conditional Access fields that relate to traffic forwarding profiles.](media/how-to-enable-microsoft-365-profile/conditional-access-menu-options.png)
+    ![Screenshot of the Conditional Access fields that relate to traffic forwarding profiles.](media/how-to-manage-microsoft-365-profile/conditional-access-menu-options.png)
 
 ## Microsoft 365 remote network assignments
 
-Traffic profiles can be assigned to remote networks, so that the network traffic is forwarded to Global Secure Access without having to install the client on end user devices. As long as the device is behind the customer premises equipment (CPE), the client isn't required.  You must create a remote network before you can add it to the profile. For more information, see [How to create a remote network](how-to-manage-remote-networks.md).
+Traffic profiles can be assigned to remote networks, so that the network traffic is forwarded to Global Secure Access without having to install the client on end user devices. As long as the device is behind the customer premises equipment (CPE), the client isn't required.  You must create a remote network before you can add it to the profile. For more information, see [How to create remote networks](how-to-create-remote-networks.md).
 
 **To assign a remote network to the Microsoft 365 profile**:
 
@@ -84,3 +87,4 @@ Traffic profiles can be assigned to remote networks, so that the network traffic
 ## Next steps
 
 - [How to manage the Private access traffic profile](how-to-manage-private-access-profile.md)
+- [How to create remote networks](how-to-create-remote-networks.md)

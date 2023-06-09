@@ -14,6 +14,8 @@ ms.custom:
 
 The private access traffic forwarding profile routes traffic to your private network through the Global Secure Access client. Enabling this traffic forwarding profile allows remote workers to connect to internal resources without a VPN.
 
+Quick Access ranges are similar to the Microsoft 365 traffic policies, except the IP addresses and FQDNs in the Microsoft 365 profile are predefined. Quick Access groups allow you to create your own collection of fully qualified domain names (FQDN), IP addresses, and IP address ranges. 
+
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Prerequisites
@@ -21,10 +23,13 @@ The private access traffic forwarding profile routes traffic to your private net
 To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
+- Configured **[Quick Access](how-to-configure-quick-access.md)**
 
-The **Private access profile** looks at traffic going to your organization's private, internal applications and sites. Your [Quick Access configurations](how-to-configure-quick-access.md) define the apps and sites that make up your Private access traffic forwarding profile.
+### Known limitations
 
-Quick Access ranges are similar to the Microsoft 365 traffic policies, except the IP addresses and FQDNs in the Microsoft 365 profile are predefined. Quick Access groups allow you to create your own collection of fully qualified domain names (FQDN), IP addresses, and IP address ranges. 
+- At this time, private access traffic forwarding profiles can only be accessed with the Global Secure Access client. Remote networks can't be assigned to the Private access traffic forwarding profile.
+- Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
+- To tunnel network traffic based on rules of FQDNs (in the forwarding profile), DNS over HTTPS (Secure DNS) needs to be disabled. 
 
 ## Private access traffic forwarding profile
 

@@ -47,7 +47,7 @@ When you configure Quick Access for the first time, Microsoft Entra Private Acce
 
 To configure Quick Access, you also need to have a [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
-Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick Access app are predefined. One of those properties requires that you assign users and groups through Enterprise Applications. For more information, see [Properties of an enterprise application](../active-directory/manage-apps/application-properties.md).
+Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick Access app are automatically configured. One of those properties requires that you assign users and groups through Enterprise Applications. For more information, see [Properties of an enterprise application](../active-directory/manage-apps/application-properties.md).
 
 To summarize, the overall process is as follows:
 
@@ -60,12 +60,9 @@ Let's look at each of these steps in more detail.
 
 ## Create an App proxy connector group
 
-Connectors are what make App proxy possible. They're simple, easy to deploy and maintain, and super powerful. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md).
+To configure Quick Access you must have an App Proxy connector group with at least one active connector.
 
-You create App proxy connector groups so that you can assign specific connectors to serve specific applications. This capability gives you more control and ways to optimize your App proxy deployment. To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](../active-directory/app-proxy/application-proxy-connector-groups.md).
-
-> [!IMPORTANT]
-> Setting up App Proxy connectors and connector groups require planning and testing to ensure you have the right configuration for your organization. If you don't already have connector groups set up, pause this process and return when you have a connector group ready.
+If you don't already have a connector set up, see [Configure connectors for Quick Access](how-to-configure-quick-access.md).
 
 ## Configure Quick Access
 
