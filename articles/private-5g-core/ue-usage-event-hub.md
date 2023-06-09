@@ -24,6 +24,8 @@ UE usage monitoring can be configured during site creation or at a later stage. 
 
 Once configured for the site, you must add the [UE usage schema](#ue-usage-schema) to a Schema Registry in order to use monitor UE usage in your deployment - see [Azure Schema Registry in Azure Event Hubs](/azure/event-hubs/schema-registry-overview).
 
+Once Event Hubs is receiving data from your AP5GC deployment you can write an application, using SDKs [such as .NET](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?tabs=passwordless%2Croles-azure-portal), to consume event data and produce useful metric data.
+
 ## Reported UE usage data
 
 When configured, AP5GC will send data usage reports per QoS flow level for all PDU sessions. The following data is reported:
