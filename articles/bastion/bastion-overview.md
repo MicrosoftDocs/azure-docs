@@ -5,7 +5,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ms.service: bastion
 ms.topic: overview
-ms.date: 05/18/2023
+ms.date: 06/08/2023
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 ---

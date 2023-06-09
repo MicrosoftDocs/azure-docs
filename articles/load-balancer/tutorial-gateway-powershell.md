@@ -46,6 +46,12 @@ New-AzResourceGroup -Name 'TutorGwLB-rg' -Location 'eastus'
 
 A virtual network is needed for the resources that are in the backend pool of the gateway load balancer. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network. Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to deploy a bastion host for secure management of resources in virtual network.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
+
 ```azurepowershell-interactive
 ## Create backend subnet config ##
 $subnet = @{
