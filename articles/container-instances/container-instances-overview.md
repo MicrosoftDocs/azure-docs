@@ -77,6 +77,11 @@ Azure Container Instances enables [deployment of container instances into an Azu
 
 Confidential containers on ACI enable you to run containers in a trusted execution environment (TEE) that provides hardware-based confidentiality and integrity protections for your container workloads. Confidential containers on ACI can protect data-in-use and encrypts data being processed in memory. Confidential containers on ACI are supported as a SKU that you can select when deploying your workload. For more information, see [confidential container groups](./container-instances-confidential-overview.md).
 
+## Spot container deployment
+
+ACI Spot containers allow customers to run interruptible, containerized workloads on unused Azure capacity at significantly discounted prices of up to 70% compared to regular-priority ACI containers. ACI spot containers may be preempted when Azure encounters a shortage of surplus capacity, and they're suitable for workloads without strict availability requirements. Customers are billed for per-second memory and core usage. To utilize ACI Spot containers, you can deploy your workload with a specific property flag indicating that you want to use Spot container groups and take advantage of the discounted pricing model. 
+For more information, see [spot container groups](container-instances-spot-containers-overview.md).
+
 ## Considerations
 
 There are default limits that require quota increases. Not all quota increases may be approved: [Resource availability & quota limits for ACI - Azure Container Instances | Microsoft Learn](./container-instances-resource-and-quota-limits.md)
