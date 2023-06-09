@@ -34,14 +34,25 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). In the storage account, the "Allow storage account key access" option must be enabled for compute instance creation to be successful.
 
-* If using the CLI, install the [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install), [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+Choose the tab for the environment you are using for additional prerequisites.
 
-* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
+# [Python SDK](#tab/python)
+
+* To use the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
   [!INCLUDE [connect ws v2](../../includes/machine-learning-connect-ws-v2.md)]
 
-* If using the Studio (preview) version, enable the preview feature:
+# [Azure CLI](#tab/azure-cli)
 
+* To use the CLI, install the [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install), [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+
+# [Studio](#tab/azure-studio)
+
+No additional prerequisites.  
+
+# [Studio (preview)](#tab/azure-studio-preview)
+
+* To use the Studio (preview) version, enable the preview feature:
 
 ## Create
 
