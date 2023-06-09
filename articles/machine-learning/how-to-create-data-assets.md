@@ -16,9 +16,6 @@ ms.date: 06/02/2023
 # Create and manage data assets
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-create-register-datasets.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-create-data-assets.md)
 
 This article shows how to create and manage data assets in Azure Machine Learning.
 
