@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, sdkv1
+ms.custom: UpdateFrequency5, sdkv1
 ---
 
 # Deploy MLflow models as Azure web services

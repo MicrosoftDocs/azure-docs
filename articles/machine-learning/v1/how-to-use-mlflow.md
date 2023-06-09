@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, mlflow, sdkv1
+ms.custom: UpdateFrequency5, mlflow, sdkv1
 ---
 
 # Track ML models with MLflow and Azure Machine Learning 

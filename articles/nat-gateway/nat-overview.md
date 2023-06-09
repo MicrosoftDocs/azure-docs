@@ -104,6 +104,8 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
   * Upgrade a load balancer from basic to standard, see [Upgrade a public basic Azure Load Balancer](../load-balancer/upgrade-basic-standard.md).
 
   * Upgrade a public IP from basic to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md).
+  
+  * Upgrade a basic public IP attached to a VM from basic to standard, see [Upgrade a basic public IP attached to a VM](/azure/virtual-network/ip-services/public-ip-upgrade-vm).
 
 ### NAT gateway timers
 

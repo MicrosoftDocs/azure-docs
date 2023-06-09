@@ -17,9 +17,7 @@ ms.date: 06/06/2022
 
 This article contains reference information that may be useful when [configuring Kubernetes with Azure Machine Learning](./how-to-attach-kubernetes-anywhere.md).
 
-
 ## Supported Kubernetes version and region
-
 
 - Kubernetes clusters installing Azure Machine Learning extension have a version support window of "N-2", that is aligned with [Azure Kubernetes Service (AKS) version support policy](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy), where 'N' is the latest GA minor version of Azure Kubernetes Service.
 
@@ -77,7 +75,7 @@ Excluding your own deployments/pods, the **total minimum system resources requir
 > * For **higher network bandwidth and better disk I/O performance**, we recommend a larger SKU. 
 >     * Take [DV2/DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) as example, using the large SKU can reduce the time of pulling image for better network/storage performance. 
 >     * More information about AKS reservation can be found in [AKS reservation](../aks/concepts-clusters-workloads.md#resource-reservations).
-> * If you are using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](../aks/faq.md#what-is-the-size-limit-on-a-container-image-in-aks).
+> * If you are using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](../aks/faq.md#whats-the-size-limit-on-a-container-image-in-aks).
 
 ## Prerequisites for ARO or OCP clusters
 ### Disable Security Enhanced Linux (SELinux) 

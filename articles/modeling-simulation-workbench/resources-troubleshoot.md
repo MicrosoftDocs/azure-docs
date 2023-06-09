@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Modeling and Simulation Workbench
-description: In this article, learn how to troubleshoot some issues with a Modeling and Simulation Workbench
+title: Troubleshoot Azure Modeling and Simulation Workbench
+description: In this article, learn how to troubleshoot some issues with an Azure Modeling and Simulation Workbench
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
@@ -10,7 +10,7 @@ ms.date: 06/06/2023
 # Customer intent: As a user of the Modeling and Simulation Workbench, I want to troubleshoot issues I may have encountered.
 ---
 
-# Troubleshoot Modeling and Simulation Workbench
+# Troubleshoot Azure Modeling and Simulation Workbench
 
 This troubleshooting guide contains general troubleshooting steps and information for Azure Modeling and Simulation Workbench. The content is organized by topic type.
 

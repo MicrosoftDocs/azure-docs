@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 07/18/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, sdkv1
+ms.custom: UpdateFrequency5, has-adal-ref, contperf-fy21q2, subject-rbac-steps, sdkv1
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows using SDK v1

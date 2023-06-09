@@ -23,6 +23,8 @@ items:
     - name: GPT-35-Turbo & GPT-4 
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
+    - name: DALL-E (preview)
+      href: dall-e-quickstart.md
 - name: Concepts
   items:
     - name: Content filtering

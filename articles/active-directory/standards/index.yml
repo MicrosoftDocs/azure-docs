@@ -31,7 +31,7 @@ landingContent:
           - text: Configure Azure Active Directory for Memorandum 22-09 requirements
             url: memo-22-09-meet-identity-requirements.md
           - text: Configure Azure Active Directory for CMMC compliance
-            url: configure-azure-active-directory-for-cmmc-compliance.md
+            url: configure-for-cmmc-compliance.md
           - text: Configure Azure Active Directory for HIPAA compliance
             url: hipaa-configure-azure-active-directory-for-compliance.md
           - text: Configure Azure Active Directory for PCI-DSS compliance
@@ -93,7 +93,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure Azure Active Directory for CMMC compliance
-            url: configure-azure-active-directory-for-cmmc-compliance.md
+            url: configure-for-cmmc-compliance.md
           - text: Configure CMMC Level 1 controls
             url: configure-cmmc-level-1-controls.md
           - text: Configure CMMC Level 2 Access Control controls

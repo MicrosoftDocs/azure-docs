@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/13/2021
-ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 ---
 
 # Train a small object detection model with AutoML

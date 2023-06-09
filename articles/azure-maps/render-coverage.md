@@ -18,9 +18,9 @@ The render coverage tables below list the countries that support Azure Maps road
 
 | Symbol             | Meaning                                   |
 |--------------------|-------------------------------------------|
-|        ✓           | Country is provided with detailed data.   |
-|        ◑           | Country is provided with simplified data. |
-| Country is missing | Country data isn't provided.              |
+|        ✓           | Country/region is provided with detailed data.   |
+|        ◑           | Country/region is provided with simplified data. |
+| Country/region is missing | Country/region data isn't provided.              |
 
 ## Americas
 
