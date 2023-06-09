@@ -17,9 +17,6 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-ti
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](v1/how-to-manage-workspace.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current)](how-to-manage-workspace.md)
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the [Azure portal](https://portal.azure.com) or the [SDK for Python](https://aka.ms/sdk-v2-install).  
 
