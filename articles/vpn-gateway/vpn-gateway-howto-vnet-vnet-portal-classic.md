@@ -15,7 +15,7 @@ This article helps you create a VPN gateway connection between virtual networks.
 
 The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png" alt-text="Diagram showing classic VNet-to-VNet architecture":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/classic-diagram.png" alt-text="Diagram showing classic VNet-to-VNet architecture.":::
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
@@ -25,7 +25,7 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) in the cl
 
 The VNets you connect can be in different subscriptions and different regions. You can combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagram showing connections":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/about-connections.png" alt-text="Diagram showing VNet-VNet connections.":::
 
 ### <a name="why"></a>Why connect virtual networks?
 

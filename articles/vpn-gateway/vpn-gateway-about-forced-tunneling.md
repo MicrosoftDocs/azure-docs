@@ -37,7 +37,7 @@ In the following example, the Frontend subnet isn't forced tunneled. The workloa
 
 This allows you to restrict and inspect Internet access from your virtual machines or cloud services in Azure, while continuing to enable your multi-tier service architecture required. You also can apply forced tunneling to the entire virtual networks if there are no Internet-facing workloads in your virtual networks.
 
-![Forced Tunneling](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
+:::image type="content" source="./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png" alt-text="Diagram showing forced tunneling architecture.":::
 
 ## Prerequisites
 

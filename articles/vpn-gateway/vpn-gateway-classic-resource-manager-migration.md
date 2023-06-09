@@ -44,7 +44,7 @@ Scenarios that aren't supported include:
 
 VNet-to-VNet connectivity in the classic deployment model was achieved by creating a local site representation of the connected VNet. Customers were required to create two local sites that represented the two VNets which needed to be connected together. These were then connected to the corresponding VNets using IPsec tunnel to establish connectivity between the two VNets. This model has manageability challenges, since any address range changes in one VNet must also be maintained in the corresponding local site representation. In the Resource Manager model, this workaround is no longer needed. The connection between the two VNets can be directly achieved using 'Vnet2Vnet' connection type in the Connection resource. 
 
-:::image type="content" source="./media/vpn-gateway-migration/migration1.png" alt-text="Diagram showing VNet-to-VNet migration." lightbox="./media/vpn-gateway-migration/migration1.png":::
+:::image type="content" source="./media/vpn-gateway-migration/vnet-vnet-migration.png" alt-text="Diagram showing VNet-to-VNet migration." lightbox="./media/vpn-gateway-migration/vnet-vnet-migration.png":::
 
 During VNet migration, we detect that the connected entity to the current VNet's VPN gateway is another VNet. We ensure that once migration of both VNets is completed, you no longer see two local sites representing the other VNet. The classic model of two VPN gateways, two local sites, and two connections between them is transformed to the Resource Manager model with two VPN gateways and two connections of type Vnet2Vnet.
 
@@ -52,7 +52,7 @@ During VNet migration, we detect that the connected entity to the current VNet's
 
 You can configure VPN gateways in a topology such that on-premises connectivity for a VNet is achieved by connecting to another VNet that is directly connected to on-premises. This is transit VPN connectivity, where instances in first VNet are connected to on-premises resources via transit to the VPN gateway in the connected VNet that's directly connected to on-premises. To achieve this configuration in classic deployment model, you need to create a local site that has aggregated prefixes representing both the connected VNet and on-premises address space. This representational local site is then connected to the VNet to achieve transit connectivity. The classic model also has similar manageability challenges since any change in the on-premises address range must also be maintained on the local site representing the aggregate of VNet and on-premises. Introduction of BGP support in Resource Manager supported gateways simplifies manageability, since the connected gateways can learn routes from on-premises without manual modification to prefixes.
 
-:::image type="content" source="./media/vpn-gateway-migration/migration2.png" alt-text="Diagram showing transit routing scenario." lightbox="./media/vpn-gateway-migration/migration2.png":::
+:::image type="content" source="./media/vpn-gateway-migration/transit.png" alt-text="Diagram showing transit routing scenario." lightbox="./media/vpn-gateway-migration/transit.png":::
 
 Since we transform VNet-to-VNet connectivity without requiring local sites, the transit scenario loses on-premises connectivity for the VNet that is indirectly connected to on-premises. The loss of connectivity can be mitigated in the following two ways, after migration is completed: 
 

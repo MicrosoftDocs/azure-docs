@@ -23,7 +23,7 @@ You can connect multiple on-premises sites to a single virtual network. This is 
 
 If you already have a static gateway connected to your virtual network, you can change the gateway type to dynamic without needing to rebuild the virtual network in order to accommodate multi-site. Before changing the routing type, make sure that your on-premises VPN gateway supports route-based VPN configurations.
 
-![multi-site diagram](./media/vpn-gateway-multi-site/multisite.png "multi-site")
+:::image type="content" source="./media/vpn-gateway-multi-site/multisite.png" alt-text="Diagram showing classic multi-site connection architecture.":::
 
 ## Points to consider
 

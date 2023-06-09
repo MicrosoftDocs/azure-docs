@@ -19,7 +19,7 @@ You use a Point-to-Site (P2S) VPN gateway to create a secure connection to your 
 > The classic deployment model supports Windows VPN clients only and uses the Secure Socket Tunneling Protocol (SSTP), an SSL-based VPN protocol. To support non-Windows VPN clients, you must create your VNet with the Resource Manager deployment model. The Resource Manager deployment model supports IKEv2 VPN in addition to SSTP. For more information, see [About P2S connections](point-to-site-about.md).
 >
 
-![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png" alt-text="Diagram showing classic point-to-site architecture.":::
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
