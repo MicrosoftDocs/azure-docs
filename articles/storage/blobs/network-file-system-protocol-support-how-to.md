@@ -7,7 +7,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 06/09/2023
 ms.author: normesta
 ms.reviewer: yzheng
 ---
@@ -132,8 +132,11 @@ Create a directory on your Linux system and then mount the container in the stor
      > [!TIP]
      > By using the `-t aznfs` mount option, you ensure that the NFS client always remains correctly connected to the storage endpoint even if the endpoint IP changes after the mount. NFS shares that are mounted by using the `-t nfs` mount option might become disconnected from the storage endpoint if the IP address of that endpoint changes.
 
-> [!NOTE]
-> Other optional parameters are available with the mount command. Those parameters primarily affect client-side behavior. `sys` is the only value that is currently supported by the `sec` option.
+
+     > [!IMPORTANT]
+     > If you use the `nconnect` mount option, make sure that your Linux kernel has Azure nconnect support. If your kernel doesn't have Azure nconnect support, then the AZNFS Mount Helper disables the `nconnect` option. If you don't use the AZNFS Mount Helper in your mount command (`-t aznfs`), and also use the `nconnect` option on an unsupported client, then throughput will decrease, and commands will timeout or work incorrectly. To learn more, see [Increase the number of TCP connections](network-file-system-protocol-support-performance.md#increase-the-number-of-tcp-connections). 
+
+     Other optional parameters are available with the mount command. Those parameters primarily affect client-side behavior. `sys` is the only value that is currently supported by the `sec` option.
 
 ## Resolve common errors
 
