@@ -84,6 +84,12 @@ To fix this error:
 1. Move Windows pods from existing Windows agent pools to new Windows agent pools.
 1. Delete old Windows agent pools.
 
+## Why am I seeing an error when I try to deploy Windows pods
+
+If you have specified a value in `--max-pods` that is less than the number of pods you want to create, you may see the error "No available addresses".
+
+To fix this error:
+
 ## Why is there an unexpected user named "sshd" on my VM node?
 
 AKS adds a user named "sshd" when installing the OpenSSH service. This user is not malicious. We recommend that customers update their alerts to ignore this unexpected user account.
