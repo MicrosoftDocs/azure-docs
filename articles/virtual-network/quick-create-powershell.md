@@ -31,9 +31,9 @@ A virtual network is the fundamental building block for private networks in Azur
 
   If you run PowerShell locally, run `Connect-AzAccount` to connect to Azure.
 
-## Create a virtual network
+## Create a resource group
 
-1. First, use [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) to create a resource group to host the virtual network. Run the following code to create a resource group named **test-rg** in the **eastus2** Azure region.
+1. Use [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) to create a resource group to host the virtual network. Run the following code to create a resource group named **test-rg** in the **eastus2** Azure region.
 
     ```azurepowershell-interactive
     $rg = @{
@@ -42,6 +42,9 @@ A virtual network is the fundamental building block for private networks in Azur
     }
     New-AzResourceGroup @rg
     ```
+
+## Create a virtual network
+
    
 1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named **vnet-1** with IP address prefix **10.0.0.0/16** in the **test-rg** resource group and **eastus2** location.
 
@@ -235,6 +238,8 @@ Azure takes a few minutes to create the VMs. When Azure finishes creating the VM
 
 >[!NOTE]
 >VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Connect to a virtual machine
 
