@@ -4,7 +4,7 @@ description: Learn how to set up HBase replication from one HDInsight version to
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 09/15/2022
+ms.date: 06/11/2023
 ---
 
 # Set up Apache HBase cluster replication in Azure virtual networks
@@ -348,6 +348,45 @@ The following list shows you some general usage cases and their parameter settin
 - **Enable replication on all tables, and replicate Phoenix metadata from source to destination**. Phoenix metadata replication is not perfect. Use it with caution. Use the following parameters:
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta`
+
+### Setup Replication between ESP clusters
+
+**Prerequisites**
+1. Both ESP clusters should be there in the same realm (domain). Check /etc/krb5.conf file default realm property to confirm. 
+1. Common user should be there who has read and write access to both the clusters
+   1. For example, if both clusters have same cluster admin user (For example, `admin@abc.example.com`), that user can be used to run the replication script.
+   1. If both clusters using same user group, we can add a new user or we can use existing user from the group.
+   1. If both clusters using different user group, we can add a new user to both or we can use existing user from the groups.
+ 
+**Steps to Execute Replication script**
+
+For ESP clusters replication setup, we can’t run the hdi_enable_replication.sh script using script action, we need to ssh and run the script on the source cluster.
+ 
+**Step: 1** 
+1. Copy sink cluster hosts IP & hostname mapping in source cluster nodes /etc/hosts file. 
+1. Copy head node, worker node and zookeeper nodes host and IP mapping from /etc/hosts file of destination(sink) cluster.
+1. Add copied entries source cluster /etc/hosts file. These entries should be added to head nodes, worker nodes and zookeeper nodes.
+
+> [!NOTE] 
+> Ignore this step, if DNS is able to resolve hostname correctly. 
+
+**Step: 2**
+Create keytab file for the user using `ktutil`.
+`$ ktutil`
+1. addent -password -p admin@ABC.EXAMPLE.COM -k 1 -e RC4-HMAC
+1. Ask for password to authenticate, please provide user password 
+1. wkt /etc/security/keytabs/admin.keytab
+
+> [!NOTE] 
+> Make sure the keytab file store is `/etc/security/keytabs/` folder in `<username>.keytab` format.
+
+**Step 3** 
+Run script action with `-ku` option 
+1. Provide `-ku <username>` on ESP clusters.
+	
+|Name|Description|
+|----|-----------|
+|`-ku, --krb-user`  | For ESP clusters, Common Kerberos user, who can authenticate both source and destination clusters|
 
 ## Copy and migrate data
 
