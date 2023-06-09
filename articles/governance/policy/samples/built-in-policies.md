@@ -147,10 +147,6 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-data-lake](../../../../includes/policy/reference/bycat/policies-data-lake.md)]
 
-## Databricks
-
-[!INCLUDE [azure-policy-reference-policies-databricks](../../../../includes/policy/reference/bycat/policies-databricks.md)]
-
 ## Desktop Virtualization
 
 [!INCLUDE [azure-policy-reference-policies-desktop-virtualization](../../../../includes/policy/reference/bycat/policies-desktop-virtualization.md)]

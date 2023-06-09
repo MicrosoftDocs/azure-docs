@@ -38,7 +38,7 @@ Following are examples of datasets available.
 
 |Dataset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
-|[Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Worldwide public holiday data, covering 41 countries or regions from 1970 to 2099. Includes country and whether most people have paid time off. |
+|[Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Worldwide public holiday data, covering 41 countries or regions from 1970 to 2099. Includes country/region and whether most people have paid time off. |
 
 ## Access to datasets  
 With an Azure account, you can access open datasets using code or through the Azure service interface. The data is colocated with Azure cloud compute resources for use in your machine learning solution.  

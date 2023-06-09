@@ -20,7 +20,7 @@ Heat maps, also known as density maps, are a type of overlay on a map used to re
 
 A heat map is useful when users want to visualize vast comparative data:
 
-- Comparing customer satisfaction rates or shop performance among regions or countries.
+- Comparing customer satisfaction rates or shop performance among countries/regions.
 - Measuring the frequency which customers visit shopping malls in different locations.
 - Visualizing vast statistical and geographical data sets.
 
