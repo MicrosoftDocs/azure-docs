@@ -31,7 +31,7 @@ The following short video provides an excellent overview of Azure AD Connect clo
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
-## Choose the right sync tool
+## Choose the right sync client
 To determine if cloud sync is right for your organization, use the link below.  It will take you to a tool that will help you evaluate your synchronization needs. For more information, evaluate your options using the [Wizard to evaluate sync options](https://aka.ms/EvaluateSyncOptions)
 
 
