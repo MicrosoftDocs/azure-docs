@@ -102,13 +102,13 @@ az postgres flexible-server parameter set --resource-group myresourcegroup --ser
 
 When choosing values from the `intelligent_tuning.metric_targets` server parameter take the following considerations into account:
 
-1. The `NONE` value takes precedence over all other values. If `NONE` is chosen alongside any combination of other values, the parameter will be perceived as set to `NONE`. This is equivalent to `intelligent_tuning = OFF`, implying that no tuning will occur.
+* The `NONE` value takes precedence over all other values. If `NONE` is chosen alongside any combination of other values, the parameter will be perceived as set to `NONE`. This is equivalent to `intelligent_tuning = OFF`, implying that no tuning will occur.
 
-2. The `ALL` value takes precedence over all other values, with the exception of `NONE` as detailed above. If `ALL` is chosen with any combination, barring `NONE`, all the listed parameters will undergo tuning. 
+* The `ALL` value takes precedence over all other values, with the exception of `NONE` as detailed above. If `ALL` is chosen with any combination, barring `NONE`, all the listed parameters will undergo tuning. 
 > [!NOTE]
 > The `ALL` value encompasses all existing metric targets. Moreover, this value will also automatically apply to any new metric targets that might be added in the future. This allows for comprehensive and future-proof tuning of your PostgreSQL server.
 
-3. If you wish to include an additional tuning target, you will need to specify both the existing and new tuning targets. For example, if `bgwriter_delay` is already enabled, and you want to add autovacuum tuning, your command would look like this:
+* If you wish to include an additional tuning target, you will need to specify both the existing and new tuning targets. For example, if `bgwriter_delay` is already enabled, and you want to add autovacuum tuning, your command would look like this:
 ```azurecli-interactive
 az postgres flexible-server parameter set --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning.metric_targets --value tuning-autovacuum,Storage-bgwriter_delay
 ```
