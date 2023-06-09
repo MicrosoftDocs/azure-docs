@@ -16,9 +16,9 @@ ms.author: godonnell
 
 # Tutorial: Prepare your customer tenant to authenticate users in a React single-page app (SPA)
 
-This tutorial series demonstrates how to build a React single-page application from scratch and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
+This tutorial series demonstrates how to build a React single-page application and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
 
-In this tutorial, you'll;
+In this tutorial;
 
 > [!div class="checklist"]
 > * Register a web application in the Microsoft Entra admin center, and record its identifiers

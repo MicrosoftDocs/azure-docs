@@ -9,16 +9,16 @@ ms.author: owenrichards
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: tutorial
-ms.date: 05/25/2023
+ms.date: 06/09/2023
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
 # Tutorial: Handle authentication flows in a vanilla JavaScript single-page app
 
-In the [previous article](./how-to-single-page-app-vanillajs-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you'll configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). 
+In the [previous article](./how-to-single-page-app-vanillajs-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. This article shows you how to configure the application to authenticate and authorize users to access protected resources.
 
-In this tutorial you'll;
+In this tutorial;
 
 > [!div class="checklist"]
 > * Configure the settings for the application
@@ -97,7 +97,7 @@ The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-
      ```
 
 1. Replace the following values with the values from the Azure portal:
-    - Find the `Enter_the_Application_Id_Here` value and replace it with the **application ID (clientId)** of the app you registered in the Microsoft Entra admin center.
+    - Find the `Enter_the_Application_Id_Here` value and replace it with the **Application ID (clientId)** of the app you registered in the Microsoft Entra admin center.
     - In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
 1. Save the file.
 

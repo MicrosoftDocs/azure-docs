@@ -9,26 +9,26 @@ ms.author: owenrichards
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: tutorial
-ms.date: 05/25/2023
+ms.date: 06/09/2023
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure AD for customers tenant.
 ---
 
 # Tutorial: Prepare a vanilla JavaScript single-page app (SPA) for authentication in a customer tenant
 
-In the [previous article](./how-to-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a vanilla JavaScript SPA
+In the [previous article](./how-to-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a vanilla JavaScript (JS) SPA and configure it to sign in and sign out users with your Azure AD for customers tenant.
 
-In this tutorial you'll;
+In this tutorial;
 
 > [!div class="checklist"]
-> * Create a vanilla Javascript project in Visual Studio Code
+> * Create a vanilla JavaScript project in Visual Studio Code
 > * Install required packages
 > * Add code to *server.js* to create a server
 
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-prepare-tenant.md).
-* Although any integrated development environment (IDE) that supports Vanilla JS applications can be used, **Visual Studio Code** is recommended for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* Although any integrated development environment (IDE) that supports vanilla JS applications can be used, **Visual Studio Code** is recommended for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
 
 ## Create a new Vanilla JS project and install dependencies

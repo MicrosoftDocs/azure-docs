@@ -16,10 +16,10 @@ ms.date: 05/25/2023
 
 In the [previous article](how-to-single-page-app-vanillajs-configure-authentication.md), you edited the popup and redirection files that handle the sign-in page response. This tutorial demonstrates how to build a responsive user interface (UI) that contains a **Sign-In** and **Sign-Out** button and run the project to test the sign-in and sign-out functionality.
 
-In this tutorial you'll;
+In this tutorial;
 
 > [!div class="checklist"]
-> * Add code to the *index.html* file to create the user interface (UI) 
+> * Add code to the *index.html* file to create the user interface
 > * Add code to the *signout.html* file to create the sign-out page
 > * Sign in and sign out of the application
 
@@ -30,6 +30,7 @@ In this tutorial you'll;
 ## Add code to the *index.html* file
 
 The main page of the SPA, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign-Out** button. 
+
 1. Open *public/index.html* and add the following code snippet:
 
    ```html
@@ -135,6 +136,7 @@ The main page of the SPA, *index.html*, is the first page that is loaded when th
 When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, [Bootstrap](https://getbootstrap.com/) is used to create a responsive UI that contains a **Sign-In** and **Sign-Out** button.
 
 1. Open *public/ui.js* and add the following code snippet:
+
     ```javascript
     // Select DOM elements to work with
     const signInButton = document.getElementById('signIn');
