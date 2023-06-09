@@ -221,7 +221,7 @@ For more information, see [Connection string configuration](./java-standalone-co
 
 JavaScript doesn't support the use of environment variables. You have two options:
 
-- To use the SDK Loader Script, see [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights).
+- To use the SDK Loader Script, see [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#get-started).
 - Manual setup:
    ```javascript
    import { ApplicationInsights } from '@microsoft/applicationinsights-web'

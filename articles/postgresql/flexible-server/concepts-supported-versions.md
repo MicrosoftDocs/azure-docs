@@ -22,7 +22,7 @@ PostgreSQL version 15 is now available in public preview in limited regions (Wes
 
 ## PostgreSQL version 14
 
-The current minor release is **14.8**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.8/) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
+The current minor release is **14.7**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.7/) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
 
 
 ## PostgreSQL version 13

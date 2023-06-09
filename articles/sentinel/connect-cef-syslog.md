@@ -48,7 +48,7 @@ To avoid this scenario, use one of these methods:
 
     ```kusto
     source |
-    where ProcessName !contains “\“CEF\””
+    where ProcessName !contains \"CEF\"
     ```
 ## Create a DCR for your CEF logs
 

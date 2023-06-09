@@ -173,12 +173,12 @@ Azure AD also provides information on the actions that are being performed withi
 
 ## Next steps
 
-* [Introduction to delegated administration and isolated environments](secure-with-azure-ad-introduction.md)
+* [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure resource management fundamentals](secure-with-azure-ad-resource-management.md)
+* [Azure resource management fundamentals](secure-resource-management.md)
 
-* [Resource isolation in a single tenant](secure-with-azure-ad-single-tenant.md)
+* [Resource isolation in a single tenant](secure-single-tenant.md)
 
-* [Resource isolation with multiple tenants](secure-with-azure-ad-multiple-tenants.md)
+* [Resource isolation with multiple tenants](secure-multiple-tenants.md)
 
 * [Best practices](secure-best-practices.md)

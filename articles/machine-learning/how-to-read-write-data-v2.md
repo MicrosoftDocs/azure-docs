@@ -10,7 +10,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 06/02/2023
-ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023
 #Customer intent: As an experienced Python developer, I need to read my data, to make it available to a remote compute resource, to train my machine learning models.
 ---
 
@@ -18,9 +18,6 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, i
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning CLI extension you use:"]
-> * [v1](v1/how-to-train-with-datasets.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-read-write-data-v2.md)
 
 In this article you learn:
 

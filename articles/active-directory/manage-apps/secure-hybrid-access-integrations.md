@@ -600,7 +600,7 @@ The following software-defined perimeter (SDP) solutions providers connect with 
 * **Perimeter 81**
   * [Tutorial: Azure AD SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 * **Silverfort Authentication Platform**
-  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](./silverfort-azure-ad-integration.md)
+  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](./silverfort-integration.md)
 * **Strata Maverics Identity Orchestrator**
   * [Integrate Azure AD SSO with Maverics Identity Orchestrator SAML Connector](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
 * **Zscaler Private Access**
