@@ -472,18 +472,18 @@ If you're not going to continue to use this application, delete the cluster that
 
 ## Errors and solution
 
-Unmark the src folder as Sources if you get build failed errors as below:
+Unmark the src folder as **Sources** if you get build failed errors as below:
 
-:::image type="content" source="./media/apache-spark-intellij-tool-plugin/build-failed.png" alt-text="build failed" border="true":::
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/build-failed.png" alt-text="Screenshot showing the build failed." border="true":::
 
-Unmark the src folder as Sources to solution this issue:
+Unmark the src folder as **Sources** to solution this issue:
 
-1. Navigate to File and select the Project Structure.
-2. Select the Modules under the Project Settings.
-3. Select the src file and unmark as Sources.
+1. Navigate to **File** and select the **Project Structure**.
+2. Select the **Modules** under the Project Settings.
+3. Select the **src** file and unmark as **Sources**.
 4. Click on Apply button and then click on OK button to close the dialog.
 
-:::image type="content" source="./media/apache-spark-intellij-tool-plugin/unmark-src-as-sources.png" alt-text="unmark the src as sources" border="true":::
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/ .png" alt-text="Screenshot showing the unmark the src as sources." border="true":::
 
 ## Next steps
 
