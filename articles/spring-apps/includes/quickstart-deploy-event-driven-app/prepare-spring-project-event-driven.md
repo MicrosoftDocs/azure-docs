@@ -18,18 +18,7 @@ Use the following steps to prepare the sample locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
-1. The sample project is ready on GitHub. Clone sample project by using the following command:
-
-   ```bash
-   git clone https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git
-   ```
-
-1. Build the sample project by using the following commands:
-
-   ```bash
-   cd ASA-Samples-Event-Driven-Application
-   ./mvnw clean package
-   ```
+[!INCLUDE [prepare-spring-project-git-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-git-event-driven.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -46,9 +35,9 @@ Use AZD to initialize the event-driven application from the Azure Developer CLI 
 
    Command interaction description:
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-    - **Please enter a new environment name**: Provide an environment name, which will be used as a suffix for the resource group that will be created to hold all Azure resources. This name should be unique within your Azure subscription.
+    - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that is created to hold all Azure resources. This name should be unique within your Azure subscription.
 
-   The console outputs messages similar to the following:
+   The console outputs messages similar to the below:
 
     ```text
     Initializing a new project (azd init)
