@@ -6,7 +6,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/31/2023
 ms.author: jomondi
@@ -43,7 +43,7 @@ Your migration process may look like this:
 
 ### Stage 1 – Current state: The production app authenticates with AD FS
 
-:::image type="content" source="media/migrate-adfs-apps-to-azure/stage1.jpg" alt-text="Diagram showing migration stage 1.":::
+:::image type="content" source="media/migrate-adfs-apps-stages/stage1.jpg" alt-text="Diagram showing migration stage 1.":::
 
 ### Stage 2 – (Optional) Point a test instance of the app to the test Azure AD tenant
 
@@ -51,19 +51,19 @@ Update the configuration to point your test instance of the app to a test Azure 
 
 If it isn't feasible to set up a separate test tenant, skip this stage and point a test instance of the app to your production Azure AD tenant as described in Stage 3 below.
 
-:::image type="content" source="media/migrate-adfs-apps-to-azure/stage2.jpg" alt-text="Diagram showing migration stage 2.":::
+:::image type="content" source="media/migrate-adfs-apps-stages/stage2.jpg" alt-text="Diagram showing migration stage 2.":::
 
 ### Stage 3 – Point a test instance of the app to the production Azure AD tenant
 
 Update the configuration to point your test instance of the app to your production Azure AD tenant. You can now test with users in your production tenant. If necessary, review the section of this article on transitioning users.
 
-:::image type="content" source="media/migrate-adfs-apps-to-azure/stage3.jpg" alt-text="Diagram showing migration stage 3.":::
+:::image type="content" source="media/migrate-adfs-apps-stages/stage3.jpg" alt-text="Diagram showing migration stage 3.":::
 
 ### Stage 4 – Point the production app to the production Azure AD tenant
 
 Update the configuration of your production app to point to your production Azure AD tenant.
 
-:::image type="content" source="media/migrate-adfs-apps-to-azure/stage4.jpg" alt-text="Diagram showing migration stage 4.":::
+:::image type="content" source="media/migrate-adfs-apps-stages/stage4.jpg" alt-text="Diagram showing migration stage 4.":::
 
  Apps that authenticate with AD FS can use Active Directory groups for permissions. Use [Azure AD Connect sync](../hybrid/how-to-connect-sync-whatis.md) to sync identity data between your on-premises environment and Azure AD before you begin migration. Verify those groups and membership before migration so that you can grant access to the same users when the application is migrated.
 
