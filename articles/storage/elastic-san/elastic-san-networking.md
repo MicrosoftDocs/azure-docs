@@ -59,31 +59,15 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 # [PowerShell](#tab/azure-powershell)
 
 ```powershell
-$VnetRgName = "<vnet resource group name>"
-$VnetName   = "<vnet name>"
-$SnetName   = "<subnet name>"
+$resourceGroupName = "yourResourceGroup"
+$vnetName = "yourVirtualNetwork"
+$subnetName = "yourSubnet"
 
-$Vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $VnetRgName
-$Subnet = $Vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $SnetName}
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
 
-$EsanRgName = "<elastic SAN resource group name>"
-$EsanName   = "<elastic SAN name>"
-$EsanVgName = "<elastic SAN volume group name>"
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
 
-$Esan = Get-AzElasticSan -Name $EsanName -ResourceGroupName $EsanRgName
-
-$PlSvcConnName = "<private link connection name>"
-$EsanPeSvcConn = New-AzPrivateLinkServiceConnection -Name $PlSvcConnName -PrivateLinkServiceId $Esan.Id -GroupId $EsanVgName
-
-$PeArguments = @{
-    Name = '<private endpoint name>'
-    ResourceGroupName = $VnetRgName
-    Location = '<private endpoint location>'
-    Subnet = $Subnet
-    PrivateLinkServiceConnection = $EsanPeSvcConn
-}
-
-New-AzPrivateEndpoint @PeArguments
+$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -120,15 +104,34 @@ When you create a private endpoint, you must specify the Elastic SAN and the vol
 # [PowerShell](#tab/azure-powershell)
 
 ```powershell
-$resourceGroupName = "yourResourceGroup"
-$vnetName = "yourVirtualNetwork"
-$subnetName = "yourSubnet"
+# Get the virtual network and subnet. The subnet is input to creating the private endpoint.
+$VnetRgName = "<virtual network resource group name>"
+$VnetName   = "<virtual network name>"
+$SnetName   = "<subnet name>"
 
-$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
+$Vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $VnetRgName
+$Subnet = $Vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $SnetName}
 
-$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
+# Get the Elastic SAN. The Elastic SAN is input to creating the private endpoint service connection.
+$EsanRgName = "<elastic SAN resource group name>"
+$EsanName   = "<elastic SAN name>"
+$EsanVgName = "<elastic SAN volume group name>"
 
-$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
+$Esan = Get-AzElasticSan -Name $EsanName -ResourceGroupName $EsanRgName
+
+# Create the private endpoint service connection which is input to creating the private endpoint.
+$PlSvcConnName = "<private link connection name>"
+$EsanPeSvcConn = New-AzPrivateLinkServiceConnection -Name $PlSvcConnName -PrivateLinkServiceId $Esan.Id -GroupId $EsanVgName
+
+# Create the private endpoint in the same resource group as the virtual network.
+$PeArguments = @{
+    Name = '<private endpoint name>'
+    ResourceGroupName = $VnetRgName
+    Location = '<private endpoint location>'
+    Subnet = $Subnet
+    PrivateLinkServiceConnection = $EsanPeSvcConn
+}
+New-AzPrivateEndpoint @PeArguments
 ```
 
 # [Azure CLI](#tab/azure-cli)
