@@ -19,8 +19,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 In the context of a call center, customers might want to know how long they need to wait before they're connected to an agent. As such, Job Router can calculate the estimated wait time or position of a job in a queue.
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
