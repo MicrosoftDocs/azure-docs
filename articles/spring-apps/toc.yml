@@ -154,7 +154,7 @@ items:
       - name: Use Build Service
         href: how-to-enterprise-build-service.md
       - name: Configure APM integration and CA certificates
-        href: how-to-enterprise-configure-apm-intergration-and-ca-certificates.md
+        href: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
       - name: Use Service Registry
         href: how-to-enterprise-service-registry.md
       - name: Use API portal
