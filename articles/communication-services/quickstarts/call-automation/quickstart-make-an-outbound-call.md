@@ -8,7 +8,7 @@ ms.date: 05/26/2023
 ms.topic: include
 ms.service: azure-communication-services
 ms.custom: mode-other
-zone_pivot_groups: acs-csharp-java-js-python
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: Make an outbound call using Call Automation
