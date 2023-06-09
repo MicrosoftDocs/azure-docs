@@ -129,6 +129,6 @@ speech_config = speechsdk.SpeechConfig(
 ::: zone-end
 
 ::: zone pivot="programming-language-cli"
-For information about how to configure the Speech CLI, see [Get started with the Azure Speech CLI](../spx-basics.md?tabs=dockerinstall#download-and-install).
+When you use the Speech CLI in a container, include the `--host wss://localhost:5000/` option. For information about how to configure the Speech CLI, see [Get started with the Azure Speech CLI](../spx-basics.md?tabs=dockerinstall#download-and-install).
 ::: zone-end
 
