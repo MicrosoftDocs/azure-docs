@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 06/08/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,7 +21,7 @@ Target resources (formerly Cloud apps, actions, and authentication context) are 
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../app-proxy/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a [user action](#user-actions) like **Register security information** or **Register or join devices**, allowing Conditional Access to enforce controls around those actions.
-- Administrators can target [traffic profiles](#traffic-profiles) from Global Secure Access for enhanced functionality.
+- Administrators can target [traffic forwarding profiles](#traffic-forwarding-profiles) from Global Secure Access for enhanced functionality.
 - Administrators can use [authentication context](#authentication-context) to provide an extra layer of security in applications. 
 
 ![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
@@ -185,11 +185,11 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
    - `Client apps`, `Filters for devices` and `Device state` conditions aren't available with this user action since they're dependent on Azure AD device registration to enforce Conditional Access policies.
    - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multifactor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action isn't properly enforced. More information about this device setting can found in [Configure device settings](../devices/device-management-azure-portal.md#configure-device-settings). 
 
-## Traffic profiles
+## Traffic forwarding profiles
 
-Traffic management profiles in Global Secure Access enable administrators to define and control how traffic is routed. Traffic management profiles can be assigned to devices and branches. There are three default traffic profiles M365, Private, and Internet. For an example of how to configure these traffic profiles in Conditional Access policy, see the article [target resource](../../global-secure-access/how-to-compliant-network.md)
+Traffic forwarding profiles in Global Secure Access enable administrators to define and control how traffic is routed through Microsoft Entra Internet Access and Microsoft Entra Private Access. Traffic forwarding profiles can be assigned to devices and remote networks. For an example of how to configure these traffic profiles in Conditional Access policy, see the article [How to require a compliant network check](../../global-secure-access/how-to-compliant-network.md).
 
-For more information about these profiles, see the article [Global Secure Access Traffic management profiles](../../global-secure-access/concept-traffic-forwarding.md).
+For more information about these profiles, see the article [Global Secure Access traffic forwarding profiles](../../global-secure-access/concept-traffic-forwarding.md).
 
 ## Authentication context
 
