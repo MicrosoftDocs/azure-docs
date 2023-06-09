@@ -35,7 +35,6 @@ Once you have the details you need, go to the preferred interface of your CPE (U
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
-
 ## Next steps
 
 - [How to manage remote networks](how-to-manage-remote-networks.md)

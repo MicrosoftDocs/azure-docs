@@ -82,6 +82,8 @@ The connectivity tab is where you add the device links for the remote network. Y
     - **Bandwidth capacity (Mbps)**: Choose the bandwidth for your IPSec tunnel.
 1. Select the **Next** button.
 
+![Screenshot of the General tab of the create device link process.](media/how-to-create-remote-networks/create-basics-tab.png)
+
 **Details**
 
 1. **IKEv2** is selected by default. At this time only IKEv2 is supported.
@@ -90,8 +92,11 @@ The connectivity tab is where you add the device links for the remote network. Y
     - The valid configurations you can use are mapped out in the [Remote network valid configurations](reference-remote-network-configurations.md) reference article.
     - Whether you choose Default or Custom, the IPSec/IKE policy you specify must match the the policy on your CPE.
     - View the [remote network valid configurations](reference-remote-network-configurations.md).
-
 1. Select the **Next** button.
+
+The following screenshot displays the **Details** tab, with the **Custom** option selected.
+
+![Screenshot of the custom details for the device link.](media/how-to-create-remote-networks/device-link-details.png)
 
 **Security**
 
@@ -102,11 +107,9 @@ The connectivity tab is where you add the device links for the remote network. Y
 
 You can assign the remote network to a traffic forwarding profile when you create the remote network. You can also assign the remote network at a later time. For more information, see [Traffic forwarding profiles](concept-traffic-forwarding.md).
 
+1. Either select the **Next** button or select the **Traffic profiles** tab.
 1. Select the appropriate traffic forwarding profile.
 1. Select the **Review + Create** button.
-
-> [!IMPORTANT]
-> At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile. The private access traffic forwarding profile requires that your end users connect to Global Secure Access with the Global Secure Access client.
 
 ### Review and create
 
