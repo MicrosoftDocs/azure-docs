@@ -58,12 +58,12 @@ Request Body
         "deploymentConfiguration": {
             "virtualMachineConfiguration": {
                 "imageReference": {
-                    "publisher": "canonical",
-                    "offer": "ubuntuserver",
-                    "sku": "20.04-lts",
+                    "publisher": "almalinux",
+                    "offer": "almalinux",
+                    "sku": "9-gen1",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.ubuntu 20.04",
+                "nodeAgentSkuId": "batch.node.el 9",
                 "extensions": [
                     {
                         "name": "secretext",
