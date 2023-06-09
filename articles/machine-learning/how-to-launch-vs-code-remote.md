@@ -62,7 +62,7 @@ You can create the connection from either the **Notebooks** or **Compute** secti
     1. In the *Notebooks* tab, select the file you want to edit.
     1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
-        :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="../media/tutorial-azure-ml-in-a-day/start-compute.png":::
+        :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
     1. Select **Editors > Edit in VS Code (Web)**.
 
@@ -95,7 +95,7 @@ You can create the connection from either the **Notebooks** or **Compute** secti
     1. In the *Notebooks* tab, select the file you want to edit.
     1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
-        :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="../media/tutorial-azure-ml-in-a-day/start-compute.png":::
+        :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
     1. Select **Edit in VS Code (Desktop)**.
 
