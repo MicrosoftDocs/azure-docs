@@ -395,7 +395,7 @@ These replies are supported for SMS notifications. The recipient of the SMS can 
 >If a user has unsubscribed from SMS alerts, but is then added to a new action group; they WILL receive SMS alerts for that new action group, but remain unsubscribed from all previous action groups.
 
 You might have a limited number of Azure app actions per action group.
-### Countries with SMS notification support
+### Countries/Regions with SMS notification support
 
 | Country code | Country |
 |:---|:---|
@@ -448,7 +448,7 @@ You might have a limited number of voice actions per action group.
 >
 > If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region.
 
-### Countries with Voice notification support
+### Countries/Regions with Voice notification support
 | Country code | Country |
 |:---|:---|
 | 61 | Australia |

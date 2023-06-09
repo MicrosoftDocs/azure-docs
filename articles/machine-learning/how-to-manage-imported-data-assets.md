@@ -16,9 +16,6 @@ ms.custom: data4ml
 # Manage imported data assets (preview)
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v2](how-to-import-data-assets.md)
-
 In this article, learn how to manage imported data assets from a life-cycle perspective. We learn how to modify or update auto-delete settings on the data assets imported on to a managed datastore (`workspacemanagedstore`) that Microsoft manages for the customer.
 
 > [!NOTE]
