@@ -57,7 +57,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 	![Screenshot of the Created Apps section with the Azure A D app called out.](media/zoom-provisioning-tutorial/zoom03.png)
 
 	> [!NOTE]
-	> If you don't have an Azure AD app already created, then have a [JWT type Azure AD app](https://marketplace.zoom.us/docs/guides/build/jwt-app) created.
+	> If you don't have an Azure AD app already created, then have a [JWT type Azure AD app](https://developers.zoom.us/docs/platform/build/jwt-app/) created.
 
 1. Select **App Credentials** in the left navigation pane.
 
@@ -105,10 +105,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 1. Under the **Admin Credentials** section, select desired **Authentication Method**.
 
 	* If the Authentication Method is **OAuth2 Authorization Code Grant**, enter `https://api.zoom.us/scim` in **Tenant URL**, click on **Authorize**, make sure that you enter your Zoom account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
- 	![Zoom provisioning](./media/zoom-provisioning-tutorial/provisioning-oauth.png)
+ 	![Zoom provisioning Token](./media/zoom-provisioning-tutorial/provisioning-oauth.png)
 
 	* If the Authentication Method is **Bearer Authentication**, enter `https://api.zoom.us/scim` in **Tenant URL**. Input the **JWT Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
- 	![Zoom provisioning](./media/zoom-provisioning-tutorial/provisioning-bearer-token.png)
+ 	![Zoom provisioning OAuth](./media/zoom-provisioning-tutorial/provisioning-bearer-token.png)
   		> [!NOTE] 
   		> You will have two options for your Authentication Method: **Bearer Authentication** and **OAuth2 Authorization Code Grant**. Make sure that you select OAuth2 Authorization Code Grant.
 
