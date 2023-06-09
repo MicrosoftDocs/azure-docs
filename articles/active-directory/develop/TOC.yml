@@ -462,9 +462,8 @@
               href: saml-claims-customization.md
             - name: Set an access token lifetime policy
               href: configure-token-lifetimes.md    
-            - name: SAML app multi-instancing
-              displayName: Configure SAML app multi-instancing for an application
-              href: reference-app-multi-instancing.md
+            - name: Configure app multi-instancing
+              href: configure-app-multi-instancing.md
         - name: Custom claims provider
           items:
             - name: Token issuance start event
