@@ -19,7 +19,7 @@ There are two methods to instrument your application:
 - Automatic instrumentation (auto-instrumentation)
 - Manual instrumentation
 
-**Auto-instrumentation** enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. See [Auto-Instrumentation Supported Environments and Languages](codeless-overview.md). When auto-instrumentation is available, it's the easiest way to enable Azure Montior Application Insights.
+**Auto-instrumentation** enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. See [Auto-Instrumentation Supported Environments and Languages](codeless-overview.md). When auto-instrumentation is available, it's the easiest way to enable Azure Monitor Application Insights.
 
 **Manual instrumentation** is coding against the Application Insights or OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. There are two options for manual instrumentation:
 
