@@ -48,7 +48,7 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone-end
 
-## 1 Prerequisites
+## 1. Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -62,14 +62,18 @@ Diagram of Spring event-driven app architecture:
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
-::: zone pivot="sc-consumption-plan"
+::: zone pivot="sc-consumption-plan,sc-enterprise"
 
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for Azure Spring Apps Standard consumption and dedicated plan by using the following command:
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension:
 
   ```azurecli-interactive
   az extension remove --name spring && \
   az extension add --name spring
   ```
+
+::: zone-end
+
+::: zone pivot="sc-consumption-plan"
 
 - Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
 
@@ -79,12 +83,6 @@ Diagram of Spring event-driven app architecture:
   az provider register --namespace Microsoft.OperationalInsights
   az provider register --namespace Microsoft.AppPlatform
   ```
-
-::: zone-end
-
-::: zone pivot="sc-standard,sc-enterprise"
-
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 
 ::: zone-end
 
@@ -106,7 +104,7 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone-end
 
-## 5 Validation
+## 5. Validation
 
 Use the following steps to confirm that the event-driven app works correctly. You can validate the app by sending a message to the `lower-case` queue, then confirming that there's a message in the `upper-case` queue.
 
@@ -116,7 +114,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 [!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-event-driven-app/clean-up-resources.md)]
 
-## 7 Next steps
+## 7. Next steps
 
 > [!div class="nextstepaction"]
 > [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](./quickstart-apps-autoscale-standard-consumption.md)
