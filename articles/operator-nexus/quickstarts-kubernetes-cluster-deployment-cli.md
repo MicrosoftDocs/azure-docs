@@ -40,6 +40,7 @@ Before you run the commands, you need to set several variables to define the con
 | CONTROL_PLANE_VM_SIZE      | The size of the virtual machine for the control plane nodes.                                                             |
 | INITIAL_AGENT_POOL_NAME    | The name of the initial agent pool.                                                                                      |
 | INITIAL_AGENT_POOL_COUNT   | The number of nodes in the initial agent pool.                                                                           |
+| INITIAL_AGENT_POOL_VM_SIZE | The size of the virtual machine for the initial agent pool.                                                              |
 | POD_CIDR                   | The network range for the Kubernetes pods in the cluster, in CIDR notation.                                              |
 | SERVICE_CIDR               | The network range for the Kubernetes services in the cluster, in CIDR notation.                                          |
 | DNS_SERVICE_IP             | The IP address for the Kubernetes DNS service.                                                                           |
@@ -71,7 +72,7 @@ SERVICE_CIDR="10.96.0.0/16"
 DNS_SERVICE_IP="10.96.0.10"
 ```
 > [!NOTE]
-> It is essential that you replace the placeholders for LOCATION, CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID, and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
+> It is essential that you replace the placeholders for CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID, and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
 
 After defining these variables, you can create the Kubernetes cluster by executing the following Azure CLI command:
 
