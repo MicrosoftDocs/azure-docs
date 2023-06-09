@@ -122,8 +122,8 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | MPI Support                    | HPC-X (2.13 or higher), Intel MPI (2021.7.0 or higher), OpenMPI (4.1.3 or higher), MVAPICH2 (2.3.7 or higher), MPICH (4.1 or higher)  |
 | Additional Frameworks          | UCX, libfabric, PGAS, or other InfiniBand based runtimes                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks), Azure NetApp Files, Azure Files, Azure HPC Cache, Azure Managed Lustre File System             |
-| Supported and Validated OS     | AlmaLinux 8.6, Ubuntu 20.04+            |
-| Recommended OS for Performance | AlmaLinux HPC 8.6, Ubuntu-HPC 20.04+    |
+| Supported and Validated OS     | AlmaLinux 8.6, 8.7, Ubuntu 20.04+            |
+| Recommended OS for Performance | AlmaLinux HPC 8.7, Ubuntu-HPC 20.04+    |
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
@@ -132,7 +132,7 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 > Windows Server 2012 R2 is not supported on HX and other VMs with more than 64 (virtual or physical) cores. For more information, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 
-> Recommended image URN: almalinux:almalinux-hpc:8_6-hpc-gen2:latest, for scaling tests please use the recommended URN along with the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16). 
+> Recommended image URN: almalinux:almalinux-hpc:8_7-hpc-gen2:latest, for scaling tests please use the recommended URN along with the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16). 
 
 ## Next steps
 
