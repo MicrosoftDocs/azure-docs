@@ -66,7 +66,7 @@ In this tutorial;
 Identity related **npm** packages must be installed in the project to enable user authentication. For project styling, **Bootstrap** is used.
 
 1. In the **Terminal** bar, select the **+** icon to create a new terminal. A new terminal window will open enabling the other terminal to continue running in the background.
-1. If necessary, navigate to *reactspalocal* again and enter the following commands into the terminal to install the relevant `msal` and `bootstrap` packages.
+1. If necessary, navigate to *reactspalocal* and enter the following commands into the terminal to install the `msal` and `bootstrap` packages.
 
     ```powershell
     npm install @azure/msal-browser @azure/msal-react
@@ -150,7 +150,7 @@ Identity related **npm** packages must be installed in the project to enable use
     // };
     ```
 
-1. Replace the following values with the values from the Azure portal:
+1. Replace the following values with the values from the Azure admin center:
     - Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the **Overview** page of the registered application.
     - In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
 
