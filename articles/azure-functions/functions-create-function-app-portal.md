@@ -51,6 +51,9 @@ Next, create a function in the new function app.
 
 ## Test the function
 
+> [!TIP]
+> The **Code + Test** functionality in the portal works even for functions that are read-only and can't be edited in the portal.
+
 1. In your new HTTP trigger function, select **Code + Test** from the left menu, and then select **Get function URL** from the top menu.
 
     :::image type="content" source="./media/functions-create-first-azure-function/function-app-http-example-get-function-url.png" alt-text="Screenshot of Get function URL window.":::
