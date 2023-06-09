@@ -34,9 +34,21 @@ The following Azure services are used to monitor Kubernetes clusters.
 
 ## Decision criteria
 
-Prometheus metrics - Requirement for monitoring Kubernetes clusters. Azure Monitor managed service for Prometheus is recommended in all scenarios. If customer already has a Prometheus environment, then use remote write to send from Azure to existing environment.
-Grafana - Requirement for visualization of Prometheus metrics. If customer already has a Grafana environment, then configure appropriate Prometheus environment as a data source. If customer does not have a Grafana environment, then use Azure Managed Grafana.
-Container insights - Use for collection of Kubernetes logs (including stderr/stdout) and for included workbooks. If customer already has a solution for collection of Kubernetes logs, then use that solution. If they prefer to focus on Grafana, they may choose 
+- Prometheus metrics
+  - Requirement for monitoring Kubernetes clusters. Azure Monitor managed service for Prometheus is recommended in all scenarios. If customer already has a Prometheus environment, then use remote write to send from managed Prometheus to existing environment.
+- Grafana
+  - Requirement for visualization of Prometheus metrics. If customer already has a Grafana environment, then configure appropriate Prometheus environment as a data source. If customer does not have a Grafana environment, then use Azure Managed Grafana.
+- Container insights
+  - Use for collection of Kubernetes logs (including stderr/stdout). If customer already has a solution for collection of Kubernetes logs, then use that solution. 
+  - Used for collection of Kubernetes inventory data stored in Log Analytics workspace. Drives workbooks in Container insights.
+    - QUESTION: Can this data be displayed with Grafana?
+    - QUESTION: Is this information also in Prometheus?
+  - Use for collection of metrics sent to Log Analytics workspace.
+      - QUESTION: Is there unique data here from what is collected in Prometheus?
+- Control plane logs
+  - Create diagnostic setting to send control plane logs to Log Analytics workspace. If customer has existing solution for collection of logs, use Data Export feature of Log Analytics workspace to send data to Event Hub and forward to alternate system.
+- Alerts
+  - Start with recommended Prometheus alerts.
 
 
 
