@@ -3002,7 +3002,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-attach-compute-targets.md",
-        "redirect_url": "/azure/machine-learning/how-to-attach-compute-targets",
+        "redirect_url": "/azure/machine-learning/how-to-train-model",
         " redirect_document_id": true
     },
     {
