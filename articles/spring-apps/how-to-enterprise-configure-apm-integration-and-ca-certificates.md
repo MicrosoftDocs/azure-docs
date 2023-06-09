@@ -40,14 +40,15 @@ Currently, Azure Spring Apps supports the following APM types:
 
 Azure Spring Apps supports CA certificates for all language family buildpacks, but not all supported APMs. The following table shows the binding types supported by Tanzu language family buildpacks.
 
-| Buildpack   | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
-|-------------|---------------------|-----------|-------------|-----------|------------|
-| Java        | ✔                  | ✔         | ✔          | ✔         | ✔         |
-| Dotnet      |                     |           |             | ✔        |            |
-| Go          |                     |           |             | ✔        |            |
-| Python      |                     |           |             |           |            |
-| NodeJS      |                     | ✔        | ✔           | ✔        | ✔          |
-| Web servers |                     |           |             | ✔        |            |
+| Buildpack         | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
+|-------------------|---------------------|-----------|-------------|-----------|------------|
+| Java              | ✔                   | ✔         | ✔           | ✔         | ✔          |
+| Dotnet            |                     |           |             | ✔         |            |
+| Go                |                     |           |             | ✔         |            |
+| Python            |                     |           |             |           |            |
+| NodeJS            |                     | ✔         | ✔           | ✔         | ✔          |
+| Web servers       |                     |           |             | ✔         |            |
+| Java Native Image |                     |           |             |           |            |
 
 For information about using Web servers, see [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
