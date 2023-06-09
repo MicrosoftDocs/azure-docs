@@ -105,7 +105,7 @@ Gen2 VMs are supported on Linux. Gen2 VMs on Windows are supported for WS2022 on
     az provider register --namespace "Microsoft.ContainerService"
     ```
 
-#### Use generation 2 VMs on Windows
+#### Add a Windows node pool with a generation 2 VM
 
 * Add a node pool with generation 2 VMs on Windows using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
