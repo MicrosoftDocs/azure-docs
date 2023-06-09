@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: edebar01
 ms.author:  ericadebarge
 ms.reviewer: larryfr
-ms.date: 03/01/2022
+ms.date: 06/09/2023
 ms.topic: troubleshooting
 ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 monikerRange: 'azureml-api-1 || azureml-api-2'
@@ -1069,7 +1069,9 @@ You must specify a base Docker image for the environment, and Azure Machine Lear
 
 For reproducibility of your environment, specify channels from which to pull dependencies. If you don't specify conda channels, conda uses defaults that might change.
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Add a conda channel using the Python SDK
 
@@ -1082,7 +1084,7 @@ conda_dep.add_channel("conda-forge")
 env.python.conda_dependencies = conda_dep
 ```
 
-*Applies to: all scenarios*
+:::moniker-end
 
 If you're using a YAML for your conda specification, include the conda channel(s) you'd like to use
 
@@ -1098,9 +1100,14 @@ channels:
 ```
 
 **Resources**
+
+:::moniker range="azureml-api-1"
 * See [how to set a conda specification on the environment definition v1](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
 * See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
+:::moniker-end
+:::moniker range="azureml-api-2"
 * See how to [create an environment from a conda specification v2](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
+:::moniker-end
 * See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
 
 ### Base conda environment not recommended
@@ -1116,7 +1123,9 @@ channels:
 
 Partial environment updates can lead to dependency conflicts and/or unexpected runtime errors, so the use of base conda environments isn't recommended. 
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Remove your base conda environment, and specify all packages needed for your environment in the `conda_dependencies` section of your environment definition
 
@@ -1130,14 +1139,23 @@ conda_dep.add_conda_package("python==3.8")
 env.python.conda_dependencies = conda_dep
 ```
 
-*Applies to: Azure CLI & Python SDK v2*
+:::moniker-end
+:::moniker range="azureml-api-2"
+
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
 
 Define an environment using a standard conda YAML configuration file
 * See [how to create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
+:::moniker-end
+
 **Resources**
+
+:::moniker range="azureml-api-1"
 * See [how to set a conda specification on the environment definition v1](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
 * See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
+:::moniker-end
 * See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
 
 ### Unpinned dependencies
@@ -1153,7 +1171,9 @@ Define an environment using a standard conda YAML configuration file
 
 If you don't specify a dependency version, the conda package resolver may choose a different version of the package on subsequent builds of the same environment. This breaks reproducibility of the environment and can lead to unexpected errors.
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Include version numbers when adding packages to your conda specification
 
@@ -1164,7 +1184,7 @@ conda_dep = CondaDependencies()
 conda_dep.add_conda_package("numpy==1.24.1")
 ```
 
-*Applies to: all scenarios*
+:::moniker-end
 
 If you're using a YAML for your conda specification, specify versions for your dependencies
 
@@ -1196,7 +1216,9 @@ channels:
 
 For reproducibility, you should specify and pin pip as a dependency in your conda specification.
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Specify pip as a dependency, along with its version
 
@@ -1204,7 +1226,7 @@ Specify pip as a dependency, along with its version
 env.python.conda_dependencies.add_conda_package("pip==22.3.1")
 ```
 
-*Applies to: all scenarios*
+:::moniker-end
 
 If you're using a YAML for your conda specification, specify pip as a dependency
 
@@ -1236,7 +1258,9 @@ channels:
 
 If you don't specify a pip version, a different version may be used on subsequent builds of the same environment. This behavior can cause reproducibility issues and other unexpected errors if different versions of pip resolve your packages differently.
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Specify a pip version in your conda dependencies
 
@@ -1244,7 +1268,7 @@ Specify a pip version in your conda dependencies
 env.python.conda_dependencies.add_conda_package("pip==22.3.1")
 ```
 
-*Applies to: all scenarios*
+:::moniker-end
 
 If you're using a YAML for your conda specification, specify a version for pip
 
@@ -1277,7 +1301,9 @@ channels:
 
 The Azure Machine Learning SDK for R was deprecated at the end of 2021 to make way for an improved R training and deployment experience using the Azure CLI v2
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Remove the R section from your environment definition
 
@@ -1285,7 +1311,7 @@ Remove the R section from your environment definition
 env.r = None
 ```
 
-*Applies to: all scenarios*
+:::moniker-end
 
 See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started training R models using the Azure CLI v2
 
@@ -1327,7 +1353,9 @@ This issue can happen when there's a failure in accessing a workspace's associat
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Update the workspace image build compute property using SDK:
 
@@ -1337,7 +1365,10 @@ ws = Workspace.from_config()
 ws.update(image_build_compute = 'mycomputecluster')
 ```
 
-*Applies to: Azure CLI extensions v1 & v2*
+:::moniker-end
+
+[!INCLUDE [machine-learning-cli-v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
 
 Update the workspace image build compute property using Azure CLI:
 
@@ -1709,7 +1740,9 @@ because you can't provide interactive authentication during a build
 
 Provide authentication via workspace connections
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -1717,7 +1750,11 @@ ws = Workspace.from_config()
 ws.set_connection("connection1", "PythonFeed", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
 ```
 
-*Applies to: Azure CLI extensions v1 & v2*
+:::moniker-end
+
+:::moniker range="azureml-api-2"
+
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
 
 Create a workspace connection from a YAML specification file
 
@@ -1725,10 +1762,17 @@ Create a workspace connection from a YAML specification file
 az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
 ```
 
+:::moniker-end
+
 **Resources**
+
+:::moniker range="azureml-api-1"
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+:::moniker-end
+:::moniker range="azureml-api-2"
 * [Python SDK v2 workspace connections](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/connections/connections.ipynb)
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
+:::moniker-end
 
 ### Forbidden blob
 <!--issueDescription-->
