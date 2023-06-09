@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
-title: Microsoft Entra documentation
-summary: Use Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra, to manage user identities and control access to your apps, data, and resources.
+title: Microsoft Entra ID documentation
+summary: Microsoft Azure Active Directory (Azure AD) is becoming Microsoft Entra ID. Use Microsoft Entra ID to manage user identities and control access to your apps, data, and resources.
 brand: azure ## Used for color theming of icons and hero area
 
 metadata:
-  title: Microsoft Entra documentation
-  description: Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra, is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
+  title: Microsoft Entra ID documentation
+  description: Microsoft Azure Active Directory (Azure AD) is becoming Microsoft Entra ID. Microsoft Entra ID is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
   ms.service: active-directory
   ms.topic: hub-page
   ms.collection: M365-identity-device-management
