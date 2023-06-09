@@ -160,8 +160,6 @@ Azure takes a few minutes to create the VMs. When Azure finishes creating the VM
 
 1. At the top of the **VM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
 
-   :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to VM1 with Azure Bastion." border="true":::
-
 1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
 
 ## Communicate between VMs

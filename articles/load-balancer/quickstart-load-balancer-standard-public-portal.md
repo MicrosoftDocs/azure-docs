@@ -53,6 +53,11 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     |--------------------|----------------------------|
     | Azure Bastion name | Enter **myBastionHost** |
     
+    > [!IMPORTANT]
+
+    > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+    >
 
 1. Select the **IP addresses** tab or select the **Next: IP addresses** button at the bottom of the page.
 
