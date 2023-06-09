@@ -552,7 +552,7 @@ Configuration details:
 
 ### Suspicious geography change in Palo Alto GlobalProtect account logins
 
-**Description:** A match indicates that a user logged in remotely from a country that is different from the country of the user's last remote login. This rule might also indicate an account compromise, particularly if the rule matches occurred closely in time. This includes the scenario of impossible travel.
+**Description:** A match indicates that a user logged in remotely from a country/region that is different from the country/region of the user's last remote login. This rule might also indicate an account compromise, particularly if the rule matches occurred closely in time. This includes the scenario of impossible travel.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
