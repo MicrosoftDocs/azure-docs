@@ -155,7 +155,11 @@ Yes, you can. However, Azure Monitor is in public preview for gathering logs (st
 
 ## Are there any limitations on the number of services on a cluster with Windows nodes?
 
-A cluster with Windows nodes can have approximately 500 services before it encounters port exhaustion.
+A cluster with Windows nodes can have approximately 500 services (sometimes less) before it encounters port exhaustion. This limitation applies to a Kubernetes Service with External Traffic Policy set to “Cluster”. 
+
+When external traffic policy on a Service is configured as Cluster, the traffic undergoes an additional Source NAT on the node which also results in reservation of a port from the TCPIP dynamic port pool. This port pool is a limited resource (~16K ports by default) and many active connections to a Service(s) can lead to dynamic port pool exhaustion resulting in connection drops.
+
+If the Kubernetes Service is configured with External Traffic Policy set to “Local”, port exhaustion problems are not likely to occur at 500 services.
 
 ## Can I use Azure Hybrid Benefit with Windows nodes?
 
