@@ -6,7 +6,9 @@ ms.date: 06/08/2023
 ms.reviewer: mmcc
 ---
 
-# Instrument your application
+# Enable Azure Monitor Application Insights Overview
+
+## Instrument your application
 
 At a basic level, "instrumenting" is simply enabling an application to capture telemetry.
 
@@ -64,17 +66,17 @@ Alternatively, sending application telemetry via an agent like OpenTelemetry-Col
 > For Azure Monitor's position on the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md), see the [OpenTelemetry FAQ](../faq.yml#can-i-use-the-opentelemetry-collector-).
 
 > [!TIP]
-> If you are planning to use OpenTelemetry-Collector for sampling or additional data processing, you may be able to get these same capabilities built-in to Azure Monitor. Customers who have migrated to [Workspace-based Appplication Insights](convert-classic-resource.md) can benefit from [Ingestion-time Transformations](./essentials/data-collection-transformations.md). To enable, follow the details in the [tutorial](./logs/tutorial-workspace-transformations-portal.md), skipping the step that shows how to set up a diagnostic setting since with Workspace-centric Application Insights this is already configured. If you’re filtering less than 50% of the overall volume, it’s no additional cost. After 50%, there is a cost but much less than the standard per GB charge.
+> If you are planning to use OpenTelemetry-Collector for sampling or additional data processing, you may be able to get these same capabilities built-in to Azure Monitor. Customers who have migrated to [Workspace-based Appplication Insights](convert-classic-resource.md) can benefit from [Ingestion-time Transformations](../essentials/data-collection-transformations.md). To enable, follow the details in the [tutorial](../logs/tutorial-workspace-transformations-portal.md), skipping the step that shows how to set up a diagnostic setting since with Workspace-centric Application Insights this is already configured. If you’re filtering less than 50% of the overall volume, it’s no additional cost. After 50%, there is a cost but much less than the standard per GB charge.
 
-# OpenTelemetry
+## OpenTelemetry
 
 Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. You, our customers, have asked for vendor-neutral instrumentation, and we're pleased to partner with the OpenTelemetry community to create consistent APIs and SDKs across languages.
 
-## Background
+### OpenTelemetry Background
 
 Microsoft worked with project stakeholders from two previously popular open-source telemetry projects, [OpenCensus](https://opencensus.io/) and [OpenTracing](https://opentracing.io/). Together, we helped to create a single project, OpenTelemetry. OpenTelemetry includes contributions from all major cloud and Application Performance Management (APM) vendors and lives within the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/). Microsoft is a Platinum Member of the CNCF.
 
-## Terms
+### OpenTelemetry Terms
 
 For terminology, see the [glossary](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/glossary.md) in the OpenTelemetry specifications.
 
@@ -89,7 +91,7 @@ Traces | Logs
 Request | Server Span
 Dependency | Client Span
 
-# Next steps
+## Next steps
 
 1. Select your enablement approach:
 - [Auto-instrumentation](codeless-overview.md)
