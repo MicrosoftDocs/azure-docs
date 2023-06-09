@@ -49,7 +49,7 @@
       href: create-host-cli.md
   - name: Configure Bastion settings
     items:
-    - name: Upgrade a SKU
+    - name: View or upgrade SKU
       href: upgrade-sku.md
     - name: Configure host scaling
       items:

@@ -17639,6 +17639,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/web-application-firewall/ag/powershell-samples.md",
+            "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/ag/resource-manager-template-samples.md",
+            "redirect_url": "/azure/web-application-firewall/ag/quick-create-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/afds/resource-manager-template-samples.md",
+            "redirect_url": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-waf-managed/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/frontdoor/waf-overview.md",
             "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
             "redirect_document_id": false
