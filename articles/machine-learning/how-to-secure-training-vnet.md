@@ -18,9 +18,6 @@ ms.devlang: azurecli
 
 [!INCLUDE [SDK v2](../../includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [SDK v1](./v1/how-to-secure-training-vnet.md?view=azureml-api-1&preserve-view=true)
-> * [SDK v2 (current version)](how-to-secure-training-vnet.md)
 
 Azure Machine Learning compute instance and compute cluster can be used to securely train models in an Azure Virtual Network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
 

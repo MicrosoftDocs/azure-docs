@@ -243,7 +243,7 @@ The following **CommonSecurityLog** fields are added by Microsoft Sentinel to en
 |---------|---------|
 |   **IndicatorThreatType**  |  The [MaliciousIP](#MaliciousIP) threat type, according to the threat intelligence feed.       |
 | <a name="MaliciousIP"></a>**MaliciousIP** | Lists any IP addresses in the message that correlates with the current threat intelligence feed. |
-|  **MaliciousIPCountry**   | The [MaliciousIP](#MaliciousIP) country, according to the geographic information at the time of the record ingestion.        |
+|  **MaliciousIPCountry**   | The [MaliciousIP](#MaliciousIP) country/region, according to the geographic information at the time of the record ingestion.        |
 | **MaliciousIPLatitude**    |   The [MaliciousIP](#MaliciousIP) longitude, according to the geographic information at the time of the record ingestion.      |
 | **MaliciousIPLongitude**    |  The [MaliciousIP](#MaliciousIP) longitude, according to the geographic information at the time of the record ingestion.       |
 | **ReportReferenceLink**    |    Link to the threat intelligence report.     |

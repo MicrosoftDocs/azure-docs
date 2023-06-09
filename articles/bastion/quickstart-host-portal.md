@@ -5,7 +5,7 @@ description: Learn how to deploy Bastion with default settings from the Azure po
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 06/06/2023
+ms.date: 06/08/2023
 ms.author: cherylmc
 
 ---
@@ -48,9 +48,7 @@ The steps in this article help you do the following:
   * 3389 for Windows VMs
   * 22 for Linux VMs
 
-> [!NOTE]
-> The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
->
+[!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
 
 ### <a name="values"></a>Example values
 

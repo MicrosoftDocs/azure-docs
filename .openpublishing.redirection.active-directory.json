@@ -4341,6 +4341,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/azure-ad-account.md",
+      "redirect_url": "/azure/active-directory/external-identities/default-account",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
       "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
       "redirect_document_id": false
@@ -6685,6 +6690,22 @@
       "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/migrate-adfs-apps-to-azure.md",
+      "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-stages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory.md",
+      "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-phases-overview",
+      "redirect_document_id": false
+    },
+
+
+
+
+
+
     {
       "source_path_from_root": "/articles/active-directory/application-config-sso-problem-configure-federated-sso-gallery.md",
       "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-saml-based-sso",
@@ -12072,6 +12093,12 @@
       "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-change-serviceacct-pass",
       "redirect_document_id": false
       },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-external-identities-videos.md",
+        "redirect_url": "/azure/active-directory-b2c/external-identities-videos",
+        "redirect_document_id": true
+      },
       
       {
       "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-change-the-configuration.md",
@@ -12659,6 +12686,24 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory/standards/azure-ad-pci-dss-guidance.md",
+        "redirect_url": "/azure/active-directory/standards/pci-dss-guidance",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/standards/azure-ad-pci-dss-mfa.md",
+        "redirect_url": "/azure/active-directory/standards/pci-dss-mfa",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/standards/hipaa-configure-azure-active-directory-for-compliance.md",
+        "redirect_url": "/azure/active-directory/standards/hipaa-configure-for-compliance",
+        "redirect_document_id": true
+      },
+
+      {
         "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-introduction.md",
         "redirect_url": "/azure/active-directory/fundamentals/secure-introduction",
         "redirect_document_id": true
@@ -12712,6 +12757,60 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-funnel-based-design.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-funnel-based-design",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-solutions.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-solutions",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-proof-of-concept-funnel.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-proof-of-concept-funnel",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-proof-of-concept-regional.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-proof-of-concept-regional",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-region-based-design.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-region-based-design",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/azure-active-directory-parallel-identity-options.md",
+        "redirect_url": "/azure/active-directory/fundamentals/parallel-identity-options",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/azure-active-directory-b2c-deployment-plans.md",
+        "redirect_url": "/azure/active-directory/fundamentals/b2c-deployment-plans",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-sentinel.md",
+        "redirect_url": "/azure/active-directory-b2c/configure-security-analytics-sentinel",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/partner-azure-web-application-firewall.md",
+        "redirect_url": "/azure/active-directory-b2c/partner-web-application-firewall",
+        "redirect_document_id": true
+      },
+
+      {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/microsoft-graph-operations-custom-extensions.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
       "redirect_document_id": false
@@ -12733,7 +12832,31 @@
         "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-management-apis-overview.md",
         "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
         "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-passwords-faq.yml",
+        "redirect_url": "/azure/active-directory/authentication/passwords-faq",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-android.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-android",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-ios.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-ios",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-get-started.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-get-started",
+        "redirect_document_id": false
       }
-    
+      
       ]
 } 
