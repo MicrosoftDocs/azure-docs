@@ -122,7 +122,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over s
         VirtualNetworkName = 'vnet-1'
         Sku = 'Basic'
     }
-    New-AzBastion @bastion -AsJob
+    New-AzBastion @bastion
     ```
 
 It takes about 10 minutes for the Bastion resources to deploy. You can create VMs in the next section while Bastion deploys to your virtual network.
