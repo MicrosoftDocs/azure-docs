@@ -36,7 +36,7 @@ To determine the type of endpoint that best suits your needs, see [Compare Priva
 
 The process for enabling each type of endpoint follows:
 
-- [Configure Storage service endpoint](#configure-storage-service-endpoint)
+- [Configure Azure Storage service endpoint](#configure-azure-storage-service-endpoint)
 - [Configure private endpoint](#configure-private-endpoint)
 
 ### Configure Azure Storage service endpoint
