@@ -120,7 +120,7 @@ sections:
   - name: Restricted management administrative units (Preview)
     questions:
       - question: |
-          I am the owner of a protected group. How are my permissions affected?
+          I am the owner of a group that is a member of a restricted management administrative unit. How are my permissions affected?
         answer: |
           As an owner of a protected group, you won't be able to manage it just based on ownership. Managing protected resources currently require a role to be assigned at the restricted management administrative unit scope of the protected resource.
       - question: |
