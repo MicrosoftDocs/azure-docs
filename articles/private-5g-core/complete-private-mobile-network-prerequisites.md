@@ -159,6 +159,8 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | SCTP 38412 Inbound   | Port 3 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 3 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
+| UDP 5671 Outbound    | Port 3 (Access network) |  |
+| UDP 5672 Outbound    | Port 3 (Access network) |  |
 | All IP traffic       | Port 4 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
 
 :::zone-end
@@ -177,6 +179,8 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
+| UDP 5671 Outbound    | Port 3 (Access network) |  |
+| UDP 5672 Outbound    | Port 3 (Access network) |  |
 | All IP traffic       | Port 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
 :::zone-end
 
