@@ -114,7 +114,7 @@ Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptio
 
 #### Credit card form doesn't support my billing address
 
-Your billing address must be in the country that you select in the **About you** section. Verify that you have selected the correct country.
+Your billing address must be in the country/region that you select in the **About you** section. Verify that you have selected the correct country/region.
 
 #### Progress bar hangs in identity verification by card section
 

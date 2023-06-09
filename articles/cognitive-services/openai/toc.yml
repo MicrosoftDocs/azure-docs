@@ -50,6 +50,8 @@ items:
       href: ./how-to/completions.md
     - name: OpenAI vs Azure OpenAI (Python)
       href: ./how-to/switching-endpoints.md
+    - name: Configure content filters
+      href: ./how-to/content-filters.md
     - name: Work with code (Codex)
       href: ./how-to/work-with-code.md
     - name: Generate embeddings
@@ -60,6 +62,8 @@ items:
       href: ./how-to/fine-tuning.md
     - name: Manage identity
       href: ./how-to/managed-identity.md
+    - name: Manage quota
+      href: ./how-to/quota.md
     - name: Use virtual networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context
     - name: Use with large datasets
