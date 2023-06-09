@@ -47,7 +47,7 @@ On the **Create an Azure Cosmos DB for PostgreSQL cluster** form:
    * The cluster name determines the DNS name your applications use to connect, in the form `<node-qualifier>-<clustername>.<uniqueID>.postgres.cosmos.azure.com`.
    * You can choose a major PostgreSQL version such as 15. Azure Cosmos DB for PostgreSQL always supports the latest Citus version for the selected major Postgres version.
    * The admin username must be the value `citus`.
-   * You can leave database name a its default value 'citus' or define your only database name. You can't rename database after cluster provisioning.
+   * You can leave database name at its default value 'citus' or define your only database name. You can't rename database after cluster provisioning.
 
 1. Select **Next : Networking** at the bottom of the screen.
 1. On the **Networking** screen, select **Allow public access from Azure services and resources within Azure to this cluster**.
