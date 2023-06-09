@@ -63,7 +63,7 @@ If your database server disallows public access, please make sure your environme
 ::: zone-end
 
 ### Install the Service Connector passwordless extension
-[!INCLUDE [CLI-samples-clean-up](./install_passwordless_extension.md)]
+[!INCLUDE [CLI-samples-clean-up](./includes/install_passwordless_extension.md)]
 
 
 ## Create passwordless connection
