@@ -21,7 +21,7 @@ Target resources (formerly Cloud apps, actions, and authentication context) are 
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../app-proxy/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a [user action](#user-actions) like **Register security information** or **Register or join devices**, allowing Conditional Access to enforce controls around those actions.
-- Administrators can target [traffic profiles](#traffic-profiles) from Global Secure Access for enhanced functionality.
+- Administrators can target [traffic forwarding profiles](#traffic-forwarding-profiles) from Global Secure Access for enhanced functionality.
 - Administrators can use [authentication context](#authentication-context) to provide an extra layer of security in applications. 
 
 ![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
