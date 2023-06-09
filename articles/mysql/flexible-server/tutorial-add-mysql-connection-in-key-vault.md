@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 author: mksuni
 ms.author: sumuth 
-ms.date: 12/07/2022
+ms.date: 06/08/2023
 ---
 
 # Tutorial: Manage MySQL credentials in Azure Key Vault
@@ -156,5 +156,5 @@ print("Connection string retrieved:", conn_string)
 ```
 -----
 
-## Next Steps
+## Next steps
 [Azure Key Vault client libraries](../../key-vault/general/client-libraries.md)
