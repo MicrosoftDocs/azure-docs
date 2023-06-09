@@ -58,12 +58,10 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 
 ## Prerequisites
 
-| Prerequisite | Remarks |
-|---|---|
-| Azure account | If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
-| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
+- **Azure account**: If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+- **Azure CLI**: Install the [Azure CLI](/cli/azure/install-azure-cli).
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
-| Azure DevOps organization with an active subscription | If you don't have one, you [can create one for free](https://azure.microsoft.com/services/devops/). |
+- **Azure DevOps organization**: If you don't have a DevOps organization with an active subscription, you [can create one for free](https://azure.microsoft.com/services/devops/).
 ::: zone-end
 
 Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a list of limitations.
