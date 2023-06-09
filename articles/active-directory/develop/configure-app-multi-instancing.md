@@ -25,7 +25,7 @@ A user can sign-in to an application one of the following ways:
 - Through the application directly, which is known as service provider (SP) initiated single sign-on (SSO).
 - Go directly to the identity provider (IDP), known as IDP initiated SSO. 
 
-Depending on which approach is used within your organization, you'll need to follow the appropriate instructions described in this article.
+Depending on which approach is used within your organization, follow the appropriate instructions described in this article.
 
 ## SP initiated SSO
 
@@ -47,7 +47,7 @@ The IDP initiated SSO feature exposes the following settings for each applicatio
 
 ### Configure IDP initiated SSO
 
-1. Open any SSO enabled enterprise app and navigate to the SAML single sign on blade.
+1. Open any SSO enabled enterprise app and navigate to the SAML single sign-on blade.
 1. Select **Edit** on the **User Attributes & Claims** panel.
 1. Select **Edit** to open the advanced options blade.
 1. Configure both options according to your preferences and then select **Save**.
