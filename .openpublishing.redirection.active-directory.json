@@ -12093,6 +12093,12 @@
       "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-change-serviceacct-pass",
       "redirect_document_id": false
       },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-external-identities-videos.md",
+        "redirect_url": "/azure/active-directory-b2c/external-identities-videos",
+        "redirect_document_id": true
+      },
       
       {
       "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-change-the-configuration.md",

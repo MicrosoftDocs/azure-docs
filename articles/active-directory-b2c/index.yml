@@ -320,7 +320,7 @@ conceptualContent:
             url: find-help-open-support-ticket.md
             itemType: how-to-guide
           # - text: Videos
-            # url: azure-ad-external-identities-videos.md
+            # url: external-identities-videos.md
             #itemType: how-to-guide
           # - text: Custom policy references
             #url: trustframeworkpolicy.md
