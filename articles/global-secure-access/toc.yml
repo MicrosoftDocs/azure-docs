@@ -15,8 +15,6 @@ items:
     href: how-to-install-windows-client.md
   - name: Remote networks
     expanded: false
-  - name: Install the Windows client
-    href: how-to-install-windows-client.md
     items:
       - name: Remote network connectivity
         href: concept-remote-network-connectivity.md
