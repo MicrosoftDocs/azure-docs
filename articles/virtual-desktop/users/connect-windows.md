@@ -114,4 +114,4 @@ If you want to help us test new builds before they're released, you should downl
 
 - To learn more about the features of the Remote Desktop client for Windows, check out [Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop](client-features-windows.md).
 
-- If you want to use Teams on Azure Virtual Desktop with media optimization, see [Enable media optimization for Microsoft Teams on Azure Virtual Desktop](../teams-on-avd.md).
+- If you want to use Teams on Azure Virtual Desktop with media optimization, see [Use Microsoft Teams on Azure Virtual Desktop](../teams-on-avd.md).
