@@ -10,9 +10,10 @@ author: kalyaninamuduri
 #Customer intent: As an SAP Basis Admin, I want to understand how to configure backup for my SAP system and monitor it to ensure backups are running as expected.
 ---
 
-# Configure and monitor Azure Backup status for your SAP system through Virtual Instance for SAP solutions
+# Configure and monitor Azure Backup status for your SAP system through Virtual Instance for SAP solutions (Preview)
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
+> [!NOTE]
+> Configuration of Backup from Virtual Instance for SAP solutions feature is currently in Preview.
 
 In this how-to guide, you'll learn to configure and monitor Azure Backup for your SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions.
 
