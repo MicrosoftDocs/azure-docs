@@ -16,4 +16,4 @@ The following limits apply to [dev tunnels](https://aka.ms/devtunnels/docs). The
 | HTTP request rate | 1000/min per port |
 | Data transfer rate | Up to 5 MB/s per tunnel |
 
-To request higher usage limits for dev tunnels, please open an issue in our [GitHub repo](https://github.com/Microsoft/dev-tunnels/issues). In the issue, include which limit you'd like increased and why.
+To request higher usage limits for dev tunnels, open an issue in our [GitHub repo](https://github.com/Microsoft/dev-tunnels/issues). In the issue, include which limit you'd like increased and why.
