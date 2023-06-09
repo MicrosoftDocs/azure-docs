@@ -1,5 +1,5 @@
 ---
-title: User management permissions for Azure AD custom roles (preview)
+title: User management permissions for Azure AD custom roles
 description: User management permissions for Azure AD custom roles in the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
@@ -8,17 +8,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/26/2022
+ms.date: 06/09/2023
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
 ---
 
-# User management permissions for Azure AD custom roles (preview)
-
-> [!IMPORTANT]
-> User management permissions for Azure AD custom roles is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# User management permissions for Azure AD custom roles
 
 User management permissions can be used in custom role definitions in Azure Active Directory (Azure AD) to grant fine-grained access such as the following:
 
@@ -51,15 +47,14 @@ The following permissions are available to read or update basic properties of us
 > | microsoft.directory/users/standard/read | Read basic properties on users. |
 > | microsoft.directory/users/basic/update | Update basic properties on users. |
 
-## Read or update identity of users
+## Read identity of users
 
-The following permissions are available to read or update identity of users.
+The following permissions are available to read identity of users.
 
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | ---------- | ----------- |
 > | microsoft.directory/users/identities/read | Read identities of users. |
-> | microsoft.directory/users/identities/update | Update the identity properties of users, such as name and user principal name. |
 
 ## Read or update job information of users
 
@@ -172,7 +167,6 @@ The following permissions are available to read assignments and memberships of u
 > | microsoft.directory/users/directReports/read | Read the direct reports for users. |
 > | microsoft.directory/users/extensionProperties/update | Update extension properties of users. |
 > | microsoft.directory/users/identities/read | Read identities of users. |
-> | microsoft.directory/users/identities/update | Update the identity properties of users, such as name and user principal name. |
 > | microsoft.directory/users/jobInfo/update | Update the job info properties of users, such as job title, department, and company name. |
 > | microsoft.directory/users/licenseDetails/read | Read license details of users. |
 > | microsoft.directory/users/manager/read | Read manager of users. |
