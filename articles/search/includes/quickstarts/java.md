@@ -22,33 +22,33 @@ We used the following tools to create this quickstart.
 
 1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) **Ctrl+Shift+P**. Search for **Create Java Project**.
 
-   :::image type="content" source="../../media/search-get-started-java/java-quickstart-create-project.png" alt-text="Screenshot of a create a java project." border="true":::
+   :::image type="content" source="../../media/search-get-started-java/java-quickstart-create-project.png" alt-text="Screenshot of a Java project." border="true":::
 
 1. Select **Maven**.
 
-   :::image type="content" source="../../media/search-get-started-java/java-quickstart-select-maven.png" alt-text="Screenshot of a create a maven project." border="true":::
+   :::image type="content" source="../../media/search-get-started-java/java-quickstart-select-maven.png" alt-text="Screenshot of a maven project." border="true":::
 
 1. Select **maven-archetype-quickstart**.
 
-   :::image type="content" source="../../media/search-get-started-java/java-quickstart-select-maven-project-type.png" alt-text="Screenshot of a create a maven quickstart project." border="true":::
+   :::image type="content" source="../../media/search-get-started-java/java-quickstart-select-maven-project-type.png" alt-text="Screenshot of a maven quickstart project." border="true":::
 
 1. Select the latest version, currently **1.4**.
 
-   :::image type="content" source="../../media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
+   :::image type="content" source="../../media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of the group ID location." border="true":::
 
 1. Enter **azure.search.sample** as the group ID.
 
-   :::image type="content" source="../../media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
+   :::image type="content" source="../../media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of the group ID for search.." border="true":::
 
 1. Enter **azuresearchquickstart** as the artifact ID.
 
-   :::image type="content" source="../../media/search-get-started-java/java-quickstart-artifact-id.png" alt-text="Screenshot of an enter artifact id." border="true":::
+   :::image type="content" source="../../media/search-get-started-java/java-quickstart-artifact-id.png" alt-text="Screenshot of an artifact ID." border="true":::
 
 1. Select the folder to create the project in.
 
 1. Finish project creation in the [integrated terminal](https://code.visualstudio.com/docs/terminal/basics). Press enter to accept the default for "1.0-SNAPSHOT" and then type "y" to confirm the properties for your project.
 
-    :::image type="content" source="../../media/search-get-started-java/java-quickstart-finish-setup-terminal.png" alt-text="Screenshot of a finish setup in terminal." border="true":::
+    :::image type="content" source="../../media/search-get-started-java/java-quickstart-finish-setup-terminal.png" alt-text="Screenshot of the finished project definition." border="true":::
 
 1. Open the folder you created the project in.
 
