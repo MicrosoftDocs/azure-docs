@@ -12775,6 +12775,18 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-sentinel.md",
+        "redirect_url": "/azure/active-directory-b2c/configure-security-analytics-sentinel",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/partner-azure-web-application-firewall.md",
+        "redirect_url": "/azure/active-directory-b2c/partner-web-application-firewall",
+        "redirect_document_id": true
+      },
+
+      {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/microsoft-graph-operations-custom-extensions.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
       "redirect_document_id": false
