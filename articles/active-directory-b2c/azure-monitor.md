@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 06/01/2023
+ms.date: 06/12/2023
 ms.custom: "b2c-support"
 ---
 
