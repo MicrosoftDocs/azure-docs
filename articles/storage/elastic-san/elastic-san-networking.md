@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 06/09/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell
@@ -59,15 +59,31 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 # [PowerShell](#tab/azure-powershell)
 
 ```powershell
-$resourceGroupName = "yourResourceGroup"
-$vnetName = "yourVirtualNetwork"
-$subnetName = "yourSubnet"
+$VnetRgName = "<vnet resource group name>"
+$VnetName   = "<vnet name>"
+$SnetName   = "<subnet name>"
 
-$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
+$Vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $VnetRgName
+$Subnet = $Vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $SnetName}
 
-$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
+$EsanRgName = "<elastic SAN resource group name>"
+$EsanName   = "<elastic SAN name>"
+$EsanVgName = "<elastic SAN volume group name>"
 
-$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
+$Esan = Get-AzElasticSan -Name $EsanName -ResourceGroupName $EsanRgName
+
+$PlSvcConnName = "<private link connection name>"
+$EsanPeSvcConn = New-AzPrivateLinkServiceConnection -Name $PlSvcConnName -PrivateLinkServiceId $Esan.Id -GroupId $EsanVgName
+
+$PeArguments = @{
+    Name = '<private endpoint name>'
+    ResourceGroupName = $VnetRgName
+    Location = '<private endpoint location>'
+    Subnet = $Subnet
+    PrivateLinkServiceConnection = $EsanPeSvcConn
+}
+
+New-AzPrivateEndpoint @PeArguments
 ```
 
 # [Azure CLI](#tab/azure-cli)
