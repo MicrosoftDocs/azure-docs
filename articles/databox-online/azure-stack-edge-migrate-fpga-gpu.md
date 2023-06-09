@@ -39,6 +39,7 @@ This section provides a comparative summary of capabilities between the Azure St
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
 | Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)  |
 
+
 ### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
 
 |    Capability  | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
@@ -48,6 +49,7 @@ This section provides a comparative summary of capabilities between the Azure St
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
 | Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)  |
+
 ---
 
 ## Migration plan
