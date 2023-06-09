@@ -58,16 +58,14 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-
-- Install the [Azure CLI](/cli/azure/install-azure-cli).
-
-- See [Jobs preview limitations](jobs.md#jobs-preview-restrictions) for a list of limitations.
-::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
-- An Azure DevOps organization with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/services/devops/).
+| Prerequisite | Remarks |
+|---|---|
+| Azure account | If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
+| Azure DevOps organization with an active subscription | If you don't have one, you [can create one for free](https://azure.microsoft.com/services/devops/). |
 ::: zone-end
+
+Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a list of limitations.
 
 ## Setup
 
@@ -96,30 +94,30 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
     az provider register --namespace Microsoft.OperationalInsights
     ```
 
-Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
+1. Define the environment variables that are used throughout this article.
 
-::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
+    ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
-```bash
-RESOURCE_GROUP="jobs-sample"
-LOCATION="northcentralus"
-ENVIRONMENT="env-jobs-sample"
-JOB_NAME="github-actions-runner-job"
-```
+    ```bash
+    RESOURCE_GROUP="jobs-sample"
+    LOCATION="northcentralus"
+    ENVIRONMENT="env-jobs-sample"
+    JOB_NAME="github-actions-runner-job"
+    ```
 
-::: zone-end
+    ::: zone-end
 
-::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
+    ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
 
-```bash
-RESOURCE_GROUP="jobs-sample"
-LOCATION="northcentralus"
-ENVIRONMENT="env-jobs-sample"
-JOB_NAME="azure-pipelines-agent-job"
-PLACEHOLDER_JOB_NAME="placeholder-agent-job"
-```
+    ```bash
+    RESOURCE_GROUP="jobs-sample"
+    LOCATION="northcentralus"
+    ENVIRONMENT="env-jobs-sample"
+    JOB_NAME="azure-pipelines-agent-job"
+    PLACEHOLDER_JOB_NAME="placeholder-agent-job"
+    ```
 
-::: zone-end
+    ::: zone-end
 
 ## Create a Container Apps environment
 
@@ -335,16 +333,20 @@ To execute a pipeline, you need an Azure DevOps project and repository.
 
 1. Select an existing organization or create a new one.
 
-1. In the organization overview page, select **New project**.
-    - In the *Project name* field, enter a name for your project.
-    - For *Visibility*, select **Private**.
-    - Select **Create**.
+1. In the organization overview page, select **New project** and enter the following values.
 
-1. In the project overview page, select **Repos**.
+    | Setting | Value |
+    |---|---|
+    | *Project name* | Enter a name for your project. |
+    | *Visibility* | Select **Private**. |
+
+1. Select **Create**.
+
+1. From the side navigation, select **Repos**.
 
 1. Under *Initialize main branch with a README or .gitignore*, select **Add a README**.
 
-1. Leave the default values and select **Initialize**.
+1. Leave the rest of the values as defaults and select **Initialize**.
 
 ## Create a new agent pool
 
@@ -352,32 +354,48 @@ Create a new agent pool to run the self-hosted runner.
 
 1. In your Azure DevOps project, expand the left navigation bar and select **Project settings**.
 
+    :::image type="content" source="media/runners/azure-devops-project-settings.png" alt-text="Screenshot of the Azure DevOps project settings button.":::
+
 1. Under the *Pipelines* section in the *Project settings* navigation menu, select **Agent pools**.
 
-1. Select **Add pool**.
-    - For *Pool to link*, select **New**.
-    - For *Pool type*, select **Self-hosted**.
-    - In *Name*, enter **container-apps**.
-    - Select **Grant access permission to all pipelines**.
-    - Select **Create**.
+    :::image type="content" source="media/runners/azure-devops-agent-pools.png" alt-text="Screenshot of Azure DevOps agent pools button.":::
 
-## Obtain an Azure DevOps personal access token
+1. Select **Add pool** and enter the following values.
+
+    | Setting | Value |
+    |---|---|
+    | *Pool to link* | Select **New**. |
+    | *Pool type* | Select **Self-hosted**. |
+    | *Name* | Enter **container-apps**. |
+    | *Grant access permission to all pipelines* | Select this checkbox. |
+
+1. Select **Create**.
+
+## Get an Azure DevOps personal access token
 
 To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps. It's also used by the scale rule to determine the number of pending pipeline runs and trigger new job executions.
 
-1. In Azure DevOps, select *User settings* next to your profile picture in the upper-right corner. Select **Personal access tokens**.
+1. In Azure DevOps, select *User settings* next to your profile picture in the upper-right corner.
 
-1. In the *Personal access tokens* page, select **New Token**.
-    - In *Name*, enter a name for your token.
-    - In *Organization*, select the organization you created earlier.
-    - In *Expiration*, select **90 days**. Make sure to update the job with a new token before it expires.
-    - Under *Scopes*, select **Custom defined**.
-    - Select **Show all scopes**.
-    - Select **Agent Pools (Read & manage)**.
-    - Leave all other scopes unselected
-    - Select **Create**.
+1. Select **Personal access tokens**.
 
-1. Copy the token value to a secure location. You can't retrieve the token after you leave the page.
+1. In the *Personal access tokens* page, select **New Token** and enter the following values.
+
+    | Setting | Value |
+    |---|---|
+    | *Name* | Enter a name for your token. |
+    | *Organization* | Select the organization you chose or created earlier. |
+    | *Scopes* | Select **Custom defined**. |
+    | *Show all scopes* | Select **Show all scopes**.  |
+    | *Agent Pools (Read & manage)* | Select **Agent Pools (Read & manage)**. |
+
+    Leave all other scopes unselected.
+
+1. Select **Create**.
+
+1. Copy the token value to a secure location.
+
+    You can't retrieve the token after you leave the page.
 
 1. Define variables that are used to configure the Container Apps jobs later.
 
@@ -388,8 +406,11 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     ```
 
     Replace the placeholders with the following values:
-    - `<AZP_TOKEN>`: The Azure DevOps PAT you generated.
-    - `<ORGANIZATION_URL>`: The URL of your Azure DevOps organization. For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`.
+
+    | Placeholder | Value | Comments |
+    |---|---|---|
+    | `<AZP_TOKEN>` | The Azure DevOps PAT you generated. | |
+    | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
 
 ## Build the Azure Pipelines agent container image
 
@@ -405,7 +426,9 @@ To create a self-hosted agent, you need to build a container image that runs the
     CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
     ```
 
-    Replace `<CONTAINER_REGISTRY_NAME>` with a unique name for creating a container registry. Container registry names must be *unique within Azure* and be from 5 to 50 characters in length containing numbers and lowercase letters only.
+    Replace `<CONTAINER_REGISTRY_NAME>` with a unique name for creating a container registry.
+
+    Container registry names must be *unique within Azure* and be from 5 to 50 characters in length containing numbers and lowercase letters only.
 
 1. Create a container registry.
 
@@ -548,6 +571,7 @@ Now that you've configured a self-hosted agent job, you can run a pipeline and v
     pool:
       name: container-apps
     ```
+
 1. Select **Save and run**.
 
     The pipeline runs and uses the self-hosted agent job you created in the Container Apps environment.
