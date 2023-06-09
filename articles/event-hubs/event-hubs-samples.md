@@ -2,7 +2,7 @@
 title: Samples - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of samples for Azure Event Hubs that are on GitHub.  
 ms.topic: article
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/05/2023 
 ---
 

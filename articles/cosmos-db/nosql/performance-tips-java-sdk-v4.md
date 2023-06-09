@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 04/22/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, contperf-fy21q2, ignite-2022
+ms.custom: devx-track-java, contperf-fy21q2, ignite-2022, devx-track-extended-java
 ---
 
 # Performance tips for Azure Cosmos DB Java SDK v4

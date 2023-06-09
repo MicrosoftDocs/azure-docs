@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 06/06/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -23,7 +23,7 @@ You can create multiple user flows if you have multiple applications that you wa
 
 ## Prerequisites
 
-- **An Azure AD customer tenant**: Before you begin, create your Azure AD customer tenant. You can set up a [free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl), or you can create a new customer tenant in Azure AD.
+- **An Azure AD customer tenant**: Before you begin, create your Azure AD customer tenant. You can set up a <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">free trial</a>, or you can create a new customer tenant in Azure AD.
 - **Email one-time passcode enabled (optional)**: If you want customers to use their email address and a one-time passcode each time they sign in, make sure Email one-time passcode is enabled at the tenant level (in the [Microsoft Entra admin center](https://entra.microsoft.com/), navigate to **External Identities** > **All Identity Providers** > **Email One-time-passcode**).
 - **Custom attributes defined (optional)**: User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can [define custom attributes to collect during sign-up](how-to-define-custom-attributes.md). Define custom attributes in advance so they're available when you set up your user flow. Or you can create and add them later.
 - **Identity providers defined (optional)**: You can set up federation with [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) in advance, and then select them as sign-in options as you create the user flow.
@@ -57,9 +57,15 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
    :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/create-user-flow-identity-providers.png" alt-text="Screenshot of Identity provider options on the Create a user flow page.":::
 
-1. Under **User attributes**, choose the attributes you want to collect from the user during sign-up. Select **Show more** to choose from the full list of attributes, including **Job Title**, **Display Name**, and **Postal Code**. This list also includes any custom attributes you defined.
+1. Under **User attributes**, choose the attributes you want to collect from the user during sign-up.
 
-   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes.png" alt-text="Screenshot of the user attribute options on the Create a user flow page.":::
+   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes.png" alt-text="Screenshot of the user attribute options on the Create a user flow page." lightbox="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes.png":::
+
+1. Select **Show more** to choose from the full list of attributes, including **Job Title**, **Display Name**, and **Postal Code**.
+
+   This list also includes any [custom attributes you defined](how-to-define-custom-attributes.md). Select the checkbox next to each attribute you want to collect from the user during sign-up
+
+   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes-show-more.png" alt-text="Screenshot of the user attribute pane after selecting Show more." lightbox="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes-show-more.png":::
 
 1. Select **OK**.
 

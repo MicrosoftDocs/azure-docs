@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: codepen
 ---
 
 # Add a polygon extrusion layer to the map

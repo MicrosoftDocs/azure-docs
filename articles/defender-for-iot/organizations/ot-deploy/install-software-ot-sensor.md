@@ -37,6 +37,9 @@ Before installing Microsoft Defender for IoT, make sure that you have:
 
 This step is performed by your deployment teams.
 
+> [!NOTE]
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
+
 ## Download software files from the Azure portal
 
 Download the OT sensor software from Defender for IoT in the Azure portal.

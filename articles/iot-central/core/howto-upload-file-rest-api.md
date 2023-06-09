@@ -1,6 +1,6 @@
 ---
-title: Use the REST API to add upload storage account configuration in Azure IoT Central
-description: How to use the IoT Central REST API to add upload storage account configuration in an application
+title: Configure uploads with the REST API in Azure IoT Central
+description: How to use the IoT Central REST API to add an upload storage account configuration in an application
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/12/2022

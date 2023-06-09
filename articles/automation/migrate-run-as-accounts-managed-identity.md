@@ -3,9 +3,9 @@ title: Migrate from a Run As account to Managed identities
 description: This article describes how to migrate from a Run As account to managed identities in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/14/2023
+ms.date: 05/29/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Migrate from an existing Run As account to Managed identities
@@ -40,6 +40,7 @@ Before you migrate from a Run As account or Classic Run As account to a managed 
 
 1. If you're using Classic Run As accounts, ensure that you have [migrated](../virtual-machines/classic-vm-deprecation.md) resources deployed through classic deployment model to Azure Resource Manager.
 1. Use [this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/Check-AutomationRunAsAccountRoleAssignments.ps1) to find out which Automation accounts are using a Run As account. If your Azure Automation accounts contain a Run As account, it will have the built-in contributor role assigned to it by default. You can use the script to check the Azure Automation Run As accounts and determine if their role assignment is the default one or if it has been changed to a different role definition.
+1. Use [this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/IdentifyRunAsRunbooks.ps1) to find out if all runbooks in your Automation account are using the Run As account.
 
 ## Migrate from an Automation Run As account to a managed identity
 
@@ -240,4 +241,3 @@ For more information, see the sample runbook name **AzureAutomationTutorialWithI
 - To learn more about user-assigned managed identities, see [Using a user-assigned managed identity for an Azure Automation account]( add-user-assigned-identity.md).
 
 - For information about Azure Automation account security, see [Azure Automation account authentication overview](automation-security-overview.md).
-

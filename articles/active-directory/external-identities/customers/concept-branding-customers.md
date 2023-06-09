@@ -15,7 +15,7 @@ ms.custom: it-pro
 #Customer intent: As an it admin, I want to know how can I customize my customers' sign-in experiences, including company branding and languages customizations.
 ---
 
-# Customize the neutral default authentication experience for the customer tenant
+# Customize the neutral default authentication experience for the customer tenant (preview)
 
 After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Azure AD, the default Microsoft branding will appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. 
 
@@ -38,6 +38,8 @@ The following image displays the neutral default branding of the customer tenant
    :::image type="content" source="media/how-to-customize-branding-customers/ciam-neutral-branding.png" alt-text="Screenshot of the CIAM neutral branding." lightbox="media/how-to-customize-branding-customers/ciam-neutral-branding.png":::
 
 For more information, see [Customize the neutral branding in your customer tenant](how-to-customize-branding-customers.md).
+
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 ## Text customization
 

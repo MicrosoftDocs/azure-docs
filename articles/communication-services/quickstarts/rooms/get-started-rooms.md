@@ -10,7 +10,7 @@ ms.author: antonsamson
 ms.date: 09/01/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: mode-other, devx-track-azurecli
+ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-azcli-js-csharp-java-python
 ---
 # Quickstart: Create and manage a room resource

@@ -84,6 +84,7 @@ sections:
           
           To upgrade a basic Load balancer to standard, see [Upgrade Azure Public Load Balancer](../load-balancer/upgrade-basic-standard.md)
           To upgrade a basic public IP to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md)
+          To upgrade a basic public IP with an attached VM to standard, see [Upgrade a basic public IP address with an attached VM](../virtual-network/ip-services/public-ip-upgrade-vm.md).
       
       - question: Can NAT gateway be attached to multiple virtual networks?  
         answer: |

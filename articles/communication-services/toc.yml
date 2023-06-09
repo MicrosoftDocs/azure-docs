@@ -359,6 +359,8 @@ items:
       items:
       - name: Enable inline image interoperability in your chat app
         href: tutorials/chat-interop/meeting-interop-features-inline-image.md
+      - name: Enable file attachment interoperability in your chat app
+        href: tutorials/chat-interop/meeting-interop-features-file-attachment.md
     - name: Mobile integrations
       items:
       - name: Enable push notifications in your chat app

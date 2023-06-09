@@ -30,7 +30,7 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 ## 27 March 2023
 **Agent Update**
 
-Azure AD Connect Health ADDS and ADFS Health Agents (version 3.2.2256.26)
+Azure AD Connect Health ADDS and ADFS Health Agents (version 3.2.2256.26, Download Center Only)
 
 - We created a fix for so that the agents would be FIPS compliant
   - the change was to have the agents use ‘CloudStorageAccount.UseV1MD5 = false’ so the agent only uses only FIPS compliant cryptography, otherwise azure blob client causes FIPs exceptions to be thrown.

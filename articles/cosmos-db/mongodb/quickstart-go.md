@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 04/26/2022
-ms.custom: mode-api, devx-track-azurecli, ignite-2022
+ms.custom: mode-api, devx-track-azurecli, ignite-2022, devx-track-go
 ---
 # Quickstart: Connect a Go application to Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

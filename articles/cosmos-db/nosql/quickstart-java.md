@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 03/16/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022, passwordless-java, devx-track-azurecli
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022, passwordless-java, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data
@@ -397,6 +397,10 @@ There are several advanced scenarios that benefit from client-side throughput co
 - **Provide fairness/isolation to different end users/tenants** - An application will usually have many end users. Some users may send too many requests, which consume all available throughput, causing others to get throttled.
 
 - **Load balancing of throughput between different Azure Cosmos DB clients** - in some use cases, it's important to make sure all the clients get a fair (equal) share of the throughput
+
+> [!WARNING]
+> Please note that throughput control is not yet supported for gateway mode. 
+> Currently, for [serverless Azure Cosmos DB accounts](../serverless.md), attempting to use `targetThroughputThreshold` to define a percentage will result in failure. You can only provide an absolute value for target throughput/RU using `targetThroughput`.  
 
 ### Global throughput control
 

@@ -75,7 +75,7 @@ az iot du update init v5 \
     --update-name AptUpdate \
     --update-version 1.0.0 \
     --compat manufacturer=Contoso model=Vacuum \
-    --step handler=handler=microsoft/script:1 properties='{"installedCriteria": "1.0"}' \
+    --step handler=microsoft/script:1 properties='{"installedCriteria": "1.0"}' \
     --file path=/my/apt/manifest/file
 ```
 
