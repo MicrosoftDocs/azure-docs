@@ -67,6 +67,10 @@ At this time, [client source IP preservation][client-source-ip] is not supported
 
 Yes. For the implications of making a change and the options that are available, see [Maximum number of pods][maximum-number-of-pods].
 
+## What is the default TCP timeout in Windows OS?
+
+The default TCP timeout in Windows OS is 4 minutes. AKS does not change or update this value. When a user's application uses a longer timeout, the TCP connections between different containers in the same node will be closed after 4 minutes.
+
 ## Why am I seeing an error when I try to create a new Windows agent pool?
 
 If you created your cluster before February 2020 and have never done any cluster upgrade operations, the cluster still uses an old Windows image. You may have seen an error that resembles:
