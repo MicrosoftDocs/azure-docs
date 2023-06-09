@@ -22,7 +22,7 @@ If the app is [added to the Azure App Gallery](../manage-apps/v2-howto-app-galle
 
 The following diagram shows the workflow of the Azure AD single sign-out process.
 
-![Azure AD Single Sign Out Workflow](./media/single-sign-out-saml-protocol/active-directory-saml-single-sign-out-workflow.png)
+![Azure AD Single Sign Out Workflow](./media/single-sign-out-saml-protocol/saml-single-sign-out-workflow.png)
 
 ## LogoutRequest
 
