@@ -42,7 +42,7 @@ You can connect to Azure Data Manager for Agriculture service from your virtual 
 ### BYOL for satellite imagery
 To support scalable ingestion of geometry-clipped imagery, we've partnered with Sentinel Hub by Sinergise to provide a seamless bring your own license (BYOL) experience. Read more about our satellite connector [here](concepts-ingest-satellite-imagery.md). 
 
-## May 2003
+## May 2023
 
 ### Understanding throttling
 Azure Data Manager for Agriculture implements API throttling to ensure consistent performance by limiting the number of requests within a specified time frame. Throttling prevents resource overuse and maintains optimal performance and reliability for all customers. Details are available [here](concepts-understanding-throttling.md).
