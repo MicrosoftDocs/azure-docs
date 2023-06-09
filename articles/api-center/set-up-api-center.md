@@ -75,6 +75,9 @@ After deployment, your API center is ready to use!
 
 Each API center provides a configurable metadata schema to help you organize APIs and other assets according to properties that you define. Here you define two example properties: *Line of business* and *Public-facing*; if you prefer, define other properties of your own. When you add or update APIs and other assets in your API center, you'll set values for these properties and any common built-in properties.
 
+> [!IMPORTANT]
+> Take care not to include any sensitive, confidential, or personal information in the titles (names) of metadata properties you define. These titles are visible in monitoring logs that are used by Microsoft to improve the functionality of the service. However, metadata details and values are your protected customer data. 
+
 1. In the left menu, select **Metadata > + Add property**. 
 
 1. On the **Details** tab, enter information about the property. 
