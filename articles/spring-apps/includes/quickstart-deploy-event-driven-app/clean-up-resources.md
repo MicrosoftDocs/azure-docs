@@ -48,7 +48,7 @@ You can delete the Azure resource group, which includes all the resources in the
     - **Total resources to delete: [your-resources-total], are you sure you want to continue?**: Enter `y`.
     - **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Enter `y`. Enter `n` if you want to reuse the Key Vault.
 
-   The console outputs messages similar to the following:
+   The console outputs messages similar to the one below:
 
    ```text
    SUCCESS: Your Azure resources have been deleted.

@@ -42,14 +42,14 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
 
-   | Setting        | Suggested Value |Description|
-      |----------------|-----------------|----------|
-   | Subscription   | Your subscription name |The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
-   | Resource group | *myresourcegroup* | A new resource group name or an existing one from your subscription.|
-   | Name           | *myasa*        |A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.|
-   | Plan           | *Basic*        |Pricing Tier determines the resource and cost associated with your instance.|
-   | Region         | The region closest to your users | The location that is closest to your users.|
-   | Zone Redundant | Unchecked      |Whether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.|
+   | Setting        | Suggested Value | Description                                                                                                                                                                                                                                                                                        |
+      |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+   | Subscription   | Your subscription name | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
+   | Resource group | *myresourcegroup* | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | Name           | *myasa*        | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | Plan           | *Basic*        | Pricing Tier determines the resource and cost associated with your instance.                                                                                                                                                                                                                       |
+   | Region         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
+   | Zone Redundant | Unchecked      | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
@@ -69,7 +69,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. After the app creation, select the app name you created in the previous step.
 
-1. On the **Configuration** page, select **Environment variables** tab page, enter `AZURE_KEY_VAULT_ENDPOINT` for **Key**, enter the Key Vault URI for **Value**., then select **Save**
+1. On the **Configuration** page, select **Environment variables** tab page, enter `AZURE_KEY_VAULT_ENDPOINT` for **Key**, enter the Key Vault URI for **Value**, then select **Save**
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-config-env.png" alt-text="Screenshot of Azure portal showing config env for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/app-config-env.png":::
 
@@ -87,7 +87,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. On the **Create an access policy** page, select **Get** and **List** for **Secret permissions**, select **Next**.
 
-1. On the search box, enter your Azure Spring Apps instance name, you can see the below similar search result:
+1. On the search box, enter your Azure Spring Apps instance name, you can see the similar search result:
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-access-policy-app.png" alt-text="Screenshot of Azure portal showing access policy creation" lightbox="../../media/quickstart-deploy-event-driven-app/create-access-policy-app.png":::
 
@@ -118,7 +118,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
     - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
     - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
-   The console outputs messages similar to the following:
+   The console outputs messages similar to the ones below:
 
    ```text
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
