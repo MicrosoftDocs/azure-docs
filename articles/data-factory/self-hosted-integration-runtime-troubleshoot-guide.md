@@ -80,7 +80,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
 
    The **Share the self-hosted integration runtime (SHIR) logs with Microsoft** window opens.
 
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/shir-send-logs-ir.png" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/shir-send-logs-ir.png" alt-text="Screenshot of the send logs button on the self-hosted integration runtime (SHIR) to upload logs to Microsoft.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs-integration-runtime.png" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs-integration-runtime.png" alt-text="Screenshot of the send logs button on the self-hosted integration runtime (SHIR) to upload logs to Microsoft.":::
 
 1. Select which logs you want to send.
 
@@ -89,7 +89,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
 
 1. When the logs are uploaded, keep a record of the Report ID for later use if you need further assistance to solve the issue.
 
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/shir-send-logs-complete.png" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/shir-send-logs-complete.png" alt-text="Screenshot of the displayed report ID in the upload progress window for the Purview SHIR logs.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs-complete.png" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs-complete.png" alt-text="Screenshot of the displayed report ID in the upload progress window for the Purview SHIR logs.":::
 
 > [!NOTE]
 > Log viewing and uploading requests are executed on all online self-hosted IR instances. If any logs are missing, make sure that all the self-hosted IR instances are online.
