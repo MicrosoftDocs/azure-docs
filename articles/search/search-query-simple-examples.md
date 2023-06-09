@@ -130,7 +130,7 @@ When you return search results in a query, a logical next step is to provide a d
 GET /indexes/hotels-sample-index/docs/41?api-version=2020-06-30
 ```
 
-All documents have a unique identifier. If you're using the portal, select the index from **Indexes** tab and then look at the field definitions to determine which field is the key. Using REST, the [Get Index](/rest/api/searchservice/get-index) call returns the index definition in the response body.
+All documents have a unique identifier. If you're using the portal, select the index from the **Indexes** tab and then look at the field definitions to determine which field is the key. Using REST, the [Get Index](/rest/api/searchservice/get-index) call returns the index definition in the response body.
 
 Response for the above query consists of the document whose key is 41. Any field that is marked as "retrievable" in the index definition can be returned in search results and rendered in your app.
 
@@ -188,7 +188,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-Response for the above query is scoped to only those hotels categorized as "Report and Spa", that include the terms "art" or "tours". In this case, there's just one match.
+Response for the above query is scoped to only those hotels categorized as "Report and Spa", and that include the terms "art" or "tours". In this case, there's just one match.
 
 ```json
 {
