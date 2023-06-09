@@ -289,7 +289,7 @@ Certain machine learning scenarios involve working with private data. In such ca
 
 To enable authentication with compute managed identity:
 
- * Create compute with managed identity enabled. See the [compute cluster](#compute-cluster) section, or for compute instance, the [Assign managed identity (preview)](how-to-create-manage-compute-instance.md) section.
+ * Create compute with managed identity enabled. See the [compute cluster](#compute-cluster) section, or for compute instance, the [Assign managed identity](how-to-create-compute-instance.md#assign-managed-identity) section.
  * Grant compute managed identity at least Storage Blob Data Reader role on the storage account.
  * Create any datastores with identity-based authentication enabled. See [Create datastores](how-to-datastore.md).
 

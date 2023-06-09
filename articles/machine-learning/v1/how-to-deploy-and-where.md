@@ -47,14 +47,14 @@ For more information on the concepts involved in the machine learning deployment
 
 - An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 - A model. The examples in this article use a pre-trained model.
-- A machine that can run Docker, such as a [compute instance](../how-to-create-manage-compute-instance.md).
+- A machine that can run Docker, such as a [compute instance](../how-to-create-compute-instance.md).
 
 # [Python SDK](#tab/python)
 
 - An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 - A model. The examples in this article use a pre-trained model.
 - The [Azure Machine Learning software development kit (SDK) for Python](/python/api/overview/azure/ml/intro).
-- A machine that can run Docker, such as a [compute instance](../how-to-create-manage-compute-instance.md).
+- A machine that can run Docker, such as a [compute instance](../how-to-create-compute-instance.md).
 ---
 
 ## Connect to your workspace

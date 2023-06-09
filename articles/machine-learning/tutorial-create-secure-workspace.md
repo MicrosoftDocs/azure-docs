@@ -479,7 +479,7 @@ A compute cluster is used by your training jobs. A compute instance provides a J
 For more information on creating a compute cluster and compute cluster, including how to do so with Python and the CLI, see the following articles:
 
 * [Create a compute cluster](how-to-create-attach-compute-cluster.md)
-* [Create a compute instance](how-to-create-manage-compute-instance.md)
+* [Create a compute instance](how-to-create-compute-instance.md)
 
 ## Configure image builds
 
