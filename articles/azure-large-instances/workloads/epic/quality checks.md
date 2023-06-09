@@ -9,77 +9,38 @@ ms.date: 06/01/2023
 ---
 
 
-Microsoft operations team performs a series of extensive quality checks to ensure that customers request to run Epic systems on Azure ALI is fulfilled accurately, and infrastructure is healthy before handover. 
+Microsoft operations team performs a series of extensive quality checks to ensure that customers request to run Epic systems on Azure ALI is fulfilled accurately, and infrastructure is healthy before handover.
 However, customers are advised to perform their own checks to ensure services are provided as requested. 
 This article identifies recommended checks.  
 
- 
-
 * Basic connectivity  
+* Latency check
+* Server health check from operating system
+* OS level sanity checks / configuration checks
 
+Quality checks often performed by Microsoft teams before the infrastructure handover to the customer include checks in the areas that follow.
 
-Latency check.  
+## Network
 
-Server health check from operating system.  
+* IP blade information  
+* Access control list on firewall
 
-OS level sanity checks / configuration checks.  
+## Compute  
 
-Here are a few areas where quality checks are usually performed by Microsoft teams before the infrastructure handover to the customer.  
+* Number of processors and cores for servers.
+* Accuracy of memory size for the assigned server.
+* Latest firmware version on the blades.  
 
- 
+## Storage
 
-Network   
+* Size of boot LUN and FC LUNs are as per Epic on Azure Large Instances standard configuration.
+* SAN configuration.
+* Required VLANs creation.
 
- 
+## Operating System
 
-IP blade information.  
+* Accuracy of LUNs
 
- 
-
-Access control list on firewall.
-
-Compute  
-
- 
-
-number of processors and cores for servers.     
-
- 
-
-Accuracy of memory size for the assigned server.             
-
- 
-
-Latest firmware version on the blades.  
-
- 
-Storage   
-
- 
-
-size of boot LUN and FC LUNs are as per Epic on Azure Large Instances standard configuration.        
-
- 
-
-SAN configuration.            
-
- 
-
-required VLANs creation.           
-
-
-Operating System  
-
- 
-
-Accuracy of LUNs.   
-
-
-
-Epic on Azure BMI - post handover support request flow  
-
-Source: Epic_BMI_SupportIncidentWorkflow.vsdx 
-         
 ## Next steps
 
 Learn how to identify and interact with ALI instances through the Azure portal.
