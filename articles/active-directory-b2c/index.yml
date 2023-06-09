@@ -244,7 +244,7 @@ conceptualContent:
             url: data-residency.md
             itemType: how-to-guide
           - text: Security analytics with Microsoft Sentinel 
-            url: azure-sentinel.md
+            url: configure-security-analytics-sentinel.md
             itemType: how-to-guide             
           - text: Regulations
             url: ../compliance/index.yml

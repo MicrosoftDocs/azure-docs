@@ -59,12 +59,12 @@ After you configure your Azure AD B2C instance to send logs to Azure Monitor, en
 2. Select the subscription where the Log Analytics workspace is created.
 3. Search for and select **Microsoft Sentinel**.
 
-   ![Screenshot of Azure Sentinel entered into the search field and the Azure Sentinel option that appears.](./media/azure-sentinel/azure-sentinel-add.png)
+   ![Screenshot of Azure Sentinel entered into the search field and the Azure Sentinel option that appears.](./media/configure-security-analytics-sentinel/sentinel-add.png)
 
 3. Select **Add**.
 4. In the **search workspaces** field, select the new workspace.
 
-   ![Screenshot of the search workspaces field under Choose a workspace to add to Azure Sentinel.](./media/azure-sentinel/create-new-workspace.png)
+   ![Screenshot of the search workspaces field under Choose a workspace to add to Azure Sentinel.](./media/configure-security-analytics-sentinel/create-new-workspace.png)
 
 5. Select **Add Microsoft Sentinel**.
 
@@ -89,7 +89,7 @@ Use the following steps to receive notification about two or more unsuccessful, 
 1. In Microsoft Sentinel, from the left menu, select **Analytics**.
 2. On the top bar, select **+ Create** > **Scheduled query rule**. 
 
-   ![Screenshot of the Create option under Analytics.](./media/azure-sentinel/create-scheduled-rule.png)
+   ![Screenshot of the Create option under Analytics.](./media/configure-security-analytics-sentinel/create-scheduled-rule.png)
 
 3. In the Analytics Rule wizard, go to **General**.
 4. For **Name**, enter a name for unsuccessful logins.
@@ -98,12 +98,12 @@ Use the following steps to receive notification about two or more unsuccessful, 
 7. For **Severity**, select a severity level.
 8. **Status** is **Enabled** by default. To change a rule, go to the **Active rules** tab.
 
-   ![Screenshot of Create new rule with options and selections.](./media/azure-sentinel/create-new-rule.png)
+   ![Screenshot of Create new rule with options and selections.](./media/configure-security-analytics-sentinel/create-new-rule.png)
 
 9. Select the **Set rule logic** tab.
 10. Enter a query in the **Rule query** field. The query example organizes the sign-ins by `UserPrincipalName`.
 
-    ![Screenshot of query text in the Rule query field under Set rule logic.](./media/azure-sentinel/rule-query.png)
+    ![Screenshot of query text in the Rule query field under Set rule logic.](./media/configure-security-analytics-sentinel/rule-query.png)
 
 11. Go to **Query scheduling**.
 12. For **Run query every**, enter **5** and **Minutes**.
@@ -113,12 +113,12 @@ Use the following steps to receive notification about two or more unsuccessful, 
 16. For **Stop running query after alert is generated**, select **Off**.
 17. Select **Next: Incident settings (Preview)**. 
 
-   ![Screenshot of Query scheduling selections and options.](./media/azure-sentinel/query-scheduling.png)
+   ![Screenshot of Query scheduling selections and options.](./media/configure-security-analytics-sentinel/query-scheduling.png)
 
 18. Go to the **Review and create** tab to review rule settings. 
 19. When the **Validation passed** banner appears, select **Create**.
 
-    ![Screenshot of selected settings, the Validation passed banner, and the Create option.](./media/azure-sentinel/review-create.png)
+    ![Screenshot of selected settings, the Validation passed banner, and the Create option.](./media/configure-security-analytics-sentinel/review-create.png)
 
 #### View a rule and related incidents
 
@@ -130,7 +130,7 @@ View the rule and the incidents it generates. Find your newly created custom rul
 
 You can edit, enable, disable, or delete the rule.
 
-   ![Screenshot of active rules with Enable, Disable, Delete, and Edit options.](./media/azure-sentinel/rule-crud.png)
+   ![Screenshot of active rules with Enable, Disable, Delete, and Edit options.](./media/configure-security-analytics-sentinel/rule-crud.png)
 
 #### Triage, investigate, and remediate incidents
 
@@ -142,17 +142,17 @@ Learn more: [Investigate incidents with Microsoft Sentinel](../sentinel/investig
 2. Select an incident. 
 3. On the right, detailed incident information appears, including severity, entities, events, and the incident ID.
 
-    ![Screenshot that shows incident information.](./media/azure-sentinel/select-incident.png)
+    ![Screenshot that shows incident information.](./media/configure-security-analytics-sentinel/select-incident.png)
 
 4. On the **Incidents** pane, elect **View full details**. 
 5. Review tabs that summarize the incident.
 
-    ![Screenshot of a list of incidents.](./media/azure-sentinel/full-details.png)
+    ![Screenshot of a list of incidents.](./media/configure-security-analytics-sentinel/full-details.png)
 
 6. Select **Evidence** > **Events** > **Link to Log Analytics**. 
 7. In the results, see the identity `UserPrincipalName` value attempting sign-in.
 
-    ![Screenshot of incident details.](./media/azure-sentinel/logs.png)
+    ![Screenshot of incident details.](./media/configure-security-analytics-sentinel/logs.png)
 
 ## Automated response
 
@@ -170,7 +170,7 @@ For this task, use a playbook from the Microsoft Sentinel GitHub repository.
 
 Learn more: [Incident-Email-Notification](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification)
 
-   ![Screenshot of automated response options for a rule.](./media/azure-sentinel/automation-tab.png)
+   ![Screenshot of automated response options for a rule.](./media/configure-security-analytics-sentinel/automation-tab.png)
 
 ## Resources
 
