@@ -288,7 +288,7 @@ Requires that [`FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED`](#function
 
 ## ENABLE\_ORYX\_BUILD
 
-Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build on Linux](functions-deployment-technologies.md#remote-build-on-linux).
+Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 |Key|Sample value|
 |---|------------|
