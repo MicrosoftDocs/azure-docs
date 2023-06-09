@@ -2,7 +2,7 @@
 title: Integration and automation platform options in Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Power Automate, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
-ms.date: 04/09/2018
+ms.date: 06/09/2023
 ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
@@ -17,9 +17,12 @@ This article compares the following Microsoft cloud services:
 
 All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. Each service has unique advantages, and this article explains the differences. 
 
-If you're looking for a more general comparison between Azure Functions and other Azure compute options, see [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) and [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options).
+> If you're looking for a more general comparison between Azure Functions and other Azure compute options:
+> + [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) 
+> + [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
 
-For a good summary and comparison of automation service options in Azure, see [Choose the Automation services in Azure](../automation/automation-services.md). 
+> For a summary and comparison of automation service options in Azure:
+> + [Choose the Automation services in Azure](../automation/automation-services.md)
 
 ## Compare Microsoft Power Automate and Azure Logic Apps
 
@@ -36,7 +39,7 @@ The following table helps you determine whether Power Automate or Logic Apps is 
 | **Users** |Office workers, business users, SharePoint administrators |Pro integrators and developers, IT pros |
 | **Scenarios** |Self-service |Advanced integrations |
 | **Design tool** |In-browser and mobile app, UI only |In-browser, [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md), and [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) with code view available |
-| **Application lifecycle management (ALM)** |Design and test in non-production environments, promote to production when ready |Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
+| **Application lifecycle management (ALM)** |Power Platform [provides tools](/power-platform/alm/tools-apps-used-alm) that integrate with DevOps and [GitHub Actions](/power-platform/alm/devops-github-actions) to let you build automated pipelines in the ALM cycle.  |Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Admin experience** |Manage Power Automate environments and data loss prevention (DLP) policies, track licensing: [Admin center](https://admin.powerplatform.microsoft.com) |Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) |
 | **Security** |Microsoft 365 security audit logs, DLP, [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data |Security assurance of Azure: [Azure security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
