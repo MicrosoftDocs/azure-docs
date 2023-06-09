@@ -79,7 +79,7 @@ TOKEN=$(az acr login --name <acrName> --expose-token --output tsv --query access
 Then, run `docker login`, passing `00000000-0000-0000-0000-000000000000` as the username and using the access token as password:
 
 ```console
-•	docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
+docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
 ```
 Likewise, you can use the token returned by `az acr login` with the `helm registry login` command to authenticate with the registry:
 
