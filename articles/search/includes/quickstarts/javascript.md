@@ -320,7 +320,7 @@ You should see a series of messages describing the actions being taken by the pr
 
 Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following example:
 
-:::image type="content" source="../../media/search-get-started-javascript/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab" border="false":::
+:::image type="content" source="../../media/search-get-started-javascript/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab." border="false":::
 
 In the next step, you'll add data to index. 
 

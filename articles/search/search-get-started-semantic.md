@@ -43,7 +43,7 @@ You can update an existing search index to include a *semantic configuration* an
 
 + A semantic configuration establishes a priority order for fields that contribute a title, keywords, and content used in semantic reranking. Specifying field priority is necessary for query performance.
 
-+ Queries that invoke invoke semantic search include parameters for query type, query language, and whether captions and answers are returned. 
++ Queries that invoke semantic search include parameters for query type, query language, and whether captions and answers are returned. 
 
 ### [**Python**](#tab/python)
 

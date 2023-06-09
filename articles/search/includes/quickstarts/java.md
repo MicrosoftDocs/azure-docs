@@ -38,7 +38,7 @@ We used the following tools to create this quickstart.
 
 1. Enter **azure.search.sample** as the group ID.
 
-   :::image type="content" source="../../media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of the group ID for search.." border="true":::
+   :::image type="content" source="../../media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of the group ID for search." border="true":::
 
 1. Enter **azuresearchquickstart** as the artifact ID.
 
