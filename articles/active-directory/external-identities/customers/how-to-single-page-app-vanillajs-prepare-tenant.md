@@ -22,7 +22,6 @@ In this tutorial, you'll;
 
 > [!div class="checklist"]
 > * Register a web application in the Microsoft Entra admin center, and record its identifiers
-> * Create a client secret for the web application
 > * Define the platform and URLs
 > * Grant permissions to the web application to access the Microsoft Graph API
 > * Create a sign in and sign out user flow in the Microsoft Entra admin center
@@ -31,13 +30,10 @@ In this tutorial, you'll;
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 - This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
-
     * Application administrator
     * Application developer
     * Cloud application administrator
-
 - An Azure AD for customers tenant. If you haven't already, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
 
 ## Register the SPA and record identifiers
