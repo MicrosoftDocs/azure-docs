@@ -505,6 +505,7 @@ The following tips can help you solve problems related to lineage:
 * If no lineage is captured after a successful **Lineage extraction** run, it's possible that no stored procedures have run at least once since you set up the scan.
 * Lineage is captured for stored procedure runs that happen after a successful scan is set up. Lineage from past stored procedure runs isn't captured.
 * If your database is processing heavy workloads with lots of stored procedure runs, lineage extraction will filter only the most recent runs. Stored procedure runs early in the six-hour window, or the run instances that create heavy query load, won't be extracted. Contact support if you're missing lineage from any stored procedure runs.
+* If a stored procedure contains drop or create statements, they are not currently captured in lineage
 
 ## Next steps
 

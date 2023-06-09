@@ -539,8 +539,6 @@ create_monitor:
   compute: 
     instance_type: standard_e4s_v3
     runtime_version: 3.2
-  monitoring_target:
-    endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
   
   monitoring_signals:
     advanced_data_drift: # monitoring signal name, any user defined name works
@@ -657,10 +655,6 @@ spark_configuration = SparkResourceConfiguration(
     runtime_version="3.2"
 )
 
-monitoring_target = MonitoringTarget(
-   endpoint_deployment_id="azureml:fraud-detection-endpoint:fraud-detection-deployment"
-)
-
 #define target dataset (production dataset)
 input_data = MonitorInputData(
     input_dataset=Input(
@@ -740,7 +734,6 @@ alert_notification = AlertNotification(
 # Finally monitor definition
 monitor_definition = MonitorDefinition(
     compute=spark_configuration,
-    monitoring_target=monitoring_target,
     monitoring_signals=monitoring_signals,
     alert_notification=alert_notification
 )

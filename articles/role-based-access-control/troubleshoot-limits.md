@@ -90,6 +90,8 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Add the principals from **AllPrincipals** to the group.
 
+    For information about how to add principals in bulk, see [Bulk add group members in Azure Active Directory](../active-directory/enterprise-users/groups-bulk-import-members.md).
+
 1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
     Now you can find and remove the principal-based role assignments.

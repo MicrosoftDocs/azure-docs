@@ -1,53 +1,58 @@
 ---
-title: Add sign-in to a React single-page app (SPA)
+title: Tutorial - Add sign-in and sign-out to a React single-page app (SPA) for a customer tenant
 description: Learn how to configure a React single-page app (SPA) to sign in and sign out users with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: godonnell
 manager: celestedg
+
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/23/2023
 ms.author: godonnell
-ms.custom: it-pro
 
 #Customer intent: As a developer I want to add sign-in and sign-out functionality to my React single-page app
 ---
 
-# Add sign-in to a React single-page app (SPA)
-Functional components are the building blocks of React apps. This tutorial demonstrates how functional components can be used to build the sign in and sign out experience in a React single-page app (SPA). The `useMsal` hook is used to retrieve an access token to allow user sign in.
+# Tutorial: Add sign-in and sign-out to a React single-page app (SPA) for a customer tenant
 
-In this article you will add components to the application and create a layout that displays the sign in and sign out experience. You will also add sign in and sign out experiences.
+In the [previous article](./how-to-single-page-application-react-prepare-app.md), you created a React single-page app (SPA) in Visual Studio Code and configured it for authentication.
+
+In this tutorial you'll;
+
+> [!div class="checklist"]
+> * Add functional components to the application
+> * Create a page layout and add the sign in and sign out experience
+> * Replace the default function to render authenticated information
+> * Sign in and sign out of the application using the user flow
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare an single-page app for authentication](how-to-single-page-application-react-prepare-app.md).
+* Completion of the prerequisites and steps in [Prepare an single-page app for authentication](./how-to-single-page-application-react-prepare-app.md).
 
+## Add components to the application
 
-## Adding components to the application
+Functional components are the building blocks of React apps, and are used to build the sign in and sign out experiences in a React SPA. 
 
-1. Navigate to the *src* folder in the left panel.
 1. Right click on *src*, select **New Folder** and call it *components*.
-1. Right click on *components* and using the **New File** option, create the following four files;
+1. Right click on *components* and using the **New File** option, create the following files to create a structure as depicted in the following code block;
     - *PageLayout.jsx*
     - *SignInButton.jsx*
     - *SignOutButton.jsx*
 
-Once complete, you should have the following folder structure.
+    ```txt
+    reactspalocal/
+    ├── src/
+    │   ├── components/
+    │   │   ├── PageLayout.jsx
+    │   │   ├── SignInButton.jsx
+    │   │   └── SignOutButton.jsx
+    │   └── ...
+    └── ...
+    ```
 
-```txt
-reactspalocal/
-├── src/
-│   ├── components/
-│   │   ├── PageLayout.jsx
-│   │   ├── SignInButton.jsx
-│   │   └── SignOutButton.jsx
-│   └── ...
-└── ...
-```
+### Add the page layout
 
-### Adding the page layout
 1. Open *PageLayout.jsx* and add the following code to render the page layout. The [useIsAuthenticated](/javascript/api/@azure/msal-react) hook returns whether or not a user is currently signed-in.
 
    ```javascript
@@ -98,8 +103,9 @@ reactspalocal/
 
 1. Save the file.
 
-### Adding the sign in experience
-1. Open *SignInButton.jsx* and add the following code, which creates a button that signs in the user using either a pop-up or redirect.
+### Add the sign in experience
+
+1. Open *SignInButton.jsx* and add the following code, which creates a button that signs in the user using either a pop-up or redirect. The `useMsal` hook is used to retrieve an access token to allow user sign in:
 
    ```javascript 
    import React from "react";
@@ -150,7 +156,8 @@ reactspalocal/
 
 1. Save the file.
 
-### Adding the sign out experience
+### Add the sign out experience
+
 1. Open *SignOutButton.jsx* and add the following code, which creates a button that signs out the user using either a pop-up or redirect.
 
    ```javascript 
@@ -197,10 +204,11 @@ reactspalocal/
    ```
 
 ## Change filename and add required imports
-By default, the application runs via a JavaScript file called *App.js*. It needs to be renamed to *App.jsx*, which is an extension that allows a developer to write HTML in React.
 
-1. Rename App.js to App.jsx.
-1. Replace the existing imports with the following snippet;
+By default, the application runs via a JavaScript file called *App.js*. It needs to be changed to a *.jsx* file, which is an extension that allows a developer to write HTML in React.
+
+1. Rename *App.js* to *App.jsx*.
+1. Replace the existing imports with the following snippet:
 
    ```javascript
    import React, { useState } from 'react';
@@ -216,63 +224,66 @@ By default, the application runs via a JavaScript file called *App.js*. It needs
    ```
 
 ### Replacing the default function to render authenticated information
-The following code will render based on whether the user is authenticated or not. Replace the default function `App()` to render authenticated information with the following code:
 
-```javascript
-/**
-* If a user is authenticated the ProfileContent component above is rendered. Otherwise a message indicating a user is not authenticated is rendered.
-*/
-const MainContent = () => {
-    return (
-        <div className="App">
-            <AuthenticatedTemplate>
-                <ProfileContent />
-            </AuthenticatedTemplate>
-    
-            <UnauthenticatedTemplate>
-                <h5>
-                    <center>
-                        Please sign-in to see your profile information.
-                    </center>
-                </h5>
-            </UnauthenticatedTemplate>
-        </div>
-    );
-};
-    
-export default function App() {
-    return (
-        <PageLayout>
-            <center>
-                <MainContent />
-            </center>
-        </PageLayout>
-    );
-}
-```
+1. Replace the default function `App()` to render authenticated information with the following code:
+
+    ```javascript
+    /**
+    * If a user is authenticated the ProfileContent component above is rendered. Otherwise a message indicating a user is not authenticated is rendered.
+    */
+    const MainContent = () => {
+        return (
+            <div className="App">
+                <AuthenticatedTemplate>
+                    <ProfileContent />
+                </AuthenticatedTemplate>
+        
+                <UnauthenticatedTemplate>
+                    <h5>
+                        <center>
+                            Please sign-in to see your profile information.
+                        </center>
+                    </h5>
+                </UnauthenticatedTemplate>
+            </div>
+        );
+    };
+        
+    export default function App() {
+        return (
+            <PageLayout>
+                <center>
+                    <MainContent />
+                </center>
+            </PageLayout>
+        );
+    }
+    ```
 
 ## Run your project and sign in
-All the required code snippets have been added, so the application can now be called and tested in a web browser.
 
-1. Open a new terminal by selecting **Terminal** > **New Terminal**.
-1. Run the following command to start your express web server.
+All the required code snippets have been added, so the application can now be tested in a web browser.
+
+1. The application should already be running in your terminal. If not, run the following command to start your app.
 
     ```powershell
     npm start
     ```
 
-1. Open a web browser and navigate to the port specified in [Prepare a single-page application for authentication](./how-to-single-page-application-react-prepare-app.md). For example, http://localhost:3000/.
-1. For the purposes of this how-to, choose the **Sign in using Popup** option.
+1. Open a web browser and navigate to `http://localhost:3000/` if you are not automatically redirected.
+1. For the purposes of this tutorial, choose the **Sign in using Popup** option.
 1. After the popup window appears with the sign-in options, select the account with which to sign-in.
 1. A second window may appear indicating that a code will be sent to your email address. If this happens, select **Send code**. Open the email from the sender Microsoft account team, and enter the 7-digit single-use code. Once entered, select **Sign in**.
 1. For **Stay signed in**, you can select either **No** or **Yes**.
 1. The app will now ask for permission to sign-in and access data. Select **Accept** to continue.
 
 ## Sign out of the application
+
 1. To sign out of the application, select **Sign out** in the navigation bar.
 1. A window appears asking which account to sign out of.
 1. Upon successful sign out, a final window appears advising you to close all browser windows.
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Enable self-service password reset](./how-to-enable-password-reset-customers.md)

@@ -9,7 +9,7 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022, devx-track-python
 ms.date: 11/18/2021
 show_latex: true
 ---
@@ -18,9 +18,6 @@ show_latex: true
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
-> * [v1](how-to-auto-train-forecast.md)
-> * [v2 (current version)](../how-to-auto-train-forecast.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
@@ -482,4 +479,3 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 * Learn more about [How to deploy an AutoML model to an online endpoint](../how-to-deploy-automl-endpoint.md).
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md).
 * Learn about [how AutoML builds forecasting models](../concept-automl-forecasting-methods.md). 
-
