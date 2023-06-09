@@ -101,11 +101,11 @@ items:
       href: app/app-insights-overview.md
     - name: Enable Application Insights
       items:
-      - name: Create a resource
-        href: app/create-workspace-resource.md
+      - name: Data Collection Basics
+        href: app/opentelemetry-overview.md
       - name: Auto-instrumentation
         items:
-        - name: Overview
+        - name: Supported Scenarios
           href: app/codeless-overview.md
         - name: Azure VM and Virtual Machine Scale Sets
           href: app/azure-vm-vmss-apps.md
@@ -128,7 +128,7 @@ items:
           href: app/kubernetes-codeless.md
         - name: ASP.NET on-premises agent
           href: app/application-insights-asp-net-agent.md
-      - name: SDK instrumentation
+      - name: Application Insights SDKs
         items:
         - name: .NET
           items:
@@ -188,8 +188,8 @@ items:
             href: app/opencensus-python-request.md
         - name: JavaScript
           items:
-          - name: JavaScript SDK
-            displayName: browser, client-side, snippet
+          - name: Get started
+            displayName: browser, client-side, SDK Loader Script
             href: app/javascript-sdk.md
           - name: JavaScript SDK advanced topics
             href: app/javascript-sdk-advanced.md
@@ -201,20 +201,16 @@ items:
             href: app/javascript-sdk-upgrade.md
           - name: Troubleshooting
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
+          - name: FAQ
+            href: /azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-
         - name: SDK support policy
           href: app/sdk-support-guidance.md
-      - name: OpenTelemetry instrumentation
+      - name: OpenTelemetry Distro
         items:
-        - name: Overview
-          href: app/opentelemetry-overview.md
         - name: Get started (.NET, Node.js, Python and Java)
           href: app/opentelemetry-enable.md
         - name: OpenTelemetry configuration
           href: app/opentelemetry-configuration.md
-        - name: .NET (supplemental)
-          items:
-          - name: .NET OpenTelemetry exporter
-            href: app/opentelemetry-dotnet-exporter.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -245,6 +241,8 @@ items:
             href: app/opentelemetry-nodejs-exporter.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
+      - name: Create a resource
+        href: app/create-workspace-resource.md
       - name: Upgrade from classic resources and iKey
         items:
         - name: Migrate to a workspace-based resource
@@ -253,18 +251,6 @@ items:
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
       - name: Advanced SDK topics
         items:
-        - name: Distributed tracing and telemetry correlation
-          href: app/distributed-tracing-telemetry-correlation.md
-          displayName: correlation headers, w3c, distributed tracing, tracing
-        - name: TelemetryProcessors
-          displayName: processors, filtering, telemetry filtering, telemetry processor
-          href: app/api-filtering-sampling.md
-        - name: Exceptions
-          href: app/asp-net-exceptions.md
-        - name: Log traces
-          href: app/asp-net-trace-logs.md
-        - name: Statsbeat
-          href: app/statsbeat.md
         - name: Application Insights API summary
           displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
           href: app/api-custom-events-metrics.md
@@ -273,11 +259,25 @@ items:
         - name: Connection strings
           href: app/sdk-connection-string.md
           displayName: connection string, instrumentation key
+        - name: Distributed tracing and telemetry correlation
+          href: app/distributed-tracing-telemetry-correlation.md
+          displayName: correlation headers, w3c, distributed tracing, tracing
+        - name: Exceptions
+          href: app/asp-net-exceptions.md        
+        - name: Log traces
+          href: app/asp-net-trace-logs.md
+        - name: Remove Application Insights
+          href: app/remove-application-insights.md
         - name: Sampling
           displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
           href: app/sampling.md
-        - name: Remove Application Insights
-          href: app/remove-application-insights.md
+        - name: SDK support policy
+          href: app/sdk-support-guidance.md
+        - name: Statsbeat
+          href: app/statsbeat.md
+        - name: TelemetryProcessors
+          displayName: processors, filtering, telemetry filtering, telemetry processor
+          href: app/api-filtering-sampling.md
     - name: Features
       items:
       - name: Application dashboard

@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 06/08/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -14,6 +14,11 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 See these [important announcements](#announcements) about recent changes to features and services.
+
+> [!TIP]
+> Get notified when this page is updated by copying and pasting the following URL into your feed reader:
+>
+> `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
