@@ -39,7 +39,7 @@ Telemetry, the data collected to observe your application, can be broken into th
 - Metrics
 - Logs
 
-A complete observability story includes all three pillars, and Application Insights further breaks down these pillars into tables based on our [data model](data-model-complete.md). Our Applicaiton Insights SDKs or Azure Monitor OpenTelemetry Distros include everything you need to power Application Performance Monitoring on Azure. The package itself is free to install, and you only pay for the data you ingest in Azure Monitor.
+A complete observability story includes all three pillars, and Application Insights further breaks down these pillars into tables based on our [data model](data-model-complete.md). Our Application Insights SDKs or Azure Monitor OpenTelemetry Distros include everything you need to power Application Performance Monitoring on Azure. The package itself is free to install, and you only pay for the data you ingest in Azure Monitor.
 
 The following sources explain the three pillars:
 
