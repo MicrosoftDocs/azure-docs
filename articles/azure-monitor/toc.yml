@@ -101,7 +101,7 @@ items:
       href: app/app-insights-overview.md
     - name: Enable Application Insights
       items:
-      - name: Overview
+      - name: Data Collection Basics
         href: app/opentelemetry-overview.md
       - name: Auto-instrumentation
         items:
