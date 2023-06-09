@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 03/17/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -28,8 +28,8 @@ If you don't have cURL installed, here are links for your platform:
 * [Windows](https://curl.haxx.se/windows/).
 * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows).
 
-> [!div class="nextstepaction"]
-> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment) -->
 
 ## Translate documents (POST Request)
 
@@ -84,5 +84,5 @@ Upon successful completion:
 * The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-> [!div class="nextstepaction"]
-> [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+<!-- > [!div class="nextstepaction"]
+> [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents) -->

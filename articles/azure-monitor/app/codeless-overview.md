@@ -53,7 +53,7 @@ If you’re using the following supported SDKs, you can configure the SDK Loader
    | SDK   | More information
    |	:---	|	:---	|
    | ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
-   | Node.js | [Automatic web Instrumentation[Preview]](./nodejs.md#automatic-web-instrumentationpreview) |
+   | Node.js | [Automatic web Instrumentation](./nodejs.md#automatic-web-instrumentationpreview) |
 
 ## Next steps
 

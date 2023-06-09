@@ -26,7 +26,7 @@
   expanded: true
   items:
   - name: Configure Azure Active Directory for FedRAMP High impact
-    href: configure-azure-active-directory-for-fedramp-high-impact.md
+    href: configure-for-fedramp-high-impact.md
   - name: Configure FedRAMP access controls
     href: fedramp-access-controls.md
   - name: Configure identification and authentication-controls
@@ -37,7 +37,7 @@
   expanded: true
   items:
   - name: Configure Azure Active Directory for CMMC compliance 
-    href: configure-azure-active-directory-for-cmmc-compliance.md
+    href: configure-for-cmmc-compliance.md
   - name: Configure CMMC Level 1 controls
     href: configure-cmmc-level-1-controls.md
   - name: Configure CMMC Level 2 Access Control (AC)

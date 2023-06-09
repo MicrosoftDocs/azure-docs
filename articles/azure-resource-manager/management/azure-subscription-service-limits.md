@@ -549,6 +549,10 @@ There are limits, per subscription, for deploying resources using Compute Galler
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
+## Dev tunnels limits
+
+[!INCLUDE [dev-tunnels-service-limits](../../../includes/dev-tunnels/dev-tunnels-service-limits.md)]
+
 ## See also
 
 * [Understand Azure limits and increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)

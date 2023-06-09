@@ -103,6 +103,8 @@ In this article you learn how to secure the following training compute resources
 
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
 
+* __Port 445__ must be open for _private_ network communications between your compute instances and the default storage account during training. For example, if your computes are in one VNet and the storage account is in another, don't block port 445 to the storage account VNet.
+
 ## Compute instance/cluster with no public IP
 
 > [!IMPORTANT]

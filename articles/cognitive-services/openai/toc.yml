@@ -23,6 +23,8 @@ items:
     - name: GPT-35-Turbo & GPT-4 
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
+    - name: DALL-E (preview)
+      href: dall-e-quickstart.md
 - name: Concepts
   items:
     - name: Content filtering
@@ -48,6 +50,8 @@ items:
       href: ./how-to/completions.md
     - name: OpenAI vs Azure OpenAI (Python)
       href: ./how-to/switching-endpoints.md
+    - name: Configure content filters
+      href: ./how-to/content-filters.md
     - name: Work with code (Codex)
       href: ./how-to/work-with-code.md
     - name: Generate embeddings
@@ -58,6 +62,8 @@ items:
       href: ./how-to/fine-tuning.md
     - name: Manage identity
       href: ./how-to/managed-identity.md
+    - name: Manage quota
+      href: ./how-to/quota.md
     - name: Use virtual networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context
     - name: Use with large datasets
@@ -97,7 +103,7 @@ items:
     - name: REST API (Resource creation & deployment)
       href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
     - name: .NET 
-      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview
+      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
     - name: Java
       href: /java/api/com.azure.ai.openai?view=azure-java-preview&preserve-view=true
     - name: JavaScript

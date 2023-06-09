@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 03/25/2022
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp, cosmos-db-video, ignite-2022
+ms.custom: devx-track-csharp, cosmos-db-video, ignite-2022, devx-track-dotnet
 ---
 # Bulk import data to Azure Cosmos DB for NoSQL account by using the .NET SDK
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

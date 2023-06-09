@@ -10,7 +10,7 @@ author: balapv
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
@@ -39,7 +39,7 @@ You can run this code in either an Azure Machine Learning compute instance, or y
  - Create a Jupyter Notebook server and run the code in the following sections.
 
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.13.0).
-    - [Create a workspace configuration file](how-to-configure-environment-v1.md).
+    - [Create a workspace configuration file](how-to-configure-environment.md).
 
 ## Set up the experiment
 

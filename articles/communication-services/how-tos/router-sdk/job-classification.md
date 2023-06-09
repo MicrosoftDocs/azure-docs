@@ -7,9 +7,8 @@ ms.author: jassha
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 10/14/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
-
 #Customer intent: As a developer, I want Job Router to classify my Job for me.
 ---
 

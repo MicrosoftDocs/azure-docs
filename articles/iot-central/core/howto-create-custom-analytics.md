@@ -1,5 +1,5 @@
 ---
-title: Extend Azure IoT Central with custom analytics | Microsoft Docs
+title: Extend Azure IoT Central with custom analytics
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
 author: dominicbetts 
 ms.author: dobett 

@@ -164,7 +164,7 @@ You can deploy trusted launch VMs using a quickstart template:
 
 ### Trusted launch VM Images
 
-For the following image sources, the security type on the image definition should be set to `TrustedLaunch` as the image source already has [VM Guest state information](trusted-launch.md#what-is-vm-guest-state-vmgs):
+For the following image sources, the security type on the image definition should be set to `TrustedLaunch`:
 - Trusted launch VM capture
 - Managed OS disk 
 - Managed OS disk snapshot
@@ -355,14 +355,16 @@ New-AzVM `
 
 ### Trusted launch VM Supported Images
 
-For the following image sources, the security type on the image definition should be set to `TrustedLaunchsupported` as the image source does not have VM Guest state information:
+For the following image sources, the security type on the image definition should be set to `TrustedLaunchsupported`:
 - Gen2 OS Disk VHD
 - Gen2 Managed Image
 - Gen2 Gallery Image Version
 
+No VM Guest State information shall be included in the image source.
+
 The resulting image version can be used to create either Azure Gen2 VMs or Trusted launch VMs.
 
-These images can be shared with specific subscriptions or tenants through [Azure Compute Gallery - Direct Shared Gallery](../virtual-machines/azure-compute-gallery.md#shared-directly-to-a-tenant-or-subscription) and with all Azure users using [Azure Compute Gallery - Community Gallery](../virtual-machines/azure-compute-gallery.md#community-gallery)
+These images can be shared using [Azure Compute Gallery - Direct Shared Gallery](../virtual-machines/azure-compute-gallery.md#shared-directly-to-a-tenant-or-subscription) and [Azure Compute Gallery - Community Gallery](../virtual-machines/azure-compute-gallery.md#community-gallery)
 
 > [!NOTE]
 > The OS disk VHD, Managed Image or Gallery Image Version should be created from a [Gen2 image that is compatible with Trusted launch VMs](trusted-launch.md#virtual-machines-sizes).

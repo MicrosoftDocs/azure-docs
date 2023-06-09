@@ -9,6 +9,7 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: devx-track-js
 ---
 
 # Known issues in the SDKs and APIs
@@ -214,4 +215,3 @@ Up to 100 users can join a group call using the JS web calling SDK.
 
 ## Android API emulators
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22) some crashes are expected.  
-

@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 05/15/2023
+ms.date: 06/02/2023
 ms.author: jasteppe
 ---
 
@@ -36,7 +36,7 @@ The MedTech service requires device and FHIR destination mappings to perform nor
 
 ### Is JsonPathContent still supported by the MedTech service device mapping?
 
-Yes. JsonPathContent can be used as a template type within [CollectionContent](overview-of-device-mapping.md#collectioncontent). It's recommended that [CalculatedContent](how-to-use-calculatedcontent-mappings.md) is used as it supports all of the features of JsonPathContent with extra support for more advanced features.
+Yes. JsonPathContent can be used as a template type within [CollectionContent](overview-of-device-mapping.md#collectioncontent). It's recommended that [CalculatedContent](how-to-use-calculatedcontent-templates.md) is used as it supports all of the features of JsonPathContent with extra support for more advanced features.
 
 ### How long does it take for device data to show up in the FHIR service?
 

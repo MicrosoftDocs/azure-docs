@@ -8,7 +8,7 @@ ms.author: swatig
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-python
 ms.topic: how-to
 ms.date: 07/13/2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model architecture, hyperparameters, and training and deployment environments.
@@ -18,7 +18,7 @@ ms.date: 07/13/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/how-to-auto-train-image-models-v1.md?view=azureml-api-1&preserve-view=true)
+> * [v1](v1/how-to-auto-train-image-models.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-auto-train-image-models.md)
 
 

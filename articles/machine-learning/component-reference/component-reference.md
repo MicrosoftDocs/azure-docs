@@ -35,7 +35,7 @@ This reference content provides the technical background on each of the classic 
 Each component represents a set of code that can run independently and perform a machine learning task, given the required inputs. A component might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 
 For help with choosing algorithms, see 
-* [How to select algorithms](../how-to-select-algorithms.md)
+* [How to select algorithms](../v1/how-to-select-algorithms.md)
 * [Azure Machine Learning Algorithm Cheat Sheet](../v1/algorithm-cheat-sheet.md)
 
 > [!TIP]
@@ -104,4 +104,4 @@ If you directly deploy real-time endpoint from a previous completed real-time in
 
 ## Next steps
 
-* [Tutorial: Build a model in designer to predict auto prices](../tutorial-designer-automobile-price-train-score.md)
+* [Tutorial: Build a model in designer to predict auto prices](../v1/tutorial-designer-automobile-price-train-score.md)

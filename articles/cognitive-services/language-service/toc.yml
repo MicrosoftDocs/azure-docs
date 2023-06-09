@@ -918,10 +918,10 @@ items:
   items:
   - name: Sentiment analysis and opinion mining overview
     href: sentiment-opinion-mining/overview.md
-  - name: Sentiment analysis and opinion mining quickstart
-    href: sentiment-opinion-mining/quickstart.md
   - name: Sentiment analysis and opinion mining language support
     href: sentiment-opinion-mining/language-support.md
+  - name: Sentiment analysis and opinion mining quickstart
+    href: sentiment-opinion-mining/quickstart.md
   - name: Samples
     items:
     - name: C#
@@ -999,7 +999,7 @@ items:
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
-
+        
 - name: Text Analytics for health
   items:
   - name: Text Analytics for health overview
@@ -1099,7 +1099,7 @@ items:
     items:
     - name: Create projects
       href: custom-text-analytics-for-health/how-to/create-project.md
-    - name: Data selection and schema designa
+    - name: Data selection and schema design
       href: custom-text-analytics-for-health/how-to/design-schema.md
     - name: Label data
       href: custom-text-analytics-for-health/how-to/label-data.md
@@ -1145,35 +1145,37 @@ items:
           href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
 - name: Summarization (preview)
   items:
-  - name: Summarization overview
-    href: summarization/overview.md
-  - name: Summarization quickstart
-    href: summarization/quickstart.md
-  - name: Summarization language support
-    href: summarization/language-support.md
-  - name: Responsible use of AI
-    items: 
-    - name: Transparency note for summarization
-      href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for summarization, summarization transparency, Responsible AI, Responsible use of AI
-    - name: Integration and responsible use
-      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-summarization?context=/azure/cognitive-services/language-service/context/context
-      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/language-service/characteristics-and-limitations-summarization?context=/azure/cognitive-services/language-service/context/context
-    - name: Data, privacy, and security  
-      href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
-      displayName: Data privacy, logging, data retention
-  - name: How-to guides
+  - name: Prebuilt (preview)
     items:
-    - name: Call the document summarization API
-      href: summarization/how-to/document-summarization.md
-    - name: Call the conversation summarization API
-      href: summarization/how-to/conversation-summarization.md
-  - name: Reference
-    items:
-    - name: REST API
+    - name: Summarization overview
+      href: summarization/overview.md
+    - name: Summarization quickstart
+      href: summarization/quickstart.md
+    - name: Summarization language support
+      href: summarization/language-support.md
+    - name: How-to guides
       items:
+      - name: Call the document summarization API
+        href: summarization/how-to/document-summarization.md
+      - name: Call the conversation summarization API
+        href: summarization/how-to/conversation-summarization.md
+    - name: Responsible use of AI
+      items: 
+      - name: Transparency note for summarization
+        href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
+        displayName: Transparency note for summarization, summarization transparency, Responsible AI, Responsible use of AI
+      - name: Integration and responsible use
+        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-summarization?context=/azure/cognitive-services/language-service/context/context
+        displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+      - name: Characteristics and limitations
+        href: /legal/cognitive-services/language-service/characteristics-and-limitations-summarization?context=/azure/cognitive-services/language-service/context/context
+      - name: Data, privacy, and security  
+        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+        displayName: Data privacy, logging, data retention
+    - name: Reference
+      items:
+      - name: REST API
+        items:
         - name: Document summarization
           href: https://go.microsoft.com/fwlink/?linkid=2211684
         - name: Conversation summarization
@@ -1196,6 +1198,18 @@ items:
           href: /dotnet/api/overview/azure/ai.language.conversations-readme
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview
+  - name: Custom (preview)
+    items:
+    - name: Custom summarization quickstart
+      href: summarization/custom/quickstart.md
+    - name: How-to guides
+      items:
+      - name: Utilize custom summarization data formats
+        href: summarization/custom/how-to/data-formats.md
+      - name: Deploy a model
+        href: summarization/custom/how-to/deploy-model.md
+      - name: Test and evaluate your models
+        href: summarization/custom/how-to/test-evaluate.md
 - name: Concepts
   items:
   - name: Data limits

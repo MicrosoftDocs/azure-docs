@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/08/2023
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-python
 ---
 
 # Azure Automation runbook types

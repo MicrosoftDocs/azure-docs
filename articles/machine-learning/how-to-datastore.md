@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 02/08/2023
+ms.date: 06/02/2023
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
@@ -35,7 +35,6 @@ In this article, learn how to connect to Azure data storage services with Azure 
 
 > [!NOTE]
 > Azure Machine Learning datastores do **not** create the underlying storage account resources. Instead, they link an **existing** storage account for Azure Machine Learning use. Azure Machine Learning datastores are not required for this. If you have access to the underlying data, you can use storage URIs directly.
-
 
 ## Create an Azure Blob datastore
 
@@ -145,7 +144,7 @@ ml_client.create_or_update(store)
 
 ```python
 from azure.ai.ml.entities import AzureBlobDatastore
-from azure.ai.ml.entities import SasTokenConfiguration 
+from azure.ai.ml.entities import SasTokenConfiguration
 from azure.ai.ml import MLClient
 
 ml_client = MLClient.from_config()
@@ -370,7 +369,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.js
 name: adls_gen1_example
 type: azure_data_lake_gen1
 description: Datastore pointing to an Azure Data Lake Storage Gen1.
-store_name: mytestdatalakegen1 
+store_name: mytestdatalakegen1
 credentials:
   tenant_id: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
   client_id: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -427,6 +426,7 @@ ml_client.create_or_update(store)
 
 ## Next steps
 
-- [Read data in a job](how-to-read-write-data-v2.md#read-data-in-a-job)
-- [Create data assets](how-to-create-data-assets.md#create-data-assets)
+- [Access data in a job](how-to-read-write-data-v2.md#access-data-in-a-job)
+- [Create and manage data assets](how-to-create-data-assets.md#create-and-manage-data-assets)
+- [Import data assets (preview)](how-to-import-data-assets.md#import-data-assets-preview)
 - [Data administration](how-to-administrate-data-authentication.md#data-administration)

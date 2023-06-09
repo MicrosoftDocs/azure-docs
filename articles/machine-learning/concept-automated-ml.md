@@ -17,7 +17,7 @@ ms.custom: automl, event-tier1-build-2022, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
-> * [v1](./v1/concept-automated-ml-v1.md?view=azureml-api-1&preserve-view=true)
+> * [v1](./v1/concept-automated-ml.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](concept-automated-ml.md)
 
 Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML in Azure Machine Learning is based on a breakthrough from our [Microsoft Research division](https://www.microsoft.com/research/project/automl/).
@@ -48,7 +48,7 @@ The following diagram illustrates this process.
 
 You can also inspect the logged job information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the job. The training job produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
-While model building is automated, you can also [learn how important or relevant features are](./v1/how-to-configure-auto-train-v1.md?view=azureml-api-1&preserve-view=true#explain) to the generated models.
+While model building is automated, you can also [learn how important or relevant features are](./v1/how-to-configure-auto-train.md?view=azureml-api-1&preserve-view=true#explain) to the generated models.
 
 ## When to use AutoML: classification, regression, forecasting, computer vision & NLP
 
