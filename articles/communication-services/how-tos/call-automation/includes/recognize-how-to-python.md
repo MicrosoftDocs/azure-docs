@@ -1,11 +1,11 @@
 ---
 title: include file
-description: C# recognize action quickstart
+description: Python recognize action how-to guide
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/16/2022
+ms.date: 05/28/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -15,8 +15,7 @@ ms.author: kpunjabi
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
-- The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+- Have Python installed, you can install from the [official site](https://www.python.org/).
 
 ## Technical specifications
 
@@ -33,17 +32,35 @@ The following parameters are available to customize the Recognize function:
 | InterruptCallMediaOperation | Bool | True | If this flag is set it will interrupt the current call media operation. For example if any audio is being played it will interrupt that operation and initiate recognize. | Optional |
 | OperationContext | String | Not set | String that developers can pass mid action, useful for allowing developers to store context about the events they receive. | Optional |
 
-## Create a new C# application
+## Create a new Python application
 
-In the console window of your operating system, use the `dotnet` command to create a new web application.
-
-```console
-dotnet new web -n MyApplication
+### Setup a Python virtual environment for your project
+``` console
+python -m venv play-audio-app
 ```
 
-## Install the NuGet package
+### Activate your virtual environment
+On windows, use the following command:
+``` console
+.\ play-audio-quickstart \Scripts\activate
+```
+On Unix, use the following command:
+``` console
+source play-audio-quickstart /bin/activate
+```
 
-During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+### Install the Azure Communication Services Call Automation package 
+
+``` console
+pip install azure-communication-callautomation
+```
+Create your application file in your project directory, for example, name it app.py. You will write your Python code in this file.  
+
+Run your application using Python with the following command. This will execute the Python code you have written.  
+
+``` console
+python app.py
+```
 
 ## Establish a call
 
@@ -53,19 +70,14 @@ By this point you should be familiar with starting calls, if you need to learn m
 
 When your application answers the call, you can provide information about recognizing participant input and playing a prompt.
 
-``` csharp
-var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
-                var recognizeOptions = new CallMediaRecognizeDtmfOptions(targetParticipant, maxTonesToCollect)
-                {
-                    InterruptCallMediaOperation = true,
-                    InitialSilenceTimeout = TimeSpan.FromSeconds(30),
-                    Prompt = new FileSource(new System.Uri("file://path/to/file")),
-                    InterToneTimeout = TimeSpan.FromSeconds(5),
-                    InterruptPrompt = true,
-                    StopTones = new DtmfTone[] { DtmfTone.Pound },
-                };
-                await _callConnection.GetCallMedia().StartRecognizingAsync(recognizeOptions).ConfigureAwait(false);
-
+``` python
+call_connection.start_recognizing_media(
+    input_type='dtmf', 
+    target_participant=PhoneNumberIdentifier(target_phone_number), 
+    play_prompt=file_source,
+    dtmf_stop_tones=[ "pound" ],
+    max_tones_to_collect=3
+    )
 ```
 
 **Note:** If parameters aren't set, the defaults will be applied where possible.
@@ -75,45 +87,24 @@ var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
 Developers can subscribe to the *RecognizeCompleted* and *RecognizeFailed* events on the webhook callback they registered for the call to create business logic in their application for determining next steps when one of the previously mentioned events occurs. 
 
 ### Example of how you can deserialize the *RecognizeCompleted* event:
-``` csharp
-app.MapPost("<WEB_HOOK_ENDPOINT>", async (
-    [FromBody] CloudEvent[] cloudEvents,
-    [FromRoute] string contextId) =>{
-    foreach (var cloudEvent in cloudEvents)
-    {
-        CallAutomationEventBase @event = CallAutomationEventParser.Parse(cloudEvent);
-        If (@event is RecognizeCompleted recognizeCompleted)
-        {
-            // Access to the Collected Tones
-            foreach(DtmfTone tone in recognizeCompleted.CollectTonesResult.Tones) {
-                   // work on each of the Dtmf tones.
-        }
-    }
+
+``` python
+if event['type'] == "Microsoft.Communication.RecognizeCompleted":
+    tones = event['data']['dtmfResult']['tones']
+    # Handle the RecognizeCompleted event according to your application logic
 ```
 
 ### Example of how you can deserialize the *RecognizeFailed* event:
 
-``` csharp
-app.MapPost("<WEB_HOOK_ENDPOINT>", async (
-    [FromBody] CloudEvent[] cloudEvents,
-    [FromRoute] string contextId) =>{
-    foreach (var cloudEvent in cloudEvents)
-    {
-        CallAutomationEventBase @event = CallAutomationEventParser.Parse(cloudEvent);
-        If (@event is RecognizeFailed recognizeFailed)
-        {
-            Log.error($”Recognize failed due to: {recognizeFailed.ResultInformation.Message}”);
-
-        }
-    }
+``` python
+if event['type'] == "Microsoft.Communication.RecognizeFailed":
+    error_message = event['data']['resultInformation']['message']
+    # Handle the RecognizeFailed event according to your application logic
 ```
 
 ### Example of how you can deserialize the *RecognizeCanceled* event:
-``` csharp
-if (@event is RecognizeCanceled { OperationContext: "AppointmentReminderMenu" })
-        {
-            logger.LogInformation($"RecognizeCanceled event received for call connection id: {@event.CallConnectionId}");
-            //Take action on recognize canceled operation
-           await callConnection.HangUpAsync(forEveryone: true);
-        }
+
+```python
+if event['type'] == "Microsoft.Communication.RecognizeCanceled":
+    # Handle the RecognizeCanceled event according to your application logic
 ```
