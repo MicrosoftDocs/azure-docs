@@ -82,25 +82,16 @@ For a list of regions that support ZRS for premium file share accounts, see [Azu
 For applications requiring high durability for SMB file shares, you can choose geo-redundant storage to copy the data in your storage account to a secondary region that is hundreds of miles away from the primary region. If your storage account is copied to a secondary region, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.
 
 > [!IMPORTANT]
-> Azure Files only supports geo-redundancy for standard SMB file shares. Premium file shares and NFS file shares must use LRS or ZRS.
+> Azure Files only supports geo-redundancy (GRS or GZRS) for standard SMB file shares. Premium file shares and NFS file shares must use LRS or ZRS.
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
-Azure Files offers two options for copying your data to a secondary region. Currently these options are only available for standard SMB file shares that don't have the **large file shares** setting enabled on the storage account (up to 5 TiB):
+Azure Files offers two options for copying your data to a secondary region. Currently, geo-redundant storage options are only available for standard SMB file shares that don't have the **large file shares** setting enabled on the storage account (up to 5 TiB):
 
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
 
 The primary difference between GRS and GZRS is how data is replicated in the primary region. Within the secondary region, data is always replicated synchronously three times using LRS. LRS in the secondary region protects your data against hardware failures.
-
-With GRS or GZRS, the file shares won't be accessible in the secondary region unless a failover occurs.
-
-> [!IMPORTANT]
-> Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured as GRS or GZRS.
-
-If the primary region becomes unavailable, you can choose to fail over to the secondary region. After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see Disaster recovery and failover.
-
-Because data is replicated to the secondary region asynchronously, a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. Azure Files typically has an RPO of less than 15 minutes, although there's currently no SLA on how long it takes to replicate data to the secondary region.
 
 ### Geo-redundant storage
 
@@ -126,11 +117,22 @@ Only standard general-purpose v2 storage accounts support GZRS.
 
 For a list of regions that support GZRS, see [Azure regions that support geo-zone-redundant storage (GZRS)](../common/redundancy-regions-gzrs.md).
 
+### Disaster recovery and failover
+
+With GRS or GZRS, the file shares won't be accessible in the secondary region unless a failover occurs. If the primary region becomes unavailable, you can choose to fail over to the secondary region. The failover process updates the DNS entry provided by Azure Files so that the secondary endpoint becomes the new primary endpoint for your storage account. During the failover process, your data is inaccessible. After the failover is complete, you can read and write data to the new primary region. After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information, see [How an account failover works](../common/storage-disaster-recovery-guidance.md).
+
+> [!IMPORTANT]
+> Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured and billed as GRS or GZRS.
+
+Because data is replicated to the secondary region asynchronously, a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. Azure Files typically has an RPO of less than 15 minutes, although there's currently no SLA on how long it takes to replicate data to the secondary region.
+
 ### Check the Last Sync Time property
 
-Because data is replicated to the secondary region asynchronously, the secondary region is often behind the primary region. If a failure happens in the primary region, it's likely that all writes to the primary won't yet have been replicated to the secondary.
+To ensure file shares are in a consistent state when a failover occurs, a system snapshot is created in the primary region every 15 minutes and is replicated to the secondary region. When a failover occurs to the secondary region, the share state will be based on the latest system snapshot in the secondary region. Because data is replicated to the secondary region asynchronously, the secondary region is often behind the primary region. If a failure happens in the primary region, it's likely that all writes to the primary won't yet have been replicated to the secondary. Due to geo-lag or other issues, the latest system snapshot in the secondary region might be older than 15 minutes.
 
-To determine which write operations have been replicated to the secondary region, your application can check the **Last Sync Time** property for your storage account. All write operations written to the primary region prior to the last sync time have been successfully replicated to the secondary region, meaning that they're available to be read from the secondary. Any write operations written to the primary region after the last sync time may or may not have been replicated to the secondary region, meaning that they might not be available for read operations.
+To determine which write operations have been replicated to the secondary region, your application can check the **Last Sync Time (LST)** property for your storage account. The LST indicates the last time that data from the primary region was written successfully to the secondary region. For Azure Files, LST is based on the latest system snapshot in the secondary region.
+
+All write operations written to the primary region prior to the LST have been successfully replicated to the secondary region, meaning that they're available to be read from the secondary. Any write operations written to the primary region after the last sync time might or might not have been replicated to the secondary region, meaning that they might not be available for read operations.
 
 You can query the value of the **Last Sync Time** property using Azure PowerShell, Azure CLI, or the client library. The **Last Sync Time** property is a GMT date/time value. For more information, see [Check the Last Sync Time property for a storage account](../common/last-sync-time-get.md).
 
@@ -153,7 +155,7 @@ For more information, see the [SLA for Storage Accounts](https://azure.microsoft
 
 ### Durability and availability by outage scenario
 
-The following table indicates whether your data is durable and available in a given scenario, depending on which type of redundancy is in effect for your storage account. Azure Files doesn't support read access to the secondary region if the primary region becomes unavailable.
+The following table indicates whether your data is durable and available in a given scenario, depending on which type of redundancy is in effect for your storage account. Azure Files doesn't support read access to the secondary region if the primary region becomes unavailable, unless a failover occurs.
 
 | Outage scenario | LRS | ZRS | GRS | GZRS |
 |:-|:-|:-|:-|:-|
@@ -163,11 +165,7 @@ The following table indicates whether your data is durable and available in a gi
 
 <sup>1</sup> Account failover is required to restore write availability if the primary region becomes unavailable.
 
-For pricing information for each redundancy option, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
-
-## Data integrity
-
-Azure Files regularly verifies the integrity of data stored using cyclic redundancy checks (CRCs). If data corruption is detected, it's repaired using redundant data. Azure Files also calculates checksums on all network traffic to detect corruption of data packets when storing or retrieving data.
+For pricing information for each redundancy option, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## See also
 
