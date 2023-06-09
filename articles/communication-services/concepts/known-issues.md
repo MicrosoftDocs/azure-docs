@@ -106,8 +106,8 @@ This issue is fixed in Azure Communication Services Calling SDK version 1.3.1-be
 
 * iOS Safari version: 15.1
 
-### MacOS Ventura Safari(v16.3 and below) screen sharing.
-Screen sharing does not work in MacOS Ventura Safari(v16.3 and below). Known issue from Safari and will be fixed in v16.4+ 
+### Screen sharing in macOS Ventura Safari (v16.3 and below) 
+Screen sharing does not work in macOS Ventura Safari(v16.3 and below). Known issue from Safari and will be fixed in v16.4+ 
 
 ### Refreshing a page doesn't immediately remove the user from their call
 
@@ -199,8 +199,8 @@ The cause of this problem might be that acquiring your own stream from the same 
 
 ### Excessive use of certain APIs like mute/unmute will result in throttling on ACS infrastructure
 
-As a result of mute/unmute api call - ACS infrastructure informs other participants in the call about the state of audio of a local participant who invokved mute/unmute, so that participants in the call know who is muted/unmuted.
-Excessive use of mute/unmute will be blocked in ACS Infrastructure. That will happen if participant (or application on behavlf of participant) will attempt to mute/unmute continuisly, every second, more than 15 times in a 30s rolling window.
+As a result of the mute/unmute API call, ACS infrastructure informs other participants in the call about the state of audio of a local participant who invoked mute/unmute, so that participants in the call know who is muted/unmuted.
+Excessive use of mute/unmute will be blocked in ACS infrastructure. That will happen if the participant (or application on behalf of participant) will attempt to mute/unmute continuously, every second, more than 15 times in a 30-second rolling window.
 
 
 ## Communication Services Call Automation APIs
