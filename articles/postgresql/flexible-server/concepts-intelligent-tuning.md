@@ -126,7 +126,7 @@ performance, `checkpoint_completion_target` has been chosen as a target metric f
 * Intelligent tuning makes optimizations only in specific ranges. It's possible that the feature won't make any changes.
 * ANALYZE settings are not adjusted by intelligent tuning.
 
-## Next Steps
+## Next steps
 
 * [Configure intelligent performance for Azure Database for PostgreSQL - Flexible Server using Azure portal](how-to-enable-intelligent-performance-portal.md)
 * [Configure intelligent performance for Azure Database for PostgreSQL - Flexible Server using Azure CLI](how-to-enable-intelligent-performance-cli.md)
