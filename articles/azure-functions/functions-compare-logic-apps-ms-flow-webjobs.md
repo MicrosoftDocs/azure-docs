@@ -84,11 +84,11 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 |**[Integration with Logic Apps](functions-twitter-email.md)**|✔||
 | **Trigger events** |[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | **Supported languages**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
-|**Package managers**|NPM and NuGet|NuGet<sup>2</sup>|
+|**Package managers**|npm and NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (without the WebJobs SDK) supports languages such as C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, and more. A WebJob can run any program or script that can run in the App Service sandbox.
 
-<sup>2</sup> WebJobs (without the WebJobs SDK) supports NPM and NuGet.
+<sup>2</sup> WebJobs (without the WebJobs SDK) supports npm and NuGet.
 
 ### Summary
 
@@ -105,7 +105,7 @@ For other scenarios where you want to run code snippets for integrating Azure or
 
 ## Power Automate, Logic Apps, Functions, and WebJobs together
 
-You don't have to choose just one of these services. They integrate with each other as well as with external services.
+You don't have to choose just one of these services. They integrate with each other and with external services.
 
 A Power Automate flow can call an Azure Logic Apps workflow. An Azure Logic Apps workflow can call a function in Azure Functions, and vice versa. For example, see [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
 
