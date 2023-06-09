@@ -38,7 +38,7 @@ To allow users to see Azure Modeling and Simulation Workbench resources and to c
 
    | Setting          | Value                                   |
    | :--------------- | :-------------------------------------- |
-   | Role             | **Deployments Environments User**       |
+   | Role             | **Classic Storage Account Contributor** |
    | Assign access to | User, group, or service principal       |
    | Members          | \<users Azure account\>                 |
 
