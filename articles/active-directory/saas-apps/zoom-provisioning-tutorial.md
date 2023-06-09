@@ -88,11 +88,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com/?feature.userProvisioningV2Authentication=true), ensure you are using the link (https://portal.azure.com/?feature.userProvisioningV2Authentication=true) then Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot of theEnterprise applications blade.](common/enterprise-applications.png)
 
 1. In the applications list, select **Zoom**.
 
-	![The Zoom link in the Applications list](common/all-applications.png)
+	![Screenshot of the Zoom link in the Applications list.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
@@ -105,16 +105,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 1. Under the **Admin Credentials** section, select desired **Authentication Method**.
 
 	* If the Authentication Method is **OAuth2 Authorization Code Grant**, enter `https://api.zoom.us/scim` in **Tenant URL**, click on **Authorize**, make sure that you enter your Zoom account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
- 	![Zoom provisioning Token](./media/zoom-provisioning-tutorial/provisioning-oauth.png)
+
+ 		![Screenshot of theZoom provisioning Token.](./media/zoom-provisioning-tutorial/provisioning-oauth.png)
 
 	* If the Authentication Method is **Bearer Authentication**, enter `https://api.zoom.us/scim` in **Tenant URL**. Input the **JWT Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
- 	![Zoom provisioning OAuth](./media/zoom-provisioning-tutorial/provisioning-bearer-token.png)
+
+ 		![Screenshot of theZoom provisioning OAuth.](./media/zoom-provisioning-tutorial/provisioning-bearer-token.png)
+
   		> [!NOTE] 
   		> You will have two options for your Authentication Method: **Bearer Authentication** and **OAuth2 Authorization Code Grant**. Make sure that you select OAuth2 Authorization Code Grant.
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![Screenshot of the Notification Email.](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
@@ -131,19 +134,19 @@ This section guides you through the steps to configure the Azure AD provisioning
    |emails[type eq "work"]|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
-1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Screenshot of the Scoping filter tutorial.](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for Zoom, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+	![Screenshot of the Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
 1. Define the users and/or groups that you would like to provision to Zoom by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+	![Screenshot of the Provisioning Scope.](common/provisioning-scope.png)
 
 1. When you are ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
