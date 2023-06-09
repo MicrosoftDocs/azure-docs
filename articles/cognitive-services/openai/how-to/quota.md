@@ -23,7 +23,7 @@ Azure OpenAI's quota feature enables assignment of rate limits to your deploymen
 > [!NOTE]
 > With a quota of 240,000 TPM for GPT-35-Turbo in East US, a customer can create a single deployment of 240K TPM, 2 deployments of 120K TPM each, or any number of deployments in one or multiple Azure OpenAI resources as long as their TPM adds up to less than 240K total in that region.
 
-When a deployment is created, the assigned TPM will directly map to the token-per-minute rate limit enforced on its inferencing requests. A **Request-Per-Minute (RPM)** rate limit will also be enforced whose value is set proportionally to the TPM assignment using the following ratio:
+When a deployment is created, the assigned TPM will directly map to the tokens-per-minute rate limit enforced on its inferencing requests. A **Requests-Per-Minute (RPM)** rate limit will also be enforced whose value is set proportionally to the TPM assignment using the following ratio:
 
 6 RPM per 1000 TPM.
 
