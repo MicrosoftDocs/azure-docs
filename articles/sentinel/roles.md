@@ -43,7 +43,7 @@ Users with particular job requirements may need to be assigned other roles or sp
 
     Find packaged solutions for end-to-end products or standalone content from the content hub in Microsoft Sentinel. To install and manage content from the content hub, assign the [**Template Spec Contributor**](../role-based-access-control/built-in-roles.md#template-spec-contributor) role at the resource group level.
  
-- **Work with playbooks to automate responses to threats**
+- **Automate responses to threats with playbooks**
 
     Microsoft Sentinel uses playbooks for automated threat response. Playbooks are built on Azure Logic Apps, and are a separate Azure resource. For specific members of your security operations team, you might want to assign the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations. You can use the [**Microsoft Sentinel Playbook Operator**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator) role to assign explicit, limited permission for running playbooks, and the [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor) role to create and edit playbooks.
 
