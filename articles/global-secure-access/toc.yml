@@ -15,8 +15,6 @@ items:
     href: how-to-install-windows-client.md
   - name: Remote networks
     expanded: false
-  - name: Install the Windows client
-    href: how-to-install-windows-client.md
     items:
       - name: Remote network connectivity
         href: concept-remote-network-connectivity.md
@@ -24,6 +22,10 @@ items:
         href: how-to-create-remote-networks.md
       - name: Manage remote network device links
         href: how-to-manage-remote-network-device-links.md
+      - name: Create remote network with custom IKE policy
+        href: how-to-create-remote-network-custom-ike-policy.md
+      - name: Configure customer premises equipment
+        href: how-to-configure-customer-premises-equipment.md
       - name: List remote networks
         href: how-to-list-remote-networks.md
       - name: Manage remote networks
