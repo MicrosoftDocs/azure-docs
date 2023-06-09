@@ -25,11 +25,11 @@ This guide shows you how to escalate a Job in a Queue by using an Exception Poli
 
 ## Escalation Overview
 
-Escalation can take the form of several different behaviors including moving a Job to a different Queue and/or specifying a higher priority. Jobs with a higher priority will be distributed to Workers before Jobs with a lower priority. For this how-to guide, we will use an Escalation Policy and a Classification Policy to achieve this goal.
+Escalation can take the form of several different behaviors including moving a Job to a different Queue and/or specifying a higher priority. Jobs with a higher priority are distributed to Workers before jobs with a lower priority. For this how-to guide, we use a Classification Policy and an Exception Policy and to achieve this goal.
 
 ## Classification policy configuration
 
-Create a Classification Policy to handle the new label added to the Job. This policy will evaluate the `Escalated` label and assign the Job to either Queue. The policy will also use the [RulesEngine](../../concepts/router/router-rule-concepts.md) to increase the priority of the Job from `1` to `10`.
+Create a Classification Policy to handle the new label added to the Job. This policy evaluates the `Escalated` label and assigns the Job to either Queue. The policy also uses the [Rules Engine](../../concepts/router/router-rule-concepts.md) to increase the priority of the Job from `1` to `10`.
 
 ```csharp
 var classificationPolicy = await administrationClient.CreateClassificationPolicyAsync(
@@ -49,7 +49,7 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
 
 ## Exception policy configuration
 
-Create an exception policy, which you will attach to the regular queue, which is triggered by time and takes the action of the Job being reclassified.
+Create an exception policy attached to the queue, which is time triggered and takes the action of the Job being reclassified.
 
 ```csharp
 var exceptionPolicy = await administrationClient.CreateExceptionPolicyAsync(new CreateExceptionPolicyOptions(
@@ -75,7 +75,7 @@ var exceptionPolicy = await administrationClient.CreateExceptionPolicyAsync(new 
 
 ## Queue configuration
 
-Create the necessary Queues for regular and escalated Jobs and assign the Exception Policy to the regular Queue.
+Create the necessary Queues for regular and escalated Jobs and assigns the Exception Policy to the regular Queue.
 
 > [!NOTE]
 > This step assumes you have created a distribution policy already with the name of `Round_Robin_Policy`.
@@ -97,7 +97,7 @@ var escalationQueue = await administrationClient.CreateQueueAsync(
 
 ## Job lifecycle
 
-When you submit the Job, it will be added to the queue `XBOX_Queue` with the `voice` channel. For this particular example, the requirement would be to find a worker with a label called `XBOX_Hardware`, which has a value greater than or equal to the number `7`.
+When you submit the Job, it is added to the queue `XBOX_Queue` with the `voice` channel. For this particular example, the requirement is to find a worker with a label called `XBOX_Hardware`, which has a value greater than or equal to the number `7`.
 
 ```csharp
 await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "voice", queueId: defaultQueue.Value.Id)
@@ -109,8 +109,8 @@ await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "voic
 });
 ```
 
-The following lifecycle steps will be taken once the configuration is complete and the Job is ready to be submitted:
+The following lifecycle steps are taken once the configuration is complete and the Job is ready to be submitted:
 
-1. The Job is sent to Job Router which will produce `RouterJobReceived` and `RouterJobQueued` events.
-2. Next, the 5-minute timer begins and will eventually be triggered if no matching worker is assigned. After 5 minutes this results in a `RouterJobExceptionTriggered` and another `RouterJobQueued` event.
-3. At this point, the Job will be moved to the `XBOX_Escalation_Queue` and the priority will be set to `10`.
+1. The Job is sent to Job Router which produces the `RouterJobReceived` and `RouterJobQueued` events.
+2. Next, the 5-minute timer begins and triggers if no matching worker is assigned. After 5 minutes this results in a `RouterJobExceptionTriggered` and another `RouterJobQueued` event.
+3. At this point, the Job is moved to the `XBOX_Escalation_Queue` and the priority is set to `10`.

@@ -18,11 +18,11 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-When configuring workers, we want to provide a way to specify how many jobs a worker can handle at a time from various channels.  This is done by specifying the total capacity of the worker and assigning a cost per job for each channel.
+When configuring workers, we want to provide a way to specify how many jobs a worker can handle at a time from various channels.  This configuration can be done by specifying the total capacity of the worker and assigning a cost per job for each channel.
 
-## Example: Worker that can handle 1 voice jobs or up to 5 chat jobs
+## Example: Worker that can handle one voice job or up to five chat jobs
 
-In this example, we configure a worker with total capacity of 100 and set the voice channel to consume 100 capacity per job and the chat channel to consume 20 capacity per job.  This means that the worker can handle 1 voice job at a time or up to 5 chat jobs at the same time.  If the worker is handling 1 or more chat jobs, it will not be able to take any voice jobs until those chat jobs are completed.  If the worker is handling a voice job, it will not be able to take any chat jobs until the voice job is completed.
+In this example, we configure a worker with total capacity of 100 and set the voice channel to consume 100 capacity per job and the chat channel to consume 20 capacity per job.  This configuration means that the worker can handle one voice job at a time or up to five chat jobs at the same time.  If the worker is handling one or more chat jobs, then the worker cannot take any voice jobs until those chat jobs are completed.  If the worker is handling a voice job, then the worker cannot take any chat jobs until the voice job is completed.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -88,9 +88,9 @@ client.createWorker(new CreateWorkerOptions("worker1", 100)
 
 ::: zone-end
 
-## Example: Worker that can handle 1 voice jobs and up to 2 chat jobs and 2 email jobs at the same time
+## Example: Worker that can handle one voice jobs and up to two chat jobs and two email jobs at the same time
 
-In this example, we configure a worker with total capacity of 100 and set the voice channel to consume 60 capacity per job and the chat and email channels to consume 10 capacity per job, with a maxNumberOfJobs configured to 2.  This means that the worker can handle 1 voice job at a time and up to 2 chat jobs and up to 2 email jobs at the same time.  Since the chat and email channels are configured with a maxNumberOfJobs of 2, those channels will consume up to a maximum of 40 capacity in total.  Therefore, the worker will always be able to handle up to 1 voice job at all times.  The voice channel takes "priority" over the other channels.
+In this example, a worker is configured with total capacity of 100.  Next, the voice channel is set to consume 60 capacity per job and the chat and email channels to consume 10 capacity per job each with a `maxNumberOfJobs` set to two.  This configuration means that the worker can handle one voice job at a time and up to two chat jobs and up to two email jobs at the same time.  Since the chat and email channels are configured with a `maxNumberOfJobs` of two, those channels consume up to a maximum of 40 capacity in total.  Therefore, the worker can always handle up to one voice job.  The voice channel takes "priority" over the other channels.
 
 ::: zone pivot="programming-language-csharp"
 
