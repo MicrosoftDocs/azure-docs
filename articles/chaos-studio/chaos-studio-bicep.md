@@ -151,8 +151,8 @@ resource chaosExperiment 'Microsoft.Chaos/experiments@2022-10-01-preview' = {
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./chaos-vm-shutdown.bicep
     ```
 
-1. You'll be prompted to enter the following values:
-    * **targetName**: this is the name of an existing Virtual Machine within your resource group that you want to target
+1. When prompted, enter the following values:
+    * **targetName**: the name of an existing Virtual Machine within your resource group that you want to target
     * **experimentName**: the desired name for your Chaos Experiment
     * **location**: the desired region for the experiment, targets, and capabilities
 1. The template should deploy within a few minutes. Once the deployment is complete, navigate to Chaos Studio in the Azure portal, select **Experiments**, and find the experiment created by the template. Select it, then **Start** the experiment.
