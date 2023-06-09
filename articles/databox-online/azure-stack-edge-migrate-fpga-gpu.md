@@ -43,12 +43,11 @@ This section provides a comparative summary of capabilities between the Azure St
 
 |    Capability  | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
-| Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs  | Hardware acceleration: Intel Arria 10 FPGA <br> 128 GB of memory <br> 2x copper 1 GB/sec network ports <br> 4x optical 25 GB/sec RDMA-capable network ports  |
-| Usable storage | 1, 2, or 3 TB <br> After reserving space for resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
+| Hardware       | Hardware acceleration: 1 or 2 Nvidia A2 GPUs <br> 64 GB, 128 GB, or 256 GB of memory <br> 2x 10 GB ASE-T iWap RDMA-capable network ports <br> 2x optical 100 GB/sec RoCE RDMA-capable network ports<br> Power supply units - 1 <br> For more information, see [Azure Stack Edge Pro GPU technical specifications](azure-stack-edge-gpu-technical-specifications-compliance.md).   | Hardware acceleration: Intel Arria 10 FPGA <br> 128 GB of memory <br> 2x copper 1 GB/sec network ports <br> 4x optical 25 GB/sec RDMA-capable network ports <br> Power supply units - 2 <br> For more information, see [Azure Stack Edge Pro FPGA technical specifications](azure-stack-edge-technical-specifications-compliance.md).  |
+| Usable storage | Storage - 720 GB - 2.5 TB <br> After reserving space for parity resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
 | Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)  |
-
 ---
 
 ## Migration plan
@@ -95,7 +94,7 @@ The preparation includes that you identify the Edge cloud shares, Edge local sha
 
 Do these steps on your source device via the local UI.
 
-Record the configuration data on the *source* device. Use the [Deployment checklist](azure-stack-edge-gpu-deploy-checklist.md) to help you record the device configuration. During migration, you'll use this configuration information to configure the new target device. 
+Record the configuration data on the *source* device. Use the [Deployment checklist](azure-stack-edge-pro-2-deploy-checklist.md) to help you record the device configuration. During migration, you'll use this configuration information to configure the new target device. 
 
 ### 2. Back up share data
 
@@ -136,15 +135,81 @@ Data in Edge local shares stays on the device. Do these steps on your *source* d
 
 ### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
 
-Content for GPU tab... > prepare source device
+### 1. Record configuration data
+
+Do these steps on your source device via the local UI.
+
+Record the configuration data on the *source* device. Use the [Deployment checklist](azure-stack-edge-gpu-deploy-checklist.md) to help you record the device configuration. During migration, you'll use this configuration information to configure the new target device. 
+
+### 2. Back up share data
+
+The device data can be of one of the following types:
+
+- Data in Edge cloud shares
+- Data in local shares
+
+#### Data in Edge cloud shares
+
+Edge cloud shares tier data from your device to Azure. Do these steps on your *source* device via the Azure portal. 
+
+- Make a list of all the Edge cloud shares and users that you have on the source device.
+- Make a list of all the bandwidth schedules that you have. You will recreate these bandwidth schedules on your target device.
+- Depending on the network bandwidth available, configure bandwidth schedules on your device to maximize the data tiered to the cloud. That minimizes the local data on the device.
+- Ensure that the shares are fully tiered to the cloud. The tiering can be confirmed by checking the share status in the Azure portal.  
+
+#### Data in Edge local shares
+
+Data in Edge local shares stays on the device. Do these steps on your *source* device via the Azure portal. 
+
+- Make a list of the Edge local shares on the device.
+- Since you'll be doing a one-time migration of the data, create a copy of the Edge local share data to another on-premises server. You can use copy tools such as `robocopy` (SMB) or `rsync` (NFS) to copy the data. Optionally you may have already deployed a third-party data protection solution to back up the data in your local shares. The following third-party solutions are supported for use with Azure Stack Edge Pro FPGA devices:
+
+    | Third-party software           | Reference to the solution                               |
+    |--------------------------------|---------------------------------------------------------|
+    | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
+    | Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault.          |
+    | Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> For details, contact Veritas.   |
+    | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
+
+
+### 3. Prepare IoT Edge workloads
+
+- If you have deployed IoT Edge modules and are using FPGA acceleration, you may need to modify the modules before these will run on the GPU device. Follow the instructions in [Modify IoT Edge modules](azure-stack-edge-gpu-modify-fpga-modules-gpu.md). 
+
+<!--- If you have deployed IoT Edge workloads, the configuration data is shared on a share on the device. Back up the data in these shares.-->
 
 ---
 
 ## Prepare target device
 
- To prepare the target device, ...
+ Use the following steps to prepare the target device.
 
 ### [Migrate to Azure Stack Edge Pro 2](#tab/migrate-to-ase-pro2) 
+
+### 1. Create new order
+
+You need to create a new order (and a new resource) for your *target* device. The target device must be activated against the GPU resource and not against the FPGA resource.
+
+To place an order, [Create a new Azure Stack Edge resource](azure-stack-edge-pro-2-deploy-prep.md#create-a-new-resource) in the Azure portal.
+
+
+### 2. Set up, activate
+
+You need to set up and activate the *target* device against the new resource you created earlier. 
+
+Follow these steps to configure the *target* device via the Azure portal:
+
+1. Gather the information required in the [Deployment checklist](azure-stack-edge-pro-2-deploy-checklist.md). You can use the information that you saved from the source device configuration. 
+1. [Unpack](azure-stack-edge-pro-2-deploy-install.md#unpack-the-device), [rack mount](azure-stack-edge-pro-2-deploy-install.md#rack-the-device) and [cable your device](azure-stack-edge-p-2-deploy-install.md#cable-the-device). 
+1. [Connect to the local UI of the device](azure-stack-edge-pro-2-deploy-connect.md).
+1. Configure the network using a different set of IP addresses (if using static IPs) than the ones that you used for your old device. See how to [configure network settings](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md).
+1. Assign the same device name as your old device and provide a DNS domain. See how to [configure device setting](azure-stack-edge-pro-2-deploy-set-up-device-update-time.md).
+1. Configure certificates on the new device. See how to [configure certificates](azure-stack-edge-pro-2-deploy-configure-certificates.md).
+1. Get the activation key from the Azure portal and activate the new device. See how to [activate the device](azure-stack-edge-pro-2-deploy-activate.md).
+
+You are now ready to restore the share data and deploy the workloads that you were running on the old device.
+
+### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
 
 ### 1. Create new order
 
@@ -168,10 +233,6 @@ Follow these steps to configure the *target* device via the Azure portal:
 1. Get the activation key from the Azure portal and activate the new device. See how to [activate the device](azure-stack-edge-gpu-deploy-activate.md).
 
 You are now ready to restore the share data and deploy the workloads that you were running on the old device.
-
-### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
-
-Content for GPU tab... > prepare target device
 
 ---
 
