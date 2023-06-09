@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 # Train PyTorch models at scale with Azure Machine Learning SDK (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [v1](how-to-train-pytorch.md)
-> * [v2 (current version)](../how-to-train-pytorch.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning.
 

@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, 
 
 [!INCLUDE [SDK v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [SDK v1](how-to-secure-training-vnet.md)
-> * [SDK v2 (current version)](../how-to-secure-training-vnet.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning using the Python SDK v1.
 

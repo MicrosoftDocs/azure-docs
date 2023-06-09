@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, ignite-2022, devx-tr
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](how-to-auto-train-image-models.md)
-> * [v2 (current version)](../how-to-auto-train-image-models.md?view=azureml-api-2&preserve-view=true)
     
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
