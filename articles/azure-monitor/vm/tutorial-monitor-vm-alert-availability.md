@@ -20,7 +20,7 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * View the VM availability metric in metrics explorer.
-> * Create an alert rule targeting a subscription or resources group .
+> * Create an alert rule targeting a subscription or resources group.
 > * Create an action group to be proactively notified when an alert is created.
 
  
@@ -82,11 +82,11 @@ The **Actions** page allows you to add one or more [action groups](../alerts/act
 
 2. Select a **Subscription** and **Resource group** for the action group and give it an **Action group name** that will appear in the portal and a **Display name** that will appear in email and SMS notifications.
 
-    :::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-action-group-basics.png" lightbox="./media/tutorial-monitor-vm/vm-availability-metric-action-group-basics.png" alt-text="Screenshot of action group basics":::
+    :::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-action-group-basics.png" lightbox="./media/tutorial-monitor-vm/vm-availability-metric-action-group-basics.png" alt-text="Screenshot of action group basics.":::
 
 3. Select **Notifications** and add one or more methods to notify appropriate people when the alert is fired.
 
-    :::image type="content" source="media/tutorial-monitor-vm/action-group-notifications.png" lightbox="./media/tutorial-monitor-vm/action-group-notifications.png" alt-text="Action group notifications":::
+    :::image type="content" source="media/tutorial-monitor-vm/action-group-notifications.png" lightbox="./media/tutorial-monitor-vm/action-group-notifications.png" alt-text="Screenshot showing action group notifications.":::
 
 ## Configure details
 
@@ -101,7 +101,7 @@ The **Actions** page allows you to add one or more [action groups](../alerts/act
     | Alert rule description | Optional description of the alert rule. |
     
 
-    :::image type="content" source="media/tutorial-monitor-vm/alert-rule-details.png" lightbox="media/tutorial-monitor-vm/alert-rule-details.png" alt-text="Alert rule details.":::
+    :::image type="content" source="media/tutorial-monitor-vm/alert-rule-details.png" lightbox="media/tutorial-monitor-vm/alert-rule-details.png" alt-text="Screenshot showing alert rule details.":::
 
 2. Click **Review + create** to create the alert rule.
 
