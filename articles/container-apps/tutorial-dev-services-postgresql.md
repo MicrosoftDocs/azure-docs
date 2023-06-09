@@ -654,6 +654,10 @@ Then using the CLI (or bicep) you can update the app to add a `--bind $PG_SVC` t
 
 For example, we can deploy [pgweb](https://github.com/sosedoff/pgweb) to view and manage the PostgreSQL instance we have.
 
+# [Bash](#tab/bash)
+
+See Bicep or `azd` example
+
 # [Bicep](#tab/bicep)
 
 ```bicep

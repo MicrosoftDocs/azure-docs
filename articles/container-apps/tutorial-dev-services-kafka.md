@@ -702,6 +702,10 @@ Then using the CLI (or bicep) you can update the app to add a `--bind $KAFKA_SVC
 
 For example, we can deploy [kafka-ui](https://github.com/provectus/kafka-ui) to view and manage the Kafka instance we have.
 
+# [Bash](#tab/bash)
+
+See Bicep or `azd` example
+
 # [Bicep](#tab/bicep)
 
 ```bicep
