@@ -3,7 +3,7 @@ title: CI/CD with Azure Pipelines and Bicep files
 description: In this quickstart, you learn how to configure continuous integration in Azure Pipelines by using Bicep files. It shows how to use an Azure CLI task to deploy a Bicep file.
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-azurecli
-ms.date: 05/05/2023
+ms.date: 06/08/2023
 ---
 
 # Quickstart: Integrate Bicep with Azure Pipelines
@@ -24,9 +24,9 @@ You need a [Bicep file](./quickstart-create-bicep-use-visual-studio-code.md) tha
 
 ## Create pipeline
 
-1. From your Azure DevOps organization, select **Pipelines** and **New pipeline**.
+1. From your Azure DevOps organization, select **Pipelines** and **Create pipeline**.
 
-   ![Add new pipeline](./media/add-template-to-azure-pipelines/new-pipeline.png)
+   ![Create new pipeline](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
 1. Specify where your code is stored.
 
