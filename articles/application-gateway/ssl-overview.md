@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 06/09/2023
 ms.author: greglin
 
 ---
@@ -122,6 +122,9 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 | If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Returns the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners|
 | If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners
 | If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate configured in the basic listener |
+
+> [!TIP]
+> The SNI flag can be configured with PowerShell or by using an ARM template. For more information, see [RequireServerNameIndication](/powershell/module/az.network/set-azapplicationgatewayhttplistener#-requireservernameindication) and [Quickstart: Direct web traffic with Azure Application Gateway - ARM template](quick-create-template#review-the-template.md).
 
 ### Backend TLS connection (application gateway to the backend server)
 
