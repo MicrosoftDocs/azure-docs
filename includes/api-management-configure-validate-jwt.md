@@ -15,6 +15,12 @@ The following example policy, when added to the `<inbound>` policy section, chec
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/v2.0/.well-known/openid-configuration" />
+    <audiences>
+        <audience>{audience-value - (ex:api://guid)}</audience>
+    </audiences>
+    <issuers>
+        <issuer>{issuer-value - (ex: https://sts.windows.net/{tenant id}/)}</issuer>
+    </issuers>
     <required-claims>
         <claim name="aud">
             <value>{backend-app-client-id}</value>
