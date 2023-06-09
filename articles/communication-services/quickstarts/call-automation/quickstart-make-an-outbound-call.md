@@ -8,7 +8,7 @@ ms.date: 05/26/2023
 ms.topic: include
 ms.service: azure-communication-services
 ms.custom: mode-other
-zone_pivot_groups: acs-csharp-java-js-python
+zone_pivot_groups: acs-csharp
 ---
 
 # Quickstart: Make an outbound call using Call Automation
@@ -17,16 +17,4 @@ Azure Communication Services (ACS) Call Automation APIs are a powerful way to cr
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Make an outbound call .NET](./includes/quickstart-make-an-outbound-call-using-callautomation-csharp.md)]
-::: zone-end
-
-::: zone pivot="programming-language-java"
-[!INCLUDE [Make an outbound call Java](./includes/quickstart-make-an-outbound-call-using-callautomation-java.md)]
-::: zone-end
-
-::: zone pivot="programming-language-node"
-[!INCLUDE [Make an outbound call Typescript](./includes/quickstart-make-an-outbound-call-using-callautomation-node.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [Make an outbound call Python](./includes/quickstart-make-an-outbound-call-using-callautomation-python.md)]
 ::: zone-end
