@@ -134,6 +134,8 @@ The VMs take a few minutes to create. After Azure creates each VM, Azure CLI ret
 >[!NOTE]
 >VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
+[!INCLUDE [ephemeral-ip-note.md](./ephemeral-ip-note.md)]
+
 ## Connect to a virtual machine
 
 1. In the portal, search for and select **Virtual machines**.
@@ -181,6 +183,7 @@ The VMs take a few minutes to create. After Azure creates each VM, Azure CLI ret
     ```
 
 1. Close the Bastion connection to VM2.
+
 ## Clean up resources
 
 When you're done with the virtual network and the VMs, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources.
