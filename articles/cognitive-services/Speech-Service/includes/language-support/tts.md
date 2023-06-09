@@ -151,7 +151,7 @@ ms.author: eur
 | `zh-CN-henan` | Chinese (Zhongyuan Mandarin Henan, Simplified) | `zh-CN-henan-YundengNeural`<sup>2</sup> (Male) |
 | `zh-CN-liaoning` | Chinese (Northeastern Mandarin, Simplified) | `zh-CN-liaoning-XiaobeiNeural`<sup>1,2</sup> (Female) |
 | `zh-CN-shaanxi` | Chinese (Zhongyuan Mandarin Shaanxi, Simplified) | `zh-CN-shaanxi-XiaoniNeural`<sup>1,2</sup> (Female) |
-| `zh-CN-shandong` | Chinese (China, SHANDONG) | `zh-CN-shandong-YunxiangNeural`<sup>2</sup> (Male) |
+| `zh-CN-shandong` | Chinese (Jilu Mandarin, Simplified) | `zh-CN-shandong-YunxiangNeural`<sup>2</sup> (Male) |
 | `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) | `zh-CN-sichuan-YunxiNeural`<sup>1,2</sup> (Male) |
 | `zh-HK` | Chinese (Cantonese, Traditional) | `zh-HK-HiuMaanNeural` (Female)<br/>`zh-HK-WanLungNeural` (Male)<br/>`zh-HK-HiuGaaiNeural` (Female) |
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | `zh-TW-HsiaoChenNeural` (Female)<br/>`zh-TW-YunJheNeural` (Male)<br/>`zh-TW-HsiaoYuNeural` (Female) |
