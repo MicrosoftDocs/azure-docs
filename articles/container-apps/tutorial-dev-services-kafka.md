@@ -22,10 +22,15 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 > * Deploy a kafka-ui app to view 
 > * Creating or Updating a consumer/prod that uses the dev service
 > * Compile a final bicep template to deploy all resources using a consistent and predictable template deployment
+> * Use an `azd` template for a one command deployment of all resources
 
 ## Prerequisites
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
+- Optional: [Azure Developer CLI](/developer/azure-developer-cli/install-azd) of following AZD instructions
+
+> [!NOTE]
+> For a one command deployment, skip to the last `azd` template step.
 
 ## Setup
 
@@ -70,6 +75,36 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
         --template-file kafka-dev.bicep
     ```
 
+    # [azd](#tab/azd)
+    
+    Define a couple of values to use for `azd`
+    
+    ```bash
+    AZURE_ENV_NAME="azd-kafka-dev"
+    LOCATION="northcentralus"
+    ```
+
+    Initialize a Minimal azd template
+
+    ```bash
+    azd init \
+        --environment "$AZURE_ENV_NAME" \
+        --location "$LOCATION" \
+        --no-prompt
+    ```
+
+    > [!NOTE]
+    > `AZURE_ENV_NAME` is different from the Container App Environment name. `AZURE_ENV_NAME` in `azd` is for all resources in a template. Including other non Container Apps resources. We will create a different name for the Container Apps Environment.
+
+    then option `infra/main.bicep` and define a couple of parameters to use later in our template
+
+    ```bicep
+    param appEnvironmentName string = 'aca-env'
+    param kafkaSvcName string = 'kafka01'
+    param kafkaCliAppName string = 'kafka-cli-app'
+    param kafkaUiAppName string = 'kafka-ui'
+    ```
+
     ----
 
 1. Make sure to login and upgrade/register all providers needed for your Azure Subscription
@@ -110,6 +145,17 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
         --query 'properties.outputs.*.value' \
         --template-file kafka-dev.bicep
     ```
+
+    # [azd](#tab/azd)
+
+    No special setup is needed for managing resource groups in `azd`. `azd` drives a resource group from `AZURE_ENV_NAME`/`--environment` value.
+    You can however test the minimal template with 
+
+    ```bash
+    azd up
+    ```
+
+    Which should create an empty resource group.
 
     ----
 
@@ -169,6 +215,60 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
     }
     ```
 
+    # [azd](#tab/azd)
+
+    `azd` templates must use [bicep modules](/azure/azure-resource-manager/bicep/modules). First create a `./infra/core/host` folder. Then create `./infra/core/host/container-apps-environment.bicep` module with the following content
+
+    ```bicep
+    param name string
+    param location string = resourceGroup().location
+    param tags object = {}
+    
+    resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
+      name: '${name}-log-analytics'
+      location: location
+      tags: tags
+      properties: {
+        sku: {
+          name: 'PerGB2018'
+        }
+      }
+    }
+    
+    resource appEnvironment 'Microsoft.App/managedEnvironments@2023-04-01-preview' = {
+      name: name
+      location: location
+      tags: tags
+      properties: {
+        appLogsConfiguration: {
+          destination: 'log-analytics'
+          logAnalyticsConfiguration: {
+            customerId: logAnalytics.properties.customerId
+            sharedKey: logAnalytics.listKeys().primarySharedKey
+          }
+        }
+      }
+    }
+
+    output appEnvironmentId string = appEnvironment.id
+    ```
+
+    then in `./infra/main.bicep` load the module using
+
+    ```bicep
+    module appEnvironment './core/host/container-apps-environment.bicep' = {
+      name: 'appEnvironment'
+      scope: rg
+      params: {
+        name: appEnvironmentName
+        location: location
+        tags: tags
+      }
+    }
+    ```
+
+    run `azd up` to deploy.
+
     ----
 
 ## Create an Apache Kafka service
@@ -221,6 +321,53 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
     > [!TIP]
     > The output `kafkaLogs` will output a CLI command to view the logs of postgres after it's been deployed. You can run the command to view the initialization logs of the new postgres service. 
 
+    # [azd](#tab/azd)
+
+    Create a `./infra/core/host/container-app-service.bicep` module file with the following content
+
+    ```bicep
+    param name string
+    param location string = resourceGroup().location
+    param tags object = {}
+    param environmentId string
+    param serviceType string
+    
+    
+    resource service 'Microsoft.App/containerApps@2023-04-01-preview' = {
+      name: name
+      location: location
+      tags: tags
+      properties: {
+        environmentId: environmentId
+        configuration: {
+          service: {
+              type: serviceType
+          }
+        }
+      }
+    }
+    
+    output serviceId string = service.id
+    ```
+
+    Then update `./infra/main.bicep` to use the module with the following:
+
+    ```bicep
+    module kafka './core/host/container-app-service.bicep' = {
+      name: 'kafka'
+      scope: rg
+      params: {
+        name: kafkaSvcName
+        location: location
+        tags: tags
+        environmentId: appEnvironment.outputs.appEnvironmentId
+        serviceType: 'kafka'
+      }
+    }
+    ```
+
+    Then deploy the template using `azd up`
+
     ----
 
 1. View log output from the postgres instance
@@ -251,6 +398,17 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
     ```bash
     az containerapp logs show \
         --name $KAFKA_SVC \
+        --resource-group $RESOURCE_GROUP \
+        --follow --tail 30
+    ```
+
+    # [azd](#tab/azd)
+
+    use the logs command to view the logs
+
+    ```bash
+    az containerapp logs show \
+        --name kafka01 \
         --resource-group $RESOURCE_GROUP \
         --follow --tail 30
     ```
@@ -321,6 +479,84 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
     > [!TIP]
     > The output `kafkaCliExec` will output a CLI command to exec into the test app after it's been deployed.
 
+    # [azd](#tab/azd)
+
+    Create a module under `./infra/core/host/container-app.bicep` and add the following there
+
+    ```bicep
+    param name string
+    param location string = resourceGroup().location
+    param tags object = {}
+    
+    param environmentId string
+    param serviceId string = ''
+    param containerName string
+    param containerImage string
+    param containerCommands array = []
+    param containerArgs array = []
+    param minReplicas int
+    param maxReplicas int
+    param targetPort int = 0
+    param externalIngress bool = false
+    
+    resource app 'Microsoft.App/containerApps@2023-04-01-preview' = {
+      name: name
+      location: location
+      tags: tags
+      properties: {
+        environmentId: environmentId
+        configuration: {
+          ingress: targetPort > 0 ? {
+            targetPort: targetPort
+            external: externalIngress
+          } : null
+        }
+        template: {
+          serviceBinds: !empty(serviceId) ? [
+            {
+              serviceId: serviceId
+            }
+          ] : null
+          containers: [
+            {
+              name: containerName
+              image: containerImage
+              command: !empty(containerCommands) ? containerCommands : null
+              args: !empty(containerArgs) ? containerArgs : null
+            }
+          ]
+          scale: {
+            minReplicas: minReplicas
+            maxReplicas: maxReplicas
+          }
+        }
+      }
+    }
+    ```
+
+    then use that module in `./infra/main.bicep` using
+
+    ```bicep
+    module kafkaCli './core/host/container-app.bicep' = {
+      name: 'kafkaCli'
+      scope: rg
+      params: {
+        name: kafkaCliAppName
+        location: location
+        tags: tags
+        environmentId: appEnvironment.outputs.appEnvironmentId
+        serviceId: kafka.outputs.serviceId
+        containerImage: 'mcr.microsoft.com/k8se/services/kafka:3.4'
+        containerName: 'kafka-cli'
+        maxReplicas: 1
+        minReplicas: 1
+        containerCommands: [ '/bin/sleep', 'infinity' ]
+      }
+    }
+    ```
+
+    deploy the template with `azd up`
+
     ----
 
 1. Run CLI exec command to exec command to connect to the test app
@@ -350,6 +586,15 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
     ```bash
     az containerapp exec \
         --name $KAFKA_CLI_APP \
+        --resource-group $RESOURCE_GROUP \
+        --command /bin/bash
+    ```
+
+    # [azd](#tab/azd)
+
+    ```bash
+    az containerapp exec \
+        --name kafka-cli-app \
         --resource-group $RESOURCE_GROUP \
         --command /bin/bash
     ```
@@ -457,54 +702,93 @@ Then using the CLI (or bicep) you can update the app to add a `--bind $KAFKA_SVC
 
 For example, we can deploy [kafka-ui](https://github.com/provectus/kafka-ui) to view and manage the Kafka instance we have.
 
-```bicep
-resource kafkaUi 'Microsoft.App/containerApps@2023-04-01-preview' = {
-  name: kafkaUiAppName
-  location: location
-  properties: {
-    environmentId: appEnvironment.id
-    configuration: {
-      ingress: {
-        external: true
-        targetPort: 8080
-      }
-    }
-    template: {
-      serviceBinds: [
-        {
-          serviceId: kafka.id
-          name: 'kafka'
-        }
-      ]
-      containers: [
-        {
-          name: 'kafka-ui'
-          image: 'docker.io/provectuslabs/kafka-ui:latest'
-          command: [
-            '/bin/sh'
-          ]
-          args: [
-            '-c'
-            '''export KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS="$KAFKA_BOOTSTRAP_SERVERS" && \
-            export KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG="$KAFKA_PROPERTIES_SASL_JAAS_CONFIG" && \
-            export KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM="$KAFKA_SASL_MECHANISM" && \
-            export KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL="$KAFKA_SECURITY_PROTOCOL" && \
-            java $JAVA_OPTS -jar kafka-ui-api.jar'''
-          ]
-          resources: {
-            cpu: json('1.0')
-            memory: '2.0Gi'
+    # [Bicep](#tab/bicep)
+
+    ```bicep
+    resource kafkaUi 'Microsoft.App/containerApps@2023-04-01-preview' = {
+      name: kafkaUiAppName
+      location: location
+      properties: {
+        environmentId: appEnvironment.id
+        configuration: {
+          ingress: {
+            external: true
+            targetPort: 8080
           }
         }
-      ]
+        template: {
+          serviceBinds: [
+            {
+              serviceId: kafka.id
+              name: 'kafka'
+            }
+          ]
+          containers: [
+            {
+              name: 'kafka-ui'
+              image: 'docker.io/provectuslabs/kafka-ui:latest'
+              command: [
+                '/bin/sh'
+              ]
+              args: [
+                '-c'
+                '''export KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS="$KAFKA_BOOTSTRAP_SERVERS" && \
+                export KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG="$KAFKA_PROPERTIES_SASL_JAAS_CONFIG" && \
+                export KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM="$KAFKA_SASL_MECHANISM" && \
+                export KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL="$KAFKA_SECURITY_PROTOCOL" && \
+                java $JAVA_OPTS -jar kafka-ui-api.jar'''
+              ]
+              resources: {
+                cpu: json('1.0')
+                memory: '2.0Gi'
+              }
+            }
+          ]
+        }
+      }
     }
-  }
-}
+    
+    output kafkaUiUrl string = 'https://${kafkaUi.properties.configuration.ingress.fqdn}'
+    ```
+    
+    and visit the url printed url
 
-output kafkaUiUrl string = 'https://${kafkaUi.properties.configuration.ingress.fqdn}'
-```
+    # [azd](#tab/azd)
 
-and visit the url printed url
+    Update `./infra/main.bicep` with the following
+
+    ```bicep
+    module kafkaUi './core/host/container-app.bicep' = {
+      name: 'kafka-ui'
+      scope: rg
+      params: {
+        name: kafkaUiAppName
+        location: location
+        tags: tags
+        environmentId: appEnvironment.outputs.appEnvironmentId
+        serviceId: kafka.outputs.serviceId
+        containerImage: 'docker.io/provectuslabs/kafka-ui:latest'
+        containerName: 'kafka-ui'
+        maxReplicas: 1
+        minReplicas: 1
+        containerCommands: [ '/bin/sh' ]
+        containerArgs: [ 
+          '-c'
+          '''export KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS="$KAFKA_BOOTSTRAP_SERVERS" && \
+          export KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG="$KAFKA_PROPERTIES_SASL_JAAS_CONFIG" && \
+          export KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM="$KAFKA_SASL_MECHANISM" && \
+          export KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL="$KAFKA_SECURITY_PROTOCOL" && \
+          java $JAVA_OPTS -jar kafka-ui-api.jar'''
+        ]
+        targetPort: 8080
+        externalIngress: true
+      }
+    }
+    ```
+
+    then deploy the template with `azd up`
+
+    ---
 
 :::image type="content" source="media/services/azure-container-apps-kafka-ui-data.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
 
@@ -646,6 +930,16 @@ az group create \
 az deployment group create -g $RESOURCE_GROUP \
     --query 'properties.outputs.*.value' \
     --template-file kafka-dev.bicep
+```
+
+## Final `azd` template for all resource
+
+A final template can be found [here](https://github.com/ahmelsayed/aca-dev-service-kafka-azd). To deploy it 
+
+```bash
+git clone https://github.com/ahmelsayed/aca-dev-service-kafka-azd
+cd aca-dev-service-kafka-azd
+azd up
 ```
 
 ## Clean up resources
