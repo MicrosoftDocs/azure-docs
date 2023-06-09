@@ -1,18 +1,18 @@
 ---
-title: Traffic profiles as a target resource in Conditional Access
+title: Global Secure Access as a Conditional Access target resource 
 description: How to use a traffic profile in a Conditional Access policy.
 
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/02/2023
+ms.date: 06/09/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: mamkumar
 ---
-# Traffic profiles as a target resource in Conditional Access 
+# Global Secure Access as a target resource 
 
 In addition to sending traffic to Global Secure Access (preview), administrators can use Conditional Access policies to secure traffic profiles. They can mix and match controls as needed like requiring multifactor authentication, requiring a compliant device, or defining an acceptable sign-in risk.
 

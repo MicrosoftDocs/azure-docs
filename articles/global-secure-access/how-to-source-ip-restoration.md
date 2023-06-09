@@ -5,7 +5,7 @@ description: Learn how to enable source IP restoration to ensure source IP match
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 06/09/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

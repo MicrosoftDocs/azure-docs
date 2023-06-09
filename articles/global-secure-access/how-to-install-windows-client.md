@@ -3,7 +3,7 @@ title: The Global Secure Access Client for Windows
 description: Install the Global Secure Access Client for Windows to enable client connectivity.
 ms.service: network-access
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 06/09/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
