@@ -106,7 +106,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 ## Contact us
 
 Let us know about your experience using preview features or if you have other product feedback, by emailing [Ask
-Azure Cosmos DB for PostgreSQL](mailto:AskCosmosDB4Postgres@microsoft.com?subject=Azure Cosmos DB for PostgreSQL feedback).
+Azure Cosmos DB for PostgreSQL](mailto:AskCosmosDB4Postgres@microsoft.com).
 (This email address isn't a technical support channel. For technical problems,
 open a [support
 request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).)
