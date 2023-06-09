@@ -14,8 +14,6 @@ ms.custom:
 
 As an IT administrator, you need to monitor the performance, experience, and availability of the traffic flowing through your networks. Within the Global Secure Access (preview) logs there are many data points that you can review to gain insights into your network traffic. This article describes the logs and dashboards that are available to you and some common monitoring scenarios.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 - Audit logs are available for all services that you have licensed
@@ -56,6 +54,7 @@ The Global Secure Access traffic logs provide a summary of the network connectio
 
 For more information, see [Global Secure Access traffic logs](how-to-view-traffic-logs.md).
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 ## Next steps
 
 - [Learn how to access, store, and analyze Azure AD activity logs](../active-directory/reports-monitoring/howto-access-activity-logs.md)

@@ -5,7 +5,7 @@ description: What are universal tenant restrictions
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 06/09/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,8 +15,6 @@ ms.reviewer: mamkumar
 # Universal tenant restrictions
 
 Universal tenant restrictions enhance the functionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) using Global Secure Access (preview) to tag all traffic no matter the operating system, browser, or device form factor. It allows support for both client and remote network connectivity. Administrators no longer have to manage proxy server configurations or complex network configurations.
-
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 Universal Tenant Restrictions does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane. Tenant restrictions v2 enables enterprises to prevent data exfiltration by users using external tenant identities for Microsoft Entra ID integrated applications like Microsoft Graph, SharePoint Online, and Exchange Online. These technologies work together to prevent data exfiltration universally across all devices and networks.
 
@@ -54,7 +52,7 @@ For more information to configure these policies, see the article [Set up tenant
 
 Once you have created the tenant restriction v2 policies, you can utilize Global Secure Access to apply tagging for tenant restrictions v2. An administrator with both the [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md) and [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles must take the following steps to enable enforcement with Global Secure Access.
 
-1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator.
 1. Browse to **Global Secure Access** > **Global Settings** > **Session Management**.
 1. Select the **Tenant Restrictions** tab.
 1. Select the toggle to **Enable tagging to enforce tenant restrictions on your network**.
@@ -73,7 +71,7 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
    1. For example, a Fabrikam user in the Fabrikam tenant. 
    1. The Fabrikam user should be able to access SharePoint Online.
 1. Turn on universal tenant restrictions.
-1. As an end-user, with the Global Secure Access client running, go to SharePoint Online with an external identity that hasn't been explicitly allow-listed. 
+1. As an end-user, with the Global Secure Access Client running, go to SharePoint Online with an external identity that hasn't been explicitly allow-listed. 
    1. For example, a Fabrikam user in the Fabrikam tenant. 
    1. The Fabrikam user should be blocked from accessing SharePoint Online with an error message saying: 
       1. **Access is blocked, The Contoso IT department has restricted which organizations can be accessed. Contact the Contoso IT department to gain access.**
@@ -103,6 +101,8 @@ Outlook uses the QUIC protocol for some communications, we don't currently suppo
 ```PowerShell
 New-NetFirewallRule -DisplayName "Block QUIC for Exchange" -Direction Outbound -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32 -Protocol UDP -RemotePort 443 -Action Block 
 ```
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

@@ -16,8 +16,6 @@ With your Microsoft 365 traffic flowing through the Microsoft Entra Private Acce
 
 This article describes the information in the logs and how to export them.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 To use the enriched logs, you need the following roles, subscriptions, and resources:
@@ -51,7 +49,7 @@ If you need long-term storage for your logs and you don't plan on querying them 
 > [!NOTE]
 > At this time, streaming logs directly to a Log Analytics workspace is not available. You can stream the logs to an event hub and then ingest the logs into a Log Analytics workspace using Logic Apps.
 
-1. Navigate to the [Microsoft Entra ID admin center](https://portal.azure.com) using one of the required roles.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** using one of the required roles.
 1. Go to **Microsoft Entra ID** > **Monitoring and health** > **Diagnostic settings**.
 1. Select **Add Diagnostic setting**.
 1. Give your diagnostic setting a name.
@@ -64,6 +62,8 @@ For more information on how to stream logs to an event hub or archive logs to a 
 
 - [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md)
 - [Review the data retention policies](../active-directory/reports-monitoring/reference-reports-data-retention.md)  
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

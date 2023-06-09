@@ -1,18 +1,18 @@
 ---
-title: Traffic profiles as a target resource in Conditional Access
+title: Global Secure Access as a Conditional Access target resource 
 description: How to use a traffic profile in a Conditional Access policy.
 
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/02/2023
+ms.date: 06/09/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: mamkumar
 ---
-# Traffic profiles as a target resource in Conditional Access 
+# Global Secure Access as a target resource 
 
 In addition to sending traffic to Global Secure Access (preview), administrators can use Conditional Access policies to secure traffic profiles. They can mix and match controls as needed like requiring multifactor authentication, requiring a compliant device, or defining an acceptable sign-in risk.
 
@@ -20,33 +20,30 @@ Conditional Access on traffic profiles provides administrators with enormous con
 
 This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profiles](concept-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365 or private, internal resources with these policies. Users can access these configured endpoints or traffic profiles only when they satisfy the configured Conditional Access policies. 
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
-* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running.
+* A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running.
 * You must be routing your Microsoft 365 and private network traffic through the **Global Secure Access preview**.
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 
 The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, or hybrid Azure AD join when accessing Microsoft 365 traffic.
 
-<!---Change name of policy when capturing new screenshot to MFA for Microsoft 365 traffic--->
 :::image type="content" source="media/how-to-target-resource/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
 
-1. Sign in to the **Microsoft Entra admin center** as a Conditional Access Administrator or Security Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
+1. Browse to **Identity** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**:
       1. Select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
       1. Select **Guest or external users** and select all checkboxes.
-1. Under **Target Resources** > **Network Access (Preview)***.
+1. Under **Target resources** > **Network Access (Preview)***.
    1. Choose **Microsoft 365 traffic**.
 1. Under **Access controls** > **Grant**.
    1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
@@ -57,13 +54,15 @@ After administrators confirm the policy settings using [report-only mode](../act
 
 ## User experience
 
-When users sign in to a machine with the Global Secure Access client installed, configured, and running they may be prompted to sign in. When users attempt to access a resource protected by a policy like the example above the policy is enforced and they're prompted to sign in if they haven't already. Looking at the system tray icon for the Global Secure Access client you see a red circle indicating it's signed out or not running.
+When users sign in to a machine with the Global Secure Access Client installed, configured, and running for the first time they are prompted to sign in. When users attempt to access a resource protected by a policy like the example above the policy is enforced and they're prompted to sign in if they haven't already. Looking at the system tray icon for the Global Secure Access Client you see a red circle indicating it's signed out or not running.
 
 :::image type="content" source="media/how-to-target-resource/windows-client-pick-an-account.png" alt-text="Screenshot showing the pick an account window for the Global Secure Access Client.":::
 
 When a user signs in the Global Secure Access Client has a green circle that you're signed in, and the client is running.
 
 :::image type="content" source="media/how-to-target-resource/global-secure-access-client-signed-in.png" alt-text="Screenshot showing the Global Secure Access Client is signed in and running.":::
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

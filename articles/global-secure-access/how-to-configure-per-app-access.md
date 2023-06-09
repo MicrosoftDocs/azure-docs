@@ -38,14 +38,14 @@ Per-app access is configured by creating a new Enterprise app from the Global Se
 
 To summarize, the overall process is as follows:
 
-1. Create an App proxy connector group, if you don't already have one.
+1. Create an App Proxy connector group, if you don't already have one.
 1. Create a new enterprise app from Global Secure Access.
 1. Assign users and groups to the app.
 1. Enable Microsoft Entra Private Access.
 
 Let's look at each of these steps in more detail.
 
-## Create an App proxy connector group
+## Create an App Proxy connector group
 
 To configure Quick Access, you must have an App Proxy connector group with at least one active connector.
 
@@ -62,7 +62,7 @@ To create a new app, you provide a name, select a connector group, and add FQDNs
 1. Select **New application**.
 1. Enter a name for the app.
 1. Select a Connector group from the dropdown menu.    
-    - Before you can set up per-app access, you must have an App proxy connector group set up.
+    - Before you can set up per-app access, you must have an App Proxy connector group set up.
     - Your connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your app without adding private resources.
 
@@ -72,6 +72,7 @@ The **Add network access segment** portion of this process is where you define t
 
 You can add fully qualified domain names (FQDN), IP addresses, and IP address ranges.
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Applications** > **Enterprise applications**.
 1. Select **New application**.
 1. Select **Add network access segment**.
@@ -91,6 +92,7 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 
 After you create the new app, you can view and manage the details from **Enterprise applications**. You can also navigate to **Enterprise applications** and search for your app.
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Applications** > **Enterprise applications**.
 1. Search for and select your application.
 
@@ -98,6 +100,7 @@ After you create the new app, you can view and manage the details from **Enterpr
 
 You need to grant access to the app you created by assigning users and/or groups to the app. For more information, see [Assign users and groups to an application.](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Applications** > **Enterprise applications**.
 1. Search for and select your application.
 1. Select **Users and groups** from the side menu.
@@ -107,15 +110,16 @@ You need to grant access to the app you created by assigning users and/or groups
 
 You can add or update the sites and apps included in your app at any time.
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access**> **Enterprise applications**.
 1. Search for and select your application.
 1. Select **Network access properties** from the side menu.
 1. To add a new site or app, select **Add  network access segment**.
 1. To edit an existing app, select it from the **Destination type** column.
 
-### Enable or disable access with the Global Secure Access client
+### Enable or disable access with the Global Secure Access Client
 
-For per-app access, you can enable or disable access to the app using the Global Secure Access client. This option is selected by default, but can be changed to not include the network access segments in the Private access traffic forwarding profile. 
+For per-app access, you can enable or disable access to the app using the Global Secure Access Client. This option is selected by default, but can be changed to not include the network access segments in the Private access traffic forwarding profile. 
 
 ![Screenshot of the enable access checkbox.](media/how-to-configure-per-app-access/per-app-access-enable-checkbox.png)
 
@@ -123,6 +127,7 @@ For per-app access, you can enable or disable access to the app using the Global
 
 Once you have your app configured, your private resources added, users assigned to the app, you can enable the Private access traffic forwarding profile. You can enable the profile before configuring Quick Access, but without the app and profile configured, there's no traffic to forward.
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Traffic forwarding**.
 1. Select the checkbox for **Private access profile**.
 

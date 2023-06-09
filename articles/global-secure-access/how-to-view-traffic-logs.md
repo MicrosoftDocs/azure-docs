@@ -16,8 +16,6 @@ Monitoring the traffic for Global Secure Access is an important activity for ens
 
 This article describes how to use the traffic logs for Global Secure Access.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## How the traffic logs work
 
 Viewing traffic logs requires a Reports Reader role in Microsoft Entra ID. 
@@ -34,7 +32,7 @@ Within each log instance, you can see the session ID, connection ID, and transac
 
 ## How to view the traffic logs
 
-1. Navigate to the [Microsoft Entra ID admin center](https://portal.azure.com) using a Reports Reader role.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** using a Reports Reader role.
 1. **Global Secure Access (Preview)** > **Monitor** > **Traffic logs**.
 
 The top of the page displays a summary of all network connections as well as a breakdown for each traffic forwarding profile. Select the **Microsoft 365** or **Private access** buttons to filter the logs to each traffic forwarding profile.
@@ -77,6 +75,8 @@ The log details provide valuable information about your network traffic. Not all
 - **Connection ID**: Unique identifier representing the connection that initiated the log.
 - **Device category**: Device type where the transaction initiated from. Either **client** or **remote network**.
 - **Action**: The action taken on the network session. Either **Allowed** or **Denied**.
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

@@ -16,8 +16,6 @@ With the traffic forwarding profiles in Global Secure Access (preview), you can 
 
 This article describes the traffic forwarding profiles and how they work.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Traffic forwarding
 
 **Traffic forwarding** enables you to configure the type of network traffic to tunnel through the Microsoft Entra Private Access and Microsoft Entra Internet Access services. You set up profiles to manage how specific types of traffic are managed. 
@@ -41,6 +39,8 @@ Microsoft 365 traffic can be forwarded to the service by either connecting throu
 With the Private Access profile, you can route traffic to your private resources. This traffic forwarding profile requires configuring Quick Access, which includes the fully-qualified domain names (FQDNs) and IP addresses of the private apps and resources you want to forward to the service. 
 
 Private access traffic can be forwarded to the service by connecting through the [Global Secure Access desktop client](how-to-install-windows-client.md).
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 
