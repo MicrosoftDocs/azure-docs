@@ -3,7 +3,7 @@ title: Windows container limitations in Kubernetes
 titleSuffix: Azure Kubernetes Service
 description: See the Windows container limitations in Kubernetes.
 ms.topic: article
-ms.date: 05/18/2023
+ms.date: 06/09/2023
 ms.author: schaffererin
 author: schaffererin
 
@@ -13,7 +13,11 @@ author: schaffererin
 
 Windows Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes. These limitations aren't specific to Azure Kubernetes Service (AKS). For more information on the upstream support from Kubernetes, see [Supported functionality and limitations][upstream-limitations].
 
-Historically, Kubernetes is Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers in AKS, you must use a Windows Server host operating system (OS) version with process isolation.
+Historically, Kubernetes is Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers in AKS, you must use a Windows Server host operating system (OS) version with process isolation. The following considerations apply at the OS level:
+
+- **Identity**: Windows Server uses a larger binary security identifier (SID) that's stored in the Windows Security Access Manager (SAM) database. This database isn't shared between the host and containers or between containers.
+- **File permissions**: Windows Server uses an access control list based on SIDs rather than a bitmask of permissions and UID+GID.
+- **File paths**: The convention on Windows Server is to use \ instead of /. In pod specs that mount volumes, specify the path correctly for Windows Server containers. For example, rather than a mount point of */mnt/volume* in a Linux container, specify a drive letter and location such as */K/Volume* to mount as the *K:* drive.
 
 > [!NOTE]
 > For Kubernetes versions 1.25 and higher, Windows Server 2022 is the default OS. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end-of-life (EOL) and won't be supported in future releases. For more information, see the [AKS release notes][aks-release-notes].
