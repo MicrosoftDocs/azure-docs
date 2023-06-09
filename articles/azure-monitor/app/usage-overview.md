@@ -98,7 +98,7 @@ In the Users, Sessions, and Events tools, you can slice and dice custom events b
 
 Whenever you’re in any usage experience, click the **Open the last run query** icon to take you back to the underlying query.
 
-:::image type="content" source="./media/usage-overview/open-last-run-query-icon.png" alt-text="Screenshot of the Application Insights Session pane in the Azure portal. The Open the last run query icon is highlghted." lightbox="./media/usage-overview/open-last-run-query-icon.png":::
+:::image type="content" source="./media/usage-overview/open-last-run-query-icon.png" alt-text="Screenshot of the Application Insights Session pane in the Azure portal. The Open the last run query icon is highlighted." lightbox="./media/usage-overview/open-last-run-query-icon.png":::
 
 You can then modify the underlying query to get the kind of information you’re looking for. 
 
