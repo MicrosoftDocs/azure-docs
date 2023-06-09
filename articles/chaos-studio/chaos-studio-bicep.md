@@ -20,8 +20,6 @@ This article includes a sample Bicep file to get started in Azure Chaos Studio P
 * Creating a Chaos Studio experiment
 * Assigning the necessary permissions for the experiment to execute
 
-Each sample includes a template file and a parameters file with sample values to provide to the template.
-
 
 ## Build a Virtual Machine Shutdown experiment
 
