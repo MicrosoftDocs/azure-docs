@@ -8,6 +8,8 @@ ms.reviewer: mmcc
 
 # Data Collection Basics of Azure Monitor Application Insights
 
+In the following sections, we'll cover some data collection basics of Azure Monitor Application Insights.
+
 ## Instrumentation Options
 
 At a basic level, "instrumenting" is simply enabling an application to capture telemetry.
@@ -28,10 +30,6 @@ Our plan is to eventually retire the Application Insights SDKs in favor of our A
 
 > [!IMPORTANT]
 > "Manual" doesn't mean you'll be required to write complex code to define spans for distributed traces, although it remains an option. Instrumentation Libraries packaged into our Distros enable you to effortlessly capture telemetry signals across common frameworks and libraries. We're actively working to [instrument the most popular Azure Service SDKs using OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/) so these signals are available to customers who use the Azure Monitor OpenTelemetry Distro.
-
-# Telemetry Collection Basics
-
-In the following sections, we'll cover some telemetry collection basics.
 
 ## Telemetry Types
 
@@ -72,11 +70,7 @@ Alternatively, sending application telemetry via an agent like OpenTelemetry-Col
 
 Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. You, our customers, have asked for vendor-neutral instrumentation, and we're pleased to partner with the OpenTelemetry community to create consistent APIs and SDKs across languages.
 
-### OpenTelemetry Background
-
 Microsoft worked with project stakeholders from two previously popular open-source telemetry projects, [OpenCensus](https://opencensus.io/) and [OpenTracing](https://opentracing.io/). Together, we helped to create a single project, OpenTelemetry. OpenTelemetry includes contributions from all major cloud and Application Performance Management (APM) vendors and lives within the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/). Microsoft is a Platinum Member of the CNCF.
-
-### OpenTelemetry Terms
 
 For terminology, see the [glossary](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/glossary.md) in the OpenTelemetry specifications.
 
