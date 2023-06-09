@@ -1,7 +1,7 @@
 ---
 title: Create a compute instance
 titleSuffix: Azure Machine Learning
-description: Learn how to create and manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
+description: Learn how to create an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -219,7 +219,7 @@ You cannot change the idle time of an existing compute instance with the CLI.
     1. Select **Next** to advance to **Scheduling** after completing required settings.  
     1. Select **Enable idle shutdown**
 
-        :::image type="content" source="media/how-to-create-compute-instance/enable-idle-shutdown-preview.png" alt-text="Screenshot: Enable compute instance idle shutdown." lightbox="media/how-to-create-compute-instance/enable-idle-shutdown-preview.png":::
+        :::image type="content" source="media/how-to-create-compute-instance/enable-idle-preview.png" alt-text="Screenshot: Enable compute instance idle shutdown." lightbox="media/how-to-create-compute-instance/enable-idle-shutdown-preview.png":::
 
     1. Specify the shutdown period.
 

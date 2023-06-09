@@ -1,7 +1,7 @@
 ---
 title: Manage a compute instance
 titleSuffix: Azure Machine Learning
-description: Learn how to create and manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
+description: Learn how to manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -40,9 +40,9 @@ In this article, you learn how to start, stop, restart, delete) a compute instan
 
 Start, stop, restart, and delete a compute instance. A compute instance doesn't always automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you'll still be billed for disk, public IP, and standard load balancer. 
 
-You can [enable automatic shutdown](how-to-create-compute-instance.md#automatic-shutdown) to automatically stop the compute instance after a specified time.
+You can [enable automatic shutdown](how-to-create-compute-instance.md#enable-idle-shutdown) to automatically stop the compute instance after a specified time.
 
-You can also [create a schedule](how-to-create-compute-instance-studio.md#schedule-automatic-start-and-stop) for the compute instance to automatically start and stop based on a time and day of week.
+You can also [create a schedule](how-to-create-compute-instance.md#schedule-automatic-start-and-stop) for the compute instance to automatically start and stop based on a time and day of week.
 
 > [!TIP]
 > The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal. The temp disk size on compute instance depends on the VM size chosen and is mounted on /mnt.
