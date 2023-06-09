@@ -50,12 +50,11 @@ A sample `properties` value looks similar to the following:
 ```json
 {
     "targetResourceType": "Microsoft.Compute/virtualMachines",
-    "previousAvailabilityState": "Available",
-"targetResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/virtualMachines/<VMName>",
+    "targetResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/virtualMachines/<VMName>",
     "occurredTime": "2022-10-11T11:13:59.9570000Z",
+    "previousAvailabilityState": "Available",
     "availabilityState": "Unavailable"
 }
-
 ```
 
 ## microsoft.resourcehealth/resourceannotations
