@@ -46,11 +46,9 @@ This is where intelligent tuning steps in. Rather than manually overseeing and t
 tuning feature can effectively shoulder some of the load. It helps in the automatic monitoring and tuning of the
 database, allowing you to focus on other important tasks.
 
-The intelligent tuning feature offers an autovacuum tuning functionality that diligently keeps track of the bloat ratio
-and adjusts settings accordingly, ensuring optimal use of resources. Furthermore, the Writes Tuning feature monitors the
-volume and transactional patterns of write operations, adjusting parameters such
-as `bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size` to enhance both system
-performance and reliability.
+Intelligent tuning provides an autovacuum tuning feature that vigilantly monitors the bloat ratio, adjusting settings as needed to ensure optimal resource utilization. It proactively manages the "cleaning" process of the database, mitigating performance issues caused by outdated data.
+
+In addition, the Writes Tuning aspect of intelligent tuning observes the quantity and transactional patterns of write operations. It intelligently adjusts parameters such as `bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`. By doing so, it effectively enhances system performance and reliability, ensuring smooth and efficient operation even under high write loads.
 
 In summary, intelligent tuning provides an efficient solution for database monitoring and tuning, taking the hard and
 tedious tasks off your plate. By using this automatic tuning feature, you can rely on the Azure Database for
