@@ -45,28 +45,28 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. On the **Create a resource** page, select **Compute** in the navigation pane and on the **Azure Services** tab select **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/1-create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal showing the Create a Resource Page page with Azure Spring Apps highlighted.":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal showing the Create a Resource Page page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/create-azure-spring-apps.png":::
 
 1. On the **Create Azure Spring Apps** page, fill out the form on the **Basics** tab.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/2-create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Basics tab selected.":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Basics tab selected." lightbox="../../media/quickstart-deploy-microservice-apps/create-basics.png":::
 
    Use the following table as a guide for completing the form.
 
-   | Setting        |Suggested Value|Description|
-   |----------------|---------------|-----------|
-   | Subscription   |Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
-   | Resource group |*myresourcegroup*| A new resource group name or an existing one from your subscription.|
-   | Name           |*myasa*|A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.|
-   | Plan           |*Basic*|Pricing plan determines the resource and cost associated with your instance.|
-   | Region         |The region closest to your users| The location that is closest to your users.|
-   | Zone Redundant |Unchecked|Creates your Azure Spring Apps service in an Azure availability zone. Not currently supported in all regions.|
+   | Setting        | Suggested Value                  | Description                                                                                                                                                                                                                                                                                        |
+   |----------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | Subscription   | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
+   | Resource group | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | Name           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | Plan           | *Basic*                          | Pricing plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                       |
+   | Region         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
+   | Zone Redundant | Unchecked                        | Creates your Azure Spring Apps service in an Azure availability zone. Not currently supported in all regions.                                                                                                                                                                                      |
 
-1. Navigate to the **Diagnostic settings** tab on the **Crete Azure Spring Apps** page and then select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
+1. Navigate to the **Diagnostic settings** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Diagnostics tab selected and the Create new button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png":::
 
-1. Navigate to the **Application Insights** tab on the **Crete Azure Spring Apps** page and then select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select the **Classic** for **Resource mode**, then select **OK** to confirm the creation.
+1. Navigate to the **Application Insights** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select the **Classic** for **Resource mode**, then select **OK** to confirm the creation.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Create new Application Insights resource pane showing." lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png":::
 
@@ -74,7 +74,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. Select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard** to create a shortcut on your Azure portal dashboard to the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/3-asa-notifications.png" alt-text="Screenshot of the Azure portal showing a deployment of a resource and the Notification pane with Go to resource and Pin to dashboard buttons.":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-notifications.png" alt-text="Screenshot of the Azure portal showing a deployment of a resource and the Notification pane with Go to resource and Pin to dashboard buttons." lightbox="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-notifications.png":::
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
