@@ -56,7 +56,7 @@ items:
     expanded: false
     items:
     - name: Use Azure Monitor alerts with Grafana
-      href: how-to-user-azure-monitor-alerts.md
+      href: how-to-use-azure-monitor-alerts.md
     - name: Configure SMTP settings
       href: how-to-smtp-settings.md
     - name: Use reporting and image rendering
