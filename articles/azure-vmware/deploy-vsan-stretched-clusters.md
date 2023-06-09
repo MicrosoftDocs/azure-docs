@@ -128,7 +128,7 @@ No. A stretched cluster is created between two availability zones, while the thi
     - Recently released features like Public IP down to NSX Edge and external storage, like ANF datastores.
     - Disaster recovery addons like VMware SRM, Zerto, and JetStream.
 - Open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for the following scenarios (be sure to select **Stretched Clusters** as a **Problem Type**):
-    - Connect a private cloud in another region to a stretched cluster private cloud.
+    - Connect a private cloud to a stretched cluster private cloud.
     - Connect two stretched cluster private clouds in a single region.
 
 ### What kind of latencies should I expect between the availability zones (AZs)?
