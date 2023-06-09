@@ -18,7 +18,7 @@ This article contains a quick reference and a detailed description of the quotas
 
 ## Quotas and limits reference
 
-The following sections provide you with a quick guide to the default quotas and limits that apply to the Azure OpenAI:
+The following sections provide you with a quick guide to the default quotas and limits that apply to Azure OpenAI:
 
 | Limit Name | Limit Value |
 |--|--|
@@ -36,7 +36,7 @@ The following sections provide you with a quick guide to the default quotas and 
 
 <sup>1</sup> Default quota limits are subject to change.
 
-### General best practices remain within rate limits
+### General best practices to remain within rate limits
 
 To minimize issues related to rate limits, it's a good idea to use the following techniques:
 
@@ -47,7 +47,7 @@ To minimize issues related to rate limits, it's a good idea to use the following
 
 ### How to request increases to the default quotas and limits
 
-Quota increase requests can be submitted from the **Quotas** page of Azure AI Studio. Please note that due to overwhelming demand, we are not currently approving new quota increase requests. Your request will be queued until it can be filled at a later time.
+Quota increase requests can be submitted from the [Quotas](./how-to/quota.md) page of Azure AI Studio. Please note that due to overwhelming demand, we are not currently approving new quota increase requests. Your request will be queued until it can be filled at a later time.
 
 For other rate limits, please [submit a service request](/azure/cognitive-services/cognitive-services-support-options?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
 
