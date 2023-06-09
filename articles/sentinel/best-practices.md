@@ -31,6 +31,7 @@ The Microsoft Sentinel documentation has best practice guidance scattered throug
     - [Permissions in Microsoft Sentinel](roles.md)
     - [Protecting MSSP intellectual property in Microsoft Sentinel](mssp-protect-intellectual-property.md)
     - [Threat intelligence integration in Microsoft Sentinel](threat-intelligence-integration.md)
+    - [Microsoft Sentinel content and solutions](sentinel-solutions.md)
     - [Audit Microsoft Sentinel queries and activities](audit-sentinel-data.md)
 
 - **Analysts**:
