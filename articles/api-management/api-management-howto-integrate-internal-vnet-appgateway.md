@@ -361,7 +361,7 @@ All configuration items must be set up before you create the application gateway
 1. Upload the trusted root certificate to be configured on the HTTP settings.
     
     ```powershell
-    $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert1" -CertificateFile $trustedRootCertCerPath
+    $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "allowlistcert1" -CertificateFile $trustedRootCertCerPath
     ```
 
 1. Configure HTTP back-end settings for the application gateway, including a timeout limit for back-end requests, after which they're canceled. This value is different from the probe timeout.
