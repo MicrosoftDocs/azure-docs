@@ -44,6 +44,7 @@ To support scalable ingestion of geometry-clipped imagery, we've partnered with 
 
 ## May 2003
 
+### Understanding Throttling
 Azure Data Manager for Agriculture implements API throttling to ensure consistent performance by limiting the number of requests within a specified time frame. Throttling prevents resource overuse and maintains optimal performance and reliability for all customers. Details are available [here](concepts-understanding-throttling.md).
 
 ## Next steps
