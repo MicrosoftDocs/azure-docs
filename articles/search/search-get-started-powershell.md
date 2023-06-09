@@ -11,7 +11,7 @@ ms.devlang: rest-api
 ms.date: 01/27/2023
 ms.custom: mode-api
 ---
-# Quickstart: Create as earch index in PowerShell using REST APIs
+# Quickstart: Create a search index in PowerShell using REST APIs
 
 In this Azure Cognitive Search quickstart, learn how to create, load, and query a search index using PowerShell and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a PowerShell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) that performs the same operations.
 
