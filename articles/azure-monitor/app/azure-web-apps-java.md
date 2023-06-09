@@ -4,7 +4,7 @@ description: Application performance monitoring for Azure app services using Jav
 ms.topic: conceptual
 ms.date: 03/22/2023
 ms.devlang: java
-ms.custom: "devx-track-java"
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: abinetabate
 ---
 

@@ -76,8 +76,8 @@ If you get "Error detecting index schema from data source", the indexer that's p
 | Security feature | Solution |
 |--------------------|----------|
 | Resource requires Azure roles or its access keys are disabled | [Connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md) or [connect using a managed identity](search-howto-managed-identities-data-sources.md) |
-| Resource is behind an IP firewall | [Open an inbound rule for Azure portal](search-indexer-howto-access-ip-restricted.md) |
-| Resource requires a private endpoint connection | [Create a shared private link for your target resource](search-indexer-howto-access-private.md) |
+| Resource is behind an IP firewall | [Create an inbound rule for Search and for Azure portal](search-indexer-howto-access-ip-restricted.md) |
+| Resource requires a private endpoint connection | [Connect over a private endpoint](search-indexer-howto-access-private.md) |
 
 ### Step 2 - Add cognitive skills
 

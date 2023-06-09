@@ -85,6 +85,8 @@ items:
     href: concept-understand-app-and-deployment.md
   - name: Blue-green deployment strategies
     href: concepts-blue-green-deployment-strategies.md
+  - name: Zero downtime deployment
+    href: concept-zero-downtime-deployment.md
   - name: Quotas and limits
     href: quotas.md
   - name: Understand app status
@@ -152,7 +154,7 @@ items:
       - name: Use Build Service
         href: how-to-enterprise-build-service.md
       - name: Configure APM integration and CA certificates
-        href: how-to-enterprise-configure-apm-intergration-and-ca-certificates.md
+        href: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
       - name: Use Service Registry
         href: how-to-enterprise-service-registry.md
       - name: Use API portal
