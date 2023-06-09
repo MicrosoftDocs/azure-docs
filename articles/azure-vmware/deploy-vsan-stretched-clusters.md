@@ -3,7 +3,7 @@ title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/05/2023
+ms.date: 06/12/2023
 ms.custom: references_regions
 ---
 
