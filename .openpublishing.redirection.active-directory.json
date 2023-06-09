@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path_from_root": "/articles/active-directory/develop/reference-app-multi-instancing.md",
-      "redirect_url": "/azure/active-directory/develop/app-multi-instancing",
+      "redirect_url": "/azure/active-directory/develop/configure-app-multi-instancing",
       "redirect_document_id": false
     },
     {
