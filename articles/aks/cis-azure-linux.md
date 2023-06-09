@@ -5,14 +5,14 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: article
-ms.date: 06/08/2023
+ms.date: 06/09/2023
 ---
 
 # Center for Internet Security (CIS) Azure Linux benchmark
 
 Azure Kubernetes Service (AKS) and the Microsoft Azure Linux image alignment with Center for Internet Security (CIS) benchmark
 
-The security OS configuration applied to the Azure Linux Container Host for AKS image is based on the Azure Linux security baseline, which aligns with the CIS benchmark. As a secure service, AKS complies with SOC, ISO, PCI DSS, and HIPAA standards. For more information about the Azure Linux Container Host security, please refer to [Security concepts for clusters in AKS](../../articles/aks/concepts-security.md). To learn more about the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks](/compliance/regulatory/offering-CIS-Benchmark). For more information on the Azure security baselines for Linux, see [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md).
+The security OS configuration applied to the Azure Linux Container Host for AKS image is based on the Azure Linux security baseline, which aligns with the CIS benchmark. As a secure service, AKS complies with SOC, ISO, PCI DSS, and HIPAA standards. For more information about the Azure Linux Container Host security, please refer to [Security concepts for clusters in AKS][security-concepts-aks]. To learn more about the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
 
 ## Azure Linux 2.0
 
@@ -50,5 +50,13 @@ The following are the results from the [CIS Azure Linux 2.0 Benchmark v2.1.0](in
 
 For more information about Azure Linux Container Host security, see the following articles:
 
-* [Azure Linux Container Host for AKS](./intro-azure-linux.md)
-* [Security concepts for clusters in AKS](../../articles/aks/concepts-security.md)
+* [Azure Linux Container Host for AKS][linux-container-host-aks]
+* [Security concepts for clusters in AKS][security-concepts-aks]
+
+<!-- LINKS - external -->
+
+<!-- LINKS - internal -->
+[security-concepts-aks]: concepts-security.md
+[cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
+[linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
+[linux-container-host-aks]: ../azure-linux/intro-azure-linux.md
