@@ -352,7 +352,7 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 
 This feature automatically injects the [JavaScript snippet](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
 
-For example, if your java application would return a response like:
+For example, when your java application returns a response like:
 
 ```html
 <!DOCTYPE html>
