@@ -33,7 +33,6 @@ Call Automation's EventProcessor first need to consume events that was sent from
 > [!IMPORTANT]
 > Have you established webhook callback events endpoint? EventProcessor still needs to consume callback events through webhook callback. See **[this page](../../quickstarts/call-automation/callflows-for-customer-interactions.md)** for further assistance.
 
-### [csharp](#tab/csharp)
 ```csharp
 using Azure.Communication.CallAutomation;
 
@@ -55,7 +54,6 @@ Now we are ready to use the EventProcessor.
 
 First scenario is to create an outbound call, then wait until the call is established with the EventProcessor.
 
-### [csharp](#tab/csharp)
 ```csharp
 // Creating an outbound call here
 CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(callInvite, callbackUri);
@@ -80,7 +78,6 @@ With EventProcessor, we can easily wait CallConnected event until the call is es
 
 Now the call is established, let's try to play some audio in the call, then wait until the media is played.
 
-### [csharp](#tab/csharp)
 ```csharp
 // play my prompt to everyone
 FileSource fileSource = new FileSource(playPrompt);
@@ -109,7 +106,6 @@ else
 
 Some events could happen anytime during the call, such as CallDisconnected or ParticipantsUpdated, when other caller leaves the call. EventProcessor provides a way to handle these events easily with ongoing event handler.
 
-### [csharp](#tab/csharp)
 ```csharp
 // Use your call automation client that established the call
 CallAutomationEventProcessor eventProcessor = callAutomationClient.GetEventProcessor();
@@ -130,7 +126,6 @@ With this given ongoing EventProcessor, we can now print number or participant i
 
 If you would like to wait for specific event with given predicate without relying on EventResult returned from request, it is also possible to do so with predicate. Let's try to wait for CallDisconnected event with matching CallConnectionId and its type.
 
-### [csharp](#tab/csharp)
 ```csharp
 // Use your call automation client that established the call
 CallAutomationEventProcessor eventProcessor = callAutomationClient.GetEventProcessor();
