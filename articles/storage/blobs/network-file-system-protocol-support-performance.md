@@ -59,20 +59,20 @@ Some applications may require low latency in addition to high throughput. You ca
 
 ## Increase the number of TCP connections
 
-You can use the `nconnect` mount option to increase performance at scale but only if your Linux kernel has Azure nconnect support. 
+You can use the `nconnect` mount option to increase performance at scale but only if your Linux kernel has **Azure nconnect support**. 
 
 Nconnect is is a client-side Linux mount option that allows you to use multiple TCP connections between the client and the Blob service endpoint. You can use the `nconnect` option in the mount command to specify the number of TCP connections that you want create (for example: `mount -t -nconnect=4 aznfs -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdatain`).
 
 > [!IMPORTANT]
 > While the latest Linux distributions fully support nconnect, you should use this option only if your kernel has Azure nconnect support. Using the `nconnect` mount option without Azure nconnect support will decrease throughput, cause multiple timeouts, and cause commands such as `READDIR` and `READIRPLUS` to work incorrectly. 
 
-Azure nconnect support is available with most of the recent Ubuntu kernals that can be used with Azure Virtual Machines (VMs). To find out if Azure nconnect support is available for your kernel, run the following command.
+Azure nconnect support is available with most of the recent Ubuntu kernals that can be used with Azure virtual machines. To find out if Azure nconnect support is available for your kernel, run the following command.
 
 ```
 [ -e /sys/module/sunrpc/parameters/enable_azure_nconnect ] && echo "Yes" || echo "No"
 ```
 
-If Azure nconnect support is available for your kernel, then `Yes` is printed to the console. If Azure nconnect support is available, then run the following command to enable it.
+If Azure nconnect support is available for your kernel, then `Yes` is printed to the console. If Azure nconnect support is available, then enable it by running the following command.
 
 ```
 /sys/module/sunrpc/parameters/enable_azure_nconnect
