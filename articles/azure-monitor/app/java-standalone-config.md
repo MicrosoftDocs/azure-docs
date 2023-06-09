@@ -387,7 +387,7 @@ If you want to enable this feature:
 
 ```json
 "preview": {
-  "injectJavaScriptSnippet": {
+  "javaScriptSnippet": {
      "enabled": true
    }
 }
