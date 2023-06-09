@@ -1,14 +1,14 @@
 ---
-title: Enable Azure Monitor Application Insights Overview 
+title: Data Collection Basics of Azure Monitor Application Insights 
 description: This article provides an overview of how to enable Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 06/08/2023
 ms.reviewer: mmcc
 ---
 
-# Enable Azure Monitor Application Insights Overview
+# Data Collection Basics of Azure Monitor Application Insights
 
-## Instrument your application
+## Instrumentation Options
 
 At a basic level, "instrumenting" is simply enabling an application to capture telemetry.
 
