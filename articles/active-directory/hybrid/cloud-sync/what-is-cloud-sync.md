@@ -52,6 +52,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Synchronize Exchange online attributes |● |● |
 | Synchronize extension attributes 1-15 |● |● |
 | Synchronize customer defined AD attributes (directory extensions) |●|●|
+| Synchronize [temporary passwords](../connect/how-to-connect-password-hash-synchronization#synchronizing-temporary-passwords-and-force-password-change-on-next-logon) |●| |
 | Support for Password Hash Sync |●|●|
 | Support for Pass-Through Authentication |●||
 | Support for federation |●|●|
