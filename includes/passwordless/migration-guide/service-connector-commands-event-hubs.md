@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: event-hubs
+author: alexwolfmsft
+ms.service: event-hubs
+ms.topic: include
+ms.date: 6/09/2023
+ms.author: alexwolf
+ms.custom: include file
+---
+
 You can use Service Connector to create a connection between an Azure compute hosting environment and a target service using the Azure CLI. The Service Connector CLI commands automatically assign the proper role to your identity. You can learn more about Service Connector and which scenarios are supported on the [overview page](../../../articles/service-connector/overview.md).
 
 1. Retrieve the client ID of the managed identity you created using the `az identity show` command. Copy the value for later use.

@@ -12,7 +12,7 @@ ms.custom: include file
 
 When developing locally, make sure that the user account that is accessing Azure Event Hubs has the correct permissions. You'll need the **Azure Event Hubs Data Receiver** and **Azure Event Hubs Data Sender** roles to read and write message data. To assign yourself this role, you'll need to be assigned the **User Access Administrator** role, or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](../articles/role-based-access-control/scope-overview.md) page.
 
-The following example assigns the **Azure Event Hubs Data Sender** and **Azure Event Hubs Data Receiver** roles to your user account. These role grants read and write access to Event Hub messages.
+The following example assigns the **Azure Event Hubs Data Sender** and **Azure Event Hubs Data Receiver** roles to your user account. These role grants read and write access to event hub messages.
 
 ### [Azure portal](#tab/roles-azure-portal)
 
@@ -24,7 +24,7 @@ The following example assigns the **Azure Event Hubs Data Sender** and **Azure E
 
 4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
-    :::image type="content" source="../articles/event-hubs/media/event-hubs-passwordless/passwordless-event-hubs-assign-role-small.png" lightbox="../articles/storage/common/media/assign-role-system-identity.png" alt-text="A screenshot showing how to assign a role.":::
+    :::image type="content" source="../articles/event-hubs/media/event-hubs-passwordless/passwordless-event-hubs-assign-role-small.png" lightbox="../articles/event-hubs/media/event-hubs-passwordless/passwordless-event-hubs-assign-role.png" alt-text="A screenshot showing how to assign a role.":::
 
 5. Use the search box to filter the results to the desired role. For this example, search for *Azure Event Hubs Data Sender* and select the matching result and then choose **Next**.
 
