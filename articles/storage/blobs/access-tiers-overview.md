@@ -240,25 +240,24 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 
 ### Limitations and known issues
 
-- The [change feed](storage-blob-change-feed.md)is not yet compatible with the cold tier.
+- The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
 - [Point in time restore](point-in-time-restore-overview.md) is not yet compatible with the cold tier. 
 - [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
+- Setting the cold tier in a batch call is not yet supported (For example: using the [Blob Batch](/rest/api/storageservices/blob-batch) REST operation along with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) subrequest).
 
-### Required REST and SDK versions
+### Required versions of REST, SDKs, and command line tools
 
-If you plan to refer to the cold tier by using code in a custom application, you must use a version of the REST API or SDK that supports the cold tier. If your application uses the [REST API](/rest/api/storageservices/blob-service-rest-api), it must use version 2021-21-02 or later. If your application uses an Azure SDK, please the following versions or later. 
-
-| SDK | Minimum version |
+| Environment | Minimum version |
 |---|---|
+| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2021-21-02 |
 | [.NET](/dotnet/api/azure.storage.blobs) | 12.15.0 |
 | [Java](/java/api/overview/azure/storage-blob-readme) | 12.21.0 |
 | [Python](/python/api/azure-storage-blob/) | 12.15.0 |
 | [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
-
-> [!NOTE]
-> If you plan to refer to the cold tier when using the AzCopy tool, make sure to install AzCopy version 12.18.0 or later.
-
+| [PowerShell (Az.Storage)](/powershell/azure/install-azure-powershell) | 5.4.2-preview |
+| [Azure CLI extension](/cli/azure/install-azure-cli) | storage-blob-preview 0.7.1 |
+| [AzCopy](../common/storage-use-azcopy-v10.md) | 10.18.1 or later|
 
 ## Feature support
 

@@ -9,15 +9,12 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, mlflow, sdkv1
+ms.custom: UpdateFrequency5, mlflow, sdkv1
 ---
 
 # Track ML models with MLflow and Azure Machine Learning 
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
-> * [v1](how-to-use-mlflow.md)
-> * [v2 (current version)](../how-to-use-mlflow-cli-runs.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to enable [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) to connect Azure Machine Learning as the backend of your MLflow experiments.
 

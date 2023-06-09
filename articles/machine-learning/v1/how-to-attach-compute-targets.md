@@ -16,9 +16,6 @@ ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, ignite-fall-202
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [v1](how-to-attach-compute-targets.md)
-> * [v2 (current version)](../how-to-train-model.md?view=azureml-api-2&preserve-view=true)
      
 Learn how to attach Azure compute resources to your Azure Machine Learning workspace with SDK v1.  Then you can use these resources as training and inference [compute targets](../concept-compute-target.md) in your machine learning tasks.
 
@@ -70,7 +67,7 @@ When you use your local computer for **inference**, you must have Docker install
 
 ## Remote virtual machines
 
-Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](how-to-configure-environment-v1.md).
+Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](how-to-configure-environment.md).
 
 > [!TIP]
 > Instead of a remote VM, we recommend using the [Azure Machine Learning compute instance](../concept-compute-instance.md). It is a fully managed, cloud-based compute solution that is specific to Azure Machine Learning. For more information, see [create and manage Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).

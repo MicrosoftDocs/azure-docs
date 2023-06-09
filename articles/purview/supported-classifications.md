@@ -62,7 +62,7 @@ Person Name machine learning model has been trained using global datasets of nam
 -------------------------------------
 
 ### Person's Address
-Person's address classification is used to detect full address stored in a single column containing the following elements: House number, Street Name, City, State, Country, Zip Code. Person's Address classifier uses machine learning model that is trained on the global addresses data set in English language.
+Person's address classification is used to detect full address stored in a single column containing the following elements: House number, Street Name, City, State, Country/Region, Zip Code. Person's Address classifier uses machine learning model that is trained on the global addresses data set in English language.
 
 #### Supported formats
 Currently the address model supports the following formats in the same column:
@@ -81,6 +81,7 @@ Person's Gender machine learning model has been trained using US Census data and
 #### Keywords
 - sex
 - gender
+- sexual
 - orientation
 
 -------------------------------------
@@ -90,6 +91,7 @@ Person's Age machine learning model detects age of an individual specified in va
 
 #### Keywords
 - age
+- ages
 
 #### Supported formats
 - {%y} y, {%m} m

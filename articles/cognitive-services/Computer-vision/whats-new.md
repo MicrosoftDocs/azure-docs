@@ -23,6 +23,12 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 The Product Recognition APIs let you analyze photos of shelves in a retail store. You can detect the presence and absence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Product Recognition results to your store's planogram document. [Product Recognition](./concept-shelf-analysis.md).
 
+## April 2023
+
+### Face limited access tokens
+
+Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows client companies to use the Face API without having to go through the formal approval process. [Use limited access tokens](how-to/identity-access-token.md).
+
 ## March 2023
 
 ### Computer Vision Image Analysis 4.0 SDK public preview

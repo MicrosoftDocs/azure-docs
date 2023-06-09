@@ -17,9 +17,6 @@ ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](v1/how-to-manage-workspace-cli.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-manage-workspace-cli.md)
 
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
@@ -337,7 +334,7 @@ az group delete -g <resource-group-name>
 
 For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az-ml-workspace-delete) documentation.
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](./how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
+If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](./v1/how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
 
 ## Troubleshooting
 

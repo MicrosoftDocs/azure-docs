@@ -10,8 +10,13 @@
  ms.custom: include file
 ---
 Currently only available in the following regions:
+- Southeast Asia (Two availability zones)
 - North Europe
 - West Europe
+- UK South
 - East US
 - East US 2
+- South Central US (Two availability zones)
 - West US 2
+- West US 3
+

@@ -10,7 +10,7 @@ author: msdpalam
 ms.author: meeral
 ms.reviewer: lagayhar
 ms.date: 03/15/2023
-ms.custom: sdkv2, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022, build-2023, devx-track-python
 #Customer intent: This tutorial is intended to introduce Azure Machine Learning to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure Machine Learning and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
 
@@ -172,6 +172,9 @@ except Exception:
     print("Creating a new cpu compute target...")
 
     # Let's create the Azure Machine Learning compute object with the intended parameters
+    # if you run into an out of quota error, change the size to a comparable VM that is available.\
+    # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
+
     cpu_cluster = AmlCompute(
         name=cpu_compute_target,
         # Azure Machine Learning Compute is the on-demand VM service

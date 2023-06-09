@@ -47,7 +47,7 @@ You can send dtmf tones to an external participant, which may be useful when you
 >[!NOTE]
 >This is only supported for external PSTN participants and supports sending a maximum of 18 tones at a time.
 
-### SendDTMFAsync Method
+### SendDtmfAsync Method
 Send a list of DTMF tones to an external participant.
 ### [csharp](#tab/csharp)
 ```csharp
@@ -55,7 +55,7 @@ var tones = new DtmfTone[] { DtmfTone.One, DtmfTone.Two, DtmfTone.Three, DtmfTon
 
 await callAutomationClient.GetCallConnection(callConnectionId)
 	.GetCallMedia()
-	.SendDtmfAsync(targetParticipant: new tones: tones, PhoneNumberIdentifier(c2Target), operationContext: "dtmfs-to-ivr");
+	.SendDtmfAsync(targetParticipant: tones: tones, new PhoneNumberIdentifier(c2Target), operationContext: "dtmfs-to-ivr");
 ```
 ### [Java](#tab/java)
 ```java

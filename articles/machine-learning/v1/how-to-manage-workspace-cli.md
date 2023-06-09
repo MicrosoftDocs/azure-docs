@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, event-tier1-build-2022
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](how-to-manage-workspace-cli.md)
-> * [v2 (current version)](../how-to-manage-workspace-cli.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
@@ -267,7 +264,7 @@ You can also delete the resource group, which deletes the workspace and all othe
 az group delete -g <resource-group-name>
 ```
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](../how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
+If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
 
 ## Troubleshooting
 

@@ -51,8 +51,6 @@ The following command sets the same minimum and maximum replica count on an exis
 az functionapp config container set --name <APP_NAME> --resource-group <MY_RESOURCE_GROUP> --max-replicas 15 --min-replicas 1
 ```  
 
-To invoke DAPR APIs or to run the [Functions DAPR extension](https://github.com/Azure/azure-functions-dapr-extension), make sure the minimum replica count is set to at least `1`. This enables the DAPR sidecar to run in the background to handle DAPR requests. 
-
 ## Considerations for Container Apps hosting
 
 Keep in mind the following considerations when deploying your function app containers to Container Apps:
@@ -77,9 +75,10 @@ Keep in mind the following considerations when deploying your function app conta
     \*The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).  
 + Dapr is currently enabled by default in the preview release. In a later release, Dapr loading should be configurable. 
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
-+ When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. However, you can access the AKS instance directly.
++ When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
 + Use of user-assigned managed identities is currently supported, and is preferred for accessing Azure Container Registry. For more information, see [Add a user-assigned identity](../app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json#add-a-user-assigned-identity).
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
++ To invoke DAPR APIs or to run the [Functions Dapr extension](https://github.com/Azure/azure-functions-dapr-extension), make sure the minimum replica count is set to at least `1`. This enables the DAPR sidecar to run in the background to handle DAPR requests. The Functions Dapr extension is also in preview, with help provided [in the repository](https://github.com/Azure/azure-functions-dapr-extension/issues).
 
 ## Next steps
 

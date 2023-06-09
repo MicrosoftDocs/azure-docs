@@ -20,17 +20,24 @@ Code samples in the documentation are written in C# 8 and run on .NET standard 2
 
 The Speech SDK for C# is available as a NuGet package and implements .NET Standard 2.0. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
 
+
+# [Terminal](#tab/dotnetcli)
+
 The Speech SDK for C# can be installed from the .NET CLI with the following `dotnet add` command:
 
 ```dotnetcli
 dotnet add package Microsoft.CognitiveServices.Speech
 ```
 
+# [PowerShell](#tab/powershell)
+
 The Speech SDK for C# can be installed with the following `Install-Package` command:
 
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
 ```
+
+---
 
 You can follow a guide below for additional options.
 

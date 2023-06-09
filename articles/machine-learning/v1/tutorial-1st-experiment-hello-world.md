@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](tutorial-1st-experiment-hello-world.md)
-> * [v2](../tutorial-1st-experiment-hello-world.md?view=azureml-api-2&preserve-view=true)
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 

@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, 
 
 [!INCLUDE [SDK v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [SDK v1](how-to-secure-training-vnet.md)
-> * [SDK v2 (current version)](../how-to-secure-training-vnet.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning using the Python SDK v1.
 
@@ -95,6 +92,8 @@ In this article you learn how to secure the following training compute resources
     > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__.
 
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
+
+* __Port 445__ must be open for _private_ network communications between your compute instances and the default storage account during training. For example, if your computes are in one VNet and the storage account is in another, don't block port 445 to the storage account VNet.
 
 ### Azure Databricks
 

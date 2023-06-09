@@ -4,27 +4,29 @@ description: Describes the steps to publish and consume events or messages using
 ms.topic: quickstart
 ms.author: jafernan
 author: jfggdl
-ms.custom: references_regions, build-2023, build-2023-dataai
-ms.date: 05/23/2023
+ms.custom: references_regions
+ms.date: 05/24/2023
 ---
 
 # Publish to namespace topics and consume events
 
 This article describes the steps to publish and consume events using the [CloudEvents](https://github.com/cloudevents/spec) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) using namespace topics and event subscriptions.
 
-Follow the steps in this article if you need to send application events to Event Grid so that they are received by consumer clients. Consumers connect to Event Grid to read the events ([pull delivery](pull-delivery-overview.md)).
+Follow the steps in this article if you need to send application events to Event Grid so that they're received by consumer clients. Consumers connect to Event Grid to read the events ([pull delivery](pull-delivery-overview.md)).
 
 >[!Important]
 > Namespaces, namespace topics, and event subscriptions associated to namespace topics are iniatially available in the following regions:
->- US East
->- Central US 
->- US South Central
->- West US 2 
->- Asia East
+>
+>- East US
+>- Central US
+>- South Central US
+>- West US 2
+>- East Asia
 >- Southeast Asia
->- Europe North
->- Europe West
+>- North Europe
+>- West Europe
 >- UAE North
+
 
 >[!Important]
 > The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
@@ -44,8 +46,8 @@ The resource group is a logical collection into which Azure resources are deploy
 
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. We use this resource group to contain all resources created in this article.
 
-The general steps to use CloudShell to run commands are:
-- Click on **Open Cloud Shell** to see an Azure Cloud Shell window on the right pane. 
+The general steps to use Cloud Shell to run commands are:
+- Select **Open Cloud Shell** to see an Azure Cloud Shell window on the right pane. 
 - Copy the command and paste into the Azure Cloud Shell window.
 - Press ENTER to run the command.
 
@@ -76,7 +78,7 @@ Set the name you want to provide to your namespace on an environmental variable.
 namespace=<your-namespace-name>
 ```
 
-Create a namespace. You may want to change the location where it is deployed. 
+Create a namespace. You may want to change the location where it's deployed. 
 
 ```azurecli-interactive
 az resource create --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --location centraluseuap --properties "{}"
@@ -99,7 +101,7 @@ az resource create --resource-group $resource_group --namespace Microsoft.EventG
 
 ## Create an event subscription
 
-Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-delivery-overview.md#pull-delivery-1). For more information on all configuration options, refer to the latest Event Grid control plane [REST API](/rest/api/eventgrid).
+Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-delivery-overview.md#pull-delivery-1). For more information on all configuration options,see the latest Event Grid control plane [REST API](/rest/api/eventgrid).
 
 Set the name of your event subscription on a variable:
 ```azurecli-interactive
@@ -140,7 +142,7 @@ Create a sample CloudEvents-compliant event:
 event=' { "specversion": "1.0", "id": "'"$RANDOM"'", "type": "com.yourcompany.order.ordercreatedV2", "source" : "/mycontext", "subject": "orders/O-234595", "time": "'`date +%Y-%m-%dT%H:%M:%SZ`'", "datacontenttype" : "application/json", "data":{ "orderId": "O-234595", "url": "https://yourcompany.com/orders/o-234595"}} '
 ```
 
-The `data` element is the payload of your event. Any well-formed JSON can go in this field. See the [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specifications for more information on properties (also known as context attributes) that can go in an event.
+The `data` element is the payload of your event. Any well-formed JSON can go in this field. For more information on properties (also known as context attributes) that can go in an event, see the [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specifications.
 
 CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the topic.
 
@@ -159,7 +161,7 @@ receive_operation_uri="https://"$(az resource show --resource-group $resource_gr
 Submit a request to consume the event:
 
 ```azurecli-interactive
-curl -X POST -H "Content-Type: application/cloudevents+json" -H "Authorization:SharedAccessKey $key" -d "$event" $receive_operation_uri
+curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" -d "$event" $receive_operation_uri
 ```
 ### Acknowledge an event
 

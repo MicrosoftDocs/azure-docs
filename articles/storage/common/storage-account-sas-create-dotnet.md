@@ -12,7 +12,7 @@ ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: common
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Create an account SAS with .NET
@@ -20,6 +20,15 @@ ms.custom: devx-track-csharp, devguide-csharp
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
 This article shows how to use the storage account key to create an account SAS with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
+
+## About the account SAS
+
+An account SAS is created at the level of the storage account. By creating an account SAS, you can:
+
+- Delegate access to service-level operations that aren't currently available with a service-specific SAS, such as [Get Blob Service Properties](/rest/api/storageservices/get-blob-service-properties), [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties) and [Get Blob Service Stats](/rest/api/storageservices/get-blob-service-stats).
+- Delegate access to more than one service in a storage account at a time. For example, you can delegate access to resources in both Azure Blob Storage and Azure Files by using an account SAS.
+
+Stored access policies aren't supported for an account SAS.
 
 ## Create an account SAS
 

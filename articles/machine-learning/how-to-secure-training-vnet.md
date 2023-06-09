@@ -18,9 +18,6 @@ ms.devlang: azurecli
 
 [!INCLUDE [SDK v2](../../includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [SDK v1](./v1/how-to-secure-training-vnet.md?view=azureml-api-1&preserve-view=true)
-> * [SDK v2 (current version)](how-to-secure-training-vnet.md)
 
 Azure Machine Learning compute instance and compute cluster can be used to securely train models in an Azure Virtual Network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
 
@@ -102,6 +99,8 @@ In this article you learn how to secure the following training compute resources
     > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__.
 
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
+
+* __Port 445__ must be open for _private_ network communications between your compute instances and the default storage account during training. For example, if your computes are in one VNet and the storage account is in another, don't block port 445 to the storage account VNet.
 
 ## Compute instance/cluster with no public IP
 
