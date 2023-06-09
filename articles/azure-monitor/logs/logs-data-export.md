@@ -82,6 +82,7 @@ The [number of supported event hubs in Basic and Standard namespace tiers is 10]
 > [!NOTE]
 > - The Basic Event Hubs namespace tier is limited. It supports [lower event size](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and no [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) option to automatically scale up and increase the number of throughput units. Because data volume to your workspace increases over time and as a consequence event hub scaling is required, use Standard, Premium, or Dedicated Event Hubs tiers with the **Auto-inflate** feature enabled. For more information, see [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
 > - Data export can't reach Event Hubs resources when virtual networks are enabled. You have to select the **Allow Azure services on the trusted services list to access this storage account** checkbox to bypass this firewall setting in an event hub to grant access to your event hubs.
+> - Continuous export to an event hub is best used for low-latency streaming data flows, whereas continuous export to a storage account is intended for historical archiving (due to the use of append blobs based on timestamp, data may be delayed).
 
 ## Query exported data
 
