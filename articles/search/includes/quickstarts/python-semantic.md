@@ -289,7 +289,7 @@ In this task, create the notebook, load the libraries, and set up your clients.
 
 1. In this final query, return semantic answers.
 
-   Semantic search can generate answers to a query string that has the characteristics of a question. The generated answer is extracted verbatim from your content. To get a semantic answer, the question and answer must be closely aligned, and the model must find content that clearly answers the question. If potential answers fail to meet a high enough confidence score, the model won't return an answer. For demonstration purposes, the question in this example is designed to get a response so that you can see the syntax.
+   Semantic search can generate answers to a query string that has the characteristics of a question. The generated answer is extracted verbatim from your content. To get a semantic answer, the question and answer must be closely aligned, and the model must find content that clearly answers the question. If potential answers fail to meet a confidence threshold, the model won't return an answer. For demonstration purposes, the question in this example is designed to get a response so that you can see the syntax.
 
    ```python
    results =  search_client.search(query_type='semantic', query_language='en-us', semantic_configuration_name='my-semantic-config',

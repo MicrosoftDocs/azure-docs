@@ -519,11 +519,9 @@ The response for the second batch skips the first five matches, returning the ne
 
 ## Next steps
 
-Now that you have some practice with the basic query syntax, try specifying queries in code. The following links explain how to set up search queries using the Azure SDKs.
+Now that you have some practice with the basic query syntax, try specifying queries in code. The following link covers how to set up search queries using the Azure SDKs.
 
-+ [Query your index using the .NET SDK](search-get-started-dotnet.md)
-+ [Query your index using the Python SDK](search-get-started-python.md)
-+ [Query your index using the JavaScript SDK](search-get-started-javascript.md)
++ [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md)
 
 Additional syntax reference, query architecture, and examples can be found in the following links:
 

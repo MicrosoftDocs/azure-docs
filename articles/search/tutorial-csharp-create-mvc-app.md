@@ -70,7 +70,7 @@ Modify `appsettings.json` to specify your search service and [query API key](sea
 }
 ```
 
-You can get the [service URL and API key](search-get-started-dotnet.md#copy-a-key-and-endpoint) from the portal. Because this code is querying an index and not creating one, you can use a query key instead of an admin key.
+You can get the service URL and API key from the portal. Because this code is querying an index and not creating one, you can use a query key instead of an admin key.
 
 Make sure to specify the search service that has the hotels-sample-index.
 

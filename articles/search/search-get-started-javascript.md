@@ -14,13 +14,6 @@ ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index using the JavaScript SDK
-> [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-javascript.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Portal](search-get-started-portal.md)
-> * [PowerShell](./search-get-started-powershell.md)
-> * [Python](search-get-started-python.md)
-> * [REST](search-get-started-rest.md)
 
 Use the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme) to create a Node.js application in JavaScript that creates, loads, and queries a search index.
 

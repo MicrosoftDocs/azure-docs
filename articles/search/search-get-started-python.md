@@ -14,14 +14,6 @@ ms.custom: devx-track-python, mode-api
 
 # Quickstart: Create an Azure Cognitive Search index in Python using Jupyter Notebook
 
-> [!div class="op_single_selector"]
-> * [Python](search-get-started-python.md)
-> * [PowerShell (REST)](search-get-started-powershell.md)
-> * [C#](search-get-started-dotnet.md)
-> * [REST](search-get-started-rest.md)
-> * [Portal](search-get-started-portal.md)
->
-
 In this exercise, build a Jupyter Notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

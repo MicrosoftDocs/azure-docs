@@ -13,14 +13,6 @@ ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Java
-> [!div class="op_single_selector"]
-> * [Java](search-get-started-java.md)
-> * [JavaScript](search-get-started-javascript.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-get-started-powershell.md)
-> * [Python](search-get-started-python.md)
-> * [REST](search-get-started-rest.md)
 
 Create a Java console application that creates, loads, and queries a search index using [Visual Studio Code](https://code.visualstudio.com/), [Java 11 SDK](/java/azure/jdk/), and the [Azure.Search.Documents client library in the Azure SDK for Java.](/java/api/overview/azure/search). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/quickstart).
 

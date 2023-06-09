@@ -327,7 +327,7 @@ In the next step, you'll add data to index.
 #### Load documents 
 
 
-In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](search-indexer-overview.md). In this case, we'll programatically push the documents to the index.
+In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](/azure/search/search-indexer-overview). In this case, we'll programatically push the documents to the index.
 
 Document inputs might be rows in a database, blobs in Blob storage, or, as in this sample, JSON documents on disk. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels.json) or create your own **hotels.json** file with the following content:
 
