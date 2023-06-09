@@ -94,7 +94,7 @@ The following table lists specific impacts to the content templates for each of 
 | [Analytics](detect-threats-built-in.md) | Templates identifiable as **Source name** = **Gallery content** will no longer appear in the analytics gallery. |
 | [Hunting](hunting.md#use-built-in-queries) | Templates with **Content source** = **Gallery content** will no longer appear in the hunting gallery. |
 | [Playbooks](use-playbook-templates.md#explore-playbook-templates) | Templates identifiable as **Source name** = **Gallery content** will no longer appear in the automation playbooks gallery. |
-| [Workbooks](get-visibility.md#use-built-in-workbooks) | Templates with **Content source** = **Gallery content** will no longer appear in the workbooks gallery. |
+| [Workbooks](get-visibility.md) | Templates with **Content source** = **Gallery content** will no longer appear in the workbooks gallery. |
 
 Here's an example of an analytics rule before and after the centralization changes and the tool has run:
 
