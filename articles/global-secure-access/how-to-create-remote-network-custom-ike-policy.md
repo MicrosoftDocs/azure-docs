@@ -10,7 +10,7 @@ ms.service: network-access
 ms.custom: 
 
 ---
-# Configure customer premises equipment for Global Secure Access (preview)
+# Create a remote network with a customer IKE policy for Global Secure Access (preview)
 
 IPSec tunnel is a bidirectional communication. One side of the communication is established when [adding a device link to a remote network](how-to-manage-remote-network-device-links.md). During that process you enter your public IP address and BGP addresses. This article provides the steps to set up the other side of the communication channel.
 
