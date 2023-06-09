@@ -1,13 +1,13 @@
 ---
-title: Install the Remote Desktop client for Windows on a per-user basis - Azure
-description: How to install the Azure Virtual Desktop client on a per-user basis using Intune or Configuration Manager.
+title: Install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager - Azure
+description: How to install the Azure Virtual Desktop client on a per-user basis with Intune or Configuration Manager.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/04/2023
 ms.author: helohr
 manager: femila
 ---
-# Install the Remote Desktop client for Windows on a per-user basis
+# Install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager
 
 You can install the Remote Desktop client on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and updates are controlled by the admin. Per-user installation installs the application into each user's profile, giving them control over when to apply updates.
 
