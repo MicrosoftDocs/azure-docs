@@ -36,7 +36,7 @@ You should feel comfortable using the network configuration file by the time you
 Before you begin configuration, verify that you have the following:
 
 * Compatible VPN hardware for each on-premises location. Check [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) to verify if the device that you want to use is something that is known to be compatible.
-* An externally facing public IPv4 IP address for each VPN device. The IP address can't be located behind a NAT. This is requirement.
+* An externally facing public IPv4 IP address for each VPN device. The IP address can't be located behind a NAT. This is a requirement.
 * Someone who is proficient at configuring your VPN hardware. You'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.
 * The IP address ranges that you want to use for your virtual network (if you haven't already created one).
 * The IP address ranges for each of the local network sites that you'll be connecting to. You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to don't overlap. Otherwise, the portal or the REST API rejects the configuration being uploaded.<br>For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping. To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.
