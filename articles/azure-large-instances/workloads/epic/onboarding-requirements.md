@@ -54,46 +54,43 @@ This range may not overlap with the  IP address ranges you defined before. 
 
 ## Using ExpressRoute Fast Path
 
-You can use ExpressRoute Fast Path to access your Azure ALI servers from anywhere, Azure VMs (hub and spoke) and on-premises.   
+You can use ExpressRoute Fast Path to access your Azure ALI servers from anywhere, Azure VMs (hub and spoke) and on-premises.
 
 For setup instructions, see [How to enable ExpressRoute Fast Path](how-to enable-expressroute-fast-path).
 
-In case you would like to see the learned routes from Azure BMI, one of the options is looking at the Effective Routes table of one of your VMs.   
+To see the learned routes from ALI, one of the options is looking at the Effective Routes table of one of your VMs, as follows:
 
-In the Azure Portal, click any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to Azure BMI), click “Networking”, click the network interface name, and then click “Effective Routes”.   
+1. In Azure Portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to Azure BMI), select **Networking**, select the network interface name, then select **Effective Routes**.
 
-Make sure to enable accelerated networking with all VMs connecting to Epic on Azure BMI (link1) or (link2).   
+2. Make sure to enable accelerated networking with all VMs connecting to Epic on Azure BMI (link1) or (link2).   
 
-Set up Epic on Azure BMI solution as per your system requirements and take a system backup.  
+3. Set up Epic on Azure BMI solution as per your system requirements and take a system backup.  
 
-Take an OS backup.  
+4. Take an OS backup.  
+5. Set up volume groups. (See FAQs for detailed steps)  
 
-Set up volume groups. (See FAQs for detailed steps)  
+6. Set up storage snapshot, backup, and data offload. (See FAQs for detailed steps).  
 
-Set up storage snapshot, backup, and data offload. (See FAQs for detailed steps).  
-
-Azure subscription you use for Azure Large instance deployments is already registered with the ALI  resource provider by Microsoft Operations team during provisioning process. If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription (See FAQs for detailed steps).  
-
- 
-
- 
-
-  
+The Azure subscription you use for Azure Large instance deployments is already registered with the ALI resource provider by the Microsoft Operations team during the provisioning process. 
+If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription (See FAQs for detailed steps).  
 
 ## How to enable ExpressRoute Fast Path 
 
-Before you begin, you need to install the latest version of the Azure resource manager power shell cmdlets, at least 4.0 or later. For more information about installing the power shell cmdlets, see how to install and configure Azure powershell.              
+Before you begin, install the latest version of the Azure resource manager power shell cmdlets, at least 4.0 or later.
+For more information about installing the power shell cmdlets, see [How to install Azure Powershell](https://learn.microsoft.com/en-us/powershell/azure/install-azure-powershell?view=azps-10.0.0).
 
-Step 1:  
+### Authorizing  
 
-Ensure you have authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. Also obtain ER circuit resource ID.   
+Ensure you have authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. Also obtain ER circuit resource ID.
 
-If you don’t have this information, please obtain the details from circuit owner (these details are usually provided by Microsoft team as part of provisioning request completion. Please reach out to Microsoft support AzureBMISupportEpic@microsoft.com in case of any inconsistencies).  
+If you don’t have this information, obtain the details from the circuit owner (these details are usually provided by the Microsoft team as part of provisioning request completion. Reach out to 
+<a href=mailto:"AzureBMISupportEpic@microsoft.com">Microsoft support</a> in case of any inconsistencies).  
 
-Step 2:   
+### Declare variables
 
-Declare your variables. This example declares the variables using the values for this exercise. Please replace the values with your subscription values.   
+This example declares the variables using the values for this exercise. Replace the values with your subscription values.
 
+```azurecli
 $Sub1 = "Replace_With_Your_Subcription_Name"  
 
 $RG1 = "TestRG1"  
@@ -104,54 +101,59 @@ $GWName1 = "VNet1GW" 
 
 $Authkey = “Express route circuit auth key”  
 
+$Sub1 = "Replace_With_Your_Subcription_Name"  
+
+$RG1 = "TestRG1"  
+
+$Location1 = "East US"  
+
+$GWName1 = "VNet1GW"  
+
+$Authkey = “Express route circuit auth key”  
+```
   
+### Connect to your account 
 
-Connect to your account.  
-
-  
-
+```azurecli
 Connect-AzureRmAccount  
-
+```
   
+#### Check the subscriptions for the account:  
 
-Check the subscriptions for the account:  
-
+```azurecli
 Get-AzureRmSubscription  
+```
 
-  
+#### Specify the subscription that you want to use:  
 
-Specify the subscription that you want to use:  
-
+```azurecli
 Select-AzureRmSubscription -SubscriptionName $Sub1  
-
+```
   
+### Enable ER fast path on the gateway connection  
 
-Enable ER fast path on the gateway connection  
+#### Declare variable for Gateway object:  
 
-Declare variable for Gateway object:  
-
+```azurecli
 $gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1  
+```
 
-  
+#### Declare variable for Express route circuit ID:  
 
-Declare variable for Express route circuit ID:  
-
+```azurecli
 $id = "/subscriptions/”express route subscrioption ID”/resourceGroups/”ER resource group”/providers/Microsoft.Network/expressRouteCircuits/”circuit”  
+```
+#### Enable MSEEv2 using “ExpressRouteGatewayBypass” flag:  
 
-  
-
-Enable MSEEv2 using “ExpressRouteGatewayBypass” flag:  
-
+```azurecli
 New-AzureRmVirtualNetworkGatewayConnection -Name "Virtual Gateway connection name" -ResourceGroupName $RG1 -Location $Location1 -VirtualNetworkGateway1 $gw -PeerId $id -AuthorizationKey $Authkey -ConnectionType ExpressRoute -ExpressRouteGatewayBypass   
-
+```
   
+### Enable Accelerated Networking on VMs   
 
-Enable Accelerated Networking on VMs   
-
-To take advantage of low latency access on VM’s network stack, please enable accelerated networking (AN) aka SR-IOV on supported VM’s. Please see the below link for more details on supported VM sizes, OS and how to enable AN for existing VM’s  
-https://docs.Microsoft.Com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli  
-
-
+To take advantage of low latency access on VM’s network stack, enable accelerated networking (AN) aka SR-IOV on supported VM’s. 
+See the below link for more details on supported VM sizes, OS and how to enable AN for existing VM’s  
+[Use Azure CLI to create a Windows or Linux VM with Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli)
 
 ## Next steps
 
