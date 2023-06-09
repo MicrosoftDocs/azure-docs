@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2023
+ms.date: 06/09/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -30,6 +30,9 @@ With Azure AD Connect cloud sync, provisioning from AD to Azure AD is orchestrat
 The following short video provides an excellent overview of Azure AD Connect cloud sync:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
+
+## Choose the right sync tool
+To determine if cloud sync is right for your organization, use the link below.  It will take you to a tool that will help you evaluate your synchronization needs. For more information, evaluate your options using the [Wizard to evaluate sync options](https://aka.ms/EvaluateSyncOptions)
 
 
 ## Comparison between Azure AD Connect and cloud sync
