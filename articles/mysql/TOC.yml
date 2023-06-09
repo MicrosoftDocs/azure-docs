@@ -138,7 +138,7 @@
   - name: Integrations
     items:
     - name: Azure Key Vault
-      href: flexible-server/tutorial-add-mysql-connection-in-keyvault.md
+      href: flexible-server/tutorial-add-mysql-connection-in-key-vault.md
     - name: Power Apps
       href: flexible-server/tutorial-create-power-app-with-mysql.md
     - name: Power Automate
