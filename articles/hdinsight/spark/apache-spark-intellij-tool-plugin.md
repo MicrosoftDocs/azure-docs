@@ -483,7 +483,7 @@ Unmark the src folder as **Sources** to solution this issue:
 3. Select the **src** file and unmark as **Sources**.
 4. Click on Apply button and then click on OK button to close the dialog.
 
-    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/ .png" alt-text="Screenshot showing the unmark the src as sources." border="true":::
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/unmark-src-as-sources.png" alt-text="Screenshot showing the unmark the src as sources." border="true":::
 
 ## Next steps
 
