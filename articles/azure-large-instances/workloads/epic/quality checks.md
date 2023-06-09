@@ -8,30 +8,21 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-# Quality checks performed   
-Microsoft operations team performs a series of extensive quality checks to ensure that customers request to run Epic systems on Azure ALI is fulfilled accurately, and infrastructure is healthy before handover. However, customers are advised to perform their own checks to ensure services are provided as requested. Below are few suggested checks:  
+
+Microsoft operations team performs a series of extensive quality checks to ensure that customers request to run Epic systems on Azure ALI is fulfilled accurately, and infrastructure is healthy before handover. 
+However, customers are advised to perform their own checks to ensure services are provided as requested. 
+This article identifies recommended checks.  
 
  
 
-Basic connectivity.  
+* Basic connectivity  
 
- 
 
 Latency check.  
 
- 
-
 Server health check from operating system.  
 
- 
-
 OS level sanity checks / configuration checks.  
-
- 
-
-  
-
- 
 
 Here are a few areas where quality checks are usually performed by Microsoft teams before the infrastructure handover to the customer.  
 
@@ -45,11 +36,7 @@ IP blade information.
 
  
 
-Access control list on firewall.               
-
- 
-
- 
+Access control list on firewall.
 
 Compute  
 
@@ -66,11 +53,6 @@ Accuracy of memory size for the assigned server.          
 Latest firmware version on the blades.  
 
  
-
-                
-
- 
-
 Storage   
 
  
@@ -85,11 +67,6 @@ SAN configuration.         
 
 required VLANs creation.           
 
- 
-
-  
-
- 
 
 Operating System  
 
@@ -97,25 +74,7 @@ Operating System
 
 Accuracy of LUNs.   
 
- 
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-  
-
-  
 
 Epic on Azure BMI - post handover support request flow  
 
