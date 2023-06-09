@@ -13,7 +13,7 @@ ms.date: 06/05/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article provides a step-by-step procedure to configure intelligent performance in a Azure Database for PostgreSQL - Flexible Server using Azure portal.
+This article provides a step-by-step procedure to configure intelligent performance in Azure Database for PostgreSQL - Flexible Server using Azure portal.
 
 To learn more about intelligent tuning, see the [overview](concepts-intelligent-tuning.md).
 
