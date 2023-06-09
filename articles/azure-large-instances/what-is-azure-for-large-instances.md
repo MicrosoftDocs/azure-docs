@@ -136,25 +136,22 @@ These Data access protocols are supported:
 * iSCSI 
 * NVMe over FC 
 
-Networking 
+## Networking
 
 The architecture of Azure network services is a key component for a successful deployment of specialized workloads in Azure Large instances. It's likely that not all IT systems are located in Azure already. Azure offers you network technology to make Azure look like a virtual data center to your on-premises software deployments. The Azure network functionality required for BareMetal instances includes: 
 
-Azure virtual networks connected to the Azure ExpressRoute circuit that connects to your on-premises network assets. 
-
-The ExpressRoute circuit that connects on-premises to Azure should have a minimum bandwidth of 1 Gbps or higher. 
-
-Extended Active Directory and DNS in Azure, or completely running in Azure. 
-
-ExpressRoute lets you extend your on-premises network into the Microsoft cloud over a private connection with a connectivity provider's help. You can use ExpressRoute Local for cost-effective data transfer between your on-premises location and the Azure region you want. To extend connectivity across geopolitical boundaries, you can enable ExpressRoute Premium. 
+* Azure virtual networks connected to the Azure ExpressRoute circuit that connects to your on-premises network assets. 
+* The ExpressRoute circuit that connects on-premises to Azure should have a minimum bandwidth of 1 Gbps or higher. 
+* Extended Active Directory and DNS in Azure, or completely running in Azure. 
+* ExpressRoute lets you extend your on-premises network into the Microsoft cloud over a private connection with a connectivity provider's help. You can use ExpressRoute Local for cost-effective data transfer between your on-premises location and the Azure region you want. To extend connectivity across geopolitical boundaries, you can enable ExpressRoute Premium. 
 
 Azure Large instances are provisioned within your Azure VNet server IP address range. 
 
-:::image type="content" source="media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of Azure BareMetal Infrastructure diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
+:::image type="content" source="media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of Epic for ALI diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
 
 The architecture shown is divided into three sections: 
 
-### On-premises (left
+### On-premises (left)
 Shows the customer on-premises infrastructure that runs different applications, connecting through the partner or local edge router like Equinix. For more information, see Connectivity providers and locations: Azure ExpressRoute. 
 
 ### ExpressRoute (center)
@@ -167,4 +164,4 @@ Shows Azure IaaS, and in this case, use of VMs to host your applications, which 
 Shows using your ExpressRoute Gateway enabled with ExpressRoute FastPath for Azure Large instances connectivity offering low latency. 
 
 >[!Note]
->To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, see About ExpressRoute virtual network gateways. 
+>To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways).
