@@ -16,24 +16,26 @@ ms.author: godonnell
 
 # Tutorial: Prepare your customer tenant to authenticate users in a React single-page app (SPA)
 
-This tutorial series demonstrates how to build a React single-page application and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
+This tutorial series demonstrates how to build a React single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
 
 In this tutorial;
 
 > [!div class="checklist"]
-> * Register a web application in the Microsoft Entra admin center, and record its identifiers
+> * Register a SPA in the Microsoft Entra admin center, and record its identifiers
 > * Define the platform and URLs
 > * Grant permissions to the web application to access the Microsoft Graph API
-> * Create a sign in and sign out user flow in the Microsoft Entra admin center
-> * Associate your web application with the user flow
+> * Create a sign-in and sign-out user flow in the Microsoft Entra admin center
+> * Associate your SPA with the user flow
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
+
     * Application administrator
     * Application developer
     * Cloud application administrator
+
 - An Azure AD for customers tenant. If you haven't already, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
 
 ## Register the SPA and record identifiers

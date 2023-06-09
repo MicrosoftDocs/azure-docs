@@ -179,7 +179,7 @@ When authorization has been configured, the user interface can be created to all
 
     ```css
     .navbarStyle {
-    padding: .5rem 1rem !important;
+        padding: .5rem 1rem !important;
     }
     
     .table-responsive-ms {
@@ -203,8 +203,11 @@ Now that all the required code snippets have been added, the application can be 
 1. Select **No account? Create one**, which starts the sign-up flow.
 1. In the **Create account** window, enter the email address registered to your Azure Active Directory (AD) for customers tenant, which starts the sign-up flow as a user for your application.
 1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
+
     1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
+
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
+
     :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into a vanilla JS SPA." lightbox="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png":::
 
 ## Sign out of the application

@@ -16,7 +16,7 @@ ms.date: 06/09/2023
 
 # Tutorial: Prepare a vanilla JavaScript single-page app (SPA) for authentication in a customer tenant
 
-In the [previous article](./how-to-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a vanilla JavaScript (JS) SPA and configure it to sign in and sign out users with your Azure AD for customers tenant.
+In the [previous article](./how-to-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a vanilla JavaScript (JS) single-page app (SPA) and configure it to sign in and sign out users with your customer tenant.
 
 In this tutorial;
 
@@ -27,11 +27,11 @@ In this tutorial;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-prepare-tenant.md).
+* Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate a vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-prepare-tenant.md).
 * Although any integrated development environment (IDE) that supports vanilla JS applications can be used, **Visual Studio Code** is recommended for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
 
-## Create a new Vanilla JS project and install dependencies
+## Create a new vanilla JS project and install dependencies
 
 1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
