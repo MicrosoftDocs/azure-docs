@@ -95,9 +95,10 @@ currently **not supported**:
 ### Database creation
 
 The Azure portal provides credentials to connect to exactly one database per
-cluster, the `citus` database. Creating another
-database is currently not allowed, and the CREATE DATABASE command will fail
+cluster. Creating another database is currently not allowed, and the CREATE DATABASE command will fail
 with an error.
+
+By default this database is called `citus`. Azure Cosmos DB for PostgreSQL supports custom database names at cluster provisioning time only.  
 
 ## Next steps
 

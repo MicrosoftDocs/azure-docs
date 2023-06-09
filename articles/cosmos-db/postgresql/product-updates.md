@@ -24,6 +24,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### June  2023
 * General availability: Customer defined database name is now available in all regions at cluster provisioning time.
+    * If the database name is not specified, the default `citus` name is used.
 * General availability: [Managed PgBouncer settings](./reference-parameters.md#managed-pgbouncer-parameters) are now configurable on all clusters.
     * Learn more about [connection pooling](./concepts-connection-pool.md).
 * General availability: Preferred availability zone (AZ) selection is now enabled in [all Azure Cosmos DB for PostgreSQL regions](./resources-regions.md) that support AZs.
