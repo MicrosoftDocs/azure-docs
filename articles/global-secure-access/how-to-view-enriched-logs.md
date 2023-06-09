@@ -49,7 +49,7 @@ If you need long-term storage for your logs and you don't plan on querying them 
 > [!NOTE]
 > At this time, streaming logs directly to a Log Analytics workspace is not available. You can stream the logs to an event hub and then ingest the logs into a Log Analytics workspace using Logic Apps.
 
-1. Navigate to the [Microsoft Entra ID admin center](https://portal.azure.com) using one of the required roles.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** using one of the required roles.
 1. Go to **Microsoft Entra ID** > **Monitoring and health** > **Diagnostic settings**.
 1. Select **Add Diagnostic setting**.
 1. Give your diagnostic setting a name.

@@ -98,7 +98,7 @@ You can assign the remote network to a traffic forwarding profile when you creat
 1. Select the **Review + Create** button.
 
 > [!IMPORTANT]
-> At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile. The private access traffic forwarding profile requires that your end users connect to Global Secure Access with the Global Secure Access client.
+> At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile. The private access traffic forwarding profile requires that your end users connect to Global Secure Access with the Global Secure Access Client.
 
 ### Review and create
 

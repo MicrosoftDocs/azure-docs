@@ -24,22 +24,23 @@ To access the audit log for your tenant, you must have one of the following role
 - Global Reader
 - Global Administrator
 
-Audit logs are available in [all editions of Microsoft Entra ID](../active-directory/reports-monitoring/concept-audit-logs.md). Storage and integration with analysis and monitoring tools may require additional licenses and roles.
+Audit logs are available in [all editions of Microsoft Entra](../active-directory/reports-monitoring/concept-audit-logs.md). Storage and integration with analysis and monitoring tools may require additional licenses and roles.
 
 ## Access the audit logs
 
 There are several ways to view the audit logs. For more information on the options and recommendations for when to use each option, see [How to access activity logs](/azure/active-directory/reports-monitoring/howto-access-activity-logs).
 
-### Access audit logs from the Microsoft Entra ID admin center
+### Access audit logs from the Microsoft Entra admin center
 
 You can access the audit logs from **Global Secure Access** and from **Microsoft Entra ID Monitoring and health**.
 
 **From Global Secure Access:**
-1. Sign in to the [Microsoft Entra ID admin center](https://entra.microsoft.com/#home) using one of the required roles.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home) using one of the required roles.
 1. Go to **Global Secure Access** > **Audit logs**. The filters are pre-populated with the categories and activities related to Global Secure Access.
 
 **From Microsoft Entra ID Monitoring and health:**
-1. Go to **Microsoft Entra ID Monitoring and health** > **Audit logs**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home) using one of the required roles.
+1. Go to **Identity** > **Monitoring and health** > **Audit logs**.
 1. Select the **Date** range you want to query.
 1. Open the **Service** filter, select **Global Secure Access**, and select the **Apply** button.
 1. Open the **Category** filter, select at least one of the available options, and select the **Apply** button.

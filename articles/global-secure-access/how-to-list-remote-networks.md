@@ -22,7 +22,8 @@ Listing remote networks requires the following prerequisites:
 
 ## List all remote networks using the Microsoft Entra admin center
 
-1. Navigate to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com) and login with administrator credentials.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
 1. In the left hand navigation, choose **Global Secure Access**. 
 1. Select **Connect** in the left-hand side navigation menu. 
 1. Select **Remote network**.

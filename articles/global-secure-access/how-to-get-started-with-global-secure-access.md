@@ -28,24 +28,24 @@ A working Microsoft Entra ID tenant with the appropriate license is required. If
 
 ## Microsoft Entra Private Access
 
-Microsoft Entra Private Access provides a secure, zero-trust access solution for accessing internal resources without requiring a VPN. Configure Quick Access and enable the Private access traffic forwarding profile to specify the sites and apps you want routed through Microsoft Entra Private Access. At this time, the Global Secure Access client must be installed on end-user devices to use Microsoft Entra Private Access.
+Microsoft Entra Private Access provides a secure, zero-trust access solution for accessing internal resources without requiring a VPN. Configure Quick Access and enable the Private access traffic forwarding profile to specify the sites and apps you want routed through Microsoft Entra Private Access. At this time, the Global Secure Access Client must be installed on end-user devices to use Microsoft Entra Private Access.
 
 To set up Microsoft Entra Private Access, complete the following steps:
 
 1. [Configure quick access to your private resources](how-to-configure-quick-access.md)
 1. [Manage the Private access traffic forwarding profile](how-to-manage-private-access-profile.md)
-1. [Install the Global Secure Access client on end-user devices](how-to-install-windows-client.md)
+1. [Install the Global Secure Access Client on end-user devices](how-to-install-windows-client.md)
 
 ## Microsoft Entra Internet Access
 
-Microsoft Entra Internet Access isolates the traffic for Microsoft 365 applications and resources, such as Exchange Online and SharePoint Online. Users can access these resources by connecting to the Global Secure Access client or through a remote network, such as in a branch office location.
+Microsoft Entra Internet Access isolates the traffic for Microsoft 365 applications and resources, such as Exchange Online and SharePoint Online. Users can access these resources by connecting to the Global Secure Access Client or through a remote network, such as in a branch office location.
 
 To set up Microsoft Entra Internet Access, complete the following steps:
 
 1. [Manage the Microsoft 365 traffic forwarding profile](how-to-manage-microsoft-365-profile.md)
 1. [Create a remote network](how-to-manage-remote-networks.md)
 1. [Add device links to your remote network](how-to-manage-remote-network-device-links.md)
-1. [Install the Global Secure Access client on end-user devices](how-to-install-windows-client.md)
+1. [Install the Global Secure Access Client on end-user devices](how-to-install-windows-client.md)
 
 ## Common platform settings
 

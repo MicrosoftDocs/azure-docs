@@ -25,14 +25,14 @@ Source IP restoration allows services to see the real source IP address, these s
 * Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing.
    * A **Global Secure Access Administrator** role to manage the Global Secure Access preview features
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
-* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
+* A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
 
 ## Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow source IP restoration, an administrator must take the following steps.
 
-1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
-1. Browse to **NEED THE PATH** > **Security** > **Adaptive Access**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator.
+1. Browse to **Global Secure Access** > **Session management** > **Adaptive Access**.
 1. Select the toggle to **Enable Network Access signaling in Conditional Access**.
 
 This functionality allows services like Microsoft Graph, Microsoft Entra ID, SharePoint Online, and Exchange Online to see the actual source IP address.
@@ -47,7 +47,7 @@ This functionality allows services like Microsoft Graph, Microsoft Entra ID, Sha
 To see source IP restoration in action, administrators can take the following steps.
 
 1. Sign in to the **Microsoft Entra admin center** as a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
-1. Browse to **Azure Active Directory** > **Users** > select one of your test users > **Sign-in logs**.
+1. Browse to **Identity** > **Users** > **All users** > select one of your test users > **Sign-in logs**.
 1. With source IP restoration enabled, you see IP addresses that include their actual IP address. 
    1. If source IP restoration is disabled, you won't see their actual IP address.
 

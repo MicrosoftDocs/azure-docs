@@ -35,7 +35,7 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 
 Quick Access for Microsoft Entra Private Access unlocks the ability to specify the apps and websites that you consider private or internal, so you can manage how your organization accesses them. By defining this group of apps and websites, you're essentially packaging up all the private resources into one. 
 
-By configuring Quick Access and enabling Microsoft Entra Private Access, you can modernize how your organization's users access private apps and resources. Remote workers don't need to use a VPN to access these resources if they have the Global Secure Access client installed. The client quietly and seamlessly connects them to the resources they need. 
+By configuring Quick Access and enabling Microsoft Entra Private Access, you can modernize how your organization's users access private apps and resources. Remote workers don't need to use a VPN to access these resources if they have the Global Secure Access Client installed. The client quietly and seamlessly connects them to the resources they need. 
 
 ## Setup overview
 
@@ -45,22 +45,22 @@ When you configure Quick Access for the first time, Microsoft Entra Private Acce
 
 To configure Quick Access, you also need to have a [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
-Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick Access app are predefined. One of those properties requires that you assign users and groups through Enterprise Applications. For more information, see [Properties of an enterprise application](../active-directory/manage-apps/application-properties.md).
+Once you have Quick Access and an App Proxy connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick Access app are predefined. One of those properties requires that you assign users and groups through Enterprise Applications. For more information, see [Properties of an enterprise application](../active-directory/manage-apps/application-properties.md).
 
 To summarize, the overall process is as follows:
 
-1. Create an App proxy connector group, if you don't already have one.
+1. Create an App Proxy connector group, if you don't already have one.
 1. Configure Quick Access, which creates a new enterprise app.
 1. Assign users and groups to the app.
 1. Enable Microsoft Entra Private Access.
 
 Let's look at each of these steps in more detail.
 
-## Create an App proxy connector group
+## Create an App Proxy connector group
 
-Connectors are what make App proxy possible. They're simple, easy to deploy and maintain, and super powerful. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md).
+Connectors are what make App Proxy possible. They're simple, easy to deploy and maintain, and super powerful. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md).
 
-You create App proxy connector groups so that you can assign specific connectors to serve specific applications. This capability gives you more control and ways to optimize your App proxy deployment. To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](../active-directory/app-proxy/application-proxy-connector-groups.md).
+You create App Proxy connector groups so that you can assign specific connectors to serve specific applications. This capability gives you more control and ways to optimize your App Proxy deployment. To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](../active-directory/app-proxy/application-proxy-connector-groups.md).
 
 > [!IMPORTANT]
 > Setting up App Proxy connectors and connector groups require planning and testing to ensure you have the right configuration for your organization. If you don't already have connector groups set up, pause this process and return when you have a connector group ready.
@@ -76,7 +76,7 @@ On the Quick Access page, you provide a name for the Quick Access app, select a 
 
     ![Screenshot of the Quick Access app name.](media/how-to-configure-quick-access/new-quick-access-name.png)
     
-    - Before you can set up Quick Access, you must have an App proxy connector group set up.
+    - Before you can set up Quick Access, you must have an App Proxy connector group set up.
     - Your connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your "QuickAccess" app without adding websites and apps.
 
@@ -86,6 +86,7 @@ The **Add Quick Access range** portion of this process is where you define the p
 
 You can add fully qualified domain names (FQDN), IP addresses, and IP address ranges.
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Applications** > **Quick Access**.
 1. Select **Add quick access range**.
 1. In the **Create application segment** panel that opens, select a **Destination type**. Choose from one of the following options. Depending on what you select, the subsequent fields change accordingly.
@@ -126,6 +127,7 @@ Add users and groups following the instructions in the [Assign users and groups 
 
 You can add or update the sites and apps included in your Quick Access app at any time.
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access**> **Quick Access**.
 1. To add a new site or app, select **Add quick access range**.
 1. To edit an existing app, select it from the **Destination type** column.
@@ -134,6 +136,7 @@ You can add or update the sites and apps included in your Quick Access app at an
 
 Once you have your Quick Access app configured, your private websites and apps added, users assigned to the app, you can enable the Private access profile from **Traffic forwarding**. You can enable the profile before configuring Quick Access, but without the app and profile configured, there's no traffic to forward.
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Traffic forwarding**.
 1. Select the checkbox for **Private access profile**.
 

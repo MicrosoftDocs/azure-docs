@@ -32,7 +32,7 @@ Within each log instance, you can see the session ID, connection ID, and transac
 
 ## How to view the traffic logs
 
-1. Navigate to the [Microsoft Entra ID admin center](https://portal.azure.com) using a Reports Reader role.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** using a Reports Reader role.
 1. **Global Secure Access (Preview)** > **Monitor** > **Traffic logs**.
 
 The top of the page displays a summary of all network connections as well as a breakdown for each traffic forwarding profile. Select the **Microsoft 365** or **Private access** buttons to filter the logs to each traffic forwarding profile.

@@ -12,7 +12,7 @@ ms.custom:
 
 # How to enable the Private access profile
 
-The private access traffic forwarding profile routes traffic to your private network through the Global Secure Access client. Enabling this traffic forwarding profile allows remote workers to connect to internal resources without a VPN.
+The private access traffic forwarding profile routes traffic to your private network through the Global Secure Access Client. Enabling this traffic forwarding profile allows remote workers to connect to internal resources without a VPN.
 
 ## Prerequisites
 
@@ -28,21 +28,31 @@ Quick Access ranges are similar to the Microsoft 365 traffic policies, except th
 
 To enable the Private access traffic forwarding profile, you must first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDN) for the private applications and destinations you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md).
 
-Because remote networks can't be assigned to the Private access traffic forwarding profile, you must install the Global Secure Access client on your end-user devices. For more information, see [How to install the Windows client](how-to-install-windows-client.md).
+Because remote networks can't be assigned to the Private access traffic forwarding profile, you must install the Global Secure Access Client on your end-user devices. For more information, see [How to install the Windows client](how-to-install-windows-client.md).
 
 ### Private access Conditional Access policies
 
-<!--- need to confirm this section with PM and John --->
-Conditional Access policies can be applied to your traffic profiles at the application level. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
+Conditional Access policies can be applied to your quick access applications. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
 
-Conditional Access policies are created and applied to the profile in the Conditional Access area of Microsoft Entra ID. For more information, see the [Conditional Access overview](../active-directory/conditional-access/overview.md).
+Conditional Access policies are created and applied to the quick access application in the **Protection** area of Microsoft Entra ID. For more information, see the article [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
 
-1. Create a new Conditional Access policy. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
-1. Under **Target Resources** select **No target resources selected**.
-1. Select **Network Access (Preview)** from the menu.
-1. From the new menu that appears, select the Private access traffic option.
+The following example creates a Conditional Access policy requiring multifactor authentication for your quick access applications.
 
-    ![Screenshot of the Conditional Access fields that relate to traffic forwarding profiles.](media/how-to-enable-private-access-profile/conditional-access-menu-options.png)
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
+1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users or workload identities**.
+   1. Under **Include**, select **All users**.
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+1. Under **Target resources** > **Include**, and select **Select apps**.
+   1. Choose your configured quick access application.
+1. Under **Access controls** > **Grant**
+   1. Select **Grant access**, **Require multifactor authentication**, and select **Select**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
+1. Select **Create** to create to enable your policy.
+
+After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

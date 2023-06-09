@@ -52,7 +52,7 @@ For more information to configure these policies, see the article [Set up tenant
 
 Once you have created the tenant restriction v2 policies, you can utilize Global Secure Access to apply tagging for tenant restrictions v2. An administrator with both the [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md) and [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles must take the following steps to enable enforcement with Global Secure Access.
 
-1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator.
 1. Browse to **Global Secure Access** > **Global Settings** > **Session Management**.
 1. Select the **Tenant Restrictions** tab.
 1. Select the toggle to **Enable tagging to enforce tenant restrictions on your network**.
@@ -71,10 +71,11 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
    1. For example, a Fabrikam user in the Fabrikam tenant. 
    1. The Fabrikam user should be able to access SharePoint Online.
 1. Turn on universal tenant restrictions.
-1. As an end-user, with the Global Secure Access client running, go to SharePoint Online with an external identity that hasn't been explicitly allow-listed. 
+1. As an end-user, with the Global Secure Access Client running, go to SharePoint Online with an external identity that hasn't been explicitly allow-listed. 
    1. For example, a Fabrikam user in the Fabrikam tenant. 
    1. The Fabrikam user should be blocked from accessing SharePoint Online with an error message saying: 
       1. **Access is blocked, The Contoso IT department has restricted which organizations can be accessed. Contact the Contoso IT department to gain access.**
+<!---Screenshot if possible--->
 
 ### Try the data path  
 
