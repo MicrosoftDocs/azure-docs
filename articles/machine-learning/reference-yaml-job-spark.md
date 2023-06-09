@@ -17,9 +17,6 @@ ms.reviewer: franksolomon
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v2 (current version)](./reference-yaml-job-spark.md)
-
 <!--- The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sparkJob.schema.json. --->
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
