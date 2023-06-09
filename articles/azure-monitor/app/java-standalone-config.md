@@ -348,7 +348,7 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 }
 ```
 
-## Snippet Injection (preview)
+## JavaScript Snippet Injection (preview)
 
 This feature automatically injects the [JavaScript snippet](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
 
