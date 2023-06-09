@@ -26,7 +26,7 @@ There are two methods to instrument your application:
 1. [Application Insights SDKs](asp-net-core.md)
 2. [Azure Monitor OpenTelemetry Distros](opentelemetry-enable.md).
 
-Our plan is to eventually retire the Application Insights SDKs in favor of our Azure Monitor OpenTelemetry Distros. However, there is no rush to migrate or adopt OpenTelemetry. You will be given ample notice, and even after we retire the Application Insights SDK, we have no immediate plans to stop collecting data from older SDKs. We still have a ways to go before our Azure OpenTelemetry Distros [reach feature parity with our Application Insights SDKs](../faq.yml#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-). In many cases, customers will continue to choose to use Application Insights SDKs for quite some time.
+While we see OpenTelemetry as our future direction, we have no plans to stop collecting data from older SDKs. We still have a ways to go before our Azure OpenTelemetry Distros [reach feature parity with our Application Insights SDKs](../faq.yml#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-). In many cases, customers will continue to choose to use Application Insights SDKs for quite some time.
 
 > [!IMPORTANT]
 > "Manual" doesn't mean you'll be required to write complex code to define spans for distributed traces, although it remains an option. Instrumentation Libraries packaged into our Distros enable you to effortlessly capture telemetry signals across common frameworks and libraries. We're actively working to [instrument the most popular Azure Service SDKs using OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/) so these signals are available to customers who use the Azure Monitor OpenTelemetry Distro.
@@ -82,8 +82,8 @@ Auto-collectors | Instrumentation libraries
 Channel | Exporter
 Codeless / Agent-based | Auto-instrumentation
 Traces | Logs
-Request | Server Span
-Dependency | Client Span
+Requests | Server Spans
+Dependencies | Other Span Types (Client, Internal, etc)
 
 ## Next steps
 
