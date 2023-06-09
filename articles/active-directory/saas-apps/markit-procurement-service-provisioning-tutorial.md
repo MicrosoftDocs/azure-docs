@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Markit Procurement Service](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Markit Procurement Service to support provisioning with Azure AD
-You can begin the process of connecting your Markit environment to Azure AD provisioning by reaching out to the [Markit support team](mailto:support@markit.eu) or directly with your Markit account manager. You will be provided a document that will contain your **Tenant URL**, along with a **Secret Token**. Markit account managers can assist you with setting up this integration and are available to answer any questions about its configuration or use.
+You can begin the process of connecting your Markit environment to Azure AD provisioning by reaching out to the [Markit support team](mailto:support@markit.eu) or directly with your Markit account manager. You are provided a document that contains your **Tenant URL**, along with a **Secret Token**. Markit account managers can assist you with setting up this integration and are available to answer any questions about its configuration or use.
 
 ## Step 3. Add Markit Procurement Service from the Azure AD application gallery
 
@@ -89,7 +89,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Markit Procurement Service**.
 
-1. Uncheck **Create** checkbox. Markit recommends unchecking the create option. By unchecking create options users are created on demand during first time user login.
+1. Uncheck **Create** checkbox. Markit recommends unchecking the create option. By unchecking create options, users are created on demand during first time user login.
 
 	![Screenshot of Uncheck create option.](media/markit-procurement-service-provisioning-tutorial/create-uncheck.png)
 
