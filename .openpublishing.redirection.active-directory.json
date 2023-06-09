@@ -6691,6 +6691,22 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/migrate-adfs-apps-to-azure.md",
+      "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-stages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory.md",
+      "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-phases-overview",
+      "redirect_document_id": false
+    },
+
+
+
+
+
+
+    {
       "source_path_from_root": "/articles/active-directory/application-config-sso-problem-configure-federated-sso-gallery.md",
       "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-saml-based-sso",
       "redirect_document_id": false
