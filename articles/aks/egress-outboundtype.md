@@ -149,7 +149,7 @@ az aks update -g <resourceGroup> -n <clusterName> \
 > [!WARNING]
 > Do not reuse an IP address that is already in use in prior outbound configurations.
 
-### Update cluster from managedNATGateway to userAssignedNATGateway
+### Update cluster from managedNATGateway to userDefinedRouting
 
 - Add route `0.0.0.0/0` to default route table. Please refer to [Customize cluster egress with a user-defined routing table in Azure Kubernetes Service (AKS)](egress-udr.md)
 
