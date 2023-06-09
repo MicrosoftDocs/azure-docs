@@ -365,7 +365,7 @@ For example, when your java application returns a response like:
 </html>
 ```
 
-Then it would be updated to
+Then it will be automatically modified to return:
 ```html
 <!DOCTYPE html>
 <html lang="en">
