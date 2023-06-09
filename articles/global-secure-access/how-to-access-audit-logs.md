@@ -14,8 +14,6 @@ ms.custom:
 
 The Microsoft Entra ID audit logs are a valuable source of information when investigating or troubleshooting changes to your Microsoft Entra ID environment. Changes related to Global Secure Access are captured in the audit logs in several categories, such as traffic forwarding profiles, remote network management, and more. This article describes how to use the audit log to track changes to your Global Secure Access environment.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 To access the audit log for your tenant, you must have one of the following roles: 
@@ -53,6 +51,8 @@ Audit log data is only kept for 30 days by default, which may not be long enough
 - [Stream activity logs to an event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) to integrate with other tools, like Azure Monitor or Splunk.
 - [Export activity logs for storage](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
 - [Monitor activity in real-time with Microsoft Sentinel](../sentinel/quickstart-onboard.md).
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

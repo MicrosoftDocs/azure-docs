@@ -17,8 +17,6 @@ With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires
 - SharePoint Online and OneDrive for Business
 - Microsoft 365 Common and Office Online
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
@@ -80,6 +78,8 @@ Traffic profiles can be assigned to remote networks, so that the network traffic
 1. Select the **Add assignments** button for the profile. 
     - If you're editing the remote network assignments, select the **Add/edit assignments** button.
 1. Select a remote network from the list and select **Add**.
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

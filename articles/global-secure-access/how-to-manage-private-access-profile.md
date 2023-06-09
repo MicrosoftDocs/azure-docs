@@ -14,8 +14,6 @@ ms.custom:
 
 The private access traffic forwarding profile routes traffic to your private network through the Global Secure Access client. Enabling this traffic forwarding profile allows remote workers to connect to internal resources without a VPN.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
@@ -45,6 +43,8 @@ Conditional Access policies are created and applied to the profile in the Condit
 1. From the new menu that appears, select the Private access traffic option.
 
     ![Screenshot of the Conditional Access fields that relate to traffic forwarding profiles.](media/how-to-enable-private-access-profile/conditional-access-menu-options.png)
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

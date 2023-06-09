@@ -16,8 +16,6 @@ ms.reviewer: mamkumar
 
 Universal tenant restrictions enhance the functionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) using Global Secure Access (preview) to tag all traffic no matter the operating system, browser, or device form factor. It allows support for both client and remote network connectivity. Administrators no longer have to manage proxy server configurations or complex network configurations.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 Universal Tenant Restrictions does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane. Tenant restrictions v2 enables enterprises to prevent data exfiltration by users using external tenant identities for Microsoft Entra ID integrated applications like Microsoft Graph, SharePoint Online, and Exchange Online. These technologies work together to prevent data exfiltration universally across all devices and networks.
 
 :::image type="content" source="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png" alt-text="Diagram showing how tenant restrictions v2 protects against malicious users." lightbox="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png":::
@@ -103,6 +101,8 @@ Outlook uses the QUIC protocol for some communications, we don't currently suppo
 ```PowerShell
 New-NetFirewallRule -DisplayName "Block QUIC for Exchange" -Direction Outbound -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32 -Protocol UDP -RemotePort 443 -Action Block 
 ```
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

@@ -13,8 +13,6 @@ ms.reviewer: lirazb
 
 The Global Secure Access Client allows organizations control over network traffic at the end-user computing device, giving organizations the ability to route specific traffic profiles through Microsoft Entra Internet Access and Microsoft Entra Private Access. Routing traffic in this method allows for more controls like continuous access evaluation (CAE), device compliance, or multifactor authentication to be required for resource access.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 - Tenant must be onboarded to Global Secure Access.
@@ -123,6 +121,8 @@ function FindProxyForURL(url, host) {  // basic function; do not change
 Organizations must then create a system variable on end-user machines to allow the Global Secure Access Client services to use the proxy by configuring the following.
 
 Create an Environmental Variable named `grpc_proxy` with a value like `http://10.1.0.10:8080` that matches your proxy server's configuration.
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

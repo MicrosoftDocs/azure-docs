@@ -14,8 +14,6 @@ ms.custom:
 
 Learn how to assign a traffic profile to a remote network for Global Secure Access (preview).
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites 
 
 To assign a traffic forwarding profile to a remote network, you must have:
@@ -60,6 +58,8 @@ To update a branch using the Microsoft Graph API in Graph Explorer.
         }
     ```
 1. Select **Run query** to update the branch. 
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 - [List remote networks](how-to-list-remote-networks.md)

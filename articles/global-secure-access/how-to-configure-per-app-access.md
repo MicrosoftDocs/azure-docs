@@ -18,8 +18,6 @@ Microsoft Entra Private Access provides secure access to your organization's int
 
 This article describes how to configure per-app access for Microsoft Entra Private Access.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 To configure per-app access, you must have:
@@ -132,6 +130,8 @@ Once you have your app configured, your private websites and apps added, users a
 1. Select the checkbox for **Private access profile**.
 
 ![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-configure-per-app-access/traffic-forwarding-microsoft-365-and-private-access.png)
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

@@ -14,8 +14,6 @@ ms.custom:
 
 Microsoft Entra ID Application Proxy is used for on-premises access for web applications. To learn more about App Proxy, see [Using Azure AD Application Proxy to publish on-premises apps for remote users](../active-directory/app-proxy/what-is-application-proxy.md).
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Understand App Proxy connectors
 
 Connectors are what make App Proxy possible. They're simple, easy to deploy and maintain, and super powerful. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md).
@@ -35,6 +33,8 @@ Steps:
     - For information on how to allow access to specific FQDNs, see [Add an on-premises app with App Proxy](../active-directory/app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls).
 1. Register the connector.
 1. Create a connector group to use for private access configurations.
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

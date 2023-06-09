@@ -16,8 +16,6 @@ With your Microsoft 365 traffic flowing through the Microsoft Entra Private Acce
 
 This article describes the information in the logs and how to export them.
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites
 
 To use the enriched logs, you need the following roles, subscriptions, and resources:
@@ -64,6 +62,8 @@ For more information on how to stream logs to an event hub or archive logs to a 
 
 - [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md)
 - [Review the data retention policies](../active-directory/reports-monitoring/reference-reports-data-retention.md)  
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 

@@ -9,14 +9,11 @@ ms.date: 06/06/2023
 ms.service: network-access
 ms.custom: 
 ---
-
 # Get started with Global Secure Access
 
 Global Secure Access is the centralized location in the Microsoft Entra admin center where you can configure and manage Microsoft Entra Private Access and Microsoft Entra Internet Access. Many features and settings apply to both services, but some are specific to one or the other.
 
 This guide helps you get started configuring both services for the first time.
-
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Prerequisites
 
@@ -57,9 +54,11 @@ With your core settings configured you should take advantage of the following fe
 - [Configure Conditional Access policies](how-to-target-resource.md)
 - [Enable source IP restoration](how-to-source-ip-restoration.md)
 - [Review the Global Secure Access logs](concept-global-secure-access-logs-monitoring.md)
+- [Enable universal tenant restrictions](how-to-universal-tenant-restrictions.md)
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 
 - [Learn about remote network connectivity](concept-remote-network-connectivity.md)
 - [Configure quick access](how-to-configure-quick-access.md)
-
