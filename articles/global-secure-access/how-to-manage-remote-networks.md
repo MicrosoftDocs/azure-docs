@@ -1,6 +1,6 @@
 ---
-title: How to update and delete remote networks for Global Secure Access
-description: Learn how to update and delete remote networks for Global Secure Access.
+title: How to update and delete remote networks for Global Secure Access (preview)
+description: Learn how to update and delete remote networks for Global Secure Access (preview).
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -11,7 +11,7 @@ ms.custom:
 ---
 # Manage remote networks
 
-Remote networks connect your users in remote locations to Global Secure Access. Adding, updating, and removing remote networks from your environment are likely common tasks for many organizations. 
+Remote networks connect your users in remote locations to Global Secure Access (preview). Adding, updating, and removing remote networks from your environment are likely common tasks for many organizations. 
 
 This article explains how to manage your existing remote networks for Global Secure Access.
 

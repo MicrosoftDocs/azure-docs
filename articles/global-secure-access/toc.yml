@@ -15,6 +15,8 @@ items:
     href: how-to-install-windows-client.md
   - name: Remote networks
     expanded: false
+  - name: Install the Windows client
+    href: how-to-install-windows-client.md
     items:
       - name: Remote network connectivity
         href: concept-remote-network-connectivity.md
@@ -55,12 +57,14 @@ items:
         href: how-to-configure-quick-access.md 
       - name: Configure per-app access
         href: how-to-configure-per-app-access.md
+      - name: Configure connectors
+        href: how-to-configure-connectors.md
   - name: Logs and monitoring
     expanded: false
     items:
       - name: Global Secure Access logs and monitoring
         href: concept-global-secure-access-logs-monitoring.md
-      - name: Explore the network traffic dashboard
+      - name: Network traffic dashboard
         href: concept-traffic-dashboard.md
       - name: Audit logs
         href: how-to-access-audit-logs.md

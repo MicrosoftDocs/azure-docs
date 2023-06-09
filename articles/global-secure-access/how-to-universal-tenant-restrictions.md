@@ -1,5 +1,5 @@
 ---
-title: Global Secure Access and universal tenant restrictions
+title: Global Secure Access (preview) and universal tenant restrictions
 description: What are universal tenant restrictions
 
 ms.service: network-access
@@ -14,7 +14,7 @@ ms.reviewer: mamkumar
 ---
 # Universal tenant restrictions
 
-Universal tenant restrictions enhance the functionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) using Global Secure Access to tag all traffic no matter the operating system, browser, or device form factor. It allows support for both client and remote network connectivity. Administrators no longer have to manage proxy server configurations or complex network configurations.
+Universal tenant restrictions enhance the functionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) using Global Secure Access (preview) to tag all traffic no matter the operating system, browser, or device form factor. It allows support for both client and remote network connectivity. Administrators no longer have to manage proxy server configurations or complex network configurations.
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

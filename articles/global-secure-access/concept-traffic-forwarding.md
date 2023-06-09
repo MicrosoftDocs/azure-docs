@@ -1,6 +1,6 @@
 ---
-title: Global Secure Access traffic forwarding profiles
-description: Learn about the traffic forwarding profiles for Global Secure Access.
+title: Global Secure Access (preview) traffic forwarding profiles
+description: Learn about the traffic forwarding profiles for Global Secure Access (preview).
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -10,9 +10,9 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# Global Secure Access traffic forwarding profiles
+# Global Secure Access (preview) traffic forwarding profiles
 
-With the traffic forwarding profiles in Global Secure Access, you can apply policies to the network traffic that your organization needs to secure and manage. Network traffic is evaluated against the traffic forwarding policies you configure. The profiles are applied and the traffic goes through the service to the appropriate apps and resources. 
+With the traffic forwarding profiles in Global Secure Access (preview), you can apply policies to the network traffic that your organization needs to secure and manage. Network traffic is evaluated against the traffic forwarding policies you configure. The profiles are applied and the traffic goes through the service to the appropriate apps and resources. 
 
 This article describes the traffic forwarding profiles and how they work.
 

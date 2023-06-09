@@ -1,6 +1,6 @@
 ---
-title: Get started with Global Secure Access
-description: Get started with Global Secure Access for Microsoft Entra.
+title: Get started with Global Secure Access (preview)
+description: Get started with Global Secure Access (preview) for Microsoft Entra.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino

@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 06/08/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -188,7 +188,7 @@ Use any of the following deployment checklists during the setup or for troublesh
    3. Under **Authentication**, **Allow public client flows** is enabled.
 
 2. Review network configuration and validate if:
-   1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed. (Optional)
+   1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed.
    2. All required [private endpoints for Microsoft Purview](./catalog-private-link-end-to-end.md) are deployed.
    3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled. The following endpoints must be reachable from self-hosted runtime VM:
       - `*.powerbi.com` 
@@ -278,7 +278,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions.":::
 
-5. Select **Admin API settings** > **Enhance admin APIs responses with detailed metadata** > Enable the toggle to allow Microsoft Purview Data Map automatically discover the detailed metadata of Power BI datasets as part of its scans.
+5. Select **Admin API settings** > **Enhance admin APIs responses with detailed metadata** and **Enhance admin APIs responses with DAX and mashup expressions** > Enable the toggle to allow Microsoft Purview Data Map automatically discover the detailed metadata of Power BI datasets as part of its scans.
 
     > [!IMPORTANT]
     > After you update the Admin API settings on your power bi tenant, wait around 15 minutes before registering a scan and test connection.

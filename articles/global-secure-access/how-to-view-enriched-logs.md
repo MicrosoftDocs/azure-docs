@@ -1,6 +1,6 @@
 ---
 title: How to use enriched Microsoft 365 logs
-description: Learn how to use enriched Microsoft 365 logs for Global Secure Access.
+description: Learn how to use enriched Microsoft 365 logs for Global Secure Access (preview).
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -10,7 +10,7 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# How to use the Global Secure Access enriched Microsoft 365 logs
+# How to use the Global Secure Access (preview) enriched Microsoft 365 logs
 
 With your Microsoft 365 traffic flowing through the Microsoft Entra Private Access service, you want to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. The enriched Microsoft 365 logs provide you with the information you need to gain these insights. You can integrate the logs with a third-party security information and event management (SIEM) tool for further analysis.
 
@@ -55,7 +55,7 @@ If you need long-term storage for your logs and you don't plan on querying them 
 1. Go to **Microsoft Entra ID** > **Monitoring and health** > **Diagnostic settings**.
 1. Select **Add Diagnostic setting**.
 1. Give your diagnostic setting a name.
-1. Select `EnrichedMicrosoft365AuditLogs`.
+1. Select `EnrichedOffice365AuditLogs`.
 1. Select either **Stream to an event hub** or **Archive to a storage account** option, and complete the fields that appear.
     - To archive to a storage account, provide the number of days to retain the logs and select the appropriate subscription and storage account.
     - To stream to an event hub, select the subscription and event hub details. Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool.

@@ -1,6 +1,6 @@
 ---
-title: How to use Global Secure Access traffic logs
-description: Learn how to use traffic logs for Global Secure Access.
+title: How to use Global Secure Access (preview) traffic logs
+description: Learn how to use traffic logs for Global Secure Access (preview).
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino

@@ -1,6 +1,6 @@
 ---
-title: Global Secure Access network traffic dashboard
-description: Learn how to use the Global Secure Access network traffic dashboard.
+title: Global Secure Access (preview) network traffic dashboard
+description: Learn how to use the Global Secure Access (preview) network traffic dashboard.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -10,9 +10,9 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# Global Secure Access network traffic dashboard
+# Global Secure Access (preview) network traffic dashboard
 
-The Global Secure Access network traffic dashboard provides you with visualizations of the network traffic acquired by the Microsoft Entra Private and Microsoft Entra Internet Access services. The dashboard compiles the data from your network configurations, including devices, users, and tenants into several widgets that provide you with answers to the following questions:
+The Global Secure Access (preview) network traffic dashboard provides you with visualizations of the network traffic acquired by the Microsoft Entra Private and Microsoft Entra Internet Access services. The dashboard compiles the data from your network configurations, including devices, users, and tenants into several widgets that provide you with answers to the following questions:
 
 - How many active devices are deployed on my network?
 - Was there a recent change to the number of active devices?

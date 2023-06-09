@@ -4341,6 +4341,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/azure-ad-account.md",
+      "redirect_url": "/azure/active-directory/external-identities/default-account",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
       "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
       "redirect_document_id": false
@@ -12709,6 +12714,48 @@
         "redirect_url": "/azure/active-directory/standards/configure-for-cmmc-compliance",
         "redirect_document_id": true
 
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-funnel-based-design.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-funnel-based-design",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-solutions.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-solutions",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-proof-of-concept-funnel.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-proof-of-concept-funnel",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-proof-of-concept-regional.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-proof-of-concept-regional",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-region-based-design.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-region-based-design",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/azure-active-directory-parallel-identity-options.md",
+        "redirect_url": "/azure/active-directory/fundamentals/parallel-identity-options",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/azure-active-directory-b2c-deployment-plans.md",
+        "redirect_url": "/azure/active-directory/fundamentals/b2c-deployment-plans",
+        "redirect_document_id": true
       },
 
       {
