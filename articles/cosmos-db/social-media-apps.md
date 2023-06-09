@@ -246,7 +246,7 @@ With time, you'll eventually grow in traffic and your resource consumption (meas
 
 :::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Scaling up and defining a partition key":::
 
-What happens if things keep getting better? Suppose users from another region, country, or continent notice your platform and start using it. What a great surprise!
+What happens if things keep getting better? Suppose users from another country/region or continent notice your platform and start using it. What a great surprise!
 
 But wait! You soon realize their experience with your platform isn't optimal. They're so far away from your operational region that the latency is terrible. You obviously don't want them to quit. If only there was an easy way of **extending your global reach**? There is!
 
