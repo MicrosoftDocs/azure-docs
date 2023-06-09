@@ -882,7 +882,7 @@ az deployment group create -g $RESOURCE_GROUP \
 A final template can be found [here](https://github.com/ahmelsayed/aca-dev-service-postgres-azd). To deploy it 
 
 ```bash
-git clone https://github.com/ahmelsayed/aca-dev-service-postgres-azd
+git clone https://github.com/Azure-Samples/aca-dev-service-postgres-azd
 cd aca-dev-service-postgres-azd
 azd up
 ```

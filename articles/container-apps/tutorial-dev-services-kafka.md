@@ -941,7 +941,7 @@ az deployment group create -g $RESOURCE_GROUP \
 A final template can be found [here](https://github.com/ahmelsayed/aca-dev-service-kafka-azd). To deploy it 
 
 ```bash
-git clone https://github.com/ahmelsayed/aca-dev-service-kafka-azd
+git clone https://github.com/Azure-Samples/aca-dev-service-kafka-azd
 cd aca-dev-service-kafka-azd
 azd up
 ```
