@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/reference-app-multi-instancing.md",
+      "redirect_url": "/azure/active-directory/develop/configure-app-multi-instancing",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
       "redirect_url": "/azure/active-directory/develop/enterprise-app-role-management",
       "redirect_document_id": false
@@ -6691,6 +6696,22 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/migrate-adfs-apps-to-azure.md",
+      "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-stages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory.md",
+      "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-phases-overview",
+      "redirect_document_id": false
+    },
+
+
+
+
+
+
+    {
       "source_path_from_root": "/articles/active-directory/application-config-sso-problem-configure-federated-sso-gallery.md",
       "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-saml-based-sso",
       "redirect_document_id": false
@@ -12077,6 +12098,12 @@
       "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-change-serviceacct-pass",
       "redirect_document_id": false
       },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-external-identities-videos.md",
+        "redirect_url": "/azure/active-directory-b2c/external-identities-videos",
+        "redirect_document_id": true
+      },
       
       {
       "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-change-the-configuration.md",
@@ -12664,6 +12691,24 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory/standards/azure-ad-pci-dss-guidance.md",
+        "redirect_url": "/azure/active-directory/standards/pci-dss-guidance",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/standards/azure-ad-pci-dss-mfa.md",
+        "redirect_url": "/azure/active-directory/standards/pci-dss-mfa",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/standards/hipaa-configure-azure-active-directory-for-compliance.md",
+        "redirect_url": "/azure/active-directory/standards/hipaa-configure-for-compliance",
+        "redirect_document_id": true
+      },
+
+      {
         "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-introduction.md",
         "redirect_url": "/azure/active-directory/fundamentals/secure-introduction",
         "redirect_document_id": true
@@ -12743,6 +12788,30 @@
       {
         "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-region-based-design.md",
         "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-region-based-design",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/azure-active-directory-parallel-identity-options.md",
+        "redirect_url": "/azure/active-directory/fundamentals/parallel-identity-options",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/azure-active-directory-b2c-deployment-plans.md",
+        "redirect_url": "/azure/active-directory/fundamentals/b2c-deployment-plans",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-sentinel.md",
+        "redirect_url": "/azure/active-directory-b2c/configure-security-analytics-sentinel",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/partner-azure-web-application-firewall.md",
+        "redirect_url": "/azure/active-directory-b2c/partner-web-application-firewall",
         "redirect_document_id": true
       },
 

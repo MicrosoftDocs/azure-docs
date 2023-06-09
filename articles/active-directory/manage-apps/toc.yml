@@ -85,12 +85,12 @@
         href: manage-consent-requests.md
       - name: Protect against consent phishing
         href: protect-against-consent-phishing.md
-    - name: AD FS to Azure AD Migration
+    - name: Migrate apps from ADFS
       items:
-      - name: Plan AD FS migration
+      - name: Plan ADFS migration
         items:
         - name: Migration phases
-          href: migrate-application-authentication-to-azure-active-directory.md
+          href: migrate-adfs-apps-phases-overview.md
         - name: Phase 1 - Discover and Scope
           href: migrate-adfs-discover-scope-apps.md
         - name: Phase 2 - Classify apps and plan pilot
@@ -102,12 +102,12 @@
       - name: Migrate apps
         items:
         - name: Migration process
-          href: migrate-adfs-apps-to-azure.md
+          href: migrate-adfs-apps-stages.md
         - name: SAML-based single sign-on
           href: migrate-adfs-saml-based-sso.md
-        - name: Represent AD FS security policies in Azure AD
+        - name: Represent ADFS security policies
           href: migrate-adfs-represent-security-policies.md
-        - name: Use the AD FS application activity report
+        - name: Use the ADFS application activity report
           href: migrate-adfs-application-activity.md
   - name: How-to guides
     expanded: false
