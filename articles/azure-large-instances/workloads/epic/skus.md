@@ -10,7 +10,7 @@ ms.date: 06/01/2023
 
 # SKUs
 
-content
+@Rajya to deliver content 16 June
 
 
 

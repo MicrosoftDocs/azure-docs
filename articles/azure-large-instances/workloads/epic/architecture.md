@@ -8,9 +8,9 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-#  Architecture h1
+#  Architecture 
 
-content
+@MikeLonze to deliver content 16 June
 
 
 

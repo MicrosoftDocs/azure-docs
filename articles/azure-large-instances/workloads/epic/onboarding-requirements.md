@@ -10,53 +10,53 @@ ms.date: 06/01/2023
 
 # Onboarding requirements 
 
- 
+When customers receive an environment from the Microsoft ALI team, they are encouraged to perform the following steps:  
 
-When customers receive the environment from Microsoft ALI team, they are encouraged to perform the following steps:  
+## Azure portal
+* Use Azure portal to:
+    * Create Azure Virtual Network(s) and ExpressRoute Gateway or Gateways with High or Ultra Performance Reference.
+    * Link them with Epic on ALI stamps using Circuit/peer ID and Authorization Key provided by Microsoft team.  
 
-Check Azure portal to perform the following steps:  
+## VNET address space
+* Ensure that the VNET address space provided in your request is the same as what you configure.  
 
- 
+## Time sync
+* Set up time synchronization with NTP server.  
 
-Create Azure Virtual Network(s) and ExpressRoute Gateway(s) with High or Ultra Performance Reference and link them with Epic on Azure BareMetal Infrastructure (BMI) stamps using Circuit/peer ID and Authorization Key provided by Microsoft team.  
+## Jump box 
+* Set up a jump box in a VM to connect to Epic on ALI stamps.
+    * Change the root password at first login and store password in a secure location.  
 
- 
+## Satellite server
+* Install a red hat satellite server in a VM for RHEL 8.4 and patch download.   
 
-Please ensure that your VNET address space provided in the request is the same as what you configure.  
-
-Set up time synchronization with NTP server.  
-
-Set up a jump box in a VM to connect to Epic on Azure BMI stamps and change the root password at first login and store password in a secure location.  
-
-Install a red hat satellite server in a VM for RHEL 8.4 and patch download.   
-
-Validate Epic on Azure BMI stamps and configure and patch OS per your requirements.  
-
-Check if the stamps are visible on Azure Portal.   
-
-Do NOT place large files like Epic on Azure BMI installation bits on boot volume. Boot volume is small and can fill quickly and may cause the server to hang (50 GB per OS is the boot limit).  
-
-Secure Server IP pool address range.  
-
-This IP address range is used to assign the individual IP address to Epic BareMetal instance servers. The recommended subnet size is a /24 CIDR block. If needed, it can be smaller, with as few as 64 IP addresses.   
+## Epic on ALI stamps
+* Validate Epic on ALI stamps and configure and patch OS based on your requirements.  
+    * Verify that the stamps are visible on Azure Portal.
+    >[!Note] 
+    > Do NOT place large files like Epic on Azure BMI installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
+      
+## Secure Server IP pool address range
+This IP address range is used to assign the individual IP address to Epic for ALI servers. 
+The recommended subnet size is a /24 CIDR block. If needed, it can be smaller, with as few as 64 IP addresses.   
 
 From this range, the first 30 IP addresses are reserved for use by Microsoft. Make sure that you account for this when you choose the size of the range. This range must NOT overlap with your on-premises or other Azure IP addresses.   
 
-Your corporate network team or service provider should provide an IP address range that's not currently being used inside your network. This range is an IP address range, which needs to be submitted to Microsoft when asking for an initial deployment.   
+Your corporate network team or service provider should provide an IP address range that's not currently being used inside your network. 
+This range is an IP address range, which must be submitted to Microsoft when asking for an initial deployment.   
 
-  
+## Optional IP address ranges to eventually submit to Microsoft   
+If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to Epic on Azure BMI instance units, you must reserve another /29 IP address range. 
+This range may not overlap with any of the other IP addresses ranges you defined before.  
 
-Optional IP address ranges to eventually submit to Microsoft   
+If you choose to use ExpressRoute Global Reach to enable direct routing from an Epic on Azure BMI instance tenant in one Azure region to another Epic on Azure BMI instance tenant in another Azure region, you must reserve another /29 IP address range. 
+This range may not overlap with the  IP address ranges you defined before.  
 
-If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to Epic on Azure BMI instance units, you need to reserve another /29 IP address range. This range may not overlap with any of the other IP addresses ranges you defined before.  
+## Using ExpressRoute Fast Path
 
-If you choose to use ExpressRoute Global Reach to enable direct routing from an Epic on Azure BMI instance tenant in one Azure region to another Epic on Azure BMI instance tenant in another Azure region, you need to reserve another /29 IP address range. This range may not overlap with the other IP address ranges you defined before.  
+You can use ExpressRoute Fast Path to access your Azure ALI servers from anywhere, Azure VMs (hub and spoke) and on-premises.   
 
-  
-
-Enable ExpressRoute Fast Path between VNET and Epic on Azure BMI (Details below) 
-
-Once the connection is created, you should be able to access your Azure ALI servers from anywhere, Azure VMs (hub and spoke) and on-premises.   
+For setup instructions, see [How to enable ExpressRoute Fast Path](how-to enable-expressroute-fast-path).
 
 In case you would like to see the learned routes from Azure BMI, one of the options is looking at the Effective Routes table of one of your VMs.   
 
@@ -76,15 +76,11 @@ Azure subscription you use for Azure Large instance deployments is already regis
 
  
 
-Enable Express Route fast path  
-
-Express Route fast path enables low latency access between VNET VM’s and Epic on Azure BMI. With ER fast path, the data path allows communication between VMs and Epic on Azure BMI instances bypassing few intermediate network hops thus providing improved latency and network throughput.   
-
-Connect to Microsoft Cloud using Global Reach. Learn how Azure ExpressRoute Global Reach can link ExpressRoute circuits together to make a private network between your on-premises networks.  
+ 
 
   
 
-How to enable ER Fast Path for low latency access between Epic on Azure BMI and App servers in VNET  
+## How to enable ExpressRoute Fast Path 
 
 Before you begin, you need to install the latest version of the Azure resource manager power shell cmdlets, at least 4.0 or later. For more information about installing the power shell cmdlets, see how to install and configure Azure powershell.              
 

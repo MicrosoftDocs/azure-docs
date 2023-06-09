@@ -66,8 +66,8 @@ Large instances – Ranging from two-socket to four-socket systems.
 Very Large instances – Ranging from 4-socket to 20-socket systems. 
 
 Azure Large Instances for specialized workloads is available in the following Azure regions: 
-* East US *zones support 
-* West US 2 *zones support 
+* East US zones support 
+* West US 2 zones support 
 * South Central US 
 
 >[!NOTE]
@@ -150,12 +150,7 @@ ExpressRoute lets you extend your on-premises network into the Microsoft cloud o
 
 Azure Large instances are provisioned within your Azure VNet server IP address range. 
 
-:::image type="content" source="/media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of Azure BareMetal Infrastructure diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
-
- "![alt text](/media/what-is-azure-for-large-instances/ali-networking.png) lightbox="media/what-is-azure-for-large-instances/ali-networking.png"
- 
-
- <img title="a title" alt="Alt1" src="/media/what-is-azure-for-large-instances/ali-networking.png">
+:::image type="content" source="media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of Azure BareMetal Infrastructure diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
 
 The architecture shown is divided into three sections: 
 
