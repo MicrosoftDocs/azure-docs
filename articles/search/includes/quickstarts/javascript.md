@@ -1,64 +1,26 @@
 ---
-title: 'Quickstart: Create a search index in JavaScript'
-titleSuffix: Azure Cognitive Search
-description: In this JavaScript quickstart, learn how to create an index, load data, and run queries on Azure Cognitive Search using JavaScript
-
 author: HeidiSteen
 ms.author: heidist
-
-ms.devlang: javascript
 ms.service: cognitive-search
-ms.topic: quickstart
-ms.date: 01/05/2023
-ms.custom: devx-track-js, mode-api
+ms.topic: include
+ms.date: 06/09/2023
 ---
 
-# Quickstart: Create an Azure Cognitive Search index using the JavaScript SDK
-> [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-javascript.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Portal](search-get-started-portal.md)
-> * [PowerShell](./search-get-started-powershell.md)
-> * [Python](search-get-started-python.md)
-> * [REST](search-get-started-rest.md)
+Build a Node.js application using the [**@azure/search-documents**](/javascript/api/overview/azure/search-documents-readme) library to create, load, and query a search index. Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/quickstart) to start with a finished project or follow these steps to create your own.
 
-Use the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme) to create a Node.js application in JavaScript that creates, loads, and queries a search index.
+#### Set up your environment
 
-This article demonstrates how to create the application step by step. Alternatively, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) and run the application from the command line.
+We used the following tools to create this quickstart.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Prerequisites
-
-Before you begin, have the following tools and services:
-
-+ [Visual Studio Code](https://code.visualstudio.com) or another IDE
++ [Visual Studio Code](https://code.visualstudio.com), which has built-in support for creating JavaScript apps.
 
 + [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com)
 
-+ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
+#### Create the project
 
-## Set up your project
+1. Start Visual Studio Code.
 
-Start by getting the endpoint and key for your search service. Then create a new project with npm as outlined below.
-
-<a name="get-service-info"></a>
-
-### Copy a key and endpoint
-
-Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project. You'll specify both values when creating the client in a later step.
-
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
-
-2. In **Settings** > **Keys**, get an admin key for full rights on the service, required if you're creating or deleting objects. There are two interchangeable primary and secondary keys. You can use either one.
-
-   ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
-
-All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
-
-### Create a new npm project
-
-Begin by opening VS Code and its [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) or another terminal such as the Node.js command prompt.
+1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) **Ctrl+Shift+P** and open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
 1. Create a development directory, giving it the name `quickstart` :
 
@@ -67,25 +29,25 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     cd quickstart
     ```
 
-2. Initialize an empty project with npm by running the following command. To fully initialize the project, press Enter multiple times to accept the default values, except for the License, which you should set to "MIT". 
+1. Initialize an empty project with npm by running the following command. To fully initialize the project, press Enter multiple times to accept the default values, except for the License, which you should set to "MIT". 
 
     ```cmd
     npm init
     ```
      
-3. Install `@azure/search-documents`, the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme). 
+1. Install `@azure/search-documents`, the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme). 
 
     ```cmd
     npm install @azure/search-documents
     ```
 
-4. Install `dotenv`, which is used to import the environment variables such as your search service name and API key.
+1. Install `dotenv`, which is used to import the environment variables such as your search service name and API key.
 
     ```cmd
     npm install dotenv
     ```
 
-5. Confirm that you've configured the projects and its dependencies by checking that your  **package.json** file looks similar to the following json:
+1. Confirm that you've configured the projects and its dependencies by checking that your  **package.json** file looks similar to the following json:
 
     ```json
     {
@@ -109,7 +71,7 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     }
     ```
 
-6. Create a file **.env** to hold your search service parameters:
+1. Create a file **.env** to hold your search service parameters:
 
     ```
     SEARCH_API_KEY=<search-admin-key>
@@ -118,7 +80,7 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
 
 Replace the `<search-service-name>` value with the name of your search service. Replace `<search-admin-key>` with the key value you recorded earlier. 
 
-### Create index.js file
+#### Create index.js file
 
 Next we create an **index.js** file, which is the main file that will host our code.
 
@@ -161,7 +123,7 @@ main().catch((err) => {
 
 With that in place, we're ready to create an index.
 
-## 1 - Create index 
+#### Create index 
 
 Create a file **hotels_quickstart_index.json**.  This file defines how Azure Cognitive Search works with the documents you'll be loading in the next step. Each field will be identified by a `name` and have a specified `type`. Each field also has a series of index attributes that specify whether Azure Cognitive Search can search, filter, sort, and facet upon the field. Most of the fields are simple data types, but some, like `AddressType` are complex types that allow you to create rich data structures in your index.  You can read more about [supported data types](/rest/api/searchservice/supported-data-types) and index attributes described in [Create Index (REST)](/rest/api/searchservice/create-index). 
 
@@ -344,7 +306,7 @@ let index = await indexClient.createIndex(indexDefinition);
 console.log(`Index named ${index.name} has been created.`);
 ```
 
-### Run the sample
+#### Run the sample
 
 At this point, you're ready to run the sample. Use a terminal window to run the following command:
 
@@ -358,14 +320,14 @@ You should see a series of messages describing the actions being taken by the pr
 
 Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following example:
 
-:::image type="content" source="media/search-get-started-javascript/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab" border="false":::
+:::image type="content" source="../../media/search-get-started-javascript/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab." border="false":::
 
 In the next step, you'll add data to index. 
 
-## 2 - Load documents 
+#### Load documents 
 
 
-In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](search-indexer-overview.md). In this case, we'll programatically push the documents to the index.
+In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](/azure/search/search-indexer-overview). In this case, we'll programatically push the documents to the index.
 
 Document inputs might be rows in a database, blobs in Blob storage, or, as in this sample, JSON documents on disk. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels.json) or create your own **hotels.json** file with the following content:
 
@@ -494,7 +456,7 @@ To have the program wait for one second, call the `sleep` function like below:
 sleep(1000);
 ```
 
-## 3 - Search an index
+#### Search an index
 
 With an index created and documents uploaded, you're ready to send queries to the index. In this section, we'll send five different queries to the search index to demonstrate different pieces of query functionality available to you.
 
@@ -587,22 +549,6 @@ let documentResult = await searchClient.getDocument(key='3')
 console.log(`HotelId: ${documentResult.HotelId}; HotelName: ${documentResult.HotelName}`)
 ```
 
-### Run the sample
+#### Run the sample
 
 Run the program with `node index.js`. Now, in addition to the previous steps, the queries will be sent and the results written to the console.
-
-## Clean up resources
-
-When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
-
-You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
-
-If you're using a free service, remember the limit of three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
-
-## Next steps
-
-In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. To continue learning, try the following tutorial and sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. 
-
-+ [Tutorial: Add search to web apps](tutorial-csharp-overview.md)
-
-+ [Sample: Build a React front-end for Azure Cognitive Search](https://github.com/dereklegenzoff/azure-search-react-template)
