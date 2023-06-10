@@ -33,7 +33,7 @@ To get started, follow these instructions to work with remote networks using Mic
 1. Set the API version to **beta**.
 1. Add the following query to retrieve recommendations, then select the **Run query** button.
 
-```json
+```http
     POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches
 {
     "name": "BranchOffice_CustomIKE",

@@ -65,8 +65,8 @@ For more help with installing a connector, see [Problem installing the Applicati
 To confirm the connector installed and registered correctly:
 1. Select the **Windows** key and enter `services.msc` to open the Windows Services Manager.
 1. Check to see if the status for the following services **Running**.
-    - Microsoft AAD Application Proxy Connector enables connectivity.
-    - Microsoft AAD Application Proxy Connector Updater is an automated update service.
+    - *Microsoft AAD Application Proxy Connector* enables connectivity.
+    - *Microsoft AAD Application Proxy Connector Updater* is an automated update service.
     - The updater checks for new versions of the connector and updates the connector as needed.
 1. If the status for the services isn't **Running**, right-click to select each service and choose **Start**.
 
@@ -75,7 +75,7 @@ To confirm the connector installed and registered correctly:
 To create as many connector groups as you want:
 
 1. Go to **Global Secure Access (Preview)** > **Connect** > **Connectors**.
-1. Select New connector group. The New Connector Group blade appears.
+1. Select **New connector group**. 
 1. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
 1. Select **Save**.
 

@@ -39,6 +39,8 @@ If you didn't add device links when you created the remote networks or you want 
     - **Bandwidth capacity (Mbps)**: Choose the bandwidth for your IPSec tunnel.
 1. Select the **Next** button.
 
+![Screenshot of the general tab of the create device link process.](media/how-to-manage-remote-network-device-links/device-link-general-tab.png)
+
 **Details**
 
 1. **IKEv2** is selected by default. At this time only IKEv2 is supported.
@@ -49,6 +51,8 @@ If you didn't add device links when you created the remote networks or you want 
     - View the [remote network valid configurations](reference-remote-network-configurations.md).
 
 1. Select the **Next** button.
+
+![Screenshot of the custom details for the device link.](media/how-to-manage-remote-network-device-links/device-link-details.png)
 
 **Security**
 

@@ -11,7 +11,7 @@ ms.custom:
 ---
 # How to create a remote network
 
-Remote networks are remote locations, such as a branch office, or networks that require internet connectivity. Setting up remote networks connects your users in remote locations to Global Secure Access. Once a remote network is configured, you can assign a traffic forwarding profile to manage your corporate network traffic.
+Remote networks are remote locations, such as a branch offices, or networks that require internet connectivity. Setting up remote networks connects your users in remote locations to Global Secure Access. Once a remote network is configured, you can assign a traffic forwarding profile to manage your corporate network traffic.
 
 Global Secure Access provides remote network connectivity so you can connect a remote network to Global Secure Access. Network security policies are then applied on all outbound traffic. 
 
