@@ -26,11 +26,11 @@ This article explains how to create a remote network for Global Secure Access (p
 
 ### Known limitations
 
-- At this time, the number of remote networks per tenant is limited to ten, and the number of device links per remote network is limited to four.
+- At this time, the number of remote networks per tenant is limited to 10, and the number of device links per remote network is limited to four.
 
 ## Onboard your tenant for remote networks
 
-Before you can set up remote networks, you need to onboard your tenant information with Microsoft. This is a one-time process that enables your tenant to use remote network connectivity.
+Before you can set up remote networks, you need to onboard your tenant information with Microsoft. This one-time process enables your tenant to use remote network connectivity.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
 1. Go to **Global Secure Access (preview)** > **Devices** > **Remote network**.
@@ -43,7 +43,7 @@ Before you can set up remote networks, you need to onboard your tenant informati
     
     ![Screenshot of the first tab of the onboarding form.](media/how-to-create-remote-networks/onboard-tenant-info.png)
 
-1. Select the email address link. It sends a pre-drafted email in your default mail client on your device. Send that email to the Global Secure Access team. Once your tenant is processed - which may take up to 7 business days - we will send IPsec tunnel and BDG connectivity details to the email you use.
+1. Select the email address link. It sends a predrafted email in your default mail client on your device. Send that email to the Global Secure Access team. Once your tenant is processed - which may take up to seven business days - we'll send IPsec tunnel and BDG connectivity details to the email you use.
 
     ![Screenshot of the send email steps for the onboard tenant process.](media/how-to-create-remote-networks/onboard-tenant-send-email.png)
 
@@ -88,11 +88,11 @@ The connectivity tab is where you add the device links for the remote network. Y
 
 **Details**
 
-1. **IKEv2** is selected by default. At this time only IKEv2 is supported.
+1. **IKEv2** is selected by default. At this time, only IKEv2 is supported.
 1. The IPSec/IKE policy is set to **Default** but you can change to **Custom**.
-    - If you select **Custom** you must use a combination of settings that are supported by Global Secure Access.
+    - If you select **Custom**, you must use a combination of settings that are supported by Global Secure Access.
     - The valid configurations you can use are mapped out in the [Remote network valid configurations](reference-remote-network-configurations.md) reference article.
-    - Whether you choose Default or Custom, the IPSec/IKE policy you specify must match the the policy on your CPE.
+    - Whether you choose Default or Custom, the IPSec/IKE policy you specify must match the policy on your CPE.
     - View the [remote network valid configurations](reference-remote-network-configurations.md).
 1. Select the **Next** button.
 
@@ -102,7 +102,7 @@ The following screenshot displays the **Details** tab, with the **Custom** optio
 
 **Security**
 
-1. Enter a pre-shared key to be used on your CPE.
+1. Enter a preshared key to be used on your CPE.
 1. Select the **Add link** button. 
 
 ### Traffic forwarding profiles

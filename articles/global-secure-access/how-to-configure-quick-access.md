@@ -12,11 +12,7 @@ ms.custom:
 ---
 # How to configure Quick Access for Global Secure Access
 
-<<<<<<< HEAD
 With Global Secure Access, you can define specific fully qualified domain names (FQDNs) or IP addresses of private resources to include in the traffic for Microsoft Entra Private Access. Your organization's employees can then access the apps and sites that you specify. This article describes how to configure Quick Access for Microsoft Entra Private Access.
-=======
-With Global Secure Access, you can define specific websites or IP addresses to include in the traffic for Microsoft Entra Private Access. Your organization's employees can then access the apps and sites that you specify. This article describes how to configure Quick Access for Microsoft Entra Private Access.
->>>>>>> 0e18c94665f0f4db72eee5fbdd1e60b414b131e2
 
 ## Prerequisites
 
@@ -38,7 +34,7 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 
 ## How it works
 
-Quick Access for Microsoft Entra Private Access unlocks the ability to specify the apps and resources that you consider private or internal, so you can manage how your organization accesses them.
+Quick Access for Microsoft Entra Private Access unlocks the ability to specify the FQDNs and IP addresses that you consider private or internal, so you can manage how your organization accesses them.
 
 By configuring Quick Access and enabling Microsoft Entra Private Access, you can modernize how your organization's users access private apps and resources. Remote workers don't need to use a VPN to access these resources if they have the Global Secure Access client installed. The client quietly and seamlessly connects them to the resources they need.
 
@@ -48,7 +44,7 @@ Quick Access can be a quick and easy way to replace your VPN to allow secure acc
 
 Configuring your Quick Access settings is a major component to utilizing Microsoft Entra Private Access. When you configure Quick Access for the first time, Microsoft Entra Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Microsoft Entra Private Access. 
 
-To configure Quick Access, you also need to have a [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
+To configure Quick Access, you also need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
 Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick Access app are automatically configured. One of those properties requires that you assign users and groups through Enterprise Applications. For more information, see [Properties of an enterprise application](../active-directory/manage-apps/application-properties.md).
 
@@ -63,26 +59,26 @@ Let's look at each of these steps in more detail.
 
 ## Create an App Proxy connector group
 
-To configure Quick Access, you must have a connector group with at least one active connector.
+To configure Quick Access, you must have a connector group with at least one active App Proxy connector.
 
-If you don't already have a connector set up, see [Configure connectors for Quick Access](how-to-configure-quick-access.md).
+If you don't already have a connector group set up, see [Configure connectors for Quick Access](how-to-configure-quick-access.md).
 
 ## Configure Quick Access
 
-On the Quick Access page, you provide a name for the Quick Access app, select a connector group, and add FQDNs and IP addresses. You can complete all three steps at the same time, or you can add the FQDNs and IP addresses after the initial setup is complete. 
+On the Quick Access page, you provide a name for the Quick Access app, select a connector group, and add FQDNs and IP addresses. You can complete all three steps at the same time, or you can add the network segments after the initial setup is complete. 
 
 ### Name and connector group
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Administrator. 
 1. Go to **Global Secure Access (preview)** > **Applications** > **Quick access**.
-1. Enter a name.
+1. Enter a name. *We recommend using the name Quick Access*. 
 1. Select a Connector group from the dropdown menu.
 
     ![Screenshot of the Quick Access app name.](media/how-to-configure-quick-access/new-quick-access-name.png)
     
-    - Before you can set up Quick Access, you must have an App Proxy connector group set up.
+    - Before you can set up Quick Access, you must have a connector group with at least one active App Proxy connector configured.
     - Your connector groups appear in the dropdown menu.
-1. Select the **Save** button at the bottom of the page to create your "QuickAccess" app without FQDNs and IP addresses.
+1. Select the **Save** button at the bottom of the page to create your "Quick Access" app without FQDNs and IP addresses.
 
 ### Add Quick access range
 
@@ -105,7 +101,7 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 
 1. Select the **Save** button when you're finished.
 
-![Screenshot of the Quick Access app with resources added.](media/how-to-configure-quick-access/new-quick-access-with-ranges.png)
+![Screenshot of the create quick access ranges fields.](media/how-to-configure-quick-access/create-new-quick-access-range.png)
 
 ## Manage Quick Access properties
 
@@ -147,5 +143,6 @@ Once you have your Quick Access app configured, your private resources added, us
 
 ## Next steps
 
+- [Configure per-app access](how-to-configure-per-app-access.md)
 - [Manage the private access traffic management profile](how-to-manage-private-access-profile.md)
 - [Learn about traffic management profiles](concept-traffic-forwarding.md)
