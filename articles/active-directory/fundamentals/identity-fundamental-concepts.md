@@ -67,7 +67,7 @@ Here's a quick overview of authentication and authorization:
 
 | Authentication | Authorization |
 | ------- | -------- |
-| Can be thought of as a gatekeeper, allowing access only to those who provide valid credentials. | Can be thought of as a guard, ensuring that only those with the proper clearance can enter certain areas. |
+| Can be thought of as a gatekeeper, allowing access only to those  who provide valid credentials. | Can be thought of as a guard, ensuring that only those with the proper clearance can enter certain areas. |
 | Verifies whether a user, machine, or software is who or what they claim to be.| Determines if the user, machine, or software is allowed to access a particular resource. |
 | Challenges the user, machine, or software for verifiable credentials (for example, passwords, biometric identifiers, or certificates).| Determines what level of access a user, machine, or software has.|
 | Done before authorization. | Done after successful authentication. |
