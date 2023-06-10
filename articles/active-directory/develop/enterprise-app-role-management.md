@@ -119,7 +119,7 @@ Update the attributes to define the role claim that is included in the token.
 1. From the **Source attribute** list, select **user.assignedroles**.
 1. Select **Save**. The new **Role Name** attribute should now appear in the **Attributes & Claims** section. The claim should now be included in the access token when signing into the application.
 
-    :::image type="content" source="media/active-directory-enterprise-app-role-management/attributes-summary.png" alt-text="Screenshot that shows a display of the list of attributes and claims defined for the application.":::
+    :::image type="content" source="media/enterprise-app-role-management/attributes-summary.png" alt-text="Screenshot that shows a display of the list of attributes and claims defined for the application.":::
 
 ## Assign roles
 
