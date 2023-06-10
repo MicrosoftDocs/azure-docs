@@ -7,15 +7,26 @@ ms.author: jacobjaygbay
 ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
-
 # Configure Azure Service Health alerts
-You can get automatic notifications when there are planned maintenance events or unplanned 
+
+You can get automatic notifications when there are planned maintenance events or unplanned
 downtime that affects your infrastructure.
-Please follow these steps to ensure you have Service Health alerts configured:
-Step1. Please go to the Microsoft Azure portal http://portal.Azure.Com
-Step2. Please search for “service health” in the search bar and click on Service Health.
 
+Follow these steps to ensure you have Service Health alerts configured:
 
+1. Go to the [Microsoft Azure portal](http://portal.Azure.Com).
+2. Search for “service health” in the search bar and select **Service Health** from the results.
+3. in the Service Health Dashboard, select **Health Alerts**.
+4. Select **Create service health alert**.
+5. Deselect **Select all** under **Services**.
+6. Select **Azure Large Instances**.
+7. Select the regions in which your Epic on Azure BMI instances deployed.
+8. Under **Action Groups**, select **Create New**.
+9. Fill in the details and select the type of notification for the Action (Email, SMS, Voice, etc.).
+10. Click **OK** to add the Action.
+11. Click **OK** to add the Action Group.
+12. Verify you see your newly created Action Group.
+You will now receive alerts when there are health issues or maintenance actions on your systems.
 
 ## Next steps
 
@@ -23,5 +34,3 @@ Learn how to identify and interact with ALI instances through the Azure portal.
 
 > [!div class="nextstepaction"]
 > [What is Azure for Large Instances?](../../what-is-azure-for-large-instances.md)
-
-
