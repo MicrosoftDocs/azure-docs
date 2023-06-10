@@ -431,6 +431,93 @@ az spring build-service builder buildpack-binding delete \
 
 ---
 
+## Migrate Bindings in Builder
+The Bindings feature in Builder is deprecated and will be removed in the future. It's strongly recommended to migrate Bindings in builder.
+APM and CA certificates can be configured in Bindings and you can migrate them respectively.
+
+### Migrate APM configured in Bindings
+In most use cases, there's only one APM configured in Bindings in default builder, you can create a new APM resource with the same configuration in Bindings and enable this APM resource globally. It will be used by all the subsequent builds and deployments automatically.
+1. Create an APM resource:
+
+   ```azurecli
+   az spring apm create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-APM-name> \
+       --type <your-APM-type> \
+       --properties a=b c=d \
+       --secrets e=f g=h
+   ```
+   
+1. Enable the APM resource globally:
+
+   ```azurecli
+   az spring apm enable-globally \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-APM-name> \
+   ```
+   
+1. Re-deploy all the applications to use the new APM resource enabled globally:
+
+   ```azurecli
+   az spring app deploy \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <app-name> \
+       --builder <builder-name> \
+       --artifact-path <path-to-your-JAR-file>
+   ```
+1. Verify if the new APM resource works for all the applications. If everything works fine, remove the APM Bindings in builder:
+
+   ```azurecli
+   az spring build-service builder buildpack-binding delete \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-APM-buildpack-binding-name> \
+       --builder-name <your-builder-name>
+   ```
+
+If there are several APMs configured in Bindings, you can create serveral APM resources with the same configuration in Bindings and enable the APM resource globally if it's applicable. Use the `--apms` parameter to specify an APM resource for a deployment if you want to override the APM enabled globally:
+
+```azurecli
+az spring app deploy \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name <app-name> \
+    --builder <builder-name> \
+    --apms <APM-name> \
+    --artifact-path <path-to-your-JAR-file>
+```
+
+During the migration process, APM is configured in both Bindings and APM resource. In this case, APM resource takes effect and Binding is ignored.
+   
+### Migrate CA Certificate configured in Bindings
+
+1. For CA certificate configured in Binding, if it's used in runtime, you can [load the certificate into your application](how-to-use-tls-certificate.md#load-a-certificate)
+
+1. Re-deploy all the applications using the CA certificate. If it's used in build time, use the `--build-certificates` parameter to specify the CA Certificate used in build time for a deployment:
+
+   ```azurecli
+   az spring app deploy \
+      --resource-group <resource-group-name> \
+      --service <Azure-Spring-Apps-instance-name> \
+      --name <app-name> \
+      --builder <builder-name> \
+      --build-certificates <CA certificate-name> \
+      --artifact-path <path-to-your-JAR-file>
+    ```
+
+1. Verify if the CA certificate works for all the applications using it. If everything works fine, remove the CA certificate Bindings in builder:
+
+   ```azurecli
+   az spring build-service builder buildpack-binding delete \
+      --resource-group <resource-group-name> \
+      --service <Azure-Spring-Apps-instance-name> \
+      --name <your-CA-certificate-buildpack-binding-name> \
+      --builder-name <your-builder-name>
+   ```
+
 ## Next steps
 
 - [How to deploy polyglot apps in Azure Spring Apps Enterprise](how-to-enterprise-deploy-polyglot-apps.md)
