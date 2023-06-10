@@ -102,6 +102,6 @@ With a central identity provider, organizations can establish authentication and
 
 ## Next steps
 
-Read [Introduction to identity and access management](introduction-identity-access-management.md) to learn more.
-Learn about [Single sign-on (SSO)](/azure/active-directory/manage-apps/what-is-single-sign-on).
-Learn about [Multi-factor authentication (MFA)](/azure/active-directory/authentication/concept-mfa-howitworks).
+- Read [Introduction to identity and access management](introduction-identity-access-management.md) to learn more.
+- Learn about [Single sign-on (SSO)](/azure/active-directory/manage-apps/what-is-single-sign-on).
+- Learn about [Multi-factor authentication (MFA)](/azure/active-directory/authentication/concept-mfa-howitworks).
