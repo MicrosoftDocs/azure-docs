@@ -20,6 +20,10 @@ Azure Internet peering support Communications Services Providers to establish di
 
 The Azure Internet peering provides highly reliable and QoS (Quality of Service) enabled interconnect for Communications services to ensure high quality and performance centric services.
 
+The following flowchart summarizes the process to onboard to Communications Services
+
+:::image type="content" source="media/oconboarding-azure-maps-voice-highre.png" alt-text="Onboarding process for Communications Services" :::
+
 ## Technical Requirements
 The technical requirements to establish direct interconnect for  Communication Services are as following:
 -	The Peer MUST provide own Autonomous System Number (ASN), which MUST be public.

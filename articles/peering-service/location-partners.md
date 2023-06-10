@@ -130,7 +130,6 @@ The following table provides information on the Peering Service connectivity par
 ## Next steps
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
-- To learn about onboarding a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
 
