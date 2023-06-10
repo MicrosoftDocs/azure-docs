@@ -8,6 +8,7 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
+# Quality checks
 
 Microsoft operations team performs a series of extensive quality checks to ensure that customers request to run Epic systems on Azure ALI is fulfilled accurately, and infrastructure is healthy before handover.
 However, customers are advised to perform their own checks to ensure services are provided as requested. 

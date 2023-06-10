@@ -8,7 +8,7 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-# SKUs
+# Epic for Azure SKUs
 
 @Rajya to deliver content 16 June
 
@@ -22,3 +22,4 @@ Learn how to identify and interact with ALI instances through the Azure portal.
 > [!div class="nextstepaction"]
 > [What is Azure for Large Instances?](../../what-is-azure-for-large-instances.md)
 
+A

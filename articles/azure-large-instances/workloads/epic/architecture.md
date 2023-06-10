@@ -8,7 +8,7 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-#  Architecture 
+# Epic for ALI architecture 
 
 @MikeLonze to deliver content 16 June
 

@@ -8,6 +8,9 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
+## Onboarding requirements
+
+
 When customers receive an environment from the Microsoft ALI team, they are encouraged to perform the following steps:  
 
 ## Azure portal
