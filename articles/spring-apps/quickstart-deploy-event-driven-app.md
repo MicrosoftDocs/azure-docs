@@ -36,7 +36,7 @@ This article explains how to deploy a Spring Boot event-driven application to Az
 
 Diagram of Spring event-driven app architecture:
 - Use Azure Spring Apps to host the Spring Boot app.
-- Use Key Vault secret as property source for securing secrets.
+- Use Key Vault secret as property source for securing connection string of Service Bus.
 - Subscribe to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase.
 - Use Azure Monitor for monitoring and logging.
 
@@ -104,7 +104,7 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone-end
 
-## 5. Validation
+## 5. Validate the app 
 
 Use the following steps to confirm that the event-driven app works correctly. You can validate the app by sending a message to the `lower-case` queue, then confirming that there's a message in the `upper-case` queue.
 

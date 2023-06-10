@@ -18,7 +18,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 [!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-event-driven.md)]
 
-## 3. Provision
+## 3. Prepare the cloud environment
 
 The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
@@ -191,7 +191,7 @@ SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys 
     --output tsv)
 ```
 
-## 4. Deployment
+## 4. Deploy the app to Azure Spring Apps
 
 1. Use the following command to provide the connection string to the app through an environment variable.
 

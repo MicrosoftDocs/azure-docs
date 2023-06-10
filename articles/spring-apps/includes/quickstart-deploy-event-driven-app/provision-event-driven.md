@@ -22,15 +22,15 @@ The main resources you need to run this sample are an Azure Spring Apps instance
 
 Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-### 3.2. Provision an instance of Service Bus
+### 3.2. Create a Service Bus instance
 
 [!INCLUDE [provision-service-bus](../../includes/quickstart-deploy-event-driven-app/provision-service-bus.md)]
 
-### 3.3. Provision an instance of Key Vaults
+### 3.3. Create a Key Vaults instance
 
 [!INCLUDE [provision-key-vault](../../includes/quickstart-deploy-event-driven-app/provision-key-vault.md)]
 
-### 3.4. Provision an instance of Azure Spring Apps
+### 3.4. Create an Azure Spring Apps instance
 
 1. Select Create a resource (+) in the upper-left corner of the portal.
 

@@ -30,7 +30,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
     - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
     - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
-    - **Input the app name**: Provide an app name. If you use the default project artifact ID, press Enter directly.
+    - **Input the app name(simple-event-driven-app)**: Provide an app name. Use the default project artifact ID as the name, press Enter directly.
     - **Expose public access for this app (Simple Event Driven App)?**: Enter *n*.
     - **Confirm to save all the above configurations (Y/n)**: Enter `y`. If Enter `n`, the configuration doesn't be saved in the POM files.
 
@@ -52,15 +52,21 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use AZD to package the app, provision the Azure resources required by the event-driven application and then deploy to Azure Spring Apps.
+Use AZD to package the app, provision the Azure resources required by the web application and then deploy to Azure Spring Apps.
 
-1. Run the following command to provision the template's infrastructure to Azure.
+1. Run the following command to package a deployable copy of your application:
 
    ```bash
-   azd up
+   azd package
    ```
 
-   The console outputs messages similar to the ones below:
+1. Run the following command to deploy the application code to those newly provisioned resources:
+
+   ```bash
+   azd deploy
+   ```
+
+   The console outputs messages similar to the following:
 
    ```text
    Deploying services (azd deploy)
@@ -71,7 +77,13 @@ Use AZD to package the app, provision the Azure resources required by the event-
    (✓) Done: Deploying service simple-event-driven-app
    - No endpoints were found
    
-   SUCCESS: Your application was provisioned and deployed to Azure in xx minutes xx seconds.
+   
+   SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
+   You can view the resources created under the resource group rg-<your-environment-name>-<a-random-string> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>-<a-random-string>/overview
    ```
+
+> [!NOTE]
+> You can also use `azd up` to combine the previous three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). See more details from [Azure-Samples/ASA-Samples-Web-Application](https://github.com/Azure-Samples/ASA-Samples-Web-Application).
 
 ---
