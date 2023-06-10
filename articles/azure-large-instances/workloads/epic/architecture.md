@@ -1,5 +1,5 @@
 ---
-title: Architecture
+title: Epic for ALI architecture
 description: Provides an overview of Epic for ALI architecture.
 ms.topic: conceptual
 author: jjaygbay
