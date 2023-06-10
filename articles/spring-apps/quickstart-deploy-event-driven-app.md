@@ -112,6 +112,10 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
+1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
+
+   :::image type="content" source="media/quickstart-deploy-event-driven-app/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
+
 [!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-event-driven-app/clean-up-resources.md)]
 
 ## 7. Next steps

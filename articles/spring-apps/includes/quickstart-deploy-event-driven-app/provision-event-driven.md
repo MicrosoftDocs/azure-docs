@@ -127,6 +127,6 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
    ```
 
    > [!NOTE]
-   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources. See more details from [Azure-Samples/ASA-Samples-Event-Driven-Application](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application).
+   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources.
 
 ---
