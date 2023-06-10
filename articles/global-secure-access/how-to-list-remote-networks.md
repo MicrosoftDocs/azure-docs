@@ -41,7 +41,5 @@ Listing remote networks requires the following prerequisites:
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Next steps
 - [Create remote networks](how-to-manage-remote-networks.md)

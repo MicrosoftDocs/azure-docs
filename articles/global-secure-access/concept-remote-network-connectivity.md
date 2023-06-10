@@ -54,8 +54,6 @@ The guest devices on your network may not have the client installed. To ensure t
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Next steps
 - [List all remote networks](how-to-list-remote-networks.md)
 - [Manage remote networks](how-to-manage-remote-networks.md)

@@ -17,7 +17,7 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 
 ## Install and register a connector
 
-To use Private Access, install a connector on each Windows server you're using for Microsoft Entra Private Access. The connector is an agent that manages the outbound connection from the on-premises application servers to Global Secure Access. You can install a connector on servers that also have other authentication agents installed such as [Azure AD Connect](../active-directory/hybrid/what-is-azure-ad-connect.md).
+To use Private Access, install a connector on each Windows server you're using for Microsoft Entra Private Access. The connector is an agent that manages the outbound connection from the on-premises application servers to Global Secure Access. You can install a connector on servers that also have other authentication agents installed such as Azure AD Connect.
 
 > [!NOTE]
 > Setting up App Proxy connectors and connector groups require planning and testing to ensure you have the right configuration for your organization. If you don't already have connector groups set up, pause this process and return when you have a connector group ready.

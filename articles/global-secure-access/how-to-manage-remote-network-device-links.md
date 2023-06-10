@@ -67,7 +67,5 @@ To delete a device link, navigate to the device link details page and select the
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Next steps
 - [List remote networks](how-to-list-remote-networks.md)
