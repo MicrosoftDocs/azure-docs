@@ -37,7 +37,7 @@ Azure Spring Apps provides built-in tools to monitor the status and health of yo
 
 For example, when you restart your app, you can find the affected instances from the **Activity log** detail page in the Azure portal.
 
-:::image type="content" source="media/monitor-app-lifecycle-events/activity-log-restart-detail.png" lightbox="media/monitor-app-lifecycle-events/activity-log-restart-detail.png" alt-text="Screenshot of Azure portal restart details in the activity log.":::
+:::image type="content" source="media/monitor-app-lifecycle-events/activity-log-restart-detail.png" lightbox="media/monitor-app-lifecycle-events/activity-log-restart-detail.png" alt-text="Screenshot of the Azure portal showing the Activity log page and the details pane open on the selected operation.":::
 
 ## Monitor app lifecycle events in Azure Service Health
 
@@ -45,7 +45,7 @@ For example, when you restart your app, you can find the affected instances from
 
 ### Monitor unplanned app lifecycle events
 
-When your app is restarted because of unplanned events, your Azure Spring Apps instance will show a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a potential loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
+When your app is restarted because of unplanned events, your Azure Spring Apps instance shows a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a potential loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-detail.png" alt-text="Screenshot of the resource health pane.":::
 
@@ -59,7 +59,7 @@ Your app may be restarted during platform maintenance. You can receive a mainten
 
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" alt-text="Screenshot of Azure portal example notification for planned maintenance.":::
 
-When platform maintenance happens, your Azure Spring Apps instance will also show a status of **degraded**. If restarting is needed during platform maintenance, Azure Spring Apps will perform a rolling update to incrementally update your applications. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
+When platform maintenance happens, your Azure Spring Apps instance shows a status of **degraded**. If restarting is needed during platform maintenance, Azure Spring Apps performs a rolling update to incrementally update your applications. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="Screenshot of Azure portal example log for planned maintenance in progress.":::
 
@@ -81,7 +81,7 @@ The following steps show you how to create an activity log alert rule in the Azu
 
 1. Navigate to **Activity log**, open the detail page for any activity log, then select **New alert rule**.
 
-   :::image type="content" source="media/monitor-app-lifecycle-events/activity-log-alert.png" lightbox="media/monitor-app-lifecycle-events/activity-log-alert.png" alt-text="Screenshot of Azure portal activity log alert.":::
+   :::image type="content" source="media/monitor-app-lifecycle-events/activity-log-alert.png" lightbox="media/monitor-app-lifecycle-events/activity-log-alert.png" alt-text="Screenshot of the Azure portal showing the Activity log page with the details pane open and New Alert rule highlighted.":::
 
 2. Select the **Scope** for the alert.
 
