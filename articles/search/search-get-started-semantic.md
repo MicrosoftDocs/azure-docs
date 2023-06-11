@@ -15,20 +15,18 @@ ms.date: 06/09/2023
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to re-score search results, elevating results that are more semantically relevant to the top of the list. It also returns "captions" and "answers" if the query is posed as a question, and a verbatim answer can be found. Mostly, semantic search improves an initial result set was generated from a BM25 ranking. In many cases, semantic search significantly improves overall relevance, with minimal work for the developer.
+In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to re-score search results, moving results that have more semantic relevance to the top of the list. Semantic search improves an initial result set that was generated from a BM25 ranking. In many cases, semantic search significantly improves overall relevance, with minimal work for the developer.
 
 This quickstart shows the query modifications that invoke semantic search.
 
 > [!NOTE]
-> Looking for a Cognitive Search solution providing a question-answer interaction with Chat-GPT? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for documentation and sample code.
+> Looking for a Cognitive Search solution with Chat-GPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
 
 ## Prerequisites
 
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
 + Azure Cognitive Search, at Standard one (S1) tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
-
-+ An existing search index, with a client that can send queries. Run at least one query on your index to verify it's operational.
-
-  For this quickstart, we use the small index of four hotels created in the [full text search quickstart](search-get-started-text.md). A small index with minimal content is suboptimal for semantic search, but the quickstarts include query logic for a broad range of clients, which is useful for learning syntax.
 
 + An API key and search endpoint:
 
@@ -39,6 +37,10 @@ This quickstart shows the query modifications that invoke semantic search.
   In **Keys**, copy and save an admin key for full rights to create and delete objects. There are two interchangeable primary and secondary keys. Choose either one.
 
   ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
+
++ An existing search index, with a client that can send queries. Run at least one query on your index to verify it's operational.
+
+  For this quickstart, we use the small index of four hotels created in the [full text search quickstart](search-get-started-text.md). A small index with minimal content is suboptimal for semantic search, but the quickstarts include query logic for a broad range of clients, which is useful for learning syntax.
 
 ## Add semantic search
 
