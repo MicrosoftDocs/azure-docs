@@ -15,9 +15,12 @@ ms.date: 06/09/2023
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to re-score search results, moving results that have more semantic relevance to the top of the list. Semantic search improves an initial result set was generated from a BM25 ranking. In many cases, semantic search significantly improves overall relevance, with minimal work for the developer.
+In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to re-score search results, elevating results that are more semantically relevant to the top of the list. It also returns "captions" and "answers" if the query is posed as a question, and a verbatim answer can be found. Mostly, semantic search improves an initial result set was generated from a BM25 ranking. In many cases, semantic search significantly improves overall relevance, with minimal work for the developer.
 
-This quickstart shows the query modifications that invoke semantic search. 
+This quickstart shows the query modifications that invoke semantic search.
+
+> [!NOTE]
+> Looking for a Cognitive Search solution providing a question-answer interaction with Chat-GPT? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for documentation and sample code.
 
 ## Prerequisites
 
@@ -39,11 +42,15 @@ This quickstart shows the query modifications that invoke semantic search.
 
 ## Add semantic search
 
-You can update an existing search index to include a *semantic configuration* and a *semantic query type*. This update doesn't require a reindexing of content. 
+You can update an existing search index and query logic to include a *semantic configuration* and a *semantic query type*. This update doesn't require a reindexing of content. 
 
-+ A semantic configuration establishes a priority order for fields that contribute a title, keywords, and content used in semantic reranking. Specifying field priority is necessary for query performance.
++ A semantic configuration goes in the index definition. It establishes a priority order for fields that contribute a title, keywords, and content used in semantic reranking. Specifying field priority is necessary for query performance.
 
 + Queries that invoke semantic search include parameters for query type, query language, and whether captions and answers are returned. 
+
+### [**.NET**](#tab/dotnet)
+
+[!INCLUDE [dotnet-sdk-semantic-quickstart](includes/quickstarts/dotnet-semantic.md)]
 
 ### [**Python**](#tab/python)
 

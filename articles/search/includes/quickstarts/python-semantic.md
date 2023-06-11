@@ -83,7 +83,7 @@ In this task, create the notebook, load the libraries, and set up your clients.
 
 #### Create or update an index
 
-1. Create or update an index schema to include `SemanticConfiguration` and `SemanticSettings`. If you're updating an existing index, this modification doesn't require a reindexing of your documents. Fields and other index elements are unchanged.
+1. Create or update an index schema to include `SemanticConfiguration` and `SemanticSettings`. If you're updating an existing index, this modification doesn't require a reindexing because the structure of your documents is unchanged.
 
     ```python
     name = index_name
