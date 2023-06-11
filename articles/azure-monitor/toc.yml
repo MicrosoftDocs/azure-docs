@@ -1452,8 +1452,8 @@ items:
         href: autoscale/autoscale-troubleshoot.md
   - name: AIOps and machine learning
     items:
-      - name: AIOps in Azure Monitor
-        href: logs/bring-your-own-machine-learning.md
+      - name: AIOps and machine learning in Azure Monitor
+        href: logs/aiops-machine-learning.md
       - name: Machine learning in Azure Monitor Logs
         items:
         - name: Detect and analyze anomalies in log data with KQL
