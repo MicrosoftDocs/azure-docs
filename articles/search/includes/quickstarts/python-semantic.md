@@ -16,7 +16,7 @@ We used the following tools to create this quickstart.
 
 * [Visual Studio Code with the Python extension](https://code.visualstudio.com/docs/languages/python) (or an equivalent IDE), with Python 3.7 or later
 
-* [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from the Azure SDK for Python
+* [azure-search-documents package (beta version)](https://pypi.org/project/azure-search-documents/11.4.0b3/) from the Azure SDK for Python
 
 #### Connect to Azure Cognitive Search
 
