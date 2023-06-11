@@ -14,7 +14,7 @@ This article provides background information and steps to configure a [customer-
 
 ## Prerequisites
 
-1. Configure a Log Analytics dedicated cluster with at least a 500 GB/day commitment tier. Multiple workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key. Learn about [Log Analytics Dedicated Cluster Pricing](../azure-monitor/logs/logs-dedicated-clusters.md#cluster-pricing-model).
+1. Configure a Log Analytics dedicated cluster with at least a 500 GB/day commitment tier. When multiple workspaces are linked to the same dedicated cluster, they share the same customer-managed key. Learn about [Log Analytics Dedicated Cluster Pricing](../azure-monitor/logs/logs-dedicated-clusters.md#cluster-pricing-model).
 1. Configure the CMK within Azure Monitor. Don't onboard the workspace to Sentinel yet. Learn about the [CMK provisioning steps](../azure-monitor/logs/customer-managed-keys.md?tabs=portal#customer-managed-key-provisioning-steps).
 1. Contact the [Microsoft Sentinel Product Group](mailto:onboardrecoeng@microsoft.com) - you must receive onboarding confirmation as part of completing the steps in this guide before you use the workspace.
 
@@ -24,7 +24,7 @@ This article provides background information and steps to configure a [customer-
 
 - The Microsoft Sentinel CMK capability is provided only to *workspaces in Log Analytics dedicated clusters* that have *not already been onboarded to Microsoft Sentinel*.
 
-- The following CMK-related changes *are not supported* because they are ineffective (Microsoft Sentinel data continues to be encrypted only by the Microsoft-managed key, and not by the CMK):
+- The following CMK-related changes *are not supported* because they are ineffective (Microsoft Sentinel data continues is encrypted only by the Microsoft-managed key, and not by the CMK):
 
   - Enabling CMK on a workspace that's *already onboarded* to Microsoft Sentinel.
   - Enabling CMK on a cluster that contains Sentinel-onboarded workspaces.
@@ -33,7 +33,7 @@ This article provides background information and steps to configure a [customer-
 - The following CMK-related changes *are not supported* because they may lead to undefined and problematic behavior:
 
   - Disabling CMK on a workspace already onboarded to Microsoft Sentinel.
-  - Setting a Sentinel-onboarded, CMK-enabled workspace as a non-CMK workspace by de-linking it from its CMK-enabled dedicated cluster.
+  - Setting a Sentinel-onboarded, CMK-enabled workspace as a non-CMK workspace by unlinking it from its CMK-enabled dedicated cluster.
   - Disabling CMK on a CMK-enabled Log Analytics dedicated cluster.
 
 - Microsoft Sentinel supports System Assigned Identities in CMK configuration. Therefore, the dedicated Log Analytics cluster's identity should be of **System Assigned** type. We recommend that you use the identity that's automatically assigned to the Log Analytics cluster when it's created.
@@ -128,17 +128,17 @@ If access is restored after revocation, Microsoft Sentinel restores access to th
 
 Access to the data can be revoked by disabling the customer-managed key in the key vault, or deleting the access policy to the key, for both the dedicated Log Analytics cluster and Azure Cosmos DB. Revoking access by removing the key from the dedicated Log Analytics cluster, or by removing the identity associated with the dedicated Log Analytics cluster isn't supported.
 
-To understand more about how this works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/logs/customer-managed-keys.md#key-revocation).
+To understand more about how key revocation works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/logs/customer-managed-keys.md#key-revocation).
 
 ## Customer-managed key rotation
 
 Microsoft Sentinel and Log Analytics support key rotation. When a user performs key rotation in Key Vault, Microsoft Sentinel supports the new key within an hour.
 
-In Key Vault, you can perform key rotation by creating a new version of the key:
+In Azure Key Vault, perform key rotation by creating a new version of the key:
 
 ![key rotation](./media/customer-managed-keys/key-rotation.png)
 
-You can disable the previous version of the key after 24 hours, or after the Azure Key Vault audit logs no longer show any activity that uses the previous version.
+Disable the previous version of the key after 24 hours, or after the Azure Key Vault audit logs no longer show any activity that uses the previous version.
 
 After rotating a key, you must explicitly update the dedicated Log Analytics cluster resource in Log Analytics with the new Azure Key Vault key version. For more information, see [Azure Monitor CMK rotation](../azure-monitor/logs/customer-managed-keys.md#key-rotation).
 
