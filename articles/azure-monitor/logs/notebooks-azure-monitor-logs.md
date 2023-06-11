@@ -39,7 +39,7 @@ For this tutorial, you need:
 
 - An [Azure Machine Learning workspace with a CPU compute instance](../../machine-learning/quickstart-create-resources.md) with:
 
-    - [A notebook](../../machine-learning/quickstart-run-notebooks.md#create-a-new-notebook). 
+    - [A notebook](../../machine-learning/quickstart-run-notebooks.md#start-with-notebooks). 
     - A kernel set to Python 3.8 or higher.
 
 - The following roles and permissions: 
@@ -118,7 +118,7 @@ Set up your notebook to query your Log Analytics workspace:
 1. Define helper functions that you'll use throughout the notebook.
 
     - `query_logs_workspace` - Runs a given query in the Log Analytics workspace and returns the results as a Pandas DataFrame.
-    - `display_graph` - Displays a Plotly line graph showing hourly usage for various data types over time, based on a Pandas DataFrame.
+   
 
     ```python
     import pandas as pd
@@ -170,7 +170,7 @@ Let's look at some data in the workspace by running a query from the notebook:
     
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables-dataframe.png" alt-text="A DataFrame generated in a notebook with log ingestion data retrieved from a Log Analytics workspace." 
 
-1. Now, let's view the data as a graph using the helper function we defined above:
+1. Now, let's view the data as a graph that shows hourly usage for various data types over time, based on the Pandas DataFrame:
 
     ```python
     df = df.sort_values(by="TimeGenerated")
