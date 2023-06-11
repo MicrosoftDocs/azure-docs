@@ -41,7 +41,7 @@ The pillars of observability are the different kinds of data that a monitoring t
 When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding.
 Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources. Azure Monitor provides a common set of tools to correlate and analyze the data from multiple Azure subscriptions and tenants, in addition to data hosted for other services. 
 
-Artificial Intelligence for IT Operations (AIOps) improves service quality and reliability by using machine learning to process and automatically act on data you collect in Azure Monitor. [Azure Monitor AIOps and machine learning capabilities](aiops.md) that let you detect, diagnose, predict, and mitigate potential issues in your IT environment using advanced analytics.
+Artificial Intelligence for IT Operations (AIOps) improves service quality and reliability by using machine learning to process and automatically act on data you collect in Azure Monitor. [Azure Monitor AIOps and machine learning capabilities](aiops.md) let you detect, diagnose, predict, and mitigate potential issues in your IT environment using advanced analytics.
 
 ## High level architecture
 
