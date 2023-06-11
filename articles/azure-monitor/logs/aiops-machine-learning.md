@@ -77,7 +77,7 @@ This table compares the advantages and limitations of the approaches to retrievi
 |**Data exported?**|No|Yes|
 |**Service limits**|[Query API log query limits](../service-limits.md#log-analytics-workspaces) and [user query throttling](../service-limits.md#user-query-throttling). You can overcome Query API limits to, a certain degree, by [splitting larger queries into chunks](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-query/samples/notebooks/sample_large_query.ipynb).| None from Azure Monitor. |
 |**Data volumes**|Analyze several GBs of data, or a few million records per hour.|Supports large volumes of data.|
-|**Machine learning library**|<br>For small to medium-sized datasets, you'd typically use single-node machine learning libraries, like [Scikit Learn](https://scikit-learn.org/stable/).|For large datasets, you'd typically use big data machine learning libraries, like [SynapseML](https://github.com/microsoft/SynapseML).|
+|**Machine learning library**|For small to medium-sized datasets, you'd typically use single-node machine learning libraries, like [Scikit Learn](https://scikit-learn.org/stable/).|For large datasets, you'd typically use big data machine learning libraries, like [SynapseML](https://github.com/microsoft/SynapseML).|
 |**Latency** | Minimal. | Introduces a small amount of latency in exporting data.|
 |**Cost** |No extra charges in Azure Monitor.<br>Cost of Azure Synapse Analytics, Azure Machine Learning, or other service, if used.| [Cost of data export](../logs/logs-data-export.md#pricing-model) and external storage.<br>Cost of Azure Synapse Analytics, Azure Machine Learning, or other service, if used.|
 
