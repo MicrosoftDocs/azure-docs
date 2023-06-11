@@ -93,7 +93,7 @@ This table shows how to troubleshoot the error codes returned by the HealthCheck
 |E45004 | AZUREML_FE_ROLE_CONFLICT |Azure Machine Learning extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install Azure Machine Learning extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
 |E45005 | AZUREML_FE_DEPLOYMENT_CONFLICT | Azure Machine Learning extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install Azure Machine Learning extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
 
-## Open Source components integration
+## Open source components integration
 
 Azure Machine Learning extension uses some open source components, including Prometheus Operator, Volcano Scheduler, and DCGM exporter. If the Kubernetes cluster already has some of them installed, you can read following sections to integrate your existing components with Azure Machine Learning extension.
 
@@ -266,6 +266,27 @@ To use this config in your AKS cluster, you need to follow the steps below:
 > * To avoid this situation, you can **use same instance type across the jobs**.
 >
 > Note that you need to disable `job/validate` webhook in the volcano admission if your **volcano version is lower than 1.6**.
+
+### Ingress Nginx controller
+
+The azure machine learning extension installation comes with an ingress nginx controller name as `k8s.io/ingress-nginx` by default. If you already have an ingress nginx controller in your cluster, you need to use a different controller name to avoid installation failure.
+
+You have two options to do this:
+
+* Change your existing controller name to something other than `k8s.io/ingress-nginx`.
+* Create or update our azureml extension with a custom controller name that is different from yours by following the examples below.
+
+For example, to create the extension with a custom controller name:
+```
+az ml extension create --config nginxIngress.controller="k8s.io/amlarc-ingress-nginx"
+```
+
+To update the extension with a custom controller name:
+
+```
+az ml extension update --config nginxIngress.controller="k8s.io/amlarc-ingress-nginx"
+```
+
 
 
 
