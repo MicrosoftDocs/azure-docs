@@ -115,9 +115,7 @@ Set up your notebook to query your Log Analytics workspace:
 
     `LogsQueryClient` typically only supports authentication with Azure Active Directory (Azure AD) token credentials. However, we can pass a custom authentication policy to enable the use of API keys. This allows the client to [query the demo workspace](../logs/api/access-api.md#authenticate-with-a-demo-api-key). The availability and access to this demo workspace is subject to change, so we recommend using your own Log Analytics workspace.
 
-1. Define helper functions that you'll use throughout the notebook.
-
-    - `query_logs_workspace` - Runs a given query in the Log Analytics workspace and returns the results as a Pandas DataFrame.
+1. Define a helper functions, called `query_logs_workspace`, to run a given query in the Log Analytics workspace and return the results as a Pandas DataFrame.
    
 
     ```python
