@@ -63,13 +63,13 @@ If you only enable one of the two plans, you gain only part of the available fea
 
 ## Secret validation
 
-Defender for Cloud assists your security team in the prioritization of any detected secrets with the following validations: 
+Defender for Cloud assists your security team in the prioritization of any detected secrets with the following validations for SSH key pairs:
 
-### SSH key pairs 
+- Every detected SSH private key is validated against the corresponding public key.
 
-Every detected SSH private key is validated against the corresponding public key. The public key is then checked to see if it's listed in the target machine's authorized keys file for authentication. 
+- The corresponding public key is checked to see if it's listed in the target machine's authorized keys file for authentication. 
 
-Results for this check are listed in the findings section of the recommendation as `validated` or `unvalidated`, depending on where the secret was found.
+- Results for this check are listed in the findings section of the recommendation as `validated` or `unvalidated`, depending on where the secret was found.
 
 ## Remediate secrets with Attack path
 
