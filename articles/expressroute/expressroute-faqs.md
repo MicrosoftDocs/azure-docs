@@ -45,6 +45,10 @@ Yes, you may use up to two times the bandwidth limit you procured by using the b
 
 If you plan to use only your primary connection to transmit traffic, the bandwidth for the connection is fixed, and attempting to oversubscribe it will result in increased packet drops. If traffic flows through an ExpressRoute Gateway, the bandwidth for the Gateway SKU is fixed and not burstable. For the bandwidth of each Gateway SKU, see [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md#aggthroughput).
 
+### If I pay for unlimited data, do I get unlimited egress data transfer for services accessed over Microsoft peering?
+
+If you're connecting to a service using Microsoft Peering with unlimited data, only egress data won't be charged by ExpressRoute. Egress data will still be charged for services such as compute, storage, or any other services accessed over Microsoft peering even if the destination is a Microsoft peering public IP address.
+
 ### Can I use the same private network connection with virtual network and other Azure services simultaneously?
 
 Yes. An ExpressRoute circuit, once set up, allows you to access services within a virtual network and other Azure services simultaneously. You connect to virtual networks over the private peering path, and to other services over the Microsoft  peering path.

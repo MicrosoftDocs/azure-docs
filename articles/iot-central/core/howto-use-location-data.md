@@ -55,7 +55,7 @@ For reference, the [Digital Twins Definition Language (DTDL) V2](https://github.
 ```
 
 > [!NOTE]
-> The **geopoint** schema type is not part of the [DTDL specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
+> The **geopoint** schema type is not part of the [DTDL specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Send location data from a device
 
@@ -103,5 +103,5 @@ You can use location telemetry to create a geofencing rule that generates an ale
 
 Now that you've learned how to use properties in your Azure IoT Central application, see:
 
-* [Payloads](concepts-telemetry-properties-commands.md)
+* [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md)
 * [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

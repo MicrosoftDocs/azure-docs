@@ -23,8 +23,8 @@ Partial document update feature improves this experience significantly. The clie
 - **Performance improvements**: Avoids extra CPU cycles on the client side, reduces end-to-end latency and network bandwidth.
 - **Multi-region writes**: Supports automatic and transparent conflict resolution with partial updates on discrete paths within the same document.
 
-> [!NOTE] 
-> _Partial document update_ operation is based on the [RFC spec](https://www.rfc-editor.org/rfc/rfc6902#appendix-A.14). To escape a ~ character you need to add 0 or a 1 to the end.
+> [!NOTE]
+> The *Partial document update* operation is based on the [JSON Patch RFC](https://www.rfc-editor.org/rfc/rfc6902#appendix-A.14). Property names in paths need to escape the `~` and `/` characters as `~0` and `~1`, respectively.
 
 An example target JSON document:
 
