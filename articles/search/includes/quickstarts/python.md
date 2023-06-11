@@ -1,54 +1,22 @@
 ---
-title: 'Quickstart: Create a search index in Python'
-titleSuffix: Azure Cognitive Search
-description: Learn how to create a search index, load data, and run queries using Python, Jupyter Notebook, and the Azure.Documents.Search client library for Python.
 author: HeidiSteen
-manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: python
-ms.topic: quickstart
-ms.date: 01/27/2023
-ms.custom: devx-track-python, mode-api
+ms.topic: include
+ms.date: 06/09/2023
 ---
 
-# Quickstart: Create an Azure Cognitive Search index in Python using Jupyter Notebook
+Build a Jupyter Notebook using the [**azure-search-documents**](/python/api/overview/azure/search-documents-readme) library to create, load, and query an index. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11) or follow these steps to create your own.
 
-> [!div class="op_single_selector"]
-> * [Python](search-get-started-python.md)
-> * [PowerShell (REST)](search-get-started-powershell.md)
-> * [C#](search-get-started-dotnet.md)
-> * [REST](search-get-started-rest.md)
-> * [Portal](search-get-started-portal.md)
->
+#### Set up your environment
 
-In this exercise, build a Jupyter Notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11).
+We used the following tools to create this quickstart.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Prerequisites
-
-The following services and tools are used in this quickstart.
-
-* Visual Studio Code with the Python extension (or equivalent tool), with Python 3.7 or later
+* [Visual Studio Code with the Python extension](https://code.visualstudio.com/docs/languages/python) (or an equivalent IDE), with Python 3.7 or later
 
 * [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from the Azure SDK for Python
 
-* [Create a search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use the Free tier for this quickstart. 
-
-## Copy a key and URL
-
-To connect to your search service, provide the endpoint and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
-
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
-
-1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
-
-   ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
-
-You'll provide these values in the next section when you set up the connection.
-
-## Connect to Azure Cognitive Search
+#### Connect to Azure Cognitive Search
 
 In this task, create the notebook, load the libraries, and set up your clients.
 
@@ -109,7 +77,7 @@ In this task, create the notebook, load the libraries, and set up your clients.
 
 1. Run each step.
 
-## 1 - Create an index
+#### Create an index
 
 Required index elements include a name, a fields collection, and a document key that uniquely identifies each search document. The fields collection defines the structure of a logical *search document*, used for both loading data and returning results. 
 
@@ -167,9 +135,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
 
 1. Run each step.
 
-<a name="load-documents"></a>
-
-## 2 - Load documents
+#### Load documents
 
 To load documents, create a documents collection, using an [index action](/python/api/azure-search-documents/azure.search.documents.models.indexaction) for the operation type (upload, merge-and-upload, and so forth). Documents originate from [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) on GitHub.
 
@@ -268,7 +234,7 @@ To load documents, create a documents collection, using an [index action](/pytho
 
 1. Run each step to push the documents to an index in your search service.
 
-## 3 - Search an index
+#### Search an index
 
 This step shows you how to query an index using the **search** method of the [search.client class](/python/api/azure-search-documents/azure.search.documents.searchclient).
 
@@ -344,18 +310,3 @@ This step shows you how to query an index using the **search** method of the [se
     for result in results:
         print (result['text'])
     ```
-
-## Clean up
-
-When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
-
-You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
-
-If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
-
-## Next steps
-
-In this Python quickstart, you worked through the fundamental workflow using the azure.search.documents library from the Python SDK. You performed tasks that created an index, loaded it with documents, and ran queries. To continue learning, try the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Add search to web apps](tutorial-python-overview.md)
