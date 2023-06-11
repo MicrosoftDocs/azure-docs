@@ -2,7 +2,7 @@
 title: Scan for secrets with agentless secret scanning
 description: Learn how to scan your server's for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 06/07/2023
+ms.date: 06/11/2023
 ---
 
 # Scan your servers for secrets with agentless secret scanning
@@ -12,12 +12,16 @@ If discovered, exposed credentials and secrets in internet-facing workloads can 
 Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, prioritized and actionable remediation steps are suggested that minimize the risk of lateral movement, with minimal effect on your machine's performance.
 
 Agentless secret scanning can proactively discover the following types of secrets across your environments:
+
 - **Insecure (plaintext) SSH private keys** - Detects Putty and PKCS#8 and PKCS#1 (RSA algorithm). 
 - **Plaintext AWS access keys** - CLI & plaintext on many file extensions.
 - **Plaintext AWS RDS SQL connection string (SQL PAAS)** - Detects Microsoft SQL server connection string.
 - **Plaintext SQL connection strings (SQL PAAS)** - Detects Microsoft SQL server connection string.  
 - **Plaintext storage account connection strings**.  
 - **Plaintext storage account SAS tokens**.
+
+> [NOTE!]
+> All of the standards are supported by the PF1 algorithm and the RSA algorithm.
 
 ## Prerequisites
 
@@ -48,7 +52,7 @@ Agentless secret scanning can proactively discover the following types of secret
 
 You must enable [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management.md) to gain access to all of the agentless secret scanning capabilities. 
 
-If you only enable one of the two plans, you gain only part of the available features of the agentless secret scanning capabilities. The following table shows which features are enabled by each plan:
+If you only enable one of the two plans, you gain only part of the available features of the agentless secret scanning capabilities. The following table shows which plans enable which features:
 
 | Plan Feature | Defender for servers plan 2 | Defender CSPM |
 |--|--|--|
@@ -56,6 +60,16 @@ If you only enable one of the two plans, you gain only part of the available fea
 | [Cloud security explorer](#remediate-secrets-with-cloud-security-explorer) | No | Yes |
 | [Recommendations](#remediate-secrets-with-recommendations) | Yes | Yes |
 | [Asset Inventory](#remediate-secrets-from-your-asset-inventory) - Secrets | Yes | No |
+
+## Secret validation
+
+Defender for Cloud assists your security team in the prioritization of any detected secrets with the following validations: 
+
+### SSH key pairs 
+
+Every detected SSH private key is validated against the corresponding public key. The public key is then checked to see if it's listed in the target machine's authorized keys file for authentication. 
+
+Results for this check are listed in the findings section of the recommendation as `validated` or `unvalidated`, depending on where the secret was found.
 
 ## Remediate secrets with Attack path
 
