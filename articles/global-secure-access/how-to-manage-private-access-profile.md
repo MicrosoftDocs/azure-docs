@@ -20,13 +20,15 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
 
-The **Private access profile** looks at traffic going to your organization's private, internal applications and sites. Your [Quick Access configurations](how-to-configure-quick-access.md) define the apps and sites that make up your Private access traffic forwarding profile.
+### Known limitations
 
-Quick Access ranges are similar to the Microsoft 365 traffic policies, except the IP addresses and FQDNs in the Microsoft 365 profile are predefined. Quick Access groups allow you to create your own collection of fully qualified domain names (FQDN), IP addresses, and IP address ranges. 
+- At this time, private access traffic can only be acquired with the Global Secure Access client. Remote networks can't be assigned to the Private access traffic forwarding profile.
+- Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
+- To tunnel network traffic based on rules of FQDNs (in the forwarding profile), DNS over HTTPS (Secure DNS) needs to be disabled. 
 
 ## Private access traffic forwarding profile
 
-To enable the Private access traffic forwarding profile, you must first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDN) for the private applications and destinations you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md).
+To enable the Private access traffic forwarding profile, we recommend you first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDN) for the private resources you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md).
 
 Because remote networks can't be assigned to the Private access traffic forwarding profile, you must install the Global Secure Access Client on your end-user devices. For more information, see [How to install the Windows client](how-to-install-windows-client.md).
 

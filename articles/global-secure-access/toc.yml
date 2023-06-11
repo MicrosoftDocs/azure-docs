@@ -16,22 +16,22 @@ items:
   - name: Remote networks
     expanded: false
     items:
-      - name: Remote network connectivity
+      - name: About remote network connectivity
         href: concept-remote-network-connectivity.md
       - name: Create a remote network
         href: how-to-create-remote-networks.md
-      - name: Manage remote network device links
-        href: how-to-manage-remote-network-device-links.md
       - name: Create remote network with custom IKE policy
         href: how-to-create-remote-network-custom-ike-policy.md
       - name: Configure customer premises equipment
         href: how-to-configure-customer-premises-equipment.md
       - name: List remote networks
         href: how-to-list-remote-networks.md
-      - name: Manage remote networks
+      - name: Update and delete remote network device links
+        href: how-to-manage-remote-network-device-links.md
+      - name: Update and delete remote networks
         href: how-to-manage-remote-networks.md
       - name: Assign a traffic forwarding profile to remote networks
-        href: how-to-assign-traffic-profile-to-branch-office-location.md
+        href: how-to-assign-traffic-profile-to-remote-network.md
   - name: Conditional Access
     expanded: false
     items:

@@ -12,7 +12,7 @@ ms.custom:
 
 # Understand remote network connectivity
 
-Global Secure Access (preview) supports two connectivity options: installing a client on end-user device and configuring a remote network with a router in a branch location. Remote network connectivity streamlines how your end-users and guests connect from a remote network.
+Global Secure Access (preview) supports two connectivity options: installing a client on end-user device and configuring a remote network, for example a branch location with a physical router. Remote network connectivity streamlines how your end-users and guests connect from a remote network without needing to install the Global Secure Access client.
 
 This article describes the key concepts of remote network connectivity along with common scenarios where it may be useful.
 
@@ -20,7 +20,7 @@ This article describes the key concepts of remote network connectivity along wit
 
 Remote networks are remote locations or networks that require internet connectivity. For example, many organizations have a central headquarters and branch office locations in different geographic areas. These branch offices need access to corporate data and services. They need a secure way to talk to the data center, headquarters, and remote workers. The security of remote network is crucial for many types of organizations.
 
-Remote networks in a branch location are typically connected to the corporate network through a dedicated Wide Area Network (WAN) or a Virtual Private Network (VPN) connection. Employees in the branch location connect to the network using customer premises equipment (CPE).
+Remote networks, such as a branch location, are typically connected to the corporate network through a dedicated Wide Area Network (WAN) or a Virtual Private Network (VPN) connection. Employees in the branch location connect to the network using customer premises equipment (CPE).
 
 ## Current challenges of remote network security 
 
@@ -32,26 +32,25 @@ Remote networks in a branch location are typically connected to the corporate ne
 
 ## How does Global Secure Access remote network connectivity work? 
 
-To connect a remote network to Global Secure Access, you set up an Internet Protocol Security (IPSec) tunnel between your on-premises equipment and the Global Secure Access endpoint. Traffic that you specify is routed through the IPSec tunnel to the Microsoft cloud. You can apply security policies in the Microsoft Entra admin center.
+To connect a remote network to Global Secure Access, you set up an Internet Protocol Security (IPSec) tunnel between your on-premises equipment and the Global Secure Access endpoint. Traffic that you specify is routed through the IPSec tunnel to the nearest Global Secure Access endpoint. You can apply security policies in the Microsoft Entra admin center.
 
-> [!NOTE]
-> Global Secure Access remote network connectivity provides a secure solution between a remote network and the
-> Global Secure Access service. It does not provide a secure connection between one remote network and another.
-> To learn more about secure remote network-to-remote network connectivity, see the [Azure Virtual WAN documentation](../virtual-wan/index.yml).
+Global Secure Access remote network connectivity provides a secure solution between a remote network and the
+Global Secure Access service. It does not provide a secure connection between one remote network and another.
+To learn more about secure remote network-to-remote network connectivity, see the [Azure Virtual WAN documentation](../virtual-wan/index.yml).
  
 ## Why remote network connectivity may be important for you? 
-Maintaining security of a corporate network is increasingly difficult in a world of remote work and distributed teams. Security Service Edge (SSE) promises a world of security where customers can access their corporate resources from anywhere in the world without needing to back haul their traffic to headquarters. Global Secure Access is the Microsoft solution for SSE.
+Maintaining security of a corporate network is increasingly difficult in a world of remote work and distributed teams. Security Service Edge (SSE) promises a world of security where customers can access their corporate resources from anywhere in the world without needing to back haul their traffic to headquarters.
 
 ## Common remote network connectivity scenarios
 
 ### I don’t want to install clients on thousands of devices on-premises. 
-Generally, SSE is enforced by installing a client on a device. The client creates a tunnel to the nearest SSE endpoint and routes all Internet traffic through it. SSE solutions inspect the traffic and enforce security policies. If your users aren't mobile and based in a physical branch location, then remote network for that branch location connectivity removes the pain of installing a client on every device. You can connect the entire branch location by creating an IPSec tunnel between the core router of the branch office and the Global Secure Access endpoint.
+Generally, SSE is enforced by installing a client on a device. The client creates a tunnel to the nearest SSE endpoint and routes all Internet traffic through it. SSE solutions inspect the traffic and enforce security policies. If your users aren't mobile and based in a physical branch location, then remote network connectivity for that branch location removes the pain of installing a client on every device. You can connect the entire branch location by creating an IPSec tunnel between the core router of the branch office and the Global Secure Access endpoint.
 
 ### I can't install clients on all the devices my organization owns.
 Sometimes, clients can't be installed on all devices. Global Secure Access currently provides clients for Windows. But what about Linux, mainframes, cameras, printers and other types of devices that are on premises and sending traffic to the Internet? This traffic still needs to be monitored and secured. When you connect a remote network, you can set policies for all traffic from that location regardless of the device where it originated.
 
 ### I have guests on my network who don't have the client installed.  
-The guest devices on your network may not have the client installed. To ensure that those devices adhere to your network security policies, you need their traffic routed through the Global Secure Access endpoint. Remote network connectivity solves this problem. No more clients need to be installed on guest devices. All outgoing traffic from the remote network is going through security evaluation by default.  
+The guest devices on your network may not have the client installed. To ensure that those devices adhere to your network security policies, you need their traffic routed through the Global Secure Access endpoint. Remote network connectivity solves this problem. No clients need to be installed on guest devices. All outgoing traffic from the remote network is going through security evaluation by default.  
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

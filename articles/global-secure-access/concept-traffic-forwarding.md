@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: conceptual
-ms.date: 05/19/2023
+ms.date: 06/09/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -18,30 +18,32 @@ This article describes the traffic forwarding profiles and how they work.
 
 ## Traffic forwarding
 
-**Traffic forwarding** enables you to configure the type of network traffic to route through the Microsoft Entra Private Access and Microsoft Entra Internet Access services. You set up profiles to manage how specific types of traffic are managed. 
+**Traffic forwarding** enables you to configure the type of network traffic to tunnel through the Microsoft Entra Private Access and Microsoft Entra Internet Access services. You set up profiles to manage how specific types of traffic are managed. 
 
 When traffic comes through Global Secure Access, the service evaluates the type of traffic first through the **Microsoft 365 profile** and then through the **Private access profile**. Any traffic that doesn't match the first two profiles isn't forwarded to Global Secure Access. 
 
-In the previous diagram, the traffic coming into your network first passes through dedicated tunnels where Conditional Access policies can be applied. The traffic is then routed through Global Secure Access and is evaluated by the traffic profiles. The traffic is routed to the appropriate apps and resources according to your enabled policies.
-
 For each traffic forwarding profile, you can configure three main details:
 
-- The IP addresses, IP address ranges, and fully qualified domain names (FQDN) to either forward to the service or bypass the service
-- Conditional Access policies to apply
-- Remote network locations to assign
+- What traffic to forward to the service
+- What Conditional Access policies to apply
+- How your end-users will connect to the service
 
 ## Microsoft 365
 
-The Microsoft 365 traffic forwarding profile includes SharePoint Online, Exchange Online, and Microsoft 365 apps. All of the destinations for these apps are automatically included in the profile. Within each of the three main groups of destinations, you can choose to forward that traffic to Global Secure Access or bypass the service.
+The Microsoft 365 traffic forwarding profile includes SharePoint Online, Exchange Online, and Microsoft 365 apps. All of the destinations for these apps are automatically included in the profile. Within each of the three main groups of destinations, you can choose to forward that traffic to Global Secure Access or bypass the service. 
+
+Microsoft 365 traffic can be forwarded to the service by either connecting through a [remote network](concept-remote-network-connectivity.md), such as branch office location, or through the [Global Secure Access desktop client](how-to-install-windows-client.md).
 
 ## Private access
 
-With the Private Access profile, you can route traffic to your private apps and resources. This traffic forwarding profile requires configuring quick access, which includes the websites and IP addresses of the private apps and resources you want to forward to the service. 
+With the Private Access profile, you can route traffic to your private resources. This traffic forwarding profile requires configuring Quick Access, which includes the fully-qualified domain names (FQDNs) and IP addresses of the private apps and resources you want to forward to the service. 
+
+Private access traffic can be forwarded to the service by connecting through the [Global Secure Access desktop client](how-to-install-windows-client.md).
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 
 - [Manage the Microsoft 365 traffic profile](how-to-manage-microsoft-365-profile.md)
-- [Configure quick access](how-to-configure-quick-access.md)
-- [How to manage the Private access traffic profile](how-to-manage-private-access-profile.md)
+- [Manage the Private access traffic profile](how-to-manage-private-access-profile.md)
+- [Configure Quick Access](how-to-configure-quick-access.md)

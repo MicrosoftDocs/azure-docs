@@ -39,20 +39,6 @@ Listing remote networks requires the following prerequisites:
     ```
 1. Select the **Run query** button to list the remote networks.  
 
-## List all remote networks using PowerShell 
-
-1. Install the `Microsoft.Graph` module using the `Install-module` command. 
-    `Install-module -name Microsoft.Graph`
-1. In a PowerShell window, use the `Connect-MgGraph` command to sign into and use Microsoft Graph PowerShell cmdlets.
-    `Connect-MgGraph`
-1. Use the List Branches API to get the list of remote networks. 
-    ```
-    $response = $null  
-    $uri = "https://graph.microsoft.com/beta/networkaccess/branches"  
-    $method = 'GET'  
-    $response = (Invoke-MgGraphRequest -Uri $uri -Headers $headers -Method $method -Body $null).value 
-    ```
-
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
