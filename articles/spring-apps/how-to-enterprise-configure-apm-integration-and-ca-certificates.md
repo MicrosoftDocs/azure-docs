@@ -24,7 +24,7 @@ You can enable or disable Tanzu Build Service on an Azure Springs Apps Enterpris
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.49.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 
 ## Supported scenarios - APM and CA certificates integration
 Tanzu Build Service uses buildpack binding to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other cloud native buildpacks such as the [ca-certificates](https://github.com/paketo-buildpacks/ca-certificates) buildpack on GitHub.
@@ -132,7 +132,7 @@ This section lists the supported languages and required environment variables fo
 > Previously APM integration and CA certificates is managed via  [Bindings in Builder](#manage-bindings-in-builder-in-azure-spring-apps) in Azure Spring Apps. 
 > The Bindings in Builder feature is deprecated and will be removed in the future. It's strongly recommended to [migrate APM configured in Bindings](#migrate-apm-configured-in-bindings).
 > - When your own Container Registry is used for Build Service or Build Service is disabled, the bindings feature in builder is not available. 
-> - When a managed Azure Container Registry is used for build service, it's still available for backward compatible, but it will not available in the future.
+> - When a managed Azure Container Registry is used for build service, it's still available for backward compatible, but it will not be available in the future.
 
 If you see error message "Buildpack bindings feature is deprecated, it's not available when your own container registry is used for build service or build service is disabled" when you use Azure CLI to create a service instance, which means you are using an old version of CLI, please [upgrade Azure CLI](/cli/azure/update-azure-cli) to fix this issue. 
 
@@ -219,8 +219,8 @@ az spring app deploy \
 
 ### Enable Application Insights when creating service instance
 If you enable Application Insights when creating a service instance:
-- If you enable Build Service and a managed Azure Container Registry is used to store built images, Application Insights is bound to Bindings in default builder.
-- If your own container registry is used to store built images or build service is disabled, a default APM resource is created for Application Insights, the default APM is enabled globally and will be used by all the subsequent builds and deployments automatically.
+- If a managed Azure Container Registry is used for build service, Application Insights is bound to Bindings in default builder.
+- If your own container registry is used for build service or build service is disabled, a default APM resource is created for Application Insights, the default APM is enabled globally and will be used by all the subsequent builds and deployments automatically.
 
 ## Use CA certificates
 
@@ -231,7 +231,7 @@ There are two ways to configure CA certificates in Azure Spring Apps:
 This section provides guidance for configuring CA certificates via both Bindings in builder and Build resource scenarios.
 
 ### [Configure CA certificates in Build resource](#tab/configure-ca-certificates-in-build-resource)
-- When Build Service is enabled and a managed Azure Container Registry is used to store built images, use the following command to integrate CA Certificates into your deployment:
+- When Build Service is enabled and a managed Azure Container Registry is used for build service, use the following command to integrate CA Certificates into your deployment:
 
   ```azurecli
   az spring app deploy \
@@ -243,7 +243,7 @@ This section provides guidance for configuring CA certificates via both Bindings
       --artifact-path <path-to-your-JAR-file>
    ```
 
-- When your own container registry is used to store built images or build service is disabled, Use the following command to integrate CA Certificates into your build:
+- When your own container registry is used for build service or build service is disabled, Use the following command to integrate CA Certificates into your build:
 
   ```azurecli
   az spring build-service build <create|update> \
