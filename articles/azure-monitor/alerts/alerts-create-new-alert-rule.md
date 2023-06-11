@@ -292,21 +292,21 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
-    - (Optional) If you're creating a metric alert rule that monitors a custom metric with the scope defined as one of the following regions and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions:
-        - North Europe
-        - West Europe
-        - Sweden Central
-        - Germany West Central 
-  
-    > [!NOTE]
-    > We're continually adding more regions for regional data processing.
+
 1. Define the **Alert rule details**.
 
     #### [Metric alert](#tab/metric)
 
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-    1. Select the **Region**.
+    1. (Optional) If you're creating a metric alert rule that monitors a custom metric with the scope defined as one of the following regions and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions:
+        - North Europe
+        - West Europe
+        - Sweden Central
+        - Germany West Central 
+  
+        We're continually adding more regions for regional data processing.
+
     1. (Optional) In the **Advanced options** section, you can set several options.
 
         |Field |Description |
@@ -359,7 +359,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     #### [Activity log alert](#tab/activity-log)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-    1. Select the **Region**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
@@ -367,14 +366,12 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     #### [Resource Health alert](#tab/resource-health)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-    1. Select the **Region**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     #### [Service Health alert](#tab/service-health)
     
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-    1. Select the **Region**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
