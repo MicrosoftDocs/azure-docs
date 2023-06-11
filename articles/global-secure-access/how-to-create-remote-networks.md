@@ -27,6 +27,12 @@ This article explains how to create a remote network for Global Secure Access (p
 ### Known limitations
 
 - At this time, the number of remote networks per tenant is limited to 10, and the number of device links per remote network is limited to four.
+- Customer premises equipment (CPE) devices must support the following:
+    - Internet Protocol Security (IPSec)
+    - Internet Key Exchange Version 2 (IKEv2)
+    - Border Gateway Protocol (BGP)
+- Remote network connectivity solution uses *RouteBased* and *Responder* modes.
+<!--- validate the above limitation with Sumit--->
 
 ## Onboard your tenant for remote networks
 

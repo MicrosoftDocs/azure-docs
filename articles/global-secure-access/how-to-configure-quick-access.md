@@ -141,6 +141,21 @@ Once you have your Quick Access app configured, your private resources added, us
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
+## Known troubleshooting scenarios
+
+**Question**: I was prompted for admin consent when trying to access private resources using Private Access.
+**Answer**:
+1. Add Global Administrator to the Quick Access app.
+1. When prompted for administrator consent, sign-in as Global Administrator and accept the consent.
+1. Select the **Consent for my entire org** checkbox.
+1. Add the Microsoft Entra Private Access client service principal (760282b4-0cfc-4952-b467-c8e0298fee16) as a Client ID in the **Expose an API** page (with checkbox for user-impersonation selected).
+
+**Question** I cannot access an internal resource using the hostname or FQDN when IP is configured in Quick Access. 
+**Answer**: Private DNS is currently not supported.
+Specify the Hostname or FQDN being used to access the internal resource in the Quick Access configuration along with the respective port.
+
+If you deleted and reinstalled your Quick Access app to resolve any issue and the issue persists, submit a support request.
+
 ## Next steps
 
 - [Configure per-app access](how-to-configure-per-app-access.md)
