@@ -111,7 +111,7 @@ There are two permission models in Key Vault to grant access to your cluster and
 
    Open your Key Vault in Azure portal, **click Access configuration** in **Settings**, and select **Azure role-based access control** option. Then enter **Access control (IAM)** and add **Key Vault Crypto Service Encryption User** role assignment.
 
-   [!<img src="media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png" title="Grant Key Vault RBAC permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png#lightbox)
+   [!<img src="media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png" alt="Grant Key Vault RBAC permissions" title="Grant Key Vault RBAC permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png#lightbox)
 
 1. Assign vault access policy (legacy)
 
@@ -122,7 +122,7 @@ There are two permission models in Key Vault to grant access to your cluster and
       - System assigned managed identity - enter the cluster name or cluster principal ID 
       - User assigned managed identity - enter the identity name
 
-   [!<img src="media/customer-managed-keys/grant-key-vault-permissions-8bit.png" title="Grant Key Vault access policy permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-8bit.png#lightbox)
+   [!<img src="media/customer-managed-keys/grant-key-vault-permissions-8bit.png" alt="Grant Key Vault access policy permissions" title="Grant Key Vault access policy permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-8bit.png#lightbox)
 
     The **Get** permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 
