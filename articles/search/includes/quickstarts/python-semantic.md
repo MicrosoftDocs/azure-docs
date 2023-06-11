@@ -53,7 +53,7 @@ In this task, create the notebook, load the libraries, and set up your clients.
     )
     ```
 
-1. Set the service endpoint and API key from the environment.
+1. Set the service endpoint and API key from the environment. Because the code builds out the URI for you, specify just the search service name in the service name property.
 
     ```python
     service_name = "<YOUR-SEARCH-SERVICE-NAME>"
