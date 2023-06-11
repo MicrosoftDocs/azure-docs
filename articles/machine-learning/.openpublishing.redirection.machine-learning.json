@@ -1681,6 +1681,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-train-with-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-read-write-data-v2",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-with-datasets.md",
         "redirect_url": "/azure/machine-learning/how-to-train-with-datasets",
         "redirect_document_id": true
@@ -2281,6 +2286,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
+        "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/reference-online-endpoint-yaml.md",
         "redirect_url": "reference-yaml-endpoint-online",
         "redirect_document_id": true
@@ -2289,6 +2299,11 @@
         "source_path_from_root": "/articles/machine-learning/v-fake/reference-azure-machine-learning-cli.md",
         "redirect_url": "/azure/machine-learning/reference-azure-machine-learning-cli",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/reference-azure-machine-learning-cli.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-cli",
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/r-developers-guide.md",

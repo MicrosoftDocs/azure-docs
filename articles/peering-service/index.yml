@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 02/24/2023
+  ms.date: 06/05/2023
   ms.custom: engagement-fy23
   
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -57,5 +57,3 @@ landingContent:
         links:
           - text: Access connection telemetry
             url: connection-telemetry.md
-          - text: Measure connection telemetry
-            url: measure-connection-telemetry.md

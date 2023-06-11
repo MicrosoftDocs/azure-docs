@@ -31,8 +31,6 @@
       href: howto-platform-prerequisites.md
     - name: Network Fabric
       href: howto-configure-network-fabric.md
-    - name: Network Fabric Route Policy
-      href: how-to-route-policy.md
     - name: Cluster
       href: howto-configure-cluster.md
     - name: BareMetal Functions
@@ -47,6 +45,8 @@
       href: howto-baremetal-bmc-ssh.md
     - name: Isolation Domain
       href: howto-configure-isolation-domain.md
+    - name: Network Fabric Route Policy
+      href: how-to-route-policy.md      
     - name: AKS-Hybrid
       href: howto-hybrid-aks.md
     - name: Monitor AKS-Hybrid Cluster
@@ -65,6 +65,8 @@
       href: troubleshoot-aks-hybrid-cluster.md
     - name: Troubleshoot Isolation Domain
       href: troubleshoot-isolation-domain.md
+    - name: Troubleshoot Internet host virtual machine
+      href: troubleshoot-internet-host-virtual-machine.md
 - name: Sample Deployment
   items:
     - name: VNF Deployment

@@ -712,6 +712,11 @@
             "source_path_from_root": "/articles/defender-for-iot/organizations/references-defender-for-iot-glossary.md",
             "redirect_url": "/azure/defender-for-iot/organizations/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/faqs-ot.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/faqs-general",
+            "redirect_document_id": false
         }
     ]
 }
