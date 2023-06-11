@@ -107,13 +107,9 @@ SearchClient ingesterClient = adminClient.GetSearchClient(indexName);
 
 #### Load documents
 
-Azure Cognitive Search searches over content stored in the service. The code for uploading documents is identical to the [C# quickstart for full text search](../search-get-started-text.md) so we don't need to duplicate it here. You should have four hotels with names, addresses, and descriptions. Your solution should have types for Hotels and Addresses.
+Azure Cognitive Search searches over content stored in the service. The code for uploading documents is identical to the [C# quickstart for full text search](../../search-get-started-text.md) so we don't need to duplicate it here. You should have four hotels with names, addresses, and descriptions. Your solution should have types for Hotels and Addresses.
 
 #### Search an index
-
-For comparison, here's a query that uses the default BM25 ranking based on term frequency and proximity. Given the query "what hotel has a good restaurant on site", the BM25 ranking algorithm returns matches in the following order:
-
-:::image type="content" source="../media/quickstart-semantic/bm25ranking.png" alt-text="Screenshot showing matches ranked by BM25.":::
 
 Here's a query that invokes semantic search:
 
@@ -138,9 +134,13 @@ response = srchclient.Search<Hotel>("what hotel has a good restaurant on site", 
 WriteDocuments(response);
 ```
 
-In the semantic query, the results are re-ranked based on semantic relevance to the query string "what hotel has a good restaurant on site". This time, the top result is the hotel that emphasizes the resaurant.
+For comparison, here's a query that uses the default BM25 ranking based on term frequency and proximity. Given the query "what hotel has a good restaurant on site", the BM25 ranking algorithm returns matches in the order shown in this screenshot:
 
-:::image type="content" source="../media/quickstart-semantic/semanticranking.png" alt-text="Screenshot showing matches ranked based on semantic search.":::
+:::image type="content" source="../../media/quickstart-semantic/bm25ranking.png" alt-text="Screenshot showing matches ranked by BM25.":::
+
+In contrast, when the semantic query runs for the same query ("what hotel has a good restaurant on site"), the results are re-ranked based on semantic relevance to the query. This time, the top result is the hotel that emphasizes the resaurant, which aligns better to user expectations.
+
+:::image type="content" source="../../media/quickstart-semantic/semanticranking.png" alt-text="Screenshot showing matches ranked based on semantic search.":::
 
 #### Run the program
 
