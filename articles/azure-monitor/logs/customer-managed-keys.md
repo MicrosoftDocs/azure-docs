@@ -77,7 +77,7 @@ Customer-managed key configuration isn't supported in Azure portal currently and
 
 A [portfolio of Azure Key Management products](../../key-vault/managed-hsm/mhsm-control-data.md#portfolio-of-azure-key-management-products) lists the vaults and managed HSMs that can be used. 
 
-Create or use an existing Azure Key Vault in the region that the cluster is planed, and generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable, to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
+Create or use an existing Azure Key Vault in the region that the cluster is planed, and generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable, to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both **Soft delete** and **Purge protection** should be enabled.
 
 [![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png "Screenshot of Key Vault soft delete and purge protection properties")](media/customer-managed-keys/soft-purge-protection.png#lightbox)
 
@@ -109,22 +109,22 @@ There are two permission models in Key Vault to grant access to your cluster and
       
    To add role assignments, you must have Microsoft.Authorization/roleAssignments/write and Microsoft.Authorization/roleAssignments/delete permissions, such as [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../role-based-access-control/built-in-roles.md#owner).
 
-   Open your Key Vault in Azure portal, click *Access configuration* in *Settings*, and select *Azure role-based access control* option. Then enter *Access control (IAM)* and add *Key Vault Crypto Service Encryption User* role assignment.
+   Open your Key Vault in Azure portal, **click Access configuration** in **Settings**, and select **Azure role-based access control** option. Then enter **Access control (IAM)** and add **Key Vault Crypto Service Encryption User** role assignment.
 
-   [!<img src="media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png" alt="grant Key Vault permissions" title="Export rule configuration" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png#lightbox)
+   [!<img src="media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png" title="Grant Key Vault RBAC permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png#lightbox)
 
-1 Assign vault access policy (legacy)
+1. Assign vault access policy (legacy)
 
-    Open your Key Vault in Azure portal and click *Access Policies*, select *Vault access policy*, then click *+ Add Access Policy* to create a policy with these settings:
+    Open your Key Vault in Azure portal and click **Access Policies**, select **Vault access policy**, then click **+ Add Access Policy** to create a policy with these settings:
 
-    - Key permissions—select *Get*, *Wrap Key* and *Unwrap Key*.
+    - Key permissions—select **Get**, **Wrap Key** and **Unwrap Key**.
     - Select principal—depending on the identity type used in the cluster (system or user assigned managed identity)
       - System assigned managed identity - enter the cluster name or cluster principal ID 
       - User assigned managed identity - enter the identity name
 
-   [!<img src="media/customer-managed-keys/grant-key-vault-permissions-8bit.png" alt="grant Key Vault permissions" title="Export rule configuration" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-8bit.png#lightbox)
+   [!<img src="media/customer-managed-keys/grant-key-vault-permissions-8bit.png" title="Grant Key Vault access policy permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-8bit.png#lightbox)
 
-    The *Get* permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
+    The **Get** permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 
 ## Update cluster with key identifier details
 
@@ -192,7 +192,7 @@ Content-type: application/json
 
 **Response**
 
-It takes the propagation of the key a while to complete. You can check the update state by sending GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated key should return in the response.
+It takes the propagation of the key a while to complete. You can check the update state by sending GET request on the cluster and look at the **KeyVaultProperties** properties. Your recently updated key should return in the response.
 
 Response to GET request when key update is completed:
 202 (Accepted) and header
@@ -261,25 +261,25 @@ All your data remains accessible after the key rotation operation. Data always e
 
 ## Customer-managed key for saved queries and log alerts
 
-The query language used in Log Analytics is expressive and can contain sensitive information in comments, or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log alerts* queries encrypted with your key in your own Storage Account when connected to your workspace. 
+The query language used in Log Analytics is expressive and can contain sensitive information in comments, or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store saved queries and log alerts encrypted with your key in your own Storage Account when linked to your workspace. 
 
 > [!NOTE]
-> Log Analytics queries can be saved in various stores depending on the scenario used. Queries remain encrypted with Microsoft key ("MMK") in the following scenarios regardless Customer-managed key configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
+> Queries remain encrypted with Microsoft key ("MMK") in the following scenarios regardless Customer-managed key configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
 
-When linking your own storage (BYOS) to workspace, the service stores *saved-searches* and *log alerts* queries to your Storage Account. With the control on Storage Account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md), you can protect *saved-searches* and *log alerts* with Customer-managed key. You will, however, be responsible for the costs associated with that Storage Account. 
+When linking your Storage Account for saved queries, the service stores saved-queries and log alerts queries in your Storage Account. Having control on your Storage Account [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md), you can protect saved queries and log alerts with Customer-managed key. You will, however, be responsible for the costs associated with that Storage Account. 
 
 **Considerations before setting Customer-managed key for queries**
 * You need to have "write" permissions on your workspace and Storage Account.
 * Make sure to create your Storage Account in the same region as your Log Analytics workspace is located.
-* The *saves searches* in storage is considered as service artifacts and their format may change.
-* Existing *saves searches* are removed from your workspace. Copy any *saves searches* that you need before this configuration. You can view your *saved-searches* using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
+* The saves queries in storage is considered as service artifacts and their format may change.
+* Linking a Storage Account for queries removed existing saves queries from your workspace. Copy saves queries that you need before this configuration. You can view your saved queries using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
 * Query 'history' and 'pin to dashboard' aren't supported when linking Storage Account for queries.
-* You can link a single Storage Account to a workspace, which can be used for both *saved-searches* and *log alerts* queries.
+* You can link a single Storage Account to a workspace, which can be used for both saved queries and log alerts queries.
 * Fired log alerts will not contain search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
 
-**Configure BYOS for saved-searches queries**
+**Configure BYOS for saved queries**
 
-Link a Storage Account for *Query* to keep *saved-searches* queries in your Storage Account. 
+Link a Storage Account for queries to keep saved queries in your Storage Account. 
 
 # [Azure portal](#tab/portal)
 
