@@ -13,7 +13,7 @@ ms.custom: generated
 
 ### Microsoft.AppComplianceAutomation
 
-Azure service: Microsoft.AppComplianceAutomation
+Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365-app-certification/docs/acat-overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
