@@ -14,7 +14,7 @@ ms.custom:
 
 You can create device links when you create a new remote network or add them after the remote network is created.
 
-This article explains how to add and and delete device links for remote networks for Global Secure Access.
+This article explains how to add and delete device links for remote networks for Global Secure Access.
 
 ## Prerequisites 
 
@@ -47,7 +47,7 @@ If you didn't add device links when you created the remote networks or you want 
 1. The IPSec/IKE policy is set to **Default** but you can change to **Custom**.
     - If you select **Custom** you must use a combination of settings that are supported by Global Secure Access.
     - The valid configurations you can use are mapped out in the [Remote network valid configurations](reference-remote-network-configurations.md) reference article.
-    - Whether you choose Default or Custom, the IPSec/IKE policy you specify must match the the policy on your CPE.
+    - Whether you choose Default or Custom, the IPSec/IKE policy you specify must match the policy on your CPE.
     - View the [remote network valid configurations](reference-remote-network-configurations.md).
 
 1. Select the **Next** button.

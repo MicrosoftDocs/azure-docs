@@ -24,7 +24,7 @@ There are multiple ways to assign a remote network to the traffic forwarding pro
 
 ## Prerequisites 
 
-To assign a a remote network to a traffic forwarding profile to, you must have:
+To assign a remote network to a traffic forwarding profile to, you must have:
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID. 
 

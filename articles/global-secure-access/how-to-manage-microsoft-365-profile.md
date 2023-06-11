@@ -56,7 +56,7 @@ Conditional Access policies are created and applied to the profile in the Condit
 
 1. Select the **View** link for **Conditional Access policies applicable**.
 
-    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-manage-microsoft-365-profile/microsoft-365-ca-policy-link.png)
+    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-manage-microsoft-365-profile/how-to-manage-remote-network-device-links.png)
 
 1. Select a link from the list to view the policy details. 
 
