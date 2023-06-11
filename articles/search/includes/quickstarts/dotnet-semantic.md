@@ -140,7 +140,7 @@ For comparison, here are results from a query that uses the default BM25 ranking
 
 :::image type="content" source="../../media/quickstart-semantic/bm25-ranking.png" alt-text="Screenshot showing matches ranked by BM25.":::
 
-In contrast, when the semantic query runs for the same query ("what hotel has a good restaurant on site"), the results are reranked based on semantic relevance to the query. This time, the top result is the hotel that emphasizes the restaurant, which aligns better to user expectations.
+In contrast, when semantic ranking is applied to the same query ("what hotel has a good restaurant on site"), the results are reranked based on semantic relevance to the query. This time, the top result is the hotel with the restaurant, which aligns better to user expectations.
 
 :::image type="content" source="../../media/quickstart-semantic/semantic-ranking.png" alt-text="Screenshot showing matches ranked based on semantic search.":::
 

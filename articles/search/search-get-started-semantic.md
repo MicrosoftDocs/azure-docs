@@ -15,9 +15,9 @@ ms.date: 06/09/2023
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to rescore search results, moving results that have more semantic relevance to the top of the list. Semantic search improves an initial result set that was generated from a BM25 ranking. In many cases, semantic search significantly improves overall relevance, with minimal work for the developer.
+In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to rescore search results, moving results that have more semantic relevance to the top of the list. Depending on the content and the query, semantic search can significantly improve a BM25-ranked result set, with minimal work for the developer.
 
-This quickstart shows the query modifications that invoke semantic search.
+This quickstart walks you through the query modifications that invoke semantic search.
 
 > [!NOTE]
 > Looking for a Cognitive Search solution with Chat-GPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
