@@ -3,8 +3,8 @@ title: Interact with your jobs (debug and monitor)
 titleSuffix: Azure Machine Learning
 description: Debug or monitor your Machine Learning job as it runs on Azure Machine Learning compute with your training application of choice. 
 services: machine-learning
-ms.author: shoja
-author: shouryaj
+ms.author: joburges
+author: joburges
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
@@ -84,10 +84,10 @@ By specifying interactive applications at job creation, you can connect directly
          ),
          "My_tensorboard": TensorBoardJobService(
            nodes="all",
-           log_Dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)         
+           log_dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)         
          ),
          "My_ssh": SshJobService(
-           ssh_Public_Keys="<add-public-key>",
+           ssh_public_keys="<add-public-key>",
            nodes="all"  
          ),
        }
@@ -124,17 +124,17 @@ By specifying interactive applications at job creation, you can connect directly
    compute: azureml:<your compute name>
    services:
        my_vs_code:
-         job_service_type: vs_code
+         type: vs_code
          nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
        my_tensor_board:
-        job_service_type: tensor_board
+         type: tensor_board
          log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
          nodes: all
        my_jupyter_lab:
-         job_service_type: jupyter_lab
+         type: jupyter_lab
          nodes: all
        my_ssh:
-         job_service_type: ssh
+         type: ssh
          ssh_public_keys: <paste the entire pub key content>
          nodes: all
    ```
@@ -148,7 +148,7 @@ By specifying interactive applications at job creation, you can connect directly
    * sleep 1d
 
    You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
- 
+
    > [!NOTE]
    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
@@ -160,7 +160,6 @@ By specifying interactive applications at job creation, you can connect directly
 To interact with your running job, click the button **Debug and monitor** on the job details page. 
 
 :::image type="content" source="media/interactive-jobs/debug-and-monitor.png" alt-text="Screenshot of interactive jobs debug and monitor panel location.":::
-
 
 
 
@@ -269,11 +268,11 @@ To submit a job with a debugger attached and the execution paused, you can use d
    
     :::image type="content" source="./media/interactive-jobs/set-breakpoints.png" alt-text="Screenshot of location of an example breakpoint that is set in the Visual Studio Code editor":::
 
-
 > [!NOTE]
 > If you use debugpy to start your job, your job will **not** execute unless you attach the debugger in VS Code and execute the script. If this is not done, the compute will be reserved until the job is [cancelled](./how-to-interactive-jobs.md#end-job).
 
 ## Next steps
 
 + Learn more about [how and where to deploy a model](./how-to-deploy-online-endpoints.md).
+
 

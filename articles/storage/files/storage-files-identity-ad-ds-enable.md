@@ -34,7 +34,7 @@ The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuri
 ### Prerequisites
 
 - If you don't have [.NET Framework 4.7.2 or higher](https://dotnet.microsoft.com/download/dotnet-framework/) installed, install it now. It's required for the AzFilesHybrid module to import successfully.
-- Make sure you have [Azure PowerShell](/powershell/azure/install-az-ps) (Az module) and [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) installed. You must have at least Az.PowerShell 2.8.0+ and Az.Storage 4.3.0+ to use AzFilesHybrid.
+- Make sure you have [Azure PowerShell](/powershell/azure/install-azure-powershell) (Az module) and [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) installed. You must have at least Az.PowerShell 2.8.0+ and Az.Storage 4.3.0+ to use AzFilesHybrid.
 - Install the [Active Directory PowerShell](/powershell/module/activedirectory/) module.
 
 ### Download AzFilesHybrid module
@@ -223,6 +223,9 @@ $NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
 ```
+
+> [!IMPORTANT]
+> If you were previously using RC4 encryption and update the storage account to use AES-256, you should run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
 
 ### Debugging
 

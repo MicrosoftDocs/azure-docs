@@ -134,7 +134,7 @@ The following Azure resources are defined in the template.
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
     - **Region:** select the region in which you deployed the private mobile network.
-    - **Location:** enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*.
+    - **Location:** enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
     - **Existing Sim Policy Name:** enter the name of the SIM policy you want to assign to the SIMs.
     - **Sim Group Name:** enter the name for the new SIM group.

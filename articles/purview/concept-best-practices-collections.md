@@ -70,7 +70,7 @@ Consider deploying collections in Microsoft Purview to fulfill the following req
 
 - When you run a new scan, by default, the scan is deployed in the same collection as the data source. You can optionally select a different subcollection to run the scan. As a result, the assets will belong under the subcollection. 
 
-- Currently, moving data sources across collections isn't allowed. If you need to move a data source under a different collection, you need to delete all assets, remove the data source from the original collection, and re-register the data source under the destination collection.
+- Moving data sources across collections is allowed if the user is granted the Data Source Admin role for the source and destination collections. 
 
 - Moving assets across collections is allowed if the user is granted the Data Curator role for the source and destination collections. 
 
@@ -79,13 +79,6 @@ Consider deploying collections in Microsoft Purview to fulfill the following req
 - You can delete a collection if it does not have any assets, associated scans, data sources or child collections.
 
 - Data sources, scans, and assets must belong to a collection if they exist in the Microsoft Purview data map.    
-
-<!-- 
-- Moving data sources across collections is allowed if the user is granted the Data Source Admin role for the source and destination collections. 
-
-- Moving assets across collections is allowed if the user is granted the Data Curator role for the source and destination collections. 
-
--->
 
 ## Define an authorization model
 

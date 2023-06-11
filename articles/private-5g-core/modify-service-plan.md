@@ -61,4 +61,4 @@ To modify your service plan:
 
 ## Next steps
 
-Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify the service plan.
+Use [Azure Monitor](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify the service plan.

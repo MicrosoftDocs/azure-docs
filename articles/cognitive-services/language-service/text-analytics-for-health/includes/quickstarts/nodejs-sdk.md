@@ -22,10 +22,13 @@ Use this quickstart to create a Text Analytics for health application with the c
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service (providing 5000 text records - 1000 characters each) and upgrade later to the `Standard S` pricing tier for production. You can also start with the `Standard S` pricing tier, receiving the same initial quota for free (5000 text records) before getting charged. For more information on pricing, visit [Language Service Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Setting up
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+
 
 ### Create a new Node.js application
 
@@ -51,12 +54,11 @@ Install the npm package:
 npm install @azure/ai-language-text
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 
 ## Code example
 
-Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
+Open the file and copy the below code. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
@@ -64,8 +66,9 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 "use strict";
 
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-const key = '<paste-your-key-here>';
-const endpoint = '<paste-your-endpoint-here>';
+// This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+const key = process.env.LANGUAGE_KEY;
+const endpoint = process.env.LANGUAGE_ENDPOINT;
 
 const documents = ["Patient does not suffer from high blood pressure."];
   
@@ -196,5 +199,4 @@ Last time the operation was updated was on: Mon Feb 13 2023 13:12:10 GMT-0800 (P
 > [!TIP]
 > Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](../../how-to/call-api.md) on how to use FHIR structuring in your API call.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+

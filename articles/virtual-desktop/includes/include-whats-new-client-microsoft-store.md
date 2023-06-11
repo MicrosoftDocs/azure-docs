@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 03/08/2023
+ms.date: 05/31/2023
 ---
 
 ## Latest client versions
@@ -11,7 +11,15 @@ The following table lists the current version available for the public release:
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.2.3000.0      | [Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709) |
+| Public  | 10.2.3006      | [Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709) |
+
+## Updates for version 10.2.3006
+
+*Date published: May 9, 2023*
+
+In this release, we've made the folloing change:
+
+- Fixed the vulnerability known as [CVE-2023-28290](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28290).
 
 ## Updates for version 10.2.3000
 

@@ -169,7 +169,7 @@ Terminal Server has been deployed and configured as follows:
      ipv4_static_settings.address="$TS_NET2_IP"
      ipv4_static_settings.netmask="$TS_NET2_NETMASK"
      ipv4_static_settings.gateway="$TS_NET2_GW"
-     physif="net1"
+     physif="net2"
      END
    ```
 
@@ -178,9 +178,9 @@ Terminal Server has been deployed and configured as follows:
    | TS_NET1_IP      | The terminal server PE1 to TS NET1 IP      |
    | TS_NET1_NETMASK | The terminal server PE1 to TS NET1 netmask |
    | TS_NET1_GW      | The terminal server PE1 to TS NET1 gateway |
-   | TS_NET2_IP      | The terminal server PE1 to TS NET2 IP      |
-   | TS_NET2_NETMASK | The terminal server PE1 to TS NET2 netmask |
-   | TS_NET2_GW      | The terminal server PE1 to TS NET2 gateway |
+   | TS_NET2_IP      | The terminal server PE2 to TS NET2 IP      |
+   | TS_NET2_NETMASK | The terminal server PE2 to TS NET2 netmask |
+   | TS_NET2_GW      | The terminal server PE2 to TS NET2 gateway |
 
 3. Setup support admin user:
 

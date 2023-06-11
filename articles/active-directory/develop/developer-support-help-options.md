@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/29/2022
+ms.date: 05/31/2023
 ms.author: davidmu
 ms.custom: has-adal-ref
 ---
@@ -27,6 +27,8 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 - If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
+- If you're using Azure AD for customers (preview), the support request feature is currently unavailable in customer tenants. However, you can use the **Give Feedback** link on the **New support request** page to provide feedback. Or, you can switch to your Azure AD workforce tenant and [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 - If you're not an Azure customer, you can open a support request with [Microsoft Support for business](https://support.serviceshub.microsoft.com/supportforbusiness).
 
 ## Post a question to Microsoft Q&A
@@ -43,9 +45,10 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 
 | Component/area                                            | Tags                                                                                         |
 | ----------------------------------------------------------| ---------------------------------------------------------------------------------------------|
+| Azure AD for customers / External Identities              | [Azure Active Directory for customers](https://aka.ms/microsoftentraexternalid)              |
 | Azure AD B2B / External Identities                        | [Azure Active Directory External Identities](/answers/tags/231/azure-active-directory-b2c)   |
 | Azure AD B2C                                              | [Azure Active Directory External Identities](/answers/tags/231/azure-active-directory-b2c)   |
-| All other Azure Active Directory areas                    | [Azure Active Diretory](/answers/tags/49/azure-active-directory)                             |
+| All other Azure Active Directory areas                    | [Azure Active Directory](/answers/tags/49/azure-active-directory)                             |
 | Azure RBAC                                                | [Azure Role-Based access control](/answers/tags/189/azure-rbac)                              |
 | Azure Key Vault                                           | [Azure Key Vault](/answers/tags/5/azure-key-vault)                                           |
 | Microsoft Security                                        | [Microsoft Defender for Cloud](/answers/tags/392/defender-for-cloud)                         |

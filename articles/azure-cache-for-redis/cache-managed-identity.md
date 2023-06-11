@@ -41,7 +41,13 @@ Each type of managed identity has advantages, but in Azure Cache for Redis, the 
 
 Managed identity can be enabled either when you create a cache instance or after the cache has been created. During the creation of a cache, only a system-assigned identity can be assigned. Either identity type can be added to an existing cache.
 
-### Prerequisites and limitations
+## Scope of availability
+
+|Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
+|---------|---------|---------|---------|
+|Available  | No         | Yes        |  No  |
+
+## Prerequisites and limitations
 
 Managed identity for storage is only used with the import/export feature and persistence feature now, which limits its use to the Premium tier of Azure Cache for Redis.
 

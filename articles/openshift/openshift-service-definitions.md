@@ -230,6 +230,7 @@ Azure Red Hat OpenShift runs on OpenShift 4 and uses the CRI-O implementation of
 ### Operating system
 
 Azure Red Hat OpenShift runs on OpenShift 4 using Red Hat Enterprise Linux CoreOS (RHCOS) as the operating system for all control plane and worker nodes.
+Windows workloads are not supported on Azure OpenShift as the platform does not currently support Windows worker nodes.
 
 ### Kubernetes operator support
 

@@ -123,3 +123,11 @@ landingContent:
             url: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
           - text: Firewall, App Gateway for virtual networks
             url: /azure/architecture/example-scenario/gateway/firewall-application-gateway
+
+# Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure network security
+           url: ../networking/security/index.yml

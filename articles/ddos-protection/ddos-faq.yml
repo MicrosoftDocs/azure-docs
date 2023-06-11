@@ -5,12 +5,12 @@ metadata:
   services: virtual-network
   documentationcenter: na
   author: AbdullahBell
-  ms.service: virtual-network
+  ms.service: ddos-protection
   ms.topic: faq
   ms.tgt_pltfrm: na
   ms.custom: ignite-2022
   ms.workload: infrastructure-services
-  ms.date: 10/12/2022
+  ms.date: 05/01/2023
   ms.author: abell
 title: Azure DDoS Protection frequently asked questions
 summary: This article answers common questions about Azure DDoS Protection.
@@ -66,7 +66,7 @@ sections:
         answer: |
           Public IPs in ARM based VNETs are currently the only type of protected resource. Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs).
 
-          PaaS services (multitenant) are not supported now, aside from Azure API Management (Premium tier only) connected to a virtual network (VNet) in the external mode. Public IP addresses created from a public IP address prefix are not supported. See [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md) for more details.
+          See [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md) for limitations.
 
       - question: |
           Are Classic/RDFE protected resources supported?

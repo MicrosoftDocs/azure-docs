@@ -8,7 +8,7 @@ ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 03/15/2023
+ms.date: 04/25/2023
 ms.author: maries
 ms.reviewer: mattmcinnes
 ---
@@ -85,7 +85,17 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
-
+> [!NOTE]
+> ** When using Accelerated Networking (AN) the synthetic interface that is created must me configured to be unmanaged using a udev rule. This will prevents NetworkManager from assigning the same ip to it as the primary interface. <br>
+     To apply it:<br>
+```
+sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+# Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+# This interface is transparentlybonded to the synthetic interface,
+# so NetworkManager should just ignore any SRIOV interfaces.
+SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1" 
+EOF
+```
 7. Ensure that the network service will start at boot time by running the following command:
 
     ```bash
@@ -611,7 +621,17 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
-
+> [!NOTE]
+> ** When using Accelerated Networking (AN) the synthetic interface that is created must me configured to be unmanaged using a udev rule. This will prevents NetworkManager from assigning the same ip to it as the primary interface. <br>
+     To apply it:<br>
+```
+sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules  
+# Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+# This interface is transparently bonded to the synthetic interface,
+# so NetworkManager should just ignore any SRIOV interfaces.
+SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1" 
+EOF
+```
 7. Ensure that the network service will start at boot time by running the following command:
 
     ```bash
@@ -987,6 +1007,17 @@ This section assumes that you have already installed a RHEL virtual machine in V
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
+> [!NOTE]
+> ** When using Accelerated Networking (AN) the synthetic interface that is created must me configured to be unmanaged using a udev rule. This will prevents NetworkManager from assigning the same ip to it as the primary interface. <br>
+     To apply it:<br>
+```
+sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules  
+# Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+# This interface is transparently bonded to the synthetic interface,
+# so NetworkManager should just ignore any SRIOV interfaces.
+SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1" 
+EOF
+```
 
 5. Ensure that the network service will start at boot time by running the following command:
 

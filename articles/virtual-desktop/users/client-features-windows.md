@@ -132,7 +132,7 @@ Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for
 | <kbd>ALT</kbd>+<kbd>PRINT SCREEN</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>-</kbd> (minus sign) | Takes a snapshot of the active window in the remote session, and places it in the clipboard. |
 
 > [!NOTE]
-> Keyboard shortcuts will not work when using Remote Desktop or RemoteApp sessions that are nested.
+> Keyboard shortcuts will not work when using remote desktop or RemoteApp sessions that are nested.
 
 ### Keyboard language
 
@@ -240,6 +240,9 @@ To deploy the Remote Desktop client in an enterprise, you can use `msiexec` to i
    ```cmd
    msiexec /i <path to the MSI> /qn ALLUSERS=2 MSIINSTALLPERUSER=1
    ```
+
+> [!IMPORTANT]
+> If you want to deploy the Remote Desktop client per-user with Intune or Configuration Manager, you'll need to use a script. For more information, see [Install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager](../install-client-per-user.md).
 
 ### Update behavior
 

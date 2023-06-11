@@ -61,7 +61,7 @@ This article describes how you can update assets in bulk to add glossary terms, 
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Screenshot of the close.":::
 
 > [!IMPORTANT]
-> The recommended number of assets for bulk edit are 25. Selecting more than 25 might cause performance issues.
+> In the UI you can currently only select up to 25 assets.
 > The **View Selected** box will be visible only if there is at least one asset selected.
 
 ## Next steps

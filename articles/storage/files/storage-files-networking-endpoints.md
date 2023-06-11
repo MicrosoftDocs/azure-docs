@@ -33,14 +33,15 @@ We recommend reading [Azure Files networking considerations](storage-files-netwo
 
 - This article assumes that you have already created an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - This article assumes that you have already created an Azure file share in a storage account that you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](storage-how-to-create-file-share.md).
-- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
+- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Endpoint configurations
 
 You can configure your endpoints to restrict network access to your storage account. There are two approaches to restricting access to a storage account to a virtual network:
 
-- [Create one or more private endpoints for the storage account](#create-a-private-endpoint)  and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
+- [Create one or more private endpoints for the storage account](#create-a-private-endpoint)  and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account. 
+*See [Private Link cost](https://azure.microsoft.com/pricing/details/private-link/).
 - [Restrict the public endpoint to one or more virtual networks](#restrict-public-endpoint-access). This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address, but access is only possible from the locations you specify in your configuration.
 
 ### Create a private endpoint

@@ -7,7 +7,7 @@ ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Tutorial: Migrate a web app from Bing Maps
@@ -249,7 +249,7 @@ For more information on how to set up and use the Azure Maps map control in a we
 
 ### Localizing the map
 
-If your audience is spread across multiple countries or speak different languages, localization is important.
+If your audience is spread across multiple countries/regions or speak different languages, localization is important.
 
 **Before: Bing Maps**
 
@@ -326,7 +326,7 @@ map.setCamera({
 });
 
 map.setStyle({
-    style: 'satellite_with_roads'
+    style: 'satellite_road_labels'
 });
 ```
 
@@ -1113,7 +1113,7 @@ In Azure Maps, load the GeoJSON data into a data source and connect the data sou
             map = new atlas.Map('myMap', {
                 center: [-160, 20],
                 zoom: 1,
-                style: 'satellite_with_roads',
+                style: 'satellite_road_labels',
 
                 //Add your Azure Maps key to the map SDK. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
                 authOptions: {

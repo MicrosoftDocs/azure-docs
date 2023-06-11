@@ -125,7 +125,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dsv4|Standard_D16s_v4|16|64|
 |Dsv4|Standard_D32s_v4|32|128|
 |Dsv4|Standard_D64s_v4|64|256|
-|Dsv4|Standard_D96s_v4|96|384|
 |Dsv5|Standard_D4s_v5|4|16|
 |Dsv5|Standard_D8s_v5|8|32|
 |Dsv5|Standard_D16s_v5|16|64|
@@ -165,7 +164,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Esv4|Standard_E32s_v4|32|256|
 |Esv4|Standard_E48s_v4|48|384|
 |Esv4|Standard_E64s_v4|64|504|
-|Esv4|Standard_E96s_v4|96|672|
 |Esv5|Standard_E2s_v5|2|16|
 |Esv5|Standard_E4s_v5|4|32|
 |Esv5|Standard_E8s_v5|8|64|

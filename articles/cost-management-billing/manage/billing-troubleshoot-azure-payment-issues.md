@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 12/02/2022
+ms.date: 04/26/2023
 ms.author: banders
 ---
 
@@ -91,7 +91,7 @@ To add card details, sign-in to the Azure Account portal by using the account ad
 
 Best practices:
 
-- Submit one check/wire transfer payment per invoice.
+- Submit one wire transfer payment per invoice.
 - Specify the invoice number on the remittance.
 - Send proof of payment, identification, and remittance details.
 

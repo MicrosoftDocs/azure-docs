@@ -31,7 +31,7 @@ dotnet new web -n MyApplication
 
 ## Install the NuGet package
 
-During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+The NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) and locate **Azure.Communication.CallAutomation** package.
 
 ## (Optional) Prepare your audio file if you wish to use audio files for playing prompts
 
@@ -92,6 +92,19 @@ TextSource playSource = new TextSource(textToPlay);
 {
     VoiceName = "en-US-ElizabethNeural" 
  };
+```
+
+### Play source - Text-To-Speech with SSML
+
+If you want to customize your Text-To-Speech output even more with Azure Cognitive Services you can use [Speech Synthesis Markup Language SSML](../../../../cognitive-services/Speech-Service/speech-synthesis-markup.md) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
+
+``` csharp
+String textToPlay = “Welcome to Contoso”;
+
+SsmlSource playsource = new SsmlSource(textToPlay);
+{
+"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">Hello World!</voice></speak>"}
+
 ```
 
 Once you've decided on which playSource you wish to use for playing audio you can then choose whether you want to play it to a specific participant or to all participants.

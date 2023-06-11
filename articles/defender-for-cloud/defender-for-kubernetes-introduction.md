@@ -2,8 +2,8 @@
 title: Microsoft Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
 ms.date: 07/11/2022
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: overview
 ---
 

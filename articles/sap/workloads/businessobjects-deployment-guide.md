@@ -246,7 +246,7 @@ Azure Storage has different Storage types available for customers and details fo
 
 ### Networking
 
-SAP BOBI is a reporting and analytics BI platform that doesn’t hold any business data. So the system is connected to other database servers from where it fetches all the data and provide insight to users. Azure provides a network infrastructure, which allows the mapping of all scenarios that can be realized with SAP BI Platform like connecting to on-premises system, systems in different virtual network and others. For more information check [Microsoft Azure Networking for SAP Workload](planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd).
+SAP BOBI is a reporting and analytics BI platform that doesn’t hold any business data. So the system is connected to other database servers from where it fetches all the data and provide insight to users. Azure provides a network infrastructure, which allows the mapping of all scenarios that can be realized with SAP BI Platform like connecting to on-premises system, systems in different virtual network and others. For more information check [Microsoft Azure Networking for SAP Workload](planning-guide.md#azure-networking).
 
 For Database-as-a-Service offering, any newly created database (Azure SQL Database or Azure Database for MySQL) has a firewall that blocks all external connections. To allow access to the DBaaS service from BI Platform virtual machines, you need to specify one or more server-level firewall rules to enable access to your DBaaS server. For more information, see [Firewall rules](../../mysql/concepts-firewall-rules.md) for Azure Database for MySQL and [Network Access Controls](/azure/azure-sql/database/network-access-controls-overview) section for Azure SQL database.
 

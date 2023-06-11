@@ -7,7 +7,7 @@ ms.service: purview
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 06/17/2022
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-dotnet
 ---
 # Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using .NET SDK
 

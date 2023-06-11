@@ -35,8 +35,7 @@ After you create a Front Door profile, the default frontend host is a subdomain 
 
 Before you can use a custom domain with your Front Door, you must first create a canonical name (CNAME) record with your domain provider to point to the Front Door default frontend host. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name. In Azure Front Door, the source domain name is your custom domain name and the destination domain name is your Front Door default hostname. Once Front Door verifies the CNAME record gets created, traffic to the source custom domain gets routed to the specified destination Front Door default frontend host. 
 
-A custom domain and its subdomain can be associated with only a single Front Door at a time. However, you can use different subdomains from the same custom domain for different Front Doors by using multiple CNAME records. You can also map a custom domain with different subdomains to the same Front Door.
-
+A custom domain can only be associated with one Front Door profile at a time. However, you can have different subdomains of an apex domain in the same or a different Front Door profile.
 
 ## Map the temporary afdverify subdomain
 

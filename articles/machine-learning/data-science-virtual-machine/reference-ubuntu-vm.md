@@ -6,9 +6,9 @@ author: jesscioffi
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python
-
 ms.author: jcioffi
-ms.date: 06/23/2022
+ms.reviewer: mattmcinnes
+ms.date: 04/18/2023
 ms.topic: reference
 
 

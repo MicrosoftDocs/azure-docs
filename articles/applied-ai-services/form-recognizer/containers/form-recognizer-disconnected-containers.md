@@ -10,7 +10,6 @@ ms.topic: reference
 ms.date: 03/02/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
-recommendations: false
 ---
 
 # Form Recognizer containers in disconnected environments
@@ -82,7 +81,7 @@ The following example shows the formatting for the `docker run` command to use w
 | `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
 | `{LICENSE_MOUNT}` | The path where the license is downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`{string}`|
+| `{API_KEY}` | The key for your Form Recognizer resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`{string}`|
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 
   **Example `docker run` command**
@@ -110,12 +109,7 @@ After you've configured the container, use the next section to run the container
 
 ## Form Recognizer container models and configuration
 
-After you've [configured the container](#configure-the-container-to-be-run-in-a-disconnected-environment), the values for the downloaded translation models and container configuration will be generated and displayed in the container output:
-
-```bash
--e MODELS= /path/to/model1/, /path/to/model2/
--e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
-```
+After you've [configured the container](#configure-the-container-to-be-run-in-a-disconnected-environment), the values for the downloaded form recognizer models and container configuration will be generated and displayed in the container output.
 
 ## Run the container in a disconnected environment
 

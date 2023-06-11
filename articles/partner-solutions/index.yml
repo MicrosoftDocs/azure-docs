@@ -9,7 +9,7 @@ metadata:
   description: Use Azure Native ISV Services to seamlessly provision, manage, and integrate preferred third-party solutions on Azure. 
   author: flang-msft
   ms.topic: hub-page
-  ms.date: 10/10/2022
+  ms.date: 04/26/2023
   ms.author: franlanglois
 
 highlightedContent:
@@ -62,7 +62,7 @@ productDirectory:
         - url: ./nginx/nginx-overview.md
           text: Deliver secure, high-performance applications by using familiar and trusted load-balancing solutions.
   # Card 7
-    - title: Qumulo Preview
+    - title: Qumulo
       imageSrc: ./media/index/qumulo.svg
       links:
         - url: ./qumulo/qumulo-overview.md
@@ -73,3 +73,10 @@ productDirectory:
       links:
         - url: ./new-relic/new-relic-overview.md
           text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.
+  # Card 9
+    - title: Palo Alto Networks Preview
+      imageSrc: ./media/index/palo-alto.svg
+      links:
+        - url: ./palo-alto/palo-alto-overview.md
+          text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
+

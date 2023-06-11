@@ -1,11 +1,11 @@
 ---
 title: The MedTech service and Azure Machine Learning Service - Azure Health Data Services
-description: In this article, you'll learn how to use the MedTech service and the Azure Machine Learning Service
+description: Learn how to use the MedTech service and the Azure Machine Learning Service
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
@@ -14,11 +14,11 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, we'll explore using the MedTech service and Azure Machine Learning Service.
+In this article, we explore using the MedTech service and the Azure Machine Learning Service.
 
 ## The MedTech service and Azure Machine Learning Service reference architecture
 
-The MedTech service enables IoT devices seamless integration with FHIR services. This reference architecture is designed to accelerate adoption of Internet of Medical Things (IoMT) projects. This solution uses Azure Databricks for the Machine Learning (ML) compute. However, Azure ML Services with Kubernetes or a partner ML solution could fit into the Machine Learning Scoring Environment.
+The MedTech service enables IoT devices to seamless integration with FHIR services. This reference architecture is designed to accelerate adoption of Internet of Things (IoT) projects. This solution uses Azure Databricks for the Machine Learning (ML) compute. However, Azure Machine Learning Services with Kubernetes or a partner ML solution could fit into the Machine Learning Scoring Environment.
 
 The four line colors show the different parts of the data journey.
 
@@ -34,7 +34,7 @@ The four line colors show the different parts of the data journey.
 1. Data from IoT device or via device gateway sent to Azure IoT Hub/Azure IoT Edge.
 2. Data from Azure IoT Edge sent to Azure IoT Hub.
 3. Copy of raw IoT device data sent to a secure storage environment for device administration.
-4. PHI IoMT payload moves from Azure IoT Hub to the MedTech service. Multiple Azure services are represented by the MedTech service icon.
+4. PHI IoT payload moves from Azure IoT Hub to the MedTech service. The MedTech service icon represents multiple Azure services.
 5. Three parts to number 5: 
  a. The MedTech service requests Patient resource from the FHIR service. 
  b. The FHIR service sends Patient resource back to the MedTech service. 
@@ -43,10 +43,10 @@ The four line colors show the different parts of the data journey.
 **Machine Learning and AI Data Route – Steps 6 through 11**
 
 6. Normalized ungrouped data stream sent to an Azure Function (ML Input).
-7. Azure Function (ML Input) requests Patient resource to merge with IoMT payload.
-8. IoMT payload with PHI is sent to an event hub for distribution to Machine Learning compute and storage.
-9. PHI IoMT payload is sent to Azure Data Lake Storage Gen 2 for scoring observation over longer time windows.
-10. PHI IoMT payload is sent to Azure Databricks for windowing, data fitting, and data scoring.
+7. Azure Function (ML Input) requests Patient resource to merge with IoT payload.
+8. IoT payload with PHI is sent to an event hub for distribution to Machine Learning compute and storage.
+9. PHI IoT payload is sent to Azure Data Lake Storage Gen 2 for scoring observation over longer time windows.
+10. PHI IoT payload is sent to Azure Databricks for windowing, data fitting, and data scoring.
 11. The Azure Databricks requests more patient data from data lake as needed. a. Azure Databricks also sends a copy of the scored data to the data lake.
 
 **Notification and Care Coordination – Steps 12 - 18**
@@ -54,7 +54,7 @@ The four line colors show the different parts of the data journey.
 **Hot path**
 
 12. Azure Databricks sends a payload to an Azure Function (ML Output).
-13. RiskAssessment and/or Flag resource submitted to FHIR service. a. For each observation window, a RiskAssessment resource will be submitted to the FHIR service. b. For observation windows where the risk assessment is outside the acceptable range a Flag resource should also be submitted to the FHIR service.
+13. RiskAssessment and/or Flag resource submitted to FHIR service. a. For each observation window, a RiskAssessment resource is submitted to the FHIR service. b. For observation windows where the risk assessment is outside the acceptable range a Flag resource should also be submitted to the FHIR service.
 14. Scored data sent to data repository for routing to appropriate care team. Azure SQL Server is the data repository used in this design because of its native interaction with Power BI.
 15. Power BI Dashboard is updated with Risk Assessment output in under 15 minutes.
 

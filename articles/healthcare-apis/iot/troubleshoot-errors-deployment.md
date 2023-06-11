@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot MedTech service deployment errors - Azure Health Data Services
-description: This article assists troubleshooting and fixing MedTech service deployment errors.
+description: Learn how to troubleshoot and fix MedTech service deployment errors.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 04/14/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
@@ -59,8 +59,8 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 **Description**: The device mapping provided in the MedTech service provisioning request is invalid.
 
 **Fix**:
-- If you're deploying a MedTech service using an ARM template, correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
-- If you're deploying a MedTech service using the Azure portal, correct the errors in the mapping JSON provided in the [**Device mapping** tab](deploy-new-config.md#configure-the-device-mapping-tab).
+* If you're deploying a MedTech service using an ARM template, correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
+* If you're deploying a MedTech service using the Azure portal, correct the errors in the mapping JSON provided in the [**Device mapping** tab](deploy-manual-portal.md#configure-the-device-mapping-tab).
 
 ### fullyQualifiedEventHubNamespace is null, empty, or formatted incorrectly
 
@@ -91,7 +91,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 Here's a list of errors that can be found in the Azure Resource Manager (ARM) API or Azure portal and fixes for these errors:
 
 |Error|
-|------|
+|-----|
 |[The maximum number of resource type iotconnectors/fhirdestinations has been reached.](#the-maximum-number-of-resource-type-iotconnectorsdestinations-has-been-reached)|
 |[The fhirServiceResourceId provided is invalid.](#the-fhirserviceresourceid-provided-is-invalid)|
 |[Ancestor resources must be fully provisioned before a child resource can be provisioned.](#ancestor-resources-must-be-fully-provisioned-before-a-child-resource-can-be-provisioned-1)

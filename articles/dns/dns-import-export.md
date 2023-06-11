@@ -6,7 +6,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.custom: devx-track-azurecli
-ms.date: 09/27/2022
+ms.date: 04/25/2023
 ms.author: greglin
 ms.topic: how-to
 ---
@@ -31,9 +31,12 @@ Before you import a DNS zone file into Azure DNS, you need to obtain a copy of t
 * If your DNS zone is hosted on Windows DNS, the default folder for the zone files is **%systemroot%\system32\dns**. The full path to each zone file is also shown on the **General** tab of the DNS console.
 * If your DNS zone is hosted using BIND, the location of the zone file for each zone gets specified in the BIND configuration file **named.conf**.
 
+> [!IMPORTANT]
+> If the zone file that you import contains CNAME entries that point to names in another private zone, Azure DNS resolution of the CNAME will fail unless the other zone is also imported, or the CNAME entries are modified.
+
 ## Import a DNS zone file into Azure DNS
 
-Importing a zone file creates a new zone in Azure DNS if the zone doesn't already exist. If the zone exist, then the record sets in the zone file will be merged with the existing record sets.
+Importing a zone file creates a new zone in Azure DNS if the zone doesn't already exist. If the zone exists, then the record sets in the zone file will be merged with the existing record sets.
 
 ### Merge behavior
 

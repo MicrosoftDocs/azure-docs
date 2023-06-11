@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/20/2022
+ms.date: 04/20/2023
 ms.author: allensu
 ms.custom:
 ---
@@ -24,6 +24,7 @@ Service endpoints are available for the following Azure services and regions. Th
 **Generally available**
 
 - **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft.Storage*): Generally available in all Azure regions.
+- **[Azure Storage cross-region service endpoints](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-storage-cross-region-service-endpoints)** (*Microsoft.Storage.Global*): Generally available in all Azure regions.
 - **[Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in all Azure regions.
 - **[Azure Synapse Analytics](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in all Azure regions for dedicated SQL pools (formerly SQL DW).
 - **[Azure Database for PostgreSQL server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in Azure regions where database service is available.
@@ -56,8 +57,8 @@ Service endpoints provide the following benefits:
 ## Limitations
 
 - The feature is available only to virtual networks deployed through the Azure Resource Manager deployment model.
-- Endpoints are enabled on subnets configured in Azure virtual networks. Endpoints can't be used for traffic from your on-premise services to Azure services. For more information, see [Secure Azure service access from on-premises](#secure-azure-services-to-virtual-networks)
-- For Azure SQL, a service endpoint applies only to Azure service traffic within a virtual network's region. For Azure Storage, you can [enable access to virtual networks in other regions](../storage/common/storage-network-security.md?tabs=azure-portal) in preview. 
+- Endpoints are enabled on subnets configured in Azure virtual networks. Endpoints can't be used for traffic from your on-premises services to Azure services. For more information, see [Secure Azure service access from on-premises](#secure-azure-services-to-virtual-networks)
+- For Azure SQL, a service endpoint applies only to Azure service traffic within a virtual network's region.
 - For Azure Data Lake Storage (ADLS) Gen 1, the VNet Integration capability is only available for virtual networks within the same region. Also note that virtual network integration for ADLS Gen1 uses the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate extra security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. The *Microsoft.AzureActiveDirectory* tag listed under services supporting service endpoints is used only for supporting service endpoints to ADLS Gen 1. Azure AD doesn't support service endpoints natively. For more information about Azure Data Lake Store Gen 1 VNet integration, see [Network security in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Secure Azure services to virtual networks
@@ -80,7 +81,7 @@ Service endpoints provide the following benefits:
 
 - Configure service endpoints on a subnet in a virtual network. Endpoints work with any type of compute instances running within that subnet.
 - You can configure multiple service endpoints for all supported Azure services (Azure Storage or Azure SQL Database, for example) on a subnet.
-- For Azure SQL Database, virtual networks must be in the same region as the Azure service resource. For Azure Storage, you can [enable access to virtual networks in other regions](../storage/common/storage-network-security.md?tabs=azure-portal) in preview. For all other services, you can secure Azure service resources to virtual networks in any region. 
+- For Azure SQL Database, virtual networks must be in the same region as the Azure service resource. For all other services, you can secure Azure service resources to virtual networks in any region.
 - The virtual network where the endpoint is configured can be in the same or different subscription than the Azure service resource. For more information on permissions required for setting up endpoints and securing Azure services, see [Provisioning](#provisioning).
 - For supported services, you can secure new or existing resources to virtual networks using service endpoints.
 

@@ -1,7 +1,7 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 12/28/2022
+ms.date: 05/26/2023
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
@@ -44,7 +44,7 @@ If you want to replicate to a secondary datacenter, then Hyper-V VMs must be on 
 
 
 ### Can I replicate Hyper-V generation 2 virtual machines to Azure?
-Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2. [Read more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2. [Read more](https://azure.microsoft.com/blog/new-azure-migrate-and-azure-site-recovery-enhancements-for-cloud-migration/).
 
 
 ### Can I deploy Site Recovery with VMM if I only have one VMM server?

@@ -4,8 +4,8 @@ description: Details of the DoD Impact Level 4 (Azure Government) Regulatory Com
 ms.date: 08/02/2022
 ms.topic: sample
 ms.custom: generated
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Details of the DoD Impact Level 4 (Azure Government) Regulatory Compliance built-in initiative
 

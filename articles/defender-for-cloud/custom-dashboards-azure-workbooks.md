@@ -3,14 +3,14 @@ title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.date: 02/02/2023
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
 
-[Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
+[Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
 
 Workbooks provide a rich set of capabilities for visualizing your Azure data. For detailed examples of each visualization type, see the [visualizations examples and documentation](../azure-monitor/visualize/workbooks-text-visualizations.md). 
 
@@ -223,7 +223,7 @@ To move workbooks that you've built in other Azure services into your Microsoft 
 
 1. From the toolbar, select **Edit**.
 
-    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks.png" alt-text="Editing an Azure Monitor workbook.":::
+    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks.png" alt-text="Editing a workbook.":::
 
 1. From the toolbar, select **</>** to enter the Advanced Editor.
 
@@ -249,7 +249,10 @@ You'll find your saved workbook in the **Recently modified workbooks** category.
 
 ## Next steps
 
-This article described Defender for Cloud's integrated Azure Monitor Workbooks page with built-in reports and the option to build your own custom, interactive reports.
+This article described Defender for Cloud's integrated Azure Workbooks page with built-in reports and the option to build your own custom, interactive reports.
 
-- Learn more about [Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
+- Learn more about [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md)
+
 - The built-in workbooks pull their data from Defender for Cloud's recommendations. Learn about the many security recommendations in [Security recommendations - a reference guide](recommendations-reference.md)
+
+
