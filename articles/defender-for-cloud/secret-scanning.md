@@ -20,7 +20,7 @@ Agentless secret scanning can proactively discover the following types of secret
 - **Plaintext storage account connection strings**.  
 - **Plaintext storage account SAS tokens**.
 
-> [NOTE!]
+> [!NOTE]
 > All of the standards are supported by the PF1 algorithm and the RSA algorithm.
 
 ## Prerequisites
