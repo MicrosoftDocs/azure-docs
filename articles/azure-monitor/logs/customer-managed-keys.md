@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Azure Monitor customer-managed key 
 
-Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use your own encryption key to protect the data and saved queries in your workspaces. Customer-managed keys in Azure Monitor gives you greater flexibility to manage access controls to logs. Once configure, new data for linked workspaces is encrypted with your key stored in [Azure Key Vault](../../key-vault/general/overview.md), or [Azure Key Vault Managed "HSM"](../../key-vault/managed-hsm/overview.md). 
+Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use your own encryption key to protect the data and saved queries in your workspaces. Customer-managed keys in Azure Monitor give you greater flexibility to manage access controls to logs. Once configure, new data for linked workspaces is encrypted with your key stored in [Azure Key Vault](../../key-vault/general/overview.md), or [Azure Key Vault Managed "HSM"](../../key-vault/managed-hsm/overview.md). 
 
 We recommend you review [Limitations and constraints](#limitationsandconstraints) below before configuration.
 
@@ -88,7 +88,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ## Create cluster
 
-Clusters uses managed identity for data encryption with your Key Vault. Configure identity `type` property to `SystemAssigned` when creating your cluster to allow access to your Key Vault for "wrap" and "unwrap" operations. 
+Clusters use managed identity for data encryption with your Key Vault. Configure identity `type` property to `SystemAssigned` when creating your cluster to allow access to your Key Vault for "wrap" and "unwrap" operations. 
   
   Identity settings in cluster for System-assigned managed identity
   ```json
@@ -111,7 +111,7 @@ There are two permission models in Key Vault to grant access to your cluster and
 
    Open your Key Vault in Azure portal, **click Access configuration** in **Settings**, and select **Azure role-based access control** option. Then enter **Access control (IAM)** and add **Key Vault Crypto Service Encryption User** role assignment.
 
-   [<img src="media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png" alt="Grant Key Vault RBAC permissions" title="Grant Key Vault RBAC permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png#lightbox)
+   [<img src="media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png" alt="Screenshot of Grant Key Vault RBAC permissions." title="Grant Key Vault RBAC permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png#lightbox)
 
 1. Assign vault access policy (legacy)
 
@@ -122,7 +122,7 @@ There are two permission models in Key Vault to grant access to your cluster and
       - System assigned managed identity - enter the cluster name or cluster principal ID 
       - User assigned managed identity - enter the identity name
 
-   [<img src="media/customer-managed-keys/grant-key-vault-permissions-8bit.png" alt="Grant Key Vault access policy permissions" title="Grant Key Vault access policy permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-8bit.png#lightbox)
+   [<img src="media/customer-managed-keys/grant-key-vault-permissions-8bit.png" alt="Screenshot of Grant Key Vault access policy permissions." title="Grant Key Vault access policy permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-8bit.png#lightbox)
 
     The **Get** permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 
@@ -421,7 +421,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
   - If you create a cluster and get an error—"region-name doesn’t support Double Encryption for clusters", you can still create the cluster without Double encryption, by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
-  - Double encryption settings can not be changed after the cluster has been created.
+  - Double encryption settings cannot be changed after the cluster has been created.
 
 Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
 
