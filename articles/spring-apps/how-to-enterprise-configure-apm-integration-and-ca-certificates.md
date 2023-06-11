@@ -26,12 +26,14 @@ You can enable or disable Tanzu Build Service on an Azure Springs Apps Enterpris
 - An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 
+## Buildpack Bindings is deprecated
+The Bindings feature in Builder is deprecated and will be removed in the future. It's strongly recommended to [migrate APM configured in Bindings](#migrate-apm-configured-in-bindings).
+- When your own Container Registry is used for Build Service or Build Service is disabled, the bindings feature in builder is not available. 
+- When a managed Azure Container Registry is used for build service, it's still available for backward compatible, but it will not available in the future.
+
+If you see error message "Buildpack bindings feature is deprecated, it's not available when your own container registry is used for build service or build service is disabled" when you use Azure CLI to create a service instance, which means you are using an old version of CLI, please [upgrade Azure CLI](https://learn.microsoft.com/en-us/cli/azure/update-azure-cli) to fix this issue. 
+
 ## Supported scenarios - APM and CA certificates integration
-
-Tanzu Build Service is enabled by default in Azure Spring Apps Enterprise. If you choose to disable the build service, you can deploy applications but only by using a custom container image. This section provides guidance for both enabled and disabled scenarios.
-
-### [Build service enabled](#tab/enable-build-service)
-
 Tanzu Build Service uses buildpack binding to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other cloud native buildpacks such as the [ca-certificates](https://github.com/paketo-buildpacks/ca-certificates) buildpack on GitHub.
 
 Currently, Azure Spring Apps supports the following APM types and CA certificates:
@@ -55,52 +57,9 @@ Azure Spring Apps supports CA certificates for all language family buildpacks, b
 
 For information about using Web servers, see [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
-When you enable the build service, the APM and CA Certificate are integrated with a builder, as described in the [Manage APM integration and CA certificates in Azure Spring Apps](#manage-apm-integration-and-ca-certificates-in-azure-spring-apps) section.
+Tanzu Build Service is enabled by default in Azure Spring Apps Enterprise. If you choose to disable the build service, you can deploy applications but only by using a custom container image. This section provides guidance for both enabled and disabled scenarios.
 
-When the build service uses the Azure Spring Apps managed container registry, you can build an application to an image and then deploy it, but only within the current Azure Spring Apps service instance.
-
-Use the following command to integrate APM and CA certificates into your deployments:
-
-```azurecli
-az spring app deploy \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name <app-name> \
-    --builder <builder-name> \
-    --artifact-path <path-to-your-JAR-file>
-```
-
-If you provide your own container registry to use with the build service, you can build an application into a container image and deploy the image to the current or other Azure Spring Apps Enterprise service instances.
-
-Providing your own container registry separates building from deployment. You can use the build command to create or update a build with a builder, then use the deploy command to deploy the container image to the service. In this scenario, you need to specify the APM-required environment variables on deployment.
-
-Use the following command to build an image:
-
-```azurecli
-az spring build-service build <create|update> \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name <app-name> \
-    --builder <builder-name> \
-    --artifact-path <path-to-your-JAR-file>
-```
-
-Use the following command to deploy with a container image, using the `--env` parameter to configure runtime environment:
-
-```azurecli
-az spring app deploy \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name <app-name> \
-    --container-image <your-container-image> \
-    --container-registry <your-container-registry> \
-    --registry-password <your-password> \
-    --registry-username <your-username> \
-    --env NEW_RELIC_APP_NAME=<app-name> \
-          NEW_RELIC_LICENSE_KEY=<your-license-key>
-```
-
-#### Supported APM resources with the build service enabled
+#### Supported APM Types
 
 This section lists the supported languages and required environment variables for the APMs that you can use for your integrations.
 
@@ -111,12 +70,6 @@ This section lists the supported languages and required environment variables fo
 
   Environment variables required for buildpack binding:
   - `connection-string`
-
-  Environment variables required for deploying an app with a custom image:
-  - `APPLICATIONINSIGHTS_CONNECTION_STRING`
-
-    > [!NOTE]
-    > Upper-case keys are allowed, and you can replace underscores (`_`) with hyphens (`-`).
 
   For other supported environment variables, see [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=java).
 
@@ -136,11 +89,6 @@ This section lists the supported languages and required environment variables fo
   - `TENANTTOKEN`
   - `CONNECTION_POINT`
 
-  Environment variables required for deploying an app with a custom image:
-  - `DT_TENANT`
-  - `DT_TENANTTOKEN`
-  - `DT_CONNECTION_POINT`
-
   For other supported environment variables, see [Dynatrace](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar)
 
 - **New Relic**
@@ -152,10 +100,6 @@ This section lists the supported languages and required environment variables fo
   Environment variables required for buildpack binding:
   - `license_key`
   - `app_name`
-
-  Environment variables required for deploying an app with a custom image:
-  - `NEW_RELIC_LICENSE_KEY`
-  - `NEW_RELIC_APP_NAME`
 
   For other supported environment variables, see [New Relic](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 
@@ -169,11 +113,6 @@ This section lists the supported languages and required environment variables fo
   - `service_name`
   - `application_packages`
   - `server_url`
-
-  Environment variables required for deploying an app with a custom image:
-  - `ELASTIC_APM_SERVICE_NAME`
-  - `ELASTIC_APM_APPLICATION_PACKAGES`
-  - `ELASTIC_APM_SERVER_URL`
 
   For other supported environment variables, see [Elastic](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
@@ -193,19 +132,127 @@ This section lists the supported languages and required environment variables fo
   - `controller_ssl_enabled`
   - `controller_port`
 
-  Environment variables required for deploying an app with a custom image:
-  - `APPDYNAMICS_AGENT_APPLICATION_NAME`
-  - `APPDYNAMICS_AGENT_TIER_NAME`
-  - `APPDYNAMICS_AGENT_NODE_NAME`
-  - `APPDYNAMICS_AGENT_ACCOUNT_NAME`
-  - `APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`
-  - `APPDYNAMICS_CONTROLLER_HOST_NAME`
-  - `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
-  - `APPDYNAMICS_CONTROLLER_PORT`
-
   For other supported environment variables, see [AppDynamics](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
+## Use APM
+
+There are two ways to configure APM in Azure Spring Apps:
+- Configure APM via APM resource. It's the recommended way to configure APM.
+- Configure APM via Bindings in builder. It's the old way to configure APM and it's deprecated, it's strongly recommended to [migrate APM configured in Bindings](#migrate-apm-configured-in-bindings).
+
+This section provides guidance for configuring APM via both Bindings in builder and APM resource scenarios.
+
+### Enable Application Insights when creating service instance
+If you enable Application Insights when creating a service instance:
+- If you enable Build Service and a managed Azure Container Registry is used to store built images, Application Insights is bound to Bindings in default builder.
+- If your own container registry is used to store built images or build service is disabled, a default APM resource is created for Application Insights, the default APM is enabled globally and will be used by all the subsequent builds and deployments automatically.
+
+### [Configure APM via APM resource](#tab/configure-apm-via-apm-resource)
+
+- For Build Service that uses an managed Azure Container Registry, use the following command to integrate APM into your deployments:
+
+  ```azurecli
+  az spring app deploy \
+      --resource-group <resource-group-name> \
+      --service <Azure-Spring-Apps-instance-name> \
+      --name <app-name> \
+      --builder <builder-name> \
+      --apms <APM-name> \
+      --artifact-path <path-to-your-JAR-file>
+  ```
+
+  When an APM resource is enabled globally, it will be used by all the subsequent builds and deployments automatically and it's unnecessary to specify `--apms` parameter. If you want to override the APM resource enabled globally for a deployment, specify the APM resources via `--apms` parameter.
+
+- For Build Service that uses your own container registry, you can build an application into a container image and deploy the image to the current or other Azure Spring Apps Enterprise service instances.
+
+  Providing your own container registry separates building from deployment. You can use the build command to create or update a build with a builder, then use the deploy command to deploy the container image to the service. 
+
+  Use the following command to build an image and configure APM:
+
+  ```azurecli
+  az spring build-service build <create|update> \
+      --resource-group <resource-group-name> \
+      --service <Azure-Spring-Apps-instance-name> \
+      --name <app-name> \ 
+      --builder <builder-name> \
+      --apms <APM-name> \
+      --artifact-path <path-to-your-JAR-file>
+  ```
+
+  When an APM resource is enabled globally, it will be used by all the subsequent builds and deployments automatically and it's unnecessary to specify `--apms` parameter. If you want to override the APM resource enabled globally for a build, specify the APM resources via `--apms` parameter.
+
+- When build Service is disabled, you can only deploy an application with a container image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+
+  You can use multiple instances of Azure Spring Apps Enterprise, where some instances build and deploy images and others only deploy images. Consider the following scenario:
+
+  - For one instance, you enable the build service with a user container registry. Then you build from an artifact-file or source-code with APM or CA certificate into a container image and deploy to the current Azure Spring Apps instance or other service instances. For more information, see, the [Build and deploy polyglot applications](how-to-enterprise-deploy-polyglot-apps.md#build-and-deploy-polyglot-applications), section of [How to deploy polyglot apps in Azure Spring Apps Enterprise](How-to-enterprise-deploy-polyglot-apps.md).
+
+  - In another instance with the build service disabled, you deploy an application with the container image in your registry and also make use of APM and CA certificates.
+
+  You can use the APM resource enabled globally or use the `--apms` parameter to specify APM resource:
+
+  ```azurecli
+  az spring app deploy \
+     --resource-group <resource-group-name> \
+     --service <Azure-Spring-Apps-instance-name> \
+     --name <app-name> \
+     --container-image <your-container-image> \
+     --container-registry <your-container-registry> \
+     --registry-password <your-password> \
+     --registry-username <your-username> \
+     --apms <your-APM>
+  ```
+  
+### [Configure APM via Bindings in builder](#tab/configure-apm-via-bindings-in-builder)
+When the build service uses the Azure Spring Apps managed container registry, you can build an application to an image and then deploy it, but only within the current Azure Spring Apps service instance.
+
+Use the following command to integrate APM into your deployments, the APM is confgured via Bindings in the builder:
+
+```azurecli
+az spring app deploy \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name <app-name> \
+    --builder <builder-name> \
+    --artifact-path <path-to-your-JAR-file>
+```
+
+---
+
 ## Use CA certificates
+
+There are two ways to configure CA certificates in Azure Spring Apps:
+- Configure CA certificates in Build resource. It's the recommended way to configure CA certificates.
+- Configure CA certificates via Bindings in builder. It's the old way to configure CA certificates and it's deprecated, it's strongly recommended to [migrate CA Certificate configured in Bindings](#migrate-ca-certificate-configured-in-bindings). 
+
+This section provides guidance for configuring CA certificates via both Bindings in builder and Build resource scenarios.
+
+### [Configure CA certificates in Build resource](#tab/configure-ca-certificates-in-build-resource)
+- When Build Service is enabled and a managed Azure Container Registry is used to store built images, use the following command to integrate CA Certificates into your deployment:
+
+  ```azurecli
+  az spring app deploy \
+      --resource-group <resource-group-name> \
+      --service <Azure-Spring-Apps-instance-name> \
+      --name <app-name> \
+      --builder <builder-name> \
+      --build-certificates <CA certificate-name> \
+      --artifact-path <path-to-your-JAR-file>
+   ```
+
+- When your own container registry is used to store built images or build service is disabled, Use the following command to integrate CA Certificates into your build:
+
+  ```azurecli
+  az spring build-service build <create|update> \
+      --resource-group <resource-group-name> \
+      --service <Azure-Spring-Apps-instance-name> \
+      --name <app-name> \ 
+      --builder <builder-name> \
+      --certificates <CA certificate-name> \
+      --artifact-path <path-to-your-JAR-file>
+  ```
+
+### [Configure CA certificates via Bindings in builder](#tab/configure-ca-certificates-via-bindings-in-builder)
 
 CA certificates use the [ca-certificates](https://github.com/paketo-buildpacks/ca-certificates) buildpack to support providing CA certificates to the system trust store at build and runtime.
 
@@ -217,105 +264,105 @@ You can configure the CA certificates on the **Edit binding** page. The `succeed
 
 :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/ca-certificates-buildpack-binding.png" alt-text="Screenshot of the Azure portal showing the Edit bindings for default builder page with the Edit binding for CA Certificates panel open." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/ca-certificates-buildpack-binding.png":::
 
-### [Build service disabled](#tab/disable-build-service)
-
-If you disable the build service, you can only deploy an application with a container image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
-
-You can use multiple instances of Azure Spring Apps Enterprise, where some instances build and deploy images and others only deploy images. Consider the following scenario:
-
-- For one instance, you enable the build service with a user container registry. Then you build from an artifact-file or source-code with APM or CA certificate into a container image and deploy to the current Azure Spring Apps instance or other service instances. For more information, see, the [Build and deploy polyglot applications](how-to-enterprise-deploy-polyglot-apps.md#build-and-deploy-polyglot-applications), section of [How to deploy polyglot apps in Azure Spring Apps Enterprise](How-to-enterprise-deploy-polyglot-apps.md).
-
-- In another instance with the build service disabled, you deploy an application with the container image in your registry and also make use of APM and CA certificates.
-
-Due to the deployment supporting only a custom container image, you must use the `--env` parameter to configure the runtime environment for deployment. The following command provides an example:
-
-```azurecli
-az spring app deploy \
-   --resource-group <resource-group-name> \
-   --service <Azure-Spring-Apps-instance-name> \
-   --name <app-name> \
-   --container-image <your-container-image> \
-   --container-registry <your-container-registry> \
-   --registry-password <your-password> \
-   --registry-username <your-username> \
-   --env NEW_RELIC_APP_NAME=<app-name> NEW_RELIC_LICENSE_KEY=<your-license-key>
-```
-
-### Supported APM resources with the build service disabled
-
-This section lists the supported languages and required environment variables for the APMs that you can use for your integrations.
-
-- **Application Insights**
-
-  Supported languages:
-  - Java
-
-  Required runtime environment variables:
-  - `APPLICATIONINSIGHTS_CONNECTION_STRING`
-
-  For other supported environment variables, see [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=java)
-
-- **Dynatrace**
-
-  Supported languages:
-  - Java
-  - .NET
-  - Go
-  - Node.js
-  - WebServers
-
-  Required runtime environment variables:
-
-  - `DT_TENANT`
-  - `DT_TENANTTOKEN`
-  - `DT_CONNECTION_POINT`
-
-  For other supported environment variables, see [Dynatrace](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar)
-
-- **New Relic**
-
-  Supported languages:
-  - Java
-  - Node.js
-
-  Required runtime environment variables:
-  - `NEW_RELIC_LICENSE_KEY`
-  - `NEW_RELIC_APP_NAME`
-
-  For other supported environment variables, see [New Relic](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
-
-- **ElasticAPM**
-
-  Supported languages:
-  - Java
-  - Node.js
-
-  Required runtime environment variables:
-  - `ELASTIC_APM_SERVICE_NAME`
-  - `ELASTIC_APM_APPLICATION_PACKAGES`
-  - `ELASTIC_APM_SERVER_URL`
-
-  For other supported environment variables, see [Elastic](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
-
-- **AppDynamics**
-
-  Supported languages:
-  - Java
-  - Node.js
-
-  Required runtime environment variables:
-  - `APPDYNAMICS_AGENT_APPLICATION_NAME`
-  - `APPDYNAMICS_AGENT_TIER_NAME`
-  - `APPDYNAMICS_AGENT_NODE_NAME`
-  - `APPDYNAMICS_AGENT_ACCOUNT_NAME`
-  - `APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`
-  - `APPDYNAMICS_CONTROLLER_HOST_NAME`
-  - `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
-  - `APPDYNAMICS_CONTROLLER_PORT`
-
-  For other supported environment variables, see [AppDynamics](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
-
 ---
+
+## Manage APM resource in Azure Spring Apps
+
+APM integration can be managed via configuring properties or secrets in APM resource.
+
+> [!NOTE]
+> When configuring properties or secrets for APM resource, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
+
+You can manage APM resource with the Azure CLI.
+
+### Azure CLI
+
+1. Use the following command to list all the APM resources:
+
+   ```azurecli
+   az spring apm list \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> 
+   ```
+
+1. Use the following command to list all the supported APM types:
+
+   ```azurecli
+   az spring apm list-support-types \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --builder-name <your-builder-name>
+   ```
+
+1. Use the following command to create an APM resource:
+
+   ```azurecli
+   az spring apm create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-APM-name> \
+       --type <your-APM-type> \
+       --properties a=b c=d \
+       --secrets e=f g=h
+   ```
+
+1. Use the following command to view the details of an APM resource:
+
+   ```azurecli
+   az spring apm show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-APM-name>
+   ```
+
+1. Use the following command to change an APM's properties:
+
+   ```azurecli
+   az spring apm update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-APM-name> \
+       --type <your-APM-type> \
+       --properties a=b c=d \
+       --secrets e=f2 g=h
+   ```
+   
+1. Use the following command to enable an APM resource globally. When an APM resource is enabled globally, it will be used by all the subsequent builds and deployments automatically.
+
+   ```azurecli
+   az spring apm enable-globally \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-APM-name> \
+   ```
+   
+1. Use the following command to disable an APM resource globally. When an APM resource is disabled globally, it will not be used by all the subsequent builds and deployments automatically.
+
+   ```azurecli
+   az spring apm disable-globally \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-APM-name> \
+   ```
+   
+1. Use the following command to list all the APM resources enabled globally:
+
+   ```azurecli
+   az spring apm list-enabled-globally \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> 
+   ```
+
+1. Use the following command to delete an APM resource.
+
+   ```azurecli
+   az spring apm delete \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-APM-name> \
+   ```
+
+For more information on the `properties` and `secrets` parameters for your buildpack, see the [Supported Scenarios - APM and CA Certificates Integration](#supported-scenarios---apm-and-ca-certificates-integration) section.
 
 ## Manage APM integration and CA certificates in Azure Spring Apps
 
