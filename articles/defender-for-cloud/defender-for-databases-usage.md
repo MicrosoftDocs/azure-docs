@@ -3,8 +3,8 @@ title: Setting up and responding to alerts from Microsoft Defender for open-sour
 description: Learn how to configure Microsoft Defender for open-source relational databases to detect anomalous database activities indicating potential security threats to the database.
 ms.date: 11/09/2021
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 # Enable Microsoft Defender for open-source relational databases and respond to alerts
 

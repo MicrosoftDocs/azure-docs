@@ -22,7 +22,7 @@ For example, in order to grant users read/write permission to the **Allowed VM S
 To learn more about custom roles in Azure RBAC, see the [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ## Creating a lab custom role using PowerShell
-In order to get started, you’ll need to [install Azure PowerShell](/powershell/azure/install-az-ps). 
+In order to get started, you’ll need to [install Azure PowerShell](/powershell/azure/install-azure-powershell). 
 
 Once you’ve set up the Azure PowerShell cmdlets, you can perform the following tasks:
 

@@ -164,7 +164,7 @@ FWPUBLIC_IP=$(az network public-ip show \
 FWPRIVATE_IP=$(az network firewall show \
     --resource-group $RG \
     --name $FWNAME \
-    --query "ipConfigurations[0].privateIpAddress" \
+    --query "ipConfigurations[0].privateIPAddress" \
     --output tsv | tr -d '[:space:]')
 ```
 

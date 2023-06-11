@@ -85,11 +85,9 @@ You'll need to upload a new activation file to your sensor if you want to switch
 
 1. In [Defender for IoT on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) > **Sites and sensors**, locate and [delete](how-to-manage-sensors-on-the-cloud.md#sensor-maintenance-and-troubleshooting) your OT sensor.
 
-1. Select **Onboard OT sensor > OT** to onboard the sensor again from scratch. For more information, see [Onboard OT sensors](onboard-sensors.md).
+1. Select **Onboard OT sensor > OT** to onboard the sensor again from scratch and download the new activation file. For more information, see [Onboard OT sensors](onboard-sensors.md).
 
-1. On the **Sites and sensors** page, locate the sensor you just added.
-
-1. Select the three dots (...) on the sensor's row and select **Download activation file**. Save the file in a location accessible to your sensor.
+    Alternately, on the **Sites and sensors** page, locate the sensor you just added. Select the three dots (...) on the sensor's row and select **Download activation file**. Save the file in a location accessible to your sensor.
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -143,9 +141,9 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
 
     If an upload fails, contact your security or IT administrator. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
-1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
+1. In the **Validation of on-premises management console certificate** area, select **Mandatory** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
-    If you've selected **Required** and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
+    If you've selected **Mandatory** and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 
 1. Select **Save** to save your certificate settings.
 
@@ -177,7 +175,7 @@ When you're done, use the following procedures to validate your certificate file
 
 1. Select the **Confirm** option to confirm the warning.
 
-1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
+1. In the **Validation of on-premises management console certificate** area, select **Mandatory** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
     If this option is toggled on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 

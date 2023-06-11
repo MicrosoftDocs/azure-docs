@@ -3,8 +3,8 @@ title: Details of the Azure Policy attestation structure
 description: Describes the components of the Azure Policy attestation JSON object.
 ms.date: 09/23/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Azure Policy attestation structure
 

@@ -70,10 +70,10 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
 
     :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-blobs.png" alt-text="Screenshot showing the Import button to select to begin the import.":::
 
-    You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-monitor/essentials/activity-log.md).
+    You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [activity log](../azure-monitor/essentials/activity-log.md).
     
     > [!IMPORTANT]
-    > Audit log support is not yet available in the Enterprise tiers.
+    > Activity log support is not yet available in the Enterprise tiers.
     > 
 
     :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-data-import-complete.png" alt-text="Screenshot showing the import progress in the notifications area.":::
@@ -129,6 +129,7 @@ This section contains frequently asked questions about the Import/Export feature
 - [I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
 - [I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 - [How to export if I have firewall enabled on my storage account?](#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
+- [Can I import or export data from a storage account in a different subscription than my cache?](#can-i-import-or-export-data-from-a-storage-account-in-a-different-subscription-than-my-cache)
 
 ### Which tiers support Import/Export?
 
@@ -215,6 +216,10 @@ Export works only with RDB files stored as page blobs. Other blob types aren't c
 For firewall enabled storage accounts, we need to check “Allow Azure services on the trusted services list to access this storage account” then, use managed identity (System/User assigned) and provision Storage Blob Data Contributor RBAC role for that object ID.
 
 More information here - [Managed identity for storage accounts - Azure Cache for Redis](cache-managed-identity.md)
+
+### Can I import or export data from a storage account in a different subscription than my cache?
+
+In the _Premium_ tier, you can import and export data from a storage account in a different subscription than your cache, but you must use [managed identity](cache-managed-identity.md) as the authentication method. You will need to select the chosen subscription holding the storage account when configuring the import or export. 
 
 ## Next steps
 

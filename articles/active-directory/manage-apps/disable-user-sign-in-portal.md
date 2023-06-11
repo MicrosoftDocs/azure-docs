@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 2/23/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
-ms.custom: it-pro
+ms.custom: it-pro, enterprise-apps
 ms.collection: M365-identity-device-management
 zone_pivot_groups: enterprise-apps-all
 

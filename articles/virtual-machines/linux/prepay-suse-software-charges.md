@@ -55,7 +55,7 @@ RedHat plan discounts apply only to the VM size that you select at the time of p
 
 ## Self-service cancellation and exchanges not allowed
 
-You can't cancel or exchange a SUSE or RedHat plan that you bought yourself. If you want to cancel or exchange a reservation, you can [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to have Azure support make the cancellation or exchange for you.
+You can't cancel or exchange a SUSE or RedHat plan that you bought yourself.
 
 Check your usage before purchasing to make sure you buy the right plan. For help to identify what to buy, see [Understand how the software plan discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 

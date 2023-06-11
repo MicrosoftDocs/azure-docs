@@ -7,7 +7,7 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 11/17/2022 
 ms.author: eskot
-ms.custom: has-adal-ref, ignite-2022
+ms.custom: has-adal-ref, ignite-2022, devx-track-python
 ms.reviewer: ekote
 ---
 

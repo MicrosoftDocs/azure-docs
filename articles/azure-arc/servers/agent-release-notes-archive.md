@@ -1,14 +1,14 @@
 ---
-title: Archive for What's new with Azure Arc-enabled servers agent
+title: Archive for What's new with Azure Connected Machine agent
 description: Release notes for Azure Connected Machine agent versions older than six months
 ms.topic: overview
-ms.date: 03/10/2023
+ms.date: 06/02/2023
 ms.custom: references_regions
 ---
 
-# Archive for What's new with Azure Arc-enabled servers agent
+# Archive for What's new with Azure Connected Machine agent
 
-The primary [What's new in Azure Arc-enabled servers agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
+The primary [What's new in Azure Connected Machine agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
 
 The Azure Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
 
@@ -16,6 +16,43 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Known issues
 - Bug fixes
 
+## Version 1.27 - February 2023
+
+Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
+- Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
+- Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
+- Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
+- Tenant IDs are better validated when connecting the server
+
+## Version 1.26 - January 2023
+
+Download for [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+> [!NOTE]
+> Version 1.26 is only available for Linux operating systems.
+
+### Fixed
+
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Defender for Endpoint extension (MDE.Linux) on Linux to improve installation reliability
+
+## Version 1.25 - January 2023
+
+Download for [Windows](https://download.microsoft.com/download/2/a/5/2a5b7d19-bc35-443e-80b2-63087577236e/AzureConnectedMachineAgent%20(1).msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- Red Hat Enterprise Linux (RHEL) 9 is now a [supported operating system](prerequisites.md#supported-operating-systems)
+
+### Fixed
+
+- Reliability improvements in the machine (guest) configuration policy engine
+- Improved error messages in the Windows MSI installer
+- Additional improvements to the detection logic for machines running on Azure Stack HCI
 ## Version 1.24 - November 2022
 
 Download for [Windows](https://download.microsoft.com/download/f/9/d/f9d60cc9-7c2a-4077-b890-f6a54cc55775/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
@@ -78,7 +115,7 @@ Download for [Windows](https://download.microsoft.com/download/1/3/5/135f1f2b-7b
 - The agent now supports Red Hat Enterprise Linux 8 servers that have FIPS mode enabled.
 - Agent telemetry uses the proxy server when configured.
 - Improved accuracy of network connectivity checks
-- The agent retains extension allow and blocklists when switching the agent from monitoring mode to full mode. Use [azcmagent config clear](manage-agent.md#config) to reset individual configuration settings to the default state.
+- The agent retains extension allow and blocklists when switching the agent from monitoring mode to full mode. Use [azcmagent config clear](azcmagent-config.md) to reset individual configuration settings to the default state.
 
 ## Version 1.21 - August 2022
 
@@ -120,7 +157,7 @@ Download for [Windows](https://download.microsoft.com/download/f/b/1/fb143ada-1b
 ### Fixed
 
 - Agents configured to use private endpoints correctly download extensions over the private endpoint
-- Renamed the `--use-private-link` flag on [azcmagent check](manage-agent.md#check) to `--enable-pls-check` to more accurately represent its function
+- Renamed the `--use-private-link` flag on [azcmagent check](azcmagent-check.md) to `--enable-pls-check` to more accurately represent its function
 
 ## Version 1.19 - June 2022
 
@@ -163,7 +200,7 @@ Download for [Windows](https://download.microsoft.com/download/a/3/4/a34bb824-d5
 ### New features
 
 - The default resource name for AWS EC2 instances is now the instance ID instead of the hostname. To override this behavior, use the `--resource-name PreferredResourceName` parameter to specify your own resource name when connecting a server to Azure Arc.
-- The network connectivity check during onboarding now verifies private endpoint configuration if you specify a private link scope. You can run the same check anytime by running [azcmagent check](manage-agent.md#check) with the new `--use-private-link` parameter.
+- The network connectivity check during onboarding now verifies private endpoint configuration if you specify a private link scope. You can run the same check anytime by running [azcmagent check](azcmagent-check.md) with the new `--use-private-link` parameter.
 - You can now disable the extension manager with the [local agent security controls](security-overview.md#local-agent-security-controls).
 
 ### Fixed
@@ -238,7 +275,7 @@ Download for [Windows](https://download.microsoft.com/download/8/a/9/8a963958-c4
 
 ### New features
 
-- Local configuration of agent settings now available using the [azcmagent config command](manage-agent.md#config).
+- Local configuration of agent settings now available using the [azcmagent config command](azcmagent-config.md).
 - Support for configuring proxy server settings [using agent-specific settings](manage-agent.md#update-or-remove-proxy-settings) instead of environment variables.
 - Extension operations execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](network-requirements.md)). The extension manager falls back to the existing behavior of checking every 5 minutes when the notification service is inaccessible.
 - Detection of the AWS account ID, instance ID, and region information for servers running in Amazon Web Services.
@@ -269,7 +306,7 @@ Download for [Windows](https://download.microsoft.com/download/1/c/4/1c4a0bde-0b
 
 ### Fixed
 
-- The guest configuration policy agent can now configure and remediate system settings. Existing policy assignments continue to be audit-only. Learn more about the Azure Policy [guest configuration remediation options](../../governance/machine-configuration/machine-configuration-policy-effects.md).
+- The guest configuration policy agent can now configure and remediate system settings. Existing policy assignments continue to be audit-only. Learn more about the Azure Policy [guest configuration remediation options](../../governance/machine-configuration/remediation-options.md).
 - The guest configuration policy agent now restarts every 48 hours instead of every 6 hours.
 
 ## Version 1.9 - July 2021

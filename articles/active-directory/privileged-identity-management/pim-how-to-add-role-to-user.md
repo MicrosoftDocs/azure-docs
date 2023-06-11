@@ -27,7 +27,7 @@ Privileged Identity Management support both built-in and custom Azure AD roles. 
 
 >[!Note]
 >When a role is assigned, the assignment:
->- Can't be asigned for a duration of less than five minutes
+>- Can't be assigned for a duration of less than five minutes
 >- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
@@ -317,4 +317,3 @@ POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilitySc
 ## Next steps
 
 - [Configure Azure AD admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Assign Azure resource roles in Privileged Identity Management](pim-resource-roles-assign-roles.md)

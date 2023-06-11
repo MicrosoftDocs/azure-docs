@@ -11,7 +11,7 @@ ms.reviewer: akkumari
 ---
 # Use predictive autoscale to scale out before load demands in virtual machine scale sets
 
-*Predictive autoscale* uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand.
+Predictive autoscale uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand.
 
 Predictive autoscale needs a minimum of 7 days of history to provide predictions. The most accurate results come from 15 days of historical data.
 
@@ -62,9 +62,9 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
     :::image type="content" source="media/autoscale-predictive/predictive-charts-6.png" alt-text="Screenshot that shows three charts for predictive autoscale." lightbox="media/autoscale-predictive/predictive-charts-6.png":::
 
-   - The top chart shows an overlaid comparison of actual versus predicted total CPU percentage. The time span of the graph shown is from the last 24 hours to the next 24 hours.
-   - The middle chart shows the number of instances running at specific times over the last 24 hours.
-   - The bottom chart shows the current Average CPU utilization over the last 24 hours.
+   - The top chart shows an overlaid comparison of actual versus predicted total CPU percentage. The time span of the graph shown is from the last 7 days to the next 24 hours.
+   - The middle chart shows the maximum number of instances running over the last 7 days.
+   - The bottom chart shows the current Average CPU utilization over the last 7 days.
 
 ## Enable using an Azure Resource Manager template
 
@@ -168,7 +168,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 	"resources": [{
 			"type": "Microsoft.Insights/autoscalesettings",
 			"name": "cpuPredictiveAutoscale",
-			"apiVersion": "2015-04-01",
+			"apiVersion": "2022-10-01",
 			"location": "[parameters('location')]",
 			"properties": {
 				"profiles": [{
@@ -243,7 +243,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 }
 ```
 
-**autoscale-only-parameters.json**
+**autoscale_only_parameters.json**
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",

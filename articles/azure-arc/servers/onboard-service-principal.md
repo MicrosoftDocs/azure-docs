@@ -17,7 +17,14 @@ Before you start connecting your machines, review the following requirements:
 1. Make sure you have administrator permission on the machines you want to onboard.
 
     Administrator permissions are required to install the Connected Machine agent on the machines; on Linux by using the root account, and on Windows as a member of the Local Administrators group.
-1. Review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. You will need to have the **Azure Connected Machine Onboarding** role or the **Contributor** role for the resource group of the machine.
+1. Review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. You will need to have the **Azure Connected Machine Onboarding** role or the **Contributor** role for the resource group of the machine. Make sure to register the below Azure resource providers beforehand in your target subscription.
+
+    * Microsoft.HybridCompute
+    * Microsoft.GuestConfiguration
+    * Microsoft.HybridConnectivity
+    * Microsoft.AzureArcData (if you plan to Arc-enable SQL Servers)
+
+    See detailed how to here: [Azure resource providers prerequisites](prerequisites.md#azure-resource-providers)
 
     For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.
 
@@ -51,7 +58,7 @@ The Azure Arc service in the Azure portal provides a streamlined way to create a
 
 ### Azure PowerShell
 
-You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a service principal with the [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) cmdlet.
+You can use [Azure PowerShell](/powershell/azure/install-azure-powershell) to create a service principal with the [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) cmdlet.
 
 1. Check the context of your Azure PowerShell session to ensure you're working in the correct subscription. Use [Set-AzContext](/powershell/module/az.accounts/set-azcontext) if you need to change the subscription.
     
@@ -146,6 +153,3 @@ After you install the agent and configure it to connect to Azure Arc-enabled ser
 - Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 - Learn how to [troubleshoot agent connection issues](troubleshoot-agent-onboard.md).
 - Learn how to manage your machines using [Azure Policy](../../governance/policy/overview.md) for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying that machines are reporting to the expected Log Analytics workspace, monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and more.
-```
-
-```

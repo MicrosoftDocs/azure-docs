@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/23/2023
 ---
 
-# Drive your organization to remediate security recommendations with governance
+# Drive remediation with security governance
 
 Security teams are responsible for improving the security posture of their organizations but they may not have the resources or authority to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#building-an-automated-process-for-improving-security-with-governance-rules) creates accountability and transparency so you can drive the process of improving the security posture in your organization.
 
@@ -165,3 +165,5 @@ You can see the list of owners and recommendations for the selected rules, and t
 In this article, you learned how to set up a process for assigning owners and due dates to tasks so that owners are accountable for taking steps to improve your security posture.
 
 Check out how owners can [set ETAs for tasks](review-security-recommendations.md#manage-the-owner-and-eta-of-recommendations-that-are-assigned-to-you) so that they can manage their progress.
+
+Learn how to [Implement security recommendations in Microsoft Defender for Cloud](implement-security-recommendations.md).

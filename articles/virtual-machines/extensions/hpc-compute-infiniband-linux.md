@@ -11,7 +11,7 @@ ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/13/2023
+ms.date: 04/21/2023
 ms.custom: devx-track-azurepowershell
 ms.author: mamccrea
 author: mamccrea
@@ -29,7 +29,7 @@ An extension is also available to install InfiniBand drivers for [Windows VMs](h
 
 ### Operating system
 
-This extension supports the following OS distros, depending on driver support for specific OS version.
+This extension supports the following OS distros, depending on driver support for specific OS version. For latest list of supported OS and driver versions, refer to [resources.json](https://github.com/Azure/azhpc-extensions/blob/master/InfiniBand/resources.json)
 
 | Distribution | Version | InfiniBand NIC drivers |
 |---|---|---|
@@ -37,7 +37,8 @@ This extension supports the following OS distros, depending on driver support fo
 | CentOS | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 | Red Hat Enterprise Linux | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 
-For latest list of supported OS and driver versions, refer to [resources.json](https://github.com/Azure/azhpc-extensions/blob/master/InfiniBand/resources.json)
+> [!IMPORTANT] 
+> This document references a release version of Linux that is nearing or at, End of Life (EOL). Please consider updating to a more current version.
 
 ### Internet connectivity
 

@@ -12,6 +12,7 @@ ms.date: 09/10/2018
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # Problems signing in to a Microsoft application

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 11/25/2022
 ms.author: dmwendia
 ms.reviewer: jmprieur, saeeda
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref, engagement-fy23"
+ms.custom: devx-track-csharp, aaddev, has-adal-ref, engagement-fy23, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn why and how to migrate from ADAL.NET and MSAL.NET or Microsoft.Identity.Web libraries.
 ---
 
@@ -45,7 +45,22 @@ For details about the decision tree below, read [MSAL.NET or Microsoft.Identity.
 
 [See examples](https://identitydivision.visualstudio.com/DevEx/_wiki/wikis/DevEx.wiki/20413/1P-ADAL.NET-to-MSAL.NET-migration-examples) of other 1P teams who have already, or are currently, migrating from ADAL to one of the MSAL+ solutions above. See their code, and in some cases read about their migration story.
  -->
- 
+### Deprecated ADAL.Net Nuget packages and their MSAL.Net equivalents
+You might unknowingly consume ADAL dependencies from other Azure SDKs. Below are few of the deprecated packages and their MSAL alternatives.
+
+|  ADAL.NET Package (Deprecated) | MSAL.NET Package (Current) |
+| ----------- | ----------- |
+| `Microsoft.Azure.KeyVault`| `Azure.Security.KeyVault.Secrets, Azure.Security.KeyVault.Keys, Azure.Security.KeyVault.Certificates`|
+| `Microsoft.Azure.Management.Compute`| `Azure.ResourceManager.Compute`|
+| `Microsoft.Azure.Services.AppAuthentication`| `Azure.Identity`| 
+| `Microsoft.Azure.Management.StorageSync`| `Azure.ResourceManager.StorageSync`| 
+| `Microsoft.Azure.Management.Fluent`| `Azure.ResourceManager`| 
+| `Microsoft.Azure.Management.EventGrid`| `Azure.ResourceManager.EventGrid`| 
+| `Microsoft.Azure.Management.Automation`| `Azure.ResourceManager.Automation`| 
+| `Microsoft.Azure.Management.Compute.Fluent`| `Azure.ResourceManager.Compute`|
+| `Microsoft.Azure.Management.MachineLearning.Fluent`| `Azure.ResourceManager.MachineLearningCompute`|
+| `Microsoft.Azure.Management.Media, windowsazure.mediaservices`| `Azure.ResourceManager.Media`|
+
 ## Next steps
 
 - Learn about [public client and confidential client applications](msal-client-applications.md).

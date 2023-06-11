@@ -4,7 +4,7 @@ description: List of services supporting managed identities
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 01/10/2022
+ms.date: 05/25/2023
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -18,6 +18,8 @@ Managed identities for Azure resources provide Azure services with an automatica
 
 >[!IMPORTANT]
 > New technical content is added daily. This list does not include every article that talks about managed identities. Please refer to each service's content set for details on their managed identities support. Resource provider namespace information is available in the article titled [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md).
+
+## Services supporting managed identities
 
 The following Azure services support managed identities for Azure resources:
 
@@ -35,6 +37,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure Batch                     | [Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity](../../batch/batch-customer-managed-key.md)  </BR> [Configure managed identities in Batch pools](../../batch/managed-identity-pools.md)          |
 | Azure Blueprints                | [Stages of a blueprint deployment](../../governance/blueprints/concepts/deployment-stages.md)                              |
 | Azure Cache for Redis           | [Managed identity for storage accounts with Azure Cache for Redis](../../azure-cache-for-redis/cache-managed-identity.md) |
+| Azure Communications Gateway    | [Deploy Azure Communications Gateway](../../communications-gateway/deploy.md) |
 | Azure Container Apps            | [Managed identities in Azure Container Apps](../../container-apps/managed-identity.md) |
 | Azure Container Instance        | [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)                                                                                          |
 | Azure Container Registry        | [Use an Azure-managed identity in ACR Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)                                                                       |

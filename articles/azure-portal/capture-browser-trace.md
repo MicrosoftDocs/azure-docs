@@ -1,7 +1,7 @@
 ---
 title: Capture a browser trace for troubleshooting
 description: Capture network information from a browser trace to help troubleshoot issues with the Azure portal.
-ms.date: 02/24/2023
+ms.date: 05/01/2023
 ms.topic: how-to
 ---
 
@@ -18,21 +18,24 @@ You can capture this information any [supported browser](azure-portal-supported-
 
 The following steps show how to use the developer tools in Microsoft Edge. For more information, see [Microsoft Edge DevTools](/microsoft-edge/devtools-guide-chromium).
 
+> [!NOTE]
+> The screenshots below show the DevTools in Focus Mode with a vertical **Activity Bar**. Depending on your settings, your configuration may look different. For more information, see [Simplify DevTools using Focus Mode](/microsoft-edge/devtools-guide-chromium/experimental-features/focus-mode).
+
 1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your account.
 
 1. Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/windows/record-steps-to-reproduce-a-problem-46582a9b-620f-2e36-00c9-04e25d784e47).
 
 1. In the portal, navigate to the step prior to where the issue occurs.
 
-1. Press F12 to launch the developer tools. You can also launch the tools from the toolbar menu under **More tools** > **Developer tools**.
+1. Press F12 to launch Microsoft Edge DevTools. You can also launch the tools from the toolbar menu under **More tools** > **Developer tools**.
 
-1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page:
+1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page.
 
     1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**.
 
        :::image type="content" source="media/capture-browser-trace/edge-console-preserve-log.png" alt-text="Screenshot that highlights the Preserve log option on the Console tab in Edge.":::
 
-    1. Select the **Network** tab, then select **Preserve log**.
+    1. Select the **Network** tab. If that tab isn't visible, click the **More tools** (+) button and select **Network**. Then, from the **Network** tab, select **Preserve log**.
 
        :::image type="content" source="media/capture-browser-trace/edge-network-preserve-log.png" alt-text="Screenshot that highlights the Preserve log option on the Network tab in Edge.":::
 

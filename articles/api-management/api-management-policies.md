@@ -4,7 +4,7 @@ description: Reference index for all Azure API Management policies and settings.
 services: api-management
 author: dlepow
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/01/2022
 ms.author: danlep
 ---
@@ -73,9 +73,9 @@ More information about policies:
 -  [Send message to Pub/Sub topic](publish-to-dapr-policy.md): Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
 -  [Trigger output binding](invoke-dapr-binding-policy.md): Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
 
-## GraphQL API policies
-- [Validate GraphQL request](validate-graphql-request-policy.md) - Validates and authorizes a request to a GraphQL API. 
-- [Set GraphQL resolver](set-graphql-resolver-policy.md) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
+## GraphQL resolver policies
+- [HTTP data source for resolver](http-data-source-policy.md) - Configures the HTTP request and optionally the HTTP response to resolve data for an object type and field in a GraphQL schema.
+- [Publish event to GraphQL subscription](publish-event-policy.md) - Publishes an event to one or more subscriptions specified in a GraphQL API schema. Used in the `http-response` element of the `http-data-source` policy
 
 ## Transformation policies
 -   [Convert JSON to XML](json-to-xml-policy.md) - Converts request or response body from JSON to XML.
@@ -92,9 +92,10 @@ More information about policies:
 ## Validation policies
 
 - [Validate content](validate-content-policy.md) - Validates the size or content of a request or response body against one or more API schemas. The supported schema formats are JSON and XML.
+- [Validate GraphQL request](validate-graphql-request-policy.md) - Validates and authorizes a request to a GraphQL API. 
 - [Validate parameters](validate-parameters-policy.md) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](validate-headers-policy.md) - Validates the response headers against the API schema.
-- [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in
+- [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in responses against the API schema.
 ## Next steps
 
 For more information about working with policies, see:

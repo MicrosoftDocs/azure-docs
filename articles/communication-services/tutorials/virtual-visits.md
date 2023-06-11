@@ -55,7 +55,7 @@ The rest of this tutorial focuses on Microsoft 365 and Azure hybrid solutions. T
 2. Consumer gets an appointment reminder through SMS and Email.
 3. Provider joins the appointment using Microsoft Teams.
 4. Consumer uses a link from the Bookings reminders to launch the Contoso consumer app and join the underlying Teams meeting.
-5. The users communicate with each other using voice, video, and text chat in a meeting. Specifically, Teams chat interoperability enables Teams user to send inline images directly to ACS users seamlessly. 
+5. The users communicate with each other using voice, video, and text chat in a meeting. Specifically, Teams chat interoperability enables Teams user to send inline images or file attachments directly to ACS users seamlessly. 
 
 ## Building a virtual appointment sample
 In this section, we’re going to use a Sample Builder tool to deploy a Microsoft 365 + Azure hybrid virtual appointments application to an Azure subscription. This application is a desktop and mobile friendly browser experience, with code that you can use to explore and for production.

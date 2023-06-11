@@ -77,7 +77,7 @@ Use the following steps to check the operating system (OS) version on the macOS 
 1. From the macOS device, open Terminal from the **Applications** -> **Utilities** folder.
 1. When the Terminal opens type **sw_vers** at the prompt, look for a result like the following:
 
-   ```bash
+   ```zsh
    % sw_vers
    ProductName: macOS
    ProductVersion: 13.0.1
@@ -194,7 +194,7 @@ Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** suppo
 1. When the **Spotlight Search** appears type **Terminal** and hit **return**.
 1. When the Terminal opens type **`osascript -e 'id of app "<appname>"'`** at the prompt. See some examples follow:
 
-   ```bash
+   ```zsh
    % osascript -e 'id of app "Safari"'
    com.apple.Safari
 
@@ -294,14 +294,14 @@ During troubleshooting it may be useful to reproduce a problem while tailing the
 1. When the **Spotlight Search** appears type: **Terminal** and hit **return**.
 1. When the Terminal opens type: 
 
-   ```bash
+   ```zsh
    tail -F ~/Library/Containers/com.microsoft.CompanyPortalMac.ssoextension/Data/Library/Caches/Logs/Microsoft/SSOExtension/*
    ```
 
    > [!NOTE]
    > The trailing /* indicates that multiple logs will be tailed should any exist
 
-   ```
+   ```output
    % tail -F ~/Library/Containers/com.microsoft.CompanyPortalMac.ssoextension/Data/Library/Caches/Logs/Microsoft/SSOExtension/*
    ==> /Users/<username>/Library/Containers/com.microsoft.CompanyPortalMac.ssoextension/Data/Library/Caches/Logs/Microsoft/SSOExtension/SSOExtension 2022-12-25--13-11-52-855.log <==
    2022-12-29 14:49:59:281 | I | TID=783491 MSAL 1.2.4 Mac 13.0.1 [2022-12-29 19:49:59] Handling SSO request, requested operation: 
@@ -383,7 +383,7 @@ The following actions should take place for a successful interactive sign-on:
 1. Return an access token to the client application to access the Microsoft Graph with a scope of User.Read.
 
 > [!IMPORTANT]
-> The sample log snippets that follows, have been annoted with comment headers // that are not seen in the logs. They are used to help illustrate a specific action being undertaken. We have documented the log snippets this way to assist with copy and paste operations. In addition, the log examples have been trimmed to only show lines of significance for troubleshooting.
+> The sample log snippets that follows, have been annotated with comment headers // that are not seen in the logs. They are used to help illustrate a specific action being undertaken. We have documented the log snippets this way to assist with copy and paste operations. In addition, the log examples have been trimmed to only show lines of significance for troubleshooting.
 
 The User clicks on the **Call Microsoft Graph API** button to invoke the sign-in process.
 
@@ -444,7 +444,7 @@ Resolved authority, validated: YES, error: 0
 [MSAL] Resolving authority: Masked(not-null), upn: Masked(null)
 [MSAL] Resolved authority, validated: YES, error: 0
 [MSAL] Start webview authorization session with webview controller class MSIDAADOAuthEmbeddedWebviewController: 
-[MSAL] Presenting web view contoller. 
+[MSAL] Presenting web view controller. 
 ```
 
 The logging sample can be broken down into three segments:
@@ -471,7 +471,7 @@ SSOExtensionLogs
 //Acquire PRT//
 ///////////////
 [MSAL] -completeWebAuthWithURL: msauth://microsoft.aad.brokerplugin/?code=(not-null)&client_info=(not-null)&state=(not-null)&session_state=(not-null)
-[MSAL] Dismissed web view contoller.
+[MSAL] Dismissed web view controller.
 [MSAL] Result from authorization session callbackURL host: microsoft.aad.brokerplugin , has error: NO
 [MSAL] (Default accessor) Looking for token with aliases (
     "login.windows.net",

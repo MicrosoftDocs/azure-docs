@@ -6,14 +6,14 @@ ms.author: travisneely
 ms.service: azure-operator-nexus
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 03/06/2023
+ms.date: 05/26/2023
 # ms.custom: template-include
 ---
 
 # Prepare to install Azure CLI extensions
 This how-to guide explains the steps for installing the required az CLI and extensions required to interact with Operator Nexus.
 
-Installation of the following CLI extensions are required:
+Installations of the following CLI extensions are required:
 `networkcloud` (for Microsoft.NetworkCloud APIs), `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs) and `hybridaks` (for AKS-Hybrid APIs).
 
 If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links download the latest available version of the extension.
@@ -137,17 +137,17 @@ Example output:
 ```output
 Name                     Version
 -----------------------  -------------
-arcappliance             0.2.29
-monitor-control-service  0.2.0
+arcappliance             0.2.31
+monitor-control-service  0.3.1
 connectedmachine         0.5.1
-connectedk8s             1.3.8
-k8s-extension            1.3.7
-networkcloud             0.1.6.post209
+connectedk8s             1.3.19
+k8s-extension            1.4.1
+networkcloud             0.3.0.post299
 k8s-configuration        1.7.0
-managednetworkfabric     0.1.0.post24
+managednetworkfabric     0.1.0.post36
 customlocation           0.1.3
-hybridaks                0.1.6
-ssh                      1.1.3
+hybridaks                0.2.1
+ssh                      1.1.6
 ```
 
 <!-- LINKS - External -->

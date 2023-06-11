@@ -12,7 +12,6 @@ ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
-
 # Quickstart: Deploy confidential VM with ARM template
 
 You can use an Azure Resource Manager template (ARM template) to create an Azure [confidential VM](confidential-vm-overview.md) quickly. Confidential VMs run on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM Overview](confidential-vm-overview.md).
@@ -22,7 +21,7 @@ This tutorial covers deployment of a confidential VM with a custom configuration
 ## Prerequisites
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/). 
-- If you want to deploy from the Azure CLI, [install PowerShell](/powershell/azure/install-az-ps) and [install the Azure CLI](/cli/azure/install-azure-cli).
+- If you want to deploy from the Azure CLI, [install PowerShell](/powershell/azure/install-azure-powershell) and [install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Deploy confidential VM template with Azure CLI
 
@@ -197,7 +196,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
         ```azurecli-interactive
         $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
-        az keyvault set-policy --name $KeyVault --object-id $cvmAgent.objectId --key-permissions get release
+        az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
         ```
 
 1. (Optional) If you don't want to use an Azure key vault, you can create an Azure Key Vault Managed HSM instead.
@@ -213,7 +212,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
         ```azurecli-interactive
         $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
-        az keyvault role assignment create --hsm-name $hsm --assignee $cvmAgent.objectId --role "Managed HSM Crypto Service Release User" --scope /keys/$KeyName 
+        az keyvault role assignment create --hsm-name $hsm --assignee $cvmAgent.Id --role "Managed HSM Crypto Service Release User" --scope /keys/$KeyName 
         ```
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
@@ -359,3 +358,4 @@ This is an example parameter file for a Windows Server 2022 Gen 2 confidential V
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a confidential VM on AMD in the Azure portal](quick-create-confidential-vm-portal-amd.md)
+

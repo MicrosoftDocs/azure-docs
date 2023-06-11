@@ -147,6 +147,8 @@ items:
     - name: Recommendation details
       expanded: true
       items:
+        - name: Migrate ADAL to MSAL
+          href: recommendation-migrate-from-adal-to-msal.md
         - name: Migrate apps from AD FS to Azure AD
           href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
         - name: Migrate to Microsoft authenticator

@@ -36,19 +36,19 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
 
 1. Create a new AKS cluster and enable the HTTP application routing add-on using the [`az aks create`][az-aks-create] command with the `--enable-addons` parameter.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
     ```
 
     You can also enable HTTP routing on an existing AKS cluster using the [`az aks enable-addons`][az-aks-enable-addons] command with the `--addons` parameter.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
     ```
 
 2. Retrieve the DNS zone name using the [`az aks show`][az-aks-show] command. You need the DNS zone name to deploy applications to the cluster.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
     ```
 
@@ -62,7 +62,7 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
 
 * Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in the *myResourceGroup*:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
@@ -153,7 +153,7 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
 
 1. Remove the HTTP application routing add-on using the [`az aks disable-addons][az-aks-disable-addons] command with the `addons` parameter.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
     ```
 

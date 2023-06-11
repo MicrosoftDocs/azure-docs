@@ -91,7 +91,7 @@ cd <path-to-the-project>
 azure-streamanalytics-cicd localrun --project ./asaproj.json"
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > JavaScript UDF only works on Windows.
 
 ## Automated test
@@ -223,7 +223,7 @@ If test cases are executed, you can find a **testResultSummary.json** file gener
 ```
 
 > [!NOTE]
-> If the query results contain float values, you might experience slight differences in the produced values leading to a probably failed test. This is based on the different .Net frameworks powering the Visual Studio or Visual Studio engine and the test processing engine. If you want to make sure that the tests run successfully, you will have to decrease the precision of your produced values or align the results to be compared manually to the generated test results.
+> If the query results contain float values, you might experience slight differences in the produced values leading to a probably failed test. This is based on the different .NET frameworks powering the Visual Studio or Visual Studio engine and the test processing engine. If you want to make sure that the tests run successfully, you'll have to decrease the precision of your produced values or align the results to be compared manually to the generated test results.
 
 
 ## Deploy to Azure

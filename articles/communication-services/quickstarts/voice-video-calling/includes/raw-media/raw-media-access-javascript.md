@@ -22,10 +22,8 @@ Organizations can use audio and video media streams to analyze sentiment when pr
 
 ## Prerequisites
 
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
-
 >[!IMPORTANT]
-> The examples here are available starting on the public preview version [1.10.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.10.0-beta.1) of the Calling SDK for JavaScript. Be sure to use that version or newer when you're trying this quickstart.
+> The examples here are available in [1.13.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.1) of the Calling SDK for JavaScript. Be sure to use that version or newer when you're trying this quickstart.
 
 ## Access raw audio
 
@@ -224,11 +222,23 @@ You can access the raw video stream for an incoming call. You use `MediaStream` 
 ```js
 const userId = 'acs_user_id';
 const call = callAgent.startCall(userId);
-const callStateChangedHandler = () => {
+const callStateChangedHandler = async () => {
     if (call.state === "Connected") {
         const remoteVideoStream = remoteParticipants[0].videoStreams[0];
-        const mediaStream = remoteVideoStream.getMediaStream();
-	// process the incoming call's video media stream
+        const processMediaStream = async () => {
+            if (remoteVideoStream.isAvailable) {
+                // remote video stream is turned on, process the video's raw media stream.
+                const mediaStream = await remoteVideoStream.getMediaStream();
+            } else {
+                // remote video stream is turned off, handle it
+            }
+        };
+	
+        remoteVideoStream.on('isAvailableChanged', async () => {
+            await processMediaStream();
+        });
+	
+        await processMediaStream();
     }
 };
 

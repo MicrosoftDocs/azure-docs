@@ -37,7 +37,23 @@ The `EphemeralOSDiskSettings` property isn't set by default. You must set this p
 
 The following example shows how to create a Batch pool where the nodes use ephemeral OS disks and not managed disks.
 
-### Batch .NET API
+### Code examples
+
+This code snippet shows how to create a pool with ephemeral OS disks using Azure Batch Python SDK with the Ephemeral OS disk using the temporary disk (cache).
+
+```python
+virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+    image_reference=image_ref_to_use,
+    node_agent_sku_id=node_sku_id,
+    os_disk=batch.models.OSDisk(
+        ephemeral_os_disk_settings=batch.models.DiffDiskSettings(
+            placement=batch.models.DiffDiskPlacement.cache_disk
+        )
+    )
+)
+```
+
+This is the same code snippet but for creating a pool with ephemeral OS disks using the Azure Batch .NET SDK and C#. 
 
 ```csharp
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(

@@ -23,7 +23,7 @@ The agriculture industry is going through a significant technology transformatio
 
 The solution framework is built on top of Data Manager for Agriculture that provides extensibility capabilities. It enables our Independent Software Vendor (ISV) partners to apply their deep domain knowledge and develop specialized domain specific industry solutions to top of the core platform.  The solution framework provides below capabilities:
 
->:::image type="content" source="./media/solution-framework-isv-1.png" alt-text="Screenshot showing ISV solution framework.":::
+:::image type="content" source="./media/solution-framework-isv-1.png" alt-text="Screenshot showing ISV solution framework.":::
 
 * Enables ISV Partners to easily build industry specific solutions to top of Data Manager for Agriculture.  
 * Helps ISVs generate revenue by monetizing their solution and publishing it on the Azure Marketplace* Provides simplified onboarding experience for ISV Partners and customers.

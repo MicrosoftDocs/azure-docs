@@ -9,7 +9,7 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: faq
-  ms.date: 02/08/2023
+  ms.date: 05/05/2023
 title: Cognitive Search Frequently Asked Questions
 summary:  Find answers to commonly asked questions about Azure Cognitive Search.
 
@@ -20,11 +20,6 @@ sections:
           What is Azure Cognitive Search?
         answer: | 
           Azure Cognitive Search is a service on Azure that provides a dedicated search engine and persistent storage of your searchable content for full text search scenarios. It also includes optional, integrated AI used during indexing to extract more text and structure from raw content.
-
-      - question: |
-          Does Cognitive Search support vector search?
-        answer: |
-          No. Currently, Cognitive Search runs on a version of Apache Lucene that doesn't support vector search.
 
       - question: |
           How do I work with Cognitive Search?
@@ -128,12 +123,12 @@ sections:
       - question: |
           Where does Cognitive Search store customer data?
         answer: |
-          Cognitive Search doesn't store customer data outside of the region in which the service is deployed.
+          It stores your data wherever your service is deployed. Cognitive Search doesn't store customer data outside of the deployment region.
 
       - question: |
           Does Cognitive Search send customer data to other services for processing?
         answer: |
-          Yes, if you use the built-in skills based on Cognitive Services, the indexer sends requests to Cognitive Services over the internal network. If you add a custom skill, the indexer will send content to the URI provided in the custom skill.
+          Yes, if you use the built-in skills based on Cognitive Services, the indexer sends requests to Cognitive Services over the internal network. If you add a custom skill, the indexer will send content to the URI provided in the custom skill over the public network.
 
       - question: |
           Can I control access to search results based on user identity?
@@ -143,7 +138,7 @@ sections:
       - question: |
           Can I control access to operations based on user identity?
         answer: |
-          [Role-based authorization](search-security-rbac.md) for data plane operations over content is now in public preview.
+          Yes, you can use [role-based authorization](search-security-rbac.md) for data plane operations over content.
 
       - question: |
           Can I use the Azure portal to view and manage search content if the search service is behind an IP firewall or a private endpoint?

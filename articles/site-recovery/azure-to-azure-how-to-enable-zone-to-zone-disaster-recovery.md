@@ -6,7 +6,7 @@ manager: aravindang
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/07/2022
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.custom: references_regions
 ---
 
@@ -38,7 +38,7 @@ However, in some scenarios, Availability Zones can be leveraged for Disaster Rec
 
 - Many customers who had a metro Disaster Recovery strategy while hosting applications on-premises sometimes look to mimic this strategy once they migrate applications over to Azure. These customers acknowledge the fact that metro Disaster Recovery strategy may not work in case of a large-scale physical disaster and accept this risk. For such customers, Zone to Zone Disaster Recovery can be used as a Disaster Recovery option.
 - Many other customers have complicated networking infrastructure and do not wish to recreate it in a secondary region due to the associated cost and complexity. Zone to Zone Disaster Recovery reduces complexity as it leverages redundant networking concepts across Availability Zones making configuration much simpler. Such customers prefer simplicity and can also use Availability Zones for Disaster Recovery.
-- In some regions that do not have a paired region within the same legal jurisdiction (for example, Southeast Asia), Zone to Zone Disaster Recovery can serve as the de-facto Disaster Recovery solution as it helps ensure legal compliance, since your applications and data do not move across national boundaries. 
+- In some regions that do not have a paired region within the same legal jurisdiction (for example, Southeast Asia), Zone to Zone Disaster Recovery can serve as the de-facto Disaster Recovery solution as it helps ensure legal compliance, since your applications and data do not move across national/regional boundaries. 
 - Zone to Zone Disaster Recovery implies replication of data across shorter distances when compared with Azure to Azure Disaster Recovery and therefore, you may see lower latency and consequently lower RPO.
 
 While these are strong advantages, there is a possibility that Zone to Zone Disaster Recovery may fall short of resilience requirements in the event of a region-wide natural disaster.

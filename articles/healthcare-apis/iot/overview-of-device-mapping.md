@@ -1,11 +1,11 @@
 ---
-title: Overview the MedTech service device mapping - Azure Health Data Services
-description: This article provides an overview of the MedTech service device mapping.
+title: Overview of the MedTech service device mapping - Azure Health Data Services
+description: Learn about the MedTech service device mapping.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/14/2023
+ms.date: 06/02/2023
 ms.author: jasteppe
 ---
 
@@ -52,7 +52,7 @@ The normalization process validates the device mapping before allowing it to be 
 |values[].required       |True                         |True                          |
 
 > [!NOTE] 
-> `values[].valueName, values[].valueExpression`, `values[].required` and elements are only required if you have a value entry in the array. It's valid to have no values mapped. These elements are used when the telemetry being sent is an event.
+> The `values[].valueName, values[].valueExpression`, and `values[].required` elements are only required if you have a value entry in the array. It's valid to have no values mapped. These elements are used when the telemetry being sent is an event.
 >
 > For example, some scenarios may require creating a FHIR Observation in the FHIR service that does not contain a value.
 
@@ -142,12 +142,12 @@ In this article, you've been provided an overview of the MedTech service device 
 To learn how to use CalculatedContent with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use CalculatedContent with the MedTech service device mapping](how-to-use-calculatedcontent-mappings.md)
+> [How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-templates.md)
 
 To learn how to use IotJsonPathContent with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontent-mappings.md)
+> [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md)
 
 To learn how to use custom functions with the MedTech service device mapping, see
 
@@ -157,6 +157,6 @@ To learn how to use custom functions with the MedTech service device mapping, se
 To get an overview of the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"] 
-> [Overview of the MedTech service FHIR destination mapping](how-to-configure-fhir-mappings.md)
+> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

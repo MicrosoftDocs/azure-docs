@@ -92,7 +92,7 @@ Although you're recommended to use one of the device SDKS, there may be scenario
 
 For more information, see:
 
-- [Using the MQTT protocol directly (as a device)](../iot-hub/iot-hub-mqtt-support.md#using-the-mqtt-protocol-directly-as-a-device)
+- [Using the MQTT protocol directly (as a device)](iot-mqtt-connect-to-iot-hub.md#using-the-mqtt-protocol-directly-as-a-device)
 - [Using the AMQP protocol directly (as a device)](../iot-hub/iot-hub-amqp-support.md#device-client)
 
 ## Device modeling
