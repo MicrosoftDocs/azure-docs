@@ -9,7 +9,7 @@ ms.date: 06/01/2023
 
 All of the agentless container capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan.
 
-Review the requirements on this page before setting up [agentless containers posture](concept-data-security-posture.md) in Microsoft Defender for Cloud.
+Review the requirements on this page before setting up [agentless containers posture](concept-agentless-containers.md) in Microsoft Defender for Cloud.
 
 > [!IMPORTANT]
 >  Agentless Posture is currently in Preview. Previews are provided "as is" and "as available" and are excluded from the service-level agreements and limited warranty.
