@@ -29,25 +29,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 ::: zone pivot="sc-consumption-plan,sc-enterprise"
 
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension:
-
-  ```azurecli-interactive
-  az extension remove --name spring && \
-  az extension add --name spring
-  ```
-
-::: zone-end
-
-::: zone pivot="sc-consumption-plan"
-
-- Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
-
-  ```azurecli-interactive
-  az extension add --name containerapp --upgrade
-  az provider register --namespace Microsoft.App
-  az provider register --namespace Microsoft.OperationalInsights
-  az provider register --namespace Microsoft.AppPlatform
-  ```
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.46.0 or higher.
 
 ::: zone-end
 

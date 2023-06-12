@@ -24,15 +24,11 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 ### 3.1. Sign in to the Azure portal
 
-1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../../../cloud-shell/overview.md).
+1. Use the following command to sign in to Azure:
 
-   ```azurecli-interactive
-   az account show
+   ```azurecli
+   az login
    ```
-
-1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an Azure Storage instance with your subscription to persist files across sessions. For more information, see [Introduction to Azure Storage](../../../storage/common/storage-introduction.md).
-
-   :::image type="content" source="../../media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of an Azure portal alert that no storage is mounted in the Azure Cloud Shell." lightbox="../../media/quickstart/azure-storage-subscription.png":::
 
 1. After you sign in successfully, use the following command to display a list of your subscriptions:
 
@@ -46,9 +42,9 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account set --subscription <subscription-ID>
    ```
 
-### 3.2. Create an Azure Spring Apps instance
+### 3.2. Define variables 
 
-1. Use the following commands to define variables for this quickstart with the names of your resources and desired settings:
+1. Use the following commands to define variables for this quickstart with the names of your resources:
 
    ```azurecli-interactive
    LOCATION="<region>"
@@ -57,6 +53,20 @@ Use the following steps to create an Azure Spring Apps service instance.
    SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
    APP_NAME="demo"
    ```
+
+### 3.3. Install extensions and register namespaces
+
+1. Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
+
+  ```azurecli-interactive
+  az extension add --name spring
+  az extension add --name containerapp --upgrade
+  az provider register --namespace Microsoft.App
+  az provider register --namespace Microsoft.OperationalInsights
+  az provider register --namespace Microsoft.AppPlatform
+  ```
+
+### 3.4. Create an Azure Spring Apps instance
 
 1. Use the following command to create a resource group:
 
@@ -97,7 +107,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --location ${LOCATION}
    ```
 
-### 3.3. Create an app in your Azure Spring Apps instance
+### 3.5. Create an app in your Azure Spring Apps instance
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
@@ -108,7 +118,7 @@ You can create an app in either standard consumption or dedicated workload profi
 > [!IMPORTANT]
 > The consumption workload profile has a pay-as-you-go billing model with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-### 3.2.1. Create an app with consumption workload profile
+### 3.5.1. Create an app with consumption workload profile
 
 Use the following command to specify the app name on Azure Spring Apps and to allocate required resources:
 
@@ -129,7 +139,7 @@ Azure Spring Apps creates an empty welcome application and provides its URL in t
 
 :::image type="content" source="../../media/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page for a Spring app in an Azure Spring Apps instance." lightbox="../../media/quickstart/app-welcome-page.png":::
 
-### 3.2.2. Create an app with dedicated workload profile
+### 3.5.2. Create an app with dedicated workload profile
 
 Dedicated workload profiles support running apps with customized hardware and increased cost predictability.
 

@@ -26,15 +26,11 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 ### 3.1. Sign in to the Azure portal
 
-1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../../../cloud-shell/overview.md).
+1. Use the following command to sign in to Azure:
 
-   ```azurecli-interactive
-   az account show
+   ```azurecli
+   az login
    ```
-
-1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an Azure Storage instance with your subscription to persist files across sessions. For more information, see [Introduction to Azure Storage](../../../storage/common/storage-introduction.md).
-
-   :::image type="content" source="../../media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of an Azure portal alert that no storage is mounted in the Azure Cloud Shell." lightbox="../../media/quickstart/azure-storage-subscription.png":::
 
 1. After you sign in successfully, use the following command to display a list of your subscriptions:
 
@@ -48,28 +44,38 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account set --subscription <subscription-ID>
    ```
 
-### 3.2. Create an Azure Spring Apps instance
+### 3.2. Define variables
 
-1. Accept the legal terms and privacy statements for the Enterprise tier. 
-
-   > [!NOTE]
-   > This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
-
-   ```azurecli-interactive
-   az provider register --namespace Microsoft.SaaS
-   az term accept \ 
-      --publisher vmware-inc \ 
-      --product azure-spring-cloud-vmware-tanzu-2 \ 
-      --plan asa-ent-hr-mtr
-   ```
-
-1. Use the following commands to define variables for this quickstart with the names of your resources and desired settings:
+1. Use the following commands to define variables for this quickstart with the names of your resources:
 
    ```azurecli-interactive
    LOCATION="<region>"
    RESOURCE_GROUP="<resource-group-name>"
    SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
    APP_NAME="demo"
+   ```
+
+### 3.3. Install extension and register namespaces
+
+1. Use the following command to register the namespace: `Microsoft.SaaS`:
+
+  ```azurecli-interactive
+  az extension add --name spring
+  az provider register --namespace Microsoft.SaaS
+  ```
+
+### 3.2. Create an Azure Spring Apps instance
+
+1. Accept the legal terms and privacy statements for the Enterprise tier.
+
+   > [!NOTE]
+   > This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
+
+   ```azurecli-interactive
+   az term accept \
+      --publisher vmware-inc \
+      --product azure-spring-cloud-vmware-tanzu-2 \
+      --plan asa-ent-hr-mtr
    ```
    
 1. Use the following command to create a resource group:
