@@ -16,59 +16,6 @@
       displayName: architecture, concepts, definitions, glossary
       href: ./v1/concept-azure-machine-learning-architecture.md
     # end v1
-- name: Upgrade to v2
-  items:
-    - name: Upgrade overview
-      displayName: migration
-      href: how-to-migrate-from-v1.md
-    - name: Upgrade resources and assets
-      items:
-        - name: "Workspace"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-resource-workspace.md
-        - name: "Compute"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-resource-compute.md
-        - name: "Datastore"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-resource-datastore.md
-        - name: "Data assets"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-assets-data.md
-        - name: "Model assets"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-assets-model.md
-    - name: Upgrade training
-      items:
-        - name: "Run a script"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-command-job.md
-        - name: "Local runs"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-local-runs.md
-        - name: "AutoML"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-execution-automl.md
-        - name: "Hyperparameter tuning"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-execution-hyperdrive.md
-        - name: "Parallel run step"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-execution-parallel-run-step.md
-        - name: "Pipelines"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-execution-pipeline.md
-    - name: Upgrade endpoints
-      items:
-        - name: "Online endpoints"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-deploy-endpoints.md
-        - name: "Pipeline endpoints"
-          displayName: migration, v1, v2, publish pipelines
-          href: migrate-to-v2-deploy-pipelines.md
-        - name: "Upgrade from ACI web services to managed online endpoints"
-          displayName: migration, v1, v2
-          href: migrate-to-v2-managed-online-endpoints.md
 - name: Set up
   items:
     - name: Create ML resources to get started
@@ -207,6 +154,9 @@
       - name: MLflow
         href: ./v1/concept-mlflow.md
       # end v1
+      - name: MLflow models
+        displayName: tracking models, mlflow, custom, flavors
+        href: concept-mlflow-models.m
       - name: Configure MLflow for Azure Machine Learning
         href: how-to-use-mlflow-configure-tracking.md
       - name: Train & track
@@ -267,6 +217,8 @@
         href: how-to-r-deploy-r-model.md
 - name: Work with data
   items:
+  - name: Data concepts in Azure Machine Learning
+    href: concept-data.md
   - name: Data Administration
     items:
     - name: Create Azure Machine Learning Datastores
@@ -275,9 +227,6 @@
     - name: Setup storage authentication
       displayName: Data administration and authentication
       href: how-to-administrate-data-authentication.md
-    - name: Common data authentication issues and FAQ
-      displayName:
-      href:
   - name: Import Data from external sources
     items:
     - name: Create connections to external data sources
@@ -392,6 +341,13 @@
       href: tutorial-experiment-train-models-using-features.md
     - name: Enable recurrent materialization
       href: tutorial-enable-recurrent-materialization-run-batch-inference.md
+  - name: Compliance
+      items:
+      - name: Export and delete data
+        displayName: GDPR
+        href: how-to-export-delete-data.md
+  - name: Sourcing human data responsibly
+    href: concept-sourcing-human-data.md
 - name: Automated Machine Learning
   items:
     - name: Concepts
@@ -567,6 +523,8 @@
       href: how-to-responsible-ai-insights-sdk-cli.md
   - name: Generate and configure an RAI scorecard
     items:
+      - name: Responsible AI scorecard
+        href: concept-responsible-ai-scorecard.md
       - name: Using the Responsible AI scorecard in studio
         href: how-to-responsible-ai-scorecard.md
 - name: Orchestrate workflows using pipelines
@@ -653,6 +611,8 @@
       items:
         - name: Endpoints
           href: concept-endpoints.md
+        - name: Online endpoints
+          href: concept-endpoints-online.md
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-online-endpoints.md
         - name: Safe rollout for online endpoints
@@ -694,6 +654,8 @@
               href: how-to-access-resources-from-endpoints-managed-identities.md
     - name: Batch endpoints
       items:
+        - name: Batch endpoints
+          href: concept-endpoints-batch.md
         - name: Batch scoring with batch endpoints
           href: how-to-use-batch-endpoint.md	
         - name: Create jobs and input data for batch endpoints	
@@ -859,8 +821,16 @@
         href: how-to-setup-mlops-github-azure-ml.md
 - name: Monitor your models
   items:
-    - name: Data collection
+    - name: Model data collection
+      href: concept-data-collection.md
     - name: Model monitoring
+      href: concept-model-monitoring.md
+    - name: Collect inferencing data from production
+        displayName: model data collection, data drift, data quality, model quality
+        href: how-to-collect-production-data.md
+    - name: Perform continuous monitoring
+      displayName: model monitoring, data drift, data quality, model quality
+      href: how-to-monitor-model-performance.md
 - name: Work with Foundation Models
   items:
     - name: Foundation Models in Model Catalog
@@ -1078,47 +1048,10 @@
       href: how-to-integrate-azure-policy.md
 - name: Concepts
   items:
-    - name: What is v2?
-      href: concept-v2.md
-    - name: Work with Data
-      items:
-        - name: Data concepts in Azure Machine Learning
-          href: concept-data.md
-        - name: Sourcing human data responsibly
-          href: concept-sourcing-human-data.md
-        - name: Compliance
-          items:
-            - name: Export and delete data
-              displayName: GDPR
-              href: how-to-export-delete-data.md
-    - name: Train models
-      items:
-        - name: MLflow models
-          displayName: tracking models, mlflow, custom, flavors
-          href: concept-mlflow-models.md
-    - name: Deploy to production
-      items:
-      - name: Endpoints
-        items:
-          - name: Online endpoints
-            href: concept-endpoints-online.md
-          - name: Batch endpoints
-            href: concept-endpoints-batch.md
-    - name: Monitor models
-      items:
-        - name: Model data collection
-          href: concept-data-collection.md
-        - name: Model monitoring
-          href: concept-model-monitoring.md
     - name: Responsible AI
       items:
-        - name: Responsible AI overview
-          displayName: responsible, ml
-          href: concept-responsible-ai.md
         - name: Implement Responsible AI in Practice
           items:
-            - name: Responsible AI scorecard
-              href: concept-responsible-ai-scorecard.md
             - name: Fairness in Machine Learning
               displayName: fairness, bias, model performance, disparity metrics, unfairness
               href: concept-fairness-ml.md
@@ -1245,14 +1178,6 @@
           displayName: docker file download
           href: ./v1/how-to-deploy-package-models.md
         # end v1
-    - name: Monitor models
-      items: 
-        - name: Collect inferencing data from production
-          displayName: model data collection, data drift, data quality, model quality
-          href: how-to-collect-production-data.md
-        - name: Perform continuous monitoring
-          displayName: model monitoring, data drift, data quality, model quality
-          href: how-to-monitor-model-performance.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Build & use ML pipelines
@@ -1504,6 +1429,61 @@
       - name: Rebuild Execute R Script components
         href: ./v1/migrate-execute-r-script.md
     # end v1
+- name: Upgrade to v2
+  items:
+    - name: What is v2?
+      href: concept-v2.md
+    - name: Upgrade overview
+      displayName: migration
+      href: how-to-migrate-from-v1.md
+    - name: Upgrade resources and assets
+      items:
+        - name: "Workspace"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-resource-workspace.md
+        - name: "Compute"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-resource-compute.md
+        - name: "Datastore"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-resource-datastore.md
+        - name: "Data assets"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-assets-data.md
+        - name: "Model assets"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-assets-model.md
+    - name: Upgrade training
+      items:
+        - name: "Run a script"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-command-job.md
+        - name: "Local runs"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-local-runs.md
+        - name: "AutoML"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-execution-automl.md
+        - name: "Hyperparameter tuning"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-execution-hyperdrive.md
+        - name: "Parallel run step"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-execution-parallel-run-step.md
+        - name: "Pipelines"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-execution-pipeline.md
+    - name: Upgrade endpoints
+      items:
+        - name: "Online endpoints"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-deploy-endpoints.md
+        - name: "Pipeline endpoints"
+          displayName: migration, v1, v2, publish pipelines
+          href: migrate-to-v2-deploy-pipelines.md
+        - name: "Upgrade from ACI web services to managed online endpoints"
+          displayName: migration, v1, v2
+          href: migrate-to-v2-managed-online-endpoints.md
 - name: Resources
   items:
     - name: Python SDK (v2) release notes
