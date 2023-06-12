@@ -17,6 +17,21 @@ ms.author: vikancha
 
 **Applies to:** Windows VMs :heavy_check_mark: Flexible scale sets 
 
+## NGads V620 Series (preview) ##
+You can create the VMs using CLI. (Azure AMD GPU driver extensions don't support NGads  V620 Series during preview)
+- Link to the CLI VM creation documentation https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-cli<br>
+
+To install the driver
+- Driver download [link](https://go.microsoft.com/fwlink/?linkid=2234555)<br>
+- Download the zip file to a local drive.  Unzip to a local drive.  Run setup.exe.  
+
+## Supported operating systems and drivers
+
+| OS | Driver |
+| -------- |------------- |
+| Windows 11 64-bit 21H2, 22H2<br/><br/>Windows 10 64-bit 21H2, 22H2 <br/><br/>Windows 11 EMS 64-bit 21H2, 22H2<br/><br/> Windows 10 EMS 64-bit 21H2, 22H2<br/><br/>Windows Server 2019 Release 1909<br/><br/>Windows Server 2022 64-bit Release 20348 | [Driver Download](https://go.microsoft.com/fwlink/?linkid=2234555) |
+
+## NVv4 Series ##
 To take advantage of the GPU capabilities of the new Azure NVv4 series VMs running Windows, AMD GPU drivers must be installed. The [AMD GPU Driver Extension](../extensions/hpccompute-amd-gpu-windows.md) installs AMD GPU drivers on a NVv4-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [AMD GPU Driver Extension documentation](../extensions/hpccompute-amd-gpu-windows.md) for supported operating systems and deployment steps.
 
 If you choose to install AMD GPU drivers manually, this article provides supported operating systems, drivers, and installation and verification steps.
