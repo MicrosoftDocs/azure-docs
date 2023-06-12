@@ -208,7 +208,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 <br><sup>1</sup> Currently, only version `0301` of this model is available.
 
 > [!IMPORTANT]
-> The currently listed deprecation dates in Azure AI Studio and via REST API for gpt-35-turbo (0301) is a temporary placeholder. Deprecation will not happen prior to October 1st 2023.
+> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for gpt-35-turbo (0301) is a temporary placeholder. Deprecation will not happen prior to October 1st 2023.
 
 ### GPT-4 Models
 
@@ -223,7 +223,7 @@ These models can only be used with the Chat Completion API.
 <sup>2</sup> Currently, only version `0314` of this model is available.
 
 > [!IMPORTANT]
-> The currently listed deprecation dates in Azure AI Studio and via REST API for the gpt-4 and gpt-4-32k (0314) models are temporary placeholders. Deprecation will not happen prior to October 1st 2023.
+> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for the gpt-4 and gpt-4-32k (0314) models are temporary placeholders. Deprecation will not happen prior to October 1st 2023.
 
 ### Dall-E Models
 
