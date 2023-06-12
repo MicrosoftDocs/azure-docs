@@ -24,14 +24,14 @@ To accomplish this scenario and allow your on-premises users to take full advant
  :::image type="content" source="cloud-sync/media/exchange-hybrid/exchange-hybrid.png" alt-text="Conceptual image of exchange hybrid scenario." lightbox="cloud-sync/media/exchange-hybrid/exchange-hybrid.png":::
 
 ## Cloud sync
+You can enable this scenario using cloud sync by ensuring you are using the latest provisioning agent and following the documentation.  For more information, see [Exchange hybrid writeback with cloud sync](cloud-sync/exchange-hybrid.md)
 
-
-For more information, see [Exchange hybrid writeback with cloud sync](cloud-sync/exchange-writeback.md)
-
-## Azure AD Connect
+## Connect sync
+You can enable the connect sync scenario thourgh the installer.  By selecting custom install, you can choose Exchange hybrid writeback.  For more information see [custom install](connect/how-to-connect-install-custom.md)
 
 
 ## Next steps
+- [Exchange hybrid writeback with cloud sync](cloud-sync/exchange-hybrid.md)
 - [Common scenarios](common-scenarios.md)
 - [Tools for synchronization](sync-tools.md)
 - [Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
