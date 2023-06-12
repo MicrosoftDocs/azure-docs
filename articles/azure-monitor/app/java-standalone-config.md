@@ -348,9 +348,9 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 }
 ```
 
-## JavaScript Snippet Injection (preview)
+## SDK Loader Script Injection (preview)
 
-This feature automatically injects the [JavaScript snippet](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
+This feature automatically injects the [JavaScript SDK Loader Script](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
 
 For example, when your java application returns a response like:
 
@@ -371,23 +371,24 @@ Then it will be automatically modified to return:
 <html lang="en">
   <head>
     <script type="text/javascript">
-    ... script
-      connectionString: "YOUR_CONNECTION_STRING"
-    ... script
+    !function(v,y,T){var S=v.location,k="script".........
+    connectionString: "YOUR_CONNECTION_STRING"
+    ........ }});
     </script>
+    <title>Title</title>
   </head>
   <body>
   </body>
 </html>
 ```
 
-The script is aiming at helping customers to track the web user data, and sent the telemetry back to the Azure portal. Details can be found at [ApplicationInsights-JS](https://github.com/microsoft/ApplicationInsights-JS)
+The script is aiming at helping customers to track the web user data, and sent the collecting server-side telemetry back to users' Azure portal. Details can be found at [ApplicationInsights-JS](https://github.com/microsoft/ApplicationInsights-JS)
 
 If you want to enable this feature, add the below configuration option:
 
 ```json
 "preview": {
-  "javaScriptSnippet": {
+  "javaScriptSDKLoaderScript": {
      "enabled": true
    }
 }
