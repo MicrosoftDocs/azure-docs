@@ -13,7 +13,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 -->
 
-## 1 Prerequisites
+## 1. Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
