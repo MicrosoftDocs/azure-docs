@@ -12,7 +12,7 @@ ms.date: 05/25/2023
 #Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Tutorial: Add sign-in and sign-out to a Vanilla JavaScript single-page app (SPA) for a customer tenant
+# Tutorial: Add sign-in and sign-out to a vanilla JavaScript single-page app for a customer tenant
 
 In the [previous article](how-to-single-page-app-vanillajs-configure-authentication.md), you edited the popup and redirection files that handle the sign-in page response. This tutorial demonstrates how to build a responsive user interface (UI) that contains a **Sign-In** and **Sign-Out** button and run the project to test the sign-in and sign-out functionality.
 
