@@ -18,7 +18,7 @@ The script creates the following resources:
 - A resource group for the Log Analytics workspace
 - A Log Analytics workspace
 - An Azure App registration to send data to Azure Monitor Logs
-- A service principal on the App
+- A service principal on the app
 - A secret for the app
 - A resource group for the data collection endpoint (DCE) in the same region as the Log Analytics workspace
 - A resource group for data collection rules (DCR) in the same region as the Log Analytics workspace
@@ -132,7 +132,7 @@ $VerbosePreference                     = "SilentlyContinue"  # "Continue"
     (1)  Create a resource group for the Log Analytics workspace
     (2)  Create the Log Analytics workspace
     (3)  Create an Azure App registration to send data to Azure Monitor Logs
-    (4)  Create a service principal on the App
+    (4)  Create a service principal on the app
     (5)  Create a secret for the app
     (6)  Create a resource group for the data collection endpoint (DCE) in the same region as the Log Analytics workspace
     (7)  Create a resource group for data collection rules (DCR) in the same region as the Log Analytics workspace
