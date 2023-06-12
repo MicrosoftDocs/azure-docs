@@ -86,8 +86,7 @@ The control plane IP has the following requirements:
 
 - Open communication with the management machine.
 - The control plane needs to be able to resolve the management machine and vice versa.
-- Static IP address assigned (strongly recommended). The IP address must be within the designated IP address prefix but outside of the `k8snodeippoolstart` and `k8snodeippoolend` IP range. This IP address must not be in-use anywhere else on the network.. 
-- If using Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) and installing Arc resource bridge, then the control plane IP for the resource bridge can't be used by the AKS-HCI cluster. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
+- Static IP address assigned; the IP should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. If you're using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid) and installing resource bridge, then the control plane IP for the resource bridge can't be used by the AKS hybrid cluster. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
 
 ## User account and credentials
 
