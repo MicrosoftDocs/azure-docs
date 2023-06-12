@@ -62,7 +62,7 @@ Here's an overview of all configuration options:
 | `telemetry.logs.localConfig.rfc5424.facility` | Facility code per [rfc5424](https://tools.ietf.org/html/rfc5424), for example, `7`  | No | N/A |
 | `telemetry.logs.localConfig.journal.endpoint` | Journal endpoint.   |Yes if `telemetry.logs.local` is set to `journal`; otherwise no. | N/A |
 
-## Traffic routing - TODO
+## Traffic routing
 
 | Name   | Description | Required | Default |
 | ------------- | ------------- | ------------- | ----|
@@ -99,7 +99,7 @@ The self-hosted gateway integrates with various other technologies. This section
 | `monitoring.ingestionKey`  | Ingestion key to authenticate with Azure Log Analytics workspace to send logs to. | No | N/A |
 | `monitoring.workspaceId`  | Workspace ID of the Azure Log Analytics workspace to send logs to. | No | N/A |
 
-## Image & Workload Scheduling
+## Image & workload scheduling
 
 Kubernetes is a powerful orchestration platform that gives much flexibility in what should be deployed and how it should be scheduled.
 
