@@ -11,9 +11,7 @@ ms.author: cherylmc
 
 # Connect to a VM using Bastion and a Linux native client
 
-This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local Linux computer using the **az network bastion tunnel** command. You can also use the steps in this article to connect from the native client on a Windows computer. 
-
-The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
+This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local computer using the **az network bastion tunnel** command. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
