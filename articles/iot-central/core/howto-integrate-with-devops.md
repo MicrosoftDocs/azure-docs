@@ -10,8 +10,6 @@ ms.service: iot-central
 
 # Integrate IoT Central with Azure Pipelines for continuous integration and continuous delivery
 
-## Overview
-
 Continuous integration and continuous delivery (CI/CD) refers to the process of developing and delivering software in short, frequent cycles using automation pipelines. This article shows you how to automate the build, test, and deployment of an IoT Central application configuration. This automation enables development teams to deliver reliable releases more frequently.
 
 Continuous integration starts with a commit of your code to a branch in a source code repository. Each commit is merged with commits from other developers to ensure that no conflicts are introduced. Changes are further validated by creating a build and running automated tests against that build. This process ultimately results in an artifact, or deployment bundle, to deploy to a target environment. In this case, the target is an Azure IoT Central application.
