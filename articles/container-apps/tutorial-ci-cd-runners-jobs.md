@@ -150,6 +150,7 @@ To execute a workflow, you need to create a GitHub repository that contains the 
 1. Create a new repository by entering the following values.
 
     | Setting | Value |
+    |---|---|
     | Owner | Select your GitHub username. |
     | Repository name | Enter a name for your repository. |
     | Visibility | Select **Private**. |
