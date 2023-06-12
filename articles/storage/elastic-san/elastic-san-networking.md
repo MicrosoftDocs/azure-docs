@@ -44,7 +44,7 @@ The process for enabling each type of endpoint follows:
 
 ### Configure Azure Storage service endpoint
 
-To configure an Azure Storage service endpoint, enable it from the virtual network subnet. To enable service endpoints for Azure Storage, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
+To configure an Azure Storage service endpoint, enable it from the virtual network subnet. To configure it, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
 
 > [!NOTE]
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
@@ -63,30 +63,35 @@ To configure an Azure Storage service endpoint, enable it from the virtual netwo
 # [PowerShell](#tab/azure-powershell)
 
 ```powershell
+# Define some variables
 $resourceGroupName = "<your resource group name>"
 $vnetName = "<your virtual network name>"
 $subnetName = "<your subnet name>"
 
+# Get the vurtual network and subnet
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
 
+# Enable the storage service endpoint
 $virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+# Define some variables
 resourceGroupName="<your resource group name>"
 vnetName="<your virtual network name>"
 subnetName="<your subnet name>"
 
+# Enable the storage service endpoint
 az network vnet subnet update --resource-group $resourceGroupName --vnet-name $vnetName --name $subnetName --service-endpoints "Microsoft.Storage.Global"
 ```
 ---
 
 ### Configure private endpoint
 
-To configure a private endpoint, the user must have permission to the Microsoft.ElasticSan/elasticSans/volumeGroups/PrivateEndpointConnectionsApproval/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan). Permission for this action is included in the Elastic SAN Network Admin role, but can also be granted via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
+To configure a private endpoint, the user must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) Microsoft.ElasticSan/elasticSans/volumeGroups/PrivateEndpointConnectionsApproval/action . Permission for this action is included in the Elastic SAN Network Admin role, but can also be granted via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
 When you create a private endpoint, you must specify the Elastic SAN and the volume group to which it connects. You can configure a private endpoint using the Azure portal, PowerShell, or the Azure CLI.
 
@@ -113,6 +118,8 @@ If you create your private endpoint from the volume group page, it is done in th
     - **Private DNS zone**: The FQDN of the private DNS zone for the private link.
 1. Back on the **Networking** page, select ***Save**.
 
+:::image type="content" source="media/elastic-san-private-endpoint/elastic-san-private-endpoint-create.png" alt-text="Screenshot of the Elastic SAN private endpoint creation page." lightbox="media/elastic-san-private-endpoint/elastic-san-private-endpoint-create.png":::
+
 > [!NOTE]
 > If you create your endpoint from the private endpoint management page, your experience will vary slightly from the volume group context experience:
 >
@@ -126,8 +133,6 @@ If you create your private endpoint from the volume group page, it is done in th
 >
 > On the **DNS** tab:
 > - Under **Private DNS integration**, set **Integrate with private DNS zone** to `Yes`.
-
-:::image type="content" source="media/elastic-san-private-endpoint/elastic-san-private-endpoint-create.png" alt-text="Screenshot of the Elastic SAN private endpoint creation page." lightbox="media/elastic-san-private-endpoint/elastic-san-private-endpoint-create.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -168,7 +173,7 @@ New-AzPrivateEndpoint @PeArguments
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-# Set variables
+# Define some variables
 RgName="<resource name>"
 EsanName="<Elastic SAN name>"
 VgName="<volume group name>"
