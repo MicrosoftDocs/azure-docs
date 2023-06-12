@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 06/06/2023
+ms.date: 06/12/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -102,31 +102,31 @@ Azure CNI Overlay has the following limitations:
 >[!NOTE]
 > You must have CLI version 2.47.0 or later to use the `--network-plugin-mode` argument. For Windows, you must have the latest aks-preview Azure CLI extension installed and can follow the instructions below.
 
-- Create a cluster with Azure CNI Overlay using the [`az aks create`][az-aks-create] command. Make sure to use the argument `--network-plugin-mode` to specify an overlay cluster. If the pod CIDR isn't specified, then AKS assigns a default space: `viz. 10.244.0.0/16`.
+Create a cluster with Azure CNI Overlay using the [`az aks create`][az-aks-create] command. Make sure to use the argument `--network-plugin-mode` to specify an overlay cluster. If the pod CIDR isn't specified, then AKS assigns a default space: `viz. 10.244.0.0/16`.
 
-    ```azurecli-interactive
-    clusterName="myOverlayCluster"
-    resourceGroup="myResourceGroup"
-    location="westcentralus"
+```azurecli-interactive
+clusterName="myOverlayCluster"
+resourceGroup="myResourceGroup"
+location="westcentralus"
 
-    az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16
-    ```
+az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16
+```
 
 ## Install the aks-preview Azure CLI extension - Windows only
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-- Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
+Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
 
-    ```azurecli
-    az extension add --name aks-preview
-    ```
+```azurecli
+az extension add --name aks-preview
+```
 
-- Update to the latest version of the extension released using the [`az extension update`][az-extension-update] command.
+Update to the latest version of the extension released using the [`az extension update`][az-extension-update] command.
 
-    ```azurecli
-    az extension update --name aks-preview
-    ```
+```azurecli
+az extension update --name aks-preview
+```
 
 ## Register the 'AzureOverlayPreview' feature flag
 
@@ -164,23 +164,23 @@ Azure CNI Overlay has the following limitations:
 
 The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately to Overlay isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
 
-- Update an existing Azure CNI cluster to use Overlay using the [`az aks update`][az-aks-update] command.
+Update an existing Azure CNI cluster to use Overlay using the [`az aks update`][az-aks-update] command.
 
-    ```azurecli-interactive
-    clusterName="myOverlayCluster"
-    resourceGroup="myResourceGroup"
-    location="westcentralus"
+```azurecli-interactive
+clusterName="myOverlayCluster"
+resourceGroup="myResourceGroup"
+location="westcentralus"
 
-    az aks update --name $clusterName \
-    --group $resourceGroup \
-    --network-plugin-mode overlay \
-    --pod-cidr 192.168.0.0/16
-    ```
+az aks update --name $clusterName \
+--group $resourceGroup \
+--network-plugin-mode overlay \
+--pod-cidr 192.168.0.0/16
+```
 
-    The `--pod-cidr` parameter is required when upgrading from legacy CNI because the pods need to get IPs from a new overlay space, which doesn't overlap with the existing node subnet. The pod CIDR also can't overlap with any VNet address of the node pools. For example, if your VNet address is *10.0.0.0/8*, and your nodes are in the subnet *10.240.0.0/16*, the `--pod-cidr` can't overlap with *10.0.0.0/8* or the existing service CIDR on the cluster.
+The `--pod-cidr` parameter is required when upgrading from legacy CNI because the pods need to get IPs from a new overlay space, which doesn't overlap with the existing node subnet. The pod CIDR also can't overlap with any VNet address of the node pools. For example, if your VNet address is *10.0.0.0/8*, and your nodes are in the subnet *10.240.0.0/16*, the `--pod-cidr` can't overlap with *10.0.0.0/8* or the existing service CIDR on the cluster.
 
-    > [!WARNING]
-    > Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build 20348.1668**.
+> [!WARNING]
+> Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build 20348.1668**.
 
 ## Next steps
 
