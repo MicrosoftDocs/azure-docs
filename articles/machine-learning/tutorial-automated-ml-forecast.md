@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.date: 06/09/2023
+ms.date: 06/12/2023
 ms.custom: automl, ignite-2022
 #Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
