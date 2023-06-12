@@ -14,7 +14,7 @@ ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
-# Delete a lifecycle workflow (preview)
+# Delete a lifecycle workflow
 
 You can remove workflows that you no longer need. Deleting these workflows helps keep your lifecycle strategy up to date.
 
@@ -30,9 +30,9 @@ The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Pr
 
 1. On the search bar near the top of the page, enter **Identity Governance**. Then select **Identity Governance** in the results.
 
-1. On the left menu, select **Lifecycle Workflows (Preview)**.
+1. On the left menu, select **Lifecycle Workflows**.
 
-1. Select **Workflows (Preview)**.
+1. Select **Workflows**.
 
 1. On the **Workflows** page, select the workflow that you want to delete. Then select **Delete**.
 
@@ -46,7 +46,7 @@ The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Pr
 
 After you delete workflows, you can view them on the **Deleted workflows** page.
 
-1. On the left pane, select **Deleted workflows (Preview)**.
+1. On the left pane, select **Deleted workflows**.
 
 1. On the **Deleted workflows** page, check the list of deleted workflows. Each workflow has a description, the date of deletion, and a permanent delete date. By default, the permanent delete date for a workflow is 30 days after it was originally deleted.
 
