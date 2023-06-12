@@ -79,13 +79,13 @@ During the preview, computed properties must be created using the .NET v3 or Jav
 |.NET SDK v3 |>= [3.34.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.34.0-preview) |Computed properties are currently only available in preview package versions. |
 |Java SDK v4 |>= [4.46.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.46.0) |Computed properties are currently under preview version. |
 
-You can either create a new container with computed properties defined, or add them to an existing container. 
-
 ### Create computed properties using the SDK
+
+You can either create a new container with computed properties defined, or add them to an existing container. 
 
 Here's an example of how to create computed properties in a new container:
 
-#### [.NET](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 ```csharp
     ContainerProperties containerProperties = new ContainerProperties("myContainer", "/pk")
@@ -103,7 +103,7 @@ Here's an example of how to create computed properties in a new container:
     Container container = await client.GetDatabase("myDatabase").CreateContainerAsync(containerProperties);
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 CosmosContainerProperties containerProperties = new CosmosContainerProperties("myContainer", "/pk");
@@ -112,11 +112,11 @@ containerProperties.setComputedProperties(computedProperties);
 client.getDatabase("myDatabase").createContainer(containerProperties);
 ```
 
-### Update computed properties using the SDK
+--- 
 
 Here's an example of how to update computed properties on an existing container:
 
-#### [.NET](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 ```csharp
     var container = client.GetDatabase("myDatabase").GetContainer("myContainer");
@@ -141,7 +141,7 @@ Here's an example of how to update computed properties on an existing container:
     await container.ReplaceContainerAsync(containerProperties);
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 CosmosContainer container = client.getDatabase("myDatabase").getContainer("myContainer");
@@ -154,6 +154,8 @@ containerProperties.setComputedProperties(modifiedComputedProperites);
 // Update container with changes
 container.replace(containerProperties);
 ```
+
+---
 
 > [!TIP]
 > Every time you update container properties, the old values are overwritten. 
