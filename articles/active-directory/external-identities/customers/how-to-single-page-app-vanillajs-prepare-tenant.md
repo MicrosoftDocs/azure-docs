@@ -14,7 +14,7 @@ ms.date: 06/09/2023
 #Customer intent: As a developer, I want to learn how to configure a vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Tutorial: Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app (SPA)
+# Tutorial: Prepare your customer tenant to authenticate a vanilla JavaScript single-page app (SPA)
 
 This tutorial series demonstrates how to build a vanilla JavaScript single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
 
