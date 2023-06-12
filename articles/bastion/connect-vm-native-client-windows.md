@@ -105,7 +105,7 @@ Verify that the following roles and ports are configured in order to connect to 
 
 ## <a name="connect-IP"></a>Connect to VM via IP Address
 
-[!INCLUDE [IP address](../../includes/bastion-ip-address.md)]
+[!INCLUDE [IP address](../../includes/bastion-native-ip-address.md)]
 
 ## Next steps
 

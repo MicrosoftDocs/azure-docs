@@ -55,7 +55,7 @@ This connection supports file upload from the local computer to the target VM. F
 
 ## <a name="connect-IP"></a>Connect to VM via IP Address
 
-[!INCLUDE [IP address](../../includes/bastion-ip-address.md)]
+[!INCLUDE [IP address](../../includes/bastion-native-ip-address.md)]
 
 ## Next steps
 

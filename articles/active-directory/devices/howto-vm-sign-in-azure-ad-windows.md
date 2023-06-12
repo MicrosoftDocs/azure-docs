@@ -263,7 +263,7 @@ To connect to the remote computer:
 > [!IMPORTANT]
 > Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the *same* directory as the VM. Additionally, to RDP by using Azure AD credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. 
 >
-> If you're using an Azure AD-registered Windows 10 or later PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, you can use Azure Bastion to log in with Azure AD authentication [via the Azure CLI and the native RDP client mstsc](../../bastion/connect-native-client-windows.md). 
+> If you're using an Azure AD-registered Windows 10 or later PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, you can use Azure Bastion to log in with Azure AD authentication [via the Azure CLI and the native RDP client mstsc](../../bastion/native-client.md). 
 
 
 To log in to your Windows Server 2019 virtual machine by using Azure AD: 
