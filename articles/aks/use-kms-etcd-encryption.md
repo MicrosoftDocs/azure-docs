@@ -354,6 +354,10 @@ Since AKS version 1.27 and above, enabling the KMS feature configures KMS V2. Wi
 ### Migration to KMS v2
 
 If your cluster version is less than 1.27 and you already enabled KMS, use the following steps to migrate to KMS V2:
+1. Disable KMS on the cluster.
+2. Perform the storage migration.
+3. Upgrade the cluster to version 1.27 or higher.
+4. Re-enable KMS on the cluster.
 
 #### Disable KMS
 
@@ -373,7 +377,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 
 #### Upgrade AKS cluster
 
-Upgrade the AKS cluster using the `az aks upgrade` command and specify your desired version `1.27.x` for `--kubernetes-version`.
+Upgrade the AKS cluster using the `az aks upgrade` command and specify your desired version as `1.27.x` or higher for `--kubernetes-version`.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version <AKS version>
