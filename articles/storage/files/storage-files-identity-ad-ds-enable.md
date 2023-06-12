@@ -189,7 +189,7 @@ Set-AzStorageAccount `
         -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
         -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>" `
         -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name>" `
-        -ActiveDirectoryAccountType "<you-domain-object-account-type, the value could be 'Computer' or 'User', for AES256 must be 'Computer'>"
+        -ActiveDirectoryAccountType "<you-domain-object-account-type, the value could be 'Computer' or 'User'>"
 ```
 
 #### Enable AES-256 encryption (recommended)
@@ -223,6 +223,9 @@ $NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
 ```
+
+> [!IMPORTANT]
+> If you were previously using RC4 encryption and update the storage account to use AES-256, you should run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
 
 ### Debugging
 

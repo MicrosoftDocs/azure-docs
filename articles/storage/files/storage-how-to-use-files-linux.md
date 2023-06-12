@@ -93,7 +93,7 @@ On other distributions, use the appropriate package manager or [compile from sou
         --name $STORAGE_ACCOUNT_NAME \
         --query "primaryEndpoints.file" --output tsv | tr -d '"')
     SMBPATH=$(echo $HTTP_ENDPOINT | cut -c7-${#HTTP_ENDPOINT})
-    FILE_HOST=$(echo $-- | tr -d "/")
+    FILE_HOST=$(echo $SMBPATH | tr -d "/")
 
     nc -zvw3 $FILE_HOST 445
     ```

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Get started with Azure Queue Storage using .NET

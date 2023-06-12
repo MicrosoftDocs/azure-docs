@@ -14,7 +14,7 @@ In this article, you learn how to use the integration of the Palo Alto Networks 
 
 With the integration of Cloud NGFW for Azure into the Azure ecosystem, we are delivering an integrated platform and empowering a growing ecosystem of developers and customers to help protect their organizations on Azure.
 
-The Palo Alto Networks offering in the Azure Marketplace allows you to manage the Cloud NGFW by Palo Alto Networks in the Azure portal as an integrated service. You can set up the Cloud NGFW by Palo Alto Networks resources through a resource provider named `PAN.NGFW`.
+The Palo Alto Networks offering in the Azure Marketplace allows you to manage the Cloud NGFW by Palo Alto Networks in the Azure portal as an integrated service. You can set up the Cloud NGFW by Palo Alto Networks resources through a resource provider named `PaloAltoNetworks.Cloudngfw`.
 
 You can create and manage Palo Alto Networks resources through the Azure portal. Palo Alto Networks owns and runs the software as a service (SaaS) application including the accounts created.
 
@@ -22,7 +22,7 @@ Here are the key capabilities provided by the Palo Alto integration:
 
 - **Seamless onboarding** of Palo Alto software as an integrated service on Azure.
 - **Unified billing** of Palo Alto through Azure monthly billing.
-- **Single-Sign on to Palo Alto** - No separate sign-up needed from NGINX portal.
+- **Single-Sign on to Palo Alto** - No separate sign-up needed from Palo Alto portal.
 - **Manage VNET and VWAN traffic** to use existing configuration (.conf) files for Palo Alto deployment.
 
 ## Pre-requisites for Cloud NGFW by Palo Alto Networks

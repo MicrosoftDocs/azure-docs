@@ -20,6 +20,6 @@ The VMware solution software versions used in new deployments of Azure VMware So
 | VMware vSAN                  |    [7.0 U3](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vmware-vsan-703-release-notes.html)   |
 | VMware vSAN on-disk format   |    [15](https://kb.vmware.com/s/article/2148493)        |
 | VMware HCX                   |    [4.5.2](https://docs.vmware.com/en/VMware-HCX/4.5/rn/vmware-hcx-45-release-notes/index.html)     |
-| VMware NSX-T Data Center <br />**NOTE:** VMware NSX-T Data Center is the only supported version of NSX Data Center.                     |    [!INCLUDE [nsxt-version](nsxt-version.md)]   |
+| VMware NSX-T Data Center <br />**NOTE:** VMware NSX-T Data Center Advanced is the only supported version of NSX Data Center.                     |    [!INCLUDE [nsxt-version](nsxt-version.md)]   |
 
 The current running software version is applied to new clusters added to an existing private cloud.

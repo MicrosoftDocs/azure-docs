@@ -95,13 +95,13 @@ To enable Windows LAPS with Azure AD, you must take actions in Azure AD and the 
 
 ## Recovering local administrator password and password metadata
 
-To view the local administrator password for a Windows device joined to Azure AD, you must be granted the *deviceLocalCredentials.Read.All* permission.
+To view the local administrator password for a Windows device joined to Azure AD, you must be granted the *microsoft.directory/deviceLocalCredentials/password/read* action.
 
-To view the local administrator password metadata for a Windows device joined to Azure AD,  you must be granted the *deviceLocalCredentials.Read* permission.
+To view the local administrator password metadata for a Windows device joined to Azure AD,  you must be granted the *microsoft.directory/deviceLocalCredentials/standard/read* action.
 
-The following built-in roles are granted these permissions by default:
+The following built-in roles are granted these actions by default:
 
-|Built-in role|DeviceLocalCredential.Read.All|DeviceLocalCredential.Read|
+|Built-in role|microsoft.directory/deviceLocalCredentials/standard/read and microsoft.directory/deviceLocalCredentials/password/read|microsoft.directory/deviceLocalCredentials/standard/read|
 |---|---|---|
 |[Global Administrator](../roles/permissions-reference.md#global-administrator)|Yes|Yes|
 |[Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator)|Yes|Yes|
@@ -111,7 +111,7 @@ The following built-in roles are granted these permissions by default:
 |[Security Administrator](../roles/permissions-reference.md#security-administrator)|No|Yes|
 |[Security Reader](../roles/permissions-reference.md#security-reader)|No|Yes|
 
-Any roles not listed are granted neither permission.
+Any roles not listed are granted neither action.
 
 You can also use Microsoft Graph API [Get deviceLocalCredentialInfo](/graph/api/devicelocalcredentialinfo-get?view=graph-rest-beta&preserve-view=true) to recover local administrative password. If you use the Microsoft Graph API, the password returned is in Base64 encoded value that you need to decode before using it.
 

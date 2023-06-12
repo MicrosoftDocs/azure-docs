@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Azure IoT Digital Distribution Center | Microsoft Docs
+title: Tutorial - Azure IoT Digital Distribution Center
 description: This tutorial shows you how to deploy and use the digital distribution center application template for IoT Central
 author: dominicbetts
 ms.author: dobett

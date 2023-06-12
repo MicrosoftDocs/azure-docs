@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 05/15/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -31,7 +31,7 @@ Azure OpenAI provides two methods for authentication. you can use  either API Ke
 The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure. For example:
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15
 ```
 
 ## Completions
@@ -56,12 +56,14 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 - `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2022-12-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json)
+- `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
+- `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
 
 **Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| ```prompt``` | string or array | Optional | ```<\|endoftext\|>``` | The prompt(s) to generate completions for, encoded as a string, a list of strings, or a list of token lists. Note that ```<\|endoftext\|>``` is the document separator that the model sees during training, so if a prompt isn't specified the model will generate as if from the beginning of a new document. |
+| ```prompt``` | string or array | Optional | ```<\|endoftext\|>``` | The prompt(s) to generate completions for, encoded as a string, or array of strings. Note that ```<\|endoftext\|>``` is the document separator that the model sees during training, so if a prompt isn't specified the model will generate as if from the beginning of a new document. |
 | ```max_tokens``` | integer | Optional | 16 | The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens can't exceed the model's context length. Most models have a context length of 2048 tokens (except for the newest models, which support 4096). |
 | ```temperature``` | number | Optional | 1 | What sampling temperature to use, between 0 and 2. Higher values means the model will take more risks. Try 0.9 for more creative applications, and 0 (`argmax sampling`) for ones with a well-defined answer. We generally recommend altering this or top_p but not both. |
 | ```top_p``` | number | Optional | 1 | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both. |
@@ -80,7 +82,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15\
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d "{
@@ -134,6 +136,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 - `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2022-12-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json)
+- `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
 
 **Request body**
 
@@ -145,7 +148,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-12-01 \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15 \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d "{\"input\": \"The food was delicious and the waiter...\"}"
@@ -174,7 +177,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 
 ## Chat completions
 
-Create completions for chat messages with the ChatGPT (preview) and GPT-4 (preview) models. Chat completions are currently only available with `api-version=2023-03-15-preview`.
+Create completions for chat messages with the ChatGPT  and GPT-4  models. 
 
 **Create chat completions**
 
@@ -193,11 +196,13 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 **Supported versions**
 
 - `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
+- `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
+- `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
 
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2023-03-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2023-05-15 \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure Cognitive Services support this too?"}]}'
@@ -233,6 +238,145 @@ Output formatting adjusted for ease of reading, actual output is a single block 
 | ```frequency_penalty``` | number | Optional | 0 | Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.|
 | ```logit_bias``` | object | Optional | null | Modify the likelihood of specified tokens appearing in the completion. Accepts a json object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.|
 | ```user``` | string | Optional | | A unique identifier representing your end-user, which can help Azure OpenAI to monitor and detect abuse.|
+
+
+
+## Image generation
+
+### Request a generated image
+
+Generate a batch of images from a text caption. Image generation is currently only available with `api-version=2023-06-01-preview`.
+
+```http
+POST https://{your-resource-name}.openai.azure.com/openai/images/generations:submit?api-version={api-version}
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+
+**Supported versions**
+
+- `2023-06-01-preview`
+
+**Request body**
+
+| Parameter | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| ```prompt``` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
+| ```n``` | integer | Optional | 1 | The number of images to generate. Must be between 1 and 5. |
+| ```size``` | string | Optional | 1024x1024 | The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`. |
+
+#### Example request
+
+```console
+curl -X POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/images/generations:submit?api-version=2023-06-01-preview \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d '{
+"prompt": "An avocado chair",
+"size": "512x512",
+"n": 3
+}'
+```
+
+#### Example response
+
+The operation returns a `202` status code and an `GenerateImagesResponse` JSON object containing the ID and status of the operation.
+
+```json
+{
+  "id": "f508bcf2-e651-4b4b-85a7-58ad77981ffa",
+  "status": "notRunning"
+}
+```
+
+### Get a generated image result
+
+
+Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-06-01-preview`.
+
+```http
+GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version={api-version}
+```
+
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```operation-id``` | string |  Required | The GUID that identifies the original image generation request. |
+
+**Supported versions**
+
+- `2023-06-01-preview`
+
+#### Example request
+
+```console
+curl -X GET "https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
+-H "Content-Type: application/json"
+-H "Api-Key: {api key}"
+```
+
+#### Example response
+
+Upon success the operation returns a `200` status code and an `OperationResponse` JSON object. The `status` field can be `"notRunning"` (task is queued but hasn't started yet), `"running"`, `"succeeded"`, `"canceled"` (task has timed out), `"failed"`, or `"deleted"`. A `succeeded` status indicates that the generated image is available for download at the given URL. If multiple images were generated, their URLs are all returned in the `result.data` field.
+
+```json
+{
+  "created": 1685064331,
+  "expires": 1685150737,
+  "id": "4b755937-3173-4b49-bf3f-da6702a3971a",
+  "result": {
+    "data": [
+      {
+        "url": "<URL_TO_IMAGE>"
+      },
+      {
+        "url": "<URL_TO_NEXT_IMAGE>"
+      },
+      ...
+    ]
+  },
+  "status": "succeeded"
+}
+```
+
+### Delete a generated image from the server
+
+You can use the operation ID returned by the request to delete the corresponding image from the Azure server. Generated images are automatically deleted after 24 hours by default, but you can trigger the deletion earlier if you want to.
+
+```http
+DELETE https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version={api-version}
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```operation-id``` | string |  Required | The GUID that identifies the original image generation request. |
+
+**Supported versions**
+
+- `2023-06-01-preview`
+
+#### Example request
+
+```console
+curl -X DELETE "https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
+-H "Content-Type: application/json"
+-H "Api-Key: {api key}"
+```
+
+#### Response
+
+The operation returns a `204` status code if successful. This API only succeeds if the operation is in an end state (not `running`).
 
 ## Management APIs
 

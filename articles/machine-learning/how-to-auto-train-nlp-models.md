@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.reviewer: ssalgado
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023, build-2023-dataai, devx-track-python
 ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
@@ -17,9 +17,6 @@ ms.date: 03/15/2022
 # Set up AutoML to train a natural language processing model 
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
-> * [v1](./v1/how-to-auto-train-nlp-models-v1.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-auto-train-nlp-models.md)
  
 
 In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in Azure Machine Learning. You can create NLP models with automated ML via the Azure Machine Learning Python SDK v2 or the Azure Machine Learning CLI v2. 

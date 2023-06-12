@@ -33,7 +33,7 @@ The workflow will work in the following way:
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 * This example assumes that your batch deployment runs in a compute cluster called `cpu-cluster`.
-* The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](how-to-deploy-batch-with-rest.md). 
+* The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md?tabs=rest). 
 
 ## Authenticating against batch endpoints
 

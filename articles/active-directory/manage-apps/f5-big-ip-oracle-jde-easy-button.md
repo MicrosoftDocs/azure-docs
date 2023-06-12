@@ -28,7 +28,7 @@ Integrate BIG-IP with Azure AD for many benefits:
 
 Learn more: 
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description

@@ -97,7 +97,7 @@ For this step you need to be a Global Admin or you need to have the User Access 
 3. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
   ```azurecli
   $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
-  az keyvault set-policy --name $KeyVault --object-id $cvmAgent.objectId --key-permissions get release
+  az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
   ```
 4. Create a key in the key vault using [az keyvault key create](/cli/azure/keyvault). For the key type, use RSA-HSM.
   ```azurecli-interactive

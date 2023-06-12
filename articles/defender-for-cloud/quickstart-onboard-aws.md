@@ -131,7 +131,7 @@ The native cloud connector requires:
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-environment-settings.png" alt-text="Connecting an AWS account to an Azure subscription.":::
 
-1. Enter the details of the AWS account, including the location where you'll store the connector resource. You can also scan specific AWS regions or all available regions (default).
+1. Enter the details of the AWS account, including the location where you'll store the connector resource. You can also scan specific AWS regions or all available regions (default) on AWS public cloud.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Step 1 of the add AWS account wizard: Enter the account details.":::
 

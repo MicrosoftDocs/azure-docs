@@ -139,5 +139,5 @@ To delete a source server from the Azure portal, use the following steps:
 ## Next steps
 
 - Learn more about [read replicas](concepts-read-replicas.md)
-- You can also monitor the replication latency by following the steps mentioned [here](../single-server/how-to-troubleshoot-replication-latency.md#monitoring-replication-latency).
-- To troubleshoot high replication latency observed in Metrics, visit the [link](../single-server/how-to-troubleshoot-replication-latency.md#common-scenarios-for-high-replication-latency).
+- You can also monitor the replication latency by following the steps mentioned [here](../how-to-troubleshoot-replication-latency.md).
+- To troubleshoot high replication latency observed in Metrics, visit the [link](../how-to-troubleshoot-replication-latency.md#common-scenarios-for-high-replication-latency).

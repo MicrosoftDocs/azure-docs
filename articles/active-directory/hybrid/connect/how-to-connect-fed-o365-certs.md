@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 For successful federation between Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS), the certificates used by AD FS to sign security tokens to Azure AD should match what is configured in Azure AD. Any mismatch can lead to broken trust. Azure AD ensures that this information is kept in sync when you deploy AD FS and Web Application Proxy (for extranet access).
 
 > [!NOTE]
-> This article provides information on manging your federation cerficates.  For infromation on emergency rotation see [Emergency Rotation of the AD FS certificates](how-to-connect-emergency-ad-fs-certificate-rotation.md)
+> This article provides information on manging your federation cerficates.  For information on emergency rotation see [Emergency Rotation of the AD FS certificates](how-to-connect-emergency-ad-fs-certificate-rotation.md)
 
 This article provides you additional information to manage your token signing certificates and keep them in sync with Azure AD, in the following cases:
 

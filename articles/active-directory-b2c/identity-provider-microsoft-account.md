@@ -40,7 +40,7 @@ To enable sign-in for users with a Microsoft account in Azure Active Directory B
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. For example, *MSAapp1*.
-1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
+1. Under **Supported account types**, select **personal Microsoft accounts (e.g. Skype, Xbox)**.
 
    For more information on the different account type selections, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 1. Under **Redirect URI (optional)**, select **Web** and enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant, and `your-domain-name` with your custom domain.

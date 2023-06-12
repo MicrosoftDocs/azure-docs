@@ -52,10 +52,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. For **Security Type**, select **Confidential virtual machines**.
 
-    1. For **Image**, select the OS image to use for your VM. For this tutorial, select **Ubuntu Server 20.04 LTS (Confidential VM)**, **Windows Server 2019 [Small disk] Data Center**, or **Windows Server 2022 [Small disk] Data Center**.
-
-        > [!TIP]
-        > Optionally, select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
+    1. For **Image**, select the OS image to use for your VM. Select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
 
     1. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 

@@ -6,7 +6,7 @@ author: mcleanbyron
 ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
-ms.custom: quickstart, mode-other
+ms.custom: quickstart, mode-other, devx-track-js
 ms.date: 03/20/2023
 ms.author: mcleans
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.

@@ -25,7 +25,7 @@ In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD)
 
 Learn more: 
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md).
 
 ## Scenario description
@@ -223,7 +223,7 @@ Learn more: [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos au
 
 The **Additional User Attributes** tab supports distributed systems requiring attributes stored in other directories, for session augmentation. Thus, attributes from an LDAP source are injected as more SSO headers to control role-based access, Partner IDs, etc.
 
-   ![Screenshot of the Addtional User Attributes tab.](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
+   ![Screenshot of the Additional User Attributes tab.](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
 
    >[!NOTE] 
    >This feature has no correlation to Azure AD but is another attribute source.

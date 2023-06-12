@@ -9,9 +9,8 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/18/2023
-ms.custom: data4ml
-
+ms.date: 05/25/2023
+ms.custom: data4ml, devx-track-python
 # Customer intent: As an experienced data scientist with Python skills, I have data located in external sources outside of Azure. I need to make that data available to the Azure Machine Learning platform, to train my machine learning models.
 ---
 
@@ -143,7 +142,7 @@ This YAML script creates an Azure SQL DB connection. Be sure to update the appro
 # my_sqldb_connection.yaml
 $schema: http://azureml/sdk-2-0/Connection.json
 
-type: azuresqldb
+type: azure_sql_db
 name: my_sqldb_connection
 
 target: Server=tcp:<myservername>,<port>;Database=<mydatabase>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30
@@ -271,3 +270,4 @@ ml_client.connections.create_or_update(workspace_connection=wps_connection)
 ## Next steps
 
 - [Import data assets](how-to-import-data-assets.md)
+- [Import data assets on a schedule](reference-yaml-schedule-data-import.md)

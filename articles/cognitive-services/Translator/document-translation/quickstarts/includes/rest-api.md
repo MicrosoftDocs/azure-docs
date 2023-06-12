@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 03/17/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -28,8 +28,8 @@ If you don't have cURL installed, here are links for your platform:
 * [Windows](https://curl.haxx.se/windows/).
 * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows).
 
-> [!div class="nextstepaction"]
-> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment) -->
 
 ## Translate documents (POST Request)
 
@@ -69,13 +69,13 @@ Before you run the **POST** request, replace `{your-source-container-SAS-URL}` a
 ***PowerShell***
 
 ```powershell
-cmd /c curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+cmd /c curl "{your-document-translator-endpoint}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
 ```
 
 ***command prompt / terminal***
 
 ```curl
-curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+curl "{your-document-translator-endpoint}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
 ```
 
 Upon successful completion: 
@@ -84,5 +84,5 @@ Upon successful completion:
 * The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-> [!div class="nextstepaction"]
-> [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+<!-- > [!div class="nextstepaction"]
+> [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents) -->

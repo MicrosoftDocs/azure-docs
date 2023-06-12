@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: overview
 ms.date: 02/28/2023
-ms.custom: mvc, ignite-2022
+ms.custom: mvc, ignite-2022, build-2023, build-2023-dataai
 recommendations: false
 ---
 
