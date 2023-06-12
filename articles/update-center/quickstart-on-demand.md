@@ -27,7 +27,7 @@ This quickstart details you how to perform manual assessment and apply updates o
 
 1. Select **Get started** > **On-demand assessment and updates**, select **Check for updates**.
 
-   :::image type="content" source="./media/quickstart-on-demand/quickstart-check-updates.png" alt-text="Screenshot of accessing check for updates":::
+   :::image type="content" source="./media/quickstart-on-demand/quickstart-check-updates.png" alt-text="Screenshot of accessing check for updates.":::
 
     In the **Select resources and check for updates**, a table lists all the machines in the specific Azure subscription.
 
