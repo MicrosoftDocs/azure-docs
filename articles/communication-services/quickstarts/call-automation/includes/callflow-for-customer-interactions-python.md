@@ -1,15 +1,15 @@
 ---
 title: include file
-description: Provides a quickstart on how to use Call Automation C# SDK to build call flow for customer interactions.
+description: Provides a quickstart on how to use Call Automation Python SDK to build call flow for customer interactions.
 services: azure-communication-services
-author: ashwinder
+author: richardcho
 
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 09/06/2022
+ms.date: 06/09/2023
 ms.topic: include
 ms.custom: include file
-ms.author: askaur
+ms.author: richardcho
 ---
 
 ## Sample code
@@ -20,143 +20,148 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 - An Azure account with an active subscription.
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the resource connection string for this quickstart by navigating to your resource selecting 'Keys' from the left side menu.
-- [Acquire a phone number for your Communication Service resource](../../telephony/get-phone-number.md?pivots=programming-language-csharp) or connect your carrier using [Azure direct routing](../../../concepts/telephony/direct-routing-infrastructure.md). Note the phone number you acquired or provisioned using Azure direct routing for use in this quickstart. 
-- The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. .NET 6.0 or higher is recommended as this quickstart uses the minimal API feature.
-- The latest version of Visual Studio 2022 (17.4.0 or higher)
-- An audio file for the message you want to play in the call. This audio should be accessible via a url. 
+- [Acquire a phone number for your Communication Service resource](../../telephony/get-phone-number.md?pivots=programming-language-csharp) or connect your carrier using [Azure direct routing](../../../concepts/telephony/direct-routing-infrastructure.md). Note the phone number you acquired or provisioned using Azure direct routing for use in this quickstart.
+- [Python 3](https://www.python.org/downloads/) installed on your operating system. It's also recommended to setup a [virtual environment](https://docs.python.org/3/library/venv.html). We will run the application in the virtual environment for the sample below.
+- An audio file for the message you want to play in the call. This audio should be accessible via a url.
 
-## Create a new C# application
+## Create a new python application
 
-In the console window of your operating system, use the `dotnet` command to create a new web application.
+Create a new web application and setup the virtual environment.
+
 ```console
-    dotnet new web -n MyApplication
+mkdir <python_project_directory> && \
+python -m venv <python_project_directory>
 ```
+
+Create a new python file `app.py`.
 
 ## Install required packages
 
-1. Configure NuGet Package Manager to use dev feed: During the preview phase, the CallAutomation package is published to the dev feed. Configure your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+Install the following dependencies to your project. We will use [flask](https://pypi.org/project/Flask/) to create the web application.
 
-2. Install the NuGet packages: [Azure.Communication.CallAutomation](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/versions/) and [Azure.Messaging.EventGrid](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Messaging.EventGrid/versions/) to your project. 
-```console 
-dotnet add <path-to-project> package Azure.Communication.CallAutomation --prerelease
-dotnet add <path-to-project> package Azure.Messaging.EventGrid
+```console
+python -m pip install flask azure-communication-callautomation azure-eventgrid
 ```
-## Use Visual Studio Dev Tunnels for your webhook
 
-In this quick-start, you'll use the new [Visual Studio Dev Tunnels](/connectors/custom-connectors/port-tunneling) feature to obtain a public domain name so that your local application is reachable by the Call Automation platform on the Internet. The public name is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
+## Set up a public URI for the local application
 
-Note by default the dev tunnels are disabled in Visual Studio. To enable dev tunnels, please go to Tools, than Options and enable dev tunnels in Preview Features menu.
+n this quick-start, we'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-If you haven't already configured your workstation, be sure to follow the steps in [this guide](/connectors/custom-connectors/port-tunneling). Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
+First, decide the port for your application. `5000` is the default endpoint of a flask app.
 
-Set up your Event Grid subscription to receive the `IncomingCall` event by reading [this guide](../../../concepts/call-automation/incoming-call-notification.md).
+Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
-## Update Program.cs
-
-Using the minimal API feature in .NET 6, we can easily add an HTTP POST map and answer the call. A callback URI is required so the service knows how to contact your application for subsequent calls state events such as `CallConnected` and `PlayCompleted`.  
+## Handle incoming calls
 
 In this code snippet, /api/incomingCall is the default route that will be used to listen for and answer incoming calls. At a later step, you'll register this url with Event Grid. Since Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint, the code sample also handles this one time validation by processing SubscriptionValidationEvent. This requirement prevents a malicious user from flooding your endpoint with events. For more information, see this [guide](../../../../event-grid/webhook-event-delivery.md).  
 
 The code sample also illustrates how you can control the callback URI by setting your own context/ID when you answer the call. All events generated by the call will be sent to the specific route you provide when answering an inbound call and the same applies to when you place an outbound call.  
 
-``` csharp
-using Azure.Communication;
-using Azure.Communication.CallAutomation;
-using Azure.Messaging;
-using Azure.Messaging.EventGrid;
-using Azure.Messaging.EventGrid.SystemEvents;
-using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Nodes;
+Add the following snippet to `app.py`
 
-var builder = WebApplication.CreateBuilder(args);
+```python
+from flask import Flask, request, make_response, jsonify
+from azure.communication.callautomation import (
+    CallAutomationClient,
+    identifier_from_raw_id,
+    FileSource,
+    DtmfTone,
+    CallInvite,
+    PhoneNumberIdentifier,
+)
 
-var client = new CallAutomationClient("<resource_connection_string"); //noted from pre-requisite step
-var tunnelUrl = builder.Configuration["VS_TUNNEL_URL"]; // Visual Studio Dev Tunnel's dynamic FQDN
-var mediaFileSource = new Uri("<link_to_media_file>"); //This URL should be public accessible and the file format should be WAV, 16KHz, Mono.
-var applicationPhoneNumber = "<phone_number_acquired_as_prerequisite>";
-var phoneNumberToAddToCall = "<phone_number_to_add_to_call>"; //in E.164 format starting +...
+app = Flask(__name__)
 
-Console.WriteLine($"Tunnel URL:{builder.Configuration["VS_TUNNEL_URL"]}"); // echo Tunnel URL to screen to configure Event Grid webhook
+public_uri = "<ngrokPublicUrl>"
+connection_string = "<connectionStringOfCommunicationResource>"
+media_url = "<linkToMediaFile>"
+phoneNumber_to_call = "<phoneNumberToCall>"  # in E.164 format
+application_phone_number = "<phoneNumberAcquiredAsPrerequisite>"
+call_automation_client = CallAutomationClient.from_connection_string(connection_string)
 
-var app = builder.Build();
 
-app.MapPost("/api/incomingCall", async (
-    [FromBody] EventGridEvent[] eventGridEvents) =>
-{
-    foreach (var eventGridEvent in eventGridEvents)
-    {
-        if (eventGridEvent.TryGetSystemEventData(out object eventData))
-        {
-            // Handle the webhook subscription validation event.
-            if (eventData is SubscriptionValidationEventData subscriptionValidationEventData)
-            {
-                var responseData = new SubscriptionValidationResponse
-                {
-                    ValidationResponse = subscriptionValidationEventData.ValidationCode
-                };
-                return Results.Ok(responseData);
-            }
-        }
-        var jsonObject = JsonNode.Parse(eventGridEvent.Data).AsObject();
-        var callerId = (string)(jsonObject["from"]["rawId"]);
-        var incomingCallContext = (string)jsonObject["incomingCallContext"];
-        var callbackUri = new Uri(tunnelUrl + $"api/calls/{Guid.NewGuid()}?callerId={callerId}");
+@app.route("/api/incomingCall", methods=["POST"])
+def handle_incoming_call():
+    try:
+        for event_grid_event in request.get_json():
+            if (
+                event_grid_event["eventType"]
+                == "Microsoft.EventGrid.SubscriptionValidationEvent"
+            ):
+                validation_response = {
+                    "validationResponse": event_grid_event["data"]["validationCode"],
+                    "status": 200,
+                }
+                response = make_response(jsonify(validation_response))
 
-        AnswerCallResult answerCallResult = await client.AnswerCallAsync(incomingCallContext, callbackUri);
-    }
-    return Results.Ok();
-});
+                return response
 
-app.MapPost("/api/calls/{contextId}", async (
-    [FromBody] CloudEvent[] cloudEvents,
-    [FromRoute] string contextId,
-    [Required] string callerId) =>
-{
-    foreach (var cloudEvent in cloudEvents)
-    {
-        CallAutomationEventBase @event = CallAutomationEventParser.Parse(cloudEvent);
-        if (@event is CallConnected)
-        {
-            // play audio then recognize 3-digit DTMF input with pound (#) stop tone
-            var recognizeOptions =
-                new CallMediaRecognizeDtmfOptions(CommunicationIdentifier.FromRawId(callerId), 3)
-                {
-                    InterruptPrompt = true,
-                    InterToneTimeout = TimeSpan.FromSeconds(10),
-                    InitialSilenceTimeout = TimeSpan.FromSeconds(5),
-                    Prompt = new FileSource(mediaFileSource),
-                    StopTones = new[] { DtmfTone.Pound },
-                    OperationContext = "MainMenu"
-                };
-            await client.GetCallConnection(@event.CallConnectionId)
-                .GetCallMedia()
-                .StartRecognizingAsync(recognizeOptions);
-        }
-        if (@event is RecognizeCompleted { OperationContext: "MainMenu" })
-        {
-            // this RecognizeCompleted correlates to the previous action as per the OperationContext value
-            var addThisPerson = new PhoneNumberIdentifier(phoneNumberToAddToCall); 
-            var listOfPersonToBeAdded = new List<CommunicationIdentifier>(); 
-            listOfPersonToBeAdded.Add(addThisPerson); 
-            var addParticipantsOption = new AddParticipantsOptions(listOfPersonToBeAdded); 
-            addParticipantsOption.SourceCallerId = new PhoneNumberIdentifier(applicationPhoneNumber);
-            AddParticipantsResult result = await client.GetCallConnection(@event.CallConnectionId).AddParticipantsAsync(addParticipantsOption);
-        }
-    }
-    return Results.Ok();
-}).Produces(StatusCodes.Status200OK);
+            if event_grid_event["eventType"] == "Microsoft.Communication.IncomingCall":
+                call_automation_client.answer_call(
+                    incoming_call_context=event_grid_event["data"][
+                        "incomingCallContext"
+                    ],
+                    callback_url="%s/api/calls?callerId=%s"
+                    % (public_uri, event_grid_event["data"]["from"]["rawId"]),
+                )
 
-app.Run();
+        return "", 200
+    except Exception as e:
+        return e, 500
+
+
+@app.route("/api/calls", methods=["POST"])
+def handle_callback_events():
+    print(request.get_json())
+    try:
+        for callback_event in request.get_json():
+            call_connection_id = callback_event["data"]["callConnectionId"]
+            call_connection_client = call_automation_client.get_call_connection(
+                call_connection_id
+            )
+
+            if callback_event["type"] == "Microsoft.Communication.CallConnected":
+                raw_id = request.args.get("callerId")
+
+                call_connection_client.start_recognizing_media(
+                    target_participant=identifier_from_raw_id(raw_id),
+                    initial_silence_timeout=5,
+                    play_prompt=FileSource(media_url),
+                    operation_context="MainMenu",
+                    interrupt_prompt=True,
+                    dtmf_inter_tone_timeout=10,
+                    dtmf_max_tones_to_collect=3,
+                    dtmf_stop_tones=[DtmfTone.POUND],
+                )
+
+            if callback_event["type"] == "Microsoft.Communication.RecognizeCompleted":
+                call_invite = CallInvite(
+                    target=PhoneNumberIdentifier(phoneNumber_to_call),
+                    source_caller_id_number=PhoneNumberIdentifier(
+                        application_phone_number
+                    ),
+                )
+                call_connection_client.add_participant(call_invite)
+
+        return "", 200
+    except Exception as e:
+        return e, 500
+
+
+if __name__ == "__main__":
+    app.run()
 ```
-Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](/aspnet/core/security/app-secrets) for storing sensitive information.
- 
+
+Replace the placeholders with the actual values. In your production code, we recommend using [Secret Manager](/aspnet/core/security/app-secrets) for storing sensitive information.
+
 ## Run the app
 
-Within Visual Studio select the Run button or press F5 on your keyboard. You should have a dynamic FQDN echoed to the screen as per the above `Console.WriteLine()` command above. Use this FQDN to now configure your Event Grid webhook subscription to receive the inbound call.
+```console
+python app.py
+```
 
 ## Configure Event Grid webhook subscription
 
-In order to receive the `IncomingCall` event for the inbound PSTN call, you must configure an Event Grid subscription as described in this [concepts guide](../../../concepts/call-automation/incoming-call-notification.md). The most important thing to remember is that an Event Grid webhook subscription must be validated against a working web server. Since you've started the project in the previous step, and you have a public FQDN, set the webhook address in your subscription to the Dev Tunnel obtained by Visual Studio plus the path to your POST endpoint (i.e. `https://<dev_tunnel_fqdn>/api/incomingCall`).
+In order to receive the `IncomingCall` event for the inbound PSTN call, you must configure an Event Grid subscription as described in this [concepts guide](../../../concepts/call-automation/incoming-call-notification.md). The most important thing to remember is that an Event Grid webhook subscription must be validated against a working web server. Since you've started the project in the previous step, and you have a public FQDN, set the webhook address in your subscription to your POST endpoint (i.e. `https://<ngrokPublicUrl>/api/incomingCall`).
 
 Once your webhook subscription has been validated, it will show up in the portal and you're now ready to test your application by making an inbound call.
