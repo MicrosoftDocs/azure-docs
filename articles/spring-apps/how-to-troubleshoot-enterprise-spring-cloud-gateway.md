@@ -37,7 +37,7 @@ You must turn on System Logs and send to your Log Analytics before query logs fo
 
 1. Open your Azure Spring Apps instance.
 1. Select **Diagnostics settings** in the navigation pane.
-1. Select **Add diagnostic setting** or click "Edit setting" for an existed one.
+1. Select **Add diagnostic setting** or select "Edit setting" for an existed one.
 1. In the **Logs** section, check "System Logs" category.
 1. In the **Destination details** section, check "Send to Log Analytics workspace", and choose yours accordingly.
 1. Select **Save** to update the setting.
