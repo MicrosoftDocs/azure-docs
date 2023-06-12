@@ -1,12 +1,12 @@
 ---
 title: Enable automatic HTTPS with Caddy as a sidecar container
 description: This guide describes how Caddy can be used as a reverse proxy to enhance your application with automatic HTTPS
-author: matthiasguentert
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: container-instances
 services: container-instances
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 04/06/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
+ms.date: 06/12/2023
 ---
 
 # Enable automatic HTTPS with Caddy in a sidecar container
@@ -33,7 +33,7 @@ The example mounts the [Caddyfile](https://caddyserver.com/docs/caddyfile), whic
 - 
 ## Prepare the Caddyfile
 
-Create a file called `Caddyfile` and paste the configuration below. This will create a simple reverse proxy configuration, pointing to your application container listening on 5000/TCP. 
+Create a file called `Caddyfile` and paste the following configuration. This configuration creates a reverse proxy configuration, pointing to your application container listening on 5000/TCP. 
 
 ```console
 my-app.westeurope.azurecontainer.io {
@@ -89,9 +89,9 @@ az storage account keys list -g <resource-group> -n <storage-account>
 
 ### Create YAML file
 
-Create a file called e.g., `ci-my-app.yaml` and paste the content below. Ensure to replace `<account-key>` with one of the access keys previously received and `<storage-account>` accordingly. 
+Create a file called `ci-my-app.yaml` and paste the following content. Ensure to replace `<account-key>` with one of the access keys previously received and `<storage-account>` accordingly. 
 
-This YAML file defines two containers `reverse-proxy` and `my-app`. Whereas the `reverse-proxy` container mounts the three previously created file shares. Further, the configuration exposes port 80/TCP and 443/TCP of the `reverse-proxy` container. The communication between both containers happens on localhost only. 
+This YAML file defines two containers `reverse-proxy` and `my-app`. The `reverse-proxy` container mounts the three previously created file shares. The configuration also exposes port 80/TCP and 443/TCP of the `reverse-proxy` container. The communication between both containers happens on localhost only. 
 
 >[!NOTE]
 > It's important to note, that the `dnsNameLabel` key, defines the public DNS name, under which the container instance group will be reachable, it needs to match the FQDN defined in the `Caddyfile`
@@ -195,7 +195,7 @@ Before verifying if everything went well, give the container group some time to 
 
 #### OpenSSL
 
-We can use the `s_client` sub-command of OpenSSL for that purpose. 
+We can use the `s_client` subcommand of OpenSSL for that purpose. 
 
 ```bash
 echo "Q" | openssl s_client -connect my-app.westeurope.azurecontainer.io:443
@@ -299,7 +299,7 @@ Navigate to https://my-app.westeurope.azurecontainer.io and verify the certifica
 
 :::image type="content" source="media/container-instances-container-group-automatic-ssl/my-app-1.png" alt-text="Certificate validation":::
 
-To see the certicicate details, click on "Connection is secure" followed by "certificate is valid".
+To see the certificate details, click on "Connection is secure" followed by "certificate is valid".
 
 :::image type="content" source="media/container-instances-container-group-automatic-ssl/my-app-2.png" alt-text="Certificate issued by Let's Encrypt":::
 
