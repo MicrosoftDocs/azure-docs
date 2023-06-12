@@ -13,7 +13,9 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## Prepare the Spring project
+## 2. Prepare the Spring project
+
+First we need to prepare the Spring project to run locally. 
 
 #### [Azure portal](#tab/Azure-portal)
 
@@ -73,17 +75,17 @@ Use AZD to initialize the web application from the Azure Developer CLI templates
 
 ---
 
-## Prepare the cloud environment
+## 3. Prepare the cloud environment
 
 The main resources required to run this sample are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. This section provides the steps to create these resources.
 
 #### [Azure portal](#tab/Azure-portal)
 
-### Sign in to the Azure portal
+### 3.1. Sign in to the Azure portal
 
 Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-### Create an Azure Spring Apps instance
+### 3.2. Create an Azure Spring Apps instance
 
 1. Select **Create a resource (+)** in the upper-left corner of the portal.
 
@@ -110,11 +112,11 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/3-asa-notifications.png" alt-text="The Notifications pane":::
 
-### Prepare the PostgreSQL instance
+### 3.3. Prepare the PostgreSQL instance
 
 [!INCLUDE [provision-psql-flexible](./provision-psql.md)]
 
-### Connect app instance to PostgreSQL instance
+### 3.4. Connect app instance to PostgreSQL instance
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
@@ -182,7 +184,9 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 ---
 
-## Deploy the app to Azure Spring Apps
+## 4. Deploy the app to Azure Spring Apps
+
+Now we can deploy the app to Azure Spring Apps. 
 
 #### [Azure portal](#tab/Azure-portal)
 
