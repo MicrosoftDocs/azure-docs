@@ -288,7 +288,7 @@ For **v2.x+** of the Storage extension, modify the `host.json` setting `batchSiz
 ```
 
 > [!NOTE]
-> **Scale efficiency:** For the storage queue extension, messages with [visibilityTimeout](https://learn.microsoft.com/rest/api/storageservices/put-message#uri-parameters) are still counted in _event source length_ by the Storage Queue APIs. This can cause overscaling of your function app. Consider using Service Bus queues que scheduled messages, [limiting scale out](event-driven-scaling#limit-scale-out), or not using visibilityTimeout for your solution.
+> **Scale efficiency:** For the storage queue extension, messages with [visibilityTimeout](/rest/api/storageservices/put-message#uri-parameters) are still counted in _event source length_ by the Storage Queue APIs. This can cause overscaling of your function app. Consider using Service Bus queues que scheduled messages, [limiting scale out](event-driven-scaling#limit-scale-out), or not using visibilityTimeout for your solution.
 
 
 ### Azure Cosmos DB
