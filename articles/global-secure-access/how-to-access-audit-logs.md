@@ -58,3 +58,4 @@ Audit log data is only kept for 30 days by default, which may not be long enough
 ## Next steps
 
 - [View network traffic logs](how-to-view-traffic-logs.md)
+- [Access the enriched Microsoft 365 logs](how-to-view-enriched-logs.md)

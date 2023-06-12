@@ -19,8 +19,8 @@ sections:
       - question: | 
           What features are part of Microsoft Entra Private Access and Microsoft Entra Internet Access?
         answer: |
-          Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access.
-          To learn more about specific features in each product, see [What is Global Secure Access?](overview-what-is-global-secure-access.md).
+          Global Secure Access (preview) includes Microsoft Entra Private Access and Microsoft Entra Internet Access.
+          To learn more about specific features in each product, see the [Global Secure Access overview](overview-what-is-global-secure-access.md).
       - question: | 
           Does Global Secure Access allow B2B logins?
         answer: |
@@ -29,12 +29,23 @@ sections:
           Does Global Secure Access support IPv6?
         answer: |
           At this time, only IPv4 is supported.
-  - name: Remote network connectivity
+  - name: Applications
     questions:
         - question: |
-            What happens if a client is installed on a device and a remote network is connected too?
+             I was prompted for admin consent when trying to access private resources using Private Access. What should I do?
           answer: |
-            TBD      
+            1. Add Global Administrator to the Quick Access app.
+            2. When prompted for administrator consent, sign-in as Global Administrator and accept the consent.
+            3. Select the Consent for my entire org checkbox.
+            4. Add the Microsoft Entra Private Access client service principal (760282b4-0cfc-4952-b467-c8e0298fee16) as a Client ID in the Expose an API page (with checkbox for user-impersonation selected).      
+        - question: |
+              I can't access an internal resource using the hostname or FQDN when IP is configured in Quick Access.
+          answer: |
+            Private DNS is currently not supported. Specify the Hostname or FQDN being used to access the internal resource in the Quick Access configuration along with the respective port.
+        - question: |
+              I tried to delete adn reinstall my Quick Access app to resolve an issue, but the issue persists.
+          answer: |
+            Submit a support request.
 
 additionalContent: |
     ## Next steps

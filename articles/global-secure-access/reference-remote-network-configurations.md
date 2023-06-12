@@ -65,8 +65,6 @@ You can use any values *except* for the following reserved ASNs:
 - Azure reserved ASNs: 12076, 65517,65518, 65519, 65520, 8076, 8075
 - IANA reserved ASNs: 23456, >= 64496 && <= 64511, >= 65535 && <= 65551, 4294967295
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ### Valid enums
 
 #### IKE encryption
@@ -129,3 +127,5 @@ You can use any values *except* for the following reserved ASNs:
 | PFSMM | 6 |
 | PFS24 | 7 |
 | PFS14 | 8 |
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
