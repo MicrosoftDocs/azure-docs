@@ -1,5 +1,5 @@
 - name: Billing and subscriptions documentation
-  href: /manage/index.yml
+  href: manage/index.yml
 - name: Overview
   items:
   - name: What is Cost Management and Billing?
@@ -88,9 +88,9 @@
       - name: Understand spending limit
         href: manage/spending-limit.md
       - name: Track credits for Microsoft Customer Agreement
-        href: /manage/mca-check-azure-credits-balance.md
+        href: manage/mca-check-azure-credits-balance.md
       - name: Track your Microsoft Azure Consumption Commitment
-        href: manage/manage/track-consumption-commitment.md
+        href: manage/track-consumption-commitment.md
     - name: Administer subscriptions
       items:
       - name: Assign access to cost management data
