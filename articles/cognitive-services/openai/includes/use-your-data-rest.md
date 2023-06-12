@@ -9,16 +9,17 @@ ms.topic: include
 ms.date: 05/22/2023
 ---
 
+
 ## Retrieve required variables
 
-To successfully make a call against Azure OpenAI, you need the following:
+To successfully make a call against Azure OpenAI, you need the following variables. This quickstart assumes you've uploaded your data to an Azure blob storage account and have an Azure Cognitive Search index created. See [Add your data using Azure AI studio](../use-your-data-quickstart.md?pivots=programming-language-studio)
 
 |Variable name | Value |
 |--------------------------|-------------|
 | `AOAIEndpoint`               | This value can be found in the **Keys & Endpoint** section when examining your Azure OpenAI resource from the Azure portal. Alternatively, you can find the value in **Azure AI studio** > **Chat playground** > **Code view**. An example endpoint is: `https://my-resoruce.openai.azure.com`.|
 | `AOAIKey` | This value can be found in the **Keys & Endpoint** section when examining your Azure OpenAI resource from the Azure portal. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption. |
 | `AOAIDeploymentId` | This value corresponds to the custom name you chose for your deployment when you deployed a model. This value can be found under **Resource Management** > **Deployments** in the Azure portal or alternatively under **Management** > **Deployments** in Azure AI studio.|
-| `ChatGptUrl` | The Azure OpenAI ChatGPT endpoint that will be used to fulfil the request. This can be the the same endpoint as the `AoAIEndpoint`. |
+| `ChatGptUrl` | The Azure OpenAI ChatGPT endpoint that will be used to fulfill the request. This can be the same endpoint as `AoAIEndpoint`. |
 | `ChatGptKey` | If you are using the same Azure OpenAI resource for both `ChatGptUrl` and `AOAIEndpoint`, use the same value as `AOAIKey`. |
 | `SearchEndpoint` | This value can be found in the **Keys & Endpoint** section when examining your Azure Cognitive Search resource from the Azure portal. |
 | `SearchKey` | This value can be found in the **Keys & Endpoint** section when examining your Azure Cognitive Search resource from the Azure portal. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption. |
@@ -124,7 +125,7 @@ export SearchIndex=REPLACE_WITH_YOUR_INDEX_NAME_HERE
 
 ## Example cURL command
 
-The ChatGPT models are optimized to work with inputs formatted as a conversation. The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, tool, and assistant.
+The ChatGPT models are optimized to work with inputs formatted as a conversation. The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, tool, and assistant. The `dataSources` variable connects to your Azure Cognitive Search index, and enables Azure OpenAI models to respond using your data.
 
 To trigger a response from the model, you should end with a user message indicating that it's the assistant's turn to respond.
 
@@ -243,6 +244,9 @@ Deployment will take several minutes. When it completes, you should be able to n
 > The web app you create is publicly accessible by default. Read below for information on adding authentication to your web app.
 
 <!-- Add a feedback button here that says "I had trouble with the web app." -->
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the web app.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Create-sample-app)
 
 ### Important considerations
 

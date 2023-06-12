@@ -30,6 +30,14 @@ Azure OpenAI on your data provides access to OpenAI's powerful ChatGPT (gpt-35-t
 
 One of the key features of Azure OpenAI on your data is its ability to retrieve and utilize data in a way that enhances the model's output. When using Azure OpenAI on your data, the service determines what data to be retrieved based on the user query and conversation history. This data is then augmented and resubmitted as a prompt to the OpenAI model, with the new information being appended to the original prompt. Although data is being appended to the prompt, the resulting input is still processed by the model like any other prompt, in accordance with the information provided by Azure OpenAI and the commitments made about prompt processing. Once the data has been retrieved and the prompt has been submitted to the model, the model uses this information to provide a completion. See the [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext) article for more information. 
 
+## Data storage options
+
+You can use Azure OpenAI on your data when it's stored in the following data sources:
+* [An Azure Cognitive Search index](/azure/search/search-get-started-portal)
+* [Azure Blob storage container](/azure/storage/blobs/storage-quickstart-blobs-portal)
+
+The Azure AI portal enables you to upload files locally into a blob storage container. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information. 
+
 ## Supported Data Sources and file types
 
 | **Data Sources** | Cognitive Search, Blob, Local file upload |
