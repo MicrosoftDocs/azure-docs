@@ -10,7 +10,7 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# How to enable the Private access profile
+# How to manage the Private access traffic forwarding profile
 
 The private access traffic forwarding profile routes traffic to your private network through the Global Secure Access Client. Enabling this traffic forwarding profile allows remote workers to connect to internal resources without a VPN.
 
@@ -22,21 +22,32 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 ### Known limitations
 
-- At this time, private access traffic can only be acquired with the Global Secure Access client. Remote networks can't be assigned to the Private access traffic forwarding profile.
+- At this time, private access traffic can only be acquired with the Global Secure Access Client. Remote networks can't be assigned to the Private access traffic forwarding profile.
 - Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
 - To tunnel network traffic based on rules of FQDNs (in the forwarding profile), DNS over HTTPS (Secure DNS) needs to be disabled. 
 
-## Private access traffic forwarding profile
+## Private access traffic policies
 
-To enable the Private access traffic forwarding profile, we recommend you first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDN) for the private resources you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md).
+To enable the Private access traffic forwarding profile, we recommend you first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDNs) for the private resources you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md).
 
-Because remote networks can't be assigned to the Private access traffic forwarding profile, you must install the Global Secure Access Client on your end-user devices. For more information, see [How to install the Windows client](how-to-install-windows-client.md).
+You can also configure per-app access to your private resources. This process is similar to configuring Quick Access, but per-app access provides the option to enable or disable the per-app access without impacting the FQDNs and IP addresses included in Quick Access.
 
-### Private access Conditional Access policies
+To manage the details included in the Private access traffic forwarding policy:
 
-Conditional Access policies can be applied to your quick access applications. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
+1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
+1. Select the **View** link for **Private access policies**. 
 
-Conditional Access policies are created and applied to the quick access application in the **Protection** area of Microsoft Entra ID. For more information, see the article [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
+![Screenshot of the Private access profile, with the view applications link highlighted.](media/how-to-manage-private-access-profile/private-access-profile-link.png)
+
+Details of the Quick Access and any enterprise apps configured for Private access are displayed. Select the link for the application to view the details from the Enterprise applications area of Microsoft Entra ID.
+
+![Screenshot of the private access application details.](media/how-to-manage-private-access-profile/private-access-app-details.png)
+
+## Linked Conditional Access policies
+
+Conditional Access policies can be applied to your Quick Access and Global Secure Access applications. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
+
+Conditional Access policies are created and applied to the Quick Access application in the **Protection** area of Microsoft Entra ID. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
 
 The following example creates a Conditional Access policy requiring multifactor authentication for your quick access applications.
 

@@ -36,12 +36,13 @@ Microsoft Entra Internet Access secures access to Microsoft 365, SaaS, and publi
 - Acquire network traffic from the desktop client or from a remote network, such as a branch location.
 
 #### Private preview features
-The following new capabilities are available in the private preview of Microsoft Entra Internet Access. To request access to the private preview, complete [this form](https://aka.ms/entra-ia-signup).
+The following new capabilities are available in the private preview of Microsoft Entra Internet Access. To request access to the private preview, complete [the private preview interest form](https://aka.ms/entra-ia-preview).
 
 - Dedicated public internet traffic forwarding profile
 - Protect user access to the public internet while leveraging Microsoft's cloud-delivered, identity-aware SWG solution 
 - Enable web content filtering to regulate access to websites based on their content categories through secure web gateway.
 - Apply universal Conditional Access policies for all internet destinations, even if not federated with Microsoft Entra ID.
+- Enriched key security SharePoint logs for better visibility and detection.
 
 ## Microsoft Entra Private Access
 
