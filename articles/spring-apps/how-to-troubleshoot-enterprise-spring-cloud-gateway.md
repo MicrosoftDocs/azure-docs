@@ -47,7 +47,7 @@ You must turn on System Logs and send to your Log Analytics before query logs fo
 
 To check logs for VMware Spring Cloud Gateway in the Azure portal, use the following steps:
 
-1. Make sure you turned on System Logs. See [Diagnostic Settings of Log Analytics](#diagnostic-settings-of-log-analytics) section in this doc.
+1. Make sure you turned on System Logs. See [Diagnostic Settings of Log Analytics](#diagnostic-settings-of-log-analytics) section in this document.
 1. Open your Azure Spring Apps instance.
 1. Select **Logs** in the navigation pane, and then select **Overview**.
 1. Use below sample query in the query edit, adjust Time range, then click **Run** to search for logs.
