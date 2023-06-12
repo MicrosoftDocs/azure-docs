@@ -1,7 +1,7 @@
 ---
 title: Upgrade to .NET SDK version 11
 titleSuffix: Azure Cognitive Search
-description: Migrate your search application code from older SDK versions to the Azure Cognitive Search .NET SDK version 11 . 
+description: Migrate your search application code from older SDK versions to the Azure Cognitive Search .NET SDK version 11. 
 
 manager: nitinme
 author: HeidiSteen
@@ -189,7 +189,7 @@ Version 11.3 additions ([change log](https://github.com/Azure/azure-sdk-for-net/
 
 ## Before upgrading
 
-+ [Quickstarts](search-get-started-dotnet.md), tutorials, and [C# samples](samples-dotnet.md) have been updated to use the Azure.Search.Documents package. We recommend reviewing the samples and walkthroughs to learn about the new APIs before embarking on a migration exercise.
++ Quickstarts, tutorials, and [C# samples](samples-dotnet.md) have been updated to use the Azure.Search.Documents package. We recommend reviewing the samples and walkthroughs to learn about the new APIs before embarking on a migration exercise.
 
 + [How to use Azure.Search.Documents](search-howto-dotnet-sdk.md) introduces the most commonly used APIs. Even  knowledgeable users of Cognitive Search might want to review this introduction to the new library as a precursor to migration.
 
