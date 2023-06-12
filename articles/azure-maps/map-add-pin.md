@@ -93,7 +93,7 @@ function InitMap()
 
 ```
 
-:::image type="content" source="./media/map-add-symbol/add-symbol-layer.png"alt-text="A screenshot of map with a pin added using the symbol layer.":::
+:::image type="content" source="./media/map-add-symbol/add-symbol-layer.png" alt-text="A screenshot of map with a pin added using the symbol layer.":::
 
 <!-----------------------------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Switch pin location' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Switch pin location</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
