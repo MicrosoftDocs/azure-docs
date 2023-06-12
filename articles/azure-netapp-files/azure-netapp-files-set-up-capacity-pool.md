@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/20/2023
+ms.date: 06/15/2023
 ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
@@ -70,7 +70,7 @@ You must have already [created a NetApp account](azure-netapp-files-create-netap
             ```
         2. Check the status of the feature registration. `RegistrationState` may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing. 
             ```azurepowershell-interactive
-            Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDoubleEncryption>
+            Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDoubleEncryption
             ```   
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
 

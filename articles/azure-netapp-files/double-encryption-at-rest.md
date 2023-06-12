@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 06/15/2023
 ms.author: anfdocs
 ms.custom: 
 ---
@@ -43,7 +43,7 @@ Azure NetApp File double encryption at rest is supported for the following regio
 ## Considerations
 
 * Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. 
-* Using Azure NetApp Files double encryption at rest incurs a charge. See the [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/) page.
+* For the cost of using Azure NetApp Files double encryption at rest, see the [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/) page.
 * You can't convert volumes in a single-encryption capacity pool volumes to use double encryption at rest. However, you can copy data in a single-encryption volume to a volume created in a capacity pool that is configured with double encryption.  
 * For capacity pools created with double encryption at rest, volume names in the capacity pool are visible only to volume owners for maximum security.
 
