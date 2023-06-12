@@ -657,6 +657,8 @@ Access the custom applications that you set up in studio:
 
 ## Manage
 
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
+
 Start, stop, restart, and delete a compute instance. A compute instance doesn't automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you'll still be billed for disk, public IP, and standard load balancer. 
 
 You can [create a schedule](#schedule-automatic-start-and-stop) for the compute instance to automatically start and stop based on a time and day of week.
