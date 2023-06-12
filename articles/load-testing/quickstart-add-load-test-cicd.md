@@ -1,5 +1,6 @@
 ---
-title: 'Add load test to CI/CD'
+title: 'Quickstart: Add load test to CI/CD'
+titleSuffix: Azure Load Testing
 description: 'This quickstart shows how to run your load tests with Azure Load Testing in CI/CD. Learn how to add a load test to GitHub Actions or Azure Pipelines.'
 author: ntrogh
 ms.author: nicktrog
