@@ -497,7 +497,7 @@
     href: how-to-interactive-jobs.md
   - name: Schedule jobs
     href: how-to-schedule-pipeline-job.md
-- name: Responsibly develop & monitor (RAI)
+- name: Responsibly develop & monitor
   items: 
   - name: Responsible AI overview
     items:
@@ -505,6 +505,15 @@
         href: concept-responsible-ai.md
       - name: Model interpretability
         href: how-to-machine-learning-interpretability.md
+      - name: Fairness in Machine Learning
+        displayName: fairness, bias, model performance, disparity metrics, unfairness
+        href: concept-fairness-ml.md
+    # v1
+      - name: Interpret ML models
+        href: ./v1/how-to-machine-learning-interpretability-aml.md
+      - name: Explain automated ML models
+        href: ./v1/how-to-machine-learning-interpretability-automl.md
+    # end v1
       - name: Causal analysis
         href: concept-causal-inference.md
       - name: Assess errors in ML models
@@ -513,15 +522,27 @@
         href: concept-data-analysis.md
       - name: Counterfactuals analysis and what-if
         href: concept-counterfactual-analysis.md
-  - name: Configure RAI evaluation and insights dashboard
+  - name: Configure Responsible AI insights 
     items:
-    - name: Responsible AI dashboard overview
-      href: concept-responsible-ai-dashboard.md
     - name: Generate responsible AI insights (UI)
       href: how-to-responsible-ai-insights-ui.md
     - name: Generate responsible AI insights (SDK, CLI)
       href: how-to-responsible-ai-insights-sdk-cli.md
-  - name: Generate and configure an RAI scorecard
+    - name: Responsible AI vision insights
+      href: how-to-responsible-ai-vision-insights.md
+    - name: Responsible AI text insights
+      href: how-to-responsible-ai-text-insights.md
+  - name: Configure Responsible AI dashboards 
+    items:
+    - name: Responsible AI dashboard overview
+      href: concept-responsible-ai-dashboard.md
+    - name: Using the Responsible AI dashboard in studio
+      href: how-to-responsible-ai-dashboard.md
+    - name: Using the Responsible AI text dashboard
+      href: how-to-responsible-ai-text-dashboard.md
+    - name: Using the Responsible AI image dashboard
+      href: how-to-responsible-ai-image-dashboard 
+  - name: Viewing a Responsible AI scorecard
     items:
       - name: Responsible AI scorecard
         href: concept-responsible-ai-scorecard.md
@@ -535,6 +556,8 @@
       href: concept-ml-pipelines.md
     - name: What is a component
       href: concept-component.md
+    - name: What is the Azure MaChine Learning Designer (v2)?
+      href: concept-designer.md
   # v1
   - name: Designer (drag-n-drop ML)
     items:
@@ -575,14 +598,22 @@
       href: how-to-use-parallel-job-in-pipeline.md
     - name: How to do hyperparameter sweep in pipeline
       href: how-to-use-sweep-in-pipeline.md
-  - name: Manage complex pipelines
-    items:
-    - name: How to use pipeline components in pipeline 
-      href: how-to-use-pipeline-component.md
-    - name: Build and debug pipelines (UI)
-      href: how-to-use-pipeline-ui.md
+  - name: How to use pipeline components in pipeline 
+    href: how-to-use-pipeline-component.md
+  - name: Build and debug pipelines (UI)
+    href: how-to-use-pipeline-ui.md
   - name: Schedule a pipeline job
     href: how-to-schedule-pipeline-job.md
+  - name: Deploy pipeline component as a batch endpoint
+    href: how-to-deploy-pipeline-component-as-batch-endpoint.md
+  - name: Debug pipeline jobs
+    items:
+      - name: How to debug pipeline failure
+        href: how-to-debug-pipeline-failure.md
+      - name: How to debug pipeline performance
+        href: how-to-debug-pipeline-performance.md
+      - name: How to debug pipeline reuse issues
+        href: how-to-debug-pipeline-reuse-issues.md
   # v1
   - name: Build & use ML pipelines
     items:
@@ -1048,13 +1079,6 @@
       href: how-to-integrate-azure-policy.md
 - name: Concepts
   items:
-    - name: Responsible AI
-      items:
-        - name: Implement Responsible AI in Practice
-          items:
-            - name: Fairness in Machine Learning
-              displayName: fairness, bias, model performance, disparity metrics, unfairness
-              href: concept-fairness-ml.md
     - name: Workspace & compute resources
       items:
         - name: Environments
@@ -1108,76 +1132,6 @@
           items:
             - name: Configure Apache Spark jobs 
               href: quickstart-spark-jobs.md
-    - name: Deploy models
-      items:
-        # v1
-        - name: Where and how to deploy
-          displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
-          href: ./v1/how-to-deploy-and-where.md
-        - name: Hyperparameter tuning a model (v1)
-          displayName: azurecli, AzureML
-          href: ./v1/how-to-tune-hyperparameters.md
-        - name: Azure Kubernetes Service
-          displayName: aks, aad, authentication, azure active directory
-          href: ./v1/how-to-deploy-azure-kubernetes-service.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: ./v1/how-to-deploy-azure-container-instance.md
-        - name: Deploy MLflow models
-          displayName: log, monitor, deploy, metrics, databricks, aci, aks
-          href: ./v1/how-to-deploy-mlflow-models.md
-        - name: Update web service
-          displayName: update hot reload model mounting
-          href: ./v1/how-to-deploy-update-web-service.md
-        - name: Deployment targets
-          items:
-            - name: Deploy locally
-              href: ./v1/how-to-deploy-local.md
-            - name: Deploy locally on compute instance
-              href: ./v1/how-to-deploy-local-container-notebook-vm.md
-            - name: GPU inference
-              href: ./v1/how-to-deploy-inferencing-gpus.md
-            - name: Azure Cognitive Search
-              href: how-to-deploy-model-cognitive-search.md
-            - name: FPGA inference
-              href: ./v1/how-to-deploy-fpga-web-service.md
-        - name: Profile models
-          displayName: profile resource requirement
-          href: ./v1/how-to-deploy-profile-model.md
-        - name: Troubleshoot deployment
-          href: ./v1/how-to-troubleshoot-deployment.md
-        - name: Troubleshoot deployment (local)
-          href: ./v1/how-to-troubleshoot-deployment-local.md
-        - name: Authenticate web service
-          href: ./v1/how-to-authenticate-web-service.md
-        - name: Consume web service
-          displayName: create client consume request response synchronous
-          href: ./v1/how-to-consume-web-service.md
-        - name: Advanced entry script authoring
-          displayName: swagger inference schema binary cors
-          href: ./v1/how-to-deploy-advanced-entry-script.md
-        - name: Prebuilt Docker images
-          items:
-            - name: Python extensibility
-              href: ./v1/how-to-prebuilt-docker-images-inference-python-extensibility.md
-            - name: Dockerfile extensibility
-              href: ./v1/how-to-extend-prebuilt-docker-image-inference.md
-            - name: Troubleshoot prebuilt docker images
-              href: ./v1/how-to-troubleshoot-prebuilt-docker-image-inference.md
-        - name: Monitor web services
-          items:
-            - name: Collect & evaluate model data
-              displayName: track production
-              href: ./v1/how-to-enable-data-collection.md
-            - name: Monitor with Application Insights
-              href: ./v1/how-to-enable-app-insights.md
-        - name: Deploy designer models
-          displayName: designer, studio
-          href: ./v1/how-to-deploy-model-designer.md
-        - name: Package models
-          displayName: docker file download
-          href: ./v1/how-to-deploy-package-models.md
-        # end v1
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Build & use ML pipelines
