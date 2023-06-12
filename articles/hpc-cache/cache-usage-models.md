@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 06/29/2022
-ms.author: v-erinkelly
+ms.author: rohogue
 ---
 <!-- filename is referenced from GUI in aka.ms/hpc-cache-usagemodel -->
 

@@ -42,30 +42,28 @@ Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/
 
 | Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
 | --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.microsoftonline.com |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | WindowsVirtualDesktop, AzureFrontDoor.Frontend, AzureMonitor |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `login.microsoftonline.com` |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | `WindowsVirtualDesktop`, `AzureFrontDoor.Frontend`, `AzureMonitor` |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | 20.118.99.224, 40.83.235.53 (azkms.core.windows.net) |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | 23.102.135.246 (kms.core.windows.net) |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | mrsglobalsteus2prod.blob.core.windows.net |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | wvdportalstorageblob.blob.core.windows.net |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | oneocsp.microsoft.com |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | www.microsoft.com |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | `20.118.99.224`, `40.83.235.53` (`azkms.core.windows.net`) |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | `23.102.135.246` (`kms.core.windows.net`) |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `mrsglobalsteus2prod.blob.core.windows.net` |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `wvdportalstorageblob.blob.core.windows.net` |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | `oneocsp.microsoft.com` |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | `www.microsoft.com` |
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
 | Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
 | --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.microsoftonline.us |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | WindowsVirtualDesktop, AzureMonitor |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `login.microsoftonline.us` |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | `WindowsVirtualDesktop`, `AzureMonitor` |
 |Rule Name|IP Address or Group|IP Group or VNet or Subnet IP Address|TCP|443|FQDN|gcs.monitoring.core.usgovcloudapi.net|
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | kms.core.usgovcloudapi.net|
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | mrsglobalstugviffx.blob.core.usgovcloudapi.net |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | wvdportalstorageblob.blob.core.usgovcloudapi.net |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | ocsp.msocsp.com |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | `kms.core.usgovcloudapi.net`|
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `mrsglobalstugviffx.blob.core.usgovcloudapi.net` |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `wvdportalstorageblob.blob.core.usgovcloudapi.net` |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | `ocsp.msocsp.com` |
 
 ---
 
@@ -76,9 +74,9 @@ Azure Virtual Desktop (AVD) official documentation reports the following Network
 
 | Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
 | ----------| -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | UDP      | 123               | FQDN             | time.windows.com |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.windows.net |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | www.msftconnecttest.com |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | UDP      | 123               | FQDN             | `time.windows.com` |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `login.windows.net` |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `www.msftconnecttest.com` |
 
 
 ### Create application rules
@@ -87,11 +85,11 @@ Azure Virtual Desktop (AVD) official documentation reports the following Applica
 
 | Name      | Source type          | Source                    | Protocol   | Destination type | Destination                                                                                 |
 | --------- | -------------------- | --------------------------| ---------- | ---------------- | ------------------------------------------------------------------------------------------- |
-| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN Tag         | WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | *.events.data.microsoft.com |
-| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | *.sfx.ms |
-| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | *.digicert.com |
-| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | *.azure-dns.com, *.azure-dns.net |
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN Tag         | `WindowsUpdate`, `Windows Diagnostics`, `MicrosoftActiveProtectionService` |
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | `*.events.data.microsoft.com`|
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | `*.sfx.ms` |
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | `*.digicert.com` |
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | `*.azure-dns.com`, `*.azure-dns.net` |
 
 > [!IMPORTANT]
 > We recommend that you don't use TLS inspection with Azure Virtual Desktop. For more information, see the [proxy server guidelines](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server).

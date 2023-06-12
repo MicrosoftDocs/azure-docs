@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Certent Equity Management | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Certent Equity Management"
 description: Learn how to configure single sign-on between Azure Active Directory and Certent Equity Management.
 services: active-directory
 author: jeevansd

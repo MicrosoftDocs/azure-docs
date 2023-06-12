@@ -8,8 +8,8 @@ ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: kengaderdus
-author: kengaderdus
+ms.author: godonnell
+author: garrodonnell
 manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
 ---

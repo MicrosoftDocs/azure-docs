@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with mindWireless | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with mindWireless'
 description: Learn how to configure single sign-on between Azure Active Directory and mindWireless.
 services: active-directory
 author: jeevansd

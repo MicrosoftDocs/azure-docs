@@ -12,6 +12,10 @@ zone_pivot_groups: python-mode-functions
 
 This article provides information to help you troubleshoot errors with your Python functions in Azure Functions. This article supports both the v1 and v2 programming models. Choose the model you want to use from the selector at the top of the article. The v2 model is currently in preview. For more information on Python programming models, see the [Python developer guide](./functions-reference-python.md). 
 
+> [!NOTE]
+> The Python v2 programming model is only supported in the 4.x functions runtime. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).
+
+
 Here are the troubleshooting sections for common issues in Python functions:
 
 ::: zone pivot="python-mode-configuration"
@@ -61,7 +65,7 @@ To identify the actual cause of your issue, you need to get the Python project f
 * If the function app has a `WEBSITE_RUN_FROM_PACKAGE` app setting and its value is a URL, download the file by copying and pasting the URL into your browser.
 * If the function app has `WEBSITE_RUN_FROM_PACKAGE` and it's set to `1`, go to `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` and download the file from the latest `href` URL.
 * If the function app doesn't have either of the preceding app settings, go to `https://<app-name>.scm.azurewebsites.net/api/settings` and find the URL under `SCM_RUN_FROM_PACKAGE`. Download the file by copying and pasting the URL into your browser.
-* If none of these suggestions resolves the issue, go to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and view the content under `/home/site/wwwroot`.
+* If suggestions resolve the issue, go to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and view the content under `/home/site/wwwroot`.
 
 The rest of this article helps you troubleshoot potential causes of this error by inspecting your function app's content, identifying the root cause, and resolving the specific issue.
 
@@ -250,7 +254,7 @@ Example error logs:
 
 You can mitigate this issue in either of two ways:
 
-* Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies-preview) to a value of `1`. 
+* Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies) to a value of `1`. 
 
 * Pin Protobuf to a non-4.x.x. version, as in the following example:
 

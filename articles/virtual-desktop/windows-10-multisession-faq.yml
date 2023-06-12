@@ -45,7 +45,7 @@ sections:
           Customize the image to your needs by installing LOB applications and sysprep the image. When you're done customizing, upload the image to Azure with the VHD inside. After that, get Azure Virtual Desktop from the Azure Marketplace and use it to deploy a new host pool with the customized image.
           
       - question: How do I manage Windows 10 Enterprise multi-session after deployment?
-        answer: You can use any supported configuration tool, but we recommend Configuration Manager version 1906 because it supports Windows 10 Enterprise multi-session or [Microsoft Endpoint Manager](management.md) for Azure AD-joined or Hybrid Azure AD-joined session hosts.
+        answer: You can use any supported configuration tool, but we recommend Configuration Manager version 1906 because it supports Windows 10 Enterprise multi-session or [Microsoft Intune](management.md) for Azure AD-joined or Hybrid Azure AD-joined session hosts.
 
       - question: Can Windows 10 Enterprise multi-session be Azure Active Directory (Azure AD)-joined?
         answer: |

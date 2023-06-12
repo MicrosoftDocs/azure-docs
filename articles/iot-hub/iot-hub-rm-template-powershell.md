@@ -1,31 +1,30 @@
 ---
-title: Create an Azure IoT Hub using a template (PowerShell) | Microsoft Docs
+title: Create an Azure IoT Hub using a template (PowerShell)
 description: How to use an Azure Resource Manager template to create an IoT Hub with Azure PowerShell.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2019 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create an IoT hub using Azure Resource Manager template (PowerShell)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-This article shows you how to use an Azure Resource Manager template to create an IoT Hub and a [consumer group](https://learn.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups), using Azure PowerShell. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see the [Azure Resource Manager documentation](../azure-resource-manager/index.yml).
+This article shows you how to use an Azure Resource Manager template to create an IoT Hub and a [consumer group](../event-hubs/event-hubs-features.md#consumer-groups), using Azure PowerShell. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see the [Azure Resource Manager documentation](../azure-resource-manager/index.yml).
 
 ## Prerequisites
 
-[Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview)
+[Azure PowerShell module](/powershell/azure/install-azure-powershell) or [Azure Cloud Shell](../cloud-shell/overview.md)
 
 Azure Cloud Shell is useful if you don't want to install the PowerShell module locally, as Cloud Shell performs from a browser.
 
 ## Create an IoT hub
 
-The [Resource Manager JSON template](https://azure.microsoft.com/resources/templates/iothub-with-consumergroup-create/) used in this article is one of many templates from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). The JSON template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging) and a consumer group. For more information on the Iot Hub template schema, see [Microsoft.Devices (IoT Hub) resource types](https://learn.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
+The [Resource Manager JSON template](https://azure.microsoft.com/resources/templates/iothub-with-consumergroup-create/) used in this article is one of many templates from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). The JSON template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging) and a consumer group. For more information on the Iot Hub template schema, see [Microsoft.Devices (IoT Hub) resource types](/azure/templates/microsoft.devices/iothub-allversions).
 
 Use the following PowerShell command to create a resource group which is then used to create an IoT hub. The JSON template is used in `-TemplateUri`.
 
@@ -55,10 +54,7 @@ Since you've deployed an IoT hub, using an Azure Resource Manager template, you 
 * Capabilities of the [Azure Resource Manager][lnk-azure-rm-overview]
 * JSON syntax and properties to use in templates: [Microsoft.Devices resource types](/azure/templates/microsoft.devices/iothub-allversions)
 
-To learn more about developing for IoT Hub, see:
-
-* [Introduction to C SDK][lnk-c-sdk]
-* [Azure IoT SDKs][lnk-sdks]
+To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To explore more capabilities of IoT Hub, see:
 
@@ -73,7 +69,6 @@ To explore more capabilities of IoT Hub, see:
 [lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/management/manage-resources-powershell.md
 
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: ../iot-edge/quickstart-linux.md

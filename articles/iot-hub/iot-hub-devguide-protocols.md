@@ -1,11 +1,11 @@
 ---
-title: Azure IoT Hub communication protocols and ports | Microsoft Docs
+title: Azure IoT Hub communication protocols and ports
 description: This article describes the supported communication protocols for device-to-cloud and cloud-to-device communications and the port numbers that must be open for those protocols.
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/21/2022
 ms.custom: [amqp, mqtt,'Role: Cloud Development','Role: IoT Device']
 ---
@@ -19,6 +19,9 @@ IoT Hub allows devices to use the following protocols for device-side communicat
 * [Advanced Message Queuing Protocol (AMQP)](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 * AMQP over WebSockets
 * HTTPS
+
+> [!NOTE]
+> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md), currently in public preview. For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
 
 For information about how these protocols support specific IoT Hub features, see [Device-to-cloud communications guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md).
 
@@ -63,4 +66,4 @@ The IP address of an IoT hub is subject to change without notice. To learn how t
 
 ## Next steps
 
-For more information about how IoT Hub implements the MQTT protocol, see [Communicate with your IoT hub using the MQTT protocol](iot-hub-mqtt-support.md).
+For more information about how IoT Hub implements the MQTT protocol, see [Communicate with your IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md).

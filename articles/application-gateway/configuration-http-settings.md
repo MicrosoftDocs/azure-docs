@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 03/17/2023
 ms.author: greglin
 ---
 
@@ -34,7 +34,12 @@ Please refer to TLS offload and End-to-End TLS documentation for Application Gat
 
 ## Connection draining
 
-Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are explicitly removed from the backend pool or during scale-in of backend instances. You can apply this setting to all members of a backend pool by enabling connection draining on the Backend Setting. It ensures that all deregistering instances of a backend pool continue to maintain existing connections and serve on-going requests for a configurable timeout and don't receive any new requests or connections. 
+Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are 
+- explicitly removed from the backend pool,
+- removed during scale-in operations, or
+- reported as unhealthy by the health probes.
+
+You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This is also true for WebSocket connections.
 
 | Configuration Type  | Value |
 | ---------- | ---------- |

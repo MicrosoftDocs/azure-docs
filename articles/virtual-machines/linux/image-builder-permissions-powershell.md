@@ -76,7 +76,7 @@ For VM Image Builder to build images from source custom images, the service must
 Here's how you build from an existing custom image:
 
 ```Actions
-Microsoft.Compute/galleries/read
+Microsoft.Compute/images/read
 ```
 
 Here's how you build from an existing Azure Compute Gallery version:

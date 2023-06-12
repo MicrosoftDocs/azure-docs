@@ -31,7 +31,7 @@ The following example is a [log alert rule](../alerts/alerts-unified-log.md) tha
 | **Scope** | |
 | Target scope | Select your Log Analytics workspace. |
 | **Condition** | |
-| Query | `Usage \| where IsBillable \| summarize DataGB = sum(Quantity / 1000.)` |
+| Query | `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000)` |
 | Measurement | Measure: *DataGB*<br>Aggregation type: Total<br>Aggregation granularity: 1 day |
 | Alert Logic | Operator: Greater than<br>Threshold value: 50<br>Frequency of evaluation: 1 day |
 | Actions | Select or add an [action group](../alerts/action-groups.md) to notify you when the threshold is exceeded. |
@@ -114,7 +114,7 @@ Event
 ```
 
 ## Data volume by computer
-You can analyze the amount of billable data collected from a virtual machine or a set of virtual machines. The **Usage** table doesn't include information about data collected from virtual machines, so these queries use the [find operator](/azure/data-explorer/kusto/query/findoperator) to search all tables that include a computer name. The **Usage** type is omitted because this query is only for analytics of data trends.
+You can analyze the amount of billable data collected from a virtual machine or a set of virtual machines. The **Usage** table doesn't have the granularity to show data volumes for specific virtual machines, so these queries use the [find operator](/azure/data-explorer/kusto/query/findoperator) to search all tables that include a computer name. The **Usage** type is omitted because this query is only for analytics of data trends.
 
 > [!WARNING]
 > Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the preceding queries.
@@ -198,7 +198,30 @@ let freeTables = dynamic([
 "OfficeActivity","Operation","SecurityAlert","SecurityIncident","UCClient","UCClientReadinessStatus",
 "UCClientUpdateStatus","UCDOAggregatedStatus","UCDOStatus","UCDeviceAlert","UCServiceUpdateStatus","UCUpdateAlert",
 "Usage","WUDOAggregatedStatus","WUDOStatus","WaaSDeploymentStatus","WaaSInsiderStatus","WaaSUpdateStatus"]);
-Usage | where DataType !in (freeTables) | where TimeGenerated > ago(30d) | summarize MonthlyGB=sum(Quantity)/1000
+Usage 
+| where DataType !in (freeTables) 
+| where TimeGenerated > ago(30d) 
+| summarize MonthlyGB=sum(Quantity)/1000
+```
+
+To look for data which might not have IsBillable correctly set (and which could result in incorrect billing, or more specifically under-billing), use this query on your workspace:
+
+```kusto
+let freeTables = dynamic([
+"AppAvailabilityResults","AppSystemEvents","ApplicationInsights","AzureActivity","AzureNetworkAnalyticsIPDetails_CL",
+"AzureNetworkAnalytics_CL","AzureTrafficAnalyticsInsights_CL","ComputerGroup","DefenderIoTRawEvent","Heartbeat",
+"MAApplication","MAApplicationHealth","MAApplicationHealthIssues","MAApplicationInstance","MAApplicationInstanceReadiness",
+"MAApplicationReadiness","MADeploymentPlan","MADevice","MADeviceNotEnrolled","MADeviceReadiness","MADriverInstanceReadiness",
+"MADriverReadiness","MAProposedPilotDevices","MAWindowsBuildInfo","MAWindowsCurrencyAssessment",
+"MAWindowsCurrencyAssessmentDailyCounts","MAWindowsDeploymentStatus","NTAIPDetails_CL","NTANetAnalytics_CL",
+"OfficeActivity","Operation","SecurityAlert","SecurityIncident","UCClient","UCClientReadinessStatus",
+"UCClientUpdateStatus","UCDOAggregatedStatus","UCDOStatus","UCDeviceAlert","UCServiceUpdateStatus","UCUpdateAlert",
+"Usage","WUDOAggregatedStatus","WUDOStatus","WaaSDeploymentStatus","WaaSInsiderStatus","WaaSUpdateStatus"]);
+Usage 
+| where DataType !in (freeTables) 
+| where TimeGenerated > ago(30d) 
+| where IsBillable == false 
+| summarize MonthlyPotentialUnderbilledGB=sum(Quantity)/1000 by DataType
 ```
 
 ## Querying for common data types

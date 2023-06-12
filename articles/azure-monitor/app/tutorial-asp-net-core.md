@@ -4,7 +4,7 @@ description: Application Insights SDK tutorial to monitor ASP.NET Core web appli
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 11/15/2022
+ms.date: 04/24/2023
 ms.reviewer: casocha
 ---
 
@@ -349,7 +349,7 @@ public class ValuesController : ControllerBase
     public ActionResult<IEnumerable<string>> Get()
     {
         //Info level traces are not captured by default
-        _logger.LogInfo("An example of an Info trace..")
+        _logger.LogInformation("An example of an Info trace..");
         _logger.LogWarning("An example of a Warning trace..");
         _logger.LogError("An example of an Error level message");
 
@@ -459,7 +459,7 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Explore user flows](./usage-flows.md) to understand how users navigate through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
+* [Availability overview](availability-overview.md)
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)

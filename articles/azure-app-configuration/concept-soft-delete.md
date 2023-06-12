@@ -4,7 +4,7 @@ description: Soft Delete in Azure App Configuration
 author: muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
-ms.custom: devx-track-dotnet
+ms.custom:
 ms.topic: conceptual
 ms.date: 03/01/2022
 ---

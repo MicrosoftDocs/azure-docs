@@ -15,6 +15,8 @@ ms.date: 12/27/2022
 
 This article shows how to define an [access restriction policy](../app-service/overview-access-restrictions.md) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. Defining this policy will ensure that **only Microsoft Sentinel will have access** to the Standard logic app containing your playbook workflows.
 
+Learn more about [using private endpoints to secure traffic between Standard logic apps and Azure virtual networks](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
 ## Define an access restriction policy
 
 1. From the Microsoft Sentinel navigation menu, select **Automation**. Select the **Active playbooks** tab.
@@ -38,8 +40,7 @@ This article shows how to define an [access restriction policy](../app-service/o
 
     :::image type="content" source="media/define-playbook-access-restrictions/select-networking.png" alt-text="Screenshot showing how to select networking settings from the logic app menu.":::
 
-1. In the **Inbound traffic** area, select **Access restriction (preview)**.  
-    (You **must** select the **preview** version.)
+1. In the **Inbound traffic** area, select **Access restriction**.  
 
     :::image type="content" source="media/define-playbook-access-restrictions/select-access-restriction.png" alt-text="Screenshot showing how to select access restriction policy for configuration.":::
 

@@ -1,4 +1,12 @@
-### Vowels
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for pt-PT
 
 | `ipa` | `viseme` | Example 1         | Example 2             | Example 3     |
 |-------|----------|-------------------|-----------------------|---------------|
@@ -31,7 +39,7 @@
 | `ũ`  | 7        | **um**bilical     | f**un**cionar         | fór**um**     |
 | `ũj̃`| 7,6      |                   | m**ui**to             |               |
 
-### Consonant
+### Consonant for pt-PT
 
 | `ipa` | `viseme` | Example 1         | Example 2             | Example 3     |
 |-------|----------|-------------------|-----------------------|---------------|

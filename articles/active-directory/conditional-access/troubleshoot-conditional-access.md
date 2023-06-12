@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting sign-in problems with Conditional Access - Azure Active Directory
+title: Troubleshooting sign-in problems with Conditional Access
 description: This article describes what to do when your Conditional Access policies result in unexpected outcomes
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/16/2022
+ms.date: 03/31/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -40,7 +40,7 @@ Organizations should avoid the following configurations:
 
 The first way is to review the error message that appears. For problems signing in when using a web browser, the error page itself has detailed information. This information alone may describe what the problem is and that may suggest a solution.
 
-![Sign in error - compliant device required](./media/troubleshoot-conditional-access/image1.png)
+![Screenshot showing a sign in error where a compliant device is required.](./media/troubleshoot-conditional-access/image1.png)
 
 In the above error, the message states that the application can only be accessed from devices or client applications that meet the company's mobile device management policy. In this case, the application and device don't meet that policy.
 
@@ -48,9 +48,9 @@ In the above error, the message states that the application can only be accessed
 
 The second method to get detailed information about the sign-in interruption is to review the Azure AD sign-in events to see which Conditional Access policy or policies were applied and why.
 
-More information can be found about the problem by clicking **More Details** in the initial error page. Clicking **More Details** will reveal troubleshooting information that is helpful when searching the Azure AD sign-in events for the specific failure event the user saw or when opening a support incident with Microsoft.
+More information can be found about the problem by clicking **More Details** in the initial error page. Clicking **More Details** reveals troubleshooting information that is helpful when searching the Azure AD sign-in events for the specific failure event the user saw or when opening a support incident with Microsoft.
 
-![More details from a Conditional Access interrupted web browser sign-in.](./media/troubleshoot-conditional-access/image2.png)
+![Screenshot showing more details from a Conditional Access interrupted web browser sign-in.](./media/troubleshoot-conditional-access/image2.png)
 
 To find out which Conditional Access policy or policies applied and why do the following.
 
@@ -63,26 +63,24 @@ To find out which Conditional Access policy or policies applied and why do the f
       1. **Username** to see information related to specific users.
       1. **Date** scoped to the time frame in question.
 
-   ![Selecting the Conditional access filter in the sign-ins log](./media/troubleshoot-conditional-access/image3.png)
+   ![Screenshot showing selecting the Conditional access filter in the sign-ins log.](./media/troubleshoot-conditional-access/image3.png)
 
-1. Once the sign-in event that corresponds to the user's sign-in failure has been found select the **Conditional Access** tab. The Conditional Access tab will show the specific policy or policies that resulted in the sign-in interruption.
+1. Once the sign-in event that corresponds to the user's sign-in failure has been found select the **Conditional Access** tab. The Conditional Access tab shows the specific policy or policies that resulted in the sign-in interruption.
    1. Information in the **Troubleshooting and support** tab may provide a clear reason as to why a sign-in failed such as a device that didn't meet compliance requirements.
-   1. To investigate further, drill down into the configuration of the policies by clicking on the **Policy Name**. Clicking the **Policy Name** will show the policy configuration user interface for the selected policy for review and editing.
+   1. To investigate further, drill down into the configuration of the policies by clicking on the **Policy Name**. Clicking the **Policy Name** shows the policy configuration user interface for the selected policy for review and editing.
    1. The **client user** and **device details** that were used for the Conditional Access policy assessment are also available in the **Basic Info**, **Location**, **Device Info**, **Authentication Details**, and **Additional Details** tabs of the sign-in event.
 
 ### Policy not working as intended
 
 Selecting the ellipsis on the right side of the policy in a sign-in event brings up policy details. This option gives administrators additional information about why a policy was successfully applied or not.
 
-   ![Sign in event Conditional Access tab](./media/troubleshoot-conditional-access/image5.png)
-
-   ![Policy details (preview)](./media/troubleshoot-conditional-access/policy-details.png)
+:::image type="content" source="media/troubleshoot-conditional-access/activity-details-sign-ins.png" alt-text="Screenshot showing Conditional Access Policy details click thru to see why policy applied or not." lightbox="media/troubleshoot-conditional-access/policy-details.png":::
 
 The left side provides details collected at sign-in and the right side provides details of whether those details satisfy the requirements of the applied Conditional Access policies. Conditional Access policies only apply when all conditions are satisfied or not configured.
 
 If the information in the event isn't enough to understand the sign-in results, or adjust the policy to get desired results, the sign-in diagnostic tool can be used. The sign-in diagnostic can be found under **Basic info** > **Troubleshoot Event**. For more information about the sign-in diagnostic, see the article [What is the sign-in diagnostic in Azure AD](../reports-monitoring/overview-sign-in-diagnostics.md). You can also [use the What If tool to troubleshoot Conditional Access policies](what-if-tool.md).
 
-If you need to submit a support incident, provide the request ID and time and date from the sign-in event in the incident submission details. This information will allow Microsoft support to find the specific event you're concerned about.
+If you need to submit a support incident, provide the request ID and time and date from the sign-in event in the incident submission details. This information allows Microsoft support to find the specific event you're concerned about.
 
 ### Common Conditional Access error codes
 
@@ -94,11 +92,11 @@ If you need to submit a support incident, provide the request ID and time and da
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
-More information about error codes can be found in the article [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md). Error codes in the list appear with a prefix of `AADSTS` followed by the code seen in the browser, for example `AADSTS53002`.
+More information about error codes can be found in the article [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md). Error codes in the list appear with a prefix of `AADSTS` followed by the code seen in the browser, for example `AADSTS53002`.
 
 ## Service dependencies
 
-In some specific scenarios, users are blocked because there are cloud apps with dependencies on resources that are blocked by Conditional Access policy.
+In some specific scenarios, users are blocked because there are cloud apps with dependencies on resources blocked by Conditional Access policy.
 
 To determine the service dependency, check the sign-ins log for the application and resource called by the sign-in. In the following screenshot, the application called is **Azure Portal** but the resource called is **Windows Azure Service Management API**. To target this scenario appropriately all the applications and resources should be similarly combined in Conditional Access policy.
 
@@ -114,5 +112,5 @@ If you're locked out of the Azure portal due to an incorrect setting in a Condit
 ## Next steps
 
 - [Use the What If tool to troubleshoot Conditional Access policies](what-if-tool.md)
-- [Sign-in activity reports in the Azure Active Directory portal](../reports-monitoring/concept-sign-ins.md)
+- [Sign-in activity reports in the Azure portal](../reports-monitoring/concept-sign-ins.md)
 - [Troubleshooting Conditional Access using the What If tool](troubleshoot-conditional-access-what-if.md)

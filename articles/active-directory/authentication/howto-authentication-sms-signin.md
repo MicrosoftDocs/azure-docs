@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 01/29/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -42,7 +42,7 @@ Here are some known issues:
 
 * SMS-based authentication isn't currently compatible with Azure AD Multi-Factor Authentication.
 * Except for Teams, SMS-based authentication isn't compatible with native Office applications.
-* SMS-based authentication isn't recommended for B2B accounts.
+* SMS-based authentication isn't supported for B2B accounts.
 * Federated users won't authenticate in the home tenant. They only authenticate in the cloud.
 * If a user's default sign-in method is a text or call to your phone number, then the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many security codes for different apps. If the default sign-in method is the Microsoft Authenticator app ([which we highly recommend](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), then the app notification is sent automatically.
 * SMS-based authentication has reached general availability, and we're working to remove the **(Preview)** label in the Azure portal.

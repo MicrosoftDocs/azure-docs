@@ -57,7 +57,7 @@ Microsoft Sentinel runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Microsoft Sentinel
 
-Microsoft Sentinel offers flexible pricing based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high security value logs. Basic logs tend to be verbose with low security value.
+Microsoft Sentinel offers flexible pricing based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high security value logs. Basic logs tend to be verbose with low security value. It's important to note that billing is done per workspace on a daily basis for all log types and tiers.
 
 #### Analytics logs
 
@@ -93,7 +93,7 @@ The costs shown in the following image are for example purposes only. They're no
 
 :::image type="content" source="media/billing/sample-bill.png" alt-text="Screenshot showing the Microsoft Sentinel section of a sample Azure bill, to help you estimate costs." lightbox="media/billing/data-types.png":::
 
-Microsoft Sentinel and Log Analytics charges appear on your Azure bill as separate line items based on your selected pricing plan. If you exceed your workspace's Commitment Tier usage in a given month, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the ingestion beyond the Commitment Tier, billed at your same Commitment Tier rate.
+Microsoft Sentinel and Log Analytics charges appear on your Azure bill as separate line items based on your selected pricing plan. Since ingestion is billed on a daily basis, if your workspace exceedes its Commitment Tier usage allocation in any given day, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the ingestion beyond the Commitment Tier, billed at the same effective Commitment Tier rate. 
 
 The following tabs show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your pricing tier.
 
@@ -105,10 +105,10 @@ If you're billed at the commitment tier rate, this table shows how Microsoft Sen
 |--|--|--|
 | Microsoft Sentinel Commitment Tier | `sentinel` | **`n` gb commitment tier** |
 | Log Analytics Commitment Tier | `azure monitor` | **`n` gb commitment tier** |
-| Microsoft Sentinel overage over the Commitment Tier| `sentinel` |**analysis**|
-| Log Analytics overage over the Commitment Tier| `log analytics` |**data ingestion**|
-| Basic logs data ingestion| `azure monitor` |**data ingestion - Basic Logs**|
-| Basic logs data analysis| `sentinel` |**Analysis - Basic Logs**|
+| Microsoft Sentinel overage over the Commitment Tier| `sentinel` |**Pay-as-You-Go analysis**|
+| Log Analytics overage over the Commitment Tier| `log analytics` |**Pay-as-You-Go data ingestion**|
+| Basic logs data ingestion| `azure monitor` |**Basic Logs Data Ingestion**|
+| Basic logs data analysis| `sentinel` |**Basic Logs Analysis**|
 
 #### [Pay-As-You-Go](#tab/pay-as-you-go)
 
@@ -116,10 +116,10 @@ If you're billed at Pay-As-You-Go rate, this table shows how Microsoft Sentinel 
 
  Cost description | Service name | Meter |
 |--|--|--|
-| Pay-As-You-Go| `sentinel` |**analysis**|
-| Pay-As-You-Go| `log analytics` |**data ingestion**|
-| Basic logs data ingestion| `azure monitor` |**data ingestion - Basic Logs**|
-| Basic logs data analysis| `sentinel` |**Analysis - Basic Logs**|
+| Pay-As-You-Go| `sentinel` |**Pay-as-You-Go analysis**|
+| Pay-As-You-Go| `log analytics` |**Pay-as-You-Go data ingestion**|
+| Basic logs data ingestion| `azure monitor` |**Basic Logs Data Ingestion**|
+| Basic logs data analysis| `sentinel` |**Basic Logs Analysis**|
 
 #### [Free data meters](#tab/free-data-meters)
 
@@ -128,7 +128,7 @@ This table shows how Microsoft Sentinel and Log Analytics costs appear in the **
  Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Free Trial – Log Analytics data ingestion| `azure monitor` |**Data Ingestion – Free Benefit – Sentinel Trial**|
-| Microsoft Sentinel Free Trial – Sentinel Analysis| `sentinel` |**Free trial**|
+| Microsoft Sentinel Free Trial – Sentinel Analysis| `sentinel` |**Free trial Analysis**|
 | M365 Defender Benefit – Data Ingestion| `azure monitor` |**Free Benefit - M365 Defender Data Ingestion**|
 | M365 Defender Benefit – Data Analysis| `sentinel` |**Free Benefit - M365 Defender Analysis**|
 

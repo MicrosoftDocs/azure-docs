@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with zeroheight | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SSO integration with zeroheight'
 description: Learn how to configure single sign-on between Azure Active Directory and zeroheight.
 services: active-directory
 author: jeevansd
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 03/07/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with zeroheight
+# Tutorial: Azure Active Directory SSO integration with zeroheight
 
-In this tutorial, you'll learn how to integrate zeroheight with Azure Active Directory (Azure AD). When you integrate zeroheight with Azure AD, you can:
+In this tutorial, you learn how to integrate zeroheight with Azure Active Directory (Azure AD). When you integrate zeroheight with Azure AD, you can:
 
 * Control in Azure AD who has access to zeroheight.
 * Enable your users to be automatically signed-in to zeroheight with their Azure AD accounts.
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://zeroheight.com/sso`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [zeroheight Client support team](mailto:support@zeroheight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. These values will be generated for you in your account. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. The zeroheight application expects the SAML assertions in a specific format and requires you to add custom attribute mappings to your SAML token attributes configuration. Find the following section with the default attributes.
 
@@ -125,7 +125,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure zeroheight SSO
 
-To configure single sign-on on **zeroheight** side, you need to send the **App Federation Metadata Url** to [zeroheight support team](mailto:support@zeroheight.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **zeroheight** side, you need to paste the **App Federation Metadata Url** into your browser and download the XML file. Then you will need to extract the Identity Provider Single Sign-On URL and X.509 Certificate from it. Ask your IT team if you are unsure.
 
 ### Create zeroheight test user
 

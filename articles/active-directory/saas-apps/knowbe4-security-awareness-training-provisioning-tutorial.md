@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure KnowBe4 Security Awareness Training for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure KnowBe4 Security Awareness Training for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to KnowBe4 Security Awareness Training.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: e71f7de4-33d0-46cc-85c9-29f24c3e1a25
 ms.service: active-directory

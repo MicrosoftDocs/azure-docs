@@ -235,6 +235,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Azure Active Directory |12076:5060 |
 | Azure Resource Manager |12076:5070 |
 | Other Office 365 Online services** | 12076:5100 |
+| Microsoft Defender for Identity | 12076:5520 |
 
 \* Azure Global Services includes only Azure DevOps at this time.
 

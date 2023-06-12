@@ -1,17 +1,17 @@
 ---
-title: Microsoft Energy Data Service - How to convert segy to zgy file #Required; page title is displayed in search results. Include the brand.
-description: This article describes how to convert a SEG-Y file to a ZGY file #Required; article description that is displayed in search results. 
-author: marielgherz #Required; your GitHub user alias, with correct capitalization.
-ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview - How to convert segy to zgy file
+description: This article describes how to convert a SEG-Y file to a ZGY file
+author: marielgherz
+ms.author: marielherzog
+ms.service: energy-data-services
+ms.topic: how-to
 ms.date: 08/18/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # How to convert a SEG-Y file to ZGY
 
-In this article, you will learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/azure/m10-master)
+In this article, you will learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -19,7 +19,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
 
 1. Download and install [Postman](https://www.postman.com/) desktop app.
 2. Import the [oZGY Conversions.postman_collection](https://github.com/microsoft/meds-samples/blob/main/postman/SegyToZgyConversion%20Workflow%20using%20SeisStore%20R3%20CI-CD%20v1.0.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
-3. Ensure that your Microsoft Energy Data Services Preview instance is created already
+3. Ensure that your Azure Data Manager for Energy Preview instance is created already
 4. Clone the **sdutil** repo as shown below:
   ```markdown
   git clone https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil.git
@@ -152,7 +152,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
     }'
     ```
 
-6. Patch Subproject with the legal tag you created above. Recall that the format of the legal tag will be prefixed with the Microsoft Energy Data Services instance name and data partition name, so it looks like `<instancename>`-`<datapartitionname>`-`<legaltagname>`.
+6. Patch Subproject with the legal tag you created above. Recall that the format of the legal tag will be prefixed with the Azure Data Manager for Energy instance name and data partition name, so it looks like `<instancename>`-`<datapartitionname>`-`<legaltagname>`.
 
     ```bash
     curl --location --request PATCH '<url>/seistore-svc/api/v3/subproject/tenant/<data-partition>/subproject/<subproject-name>' \
@@ -230,7 +230,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
     ZGY conversion uses a manifest file that you'll upload to your storage account in order to run the conversion. This manifest file is created by using multiple JSON files and running a script. The JSON files for this process are stored [here](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/doc/sample-records/volve). For more information on Volve, such as where the dataset definitions come from, visit [their website](https://www.equinor.com/energy/volve-data-sharing). Complete the following steps in order to create the manifest file:
 
     * Clone the [repo](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/) and navigate to the folder doc/sample-records/volve
-    * Edit the values in the `prepare-records.sh` bash script. Recall that the format of the legal tag will be prefixed with the Microsoft Energy Data Services instance name and data partition name, so it looks like `<instancename>`-`<datapartitionname>`-`<legaltagname>`.
+    * Edit the values in the `prepare-records.sh` bash script. Recall that the format of the legal tag will be prefixed with the Azure Data Manager for Energy instance name and data partition name, so it looks like `<instancename>`-`<datapartitionname>`-`<legaltagname>`.
 
       * `DATA_PARTITION_ID=<your-partition-id>`
       * `ACL_OWNER=data.default.owners@<your-partition-id>.<your-tenant>.com`

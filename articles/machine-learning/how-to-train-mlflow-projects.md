@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, sdkv2, event-tier1-build-2022
+ms.custom: how-to, sdkv2, event-tier1-build-2022
 ---
 
 # Train with MLflow Projects in Azure Machine Learning (Preview)
@@ -164,7 +164,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstrate and expand upon concepts presented in this article.
+The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstrate and expand upon concepts presented in this article.
 
   * [Train an MLflow project on a local compute](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-projects-local/train-projects-local.ipynb)
   * [Train an MLflow project on remote compute](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-projects-remote/train-projects-remote.ipynb).
@@ -178,4 +178,3 @@ The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNot
 * [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
 * [Manage models registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md).
 * [Guidelines for deploying MLflow models](how-to-deploy-mlflow-models.md).
-

@@ -18,7 +18,10 @@ Azure Firewall service tags can be used in the network rules destination field. 
 
 ## Supported service tags
 
-See [Virtual network service tags](../virtual-network/service-tags-overview.md#available-service-tags) for a list of service tags that are available for use in Azure firewall network rules.
+Azure Firewall supports the following Service Tags to use in Azure Firewall Network rules:
+
+- Tags for various Microsoft and Azure services listed in [Virtual network service tags](../virtual-network/service-tags-overview.md#available-service-tags).
+- Tags for the required IP addresses of Office365 services, split by Office365 product and category. You must define the TCP/UDP ports in your rules. For more information, see [Use Azure Firewall to protect Office 365](protect-office-365.md).
 
 ## Configuration
 

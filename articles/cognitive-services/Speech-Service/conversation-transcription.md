@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-speech, ignite-fall-2021
 
 # What is conversation transcription?
 
-Conversation transcription is a [speech-to-text](speech-to-text.md) solution that provides real-time or asynchronous transcription of any conversation. This feature, which is currently in preview, combines speech recognition, speaker identification, and sentence attribution to determine who said what, and when, in a conversation. 
+Conversation transcription is a [speech to text](speech-to-text.md) solution that provides real-time or asynchronous transcription of any conversation. This feature, which is currently in preview, combines speech recognition, speaker identification, and sentence attribution to determine who said what, and when, in a conversation. 
 
 > [!NOTE]
 > Multi-device conversation access is a preview feature.
@@ -41,7 +41,7 @@ See the real-time conversation transcription [quickstart](how-to-use-conversatio
 
 ## Use cases
 
-To make meetings inclusive for everyone, such as participants who are deaf and hard of hearing, it's important to have transcription in real time. Conversation transcription in real-time mode takes meeting audio and determines who is saying what, allowing all meeting participants to follow the transcript and participate in the meeting, without a delay.
+To make meetings inclusive for everyone, such as participants who are deaf and hard of hearing, it's important to have transcription in real-time. Conversation transcription in real-time mode takes meeting audio and determines who is saying what, allowing all meeting participants to follow the transcript and participate in the meeting, without a delay.
 
 Meeting participants can focus on the meeting and leave note-taking to conversation transcription. Participants can actively engage in the meeting and quickly follow up on next steps, using the transcript instead of taking notes and potentially missing something during the meeting.
 
@@ -57,6 +57,9 @@ Conversation transcription uses two types of inputs:
 
 - **Multi-channel audio stream:** For specification and design details, see [Microphone array recommendations](./speech-sdk-microphone.md). 
 - **User voice samples:** Conversation transcription needs user profiles in advance of the conversation for speaker identification. Collect audio recordings from each user, and then send the recordings to the [signature generation service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
+
+> [!NOTE]
+> Single channel audio configuration for conversation transcription is currently only available in private preview.
 
 User voice samples for voice signatures are required for speaker identification. Speakers who don't have voice samples are recognized as *unidentified*. Unidentified speakers can still be differentiated when the `DifferentiateGuestSpeakers` property is enabled (see the following example). The transcription output then shows speakers as, for example, *Guest_0* and *Guest_1*, instead of recognizing them as pre-enrolled specific speaker names.
 
@@ -82,9 +85,9 @@ Audio data is processed live to return the speaker identifier and transcript, an
 
 ## Language support
 
-Currently, conversation transcription supports [all speech-to-text languages](language-support.md?tabs=stt) in the following regions: `centralus`, `eastasia`, `eastus`, `westeurope`.
+Currently, conversation transcription supports [all speech to text languages](language-support.md?tabs=stt) in the following regions: `centralus`, `eastasia`, `eastus`, `westeurope`.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Transcribe conversations in real time](how-to-use-conversation-transcription.md)
+> [Transcribe conversations in real-time](how-to-use-conversation-transcription.md)

@@ -3,7 +3,6 @@ title: Overview of upgrading Azure Kubernetes Service (AKS) clusters and compone
 description: Learn about the various upgradeable components of an Azure Kubernetes Service (AKS) cluster and how to maintain them.
 author: nickomang
 ms.author: nickoman
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/11/2022
 ---
@@ -15,6 +14,8 @@ An Azure Kubernetes Service (AKS) cluster will periodically need to be updated t
 - *Cluster Kubernetes version*: Part of the AKS cluster lifecycle involves performing upgrades to the latest Kubernetes version. It’s important you upgrade to apply the latest security releases and to get access to the latest Kubernetes features, as well as to stay within the [AKS support window][supported-k8s-versions].
 - *Node image version*: AKS regularly provides new node images with the latest OS and runtime updates. It's beneficial to upgrade your nodes' images regularly to ensure support for the latest AKS features and to apply essential security patches and hot fixes.
 
+For Linux nodes, node image security patches and hotfixes may be performed without your initiation as *unattended updates*. These updates are automatically applied, but AKS doesn't automatically reboot your Linux nodes to complete the update process. You're required to use a tool like [kured][node-updates-kured] or [node image upgrade][node-image-upgrade] to reboot the nodes and complete the cycle.
+
 The following table summarizes the details of updating each component:
 
 |Component name|Frequency of upgrade|Planned Maintenance supported|Supported operation methods|Documentation link|
@@ -22,7 +23,7 @@ The following table summarizes the details of updating each component:
 |Cluster Kubernetes version (minor) upgrade|Roughly every three months|Yes| Automatic, Manual|[Upgrade an AKS cluster][upgrade-cluster]|
 |Cluster Kubernetes version upgrade to supported patch version|Approximately weekly. To determine the latest applicable version in your region, see the [AKS release tracker][release-tracker]|Yes|Automatic, Manual|[Upgrade an AKS cluster][upgrade-cluster]|
 |Node image version upgrade|**Linux**: weekly<br>**Windows**: monthly|Yes|Automatic, Manual|[AKS node image upgrade][node-image-upgrade]|
-|Security patches and hot fixes for node images|As-necessary||||
+|Security patches and hot fixes for node images|As-necessary|||[AKS node security patches][node-security-patches]|
 
 ## Automatic upgrades
 
@@ -57,10 +58,12 @@ For more information what cluster operations may trigger specific upgrade events
 [release-tracker]: ./release-tracker.md
 [node-image-upgrade]: ./node-image-upgrade.md
 [gh-actions-upgrade]: ./node-upgrade-github-actions.md 
-[operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices.md#considerations
+[operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices#considerations
 [supported-k8s-versions]: ./supported-kubernetes-versions.md#kubernetes-version-support-policy
 [ts-nsg]: /troubleshoot/azure/azure-kubernetes/upgrade-fails-because-of-nsg-rules
 [ts-pod-drain]: /troubleshoot/azure/azure-kubernetes/error-code-poddrainfailure
 [ts-ip-limit]: /troubleshoot/azure/azure-kubernetes/error-code-publicipcountlimitreached
 [ts-quota-exceeded]: /troubleshoot/azure/azure-kubernetes/error-code-quotaexceeded
 [ts-subnet-full]: /troubleshoot/azure/azure-kubernetes/error-code-subnetisfull-upgrade
+[node-security-patches]: ./concepts-vulnerability-management.md#worker-nodes
+[node-updates-kured]: ./node-updates-kured.md

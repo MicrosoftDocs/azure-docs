@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Adobe Sign | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Adobe Sign'
 description: Learn how to configure single sign-on between Azure Active Directory and Adobe Sign.
 services: active-directory
 author: jeevansd

@@ -24,6 +24,9 @@ Service-level encryption supports the use of either Microsoft-managed keys or cu
 
 To doubly encrypt your data, you must first create a storage account or an encryption scope that is configured for infrastructure encryption. This article describes how to enable infrastructure encryption.
 
+> [!IMPORTANT]
+> Infrastructure encryption is recommended for scenarios where doubly encrypting data is necessary for compliance requirements. For most other scenarios, Azure Storage encryption provides a sufficiently powerful encryption algorithm, and there is unlikely to be a benefit to using infrastructure encryption.
+
 ## Create an account with infrastructure encryption enabled
 
 To enable infrastructure encryption for a storage account, you must configure a storage account to use infrastructure encryption at the time that you create the account. Infrastructure encryption cannot be enabled or disabled after the account has been created. The storage account must be of type general-purpose v2 or premium block blob.
@@ -48,7 +51,7 @@ To verify that infrastructure encryption is enabled for a storage account with t
 
 # [PowerShell](#tab/powershell)
 
-To use PowerShell to create a storage account with infrastructure encryption enabled, make sure you have installed the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 2.2.0 or later. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+To use PowerShell to create a storage account with infrastructure encryption enabled, make sure you have installed the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 2.2.0 or later. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 Next, create a general-purpose v2 or premium block blob storage account by calling the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Include the `-RequireInfrastructureEncryption` option to enable infrastructure encryption.
 

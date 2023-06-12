@@ -2,14 +2,16 @@
 title: End-user experiences for applications
 description: Learn about the customizable ways to deploy applications to end users in your organization with Azure Active Directory (Azure AD)
 services: active-directory
-author: lnalepa
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/08/2022
-ms.author: lenalepa
+ms.author: jomondi
+ms.reviewer: lenalepa
+ms.custom: enterprise-apps
 ---
 
 # End-user experiences for applications
@@ -69,7 +71,7 @@ As an admin, you can choose to try out new app launcher features while they are 
 
 To enable or disable previews for your app launchers:
 
-- Sign in to the Azure portal as a global administrator for your directory.
+- Sign in to the Azure portal as a global administrator, application administrator or cloud application administrator for your directory.
 - Search for and select **Azure Active Directory**, then select **Enterprise applications**.
 - On the left menu, select **App launchers**, then select **Settings**.
 - Under **Preview settings**, toggle the checkboxes for the previews you want to enable or disable. To opt into a preview, toggle the associated checkbox to the checked state. To opt out of a preview, toggle the associated checkbox to the unchecked state.

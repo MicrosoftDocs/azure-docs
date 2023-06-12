@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with OpenText Directory Services | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with OpenText Directory Services'
 description: Learn how to configure single sign-on between Azure Active Directory and OpenText Directory Services.
 services: active-directory
 author: jeevansd

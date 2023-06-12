@@ -2,15 +2,16 @@
 title: Submit a request to publish your application
 description: Learn how to publish your application in Azure Active Directory application gallery.
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 6/2/2022
-ms.author: ergreenl
-ms.custom: kr2b-contr-experiment, contperf-fy22q4
+ms.author: jomondi
+ms.reviewer: ergreenl
+ms.custom: kr2b-contr-experiment, contperf-fy22q4, enterprise-apps-article
 ---
 
 # Submit a request to publish your application in Azure Active Directory application gallery
@@ -29,6 +30,7 @@ To publish your application in the gallery, you must first read and agree to spe
 - Implement support for *single sign-on* (SSO). To learn more about supported options, see [Plan a single sign-on deployment](plan-sso-deployment.md).
     - For password SSO, make sure that your application supports form authentication so that password vaulting can be used.
 	- For federated applications (OpenID and SAML/WS-Fed), the application must support the [software-as-a-service (SaaS) model](https://azure.microsoft.com/overview/what-is-saas/). Enterprise gallery applications must support multiple user configurations and not any specific user.
+	- For federated applications (OpenID and SAML/WS-Fed), the application can be single **or** multitenanted
 	- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md) must be correctly implemented.
 - Provisioning is optional yet highly recommended. To learn more about Azure AD SCIM, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
@@ -82,15 +84,15 @@ You can track application requests by customer name at the Microsoft Application
 
 ### Timelines
 
-Listing an SAML 2.0 or WS-Fed application in the gallery takes 7 to 10 business days.
+Listing an **SAML 2.0 or WS-Fed application** in the gallery takes 7 to 10 business days.
 
 :::image type="content" source="./media/howto-app-gallery-listing/timeline.png" alt-text="Screenshot that shows the timeline for listing a SAML application.":::
 
-Listing an OpenID Connect application in the gallery takes 2 to 5 business days.
+Listing an **OpenID Connect application** in the gallery takes 2 to 5 business days.
 
 :::image type="content" source="./media/howto-app-gallery-listing/timeline2.png" alt-text="Screenshot that shows the timeline for listing an OpenID Connect application.":::
 
-Listing an SCIM provisioning application in the gallery varies, depending on numerous factors.
+Listing an **SCIM provisioning application** in the gallery varies, depending on numerous factors.
 
 Not all applications are onboarded. Per the terms and conditions, a decision can be made not to list an application. Onboarding applications is at the sole discretion of the onboarding team.
 

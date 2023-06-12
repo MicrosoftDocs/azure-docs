@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 08/11/2022
+ms.date: 01/26/2023
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -16,7 +16,7 @@ ms.date: 08/11/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-Microsoft Entra Verified ID is a decentralized identity solution that helps you safeguard your organization. The service allows you to issue and verify credentials. Issuers can use the Verified ID service to issue their own customized verifiable credentials. Verifiers can use the service's free REST API to easily request and accept verifiable credentials in their apps and services. In both cases, you will have to configure your Azure AD tenant so that you can use it to either issue your own verifiable credentials, or verify the presentation of a user's verifiable credentials that were issued by another organization. In case you are both an issuer and a verifier, you can use a single Azure AD tenant to both issue your own verifiable credentials as well as verify those of others.
+Microsoft Entra Verified ID is a decentralized identity solution that helps you safeguard your organization. The service allows you to issue and verify credentials. Issuers can use the Verified ID service to issue their own customized verifiable credentials. Verifiers can use the service's free REST API to easily request and accept verifiable credentials in apps and services. In both cases, your Azure AD tenant needs to be configured to either issue your own verifiable credentials, or verify the presentation of a user's verifiable credentials issued by a third party. In the event that you are both an issuer and a verifier, you can use a single Azure AD tenant to both issue your own verifiable credentials and verify those of others.
 
 In this tutorial, you learn how to configure your Azure AD tenant to use the verifiable credentials service.
 
@@ -33,9 +33,9 @@ The following diagram illustrates the Verified ID architecture and the component
 
 ## Prerequisites
 
-- You need an Azure tenant with an active subscription. If you don't have Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) permission for the directory you want to configure. If you're not the global administrator, you will need permission [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) to complete the app registration including granting admin consent.
-- Ensure that you have the [contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the Azure subscription or the resource group that you will deploy Azure Key Vault in.
+- You need an Azure tenant with an active subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) permission for the directory you want to configure. If you're not the global administrator, you need the [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) permission to complete the app registration including granting admin consent.
+- Ensure that you have the [contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the Azure subscription or the resource group where you are deploying Azure Key Vault.
 
 ## Create a key vault
 
@@ -61,26 +61,30 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 1. For **Key permissions**, verify that the following permissions are selected: **Create**, **Delete**, and **Sign**. By default, **Create** and **Delete** are already enabled. **Sign** should be the only key permission you need to update.
 
-:::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png" alt-text="Screenshot that shows how to configure the admin access policy." border="false":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png" alt-text="Screenshot that shows how to configure the admin access policy." border="false":::
 
 1. To save the changes, select **Save**.
 
 ## Set up Verified ID
 
+:::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png" alt-text="Screenshot that shows how to set up Verifiable Credentials.":::
+
 To set up Verified ID, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), search for *Verified ID*. Then, select **Verified ID**.
 
-1. From the left menu, select **Getting started**.
+1. From the left menu, select **Setup**.
+
+1. From the middle menu, select **Define organization settings**
 
 1. Set up your organization by providing the following information:
 
     1. **Organization name**: Enter a name to reference your business within Verified IDs. Your customers don't see this name.
 
-    1. **Domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.
+    1. **Trusted domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.
 
         >[!IMPORTANT]
-        > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://contoso.com`.
+        > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://did.woodgrove.com`.
 
     1. **Key vault**: Select the key vault that you created earlier.
 
@@ -89,9 +93,9 @@ To set up Verified ID, follow these steps:
         >[!IMPORTANT]
         > The only way to change the trust system is to opt-out of the Verified ID service and redo the onboarding.
 
-1. Select **Save and get started**.  
+1. Select **Save**.  
 
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png" alt-text="Screenshot that shows how to set up Verifiable Credentials.":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started-save.png" alt-text="Screenshot that shows how to set up Verifiable Credentials first step.":::
 
 ### Set access policies for the Verified ID service principals
 
@@ -153,21 +157,18 @@ You can choose to grant issuance and presentation permissions separately if you 
 
 :::image type="content" source="media/verifiable-credentials-configure-tenant/granular-app-permissions.png" alt-text="Screenshot that shows how to select granular permissions for issuance or presentation.":::
 
-## Service endpoint configuration
+## Register decentralized ID and verify domain ownership
 
+After Azure Key Vault is setup, and the service have a signing key, you must complete step 2 and 3 in the setup.
+
+:::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started-step-2-3.png" alt-text="Screenshot that shows how to set up Verifiable Credentials step 2 and 3.":::
 
 1. Navigate to the Verified ID service in the Azure portal.  
-1. Select **Registration**.
-1. Notice that there are two sections:
-    1. DID registration
-    1. Domain ownership verification.
-1. Select on each section and download the JSON file under each.
-1. Create a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
-    - `https://contoso.com/.well-known/did.json`
-    - `https://contoso.com/.well-known/did-configuration.json`
+1. From the left menu, select **Setup**.
+1. From the middle menu, select **Register decentralized ID** to register your DID document, as per instructions in article [How to register your decentralized ID for did:web](how-to-register-didwebsite.md). You must complete this step before you can continue to verify your domain. If you selected did:ion as your trust system, you should skip this step.
+1. From the middle menu, select **Verify domain ownership** to verify your domain, as per instructions in article [Verify domain ownership to your Decentralized Identifier (DID)](how-to-dnsbind.md)
 
-Once that you have successfully completed the verification steps, you are ready to continue to the next tutorial.
-If you have selected ION as the trust system, you will not see the DID registration section as it is not applicable for ION and you only have to distribute the did-configuration.json file. 
+Once that you have successfully completed the verification steps, and have green checkmarks on all three steps, you are ready to continue to the next tutorial.
 
 ## Next steps
 

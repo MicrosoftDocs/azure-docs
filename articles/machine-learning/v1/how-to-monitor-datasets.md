@@ -10,7 +10,7 @@ ms.author: wibuchan
 author: buchananwp
 ms.date: 08/17/2022
 ms.topic: how-to
-ms.custom: data4ml, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
 ---
 
@@ -28,7 +28,7 @@ With Azure Machine Learning dataset monitors (preview), you can:
 * **Set up alerts on data drift** for early warnings to potential issues. 
 * **[Create a new dataset version](how-to-version-track-datasets.md)** when you determine the data has drifted too much.
 
-An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
+An [Azure Machine Learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
 
 You can view data drift metrics with the Python SDK or in Azure Machine Learning studio.  Other metrics and insights are available through the [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) resource associated with the Azure Machine Learning workspace.
 

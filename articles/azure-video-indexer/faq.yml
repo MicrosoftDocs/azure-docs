@@ -112,6 +112,9 @@ sections:
           For detailed description on how to switch to the correct domain, see [Switch between tenants](switch-tenants-portal.md).
   - name: Privacy Questions
     questions:
+      - question: How is network traffic encrypted by Azure Video Indexer?
+        answer: Communication between a client application and an Azure Video Indexer account is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security). Video Indexer enforces a minimum of TLS v1.2. Customers can't control the cipher suits, we will pick the first match between the client and server going from strong to weaker.
+      
       - question: Are video and audio files indexed by Azure Video Indexer stored?
         answer: Yes, unless you delete the file from Azure Video Indexer, either using the Azure Video Indexer website or API, your video and audio files are stored. For the trial, the video and audio files that you index are stored in the Azure region East US. Otherwise, your video and audio files are stored in the storage account of your Azure subscription.
 

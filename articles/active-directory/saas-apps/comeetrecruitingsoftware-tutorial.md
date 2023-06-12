@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Comeet Recruiting Software | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Comeet Recruiting Software'
 description: Learn how to configure single sign-on between Azure Active Directory and Comeet Recruiting Software.
 services: active-directory
 author: jeevansd

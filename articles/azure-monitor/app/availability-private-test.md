@@ -2,7 +2,7 @@
 title: Private availability testing - Azure Monitor Application Insights
 description: Learn how to use availability tests on internal servers that run behind a firewall with private testing.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 03/22/2023
 ms.reviewer: shyamala
 ---
 
@@ -49,5 +49,5 @@ For more information, see the [troubleshooting article](troubleshoot-availabilit
 
 * [Azure Private Link](../logs/private-link-security.md)
 * [Availability alerts](availability-alerts.md)
-* [URL tests](monitor-web-app-availability.md)
+* [Availability overview](availability-overview.md)
 * [Create and run custom availability tests by using Azure Functions](availability-azure-functions.md)

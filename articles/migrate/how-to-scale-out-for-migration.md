@@ -1,11 +1,11 @@
 ---
 title: Set up an Azure Migrate scale-out appliance for agentless VMware migration
 description: Learn how to set up an Azure Migrate scale-out appliance to migrate Hyper-V VMs.
-author: anvar-ms 
-ms.author: anvar
-ms.manager: bsiva
+author: ajaypartha95
+ms.author: ajaypar
+ms.manager: roopesh.nair
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 03/16/2023
 ms.custom: engagement-fy23
 ---
 
@@ -68,7 +68,7 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 > 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
-277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC 
 
 ### 3. Run the Azure Migrate installer script
 

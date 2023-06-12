@@ -28,8 +28,6 @@ items:
 
 - name: Tutorials
   items:
-  - name: Access Reporting API with certificates
-    href: tutorial-access-api-with-certificates.md
   - name: Stream logs to event hub
     href: tutorial-azure-monitor-stream-logs-to-event-hub.md
   - name: Log analytics wizard
@@ -49,8 +47,6 @@ items:
     href: concept-provisioning-logs.md
   - name: Usage and Insights report
     href: concept-usage-insights-report.md
-  - name: Reporting APIs
-    href: concept-reporting-api.md
   - name: Azure AD logs in Azure Monitor
     href: concept-activity-logs-azure-monitor.md
   - name: Plan a reporting and monitoring deployment
@@ -95,12 +91,6 @@ items:
       href: concept-sign-in-diagnostics-scenarios.md
     - name: Troubleshoot sign-in errors for a user
       href: howto-troubleshoot-sign-in-errors.md
-    - name: Missing audit data
-      href: troubleshoot-missing-audit-data.md
-    - name: Missing data in download
-      href: troubleshoot-missing-data-download.md
-    - name: Cannot access Graph APIs for reporting
-      href: troubleshoot-graph-api.md
     - name: Audit data on verified domain change
       href: troubleshoot-audit-data-verified-domain.md
 
@@ -113,14 +103,14 @@ items:
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
     href: /graph/api/resources/directoryaudit
+  - name: Azure AD recommendations API reference
+    href: /graph/api/resources/recommendations-api-overview
   - name: Sign-in logs API reference
     href: /graph/api/resources/signin
   - name: Audit activities
     href: reference-audit-activities.md
   - name: Data retention policies
     href: reference-reports-data-retention.md
-  - name: Reporting latencies
-    href: reference-reports-latencies.md
   - name: Frequently asked questions
     href: reports-faq.yml
   - name: Sign-in log schema
@@ -149,15 +139,30 @@ items:
       - name: Multifactor authentication gaps 
         href: workbook-mfa-gaps.md
 
-- name: Recommendations
+- name: Azure AD Recommendations
+  expanded: false
   items:
-    - name: Convert to Conditional Access MFA
-      href: recommendation-turn-off-per-user-mfa.md
-    - name: Integrate your third party apps
-      href: recommendation-integrate-third-party-apps.md
-    - name: Migrate to Microsoft authenticator
-      href: recommendation-migrate-to-authenticator.md
-    - name: Migrate apps from AD FS to Azure AD
-      href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
-    - name: Minimize MFA prompts from known devices
-      href: recommendation-mfa-from-known-devices.md
+    - name: How to use Azure AD recommendations
+      href: howto-use-recommendations.md
+    - name: Recommendation details
+      expanded: true
+      items:
+        - name: Migrate ADAL to MSAL
+          href: recommendation-migrate-from-adal-to-msal.md
+        - name: Migrate apps from AD FS to Azure AD
+          href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
+        - name: Migrate to Microsoft authenticator
+          href: recommendation-migrate-to-authenticator.md
+        - name: Switch to Conditional Access MFA
+          href: recommendation-turn-off-per-user-mfa.md
+        - name: Minimize MFA prompts from known devices
+          href: recommendation-mfa-from-known-devices.md
+        - name: Remove unused apps (preview)
+          href: recommendation-remove-unused-apps.md
+        - name: Remove unused credentials from apps (preview)
+          href: recommendation-remove-unused-credential-from-apps.md
+        - name: Renew expiring application credentials (preview)
+          href: recommendation-renew-expiring-application-credential.md
+        - name: Renew expiring service principal credentials (preview)
+          href: recommendation-renew-expiring-service-principal-credential.md
+

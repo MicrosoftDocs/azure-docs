@@ -4,7 +4,7 @@ description: Attestation service for the NP-series VMs.
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 02/27/2023
 ---
 # FPGA attestation for Azure NP-Series VMs (Preview)
 

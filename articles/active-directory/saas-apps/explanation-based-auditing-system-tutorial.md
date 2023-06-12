@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Explanation-Based Auditing System | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Explanation-Based Auditing System'
 description: Learn how to configure single sign-on between Azure Active Directory and Explanation-Based Auditing System.
 services: active-directory
 author: jeevansd

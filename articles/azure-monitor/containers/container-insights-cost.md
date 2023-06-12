@@ -2,8 +2,7 @@
 title: Monitoring cost for Container insights | Microsoft Docs
 description: This article describes the monitoring cost for metrics and inventory data collected by Container insights to help customers manage their usage and associated costs. 
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 08/29/2022
+ms.date: 03/02/2023
 ms.reviewer: viviandiec
 ---
 # Understand monitoring costs for Container insights
@@ -24,7 +23,8 @@ The Azure Monitor pricing model is primarily based on the amount of data ingeste
 
 The following types of data collected from a Kubernetes cluster with Container insights influence cost and can be customized based on your usage:
 
-- Stdout and stderr container logs from every monitored container in every Kubernetes namespace in the cluster
+- Perf, Inventory, InsightsMetrics, and KubeEvents can be controlled through [cost optimization settings](../containers/container-insights-cost-config.md)
+- Stdout and stderr container logs from every monitored container in every Kubernetes namespace in the cluster via the [agent ConfigMap](../containers/container-insights-agent-config.md)
 - Container environment variables from every monitored container in the cluster
 - Completed Kubernetes jobs/pods in the cluster that don't require monitoring
 - Active scraping of Prometheus metrics
@@ -63,7 +63,7 @@ By using the default [pricing](https://azure.microsoft.com/pricing/details/monit
 
 ## Control ingestion to reduce cost
 
-Consider a scenario where your organization's different business units share Kubernetes infrastructure and a Log Analytics workspace. Each business unit is separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace by using the **Data Usage** runbook. The runbook is available from the **View Workbooks** dropdown list.
+Consider a scenario where your organization's different business units share Kubernetes infrastructure and a Log Analytics workspace. Each business unit is separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace by using the **Data Usage** runbook. The runbook is available from the **Reports** tab.
 
 [![Screenshot that shows the View Workbooks dropdown list.](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
 
@@ -79,6 +79,31 @@ This workbook helps you visualize the source of your data without having to buil
 [![Screenshot that shows the Data Usage workbook.](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 To learn about managing rights and permissions to the workbook, review [Access control](../visualize/workbooks-overview.md#access-control).
+
+### Determining the root cause of the data ingestion
+
+Container Insights data primarily consists of metric counters (Perf, Inventory, InsightsMetrics, and custom metrics) and logs (ContainerLog). Based on your cluster usage and size, you may have different requirements and monitoring needs.
+
+By navigating to the By Table section of the Data Usage workbook, you can see the breakdown of table sizes for Container Insights.
+
+[![Screenshot that shows the By Table breakdown in Data Usage workbook.](media/container-insights-cost/data-usage-workbook-by-table.png)](media/container-insights-cost/data-usage-workbook-by-table.png#lightbox)
+
+If the majority of your data comes from one of these following tables:
+- Perf
+- InsightsMetrics
+- ContainerInventory
+- ContainerNodeInventory	
+- KubeNodeInventory
+- KubePodInventory
+- KubePVInventory
+- KubeServices
+- KubeEvents
+
+You can adjust your ingestion using the [cost optimization settings](../containers/container-insights-cost-config.md) and/or migrating to the [Prometheus metrics addon](container-insights-prometheus.md)
+
+Otherwise, the majority of your data belongs to the ContainerLog table. and you can follow the steps below to reduce your ContainerLog costs.
+
+### Reducing your ContainerLog costs
 
 After you finish your analysis to determine which sources are generating the data that's exceeding your requirements, you can reconfigure data collection. For more information on configuring collection of stdout, stderr, and environmental variables, see [Configure agent data collection settings](container-insights-agent-config.md).
 
@@ -123,6 +148,12 @@ The following examples show what changes you can apply to your cluster by modify
 
 After you apply one or more of these changes to your ConfigMaps, apply it to your cluster with the command `kubectl apply -f <config3. map_yaml_file.yaml>`. For example, run the command `kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.
 
+### Configure Basic Logs
+
+You can save on data ingestion costs on ContainerLog in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as Basic Logs. For more information, including the limitations of Basic Logs, see [Configure Basic Logs in Azure Monitor](../logs/basic-logs-configure.md). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses. ContainerLogV2 includes verbose text-based log records.
+
+You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema (preview)](container-insights-logging-v2.md).
+
 ### Prometheus metrics scraping
 
 If you use [Prometheus metric scraping](container-insights-prometheus.md), make sure that you limit the number of metrics you collect from your cluster:
@@ -130,12 +161,6 @@ If you use [Prometheus metric scraping](container-insights-prometheus.md), make 
 - Ensure that scraping frequency is optimally set. The default is 60 seconds. You can increase the frequency to 15 seconds, but you must ensure that the metrics you're scraping are published at that frequency. Otherwise, many duplicate metrics will be scraped and sent to your Log Analytics workspace at intervals that add to data ingestion and retention costs but are of less value.
 - Container insights supports exclusion and inclusion lists by metric name. For example, if you're scraping **kubedns** metrics in your cluster, hundreds of them might get scraped by default. But you're most likely only interested in a subset of the metrics. Confirm that you specified a list of metrics to scrape, or exclude others except for a few to save on data ingestion volume. It's easy to enable scraping and not use many of those metrics, which will only add charges to your Log Analytics bill.
 - When you scrape through pod annotations, ensure you filter by namespace so that you exclude scraping of pod metrics from namespaces that you don't use. An example is the `dev-test` namespace.
-
-### Configure Basic Logs
-
-You can save on data ingestion costs by configuring certain tables in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as Basic Logs. For more information, including the limitations of Basic Logs, see [Configure Basic Logs in Azure Monitor](../logs/basic-logs-configure.md). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses. ContainerLogV2 includes verbose text-based log records.
-
-You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema (preview)](container-insights-logging-v2.md).
 
 ## Data collected from Kubernetes clusters
 

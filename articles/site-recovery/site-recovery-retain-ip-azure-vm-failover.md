@@ -133,7 +133,7 @@ Here’s what the network architecture looks like before failover.
     - **Subnet 1**: 10.1.1.0/24
     - **Subnet 2**: 10.1.2.0/24
     - **Subnet 3**: 10.1.3.0/24, utilizing an Azure virtual network with address space 10.1.0.0/16. This virtual network is named **Source VNet**
-      - The secondary (target) region is Azure Southeast Asia:
+- The secondary (target) region is Azure Southeast Asia:
   - Southeast Asia has a recovery VNet (**Recovery VNet**) identical to **Source VNet**.
 - VMs in East Asia are connected to an on-premises datacenter with Azure ExpressRoute or site-to-site VPN.
 - To reduce RTO, Company B provisions gateways on Recovery VNet in Azure Southeast Asia prior to failover.

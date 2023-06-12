@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Amazon Managed Grafana | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Amazon Managed Grafana'
 description: Learn how to configure single sign-on between Azure Active Directory and Amazon Managed Grafana.
 services: active-directory
 author: jeevansd

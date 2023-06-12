@@ -1,236 +1,290 @@
 ---
-title: Configure usage settings in labs of Azure Lab Services
-description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
+title: Manage lab users
+titleSuffix: Azure Lab Services
+description: Learn how to manage lab users in Azure Lab Services. Configure the number of lab users, manage user registrations, and specify the number of hours they can use their lab VM.
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 03/02/2023
 ---
 
-# Add and manage lab users
+# Manage lab users in Azure Lab Services
 
-This article describes how to add student users to a lab, register them with the lab, control the number of additional hours they can use the virtual machine (VM), and more.
+This article describes how to manage lab users in Azure Lab Services. Learn how to add users to a lab, manage their registration status, and how to specify the number of additional hours they can use the virtual machine (VM).
 
-When you add users, by default, the **Restrict access** option is turned on and, unless they're in the list of users, students can't register with the lab even if they have a registration link. Only listed users can register with the lab by using the registration link you send. You can turn off **Restrict access**, which allows students to register with the lab as long as they have the registration link.
+The workflow for letting lab users access a lab consists of the following steps:
 
-This article shows how to add users to a lab.
+1. Specify the list of lab users that can access the lab
+1. Invite users to the lab by sending a lab registration link
+1. Lab users register for the lab by using the registration link
+1. Specify a lab schedule or quota hours to control when users can access their lab VM
 
-## Add users from an Azure AD group
+By default, access to a lab is restricted. Only users that are in the list of lab users can register for a lab, and get access to the lab virtual machine (VM). You can disable restricted access for a lab, which lets any user register for a lab if they have the registration link.
 
-### Overview
+You can [add users from an Azure Active Directory (Azure AD) group](#add-users-to-a-lab-from-an-azure-ad-group), or [manually add a list of users by email](#add-users-manually). If you enable Azure Lab Services integration with [Microsoft Teams](./how-to-manage-labs-within-teams.md) or [Canvas](./how-to-manage-labs-within-canvas.md), Azure Lab Services automatically grants user access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
 
-You can now sync a lab user list to an existing Azure Active Directory (Azure AD) group so that you don't have to manually add or delete users.
+Azure Lab Services supports up to 400 users per lab.
 
-An Azure AD group can be created within your organization's Azure Active Directory to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization will already have admins who manage your Azure Active Directory.
+## Prerequisites
+
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
+
+## Add users to a lab from an Azure AD group
+
+You can sync a lab user list to an existing Azure AD group. When you use an Azure AD group, you don't have to manually add or delete users in the lab settings.
+
+You can create an Azure AD group within your organization's Azure AD to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization already has admins who manage your Azure Active Directory.
 
 ### Sync users with Azure AD group
 
-> [!IMPORTANT]
-> Make sure the user list is empty. If there are existing users inside a lab that you added manually or through importing a CSV file, the option to sync the lab to an existing group will not appear.
+When you sync a lab with an Azure AD group, Azure Lab Services pulls all users inside the Azure AD group into the lab as lab users. Only people in the Azure AD group have access to the lab. The user list automatically refreshes every 24 hours to match the latest membership of the Azure AD group. You can also manually synchronize the list of lab users at any time.
+
+The option to synchronize the list of lab users with an Azure AD group is only available if you haven't added users to the lab manually or through a CSV import yet. Make sure there are no users in the lab user list.
+
+To sync a lab with an existing Azure AD group:
 
 1. Sign in to the [Azure Lab Services website](https://labs.azure.com/).
+
 1. Select the lab you want to work with.
-1. In the left pane, select **Users**.
-1. Select **Sync from group**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Add users by syncing from an Azure AD group":::
+1. In the left pane, select **Users**, and then select **Sync from group**.
 
-1. You'll be prompted to pick an existing Azure AD group to sync your lab to.
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Screenshot that shows how to add users by syncing from an Azure AD group.":::
 
-    If you don't see an Azure AD group in the list, could be because of the following reasons:
+1. Select the Azure AD group you want to sync users with from the list of groups.
 
-    - If you are a guest user for an Azure Active Directory (usually if you're outside the organization that owns the Azure AD), and you are not able to search for groups inside the Azure AD. In this case, you can't add an Azure AD group to the lab in this case.
-    - Azure AD groups created through Teams don't show up in this list. You can add the Azure Lab Services app inside Teams to create and manage labs directly from within it. See more information about [managing a lab’s user list from within Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams).
-1. Once you picked the Azure AD group to sync your lab to, select **Add**.
-1. Once a lab is synced, it will pull everyone inside the Azure AD group into the lab as users, and you will see the user list updated. Only the people in this Azure AD group will have access to your lab. The user list will refresh every 24 hours to match the latest membership of the Azure AD group. You can also select the Sync button in the Users tab to manually sync to the latest changes in the Azure AD group.
-1. Invite the users to your lab by clicking on the **Invite All** button, which will send an email to all users with the registration link to the lab.
+    If you don't see any Azure AD groups in the list, this could be because of the following reasons:
+
+    - You're a guest user in Azure Active Directory (usually if you're outside the organization that owns the Azure AD), and you're not allowed to search for groups inside the Azure AD. In this case, you can't add an Azure AD group to the lab.
+    - Azure AD groups you created through Microsoft Teams don't show up in this list. You can add the Azure Lab Services app inside Microsoft Teams to create and manage labs directly from within Microsoft Teams. Learn more about [managing a lab’s user list from within Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams).
+
+1. Select **Add** to sync the lab users with the Azure AD group.
+
+    Azure Lab Services automatically pulls the list of users from Azure AD, and refreshes the list every 24 hours.
+
+    Optionally, you can select **Sync** in the **Users** tab to manually synchronize to the latest changes in the Azure AD group.
+    
+Users are auto-registered to the lab and VMs are automatically assigned when the VM pool syncs with the Azure AD group. Educators don't need to send invitations and students don't need to register for the lab separately.    
 
 ### Automatic management of virtual machines based on changes to the Azure AD group
 
-Once the lab is synced to an Azure AD group, the number of virtual machines in the lab will automatically match the number of users in the group. You will no longer be able to manually update the lab capacity. When a user is added to the Azure AD group, a lab will automatically add a virtual machine for that user. When a user is deleted from the Azure AD group, a lab will automatically delete the user’s virtual machine from the lab.
+When you synchronize a lab with an Azure AD group, Azure Lab Services automatically manages the number of lab VMs based on the number of users in the group. You can't manually update the lab capacity in this case.
 
-## Add users manually from email(s) or CSV file
+When a user is added to the Azure AD group, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member of the Azure AD group, the lab VM for that user is automatically deleted from the lab.
 
-In this section, you add students manually (by email address or by uploading a CSV file).
+## Add users manually
+
+You can add lab users manually by providing their email address in the lab configuration or by uploading a CSV file.
 
 ### Add users by email address
 
-1. In the left pane, select **Users**.
-1. Select **Add users manually**.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Add users manually":::
-1. Select **Add by email address** (default), enter the students' email addresses on separate lines or on a single line separated by semicolons.
+1. Select **Users**, and then select **Add users manually**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Add users' email addresses":::
-1. Select **Save**.
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Screenshot that shows how to add users manually.":::
 
-    The list displays the email addresses and statuses of the current users, whether they're registered with the lab or not.
+1. Select **Add by email address**, enter the users' email addresses on separate lines or on a single line separated by semicolons.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Users list":::
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Screenshot that shows how to add users' email addresses in the Lab Services website." lightbox="./media/how-to-configure-student-usage/add-users-email-addresses.png":::
 
-    > [!NOTE]
-    > After the students are registered with the lab, the list displays their names.
+1. Select **Add**.
+
+    The list displays the email addresses and registration status of the lab users. After a user registers for the lab, the list also displays the user's name.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Screenshot that shows the lab user list in the Lab Services website." lightbox="./media/how-to-configure-student-usage/list-of-added-users.png":::
 
 ### Add users by uploading a CSV file
 
 You can also add users by uploading a CSV file that contains their email addresses.
 
-A CSV text file is used to store comma-separated (CSV) tabular data (numbers and text). Instead of storing information in columns fields (such as in spreadsheets), a CSV file stores information separated by commas. Each line in a CSV file will have the same number of comma-separated "fields." You can use Excel to easily create and edit CSV files.
+You use a CSV text file to store comma-separated (CSV) tabular data (numbers and text). Instead of storing information in columns fields (such as in spreadsheets), a CSV file stores information separated by commas. Each line in a CSV file has the same number of comma-separated *fields*. You can use Microsoft Excel to easily create and edit CSV files.
 
-1. Using Microsoft Excel, create a CSV file that lists students' email addresses in one column.
+1. Use Microsoft Excel or a text editor of your choice, to create a CSV file with the users' email addresses in one column.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="List of users in a CSV file":::
-1. At the top of the **Users** pane, select **Add users**, and then select **Upload CSV**.
-1. Select the CSV file that contains the students' email addresses, and then select **Open**.  The **Add users** window displays the email address list from the CSV file.
-1. Select **Save**.
-1. In the **Users** pane, view the list of added students.
+    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="Screenshot that shows the list of users in a CSV file.":::
 
-    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="List of added users in the Users pane":::
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+
+1. Select **Users**, select **Add users**, and then select **Upload CSV**.
+
+1. Select the CSV file with the users' email addresses, and then select **Open**. 
+
+    The **Add users** page shows the email address list from the CSV file.
+
+1. Select **Add**.
+
+    The **Users** page now shows the list of lab users you uploaded.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Screenshot that shows the list of added users in the Users page in the Lab Services website." lightbox="./media/how-to-configure-student-usage/list-of-added-users.png":::
 
 ## Send invitations to users
 
-To send a registration link to new users, use one of the following methods.
-
 If the **Restrict access** option is enabled for the lab, only listed users can use the registration link to register to the lab. This option is enabled by default.
+
+To send a registration link to new users, use one of the methods in the following sections.
 
 ### Invite all users
 
-This method shows you how to send email with a registration link and an optional message to all listed students.
+You can invite all users to the lab by sending an email via the Azure Lab Services website. The email contains the lab registration link, and an optional message.
 
-1. In the **Users** pane, select **Invite all**.
+To invite all users:
 
-    ![The "Invite all" button](./media/how-to-configure-student-usage/invite-all-button.png)
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+
+1. Select **Users**, and then select **Invite all**.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/invite-all-button.png" alt-text="Screenshot that shows the Users page in the Azure Lab Services website, highlighting the Invite all button." lightbox="./media/how-to-configure-student-usage/invite-all-button.png":::
 
 1. In the **Send invitation by email** window, enter an optional message, and then select **Send**.
 
     The email automatically includes the registration link. To get and save the registration link separately, select the ellipsis (**...**) at the top of the **Users** pane, and then select **Registration link**.
 
-    ![The "Send registration link by email" window](./media/how-to-configure-student-usage/send-email.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/send-email.png" alt-text="Screenshot that shows the Send registration link by email window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/send-email.png":::
 
     The **Invitation** column of the **Users** list displays the invitation status for each added user. The status should change to **Sending** and then to **Sent on \<date>**.
 
 ### Invite selected users
 
-This method shows you how to invite only certain students and get a registration link that you can share with other people.
+Instead of inviting all users, you can also invite specific users and get a registration link that you can share with other people.
 
-1. In the **Users** pane, select a student or multiple students in the list.
+To invite selected users:
 
-1. In the row for the student you've selected, select the **envelope** icon or, on the toolbar, select **Invite**.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
-    ![Invite selected users](./media/how-to-configure-student-usage/invite-selected-users.png)
+1. Select **Users**, and then select one or more users from the list.
+
+1. In the row for the user you selected, select the **envelope** icon or, on the toolbar, select **Invite**.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/invite-selected-users.png" alt-text="Screenshot that shows how to invite selected users to a lab in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/invite-selected-users.png":::
 
 1. In the **Send invitation by email** window, enter an optional **message**, and then select **Send**.
 
-    ![Send email to selected users](./media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/send-invitation-to-selected-users.png" alt-text="Screenshot that shows the Send invitation email for selected users in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/send-invitation-to-selected-users.png":::
 
-    The **Users** pane displays the status of this operation in the **Invitation** column of the table. The invitation email includes the registration link that students can use to register with the lab.
+    The **Users** pane displays the status of this operation in the **Invitation** column of the table. The invitation email includes the registration link that users can use to register with the lab.
 
-## Get the registration link
+### Get the registration link
 
-In this section, you can get the registration link from the portal and send it by using your own email application.
+You can get the lab registration link from the Azure Lab Services website, and send it by using your own email application.
 
-1. In the **Users** pane, select **Registration link**.
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
-    ![Student registration link](./media/how-to-configure-student-usage/registration-link-button.png)
+1. Select **Users**, and then select **Registration link**.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/registration-link-button.png" alt-text="Screenshot that shows how to get the lab registration link in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/registration-link-button.png":::
 
 1. In the **User registration** window, select **Copy**, and then select **Done**.
 
-    ![The "User registration" window](./media/how-to-configure-student-usage/registration-link.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/registration-link.png" alt-text="Screenshot that shows the User registration window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/registration-link.png":::
 
-    The link is copied to the clipboard.
-
-1. In your email application, paste the registration link, and then send the email to a student so that the student can register for the class.
+    The link is copied to the clipboard. In your email application, paste the registration link, and then send the email to a user so that they can register for the class.
 
 ## View registered users
 
-1. Go to the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
-1. Select **Sign in**, and then enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
-1. On the **My labs** page, select the lab whose usage you want to track.
-1. In the left pane, select **Users**, or select the **Users** tile.  The **Users** pane displays a list of students who have registered with your lab.  
+To view the list of lab users that have already registered for the lab by using the lab registration link:
 
-    ![List of registered users](./media/tutorial-track-usage/registered-users.png)
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+
+1. Select **Users** to view the list of lab users.
+
+    The list shows the list of lab users with their registration status. The user status should show **Registered**, and their name should also be available after registration.
+
+    :::image type="content" source="./media/tutorial-track-usage/registered-users.png" alt-text="Screenshot that shows the list of registered users for a lab in the Azure Lab Services website." lightbox="./media/tutorial-track-usage/registered-users.png":::
 
     > [!NOTE]
-    > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [Reset VMs](how-to-manage-vm-pool.md#reset-vms), the students will remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
+    > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [Reset VMs](how-to-manage-vm-pool.md#reset-vms), the users remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
 
 ## Set quotas for users
 
-You can set an hour quota for a student one of two ways:
+Quotas enable lab users to use the lab for a number of hours outside of scheduled times. For example, users might access the lab to complete their homework. Learn more about [quota hours](./classroom-labs-concepts.md#quota).
+
+You can set an hour quota for a user in one of two ways:
 
 1. In the **Users** pane, select **Quota per user: \<number> hour(s)** on the toolbar.
-1. In the **Quota per user** window, specify the number of hours you want to give to each student outside the scheduled class time, and then select **Save**.
 
-    ![The "Quota per user" window](./media/how-to-configure-student-usage/quota-per-user.png)
+1. In the **Quota per user** window, specify the number of hours you want to give to each user outside the scheduled time.
 
-    The changed values are now displayed on the **Quota per user: \<number of hours>** button on the toolbar and in the users list, as shown here:
-
-    ![Quota hours per user](./media/how-to-configure-student-usage/quota-per-user-after.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/quota-per-user.png" alt-text="Screenshot that shows the Quota per user window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/quota-per-user.png":::
 
     > [!IMPORTANT]
-    > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota that's allotted to a student. The quota is for the time outside of scheduled hours that a student spends on VMs.
+    > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota that's allotted to a user. The quota is for the time outside of scheduled hours that a user spends on VMs.
 
-## Set additional quotas for specific users
+1. Select **Save** to save the changes.
 
-You can specify quotas for certain students beyond the common quotas that were set for all users in the preceding section. For example, if you, as an educator, set the quota for all students to 10 hours and set an additional quota of 5 hours for a specific student, that student gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the student gets 20 (15 + 5) hours of quota. Remember that this overall quota is outside the scheduled time. The time that a student spends on a lab VM during the scheduled time does not count against this quota.
+    Notice that the user list shows the updated quota hours for all users.
+
+### Set additional quotas for specific users
+
+You can specify quotas for certain users beyond the common quotas that were set for all users in the preceding section. For example, if you, as a lab creator, set the quota for all users to 10 hours and set an additional quota of 5 hours for a specific user, that user gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the user gets 20 (15 + 5) hours of quota. Remember that this overall quota is outside the scheduled time. The time that a user spends on a lab VM during the scheduled time doesn't count against this quota.
 
 To set additional quotas, do the following:
 
-1. In the **Users** pane, select a student from the list, and then select **Adjust quota** on the toolbar.
+1. In the **Users** pane, select one or more users from the list, and then select **Adjust quota** on the toolbar.
 
-    ![The "Adjust quota" button](./media/how-to-configure-student-usage/adjust-quota-button.png)
+1. In the **Adjust quota** window, enter the number of additional lab hours you want to grant to the selected users, and then select **Apply**.
 
-1. In the **Adjust quota for \<selected user or users email address>**, enter the number of additional lab hours you want to grant to the selected student or students, and then select **Apply**.
+    :::image type="content" source="./media/how-to-configure-student-usage/additional-quota.png" alt-text="Screenshot that shows the Adjust quota window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/additional-quota.png":::
 
-    ![The "Adjust quota ..." window](./media/how-to-configure-student-usage/additional-quota.png)
+1. Select **Apply** to save the changes.
 
-    The **Usage** column displays the updated quota for the selected students.
+    Notice that the user list shows the updated quota hours for the users you selected.
 
-    ![New usage for the user](./media/how-to-configure-student-usage/new-usage-hours.png)
+## User account types
 
-## Student accounts
+To add users to a lab, you use their email accounts. Users might have the following types of email accounts:
 
-To add students to a lab, you use their email accounts. Students might have the following types of email accounts:
-
-- A student email account that's provided by your university's Azure Active Directory instance.
+- An organizational email account that's provided by your university's Azure Active Directory instance.
 - A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
 - A non-Microsoft email account, such as one provided by Yahoo! or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.
 
 ### Use a non-Microsoft email account
 
-Students can use non-Microsoft email accounts to register and sign in to a lab.  However, the registration requires that they first create a Microsoft account that's linked to their non-Microsoft email address.
+Users can use non-Microsoft email accounts to register and sign in to a lab.  However, the registration requires that they first create a Microsoft account that's linked to their non-Microsoft email address.
 
-Many students might already have a Microsoft account that's linked to their non-Microsoft email address. For example, students already have a Microsoft account if they've used their email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.  
+Many users might already have a Microsoft account that's linked to their non-Microsoft email address. For example, users already have a Microsoft account if they've used their email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.  
 
-When students use the registration link to sign in to a classroom, they're prompted for their email address and password. Students who attempt to sign in with a non-Microsoft account that's not linked to a Microsoft account will receive the following error message:
+When users use the registration link to sign in to a classroom, they're prompted for their email address and password. Users who attempt to sign in with a non-Microsoft account that's not linked to a Microsoft account receive the following error message:
 
-![Error message at sign-in](./media/how-to-configure-student-usage/cant-find-account.png)
+:::image type="content" source="./media/how-to-configure-student-usage/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/cant-find-account.png":::
 
-Here's a link for students to [sign up for a Microsoft account](http://signup.live.com).  
+Here's a link for users to [sign up for a Microsoft account](https://signup.live.com).  
 
 > [!IMPORTANT]
-> When students sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `http://signup.live.com`, in the lab registration email that you send to students who are using non-Microsoft accounts.
+> When users sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `https://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
 
 ### Use a GitHub account
 
-Students can also use an existing GitHub account to register and sign in to a lab. If they already have a Microsoft account linked to their GitHub account, students can sign in and provide their password as shown in the preceding section.
+Users can also use an existing GitHub account to register and sign in to a lab. If they already have a Microsoft account linked to their GitHub account, users can sign in and provide their password as shown in the preceding section.
 
-If they haven't yet linked their GitHub account to a Microsoft account, they can do the following:
+If users haven't yet linked their GitHub account to a Microsoft account, they can do the following:
 
 1. Select the **Sign-in options** link, as shown here:
 
-    ![The "Sign-in options" link](./media/how-to-configure-student-usage/signin-options.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/signin-options.png" alt-text="Screenshot that shows the Microsoft sign in window, highlighting the Sign-in options link.":::
 
 1. In the **Sign-in options** window, select **Sign in with GitHub**.
 
-    ![The "Sign in with GitHub" link](./media/how-to-configure-student-usage/signin-github.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/signin-github.png" alt-text="Screenshot that shows the Microsoft sign-in options window, highlighting the option to sign in with GitHub.":::
 
-    At the prompt, students then create a Microsoft account that's linked to their GitHub account. The linking happens automatically when they select **Next**. They're then immediately signed in and connected to the lab.
+    At the prompt, users then create a Microsoft account that's linked to their GitHub account. The linking happens automatically when they select **Next**. They're then immediately signed in and connected to the lab.
 
 ## Export a list of users to a CSV file
 
-1. Go to the **Users** pane.
+To export the list of users for a lab:
+
+1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+
+1. Select **Users**.
+
 1. On the toolbar, select the ellipsis (**...**), and then select **Export CSV**.
 
-    ![The "Export CSV" button](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+    :::image type="content" source="./media/how-to-export-users-virtual-machines-csv/users-export-csv.png" alt-text="Screenshot that shows how to export the list of lab users to a CSV file in the Azure Lab Services website." lightbox="./media/how-to-export-users-virtual-machines-csv/users-export-csv.png":::
 
 ## Next steps
 

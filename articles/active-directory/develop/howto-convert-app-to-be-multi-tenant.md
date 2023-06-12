@@ -2,14 +2,14 @@
 title: Convert single-tenant app to multi-tenant on Azure AD
 description: Shows how to convert an existing single-tenant app to a multi-tenant app that can sign in a user from any Azure AD tenant.
 services: active-directory
-author: rwike77
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/20/2022
-ms.author: ryanwi
+ms.author: cwerner
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev, engagement-fy23
 #Customer intent: As an Azure user, I want to convert a single tenant app to an Azure AD multi-tenant app so any Azure AD user can sign in,
@@ -169,7 +169,7 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
-[AAD-App-Branding]:howto-add-branding-in-azure-ad-apps.md
+[AAD-App-Branding]:howto-add-branding-in-apps.md
 [AAD-App-Manifest]:reference-azure-ad-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
@@ -183,7 +183,7 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 [MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
 <!--Image references-->
-[AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]: ./media/devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 [Consent-Single-Tier]: ./media/howto-convert-app-to-be-multi-tenant/consent-flow-single-tier.svg
 [Consent-Multi-Tier-Known-Client]: ./media/howto-convert-app-to-be-multi-tenant/consent-flow-multi-tier-known-clients.svg
 [Consent-Multi-Tier-Multi-Party]: ./media/howto-convert-app-to-be-multi-tenant/consent-flow-multi-tier-multi-party.svg

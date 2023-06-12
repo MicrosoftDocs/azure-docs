@@ -10,7 +10,7 @@ ms.date: 07/14/2022
 ---
 
 # How to remove a Service Fabric node type
-This article describes how to scale an Azure Service Fabric cluster by removing an existing node type from a cluster. A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. After creating a Service Fabric cluster, you can scale a cluster horizontally by removing a node type (virtual machine scale set) and all of it's nodes.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
+This article describes how to scale an Azure Service Fabric cluster by removing an existing node type from a cluster. A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. After creating a Service Fabric cluster, you can scale a cluster horizontally by removing a node type (virtual machine scale set) and all of its nodes.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 
 > [!WARNING]
 > Using this approach to remove a node type from a production cluster is
@@ -31,10 +31,10 @@ When removing a node type that is Bronze, all the nodes in the node type go down
 
 ## Remove a node type
 
-1. Please take care of this pre-requisites before you start the process.
+1. Take care of these pre-requisites before you start the process.
 
     - The cluster is healthy.
-    - There will still be sufficient capacity after the node type is removed, eg. number of nodes to place required replica count.
+    - There will still be sufficient capacity after the node type is removed, for example, number of nodes to place required replica count.
 
 2. Move all services that have placement constraints to use node type off the node type.
 
@@ -77,7 +77,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     ```
 
     - For bronze durability, wait for all nodes to get to disabled state
-    - For silver and gold durability, some nodes will go in to disabled and the rest will be in disabling state. Check the details tab of the nodes in disabling state, if they are all stuck on ensuring quorum for Infrastructure service partitions, then it is safe to continue.
+    - For silver and gold durability, some nodes go in to disabled and the rest will be in disabling state. Check the details tab of the nodes in disabling state, if they are all stuck on ensuring quorum for Infrastructure service partitions, then it is safe to continue.
 
 5. Stop data for the node type.
 
@@ -168,7 +168,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     },
     ```
 
-    - Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService, therefore a node restart is needed. In the this case `forceRestart` is ignored. 
+    - Deploy the modified Azure Resource Manager template. ** This step takes a while, usually up to two hours. This upgrade change settings to the InfrastructureService, therefore a node restart is needed. In this case `forceRestart` is ignored.
     The parameter `upgradeReplicaSetCheckTimeout` specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node.
     The value for the parameter `upgradeTimeout` can be reduced to 6 hours, but for maximal safety 12 hours should be used.
 
@@ -186,7 +186,11 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     
 10. Remove resources relating to the node type that are no longer in use. Example Load Balancer, and Public IP. 
 
-    - To remove these resources you can use the same PowerShell command as used in step 6 specifying the specific resource type and API version. 
+    - To remove these resources, you can use the same PowerShell command as used in step 6 specifying the specific resource type and API version.
+    - For silver and gold durability any repair task left in the cluster, which is targeting any of the nodes that were present in the nodetype that was removed, should be completed with the command:
+    ```powershell
+       Complete-ServiceFabricRepairTask -TaskId <repair task name>
+    ```
 
 > [!Note]
 > This step is optional if same Load Balancer, and IP is reused between node types.

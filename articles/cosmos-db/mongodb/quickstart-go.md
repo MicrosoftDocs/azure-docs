@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 04/26/2022
-ms.custom: mode-api, devx-track-azurecli, ignite-2022
+ms.custom: mode-api, devx-track-azurecli, ignite-2022, devx-track-go
 ---
 # Quickstart: Connect a Go application to Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
@@ -29,7 +29,7 @@ The sample application is a command-line based `todo` management tool written in
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with the connection string `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
 - [Go](https://go.dev/) installed on your computer, and a working knowledge of Go.
 - [Git](https://git-scm.com/downloads).
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Clone the sample application
 
@@ -76,8 +76,7 @@ The following snippets are all taken from the `todo.go` file.
 
     clientOptions := options.Client().ApplyURI(mongoDBConnectionString).SetDirect(true)
     
-    c, err := mongo.NewClient(clientOptions)
-    err = c.Connect(ctx)
+    c, err := mongo.Connect(ctx, clientOptions)
     if err != nil {
         log.Fatalf("unable to initialize connection %v", err)
     }

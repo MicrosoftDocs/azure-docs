@@ -2,11 +2,12 @@
 title: Azure Container Apps image pull from Azure Container Registry with managed identity
 description: Set up Azure Container Apps to authenticate Azure Container Registry image pulls with managed identity
 services: container-apps
-author: cebundy
+author: lanceleonard
 ms.service: container-apps
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/16/2022
-ms.author: v-bcatherine
+ms.author: v-laleonard
 zone_pivot_groups: container-apps-interface-types
 ---
 
@@ -213,7 +214,7 @@ This article describes how to configure your container app to use managed identi
 |--------------|-------------|
 | Azure account | An Azure account with an active subscription. If you don't have one, you can  [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
-| Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-az-ps) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
+| Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
 |Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)|
 
 ## Setup

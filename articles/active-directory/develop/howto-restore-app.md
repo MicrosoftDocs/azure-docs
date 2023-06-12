@@ -2,7 +2,7 @@
 title: "How to: Restore or remove a recently deleted application with the Microsoft identity platform"
 description: In this how-to, you learn how to restore or permanently delete a recently deleted application registered with the Microsoft identity platform.
 services: active-directory
-author: arcrowe
+author: cilwerner
 manager: dastrock
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/28/2022
-ms.author: arcrowe
+ms.author: cwerner
+ms.reviewer: arcrowe
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to restore or permanently delete my recently deleted application from the Microsoft identity platform.
 ---
@@ -58,7 +59,7 @@ This is because organization-specific settings are stored on a separate object, 
 2. Select **Restore app registration**.
 
 ## Permanently delete an application
-You can manually permanently delete an application from your organization. A permanently deleted application can't be restored by you, another administrator, or by Microsoft customer support.
+You can manually permanently delete an application from your organization. A permanently deleted application can't be restored by you, another administrator, or by Microsoft customer support. However, this does not permanently delete the corresponding service principal. A service principal cannot be restored without having an active corresponding application, so the service principal can be manually deleted, which is also permanent. If no action is taken the service principal will be permanently deleted 30 days after deleting the application.
 
 ### To permanently delete an application
 

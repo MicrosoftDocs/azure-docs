@@ -41,7 +41,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter a name to identify this storage blog origin. |
+    | Name | Enter a name to identify this app service origin. |
     | Origin Type | App services |
     | Host name | Select the host from the dropdown that you want as an origin. |
     | Origin host header | You can customize the host header of the origin or leave it as default. |
@@ -51,7 +51,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
     | Region | Select the region that is the same or closest to your origin. |
     | Target sub resource | The type of sub-resource for the resource selected above that your private endpoint will be able to access. You can select *site*. |
-    | Request message | Customize message or choose the default. |
+    | Request message | Custom message to see while approving the Private Endpoint. |
 
 1. Select **Add** to save your configuration. Then select **Update** to save the origin group settings.
 

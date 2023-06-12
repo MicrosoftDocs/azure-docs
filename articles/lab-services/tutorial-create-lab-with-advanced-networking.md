@@ -34,7 +34,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Azure manage resources](./includes/lab-services-prerequisite-manage-resources.md)]
 
 ## Create a resource group
 
@@ -208,14 +209,12 @@ To create a lab, see the following steps.  We'll run the steps twice.  Once to c
 
 1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and **password** for the administrator.  By default all the student VMs will have the same password as the one specified here. Select **Next**.
 
-    :::image type="content" source="./media/tutorial-setup-lab/virtual-machine-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
+    :::image type="content" source="./media/tutorial-create-lab-with-advanced-networking/new-lab-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
 
     > [!IMPORTANT]
     > Make a note of user name and password. They won't be shown again.
 
 1. On the **Lab policies** page, leave the default selections and select **Next**.
-
-    :::image type="content" source="./media/tutorial-setup-lab/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
 
 1. On the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.  Select **Finish**.
 

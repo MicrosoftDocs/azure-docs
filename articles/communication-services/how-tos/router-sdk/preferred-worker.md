@@ -7,17 +7,14 @@ ms.author: danielgerlag
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 01/31/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
-
 #Customer intent: As a developer, I want to target a specific worker
 ---
 
 # Target a Preferred Worker
 
 In the context of a call center, customers might be assigned an account manager or have a relationship with a specific worker. As such, You'd want to route a specific job to a specific worker if possible.
-
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 ## Prerequisites
 
@@ -34,17 +31,17 @@ In the following example, a job is created that targets a specific worker. If th
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.CreateJobAsync(
-  channelId: "<channel id>",
-  queueId: "<queue id>",
-  workerSelectors: new List<LabelSelector>
-  {
-    new LabelSelector(    
-      key: "Id",
-      @operator: LabelOperator.Equal,
-      value: "<preferred worker id>",
-      ttl: TimeSpan.FromMinutes(1))    
-  });
+await routerClient.CreateJobAsync(
+    options: new CreateJobOptions(
+            jobId: "<job id>",
+            channelId: "<channel id>",
+            queueId: "<queue id>")
+    {
+        RequestedWorkerSelectors = new List<WorkerSelector>()
+          {
+            new WorkerSelector("Id", LabelOperator.Equal, "<preferred worker id>", TimeSpan.FromMinutes(1))
+          }
+    });
 ```
 
 ::: zone-end

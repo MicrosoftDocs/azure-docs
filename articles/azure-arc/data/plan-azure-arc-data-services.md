@@ -42,7 +42,7 @@ In order to experience Azure Arc-enabled data services, you'll need to complete 
 
 1. Create data services.
 
-   For example, [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md).
+   For example, [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md).
 
 1. Connect with Azure Data Studio.
 
@@ -94,7 +94,6 @@ You can deploy Azure Arc-enabled data services on various types of Kubernetes cl
 > [!IMPORTANT]
 > * The minimum supported version of Kubernetes is v1.21. For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).
 > * The minimum supported version of OCP is 4.8.
->     * OCP 4.11 is not supported.
 > * If you're using Azure Kubernetes Service, your cluster's worker node virtual machine (VM) size should be at least Standard_D8s_v3 and use Premium Disks. 
 > * The cluster should not span multiple availability zones. 
 > * For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).
@@ -139,6 +138,9 @@ As outlined in [Connectivity modes and requirements](./connectivity.md), you can
    You can perform all three of these steps in a single step by using the Azure Arc data controller creation wizard in the Azure portal.
 
 After you've installed the Azure Arc data controller, you can create and access data services such as Azure Arc-enabled SQL Managed Instance or Azure Arc-enabled PostgreSQL server.
+
+## Known limitations
+Currently, only one Azure Arc data controller per Kubernetes cluster is supported. However, you can create multiple Arc data services, such as Arc-enabled SQL managed instances and Arc-enabled PostgreSQL servers, that are managed by the same Azure Arc data controller.
 
 ## Next steps
 

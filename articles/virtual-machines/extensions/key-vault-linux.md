@@ -20,12 +20,12 @@ The Key Vault VM extension provides automatic refresh of certificates stored in 
 
 The Key Vault VM extension supports these Linux distributions:
 
-- Ubuntu-1804
-- Suse-15 
-- [CBL-Mariner](https://github.com/microsoft/CBL-Mariner)
+- Ubuntu 18.04
+- SUSE   15 
+- [Azure Linux](../../azure-linux/intro-azure-linux.md)
 
 > [!NOTE]
-> To get extended security features, prepare to upgrade Ubuntu-1604 and Debian-9 systems as these versions are reaching their end of designated support period.
+> To get extended security features, prepare to upgrade Ubuntu 16.04 and Debian 9 systems as these versions are reaching their end of designated support period.
 > 
 
 > [!NOTE]
@@ -62,7 +62,7 @@ The Key Vault VM extension supports these Linux distributions:
 * Users can chose to upgrade their key vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) will be appended to the leaf certificate in the PEM file.
 
 * If you prefer to upgrade to `v2.0`, you would need to delete `v1.0` first, then install `v2.0`.
-```
+```azurecli
   az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
   az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
 ```  

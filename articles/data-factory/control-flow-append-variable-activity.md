@@ -31,6 +31,9 @@ To use a Append Variable activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-append-variable-activity/append-variable.png" alt-text="Shows the UI for an Append Variable activity.":::
 
+> [!NOTE]
+> The appended variable value does not appear in debug output unless you use a [Set Variable activity](control-flow-set-variable-activity.md) to explicitly set a new variable with its value.
+
 ## Type properties
 
 Property | Description | Required

@@ -1,12 +1,12 @@
 ---
 title: Limits and limitations – Azure Cosmos DB for PostgreSQL
 description: Current limits for clusters
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 06/07/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL limits and limitations
@@ -35,13 +35,16 @@ to keep nodes healthy:
    * 300 for 0-3 vCores
    * 500 for 4-15 vCores
    * 1000 for 16+ vCores
+* Maximum connections per node with burstable compute
+   * 20 for 1 vCore burstable
+   * 40 for 2 vCores burstable
 
 The connection limits above are for *user* connections (`max_connections` minus
 `superuser_reserved_connections`). We reserve extra connections for
 administration and recovery.
 
 The limits apply to both worker nodes and the coordinator node. Attempts to
-connect beyond these limits will fail with an error.
+connect beyond these limits fails with an error.
 
 #### Connection pooling
 
@@ -59,9 +62,8 @@ be scaled down (decreased).
 
 ### Storage size
 
-Up to 2 TiB of storage is supported on coordinator and worker nodes. See the
-available storage options and IOPS calculation [above](resources-compute.md)
-for node and cluster sizes.
+Up to 16 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
+for various node and cluster sizes.
 
 ## Compute
 
@@ -74,39 +76,29 @@ Azure Cosmos DB for PostgreSQL. If you do need more vCores for a region in your
 subscription, see how to [adjust compute
 quotas](howto-compute-quota.md).
 
+### Burstable compute
+
+In Azure Cosmos DB for PostgreSQL clusters with [burstable
+compute](concepts-burstable-compute.md) enabled, the following features are
+currently **not supported**:
+
+* Accelerated networking
+* Local caching
+* PostgreSQL and Citus version upgrades
+* PostgreSQL 11 support
+* Read replicas
+* High availability
+* The [azure_storage](howto-ingest-azure-blob-storage.md) extension
+
 ## PostgreSQL
 
 ### Database creation
 
 The Azure portal provides credentials to connect to exactly one database per
-cluster, the `citus` database. Creating another
-database is currently not allowed, and the CREATE DATABASE command will fail
+cluster. Creating another database is currently not allowed, and the CREATE DATABASE command fails
 with an error.
 
-### Columnar storage
-
-Azure Cosmos DB for PostgreSQL currently has these limitations with [columnar
-tables](concepts-columnar.md):
-
-* Compression is on disk, not in memory
-* Append-only (no UPDATE/DELETE support)
-* No space reclamation (for example, rolled-back transactions may still consume
-  disk space)
-* No index support, index scans, or bitmap index scans
-* No tidscans
-* No sample scans
-* No TOAST support (large values supported inline)
-* No support for ON CONFLICT statements (except DO NOTHING actions with no
-  target specified).
-* No support for tuple locks (SELECT ... FOR SHARE, SELECT ... FOR UPDATE)
-* No support for serializable isolation level
-* Support for PostgreSQL server versions 12+ only
-* No support for foreign keys, unique constraints, or exclusion constraints
-* No support for logical decoding
-* No support for intra-node parallel scans
-* No support for AFTER ... FOR EACH ROW triggers
-* No UNLOGGED columnar tables
-* No TEMPORARY columnar tables
+By default this database is called `citus`. Azure Cosmos DB for PostgreSQL supports custom database names at cluster provisioning time only.  
 
 ## Next steps
 

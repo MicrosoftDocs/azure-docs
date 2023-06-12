@@ -3,6 +3,7 @@ title: Restart - Azure portal - Azure Database for PostgreSQL Flexible Server
 description: This article describes how to restart operations in Azure Database for PostgreSQL through the Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
@@ -63,5 +64,3 @@ az postgres flexible-server restart
 
 ## Next steps
 - Learn more about [stopping and starting Azure Database for PostgreSQL Flexible Server](./how-to-stop-start-server-cli.md)
-
-

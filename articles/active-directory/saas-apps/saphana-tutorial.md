@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP HANA | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SAP HANA'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP HANA.
 services: active-directory
 author: jeevansd

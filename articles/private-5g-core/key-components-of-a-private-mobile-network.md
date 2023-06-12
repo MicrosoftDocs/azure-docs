@@ -1,7 +1,7 @@
 ---
 title: Key components of a private mobile network
-titleSuffix: Azure Private 5G Core Preview
-description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core Preview.
+titleSuffix: Azure Private 5G Core
+description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Key components of a private mobile network
 
-This article introduces the key physical components of a private mobile network deployed through Azure Private 5G Core Preview. It also details the resources you'll use to manage the private mobile network through Azure.
+This article introduces the key physical components of a private mobile network deployed through Azure Private 5G Core. It also details the resources you'll use to manage the private mobile network through Azure.
 
 Each private mobile network contains one or more *sites*. A site is a physical enterprise location (for example, Contoso Corporation's Chicago Factory) that will provide coverage for user equipment (UEs). The following diagram shows the main components of a single site.
 
@@ -38,6 +38,8 @@ The following diagram shows the key resources you'll use to manage your private 
     Each SIM policy defines a set of policies and interoperability settings. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
 
     A SIM policy will also reference one or more *services*. Each service is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
+
+    The physical private mobile network can be segmented into multiple virtual *network slices*, providing isolated end-to-end networks that can be customized for different bandwidth and latency requirements. You can choose the network slice you want particular UEs to use by assigning it to their SIM policy.
 
     For detailed information on policy control, see [Policy control](policy-control.md).
 

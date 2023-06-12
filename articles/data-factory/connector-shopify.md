@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 01/18/2023
 ---
 
 # Copy data from Shopify using Azure Data Factoryor Synapse Analytics (Preview)

@@ -1,14 +1,13 @@
 ---
-title: Access control and security for IoT Hub | Microsoft Docs
+title: Access control and security for IoT Hub
 description: Overview on how to control access to IoT Hub, includes links to depth articles on AAD integration and SAS options.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/15/2021
-ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
+ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-csharp]
 ---
 
 # Control access to IoT Hub
@@ -23,11 +22,10 @@ There are three different ways for controlling access to IoT Hub:
 
 
 > [!Tip]
-> You can enable a lock on your IoT resources to prevent them being accidentally or maliciously deleted. To learn more about Azure Resource locks, please visit, [Lock your resources to protect your infrastructure](/azure/azure-resource-manager/management/lock-resources?tabs=json)
+> You can enable a lock on your IoT resources to prevent them being accidentally or maliciously deleted. To learn more about Azure Resource locks, please visit, [Lock your resources to protect your infrastructure](../azure-resource-manager/management/lock-resources.md?tabs=json)
 
 ## Next steps
 
 - [Control access to IoT Hub using Azure Active Directory](iot-hub-dev-guide-azure-ad-rbac.md)
 - [Control access to IoT Hub using shared access signature](iot-hub-dev-guide-sas.md)
 - [Authenticating a device to IoT Hub](iot-hub-dev-guide-sas.md#authenticating-a-device-to-iot-hub)
-

@@ -8,18 +8,15 @@ ms.subservice: automl
 ms.topic: tutorial
 author: swatig007
 ms.author: swatig
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 ms.date: 05/26/2022
-ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
 ---
 
 # Tutorial: Train an object detection model with AutoML and Python
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/tutorial-auto-train-image-models-v1.md)
-> * [v2 (current version)](tutorial-auto-train-image-models.md)
 
 
 In this tutorial, you learn how to train an object detection model using Azure Machine Learning automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2.
@@ -40,51 +37,56 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
+* [!INCLUDE [prereq-workspace](includes/prereq-workspace.md)]
 
 * Python 3.6 or 3.7 are supported for this feature
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md#create-the-workspace) if you don't already have an Azure Machine Learning workspace.
+* Download and unzip the [**odFridgeObjects.zip*](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) data file. The dataset is annotated in Pascal VOC format, where each image corresponds to an xml file. Each xml file contains information on where its corresponding image file is located and also contains information about the bounding boxes and the object labels. In order to use this data, you first need to convert it to the required JSONL format as seen in the [Convert the downloaded data to JSONL](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) section of the notebook.
 
-* Download and unzip the [**odFridgeObjects.zip*](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) data file. The dataset is annotated in Pascal VOC format, where each image corresponds to an xml file. Each xml file contains information on where its corresponding image file is located and also contains information about the bounding boxes and the object labels. In order to use this data, you first need to convert it to the required JSONL format as seen in the [Convert the downloaded data to JSONL](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) section of the notebook. 
-
-# [Azure CLI](#tab/cli)
-
- [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
-
-* Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the `ml` extension.
-
-# [Python SDK](#tab/python)
-
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-
-This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
-
-* Use the following commands to install Azure ML Python SDK v2:
-   * Uninstall previous preview version:
-   ```python
-   pip uninstall azure-ai-ml
-   ```
-   * Install the Azure ML Python SDK v2:
-   ```python
-   pip install azure-ai-ml
-   ```
-
-    > [!NOTE]
-    > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
-
----
+* Use a compute instance to follow this tutorial without further installation. (See how to [create a compute instance](./quickstart-create-resources.md#create-a-compute-instance).)  Or install the CLI/SDK to use your own local environment.
+    
+    # [Azure CLI](#tab/cli)
+    
+    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    
+    
+    This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment:
+    
+    * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the `ml` extension.
+    
+    # [Python SDK](#tab/python)
+    
+    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    
+    
+    This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment:
+    
+    * Use the following commands to install Azure Machine Learning Python SDK v2:
+        * Uninstall previous preview version:
+        ```python
+        pip uninstall azure-ai-ml
+        ```
+        * Install the Azure Machine Learning Python SDK v2:
+        ```python
+        pip install azure-ai-ml azure-identity
+        ```
+    
+        > [!NOTE]
+        > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
+    
+    ---
 
 ## Compute target setup
+
+> [!NOTE]
+> To try [serverless compute (preview)](how-to-use-serverless-compute.md), skip this step and proceed to [Experiment setup](#experiment-setup).
 
 You first need to set up a compute target to use for your automated ML model training. Automated ML models for image tasks require GPU SKUs.
 
 This tutorial uses the NCsv3-series (with V100 GPUs) as this type of compute target leverages multiple GPUs to speed up training. Additionally, you can set up multiple nodes to take advantage of parallelism when tuning hyperparameters for your model.
 
 The following code creates a GPU compute of size `Standard_NC24s_v3` with four nodes.
+
 
 # [Azure CLI](#tab/cli)
 
@@ -108,11 +110,7 @@ To create the compute, you run the following CLI v2 command with the path to you
 az ml compute create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-The created compute can be provided using `compute` key in the `automl` task configuration yaml: 
 
-```yaml
-compute: azureml:gpu-cluster
-```
 
 # [Python SDK](#tab/python)
 
@@ -137,7 +135,7 @@ This compute is used later while creating the task specific `automl` job.
 
 ## Experiment setup
 
-You can use an Experiment to track your model training runs.
+You can use an Experiment to track your model training jobs.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -236,7 +234,7 @@ plot_ground_truth_boxes_jsonl(image_file, jsonl_file)
 ```
 
 ## Upload data and create MLTable
-In order to use the data for training, upload data to default Blob Storage of your Azure ML Workspace and register it as an asset. The benefits of registering data are:
+In order to use the data for training, upload data to default Blob Storage of your Azure Machine Learning Workspace and register it as an asset. The benefits of registering data are:
 - Easy to share with other members of the team
 - Versioning of the metadata (location, description, etc.)
 - Lineage tracking
@@ -309,14 +307,22 @@ You can create data inputs from training and validation MLTable with the followi
 
 ## Configure your object detection experiment
 
-To configure automated ML runs for image-related tasks, create a task specific AutoML job.
+To configure automated ML jobs for image-related tasks, create a task specific AutoML job.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace the line `compute: azureml:gpu-cluster` with this code:
+> ```yml
+> resources:
+>  instance_type: Standard_NC24s_v3
+>  instance_count: 4
+```
+
 ```yaml
 task: image_object_detection
 primary_metric: mean_average_precision
+compute: azureml:gpu-cluster
 ```
 
 # [Python SDK](#tab/python)
@@ -324,6 +330,17 @@ primary_metric: mean_average_precision
 
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=image-object-detection-configuration)]
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace the line `compute="cpu-cluster"` with this code:
+> ```python
+> image_object_detection_job.resources = ResourceConfiguration(instance_type="Standard_NC24rs_v3",instance_count =4)
+> 
+> image_object_detection_job.set_limits(
+>     max_trials=10,
+>     max_concurrent_trials=2,
+> )
+> ```
 
 ---
 
@@ -377,7 +394,7 @@ When you've configured your AutoML Job to the desired settings, you can submit t
 
 ### Manual hyperparameter sweeping for image tasks
 
-In your AutoML job, you can specify the model algorithms by using `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined search space to find the optimal model.
+In your AutoML job, you can specify the model architectures by using `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined search space to find the optimal model.
 
 In this example, we will train an object detection model with `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over thousands of labeled images with over 80 label categories.
 
@@ -403,11 +420,11 @@ limits:
 
 ---
 
-The following code defines the search space in preparation for the hyperparameter sweep for each defined algorithm, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the search space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc., for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each algorithm.
+The following code defines the search space in preparation for the hyperparameter sweep for each defined architecture, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the search space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc., for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each architecture.
 
 For the tuning settings, use random sampling to pick samples from this parameter space by using the `random` sampling_algorithm. The job limits configured above, tells automated ML to try a total of 10 trials with these different samples, running two trials at a time on our compute target, which was set up using four nodes. The more parameters the search space has, the more trials you need to find optimal models.
 
-The Bandit early termination policy is also used. This policy terminates poor performing configurations; that is, those configurations that are not within 20% slack of the best performing configuration, which significantly saves compute resources.
+The Bandit early termination policy is also used. This policy terminates poor performing trials; that is, those trials that are not within 20% slack of the best performing trial, which significantly saves compute resources.
 
 # [Azure CLI](#tab/cli)
 
@@ -482,9 +499,9 @@ When you've configured your AutoML Job to the desired settings, you can submit t
 
 ---
 
-When doing a hyperparameter sweep, it can be useful to visualize the different configurations that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child runs' tab in the UI of the main automl_image_run from above, which is the HyperDrive parent run. Then you can go into the 'Child runs' tab of this one.
+When doing a hyperparameter sweep, it can be useful to visualize the different trials that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child jobs' tab in the UI of the main automl_image_job from above, which is the HyperDrive parent job. Then you can go into the 'Child jobs' tab of this one.
 
-Alternatively, here below you can see directly the HyperDrive parent run and navigate to its 'Child runs' tab:
+Alternatively, here below you can see directly the HyperDrive parent job and navigate to its 'Child jobs' tab:
 
 # [Azure CLI](#tab/cli)
 
@@ -506,9 +523,9 @@ hd_job
 
 ## Register and deploy model
 
-Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the azureml path with corresponding jobid.  
+Once the job completes, you can register the model that was created from the best trial (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the `azureml` path with corresponding `jobid`.  
 
-### Get the best run
+### Get the best trial
 
 
 # [Azure CLI](#tab/cli)
@@ -531,7 +548,7 @@ CLI example not available, please use Python SDK.
 
 ### Register the model
 
-Register the model either using the azureml path or your locally downloaded path. 
+Register the model either using the `azureml` path or your locally downloaded path. 
 
 # [Azure CLI](#tab/cli)
 

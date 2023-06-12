@@ -6,11 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: shohei1029
-ms.author: shnagata
+author: dem108
+ms.author: sehan
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade deployment endpoints to SDK v2
@@ -138,7 +139,7 @@ For more information on registering models, see [Register a model from a local f
         ml_client.begin_create_or_update(endpoint)
         ```
 
-For more information on concepts for endpoints and deployments, see [What are online endpoints?](concept-endpoints.md#what-are-online-endpoints)
+For more information on concepts for endpoints and deployments, see [What are online endpoints?](concept-endpoints-online.md)
 
 
 ## Submit a request

@@ -4,6 +4,10 @@
   items:
   - name: About Update management center
     href: overview.md
+  - name: What's New 
+    href: whats-new.md
+  - name: What's upcoming
+    href: whats-upcoming.md
   - name: Support matrix
     href: support-matrix.md
 - name: Quickstarts
@@ -14,12 +18,16 @@
   items:
   - name: Update and maintenance options
     href: updates-maintenance-schedules.md
+  - name: Schedule patching configuration on Azure VMs for business continuity
+    href: prerequsite-for-schedule-patching.md
   - name: Assessment options
     href: assessment-options.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
-    href: manage-multiple-machines.md  
+    href: manage-multiple-machines.md
+  - name: Workbooks
+    href: workbooks.md 
 - name: Samples
   items:
   - name: Azure Resource Graph queries
@@ -46,6 +54,10 @@
       href: manage-arc-enabled-servers-programmatically.md
     - name: Automate assessment at scale using Policy
       href: periodic-assessment-at-scale.md
+    - name: Create reports using workbooks
+      href: manage-workbooks.md
+    - name: Manage updates for customized images
+      href: manage-updates-customized-images.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot issues

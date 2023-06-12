@@ -91,7 +91,7 @@ Here's a simple sign-out link in a webpage:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+By default, a successful sign-out redirects the client to the URL `/.auth/logout/complete`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html

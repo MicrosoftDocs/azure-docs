@@ -132,18 +132,22 @@
 
 - name: Data security, encryption, and storage
   items: 
-  - name: Azure Certificate Authority details
-    href: azure-CA-details.md
   - name: Data security and encryption
     href: encryption-overview.md
   - name: Key management in Azure
     href: key-management.md
   - name: Double encryption
     href: double-encryption.md
-  - name: Sunset for SHA-1 OCSP signing
-    href: ocsp-sha-1-sunset.md
-  - name: TLS certificate changes
-    href: tls-certificate-changes.md
+  - name: Azure Certificate Authorities
+    items: 
+    - name: Azure Certificate Authority details
+      href: azure-ca-details.md
+    - name: Certificate Pinning
+      href: certificate-pinning.md
+    - name: Sunset for SHA-1 OCSP signing
+      href: ocsp-sha-1-sunset.md
+    - name: TLS certificate changes
+      href: tls-certificate-changes.md
   - name: Disk encryption
     items: 
     - name: Best practices

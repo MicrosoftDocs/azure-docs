@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
 ms.custom: seo-lt-2019
-ms.date: 10/22/2021
+ms.date: 01/20/2023
 ---
 
 # Manage packages with Azure-SSIS Integration Runtime package store

@@ -5,13 +5,13 @@ ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023, build-2023-dataai
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/11/2022
+ms.date: 01/30/2023
 ---
 
-# Build scalable apps
+# Build scalable apps in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

@@ -11,8 +11,8 @@ ms.workload: identity
 ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
+ms.custom: not-enterprise-apps
 ---
 
 # Deploy F5 BIG-IP Virtual Edition VM in Azure
@@ -41,7 +41,7 @@ Deploying a BIG-IP in Azure for SHA requires:
   - Go to letsencrypt.org to see offers. Select [Get Started](https://letsencrypt.org/).
 - An SSL certificate to secure the BIG-IP management interface. You can use a certificate to publish web apps, if its subject corresponds to the BIG-IP fully qualified domain name (FQDN). For example, you can use a wildcard certificate with a subject `*.contoso.com` for `https://big-ip-vm.contoso.com:8443`.
 
-VM deployment and base system configurations take approximately 30 minutes, then BIG-IP is to implement SHA scenarios in [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md).
+VM deployment and base system configurations take approximately 30 minutes, then BIG-IP is to implement SHA scenarios in [Integrate F5 BIG-IP with Azure Active Directory](f5-integration.md).
 
 ### Testing scenarios
 
@@ -399,7 +399,7 @@ See the following list for update-related guidance. Update instructions follow.
 * Run v15.x and above. See, [F5 download](https://downloads.f5.com/esd/productlines.jsp). Sign-in required.
 * To update the main TMOS, see the F5 article, [K34745165: Managing software images on the BIG-IP system](https://support.f5.com/csp/article/K34745165)  
   * If you can't update the main TMOS, you can upgrade the Guided Configuration. Use the following steps.
-* See also, [scenario-based guidance](f5-aad-integration.md)
+* See also, [scenario-based guidance](f5-integration.md)
 
 1. In the BIG-IP web config, on the main tab, go to **Access** > **Guided Configuration**.
 2. On the **Guided Configuration** page, select **Upgrade Guided Configuration**.
@@ -487,4 +487,4 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 ## Next steps
 
-Select a [deployment scenario](f5-aad-integration.md) and start your implementation.
+Select a [deployment scenario](f5-integration.md) and start your implementation.

@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 03/23/2023
 ---
 
 # Data classification in the Microsoft Purview governance portal
@@ -15,9 +15,9 @@ Data classification in the Microsoft Purview governance portal is a way of categ
 
 When you classify data assets, you make them easier to understand, search, and govern. Classifying data assets also helps you understand the risks associated with them. This in turn can help you implement measures to protect sensitive or important data from ungoverned proliferation and unauthorized access across the data estate.
 
-The Microsoft Purview Data Map provides an automated classification capability while you scan your data sources. You get more than 200+ built-in system classifications and the ability to create custom classifications for your data. You can classify assets automatically when they're configured as part of a scan, or you can edit them manually in the Microsoft Purview governance portal after they're scanned and ingested.  
+The Microsoft Purview Data Map provides an automated classification capability while you scan your data sources. You get more than 200+ built-in system classifications and the ability to create custom classifications for your data. You can classify assets automatically when they're ingested as part of a configured scan, or you can edit them manually in the Microsoft Purview governance portal after they're scanned and ingested.  
 
-## Use of classification
+## Uses of classification
 
 Classification is the process of organizing data into *logical categories* that make the data easy to retrieve, sort, and identify for future use. This can be important for data governance. Among other reasons, classifying data assets is important because it helps you:
 
@@ -25,7 +25,7 @@ Classification is the process of organizing data into *logical categories* that 
 * Organize and understand the variety of data classes that are important in your organization and where they're stored.
 * Understand the risks associated with your most important data assets and then take appropriate measures to mitigate them.
 
-As shown in the following image, it's possible to apply classifications at both the asset level and the schema level for the *Customers* table in Azure SQL Database.
+Following image shows classification applied while scanning on the *Customer* table in Azure SQL Database. 
 
 :::image type="content" source="./media/concept-classification/classification-customers-example-1.png" alt-text="Screenshot that shows the classification of the 'Customers' table in Azure SQL Database." lightbox="./media/concept-classification/classification-customers-example-1.png":::
 
@@ -33,9 +33,9 @@ As shown in the following image, it's possible to apply classifications at both 
 
 The Microsoft Purview governance portal supports both system and custom classifications.
 
-* **System classifications**: 200+ system classifications supported out of the box. For the entire list of available system classifications, see [supported classifications in the Microsoft Purview governance portal](./supported-classifications.md).
+* **System classifications**: 200+ system classifications supported are out of the box. For the entire list of available system classifications, see [supported classifications in the Microsoft Purview governance portal](./supported-classifications.md).
 
-   In the example in the preceding image, *Person’s Name* is a system classification.
+   In the example in the preceding image, *Person’s Name* is a system classification. System classification has the thunderbolt icon along with classification name. Hovering over the classification itself provides more details on the type of classification, and more details on how it was applied
 
 * **Custom classifications**: You can create custom classifications when you want to classify assets based on a pattern or a specific column name that's unavailable as a system classification.
 Custom classification rules can be based on a *regular expression* pattern or *dictionary*.

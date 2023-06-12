@@ -1,0 +1,67 @@
+### YamlMime:Landing
+
+title: Project Health Insights
+summary: Project Health Insights
+metadata:
+  title: Project Health Insights
+  description: this article contains documentation regarding the different Health Decision Models from Health A.I.
+  ms.service: Project Health Insights
+  ms.topic: landing-page 
+  author: iBoonZ
+  ms.author: behoorne
+  ms.date: 01/26/2023
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new 
+
+landingContent:
+  - title: About Project Health Insights
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Project Health Insights?
+            url: overview.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy using the portal
+            url: deploy-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to Use Project Health Insights with containers 
+            url: use-containers.md
+          - text: How to configure the containers 
+            url: configure-containers.md
+  - title: OncoPhenotype
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About OncoPhenotype
+            url: oncophenotype/overview.md
+      - linkListType: concept
+        links:
+          - text: Model configuration
+            url: oncophenotype/model-configuration.md
+          - text: Inference information
+            url: oncophenotype/inferences.md    
+      - linkListType: quickstart
+        links:
+          - text: Get started
+            url: oncophenotype/get-started.md
+  - title: Trial Matcher
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Trial Matcher
+            url: trial-matcher/overview.md
+      - linkListType: concept
+        links:
+          - text: Model configuration
+            url: trial-matcher/model-configuration.md
+          - text: Patient information
+            url: trial-matcher/patient-info.md
+          - text: Inference information
+            url: trial-matcher/inferences.md
+      - linkListType: quickstart
+        links:
+          - text: Get started
+            url: trial-matcher/get-started.md

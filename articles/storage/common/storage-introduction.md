@@ -35,7 +35,7 @@ The Azure Storage platform includes the following data services:
 - [Azure Elastic SAN](../elastic-san/elastic-san-introduction.md) (preview): A fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN in Azure.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
-- [Azure Disks](../../virtual-machines/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
+- [Azure managed Disks](../../virtual-machines/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
 
 Each service is accessed through a storage account with a unique address. To get started, see [Create a storage account](storage-account-create.md).
 

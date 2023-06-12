@@ -4,15 +4,16 @@ description: Azure CLI script sample - Route traffic for high availability of ap
 services: traffic-manager
 documentationcenter: traffic-manager
 author: greg-lindsay
-manager: twooley
+manager: kumud
 tags: azure-infrastructure
+ms.custom: devx-track-azurecli
 ms.assetid:
 ms.service: traffic-manager
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
-ms.date: 02/28/2022
+ms.date: 04/27/2023
 ms.author: greglin
 ---
 
@@ -22,7 +23,7 @@ This script creates a resource group, two app service plans, two web apps, a tra
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

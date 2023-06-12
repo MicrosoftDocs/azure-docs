@@ -4,6 +4,7 @@ description: Learn how to secure access to Managed HSM using Azure RBAC and Mana
 services: key-vault
 author: mbaldwin
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: managed-hsm

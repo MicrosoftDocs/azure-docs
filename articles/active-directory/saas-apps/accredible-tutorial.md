@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Accredible | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Accredible'
 description: Learn how to configure single sign-on between Azure Active Directory and Accredible.
 services: active-directory
 author: jeevansd

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ThirdPartyTrust | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with ThirdPartyTrust'
 description: Learn how to configure single sign-on between Azure Active Directory and ThirdPartyTrust.
 services: active-directory
 author: jeevansd

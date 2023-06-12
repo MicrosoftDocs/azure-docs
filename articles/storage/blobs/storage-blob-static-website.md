@@ -8,8 +8,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 09/29/2022
 ms.subservice: blobs
-ms.custom: devx-track-js
-
+ms.custom:
 ---
 
 # Static website hosting in Azure Storage
@@ -69,7 +68,7 @@ For example, if you change the public access level of the **$web** container fro
 
 However, the public access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change from private to public. Now users can open that file by using either of these two endpoints.
 
-Disabling public access on a storage account doesn't affect static websites that are hosted in that storage account. For more information, see [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
+Disabling public access on a storage account by using the [public access setting](anonymous-read-access-prevent.md#set-the-storage-accounts-allowblobpublicaccess-property-to-false) of the storage account doesn't affect static websites that are hosted in that storage account. For more information, see [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
 
 ## Mapping a custom domain to a static website URL
 
@@ -146,5 +145,5 @@ In the Azure portal, open the static website configuration page of your account 
 - [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
 - [Azure Functions](../../azure-functions/functions-overview.md)
 - [Azure App Service](../../app-service/overview.md)
-- [Build your first serverless web app](/azure/functions/tutorial-static-website-serverless-api-with-database)
+- [Build your first serverless web app](/labs/build2018/serverlesswebapp/)
 - [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Explore an Azure IoT Central industrial scenario | Microsoft Docs
-description: This tutorial shows you how to deploy an end-to-end industrial IoT solution. You install an IoT Edge gateway, an IoT Central application, and an Azure Data Explorer workspace.
+title: Tutorial - Explore an Azure IoT Central industrial scenario
+description: This tutorial shows you how to deploy an end-to-end industrial IoT solution by using IoT Edge, IoT Central, and Azure Data Explorer.
 author: dominicbetts
 ms.author: dobett
 ms.date: 09/15/2022
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 In this tutorial, you use the Azure CLI to create an app registration in Azure Active Directory:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Setup
 

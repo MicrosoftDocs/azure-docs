@@ -1,7 +1,6 @@
 ---
 title: Operator best practices - Basic scheduler features in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for using basic scheduler features such as resource quotas and pod disruption budgets in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
 
@@ -23,7 +22,7 @@ This best practices article focuses on basic Kubernetes scheduling features for 
 > 
 > Plan and apply resource quotas at the namespace level. If pods don't define resource requests and limits, reject the deployment. Monitor resource usage and adjust quotas as needed.
 
-Resource requests and limits are placed in the pod specification. Limits are used by the Kubernetes scheduler at deployment time to find an available node in the cluster. Limits and requests work at the individual pod level. For more information about how to define these values, see [Define pod resource requests and limits][resource-limits].
+Resource requests and limits are placed in the pod specification. Requests are used by the Kubernetes scheduler at deployment time to find an available node in the cluster. Limits and requests work at the individual pod level. For more information about how to define these values, see [Define pod resource requests and limits][resource-limits].
 
 To provide a way to reserve and limit resources across a development team or project, you should use *resource quotas*. These quotas are defined on a namespace, and can be used to set quotas on the following basis:
 

@@ -138,6 +138,7 @@ Examples of control plane operations and data plane operations:
 |Deploy a Microsoft Purview account     | Control plane         | Azure subscription owner or contributor         | Azure RBAC roles         |
 |Set up a Private Endpoint for Microsoft Purview     | Control plane         | Contributor         | Azure RBAC roles        |
 |Delete a Microsoft Purview account      | Control plane         | Contributor         | Azure RBAC roles        |
+|Add or manage a [self-hosted integration runtime (SHIR)](manage-integration-runtimes.md) | Control plane | Data source administrator |Microsoft Purview roles |
 |View Microsoft Purview metrics to get current capacity units       | Control plane         | Reader       | Azure RBAC roles        |
 |Create a collection      | Data plane           | Collection Admin        | Microsoft Purview roles        |
 |Register a data source    | Data plane          | Collection Admin         | Microsoft Purview roles         |

@@ -2,7 +2,7 @@
 title: Xamarin Android code configuration and troubleshooting (MSAL.NET)
 description: Learn about considerations for using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: Dickson-Mwendia
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,9 +10,9 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2020
-ms.author: dmwendia
-ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev"
+ms.author: henrymbugua
+ms.reviewer: saeeda, Dickson-Mwendia
+ms.custom: devx-track-csharp, aaddev, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about special requirements for using Xamarin Android and MSAL.NET.
 ---
 

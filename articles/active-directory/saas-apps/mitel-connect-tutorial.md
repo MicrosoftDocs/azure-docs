@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Mitel Connect | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Mitel Connect'
 description: Learn how to configure single sign-on between Azure Active Directory and Mitel Connect.
 services: active-directory
 author: jeevansd
@@ -47,7 +47,7 @@ To configure the integration of Mitel Connect into Azure AD, you need to add Mit
 
 ## Configure and test Azure AD SSO
 
-In this section, you'll configure and test Azure AD SSO with MiCloud Connect or CloudLink Platform based on a test user named **_Britta Simon_**. For single sign-on to work, a link must be established between the user in Azure AD portal and the corresponding user on the Mitel platform. Refer to the following sections for information about configuring and testing Azure AD SSO with MiCloud Connect or CloudLink Platform.
+In this section, you'll configure and test Azure AD SSO with MiCloud Connect or CloudLink Platform based on a test user named **_Britta Simon_**. For single sign-on to work, a link must be established between the user in Azure portal and the corresponding user on the Mitel platform. Refer to the following sections for information about configuring and testing Azure AD SSO with MiCloud Connect or CloudLink Platform.
 * Configure and test Azure AD SSO with MiCloud Connect
 * Configure and test Azure AD SSO with CloudLink Platform
 

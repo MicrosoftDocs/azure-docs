@@ -1,13 +1,12 @@
 ---
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 11/08/2022
+ms.date: 06/01/2023
 ---
 
 ## Enable the plan
-
 
 **To enable the plan**:
 
@@ -144,12 +143,6 @@ Request body parameters:
 
     > [!IMPORTANT]
     > Ensure that you use the same subscription ID for ``<your-subscription-id>`` as the one associated with your AKS cluster.
-
-1. Enable the feature flag in the CLI:
-
-    ```azurecli
-    az feature register --namespace Microsoft.ContainerService --name AKS-AzureDefender
-    ```
 
 1. Enable the Defender profile on your containers:
 

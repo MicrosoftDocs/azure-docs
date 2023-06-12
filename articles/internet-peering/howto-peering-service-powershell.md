@@ -1,21 +1,24 @@
 ---
-title: Enable Azure Peering Service on a Direct peering by using PowerShell
-titleSuffix: Azure
-description: Enable Azure Peering Service on a Direct peering by using PowerShell
+title: Enable Azure Peering Service on a Direct peering - PowerShell
+description: Enable Azure Peering Service on a Direct peering using PowerShell.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 11/27/2019
+ms.date: 01/23/2023
 ms.author: halkazwini 
-ms.custom: devx-track-azurepowershell
+ms.custom: template-how-to, engagement-fy23
 ---
 
-# Enable Azure Peering Service on a Direct peering by using PowerShell
+# Enable Azure Peering Service on a Direct peering using PowerShell
+
+> [!div class="op_single_selector"]
+> - [Azure portal](howto-peering-service-portal.md)
+> - [PowerShell](howto-peering-service-powershell.md)
 
 This article describes how to enable [Azure Peering Service](../peering-service/about.md) on a Direct peering by using PowerShell cmdlets and the Azure Resource Manager deployment model.
 
-If you prefer, you can complete this guide by using the Azure [portal](howto-peering-service-portal.md).
+If you prefer, you can complete this guide by using the [Azure portal](howto-peering-service-portal.md).
 
 ## Before you begin
 * Review the [prerequisites](prerequisites.md) before you begin configuration.

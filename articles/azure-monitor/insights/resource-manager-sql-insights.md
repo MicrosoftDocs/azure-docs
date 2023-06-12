@@ -2,10 +2,10 @@
 title: Resource Manager template samples for SQL Insights (preview)
 description: Sample Azure Resource Manager templates to deploy and configure SQL Insights (preview).
 ms.topic: sample
+ms.custom: devx-track-arm-template
 author: bwren
 ms.author: bwren
 ms.date: 03/25/2021
-
 ---
 
 # Resource Manager template samples for SQL Insights (preview)

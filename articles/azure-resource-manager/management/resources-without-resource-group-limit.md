@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 02/02/2023
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -12,11 +12,6 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
 Some resources have a limit on the number instances per region. This limit is different than the 800 instances per resource group. To check your instances per region, use the Azure portal. Select your subscription and **Usage + quotas** in the left pane. For more information, see [Check resource usage against limits](../../networking/check-usage-against-limits.md).
-
-## Microsoft.AlertsManagement
-
-* actionRules
-* smartDetectorAlertRules
 
 ## Microsoft.Automation
 
@@ -103,13 +98,8 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.HybridCompute
 
-* machines - Supports up to 5,000 instances.
+* machines
 * machines/extensions
-
-## microsoft.insights
-
-* metricalerts
-* scheduledqueryrules
 
 ## Microsoft.Logic
 

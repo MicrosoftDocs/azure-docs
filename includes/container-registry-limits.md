@@ -30,10 +30,11 @@ ms.custom: include file
 | Service endpoint VNet access | N/A | N/A | [Preview][vnet] |
 | &bull; Virtual network rules | N/A | N/A | 100 |
 | Customer-managed keys | N/A | N/A | [Supported][cmk] |
-| Repository-scoped permissions | N/A | N/A | [Preview][token]|
-| &bull; Tokens | N/A | N/A | 20,000 |
-| &bull; Scope maps | N/A | N/A | 20,000 |
-| &bull; Repositories per scope map<sup>5</sup> | N/A | N/A | 500 |
+| Repository-scoped permissions | [Supported][token] | [Supported][token] | [Supported][token]|
+| &bull; Tokens | 100 | 500 | 50,000 |
+| &bull; Scope maps | 100 | 500 | 50,000 |
+| &bull; Actions| 500 | 500 | 500 |
+| &bull; Repositories per scope map<sup>5</sup> | 500 | 500 | 500 |
 | Anonymous pull access | N/A | [Preview][anonymous-pull-access] | [Preview][anonymous-pull-access] |
 
 

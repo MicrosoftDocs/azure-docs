@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/18/2022
+ms.date: 06/02/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
@@ -17,11 +16,11 @@ recommendations: false
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
+* [**General document**](#general-document-model)—Analyze and extract key-value pairs, and selection marks from documents.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pretrained invoice model.
 
 ## Prerequisites
 
@@ -36,12 +35,12 @@ In this quickstart you'll, use the following features to analyze and extract dat
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
 
 ## Set up
 
@@ -70,7 +69,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
     npm i @azure/ai-form-recognizer @azure/identity
     ```
 
-    * Your app's `package.json` file will be updated with the dependencies.
+    * Your app's `package.json` file is updated with the dependencies.
 
 1. Create a file named `index.js` in the application directory.
 
@@ -80,12 +79,12 @@ In this quickstart you'll, use the following features to analyze and extract dat
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item index.js**.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=setup)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=setup) -->
 
 ## Build your application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 1. Open the `index.js` file in Visual Studio Code or your favorite IDE and select one of the following code samples to copy and paste into your application:
 
@@ -102,7 +101,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ## General document model
 
-Extract text, tables, structure, key-value pairs, and named entities from documents.
+Extract text, tables, structure, and key-value pairs from documents.
 
 > [!div class="checklist"]
 >
@@ -161,8 +160,8 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-general-document) -->
 
 ### General document model output
 
@@ -184,12 +183,6 @@ Key-Value Pairs:
   Value: "Common Stock, $0.00000625 par value per share" (0.748)
 - Key  : "Outstanding as of April 24, 2020"
   Value: "7,583,440,247 shares" (0.838)
-Entities:
-- "$0.00000625" Quantity - Currency (0.8)
-- "MSFT" Organization - <none> (0.99)
-- "NASDAQ" Organization - StockExchange (0.99)
-- "2.125%" Quantity - Percentage (0.8)
-- "2021" DateTime - DateRange (0.8)
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-general-document-output.md)
@@ -220,7 +213,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
   async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrlLayout);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrl);
 
     const {
         pages,
@@ -269,8 +262,8 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-layout)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-layout) -->
 
 ### Layout model output
 
@@ -289,7 +282,7 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 
 ## Prebuilt model
 
-In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
+In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
 > You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
@@ -308,12 +301,13 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
       const key = "<your-key>";
       const endpoint = "<your-endpoint>";
-
+// sample document
+    invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
 async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrlLayout);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
 
     const {
         pages,
@@ -361,8 +355,8 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt) -->
 
 ### Prebuilt model output
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Blinq for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Blinq for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Blinq.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 5b076ac0-cd0e-43c3-85ed-8591bfd424ff
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

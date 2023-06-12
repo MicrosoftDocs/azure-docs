@@ -1,20 +1,13 @@
 ---
 title: Manage resources - Azure CLI
 description: Use Azure CLI and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
-author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 # Manage Azure resources by using Azure CLI
 
 Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using Azure CLI](manage-resource-groups-cli.md).
-
-Other articles about managing resources:
-
-- [Manage Azure resources by using the Azure portal](manage-resources-portal.md)
-- [Manage Azure resources by using Azure PowerShell](manage-resources-powershell.md)
 
 ## Deploy resources to an existing resource group
 
@@ -127,7 +120,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resources
 
-Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources.md#azure-cli).
+Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-cli.md).
 
 ## Manage access to resources
 

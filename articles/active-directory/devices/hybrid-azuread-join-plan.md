@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -31,7 +31,7 @@ This article assumes that you're familiar with the [Introduction to device ident
 
 Hybrid Azure AD joined devices require network line of sight to your domain controllers periodically. Without this connection, devices become unusable.
 
-Scenarios that break without line of sight to your domain controllers:
+Scenarios that break without line of sight to your domain controllers include:
 
 - Device password change
 - User password change (Cached credentials)
@@ -93,7 +93,7 @@ As a first planning step, you should review your environment and determine wheth
 
 If your Windows 10 or newer domain joined devices are [Azure AD registered](concept-azure-ad-register.md) to your tenant, it could lead to a dual state of hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or newer to automatically address this scenario. In pre-1803 releases, you'll need to remove the Azure AD registered state manually before enabling hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
-- Any existing Azure AD registered state for a user would be automatically removed <i>after the device is hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. If there are multiple users on the same device, the dual state is cleaned up individually when those users log in. After removing the Azure AD registered state, Windows 10 will unenroll the device from Intune or other MDM, if the enrollment happened as part of the Azure AD registration via auto-enrollment.
+- Any existing Azure AD registered state for a user would be automatically removed <i>after the device is hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. If there are multiple users on the same device, the dual state is cleaned up individually when those users log in. After an admin removes the Azure AD registered state, Windows 10 will unenroll the device from Intune or other MDM, if the enrollment happened as part of the Azure AD registration via auto-enrollment.
 - Azure AD registered state on any local accounts on the device isn’t impacted by this change. Only applicable to domain accounts. Azure AD registered state on local accounts isn't removed automatically even after user logon, since the user isn't a domain user.
 - You can prevent your domain joined device from being Azure AD registered by adding the following registry value to HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to reconfigure Windows Hello for Business after the dual state cleanup. This issue has been addressed with KB4512509.
@@ -165,7 +165,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 
 Sometimes, on-premises AD users UPNs are different from your Azure AD UPNs. In these cases, Windows 10 or newer hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](../hybrid/choose-ad-authn.md), domain type, and Windows version. There are two types of on-premises AD UPNs that can exist in your environment:
 
-- Routable users UPN: A routable UPN has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](../fundamentals/add-custom-domain.md).
+- Routable users UPN: A routable UPN has a valid verified domain that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](../fundamentals/add-custom-domain.md).
 - Non-routable users UPN: A non-routable UPN doesn't have a verified domain and is applicable only within your organization's private network. For example, if contoso.com is the primary domain in Azure AD and contoso.local is the primary domain in on-premises AD but isn't a verifiable domain in the internet and only used within Contoso's network.
 
 > [!NOTE]

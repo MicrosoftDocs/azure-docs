@@ -12,23 +12,13 @@ ms.custom: devx-track-csharp
 
 Spatial queries are operations with which you can ask the remote rendering service which objects are located in an area. Spatial queries are frequently used to implement interactions, such as figuring out which object a user is pointing at.
 
-All spatial queries are evaluated on the server. Accordingly, they're asynchronous operations and results will arrive with a delay that depends on your network latency. Since every spatial query generates network traffic, be careful not to do too many at once.
-
-## Collision meshes
-
-For triangular meshes, spatial queries are powered by the [Havok Physics](https://www.havok.com/products/havok-physics) engine and require a dedicated collision mesh to be present. By default, [model conversion](../../how-tos/conversion/model-conversion.md) generates collision meshes. If you don't require spatial queries on a complex model, consider disabling collision mesh generation in the [conversion options](../../how-tos/conversion/configure-model-conversion.md), as it has an impact in multiple ways:
-
-* [Model conversion](../../how-tos/conversion/model-conversion.md) will take considerably longer.
-* Converted model file sizes are noticeably larger, impacting download speed.
-* Runtime loading times are longer.
-* Runtime CPU memory consumption is higher.
-* There's a slight runtime performance overhead for every model instance.
-
-For point clouds, none of these drawbacks apply.
+All spatial queries are evaluated on the server. Accordingly, the queries are asynchronous operations and results arrive with a delay that depends on your network latency.
 
 ## Ray casts
 
-A *ray cast* is a spatial query where the runtime checks which objects are intersected by a ray, starting at a given position and pointing into a certain direction. As an optimization, a maximum ray distance is also given, to not search for objects that are too far away.
+A *ray cast* is a spatial query where the runtime checks which objects intersect a ray, starting at a given position and pointing into a certain direction. As an optimization, a maximum ray distance is also given, to not search for objects that are too far away.
+Although doing hundreds of ray casts each frame is computationally feasible on the server side, each query also generates network traffic, so the number of queries per frame should be kept as low as possible.
+
 
 ```cs
 async void CastRay(RenderingSession session)
@@ -84,10 +74,9 @@ void CastRay(ApiHandle<RenderingSession> session)
 }
 ```
 
-
 There are three hit collection modes:
 
-* **`Closest`:** In this mode, only the closest hit will be reported.
+* **`Closest`:** In this mode, only the closest hit is reported.
 * **`Any`:** Prefer this mode when all you want to know is *whether* a ray would hit anything, but don't care what was hit exactly. This query can be considerably cheaper to evaluate, but also has only few applications.
 * **`All`:** In this mode, all hits along the ray are reported, sorted by distance. Don't use this mode unless you really need more than the first hit. Limit the number of reported hits with the `MaxHits` option.
 
@@ -110,22 +99,24 @@ A Hit has the following properties:
 * **`HitPosition`:** The world space position where the ray intersected the object.
 * **`HitNormal`:** The world space surface normal of the mesh at the position of the intersection.
 * **`DistanceToHit`:** The distance from the ray starting position to the hit.
-* **`HitType`:** What was hit by the ray: `TriangleFrontFace`, `TriangleBackFace` or `Point`. By default, [ARR renders double sided](single-sided-rendering.md#prerequisites) so the triangles the user sees are not necessarily front facing. If you want to differentiate between `TriangleFrontFace` and `TriangleBackFace` in your code, make sure your models are authored with correct face directions first.
+* **`HitType`:** What is hit by the ray: `TriangleFrontFace`, `TriangleBackFace` or `Point`. By default, [ARR renders double sided](single-sided-rendering.md#prerequisites) so the triangles the user sees aren't necessarily front facing. If you want to differentiate between `TriangleFrontFace` and `TriangleBackFace` in your code, make sure your models are authored with correct face directions first.
 
 ## Spatial queries
 
-A *spatial query* allows for the runtime to check which [MeshComponent](../../concepts/meshes.md#meshcomponent) are intersected by a world-space axis-aligned bounding box (AABB). This check is very performant as the individual check is performed based on each mesh part's bounds in the scene, not on an individual triangle basis. As an optimization, a maximum number of hit mesh components can be provided.\
-While such a query can be run manually on the client side, for large scenes it will be much faster for the server to compute this.
+A *spatial query* allows for the runtime to check which [MeshComponents](../../concepts/meshes.md#meshcomponent) intersect with a user defined volume. This check is performant as the individual check is performed based on each mesh part's bounds in the scene, not on an individual triangle basis. As an optimization, a maximum number of hit mesh components can be provided.\
+While such a query can be run manually on the client side, for large scenes it can be orders of magnitude faster for the server to compute this.
+
+The following example code shows how to do queries against an axis aligned bounding box (AABB). Variants of the query also allow for oriented bounding box volumes (`SpatialQueryObbAsync`) and sphere volumes (`SpatialQuerySphereAsync`).
 
 ```cs
 async void QueryAABB(RenderingSession session)
 {
     // Query all mesh components in a 2x2x2m cube.
-    SpatialQuery query = new SpatialQuery();
+    SpatialQueryAabb query = new SpatialQueryAabb();
     query.Bounds = new Microsoft.Azure.RemoteRendering.Bounds(new Double3(-1, -1, -1), new Double3(1, 1, 1));
     query.MaxResults = 100;
 
-    SpatialQueryResult result = await session.Connection.SpatialQueryAsync(query);
+    SpatialQueryResult result = await session.Connection.SpatialQueryAabbAsync(query);
     foreach (MeshComponent meshComponent in result.Overlaps)
     {
         Entity owner = meshComponent.Owner;
@@ -138,12 +129,12 @@ async void QueryAABB(RenderingSession session)
 void QueryAABB(ApiHandle<RenderingSession> session)
 {
     // Query all mesh components in a 2x2x2m cube.
-    SpatialQuery query;
+    SpatialQueryAabb query;
     query.Bounds.Min = {-1, -1, -1};
     query.Bounds.Max = {1, 1, 1};
     query.MaxResults = 100;
 
-    session->Connection()->SpatialQueryAsync(query, [](Status status, ApiHandle<SpatialQueryResult> result)
+    session->Connection()->SpatialQueryAabbAsync(query, [](Status status, ApiHandle<SpatialQueryResult> result)
         {
             if (status == Status::OK)
             {
@@ -163,7 +154,13 @@ void QueryAABB(ApiHandle<RenderingSession> session)
 ## API documentation
 
 * [C# RenderingConnection.RayCastQueryAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryasync)
+* [C# RenderingConnection.SpatialQueryAabbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.spatialqueryaabbasync)
+* [C# RenderingConnection.SpatialQuerySphereAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.spatialquerysphereasync)
+* [C# RenderingConnection.SpatialQueryObbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.spatialqueryobbasync)
 * [C++ RenderingConnection::RayCastQueryAsync()](/cpp/api/remote-rendering/renderingconnection#raycastqueryasync)
+* [C++ RenderingConnection::SpatialQueryAabbAsync()](/cpp/api/remote-rendering/renderingconnection#spatialqueryaabbasync)
+* [C++ RenderingConnection::SpatialQuerySphereAsync()](/cpp/api/remote-rendering/renderingconnection#spatialquerysphereasync)
+* [C++ RenderingConnection::SpatialQueryObbAsync()](/cpp/api/remote-rendering/renderingconnection#spatialqueryobbasync)
 
 ## Next steps
 

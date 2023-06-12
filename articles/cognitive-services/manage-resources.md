@@ -135,7 +135,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/providers/Microsoft.
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResource -ResourceId /subscriptions/{subscriptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}  -ApiVersion 2021-04-30`
+Remove-AzResource -ResourceId /subscriptions/{subscriptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}  -ApiVersion 2021-04-30
 ```
 
 # [Azure CLI](#tab/azure-cli)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Genesys Cloud for Azure | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Genesys Cloud for Azure'
 description: Learn how to configure single sign-on between Azure Active Directory and Genesys Cloud for Azure.
 services: active-directory
 author: jeevansd

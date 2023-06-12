@@ -3,8 +3,8 @@ title: Using the asset inventory to view your security posture with Microsoft De
 description: Learn about Microsoft Defender for Cloud's asset management experience providing full visibility over all your Defender for Cloud monitored resources.
 ms.date: 01/03/2023
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 # Use asset inventory to manage your resources' security posture
 
@@ -12,7 +12,7 @@ The asset inventory page of Microsoft Defender for Cloud shows the [security pos
 
 Use this view and its filters to address such questions as:
 
-- Which of my subscriptions with [Defender plans](defender-for-cloud-introduction.md#cwp---identify-unique-workload-security-requirements) enabled have outstanding recommendations?
+- Which of my subscriptions with [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads) enabled have outstanding recommendations?
 - Which of my machines with the tag 'Production' are missing the Log Analytics agent?
 - How many of my machines tagged with a specific tag have outstanding recommendations?
 - Which machines in a specific resource group have a known vulnerability (using a CVE number)?

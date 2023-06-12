@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 06/02/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,9 +25,9 @@ Custom controls are a preview capability of the Azure Active Directory. When usi
 ## Creating custom controls
 
 > [!IMPORTANT]
-> Custom controls cannot be used with Identity Protection's automation requiring Azure AD Multifactor Authentication, Azure AD self-service password reset (SSPR), satisfying multifactor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), as part of Intune device enrollment, or when joining devices to Azure AD.
+> Custom controls can't be used with Identity Protection's automation requiring Azure AD Multifactor Authentication, Azure AD self-service password reset (SSPR), satisfying multifactor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), as part of Intune device enrollment, for cross-tenant trusts, or when joining devices to Azure AD.
 
-Custom Controls works with a limited set of approved authentication providers. To create a custom control, you should first contact the provider that you wish to utilize. Each non-Microsoft provider has its own process and requirements to sign up, subscribe, or otherwise become a part of the service, and to indicate that you wish to integrate with Conditional Access. At that point, the provider will provide you with a block of data in JSON format. This data allows the provider and Conditional Access to work together for your tenant, creates the new control and defines how Conditional Access can tell if your users have successfully performed verification with the provider.
+Custom Controls works with a limited set of approved authentication providers. To create a custom control, you should first contact the provider that you wish to utilize. Each non-Microsoft provider has its own process and requirements to sign up, subscribe, or otherwise become a part of the service, and to indicate that you wish to integrate with Conditional Access. At that point, the provider gives you a block of data in JSON format. This data allows the provider and Conditional Access to work together for your tenant, creates the new control and defines how Conditional Access can tell if your users have successfully performed verification with the provider.
 
 Copy the JSON data and then paste it into the related textbox. Don't make any changes to the JSON unless you explicitly understand the change you're making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
 
@@ -53,12 +53,10 @@ To edit a custom control, you must delete the current control and create a new c
 
 ## Known limitations
 
-Custom controls can't be used with Identity Protection's automation requiring Azure AD Multifactor Authentication, Azure AD self-service password reset (SSPR), satisfying multifactor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), as part of Intune device enrollment, or when joining devices to Azure AD.
+Custom controls can't be used with Identity Protection's automation requiring Azure AD Multifactor Authentication, Azure AD self-service password reset (SSPR), satisfying multifactor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), as part of Intune device enrollment, for cross-tenant trusts, or when joining devices to Azure AD.
 
 ## Next steps
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
-
 - [Report-only mode](concept-conditional-access-report-only.md)
-
 - [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

@@ -8,8 +8,8 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/27/2022
-ms.custom: devx-track-azurepowershell, synapse
+ms.date: 02/08/2023
+ms.custom: synapse
 ---
 
 # Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics

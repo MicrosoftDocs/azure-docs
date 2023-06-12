@@ -166,7 +166,7 @@ Note the following considerations to keep in mind with this release:
 
 ## Availability Zones
 
-The Service Bus Premium SKU supports [availability zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of the messaging store (1 primary and 2 secondary). Service Bus keeps all three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If the applications see transient disconnects from Service Bus, the retry logic in the SDK will automatically reconnect to Service Bus. 
+The Service Bus Premium SKU supports [availability zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of the messaging store (1 primary and 2 secondary). Service Bus keeps all three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If the applications see transient disconnects from Service Bus, the [retry logic](/azure/architecture/best-practices/retry-service-specific#service-bus) in the SDK will automatically reconnect to Service Bus. 
 
 When you use availability zones, both metadata and data (messages) are replicated across data centers in the availability zone. 
 

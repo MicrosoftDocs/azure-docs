@@ -57,10 +57,10 @@ public class Program {
 
     public static void fromMic(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
         AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-        SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+        SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
         System.out.println("Speak into your microphone.");
-        Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+        Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
         SpeechRecognitionResult result = task.get();
         System.out.println("RECOGNIZED: Text=" + result.getText());
     }
@@ -87,9 +87,9 @@ public class Program {
 
     public static void fromFile(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
         AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-        SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+        SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
         
-        Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+        Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
         SpeechRecognitionResult result = task.get();
         System.out.println("RECOGNIZED: Text=" + result.getText());
     }
@@ -137,7 +137,7 @@ Start by defining the input and initializing [`SpeechRecognizer`](/java/api/com.
 
 ```java
 AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
+SpeechRecognizer speechRecognizer = new SpeechRecognizer(config, audioConfig);
 ```
 
 Next, create a variable to manage the state of speech recognition. Declare a `Semaphore` instance at the class scope:
@@ -151,17 +151,17 @@ Next, subscribe to the events that [`SpeechRecognizer`](/java/api/com.microsoft.
 * [`recognizing`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizing): Signal for events that contain intermediate recognition results.
 * [`recognized`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
 * [`sessionStopped`](/java/api/com.microsoft.cognitiveservices.speech.recognizer.sessionstopped): Signal for events that indicate the end of a recognition session (operation).
-* [`canceled`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result or a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
+* [`canceled`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result of a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
 
 ```java
 // First initialize the semaphore.
 stopTranslationWithFileSemaphore = new Semaphore(0);
 
-recognizer.recognizing.addEventListener((s, e) -> {
+speechRecognizer.recognizing.addEventListener((s, e) -> {
     System.out.println("RECOGNIZING: Text=" + e.getResult().getText());
 });
 
-recognizer.recognized.addEventListener((s, e) -> {
+speechRecognizer.recognized.addEventListener((s, e) -> {
     if (e.getResult().getReason() == ResultReason.RecognizedSpeech) {
         System.out.println("RECOGNIZED: Text=" + e.getResult().getText());
     }
@@ -170,7 +170,7 @@ recognizer.recognized.addEventListener((s, e) -> {
     }
 });
 
-recognizer.canceled.addEventListener((s, e) -> {
+speechRecognizer.canceled.addEventListener((s, e) -> {
     System.out.println("CANCELED: Reason=" + e.getReason());
 
     if (e.getReason() == CancellationReason.Error) {
@@ -182,7 +182,7 @@ recognizer.canceled.addEventListener((s, e) -> {
     stopTranslationWithFileSemaphore.release();
 });
 
-recognizer.sessionStopped.addEventListener((s, e) -> {
+speechRecognizer.sessionStopped.addEventListener((s, e) -> {
     System.out.println("\n    Session stopped event.");
     stopTranslationWithFileSemaphore.release();
 });
@@ -192,13 +192,13 @@ With everything set up, call [`startContinuousRecognitionAsync`](/java/api/com.m
 
 ```java
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
-recognizer.startContinuousRecognitionAsync().get();
+speechRecognizer.startContinuousRecognitionAsync().get();
 
 // Waits for completion.
 stopTranslationWithFileSemaphore.acquire();
 
 // Stops recognition.
-recognizer.stopContinuousRecognitionAsync().get();
+speechRecognizer.stopContinuousRecognitionAsync().get();
 ```
 
 ## Change the source language
@@ -209,7 +209,13 @@ A common task for speech recognition is specifying the input (or source) languag
 config.setSpeechRecognitionLanguage("fr-FR");
 ```
 
-[`setSpeechRecognitionLanguage`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setspeechrecognitionlanguage) is a parameter that takes a string as an argument. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
+[`setSpeechRecognitionLanguage`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setspeechrecognitionlanguage) is a parameter that takes a string as an argument. Refer to the [list of supported speech to text locales](../../../language-support.md?tabs=stt).
+
+## Language identification
+
+You can use [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+
+For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text).
 
 ## Use a custom endpoint
 
@@ -220,3 +226,10 @@ SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey",
 speechConfig.setEndpointId("YourEndpointId");
 SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig);
 ```
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

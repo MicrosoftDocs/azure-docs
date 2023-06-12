@@ -1,30 +1,29 @@
 ---
-title: "Quickstart - Build and deploy apps to Azure Spring Apps Enterprise tier"
-description: Describes app deployment to Azure Spring Apps Enterprise tier.
+title: "Quickstart - Build and deploy apps to the Azure Spring Apps Enterprise plan"
+description: Describes app deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier
+# Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how to build and deploy applications to Azure Spring Apps using the Enterprise tier.
+This quickstart shows you how to build and deploy applications to Azure Spring Apps using the Enterprise plan.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
-- [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Download the sample app
@@ -48,7 +47,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
+1. Use the following command to accept the legal terms and privacy statements for the Enterprise plan. This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
@@ -58,7 +57,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --plan asa-ent-hr-mtr
    ```
 
-1. Select a location. This location must be a location supporting Azure Spring Apps Enterprise tier. For more information, see the [Azure Spring Apps FAQ](faq.md).
+1. Select a location. This location must be a location supporting the Azure Spring Apps Enterprise plan. For more information, see the [Azure Spring Apps FAQ](faq.md).
 
 1. Use the following command to create a resource group:
 
@@ -96,14 +95,18 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
 1. Use the following commands to retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Apps service instance:
 
-   ```bash
+   ```azurecli
    LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
        --resource-group <resource-group-name> \
-       --workspace-name <workspace-name> | jq -r '.id')
+       --workspace-name <workspace-name> \
+       --query id \
+       --output tsv)
 
-   SPRING_CLOUD_RESOURCE_ID=$(az spring show \
+   AZURE_SPRING_APPS_RESOURCE_ID=$(az spring show \
        --resource-group <resource-group-name> \
-       --name <Azure-Spring-Apps-service-instance-name> | jq -r '.id')
+       --name <Azure-Spring-Apps-service-instance-name> \
+       --query id \
+       --output tsv)
    ```
 
 1. Use the following command to configure diagnostic settings for the Azure Spring Apps Service:
@@ -111,7 +114,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
    ```azurecli
    az monitor diagnostic-settings create \
        --name "send-logs-and-metrics-to-log-analytics" \
-       --resource ${SPRING_CLOUD_RESOURCE_ID} \
+       --resource ${AZURE_SPRING_APPS_RESOURCE_ID} \
        --workspace ${LOG_ANALYTICS_RESOURCE_ID} \
        --logs '[
             {
@@ -318,7 +321,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --query properties.url \
+       --output tsv)
 
    az spring gateway update \
        --resource-group <resource-group-name> \
@@ -379,7 +384,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --query properties.url \
+       --output tsv)
 
    echo "https://${GATEWAY_URL}"
    ```
@@ -404,7 +411,9 @@ Use the following steps to configure API Portal.
    ```azurecli
    PORTAL_URL=$(az spring api-portal show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --query properties.url \
+       --output tsv)
 
    echo "https://${PORTAL_URL}"
    ```

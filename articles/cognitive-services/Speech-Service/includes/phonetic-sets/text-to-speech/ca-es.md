@@ -1,4 +1,12 @@
-### Vowels
+--- 
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for ca-ES
 
 | `ipa` | `viseme` | Example 1         | Example 2        | Example 3      |
 |-------|----------|-------------------|------------------|----------------|
@@ -11,7 +19,7 @@
 | `o`   | 8        | **o**mbra         | ret**o**ndre     | omissi**ó**    |
 | `u`   | 7        | **u**niversitaris | candidat**u**res | cron**o**      |
 
-### Consonant
+### Consonant for ca-ES
 
 | `ipa` | `viseme` | Example 1         | Example 2        | Example 3      |
 |-------|----------|-------------------|------------------|----------------|

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 01/11/2023
 ---
 
 # Flowlets in mapping data flow

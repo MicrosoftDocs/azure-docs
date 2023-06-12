@@ -13,9 +13,20 @@ Use reverse DNS lookup to resolve host names or FQDNs associated with the IP add
 
 All CIDR formats are supported.
 
+## Prerequisites
+
+Before performing the procedures in this article, you must have:
+
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md).
+
+- Access to your OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+- Completed the prerequisites outlined in [Configure active monitoring for OT networks](configure-active-monitoring.md), and confirmed that active monitoring is right for your network.
+
+
 ## Define DNS servers
 
-1. On your sensor console, select **System settings**> **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
+1. On your sensor console, select **System settings** > **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
 
 1. Use the **Schedule Reverse Lookup** options to define your scan as in fixed intervals, per hour, or at a specific time.
 
@@ -26,7 +37,7 @@ All CIDR formats are supported.
     - **DNS server address**, which is the DNS server IP address
     - **DNS server port**
     - **Number of labels**, which is the number of domain labels you want to display. To get this value, resolve the network IP address to device FQDNs. You can enter up to 30 characters in this field.
-    - **Subnets**, which is the subnets that you want to the DNS server to query
+    - **Subnets**, which is the subnets that you want the DNS server to query
 
 1. Toggle on the **Enabled** option at the top to start the reverse lookup query as scheduled, and then select **Save** to finish the configuration.
 
@@ -34,17 +45,17 @@ All CIDR formats are supported.
 
 Use a test device to verify that the reverse DNS lookup settings you'd defined work as expected.
 
-1. On your sensor console, select **System settings**> **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
+1. On your sensor console, select **System settings** > **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
 
 1. Make sure that the **Enabled** toggle is selected.
 
 1. Select **Test**.
 
-1. In the **DSN reverse lookup test for server** dialog, enter an address in the **Lookup Address** and then select **Test**.
+1. In the **DNS reverse lookup test for server** dialog, enter an address in the **Lookup Address** and then select **Test**.
 
 ## Next steps
 
-Learn more about active monitoring options. For more information, see:
+For more information, see:
 
-- [Configure active monitoring for OT networks](configure-active-monitoring.md)
-- [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md)
+- [View your device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [View your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)

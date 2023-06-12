@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI encryption of data at rest
+title: Azure OpenAI Service encryption of data at rest
 description: Learn how Azure OpenAI encrypts your data when it's persisted to the cloud.
 titleSuffix: Azure Cognitive Services
 author: mrbullwinkle
@@ -10,7 +10,7 @@ ms.date: 11/14/2022
 ms.author: mbullwin
 ---
 
-# Azure OpenAI encryption of data at rest
+# Azure OpenAI Service encryption of data at rest
 
 Azure OpenAI automatically encrypts your data when it's persisted to the cloud. The encryption protects your data and helps you meet your organizational security and compliance commitments. This article covers how Azure OpenAI handles encryption of data at rest, specifically training data and fine-tuned models. For information on how data provided by you to the service is processed, used, and stored, consult the [data, privacy, and security article](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
 
@@ -134,7 +134,7 @@ az keyvault key delete  \
 
 ### Delete fine-tuned models and deployments
 
-The Fine-tunes API allows customers to create their own fine-tuned version of the OpenAI models based on the training data that you've uploaded to the service via the Files APIs. The trained fine-tuned models are stored in Azure Storage in the same region, encrypted at rest and logically isolated with their Azure subscription and API credentials. Fine-tuned models and deployments can be deleted by the user by calling the [DELETE API operation](./how-to/fine-tuning.md?pivots=programming-language-python#delete-your-model-deployment).
+The Fine-tunes API allows customers to create their own fine-tuned version of the OpenAI models based on the training data that you've uploaded to the service via the Files APIs. The trained fine-tuned models are stored in Azure Storage in the same region, encrypted at rest (either with Microsoft-managed keys or customer-managed keys) and logically isolated with their Azure subscription and API credentials. Fine-tuned models and deployments can be deleted by the user by calling the [DELETE API operation](./how-to/fine-tuning.md?pivots=programming-language-python#delete-your-model-deployment).
 
 ## Disable customer-managed keys
 

@@ -94,7 +94,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | spring | resource group | 4-32 | Lowercase letters, numbers, and hyphens. |
+> | spring | global | 4-32 | Lowercase letters, numbers, and hyphens. |
 
 ## Microsoft.Authorization
 
@@ -177,6 +177,9 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | profiles | resource group | 1-260 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | profiles / endpoints | global | 1-50 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+> | profiles / originGroups | global | 1-50 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+> | profiles / originGroups / origins | global | 1-50 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+> | profiles / afdEndpoints / routes | global | 1-50 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 
 ## Microsoft.CertificateRegistration
 

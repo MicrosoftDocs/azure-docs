@@ -2,14 +2,16 @@
 title: Add linked single sign-on to an application
 description: Add linked single sign-on to an application in Azure Active Directory.
 services: active-directory
-author: AllisonAm
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2021
-ms.author: alamaral
+ms.date: 05/19/2023
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: enterprise-apps
 # Customer intent: As an IT admin, I need to know how to implement linked single sign-on in Azure Active Directory.
 ---
 
@@ -28,7 +30,7 @@ Some common scenarios where linked-based SSO is valuable include:
 
 To configure linked-based SSO in your Azure AD tenant, you need:
 -	An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
--	One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+-	One of the following roles: Global Administrator, Application Administrator, or owner of the service principal.
 -	An application that supports linked-based SSO.
 
 ## Configure linked-based single sign-on

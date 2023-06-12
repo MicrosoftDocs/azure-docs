@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 2210 release notes 
 description: Discover what's new in the Azure Private 5G Core 2210 release
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: release-notes
 ms.date: 11/01/2022
@@ -40,6 +40,7 @@ The following table provides a summary of known issues carried over from the pre
   | 5 | Local dashboards  | Azure Private 5G Core local dashboards may show incorrect values in some graphs (for example, session counts) after a power cycle of the Azure Stack Edge server.  | Not applicable. |
   | 6 | Local dashboards  | The distributed tracing web GUI fails to display and decode some fields of 4G/5G NAS messages. Specifically, the *Request Type* and *DNN* information elements.  | Messages will have to be viewed from separate packet capture if needed.  |
   | 7 | Performance  | It has been observed very rarely that CPU allocation on an Azure Private 5G Packet Core deployment can result in some signaling processing workloads sharing a logical CPU core with data plane processing workloads, resulting in session creation failures or packet processing latency/failures at a moderate load.  | Redeploying the Azure Private 5G Packet Core may resolve the problematic CPU allocation.  |
+  | 8 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped.  | 
 
 ## Next steps
 

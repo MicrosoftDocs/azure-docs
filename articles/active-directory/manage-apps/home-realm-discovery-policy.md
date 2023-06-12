@@ -2,15 +2,16 @@
 title: Home Realm Discovery policy
 description: Learn how to manage Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
-author: nickludwig
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2023
-ms.author: ludwignick
-ms.reviewer: sreyanth
+ms.author: jomondi
+ms.reviewer: sreyanth, ludwignick
+ms.custom: enterprise-apps
 
 ---
 # Home Realm Discovery for an application

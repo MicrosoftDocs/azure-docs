@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: tilarso 
@@ -177,7 +177,7 @@ The token lifetime (session token, refresh token, access token, etc.) obtained v
 
 Under the **Authentication methods** for a user, the **Detail** column shows when the Temporary Access Pass expired. You can delete an expired Temporary Access Pass using the following steps:
 
-1. In the Azure AD portal, browse to **Users**, select a user, such as *Tap User*, then choose **Authentication methods**.
+1. In the Azure portal, browse to **Users**, select a user, such as *Tap User*, then choose **Authentication methods**.
 1. On the right-hand side of the **Temporary Access Pass** authentication method shown in the list, select **Delete**.
 
 You can also use PowerShell:
@@ -203,10 +203,10 @@ For more information about NIST standards for onboarding and recovery, see [NIST
 Keep these limitations in mind:
 
 - When using a one-time Temporary Access Pass to register a Passwordless method such as FIDO2 or Phone sign-in, the user must complete the registration within 10 minutes of sign-in with the one-time Temporary Access Pass. This limitation doesn't apply to a Temporary Access Pass that can be used more than once.
-- Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection Multi-factor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) will be required to register authentication methods after they've signed in with a Temporary Access Pass. 
+- Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection Multi-factor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) will be required to register authentication methods after they've signed in with a Temporary Access Pass using a browser. 
 Users in scope for these policies will get redirected to the [Interrupt mode of the combined registration](concept-registration-mfa-sspr-combined.md#combined-registration-modes). This experience doesn't currently support FIDO2 and Phone Sign-in registration. 
 - A Temporary Access Pass can't be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter.
-- After a Temporary Access Pass is added to an account or expires, it can take a few minutes for the changes to replicate. Users may still see a prompt for Temporary Access Pass during this time. 
+- It can take a few minutes for changes to replicate. Because of this, after a Temporary Access Pass is added to an account it can take a while for the prompt to appear. For the same reason, after a Temporary Access Pass expires, users may still see a prompt for Temporary Access Pass. 
 
 ## Troubleshooting    
 

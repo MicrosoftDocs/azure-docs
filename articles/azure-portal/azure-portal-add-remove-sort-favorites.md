@@ -1,20 +1,19 @@
 ---
-title: Add, remove, and arrange favorites in Azure portal
-description: Learn how to add or remove items from the favorites list and rearrange the order of items
-keywords: favorites,portal
+title: Manage favorites in Azure portal
+description: Learn how to add or remove services from the favorites list.
 ms.date: 02/17/2022
 ms.topic: how-to
 ---
 
-# Add, remove, and rearrange favorites
+# Manage favorites
 
-Add or remove items from your **Favorites** list in the Azure portal so that you can quickly go to the services you use most often. We've already added some common services to your **Favorites** list, but you'll likely want to customize it. You're the only one who sees the changes you make to **Favorites**.
+Add or remove items from your **Favorites** list in the Azure portal so that you can quickly go to the services you use most often. We've already added some common services to your **Favorites** list, but you may want to customize it. You're the only one who sees the changes you make to **Favorites**.
 
-## Add a favorite
+## Add a favorite service
 
 Items that are listed under **Favorites** are selected from **All services**. Hover over a service name to display information and resources related to the service. A filled star icon ![Filled star icon](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) next to the service name indicates that the item appears on the **Favorites** list. Select the star icon to add a service to the **Favorites** list.
 
-In this example, we'll add Cost Management + Billing to the **Favorites** list.
+In this example, we'll add **Cost Management + Billing** to the **Favorites** list.
 
 1. Select **All services** from the Azure portal menu.
 
@@ -39,10 +38,6 @@ You can now remove an item directly from the **Favorites** list.
    :::image type="content" source="media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png" alt-text="Screenshot showing how to remove a service from Favorites in the Azure portal.":::
 
 2. On the information card, select the star so that it changes from filled to unfilled. The service is removed from the **Favorites** list.
-
-## Rearrange favorites
-
-You can change the order in which your favorite services are listed. Just select an item, then drag and drop it  to another location under **Favorites**.
 
 ## Next steps
 

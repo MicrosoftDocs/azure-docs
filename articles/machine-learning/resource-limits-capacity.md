@@ -56,6 +56,12 @@ This section lists basic limits and throttling thresholds in Azure Machine Learn
 | Number of input datasets |200 |
 | Number of output datasets |20 |
 
+## Custom environments
+| Limit | Value |
+| --- | --- |
+| Number of files in Docker build context | 100 |
+| Total files size in Docker build context | 1 MB |
+
 ## Metrics
 | Limit | Value |
 | --- | --- |
@@ -75,6 +81,13 @@ This section lists basic limits and throttling thresholds in Azure Machine Learn
 | --- | --- |
 | Number of artifacts per run |10 million|
 | Max length of artifact path |5,000 characters |
+
+## Models
+
+| Limit | Value |
+| --- | --- |
+| Number of models per workspace | 5 million model containers/versions (including previously deleted models) |
+| Number of artifacts per model version | 1,500 artifacts (files) |
 
 ## Limit increases
 

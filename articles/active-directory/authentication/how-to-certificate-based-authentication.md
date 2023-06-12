@@ -1,14 +1,14 @@
 ---
-title: How to configure Azure AD certificate-based authentication - Azure Active Directory
+title: How to configure Azure AD certificate-based authentication
 description: Topic that shows how to configure Azure AD certificate-based authentication in Azure Active Directory
 
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 02/09/2023
 
 ms.author: justinha
-author: vimrang
+author: justinha
 manager: amycolannino
 ms.reviewer: vimrang
 
@@ -41,7 +41,7 @@ Make sure that the following prerequisites are in place:
 
 ## Steps to configure and test Azure AD CBA
 
-Some configuration steps to be done before you enable Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators are needed to make changes. Only the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role can configure the CA.
+Some configuration steps to be done before you enable Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators are needed to make changes. Only the [Global Administrator](../roles/permissions-reference.md#global-administrator) role can configure the CA.
 
 Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor authentication, and configure username bindings to map the certificate field to an attribute of the user object. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can configure user-related settings. Once all the configurations are complete, enable Azure AD CBA on the tenant. 
 
@@ -72,7 +72,10 @@ To enable the certificate-based authentication and configure user bindings in th
 1. To delete a CA certificate, select the certificate and click **Delete**.
 1. Click **Columns** to add or delete columns.
 
-### Configure certification authorities using PowerShell
+>[!NOTE]
+>Upload of new CAs will fail when any of the existing CAs are expired. Tenant Admin should delete the expired CAs and then upload the new CA.
+
+### Configure certification authorities(CA) using PowerShell
 
 Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs aren't supported.
 
@@ -86,6 +89,9 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 
 [!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)]
 ### Add
+
+>[!NOTE]
+>Upload of new CAs will fail when any of the existing CAs are expired. Tenant Admin should delete the expired CAs and then upload the new CA.
 
 [!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
 
@@ -129,12 +135,15 @@ For more information, see [Understanding the certificate revocation process](./c
 
 ## Step 2: Enable CBA on the tenant
 
+>[!IMPORTANT]
+>A user is considered capable for **MFA** when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods. If the users do not have access to certificates they will be locked out and not be able to register other methods for MFA. So the admin needs to enable users who have a valid certificate into the CBA scope. Do not use all users for CBA target and use groups of users who have valid certificates available. For more information, see [Azure AD MFA](concept-mfa-howitworks.md).
+
 To enable the certificate-based authentication in the Azure portal, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
-1.	Under **Basics**, select **Yes** to enable CBA.
+1.	Under **Enable and Target**, click **Enable**.
 1. Click **All users**, or click **Add groups** to select specific groups.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/enable.png" alt-text="Screenshot of how to enable CBA.":::
@@ -189,6 +198,9 @@ To enable Azure AD CBA and configure user bindings in the Azure portal, complete
       :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
 
 1. Click **Ok** to save any custom rule.
+
+>[!IMPORTANT]
+>PolicyOID should be in object identifier format as per https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.4. For ex: If the certificate policies says "All Issuance Policies" you should enter the OID as 2.5.29.32.0 in the add rules editor. Entering the string "All Issuance Policies" in rules editor is invalid and will not take effect.
 
 ## Step 4: Configure username binding policy
 

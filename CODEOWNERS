@@ -66,6 +66,10 @@ articles/service-health @rboucher
 /articles/security-center/ @memildin
 /includes/*security-controls*.md @memildin
 
+# Defender for Cloud
+
+/articles/defender-for-cloud @dcurwin @ElazarK
+
 # DDOS Protection
 /articles/ddos-protection @aletheatoh @anupamvi
 

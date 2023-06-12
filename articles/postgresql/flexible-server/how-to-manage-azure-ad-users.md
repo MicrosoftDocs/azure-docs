@@ -7,10 +7,11 @@ ms.reviewer: maghan
 ms.date: 11/04/2022
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ---
 
-# Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server Preview
+# Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server 
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
@@ -19,9 +20,6 @@ This article describes how you can create an Azure Active Directory (Azure AD) e
 > [!NOTE]  
 > This guide assumes you already enabled Azure Active Directory authentication on your PostgreSQL Flexible server.
 > See [How to Configure Azure AD Authentication](./how-to-configure-sign-in-azure-ad-authentication.md)
-
-> [!NOTE]  
-> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 If you like to learn about how to create and manage Azure subscription users and their privileges, you can visit the [Azure role-based access control (Azure RBAC) article](../../role-based-access-control/built-in-roles.md) or review [how to customize roles](../../role-based-access-control/custom-roles.md).
 
@@ -93,7 +91,7 @@ select * from pgaadauth_create_principal_with_oid('accounting_application', '000
 
 ## Enable Azure AD authentication for an existing PostgreSQL role using SQL
 
-Azure Database for PostgreSQL Flexible Servers uses Security Labels associated with database roles to store Azure AD mapping. During preview, we don't provide a function to associate existing Azure AD roles.
+Azure Database for PostgreSQL Flexible Servers uses Security Labels associated with database roles to store Azure AD mapping.
 
 You can use the following SQL to assign security label:
 

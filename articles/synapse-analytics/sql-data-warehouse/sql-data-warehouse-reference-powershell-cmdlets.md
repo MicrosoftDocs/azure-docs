@@ -12,7 +12,7 @@ ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
-# PowerShell & REST APIs for for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+# PowerShell & REST APIs for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
 Many dedicated SQL pool administrative tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your dedicated SQL pool (formerly SQL DW).  For some good REST examples, see the article [Manage scalability with REST](sql-data-warehouse-manage-compute-rest-api.md).
 

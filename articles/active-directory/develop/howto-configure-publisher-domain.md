@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/05/2023
+ms.date: 04/27/2023
 ms.author: owenrichards
-ms.reviewer: xurobert, brianokoyo
+ms.reviewer: xurobert
 ms.custom: contperf-fy21q4, aaddev
 ---
 
@@ -116,7 +116,7 @@ You're not required to maintain the resources that are used for verification aft
 If your tenant has verified domains, in the **Select a verified domain** dropdown, select one of the domains.
 
 > [!NOTE]
-> The expected `Content-Type` header that should return is `application/json`. If you use any other header, like `application/json; charset=utf-8`, you might see this error message:
+> Content will be interpreted as UTF-8 JSON for deserialization. Supported `Content-Type` headers that should return are `application/json`, `application/json; charset=utf-8`, or ` `. If you use any other header, you might see this error message:
 >
 > `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >

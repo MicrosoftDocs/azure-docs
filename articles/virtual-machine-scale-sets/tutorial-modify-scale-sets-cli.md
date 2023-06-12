@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: mimckitt, devx-track-azurecli
 ---
 # Tutorial: Modify a Virtual Machine Scale Set using Azure CLI
 Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set using the Azure CLI.
@@ -89,9 +88,9 @@ The exact presentation of the output depends on the options you provide to the c
     },
     "storageProfile": {
       "imageReference": {
-        "offer": "UbuntuServer",
+        "offer": "0001-com-ubuntu-server-jammy",
         "publisher": "Canonical",
-        "sku": "18.04-LTS",
+        "sku": "22_04-lts",
         "version": "latest"
       },
       "osDisk": {
@@ -126,7 +125,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --orchestration-mode flexible \
-  --image UbuntuLTS \
+  --image RHEL \
   --admin-username azureuser \
   --generate-ssh-keys \
   --upgrade-policy Rolling \
@@ -178,10 +177,10 @@ The exact presentation of the output depends on the options you provide to the c
   "storageProfile": {
     "dataDisks": [],
     "imageReference": {
-      "exactVersion": "18.04.202210180",
-      "offer": "UbuntuServer",
+      "exactVersion": "22.04.202204200",
+      "offer": "0001-com-ubuntu-server-jammy",
       "publisher": "Canonical",
-      "sku": "18.04-LTS",
+      "sku": "22_04-lts",
       "version": "latest"
     },
     "osDisk": {
@@ -243,7 +242,7 @@ Running [az vm show](/cli/azure/vm#az-vm-show) again, we now will see that the V
 There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [az vm create](/cli/azure/vmss#az-vmss-create) command and specifying the scale set name you want the instance added to. 
 
 ```azurecli-interactive
-az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image UbuntuLTS
+az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image RHEL
 ```
 
 ```output
@@ -308,10 +307,10 @@ az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id
 ```
 
 ## Update the OS image for your scale set
-You may have a scale set that runs an old version of Ubuntu LTS 18.04. You want to update to a newer version of Ubuntu LTS 16.04, such as version *18.04.202210180*. The image reference version property isn't part of a list, so you can directly modify these properties using [az vmss update](/cli/azure/vmss#az-vmss-update).
+You may have a scale set that runs an old version of Ubuntu. You want to update to a newer version of Ubuntu, such as version *22.04.202204200*. The image reference version property isn't part of a list, so you can directly modify these properties using [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 ```azurecli
-az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=18.04.202210180
+az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=22.04.202204200
 ```
 
 Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property isn't part of a list, so you can directly modify this property using [az vmss update](/cli/azure/vmss#az-vmss-update).

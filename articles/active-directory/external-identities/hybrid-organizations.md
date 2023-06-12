@@ -1,5 +1,5 @@
 ---
-title: B2B collaboration for hybrid organizations - Azure AD
+title: B2B collaboration for hybrid organizations
 description: Give partners access to both on-premises and cloud resources with Azure AD B2B collaboration.
 
 services: active-directory
@@ -7,8 +7,8 @@ ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 11/23/2022
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.collection: engagement-fy23, M365-identity-device-management
 

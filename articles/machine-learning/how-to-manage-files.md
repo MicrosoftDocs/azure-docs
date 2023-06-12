@@ -15,7 +15,7 @@ ms.date: 12/13/2022
 
 # How to create and manage files in your workspace
 
-Learn how to create and manage the files in your Azure Machine Learning workspace.  These files are stored in the default workspace storage. Files and folders can be shared with anyone else withe read access to the workspace, and can be used from any compute instances in the workspace.
+Learn how to create and manage the files in your Azure Machine Learning workspace.  These files are stored in the default workspace storage. Files and folders can be shared with anyone else with read access to the workspace, and can be used from any compute instances in the workspace.
 
 ## Prerequisites
 
@@ -48,7 +48,18 @@ To create a new file in a different folder:
 1. Select **Create new file**.
 
 > [!IMPORTANT]
-> Content in notebooks and scripts can potentially read data from your sessions and access data without your organization in Azure.  Only load files from trusted sources. For more information, see [Secure code best practices](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
+> Content in notebooks and scripts can potentially read data from your sessions and access data without your organization in Azure.  Only load files from trusted sources. For more information, see [Secure code best practices](concept-secure-code-best-practice.md#azure-machine-learning-studio-notebooks).
+
+## Customize your file editing experience
+
+In the Azure Machine Learning studio file editor, you can customize your editing experience with Command Palette and relevant keyboard shortcuts. When you invoke the Command Palette, you will see a selectable list of many options to customize your editing experience.
+
+:::image type="content" source="media/how-to-manage-files/command-palette.png" alt-text="Screenshot shows command palette in file editor.":::
+
+To invoke the Command Palette on a file, either use **F1** or right-select anywhere in the editing space and select **Command Palette** from the menu.
+
+For example, choose "Indent using spaces" if you want your editor to auto-indent with spaces instead of tabs. Take a few moments to explore the different options you have in the Command Palette.
+
 
 ## Manage files with Git
 
@@ -57,8 +68,6 @@ To create a new file in a different folder:
 ## Clone samples
 
 Your workspace contains a **Samples** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.   Clone these notebooks into your own folder to run and edit them.  
-
-For an example, see [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md#clone-tutorials-folder).
 
 ## Share files
 

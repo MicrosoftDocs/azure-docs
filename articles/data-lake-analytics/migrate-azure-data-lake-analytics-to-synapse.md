@@ -1,8 +1,6 @@
 ---
 title: Migrate Azure Data Lake Analytics to Azure Synapse Analytics.
 description: This article describes how to migrate from Azure Data Lake Analytics to Azure Synapse Analytics.
-author: lingluo0531
-ms.author: lingluo
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: migrate-azure-data-lake-analytics-to-synapse
@@ -11,11 +9,16 @@ ms.date: 11/15/2022
 
 # Migrate Azure Data Lake Analytics to Azure Synapse Analytics
 
-Microsoft launched the Azure Synapse Analytics that aims at bringing both data lakes and data warehouse together for a unique big data analytics experience. It will help customers gather and analyze all the varying data, to solve data inefficiency, and work together. Moreover, Synapse’s integration with Azure Machine Learning and Power BI will allow the improved ability for organizations to get insights from its data and execute machine learning to all its smart apps. 
+Azure Data Lake Analytics will be retired on **29 February 2024**. Learn more [with this announcement](https://azure.microsoft.com/updates/migrate-to-azure-synapse-analytics/).
 
-The document shows you how to do the migration from Azure Data Lake Analytics to Azure Synapse Analytics. 
+If you're already using Azure Data Lake Analytics, you can create a migration plan to Azure Synapse Analytics for your organization.
+
+Microsoft launched Azure Synapse Analytics that aims at bringing both data lakes and data warehouse together for a unique big data analytics experience. It will help you gather and analyze your data to solve data inefficiency, and help your teams work together. Moreover, Synapse’s integration with Azure Machine Learning and Power BI will allow the improved ability for organizations to get insights from its data and execute machine learning to all its smart apps.
+
+The document shows you how to do the migration from Azure Data Lake Analytics to Azure Synapse Analytics.
 
 ## Recommended approach
+
 - Step 1: Assess readiness
 - Step 2: Prepare to migrate
 - Step 3: Migrate data and application workloads

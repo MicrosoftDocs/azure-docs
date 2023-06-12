@@ -1,5 +1,5 @@
 ---
-title: Manage Azure AD user roles - Azure Active Directory | Microsoft Docs
+title: Manage Azure AD user roles
 description: Instructions about how to assign and update user roles with Azure Active Directory.
 services: active-directory
 author: shlipsey3
