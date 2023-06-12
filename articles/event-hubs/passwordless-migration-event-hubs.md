@@ -57,7 +57,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
     ```csharp
     DefaultAzureCredential credential = new();
-    var eventHubNamespace = $"{namespace}.servicebus.windows.net";
+    var eventHubNamespace = $"https://{namespace}.servicebus.windows.net";
 
     // Event Hubs producer
     EventHubProducerClient producerClient = new(
@@ -177,7 +177,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
     ```nodejs
     const credential = new DefaultAzureCredential();
-    const eventHubNamespace = `${namespace}.servicebus.windows.net`
+    const eventHubNamespace = `https://${namespace}.servicebus.windows.net`;
 
     // Event Hubs producer    
     const producerClient = new EventHubProducerClient(
