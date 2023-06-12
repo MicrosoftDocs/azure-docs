@@ -81,8 +81,6 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 
     :::image type="content" source="./media/how-to-move-workspace/move-resources.png" alt-text="Screenshot of the move resources steps in the Azure portal." lightbox="./media/how-to-move-workspace/move-resources.png":::
 
-* Manual workspace move (across different regions). You have to copy the resources associated with the workspace - storage, container registry, etc. - to the new region. Then recreate the workspace in the new region.
-
 * Moving a workspace that has private endpoints configured is supported. The private endpoints are disconnected and transitive private endpoints are recreated after the move. However, you're responsible for approving the new private endpoints (including the workspace private endpoint) after the move.
 
 ## Limitations
