@@ -10,9 +10,9 @@ ms.date: 06/01/2023
 
 # Quality checks
 
-Microsoft operations team performs a series of extensive quality checks to ensure that customers request to run Epic systems on Azure ALI is fulfilled accurately, and infrastructure is healthy before handover.
-However, customers are advised to perform their own checks to ensure services are provided as requested. 
-This article identifies recommended checks.  
+The Microsoft operations team performs a series of extensive quality checks to ensure that customers' requests to run ALI for Epic is fulfilled accurately, and that infrastructure is healthy before handover.
+However, customers are advised to perform their own checks to ensure services have been provided as requested.
+This article  these recommended checks:  
 
 * Basic connectivity  
 * Latency check
@@ -28,13 +28,13 @@ Quality checks often performed by Microsoft teams before the infrastructure hand
 
 ## Compute  
 
-* Number of processors and cores for servers.
-* Accuracy of memory size for the assigned server.
-* Latest firmware version on the blades.  
+* Number of processors and cores for servers
+* Accuracy of memory size for the assigned server
+* Latest firmware version on the blades
 
 ## Storage
 
-* Size of boot LUN and FC LUNs are as per Epic on Azure Large Instances standard configuration.
+* Size of boot LUN and FC LUNs are consistent with the ALI on Epic  standard configuration.
 * SAN configuration.
 * Required VLANs creation.
 
