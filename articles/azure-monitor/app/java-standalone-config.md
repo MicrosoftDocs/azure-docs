@@ -383,7 +383,7 @@ Then it will be automatically modified to return:
 
 The script is aiming at helping customers to track the web user data, and sent the telemetry back to the Azure portal. Details can be found at [ApplicationInsights-JS](https://github.com/microsoft/ApplicationInsights-JS)
 
-If you want to enable this feature:
+If you want to enable this feature, add the below configuration option:
 
 ```json
 "preview": {
