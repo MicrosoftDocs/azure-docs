@@ -39,7 +39,7 @@ pip install azure-ai-translation-document==1.0.0
   from azure.ai.translation.document import DocumentTranslationClient
   ```
 
-1. Create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../quickstarts/get-started-with-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. Create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/document-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
   ```python
   key = "<your-key>"
@@ -53,7 +53,7 @@ pip install azure-ai-translation-document==1.0.0
 
       * **sourceUri**. The URL for the source container containing documents to be translated.
       * **targetUri** The URL for the target container to which the translated documents are written.
-      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../language-support.md) page.
+      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
         To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers** and follow these steps to retrieve your source document(s) and target container URLS.
 
@@ -67,14 +67,14 @@ pip install azure-ai-translation-document==1.0.0
 
       * **sourceUri**. The SAS URI, with a SAS token appended as a query string, for the source container containing documents to be translated.
       * **targetUri** The SAS URI, with a SAS token appended as a query string,for the target container to which the translated documents are written.
-      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../language-support.md) page.
+      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
 ### Code Sample
 
 * Enter the following code sample into your Python application:
 
 > [!IMPORTANT]
-  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
 
 ```python
 

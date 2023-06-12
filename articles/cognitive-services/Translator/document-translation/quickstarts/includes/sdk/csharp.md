@@ -57,7 +57,7 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0
 
 1. From the project directory, open the **Program.cs** file in your preferred editor or IDE. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`.
 
-1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../quickstarts/get-started-with-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/document-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
   ```csharp
   private static readonly string endpoint = "<your-document-translation-endpoint>";
@@ -72,7 +72,7 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0
 
       * **sourceUri**. The URL for the source container containing documents to be translated.
       * **targetUri** The URL for the target container to which the translated documents are written.
-      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../language-support.md) page.
+      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
         To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers** and follow these steps to retrieve your source document(s) and target container URLS.
 
@@ -86,14 +86,14 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0
 
       * **sourceUri**. The SAS URI, with a SAS token appended as a query string, for the source container containing documents to be translated.
       * **targetUri** The SAS URI, with a SAS token appended as a query string,for the target container to which the translated documents are written.
-      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../language-support.md) page.
+      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
 ## Code sample
 
 * Enter the following code sample into your application's Program.cs file:
 
   > [!IMPORTANT]
-  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
 
 ```csharp
 
@@ -209,9 +209,9 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
    :::image type="content" source="../../../../media/quickstarts/install-azure-package-document.png" alt-text="Screenshot of install `prerelease` NuGet package in Visual Studio.":::
 
-## Build your application
+## Build your C# application
 
-To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create an `AzureKeyCredential` with your `key` from the Azure portal and a `TextTranslationClient`  instance with the `AzureKeyCredential`. The authentication varies slightly depending on whether your resource uses the regional or global endpoint. For this project, authenticate using the global endpoint. For more information about using a regional endpoint, *see* [Translator text sdks](../../text-sdk-overview.md#3-authenticate-the-client).
+To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create an `AzureKeyCredential` with your `key` from the Azure portal and a `TextTranslationClient`  instance with the `AzureKeyCredential`. The authentication varies slightly depending on whether your resource uses the regional or global endpoint. For this project, authenticate using the global endpoint. For more information about using a regional endpoint, *see* [Translator text sdks](../../../../text-sdk-overview.md#3-authenticate-the-client).
 
 > [!NOTE]
 >
@@ -224,7 +224,7 @@ To interact with the Translator service using the client library, you need to cr
 
 1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`.
 
-1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../quickstarts/get-started-with-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/document-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
   ```csharp
   private static readonly string endpoint = "<your-document-translation-endpoint>";
@@ -239,7 +239,7 @@ To interact with the Translator service using the client library, you need to cr
 
       * **sourceUri**. The URL for the source container containing documents to be translated.
       * **targetUri** The URL for the target container to which the translated documents are written.
-      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../language-support.md) page.
+      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
         To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers** and follow these steps to retrieve your source document(s) and target container URLS.
 
@@ -258,7 +258,7 @@ To interact with the Translator service using the client library, you need to cr
 ## Code sample
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
 
 **Translate document**
 
