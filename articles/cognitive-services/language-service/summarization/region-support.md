@@ -17,7 +17,7 @@ ms.custom: language-service-summarization, ignite-fall-2021, ignite-2022
 
 This article contains the regional availability for all summarization features.
 
-| |Document abstractive summarization|Conversation issue and resolution summarization|Conversation narrative summarization with chapters|Custom summarization|
+|Region|Document abstractive summarization|Conversation issue and resolution summarization|Conversation narrative summarization with chapters|Custom summarization|
 |------------|------------------|------------------|------------------|------------------|-|
 |North Europe|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:| |
 |East US|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:| |
