@@ -222,7 +222,7 @@ To safeguard application workloads from downtime due to the temporary unavailabi
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-1/vm-1.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-1/vm-1.kql":::
 
 ----
 
@@ -238,7 +238,7 @@ For information on how to migrate your existing VMs to availability zone support
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-2/vm-2.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-2/vm-2.kql":::
 
 ----
 
@@ -250,7 +250,7 @@ If the region where you are running your application doesn’t support availabil
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-3/vm-3.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-3/vm-3.kql":::
 
 ----
 
@@ -263,7 +263,7 @@ To learn how to run a disaster recovery drill, see [Run a test failover](/azure/
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-4/vm-4.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-4/vm-4.kql":::
 
 ---
 
@@ -275,7 +275,7 @@ Make sure to use managed disks, as managed disks provide better reliability for 
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-5/vm-5.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-5/vm-5.kql":::
 
 ---
 
@@ -285,7 +285,7 @@ A data disk is a managed disk that’s attached to a virtual machine to store ap
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-6/vm-6.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-6/vm-6.kql":::
 
 ---
 
@@ -295,7 +295,7 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-7/vm-7.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-7/vm-7.kql":::
 
 ---
 
@@ -313,7 +313,7 @@ For more information on availability sets, see [Availability sets](/azure/virtua
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-8/vm-8.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-8/vm-8.kql":::
 
 ---
 
@@ -323,7 +323,7 @@ Azure Virtual Machines (VM) instances go through different states. There are pro
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-9/vm-9.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-9/vm-9.kql":::
 
 ---
 
@@ -337,7 +337,7 @@ For more information on Accelerated Networking, see [Accelerated Networking](/az
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-10/vm-10.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-10/vm-10.kql":::
 
 ---
 
@@ -348,7 +348,7 @@ When AccelNet is enabled, the default Azure Virtual Network interface in the Gue
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-11/vm-11.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-11/vm-11.kql":::
 
 ---
 
@@ -360,7 +360,7 @@ If a VM requires outbound internet connectivity, we recommend the use of NAT Gat
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-12/vm-12.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-12/vm-12.kql":::
 
 ---
 
@@ -372,7 +372,7 @@ Unless you have a specific reason to, we recommend that you associate a network 
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-11/vm-13.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-11/vm-13.kql":::
 
 ---
 
@@ -392,7 +392,7 @@ To learn how to enable or disable IP forwarding, see [Enable or disable IP forwa
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-14/vm-14.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-14/vm-14.kql":::
 
 ---
 
@@ -404,7 +404,7 @@ Configure the DNS Server in the Virtual Network to avoid name resolution inconsi
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-15/vm-15.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-15/vm-15.kql":::
 
 ---
 
@@ -419,7 +419,7 @@ To learn more about how to enable shared disks for managed disks, see [Enable sh
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-16/vm-16.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-16/vm-16.kql":::
 
 ---
 
@@ -431,7 +431,7 @@ It is recommended that you set VM disk network access to “Disable public acces
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-17/vm-17.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-17/vm-17.kql":::
 
 ---
 
@@ -443,7 +443,7 @@ It’s important to keep your virtual machine (VM) secure for the applications t
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-18/vm-18.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-18/vm-18.kql":::
 
 ---
 
@@ -461,7 +461,7 @@ For more information about managed disk encryption options, see [Overview of man
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-19/vm-19.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-19/vm-19.kql":::
 
 ---
 
@@ -474,7 +474,7 @@ Enable [VM Insights](/azure/azure-monitor/vm/vminsights-overview). to get more v
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-20/vm-20.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-20/vm-20.kql":::
 
 ---
 
@@ -498,7 +498,7 @@ Fore information, see [Diagnostic settings in Azure Monitor](/azure/azure-monito
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-21/vm-21.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-21/vm-21.kql":::
 
 ---
 
@@ -510,7 +510,7 @@ The maintenance configuration settings allows user to schedule and manage update
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/Azure-Proactive-Resiliency-Library/docs/content/services/compute/virtual-machines/code/vm-22/vm-22.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-22/vm-22.kql":::
 
 ---
 
