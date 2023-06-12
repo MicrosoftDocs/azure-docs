@@ -12,13 +12,13 @@ All of the agentless container capabilities are available as part of the [Defend
 Review the requirements on this page before setting up [agentless containers posture](concept-data-security-posture.md) in Microsoft Defender for Cloud.
 
 > [!IMPORTANT]
-> The Agentless Container Posture preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available" and are excluded from the service-level agreements and limited warranty. Agentless Container Posture previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
+>  Agentless Posture is currently in Preview. Previews are provided "as is" and "as available" and are excluded from the service-level agreements and limited warranty.
 
 ## Availability
 
 | Aspect | Details |
 |---------|---------|
-|Release state:|Preview|
+|Release state:|Preview |
 |Pricing:|Requires [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) and is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts         |
 | Permissions | You need to have access as a:<br><br> - Subscription Owner, **or** <br> - User Access Admin and Security Admin permissions for the Azure subscription used for onboarding |
@@ -33,7 +33,7 @@ Review the requirements on this page before setting up [agentless containers pos
 
 ## Prerequisites
 
-You need to have a Defender for CSPM plan enabled. There's no dependency on Defender for Containers​.
+You need to have a Defender CSPM plan enabled. There's no dependency on Defender for Containers​.
 
 This feature uses trusted access. Learn more about [AKS trusted access prerequisites](/azure/aks/trusted-access-feature#prerequisites).
 

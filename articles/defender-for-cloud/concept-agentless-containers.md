@@ -17,11 +17,11 @@ Learn more about [CSPM](concept-cloud-security-posture-management.md).
 
 Agentless Container Posture provides the following capabilities:
 
-- [Agentless discovery and visibility](#agentless-discovery-and-visibility-within-kubernetes-components) within Kubernetes components.
-- [Agentless container registry vulnerability assessment](#agentless-container-registry-vulnerability-assessment), using the image scanning results of your Azure Container Registry (ACR) with cloud security explorer.
 - Using Kubernetes [attack path analysis](concept-attack-path.md) to visualize risks and threats to Kubernetes environments.
 - Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios. 
 - Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
+- [Agentless discovery and visibility](#agentless-discovery-and-visibility-within-kubernetes-components) within Kubernetes components.
+- [Agentless container registry vulnerability assessment](#agentless-container-registry-vulnerability-assessment), using the image scanning results of your Azure Container Registry (ACR) with cloud security explorer.
 
 All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan. 
 
