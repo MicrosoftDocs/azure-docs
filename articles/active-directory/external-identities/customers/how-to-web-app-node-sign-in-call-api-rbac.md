@@ -70,7 +70,7 @@ To ensure that the security token size doesn’t exceed the HTTP header size lim
 
 ### Detect group overage in your source code 
 
-If you can't avoid groups overages, then you need to handle it in your code. When you exceed the overage limit, the token won't contain the *groups* claim. Instead, the token contain a *_claim_names* claims that contains a *groups* member of the array. 
+If you can't avoid groups overages, then you need to handle it in your code. When you exceed the overage limit, the token won't contain the *groups* claim. Instead, the token contain a *_claim_names* claim that contains a *groups* member of the array. 
 
 Use the instructions in [Configuring group claims and app roles in tokens](/security/zero-trust/develop/configure-tokens-group-claims-app-roles#group-overages) article to learn how request for the full groups list when group overages occur.
 
@@ -79,6 +79,8 @@ Use the instructions in [Configuring group claims and app roles in tokens](/secu
 In the client app (one that signs in the user), you can check whether a signed in user belongs to the required role(s) to access a protected route. You can do this by checking `roles` claim the ID token of the. By doing this, you can make sure that only authorized users can view certain pages of your application. 
 
 In your app, you can also enforce that a user belongs to the required role(s) to make a call to an API on an endpoint. You can build these guards by using custom middleware, which checks for the required roles or groups. 
+
+However, SPA apps are not secure frontend guard must be done in the backend (API) ... https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/blob/main/5-AccessControl/1-call-api-roles/README.md 
 
 In the API side,    
 
