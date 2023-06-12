@@ -1,5 +1,5 @@
 ---
-title: Use a public load balancer
+title: Use a public load balancer in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
@@ -27,6 +27,7 @@ This article covers integration with a public load balancer on AKS. For internal
 ## Before you begin
 
 * Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](use-multiple-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended load balancer SKU for AKS. For more information on the *Basic* and *Standard* SKUs, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
+* For a full list of the supported annotations for Kubernetes services with type `LoadBalancer`, see [LoadBalancer annotations][lb-annotations].
 * This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, you can create one [using Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [the Azure portal][aks-quickstart-portal].
 * AKS manages the lifecycle and operations of agent nodes. Modifying the IaaS resources associated with the agent nodes isn't supported. An example of an unsupported operation is making manual changes to the load balancer resource group.
 
@@ -510,6 +511,7 @@ To learn more about using internal load balancer for inbound traffic, see the [A
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
+[lb-annotations]: https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#loadbalancer-annotations
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
