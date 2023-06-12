@@ -16,6 +16,8 @@ ms.author: jboback
 
 This article contains the regional availability for all summarization features.
 
+## Regional availability table
+
 |Region|Document abstractive summarization|Conversation issue and resolution summarization|Conversation narrative summarization with chapters|Custom summarization|
 |------------|------------------|------------------|------------------|------------------|-|
 |North Europe|&#9989;|&#9989;|&#9989;|&#10060;|
