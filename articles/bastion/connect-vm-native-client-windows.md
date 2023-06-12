@@ -21,6 +21,11 @@ After you've configured Bastion for native client support, you can connect to a 
   * [Upload and download files](vm-upload-download-native.md#rdp) over RDP.
   * If you want to connect using SSH and need to upload files to your target VM, you can use the instructions for the [az network bastion tunnel](connect-vm-native-client-linux.md) command instead.
 
+Limitations:
+
+* Signing in using an SSH private key stored in Azure Key Vault isn’t supported with this feature. Before signing in to your Linux VM using an SSH key pair, download your private key to a file on your local machine.
+* This feature isn't supported on Cloud Shell.
+
 ## <a name="prereq"></a>Prerequisites
 
 [!INCLUDE [VM connect prerequisites](../../includes/bastion-native-pre-vm-connect.md)]
