@@ -53,7 +53,7 @@ For more information, see:
 - [Log Analytics dedicated clusters](../azure-monitor/logs/logs-dedicated-clusters.md).
 
 > [!NOTE]
-> If you enable CMK on Microsoft Sentinel, any Public Preview feature that does not support CMK aren't enabled.
+> If you enable CMK on Microsoft Sentinel, any Public Preview features that don't support CMK aren't enabled.
 
 ## Enable CMK 
 
