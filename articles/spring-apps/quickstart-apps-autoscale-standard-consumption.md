@@ -66,15 +66,13 @@ Use the following steps to define autoscale settings and rules.
 1. On the overview page for the selected app, select **Scale out** in the navigation pane.
 1. On the **Scale out (Preview)** page, select the deployment you want to autoscale.
 1. Set up the instance limits of your deployment.
-1. Select **Add** to add your scale rules. To define your custom rules, see [Keda scalers](https://keda.sh/docs/2.9/scalers/).
+1. Select **Add** to add your scale rules. 
 
 :::image type="content" source="media/quickstart-apps-autoscale/autoscale-setting.png" alt-text="Screenshot of the Azure portal preview version showing the Scale out page for an app in an Azure Spring Apps instance." lightbox="media/quickstart-apps-autoscale/autoscale-setting.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create an app with auto scaling rule  
-Use the following commands to create an application in Azure Spring Apps with an autoscaling rule, based on [Keda Azure Service Bus Scaler](https://keda.sh/docs/2.8/scalers/azure-service-bus/). The replicas count is adjusted automatically according to the count of messages in Azure Service Bus Queue. When there's no messages in the queue, your application will be scaled to 0 replica. When there's messages in the queue, the application will be scaled out according to the message count.
-
+Use the following commands to create an application in Azure Spring Apps with an autoscaling rule, based on [Keda Azure Service Bus Scaler](https://keda.sh/docs/2.8/scalers/azure-service-bus/).   
 
 ```azurecli-interactive
 az spring app create \
@@ -92,8 +90,15 @@ az spring app create \
     --max-replicas 5
 ```
 
-2. Set up auto scaling rules for an existing app.  
-You can also set up auto scale rules for an existing app. The following CLI commands show you how to auto scale your spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/).  Firstly create a secret to store your sql connection string, it's used for your scale rule auth. And then, set up a rule which scales the app based on the rows count of a table.
+The replicas count is adjusted automatically according to the count of messages in Azure Service Bus Queue. When there's no messages in the queue, your application will be scaled to 0 replica. When there's messages in the queue, the application will be scaled out according to the message count.
+
+---
+
+## Custom scaling rules
+To define your custom rules, you can refer to [Keda scalers](https://keda.sh/docs/2.9/scalers/). The following CLI commands give your two examples of setting scale rules on MySQL and Cron.
+
+### Set up auto scaling rules on MySQL database
+The following CLI commands show you how to auto scale your spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/).  Firstly create a secret to store your sql connection string, it's used for your scale rule auth. And then, set up a rule which scales the app based on the rows count of a table.
 
 ```azurecli-interactive
 az spring app update \
@@ -114,7 +119,7 @@ az spring app scale \
     --max-replicas 3
 ```
 
-3. Create a rule based on linux cron.  
+### Create a rule based on linux cron
 The following commands show you how to set up a rule based on [Keda Cron Scaler](https://keda.sh/docs/2.8/scalers/cron/). The replicas will be scaled to the desired number during the cron time interval.
 
 ```azurecli-interactive
@@ -140,11 +145,7 @@ ContainerAppSystemLogs_CL
 | where ContainerAppName_s == 'YourAppName' and EventSource_s == 'KEDA'
 ```
 
-
----
-
 ## Clean up resources
-
 Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternately, to delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
