@@ -269,19 +269,19 @@ To use this config in your AKS cluster, you need to follow the steps below:
 
 ### Ingress Nginx controller
 
-The azure machine learning extension installation comes with an ingress nginx controller name as `k8s.io/ingress-nginx` by default. If you already have an ingress nginx controller in your cluster, you need to use a different controller name to avoid installation failure.
+The azure machine learning extension installation comes with an ingress nginx controller class as `k8s.io/ingress-nginx` by default. If you already have an ingress nginx controller in your cluster, you need to use a different controller class to avoid installation failure.
 
 You have two options to do this:
 
-* Change your existing controller name to something other than `k8s.io/ingress-nginx`.
-* Create or update our azureml extension with a custom controller name that is different from yours by following the examples below.
+* Change your existing controller class to something other than `k8s.io/ingress-nginx`.
+* Create or update our azureml extension with a custom controller class that is different from yours by following the examples below.
 
-For example, to create the extension with a custom controller name:
+For example, to create the extension with a custom controller class:
 ```
 az ml extension create --config nginxIngress.controller="k8s.io/amlarc-ingress-nginx"
 ```
 
-To update the extension with a custom controller name:
+To update the extension with a custom controller class:
 
 ```
 az ml extension update --config nginxIngress.controller="k8s.io/amlarc-ingress-nginx"
