@@ -18,9 +18,9 @@ To create an Azure file share, you need to answer three questions about how you 
     Azure Files offers standard file shares which are hosted on hard disk-based (HDD-based) hardware, and premium file shares, which are hosted on solid-state disk-based (SSD-based) hardware.
 
 - **What are your redundancy requirements for your Azure file share?**  
-    Standard file shares offer locally-redundant (LRS), zone redundant (ZRS), geo-redundant (GRS), or geo-zone-redundant (GZRS) storage, however the large file share feature is only supported on locally redundant and zone redundant file shares. Premium file shares do not support any form of geo-redundancy.
+    Standard file shares offer locally-redundant (LRS), zone redundant (ZRS), geo-redundant (GRS), or geo-zone-redundant (GZRS) storage, however the large file share feature is only supported on locally redundant and zone redundant file shares. Premium file shares don't support any form of geo-redundancy.
 
-    Premium file shares are available with locally redundancy and zone redundancy in a subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. For information about regions that support ZRS, see [Azure Storage redundancy](../common/storage-redundancy.md?toc=/azure/storage/files/toc.json).
+    Premium file shares are available with local redundancy and zone redundancy in a subset of regions. To find out if premium file shares are available in your region, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage). For more information, see [Azure Files redundancy](files-redundancy.md).
 
 - **What size file share do you need?**  
     In local and zone redundant storage accounts, Azure file shares can span up to 100 TiB. However, in geo- and geo-zone redundant storage accounts, Azure file shares can span only up to 5 TiB.
