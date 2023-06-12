@@ -88,7 +88,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com/?feature.userProvisioningV2Authentication=true), ensure you are using the link (https://portal.azure.com/?feature.userProvisioningV2Authentication=true) then Select **Enterprise Applications**, then select **All applications**.
 
-	![Screenshot of theEnterprise applications blade.](common/enterprise-applications.png)
+	![Screenshot of the Enterprise applications blade.](common/enterprise-applications.png)
 
 1. In the applications list, select **Zoom**.
 
@@ -106,11 +106,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	* If the Authentication Method is **OAuth2 Authorization Code Grant**, enter `https://api.zoom.us/scim` in **Tenant URL**, click on **Authorize**, make sure that you enter your Zoom account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
 
- 		![Screenshot of theZoom provisioning Token.](./media/zoom-provisioning-tutorial/provisioning-oauth.png)
+ 		![Screenshot of the Zoom provisioning Token.](./media/zoom-provisioning-tutorial/provisioning-oauth.png)
 
 	* If the Authentication Method is **Bearer Authentication**, enter `https://api.zoom.us/scim` in **Tenant URL**. Input the **JWT Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
 
- 		![Screenshot of theZoom provisioning OAuth.](./media/zoom-provisioning-tutorial/provisioning-bearer-token.png)
+ 		![Screenshot of the Zoom provisioning OAuth.](./media/zoom-provisioning-tutorial/provisioning-bearer-token.png)
 
   		> [!NOTE] 
   		> You will have two options for your Authentication Method: **Bearer Authentication** and **OAuth2 Authorization Code Grant**. Make sure that you select OAuth2 Authorization Code Grant.
