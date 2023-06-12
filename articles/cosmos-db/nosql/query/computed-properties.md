@@ -112,7 +112,6 @@ containerProperties.setComputedProperties(computedProperties);
 client.getDatabase("myDatabase").createContainer(containerProperties);
 ```
 ---
---- 
 
 Here's an example of how to update computed properties on an existing container:
 
@@ -154,7 +153,6 @@ containerProperties.setComputedProperties(modifiedComputedProperites);
 // Update container with changes
 container.replace(containerProperties);
 ```
----
 ---
 
 > [!TIP]
