@@ -10838,7 +10838,7 @@ Read and Assign User Assigned Identity [Learn more](../active-directory/managed-
 
 ### App Compliance Automation Administrator
 
-Create, read, download, modify and delete reports objects and related other resource objects.
+Create, read, download, modify and delete reports objects and related other resource objects. [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -10931,7 +10931,7 @@ Create, read, download, modify and delete reports objects and related other reso
 
 ### App Compliance Automation Reader
 
-Read, download the reports objects and related other resource objects.
+Read, download the reports objects and related other resource objects. [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
