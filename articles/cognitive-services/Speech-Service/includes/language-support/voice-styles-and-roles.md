@@ -22,7 +22,7 @@ ms.author: eur
 |en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-TonyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |es-MX-JorgeNeural|`chat`, `cheerful`|Not supported|
-|fr-FR-DeniseNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
+|fr-FR-DeniseNeural|`cheerful`, `sad`|Not supported|
 |fr-FR-HenriNeural|`cheerful`, `sad`|Not supported|
 |it-IT-IsabellaNeural|`chat`, `cheerful`|Not supported|
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|Not supported|
@@ -44,7 +44,6 @@ ms.author: eur
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Not supported|
 |zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|`Boy`, `Girl`, `OlderAdultFemale`, `OlderAdultMale`, `SeniorFemale`, `SeniorMale`, `YoungAdultFemale`, `YoungAdultMale`|
 |zh-CN-YunzeNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `documentary-narration`, `fearful`, `sad`, `serious`|`OlderAdultMale`, `SeniorMale`|
-
 
 <sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
