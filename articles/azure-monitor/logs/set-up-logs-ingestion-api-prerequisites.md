@@ -1,5 +1,5 @@
 ---
-title: Set up resources required to send data to Azure Monitor with Logs Ingestion API
+title: Set up resources required to send data to Azure Monitor using the Logs Ingestion API
 description: Run a PowerShell script to set up all resources required to send data to Azure Monitor using the Logs Ingestion API.
 author: guywi-ms
 ms.author: guywild
@@ -9,7 +9,7 @@ ms.date: 06/12/2023
 
 ---
 
-# Set up resources required to send data to Azure Monitor using Logs Ingestion API
+# Set up resources required to send data to Azure Monitor using the Logs Ingestion API
 
 This article provides a PowerShell script that sets up all of the resources you need to create and configure before you can use the [Logs ingestion API](logs-ingestion-api-overview.md) send to send data to Azure Monitor. 
 
