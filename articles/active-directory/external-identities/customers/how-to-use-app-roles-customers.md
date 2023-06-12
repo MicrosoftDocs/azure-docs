@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 06/10/2023
+ms.date: 06/13/2023
 ms.author: mimart
 ms.custom: it-pro
 ---
@@ -48,6 +48,8 @@ Though you can use app roles or groups for authorization, key differences betwee
 
 [!INCLUDE [ciam-assign-user-and-groups-to-roles](./includes/access-control/assign-users-groups-roles.md)]
 
+To test your application, sign out and sign in again with the user you assigned the roles. Inspect the security token to make sure that it contains the user's role. 
+
 ## Add group claims to security tokens
 
 [!INCLUDE [ciam-add-group-claim-to-token](./includes/access-control/add-group-claim-in-token.md)]
@@ -55,6 +57,8 @@ Though you can use app roles or groups for authorization, key differences betwee
 ### Add members to a group
 
 [!INCLUDE [ciam-add-member-to-group](./includes/access-control/add-member-to-group.md)]
+
+To test your application, sign out, and then sign in again with the user you added to the security group. Inspect the security token to make sure that it contains the user's group membership. 
 
 ## Groups and application roles support
 
