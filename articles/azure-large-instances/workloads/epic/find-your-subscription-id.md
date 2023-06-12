@@ -8,13 +8,15 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-#  Find your subscription ID 
-A Subscription ID is the unique identifier for your service in Azure. Do you know your subscription ID? 
-Yes, great! You will need it when interacting with the Microsoft Support team. But if you don’t know your 
-Subscription ID, no worries. It is simple to find. The below steps will help you to find your subscription ID in 
-Azure portal (you can skip this section, if already know the subscription ID).
-Step1. Go to Azure support portal http://portal.Azure.Com
-Step2. From left side pane, click “Subscriptions
+# Find your subscription ID
+
+A *Subscription ID* is a unique identifier for your service in Azure. 
+You will need it when interacting with the Microsoft Support team. 
+To find your subscription ID, follow the steps in this article.
+1. Go to Azure support portal http://portal.Azure.Com
+2. From the left pane, select **Subscriptions**.
+3. A new blade called “Subscriptions” will open to display your subscriptions.
+1. Choose the subscription you have used for Epic on ALI.
 
 
 

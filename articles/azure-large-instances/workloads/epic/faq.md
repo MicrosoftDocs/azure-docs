@@ -8,7 +8,7 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-# Common issues
+# Freqently asked questions
 
 content
 

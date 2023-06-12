@@ -8,9 +8,54 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-#  Create a volume group h1
+# Create a volume group
 
-content
+Discover storage using the following command.
+[root@rhel101 ~]# lsblk -do KNAME,TYPE,SIZE,MODEL
+2. Create physical disk for database and journal as shown below using the WWIDs provided in the 
+reference mapping above.
+[root@rhel101 ~]# pvcreate /dev/mapper/<WWID
+
+Create and extend the volume groups.
+[root @themetal05 ~] # vgcreate prodvg -s 8M /dev/mapper/<WWID>
+Expected output: Volume group “prodvg” successfully created
+[root @themetal05 ~] # vgextend prodvg /dev/mapper/<WWID>
+Expected output: Volume group “prodvg” successfully extended
+Note: The “-s 8M” physical extent size has been used for the environment and was tested to yield 
+the best performance.
+4. Create logical volume.
+[root @themetal05 ~] # lvcreate -L 2T -n jrnlv -i 8 -I 8M jrnvg
+Expected output: Logical volume “jrnlv” created.
+[root @themetal05 ~] # lvcreate -L 45T -n prodlv -i 32 -I 8M prodvg
+Expected output: Logical volume “prodlv” created.
+[root @themetal05 ~]# lvs
+Expected output: lists all the logical volumes created.
+Note:
+• “-L 45T” specifies the logical volume size.
+• “-i 32” specifies the number of stripes, this is equal to the number of physical LUNs to 
+scatter the logical volume.
+• “-I 8M” specifies the stripe size.
+5. Make the file system.
+[root @themetal05 ~] # mkfs.xfs /dev/mapper/prodvg-prodlv
+6. Create the folders to mount.
+[root @themetal05 ~] mkdir /prod0;
+
+[root @themetal05 ~] mkdir /jrn
+[root @themetal05 ~] mkdir /prod
+7. Set required permissions.
+[root @themetal05 ~] chmod 755 /prod01
+[root @themetal05 ~] chmod 755 /jrn
+[root @themetal05 ~] chmod 755 /prod
+[root @themetal05 ~] chown root:root /prod01
+[root @themetal05 ~] chown root:root /jrn
+[root @themetal05 ~] chown root:root /prod
+8. Add mount to /etc/fstab
+[root @themetal05 ~] /dev/mapper/prodvg-prod01 /prod01 xfs defaults 0 0
+[root @themetal05 ~] /dev/mapper/jrnvg-jrn /jrn xfs defaults 0 0 
+[root @themetal05 ~] /dev/mapper/instvg-prd /prd xfs defaults 0 0
+9. Mount storage 
+mount -a
+
 
 
 
