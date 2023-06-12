@@ -59,11 +59,14 @@ We suggest that you unlock the locked resource group/subscription/cluster, make 
 
 1. Enable the feature flag manually via CLI: 
 
-    ``` CLI 
+
+``` CLI 
 
     “az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview” 
 
-    ``` 
+```
+
+Learn more about [Trusted Access](/azure/aks/trusted-access-feature).
 
 1. Perform the bind operation in the CLI: 
 
@@ -84,6 +87,14 @@ For locked clusters, you can also do one of the following:
 
 Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
+## What's the refresh interval?
+
+Agentless information in Defender CSPM is updated through a snapshot mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
+
+## Are you using an updated version of AKS?
+
+Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
+
  ## Support for exemptions
 
 You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
@@ -94,3 +105,5 @@ You can customize your vulnerability assessment experience by exempting manageme
 - Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
 - Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
 - Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
+
+
