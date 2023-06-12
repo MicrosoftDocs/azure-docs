@@ -2,7 +2,7 @@
 title: Scan for secrets with agentless secret scanning
 description: Learn how to scan your server's for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 06/11/2023
+ms.date: 06/12/2023
 ---
 
 # Scan your servers for secrets with agentless secret scanning
@@ -48,6 +48,8 @@ Through the use of agentless secret scanning, you can proactively discover the f
     - **Azure** - Subscription Owner
     - **AWS** - Administrator Access
 
+Once your subscriptions are protected by the agentless scanner, findings will begin to appear after 12 hours.
+
 ## Feature capability
 
 You must enable [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management.md) to gain access to all of the agentless secret scanning capabilities. 
@@ -63,17 +65,25 @@ If you only enable one of the two plans, you gain only part of the available fea
 
 ## Secret validation
 
-Defender for Cloud assists your security team in the prioritization of any detected secrets with the following validations for SSH key pairs:
+Defender for Cloud assists your security team in the prioritization of any detected secrets with the following validations 
+
+### For SSH key pairs
 
 - Every detected SSH private key is validated against the corresponding public key.
 
 - The corresponding public key is checked to see if it's listed in the target machine's authorized keys file for authentication. 
 
-- If the target resource is detected.
+    - Results for this check are listed in the findings section of the recommendation as `Insecure SSH private key` or `Unvalidated insecure SSH private key`, depending on where the secret was found.
 
-- Results for this check are listed in the findings section of the recommendation as `Insecure SSH private key` or `Unvalidated insecure SSH private key`, depending on where the secret was found.
+- If the target resource is detected, `Yes` or `No`.
 
-## Remediate secrets with Attack path
+### For Storage account, AWS access key, SQL connection string and AWS RDS SQL connection string
+
+- A check to see if the target machine exists as long as it was scanned by the disk scanning engine. 
+
+- All findings, with or without the existence of the target machine, are streamlined to the same security check. For example, an insecure storge account connection string or an insecure SQL connection string. 
+
+## Remediate secrets with attack path
 
 Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
 
@@ -145,9 +155,13 @@ If a secret is found on your resource, that resource triggers an affiliated reco
 
     - **AWS resources**: `EC2 instances should have secret findings resolved`
 
+        :::image type="content" source="media/secret-scanning/recommendation-findings.png" alt-text="Screenshot that shows either of the two results under the Remediate vulnerabilities security control." lightbox="media/secret-scanning/recommendation-findings.png":::
+
 1. Expand **Affected resources** to review the list of all resources that contain secrets.
 
 1. In the Findings section, select a secret to view detailed information about the secret.
+
+    :::image type="content" source="media/secret-scanning/select-findings.png" alt-text="Screenshot that shows the detailed information of a secret after you have selected the secret in the findings section." lightbox="media/secret-scanning/select-findings.png":::
 
 1. Expand **Remediation steps** and follow the listed steps.
 
