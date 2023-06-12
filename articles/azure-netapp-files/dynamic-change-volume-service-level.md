@@ -33,7 +33,7 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 * If the target capacity pool is of the *manual* QoS type, the volume's throughput isn't changed with the volume move. You can [modify the allotted throughput](manage-manual-qos-capacity-pool.md#modify-the-allotted-throughput-of-a-manual-qos-volume) subsequently in the target manual capacity pool.
 
-* If the source pool is of the *manual* QoS type and the target pool is of the *auto* QoS type, the volume's throughput is changed with the move, based on the service level of the target capacity pool.
+* Regardless of the source pool’s QoS type, when the target pool is of the *auto* QoS type, the volume's throughput is changed with the move to match the service level of the target capacity pool.
  
 ## Move a volume to another capacity pool
 
