@@ -255,13 +255,17 @@ You can now view information about what’s running on the cluster – the follo
 
 You should verify that the AKS cluster is set up correctly by running the following *kubectl* commands using the *kubeconfig* downloaded from the UI in [Set up kubectl access](#set-up-kubectl-access):
 
-`kubectl get nodes`
+```azurecli
+kubectl get nodes
+```
 
 This command should return two nodes, one named *nodepool-aaa-bbb* and one named *target-cluster-control-plane-ccc*.
 
 To view all the running pods, run:
 
-`kubectl get pods -A`
+```azurecli
+kubectl get pods -A
+```
 
 Additionally, your AKS cluster should now be visible from your Azure Stack Edge resource in the portal.
 
