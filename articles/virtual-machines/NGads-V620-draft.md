@@ -10,24 +10,17 @@ ms.date: 06/11/2023 #Required; mm/dd/yyyy format. Date the article was created o
 
 ---
 
-# NGads V620-series (Preview)
+# NGads V620-series (preview)
 
-ADD HIGHLIGHT
-Customers can sign up for NGads V620 Series preview today. NGads V620 Series VMs are initially available in the East US2, Europe West and West US3 Azure regions.
-END HIGHLIGHT
-The NGads V620 series are GPU-enabled virtual machines powered by AMD Radeon PRO V620 GPU and AMD EPYC 7763 CPUs.  The AMD Radeon PRO V620 GPUs have a maximum frame buffer of 32GB  which can be divided up to 4 ways through hardware partitioning. The AMD EPYC CPUs have a base clock speed of 2.45GHz and a boost speed of 3.5Ghz<sup>*</sup>. VMs are assigned full cores instead of threads, enabling full access to AMD’s powerful “Zen 3” cores.
+> [!IMPORTANT]
+> The NGads V620 Series is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+>
+> Customers can [sign up for NGads V620 Series preview today](https://aka.ms/NGadsV620-Series-Public-Preview). NGads V620 Series VMs are initially available in the East US2 and Europe West Azure regions.
+
+The NGads V620 series are GPU-enabled virtual machines with CPU, memory resources and storage resources balanced to generate and stream high quality graphics for a high performance, interactive gaming experience hosted in Azure.  They are powered by [AMD Radeon(tm) PRO V620 GPU](https://www.amd.com/en/products/server-accelerators/amd-radeon-pro-v620) and [AMD EPYC 7763 (Milan) CPUs](https://www.amd.com/en/products/cpu/amd-epyc-7763).  The AMD Radeon PRO V620 GPUs have a maximum frame buffer of 32GB  which can be divided up to 4 ways through hardware partitioning. The AMD EPYC CPUs have a base clock speed of 2.45GHz and a boost speed of 3.5Ghz<sup>*</sup>. VMs are assigned full cores instead of threads, enabling full access to AMD’s powerful “Zen 3” cores.
 <sup>*</sup>EPYC-018: Max boost for AMD EPYC processors is the maximum frequency achievable by any single core on the processor under normal operating conditions for server systems.
 
 NGads instances come in four sizes, allowing customers to right-size their gaming environments for the performance and cost that best fits their business needs. The NG-series virtual machines feature partial GPUs to enable you to pick the right-sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/4th of a GPU with 8 GiB frame buffer to a full GPU with 32 GiB frame buffer. The NGads VMs also feature Direct Disk NVMe ranging from 1 to 4x 960GB disks per VM.
-
-TEMPLATE TEXT FOR FORMATTING STARTING BELOW
-The Ddv5 and Ddsv5-series Virtual Machines run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processor in a [hyper threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration, providing a better value proposition for most general-purpose workloads. This new processor features an all core turbo clock speed of 3.5 GHz with [Intel&reg; Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Advanced-Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). These virtual machines offer a combination of vCPUs, memory and temporary storage able to meet the requirements associated with most enterprise workloads, such as small-to-medium databases, low-to-medium traffic web servers, application servers and more.
-
-
-## Ddv5-series
-Ddv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz. These virtual machines offer up to 96 vCPU and 384 GiB of RAM as well as fast, local SSD storage up to 3,600 GiB. Ddv5-series virtual machines provide a better value proposition for most general-purpose workloads compared to the prior generation (for example, increased scalability and an upgraded CPU class). These virtual machines also feature fast and large local SSD storage (up to 3,600 GiB).
-
-REMOVE TEXT STARTING ABOVE
 
 | Size | vCPU<sup>1</sup> | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU Memory GiB<sup>2</sup> | Max data disks |  Max uncached disk throughput: IOPS/MBps | Direct Disk NVMe<sup>3</sup> | Max NICs / Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
