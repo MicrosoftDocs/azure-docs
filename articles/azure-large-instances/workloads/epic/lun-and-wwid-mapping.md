@@ -2,7 +2,7 @@
 title: LUN and WWID mapping
 description: Explains ALI LUN and WWID mapping.
 ms.topic: conceptual
-author: jjaygbay
+author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: baremetal-infrastructure
 ms.date: 06/01/2023

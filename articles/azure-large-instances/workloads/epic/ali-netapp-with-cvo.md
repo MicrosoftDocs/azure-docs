@@ -2,7 +2,7 @@
 title: ArchitectureAzure Large Instances NETAPP storage data protection with Azure CVO   
 description: Provides an overview of ALI for Epic architecture.
 ms.topic: conceptual
-author: jjaygbay
+author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: baremetal-infrastructure
 ms.date: 06/01/2023

@@ -2,7 +2,7 @@
 title: Register the ALI source provider
 description: Explains how to register the ALI source provider.
 ms.topic: conceptual
-author: jjaygbay
+author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: baremetal-infrastructure
 ms.date: 06/01/2023

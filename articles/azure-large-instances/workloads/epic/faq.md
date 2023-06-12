@@ -2,7 +2,7 @@
 title: Common Issues
 description: Provides resolutions for common issues that arise in working with ALI for Epic.
 ms.topic: conceptual
-author: jjaygbay
+author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: baremetal-infrastructure
 ms.date: 06/01/2023

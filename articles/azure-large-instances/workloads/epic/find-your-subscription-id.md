@@ -2,7 +2,7 @@
 title: Find your subscription ID
 description: Explains how to find your ALI for Epic subscription ID.
 ms.topic: conceptual
-author: jjaygbay
+author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
