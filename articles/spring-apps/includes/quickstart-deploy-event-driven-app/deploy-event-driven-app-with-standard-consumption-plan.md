@@ -160,7 +160,6 @@ az spring app create \
     --min-replicas 1 \
     --max-replicas 2 \
     --runtime-version Java_17 \
-    --assign-endpoint true
 ```
 
 #### 3.8.2. Create an app with the dedicated workload profile

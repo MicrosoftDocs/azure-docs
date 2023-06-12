@@ -56,7 +56,7 @@ AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
 APP_NAME=<event-driven-app-name>
 ```
 
-### 3.3. Install extension and register namespaces
+### 3.3. Install extension and register namespace
 
 Use the following command to register the namespace: `Microsoft.SaaS`:
 
@@ -122,7 +122,6 @@ Use the following command to create an app in the Azure Spring Apps instance:
 az spring app create \
     --service ${AZURE_SPRING_APPS_INSTANCE} \
     --name ${APP_NAME} \
-    --assign-endpoint true
 ```
 
 ### 3.8. Bind the Service Bus to Azure Spring Apps and deploy the app
