@@ -41,7 +41,7 @@ This article provides 2 options for deploying to Azure Spring Apps:
 
 ::: zone-end
 
-## Prerequisites
+## 1. Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
@@ -77,7 +77,9 @@ This article provides 2 options for deploying to Azure Spring Apps:
 
 ::: zone-end
 
-## Validate the web app
+## 5. Validate the web app
+
+Now we can access the deployed app to see wether it works.
 
 ::: zone pivot="sc-consumption-plan"
 
@@ -127,7 +129,7 @@ This article provides 2 options for deploying to Azure Spring Apps:
    
 ::: zone-end
 
-## Clean up resources
+## 6. Clean up resources
 
 ::: zone pivot="sc-standard"
 
@@ -145,7 +147,7 @@ az group delete --name ${RESOURCE_GROUP}
 
 ::: zone-end
 
-## Next steps
+## 7. Next steps
 
 > [!div class="nextstepaction"]
 > [Structured application log for Azure Spring Apps](./structured-app-log.md)
