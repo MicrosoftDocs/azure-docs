@@ -5,7 +5,7 @@ ms.service: update-management-center
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/05/2023
+ms.date: 06/12/2023
 ---
 
 # What's new in Update management center (Preview)
@@ -20,7 +20,7 @@ Update management center (preview) now supports [generalized](../virtual-machine
 
 ### Multi-subscription support
 
-The limit on the number of subscriptions that you can manage using the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center portal.
+The limit on the number of subscriptions that you can manage using the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
 
 ## April 2023
 
