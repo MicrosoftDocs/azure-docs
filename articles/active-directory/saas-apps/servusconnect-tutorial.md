@@ -81,7 +81,7 @@ To configure single sign-on with the **ServusConnect** application, you must sen
 1. The Federation Metadata XML file.
 2. A list of all email domains, which connect via SSO from your Azure AD account.
 
-The ServusConnect support team completes the SAML SSO connection and notify you when it is ready.
+The ServusConnect support team completes the SAML SSO connection and notifies you when it is ready.
 
 ## ServusConnect user accounts
 
@@ -95,7 +95,7 @@ Users who exist in ServusConnect with an email address that matches the SSO logi
 
 Users who do not yet exist in ServusConnect has a user account created with an email that matches the SSO login. However, these users are placed into a "Waiting Room" instead of being given direct access to ServusConnect. These users must be provisioned with the correct access levels and property-level access before SSO will allow them past the Waiting Room.
 
-An existing ServusConnect user with appropriate access may complete the ServusConnect "New User" form found on the "Manage" page in ServusConnect for the site/property where they work. Once this is done, the ServusConnect support team processes the request and notify the user via email. Then, the user may use SSO to sign in and access ServusConnect.
+An existing ServusConnect user with appropriate access may complete the ServusConnect "New User" form found on the "Manage" page in ServusConnect for the site/property where they work. Once this is done, the ServusConnect support team processes the request and notifies the user via email. Then, the user may use SSO to sign in and access ServusConnect.
 
 ## Testing SSO
 
