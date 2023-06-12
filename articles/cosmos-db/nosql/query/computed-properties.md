@@ -111,7 +111,7 @@ List<ComputedProperty> computedProperties = new ArrayList<>(List.of(new Computed
 containerProperties.setComputedProperties(computedProperties);
 client.getDatabase("myDatabase").createContainer(containerProperties);
 ```
-
+---
 --- 
 
 Here's an example of how to update computed properties on an existing container:
