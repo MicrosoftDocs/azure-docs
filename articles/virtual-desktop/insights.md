@@ -188,7 +188,7 @@ To configure a DCR and select a Log Analytics workspace destination using the co
 
 #### Session hosts
 
-You need to install the Azure Monitor Agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If Log Analytics isn't configured for all the session hosts in the host pool, you'll see a **Session hosts** section at the top of **Session host data settings** with the message *Some hosts in the host pool are not sending data to the selected Log Analytics workspace.*
+You need to install the Azure Monitor Agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If the session hosts don't all meet the requirements, you'll see a **Session hosts** section at the top of **Session host data settings** with the message *Some hosts in the host pool are not sending data to the selected Log Analytics workspace.*
 
 >[!NOTE]
 > If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Automated deployment is limited to 1000 session hosts or fewer.
