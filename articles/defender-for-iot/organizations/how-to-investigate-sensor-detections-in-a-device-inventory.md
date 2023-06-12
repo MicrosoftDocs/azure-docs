@@ -81,6 +81,10 @@ To export device inventory data, on the **Device inventory** page, select **Expo
 
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
+> [!NOTE]
+> In the exported file, date values are based on the region settings for the machine you're using to access the OT sensor. We reccommend exporting data only from a machine with the same region settings as your sensor.
+> 
+
 ## Merge devices
 
 You may need to merge duplicate devices if the sensor has discovered separate network entities that are associated with a single, unique device.
