@@ -5,7 +5,7 @@ metadata:
   services: virtual-network
   documentationcenter: na
   author: AbdullahBell
-  ms.service: virtual-network
+  ms.service: ddos-protection
   ms.topic: faq
   ms.tgt_pltfrm: na
   ms.custom: ignite-2022

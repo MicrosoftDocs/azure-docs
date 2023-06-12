@@ -100,6 +100,14 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
       "type": [ "null", "double" ]
     },
     {
+      "name": "contactTleLine1",
+      "type": "string"
+    },
+    {
+      "name": "contactTleLine2",
+      "type": "string"
+    },
+    {
       "name": "antennaType",
       "type": {
         "name": "antennaTypeEnum",
@@ -145,10 +153,6 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                 }
               },
               {
-                "name": "inputRfPowerDbm",
-                "type": [ "null", "double" ]
-              },
-              {
                 "name": "uplinkEnabled",
                 "type": [ "null", "boolean" ]
               },
@@ -175,6 +179,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                           "type": [ "null", "double" ]
                         },
                         {
+                          "name": "inputRfPowerDbm",
+                          "type": [ "null", "double" ]
+                        },
+                        {
                           "name": "modemLockStatus",
                           "type": [
                             "null",
@@ -187,6 +195,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                               ]
                             }
                           ]
+                        },
+                        {
+                          "name": "commandsSent",
+                          "type": [ "null", "double" ]
                         }
                       ]
                     }
@@ -200,8 +212,9 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
     }
   ]
 }
-
 ```
+## Changelog
+2023-06-05 - Updatd schema to show metrics under channels instead of links.
 
 ## Next steps
 

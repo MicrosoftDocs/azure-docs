@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: codepen
 ---
 
 # Create a map
@@ -135,6 +135,29 @@ The [service options](/javascript/api/azure-maps-control/atlas.serviceoptions) o
 ```JavaScript
 transformRequest: (url: string, resourceType: string) => RequestParameters
 ```
+
+When using a request transform you must return a `RequestParameters` object that contains a `url` property at a minimum. The following are the properties that can be included in a `RequestParameters` object.
+
+| Option | Type | Description |
+|--------|------|-------------|
+| body | string | A POST request body. |
+| credentials | `'same-origin'` \| `'include'` | Used to specify the cross-origin request (CORs) credentials setting. Use 'include' to send cookies with cross-origin requests. |
+| headers | object | The headers to be sent with the request. The object is a key value pair of string values. |
+| method | `'GET'` \| `'POST'` \| `'PUT'` | The type of request to be made. Default is  `'GET'`. |
+| type | `'string'` \| `'json'` \| `'arrayBuffer'` | The format of POST response body. |
+| url | string | The url to be requested. |
+
+The resource types most relevant to content you add to the map are listed in the table below:
+
+| Resource Type | Description |
+|---------------|-------------|
+| Image | A request for an image for use with either a SymbolLayer or ImageLayer. |
+| Source | A request for source information, such as a TileJSON request. Some requests from the base map styles will also use this resource type when loading source information. |
+| Tile | A request from a tile layer (raster or vector). |
+| WFS | A request from a `WfsClient` in the [Spatial IO module](spatial-io-connect-wfs-service.md) to an OGC Web Feature Service. |
+| WebMapService | A request from the `OgcMapLayer` in the [Spatial IO module](spatial-io-add-ogc-map-layer.md) to a WMS or WMTS service. |
+
+Here are some resource types that are passed through the request transform that are related to the base map styles: StyleDefinitions, Style, SpriteImage, SpriteJSON, Glyphs, Attribution. You will normally want to ignore these and simply return the `url` value.
 
 The following example shows how to use this to modify all requests to the size `https://example.com` by adding a username and password as headers to the request.
 

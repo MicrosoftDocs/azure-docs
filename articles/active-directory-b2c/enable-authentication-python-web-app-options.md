@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 07/05/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.custom: b2c-support, devx-track-python
 ---
 
 # Enable authentication options in a Python web app by using Azure AD B2C 

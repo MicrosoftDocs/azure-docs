@@ -48,7 +48,7 @@ When you use Event Grid to monitor or trigger alerts on device disconnects, make
 
 Explore the following topics to learn more about monitoring device connection events with Event Grid:
 
-* For an overview of using Event Grid with IoT Hub, see [React to IoT Hub events with Event Grid](iot-hub-event-grid.md). Pay particular attention to the [Limitations for device connected and device disconnected events](iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events) section.
+* For an overview of using Event Grid with IoT Hub, see [React to IoT Hub events with Event Grid](iot-hub-event-grid.md). Pay particular attention to the [Limitations for device connection state events](iot-hub-event-grid.md#limitations-for-device-connection-state-events) section.
 
 * For a tutorial about ordering device connection events, see [Order device connection events from Azure IoT Hub using Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 

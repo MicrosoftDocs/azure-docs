@@ -5,23 +5,23 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/18/2022
+ms.date: 06/02/2023
 ms.author: duau
 ---
 
 # Web Application Firewall (WAF) on Azure Front Door
 
-Azure Web Application Firewall (WAF) on Azure Front Door provides centralized protection for your web applications. WAF defends your web services against common exploits and vulnerabilities. It keeps your service highly available for your users and helps you meet compliance requirements. In this article, you'll learn about the different features of Azure Web Application Firewall on Azure Front Door. For more information, see [WAF on Azure Front Door](../web-application-firewall/afds/afds-overview.md).
+Azure Web Application Firewall (WAF) on Azure Front Door provides centralized protection for your web applications. WAF defends your web services against common exploits and vulnerabilities. It keeps your service highly available for your users and helps you meet compliance requirements. In this article, you learn about the different features of Azure Web Application Firewall on Azure Front Door. For more information, see [WAF on Azure Front Door](../web-application-firewall/afds/afds-overview.md).
 
 :::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Web Application Firewall applied to an Azure Front Door environment.":::
 
 ## Policy settings
 
-A Web Application Firewall (WAF) policy allows you to control access to your web applications by using a set of custom and managed rules. You can change the state of the policy or configure a specific mode type for the policy. Depending on policy level settings you can choose to either actively inspect incoming requests, monitor only, or to monitor and take actions against requests that match a rule. You can also configure the WAF to only detect threats without blocking them, which is useful when you first enable the WAF. After evaluating how the WAF works with your application, you can reconfigure the WAF settings and enable the WAF in prevention mode. For more information, see [WAF policy settings](../web-application-firewall/afds/waf-front-door-policy-settings.md).
+A Web Application Firewall (WAF) policy allows you to control access to your web applications by using a set of custom and managed rules. You can change the state of the policy or configure a specific mode type for the policy. Depending on the policy level settings you can choose to either actively inspect incoming requests, monitor only, or monitor and take actions against requests that match a rule. You can also configure the WAF to only detect threats without blocking them, which is useful when you first enable the WAF. After evaluating how the WAF works with your application, you can reconfigure the WAF settings and enable the WAF in prevention mode. For more information, see [WAF policy settings](../web-application-firewall/afds/waf-front-door-policy-settings.md).
 
 ## Managed rules
 
-Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increase coverage, patches for specific vulnerabilities, and better false positive reduction. For more information, see [WAF managed rules](../web-application-firewall/afds/waf-front-door-drs.md).
+Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since rule sets get managed by Azure, the rules are updated as needed to protect against new attack signatures. Default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increase coverage, patches for specific vulnerabilities, and better false positive reduction. For more information, see [WAF managed rules](../web-application-firewall/afds/waf-front-door-drs.md).
 
 > [!NOTE]
 > * Only Azure Front Door Premium and Azure Front Door (classic) support managed rules. 
@@ -38,7 +38,7 @@ Azure Web Application Firewall (WAF) can sometime block requests that you want t
 
 ## Geo-filtering
 
-Azure Front Door by default will respond to all user requests regardless of the location where the request is coming from. Geo-filtering allows you to restrict access to your web application by countries/regions. For more information, see [WAF geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
+Azure Front Door by default responds to all user requests regardless of the location where the request is coming from. Geo-filtering allows you to restrict access to your web application by countries/regions. For more information, see [WAF geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
 
 ## Bot Protection
 
@@ -50,7 +50,7 @@ An IP address–based access control rule is a custom WAF rule that lets you con
 
 ## Rate limiting
 
-A custom rate limit rule controls access based on matching conditions and the rates of incoming requests. For more information, see [What is rate limiting for Azure Front Door Service?](../web-application-firewall/afds/waf-front-door-rate-limit.md).
+A custom rate limit rule control access based on matching conditions and the rates of incoming requests. For more information, see [What is rate limiting for Azure Front Door Service?](../web-application-firewall/afds/waf-front-door-rate-limit.md).
 
 ## Tuning
 
@@ -62,5 +62,5 @@ Azure Web Application Firewall (WAF) monitoring and logging are provided through
 
 ## Next steps
 
-* Learn how to [create and apply Web Application Firewall policy](../web-application-firewall/afds/waf-front-door-create-portal.md) to your Azure Front Door profile.
+* Learn how to [create and apply Web Application Firewall policy](../web-application-firewall/afds/waf-front-door-create-portal.md) to your Azure Front Door.
 * For more information, see [Web Application Firewall (WAF) FAQ](../web-application-firewall/afds/waf-faq.yml).

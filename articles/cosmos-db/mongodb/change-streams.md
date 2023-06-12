@@ -8,7 +8,7 @@ ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Change streams in Azure Cosmos DB’s API for MongoDB

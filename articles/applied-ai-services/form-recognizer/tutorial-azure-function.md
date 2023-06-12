@@ -10,7 +10,7 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/31/2022
 ms.author: lajanuar
-ms.custom: VS Code-azure-extension-update-completed
+ms.custom: VS Code-azure-extension-update-completed, devx-track-python
 ---
 
 # Tutorial: Use Azure Functions and Python to process stored documents

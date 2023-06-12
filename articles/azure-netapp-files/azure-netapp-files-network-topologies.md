@@ -112,11 +112,6 @@ The following table describes what’s supported for each network features confi
 
 \* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
 
-> [!IMPORTANT]
-> Conversion between Basic and Standard networking features in either direction is not currently supported. 
->
-> Additionally, you can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot is not supported. Creating a Standard volume from a Basic volume snapshot is not supported.
-
 ### Supported network topologies
 
 The following table describes the network topologies supported by each network features configuration of Azure NetApp Files. 

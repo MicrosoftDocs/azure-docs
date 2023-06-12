@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 05/31/2023
 author: chugugrace
 ms.author: chugu
 ms.custom: subject-rbac-steps, devx-track-azurepowershell
@@ -258,6 +258,11 @@ The following section provides steps for creating a PowerShell runbook. The scri
    
 3. Copy & paste the following PowerShell script to your runbook script window. Save and then publish your runbook by using **Save** and **Publish** buttons on the toolbar. 
 
+    >[!NOTE]
+    > This example uses System-assigned managed identity. If you are using Run As account (service principal) or User-assigned managed identity, refer to [Azure Automation Sample scripts](../automation/migrate-run-as-accounts-managed-identity.md?tabs=ua-managed-identity#sample-scripts) for login part.
+    >
+    > Enable appropriate RBAC permissions for the managed identity of this Automation account. Refer to [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
+
     ```powershell
     Param
     (
@@ -274,28 +279,16 @@ The following section provides steps for creating a PowerShell runbook. The scri
           [String] $Operation
     )
     
-    $connectionName = "AzureRunAsConnection"
+    $ErrorActionPreference = "Stop"
+    
     try
     {
-        # Get the connection "AzureRunAsConnection "
-        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-    
         "Logging in to Azure..."
-        Connect-AzAccount `
-            -ServicePrincipal `
-            -TenantId $servicePrincipalConnection.TenantId `
-            -ApplicationId $servicePrincipalConnection.ApplicationId `
-            -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+        Connect-AzAccount -Identity
     }
     catch {
-        if (!$servicePrincipalConnection)
-        {
-            $ErrorMessage = "Connection $connectionName not found."
-            throw $ErrorMessage
-        } else{
-            Write-Error -Message $_.Exception
-            throw $_.Exception
-        }
+        Write-Error -Message $_.Exception
+        throw $_.Exception
     }
     
     if($Operation -eq "START" -or $operation -eq "start")

@@ -1787,7 +1787,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/tutorial-convert-to-vmss.md",
-            "redirect_url": "/azure/virtual-machines/linux/tutorial-create-vmss",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli",
             "redirect_document_id": false
         },
         {
@@ -3232,12 +3232,22 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/multiple-vms.md",
-            "redirect_url": "/azure/virtual-machines/windows/tutorial-create-vmss",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/tutorial-create-vmss.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/tutorial-create-vmss.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/vmss-powershell-creating.md",
-            "redirect_url": "/azure/virtual-machines/windows/tutorial-create-vmss",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell",
             "redirect_document_id": false
         },
         {

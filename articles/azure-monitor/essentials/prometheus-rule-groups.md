@@ -1,13 +1,14 @@
 ---
-title: Rule groups in Azure Monitor Managed Service for Prometheus (preview)
+title: Rule groups in Azure Monitor Managed Service for Prometheus
 description: Description of rule groups in Azure Monitor managed service for Prometheus which alerting and data computation.
-author: bwren 
+author: EdB-MSFT
+ms-author: edbaynash
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 09/28/2022
 ---
 
-# Azure Monitor managed service for Prometheus rule groups (preview)
+# Azure Monitor managed service for Prometheus rule groups
 Rules in Prometheus act on data as it's collected. They're configured as part of a Prometheus rule group, which is stored in [Azure Monitor workspace](azure-monitor-workspace-overview.md). Rules are run sequentially in the order they're defined in the group.
 
 
@@ -45,6 +46,10 @@ The basic steps are as follows:
 1. Use the templates below as a JSON file that describes how to create the rule group.
 2. Deploy the template using any deployment method, such as [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), or [Rest API](../../azure-resource-manager/templates/deploy-rest.md).
 
+> [!NOTE]
+> For your AKS or ARC Kubernetes clusters, you can use some of the recommended alerts rules. See pre-defined alert rules [here](../containers/container-insights-metric-alerts.md#enable-prometheus-alert-rules).
+
+
 ### Limiting rules to a specific cluster
 
 You can optionally limit the rules in a rule group to query data originating from a specific cluster, using the rule group `clusterName` property.
@@ -67,7 +72,7 @@ Below is a sample template that creates a Prometheus rule group, including one r
         {
            "name": "sampleRuleGroup",
            "type": "Microsoft.AlertsManagement/prometheusRuleGroups",
-           "apiVersion": "2021-07-22-preview",
+           "apiVersion": "2023-03-01",
            "location": "northcentralus",
            "properties": {
                 "description": "Sample Prometheus Rule Group",
@@ -126,7 +131,7 @@ The rule group will always have the following properties, whether it includes an
 |:---|:---|:---|:---|
 | `name` | True | string | Prometheus rule group name |
 | `type` | True | string | `Microsoft.AlertsManagement/prometheusRuleGroups` |
-| `apiVersion` | True | string | `2021-07-22-preview` |
+| `apiVersion` | True | string | `2023-03-01` |
 | `location` | True | string | Resource location from regions supported in the preview |
 | `properties.description` | False | string | Rule group description |
 | `properties.scopes` | True | string[] | Target Azure Monitor workspace. Only one scope currently supported |

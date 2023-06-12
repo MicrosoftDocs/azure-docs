@@ -121,6 +121,19 @@ playSource.setText("Welcome to Contoso");
 //you can provide VoiceName
 playSource.setVoiceName("en-US-ElizabethNeural");
 ```
+
+### Play source - Text-To-Speech with SSML
+
+If you want to customize your Text-To-Speech output even more with Azure Cognitive Services you can use [Speech Synthesis Markup Language SSML](../../../../cognitive-services/Speech-Service/speech-synthesis-markup.md) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
+
+``` java
+playSsmlSource = new SsmlSource();
+        playSsmlSource.setSsmlText("<speak></speak>");
+        playOptions = new PlayOptions(playSsmlSource, Collections.singletonList(new CommunicationUserIdentifier("id")))
+            .setLoop(false)
+            .setOperationContext("operationContext");
+```
+
 Once you've decided on which playSource you wish to use for playing audio you can then choose whether you want to play it to a specific participant or to all participants.
 
 ## Play audio to all participants

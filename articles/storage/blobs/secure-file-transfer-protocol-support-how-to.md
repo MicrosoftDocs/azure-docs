@@ -8,9 +8,9 @@ ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 05/17/2023
 ms.author: normesta
-ms.reviewer: ylunagaria
+ms.reviewer: michawil
 ---
 
 # Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)
@@ -144,6 +144,9 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    | Generate a new key pair | Use this option to create a new public / private key pair. The public key is stored in Azure with the key name that you provide. The private key can be downloaded after the local user has been successfully added. |
    | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
    | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure. If you don't have a public key, but would like to generate one outside of Azure, see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen). |
+   
+   > [!NOTE]
+   > The existing public key option currently only supports OpenSSH formatted public keys. The provided key must follow this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
 
 4. Select **Next** to open the **Container permissions** tab of the configuration pane.
 
@@ -244,7 +247,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    The following example gives a local user name `contosouser` read and write access to a container named `contosocontainer`. An ssh-rsa key with a key value of `ssh-rsa a2V5...` is used for authentication.
   
    ```azurecli
-   az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contosouser --home-directory contosocontainer --permission-scope permissions=rw service=blob resource-name=contosocontainer --ssh-authorized-key key="ssh-rsa ssh-rsa a2V5..." --has-ssh-key true --has-ssh-password true
+   az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contosouser --home-directory contosocontainer --permission-scope permissions=rw service=blob resource-name=contosocontainer --ssh-authorized-key key="ssh-rsa a2V5..." --has-ssh-key true --has-ssh-password true
    ```
    > [!NOTE]
    > Local users also have a `sharedKey` property that is used for SMB authentication only.
