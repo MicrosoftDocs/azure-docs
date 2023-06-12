@@ -49,7 +49,7 @@ For example:
 
 :::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
 
-## View added security value in Microsoft 365 Defender
+## View added security value and hunt for threats in Microsoft 365 Defender
 
 This procedure describes how to view related alerts, recommendations, and vulnerabilities for a specific device in Microsoft 365 Defender. Alerts, recommendations, and vulnerabilities are shown for IoT devices only after you've added an Enterprise IoT plan.
 
@@ -68,6 +68,12 @@ This procedure describes how to view related alerts, recommendations, and vulner
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
     - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network.
+
+**To hunt for threats**:
+
+On the **Device inventory** page, select **Go hunt** to query devices using tables like the *[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)* table. On the **Advanced hunting** page, query data using other schemas. 
+
+For more information, see [Advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) and [Understand the advanced hunting schema](/microsoft-365/security/defender/advanced-hunting-schema-tables).
 
 ## Next steps
 
