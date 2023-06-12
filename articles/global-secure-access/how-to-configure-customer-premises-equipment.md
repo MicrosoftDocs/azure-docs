@@ -12,9 +12,9 @@ ms.custom:
 ---
 # Configure customer premises equipment for Global Secure Access (preview)
 
-IPSec tunnel is a bidirectional communication. One side of the communication is established when [adding a device link to a remote network](how-to-manage-remote-network-device-links.md). During that process you enter your public IP address and BGP addresses in the Microsoft Entra admin center to tell us about your network configurations.
+IPSec tunnel is a bidirectional communication. One side of the communication is established when [adding a device link to a remote network](how-to-manage-remote-network-device-links.md) in Global Secure Access (preview). During that process, you enter your public IP address and BGP addresses in the Microsoft Entra admin center to tell us about your network configurations.
 
-This article provides the steps to set up the other side of the communication channel, which is your customer premises equipment (CPE) by using the network configurations provided by Microsoft.
+The other side of the communication channel is configured on your customer premises equipment (CPE). This article provides the steps to set up your CPE using the network configurations provided by Microsoft.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To configure your customer premises equipment (CPE), you must have:
 
 To onboard to Global Secure Access remote network connectivity, you must have completed the [onboarding process](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks). In order to configure your CPE, you need the connectivity information provided by the Global Secure Access onboarding team.
 
-Once you have the details you need, go to the preferred interface of your CPE (UX or API), and enter the information you received to set up the IPSec tunnel.
+Once you have the details you need, go to the preferred interface of your CPE (UX or API), and enter the information you received to set up the IPSec tunnel. Follow the instructions provided by the CPE provider.
 
 > [!IMPORTANT]
 >The crypto profile you specified for the device link should match with what you specify on your CPE. If you chose the "default" IKE policy when configuring the device link, use the configurations described in the [Remote network configurations](reference-remote-network-configurations.md) article.

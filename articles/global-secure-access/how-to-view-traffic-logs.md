@@ -10,9 +10,9 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# How to use the Global Secure Access traffic logs
+# How to use the Global Secure Access (preview) traffic logs
 
-Monitoring the traffic for Global Secure Access is an important activity for ensuring your tenant is configured correctly and that your users are getting the best experience possible. The Global Secure Access traffic logs provide insight into who is accessing what resources, where they're accessing them from, and what action took place.
+Monitoring the traffic for Global Secure Access (preview) is an important activity for ensuring your tenant is configured correctly and that your users are getting the best experience possible. The Global Secure Access traffic logs provide insight into who is accessing what resources, where they're accessing them from, and what action took place.
 
 This article describes how to use the traffic logs for Global Secure Access.
 

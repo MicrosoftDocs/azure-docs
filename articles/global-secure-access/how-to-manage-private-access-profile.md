@@ -18,7 +18,7 @@ The private access traffic forwarding profile routes traffic to your private net
 
 To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
 
-- A **Global Secure Access Administrator** role in Microsoft Entra ID
+- A **Global Administrator** role in Microsoft Entra ID
 
 ### Known limitations
 

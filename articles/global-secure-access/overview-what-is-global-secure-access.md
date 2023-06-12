@@ -30,7 +30,7 @@ Microsoft Entra Internet Access secures access to Microsoft 365, SaaS, and publi
 
 - Prevent stolen tokens from being replayed with the compliant network check in Conditional Access.
 - Apply universal tenant restrictions to prevent data exfiltration to other tenants or personal accounts including anonymous access.
-- Detect threats faster using near real-time logs
+- Enriched logs with network and device signals currently supported for SharePoint Online traffic
 - Improve the precision of risk assessments on users, locations, and devices. 
 - Deploy side-by-side with third party SSE solutions.
 - Acquire network traffic from the desktop client or from a remote network, such as a branch location.
@@ -60,3 +60,4 @@ Remote users can connect to private apps across hybrid and multicloud environmen
 ## Next steps
 
 - [Get started with Global Secure Access](how-to-get-started-with-global-secure-access.md)
+- [Stay in the loop with the latest Microsoft Entra updates](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity)

@@ -52,8 +52,6 @@ Conditional Access policies can be applied to your traffic profiles to provide m
 
 Conditional Access policies are created and applied to the profile in the Conditional Access area of Microsoft Entra ID. For more information, see the [Conditional Access overview](../active-directory/conditional-access/overview.md).
 
-Linked Conditional Access policies
-
 1. Select the **View** link for **Conditional Access policies applicable**.
 
     ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-manage-microsoft-365-profile/microsoft-365-conditional-access-policy-link.png)

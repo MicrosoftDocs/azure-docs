@@ -23,6 +23,7 @@ As an IT administrator, you need to monitor the performance, experience, and ava
     - Security Administrator
     - Global Reader
     - Global Administrator
+- Exporting the enriched Microsoft 365 logs requires a **Global Administrator** or **Security Administrator** role
 
 ## Network traffic dashboard
 
@@ -32,7 +33,7 @@ For more information, see [Global Secure Access network traffic dashboard](conce
 
 ## Audit logs
 
-The Azure Active Directory (Azure AD) audit log is a valuable source of information when researching or troubleshooting changes to your Azure AD environment. Changes related to Global Secure Access are captured in the audit logs in several categories, such as filtering policy, forwarding profiles, remote network management, and more.
+The Microsoft Entra ID audit log is a valuable source of information when researching or troubleshooting changes to your Microsoft Entra ID environment. Changes related to Global Secure Access are captured in the audit logs in several categories, such as filtering policy, forwarding profiles, remote network management, and more.
 
 For more information, see [Global Secure Access audit logs](how-to-access-audit-logs.md).
 
@@ -42,7 +43,16 @@ The Global Secure Access traffic logs provide a summary of the network connectio
 
 For more information, see [Global Secure Access traffic logs](how-to-view-traffic-logs.md).
 
+## Enriched Office 365 logs
+
+The *Enriched Office 365 logs* provide you with the information you need to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. You can integrate the logs with a Log Analytics workspace or third-party SIEM tool for further analysis.
+
+Customers use existing *Office Audit logs* for monitoring, detection, investigation, and analytics. We understand the importance of these logs and have partnered with Microsoft 365 to include SharePoint logs. These enriched logs include details like client information and original public IP details that can be used for troubleshooting security scenarios.
+
+For more information, see [Enriched Office 365 logs](how-to-view-enriched-logs.md).
+
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Next steps
 
 - [Learn how to access, store, and analyze Azure AD activity logs](../active-directory/reports-monitoring/howto-access-activity-logs.md)
