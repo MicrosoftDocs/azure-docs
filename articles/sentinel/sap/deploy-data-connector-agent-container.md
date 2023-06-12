@@ -97,7 +97,14 @@ In this section, you deploy the data connector agent. After you deploy the agent
     :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
 
 1. Under **Create a collector agent** on the right, define the agent details:
-    - Type the agent name, and select the subscription and key vault.
+    - Type the agent name. The agent name can only include these characters: 
+        - a-z
+        - A-Z 
+        - 0-9 
+        - _ 
+        - . 
+        - \-
+    - Select the subscription and key vault.
     - Under **NWRFC SDK zip file path on the agent VM**, type a path that contains the SAP NetWeaver Remote Function Call (RFC), Software Development Kit (SDK) archive (.zip file). For example, *src/test/NWRFC.zip*.
     - To ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), select **Enable SNC connection support**. If you select this option, under **SAP Cryptographic Library path on the agent VM**, provide the path that contains the `sapgenpse` binary and `libsapcrypto.so` library.
     
