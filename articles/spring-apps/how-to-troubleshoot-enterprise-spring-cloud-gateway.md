@@ -63,7 +63,7 @@ Take below screenshot as an example:
 :::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png" alt-text="Screenshot of the Azure portal showing the query and result of logs of VMware Spring Cloud Gateway" lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png":::
 
   > [!NOTE]
-  > There might be 3~5 minutes delay for the logs to be searchable in Log Analytics.
+  > There might be 3~5 minutes delay for the logs to be available in Log Analytics.
 
 ### Adjust log levels
 
