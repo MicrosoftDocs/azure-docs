@@ -174,6 +174,10 @@ The following [String operators](/azure/data-explorer/kusto/query/datatypes-stri
 - !contains
 - contains_cs
 - !contains_cs
+- has
+- !has
+- has_cs
+- !has_cs
 - startswith
 - !startswith
 - startswith_cs
@@ -185,6 +189,7 @@ The following [String operators](/azure/data-explorer/kusto/query/datatypes-stri
 - matches regex
 - in
 - !in
+
 
 #### Bitwise operators
 
