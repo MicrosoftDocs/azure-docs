@@ -55,7 +55,7 @@ To set up Microsoft Entra Private Access, complete the following steps:
 
 Optionally:
 
-- [Secure quick access applications with Conditional Access policy](how-to-manage-private-access-profile.md#private-access-conditional-access-policies).
+- [Secure quick access applications with Conditional Access policy](how-to-manage-private-access-profile.md#linked-conditional-access-policies).
 - [Review the Global Secure Access logs](concept-global-secure-access-logs-monitoring.md).
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
