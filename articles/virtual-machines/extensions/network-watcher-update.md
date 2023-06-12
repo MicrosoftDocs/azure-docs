@@ -1,5 +1,5 @@
 ---
-title: Update the Network Watcher extension to the latest version 
+title: Update Network Watcher extension to the latest version 
 description: Learn how to update the Azure Network Watcher extension to the latest version.
 services: virtual-machines
 author: halkazwini
@@ -8,10 +8,10 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/25/2023
 ms.author: halkazwini
-ms.custom: devx-track-azurepowershell, template-concept, engagement-fy23
+ms.custom: template-concept, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
-# Update the Network Watcher extension to the latest version
+# Update Azure Network Watcher extension to the latest version
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. The Network Watcher extension is used by features like connection monitor, connection monitor (preview), connection troubleshoot, and packet capture.
 

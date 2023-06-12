@@ -524,7 +524,7 @@
         displayName: monitor, server logs
       - name: Audit logs
         href: flexible-server/concepts-audit.md
-      - name: Intelligent Performance
+      - name: Intelligent performance
         items:
         - name: Query Store overview
           href: flexible-server/concepts-query-store.md
@@ -703,6 +703,20 @@
         href: flexible-server/how-to-manage-high-availability-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-configure-high-availability-cli.md
+    - name: Monitor
+      items:
+      - name: Create alerts on metrics using portal
+        href: flexible-server/howto-alert-on-metrics.md
+      - name: Configure and access logs
+        href: flexible-server/howto-configure-and-access-logs.md
+    - name: Intelligent performance
+      items:
+        - name: Intelligent tuning
+          items:
+          - name: Azure portal
+            href: flexible-server/how-to-enable-intelligent-performance-portal.md
+          - name: Azure CLI
+            href: flexible-server/how-to-enable-intelligent-performance-cli.md
     - name: Replication
       items:
       - name: Azure portal
@@ -711,12 +725,6 @@
       - name: Azure REST API
         href: flexible-server/how-to-read-replicas-rest-api.md
         displayName: replica rest api
-    - name: Monitor
-      items:
-      - name: Create alerts on metrics using portal
-        href: flexible-server/howto-alert-on-metrics.md
-      - name: Configure and access logs
-        href: flexible-server/howto-configure-and-access-logs.md
     - name: Cost optimization
       items:
       - name: How to optimize costs

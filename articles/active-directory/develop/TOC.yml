@@ -445,7 +445,7 @@
             - name: Restrict your app to a set of users
               href: howto-restrict-your-app-to-a-set-of-users.md
             - name: Add app roles in your application
-              href: howto-add-app-roles-in-azure-ad-apps.md
+              href: howto-add-app-roles-in-apps.md
             - name: Implement RBAC in your application
               href: howto-implement-rbac-for-apps.md
             - name: Support FIDO2 authentication
@@ -462,9 +462,8 @@
               href: saml-claims-customization.md
             - name: Set an access token lifetime policy
               href: configure-token-lifetimes.md    
-            - name: SAML app multi-instancing
-              displayName: Configure SAML app multi-instancing for an application
-              href: reference-app-multi-instancing.md
+            - name: Configure app multi-instancing
+              href: configure-app-multi-instancing.md
         - name: Custom claims provider
           items:
             - name: Token issuance start event
@@ -580,6 +579,8 @@
       items:
         - name: Access token
           href: access-token-claims-reference.md
+        - name: Claims mapping policy type
+          href: reference-claims-mapping-policy-type.md
         - name: ID token
           href: id-token-claims-reference.md 
         - name: Optional claims
@@ -821,7 +822,7 @@
               displayName: App types, OAuth
               href: v2-app-types.md
             - name: Certificate credentials
-              href: active-directory-certificate-credentials.md
+              href: certificate-credentials.md
             - name: Signing key rollover
               href: signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
@@ -829,7 +830,7 @@
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol
-              href: active-directory-saml-protocol-reference.md
+              href: saml-protocol-reference.md
             - name: SAML single sign-on (SSO)
               displayName: SSO
               href: single-sign-on-saml-protocol.md
@@ -850,8 +851,6 @@
       href: msal-v1-app-scopes.md
     - name: Spring Cloud Azure
       href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/active-directory/develop/toc.json#spring-security-support    
-    - name: Claims mapping policy type
-      href: reference-claims-mapping-policy-type.md
     - name: Configured permissions limits troubleshooting
       href: troubleshoot-required-resource-access-limits.md
     - name: Microsoft auth libraries by app type
