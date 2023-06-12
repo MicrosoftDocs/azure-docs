@@ -348,7 +348,7 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 }
 ```
 
-## SDK Loader Script Injection (preview)
+## JavaScript SDK Loader Script Injection (preview)
 
 This feature automatically injects the [JavaScript SDK Loader Script](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
 
