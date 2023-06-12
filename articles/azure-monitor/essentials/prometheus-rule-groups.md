@@ -36,7 +36,7 @@ You should limit rules to a single cluster if your Azure Monitor workspace conta
 
 ### Creating Prometheus rule group using Resource Manager template
 
-You can use a Resource Manager template to create and configure Prometheus rule groups, alert rules, and recording rules. Resource Manager templates enable you to programmatically set up alert and recording rules in a consistent and reproducible way across all your environments.
+You can use a Resource Manager template to create and configure Prometheus rule groups, alert rules, and recording rules. Resource Manager templates enable you to programmatically create and configure rule groups in a consistent and reproducible way across all your environments.
 
 The basic steps are as follows:
 
