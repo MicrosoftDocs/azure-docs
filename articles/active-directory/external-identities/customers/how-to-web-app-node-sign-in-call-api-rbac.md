@@ -37,11 +37,10 @@ One you've configured your customers tenant, you can retrieve your *roles* and *
 You can check your *roles* claim value as shown in the following code snippet:
 
 ```javascript
-//...
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
 let roles = tokenResponse.idTokenClaims.roles;
 //console.log("\nroles: \n" + tokenResponse.idTokenClaims.roles);
-//...
+
 ```
 
 If you assign a user to multiple roles, the `roles` string contain all roles separated by a comma, such as *Orders.Manager,Store.Manager*. Make sure you build your application to handle the following conditions:
@@ -53,11 +52,9 @@ If you assign a user to multiple roles, the `roles` string contain all roles sep
 You can also check your *groups* claim value as shown in the following code snippet:
 
 ```javascript
-//...
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
 let groups = tokenResponse.idTokenClaims.groups;
 //console.log("\ngroups: \n" + tokenResponse.idTokenClaims.groups);
-//...
 ```
 The groups claim value is the group's *objectId*. If a user is a member of multiple groups, the `groups` string contain all groups separated by a comma, such as *7f0621bc-b758-44fa-a2c6-...,6b35e65d-f3c8-4c6e-9538-...*.
 
