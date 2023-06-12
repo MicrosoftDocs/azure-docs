@@ -6,7 +6,7 @@ ms.author: erd
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: virtual-machines
-ms.date: 01/12/2023
+ms.date: 06/12/2023
 ---
 
 # What is reliability in Virtual Machines?
