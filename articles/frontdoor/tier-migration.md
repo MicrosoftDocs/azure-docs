@@ -122,4 +122,5 @@ The following table explains the various stages of the migration process and if 
 ## Next steps
 
 * Understand the [settings mapping between Azure Front Door tiers](tier-mapping.md).
-* Learn how to [migrate from Azure Front Door (classic) to Standard or Premium tier](migrate-tier.md).
+* Learn how to [migrate from Azure Front Door (classic) to Standard or Premium tier](migrate-tier.md) using the Azure portal.
+* Learn how to [migrate from Azure Front Door (classic) to Standard or Premium tier](migrate-tier-powershell.md) using Azure PowerShell.
