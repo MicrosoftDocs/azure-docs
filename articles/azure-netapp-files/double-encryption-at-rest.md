@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2023
 ms.author: anfdocs
-ms.custom: 
+ms.custom: references_regions
 ---
 # Azure NetApp Files double encryption at rest
 
