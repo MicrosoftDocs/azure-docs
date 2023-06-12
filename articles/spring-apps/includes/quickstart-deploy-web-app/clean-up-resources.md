@@ -13,6 +13,8 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 -->
 
+When no longer needed, you can clean up unnecessary resources to avoid Azure charges. 
+
 #### [Azure portal](#tab/Azure-portal)
 
 You can delete the Azure resource group, which includes all the resources in the resource group. To delete the entire resource group, including the newly created service:
