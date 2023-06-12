@@ -130,6 +130,9 @@ items:
                           href: how-to-web-app-node-sign-in-sign-in-out.md
                         - name: Use client certificate
                           href: how-to-web-app-node-use-certificate.md 
+                        - name: Use role-based access control
+                          href: how-to-web-app-node-sign-in-call-api-rbac.md 
+                          displayName: rbac, roles claim, groups claim
                     - name: Sign in users and call an API
                       items:
                         - name: Overview
@@ -224,6 +227,7 @@ items:
             href: how-to-facebook-federation-customers.md
       - name: Use application roles to manage access
         href: how-to-use-app-roles-customers.md
+        displayName: rbac, roles claim, groups claim
     - name: Customize
       expanded: true
       items:
