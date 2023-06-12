@@ -13,6 +13,9 @@ keywords:
 
 Use this guide to get started calling the image generation REST APIs using Python.
 
+> [!NOTE]
+> The image generation API creates an image from a text prompt. It does not edit existing images or create variations.
+
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
