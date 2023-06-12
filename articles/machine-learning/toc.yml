@@ -512,7 +512,7 @@
         # v1
         - name: Compute instance
           displayName: compute target
-          href: ./v1/how-to-create-compute-instance.md
+          href: ./v1/how-to-create-manage-compute-instance.md
         # end v1
         - name: Customize compute instance with a script
           href: how-to-customize-compute-instance.md

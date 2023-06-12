@@ -149,7 +149,7 @@ Create one anytime from within your Azure Machine Learning workspace. Provide ju
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
 > [!TIP]
-> To prevent incurring charges for an unused compute instance, [stop the compute instance](../how-to-create-compute-instance.md#manage). Or [enable idle shutdown](../how-to-create-compute-instance.md#enable-idle-shutdown) for the compute instance.
+> To prevent incurring charges for an unused compute instance, [stop the compute instance](../how-to-manage-compute-instance.md). Or [enable idle shutdown](../how-to-create-compute-instance.md#enable-idle-shutdown) for the compute instance.
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](../how-to-run-jupyter-notebooks.md).
 
