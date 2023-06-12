@@ -14,13 +14,13 @@ ms.date: 06/5/2023
 
 In this article, you learn about how Azure VMs support streaming database backups with Oracle Recovery Manager (RMAN), using either the destination of a virtual tape library package, or by writing those backups directly to a local or remote filesystem. It describes how various virtual tape library packages are integrated with Oracle RMAN. For a few of the packages, the article offers links to the Azure Marketplace.  
 
-The backup and restore utility Oracle RMAN (Recovery MANager) can be configured to stream and capture back-up images of Oracle databases then stream and send those back-up images to two different types of destinations. 
+The backup and restore utility Oracle RMAN (Recovery MANager) can be configured to stream and capture back up images of Oracle databases then stream and send those back-up images to two different types of destinations. 
 
 ## Device type SBT 
 
-The serial backup tape (SBT) type of destination was originally designed for interacting with tape drives, though not directly.  To simplify the complexity of interacting with the myriad of tape devices available when RMAN was created (1990s), Oracle created an application programming interface(API) to interact with software packages to manage tape devices.  So the device type SBT sends commands to software packages through its defined API, and it's the responsibility of the software package vendor to create a corresponding “plug-in” that can interact according to the specifications of the API, and translate the RMAN commands into commands for the software package. 
+The serial backup tape (SBT) type of destination was originally designed for interacting with tape drives, though not directly.  To simplify the interaction with multiple tape devices available when RMAN was created, Oracle developed an application programming interface (API) to interact with software packages to manage tape devices.  So the device type SBT sends commands to software packages through its defined API, and it's the responsibility of the software package vendor to create a corresponding “plug-in” that can interact according to the specifications of the API to translate the RMAN commands for the software package. 
 
-As tape technology waned and other storage technologies became more common. Most of those same software packages adapted from tape management into virtual tape libraries, with CD-ROM, HDD, and SSD storage media instead of tape, and Oracle RMAN continued to interface with them through the API as before.  Oracle doesn't charge anything more for this functionality, but the vendors of the various software vendors charge licensing and support for their “plug-ins” to connect to the API for RMAN published by Oracle. 
+As tape technology waned and other storage technologies became more common. Oracle doesn't charge anything more for this functionality, but various software vendors may charge licensing and support fees for their “plug-ins” to connect to the API for RMAN published by Oracle. 
 
 To use Device type SBT, the corresponding media management vendor (MMV) software must be previously installed onto the OS platform on which the Oracle database is available.  Backups to the SBT installation aren't available “out of the box” following an Oracle database installation.  Where there's no limit to the number of MMV packages that can be connected to an Oracle database instance, but it's exceedingly rare for there to be more than one in use at any time. 
 
@@ -34,9 +34,9 @@ Other software packages can be found by searching the Azure Marketplace…
 
 ## Device type disk 
 
-The other more universal configuration option for Oracle RMAN is device type disk, which means streamed database backup images are written out to OS filesystem directories, which are directly addressable from the OS image on which the Oracle database runs.  This means that the storage used for backups is either directly mounted on the OS platform, or remotely mounted as a fileshare. 
+The other more universal configuration option for Oracle RMAN is device type disk, which means streamed database backup images are written to OS filesystem directories directly addressable from the OS image on which the Oracle database runs.  This configuration means the storage used for backups is either directly mounted on the OS platform, or remotely mounted as a fileshare. 
 
-There's no extra licensing or support charged for option, as the DISK adapter for Oracle RMAN is entirely contained within the Oracle RDBMS software. 
+There's no extra licensing or support charges for this option because the DISK adapter for Oracle RMAN is entirely contained within the Oracle RDBMS software. 
 
 There are six storage options for Oracle RMAN backups within an Azure VM, of which five are Azure fileshares.
 
@@ -79,10 +79,10 @@ Each of these options has advantages or disadvantages in the areas of capacity, 
 
 <sup>4</sup> Uses CIFS protocol for which later versions of RHEL/OEL Linux are recommended.
 
-- do not use lower Linux versions (i.e. RHEL7/OEL7 below 7.5 or below) for CIFS
+- don't use lower Linux versions (that is, RHEL7/OEL7 below 7.5) for CIFS
 - consider using mount option ``cache=none`` for Oracle archived redo log files use-case with CIFS mounts.
 
-<sup>5</sup> supported on Github by the Azure Storage product group within Microsoft as an open source project in Github.
+<sup>5</sup> supported on GitHub by the Azure Storage product group within Microsoft as an open source project in GitHub.
 
 <sup>6</sup> _hot_ usage tier recommended.
 
@@ -94,7 +94,7 @@ Each of these options has advantages or disadvantages in the areas of capacity, 
 
 <sup>10</sup> I/O throughput of 128 MiB/s per TiB allocated.
 
-<sup>11</sup> [ANF calculator](https://anftechteam.github.io/calc/) is extremely useful for quick pricing calculations.
+<sup>11</sup> [ANF calculator](https://anftechteam.github.io/calc/) is useful for quick pricing calculations.
 
 ## next steps
 [Storage options for oracle on Azure VMs](oracle-storage.md)
