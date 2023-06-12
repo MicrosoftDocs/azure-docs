@@ -92,7 +92,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
 1. Identify the locations in your code that create a `ProducerClient` or `ConsumerClient` instance to connect to Azure Event Hubs. Update your code to match the following example:
 
     ```go
-	credential, err := azidentity.NewDefaultAzureCredential(nil)
+    credential, err := azidentity.NewDefaultAzureCredential(nil)
     eventHubNamespace := fmt.Sprintf("https://%s.servicebus.windows.net", namespace)
 
 	if err != nil {
@@ -100,7 +100,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
 	}
 
     // Event Hubs producer
-	producerClient, err = azeventhubs.NewProducerClient(eventHubNamespace, eventHubName, credential, nil)
+    producerClient, err = azeventhubs.NewProducerClient(eventHubNamespace, eventHubName, credential, nil)
 
 	if err != nil {
 		// handle error
