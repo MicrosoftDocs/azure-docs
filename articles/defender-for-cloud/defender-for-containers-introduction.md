@@ -5,7 +5,7 @@ ms.topic: overview
 author: bmansheim
 ms.author: benmansheim
 ms.custom: ignite-2022
-ms.date: 05/09/2022
+ms.date: 06/12/2023
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -76,7 +76,7 @@ Examples of security events that Microsoft Defenders for Containers monitors inc
 
 You can view security alerts by selecting the Security alerts tile at the top of the Defender for Cloud's overview page, or the link from the sidebar.
 
-  :::image type="content" source="media/managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="screenshot showing how to get to the security alerts page from Microsoft Defender for Cloud's overview page":::
+  :::image type="content" source="media/managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Screenshot showing how to get to the security alerts page from Microsoft Defender for Cloud's overview page." lightbox="media/managing-and-responding-alerts/overview-page-alerts-links.png":::
 
 The security alerts page opens. 
 
