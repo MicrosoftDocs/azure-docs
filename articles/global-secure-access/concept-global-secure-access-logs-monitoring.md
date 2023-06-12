@@ -23,7 +23,7 @@ As an IT administrator, you need to monitor the performance, experience, and ava
     - Security Administrator
     - Global Reader
     - Global Administrator
-- Exporting the enriched Microsoft 365 logs require a **Global Administrator** or **Security Administrator** role
+- Exporting the enriched Microsoft 365 logs requires a **Global Administrator** or **Security Administrator** role
 
 ## Network traffic dashboard
 

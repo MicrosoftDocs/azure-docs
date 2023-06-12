@@ -43,7 +43,7 @@ sections:
           answer: |
             Private DNS is currently not supported. Specify the Hostname or FQDN being used to access the internal resource in the Quick Access configuration along with the respective port.
         - question: |
-              I tried to delete adn reinstall my Quick Access app to resolve an issue, but the issue persists.
+              I tried to delete and reinstall my Quick Access app to resolve an issue, but the issue persists.
           answer: |
             Submit a support request.
 

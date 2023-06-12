@@ -59,7 +59,7 @@ To edit the details of a remote network:
 1. Select the **Delete** button. 
 1. Select **Delete** from the confirmation message.
 
-![Screenshot of the delete remote network button](media/how-to-manage-remote-networks/delete-remote-network.png)
+![Screenshot of the delete remote network button.](media/how-to-manage-remote-networks/delete-remote-network.png)
 
 ### Delete a remote network using the API
 
