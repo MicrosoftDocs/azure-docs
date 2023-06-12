@@ -19,7 +19,11 @@ This article contains the regional availability for all summarization features.
 
 |Region|Document abstractive summarization|Conversation issue and resolution summarization|Conversation narrative summarization with chapters|Custom summarization|
 |------------|------------------|------------------|------------------|------------------|-|
-|North Europe|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:| |
-|East US|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:| |
-|UK South|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:| |
-|Southeast Asia| | | |:heavy_check_mark:|
+|North Europe|&#9989;|&#9989;|&#9989;| |
+|East US|&#9989;|&#9989;|&#9989;| |
+|UK South|&#9989;|&#9989;|&#9989;| |
+|Southeast Asia| | | |&#9989;|
+
+## Next steps
+
+* [Summarization overview](overview.md)
