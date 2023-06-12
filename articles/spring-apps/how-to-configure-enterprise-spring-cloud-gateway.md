@@ -73,6 +73,7 @@ az spring spring-cloud-gateway delete \
     --service <Azure-Spring-Apps-instance-name>
 ```
 
+---
 
 ## Restart Spring Cloud Gateway
 
