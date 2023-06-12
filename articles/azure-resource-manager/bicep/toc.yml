@@ -51,6 +51,8 @@
     href: learn-bicep.md
   - name: Learn live - Bicep
     href: /events/learntv/learnlive-iac-and-bicep/
+  - name: Use deployment stacks
+    href: ./tutorial-use-deployment-stacks.md
 - name: Samples - Azure Services
   items:
   - name: AI + Machine Learning

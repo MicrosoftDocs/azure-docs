@@ -2,7 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep .
 ms.topic: conceptual
-ms.date: 06/05/2023
+ms.date: 06/12/2023
 ---
 
 # Deployment stacks (Preview)
@@ -21,12 +21,12 @@ Deployment stacks provide the following benefits:
 
 - The ease of provisioning and managing resources across various [scopes](./deploy-to-resource-group.md) as a single atomic unit.
 - The option to prevent undesirable changes to managed resources using the `DenySettingsMode`.
-- The ability to rapidly clean up environments by setting appropriate delete flags on a Deployment stack update.
+- The ability to rapidly cleanup environments by setting appropriate delete flags on a Deployment stack update.
 - The ability to use standard templates, including [Bicep](./overview.md), [ARM templates](../templates/overview.md), or [Template specs](./template-specs.md) for your Deployment stacks.
 
 ### Known issues (remove this section)
 
-jgao: not sure we need to list the known issues.
+jgao: Angel will update this list.
 
 The `2022-08-01-preview` private preview API version has the following limitations:
 
@@ -197,8 +197,6 @@ The list of managed resources can be fully controlled through the infrastructure
 
 ### Use the Set command
 
-jgao: no set command for Azure CLI.
-
 To update a deployment stack at the resource group scope:
 
 # [PowerShell](#tab/azure-powershell)
@@ -221,6 +219,9 @@ az stack group create \
   --deny-settings-mode none
 ```
 
+> [!NOTE]
+> Azure CLI doesn't have a deployment stack set command.  Use the new command instead.
+
 ---
 
 To update a deployment stack at the management group scope:
@@ -236,7 +237,7 @@ Set-AzManagmentGroupDeploymentStack `
   -DeploymentSubscriptionId '<subscription-id>' `
   -DenySettingsMode none
 ```
-
+DenySettingsMode
 # [CLI](#tab/azure-cli)
 
 ```azurecli
@@ -310,7 +311,7 @@ New-AzSubscriptionDeploymentStack `
   -DeleteAll
 ```
 
-jgao: include  -DenySettingsMode none here?
+jgao: include -DenySettingsMode none here? - Yes
 
 # [CLI](#tab/azure-cli)
 
@@ -599,31 +600,6 @@ az stack sub export \
 ```
 
 ---
-
-## Troubleshooting (Discuss with the dev team about this secion)
-
-jgao: please provide the cli commands for this section.
-
-Deployment stacks contain some diagnostic information that isn't displayed by default. When troubleshooting problems with an update, save the objects to analyze them further:
-
-```azurepowershell
-$stack =  Get-AzSubscriptionDeploymentStack `
-            -Name '<deployment-stack-name>'
-```
-
-There may be more than one level for the error messages, to easily see them all at once:
-
-```powershell
-$stack.Error | ConvertTo-Json -Depth 50
-```
-
-If a deployment was created and the failure occurred during deployment, you can retrieve details of the deployment using the deployment commands.  For example if your template was deployed to a resource group:
-
-```azurepowershell
-Get-AzResourceGroupDeployment -Id $stack.DeploymentId
-```
-
-You can get more information from the [deployment operations](../templates/deployment-history.md#deployment-operations-and-error-message) as needed.
 
 ## Next steps
 

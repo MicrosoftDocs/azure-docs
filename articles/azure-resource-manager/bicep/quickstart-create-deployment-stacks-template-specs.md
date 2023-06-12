@@ -150,7 +150,7 @@ To list the deployed deployment stacks at the subscription level:
 az stack group show --resource-group demoRg --name demoStack
 ```
 
-The output shows four managed resource - two resource groups and two public IPs:
+The output shows two managed resources - one storage account and one virtual network:
 
 ```output
 {
