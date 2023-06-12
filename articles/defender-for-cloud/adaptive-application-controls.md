@@ -4,7 +4,7 @@ description: This document helps you use adaptive application control in Microso
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 06/12/2023
 
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
