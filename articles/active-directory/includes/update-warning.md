@@ -12,4 +12,4 @@ ms.custom: include file
 ---
 
 > [!IMPORTANT]
->Microsoft Azure Active Directory is becoming Microsoft Entra ID, for more information, see our [blog post](https://aka.ms/AADRebrandFAQ). Steps in these articles may vary slightly based on the portal you start from. Content will be updated to reflect the new Microsoft Entra admin center over the next few months.
+>Microsoft Azure Active Directory is becoming Microsoft Entra ID, for more information, see our [blog post](https://aka.ms/AzureADNewName). Steps in these articles may vary slightly based on the portal you start from. Content will be updated to reflect the new Microsoft Entra admin center over the next few months.
