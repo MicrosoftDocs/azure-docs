@@ -40,10 +40,11 @@ When you're setting up a scan, you can further scope it after providing the data
 * For [lineage extraction scan](#extract-lineage-preview):
     * Lineage extraction scan is currently not supported if your logical server in Azure disables public access or doesn't allow Azure services to access it.
     * Lineage extraction scan is scheduled to run every six hours by default. The frequency can't be changed.
-    * Lineage is captured only when the stored procedure execution transfers data from one table to another.
-    * If SQL views are referenced in stored procedures, they're currently captured as SQL tables.
-    * Lineage is not captured for temporary tables.
+    * Lineage is captured only when the stored procedure execution transfers data from one table to another. And it's not supported for temporary tables.
     * Lineage extraction is not supported for functions or triggers.
+    * Note due to the following limitations, currently you may see duplicate assets in the catalog if you have such scenarios.
+        * The object names in assets and fully qualified names follow the case used in stored procedure statements, which may not align with the object case in original data source.
+        * When SQL views are referenced in stored procedures, they're currently captured as SQL tables.
     
 ## Prerequisites
 

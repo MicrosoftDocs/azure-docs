@@ -69,8 +69,8 @@ In addition, column level lineage (Power BI subartifact lineage) and transformat
     * Currently the supported source types are Azure SQL Database, Azure Blob Storage, Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2. 
     * Column level lineage and transformation are only supported when using Azure SQL Database as source. Other sources are currently not supported. 
     * Limited information is currently shown for data sources where the Power BI Dataflow is created. For example, for a SQL server source of Power BI dataset, only server/database name is captured.
-    * Note due to the following limitations, if you scan both Power BI and the data sources that Power BI artifacts connect, currently you may see duplicate assets.
-        * The source object names in assets and fully qualified name follow the case used in Power BI settings/queries, which may not align with the object case in original data source.
+    * Note due to the following limitations, if you have such scenarios and scan both Power BI and the data sources that Power BI artifacts connect to, currently you may see duplicate assets in the catalog.
+        * The source object names in assets and fully qualified names follow the case used in Power BI settings/queries, which may not align with the object case in original data source.
         * When Power BI references SQL views, they are currently captured as SQL table assets.
         * When Power BI references Azure Dedicated SQL pools (formerly SQL DW) source, it's currently captured as Azure SQL Database assets.
 * For Power BI subartifact lineage:
