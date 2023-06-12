@@ -62,7 +62,7 @@ To ensure compliance with latest security requirements, we are unable to accommo
 
 - You can manually trigger the maintenance by pausing and resuming (or scaling) your SQL Dedicated pool after the start of a cycle for which a "Pending" notification has been received. The weekend maintenance cycle starts on Saturday at 00:00 UTC; the midweek maintenance cycle starts Tuesday at 12:00 UTC.
 
-- Although we do require a minimum window of 3 hours, note that maintenance usually takes less than 30 minutes to complete, but it may take longer in some cases. For example, if there are active transactions when the maintenance starts, they will be aborted and rolled back, which may cause delays in coming back online. To avoid this scenario, we recommend that you ensure that no long-running transactions are active during the start of your maintenance window.
+- Although we do require a minimum window of 3 hours. Under typical conditions, this operation will complete in well under 30 minutes, but it's important to note that in some cases, it can take longer. For instance, if there are active transactions when the maintenance begins, they will be canceled and rolled back, potentially causing delays in restoring the online service. To prevent this situation, we recommend ensuring that there are no long-running transactions active at the start of your maintenance window.
 
 > [!NOTE]
 > - If you change the window to a start time before the actual present time, maintenance will be triggered immediately and if there are active transactions when the maintenance starts, they will be aborted and rolled back.
