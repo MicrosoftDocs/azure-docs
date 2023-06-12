@@ -61,7 +61,7 @@ If you misconfigured your Private DNS Zone record set, a critical result appears
 
 In **DNS Resolution Table Renderings**, detailed message information displays from which you can check your configurations.
 
-If your VNET uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. Azure recursive resolvers uses this IP address to resolve requests. If you don't use the Azure recursive resolvers, the Azure Spring Apps environment won't function as expected. For more details, please see: [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+If your VNET uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. Azure recursive resolvers uses this IP address to resolve requests. If you don't use the Azure recursive resolvers, the Azure Spring Apps environment won't function as expected. For more details, please see: [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 
 ## Required Outbound Traffic
 
