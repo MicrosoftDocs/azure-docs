@@ -49,6 +49,10 @@
       href: default-individual-user-group-quotas-introduction.md
     - name: Requirements and considerations for large volumes
       href: large-volumes-requirements-considerations.md
+  - name: NAS volumes as a service
+    items:
+    - name: Understand file locking and the different types of locks
+      href: understand-file-locks.md
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files
