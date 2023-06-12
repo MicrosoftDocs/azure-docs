@@ -278,4 +278,4 @@ The application uses *authPopup.js* to handle the authentication flow when the u
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out of the Vanilla JS SPA](./how-to-single-page-app-vanillajs-sign-in-sign-out.md)
+> [Sign in and sign out of the vanilla JS SPA](./how-to-single-page-app-vanillajs-sign-in-sign-out.md)
