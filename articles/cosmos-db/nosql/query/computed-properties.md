@@ -72,17 +72,20 @@ The constraints on computed property query definitions are:
 
 ## Creating computed properties 
 
-During the preview, computed properties must be created using the .NET v3 SDK. Once the computed properties have been created, you can execute queries that reference them using any method including all SDKs and Data Explorer in the Azure portal.
+During the preview, computed properties must be created using the .NET v3 or Java v4 SDK. Once the computed properties have been created, you can execute queries that reference them using any method including all SDKs and Data Explorer in the Azure portal.
 
 |**SDK** |**Supported version** |**Notes** |
 |--------|----------------------|----------|
 |.NET SDK v3 |>= [3.34.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.34.0-preview) |Computed properties are currently only available in preview package versions. |
+|Java SDK v4 |>= [4.46.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.46.0) |Computed properties are currently under preview version. |
 
 ### Create computed properties using the SDK
 
 You can either create a new container with computed properties defined, or add them to an existing container. 
 
-Here's an example of how to create computed properties in a new container using the .NET SDK:
+Here's an example of how to create computed properties in a new container:
+
+### [.NET](#tab/dotnet)
 
 ```csharp
     ContainerProperties containerProperties = new ContainerProperties("myContainer", "/pk")
@@ -100,7 +103,19 @@ Here's an example of how to create computed properties in a new container using 
     Container container = await client.GetDatabase("myDatabase").CreateContainerAsync(containerProperties);
 ```
 
-Here's an example of how to update computed properties on an existing container using the .NET SDK:
+### [Java](#tab/java)
+
+```java
+CosmosContainerProperties containerProperties = new CosmosContainerProperties("myContainer", "/pk");
+List<ComputedProperty> computedProperties = new ArrayList<>(List.of(new ComputedProperty("cp_lowerName", "SELECT VALUE LOWER(c.name) FROM c")));
+containerProperties.setComputedProperties(computedProperties);
+client.getDatabase("myDatabase").createContainer(containerProperties);
+```
+---
+
+Here's an example of how to update computed properties on an existing container:
+
+### [.NET](#tab/dotnet)
 
 ```csharp
     var container = client.GetDatabase("myDatabase").GetContainer("myContainer");
@@ -124,6 +139,21 @@ Here's an example of how to update computed properties on an existing container 
     // Update container with changes
     await container.ReplaceContainerAsync(containerProperties);
 ```
+
+### [Java](#tab/java)
+
+```java
+CosmosContainer container = client.getDatabase("myDatabase").getContainer("myContainer");
+// Read the current container properties
+CosmosContainerProperties containerProperties = container.read().getProperties();
+// Make the necessary updates to the container properties
+Collection<ComputedProperty> modifiedComputedProperites = containerProperties.getComputedProperties();
+modifiedComputedProperites.add(new ComputedProperty("cp_upperName", "SELECT VALUE UPPER(c.firstName) FROM c"));
+containerProperties.setComputedProperties(modifiedComputedProperites);
+// Update container with changes
+container.replace(containerProperties);
+```
+---
 
 > [!TIP]
 > Every time you update container properties, the old values are overwritten. 
