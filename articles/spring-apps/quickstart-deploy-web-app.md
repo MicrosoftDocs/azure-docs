@@ -161,6 +161,20 @@ az group delete --name ${RESOURCE_GROUP}
 > [!div class="nextstepaction"]
 > [Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md)
 
+::: zone pivot="sc-standard, sc-consumption-plan"
+
+> [!div class="nextstepaction"]
+> [Run the Pet Clinic microservice on Azure Spring Apps](./quickstart-sample-app-introduction.md)
+
+::: zone-end
+
+::: zone pivot="sc-enterprise
+
+> [!div class="nextstepaction"]
+> [Run the polyglot ACME fitness store apps on Azure Spring Apps](./quickstart-sample-app-acme-fitness-store-introduction.md)
+
+::: zone-end
+
 For more information, see the following articles:
 
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
