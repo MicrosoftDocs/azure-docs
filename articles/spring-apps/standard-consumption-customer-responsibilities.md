@@ -31,13 +31,15 @@ The following tables describe how to configure a collection of NSG allow rules.
 
 ### Outbound with ServiceTags
 
-| Protocol | Port         | ServiceTag                 | Description                                                                                                                                                                                     |
-|----------|--------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| UDP      | `1194`       | `AzureCloud.<region>`      | Required for internal Azure Kubernetes Service (AKS) secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed. |
-| TCP      | `9000`       | `AzureCloud.<region>`      | Required for internal AKS secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed.                            |
-| TCP      | `443`        | `AzureMonitor`             | Allows outbound calls to Azure Monitor.                                                                                                                                                         |
-| TCP      | `443`        | `Azure Container Registry` | Enables the Azure Container Registry as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                     |
-| TCP      | `443`, `445` | `Azure Files`              | Enables Azure Storage as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                                    |
+| Protocol | Port         | ServiceTag                  | Description                                                                                                                                                                                     |
+|----------|--------------|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| UDP      | `1194`       | `AzureCloud.<region>`       | Required for internal Azure Kubernetes Service (AKS) secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed. |
+| TCP      | `9000`       | `AzureCloud.<region>`       | Required for internal AKS secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed.                            |
+| TCP      | `443`        | `AzureMonitor`              | Allows outbound calls to Azure Monitor.                                                                                                                                                         |
+| TCP      | `443`        | `Azure Container Registry`  | Enables the Azure Container Registry as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                     |
+| TCP      | `443`        | `MicrosoftContainerRegistry`| This is the service tag for container registry for microsoft containers                                                                                                                         |
+| TCP      | `443`        | `AzureFrontDoor.FirstParty` | This is a dependency of the `MicrosoftContainerRegistry` service tag.                                                                                                                           |
+| TCP      | `443`, `445` | `Azure Files`               | Enables Azure Storage as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                                    |
 
 ### Outbound with wild card IP rules
 
@@ -47,6 +49,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 | UDP      | `123`  | \* | NTP server.                                                                                                                                     |
 | TCP      | `5671` | \* | Container Apps control plane.                                                                                                                   |
 | TCP      | `5672` | \* | Container Apps control plane.                                                                                                                   |
+| Any      | *      | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, 10.0.0.0/21. |
 
 ### Outbound with FQDN requirements/application rules
 
