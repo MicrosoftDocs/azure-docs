@@ -1,5 +1,5 @@
 ---
-title: The Global Secure Access Client for Windows
+title: The Global Secure Access Client for Windows (preview)
 description: Install the Global Secure Access Client for Windows to enable client connectivity.
 ms.service: network-access
 ms.topic: how-to
@@ -9,7 +9,7 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: lirazb
 ---
-# The Global Secure Access Client for Windows
+# The Global Secure Access Client for Windows (preview)
 
 The Global Secure Access Client allows organizations control over network traffic at the end-user computing device, giving organizations the ability to route specific traffic profiles through Microsoft Entra Internet Access and Microsoft Entra Private Access. Routing traffic in this method allows for more controls like continuous access evaluation (CAE), device compliance, or multifactor authentication to be required for resource access.
 

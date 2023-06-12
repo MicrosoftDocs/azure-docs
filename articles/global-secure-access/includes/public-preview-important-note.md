@@ -4,11 +4,9 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.service: network-access
 ms.topic: include
-ms.date: 06/06/2023
+ms.date: 06/12/2023
 ms.custom: include file
 ---
-
-
 
 ## Terms of Use
 
