@@ -10,7 +10,13 @@ ms.author: austinmc
 
 # Use matching analytics to detect threats
 
-Take advantage of threat intelligence produced by Microsoft to generate high fidelity alerts and incidents with the **Microsoft Defender Threat Intelligence Analytics** rule. Check the prerequisites to validate which logs this rule will match indicators with.
+Take advantage of threat intelligence produced by Microsoft to generate high fidelity alerts and incidents with the **Microsoft Defender Threat Intelligence Analytics** rule. This rule will match indicators with the following logs:
+
+- Common Event Format (CEF) logs
+- Windows DNS events with domain, IP and URL threat indicators
+- Syslog data
+- Office activity logs
+- Azure activity logs
 
 > [!IMPORTANT]
 > Matching analytics is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -18,15 +24,28 @@ Take advantage of threat intelligence produced by Microsoft to generate high fid
 
 ## Prerequisites
 
-One or more of the following data sources must be connected:
+- Install the solution **Threat Intelligence (Preview)** from the content hub in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)](sentinel-solutions-deploy.md).
+- Install the appropriate solutions from the content hub and connect the data connectors to get following data sources in Microsoft Sentinel:
 
-- Common Event Format (CEF)
-- DNS (Preview)
-- Syslog
-- Office activity logs
-- Azure activity logs
+  - Common Event Format (CEF)
+  - DNS (Preview)
+  - Syslog
+  - Office activity logs
+  - Azure activity logs
 
-:::image type="content" source="media/use-matching-analytics-to-detect-threats/data-sources.png" alt-text="A screenshot showing the Microsoft Defender Threat Intelligence Analytics rule data source connections."::: 
+  :::image type="content" source="media/use-matching-analytics-to-detect-threats/data-sources.png" alt-text="A screenshot showing the Microsoft Defender Threat Intelligence Analytics rule data source connections."::: 
+
+  For example, depending on your data source you might use the following solutions and data connectors.
+
+  |Solution |Data connector  |
+  |---------|---------|
+  |[Common Event Format solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-commoneventformat?tab=Overview) |[Common Event Format (CEF) via AMA connector for Microsoft Sentinel](/data-connectors/common-event-format-cef-via-ama.md) |
+  |[Windows Server DNS](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dns?tab=Overview)  |[Windows DNS Events via AMA (Preview) connector for Microsoft Sentinel](/data-connectors/windows-dns-events-via-ama.md) |
+  |[Syslog solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-syslog?tab=Overview)  |[Syslog connector for Microsoft Sentinel](/data-connectors/syslog.md)  |
+  |[Microsoft 365 solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-office365?tab=Overview) | [Office 365 connector for Microsoft Sentinel](data-connectors/office-365.md)    |
+  |[Azure Activity solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivity?tab=Overview)    |  [Azure Activity connector for Microsoft Sentinel](/data-connectors/azure-activity.md)       |
+
+
 
 ## Configure the matching analytics rule
 
