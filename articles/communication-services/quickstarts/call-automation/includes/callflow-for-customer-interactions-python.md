@@ -80,12 +80,14 @@ call_automation_client = CallAutomationClient.from_connection_string(connection_
 def handle_incoming_call():
     try:
         for event_grid_event in request.get_json():
+            event_data = event_grid_event["data"]
+
             if (
                 event_grid_event["eventType"]
                 == "Microsoft.EventGrid.SubscriptionValidationEvent"
             ):
                 validation_response = {
-                    "validationResponse": event_grid_event["data"]["validationCode"],
+                    "validationResponse": event_data["validationCode"],
                     "status": 200,
                 }
                 response = make_response(jsonify(validation_response))
@@ -94,11 +96,9 @@ def handle_incoming_call():
 
             if event_grid_event["eventType"] == "Microsoft.Communication.IncomingCall":
                 call_automation_client.answer_call(
-                    incoming_call_context=event_grid_event["data"][
-                        "incomingCallContext"
-                    ],
+                    incoming_call_context=event_data["incomingCallContext"],
                     callback_url="%s/api/calls?callerId=%s"
-                    % (public_uri, event_grid_event["data"]["from"]["rawId"]),
+                    % (public_uri, event_data["from"]["rawId"]),
                 )
 
         return "", 200
