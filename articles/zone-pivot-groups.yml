@@ -1688,6 +1688,8 @@ groups:
     title: Studio
   - id: rest-api
     title: REST
+  - id: programming-language-python
+    title: Python
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
