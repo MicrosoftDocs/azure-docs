@@ -6,6 +6,7 @@ ms.author: yuchungchen
 ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---

@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, 
 
 [!INCLUDE [sdk/cli v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK/CLI extension you are using:"]
-> * [v1](how-to-secure-workspace-vnet.md)
-> * [v2 (current version)](../how-to-secure-workspace-vnet.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
 

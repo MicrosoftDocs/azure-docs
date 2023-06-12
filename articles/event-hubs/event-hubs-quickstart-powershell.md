@@ -3,7 +3,7 @@ title: 'Quickstart: Create an event hub using PowerShell'
 description: This quickstart describes how to create an event hub using Azure PowerShell and then send and receive events using .NET Standard SDK.
 ms.topic: quickstart
 ms.date: 03/13/2023
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, devx-track-dotnet
 ---
 
 # Quickstart: Create an event hub using Azure PowerShell

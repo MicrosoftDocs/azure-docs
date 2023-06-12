@@ -3,23 +3,21 @@ title: "Workplace from Facebook (using Azure Functions) connector for Microsoft 
 description: "Learn how to install the connector Workplace from Facebook (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Workplace from Facebook (using Azure Functions) connector for Microsoft Sentinel
 
-The [Workplace](https://www.workplace.com/) data connector provides the capability to ingest common Workplace events into Azure Sentinel through Webhooks. Webhooks enable custom integration apps to subscribe to events in Workplace and receive updates in real time. When a change occurs in Workplace, an HTTPS POST request with event information is sent to a callback data connector URL.  Refer to [Webhooks documentation](https://developers.facebook.com/docs/workplace/reference/webhooks) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
+The [Workplace](https://www.workplace.com/) data connector provides the capability to ingest common Workplace events into Microsoft Sentinel through Webhooks. Webhooks enable custom integration apps to subscribe to events in Workplace and receive updates in real time. When a change occurs in Workplace, an HTTPS POST request with event information is sent to a callback data connector URL.  Refer to [Webhooks documentation](https://developers.facebook.com/docs/workplace/reference/webhooks) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | WorkplaceAppSecret<br/>WorkplaceVerifyToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure functions app code** | https://aka.ms/sentinel-WorkplaceFacebook-functionapp |
-| **Kusto function alias** | Workplace_Facebook |
-| **Kusto function url** | https://aka.ms/sentinel-WorkplaceFacebook-parser |
+| **Azure function app code** | https://aka.ms/sentinel-WorkplaceFacebook-functionapp |
 | **Log Analytics table(s)** | Workplace_Facebook_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -39,7 +37,7 @@ Workplace_Facebook
 
 To integrate with Workplace from Facebook (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **Webhooks Credentials/permissions**: WorkplaceAppSecret, WorkplaceVerifyToken, Callback URL are required for working Webhooks. See the documentation to learn more about [configuring Webhooks](https://developers.facebook.com/docs/workplace/reference/webhooks), [configuring permissions](https://developers.facebook.com/docs/workplace/reference/permissions). 
 
 
@@ -47,14 +45,14 @@ To integrate with Workplace from Facebook (using Azure Functions) make sure you 
 
 
 > [!NOTE]
-   >  This data connector uses Azure Functions based on HTTP Trigger for waiting POST requests with logs to pull its logs into Azure Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+   >  This data connector uses Azure Functions based on HTTP Trigger for waiting POST requests with logs to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-WorkplaceFacebook-parser) to create the Kusto functions alias, **Workplace_Facebook**
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias WorkplaceFacebook and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Workplace%20from%20Facebook/Parsers/Workplace_Facebook.txt) on the second line of the query, enter the hostname(s) of your Workplace Facebook device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
 **STEP 1 - Configuration steps for the Workplace**
@@ -102,7 +100,7 @@ Use the following step-by-step instructions to deploy the Workplace data connect
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-WorkplaceFacebook-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -122,7 +120,7 @@ If you're already signed in, go to the next step.
 
 	e. **Select a runtime:** Choose Python 3.8.
 
-	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Azure Sentinel is located.
+	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
 
 6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.
 7. Go to Azure Portal for the Function App configuration.

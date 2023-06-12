@@ -5,7 +5,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.custom: ignite-2022
 ms.topic: include
-ms.date: 01/31/2023
+ms.date: 05/16/2023
 ---
 
 ### Copy activity support
@@ -58,6 +58,8 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 - CSV and Parquet files on Azure Blob, Azure Files, ADLS Gen1, ADLS Gen2, and Amazon S3
 - Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
 
+For external tables, lineage only shows the relationship between the stored procedure and tables. The relationship of the external tables to their original files are not currently shown.
+
 ### Data Flow support
 
 | Data store | Supported |
@@ -77,4 +79,6 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 
 #### Limitations on data flow lineage
 
-Currently, data flow lineage doesn't integrate with Microsoft Purview [resource set](../concept-resource-sets.md).
+- Currently, data flow lineage doesn't integrate with Microsoft Purview [resource set](../concept-resource-sets.md).
+- For external tables, lineage only shows the relationship between the stored procedure and tables. The relationship of the external tables to their original files are not currently shown.
+- For the lineage of Dataflow activity, Microsoft Purview only support showing the source and sink involved. The detailed lineage for Dataflow transformation isn't supported yet.

@@ -16,7 +16,7 @@ items:
     href: whats-new.md
   - name: Computer Vision FAQ
     href: FAQ.yml
-- name: Use cases
+- name: Scenario deep-dives
   items:
   - name: Generate alt text for images
     href: use-case-alt-text.md

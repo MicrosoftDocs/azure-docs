@@ -1,29 +1,26 @@
 ---
 title: Sign in users in a sample React single-page application
-description: Learn how to configure a sample React SPA to sign in and sign out users.
+description: Learn how to configure a sample React single-page app (SPA) to sign in and sign out users.
 services: active-directory
 author: garrodonnell
 manager: celestedg
 ms.author: godonnell
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/23/2023
-ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample React Single Page Application to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample React single-page app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample React single-page application 
+# Sign in users in a sample React single-page app (SPA) 
 
-This how-to guide uses a sample React single-page application (SPA) to demonstrate how to add authentication to a SPA. This SPA enables users to sign in and sign out by using you Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
+This guide uses a sample React single-page application (SPA) to demonstrate how to add authentication to a SPA. This SPA enables users to sign in and sign out by using you Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 ## Prerequisites
-
-* Although any IDE that supports vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* Although any IDE that supports React applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
-* Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+* Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 
 ## Register the SPA in the Microsoft Entra admin center
@@ -80,7 +77,6 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 1. Save the file.
 
 ## Run your project and sign in
-
 All the required code snippets have been added, so the application can now be called and tested in a web browser.
 
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
@@ -98,5 +94,5 @@ All the required code snippets have been added, so the application can now be ca
 1. Once signed in the display name is shown next to the **Sign out** button.
 
 ## Next steps
-
-Learn how to use the Microsoft Authentication Library (MSAL) for JavaScript to sign in users and acquire tokens to call Microsoft Graph.
+> [!div class="nextstepaction"]
+> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)

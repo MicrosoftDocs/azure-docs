@@ -6,7 +6,7 @@ author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/21/2023
+ms.date: 05/31/2023
 manager: nitinme
 keywords: ChatGPT
 
@@ -237,6 +237,9 @@ When you run the code above you will get a blank console window. Enter your firs
 The previous example will run until you hit the model's token limit. With each question asked, and answer received, the `messages` array grows in size. The token limit for `gpt-35-turbo` is 4096 tokens, whereas the token limits for `gpt-4` and `gpt-4-32k` are 8192 and 32768 respectively. These limits include the token count from both the message array sent and the model response. The number of tokens in the messages array combined with the value of the `max_tokens` parameter must stay under these limits or you'll receive an error.
 
 It's your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the limit.
+
+> [!NOTE]  
+> We strongly recommend staying within the [documented input token limit](../concepts/models.md) for all models even if you find you are able to exceed that limit.
 
 The following code sample shows a simple chat loop example with a technique for handling a 4096 token count using OpenAI's tiktoken library.
 

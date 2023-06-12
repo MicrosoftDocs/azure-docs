@@ -5,7 +5,7 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: troubleshooting
-ms.date: 04/24/2023
+ms.date: 05/31/2023
 ms.custom: engagement-fy23
 ---
 
@@ -97,7 +97,7 @@ The component trying to replicate data to Azure is either down or not responding
         
       2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles *migrategwsa\*\*\*\*\*\*\*\*\*\**. This is the value of parameter [account] in the above command.
         
-      3. Search for your storage account in the Azure portal. Ensure that the subscription you use to search is the same subscription (target subscription) in which the storage account is created. Go to Containers in the Blob Service section. Select **+Container** and create a Container. Retain Public Access Level to the default selected value.
+      3. Search for your storage account in the Azure portal. Ensure that the subscription you use to search is the same subscription (target subscription) in which the storage account is created. Go to Containers in the Blob Service section. Select **+Container** and create a Container. Ensure you provide *write* permission to the container. Retain Public Access Level to the default selected value.
         
       4. Go to **Settings** > **Shared Access Signature** and select **Container** in **Allowed Resource Type**. 
       
