@@ -168,7 +168,7 @@ az group delete --name ${RESOURCE_GROUP}
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise
+::: zone pivot="sc-enterprise"
 
 > [!div class="nextstepaction"]
 > [Run the polyglot ACME fitness store apps on Azure Spring Apps](./quickstart-sample-app-acme-fitness-store-introduction.md)
