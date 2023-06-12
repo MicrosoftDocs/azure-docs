@@ -74,7 +74,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported | Chicago, Chicago2, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[Cox Business Cloud Port](https://www.cox.com/business/networking/cloud-connectivity.html)** |Supported |Supported | Dallas, Phoenix, Silicon Valley, Washington DC |
 | **Crown Castle** |Supported |Supported | New York |
-| **[DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)** | Supported |Supported | Amsterdam2, Chennai, Chicago2, Dallas, Dubai2, Frankfurt, Frankfurt2, Kuala Lumpur, Madrid, Marseille, Mumbai, Munich, New York, Phoenix, Singapore2 |
+| **[DE-CIX](https://www.de-cix.net/en/services/directcloud/microsoft-azure)** | Supported |Supported | Amsterdam2, Chennai, Chicago2, Dallas, Dubai2, Frankfurt, Frankfurt2, Kuala Lumpur, Madrid, Marseille, Mumbai, Munich, New York, Phoenix, Singapore2 |
 | **[Cirion Technologies](https://lp.ciriontechnologies.com/cloud-connect-lp-latam?c_campaign=HOTSITE&c_tactic=&c_subtactic=&utm_source=SOLUCIONES-CTA&utm_medium=Organic&utm_content=&utm_term=&utm_campaign=HOTSITE-ESP)** | Supported | Supported | Bogota, Queretaro, Rio De Janeiro |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Supported |Supported | Miami |
 | **Cloudflare** |Supported |Supported | Los Angeles |

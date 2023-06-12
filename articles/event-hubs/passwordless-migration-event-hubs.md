@@ -4,7 +4,7 @@ titleSuffix: Azure Event Hubs
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security with Azure Event Hubs.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/06/2023
+ms.date: 06/12/2023
 ms.service: event-hubs
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
@@ -39,6 +39,8 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
 `DefaultAzureCredential` supports multiple authentication methods. The method to use is determined at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. See the preceding links for the order and locations in which `DefaultAzureCredential` looks for credentials.
 
+## [.NET](#tab/dotnet)
+
 1. To use `DefaultAzureCredential` in a .NET application, install the `Azure.Identity` package:
 
    ```dotnetcli
@@ -53,25 +55,196 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
 1. Identify the locations in your code that create an `EventHubProducerClient` or `EventProcessorClient` object to connect to Azure Event Hubs. Update your code to match the following example:
 
-   ```csharp
-   DefaultAzureCredential credential = new();
+    ```csharp
+    DefaultAzureCredential credential = new();
+    var eventHubNamespace = $"https://{namespace}.servicebus.windows.net";
 
-    // Event hubs producer
+    // Event Hubs producer
     EventHubProducerClient producerClient = new(
-        "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
-        "<HUB_NAME>",
+        eventHubNamespace,
+        eventHubName,
         credential);
 
-    // Event hubs processor
-    EventProcessorClient processor = new(
+    // Event Hubs processor
+    EventProcessorClient processorClient = new(
         storageClient,
         EventHubConsumerClient.DefaultConsumerGroupName,
-        "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
-        "<HUB_NAME>",
+        eventHubNamespace,
+        eventHubName,
         credential);
     ```
 
-1. Make sure to update the event hubs namespace in the URI of your `EventHubProducerClient` or `EventProcessorClient` objects. You can find the namespace name on the overview page of the Azure portal.
+## [Go](#tab/go)
+
+1. To use `DefaultAzureCredential` in a Go application, install the `azidentity` module:
+
+    ```bash
+    go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+    ```
+
+1. Identify the locations in your code that create a `ProducerClient` or `ConsumerClient` instance to connect to Azure Event Hubs. Update your code to match the following example:
+
+    ```go
+    credential, err := azidentity.NewDefaultAzureCredential(nil)
+    eventHubNamespace := fmt.Sprintf(
+        "https://%s.servicebus.windows.net",
+        namespace)
+
+    if err != nil {
+        // handle error
+    }
+
+    // Event Hubs producer
+    producerClient, err = azeventhubs.NewProducerClient(
+        eventHubNamespace,
+        eventHubName,
+        credential,
+        nil)
+
+    if err != nil {
+        // handle error
+    }
+
+    // Event Hubs processor
+    processorClient, err = azeventhubs.NewConsumerClient(
+        eventHubNamespace,
+        eventHubName,
+        azeventhubs.DefaultConsumerGroup,
+        credential,
+        nil)
+
+    if err != nil {
+        // handle error
+    }
+    ```
+
+## [Java](#tab/java)
+
+1. To use `DefaultAzureCredential` in a Java application, install the `azure-identity` package via one of the following approaches:
+    1. [Include the BOM file](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-the-bom-file).
+    1. [Include a direct dependency](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-direct-dependency).
+
+1. At the top of your file, add the following code:
+
+    ```java
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    ```
+
+1. Identify the locations in your code that create an `EventHubProducerClient` or `EventProcessorClient` object to connect to Azure Event Hubs. Update your code to match the following example:
+
+    ```java
+    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+        .build();
+    String eventHubNamespace = "https://" + namespace + ".servicebus.windows.net";
+
+    // Event Hubs producer
+    EventHubProducerClient producerClient = new EventHubClientBuilder()
+        .credential(eventHubNamespace, eventHubName, credential)
+        .buildProducerClient();
+
+    // Event Hubs processor
+    EventProcessorClient processorClient = new EventProcessorClientBuilder()
+        .consumerGroup(consumerGroupName)
+        .credential(eventHubNamespace, eventHubName, credential)
+        .checkpointStore(new SampleCheckpointStore())
+        .processEvent(eventContext -> {
+            System.out.println(
+                "Partition ID = " +
+                eventContext.getPartitionContext().getPartitionId() +
+                " and sequence number of event = " +
+                eventContext.getEventData().getSequenceNumber());
+        })
+        .processError(errorContext -> {
+            System.out.println(
+                "Error occurred while processing events " +
+                errorContext.getThrowable().getMessage());
+        })
+        .buildEventProcessorClient();
+    ```
+
+## [Node.js](#tab/nodejs)
+
+1. To use `DefaultAzureCredential` in a Node.js application, install the `@azure/identity` package:
+
+    ```bash
+    npm install --save @azure/identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```nodejs
+    import { DefaultAzureCredential } from "@azure/identity";
+    ```
+
+1. Identify the locations in your code that create an `EventHubProducerClient` or `EventHubConsumerClient` object to connect to Azure Event Hubs. Update your code to match the following example:
+
+    ```nodejs
+    const credential = new DefaultAzureCredential();
+    const eventHubNamespace = `https://${namespace}.servicebus.windows.net`;
+
+    // Event Hubs producer    
+    const producerClient = new EventHubProducerClient(
+        eventHubNamespace,
+        eventHubName,
+        credential);
+
+    // Event Hubs processor
+    const processorClient = new EventHubConsumerClient(
+        consumerGroupName,
+        eventHubNamespace,
+        eventHubName,
+        credential
+    );
+    ```
+
+## [Python](#tab/python)
+
+1. To use `DefaultAzureCredential` in a Python application, install the `azure-identity` package:
+    
+    ```bash
+    pip install azure-identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```python
+    from azure.identity import DefaultAzureCredential
+    ```
+
+1. Identify the locations in your code that create an `EventHubProducerClient` or `EventHubConsumerClient` object to connect to Azure Event Hubs. Update your code to match the following example:
+
+    ```python
+    credential = DefaultAzureCredential()
+    event_hub_namespace = "https://%s.servicebus.windows.net" % namespace
+
+    # Event Hubs producer
+    producer_client = EventHubProducerClient(
+        fully_qualified_namespace = event_hub_namespace,
+        eventhub_name = event_hub_name,
+        credential = credential
+    )
+
+    # Event Hubs processor
+    processor_client = EventHubConsumerClient(
+        fully_qualified_namespace = event_hub_namespace,
+        eventhub_name = event_hub_name,
+        consumer_group = "$Default",
+        checkpoint_store = checkpoint_store,
+        credential = credential
+    )
+    ```
+
+---
+
+4. Make sure to update the event hubs namespace in the URI of your `EventHubProducerClient` or `EventProcessorClient` objects. You can find the namespace name on the overview page of the Azure portal.
 
     :::image type="content" source="media/event-hubs-passwordless/event-hubs-namespace.png" alt-text="Screenshot showing how to find the namespace name.":::
 
