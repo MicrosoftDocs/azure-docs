@@ -42,7 +42,18 @@ The Global Secure Access traffic logs provide a summary of the network connectio
 
 For more information, see [Global Secure Access traffic logs](how-to-view-traffic-logs.md).
 
+## Enriched Office 365 logs
+
+The *Enriched Office 365 logs* provide you with the information you need to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. You can integrate the logs with a Log Analytics workspace or third-party SIEM tool for further analysis.
+
+Customers use existing *Office Audit logs* for monitoring, detection, investigation, and analytics. We understand the importance of these logs and have partnered with Microsoft 365 to include SharePoint logs. These enriched logs include details like client information and original public IP details that can be used for troubleshooting security scenarios.
+
+Customers use the existing Office Audit logs for monitoring, detection, investigation, and analytics. The *Enriched Office 365 logs* build on these logs by adding information from SharePoint logs, such as client information and original public IP details that can be used for security scenarios. 
+
+For more information, see [Enriched Office 365 logs](how-to-view-enriched-logs.md).
+
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Next steps
 
 - [Learn how to access, store, and analyze Azure AD activity logs](../active-directory/reports-monitoring/howto-access-activity-logs.md)
