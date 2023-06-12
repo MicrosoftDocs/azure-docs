@@ -30,7 +30,7 @@ The following code example demonstrates how to connect to Azure Service Bus usin
 ## [.NET](#tab/dotnet)
 
 ```csharp
-await using var client = new ServiceBusClient("<CONNECTION-STRING>");
+await using ServiceBusClient client = new("<CONNECTION-STRING>");
 ```
 
 ## [Go](#tab/go)
