@@ -15,17 +15,18 @@ ms.date: 06/09/2023
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to re-score search results, moving results that have more semantic relevance to the top of the list. Semantic search improves an initial result set was generated from a BM25 ranking. In many cases, semantic search significantly improves overall relevance, with minimal work for the developer.
+In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to rescore search results, moving results that have more semantic relevance to the top of the list. Depending on the content and the query, semantic search can significantly improve a BM25-ranked result set, with minimal work for the developer.
 
-This quickstart shows the query modifications that invoke semantic search. 
+This quickstart walks you through the query modifications that invoke semantic search.
+
+> [!NOTE]
+> Looking for a Cognitive Search solution with Chat-GPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
 
 ## Prerequisites
 
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
 + Azure Cognitive Search, at Standard one (S1) tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
-
-+ An existing search index, with a client that can send queries. Run at least one query on your index to verify it's operational.
-
-  For this quickstart, we use the small index of four hotels created in the [full text search quickstart](search-get-started-text.md). A small index with minimal content is suboptimal for semantic search, but the quickstarts include query logic for a broad range of clients, which is useful for learning syntax.
 
 + An API key and search endpoint:
 
@@ -39,11 +40,17 @@ This quickstart shows the query modifications that invoke semantic search.
 
 ## Add semantic search
 
-You can update an existing search index to include a *semantic configuration* and a *semantic query type*. This update doesn't require a reindexing of content. 
+To use semantic search, add a *semantic configuration* to a search index, and add parameters to a query. If you have an existing index, you can make these changes without having to reindex your content because there's no impact on the structure of your searchable content.
 
-+ A semantic configuration establishes a priority order for fields that contribute a title, keywords, and content used in semantic reranking. Specifying field priority is necessary for query performance.
++ A semantic configuration establishes a priority order for fields that contribute a title, keywords, and content used in semantic reranking. Field prioritization allows for faster processing.
 
-+ Queries that invoke semantic search include parameters for query type, query language, and whether captions and answers are returned. 
++ Queries that invoke semantic search include parameters for query type, query language, and whether captions and answers are returned. You can add these parameters to your existing query logic. There's no conflict with other parameters.
+
+In this section, we assume the same small hotels index (four documents only) created in the [full text search quickstart](search-get-started-text.md). A small index with minimal content is suboptimal for semantic search, but the quickstarts include query logic for a broad range of clients, which is useful when the objective is to learn syntax.
+
+### [**.NET**](#tab/dotnet)
+
+[!INCLUDE [dotnet-sdk-semantic-quickstart](includes/quickstarts/dotnet-semantic.md)]
 
 ### [**Python**](#tab/python)
 
