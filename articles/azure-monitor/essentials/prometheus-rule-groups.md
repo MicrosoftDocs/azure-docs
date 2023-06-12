@@ -40,7 +40,7 @@ You can use a Resource Manager template to create and configure Prometheus rule 
 
 The basic steps are as follows:
 
-1. Use the templates below as a JSON file that describes how to create the rule group.
+1. Use the following template as a JSON file that describes how to create the rule group.
 2. Deploy the template using any deployment method, such as [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), or [Rest API](../../azure-resource-manager/templates/deploy-rest.md).
 
 ### Template example for a Prometheus rule group
@@ -128,7 +128,7 @@ The `rules` section contains the following properties for recording rules.
 
 | Name | Required | Type | Description |
 |:---|:---|:---|:---|
-| `record` | True | string | Recording rule name. This is the name used for the new time series. |
+| `record` | True | string | Recording rule name. This name is used for the new time series. |
 | `expression` | True | string | PromQL expression to calculate the new time series value. |
 | `labels` | True | string | Prometheus rule labels key-value pairs. These labels are added to the recorded time series. |
 | `enabled` | False | boolean | Enable/disable group. Default is true. |
@@ -141,7 +141,7 @@ The `rules` section contains the following properties for alerting rules.
 | `alert` | False | string | Alert rule name  |
 | `expression` | True | string | PromQL expression to evaluate. |
 | `for` | False | string | Alert firing timeout. Values - 'PT1M', 'PT5M' etc. |
-| `labels` | False | object | labels key-value pairs | Prometheus alert rule labels, will be added to the fired alert. |
+| `labels` | False | object | labels key-value pairs | Prometheus alert rule labels. These labels are added to alerts fired by this rule. |
 | `rules.annotations` | False | object | Annotations key-value pairs to add to the alert. |
 | `enabled` | False | boolean | Enable/disable group. Default is true. |
 | `rules.severity` | False | integer | Alert severity. 0-4, default is 3 (informational) |
