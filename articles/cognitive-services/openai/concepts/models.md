@@ -74,9 +74,9 @@ As your use of Azure OpenAI evolves, and you start to build and integrate with a
 
 When you select a specific model version for a deployment this version will remain selected until you either choose to manually update yourself, or once you reach the expiration date for the model. When the deprecation/expiration date is reached the model will auto-upgrade to the latest available version.
 
-### Turbo-0301 and GPT-4-0314 expiration
+### GPT-35-Turbo 0301 and GPT-4 0314 expiration
 
-The original turbo-0301 and GPT-04-0314 models will expire on October 1st, 2023. When the model expires on October 1, 2023, those deployments will automatically be upgraded to the default version at the time of expiry.  If you would like your deployment to stop accepting completion requests on October 1, then you will be able to set the model upgrade option to expire though the API. We will publish guidelines on this by September 1.  
+The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire on October 1st, 2023. When these model versions expire on October 1, 2023, their deployments will automatically be upgraded to the default version at the time of expiry.  If you would like your deployment to stop accepting completion requests on October 1, then you will be able to set the model upgrade option to expire though the API. We will publish guidelines on this by September 1.  
 
 ### Viewing deprecation dates
 
