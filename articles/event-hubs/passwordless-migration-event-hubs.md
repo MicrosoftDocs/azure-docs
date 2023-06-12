@@ -94,7 +94,9 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
     ```go
     credential, err := azidentity.NewDefaultAzureCredential(nil)
-    eventHubNamespace := fmt.Sprintf("https://%s.servicebus.windows.net", namespace)
+    eventHubNamespace := fmt.Sprintf(
+        "https://%s.servicebus.windows.net",
+        namespace)
 
     if err != nil {
         // handle error
