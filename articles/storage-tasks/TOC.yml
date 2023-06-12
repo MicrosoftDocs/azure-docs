@@ -10,7 +10,7 @@ items:
   items:
   - name: Create, assign, and run a Storage Task
     href: storage-task-quickstart-portal.md
-    expanded: true
+  expanded: true
 - name: Concepts
   items: 
   - name: Storage Task conditions

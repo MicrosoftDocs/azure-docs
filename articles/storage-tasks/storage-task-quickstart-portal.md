@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create, assign, and run a Storage Task - Azure portal'
+title: 'Quickstart: Create your first Storage Task'
 titleSuffix: Azure Storage
 description: Description goes here
 services: storage
@@ -10,21 +10,41 @@ ms.date: 05/16/2023
 ms.author: normesta
 ---
 
-# Quickstart: Create, assign, and run a Storage Task by using the Azure portal
+# Quickstart: Create your first Storage Task
 
-Description goes here.
+Storage Tasks are cool. Check em out. To learn more about Storage Tasks, see [Storage Tasks Overview](overview.md).
 
-To learn more about Storage Tasks, see [Storage Tasks Overview](overview.md).
+This task deletes a file.
 
 ## Prerequisites
 
-- Prerequisites go here.
+- Prerequisites go here
+- A file named blah.
 
-## Subheading
+## Create the task
+
+Put something here.
+
+## Add conditions
+
+Put something here.
+
+## Add an assignment
+
+Put something here.
+
+## Deploy the task
+
+Put something here.
+
+## Enable the task assignment
+
+Put something here
+
+## View results of the task run
 
 Put something here.
 
 ## Next steps
 
 [Create a Storage Task](storage-task-create.md)
-
