@@ -7,11 +7,11 @@ ms.date: 06/11/2023
 
 # Scan your servers for secrets with agentless secret scanning
 
-If discovered, exposed credentials and secrets in internet-facing workloads can enable attackers to move laterally across networks and search for sensitive data and ways to damage critical information systems.
+Attackers can move laterally across networks, searching for sensitive data and ways to damage critical information systems by exploiting exposed credentials and secrets in internet-facing workloads.
 
-Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, prioritized and actionable remediation steps are suggested that minimize the risk of lateral movement, with minimal effect on your machine's performance.
+Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, Defender for Cloud can assist your security team to prioritize and take actionable remediation steps to minimize the risk of lateral movement and prevent attackers from affecting your machine's performance.
 
-Agentless secret scanning can proactively discover the following types of secrets across your environments:
+Through the use of agentless secret scanning, you can proactively discover the following types of secrets across your environments:
 
 - **Insecure (plaintext) SSH private keys** - Detects Putty and PKCS#8 and PKCS#1 (RSA algorithm). 
 - **Plaintext AWS access keys** - CLI & plaintext on many file extensions.
@@ -21,7 +21,7 @@ Agentless secret scanning can proactively discover the following types of secret
 - **Plaintext storage account SAS tokens**.
 
 > [!NOTE]
-> All of the standards are supported by the PF1 algorithm and the RSA algorithm.
+> All of the standards are supported by the RSA algorithm.
 
 ## Prerequisites
 
@@ -69,7 +69,9 @@ Defender for Cloud assists your security team in the prioritization of any detec
 
 - The corresponding public key is checked to see if it's listed in the target machine's authorized keys file for authentication. 
 
-- Results for this check are listed in the findings section of the recommendation as `validated` or `unvalidated`, depending on where the secret was found.
+- If the target resource is detected.
+
+- Results for this check are listed in the findings section of the recommendation as `Insecure SSH private key` or `Unvalidated insecure SSH private key`, depending on where the secret was found.
 
 ## Remediate secrets with Attack path
 
