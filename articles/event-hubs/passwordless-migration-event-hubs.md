@@ -95,23 +95,23 @@ The Azure Identity client library, for each of the following ecosystems, provide
     credential, err := azidentity.NewDefaultAzureCredential(nil)
     eventHubNamespace := fmt.Sprintf("https://%s.servicebus.windows.net", namespace)
 
-	if err != nil {
-		// handle error
-	}
+    if err != nil {
+        // handle error
+    }
 
     // Event Hubs producer
     producerClient, err = azeventhubs.NewProducerClient(eventHubNamespace, eventHubName, credential, nil)
 
-	if err != nil {
-		// handle error
-	}
+    if err != nil {
+        // handle error
+    }
 
     // Event Hubs processor
     processorClient, err = azeventhubs.NewConsumerClient(eventHubNamespace, eventHubName, azeventhubs.DefaultConsumerGroup, credential, nil)
 
-	if err != nil {
-		// handle error
-	}
+    if err != nil {
+        // handle error
+    }
     ```
 
 ## [Java](#tab/java)
