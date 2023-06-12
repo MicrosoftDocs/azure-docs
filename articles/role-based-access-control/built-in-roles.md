@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 05/10/2023
+ms.date: 06/11/2023
 ms.custom: generated
 ---
 
@@ -223,6 +223,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Managed Identity Contributor](#managed-identity-contributor) | Create, Read, Update, and Delete User Assigned Identity | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | [Managed Identity Operator](#managed-identity-operator) | Read and Assign User Assigned Identity | f1a07417-d97a-45cb-824c-7a7467783830 |
 > | **Security** |  |  |
+> | [App Compliance Automation Administrator](#app-compliance-automation-administrator) | Create, read, download, modify and delete reports objects and related other resource objects. | 0f37683f-2463-46b6-9ce7-9b788b988ba2 |
+> | [App Compliance Automation Reader](#app-compliance-automation-reader) | Read, download the reports objects and related other resource objects. | ffc6bbe0-e443-4c3b-bf54-26581bb2f78e |
 > | [Attestation Contributor](#attestation-contributor) | Can read write or delete the attestation provider instance | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
 > | [Attestation Reader](#attestation-reader) | Can read the attestation provider properties | fd1bd22b-8476-40bc-a0bc-69b95687b9f3 |
 > | [Key Vault Administrator](#key-vault-administrator) | Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
@@ -10833,6 +10835,144 @@ Read and Assign User Assigned Identity [Learn more](../active-directory/managed-
 
 ## Security
 
+
+### App Compliance Automation Administrator
+
+Create, read, download, modify and delete reports objects and related other resource objects. [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AppComplianceAutomation](resource-provider-operations.md#microsoftappcomplianceautomation)/* |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/write | Returns the result of put blob service properties |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileservices/write | Put file service properties |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the blob service |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.PolicyInsights](resource-provider-operations.md#microsoftpolicyinsights)/policyStates/queryResults/action | Query information about policy states. |
+> | [Microsoft.PolicyInsights](resource-provider-operations.md#microsoftpolicyinsights)/policyStates/triggerEvaluation/action | Triggers a new compliance evaluation for the selected scope. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/resources/read | Get the list of resources based upon filters. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/resources/read | Gets the resources for the resource group. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resources/read | Gets resources of a subscription. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/delete | Deletes a resource group and all its resources. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/write | Creates or updates a resource group. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/tags/read | Gets all the tags on a resource. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/automations/read | Gets the automations for the scope |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/automations/delete | Deletes the automation for the scope |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/automations/write | Creates or updates the automation for the scope |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/register/action | Registers the subscription for Azure Security Center |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/unregister/action | Unregisters the subscription from Azure Security Center |
+> | */read | Read resources of all types, except secrets. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, download, modify and delete reports objects and related other resource objects.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0f37683f-2463-46b6-9ce7-9b788b988ba2",
+  "name": "0f37683f-2463-46b6-9ce7-9b788b988ba2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AppComplianceAutomation/*",
+        "Microsoft.Storage/storageAccounts/blobServices/write",
+        "Microsoft.Storage/storageAccounts/fileservices/write",
+        "Microsoft.Storage/storageAccounts/listKeys/action",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.PolicyInsights/policyStates/queryResults/action",
+        "Microsoft.PolicyInsights/policyStates/triggerEvaluation/action",
+        "Microsoft.Resources/resources/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
+        "Microsoft.Resources/subscriptions/resources/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/delete",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Resources/tags/read",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Security/automations/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Security/automations/delete",
+        "Microsoft.Security/automations/write",
+        "Microsoft.Security/register/action",
+        "Microsoft.Security/unregister/action",
+        "*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "App Compliance Automation Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### App Compliance Automation Reader
+
+Read, download the reports objects and related other resource objects. [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AppComplianceAutomation](resource-provider-operations.md#microsoftappcomplianceautomation)/*/read |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read, download the reports objects and related other resource objects.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/ffc6bbe0-e443-4c3b-bf54-26581bb2f78e",
+  "name": "ffc6bbe0-e443-4c3b-bf54-26581bb2f78e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AppComplianceAutomation/*/read",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "App Compliance Automation Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ### Attestation Contributor
 
