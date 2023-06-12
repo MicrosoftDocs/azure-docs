@@ -99,6 +99,8 @@ az spring spring-cloud-gateway restart \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
+---
+
 ## Configure Spring Cloud Gateway
 
 This section describes how to assign a public endpoint to Spring Cloud Gateway and configure its properties.
@@ -383,6 +385,8 @@ az spring gateway restart \
     --service <Azure-Spring-Apps-instance-name>
 ```
 
+---
+
 ### Set up Autoscale settings for VMware Spring Cloud Gateway in Azure CLI
 
 You can set Autoscale modes using the Azure CLI. The following commands create an Autoscale setting and an Autoscale rule.
@@ -646,6 +650,8 @@ az spring gateway update \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name>
 ```
+
+---
 
 ## Next steps
 
