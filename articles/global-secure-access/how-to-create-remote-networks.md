@@ -11,7 +11,7 @@ ms.custom:
 ---
 # How to create a remote network
 
-Remote networks are remote locations, such as a branch office, or networks that require internet connectivity. Setting up remote networks connects your users in remote locations to Global Secure Access. Once a remote network is configured, you can assign a traffic forwarding profile to manage your corporate network traffic.
+Remote networks are remote locations, such as a branch office, or networks that require internet connectivity. Setting up remote networks connects your users in remote locations to Global Secure Access (preview). Once a remote network is configured, you can assign a traffic forwarding profile to manage your corporate network traffic.
 
 Global Secure Access provides remote network connectivity so you can connect a remote network to Global Secure Access. Network security policies are then applied on all outbound traffic. 
 
@@ -27,7 +27,7 @@ This article explains how to create a remote network for Global Secure Access (p
 ### Known limitations
 
 - At this time, the number of remote networks per tenant is limited to 10, and the number of device links per remote network is limited to four.
-- Customer premises equipment (CPE) devices must support the following:
+- Customer premises equipment (CPE) devices must support the following protocols:
     - Internet Protocol Security (IPSec)
     - Internet Key Exchange Version 2 (IKEv2)
     - Border Gateway Protocol (BGP)
@@ -49,7 +49,7 @@ Before you can set up remote networks, you need to onboard your tenant informati
     
     ![Screenshot of the first tab of the onboarding form.](media/how-to-create-remote-networks/onboard-tenant-info.png)
 
-1. Select the email address link. It sends a predrafted email in your default mail client on your device. Send that email to the Global Secure Access team. Once your tenant is processed - which may take up to seven business days - we'll send IPsec tunnel and BDG connectivity details to the email you use.
+1. Select the email address link. It sends a predrafted email in your default mail client on your device. Send that email to the Global Secure Access team. Once your tenant is processed - which may take up to seven business days - we'll send IPsec tunnel and BDG connectivity details to the email you used.
 
     ![Screenshot of the send email steps for the onboard tenant process.](media/how-to-create-remote-networks/onboard-tenant-send-email.png)
 
@@ -121,7 +121,7 @@ You can assign the remote network to a traffic forwarding profile when you creat
 
 ### Review and create
 
-The final tab in the create a remote network process is to review all of the settings that you provided. Review the details provided here and select the **Create remote network** button.
+The final tab in the process is to review all of the settings that you provided. Review the details provided here and select the **Create remote network** button.
 
 ## Create remote networks using the Microsoft Graph API
 

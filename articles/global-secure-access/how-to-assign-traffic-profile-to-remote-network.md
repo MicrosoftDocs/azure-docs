@@ -20,8 +20,6 @@ There are multiple ways to assign a remote network to the traffic forwarding pro
 - When you enable or manage the traffic forwarding profile in the Microsoft Entra admin center
 - Using the Microsoft Graph API
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Prerequisites 
 
 To assign a remote network to a traffic forwarding profile to, you must have:
@@ -52,7 +50,7 @@ To assign a remote network to a traffic forwarding profile to, you must have:
 
 ### Assign a traffic profile to a remote network using the Microsoft Graph API
 
-Associating a traffic profile to your remote network using the Microsoft Graph API is two-step process. First, you need to get the traffic forwarding profile ID. This ID is unique for all tenants. With the traffic forwarding profile ID you can assign the traffic forwarding profile with your remote network. 
+Associating a traffic profile to your remote network using the Microsoft Graph API is two-step process. First, you need to get the traffic forwarding profile ID. This ID is unique for all tenants. With the traffic forwarding profile ID, you can assign the traffic forwarding profile with your remote network. 
 
 A traffic forwarding profile can be assigned using Microsoft Graph on the `/beta` endpoint.
  
@@ -78,6 +76,8 @@ A traffic forwarding profile can be assigned using Microsoft Graph on the `/beta
         }
     ```
 1. Select **Run query** to update the branch. 
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 - [List remote networks](how-to-list-remote-networks.md)

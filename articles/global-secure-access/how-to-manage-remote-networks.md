@@ -19,19 +19,24 @@ This article explains how to manage your existing remote networks for Global Sec
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
 
+### Known limitations
+
+- At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile.
+
 ## Update remote networks
 
-All details of your remote networks can be updated at any time.
+To update the details of your remote networks:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. Go to **Global Secure Access (preview)** > **Devices** > **Remote networks**.
 1. Select the remote network you need to update.
-
-On the **Basics** page you can update the remote network name, region, and bandwidth. Select the pencil icon to edit the details.
+    - **Basics**: Select the pencil icon to edit the name of the remote network.
+    - **Links**: Select the trash can icon to delete a remote network device link.
+    - **Traffic profiles**: Enable or disable the available traffic forwarding profile.
 
 ### Update remote network details with the Microsoft Graph API
 
-To edit the name, location, or region of a remote network:
+To edit the details of a remote network:
 
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **PATCH** as the HTTP method from the dropdown. 
@@ -53,6 +58,8 @@ To edit the name, location, or region of a remote network:
 1. Select the remote network you need to delete.
 1. Select the **Delete** button. 
 1. Select **Delete** from the confirmation message.
+
+![Screenshot of the delete remote network button](media/how-to-manage-remote-networks/delete-remote-network.png)
 
 ### Delete a remote network using the API
 

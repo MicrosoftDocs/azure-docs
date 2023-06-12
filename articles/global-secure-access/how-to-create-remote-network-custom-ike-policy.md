@@ -12,26 +12,29 @@ ms.custom:
 ---
 # Create a remote network with a customer IKE policy for Global Secure Access (preview)
 
-This article provides the steps to set up the other side of the communication channel.
+IPSec tunnel is a bidirectional communication. This article provides the steps to set up the policy side the communication channel using the Microsoft Graph API. The other side of the communication is configured on your customer premises equipment. 
+
+For more information about creating a remote network and the custom IKE policy, see [Create a remote network](how-to-create-remote-networks.md#create-a-remote-network-with-the-microsoft-entra-admin-center) and [Remote network configurations](reference-remote-network-configurations.md).
+
 
 ## Prerequisites
 
 To create a remote network with a custom IKE policy, you must have:
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID.
-- Sent an email to Global Secure Access onboarding according to the onboarding process in the **Remote network** area of Global Secure Access.
+- Sent an email to Global Secure Access onboarding team according to the [onboarding process](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks).
 - Received the connectivity information from Global Secure Access onboarding.
 
 ## How to use Microsoft Graph to create a remote network with a custom IKE policy
 
 Remote networks with a custom IKE policy can be created using Microsoft Graph on the `/beta` endpoint.
 
-To get started, follow these instructions to work with remote networks using Microsoft Graph in Graph Explorer. 
+To get started, follow these instructions to work with remote networks using the Microsoft Graph API in Graph Explorer. 
 
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **POST** as the HTTP method from the dropdown.
 1. Set the API version to **beta**.
-1. Add the following query to retrieve recommendations, then select the **Run query** button.
+1. Add the following query, then select the **Run query** button.
 
 ```http
     POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches
