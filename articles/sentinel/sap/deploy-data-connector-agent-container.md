@@ -97,7 +97,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
     :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
 
 1. Under **Create a collector agent** on the right, define the agent details:
-    - Type the agent name. The agent name can only include these characters: 
+    - Type the agent name. The agent name can include these characters: 
         - a-z
         - A-Z 
         - 0-9 
