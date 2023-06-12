@@ -34,11 +34,11 @@ The configurability feature is available in preview and allows customers to adju
 
 <sup>\*</sup> Only approved customers have full content filtering control, including configuring content filters at severity level high only or turning the content filters off. Managed customers only can apply for full content filtering control via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
 
-## Configuring content filters via Azure AI Studio (preview)
+## Configuring content filters via Azure OpenAI Studio (preview)
 
 The following steps show how to set up a customized content filtering configuration for your resource.
 
-1. Go to Azure AI Studio and navigate to the Content Filters tab (in the bottom left navigation, as designated by the red box below).
+1. Go to Azure OpenAI Studio and navigate to the Content Filters tab (in the bottom left navigation, as designated by the red box below).
 
     :::image type="content" source="../media/content-filters/studio.png" alt-text="Screenshot of the AI Studio UI with Content Filters highlighted" lightbox="../media/content-filters/studio.png":::
 
