@@ -47,7 +47,7 @@ Details per resource, on the number of completed reindexed resources can be obta
 
 **Bug Fix: FHIR Search Query optimization of complex queries**
 
-We have seen issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generatior to use an INNER JOIN for Reference Search Parameters. For details, visit [#3295](https://github.com/microsoft/fhir-server/pull/3295).
+We have seen issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generator to use an INNER JOIN for Reference Search Parameters. For details, visit [#3295](https://github.com/microsoft/fhir-server/pull/3295).
 
 **Bug Fix: Metadata endpoint URL in capability statement is relative URL**
 
@@ -63,7 +63,7 @@ Per FHIR specification, metadata endpoint URL in capability statement needs to b
 
 **Fixed issue where DICOM events and Change Feed may miss changes**
 
-The DICOM Change Feed API could previously return results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the Change Feed resource could have resulted in new change events appearing in the middle of the result set. For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call could have incorrectly returned `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid System Topics, and could have resulted in missing events in downstream event handlers. For additional details, see [#2611](https://github.com/microsoft/dicom-server/pull/2611).
+The DICOM Change Feed API could previously return results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the Change Feed resource could have resulted in new change events appearing in the middle of the result set. For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call could have incorrectly returned `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid System Topics, and could have resulted in missing events in downstream event handlers. For more details, see [#2611](https://github.com/microsoft/dicom-server/pull/2611).
 
 
 ## May 2023
