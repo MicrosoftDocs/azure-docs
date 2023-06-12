@@ -61,6 +61,8 @@
       href: howto-track-async-operations-cli.md
 - name: Troubleshooting
   items:
+    - name: Troubleshoot Bare Metal Machine
+      href: troubleshoot-reboot-reimage-replace.md
     - name: Troubleshoot AKS-Hybrid
       href: troubleshoot-aks-hybrid-cluster.md
     - name: Troubleshoot Isolation Domain
