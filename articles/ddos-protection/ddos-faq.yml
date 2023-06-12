@@ -120,4 +120,4 @@ sections:
       - question: |
           Is a single VM deployment behind public IP supported?
         answer: |
-          Scenarios in which a single VM is running behind a public IP is supported, but not recommended. DDoS mitigation may not initiate instantaneously when DDoS attack is detected. As a result, a single VM deployment that can’t scale out will go down in such cases.- For more information, see [Fundamental best practices](./fundamental-best-practices.md#design-for-scalability)
+          Scenarios in which a single VM is running behind a public IP are not supported. DDoS mitigation may not initiate instantaneously when DDoS attack is detected. As a result, a single VM deployment that can’t scale out will go down in such cases.
