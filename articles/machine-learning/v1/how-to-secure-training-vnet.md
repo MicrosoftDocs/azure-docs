@@ -70,7 +70,7 @@ In this article you learn how to secure the following training compute resources
 
 + If you have your own DNS server, we recommend using DNS forwarding to resolve the fully qualified domain names (FQDN) of compute instances and clusters. For more information, see [Use a custom DNS with Azure Machine Learning](../how-to-custom-dns.md).
 
-[!INCLUDE [network-rbac](includes/network-rbac.md)]
+[!INCLUDE [network-rbac](../includes/network-rbac.md)]
 
 ## Limitations
 
