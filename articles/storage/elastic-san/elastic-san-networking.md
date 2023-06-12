@@ -28,10 +28,12 @@ The process for configuring network access to your Elastic SAN is as follows:
 
 ## Configure virtual network endpoint
 
-You can allow access to your Elastic SAN from two types of Azure virtual network endpoints:
+You can allow access to your Elastic SAN volume groups from two types of Azure virtual network endpoints:
 
 - [Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Private endpoints](../../private-link/private-endpoint-overview.md)
+
+Each volume group can only be configured to allow access from public storage service endpoints or private endpoints, but both at the same time.
 
 To determine the type of endpoint that best suits your needs, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
@@ -50,8 +52,11 @@ To configure an Azure Storage service endpoint, enable it from the virtual netwo
 # [Portal](#tab/azure-portal)
 
 1. Navigate to your virtual network and select **Service Endpoints**.
-1. Select **+ Add** and for **Service** select **Microsoft.Storage.Global** to add a [cross-region service endpoint](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints). (You might see **Microsoft.Storage** listed as a storage service endpoint. That option is for intra-region endpoints which exist for backward compatibility. Always use cross-region endpoints unless you have a specific reason for using intra-region ones).
-1. Select any policies you like, and the subnet you deploy your Elastic SAN into and select **Add**.
+1. Select **+ Add**.
+1. On the **Add service endpoints** screen:
+    1. For **Service** select **Microsoft.Storage.Global** to add a [cross-region service endpoint](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints). (You might see **Microsoft.Storage** listed as an available storage service endpoint. That option is for intra-region endpoints which exist for backward compatibility only. Always use cross-region endpoints unless you have a specific reason for using intra-region ones).
+    1. For **Subnet** select the subnet from which you want to allow access. 
+    1. Select **Add**.
 
 :::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
 
