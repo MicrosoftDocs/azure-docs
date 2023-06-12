@@ -21,8 +21,8 @@
       href:  common-scenarios.md
     - name:  Tools for synchronization
       href:  sync-tools.md
-    - name:  Choosing the right sync tool
-      href:  https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad
+    - name:  Choosing the right sync client
+      href:  https://aka.ms/EvaluateSyncOptions
     - name:  Steps to start
       href:  get-started.md
     - name:  Prerequisites
