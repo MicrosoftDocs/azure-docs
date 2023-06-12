@@ -139,6 +139,14 @@ All write operations written to the primary region prior to the LST have been su
 
 You can query the value of the **Last Sync Time** property using Azure PowerShell, Azure CLI, or the client library. The **Last Sync Time** property is a GMT date/time value. For more information, see [Check the Last Sync Time property for a storage account](../common/last-sync-time-get.md).
 
+### Geo-redundancy for premium file shares
+
+As previously mentioned, geo-redundancy options (GRS and GZRS) aren't supported for premium file shares. However, you can achieve geo-redundancy in other ways.
+
+For Azure File Sync scenarios, you can sync between your Azure file share (your cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure all data is present locally, and provision enough storage on the Azure VM to hold the entire dataset. To ensure changes will replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
+
+You can also create your own script to copy data to a storage account in a secondary region using tools such as AzCopy (use version 10.4 or later to preserve ACLs and timestamps).
+
 ## Summary of redundancy options
 
 The tables in the following sections summarize the redundancy options available for Azure Files.
