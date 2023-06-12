@@ -12,4 +12,4 @@ ms.custom: include file
 ---
 
 > [!IMPORTANT]
->Steps in this article may vary slightly based on the portal you start from. Content will be updated to reflect the Microsoft Entra admin center over the next few months.
+> Steps in this article may vary slightly based on the portal you start from. Content will be updated to reflect the Microsoft Entra admin center over the next few months.
