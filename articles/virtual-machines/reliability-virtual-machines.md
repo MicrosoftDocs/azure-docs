@@ -211,7 +211,7 @@ Each recommendation is marked in accordance with the following priority matrix:
 |[VM-18: Ensure that your VMs are compliant with Azure Policies](#this-is-a-low-recommendation-vm-18-ensure-that-your-vms-are-compliant-with-azure-policies) | ![This is a low recommendation for VM-18.](../reliability/media/icon-recommendation-low.svg)  | Preview | Yes |
 |[VM-19: Enable disk encryption and data at rest encryption by default](#this-is-a-medium-recommendation-vm-19-enable-disk-encryption-and-data-at-rest-encryption-by-default) | ![This is a medium recommendation for VM-19.](../reliability/media/icon-recommendation-medium.svg)  | Preview | No |
 |[VVM-20: Enable VM Insights](#this-is-a-low-recommendation-vm-20-enable-vm-insights) | ![This is a low recommendation for VM-20.](../reliability/media/icon-recommendation-low.svg)  | Preview | No |
-|[VM-21: Configure diagnostic settings for all Azure resources](#this-is-a-low-recommendation-vm-21-configure-diagnostic-settings-for-all-azure-resources) | ![This is a low recommendation for VM-21.](../reliability/media/icon-recommendation-low.svg)  | Preview | Yes |
+|[VM-21: Configure diagnostic settings for all Azure resources](#this-is-a-low-recommendation-vm-21-configure-diagnostic-settings-for-all-azure-resources) | ![This is a low recommendation for VM-21.](../reliability/media/icon-recommendation-low.svg)  | Preview | No |
 |[VM-22: Use maintenance configurations for the VM](#this-is-a-high-recommendation-vm-22-use-maintenance-configurations-for-the-vm) | ![This is a high recommendation for VM-22.](../reliability/media/icon-recommendation-high.svg)  | Preview | Yes |
 
 ### Reliability recommendations details
