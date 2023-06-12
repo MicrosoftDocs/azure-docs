@@ -57,13 +57,13 @@ nohup ./node_exporter --web.listen-address=":9100" &
 1. Run the `sudo crontab -e` command to open a cron file.
 1. Add the command `@reboot cd /path/to/node/exporter && nohup ./node_exporter &` at the end of the cron file. This starts node exporter on a VM reboot.
 
-```shell
-# If you do not have a crontab file already, create one by running the command: sudo crontab -e
-sudo crontab -l > crontab_new
-echo "@reboot cd /path/to/node/exporter && nohup ./node_exporter &" >> crontab_new
-sudo crontab crontab_new
-sudo rm crontab_new
-```
+    ```shell
+    # If you do not have a crontab file already, create one by running the command: sudo crontab -e
+    sudo crontab -l > crontab_new
+    echo "@reboot cd /path/to/node/exporter && nohup ./node_exporter &" >> crontab_new
+    sudo crontab crontab_new
+    sudo rm crontab_new
+    ```
 
 ## Prerequisites to enable secure communication
 
