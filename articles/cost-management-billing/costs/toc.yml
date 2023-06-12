@@ -129,7 +129,7 @@
     - name: Scheduled actions API
       href: /rest/api/cost-management/scheduled-actions
     - name: Consumption REST API ARM budget template
-      href: /templates/microsoft.consumption/budgets
+      href: /azure/templates/microsoft.consumption/budgets
 - name: Cost optimization
   items:
   - name: Tutorials
