@@ -125,7 +125,7 @@ To enable TDE in customer-managed mode with Azure CLI:
    kubectl create secret generic <tde-secret-name> --from-literal=privatekey.pem="$(cat <key-file>)" --from-literal=certificate.pem="$(cat <cert-file>) --namespace <namespace>"
    ```
 
-1. Update the following example. nable customer-managed TDE
+1. Update and run the following example to enable customer-managed TDE:
 
    ```azurecli
    az sql mi-arc update --tde-mode CustomerManaged --tde-protector-private-key-file <key-file> --tde-protector-public-key-file <cert-file>
