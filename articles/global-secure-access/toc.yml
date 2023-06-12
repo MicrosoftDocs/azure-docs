@@ -70,8 +70,6 @@ items:
         href: concept-traffic-dashboard.md
       - name: Audit logs
         href: how-to-access-audit-logs.md
-      - name: Enriched Microsoft 365 logs
-        href: how-to-view-enriched-logs.md
       - name: Traffic logs
         href: how-to-view-traffic-logs.md
 - name: Reference

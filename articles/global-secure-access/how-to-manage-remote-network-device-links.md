@@ -20,7 +20,7 @@ This article explains how to add and delete device links for remote networks for
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
 
-## Add a device link to a remote network
+## Add a device link using the Microsoft Entra admin center
 
 If you didn't add device links when you created the remote networks or you want to add a new device link, you can add a device link at any time.
 
@@ -58,6 +58,32 @@ If you didn't add device links when you created the remote networks or you want 
 
 1. Enter the Pre-shared key (PSK): `<Enter the secret key. The same secret key must be used on your CPE.>` 
 1. Select **Add link**. 
+
+## Add a device link using Microsoft Graph API
+
+1. Sign in to the [Graph Explorer](https://aka.ms/ge). 
+1. Select `GET` as the HTTP method from the dropdown. 
+1. Set the API version to beta. 
+1. Enter the following query:
+
+```http
+POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches/BRANCH_ID/deviceLinks
+	{
+            "name": "CPE Link 2",
+            "ipAddress": "20.125.118.220",
+            "version": "1.0.0",
+            "deviceVendor": "Other",
+            "bgpConfiguration": {
+                "ipAddress": "172.16.11.6",
+                "asn": 8888
+            },
+            "tunnelConfiguration": {
+                "@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default",
+                "preSharedKey": "Detective5OutgrowDiligence"
+            }
+        }
+
+```
 
 ## Delete device links
 

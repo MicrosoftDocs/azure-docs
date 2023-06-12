@@ -22,11 +22,10 @@ Listing remote networks requires the following prerequisites:
 
 ## List all remote networks using the Microsoft Entra admin center
 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
+1. Go to **Global Secure Access** > **Devices** > **Remote network**.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
-1. In the left hand navigation, choose **Global Secure Access**. 
-1. Select **Connect** in the left-hand side navigation menu. 
-1. Select **Remote network**.
+All remote networks are listed. Select a remote network to view its details.
 
 ## List all remote networks using the Microsoft Graph API 
 
@@ -35,7 +34,7 @@ Listing remote networks requires the following prerequisites:
 1. Set the API version to beta. 
 1. Enter the following query:
     ```
-       GET https://graph.microsoft.com/beta/networkaccess/branches 
+       GET https://graph.microsoft.com/beta/networkaccess/connectivity/branches
     ```
 1. Select the **Run query** button to list the remote networks.  
 

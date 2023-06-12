@@ -12,9 +12,15 @@ ms.custom:
 
 # Global Secure Access remote network configurations
 
-Device links are the physical routers that connect your remote networks, such as branch locations, to Global Secure Access (preview). There's a specific set of combinations you must use if you choose the **custom** option when adding device links.
+Device links are the physical routers that connect your remote networks, such as branch locations, to Global Secure Access (preview). There's a specific set of combinations you must use if you choose the **Custom** option when adding device links. If you choose the **Default** option, you must enter a specific combination of properties on the customer premises equipment (CPE) device.
 
-## IKE Phase 1 combinations
+## Default IPSec/IKE configurations
+
+When you select **Default** as your IPsec/IKE policy when configuring remote network device links in the Microsoft Entra admin center, we expect the following combinations in the tunnel handshake.
+
+*You must specify one of these combinations on your customer premise equipment (CPE).*
+
+### IKE Phase 1 combinations
 
 | Properties | Combination 1 | Combination 2 | Combination 3 | Combination 4 | Combination 5 |
 | --- | --- | --- | --- | --- | --- |
@@ -22,31 +28,48 @@ Device links are the physical routers that connect your remote networks, such as
 | IKEv2 integrity | SHA384 | SHA256 | SHA384 | SHA256 | SHA256 |
 | DH group | DHGroup24 | DHGroup24 | DHGroup24 | DHGroup24 | DHGroup2 |
 
-## IKE Phase 2 combinations
-
-- IPSec encryption
-- IPSec integrity
-- PFS Group
-- SA lifetime (in seconds)
+### IKE Phase 2 combinations
 
 | Properties | Combination 1 | Combination 2 | Combination 3 |
 | --- | --- | --- | --- |
-| IPSec encryption | GCMAES256 | GCMAES256 | None |
-| IPSec integrity | GCMAES192 | GCMAES192 | None |
-| PFS Group | GCMAES128 | GCMAES128 | None |
+| IPSec encryption | GCMAES256 | GCMAES256 | GCMAES128 |
+| IPSec integrity | GCMAES192 | GCMAES192 | GCMAES128 |
+| PFS Group | None | None | None |
 
-## Valid IPSec encryption and IPSec integrity combinations
+## Custom IPSec/IKE combinations
+
+When you select **Custom** as IPSec/IKE configuration when configuring remote network device links in the Microsoft Entra admin center, you must use one of the following combinations.
+
+### IKE Phase 1 combinations
+
+There no limitations for the IKE phase 1 combinations. Any mix and match of encryption, integrity, and DH group is valid.
+
+### IKE Phase 2 combinations
+
+The IPSec encryption and integrity configurations are provided in the following table:
 
 | IPSec integrity | IPSec encryption |
 | --- | --- |
-|  | None |
-| GCMAES128 | GCMAES128 |
+| GCMAES128  | GCMAES128  |
 | GCMAES192 | GCMAES192 |
 | GCMAES256 | GCMAES256 |
+| None | SHA24 |
 
-## Valid enums
+- PFS group - No limitation.
+- SA lifetime - must be >300 seconds.
 
-### IKE encryption
+### Valid autonomous system number (ASN)
+
+You can use any values *except* for the following reserved ASNs:
+
+- Azure reserved ASNs: 12076, 65517,65518, 65519, 65520, 8076, 8075
+- IANA reserved ASNs: 23456, >= 64496 && <= 64511, >= 65535 && <= 65551, 4294967295
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
+### Valid enums
+
+#### IKE encryption
 
 | Value | Enum |
 | --- | --- |
@@ -56,7 +79,7 @@ Device links are the physical routers that connect your remote networks, such as
 | GCMAES128 | 3 |
 | GCMAES256 | 4 |
 
-### IKE integrity
+#### IKE integrity
 
 | Value | Enum |
 | --- | --- |
@@ -65,7 +88,7 @@ Device links are the physical routers that connect your remote networks, such as
 | GCMAES256 | 2 |
 | GCMAES256 | 3 |
 
-### DH group
+#### DH group
 
 | Value | Enum |
 | --- | --- |
@@ -75,7 +98,7 @@ Device links are the physical routers that connect your remote networks, such as
 | ECP384  | 3 |
 | DHGroup24 | 4 |
 
-### IPSec encryption
+#### IPSec encryption
 
 | Value | Enum |
 | --- | --- |
@@ -84,7 +107,7 @@ Device links are the physical routers that connect your remote networks, such as
 | GCMAES256 | 2 |
 | None | 3 |
 
-### IPSec integrity
+#### IPSec integrity
 
 | Value | Enum |
 | --- | --- |
@@ -93,7 +116,7 @@ Device links are the physical routers that connect your remote networks, such as
 | GCMAES256 | 2 |
 | SHA256  | 3 |
 
-### PFS group
+#### PFS group
 
 | Value | Enum |
 | --- | --- |
@@ -106,12 +129,3 @@ Device links are the physical routers that connect your remote networks, such as
 | PFSMM | 6 |
 | PFS24 | 7 |
 | PFS14 | 8 |
-
-## Valid autonomous system number (ASN)
-
-You can use any values except for the following reserved ASNs:
-
-- Azure reserved ASNs: 12076, 65517,65518, 65519, 65520, 8076, 8075
-- IANA reserved ASNs: 23456, >= 64496 && <= 64511, >= 65535 && <= 65551, 4294967295
-
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
