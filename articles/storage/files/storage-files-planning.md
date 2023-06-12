@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/07/2023
+ms.date: 06/09/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -67,7 +67,7 @@ When deploying Azure file shares into storage accounts, we recommend:
 
 - Paying attention to a storage account's IOPS limitations when deploying Azure file shares. Ideally, you would map file shares 1:1 with storage accounts. However, this may not always be possible due to various limits and restrictions, both from your organization and from Azure. When it is not possible to have only one file share deployed in one storage account, consider which shares will be highly active and which shares will be less active to ensure that the hottest file shares don't get put in the same storage account together.
 
-- Only deploying GPv2 and FileStorage accounts and upgrading GPv1 and classic storage accounts when you find them in your environment. 
+- Only deploying GPv2 and FileStorage accounts, and upgrading GPv1 and classic storage accounts when you find them in your environment. 
 
 ## Identity
 To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
@@ -101,8 +101,8 @@ In addition to directly connecting to the file share using the public endpoint o
 ## Encryption
 Azure Files supports two different types of encryption: 
 
-- Encryption in transit, which relates to the encryption used when mounting/accessing the Azure file share
-- Encryption at rest, which relates to how the data is encrypted when it's stored on disk
+- **Encryption in transit**, which relates to the encryption used when mounting/accessing the Azure file share
+- **Encryption at rest**, which relates to how the data is encrypted when it's stored on disk
 
 ### Encryption in transit
 
@@ -124,14 +124,14 @@ For more information about encryption in transit, see [requiring secure transfer
 Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats.
 
 ### Soft delete
-Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. 
+Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted shares are recoverable before they're permanently deleted, and undelete the share anytime during this retention period. 
 
-We recommend turning on soft delete for most SMB file shares. If you have a workflow where share deletion is common and expected, you may decide to have a short retention period or not have soft delete enabled at all. Soft delete doesn't work for NFS shares, even if it's enabled for the storage account.
+Soft delete is enabled by default for new storage accounts from January 2021 onward, and we recommend leaving it on for most SMB file shares. If you have a workflow where share deletion is common and expected, you might decide to have a short retention period or not have soft delete enabled at all. Soft delete doesn't work for NFS shares, even if it's enabled for the storage account.
 
 For more information about soft delete, see [Prevent accidental data deletion](./storage-files-prevent-file-share-deletion.md).
 
 ### Backup
-You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
+You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json). 
 
 [Azure Backup for Azure file shares](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
 
@@ -155,15 +155,19 @@ Defender for Storage doesn't access the storage account data and doesn't impact 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
+For more information about redundancy, see [Azure Files data redundancy](files-redundancy.md).
 
 ### Standard ZRS availability
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-zrs.md)]
+
+ZRS for standard general-purpose v2 storage accounts is available for a [subset of Azure regions](../common/redundancy-regions-zrs.md).
 
 ### Premium ZRS availability
-[!INCLUDE [storage-files-redundancy-premium-zrs](../../../includes/storage-files-redundancy-premium-zrs.md)]
+
+ZRS for premium file shares is available for a [subset of Azure regions](redundancy-premium-file-shares.md#premium-file-share-accounts).
 
 ### Standard GZRS availability
-[!INCLUDE [storage-redundancy-standard-gzrs](../../../includes/storage-redundancy-standard-gzrs.md)]
+
+GZRS is available for a [subset of Azure regions](../common/redundancy-regions-gzrs.md).
 
 ## Migration
 In many cases, you won't be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration. 

@@ -1,5 +1,5 @@
 ---
-title:  Azure Container Instances Spot Containers
+title:  Azure Container Instances Spot containers
 description: Learn more about Spot container groups
 ms.topic: conceptual
 ms.author: atsenthi
@@ -9,7 +9,7 @@ services: container-instances
 ms.date: 05/14/2023
 ---
 
-# Azure Container Instances Spot Containers (preview)
+# Azure Container Instances Spot containers (preview)
 This article introduces the concept of Azure Container Instances (ACI) Spot containers, which allows you to run interruptible workloads in containerized form on unused Azure capacity. By utilizing Spot containers, you can enjoy up to a 70% discount compared to regular-priority ACI containers.
 
 Spot containers offer the best of both worlds by combining the simplicity of ACI with the cost-effectiveness of Spot VMs. This enables customers to easily and affordably scale their containerized interruptible workloads. It's important to note that Spot containers may be preempted at any time, particularly when Azure has limited surplus capacity. Customers are billed based on per-second memory and core usage.
@@ -42,7 +42,7 @@ ACI Spot containers preview release includes these limitations such as
 * **Confidential SKU Support**: ACI Spot containers don't support the Confidential SKU, which means that you can't use the  Confidential Computing capabilities provided by Azure.
 * **Availability Zone Pinning**: ACI Spot containers don't support the ability to pin Availability Zones per container group deployment. 
 
-## Next Steps 
+## Next steps 
 
 * For a deployment example with the Azure portal, see [Deploy a Spot container with Azure Container Instances using the Azure portal](container-instances-tutorial-deploy-spot-containers-portal.md)
 * For a deployment example with the Azure CLI, see [Deploy a Spot container with Azure Container Instances using the Azure CLI](container-instances-tutorial-deploy-spot-containers-cli.md)
