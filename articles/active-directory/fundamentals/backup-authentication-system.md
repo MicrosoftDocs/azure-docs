@@ -37,7 +37,7 @@ Microsoft is continuously expanding the number of supported scenarios.
 
 The backup authentication system automatically provides incremental resilience to tens of thousands of supported non-Microsoft applications based on their authentication patterns. See the appendix for a list of the most [common non-Microsoft applications and their coverage status](#appendix). For an in depth explanation of which authentication patterns are supported, see the article [Understanding Application Support for the backup authentication system](backup-authentication-system-apps.md) article. 
 
-- Native applications using the OAuth 2.0 protocol to access resource applications, such as popular non-Microsoft e-mail and IM clients like: Apple Mail, Aqua Mail, Gmail, Samsung Email, and Spark
+- Native applications using the OAuth 2.0 protocol to access resource applications, such as popular non-Microsoft e-mail and IM clients like: Apple Mail, Aqua Mail, Gmail, Samsung Email, and Spark.
 - Line of business web applications configured to authenticate with OpenID Connect using only ID tokens.
 - Web applications authenticating with the SAML protocol, when configured for IDP-Initiated Single Sign On (SSO) like: ADP, Atlassian Cloud, AWS, GoToMeeting, Kronos, Marketo, Palo Alto Networks, SAP Cloud Identity Trello, Workday, and Zscaler.
 
