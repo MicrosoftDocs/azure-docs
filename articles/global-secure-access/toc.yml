@@ -35,7 +35,7 @@ items:
   - name: Conditional Access
     expanded: false
     items:
-      - name: Traffic profiles as a target resource
+      - name: Global Secure Access as a target resource 
         href: how-to-target-resource.md
       - name: Enable source IP restoration
         href: how-to-source-ip-restoration.md
