@@ -32,11 +32,11 @@ You can optionally limit the rules in a rule group to query data originating fro
 You should limit rules to a single cluster if your Azure Monitor workspace contains a large amount of data from multiple clusters. In such a case, there's a concern that running a single set of rules on all the data may cause performance or throttling issues. By using the `clusterName` property, you can create multiple rule groups, each configured with the same rules, and therefore limit each group to cover a different cluster. 
 
 - The `clusterName` value must be identical to the `cluster` label that is added to the metrics from a specific cluster during data collection.
-- If `clusterName` isn't specified for a specific rule group, the rules in the group queries all the data in the workspace from all clusters.
+- If `clusterName` isn't specified for a specific rule group, the rules in the group query all the data in the workspace from all clusters.
 
 ### Creating Prometheus rule group using Resource Manager template
 
-You can use a Resource Manager template to create and configure Prometheus rule groups, alert rules, and recording rules. Resource Manager templates enable you to programmatically set-up alert and recording rules in a consistent and reproducible way across all your environments.
+You can use a Resource Manager template to create and configure Prometheus rule groups, alert rules, and recording rules. Resource Manager templates enable you to programmatically set up alert and recording rules in a consistent and reproducible way across all your environments.
 
 The basic steps are as follows:
 
@@ -158,11 +158,11 @@ You can use Azure CLI to create and configure Prometheus rule groups, alert rule
 2. To create a Prometheus rule group, use the `az alerts-management prometheus-rule-group create` command. You can see detailed documentation on the Prometheus rule group create command in the `az alerts-management prometheus-rule-group create` section of the [Azure CLI commands for creating and managing Prometheus rule groups](/cli/azure/alerts-management/prometheus-rule-group#commands).
 
 Example: Create a new Prometheus rule group with rules
-```
+
 ```azurecli
  az alerts-management prometheus-rule-group create -n TestPrometheusRuleGroup -g TestResourceGroup -l westus --enabled --description "test" --interval PT10M --scopes "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.monitor/accounts/testaccount" --rules [{"record":"test","expression":"test","labels":{"team":"prod"}},{"alert":"Billing_Processing_Very_Slow","expression":"test","enabled":"true","severity":2,"for":"PT5M","labels":{"team":"prod"},"annotations":{"annotationName1":"annotationValue1"},"resolveConfiguration":{"autoResolved":"true","timeToResolve":"PT10M"},"actions":[{"actionGroupId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.insights/actionGroups/test-action-group-name1","actionProperties":{"key11":"value11","key12":"value12"}},{"actionGroupId":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.insights/actionGroups/test-action-group-name2","actionProperties":{"key21":"value21","key22":"value22"}}]}]
 ```
-```
+
 ### Create a new Prometheus rule group with PowerShell
 
 To create a Prometheus rule group using PowerShell, use the [new-azprometheusrulegroup](/powershell/module/az.alertsmanagement/new-azprometheusrulegroup) cmdlet.
