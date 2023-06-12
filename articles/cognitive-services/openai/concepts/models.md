@@ -203,7 +203,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-davinci-002 | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-003 | East US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-fine-tune-002 | N/A | N/A |  |  |
-| gpt-35-turbo<sup>1</sup> (ChatGPT) | East US, France Central, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
+| gpt-35-turbo<sup>1</sup> (ChatGPT) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
 
 <br><sup>1</sup> Currently, only version `0301` of this model is available.
 
