@@ -4,20 +4,40 @@ description: Review support requirements for the Defender for Servers plan in Mi
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/01/2023
+ms.date: 06/11/2023
 ---
 
 # Defender for Servers support
 
 This article summarizes support information for the Defender for Servers plan in Microsoft Defender for Cloud.
 
+## Network requirements
+
+Validate the following endpoints are configured for outbound access so that Azure Arc extension can connect to Microsoft Defender for Cloud to send security data and events:
+
+- For Defender for Server multicloud deployments, make sure that the [addresses and ports required by Azure Arc](../azure-arc/data/connectivity.md#details-on-internet-addresses-ports-encryption-and-proxy-server-support) are open.
+
+- For deployments with GCP connectors, open port 443 to these URLs:
+
+  - `osconfig.googleapis.com`
+  - `compute.googleapis.com`
+  - `containeranalysis.googleapis.com`
+  - `agentonboarding.defenderforservers.security.azure.com`
+  - `gbl.his.arc.azure.com`
+
+- For deployments with AWS connectors, open port 443 to these URLs:
+
+  - `ssm.<region>.amazonaws.com`
+  - `ssmmessages.<region>.amazonaws.com`
+  - `ec2messages.<region>.amazonaws.com`
+  - `gbl.his.arc.azure.com`
+
 ## Azure cloud support
 
-
-This table summarizes Azure cloud support for Defender for Servers features. 
+This table summarizes Azure cloud support for Defender for Servers features.
 
 **Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>**21Vianet**
---- | --- | --- | --- 
+--- | --- | --- | ---
 [Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
 [Compliance standards](./regulatory-compliance-dashboard.md)<br/>Compliance standards might differ depending on the cloud type.| GA | GA | GA
 [Microsoft Cloud Security Benchmark recommendations for OS hardening](apply-security-baseline.md) | GA | GA | GA
@@ -29,7 +49,6 @@ This table summarizes Azure cloud support for Defender for Servers features.
 [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA
 [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA
 [Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA
-
 
 ## Windows machine support
 
@@ -107,8 +126,6 @@ The following table shows feature support for AWS and GCP machines.
 | [Network security assessment](protect-network-resources.md) | - | - |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | ✔ | - |
 
-
-
 ## Endpoint protection support
 
 The following table provides a matrix of supported endpoint protection solutions. The table indicates whether you can use Defender for Cloud to install each solution for you.
@@ -125,7 +142,6 @@ The following table provides a matrix of supported endpoint protection solutions
 | Microsoft Defender for Endpoint Unified Solution<sup>[2](#footnote2)</sup>                    | Windows Server 2012 R2 and Windows 2016 | Via extension                   |
 | Sophos V9+                                                          | Linux (GA)                   | No                              |
 
-
 <sup><a name="footnote1"></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
 
 <sup><a name="footnote2"></a>2</sup> With the MDE unified solution on Server 2012 R2, it automatically installs Microsoft Defender Antivirus in Active mode. For Windows Server 2016, Microsoft Defender Antivirus is built into the OS.
@@ -133,4 +149,3 @@ The following table provides a matrix of supported endpoint protection solutions
 ## Next steps
 
 Start planning your [Defender for Servers deployment](plan-defender-for-servers.md).
-

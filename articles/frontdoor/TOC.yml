@@ -253,7 +253,11 @@
       - name: Configure
         items:
         - name: Upgrade to Premium tier
-          href: tier-upgrade.md
+          items:
+          - name: Azure portal
+            href: tier-upgrade.md
+          - name: Azure PowerShell
+            href: tier-upgrade-powershell.md
         - name: Configure a new endpoint
           href: how-to-configure-endpoints.md
         - name: Add origins to origin group
@@ -311,7 +315,11 @@
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
-        href: migrate-tier.md
+        items:
+        - name: Azure portal
+          href: migrate-tier.md
+        - name: Azure PowerShell
+          href: migrate-tier-powershell.md
       - name: Add a custom domain
         items:
         - name: Azure portal

@@ -21,7 +21,8 @@ This article outlines how to register Azure Synapse Analytics workspaces and how
 | [Yes](#register) | [Yes](#scan)| [Yes](#scan) | No| [Yes](#scan)| No| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No|
 
 >[!NOTE]
->Currently, Azure Synapse lake databases are not supported.
+> - Currently, Azure Synapse lake databases are not supported.
+> - For external tables, the relationship of the external tables to their original files are not currently captured.
 
 ## Prerequisites
 
