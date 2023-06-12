@@ -20,7 +20,7 @@ Follow these steps to ensure you have Service Health alerts configured:
 4. Select **Create service health alert**.
 5. Deselect **Select all** under **Services**.
 6. Select **Azure Large Instances**.
-7. Select the regions in which your Epic on Azure BMI instances deployed.
+7. Select the regions in which your ALI for Epic instances deployed.
 8. Under **Action Groups**, select **Create New**.
 9. Fill in the details and select the type of notification for the Action (Email, SMS, Voice, etc.).
 10. Click **OK** to add the Action.

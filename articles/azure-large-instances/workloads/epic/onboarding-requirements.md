@@ -47,17 +47,19 @@ When customers receive an environment from the Microsoft ALI team, they are enco
 This IP address range is used to assign the individual IP address to ALI for Epic servers.
 The recommended subnet size is a /24 CIDR block. If needed, it can be smaller, with as few as 64 IP addresses.
 
-From this range, the first 30 IP addresses are reserved for use by Microsoft. Make sure that you account for this when you choose the size of the range. This range must NOT overlap with your on-premises or other Azure IP addresses.
+From this range, the first 30 IP addresses are reserved for use by Microsoft.
+Make sure that you account for this when you choose the size of the range.
+This range must NOT overlap with your on-premises or other Azure IP addresses.
 
 Your corporate network team or service provider should provide an IP address range that's not currently being used inside your network.
 This range is an IP address range, which must be submitted to Microsoft when asking for an initial deployment.
 
 ## Optional IP address ranges to eventually submit to Microsoft
   
-If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to Epic on Azure BMI instance units, you must reserve another /29 IP address range.
+If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to ALI for Epic instance units, you must reserve another /29 IP address range.
 This range may not overlap with any of the other IP addresses ranges you defined before.  
 
-If you choose to use ExpressRoute Global Reach to enable direct routing from an Epic on Azure BMI instance tenant in one Azure region to another Epic on Azure BMI instance tenant in another Azure region, you must reserve another /29 IP address range.
+If you choose to use ExpressRoute Global Reach to enable direct routing from an ALI for Epic instance tenant in one Azure region to another ALI for Epic instance tenant in another Azure region, you must reserve another /29 IP address range.
 This range may not overlap with the  IP address ranges you defined before.  
 
 ## Using ExpressRoute Fast Path
@@ -68,19 +70,17 @@ For setup instructions, see [How to enable ExpressRoute Fast Path](how-to enable
 
 To see the learned routes from ALI, one of the options is looking at the Effective Routes table of one of your VMs, as follows:
 
-1. In Azure Portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to Azure BMI), select **Networking**, select the network interface name, then select **Effective Routes**.
+1. In Azure Portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to ALI for Epic), select **Networking**, select the network interface name, then select **Effective Routes**.
 
-2. Make sure to enable accelerated networking with all VMs connecting to Epic on Azure BMI (link1) or (link2).
+2. Make sure to enable accelerated networking with all VMs connecting to ALI for Epic (link1) or (link2).
 
-3. Set up Epic on Azure BMI solution as per your system requirements and take a system backup.  
-
+3. Set up ALI for Epic solution based on your system requirements and take a system backup.  
 4. Take an OS backup.  
-5. Set up volume groups. (See FAQs for detailed steps)  
+5. Set up volume groups. (See [Create a volume group](create-a-volume-group.md))  
+6. Set up a storage snapshot, backup, and data offload. (For detailed steps, see [FAQ](faq.md)).  
 
-6. Set up storage snapshot, backup, and data offload. (See FAQs for detailed steps).  
-
-The Azure subscription you use for Azure Large instance deployments is already registered with the ALI resource provider by the Microsoft Operations team during the provisioning process.
-If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription (See FAQs for detailed steps).  
+The Azure subscription you use for Azure Large Instance deployments is already registered with the ALI resource provider by the Microsoft Operations team during the provisioning process.
+If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. For more information, see [Register the ALI source provider](register-the-ali-source-provider.md).
 
 ## How to enable ExpressRoute Fast Path
 
@@ -89,7 +89,8 @@ For more information about installing the power shell cmdlets, see [How to insta
 
 ### Authorizing  
 
-Ensure you have authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. Also obtain ER circuit resource ID.
+Ensure you have an authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. 
+Also obtain ER circuit resource ID.
 
 If you don’t have this information, obtain the details from the circuit owner (these details are usually provided by the Microsoft team as part of provisioning request completion.
 Reach out to
@@ -97,7 +98,8 @@ Reach out to
 
 ### Declare variables
 
-This example declares the variables using the values for this exercise. Replace the values with your subscription values.
+This example declares the variables using the values for this exercise.
+Replace the values with your subscription values.
 
 ```azurecli
 $Sub1 = "Replace_With_Your_Subcription_Name"  
@@ -161,8 +163,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name "Virtual Gateway connection nam
   
 ### Enable Accelerated Networking on VMs
 
-To take advantage of low latency access on VM’s network stack, enable accelerated networking (AN) aka SR-IOV on supported VM’s.
-See the below link for more details on supported VM sizes, OS and how to enable AN for existing VM’s  
+To take advantage of low latency access on VMs network stack, enable accelerated networking (AN), also known as SR-IOV, on supported VMs.
+Ffor more details on supported VM sizes, OS and how to enable AN for existing VMs, see
 [Use Azure CLI to create a Windows or Linux VM with Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli)
 
 ## Next steps
