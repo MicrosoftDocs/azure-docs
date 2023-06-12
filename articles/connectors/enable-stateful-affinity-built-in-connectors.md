@@ -3,7 +3,7 @@ title: Enable stateful mode for stateless built-in connectors
 description: 
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewer: estfan, edwardhe, azla
 ms.topic: how-to
 ms.date: 06/13/2023
 ---
@@ -17,7 +17,7 @@ In Standard logic app workflows, the following built-in, service provider-based 
 - Azure Service Bus
 - SAP
 
-If you want to run these connector operations in stateful mode, you have to enable the *affinity* capability. This how-to guide shows how to enable this capability.
+To run these connector operations in stateful mode, you have to enable stateful mode, or their affinity capability. This how-to guide shows how to enable stateful mode for these connectors.
 
 ## Prerequisites
 
