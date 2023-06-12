@@ -1,5 +1,5 @@
 ---
-title: Execute employee termination tasks by using lifecycle workflows (preview)
+title: Execute employee termination tasks by using lifecycle workflows
 description: Learn how to remove users from an organization in real time on their last day of work by using lifecycle workflows (preview) in the Azure portal.
 services: active-directory
 author: owinfreyATL
@@ -14,9 +14,9 @@ ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
 
-# Execute employee termination tasks by using lifecycle workflows (preview)
+# Execute employee termination tasks by using lifecycle workflows
 
-This tutorial provides a step-by-step guide on how to execute a real-time employee termination by using lifecycle workflows (preview) in the Azure portal.
+This tutorial provides a step-by-step guide on how to execute a real-time employee termination by using lifecycle workflows in the Azure portal.
 
 This *leaver* scenario runs a workflow on demand and accomplishes the following tasks:
 
@@ -49,7 +49,7 @@ Use the following steps to create a leaver on-demand workflow that will execute 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the right, select **Azure Active Directory**.
 3. Select **Identity Governance**.
-4. Select **Lifecycle workflows (Preview)**.
+4. Select **Lifecycle workflows**.
 5. On the **Overview** tab, select **New workflow**.
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of the Overview tab and the button for creating a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
@@ -105,9 +105,9 @@ To run a workflow on demand for users by using the Azure portal:
 
 ## Check tasks and workflow status
 
-At any time, you can monitor the status of workflows and tasks. Three data pivots, users runs, and tasks are currently available in public preview. You can learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In this tutorial, you check the status by using the user-focused reports.
+At any time, you can monitor the status of workflows and tasks. Three data pivots, users runs, and tasks are currently available. You can learn more in the how-to guide [Check the status of a workflow](check-status-workflow.md). In this tutorial, you check the status by using the user-focused reports.
 
-1. On the **Overview** page for the workflow, select **Workflow history (Preview)**.  
+1. On the **Overview** page for the workflow, select **Workflow history**.  
 
    :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-real-time.png" alt-text="Screenshot of the overview page for a workflow." lightbox="media/tutorial-lifecycle-workflows/workflow-history-real-time.png":::
 
@@ -129,5 +129,5 @@ At any time, you can monitor the status of workflows and tasks. Three data pivot
 
 ## Next steps
 
-- [Prepare user accounts for lifecycle workflows (preview)](tutorial-prepare-azure-ad-user-accounts.md)
+- [Prepare user accounts for lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
 - [Complete tasks in real time on an employee's last day of work by using lifecycle workflow APIs](/graph/tutorial-lifecycle-workflows-offboard-custom-workflow)
