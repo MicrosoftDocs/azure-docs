@@ -36,7 +36,7 @@ The following short video provides an excellent overview of Azure AD Connect clo
 
 The following table provides a comparison between Azure AD Connect and Azure AD Connect cloud sync:
 
-| Feature | Azure Active Directory Connect sync| Azure Active Directory Connect cloud sync |
+| Feature | Connect sync| Cloud sync |
 |:--- |:---:|:---:|
 |Connect to single on-premises AD forest|● |● |
 | Connect to multiple on-premises AD forests |● |● |
@@ -68,7 +68,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Support for group writeback|● | |
 | Support for merging user attributes from multiple domains|● | |
 | Azure AD Domain Services support|● | |
-| [Exchange hybrid writeback](../connect/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
+| [Exchange hybrid writeback](exchange-hybrid.md) |● |● |
 | Unlimited number of objects per AD domain |● | |
 | Support for up to 150,000 objects per AD domain |● |● |
 | Groups with up to 50,000 members |● |● |
