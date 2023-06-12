@@ -45,7 +45,7 @@ The network data you collect for your data tables using the *NetworkData* table 
 
 The service generates these network data points every two minutes during an active session.
 
-### Graphics data (preview)
+### Connection graphics data (preview)
 
 You should consult the *ConnectionGraphicsData* table (preview) when users report slow or choppy experiences in their Azure Virtual Desktop sessions. The ConnectionGraphicsData table will give you useful information whenever graphical indicators, end-to-end delay, and dropped frames percentage fall below the "healthy" threshold for Azure Virtual Desktop. This table will help your admins track and understand factors across the server, client, and network that could be contributing to the user's slow or choppy experience. However, while the ConnectionGraphicsData table is a useful tool for troubleshooting poor user experience, since it's not regularly populated throughout a session, it isn't a reliable environment baseline.
 
