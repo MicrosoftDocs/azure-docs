@@ -55,7 +55,7 @@ The default content filtering configuration is set to filter at the medium sever
 
 <sup>\*</sup> Only customers who have been approved for modified content filtering  have full content filtering control, including configuring content filters at severity level high only or turning content filters off. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
 
-Content filtering configurations are created within a Resource in Azure OpenAI Studio, and can be associated with Deployments. [Learn more about configurability here](../how-to/content-filters.md).  
+Content filtering configurations are created within a Resource in Azure AI Studio, and can be associated with Deployments. [Learn more about configurability here](../how-to/content-filters.md).  
 
    :::image type="content" source="../media/content-filters/configuration.png" alt-text="Screenshot of the content filter configuration UI" lightbox="../media/content-filters/configuration.png":::
 
