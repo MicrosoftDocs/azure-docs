@@ -17,10 +17,10 @@ ms.date: 06/11/2023 #Required; mm/dd/yyyy format. Date the article was created o
 >
 > Customers can [sign up for NGads V620 Series preview today](https://aka.ms/NGadsV620-Series-Public-Preview). NGads V620 Series VMs are initially available in the East US2 and Europe West Azure regions.
 
-The NGads V620 series are GPU-enabled virtual machines with CPU, memory resources and storage resources balanced to generate and stream high quality graphics for a high performance, interactive gaming experience hosted in Azure.  They are powered by [AMD Radeon(tm) PRO V620 GPU](https://www.amd.com/en/products/server-accelerators/amd-radeon-pro-v620) and [AMD EPYC 7763 (Milan) CPUs](https://www.amd.com/en/products/cpu/amd-epyc-7763).  The AMD Radeon PRO V620 GPUs have a maximum frame buffer of 32GB  which can be divided up to 4 ways through hardware partitioning. The AMD EPYC CPUs have a base clock speed of 2.45GHz and a boost speed of 3.5Ghz. VMs are assigned full cores instead of threads, enabling full access to AMD’s powerful “Zen 3” cores.<br.
+The NGads V620 series are GPU-enabled virtual machines with CPU, memory resources and storage resources balanced to generate and stream high quality graphics for a high performance, interactive gaming experience hosted in Azure.  They're powered by [AMD Radeon(tm) PRO V620 GPU](https://www.amd.com/en/products/server-accelerators/amd-radeon-pro-v620) and [AMD EPYC 7763 (Milan) CPUs](https://www.amd.com/en/products/cpu/amd-epyc-7763).  The AMD Radeon PRO V620 GPUs have a maximum frame buffer of 32 GB, which can be divided up to four ways through hardware partitioning. The AMD EPYC CPUs have a base clock speed of 2.45 GHz and a boost speed of 3.5Ghz. VMs are assigned full cores instead of threads, enabling full access to AMD’s powerful “Zen 3” cores.<br.
 <sup>*</sup>EPYC-018: Max boost for AMD EPYC processors is the maximum frequency achievable by any single core on the processor under normal operating conditions for server systems.
 
-NGads instances come in four sizes, allowing customers to right-size their gaming environments for the performance and cost that best fits their business needs. The NG-series virtual machines feature partial GPUs to enable you to pick the right-sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/4th of a GPU with 8 GiB frame buffer to a full GPU with 32 GiB frame buffer. The NGads VMs also feature Direct Disk NVMe ranging from 1 to 4x 960GB disks per VM.
+NGads instances come in four sizes, allowing customers to right-size their gaming environments for the performance and cost that best fits their business needs. The NG-series virtual machines feature partial GPUs to enable you to pick the right-sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/4th of a GPU with 8-GiB frame buffer up to a full GPU with 32-GiB frame buffer. The NGads VMs also feature Direct Disk NVMe ranging from 1 to 4x 960 GB disks per VM.
 
 | Size | vCPU<sup>1</sup> | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU Memory GiB<sup>2</sup> | Max data disks |  Max uncached disk throughput: IOPS/MBps | Direct Disk NVMe<sup>3</sup> | Max NICs / Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -31,7 +31,7 @@ NGads instances come in four sizes, allowing customers to right-size their gamin
 
 <sup>1</sup> Physical Cores.  
 <sup>2</sup> The actual GPU VRAM reported in the operating system will be little less due to Error Correcting Code (ECC) support.<br>
-<sup>3</sup> Local NVMe disks are ephemeral, data will be lost on these disks if you stop/deallocate your VM. Local NVMe disks aren't encrypted by Azure Storage encryption, even if you enable encryption at host.
+<sup>3</sup> Local NVMe disks are ephemeral. Data is lost on these disks if you stop/deallocate your VM. Local NVMe disks aren't encrypted by Azure Storage encryption, even if you enable encryption at host.
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 Premium Storage v2: Supported<br>
@@ -47,9 +47,9 @@ Ultra Disks: Supported<br>
 
 ## Supported operating systems and drivers
 
-The NGads V620 Series VMs will support a new AMD Cloud Software driver that comes in two editions: A Gaming driver with regular updates to support the latest titles, as well as a Professional driver for accelerated Virtual Desktop environments, with Radeon PRO optimizations to support high-end workstation applications. <br>
+The NGads V620 Series VMs support a new AMD Cloud Software driver that comes in two editions: A Gaming driver with regular updates to support the latest titles, and a Professional driver for accelerated Virtual Desktop environments, with Radeon PRO optimizations to support high-end workstation applications. <br>
 
-You can create the VMs using CLI. (Azure AMD GPU driver extensions do not support NGads  V620 Series during preview)
+You can create the VMs using CLI. (Azure AMD GPU driver extensions don't support NGads  V620 Series during preview)
 
 •	Link to the CLI VM creation documentation https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-cli<br>
 •	Install Az CLI https://learn.microsoft.com/en-us/cli/azure/install-azure-cli<br>
@@ -63,7 +63,7 @@ You can create the VMs using CLI. (Azure AMD GPU driver extensions do not suppor
 - Standard_NG32adms_V620_v1<br>
   
 To take advantage of the GPU capabilities of Azure NGads V620 Series VMs, AMD GPU drivers must be installed. NG virtual machines currently support only Windows guest operating systems.<br> 
-- Driver download link::  https://go.microsoft.com/fwlink/?linkid=2234555.<br>
+- Driver download link:  https://go.microsoft.com/fwlink/?linkid=2234555.<br>
 - Download the zip file to a local drive.  Unzip to a local drive.  Run setup.exe.
 
 
