@@ -47,7 +47,7 @@ This section provides an overview of the authentication and authorization proces
 
 Let's say you have an application that signs in a user and then accesses a protected resource.
 
-:::image type="content" source="./media/introduction-identity-access-management/OpenIdOAuth.svg" alt-text="Diagram that shows the user authentication and authorization process for accessing a protected resource using an identity provider." :::
+:::image type="content" source="./media/introduction-identity-access-management/OpenId-OAuth.svg" alt-text="Diagram that shows the user authentication and authorization process for accessing a protected resource using an identity provider." :::
 
 1. The user (resource owner) initiates an authentication request with the identity provider/authorization server from the client application.
 
