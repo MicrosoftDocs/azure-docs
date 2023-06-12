@@ -82,7 +82,7 @@ Response<RecordingStateResult> response = callAutomationClient.getCallRecording(
 
 ```
 
-### 2.2. Only for Unmixed - Specify Channel affinity
+### 2.2. Only for Unmixed - Specify channel affinity
 ```java
 ChannelAffinity channelAffinity = new ChannelAffinity()
 .setParticipant(new PhoneNumberIdentifier("RECORDING_ID"))
