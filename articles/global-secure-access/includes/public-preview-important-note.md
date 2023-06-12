@@ -20,6 +20,6 @@ Previews may be subject to reduced or different security, compliance and privacy
 
 If you have feedback or questions about our Global Secure Access public preview capabilities, let the team know by completing the following form:
 
-[http://aka.ms/ssepreviewfeedback](http://aka.ms/ssepreviewfeedback)
+[https://aka.ms/ssepreviewfeedback](https://aka.ms/ssepreviewfeedback)
 
 For any support related issues, continue to use your standard support channels.
