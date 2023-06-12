@@ -123,6 +123,10 @@ For per-app access, you can enable or disable access to the app using the Global
 
 ![Screenshot of the enable access checkbox.](media/how-to-configure-per-app-access/per-app-access-enable-checkbox.png)
 
+### Assign Conditional Access policies
+
+Conditional Access policies for per-app access are configured at the application level for each app. Conditional Access policies are created and applied to the application in the **Protection** area of Microsoft Entra ID. For more information, see the article [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
+
 ## Enable Microsoft Entra Private Access
 
 Once you have your app configured, your private resources added, users assigned to the app, you can enable the Private access traffic forwarding profile. You can enable the profile before configuring Quick Access, but without the app and profile configured, there's no traffic to forward.
