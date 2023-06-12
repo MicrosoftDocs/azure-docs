@@ -78,7 +78,7 @@ Use the instructions in [Configuring group claims and app roles in tokens](/secu
 
 In the client app (one that signs in the user), you can check whether a signed in user belongs to the required role(s) to access a protected route. You can do this by checking `roles` claim the ID token of the. By doing this, you can make sure that only authorized users can view certain pages of your application. 
 
-In your app, you can also enforce that a user belongs to the required role(s) to make a call to an API on an endpoint. You can accomplish this kind of protection by using custom middleware, which checks for the required roles or groups. 
+In your app, you can also enforce that a user belongs to the required role(s) to make a call to an API on an endpoint. You can build these guards by using custom middleware, which checks for the required roles or groups. 
 
 In the API side,    
 
