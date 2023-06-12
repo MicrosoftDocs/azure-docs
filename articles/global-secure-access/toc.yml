@@ -35,7 +35,7 @@ items:
   - name: Conditional Access
     expanded: false
     items:
-      - name: Global Secure Access as a target resource 
+      - name: Universal Conditional Access through Global Secure Access 
         href: how-to-target-resource.md
       - name: Enable source IP restoration
         href: how-to-source-ip-restoration.md

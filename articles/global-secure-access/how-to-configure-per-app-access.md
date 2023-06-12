@@ -28,7 +28,6 @@ To manage App Proxy connector groups, which is required for per-app access, you 
 
 - A Microsoft Entra ID Premium P1/P2 license
 - An **Application Administrator** role in Microsoft Entra ID
-- An App Proxy license
 
 ## Setup overview
 

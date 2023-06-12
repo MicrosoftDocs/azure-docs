@@ -25,7 +25,6 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 
 - An **Application Administrator** role in Microsoft Entra ID
 - A Microsoft Entra ID Premium P1/P2 license
-- An App Proxy license
 
 ### Known limitations
 

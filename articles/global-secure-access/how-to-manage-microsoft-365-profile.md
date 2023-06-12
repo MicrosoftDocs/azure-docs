@@ -27,6 +27,7 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 To manage the details included in the Microsoft 365 traffic forwarding policy:
 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
 1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
 1. Select the **View** link for **Microsoft 365 traffic policies**. 
 

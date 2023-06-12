@@ -52,8 +52,6 @@ To enable the required setting to allow the compliant network check, an administ
 
 The following example shows a Conditional Access policy that requires Exchange Online and SharePoint Online to be accessed from behind a compliant network.
 
-:::image type="content" source="media/how-to-compliant-network/all-network-access-locations.png" alt-text="Screenshot showing a Conditional Access policy highlighting the All Network Access locations of my tenant location." lightbox="media/how-to-compliant-network/all-network-access-locations.png":::
-
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
@@ -83,7 +81,6 @@ After administrators confirm the policy settings using [report-only mode](../act
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), you're blocked from accessing resources with an error message that says **You cannot access this right now**.
 
-<!---Add lightbox with more details-->
 :::image type="content" source="media/how-to-compliant-network/you-cannot-access-this-right-now-error.png" alt-text="Screenshot showing error message in browser window You can't access this right now.":::
 
 ## Troubleshooting
@@ -96,11 +93,6 @@ GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
-<!--- To be added
-## FAQs
-## Known limitations
 ## Next steps
-Tenant restrictions
-Source IP restoration
-Compliant network policy
---->
+
+[The Global Secure Access Client for Windows (preview)](how-to-install-windows-client.md)
