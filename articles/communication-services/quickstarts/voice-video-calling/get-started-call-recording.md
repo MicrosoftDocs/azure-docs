@@ -5,11 +5,11 @@ titleSuffix: An Azure Communication Services document
 description: Public Preview quickstart for Call Recording APIs
 author: dbasantes
 services: azure-communication-services
-ms.date: 10/14/2022
+ms.date: 06/12/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-zone_pivot_groups: acs-csharp-java-python-javascript
+zone_pivot_groups: acs-js-csharp-java-python
 ms.custom: mode-api, devx-track-extended-java
 ---
 # Call Recording Quickstart
