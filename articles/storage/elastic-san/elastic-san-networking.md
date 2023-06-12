@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 06/12/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell
@@ -16,14 +16,15 @@ Azure Elastic storage area network (SAN) preview allows you to secure and contro
 
 This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
 
-You can configure your Elastic SAN, and the volume groups that belong to it, to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
+You can configure your Elastic SAN, and the volume groups that belong to it, to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
 
 The process for configuring network access to your Elastic SAN is as follows:
 
-1. [Configure the virtual network endpoint](#configure-virtual-network-endpoint).
-1. Configure endpoint access to the desired volume groups in the Elastic SAN.
-1. [Configure network rules](#configure-virtual-network-rules) to control the source and type of traffic to your Elastic SAN.
-1. [Configure client connections](#configure-client-connections).
+> [!div class="checklist"]
+> - [Configure the virtual network endpoint](#configure-virtual-network-endpoint).
+> - Configure endpoint access to the desired volume groups in the Elastic SAN.
+> - [Configure network rules](#configure-virtual-network-rules) to control the source and type of traffic to your Elastic SAN.
+> - [Configure client connections](#configure-client-connections).
 
 ## Configure virtual network endpoint
 
@@ -41,9 +42,7 @@ The process for enabling each type of endpoint follows:
 
 ### Configure Azure Storage service endpoint
 
-To configure an Azure Storage service endpoint, enable it from the virtual network subnet.
-
-In your virtual network, enable the Storage service endpoint on your subnet. This ensures traffic is routed optimally to your Elastic SAN. To enable service endpoints for Azure Storage, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
+To configure an Azure Storage service endpoint, enable it from the virtual network subnet. To enable service endpoints for Azure Storage, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
 
 > [!NOTE]
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
@@ -51,7 +50,7 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 # [Portal](#tab/azure-portal)
 
 1. Navigate to your virtual network and select **Service Endpoints**.
-1. Select **+ Add** and for **Service** select **Microsoft.Storage.Global** to add a [cross-region service endpoint](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints). (You might see **Microsoft.Storage** listed as a storage service endpoint. That option is for same-region-only endpoints and are there for backward compatibility. Always use cross-region endpoints unless you have a specific reason for using same-region ones).
+1. Select **+ Add** and for **Service** select **Microsoft.Storage.Global** to add a [cross-region service endpoint](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints). (You might see **Microsoft.Storage** listed as a storage service endpoint. That option is for intra-region endpoints which exist for backward compatibility. Always use cross-region endpoints unless you have a specific reason for using intra-region ones).
 1. Select any policies you like, and the subnet you deploy your Elastic SAN into and select **Add**.
 
 :::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
@@ -59,12 +58,11 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 # [PowerShell](#tab/azure-powershell)
 
 ```powershell
-$resourceGroupName = "yourResourceGroup"
-$vnetName = "yourVirtualNetwork"
-$subnetName = "yourSubnet"
+$resourceGroupName = "<your resource group name>"
+$vnetName = "<your virtual network name>"
+$subnetName = "<your subnet name>"
 
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
-
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
 
 $virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
@@ -73,7 +71,11 @@ $virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPre
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage.Global"
+resourceGroupName="<your resource group name>"
+vnetName="<your virtual network name>"
+subnetName="<your subnet name>"
+
+az network vnet subnet update --resource-group $resourceGroupName --vnet-name $vnetName --name $subnetName --service-endpoints "Microsoft.Storage.Global"
 ```
 ---
 
