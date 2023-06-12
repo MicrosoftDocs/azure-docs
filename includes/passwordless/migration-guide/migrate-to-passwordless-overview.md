@@ -16,6 +16,6 @@ A .NET application can pass an instance of `DefaultAzureCredential` into the con
 
 ```csharp
 ServiceBusClient serviceBusClient = new(
-    new Uri("https://<your-service-bus-namespace>.blob.core.windows.net"),
+    new Uri($"https://{serviceBusNamespace}.blob.core.windows.net"),
     new DefaultAzureCredential());
 ```
