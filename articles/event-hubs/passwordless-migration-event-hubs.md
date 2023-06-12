@@ -55,12 +55,13 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
 1. Identify the locations in your code that create an `EventHubProducerClient` or `EventProcessorClient` object to connect to Azure Event Hubs. Update your code to match the following example:
 
-   ```csharp
-   DefaultAzureCredential credential = new();
+    ```csharp
+    DefaultAzureCredential credential = new();
+    var eventHubNamespace = $"{namespace}.servicebus.windows.net";
 
     // Event Hubs producer
     EventHubProducerClient producerClient = new(
-        $"{eventHubNamespace}.servicebus.windows.net",
+        eventHubNamespace,
         eventHubName,
         credential);
 
@@ -68,7 +69,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
     EventProcessorClient processorClient = new(
         storageClient,
         EventHubConsumerClient.DefaultConsumerGroupName,
-        $"{eventHubNamespace}.servicebus.windows.net",
+        eventHubNamespace,
         eventHubName,
         credential);
     ```
@@ -131,29 +132,29 @@ The Azure Identity client library, for each of the following ecosystems, provide
     ```java
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .build();
+    String eventHubNamespace = "https://" + namespace + ".servicebus.windows.net";
 
     // Event Hubs producer
     EventHubProducerClient producerClient = new EventHubClientBuilder()
-        .credential(eventHubNamespace + ".servicebus.windows.net",
-            eventHubName,
-            credential)
+        .credential(eventHubNamespace, eventHubName, credential)
         .buildProducerClient();
 
     // Event Hubs processor
     EventProcessorClient processorClient = new EventProcessorClientBuilder()
         .consumerGroup(consumerGroupName)
-        .credential(eventHubNamespace + ".servicebus.windows.net",
-            eventHubName,
-            credential)
+        .credential(eventHubNamespace, eventHubName, credential)
         .checkpointStore(new SampleCheckpointStore())
         .processEvent(eventContext -> {
             System.out.println(
-                "Partition ID = " + eventContext.getPartitionContext().getPartitionId() + " and "
-                + "sequence number of event = " + eventContext.getEventData().getSequenceNumber());
+                "Partition ID = " +
+                eventContext.getPartitionContext().getPartitionId() +
+                " and sequence number of event = " +
+                eventContext.getEventData().getSequenceNumber());
         })
         .processError(errorContext -> {
             System.out.println(
-                "Error occurred while processing events " + errorContext.getThrowable().getMessage());
+                "Error occurred while processing events " +
+                errorContext.getThrowable().getMessage());
         })
         .buildEventProcessorClient();
     ```
@@ -176,17 +177,18 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
     ```nodejs
     const credential = new DefaultAzureCredential();
+    const eventHubNamespace = `${namespace}.servicebus.windows.net`
 
     // Event Hubs producer    
     const producerClient = new EventHubProducerClient(
-        `${eventHubNamespace}.servicebus.windows.net`,
+        eventHubNamespace,
         eventHubName,
         credential);
 
     // Event Hubs processor
     const processorClient = new EventHubConsumerClient(
         consumerGroupName,
-        `${eventHubNamespace}.servicebus.windows.net`,
+        eventHubNamespace,
         eventHubName,
         credential
     );
