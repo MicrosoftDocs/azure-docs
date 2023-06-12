@@ -170,4 +170,4 @@ Communication Services offers the following types of logs that you can enable:
     ]
 ```
 
- (see also [FAQ](../../../../azure-monitor/faq.yml)). 
+ (See also [FAQ](../../../../azure-monitor/faq.yml)).
