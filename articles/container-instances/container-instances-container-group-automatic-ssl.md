@@ -30,7 +30,7 @@ The example mounts the [Caddyfile](https://caddyserver.com/docs/caddyfile), whic
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-- 
+
 ## Prepare the Caddyfile
 
 Create a file called `Caddyfile` and paste the following configuration. This configuration creates a reverse proxy configuration, pointing to your application container listening on 5000/TCP. 
@@ -46,7 +46,7 @@ It's important to note, that the configuration references a domain name instead 
 > [!NOTE]
 > For production deployment, users might want to use a domain name they control, e.g., `api.company.com` and create a CNAME record pointing to e.g. `my-app.westeurope.azurecontainer.io`. If so, it needs to be ensured, that the custom domain name is also used in the Caddyfile, instead of the one assigned by Azure (e.g., `*.westeurope.azurecontainer.io`). Further, the custom domain name, needs to be referenced in the ACI YAML configuration described later in this example. 
 
-## Prepare Storage Account
+## Prepare storage account
 
 Create a storage account
 
@@ -297,11 +297,11 @@ read R BLOCK
 
 Navigate to https://my-app.westeurope.azurecontainer.io and verify the certificate by clicking on the padlock next to the URL. 
 
-:::image type="content" source="media/container-instances-container-group-automatic-ssl/my-app-1.png" alt-text="Certificate validation":::
+:::image type="content" source="media/container-instances-container-group-automatic-ssl/url-padlock.png" alt-text="Screenshot highlighting the padlock next to the URL that verifies the certificate.":::
 
 To see the certificate details, click on "Connection is secure" followed by "certificate is valid".
 
-:::image type="content" source="media/container-instances-container-group-automatic-ssl/my-app-2.png" alt-text="Certificate issued by Let's Encrypt":::
+:::image type="content" source="media/container-instances-container-group-automatic-ssl/lets-encrypt-certificate.png" alt-text="Screenshot of the certificate issued by Let's Encrypt":::
 
 ## Next steps
 - [Caddy documentation](https://caddyserver.com/docs/)
