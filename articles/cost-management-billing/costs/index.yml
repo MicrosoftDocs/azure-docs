@@ -60,7 +60,7 @@ landingContent:
       - text: Create a budget
         url: tutorial-acm-create-budgets.md
       - text: Configure anomaly alerts
-        url: ../understand/analyze-unexpected-charges#create-an-anomaly-alert.md
+        url: ../understand/analyze-unexpected-charges.md#create-an-anomaly-alert
       - text: Reservation utilization alerts
         url: reservation-utilization-alerts.md
       - text: Subscribe to scheduled alerts
