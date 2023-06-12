@@ -53,11 +53,49 @@ For example, our most powerful GPT-3 model is called `text-davinci-003`, while o
 
 You can get a list of models that are available for both inference and fine-tuning by your Azure OpenAI resource by using the [Models List API](/rest/api/cognitiveservices/azureopenaistable/models/list).
 
+## Model updates
+
+> [!IMPORTANT]
+> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for the new `(0613)` gpt-35-turbo, gpt-35-turbo-16k, gpt-4, and gpt-4-32k model versions are temporary placeholders. Expiration of `0613` models will not happen prior to December 1st 2023, but this date may be extended depending on the timing of future model version releases from OpenAI.
+
+Azure OpenAI now supports automatic updates for select model deployments. On models where automatic update support is available, a model version drop-down will be visible in Azure OpenAI Studio under **Create new deployment** and **Edit deployment**:
+
+:::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deployment UI of Azure AI Studio" lightbox="../media/models/auto-update.png":::
+
+### Auto update to latest
+
+When **Auto-update to latest** is selected your model deployment will be automatically updated within two weeks of a new version being released.
+
+If you are still in the early testing phases we recommend deploying models with **auto-update to latest** set whenever it is available. 
+
+### Specific model version
+
+As your use of Azure OpenAI evolves, and you start to build and integrate with applications you will likely want to manually control model updates so that you can first test and validate that model performance is remaining consistent for your use case prior to upgrade.
+
+When you select a specific model version for a deployment this version will remain selected until you either choose to manually update yourself, or once you reach the expiration date for the model. When the deprecation/expiration date is reached the model will auto-upgrade to the latest available version.
+
+### Turbo-0301 and GPT-4-0314 expiration
+
+The original turbo-0301 and GPT-04-0314 models will expire on October 1st, 2023. When the model expires on October 1, 2023, those deployments will automatically be upgraded to the default version at the time of expiry.  If you would like your deployment to stop accepting completion requests on October 1, then you will be able to set the model upgrade option to expire though the API. We will publish guidelines on this by September 1.  
+
+### Viewing deprecation dates
+
+For currently deployed models, from Azure OpenAI Studio select **Deployments**:
+
+:::image type="content" source="../media/models/deployments.png" alt-text="Screenshot of the deployment UI of Azure AI Studio" lightbox="../media/models/deployments.png":::
+
+To view deprecation/expiration dates for all available models in a given region from Azure OpenAI Studio select **Models** > **Column options** > Select **Deprecation fine tune** and **Deprecation inference**:
+
+:::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the deployment UI of Azure AI Studio" lightbox="../media/models/column-options.png":::
+
+
+
+
 ## Finding the right model
 
 We recommend starting with the most capable model in a model family to confirm whether the model capabilities meet your requirements. Then you can stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities.
 
-## GPT-4 models 
+## GPT-4 models
 
  GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like gpt-35-turbo, GPT-4 is optimized for chat but works well for traditional completions tasks.
 
@@ -207,9 +245,6 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 
 <br><sup>1</sup> Currently, only version `0301` of this model is available.
 
-> [!IMPORTANT]
-> The currently listed deprecation dates in Azure AI Studio and via REST API for gpt-35-turbo (0301) is a temporary placeholder. Deprecation will not happen prior to October 1st 2023.
-
 ### GPT-4 Models
 
 These models can only be used with the Chat Completion API.
@@ -221,9 +256,6 @@ These models can only be used with the Chat Completion API.
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
-
-> [!IMPORTANT]
-> The currently listed deprecation dates in Azure AI Studio and via REST API for the gpt-4 and gpt-4-32k (0314) models are temporary placeholders. Deprecation will not happen prior to October 1st 2023.
 
 ### Dall-E Models
 
