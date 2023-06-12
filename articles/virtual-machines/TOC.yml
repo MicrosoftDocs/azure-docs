@@ -1623,7 +1623,7 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Boot integrity monitoring (guest attestation) overview
+    - name: Boot integrity monitoring overview
       href: boot-integrity-monitoring-overview.md
  
   - name: Just-in-time access
