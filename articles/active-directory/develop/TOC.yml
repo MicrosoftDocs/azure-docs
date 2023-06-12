@@ -445,7 +445,7 @@
             - name: Restrict your app to a set of users
               href: howto-restrict-your-app-to-a-set-of-users.md
             - name: Add app roles in your application
-              href: howto-add-app-roles-in-azure-ad-apps.md
+              href: howto-add-app-roles-in-apps.md
             - name: Implement RBAC in your application
               href: howto-implement-rbac-for-apps.md
             - name: Support FIDO2 authentication
@@ -822,7 +822,7 @@
               displayName: App types, OAuth
               href: v2-app-types.md
             - name: Certificate credentials
-              href: active-directory-certificate-credentials.md
+              href: certificate-credentials.md
             - name: Signing key rollover
               href: signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
@@ -830,7 +830,7 @@
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol
-              href: active-directory-saml-protocol-reference.md
+              href: saml-protocol-reference.md
             - name: SAML single sign-on (SSO)
               displayName: SSO
               href: single-sign-on-saml-protocol.md

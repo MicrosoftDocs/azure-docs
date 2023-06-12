@@ -189,7 +189,7 @@ Set-AzStorageAccount `
         -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
         -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>" `
         -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name>" `
-        -ActiveDirectoryAccountType "<you-domain-object-account-type, the value could be 'Computer' or 'User', for AES256 must be 'Computer'>"
+        -ActiveDirectoryAccountType "<you-domain-object-account-type, the value could be 'Computer' or 'User'>"
 ```
 
 #### Enable AES-256 encryption (recommended)
