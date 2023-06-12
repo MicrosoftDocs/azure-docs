@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop app for Windows.
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 06/12/2023
+ms.date: 06/13/2023
 ---
 
 # What's new in the Remote Desktop app for Windows
