@@ -176,7 +176,7 @@ This section contains recommendations for achieving resiliency and availability 
 - **Risk items** cover areas such as availability and recovery requirements, testing, monitoring, deployment, and other items that if left unresolved increase the chances of problems in the environment. Usually the Well-Architected Framework best practices.
 
 
-### Recommendation priority matrix
+### Reliability recommendations priority matrix
 
 Each recommendation is marked in accordance with the following priority matrix:
 
@@ -187,7 +187,7 @@ Each recommendation is marked in accordance with the following priority matrix:
 |![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg)|Low|Needs to be reviewed.|
 
  
-### Recommendation summary
+### Reliability recommendations summary
 
 |Recommendation | Impact | State | Support query available |
 |---------------|--------|-------|--------------------------|
@@ -214,7 +214,7 @@ Each recommendation is marked in accordance with the following priority matrix:
 |[VM-21: Configure diagnostic settings for all Azure resources](#this-is-a-low-recommendation-vm-21-configure-diagnostic-settings-for-all-azure-resources) | ![This is a low recommendation for VM-21.](../reliability/media/icon-recommendation-low.svg)  | Preview | Yes |
 |[VM-22: Use maintenance configurations for the VM](#this-is-a-high-recommendation-vm-22-use-maintenance-configurations-for-the-vm) | ![This is a high recommendation for VM-22.](../reliability/media/icon-recommendation-high.svg)  | Preview | Yes |
 
-### Recommendation details
+### Reliability recommendations details
 
 ### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-1: Run production workloads on two or more VMs** 
 
