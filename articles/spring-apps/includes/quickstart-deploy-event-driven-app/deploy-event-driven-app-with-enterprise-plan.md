@@ -26,19 +26,6 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
 ### 3.1. Resource naming and command default configuration
 
-1. Accept the legal terms and privacy statements for the Enterprise tier.
-
-   > [!NOTE]
-   > This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
-
-   ```azurecli-interactive
-   az provider register --namespace Microsoft.SaaS
-   az term accept \ 
-      --publisher vmware-inc \ 
-      --product azure-spring-cloud-vmware-tanzu-2 \ 
-      --plan asa-ent-hr-mtr
-   ```
-
 1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
 
    ```azurecli
@@ -73,6 +60,24 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
    az account set --subscription <subscription-ID>
    ```
 
+1. Use the following command to register the namespace: `Microsoft.SaaS`:
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.SaaS
+  ```
+
+1. Accept the legal terms and privacy statements for the Enterprise tier.
+
+   > [!NOTE]
+   > This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
+
+   ```azurecli-interactive
+   az term accept \ 
+      --publisher vmware-inc \ 
+      --product azure-spring-cloud-vmware-tanzu-2 \ 
+      --plan asa-ent-hr-mtr
+   ```
+   
 1. Use the following command to create a resource group:
 
    ```azurecli

@@ -61,6 +61,15 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
    az account set --subscription <subscription-ID>
    ```
 
+1. Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
+
+  ```azurecli-interactive
+  az extension add --name containerapp --upgrade
+  az provider register --namespace Microsoft.App
+  az provider register --namespace Microsoft.OperationalInsights
+  az provider register --namespace Microsoft.AppPlatform
+  ```
+
 1. Use the following command to create a resource group:
 
    ```azurecli
@@ -142,7 +151,7 @@ az spring app create \
     --service ${AZURE_SPRING_APPS_INSTANCE} \
     --name ${APP_NAME} \
     --cpu 1 \
-    --memory 2 \
+    --memory 2Gi \
     --min-replicas 1 \
     --max-replicas 2 \
     --runtime-version Java_17 \
