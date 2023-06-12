@@ -35,7 +35,6 @@ In this tutorial:
 
 - [Android Studio](https://developer.android.com/studio)
 - [Android documentation on generating a key](https://developer.android.com/studio/publish/app-signing#generate-key)
-- [Layout resource](https://developer.android.com/guide/topics/resources/layout-resource)
 
 ## How this tutorial works
 

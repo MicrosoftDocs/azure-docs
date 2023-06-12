@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 03/15/2023
-ms.custom: mlops #add more custom tags
+ms.custom: mlops, devx-track-python #add more custom tags
 #Customer intent: This tutorial is intended to show users what is needed for deployment and present a high-level overview of how Azure Machine Learning handles deployment. Deployment isn't typically done by a data scientist, so the tutorial won't use Azure CLI examples. We will link to existing articles that use Azure CLI as needed. The code in the tutorial will use SDK v2. The tutorial will continue where the "Create reusable pipelines" tutorial stops.
 ---
 
@@ -251,6 +251,8 @@ from azure.ai.ml.entities import ManagedOnlineDeployment
 model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
 # define an online deployment
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
+# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
 blue_deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=online_endpoint_name,
@@ -367,6 +369,8 @@ Deploy the model as a second deployment called `green`. In practice, you can cre
 model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
 # define an online deployment using a more powerful instance type
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
+# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
 green_deployment = ManagedOnlineDeployment(
     name="green",
     endpoint_name=online_endpoint_name,

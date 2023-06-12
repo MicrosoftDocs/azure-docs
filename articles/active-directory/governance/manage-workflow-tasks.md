@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 01/31/2023
+ms.date: 05/31/2023
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---
@@ -22,7 +22,7 @@ Changing a workflow's tasks or execution conditions requires the creation of a n
 ## Edit the tasks of a workflow using the Azure portal
 
 
-Tasks within workflows can be added, edited, reordered, and removed at will. To edit the tasks of a workflow using the Azure portal, you'll complete the following steps:
+Tasks within workflows can be added, edited, reordered, and removed at will. To edit the tasks of a workflow using the Azure portal, you complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -49,7 +49,7 @@ Tasks within workflows can be added, edited, reordered, and removed at will. To 
 
 ## Edit the execution conditions of a workflow using the Azure portal
 
-To edit the execution conditions of a workflow using the Azure portal, you'll do the following steps:
+To edit the execution conditions of a workflow using the Azure portal, you do the following steps:
 
 
 1. On the left menu of Lifecycle Workflows, select **Workflows**.
@@ -57,13 +57,13 @@ To edit the execution conditions of a workflow using the Azure portal, you'll do
 1. On the left side of the screen, select **Execution conditions**.
     :::image type="content" source="media/manage-workflow-tasks/execution-conditions-details.png" alt-text="Screenshot of the execution condition details of a workflow." lightbox="media/manage-workflow-tasks/execution-conditions-details.png":::
 
-1. On this screen you are presented with **Trigger details**. Here we have a trigger type and attribute details. In the template you can edit the attribute details to define when a workflow is run in relation to the attribute value measured in days. This attribute value can be from 0 to 60 days.
+1. On this screen, you're presented with **Trigger details**. Here we have a trigger type and attribute details. In the template you can edit the attribute details to define when a workflow is run in relation to the attribute value measured in days. This attribute value can be from 0 to 60 days.
     
 
 1. Select the **Scope** tab.
     :::image type="content" source="media/manage-workflow-tasks/execution-conditions-scope.png" alt-text="Screenshot of the execution scope page of a workflow." lightbox="media/manage-workflow-tasks/execution-conditions-scope.png":::
 
-1. On this screen you can define rules for who the workflow will run. In the template **Scope type** is set as Rule-Based, and you define the rule using expressions on user properties. For more information on supported user properties. see: [supported queries on user properties](/graph/aad-advanced-queries#user-properties).
+1. On this screen you can define rules for who the workflow runs. In the template **Scope type** is set as Rule-Based, and you define the rule using expressions on user properties. For more information on supported user properties. see: [supported queries on user properties](/graph/aad-advanced-queries#user-properties).
 
 1. After making changes, select **save** to capture changes to the execution conditions.
 
@@ -78,7 +78,7 @@ To edit the execution conditions of a workflow using the Azure portal, you'll do
 
     :::image type="content" source="media/manage-workflow-tasks/manage-versions.png" alt-text="Screenshot of versions of a workflow." lightbox="media/manage-workflow-tasks/manage-versions.png":::
 
-1. On this page you see a list of the workflow versions.    
+1. On this page, you see a list of the workflow versions.    
 
     :::image type="content" source="media/manage-workflow-tasks/manage-versions-list.png" alt-text="Screenshot of managing version list of lifecycle workflows." lightbox="media/manage-workflow-tasks/manage-versions-list.png":::
 

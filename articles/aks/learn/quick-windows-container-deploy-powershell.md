@@ -316,6 +316,7 @@ Kubernetes cluster tutorial.
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[aks-release-notes]: https://github.com/Azure/AKS/releases
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md

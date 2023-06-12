@@ -11,7 +11,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Use Java to manage ACLs in Azure Data Lake Storage Gen2

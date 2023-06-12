@@ -22,7 +22,7 @@ ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 This scenario shows you how to configure your Azure API Management instance to protect an API.
 We'll use the Azure AD B2C SPA (Auth Code + PKCE) flow to acquire a token, alongside API Management to secure an Azure Functions backend using EasyAuth.
 
-For a conceptual overview of API authorization, see [Authentication and authorization in API Management](authentication-authorization-overview.md#gateway-data-plane). 
+For a conceptual overview of API authorization, see [Authentication and authorization to APIs in API Management](authentication-authorization-overview.md). 
 
 
 ## Aims

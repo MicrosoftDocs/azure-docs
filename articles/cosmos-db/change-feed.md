@@ -73,7 +73,7 @@ In a multi-region Azure Cosmos DB account, changes in one region are available i
 
 ## Change feed modes
 
-There are two change feed modes available: latest version mode and all versions and deletes mode. The mode that change feed is read in determines which operations changes are captured from and the metadata available for each change. It's possible to consume the change feed in different modes across multiple applications for the same Azure Cosmos DB container.
+There are two [change feed modes](./nosql/change-feed-modes.md) available: latest version mode and all versions and deletes mode. The mode that change feed is read in determines which operations changes are captured from and the metadata available for each change. It's possible to consume the change feed in different modes across multiple applications for the same Azure Cosmos DB container.
 
 ### Latest version mode
 

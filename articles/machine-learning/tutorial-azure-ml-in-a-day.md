@@ -10,7 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/15/2023
-ms.custom: sdkv2, ignite-2022, build-2023
+ms.custom: sdkv2, ignite-2022, build-2023, devx-track-python
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
@@ -243,6 +243,8 @@ except Exception:
     print("Creating a new cpu compute target...")
 
     # Let's create the Azure Machine Learning compute object with the intended parameters
+    # if you run into an out of quota error, change the size to a comparable VM that is available.\
+    # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
     cpu_cluster = AmlCompute(
         name=cpu_compute_target,
         # Azure Machine Learning Compute is the on-demand VM service
@@ -276,7 +278,7 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 * In this sample, we access the data from a file on the internet. 
 
 > [!NOTE]
-> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code. Serverless is the simplest way to run jobs on AzureML.
 
 ```python
 from azure.ai.ml import command
@@ -406,6 +408,9 @@ model = ml_client.models.get(name=registered_model_name, version=latest_model_ve
 
 # Expect this deployment to take approximately 6 to 8 minutes.
 # create an online deployment.
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
+# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
+
 blue_deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=online_endpoint_name,

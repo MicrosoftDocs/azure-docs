@@ -110,8 +110,10 @@ items:
                           href: how-to-single-page-application-react-prepare-tenant.md
                         - name: Prepare app
                           href: how-to-single-page-application-react-prepare-app.md
+                        - name: Configure app for authentication
+                          href: how-to-single-page-application-react-configure-authentication.md
                         - name: Sign in and sign out
-                          href: how-to-single-page-application-react-prepare-app.md
+                          href: how-to-single-page-application-react-sign-in-out.md
             - name: Web app
               items: 
                 - name: Node/Express.js
@@ -258,12 +260,24 @@ items:
           href: how-to-manage-admin-accounts.md
         - name: Manage customer accounts
           href: how-to-manage-customer-accounts.md
+    - name: Troubleshoot
+      items:
+        - name: Known issues
+          href: troubleshooting-known-issues.md
+    - name: Management APIs
+      items:
+        - name: Microsoft Graph
+          href: microsoft-graph-operations.md
+        - name: Tenant management operations
+          href: azure-rest-api-operations-tenant-management.md 
 - name: Reference
   items:
     - name: Default user permissions
       href: reference-user-permissions.md
     - name: Group and application roles support
       href: reference-group-app-roles-support.md
+    - name: Company branding CSS template reference guide
+      href: /azure/active-directory/fundamentals/reference-company-branding-css-template
     - name: Help and support options
       href: ../../develop/developer-support-help-options.md?context=/azure/active-directory/external-identities/customers/context/customers-context
     - name: MSAL references 
@@ -284,3 +298,7 @@ items:
             href: /javascript/api/@azure/msal-react/
           - name: msal-node
             href: /javascript/api/@azure/msal-node/
+- name: Resources
+  items:
+    - name: Frequently asked questions (FAQ)
+      href: faq-customers.md

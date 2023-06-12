@@ -29,9 +29,9 @@ landingContent:
             url: overview.md
       - linkListType: whats-new
         links:
-          - text: Pull delivery  🚩
+          - text: Pull delivery
             url: pull-delivery-overview.md
-          - text: MQTT Messaging 🚩
+          - text: MQTT Messaging
             url: mqtt-overview.md
  # Card
   - title: MQTT messaging

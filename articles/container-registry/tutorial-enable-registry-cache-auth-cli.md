@@ -2,6 +2,7 @@
 title: Enable Cache ACR with authentication - Azure CLI
 description: Learn how to enable Cache ACR with authentication using Azure CLI.
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
@@ -109,7 +110,13 @@ Before configuring a Credential Set, you have to create and store secrets in the
 
 ### Pull your Image
 
-1. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
+1. Pull the image from your cache using the Docker command by the registry login server name, repository name, and its desired tag.
+
+    - For example, to pull the image from the repository `hello-world` with its desired tag `latest` for a given registry login server `myregistry.azurecr.io`.
+
+    ```azurecli-interactive
+     docker pull myregistry.azurecr.io/hello-world:latest
+    ```
 
 ## Clean up the resources
 

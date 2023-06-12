@@ -3,7 +3,7 @@ title: Use an Azure AD workload identities on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
 ms.custom: build-2023
-ms.date: 05/01/2023
+ms.date: 05/23/2023
 ---
 
 # Use Azure AD workload identity with Azure Kubernetes Service (AKS)
@@ -55,6 +55,7 @@ The following client libraries are the **minimum** version required
 
 - You can only have 20 federated identity credentials per managed identity.
 - It takes a few seconds for the federated identity credential to be propagated after being initially added.
+- [Virtual nodes][aks-virtual-nodes] add on, based on the open source project [Virtual Kubelet][virtual-kubelet], is not supported.
 
 ## How it works
 
@@ -143,6 +144,8 @@ The following table summarizes our migration or deployment recommendations for w
 [service-account-token-volume-projection]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection
 [oidc-federation]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens
 [multiple-identities]: https://azure.github.io/azure-workload-identity/docs/faq.html#how-to-federate-multiple-identities-with-a-kubernetes-service-account
+[virtual-kubelet]: https://virtual-kubelet.io/docs/
+
 <!-- INTERNAL LINKS -->
 [use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
 [azure-ad-workload-identity]: ../active-directory/develop/workload-identities-overview.md
@@ -155,3 +158,4 @@ The following table summarizes our migration or deployment recommendations for w
 [tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
 [workload-identity-migration-sidecar]: workload-identity-migrate-from-pod-identity.md
 [auto-rotation]: certificate-rotation.md#certificate-auto-rotation
+[aks-virtual-nodes]: virtual-nodes.md

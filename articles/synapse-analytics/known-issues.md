@@ -28,6 +28,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|
+|Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Has Workaround|
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
 
@@ -94,6 +95,22 @@ Deleting a Synapse workspace fails with the error message:
 `Failed to delete Synapse workspace '[Workspace Name]'. Unable to delete virtual network. The correlationId is ********-****-****-****-************;`
 
 **Workaround**: The problem can be mitigated by retrying the delete operation. The engineering team is aware of this behavior and working on a fix.
+
+## Azure Synapse Analytics Apache Spark pool active known issues summary
+
+The following are known issues with the Synapse Spark.
+
+### Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines
+
+While using Azure Synapse Dedicated SQL Pool Connector for Apache Spark to write Azure Synapse Dedicated pool using Notebooks in pipelines, we would see an error message:
+
+`com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: COPY statement input file schema discovery failed: Cannot bulk load. The file does not exist or you don't have file access rights.`
+
+**Workaround**: The engineering team is currently aware of this behavior and working on a fix. Following steps can be followed to work around the problem.
+- Set spark config through notebook:
+<br/>`spark.conf.set("spark.synapse.runAsMsi", "true")`
+- Or set spark config at [pool level](spark/apache-spark-azure-create-spark-configuration.md#create-an-apache-spark-configuration).
+
 
 ## Recently Closed Known issues
 

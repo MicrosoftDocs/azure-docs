@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: radubulboaca
-manager: mariusu
+author: t-siddiquim
+manager: alexo
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/08/2022
+ms.date: 05/25/2023
 ms.topic: include
 ms.custom: include file
-ms.author: antonsamson
+ms.author: t-siddiquim
 ---
 
 ## Prerequisites
@@ -36,7 +36,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 ### Include the package
 
-You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.2/jar) or above. 
+You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.3/jar) or above. 
 
 #### Include the BOM file
 
@@ -119,41 +119,65 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 String connectionString = "<connection string>";
 RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionString).buildClient();
 
-// Create communication identities
-CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-    .connectionString(connectionString)
-    .buildClient();
-
-List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.VOIP);
-CommunicationUserIdentifierAndToken result1 = communicationIdentityClient.createUserAndToken(scopes);
-CommunicationUserIdentifier user1 = result1.getUser();
-CommunicationUserIdentifierAndToken result2 = communicationIdentityClient.createUserAndToken(scopes);
-CommunicationUserIdentifier user2 = result2.getUser();
-
-
 ```
 
 ## Create a room
 
-Create a new `room` with default properties using the code snippet below:
+### Set up room participants
+In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
 
+To use `CommunicationIdentityClient`, add the following package:
+
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-communication-identity</artifactId>
+</dependency>
+```
+
+Import the package on top on your `App.java` file:
 ```java
+import com.azure.communication.identity.CommunicationIdentityClient;
+import com.azure.communication.identity.CommunicationIdentityClientBuilder;
+```
 
-// Create room
-OffsetDateTime validFrom = OffsetDateTime.now();
-OffsetDateTime validUntil = validFrom.plusDays(30);
-RoomJoinPolicy roomJoinPolicy = RoomJoinPolicy.INVITE_ONLY;
+Now, the `CommunicationIdentityClient` can be initialized and used to create users:
+```java
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+    .connectionString(connectionString)
+    .buildClient();
+
+CommunicationUserIdentifier user1 = communicationClient.createUser();
+CommunicationUserIdentifier user2 = communicationClient.createUser();
+CommunicationUserIdentifier user3 = communicationClient.createUser();
+```
+
+Then, create the list of room participants by referencing those users:
+```java
+//The default participant role is ParticipantRole.Attendee
+RoomParticipant participant_1 = new RoomParticipant(user1);
+RoomParticipant participant_2 = new RoomParticipant(user2);
+RoomParticipant participant_3 = new RoomParticipant(user3);
 
 List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
-roomParticipants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(user1.getId())).setRole(RoleType.CONSUMER));
+roomParticipants.add(participant_1);
+roomParticipants.add(participant_2.setRole(ParticipantRole.CONSUMER));
+```
 
-CommunicationRoom roomCreated = roomsClient.createRoom(
-    validFrom,
-    validUntil,
-    roomJoinPolicy,
-    roomParticipants
-);
+### Initialize the room
+Create a new `room` using the `roomParticipants` defined in the code snippet above:
+
+```java
+OffsetDateTime validFrom = OffsetDateTime.now();
+OffsetDateTime validUntil = validFrom.plusDays(30);
+
+CreateRoomOptions roomOptions = new CreateRoomOptions()
+    .setValidFrom(validFrom)
+    .setValidUntil(validUntil)
+    .setParticipants(roomParticipants);
+
+CommunicationRoom roomCreated = roomsClient.createRoom(roomOptions);
 
 System.out.println("\nCreated a room with id: " + roomCreated.getRoomId());
 
@@ -169,8 +193,8 @@ Retrieve the details of an existing `room` by referencing the `roomId`:
 
 // Retrieve the room with corresponding ID
 CommunicationRoom roomResult = roomsClient.getRoom(roomId);
-System.out.println("\nRetrieved room with id: " + roomResult.getRoomId());
 
+System.out.println("Retrieved room with id: " + roomResult.getRoomId());
 ```
 
 ## Update the lifetime of a room
@@ -179,26 +203,35 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 
 ```java
 
-// Update room lifetime
 OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
 
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, validFrom, validUntil);
+UpdateRoomOptions roomUpdateOptions = new UpdateRoomOptions()
+    .setValidFrom(validFrom)
+    .setValidUntil(validUntil);
 
-System.out.println("\nUpdated room with validFrom: " + roomResult.getValidFrom() + " and validUntil: " + roomResult.getValidUntil());
-
+CommunicationRoom roomResult = roomsClient.updateRoom(roomId, roomUpdateOptions);
+            
+System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + " and validUntil: " + roomResult.getValidUntil());
 ```
 
-## Add new participants
+## Add or update participants
 
-To add new participants to a `room`, use the `addParticipants` method exposed on the client.
+To add or update participants to a `room`, use the `addOrUpdateParticipants` method exposed on the client.
 
 ```java
 
-// Add participants to room
-RoomParticipant newParticipant = new RoomParticipant(new CommunicationUserIdentifier(user2.getId())).setRole(RoleType.CONSUMER)
-AddOrUpdateParticipantsResult updatedParticipants = roomsClient.addOrUpdateParticipants(roomId, List.of(newParticipant));
-System.out.println("\nAdded participants to room:")
+List<RoomParticipant> participantsToAddAOrUpdate = new ArrayList<>();
+
+// Adding new participant
+ participantsToAddAOrUpdate.add(participant_3.setRole(ParticipantRole.CONSUMER));
+
+// Updating current participant
+participantsToAddAOrUpdate.add(participant_2.setRole(ParticipantRole.PRESENTER));
+        
+AddOrUpdateParticipantsResult addOrUpdateParticipantsResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddAOrUpdate);
+
+System.out.println("Participant(s) added/updated");
 
 ```
 
@@ -212,8 +245,14 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 
 // Get list of participants
 try {
-     ParticipantsCollection participants = roomsClient.getParticipants(roomId);
-     System.out.println("Participants: \n" + listParticipantsAsString(participants.getParticipants()));
+     
+PagedIterable<RoomParticipant> participants = roomsClient.listParticipants(roomId);
+
+System.out.println("Participants:/n");
+
+for (RoomParticipant participant : participants) {
+    System.out.println(participant.getCommunicationIdentifier().getRawId() + " (" + participant.getRole() + ")");
+   }
 } catch (Exception ex) {
     System.out.println(ex);
 }
@@ -227,10 +266,36 @@ To remove a participant from a `room` and revoke their access, use the `removePa
 ```java
 
 // Remove a participant from the room
-RoomParticipant existingParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(user1.getId()));
-emoveParticipantsResult removedParticipants = roomsAsyncClient.removeParticipants(roomId, Arrays.asList(existingParticipant.getCommunicationIdentifier()););
-System.out.println("\nRemoved participants from room")
+List<CommunicationIdentifier> participantsToRemove = new ArrayList<>();
 
+participantsToRemove.add(participant_3.getCommunicationIdentifier());
+            
+RemoveParticipantsResult removeParticipantsResult = roomsClient.removeParticipants(roomId,participantsToRemove);
+
+System.out.println("Participant(s) removed");
+
+```
+
+### List all active rooms
+
+Retrieve all active `rooms` under your ACS resource.
+
+```java
+try {
+    PagedIterable<CommunicationRoom> rooms = roomsClient.listRooms();
+    int count = 0;
+    
+    for (CommunicationRoom room : rooms) {
+        System.out.println("\nFirst two room ID's in the list of rooms: " + room.getRoomId());
+        count++;
+        
+        if (count >= 2) {
+                break;
+        }
+    }
+} catch (Exception ex) {
+    System.out.println(ex);
+}
 ```
 
 ## Delete room
@@ -244,6 +309,7 @@ roomsClient.deleteRoomWithResponse(roomId, Context.NONE);
 System.out.println("\nDeleted the room with ID: " + roomId);
 
 ```
+
 
 ## Run the code
 
@@ -283,28 +349,17 @@ Retrieved room with id:  99445276259151407
 
 Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05-11T22:16:46.784Z
 
-Added participants to room
+Participant(s) added/updated
 
-Retrieved participants for room:  [
-  {
-    id: {
-      kind: 'communicationUser',
-      communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901'
-    },
-    role: 'Attendee'
-  },
-  {
-    id: {
-      kind: 'communicationUser',
-      communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7ccc-35f3-343a0d00e902'
-    },
-    role: 'Consumer'
-  }
-]
+Participants: 
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Attendee)
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e902 (Consumer)
 
-Removed participants from room
+Participant(s) removed
 
-Deleted room with id:  99445276259151407
+First room ID in the list of rooms: 99445276259151407
+
+Deleted the room with ID:  99445276259151407
 
 ```
 

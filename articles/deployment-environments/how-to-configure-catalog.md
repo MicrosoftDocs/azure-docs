@@ -93,9 +93,9 @@ Next, create a personal access token. Depending on the type of repository you us
 Store the personal access token that you generated as a [key vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
 
 #### Create a Key Vault
-You need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Key Vaults can control access with either access policies or role-based access control (RBAC). 
+You need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Key Vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. For help with configuring an access policy for a key vault, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?branch=main&tabs=azure-portal). 
 
-If you don't have an existing key vault, use the following steps to create one:
+Use the following steps to create an RBAC key vault:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 1.	In the Search box, enter *Key Vault*.

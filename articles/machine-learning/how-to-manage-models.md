@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 04/15/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cli-v2, sdk-v2, event-tier1-build-2022, ignite-2022, devx-track-azurecli
+ms.custom: cli-v2, sdk-v2, event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ---
 
 # Work with models in Azure Machine Learning

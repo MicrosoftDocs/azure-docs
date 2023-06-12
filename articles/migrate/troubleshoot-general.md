@@ -1,9 +1,8 @@
 ---
 title: Troubleshoot Azure Migrate issues | Microsoft Docs
 description: Provides an overview of known issues in the Azure Migrate service, as well as troubleshooting tips for common errors.
-author: v-ksreedevan
-ms.author: v-ksreedevan
-ms.manager: abhemraj
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/01/2021

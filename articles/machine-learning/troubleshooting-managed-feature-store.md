@@ -21,6 +21,7 @@ When you create or update a feature store, you may encounter the following issue
 - [ARM Throttling Error](#arm-throttling-error)
 - [RBAC Permission Errors](#rbac-permission-errors)
 - [Duplicated Materialization Identity ARM ID Issue](#duplicated-materialization-identity-arm-id-issue)
+- [Older versions of `azure-mgmt-authorization` package doesn't work with `AzureMLOnBehalfOfCredential`](#older-versions-of-azure-mgmt-authorization-package-doesnt-work-with-azuremlonbehalfofcredential)
 
 ### ARM Throttling Error
 
@@ -70,8 +71,7 @@ If the user doesn't have the required roles, the deployment fails. The error res
 
 Grant the `Contributor` and `User Access Administrator` roles to the user on the resource group where the feature store is to be created and instruct the user to run the deployment again.
 
-For more details, see [Permissions required for the `feature store materialization managed identity` role](how-to-setup-access-control-feature-store.md#permissions-required-for-the-feature-store-materialization-managed-identity-role). 
-
+For more information, see [Permissions required for the `feature store materialization managed identity` role](how-to-setup-access-control-feature-store.md#permissions-required-for-the-feature-store-materialization-managed-identity-role). 
 
 
 ### Duplicated materialization identity ARM ID issue
@@ -80,7 +80,7 @@ Once the feature store is updated to enable materialization for the first time, 
 
 #### Symptom
 
-When updating the feature store using SDK/CLI, it fails with the following error message
+When the feature store is updated using the SDK/CLI, the update fails with the following error message:
 
 Error:
 
@@ -105,22 +105,33 @@ When the user-assigned managed identity is used by the feature store as its mate
 
 - (B): /subscriptions/{sub-id}/__resourceGroups__/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{your-uai}
 
-The next time the user updates the feature store, if they use the same user-assigned managed identity as the materialization identity in the update request, while using the ARM ID in format (A), the update will fail with the error above.
+When you update the feature store using the same user-assigned managed identity as the materialization identity in the update request, while using the ARM ID in format (A), the update will fail with the error above.
 
 To fix the issue, replace string `resourcegroups` with `resourceGroups` in the user-assigned managed identity ARM ID, and run feature store update again.
+
+### Older versions of `azure-mgmt-authorization` package doesn't work with `AzureMLOnBehalfOfCredential`
+
+#### Symptom
+When you use the `setup_storage_uai` script provided in the *featurestore_sample* folder in the azureml-examples repository, the script fails  with the error message:
+
+`AttributeError: 'AzureMLOnBehalfOfCredential' object has no attribute 'signed_session'`
+
+#### Solution:
+Check the version of the `azure-mgmt-authorization` package that is installed and make sure you're using a recent version, such as 3.0.0 or later. The old version, such as 0.61.0, doesn't work with `AzureMLOnBehalfOfCredential`.
+
 
 ## Feature Set Spec Create Errors
 
 - [Invalid schema in feature set spec](#invalid-schema-in-feature-set-spec)
-- [Cannot find transformation class](#cannot-find-transformation-class)
+- [Can't find transformation class](#cant-find-transformation-class)
 - [FileNotFoundError on code folder](#filenotfounderror-on-code-folder)
 
 ### Invalid schema in feature set spec
 
-Before registering a feature set into the feature store, users first define the feature set spec locally and run `<feature_set_spec>.to_spark_dataframe()` to validate it.
+Before you register a feature set into the feature store, define the feature set spec locally and run `<feature_set_spec>.to_spark_dataframe()` to validate it.
 
 #### Symptom
-When user runs `<feature_set_spec>.to_spark_dataframe()` , various schema validation failures may occur if the schema of the feature set dataframe is not aligned with the definition in the feature set spec. 
+When user runs `<feature_set_spec>.to_spark_dataframe()` , various schema validation failures may occur if the schema of the feature set dataframe isn't aligned with the definition in the feature set spec. 
 
 For examples:
 - Error message: `azure.ai.ml.exceptions.ValidationException: Schema check errors, timestamp column: timestamp is not in output dataframe`
@@ -133,6 +144,7 @@ Check the schema validation failure error, and update the feature set spec defin
 - update the `source.timestamp_column.name` property to define the timestamp column name correctly.
 - update the `index_columns` property to define the index columns correctly.
 - update the `features` property to define the feature column names and types correctly. 
+- If the feature source data is of type “csv”, make sure the CSV files are generated with column headers.
 
 Then run `<feature_set_spec>.to_spark_dataframe()` again to check if the validation is passed.
 
@@ -140,7 +152,7 @@ If the feature set spec is defined using SDK, it's also recommended to use the `
 
 Check the [Feature Set Spec schema](reference-yaml-featureset-spec.md) doc for more details.
 
-### Cannot find transformation class
+### Can't find transformation class
 
 #### Symptom
 When a user runs `<feature_set_spec>.to_spark_dataframe()`, it returns the following error `AttributeError: module '<...>' has no attribute '<...>'`
@@ -190,10 +202,12 @@ And in this example, the `feature_transformation_code.path` property in the YAML
 
 - [Feature Retrieval Specification Resolving Errors](#feature-retrieval-specification-resolving-errors)
 - [File *feature_retrieval_spec.yaml* not found when using a model as input to the feature retrieval job](#file-feature_retrieval_specyaml-not-found-when-using-a-model-as-input-to-the-feature-retrieval-job)
-- [[Observation Data is not Joined with any feature values](#observation-data-isnt-joined-with-any-feature-values)]
+- [[Observation Data isn't Joined with any feature values](#observation-data-isnt-joined-with-any-feature-values)]
 - [User or Managed Identity not having proper RBAC permission on the feature store](#user-or-managed-identity-not-having-proper-rbac-permission-on-the-feature-store)
 - [User or Managed Identity not having proper RBAC permission to Read from the Source Storage or Offline store](#user-or-managed-identity-not-having-proper-rbac-permission-to-read-from-the-source-storage-or-offline-store)
 - [Training job fails to read data generated by the build-in Feature Retrieval Component](#training-job-fails-to-read-data-generated-by-the-build-in-feature-retrieval-component)
+- [`generate_feature_retrieval_spec()` fails due to use of local feature set specification](#generate_feature_retrieval_spec-fails-due-to-use-of-local-feature-set-specification)
+- [`get_offline_features() query` takes a long time](#get_offline_features-query-takes-a-long-time)
 
 When a feature retrieval job fails,  check the error details by going to the **run detail page**, select the **Outputs + logs** tab, and check the file *logs/azureml/driver/stdout*.
 
@@ -276,7 +290,7 @@ When you provide a model as input to the feature retrieval step, it expects that
 
 The fix the issue, package the `feature_retrieval_spec.yaml` in the root folder of the model artifact folder, before registering the model.
 
-#### Observation Data isn't joined with any feature values
+### Observation Data isn't joined with any feature values
 
 #### Symptom
 
@@ -367,7 +381,7 @@ Training job fails with the error message that either
 FileNotFoundError: [Errno 2] No such file or directory
 ```
 
-- format is not correct.
+- format isn't correct.
 
 ```json
 ParserError:
@@ -387,12 +401,51 @@ And the output data is always in parquet format.
 
 Update the training script to read from the "data" sub folder, and read the data as parquet.
 
+### `generate_feature_retrieval_spec()` fails due to use of local feature set specification
+
+#### Symptom:
+If you run the following python code to generate a feature retrieval spec on a given list of features.
+
+```python
+featurestore.generate_feature_retrieval_spec(feature_retrieval_spec_folder, features)
+```
+You receive the error:
+
+`AttributeError: 'FeatureSetSpec' object has no attribute 'id'`
+
+#### Solution:
+
+A feature retrieval spec can only be generated using feature sets registered in Feature Store. If the features list contains features defined by a local feature set specification, the `generate_feature_retrieval_spec()` fails with the error message above.
+
+To fix the issue:
+
+- Register the local feature set specification as feature set in the feature store
+- Get the registered the feature set
+- Create feature lists again using only features from registered feature sets
+- Generate the feature retrieval spec using the new features list
+
+
+### `get_offline_features() query` takes a long time
+
+#### Symptom:
+Running `get_offline_features` to generate training data using a few features from feature store takes a long time to finish.
+
+#### Solutions:
+
+Check the following configurations:
+
+- For each feature set used in the query, does it have `temporal_join_lookback` set in the feature set specification. Set its value to a smaller value.
+- If the size and timestamp window on the observation dataframe are large, configure the notebook session (or the job) to increase the size (memory and core) of driver and executor, and increase the number of executors.
+
+
 ## Feature Materialization Job Errors
 
 - [Invalid Offline Store Configuration](#invalid-offline-store-configuration)
 - [Materialization Identity not having proper RBAC permission on the feature store](#materialization-identity-not-having-proper-rbac-permission-on-the-feature-store)
 - [Materialization Identity not having proper RBAC permission to Read from the Storage](#materialization-identity-not-having-proper-rbac-permission-to-read-from-the-storage)
 - [Materialization identity not having proper RBAC permission to write data to the offline store](#materialization-identity-not-having-proper-rbac-permission-to-write-data-to-the-offline-store)
+- [Streaming job results to notebook fails](#streaming-job-results-to-notebook-fails)
+- [Invalid Spark configuration](#invalid-spark-configuration)
 
 When the feature materialization job fails, user can follow these steps to check the job failure details.
 
@@ -518,3 +571,77 @@ Assign the `Storage Blob Data Contributor` role on the offline store storage to 
 `Storage Blob Data Contributor` is the minimum recommended access requirement. You can also assign roles like more privileges like `Storage Blob Data Owner`.
 
 For more information about RBAC configuration, see [Permissions required for the `feature store materialization managed identity` role](how-to-setup-access-control-feature-store.md#permissions-required-for-the-feature-store-materialization-managed-identity-role)..
+
+### Streaming job results to notebook fails
+
+#### Symptom:
+
+When using the feature store CRUD client to stream materialization job results to notebook using `fs_client.jobs.stream(“<job_id>”)`, the SDK call fails with an error
+```
+HttpResponseError: (UserError) A job was found, but it is not supported in this API version and cannot be accessed.
+
+Code: UserError
+
+Message: A job was found, but it is not supported in this API version and cannot be accessed.
+```
+#### Solution:
+
+When the materialization job is created (for example, by a backfill call), it may take a few seconds for the job the to properly initialize. Run the `jobs.stream()` command again in a few seconds. The issue should be gone.
+
+### Invalid Spark configuration
+
+#### Symptom:
+
+A materialization job fails with the following error message:
+
+```python
+Synapse job submission failed due to invalid spark configuration request
+
+{
+
+"Message":"[..] Either the cores or memory of the driver, executors exceeded the SparkPool Node Size.\nRequested Driver Cores:[4]\nRequested Driver Memory:[36g]\nRequested Executor Cores:[4]\nRequested Executor Memory:[36g]\nSpark Pool Node Size:[small]\nSpark Pool Node Memory:[28]\nSpark Pool Node Cores:[4]"
+
+}
+```
+
+#### Solution:
+
+Update the `materialization_settings.spark_configuration{}` of the feature set. Make sure the following parameters are using memory size and number of cores less than what is provided by the instance type (defined by `materialization_settings.resource`)
+
+`spark.driver.cores`
+`spark.driver.memory`
+`spark.executor.cores`
+`spark.executor.memory`
+
+For example, on instance type *standard_e8s_v3*, the following spark configuration one of the valid options.
+
+ 
+```python
+
+transactions_fset_config.materialization_settings = MaterializationSettings(
+
+    offline_enabled=True,
+
+    resource = MaterializationComputeResource(instance_type="standard_e8s_v3"),
+
+    spark_configuration = {
+
+        "spark.driver.cores": 4,
+
+        "spark.driver.memory": "36g",
+
+        "spark.executor.cores": 4,
+
+        "spark.executor.memory": "36g",
+
+        "spark.executor.instances": 2
+
+    },
+
+    schedule = None,
+
+)
+
+fs_poller = fs_client.feature_sets.begin_create_or_update(transactions_fset_config)
+
+```
