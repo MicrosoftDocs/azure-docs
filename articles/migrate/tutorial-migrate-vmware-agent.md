@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 05/22/2023
 ms.custom: MVC, engagement-fy23
 ---
 
@@ -395,8 +395,8 @@ After you've verified that the test migration works as expected, you can migrate
     - Remove the on-premises VMs from local backups.
     - Update any internal documentation to show the new location and IP address of the Azure VMs.
 - Tweak Azure VM settings after migration:
-    - The [Azure VM agent](../virtual-machines/extensions/agent-windows.md) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security. When migrating VMare VMs with agent-based migration, the Mobility Service installer installs Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after migration.
-    - Manually uninstall the Mobility service from the Azure VM after migration.
+    - The [Azure VM agent](../virtual-machines/extensions/agent-windows.md) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security. When migrating VMware VMs with agent-based migration, the Mobility Service installer installs Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after migration.
+    - Manually uninstall the Mobility service from the Azure VM after migration. We recommend that you reboot the server when prompted.
     - Manually uninstall VMware tools after migration.
 - In Azure:
     - Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.

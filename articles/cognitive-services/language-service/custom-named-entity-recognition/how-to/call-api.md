@@ -8,36 +8,38 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 05/11/2023
 ms.author: aahi
 ms.devlang: csharp, python
 ms.custom: language-service-custom-ner, event-tier1-build-2022
 ---
 
-# Query deployment to extract entities
+# Query your custom model
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
-You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api) or through the Client libraries (Azure SDK). 
+You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api) or through the client libraries (Azure SDK). 
 
 ## Test deployed model
 
 You can use Language Studio to submit the custom entity recognition task and visualize the results. 
 
-[!INCLUDE [Test model](../includes/language-studio/test-model.md)]
+[!INCLUDE [Test model](../../includes/custom/language-studio/test-model.md)]
 
----
+:::image type="content" source="../media/test-model-results.png" alt-text="A screenshot showing the model test results." lightbox="../media/test-model-results.png":::
+
 
 ## Send an entity recognition request to your model
 
 # [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Get prediction URL](../includes/language-studio/get-prediction-url.md)]
+[!INCLUDE [Get prediction URL](../../includes/custom/language-studio/get-prediction-url.md)]
 
 # [REST API](#tab/rest-api)
 
-First you will need to get your resource key and endpoint:
+First you need to get your resource key and endpoint:
 
-[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
+[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/key-endpoint-page-azure-portal.md)]
+
 
 ### Submit a custom NER task
 
@@ -49,9 +51,9 @@ First you will need to get your resource key and endpoint:
 
 # [Client libraries (Azure SDK)](#tab/client)
 
-First you will need to get your resource key and endpoint:
+First you need to get your resource key and endpoint:
 
-[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
+[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/get-key-endpoint.md)]
 
 3. Download and install the client library package for your language of choice:
     

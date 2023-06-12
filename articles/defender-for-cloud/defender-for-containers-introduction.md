@@ -5,7 +5,7 @@ ms.topic: overview
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 09/11/2022
+ms.date: 06/12/2023
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -64,9 +64,27 @@ Learn more about:
 
 ## Run-time protection for Kubernetes nodes and clusters
 
-Defender for Containers provides real-time threat protection for [supported containerized environments](support-matrix-defender-for-containers.md) and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers. Threat protection at the cluster level is provided by the Defender agent and analysis of the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high-privileged roles, and the creation of sensitive mounts.
+Defender for Containers provides real-time threat protection for [supported containerized environments](support-matrix-defender-for-containers.md) and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers. 
 
-Defender for Containers also includes host-level threat detection with over 60 Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload. For a full list of the cluster level alerts, see the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
+Threat protection at the cluster level is provided by the Defender agent and analysis of the Kubernetes audit logs. This means that security alerts are only triggered for actions and deployments that occur after you've enabled Defender for Containers on your subscription.
+
+Examples of security events that Microsoft Defenders for Containers monitors include:
+
+- Exposed Kubernetes dashboards
+- Creation of high privileged roles
+- Creation of sensitive mounts
+
+You can view security alerts by selecting the Security alerts tile at the top of the Defender for Cloud's overview page, or the link from the sidebar.
+
+  :::image type="content" source="media/managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Screenshot showing how to get to the security alerts page from Microsoft Defender for Cloud's overview page." lightbox="media/managing-and-responding-alerts/overview-page-alerts-links.png":::
+
+The security alerts page opens. 
+
+   :::image type="content" source="media/defender-for-containers/view-containers-alerts.png" alt-text="Screenshot showing you where to view the list of alerts." lightbox="media/defender-for-containers/view-containers-alerts.png":::
+
+Security alerts for runtime workload in the clusters can be recognized by the `K8S.NODE_` prefix of the alert type.  For a full list of the cluster level alerts, see the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
+
+Defender for Containers also includes host-level threat detection with over 60 Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload. 
 
 Defender for Cloud monitors the attack surface of multicloud Kubernetes deployments based on the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/ctid/) in close partnership with Microsoft.
 

@@ -4,9 +4,9 @@ description: This tutorial describes how to use the Microsoft Purview Python SDK
 author: raliouat
 ms.author: raoufaliouat
 ms.service: purview
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 05/27/2022
-
 # Customer intent: I can use the scanning and catalog Python SDKs to perform CRUD operations on data sources and scans, trigger scans and also to search the catalog.
 ---
 
@@ -731,4 +731,3 @@ except HttpResponseError as e:
 > [!div class="nextstepaction"]
 > [Learn more about the Python Microsoft Purview Scanning Client](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-purview-scanning/1.0.0b2/index.html)
 > [Learn more about the Python Microsoft Purview Catalog Client](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-purview-catalog/1.0.0b2/index.html)
-

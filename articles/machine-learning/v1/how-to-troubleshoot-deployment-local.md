@@ -9,7 +9,7 @@ ms.author: joburges
 author: ssalgadodev
 ms.date: 08/15/2022
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, devx-track-python, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 

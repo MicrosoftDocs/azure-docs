@@ -23,20 +23,20 @@ In this article, you'll learn several ways of connecting to and managing your Az
 
 # [Windows](#tab/windows)
 
-The following versions of Windows support Storage Explorer:
+The following versions of Windows support the latest versions of Storage Explorer:
 
 * Windows 11
 * Windows 10
-* Windows 8
-* Windows 7
 
-For all versions of Windows, Storage Explorer requires .NET Framework 4.7.2 at a minimum.
+Additional requirements include:
+- Starting with Storage Explorer version 1.30.0, your Windows install must support 64-bit applications.
+- Starting with Storage Explorer version 1.30.0, you must have a x64 .NET 6 runtime installed. You can download the latest .NET 6 runtime from [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 # [macOS](#tab/macos)
 
 The following versions of macOS support Storage Explorer:
 
-* macOS 10.12 Sierra and later versions
+* macOS 10.13 High Sierra and later versions
 
 # [Ubuntu](#tab/linux-ubuntu)
 

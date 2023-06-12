@@ -171,6 +171,9 @@ var loggerFactory = LoggerFactory.Create(builder =>
 });
 ```
 
+> [!NOTE]
+> For more information, see the [getting-started tutorial for OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main#getting-started)
+
 ##### [Java](#tab/java)
 
 Java autoinstrumentation is enabled through configuration changes; no code changes are required.
@@ -436,7 +439,7 @@ Examples of using the Python logging library can be found on [GitHub](https://gi
 ---
 
 **Footnotes**
-- <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
+- <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of *unhandled/uncaught* exceptions
 - <a name="FOOTNOTETWO">2</a>: Supports OpenTelemetry Metrics
 - <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected at INFO level or higher. To change this setting, see the [configuration options](./java-standalone-config.md#autocollected-logging).
 - <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected at WARNING level or higher..
