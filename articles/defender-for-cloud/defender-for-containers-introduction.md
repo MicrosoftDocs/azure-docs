@@ -70,9 +70,9 @@ Threat protection at the cluster level is provided by the Defender agent and ana
 
 Examples of security events that Microsoft Defenders for Containers monitors include:
 
-- exposed Kubernetes dashboards
-- creation of high privileged roles
-- creation of sensitive mounts
+- Exposed Kubernetes dashboards
+- Creation of high privileged roles
+- Creation of sensitive mounts
 
 You can view security alerts by selecting the Security alerts tile at the top of the Defender for Cloud's overview page, or the link from the sidebar.
 
