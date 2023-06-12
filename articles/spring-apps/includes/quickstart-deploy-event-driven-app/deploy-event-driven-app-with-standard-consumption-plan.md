@@ -159,7 +159,7 @@ az spring app create \
     --memory 2Gi \
     --min-replicas 1 \
     --max-replicas 2 \
-    --runtime-version Java_17 \
+    --runtime-version Java_17
 ```
 
 #### 3.8.2. Create an app with the dedicated workload profile
@@ -214,8 +214,8 @@ SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys 
    az spring app update \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
        --name ${APP_NAME} \
-       --env SERVICE-BUS-CONNECTION-STRING=${SERVICE_BUS_CONNECTION_STRING} \
-       spring.cloud.azure.keyvault.secret.property-source-enabled=false
+       --env SPRING_CLOUD_AZURE_SERVICEBUS_CONNECTIONSTRING=${SERVICE_BUS_CONNECTION_STRING} \
+       SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTYSOURCEENABLED=false
    ```
 
 1. Now the cloud environment is ready. Deploy the app by using the following command.

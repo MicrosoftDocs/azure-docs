@@ -121,7 +121,7 @@ Use the following command to create an app in the Azure Spring Apps instance:
 ```azurecli
 az spring app create \
     --service ${AZURE_SPRING_APPS_INSTANCE} \
-    --name ${APP_NAME} \
+    --name ${APP_NAME}
 ```
 
 ### 3.8. Bind the Service Bus to Azure Spring Apps and deploy the app
@@ -146,8 +146,8 @@ SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys 
    az spring app update \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
        --name ${APP_NAME} \
-       --env SERVICE-BUS-CONNECTION-STRING=${SERVICE_BUS_CONNECTION_STRING} \
-       spring.cloud.azure.keyvault.secret.property-source-enabled=false
+       --env SPRING_CLOUD_AZURE_SERVICEBUS_CONNECTIONSTRING=${SERVICE_BUS_CONNECTION_STRING} \
+       SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTYSOURCEENABLED=false
    ```
 
 1. Now the cloud environment is ready. Deploy the app by using the following command.
