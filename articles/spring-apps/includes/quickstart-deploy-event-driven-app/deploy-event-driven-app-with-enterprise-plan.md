@@ -72,9 +72,9 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
    > This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
 
    ```azurecli-interactive
-   az term accept \ 
-      --publisher vmware-inc \ 
-      --product azure-spring-cloud-vmware-tanzu-2 \ 
+   az term accept \
+      --publisher vmware-inc \
+      --product azure-spring-cloud-vmware-tanzu-2 \
       --plan asa-ent-hr-mtr
    ```
    
