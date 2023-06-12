@@ -342,7 +342,7 @@
     - name: Enable recurrent materialization
       href: tutorial-enable-recurrent-materialization-run-batch-inference.md
   - name: Compliance
-      items:
+    items:
       - name: Export and delete data
         displayName: GDPR
         href: how-to-export-delete-data.md
