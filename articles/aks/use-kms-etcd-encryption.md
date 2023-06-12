@@ -333,7 +333,13 @@ After configuring KMS, you can enable [diagnostic-settings for key vault to chec
 
 ## Disable KMS
 
-Use the following command to disable KMS on existing cluster.
+Prior disabling KMS you can use the following Azure CLI command to find out if KMS is enabled 
+
+```azurecli-interactive
+az aks list --query "[].{Name:name, KmsEnabled:securityProfile.azureKeyVaultKms.enabled, KeyId:securityProfile.azureKeyVaultKms.keyId} -o table
+```
+
+Then, use the following command to disable KMS on existing cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
