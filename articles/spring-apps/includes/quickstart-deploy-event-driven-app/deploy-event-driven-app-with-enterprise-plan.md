@@ -24,73 +24,66 @@ Use the following steps to prepare the sample locally.
 
 The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
-### 3.1. Resource naming and command default configuration
+### 3.1. Sign in to the Azure portal
 
-1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
-
-   ```azurecli
-   RESOURCE_GROUP=<event-driven-app-resource-group-name>
-   LOCATION=<desired-region>
-   SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
-   AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
-   APP_NAME=<event-driven-app-name>
-   ```
-
-2. Use the following command to sign in to Azure:
+1. Use the following command to sign in to Azure:
 
    ```azurecli
    az login
    ```
 
-1. Use the following command to set the default location:
+1. After you sign in successfully, use the following command to display a list of your subscriptions:
 
-   ```azurecli
-   az configure --defaults location=${LOCATION}
-   ```
-
-1. Use the following command to list all available subscriptions, then determine the ID for the subscription you want to use.
-
-   ```azurecli
+   ```azurecli-interactive
    az account list --output table
    ```
 
 1. Use the following command to set your default subscription:
 
-   ```azurecli
+   ```azurecli-interactive
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to register the namespace: `Microsoft.SaaS`:
+### 3.2. Define variables
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.SaaS
-  ```
+Use the following commands to define variables for this quickstart with the names of your resources:
 
-1. Accept the legal terms and privacy statements for the Enterprise tier.
+```azurecli-interactive
+RESOURCE_GROUP=<event-driven-app-resource-group-name>
+LOCATION=<desired-region>
+SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
+AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
+APP_NAME=<event-driven-app-name>
+```
 
-   > [!NOTE]
-   > This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
+### 3.3. Install extension and register namespaces
 
-   ```azurecli-interactive
-   az term accept \
-      --publisher vmware-inc \
-      --product azure-spring-cloud-vmware-tanzu-2 \
-      --plan asa-ent-hr-mtr
-   ```
-   
-1. Use the following command to create a resource group:
+Use the following command to register the namespace: `Microsoft.SaaS`:
 
-   ```azurecli
-   az group create --resource-group ${RESOURCE_GROUP}
-   ```
+```azurecli-interactive
+az extension add --name spring
+az provider register --namespace Microsoft.SaaS
+```
 
-1. Use the following command to set the newly created resource group as the default resource group.
+### 3.4. Create a Service Bus instance
 
-   ```azurecli
-   az configure --defaults group=${RESOURCE_GROUP}
-   ```
+Use the following command to set the default location:
 
-### 3.2. Create a Service Bus instance
+```azurecli
+az configure --defaults location=${LOCATION}
+```
+
+Use the following command to create a resource group:
+
+```azurecli
+az group create --resource-group ${RESOURCE_GROUP}
+```
+
+Use the following command to set the newly created resource group as the default resource group.
+
+```azurecli
+az configure --defaults group=${RESOURCE_GROUP}
+```
 
 Use the following command to create a Service Bus namespace:
 
@@ -98,7 +91,7 @@ Use the following command to create a Service Bus namespace:
 az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
 ```
 
-### 3.3. Create queues in your Service Bus instance
+### 3.5. Create queues in your Service Bus instance
 
 Use the following commands to create two queues named `lower-case` and `upper-case`:
 
@@ -111,7 +104,7 @@ az servicebus queue create \
     --name upper-case
 ```
 
-### 3.4. Create the Azure Spring Apps instance
+### 3.6. Create the Azure Spring Apps instance
 
 Use the following command to create your Azure Spring Apps instance:
 
@@ -121,7 +114,7 @@ az spring create \
     --sku Enterprise
 ```
 
-### 3.5. Create an app in your Azure Spring Apps instance
+### 3.7. Create an app in your Azure Spring Apps instance
 
 Use the following command to create an app in the Azure Spring Apps instance:
 
@@ -132,7 +125,7 @@ az spring app create \
     --assign-endpoint true
 ```
 
-### 3.6. Bind the Service Bus to Azure Spring Apps and deploy the app
+### 3.8. Bind the Service Bus to Azure Spring Apps and deploy the app
 
 Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app.
 

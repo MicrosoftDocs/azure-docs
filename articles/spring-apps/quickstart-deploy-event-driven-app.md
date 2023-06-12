@@ -64,11 +64,7 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone pivot="sc-consumption-plan,sc-enterprise"
 
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.46.0 or higher. Use the following command to install the Azure Spring Apps extension:
-
-  ```azurecli-interactive
-  az extension add --name spring
-  ```
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.46.0 or higher.
 
 ::: zone-end
 
