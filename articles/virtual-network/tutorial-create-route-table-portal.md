@@ -11,7 +11,7 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 06/27/2022
 ms.author: allensu
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
 

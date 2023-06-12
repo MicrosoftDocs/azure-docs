@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 03/20/2023
 ms.author: banders
 ---
 
@@ -39,6 +39,8 @@ There are four options to transfer products:
 When you send or accept a transfer request, you agree to terms and conditions. For more information, see [Transfer terms and conditions](subscription-transfer.md#transfer-terms-and-conditions).
 
 Before you transfer billing products, read [Supplemental information about transfers](subscription-transfer.md#supplemental-information-about-transfers).
+
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
 ## Prerequisites
 

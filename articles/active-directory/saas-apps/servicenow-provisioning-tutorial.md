@@ -4,38 +4,41 @@ description: Learn how to automatically provision and deprovision user accounts 
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 5f03d8b7-c3a0-443e-91af-99cc3956fa18
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 3/10/2023
+ms.date: 04/04/2023
 ms.author: thwimmer
 ---
 
 # Configure ServiceNow for automatic user provisioning
 
-This article describes the steps that you'll take in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When Azure AD is configured, it automatically provisions and deprovisions users and groups to [ServiceNow](https://www.servicenow.com/) by using the Azure AD provisioning service. 
+This article describes the steps that you'll take in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When Azure AD is configured, it automatically provisions and deprovisions users and groups to [ServiceNow](https://www.servicenow.com) by using the Azure AD provisioning service. 
 
 For more information on the Azure AD automatic user provisioning service, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## Capabilities supported
 
 > [!div class="checklist"]
-> - Create users in ServiceNow
-> - Remove users in ServiceNow when they don't need access anymore
-> - Keep user attributes synchronized between Azure AD and ServiceNow
-> - Provision groups and group memberships in ServiceNow
-> - Allow [single sign-on](servicenow-tutorial.md) to ServiceNow (recommended)
+> - Create users in ServiceNow.
+> - Remove users in ServiceNow when they don't need access anymore.
+> - Keep user attributes synchronized between Azure AD and ServiceNow.
+> - Provision groups and group memberships in ServiceNow.
+> - Allow [single sign-on](servicenow-tutorial.md) to ServiceNow (recommended).
 
 ## Prerequisites
 
 - An Azure AD user account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- A [ServiceNow instance](https://www.servicenow.com/) of Calgary or higher
-- A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
-- A user account in ServiceNow with the admin role
+- A [ServiceNow instance](https://www.servicenow.com) of Calgary or higher.
+- A [ServiceNow Express instance](https://www.servicenow.com) of Helsinki or higher.
+- A user account in ServiceNow with the admin role.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Step 1: Plan your provisioning deployment
 
@@ -52,9 +55,6 @@ For more information on the Azure AD automatic user provisioning service, see [A
 1. Obtain credentials for an admin in ServiceNow. Go to the user profile in ServiceNow and verify that the user has the admin role. 
 
    ![Screenshot that shows a ServiceNow admin role.](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
-   
-1. Enable the SCIM v2 Plugin using the steps outlined by this [ServiceNow doc](https://docs.servicenow.com/en-US/bundle/utah-platform-security/page/integrate/authentication/task/activate-scim-plugin.html)
-
 
 ## Step 3: Add ServiceNow from the Azure AD application gallery
 
@@ -151,57 +151,6 @@ After you've configured provisioning, use the following resources to monitor you
 - Self-hosted ServiceNow instances aren't supported. 
 
 - When an update to the *active* attribute in ServiceNow is provisioned, the attribute *locked_out* is also updated accordingly, even if *locked_out* is not mapped in the Azure provisioning service.  
-
-## Update a ServiceNow application to use the ServiceNow SCIM 2.0 endpoint
-In March 2023, ServiceNow released a SCIM 2.0 connector. Completing the steps below will update applications configured to use the non-SCIM endpoint to the use the SCIM 2.0 endpoint. These steps will remove any customizations previously made to the ServiceNow application, including:
-* Authentication details
-* Scoping filters
-* Custom attribute mappings
-
-> [!NOTE]
-> Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
-
-1. Sign into the Azure portal at https://portal.azure.com 
-2. Navigate to your current ServiceNow app under Azure Active Directory > Enterprise Applications
-3. In the Properties section of your new custom app, copy the Object ID.
-
-	![Screenshot of ServiceNow app in the Azure portal.](./media/servicenow-provisioning-tutorial/app-properties.png)
-
-4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added. 
-
-	![Screenshot of Microsoft Graph explorer sign in page.](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
-
-5. Check to make sure the account being used has the correct permissions. The permission “Directory.ReadWrite.All” is required to make this change.                              
-
-	![Screenshot of Microsoft Graph settings option.](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
-
-	![Screenshot of Microsoft Graph permissions.](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
-
-6. Using the ObjectID selected from the app previously, run the following command:
-
-```
-GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/
-```
-
-7. Taking the "id" value from the response body of the GET request from above, run the command below, replacing "[job-id]" with the id value from the GET request. The value should have the format of "ServiceNowOutDelta.xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxx":
-```
-DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
-```
-8. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
-```
-POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "serviceNowScim" }
-```
-
-![Screenshot of Microsoft Graph request.](./media/servicenow-provisioning-tutorial/graph-request.png)
-
-9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “serviceNowScim”. 
-
-10. The new SCIM app uses OAuth2 to authenticate with the SCIM endpoint. Enter the required fields and authenticate with the new SCIM endpoint. [This ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-security/page/administer/security/task/t_CreateEndpointforExternalClients.html) outlines how to generate these values.
-
-11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
-
-> [!NOTE] 
-> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in ServiceNow unexpectedly. Be sure to check the configuration before enabling  provisioning 
 
 ## Additional resources
 

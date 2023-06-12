@@ -33,6 +33,18 @@ The table below illustrates the features that Flexible server offers.
 | **Geo redundant backup** | Flexible server backups are copied to a remote region. that helps with disaster recovery situation in the event of the primary server region is down. | This feature is currently enabled in selected regions. It takes a longer RTO and a higher RPO depending on the size of the data to restore and amount of recovery to perform.  |
 | **Read Replica** | Cross Region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and may lag the primary. For more information, see [Concepts - Read Replicas](./concepts-read-replicas.md).| Supported in general purpose and memory optimized compute tiers. |
 
+
+The following table compares RTO and RPO in a **typical workload** scenario:
+
+| **Capability** | **Burstable** | **General Purpose** | **Memory optimized** |
+| :------------: | :-------: | :-----------------: | :------------------: |
+| Point in Time Restore from backup | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min| Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min |
+| Geo-restore from geo-replicated backups | RTO - Varies <br/>RPO < 1 h  | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
+| Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
+
+\* RTO and RPO **can be much higher** in some cases depending on various factors including latency between sites, the amount of data to be transmitted, and importantly primary database write workload. 
+
+
 ## Planned downtime events
 
 Below are some planned maintenance scenarios. These events typically incur up to few minutes of downtime, and without data loss.

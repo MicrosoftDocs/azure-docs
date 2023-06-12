@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: chschrae
 zone_pivot_groups: programming-languages-set-thirteen
-ms.custom: devx-track-cpp, devx-track-csharp, mode-other
+ms.custom: devx-track-cpp, devx-track-csharp, mode-other, devx-track-extended-java
 ---
 
 # How to recognize intents with custom entity pattern matching

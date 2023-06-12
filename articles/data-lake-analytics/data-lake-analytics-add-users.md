@@ -2,6 +2,7 @@
 title: Add users to an Azure Data Lake Analytics account
 description: Learn how to correctly add users to your Data Lake Analytics account using the Add User Wizard and Azure PowerShell.
 ms.service: data-lake-analytics
+ms.custom: devx-track-azurepowershell
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 01/20/2023

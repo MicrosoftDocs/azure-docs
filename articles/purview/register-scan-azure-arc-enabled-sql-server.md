@@ -6,21 +6,19 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/23/2022
+ms.date: 04/05/2023
 ms.custom: template-how-to
 ---
 
-# Connect to and manage Azure Arc-enabled SQL Server in Microsoft Purview (public preview)
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+# Connect to and manage Azure Arc-enabled SQL Server in Microsoft Purview
 
 This article shows how to register an Azure Arc-enabled SQL Server instance. It also shows how to authenticate and interact with Azure Arc-enabled SQL Server in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-|Metadata extraction|Full scan|Incremental scan|Scoped scan|Classification|Access policy|Lineage|Data sharing|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes - GA](#access-policy) | Limited** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)(GA) | [Yes](#scan)(preview) | [Yes](#scan)(preview) | [Yes](#scan)(preview) | [Yes](#scan)(preview) | No | [Yes](#access-policy)(GA) | Limited** | No |
 
 \** Lineage is supported if the dataset is used as a source/sink in the [Azure Data Factory copy activity](how-to-link-azure-data-factory.md). 
 

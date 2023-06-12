@@ -21,6 +21,8 @@ Proper Active Directory Domain Services (AD DS) design and planning are key to s
 
 This article provides recommendations to help you develop an AD DS deployment strategy for Azure NetApp Files. Before reading this article, you need to have a good understanding about how AD DS works on a functional level.  
 
+[!INCLUDE [April 2023 Netlogon notice](includes/netlogon-april-2023.md)]
+
 ## <a name="ad-ds-requirements"></a> Identify AD DS requirements for Azure NetApp Files
 
 Before you deploy Azure NetApp Files volumes, you must identify the AD DS integration requirements for Azure NetApp Files to ensure that Azure NetApp Files is well connected to AD DS. _Incorrect or incomplete AD DS integration with Azure NetApp Files might cause client access interruptions or outages for SMB, dual-protocol, or Kerberos NFSv4.1 volumes_.  

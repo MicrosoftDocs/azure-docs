@@ -1,7 +1,7 @@
 ---
 title: "Quickstart - Integrate with Azure Database for PostgreSQL and Azure Cache for Redis"
-titleSuffix: Azure Spring Apps Enterprise tier
-description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Apps Enterprise tier.
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
@@ -15,21 +15,21 @@ ms.custom: devx-track-java, service-connector, devx-track-azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running in Azure Spring Apps Enterprise tier.
+This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running in the Azure Spring Apps Enterprise plan.
 
 This article uses these services for demonstration purposes. You can connect your application to any backing service of your choice by using instructions similar to the ones in the [Create Service Connectors](#create-service-connectors) section later in this article.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-- Complete the steps in [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- Complete the steps in [Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
 ## Provision services
 
@@ -83,7 +83,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
        --resource-group <resource-group-name> \
        --name azure.extensions \
        --value uuid-ossp \
-       --server-name <postgres-server-name> \
+       --server-name <postgres-server-name>
    ```
 
 1. Use the following command to create a database for the Order Service application:
@@ -133,7 +133,7 @@ To deploy this template, follow these steps:
 
 ## Create Service Connectors
 
-The following steps show how to bind applications running in Azure Spring Apps Enterprise tier to other Azure services by using Service Connectors.
+The following steps show how to bind applications running in the Azure Spring Apps Enterprise plan to other Azure services by using Service Connectors.
 
 1. Use the following command to create a service connector to Azure Database for PostgreSQL for the Order Service application:
 
@@ -185,13 +185,13 @@ The following steps show how to bind applications running in Azure Spring Apps E
 1. Use the following command to reload the Catalog Service application to load the new connection properties:
 
    ```azurecli
-   az spring app restart
+   az spring app restart \
        --resource-group <resource-group-name> \
        --name catalog-service \
        --service <Azure-Spring-Apps-service-instance-name>
    ```
 
-1. Use the following commands to retrieve the database connection information and update the Order Service application:
+1. Use the following command to retrieve the database connection information:
 
    ```azurecli
    POSTGRES_CONNECTION_STR=$(az spring connection show \
@@ -199,8 +199,16 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
        --connection order_service_db \
-       --app order-service | jq '.configurations[0].value' -r)
+       --app order-service \
+       | jq '.configurations[0].value' -r)
+   ```
 
+   > [!NOTE]
+   > If you get an SSL verification exception with Nofsql 6.0, be sure to change the SSL mode from `Require` to `VerifyFull`. For more information, see the [Npgsql 6.0 Release Notes](https://www.npgsql.org/doc/release-notes/6.0.html).
+
+1. Use the following command to update the Order Service application:
+
+   ```azurecli
    az spring app update \
        --resource-group <resource-group-name> \
        --name order-service \

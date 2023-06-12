@@ -54,7 +54,7 @@ import aiohttp
 
 ## Import weather data
 
-For the sake of this tutorial, we'll use weather data readings from sensors installed at four different wind turbines. The sample data consists of 30 days of weather readings. These readings are gathered from weather data centers near each turbine location. The demo data contains data readings for temperature, wind speed and, direction. You can download the demo data from [here](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data). The script below imports demo data to the Azure Notebook.
+For the sake of this tutorial, we'll use weather data readings from sensors installed at four different wind turbines. The sample data consists of 30 days of weather readings. These readings are gathered from weather data centers near each turbine location. The demo data contains data readings for temperature, wind speed and, direction. You can download the demo data contained in [weather_dataset_demo.csv](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data) from GitHub. The script below imports demo data to the Azure Notebook.
 
 ```python
 df = pd.read_csv("./data/weather_dataset_demo.csv")

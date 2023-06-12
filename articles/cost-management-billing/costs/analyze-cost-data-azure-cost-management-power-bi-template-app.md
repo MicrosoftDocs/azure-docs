@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/08/2022
+ms.date: 04/05/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

@@ -23,7 +23,7 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 - Not all Azure VM SKUs, regions and availability zones support ultra disks, for more information about this topic, see [Azure ultra disks](disks-enable-ultra-ssd.md).
-- Currently dedicated hosts do not support 'ultra disks' on the following VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 (ultra disks are supported on these sizes for multi tenant VMs).
+- Additional [limitations](./dedicated-hosts.md#ultra-disk-support-for-virtual-machines-on-dedicated-hosts) would apply when using ultra disks on the following VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 on a dedicated host.
 - The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
 - Users can not select hardware capabilities like accelerated networking when creating a dedicated host.
 - Users would not be able to create VMs/VMSS with accelerated networking enabled on a dedicated host.
@@ -294,13 +294,13 @@ When you deploy a scale set, you specify the host group.
 
 ### [CLI](#tab/cli)
 
-When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we're deploying the latest Ubuntu LTS image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
+When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we're deploying a Linux image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --image myImage \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --host-group myHostGroup \

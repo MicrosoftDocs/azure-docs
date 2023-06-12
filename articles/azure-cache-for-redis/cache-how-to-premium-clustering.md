@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 05/11/2023
 
 ---
 
@@ -22,6 +22,16 @@ Azure Cache for Redis offers Redis cluster as [implemented in Redis](https://red
 Clustering doesn't increase the number of connections available for a clustered cache. For more information about size, throughput, and bandwidth with premium caches, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 
 In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication, where the replication is managed by Azure Cache for Redis service.
+
+## Azure Cache for Redis now supports up to 30 shards (preview)
+
+Azure Cache for Redis now supports upto 30 shards for clustered caches. Clustered caches configured with two replicas can support upto 20 shards and clustered caches configured with three replicas can support upto 15 shards.
+
+### Limitations
+
+- Shard limit for caches with Redis version 4 is 10.
+- Shard limit for [caches affected by cloud service retirement](./cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic) is 10.
+- Maintenance will take longer as each node take roughly 20 minutes to update. Other maintenance operations will be blocked while your cache is under maintenance.
 
 ## Set up clustering
 
@@ -85,7 +95,7 @@ For sample code on working with clustering with the StackExchange.Redis client, 
 
 To change the cluster size on a premium cache that you created earlier, and is already running with clustering enabled, select **Cluster size** from the Resource menu.
 
-:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Screenshot of Resource manager with Cluster size selected. ":::
+:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Screenshot of Resource Manager with Cluster size selected. ":::
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box. Then, select **OK** to save.
 
@@ -110,6 +120,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Can I configure clustering for a basic or standard cache?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
 * [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 * [I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?](#im-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
+* [Does scaling out using clustering help to increase the number of supported client connections?](#Does scaling out using clustering help to increase the number of supported client connections?)
 
 ### Do I need to make any changes to my client application to use clustering?
 
@@ -188,6 +199,10 @@ Clustering is only available for premium caches.
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 
 If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
+
+### Does scaling out using clustering help to increase the number of supported client connections?
+
+No, scaling out using clustering and increasing the number of shards doesn't help in increasing the number of supported client connections.
 
 ## Next steps
 

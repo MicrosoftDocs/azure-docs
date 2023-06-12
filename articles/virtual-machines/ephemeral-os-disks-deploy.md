@@ -26,7 +26,8 @@ In the Azure portal, you can choose to use ephemeral disks when deploying a virt
 
 If the option for using an ephemeral disk or OS cache placement or Temp disk placement is greyed out, you might have selected a VM size that doesn't have a cache/temp size larger than the OS image or that doesn't support Premium storage. Go back to the **Basics** page and try choosing another VM size.
 
-## Scale set template deployment  
+## Scale set template deployment
+
 The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 
 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. placement can be changed to `CacheDisk` for OS cache disk placement.
 
@@ -55,10 +56,10 @@ The process to create a scale set that uses an ephemeral OS disk is to add the `
           "createOption": "FromImage" 
         }, 
         "imageReference":  { 
-          "publisher": "Canonical", 
-          "offer": "UbuntuServer", 
-          "sku": "16.04-LTS", 
-          "version": "latest" 
+          "publisher": "publisherName", 
+          "offer": "offerName", 
+          "sku": "skuName", 
+          "version": "imageVersion" 
         } 
       }, 
       "osProfile": { 
@@ -70,6 +71,9 @@ The process to create a scale set that uses an ephemeral OS disk is to add the `
   } 
 }  
 ```
+
+> [!NOTE]
+> Replace all the other values accordingly.
 
 ## VM template deployment 
 You can deploy a VM with an ephemeral OS disk using a template. The process to create a VM that uses ephemeral OS disks is to add the `diffDiskSettings` property to Microsoft.Compute/virtualMachines resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. placement option can be changed to `CacheDisk` for OS cache disk placement.
@@ -117,13 +121,16 @@ To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` 
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --image UbuntuLTS \
+  --image imageName \
   --ephemeral-os-disk true \
   --ephemeral-os-disk-placement ResourceDisk \
   --os-disk-caching ReadOnly \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
+
+> [!NOTE]
+> Replace `myVM`, `myResourceGroup`, `imageName` and `azureuser` accordingly.
 
 For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az-vmss-create) and set the `--os-disk-caching` parameter to `ReadOnly` and the `--ephemeral-os-disk-placement` parameter to `ResourceDisk` for temp disk placement or `CacheDisk` for cache disk placement.
 

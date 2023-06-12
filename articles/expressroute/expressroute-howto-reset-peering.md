@@ -5,6 +5,7 @@ services: expressroute
 author:  charwen
 
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: duau

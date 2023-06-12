@@ -9,8 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 1/25/2023
 ms.author: oriwolman
-ms.custom: compute-evergreen
-
+ms.custom: compute-evergreen, devx-track-arm-template
 ---
 
 # Technical deep dive on platform-supported migration from classic to Azure Resource Manager

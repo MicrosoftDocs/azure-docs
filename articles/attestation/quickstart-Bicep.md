@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: attestation
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: jgao
 ms.date: 03/08/2022
 ---

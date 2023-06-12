@@ -7,20 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
-# Azure Form Recognizer health insurance card model (preview)
+# Azure Form Recognizer health insurance card model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
-
-> [!IMPORTANT]
->
-> * The Form Recognizer Studio health insurance card model is currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
-> * Complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
 
 The Form Recognizer health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards. A health insurance card is a key document for care processing and can be digitally analyzed for patient onboarding, financial coverage information, cashless payments, and insurance claim processing. The health insurance card model analyzes health card images; extracts key information such as insurer, member, prescription, and group number; and returns a structured JSON representation.  Health insurance cards can be presented in various formats and quality including phone-captured images, scanned documents, and digital PDFs.
 
@@ -99,7 +93,7 @@ See how data is extracted from health insurance cards using the Form Recognizer 
 |`PrescriptionInfo.RxPlan`|`string`|Prescription Plan number|A1|
 |`Pbm`|`string`|Pharmacy Benefit Manager for the plan|CVS CAREMARK|
 |`EffectiveDate`|`date`|Date from which the plan is effective|08/12/2012|
-|`Copays`|`array`|Array holding list of CoPay Benefits||
+|`Copays`|`array`|Array holding list of copay Benefits||
 |`Copays.*`|`object`|||
 |`Copays.*.Benefit`|`string`|Co-Pay Benefit name|Deductible|
 |`Copays.*.Amount`|`currency`|Co-Pay required amount|$1,500|

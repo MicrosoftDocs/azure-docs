@@ -1,10 +1,9 @@
 ---
 title: Template functions - lambda
 description: Describes the lambda functions to use in an Azure Resource Manager template (ARM template)
-author: mumian
 ms.topic: conceptual
-ms.author: jgao
-ms.date: 03/15/2023
+ms.custom: devx-track-arm-template
+ms.date: 05/22/2023
 ---
 
 # Lambda functions for ARM templates
@@ -41,7 +40,7 @@ In Bicep, use the [filter](../bicep/bicep-functions-lambda.md#filter) function.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to filter.|
-| lambda function |Yes |expression |The lambda function applied to each input array element. If false, the item will be filtered out of the output array.|
+| lambda function |Yes |expression |The lambda function applied to each input array element. If false, the item is filtered out of the output array.|
 
 ### Return value
 
@@ -564,4 +563,4 @@ The preceding example generates an object based on an array.
 
 ## Next steps
 
-- See [Template functions - arrays](./template-functions-array.md) for additional array related template functions.
+- See [Template functions - arrays](./template-functions-array.md) for more array related template functions.

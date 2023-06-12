@@ -51,6 +51,9 @@ To configure a CDN endpoint to optimize delivery of dynamic files, you can eithe
 
 **To configure an existing endpoint for DSA (Azure CDN from Akamai profiles only):**
 
+> [!IMPORTANT]
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
+
 1. In the **CDN profile** page, select the endpoint you want to modify.
 
 2. From the left pane, select **Optimization**. 

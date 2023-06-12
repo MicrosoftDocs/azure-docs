@@ -1,17 +1,18 @@
 ---
-title: Install the Microsoft Dev Box Preview Azure CLI extension
-titleSuffix: Microsoft Dev Box Preview
-description: Learn how to install the Azure CLI and the Microsoft Dev Box Preview CLI extension so you can create Dev Box resources from the command line.
+title: Install the Microsoft Dev Box Azure CLI extension
+titleSuffix: Microsoft Dev Box
+description: Learn how to install the Azure CLI and the Microsoft Dev Box CLI extension so you can create Dev Box resources from the command line.
 services: dev-box
 ms.service: dev-box
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/19/2023
+ms.date: 04/25/2023
 Customer intent: As a dev infra admin, I want to install the Dev Box CLI extension so that I can create Dev Box resources from the command line.
 ---
 
-# Microsoft Dev Box Preview Azure CLI extension
+# Configure Microsoft Dev Box from the command-line with the Azure CLI extension
 
 In addition to the Azure admin portal and the developer portal, you can use the Dev Box Azure CLI extension to create resources. Microsoft Dev Box and Azure Deployment Environments use the same Azure CLI extension, which is called `devcenter`.
 

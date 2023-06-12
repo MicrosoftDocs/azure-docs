@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 03/29/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -79,9 +79,11 @@ DNS forwarding rules (ruleset rules) have the following properties:
 | Property | Description |
 | --- | --- |
 | Rule name | The name of your rule. The name must begin with a letter, and can contain only letters, numbers, underscores, and dashes. |
-| Domain name | The dot-terminated DNS namespace where your rule applies. The namespace must have either zero labels (for wildcard) or between 2 and 34 labels. For example, `contoso.com.` has two labels. |
+| Domain name | The dot-terminated DNS namespace where your rule applies. The namespace must have either zero labels (for wildcard) or between 1 and 34 labels. For example, `contoso.com.` has two labels.<sup>1</sup> |
 | Destination IP:Port | The forwarding destination. One or more IP addresses and ports of DNS servers that are used to resolve DNS queries in the specified namespace. |
 | Rule state | The rule state: Enabled or disabled. If a rule is disabled, it's ignored. |
+
+<sup>1</sup>Single-label domain names are supported.
 
 If multiple rules are matched, the longest prefix match is used.  
 

@@ -1,12 +1,9 @@
 ---
 title: Send classic Cloud Services metrics to Azure Monitor metrics database
 description: Describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store. 
-author: anirudhcavale
-services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.author: ancav 
 ---
 # Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
 

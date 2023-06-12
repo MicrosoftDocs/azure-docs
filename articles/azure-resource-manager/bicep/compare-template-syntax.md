@@ -4,6 +4,7 @@ description: Compares Azure Resource Manager templates developed with JSON and B
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep, devx-track-arm-template
 ms.date: 04/26/2022
 ---
 # Comparing JSON and Bicep for templates

@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 03/03/2023
 ms.author: vikurpad
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ---
 
 # Configure secure access with managed identities and private endpoints

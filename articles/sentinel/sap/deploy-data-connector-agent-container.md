@@ -19,7 +19,11 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
+
 1. [Prepare SAP environment](preparing-sap.md)
+
+1. [Configure auditing](configure-audit.md)
 
 1. **Deploy data connector agent (*You are here*)**
 
@@ -27,10 +31,12 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 
-1. Optional deployment steps
-   - [Configure auditing](configure-audit.md)
-   - [Configure SAP data connector to use SNC](configure-snc.md)
-
+1. Optional deployment steps   
+   - [Configure data connector to use SNC](configure-snc.md)
+   - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+   - [Configure audit log monitoring rules](configure-audit-log-rules.md)
+   - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
+   - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 ## Data connector agent deployment overview
 
@@ -132,7 +138,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh --cloud fairfax
     ```
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
 2. **Follow the on-screen instructions** to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
@@ -210,7 +216,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
     ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret ssssssssssssssssssssssssssssssssss -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname <key vault name>
     ```
 
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
 1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
@@ -245,7 +251,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
     ./sapcon-sentinel-kickstart.sh --keymode cfgf
     ```
 
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
 1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 

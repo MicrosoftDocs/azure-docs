@@ -16,6 +16,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Develop Custom Commands applications
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this how-to article, you learn how to develop and configure Custom Commands applications. The Custom Commands feature helps you build rich voice-command apps that are optimized for voice-first interaction experiences. The feature is best suited to task completion or command-and-control scenarios. It's particularly well suited for Internet of Things (IoT) devices and for ambient and headless devices.
 
 In this article, you create an application that can turn a TV on and off, set the temperature, and set an alarm. After you create these basic commands, you'll learn about the following options for customizing commands:

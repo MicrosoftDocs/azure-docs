@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 04/19/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
-ms.custom: contperf-fy21q2, contperf-fy22q2
+ms.custom: contperf-fy21q2, contperf-fy22q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
 
 
@@ -31,7 +31,7 @@ To reduce the risk of malicious applications attempting to trick users into gran
 To configure user consent, you need:
 
 - A user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Global Administrator or Privileged Administrator role.
+- A Global Administrator role.
 
 ## Configure user consent settings
 

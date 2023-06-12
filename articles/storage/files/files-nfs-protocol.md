@@ -99,7 +99,7 @@ NFS Azure file shares are only offered on premium file shares, which store data 
 NFS has been validated to work well with workloads such as SAP application layer, database backups, database replication, messaging queues, home directories for general purpose file servers, and content repositories for application workloads.
 
 The following workloads have known issues:
-- Oracle Database will experience incompatibility with its dNFS feature.
+- Oracle Database will experience incompatibility with its `dNFS` feature.
 
 
 ## Next steps

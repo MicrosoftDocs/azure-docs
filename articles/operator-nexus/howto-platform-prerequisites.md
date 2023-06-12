@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: Before you start platform deployment pre-requisites"
 description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
-author: surajmb #Required; your GitHub user alias, with correct capitalization.
-ms.author: surmb #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/13/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+author: surajmb
+ms.author: surmb
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 03/13/2023
+ms.custom: template-how-to
 ---
 
 # Operator Nexus platform prerequisites
@@ -169,7 +169,7 @@ Terminal Server has been deployed and configured as follows:
      ipv4_static_settings.address="$TS_NET2_IP"
      ipv4_static_settings.netmask="$TS_NET2_NETMASK"
      ipv4_static_settings.gateway="$TS_NET2_GW"
-     physif="net1"
+     physif="net2"
      END
    ```
 
@@ -178,9 +178,9 @@ Terminal Server has been deployed and configured as follows:
    | TS_NET1_IP      | The terminal server PE1 to TS NET1 IP      |
    | TS_NET1_NETMASK | The terminal server PE1 to TS NET1 netmask |
    | TS_NET1_GW      | The terminal server PE1 to TS NET1 gateway |
-   | TS_NET2_IP      | The terminal server PE1 to TS NET2 IP      |
-   | TS_NET2_NETMASK | The terminal server PE1 to TS NET2 netmask |
-   | TS_NET2_GW      | The terminal server PE1 to TS NET2 gateway |
+   | TS_NET2_IP      | The terminal server PE2 to TS NET2 IP      |
+   | TS_NET2_NETMASK | The terminal server PE2 to TS NET2 netmask |
+   | TS_NET2_GW      | The terminal server PE2 to TS NET2 gateway |
 
 3. Setup support admin user:
 

@@ -16,7 +16,7 @@ ms.author: pafarley
 
 Use the Image Analysis client library for C# to analyze an image for content tags. This quickstart defines a method, `AnalyzeImageUrl`, which uses the client object to analyze a remote image and print the results. 
 
-[Reference documentation](/dotnet/api/overview/azure/computer-vision) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Reference documentation](/dotnet/api/overview/azure/computer-vision) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](/samples/browse/?products=azure&terms=computer-vision)
 
 > [!TIP]
 > You can also analyze a local image. See the [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ImageAnalysisQuickstart.cs) for scenarios involving local images.
@@ -29,11 +29,13 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
+[!INCLUDE [create environment variables](../environment-variables.md)]
 
 ## Analyze image
 
@@ -81,15 +83,10 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
     ---
 
-1. Find the key and endpoint.
-
-    [!INCLUDE [find key and endpoint](../find-key.md)]
-
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Paste in the following code:
 
    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart-single.cs?name=snippet_single)]
 
-1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.

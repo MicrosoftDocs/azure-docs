@@ -80,7 +80,7 @@ Now that we have configured the certificate and granted the network service acco
     - Place a check in the SSL box
    [![Screenshot that shows the Ldp tool connection configuration.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-2.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5.  You should see a response similar to the screenshot below.
-   [![Screenshot taht shows the Ldp tool connection configuration success.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool connection configuration success.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
  6.  At the top, under **Connection** select **Bind**.
  7. Leave the defaults and click **OK**.
    [![Screenshot that shows the Ldp tool bind operation.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-4.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
@@ -137,7 +137,7 @@ New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation $CertLocation
 #Create directory
 New-Item -Path $logpath -Name $dirname -ItemType $dirtype
 
-#Export the certifcate from the local machine personal store
+#Export the certificate from the local machine personal store
 Get-ChildItem -Path cert:\LocalMachine\my | Export-Certificate -FilePath c:\test\allcerts.sst -Type SST
 
 #Import the certificate in to the trusted root

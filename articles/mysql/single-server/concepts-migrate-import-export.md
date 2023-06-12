@@ -1,8 +1,8 @@
 ---
 title: Import and export - Azure Database for MySQL
 description: This article explains common ways to import and export databases in Azure Database for MySQL, by using tools such as MySQL Workbench.
-author: savjani
-ms.author: pariks
+author: aditivgupta
+ms.author: adig
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
@@ -77,9 +77,9 @@ For optimal data import and export performance, we recommend that you do the fol
 There are two ways to export and import data in MySQL Workbench: from the object browser context menu or from the Navigator pane. Each method serves a different purpose.
 
 > [!NOTE]
-> If you're adding a connection to MySQL Single Server or Flexible Server on MySQL Workbench, do the following:
+> If you're adding a connection to MySQL single server or Flexible Server on MySQL Workbench, do the following:
 >
-> - For MySQL Single Server, make sure that the user name is in the format *\<username@servername>*.
+> - For MySQL single server, make sure that the user name is in the format *\<username@servername>*.
 > - For MySQL Flexible Server, use *\<username>* only. If you use *\<username@servername>* to connect, the connection will fail.
 
 ### Run the table data export and import wizards from the object browser context menu

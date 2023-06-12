@@ -70,17 +70,29 @@ Microsoft Sentinel supports a [multiple workspace incident view](./multiple-work
 
 You can query [multiple workspaces](../azure-monitor/logs/cross-workspace-query.md), allowing you to search and correlate data from multiple workspaces in a single query.
 
-- Use the [workspace() expression](../azure-monitor/logs/workspace-expression.md) to refer to a table in a different workspace.
+- Use the [`workspace( )` expression](../azure-monitor/logs/workspace-expression.md), with the workspace identifier as the argument, to refer to a table in a different workspace.
 
-- Use the [union operator](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) alongside the workspace() expression to apply a query across tables in multiple workspaces.
+   - See [important information](../azure-monitor/logs/workspace-expression.md#syntax) about the use of identifier formats to ensure proper performance.
 
-You can use saved [functions](../azure-monitor/logs/functions.md) to simplify cross-workspace queries. For example, if a reference to a workspace is long, you may want to save the expression `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` as a function called `SecurityEventCustomerA`. You can then write queries as `SecurityEventCustomerA | where ...` .
+- Use the [union operator](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) alongside the `workspace( )` expression to apply a query across tables in multiple workspaces.
 
-A function can also simplify a commonly used union. For example, you can save the following expression as a function called `unionSecurityEvent`:
+- You can use saved [functions](../azure-monitor/logs/functions.md) to simplify cross-workspace queries. For example, you can shorten a long reference to the *SecurityEvent* table in Customer A's workspace by saving the expression 
 
-`union workspace("hard-to-remember-workspace-name-1").SecurityEvent, workspace("hard-to-remember-workspace-name-2").SecurityEvent`
+   ```kusto
+   workspace("/subscriptions/<customerA_subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.OperationalInsights/workspaces/<workspaceName>").SecurityEvent
+   ```
 
-You can then write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
+   as a function called `SecurityEventCustomerA`. You can then query Customer A's *SecurityEvent* table with this function: `SecurityEventCustomerA | where ...` .
+
+- A function can also simplify a commonly used union. For example, you can save the following expression as a function called `unionSecurityEvent`:
+
+   ```kusto
+   union 
+   workspace("/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.OperationalInsights/workspaces/<workspaceName1>").SecurityEvent, 
+   workspace("/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.OperationalInsights/workspaces/<workspaceName2>").SecurityEvent
+   ```
+
+   You can then write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
 
 #### Cross-workspace analytics rules<a name="scheduled-alerts"></a>
 <!-- Bookmark added for backward compatibility with old heading -->

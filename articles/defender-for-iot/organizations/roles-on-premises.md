@@ -40,7 +40,7 @@ The following roles are available on OT network sensors and on-premises manageme
 |---------|---------|
 |**Admin**     |  Admin users have access to all tools, including system configurations, creating and managing users, and more.   |
 |**Security Analyst**     |  Security Analysts don't have admin-level permissions for configurations, but can perform actions on devices, acknowledge alerts, and use investigation tools. <br><br>Security Analysts can access options on the sensor displayed in the **Discover** and **Analyze** menus on the sensor, and in the **NAVIGATION** and **ANALYSIS** menus on the on-premises management console.    |
-|**Read Only**     | Read-only users perform tasks such as viewing alerts and devices on the device map. <br><br>Read Only users can access options displayed in the **Discover** and **Analyze** menus on the sensor, in read-only mode, and in the **NAVIGATION** menu on the on-premises management console.        |
+|**Read-Only**     | Read-only users perform tasks such as viewing alerts and devices on the device map. <br><br>Read-Only users can access options displayed in the **Discover** and **Analyze** menus on the sensor, in read-only mode, and in the **NAVIGATION** menu on the on-premises management console.        |
 
 When first deploying an OT monitoring system, sign in to your sensors and on-premises management console with one of the [default, privileged users](#default-privileged-on-premises-users) described above. Create your first **Admin** user, and then use that user to create other users and assign them to roles.
 

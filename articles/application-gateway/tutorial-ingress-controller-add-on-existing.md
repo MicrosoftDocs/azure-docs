@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/15/2022
 ms.author: greglin
-ms.custom: template-tutorial, devx-track-azurecli   # Required; leave this attribute/value as-is.
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Enable application gateway ingress controller add-on for an existing AKS cluster with an existing application gateway

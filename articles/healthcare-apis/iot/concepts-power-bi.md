@@ -1,11 +1,11 @@
 ---
 title: MedTech service Microsoft Power BI - Azure Health Data Services
-description: In this article, you'll learn how to use the MedTech service and Power BI
+description: Learn how to use the MedTech service and Power BI
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
@@ -14,11 +14,11 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, we'll explore using the MedTech service and Microsoft Power Business Intelligence (BI).
+In this article, we explore using the MedTech service and Microsoft Power Business Intelligence (BI).
 
 ## The MedTech service and Power BI reference architecture
 
-This reference architecture shows the basic components of using the Microsoft cloud services to enable Power BI on top of Internet of Medical Things (IoMT) and FHIR data.
+This reference architecture shows the basic components of using the Microsoft cloud services to enable Power BI on top of Internet of Things (IoT) and FHIR data.
 
 You can even embed Power BI dashboards inside the Microsoft Teams client to further enhance care team coordination. For more information on embedding Power BI in Teams, visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 

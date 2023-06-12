@@ -28,6 +28,24 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 - Support for long running (hours/days) scripts 
 - Passing secrets (parameters, passwords) in a secure manner
 
+## Prerequisites
+
+### **Windows OS’ Supported**
+| **Windows OS** |	**x64** |
+|:----|:----:|
+| Windows 10 |	Supported |
+| Windows 11 |	Supported |
+| Windows Server 2008 SP2 |	Supported |
+| Windows Server 2008 R2 |	Supported |
+| Windows Server 2012 |	Supported |
+| Windows Server 2012 R2 |	Supported |
+| Windows Server 2016 |	Supported |
+| Windows Server 2016 Core |	Supported |
+| Windows Server 2019 |	Supported |
+| Windows Server 2019 Core |	Supported |
+| Windows Server 2022 |	Supported |
+| Windows Server 2022 Core |	Supported |
+
 ## Limiting access to Run Command
 
 Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription Level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.

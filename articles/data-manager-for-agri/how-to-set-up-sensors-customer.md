@@ -1,12 +1,12 @@
 ---
 title: How to set up a sensor in Azure Data Manager for Agriculture
 description: Provides step by step guidance to integrate Sensor as a customer
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 02/14/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Sensor integration as a customer
@@ -29,7 +29,7 @@ To start using the on-boarded sensor partners, you need to give consent to the s
 
 5. Now, look for `Davis Instruments WeatherLink Data Manager for Agriculture Connector` under All Applications tab in `App Registrations` page (illustrated with a generic Partner in the image).
 
-    >:::image type="content" source="./media/sensor-partners.png" alt-text="Screenshot showing the partners message.":::
+   :::image type="content" source="./media/sensor-partners.png" alt-text="Screenshot showing the partners message.":::
 
 6. Copy the Application (client) ID for the specific partner app that you want to provide access to.
 
@@ -44,7 +44,7 @@ Log in to <a href="https://portal.azure.com" target=" blank">Azure portal</a> an
 
 You find the IAM (Identity Access Management) menu option on the left hand side of the option pane as shown in the image:
 
->:::image type="content" source="./media/role-assignment-1.png" alt-text="Screenshot showing role assignment.":::
+:::image type="content" source="./media/role-assignment-1.png" alt-text="Screenshot showing role assignment.":::
 
 Click **Add > Add role assignment**, this action opens up a pane on the right side of the portal, choose the  role from the dropdown:
 
@@ -60,7 +60,7 @@ To complete the role assignment, do the following steps:
 
 4. Click **Save** to assign the role.
 
->:::image type="content" source="./media/sensor-partner-role.png" alt-text="Screenshot showing app selection for authorization.":::
+:::image type="content" source="./media/sensor-partner-role.png" alt-text="Screenshot showing app selection for authorization.":::
 
 This step ensures that the sensor partner app has been granted access (based on the role assigned) to Azure Data Manager for Agriculture  Resource.
 

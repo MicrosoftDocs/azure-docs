@@ -1,20 +1,25 @@
 ---
-title: Use MirrorMaker 2 to replicate Apache Kafka topics - Azure HDInsight 
-description: Learn how to use Use MirrorMaker 2 to replicate Apache Kafka topics
+title: Use MirrorMaker 2 to migrate Kafka clusters between different Azure HDInsight versions - Azure HDInsight 
+description: Learn how to use MirrorMaker 2 to migrate Kafka clusters between different Azure HDInsight versions
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 03/10/2023
+ms.date: 04/25/2023
 ---
 
-# Use MirrorMaker 2 to replicate Apache Kafka topics with Kafka on HDInsight
+# Use MirrorMaker 2 to migrate Kafka clusters between different Azure HDInsight versions
 
 Learn how to use Apache Kafka's mirroring feature to replicate topics to a secondary cluster. You can run mirroring as a continuous process, or intermittently, to migrate data from one cluster to another.
 
 In this article, you use mirroring to replicate topics between two HDInsight clusters. These clusters are in different virtual networks in different datacenters.
 
-> [!WARNING]  
-> Don't use mirroring as a means to achieve fault-tolerance. The offset to items within a topic are different between the primary and secondary clusters, so clients can't use the two interchangeably. If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information, see [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md).
+> [!NOTE]  
+> 1. We can use mirroring cluster as a fault tolerance.
+> 2. This is valid only is primary cluster HDI Kafka 2.4.1, 3.2.0 and secondary cluster is HDI Kafka 3.2.0 versions. 
+> 3. Secondary cluster would work seamlessly if your primary cluster went down.  
+> 4. Consumer group offsets will be automatically translated to secondary cluster. 
+> 5. Just point your primary cluster consumers to secondary cluster with same consumer group and your consumer group will start consuming from the offset where it left in primary cluster.  
+> 6. The only difference would be that the topic name in backup cluster will change from TOPIC_NAME to primary-cluster-name.TOPIC_NAME. 
 
 ## How Apache Kafka mirroring works
 
@@ -73,10 +78,10 @@ This architecture features two clusters in different resource groups and virtual
      
 1. Create two new Kafka clusters:
 
-   | Cluster name | Resource group | Virtual network | Storage account |
+   | Cluster name |HDInsight version| Resource group | Virtual network | Storage account |
    |---|---|---|---|
-   | primary-kafka-cluster | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
-   | secondary-kafka-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
+   | primary-kafka-cluster | 5.0|kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
+   | secondary-kafka-cluster |5.1|kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
 
    > [!NOTE]
    > From now onwards we will use `primary-kafka-cluster` as `PRIMARYCLUSTER` and `secondary-kafka-cluster` as `SECONDARYCLUSTER`.
@@ -98,7 +103,7 @@ This architecture features two clusters in different resource groups and virtual
    ```
 1. Edit the `/etc/hosts` file of secondary cluster and add those entries here.  
     
-1. After making the changes, the `/etc/hosts` file for `SECONDARYCLUSTER` looks like the given image.
+1. After you making the changes, the `/etc/hosts` file for `SECONDARYCLUSTER` looks like the given image.
 
    :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-host.png" lightbox="./media/apache-kafka-mirror-maker2/ect-host.png" alt-text="Screenshot that shows etc hosts file output." border="false":::
    
@@ -152,7 +157,7 @@ This architecture features two clusters in different resource groups and virtual
    ```
   
 1. Here source is your `PRIMARYCLUSTER` and destination is your `SECONDARYCLUSTR`.  Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
-1. You can control the topics that you want to replicate along with configurations using regular expressions. `replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
+1. You can use regular expressions to specify the topics and their configurations that you want to replicate. By setting the `replication.factor` parameter to 3, you can ensure that all topics created by the MirrorMaker script hsd a replication factor of 3. 
 1. Increase the replication factor from 1 to 3 for these topics 
    ```
    checkpoints.topic.replication.factor=1
@@ -172,6 +177,23 @@ This architecture features two clusters in different resource groups and virtual
    destination->source.enabled=true
    destination->source.topics = .*
    ```
+1. For automated consumer offset sync, we need to enable replication and control the sync duration too. Following property syncs offset every 30 second. For active-active scenario, we need to do it both ways.
+   ```
+   groups=.* 
+
+   emit.checkpoints.enabled = true 
+   source->destination.sync.group.offsets.enabled = true 
+   source->destination.sync.group.offsets.interval.ms=30000 
+
+   destination->source.sync.group.offsets.enabled = true       
+   destination->source.sync.group.offsets.interval.ms=30000
+   ```
+1. If we don’t want to replicate internal topics across clusters, then use following property 
+   
+   ```
+   topics.blacklist="*.internal,__.*"    
+   ```
+   
 1. Final Configuration file after changes should look like this
      ```
    # specify any number of cluster aliases
@@ -194,6 +216,11 @@ This architecture features two clusters in different resource groups and virtual
    secondary-kafka-cluster->primary-kafka-cluster.topics = .*
    
    groups=.*
+   emit.checkpoints.enabled = true 
+   primary-kafka-cluster->secondary-kafka-cluster.sync.group.offsets.enabled=true 
+   primary-kafka-cluster->secondary-kafka-cluster.sync.group.offsets.interval.ms=30000 
+   secondary-kafka-cluster->primary-kafka-cluster.sync.group.offsets.enabled   = true 
+   secondary-kafka-cluster->primary-kafka-cluster.sync.group.offsets.interval.ms=30000
    topics.blacklist="*.internal,__.*"
  
    # Setting replication factor of newly created remote topics
@@ -220,25 +247,42 @@ This architecture features two clusters in different resource groups and virtual
    export clusterName='primary-kafka-cluster' 
    export TOPICNAME='TestMirrorMakerTopic' 
    export KAFKABROKERS='wn0-primar:9092' 
-   export KAFKAZKHOSTS='zk0-primar:2181' 
-   
+   export KAFKAZKHOSTS='zk0-primar:2181'
+    
    //Start Producer
-   bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic $TOPICNAME 
+   
+   # For Kafka 2.4 
+   bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --zookeeper $KAFKAZKHOSTS --topic $TOPICNAME 
+   # For Kafka 3.2 
+   bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --boostrap-server $KAFKABROKERS --topic $TOPICNAME 
    ```
-1. Now start consumer in `SECONDARYCLUSTER` 
+1. Now start the consumer in PRIMARYCLUSTER with a consumer group 
+    ```
+   //Start Consumer
+   
+   # For Kafka 2.4 
+   bash /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic $TOPICNAME -–group my-group –-from- beginning
+   
+   # For Kafka 3.2 
+   bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --boostrap-server $KAFKABROKERS --topic $TOPICNAME -–group my-group –-from-beginning  
+   ```
+1. Now stop the consumer in PRIMARYCONSUMER and start consumer in SECONDARYCLUSTER with same consumer group 
+   ```
+   export clusterName='secondary-kafka-cluster'  
 
-   ```
-   export clusterName='secondary-kafka-cluster' 
-   export TOPICNAME='TestMirrorMakerTopic'  
-   export KAFKABROKERS='wn0-second:9092' 
-   export KAFKAZKHOSTS='zk0-second:2181' 
- 
-   # List all the topics whether they are replicated or not 
+   export TOPICNAME='primary-kafka-cluster.TestMirrorMakerTopic'   
+
+   export KAFKABROKERS='wn0-second:9092'  
+
+   export KAFKAZKHOSTS='zk0-second:2181'  
+   
+   # List all the topics whether they're replicated or not 
    bash /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper $KAFKAZKHOSTS --list 
    
    # Start Consumer
    bash /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic $TOPICNAME --from-beginning 
    ```
+   You can notice that in secondary cluster consumer group my-group cant't consume any messages because, already consumed by primary cluster consumer group. Now produce more messages in primary-cluster and try to consumer then in secondary-cluster. You are able to consume from `SECONDARYCLUSTER`.
 
 ## Delete cluster
 

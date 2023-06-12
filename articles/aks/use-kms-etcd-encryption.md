@@ -3,7 +3,7 @@ title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Serv
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 02/20/2023
+ms.date: 04/12/2023
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
@@ -37,6 +37,8 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * Bring your own (BYO) Azure Key Vault from another tenant isn't supported.
 * With KMS enabled, you can't  change associated Azure Key Vault model (public, private). To [change associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
 * If a cluster is enabled KMS with private key vault and not using the `API Server VNet integration` tunnel, then stop/start cluster is not allowed.
+* Using the virtual machine scale set (VMSS) API to scale down nodes in the cluster to zero will deallocate the nodes, causing the cluster to go down and unrecoverable.
+
 
 KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault].
 

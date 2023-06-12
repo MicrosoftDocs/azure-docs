@@ -139,16 +139,16 @@ Generally, organizations customize policy, however consider the following parame
 
 ## Access control methods
 
-Some features, for example entitlement management, are available with an Azure AD Premium 2 (P2) license. Microsoft 365 E5 and Office 365 E5 licenses include Azure AD P2 licenses. Learn more in the following entitlement management section.
+Some features, for example entitlement management, are available with an Azure AD Premium 2 (P2) license. Microsoft 365 E5 and Office 365 E5 licenses include Azure AD Premium P2 licenses. Learn more in the following entitlement management section.
 
 > [!NOTE]
-> Licenses are for one user. Therefore users, administrators, and business owners can have delegated access control. This scenario can occur with Azure AD P2 or Microsoft 365 E5, and you don't have to enable licenses for all users. The first 50,000 external users are free. If you don't enable P2 licenses for other internal users, they can't use entitlement management. 
+> Licenses are for one user. Therefore users, administrators, and business owners can have delegated access control. This scenario can occur with Azure AD Premium P2 or Microsoft 365 E5, and you don't have to enable licenses for all users. The first 50,000 external users are free. If you don't enable P2 licenses for other internal users, they can't use entitlement management. 
 
 Other combinations of Microsoft 365, Office 365, and Azure AD have functionality to manage external users. See, [Microsoft 365 guidance for security & compliance](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
 
-## Govern access with Azure AD P2 and Microsoft 365 or Office 365 E5
+## Govern access with Azure AD Premium P2 and Microsoft 365 or Office 365 E5
 
-Azure AD P2 and Microsoft 365 E5 have all the security and governance tools.
+Azure AD Premium P2, included in Microsoft 365 E5, has additional security and governance capabilities.
 
 ### Provision, sign-in, review access, and deprovision access
 
@@ -178,7 +178,7 @@ Use entitlement management to provision and deprovision access to groups and tea
 
 Learn more: [Create a new access package in entitlement management](../governance/entitlement-management-access-package-create.md) 
 
-## Governance with Azure AD P1, Microsoft 365, Office 365 E3
+## Manage access with Azure AD P1, Microsoft 365, Office 365 E3
 
 ### Provision, sign-in, review access, and deprovision access
 

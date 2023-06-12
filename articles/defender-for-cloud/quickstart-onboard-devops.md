@@ -18,7 +18,7 @@ By connecting your Azure DevOps repositories to Defender for Cloud, you'll exten
 
 - **Defender for Cloud's Workload Protection features** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your Azure DevOps resources.
 
-API calls performed by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits?view=azure-devops). For more information, see the [FAQ section](#faq).
+API calls performed by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits). For more information, see the [FAQ section](#faq).
 
 ## Prerequisites
 
@@ -31,11 +31,11 @@ API calls performed by Defender for Cloud count against the [Azure DevOps Global
 
 | Aspect | Details |
 |--|--|
-| Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
+| Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
 | Pricing: | For pricing, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing). |
-| Required permissions: | **- Azure account:** with permissions to sign into Azure portal <br> **- Contributor:** on the Azure subscription where the connector will be created <br> **- Security Admin Role:** in Defender for Cloud <br> **- Organization Administrator:** in Azure DevOps <br> **- Basic or Basic + Test Plans Access Level:** in Azure DevOps. <br> - In Azure DevOps, configure: Third-party applications gain access via OAuth, which must be set to `On` . [Learn more about OAuth](/azure/devops/organizations/accounts/change-application-access-policies?view=azure-devops)|
+| Required permissions: | **- Azure account:** with permissions to sign into Azure portal <br> **- Contributor:** on the Azure subscription where the connector will be created <br> **- Security Admin Role:** in Defender for Cloud <br> **- Organization Administrator:** in Azure DevOps <br> **- Basic or Basic + Test Plans Access Level:** in Azure DevOps. <br> - In Azure DevOps, configure: Third-party applications gain access via OAuth, which must be set to `On` . [Learn more about OAuth](/azure/devops/organizations/accounts/change-application-access-policies)|
 | Regions: | Central US, West Europe, Australia East |
-| Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial clouds <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Azure China 21Vianet) |
+| Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial clouds <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Connect your Azure DevOps organization
 
@@ -94,15 +94,15 @@ The Inventory page populates with your selected repositories, and the Recommenda
 
 ## Learn more
 
-- Learn more about [Azure DevOps](https://learn.microsoft.com/azure/devops/?view=azure-devops).
+- Learn more about [Azure DevOps](/azure/devops/).
 
-- Learn how to [create your first pipeline](https://learn.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
 ## FAQ
 
 ### Do API calls made by Defender for Cloud count against my consumption limit?
 
-Yes, API calls made by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits?view=azure-devops). Defender for Cloud makes calls on-behalf of the user who onboards the connector.
+Yes, API calls made by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits). Defender for Cloud makes calls on-behalf of the user who onboards the connector.
 
 ### Why is my organization list empty in the UI?
 
@@ -110,7 +110,22 @@ If your organization list is empty in the UI after you onboarded an Azure DevOps
 
 For information on how to correct this issue, check out the [DevOps trouble shooting guide](troubleshooting-guide.md#troubleshoot-azure-devops-organization-connector-issues).
 
+### I have a large Azure DevOps organization with many repositories.  Can I still onboard?
+
+Yes, there is no limit to how many Azure DevOps repositories you can onboard to Defender for DevOps.  
+
+However, there are two main implications when onboarding large organizations – speed and throttling. The speed of discovery for your DevOps repositories is determined by the number of projects for each connector (approximately 100 projects per hour). Throttling can happen because Azure DevOps API calls have a [global rate limit](/azure/devops/integrate/concepts/rate-limits) and we limit the calls for project discovery to use a small portion of overall quota limits.
+
+Consider using an alternative Azure DevOps identity (i.e., an Organization Administrator account used as a service account) to avoid individual accounts from being throttled when onboarding large organizations. Below are some scenarios of when to use an alternate identity to onboard a Defender for DevOps connector:
+
+- Large number of Azure DevOps Organizations and Projects (~500 Projects or more).
+- Large number of concurrent builds which peak during work hours.
+- Authorized user is a [Power Platform](/power-platform/) user making additional Azure DevOps API calls, using up the global rate limit quotas.
+
+Once you have onboarded the Azure DevOps repositories using this account and [configured and ran the Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension) in your CI/CD pipeline, then the scanning results will appear near instantaneously in Microsoft Defender for Cloud.
+
 ## Next steps
+
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud.

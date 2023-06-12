@@ -7,13 +7,13 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 12/13/2022
+ms.date: 04/24/2023
 ms.author: allensu
 ---
 
 # Create, change, or delete a route table
 
-Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table. If you're new to routing in virtual networks, you can learn more about it in [virtual network traffic routing](virtual-networks-udr-overview.md) or by completing a [tutorial](tutorial-create-route-table-portal.md).
+Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change Azure's default routing, you do so by creating a route table. If you're new to routing in virtual networks, you can learn more about it in [virtual network traffic routing](virtual-networks-udr-overview.md) or by completing a [tutorial](tutorial-create-route-table-portal.md).
 
 ## Before you begin
 
@@ -23,11 +23,11 @@ If you don't have one, set up an Azure account with an active subscription. [Cre
 
 - **PowerShell users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then choose **PowerShell** if it isn't already selected.
 
-    If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). Also run `Connect-AzAccount` to create a connection with Azure.
+    If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). Also run `Connect-AzAccount` to create a connection with Azure.
 
 - **Azure CLI users**: Run the commands via either the [Azure Cloud Shell](https://shell.azure.com/bash) or the Azure CLI running locally. Use Azure CLI version 2.0.31 or later if you're running the Azure CLI locally. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Also run `az login` to create a connection with Azure.
 
-The account you log into, or connect to Azure with must be assigned to the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or to a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that's assigned the appropriate actions listed in [Permissions](#permissions).
+Assign the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) with the appropriate [Permissions](#permissions).
 
 ## Create a route table
 
@@ -117,7 +117,17 @@ The most common changes are to [add](#create-a-route) routes, [remove](#delete-a
 
 ## Associate a route table to a subnet
 
-You can optionally associate a route table to a subnet. A route table can be associated to zero or more subnets. Because route tables aren't associated to virtual networks, you must associate a route table to each subnet you want the route table associated to. Azure routes all traffic leaving the subnet based on routes you've created within route tables, [default routes](virtual-networks-udr-overview.md#default), and routes propagated from an on-premises network, if the virtual network is connected to an Azure virtual network gateway (ExpressRoute or VPN). You can only associate a route table to subnets in virtual networks that exist in the same Azure location and subscription as the route table.
+You can optionally associate a route table to a subnet. A route table can be associated to zero or more subnets. Route tables aren't associated to virtual networks. You must associate a route table to each subnet you want the route table associated to. 
+
+Azure routes all traffic leaving the subnet based on routes you've created:
+
+* Within route tables
+
+* [Default routes](virtual-networks-udr-overview.md#default)
+
+* Routes propagated from an on-premises network, if the virtual network is connected to an Azure virtual network gateway (ExpressRoute or VPN). 
+
+You can only associate a route table to subnets in virtual networks that exist in the same Azure location and subscription as the route table.
 
 1. Go to the [Azure portal](https://portal.azure.com) to manage your virtual network. Search for and select **Virtual networks**.
 
@@ -198,7 +208,7 @@ There's a limit to how many routes per route table can create per Azure location
 
 1. Enter a unique **Route name** for the route within the route table.
 
-    :::image type="content" source="./media/manage-route-table/add-route.png" alt-text="Screenshot of the add a route page for a route table.":::
+    :::image type="content" source="./media/manage-route-table/add-route.png" alt-text="Screenshot of add a route page for a route table.":::
 
 1. Enter the **Address prefix**, in Classless Inter-Domain Routing (CIDR) notation, that you want to route traffic to. The prefix can't be duplicated in more than one route within the route table, though the prefix can be within another prefix. For example, if you defined *10.0.0.0/16* as a prefix in one route, you can still define another route with the *10.0.0.0/22* address prefix. Azure selects a route for traffic based on longest prefix match. To learn more, see [How Azure selects a route](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
@@ -328,7 +338,7 @@ You can determine the next hop type between a virtual machine and the IP address
 
 1. In the **Network Watcher | Next hop** page:
 
-    :::image type="content" source="./media/manage-route-table/add-route.png" alt-text="Screenshot of the add a route page for a route table.":::
+    :::image type="content" source="./media/manage-route-table/add-route.png" alt-text="Screenshot of add a route page for a route table.":::
 
     | Setting | Value |
     |--|--|

@@ -5,7 +5,7 @@ author: normesta
 ms.service: storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 09/23/2022
+ms.date: 04/13/2023
 ms.author: normesta
 ---
 
@@ -23,6 +23,9 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 1. Review feature support
 
    You're account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any of those unsupported features in your account, make sure to disable them before you begin the upgrade.
+
+   > [!NOTE]
+   > Blob soft delete is not yet supported by the upgrade process. Make sure to disable blob soft delete and then allow all soft-delete blobs to expire before you upgrade the account.
 
 2. Ensure that the segments of each blob path are named
 
@@ -59,9 +62,7 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
    > [!div class="mx-imgBorder"]
    > ![Error json page](./media/upgrade-to-data-lake-storage-gen2-how-to/error-json.png)
 
-   Open the downloaded file to determine why the account did not pass the validation step. If you have a Blob Storage feature that is fully supported, but which in Data Lake Storage Gen2 is supported only at the preview level or is not yet supported, validation might fail. To see how each Blob Storage feature is supported with Data Lake Storage Gen2, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
-
-   The following JSON indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
+   Open the downloaded file to determine why the account did not pass the validation step. The following JSON indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
 
    ```json
    {
@@ -91,7 +92,7 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 1. Open a Windows PowerShell command window.
 
-2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 

@@ -51,7 +51,7 @@ landingContent:
             url: concepts-networking.md
           - text: Firewall Rules
             url: concepts-firewall-rules.md
-          - text: Postgres versions
+          - text: PostgreSQL versions
             url: concepts-supported-versions.md
           - text: Extensions
             url: concepts-extensions.md

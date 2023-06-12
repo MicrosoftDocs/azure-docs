@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/13/2023
+ms.date: 05/23/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -23,7 +23,7 @@ This article describes how to configure and setup a custom claims provider with 
 
 This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application. Before you start, take a look at following video, which demonstrates how to configure Azure AD custom claims provider with Function App:
 
-> [!VIDEO https://www.youtube.com/embed/r-JEsMBJ7GE]
+> [!VIDEO https://www.youtube.com/embed/fxQGVIwX8_4]
 
 ## Prerequisites
 
@@ -128,7 +128,7 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
         public Claims claims { get; set; }
         public Action()
         {
-            odatatype = "microsoft.graph.provideClaimsForToken";
+            odatatype = "microsoft.graph.tokenIssuanceStart.provideClaimsForToken";
             claims = new Claims();
         }
     }
@@ -147,7 +147,7 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
     }
     ```
 
-    The code starts with reading the incoming JSON object. Azure AD sends the JSON object to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Azure AD.
+    The code starts with reading the incoming JSON object. Azure AD sends the [JSON object](./custom-claims-provider-reference.md) to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Azure AD.
 
 1. From the top menu, select **Get Function Url**, and copy the URL. In the next step, the function URL will be used and referred to as `{Function_Url}`.
 
@@ -284,10 +284,6 @@ Next, you register the custom extension. You register the custom extension by as
         "authenticationConfiguration": {
             "@odata.type": "#microsoft.graph.azureAdTokenAuthentication",
             "resourceId": "{functionApp_IdentifierUri}"
-        },
-        "clientConfiguration": {
-            "timeoutInMilliseconds": 2000,
-            "maximumRetries": 1
         },
         "claimsForTokenConfiguration": [
             {

@@ -1,12 +1,12 @@
 ---
 title: Use ISV solutions with Data Manager for Agriculture.
 description: Learn how to use APIs from a third-party solution
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 02/14/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # How do I use an ISV solution?
@@ -15,7 +15,7 @@ Once you've installed an ISV solution from Azure portal, use this document to un
 
 A high level view of how you can create a new request and get responses from the ISV partners solution:
 
->:::image type="content" source="./media/3p-solutions-new.png" alt-text="Screenshot showing access flow for ISV API.":::
+:::image type="content" source="./media/3p-solutions-new.png" alt-text="Screenshot showing access flow for ISV API.":::
 
 * Step 1: You make an API call for a PUT request with the required parameters (for example Job ID, Farm details)
     * The Data Manager API receives this request and authenticates it.  If the request is invalid, you'll get an error code back.

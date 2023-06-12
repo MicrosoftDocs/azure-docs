@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/15/2023
+ms.date: 6/7/2023
 ms.author: amsliu
 ms.reviewer: ilyal
 ms.custom: pim
@@ -34,7 +34,7 @@ When you need to take on a group membership or ownership, you can request activa
 
 1. [Sign in to the Azure portal](https://portal.azure.com).
 
-1. Select **Azure AD Privileged Identity Management -> My roles -> Groups (Preview)**.
+1. Select **Azure AD Privileged Identity Management -> My roles -> Groups**.
     >[!NOTE]
     > You may also use this [short link](https://aka.ms/pim) to open the **My roles** page directly.
 
@@ -62,7 +62,7 @@ You can view the status of your pending requests to activate. It is specifically
 
 1. [Sign in to the Azure portal](https://portal.azure.com).
 
-1. Select **Azure AD Privileged Identity Management -> My requests -> Groups (Preview)**. 
+1. Select **Azure AD Privileged Identity Management -> My requests -> Groups**. 
 
 1. Review list of requests.
 
@@ -73,7 +73,7 @@ You can view the status of your pending requests to activate. It is specifically
 
 1. [Sign in to the Azure portal](https://portal.azure.com).
 
-1. Select **Azure AD Privileged Identity Management -> My requests -> Groups (Preview)**. 
+1. Select **Azure AD Privileged Identity Management -> My requests -> Groups**. 
 
     :::image type="content" source="media/pim-for-groups/pim-group-8.png" alt-text="Screenshot of where to select the request you want to cancel." lightbox="media/pim-for-groups/pim-group-8.png":::
 
@@ -83,5 +83,5 @@ When you select **Cancel**, the request will be canceled. To activate the role a
 
 ## Next steps
 
-- [Approve activation requests for group members and owners (preview)](groups-approval-workflow.md)
+- [Approve activation requests for group members and owners](groups-approval-workflow.md)
 

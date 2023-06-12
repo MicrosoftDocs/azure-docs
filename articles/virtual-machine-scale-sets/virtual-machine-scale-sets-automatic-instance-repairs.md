@@ -23,7 +23,7 @@ The scale set should have application health monitoring for instances enabled. H
 
 **Configure endpoint to provide health status**
 
-Before enabling automatic instance repairs policy, ensure that your scale set instances have application endpoint configured to emit the application health status. To configure health status on Application Health extension, you can use either [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) or [Rich Health States](./virtual-machine-scale-sets-health-extension.md#rich-health-states). To configure health status using Load balancer health probes, see [probe up behavior](../load-balancer/load-balancer-custom-probe-overview.md#probe-up-behavior).
+Before enabling automatic instance repairs policy, ensure that your scale set instances have application endpoint configured to emit the application health status. To configure health status on Application Health extension, you can use either [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) or [Rich Health States](./virtual-machine-scale-sets-health-extension.md#rich-health-states). To configure health status using Load balancer health probes, see [probe up behavior](../load-balancer/load-balancer-custom-probe-overview.md).
 
 For instances marked as "Unhealthy" or "Unknown" (*Unknown* state is only available with [Application Health extension - Rich Health States](./virtual-machine-scale-sets-health-extension.md#unknown-state)), automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
 
@@ -94,7 +94,7 @@ The following steps enabling automatic repairs policy when creating a new scale 
 1. Enable the **Monitor application health** option.
 1. Locate the **Automatic repair policy** section.
 1. Turn **On** the **Automatic repairs** option.
-1. In **Grace period (min)**, specify the grace period in minutes, allowed values are between 30 and 90 minutes.
+1. In **Grace period (min)**, specify the grace period in minutes, allowed values are between 10 and 90 minutes.
 1. When you're done creating the new scale set, select **Review + create** button.
 
 ### REST API
@@ -139,7 +139,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
-  --image UbuntuLTS \
+  --image RHEL \
   --admin-username <azureuser> \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
@@ -153,19 +153,40 @@ The above example uses an existing load balancer and health probe for monitoring
 
 Before enabling automatic repairs policy in an existing scale set, ensure that all the [requirements](#requirements-for-using-automatic-instance-repairs) for opting in to this feature are met. The application endpoint should be correctly configured for scale set instances to avoid triggering unintended repairs while the endpoint is getting configured. To enable the automatic instance repair in a scale set, use *automaticRepairsPolicy* object in the Virtual Machine Scale Set model.
 
-After updating the model of an existing scale set, ensure that the latest model is applied to all the instances of the scale. Refer to the instruction on [how to bring VMs up-to-date with the latest scale set model](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+After updating the model of an existing scale set, ensure that the latest model is applied to all the instances of the scale. Refer to the instruction on [how to bring VMs up-to-date with the latest scale set model](./virtual-machine-scale-sets-upgrade-policy.md).
 
 ### Azure portal
 
 You can modify the automatic repairs policy of an existing scale set through the Azure portal.
 
+> [!NOTE]
+> Enable the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) on your Virtual Machine Scale Sets before you start the next steps.
+
 1. Go to an existing Virtual Machine Scale Set.
-1. Under **Settings** in the menu on the left, select **Health and repair**.
-1. Enable the **Monitor application health** option.
-1. Locate the **Automatic repair policy** section.
-1. Turn **On** the **Automatic repairs** option.
-1. In **Grace period (min)**, specify the grace period in minutes, allowed values are between 30 and 90 minutes.
-1. When you're done, select **Save**.
+2. Under **Settings** in the menu on the left, select **Health and repair**.
+3. Enable the **Monitor application health** option.
+
+If you're monitoring your scale set by using the Application Health extension:
+
+4. Choose **Application Health extension** from the Application Health monitor dropdown list.
+5. From the **Protocol** dropdown list, choose the network protocol used by your application to report health. Select the appropriate protocol based on your application requirements. Protocol options are **HTTP, HTTPS**, or **TCP**.
+6. In the **Port number** configuration box, type the network port used to monitor application health.
+7. For **Path**, provide the application endpoint path (for example, "/") used to report application health.
+
+> [!NOTE]
+> The Application Health extension will ping this path inside each virtual machine in the scale set to get application health status for each instance. If you're using [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) and the endpoint responds with a status 200 (OK), then the instance is marked as "Healthy". In all the other cases (including if the endpoint is unreachable), the instance is marked "Unhealthy". For more health state options, explore [Rich Health States](./virtual-machine-scale-sets-health-extension.md#binary-versus-rich-health-states).
+
+If you're monitoring your scale set using SLB Health probes:
+
+8. Choose **Load balancer probe** from the Application Health monitor dropdown list.
+9. For the Load Balancer health probe, select an existing health probe or create a new health probe for monitoring.
+
+To enable automatic repairs:
+
+10. Locate the **Automatic repair policy** section. Automatic repairs can be used to delete unhealthy instances from the scale set and create new ones to replace them.
+11. Turn **On** the **Automatic repairs** option.
+12. In **Grace period (min)**, specify the grace period in minutes. Allowed values are between 10 and 90 minutes.
+6. When you're done, select **Save**.
 
 ### REST API
 

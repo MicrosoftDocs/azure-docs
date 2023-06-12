@@ -66,7 +66,10 @@ We'll use the information you provided with the onboarding form to set up Azure 
 Your onboarding team will work through the steps described in [Prepare for live traffic with Azure Communications Gateway](prepare-for-live-traffic.md) with you. As part of these steps, we'll:
 
  - Work through the test plan we agreed, with your help.
- - Provide training on the Azure Communications Gateway resource for you and your support staff.
+ - Provide training on the Azure Communications Gateway solution. Training topics include:
+   - A technical overview of the Azure Communications Gateway platform.
+   - How your engineering and operations staff can interact with Azure Communications Gateway and Operator Connect.
+   - How your teams can get support for Azure Communications Gateway and Operator Connect.
  - Help you to prepare for launch.
 
 ### Your obligations with the Basic Integration Included Benefit

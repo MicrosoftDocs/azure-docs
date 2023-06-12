@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: payment-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: overview
-ms.date: 09/12/2022
+ms.date: 02/25/2023
 ms.author: mbaldwin
 ---
 # Register the Azure Payment HSM resource providers and resource provider features
@@ -25,7 +25,7 @@ az provider register --namespace "Microsoft.HardwareSecurityModules"
 az feature registration create --namespace "Microsoft.HardwareSecurityModules" --name "AzureDedicatedHsm" 
 ```
 
-You must also register the "Microsoft.Network" resource provider and the "FastPathEnabled" feature.
+You must also register the "Microsoft.Network" resource provider and the "FastPathEnabled" Azure Feature Exposure Control (AFEC) flag. For more information on the "FastPathEnabled" feature flag, see [Fathpathenabled](fastpathenabled.md).
 
 ```azurecli-interactive
 az provider register --namespace "Microsoft.Network"
@@ -34,7 +34,7 @@ az feature registration create --namespace "Microsoft.Network" --name "FastPathE
 ```
 
 > [!IMPORTANT]
-> After registering the "FastPathEnabled" feature, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include your subscription ID.
+> After registering the "FastPathEnabled" feature flag, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include your subscription ID.  If multiple subsciptions must connect with the payment HSM, you must include **all** the subscriopts IDs.
 
 You can verify that your registrations are complete with the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
 
@@ -58,7 +58,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.HardwareSecurityModules
 Register-AzProviderFeature -FeatureName "AzureDedicatedHsm" -ProviderNamespace Microsoft.HardwareSecurityModules
 ```
 
-You must also register the "Microsoft.Network" resource provider and the "FastPathEnabled" feature.
+You must also register the "Microsoft.Network" resource provider and the "FastPathEnabled" Azure Feature Exposure Control (AFEC) flag. For more information on the "FastPathEnabled" feature flag, see [Fathpathenabled](fastpathenabled.md).
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
@@ -67,7 +67,7 @@ Register-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Mic
 ```
 
 > [!IMPORTANT]
-> After registering the "FastPathEnabled" feature, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include your subscription ID.
+> After registering the "FastPathEnabled" feature flag, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include the subscription IDs of **every** subscription you want to connect to the payment HSM.
 
 You can verify that your registrations are complete with the Azure PowerShell [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet:
 

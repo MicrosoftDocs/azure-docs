@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 05/25/2022
+ms.date: 05/25/2023
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 zone_pivot_groups: python-mode-functions
@@ -13,8 +13,7 @@ zone_pivot_groups: python-mode-functions
 This guide is an introduction to developing Azure Functions by using Python. The article assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
 > [!IMPORTANT]
-> This article supports both the v1 and v2 programming model for Python in Azure Functions. 
-> The Python v2 programming model is currently in preview.
+> This article supports both the v1 and v2 programming model for Python in Azure Functions.
 > The Python v1 model uses a *functions.json* file to define functions, and the new v2 model lets you instead use a decorator-based approach. This new approach results in a simpler file structure, and it's more code-centric. Choose the **v2** selector at the top of the article to learn about this new programming model. 
 
 As a Python developer, you might also be interested in one of the following articles:
@@ -80,7 +79,6 @@ You can also explicitly declare the attribute types and return type in the funct
 ```python
 import azure.functions
 
-
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
@@ -97,7 +95,6 @@ Triggers and bindings can be declared and used in a function in a decorator base
 ```python
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-
 def main(req):
     user = req.params.get('user')
     return f'Hello, {user}!'
@@ -108,15 +105,14 @@ You can also explicitly declare the attribute types and return type in the funct
 ```python
 import azure.functions
 
+app = func.FunctionApp()
+
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
 ```
-
-At this time, only specific triggers and bindings are supported by the Python v2 programming model. For more information, see [Triggers and inputs](#triggers-and-inputs).
 
 To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
@@ -139,7 +135,7 @@ You can change the default behavior of a function by optionally specifying the `
 
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-During preview, the entry point is only in the *function\_app.py* file. However, you can reference functions within the project in *function\_app.py* by using [blueprints](#blueprints) or by importing.
+The entry point is only in the *function\_app.py* file. However, you can reference functions within the project in *function\_app.py* by using [blueprints](#blueprints) or by importing.
 ::: zone-end
 
 ## Folder structure
@@ -335,7 +331,7 @@ For example, the following code demonstrates the difference between the two inpu
       "direction": "in",
       "type": "blob",
       "path": "samples/{id}",
-      "connection": "AzureWebJobsStorage"
+      "connection": "STORAGE_CONNECTION_STRING"
     }
   ]
 }
@@ -347,6 +343,7 @@ For example, the following code demonstrates the difference between the two inpu
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
+    "STORAGE_CONNECTION_STRING": "<AZURE_STORAGE_CONNECTION_STRING>",
     "AzureWebJobsStorage": "<azure-storage-connection-string>"
   }
 }
@@ -357,14 +354,11 @@ For example, the following code demonstrates the difference between the two inpu
 import azure.functions as func
 import logging
 
-
-def main(req: func.HttpRequest,
-         obj: func.InputStream):
-
+def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `AzureWebJobsStorage` app setting, which is the same storage account that's used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `CONNECTION_STRING` app setting.
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, their usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the *local.settings.json* file when they're running locally, and they map to the application settings when they're running in Azure.
@@ -377,6 +371,7 @@ As an example, the following code demonstrates how to define a Blob Storage inpu
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
+    "STORAGE_CONNECTION_STRING": "<AZURE_STORAGE_CONNECTION_STRING>",
     "AzureWebJobsStorage": "<azure-storage-connection-string>",
     "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
   }
@@ -391,35 +386,17 @@ import logging
 app = func.FunctionApp()
 
 @app.route(route="req")
-@app.read_blob(arg_name="obj", path="samples/{id}", connection="AzureWebJobsStorage")
-
-def main(req: func.HttpRequest,
-         obj: func.InputStream):
+@app.read_blob(arg_name="obj", path="samples/{id}", 
+               connection="STORAGE_CONNECTION_STRING")
+def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the AzureWebJobsStorage app setting, which is the same storage account that's used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `STORAGE_CONNECTION_STRING` app setting.
 ::: zone-end
 
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
 
-::: zone pivot="python-mode-decorators" 
-At this time, only specific triggers and bindings are supported by the Python v2 programming model. Supported triggers and bindings are as follows:
-
-| Type | Trigger | Input binding | Output binding |
-| --- | :---: | :---: | :---: |
-| [HTTP](functions-bindings-triggers-python.md#http-trigger) | x |   |   |
-| [Timer](functions-bindings-triggers-python.md#timer-trigger) | x |   |   |
-| [Azure Queue Storage](functions-bindings-triggers-python.md#azure-queue-storage-trigger) | x |   | x |
-| [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
-| [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
-| [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
-| [Azure Blob Storage](functions-bindings-triggers-python.md#azure-blob-storage-trigger) | x | x | x |
-| [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
-
-For more examples, see [Python V2 model Azure Functions triggers and bindings (preview)](functions-bindings-triggers-python.md).
-
-::: zone-end
 
 ## Outputs
 
@@ -445,7 +422,7 @@ To produce multiple outputs, use the `set()` method provided by the [`azure.func
       "direction": "out",
       "type": "queue",
       "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
+      "connection": "STORAGE_CONNECTION_STRING"
     },
     {
       "name": "$return",
@@ -458,7 +435,6 @@ To produce multiple outputs, use the `set()` method provided by the [`azure.func
 
 ```python
 import azure.functions as func
-
 
 def main(req: func.HttpRequest,
          msg: func.Out[func.QueueMessage]) -> str:
@@ -478,10 +454,10 @@ To produce multiple outputs, use the `set()` method provided by the [`azure.func
 # function_app.py
 import azure.functions as func
 
+app = func.FunctionApp()
 
 @app.write_blob(arg_name="msg", path="output-container/{name}",
-                connection="AzureWebJobsStorage")
-                
+                connection="CONNECTION_STRING")
 def test_function(req: func.HttpRequest,
                   msg: func.Out[str]) -> str:
                   
@@ -499,7 +475,6 @@ The following example logs an info message when the function is invoked via an H
 
 ```python
 import logging
-
 
 def main(req):
     logging.info('Python HTTP trigger function processed a request.')
@@ -639,7 +614,6 @@ The following example is from the HTTP trigger template for the Python v2 progra
 ```python
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello")
-
 def test_function(req: func.HttpRequest) -> func.HttpResponse:
      logging.info('Python HTTP trigger function processed a request.')
 
@@ -745,8 +719,9 @@ async def get_name(
       "name": name,}
 
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
-    return AsgiMiddleware(app).handle(req, context)
+    return func.AsgiMiddleware(app).handle(req, context)
 ```
+For a full example, see [Using FastAPI Framework with Azure Functions](/samples/azure-samples/fastapi-on-azure-functions/azure-functions-python-create-fastapi-app/).
 
 # [WSGI](#tab/wsgi)
 
@@ -761,7 +736,7 @@ def main(req: func.HttpRequest, context) -> func.HttpResponse:
   logging.info('Python HTTP trigger function processed a request.')
   return func.WsgiMiddleware(app).handle(req, context)
 ```
-For a full example, see [Use Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
+For a full example, see [Using Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
 
 ---
 
@@ -909,13 +884,13 @@ The following example uses `os.environ["myAppSetting"]` to get the [application 
 ```python
 import logging
 import os
+
 import azure.functions as func
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    # Get the setting named 'myAppSetting'
-    my_app_setting_value = os.environ["myAppSetting"]
-    logging.info(f'My app setting value:{my_app_setting_value}')
+  # Get the setting named 'myAppSetting'
+  my_app_setting_value = os.environ["myAppSetting"]
+  logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
 For local development, application settings are [maintained in the *local.settings.json* file](functions-develop-local.md#local-settings-file).
@@ -936,17 +911,17 @@ The following example uses `os.environ["myAppSetting"]` to get the [application 
 ```python
 import logging
 import os
+
 import azure.functions as func
+
+app = func.FunctionApp()
 
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-
 def main(req: func.HttpRequest) -> func.HttpResponse:
-
-
-    # Get the setting named 'myAppSetting'
-    my_app_setting_value = os.environ["myAppSetting"]
-    logging.info(f'My app setting value:{my_app_setting_value}')
+  # Get the setting named 'myAppSetting'
+  my_app_setting_value = os.environ["myAppSetting"]
+  logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
 For local development, application settings are [maintained in the *local.settings.json* file](functions-develop-local.md#local-settings-file).
@@ -959,8 +934,6 @@ When you're using the new programming model, enable the following app setting in
 
 When you're deploying the function, this setting isn't created automatically. You must explicitly create this setting in your function app in Azure for it to run by using the v2 model.
 
-The multiple Python workers setting isn't supported in the v2 programming model at this time. This means that setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than `1` isn't supported for functions that are developed by using the v2 model.
-
 ::: zone-end
 
 ## Python version
@@ -969,7 +942,7 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.10 (Preview)<br/>3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.10<br/>3.9<br/> 3.8<br/>3.7 |
 | 3.x | 3.9<br/> 3.8<br/>3.7 |
 | 2.x | 3.7 |
 
@@ -1112,14 +1085,14 @@ from shared_code import my_second_helper_function
 # Define an HTTP trigger that accepts the ?value=<int> query parameter
 # Double the value and return the result in HttpResponse
 def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Executing my_second_function.')
+  logging.info('Executing my_second_function.')
 
-    initial_value: int = int(req.params.get('value'))
-    doubled_value: int = my_second_helper_function.double(initial_value)
+  initial_value: int = int(req.params.get('value'))
+  doubled_value: int = my_second_helper_function.double(initial_value)
 
-    return func.HttpResponse(
-      body=f"{initial_value} * 2 = {doubled_value}",
-      status_code=200
+  return func.HttpResponse(
+    body=f"{initial_value} * 2 = {doubled_value}",
+    status_code=200
     )
 ```
 
@@ -1145,22 +1118,17 @@ import azure.functions as func
 from my_second_function import main
 
 class TestFunction(unittest.TestCase):
-    def test_my_second_function(self):
-        # Construct a mock HTTP request.
-        req = func.HttpRequest(
-            method='GET',
-            body=None,
-            url='/api/my_second_function',
-            params={'value': '21'})
+  def test_my_second_function(self):
+    # Construct a mock HTTP request.
+    req = func.HttpRequest(method='GET',
+                           body=None,
+                           url='/api/my_second_function',
+                           params={'value': '21'})
+    # Call the function.
+    resp = main(req)
 
-        # Call the function.
-        resp = main(req)
-
-        # Check the output.
-        self.assertEqual(
-            resp.get_body(),
-            b'21 * 2 = 42',
-        )
+    # Check the output.
+    self.assertEqual(resp.get_body(), b'21 * 2 = 42',)
 ```
 
 Inside your *.venv* Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
@@ -1179,7 +1147,6 @@ import logging
 from shared_code import my_second_helper_function
 
 app = func.FunctionApp()
-
 
 # Define the HTTP trigger that accepts the ?value=<int> query parameter
 # Double the value and return the result in HttpResponse
@@ -1215,27 +1182,24 @@ You can start writing test cases for your HTTP trigger.
 # <project_root>/tests/test_my_second_function.py
 import unittest
 import azure.functions as func
+
 from function_app import main
 
-
 class TestFunction(unittest.TestCase):
-    def test_my_second_function(self):
-        # Construct a mock HTTP request.
-        req = func.HttpRequest(
-            method='GET',
-            body=None,
-            url='/api/my_second_function',
-            params={'value': '21'})
-
-        # Call the function.
-        func_call = main.build().get_user_function()
-        resp = func_call(req)
-
-        # Check the output.
-        self.assertEqual(
-            resp.get_body(),
-            b'21 * 2 = 42',
-        )
+  def test_my_second_function(self):
+    # Construct a mock HTTP request.
+    req = func.HttpRequest(method='GET',
+                           body=None,
+                           url='/api/my_second_function',
+                           params={'value': '21'})
+    # Call the function.
+    func_call = main.build().get_user_function()
+    resp = func_call(req)
+    # Check the output.
+    self.assertEqual(
+        resp.get_body(),
+        b'21 * 2 = 42',
+    )
 ```
 
 Inside your *.venv* Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
@@ -1255,6 +1219,7 @@ The following example creates a named temporary file in the temporary directory 
 import logging
 import azure.functions as func
 import tempfile
+
 from os import listdir
 
 #---

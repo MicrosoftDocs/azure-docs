@@ -1,12 +1,12 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview manifest ingestion concepts #Required; page title is displayed in search results. Include the brand.
-description: This article describes manifest ingestion concepts #Required; article description that is displayed in search results. 
-author: bharathim #Required; your GitHub user alias, with correct capitalization.
-ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview manifest ingestion concepts
+description: This article describes manifest ingestion concepts
+author: bharathim
+ms.author: bselvaraj
+ms.service: energy-data-services
+ms.topic: conceptual
 ms.date: 08/18/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Manifest-based ingestion concepts

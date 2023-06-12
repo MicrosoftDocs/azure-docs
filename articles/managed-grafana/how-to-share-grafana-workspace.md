@@ -1,8 +1,8 @@
 ---
 title: How to share an Azure Managed Grafana instance
 description: 'Learn how you can share access permissions to Azure Grafana Managed.' 
-author: maud-lv 
-ms.author: malev 
+author: mcleanbyron 
+ms.author: mcleans 
 ms.service: managed-grafana 
 ms.custom: engagement-fy23
 ms.topic: how-to 

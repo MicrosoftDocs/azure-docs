@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 12/15/2022
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 ---
 
 # Configure a Virtual Machine Scale Set with an existing Azure Load Balancer using the Azure CLI

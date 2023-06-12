@@ -85,6 +85,7 @@ To disconnect the Azure Information Protection connector:
 
 ## Known issues and limitations
 
+- Sensitivity label events collected through the Office Management API do not populate the Label Names. Customers can use watchlists or enrichments defined in KQL as the example below. 
 - The Office Management API doesn't obtain a Downgrade Label with the names of the labels before and after the downgrade. To retrieve this information, extract the `labelId` of each label and enrich the results. 
 
     Here's an example KQL query:

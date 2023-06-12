@@ -1,7 +1,7 @@
 ---
 title: Test accuracy of a Custom Speech model - Speech service
 titleSuffix: Azure Cognitive Services
-description: In this article, you learn how to quantitatively measure and improve the quality of our speech-to-text model or your custom model.
+description: In this article, you learn how to quantitatively measure and improve the quality of our speech to text model or your custom model.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -18,13 +18,13 @@ no-loc: [$$, '\times', '\over']
 
 # Test accuracy of a Custom Speech model
 
-In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text model or your own custom models. [Audio + human-labeled transcript](how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) data is required to test accuracy. You should provide from 30 minutes to 5 hours of representative audio. 
+In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech to text model or your own custom models. [Audio + human-labeled transcript](how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) data is required to test accuracy. You should provide from 30 minutes to 5 hours of representative audio. 
 
 [!INCLUDE [service-pricing-advisory](includes/service-pricing-advisory.md)]
 
 ## Create a test
 
-You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy a Microsoft speech-to-text base model or another custom model. After you [get](#get-test-results) the test results, [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
+You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy with a Microsoft speech to text base model or another custom model. After you [get](#get-test-results) the test results, [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
 
 ::: zone pivot="speech-studio"
 
@@ -127,7 +127,7 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To create a test, use the [Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a test, use the [Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the `testingKind` property to `Evaluation` within `customProperties`. If you don't specify `Evaluation`, the test is treated as a quality inspection test. Whether the `testingKind` property is set to `Evaluation` or `Inspection`, or not set, you can access the accuracy scores via the API, but not in the Speech Studio.
@@ -319,7 +319,7 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To get test results, start by using the [Evaluations_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Get) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
+To get test results, start by using the [Evaluations_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Get) operation of the [Speech to text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEvaluationId` with your evaluation ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 

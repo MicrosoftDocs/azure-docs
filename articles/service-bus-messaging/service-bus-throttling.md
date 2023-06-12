@@ -53,7 +53,7 @@ The request was terminated because the entity is being throttled. Error code: 50
 
 ### How can I avoid being throttled?
 
-With shared resources, it's important to enforce some sort of fair usage across various Service Bus namespaces that share those resources. Throttling ensures that any spike in a single workload doesn't cause other workloads on the same resources to be throttled. As mentioned later in the article, there's no risk in being throttled because the client SDKs (and other Azure PaaS offerings) have the default retry policy built into them. Any throttled requests will be retried with exponential backoff and will eventually go through when the credits are replenished. 
+With shared resources, it's important to enforce some sort of fair usage across various Service Bus namespaces that share those resources. Throttling ensures that any spike in a single workload doesn't cause other workloads on the same resources to be throttled. As mentioned later in the article, there's no risk in being throttled because the client SDKs (and other Azure PaaS offerings) have the default [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) built into them. Any throttled requests will be retried with exponential backoff and will eventually go through when the credits are replenished. 
 
 Understandably, some applications may be sensitive to being throttled. In that case, it's recommended to [migrate your current Service Bus standard namespace to premium](service-bus-migrate-standard-premium.md). On migration, you can allocate dedicated resources to your Service Bus namespace and appropriately scale up the resources if there's a spike in your workload and reduce the likelihood of being throttled. Additionally, when your workload reduces to normal levels, you can scale down the resources allocated to your namespace.
 
@@ -95,7 +95,7 @@ Azure Service Bus is optimized for persistence, we ensure that all the data sent
 
 Once the request is successfully acknowledged by Service Bus, it implies that Service Bus has successfully processed the request. If Service Bus returns a failure, then it implies that Service Bus hasn't been able to process the request and the client application must retry the request.
 
-However, when a request is throttled, the service is implying that it can't accept and process the request right now because of resource limitations. It **does not** imply any sort of data loss because Service Bus simply hasn't looked at the request. In this case, relying on the default retry policy of the Service Bus SDK ensures that the request is eventually processed.
+However, when a request is throttled, the service is implying that it can't accept and process the request right now because of resource limitations. It **does not** imply any sort of data loss because Service Bus simply hasn't looked at the request. In this case, relying on the default [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) of the Service Bus SDK ensures that the request is eventually processed.
 
 ## Next steps
 

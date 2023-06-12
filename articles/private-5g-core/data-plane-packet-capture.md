@@ -53,11 +53,10 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 
 1. Remove the output files:
 
-    `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter –- bash rm <path to output file>`
+    `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- rm <path to output file>`
 
 ## Next steps
 
 For more options to monitor your deployment and view analytics:
 
-- [Learn more about enabling log analytics Azure Private 5G Core](enable-log-analytics-for-private-5g-core.md)
-- [Learn more about monitoring Azure Private 5G Core using Log Analytics](monitor-private-5g-core-with-log-analytics.md)
+- [Learn more about monitoring Azure Private 5G Core using Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md)

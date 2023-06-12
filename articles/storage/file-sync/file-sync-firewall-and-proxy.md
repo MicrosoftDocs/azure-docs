@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 04/04/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -37,7 +37,7 @@ Azure File Sync moves file data and metadata exclusively over HTTPS and requires
 
 The Azure File Sync agent has no requirements regarding special channels like [ExpressRoute](../../expressroute/expressroute-introduction.md), etc. to Azure.
 
-Azure File Sync will work through any means available that allow reach into Azure, automatically adapting to various network characteristics like bandwidth, latency as well as offering admin control for fine-tuning.
+Azure File Sync will work through any means available that allow reach into Azure, automatically adapting to network characteristics like bandwidth and latency, as well as offering admin control for fine-tuning.
 
 ## Proxy
 
@@ -127,7 +127,7 @@ The following table describes the required domains for communication:
 | **Azure Resource Manager** | `https://management.azure.com` | `https://management.usgovcloudapi.net` | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
 | **Azure Active Directory** | `https://login.windows.net`<br>`https://login.microsoftonline.com` | `https://login.microsoftonline.us` | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
 | **Azure Active Directory** | `https://graph.microsoft.com/` | `https://graph.microsoft.com/` | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
-| **Azure Active Directory** | `https://secure.aadcdn.microsoftonline-p.com` | Use the public endpoint URL. | This URL is accessed by the Active Directory authentication library that the Azure File Sync server registration UI uses to log in the administrator. |
+| **Azure Active Directory** | `https://secure.aadcdn.microsoftonline-p.com` | `https://secure.aadcdn.microsoftonline-p.com`<br>(same as public cloud endpoint URL) | This URL is accessed by the Active Directory authentication library that the Azure File Sync server registration UI uses to log in the administrator. |
 | **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure file share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region. The server can use the URL to communicate directly and efficiently with the instance handling its sync. |
 | **Microsoft PKI** |  `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/` | `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/` | Once the Azure File Sync agent is installed, the PKI URL is used to download intermediate certificates required to communicate with the Azure File Sync service and Azure file share. The OCSP URL is used to check the status of a certificate. |
@@ -139,7 +139,7 @@ The following table describes the required domains for communication:
 
 If &ast;.afs.azure.net or &ast;.one.microsoft.com is too broad, you can limit the server's communication by allowing communication to only explicit regional instances of the Azure File Sync service. Which instance(s) to choose depends on the region of the storage sync service you have deployed and registered the server to. That region is called "Primary endpoint URL" in the table below.
 
-For business continuity and disaster recovery (BCDR) reasons you may have created your Azure file shares in a storage account that is configured for geo-redundant storage (GRS). If that is the case, your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. The table below calls this "Paired region". Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a fail-over and is called "Discovery URL" in the table below.
+For business continuity and disaster recovery (BCDR) reasons you may have created your Azure file shares in a storage account that is configured for geo-redundant storage (GRS). If that is the case, your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. The table below calls this "Paired region". Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a failover and is called "Discovery URL" in the table below.
 
 | Cloud  | Region | Primary endpoint URL | Paired region | Discovery URL |
 |--------|--------|----------------------|---------------|---------------|
@@ -168,6 +168,8 @@ For business continuity and disaster recovery (BCDR) reasons you may have create
 | Public | Southeast Asia | https:\//southeastasia01.afs.azure.net<br>https:\//kailani10.one.microsoft.com | East Asia | https:\//tm-southeastasia01.afs.azure.net<br>https:\//tm-kailani10.one.microsoft.com |
 | Public | Switzerland North | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net | Switzerland West | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net |
 | Public | Switzerland West | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net | Switzerland North | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net |
+| Public | UAE Central | https:\//uaecentral01.afs.azure.net | UAE North | https:\//tm-uaecentral01.afs.azure.net |
+| Public | UAE North | https:\//uaenorth01.afs.azure.net | UAE Central | https:\//tm-uaenorth01.afs.azure.net |
 | Public | UK South | https:\//uksouth01.afs.azure.net<br>https:\//kailani-uks.one.microsoft.com | UK West | https:\//tm-uksouth01.afs.azure.net<br>https:\//tm-kailani-uks.one.microsoft.com |
 | Public | UK West | https:\//ukwest01.afs.azure.net<br>https:\//kailani-ukw.one.microsoft.com | UK South | https:\//tm-ukwest01.afs.azure.net<br>https:\//tm-kailani-ukw.one.microsoft.com |
 | Public | West Central US | https:\//westcentralus01.afs.azure.net | West US 2 | https:\//tm-westcentralus01.afs.azure.net |
@@ -184,28 +186,28 @@ For business continuity and disaster recovery (BCDR) reasons you may have create
 **Example:** You deploy a storage sync service in `"West US"` and register your server with it. The URLs to allow the server to communicate to for this case are:
 
 > - https:\//westus01.afs.azure.net (primary endpoint: West US)
-> - https:\//eastus01.afs.azure.net (paired fail-over region: East US)
+> - https:\//eastus01.afs.azure.net (paired failover region: East US)
 > - https:\//tm-westus01.afs.azure.net (discovery URL of the primary region)
 
 ### Allow list for Azure File Sync IP addresses
 
 Azure File Sync supports the use of [service tags](../../virtual-network/service-tags-overview.md), which represent a group of IP address prefixes for a given Azure service. You can use service tags to create firewall rules that enable communication with the Azure File Sync service. The service tag for Azure File Sync is `StorageSyncService`.
 
-If you are using Azure File Sync within Azure, you can use name of service tag directly in your network security group to allow traffic. To learn more about how to do this, see [Network security groups](../../virtual-network/network-security-groups-overview.md).
+If you're using Azure File Sync within Azure, you can use name of service tag directly in your network security group to allow traffic. To learn more about how to do this, see [Network security groups](../../virtual-network/network-security-groups-overview.md).
 
-If you are using Azure File Sync on-premises, you can use the service tag API to get specific IP address ranges for your firewall's allow list. There are two methods for getting this information:
+If you're using Azure File Sync on-premises, you can use the service tag API to get specific IP address ranges for your firewall's allow list. There are two methods for getting this information:
 
 - The current list of IP address ranges for all Azure services supporting service tags are published weekly on the Microsoft Download Center in the form of a JSON document. Each Azure cloud has its own JSON document with the IP address ranges relevant for that cloud:
   - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
   - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)
   - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
   - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)
-- The service tag discovery API (preview) allows programmatic retrieval of the current list of service tags. In preview, the service tag discovery API may return information that's less current than information returned from the JSON documents published on the Microsoft Download Center. You can use the API surface based on your automation preference:
+- The service tag discovery API allows programmatic retrieval of the current list of service tags. You can use the API surface based on your automation preference:
   - [REST API](/rest/api/virtualnetwork/servicetags/list)
   - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
   - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
-Because the service tag discovery API is not updated as frequently as the JSON documents published to the Microsoft Download Center, we recommend using the JSON document to update your on-premises firewall's allow list. This can be done as follows:
+Because the service tag discovery API might not be updated as frequently as the JSON documents published to the Microsoft Download Center, we recommend using the JSON document to update your on-premises firewall's allow list. This can be done as follows:
 
 ```powershell
 # The specific region to get the IP address ranges for. Replace westus2 with the desired region code 

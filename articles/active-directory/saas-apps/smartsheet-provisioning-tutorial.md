@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 ms.assetid: 9d391bd3-b0d3-4c7d-af8a-70bc0a538706
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

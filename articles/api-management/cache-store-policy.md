@@ -33,14 +33,19 @@ The `cache-store` policy caches responses according to the specified cache setti
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| duration         | Time-to-live of the cached entries, specified in seconds.     | Yes      | N/A               |
-| cache-response         | Set to `true` to cache the current HTTP response. If the attribute is omitted or set to `false`, only HTTP responses with the status code `200 OK` are cached.                           | No      | `false`               |
+| duration         | Time-to-live of the cached entries, specified in seconds. Policy expressions are allowed.    | Yes      | N/A               |
+| cache-response         | Set to `true` to cache the current HTTP response. If the attribute is omitted, only HTTP responses with the status code `200 OK` are cached. Policy expressions are allowed.                          | No      | `false`               |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+
+### Usage notes
+
+- This policy can only be used once in a policy section.
+
 
 ## Examples
 

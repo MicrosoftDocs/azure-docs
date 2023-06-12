@@ -40,18 +40,6 @@
     items:
     - name: Configure WAF policy - portal
       href: ./afds/waf-front-door-create-portal.md
-- name: Samples
-  items:
-  - name: Application Gateway
-    items:
-    - name: Azure PowerShell
-      href: ./ag/powershell-samples.md
-    - name: Resource Manager templates
-      href: ./ag/resource-manager-template-samples.md  
-  - name: Front Door
-    items:
-    - name: Resource Manager templates
-      href: ./afds/resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Application Gateway
@@ -114,10 +102,14 @@
          href: ./ag/tutorial-restrict-web-traffic-powershell.md
        - name: Azure CLI
          href: ./ag/tutorial-restrict-web-traffic-cli.md
+     - name: Upgrade WAF
+       items:
+       - name: Upgrade to WAF policy
+         href: ./ag/upgrade-ag-waf-policy.md
+       - name: Upgrade using PowerShell
+         href: ./ag/migrate-policy.md
      - name: Per-site policies
        href: ./ag/per-site-policies.md
-     - name: Migrate WAF policy
-       href: ./ag/migrate-policy.md
      - name: Customize WAF rules
        items:
        - name: Azure portal

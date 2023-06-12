@@ -3,7 +3,7 @@ title: Tutorial - Access your private cloud
 description: Learn how to access an Azure VMware Solution private cloud
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 10/27/2022
+ms.date: 5/3/2023
 ms.custom: engagement-fy23
 ---
 
@@ -47,13 +47,13 @@ In this tutorial, you learn how to:
 
 1. Once validation passes, select **Create** to start the virtual machine creation process.
 
-## Connect to the local vCenter of your private cloud
+## Connect to the vCenter Server of your private cloud
 
-1. From the jump box, sign in to vSphere Client with VMware vCenter Server SSO using a cloud admin username and verify that the user interface displays successfully.
+1. From the jump box, sign in to vSphere Client with VMware vCenter Server SSO using a cloudadmin username and verify that the user interface displays successfully.
 
-1. In the Azure portal, select your private cloud, and then **Manage** > **Identity**.
+1. In the Azure portal, select your private cloud, and then **Manage** > **VMware credentials**.
 
-   The URLs and user credentials for private cloud vCenter Server and NSX-T Manager display.
+   The URLs and user credentials for private cloud vCenter Server and NSX-T Manager are displayed.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter Server and NSX Manager URLs and credentials."lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
@@ -69,7 +69,9 @@ In this tutorial, you learn how to:
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Screenshot showing a summary of Cluster-1 in the vSphere Client."lightbox="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" border="true":::
 
-1. In the second tab of the browser, sign in to NSX-T Manager.
+1. In the second tab of the browser, sign in to NSX-T Manager with the 'cloudadmin' user credentials from earlier.
+
+   :::image type="content" source="media/tutorial-access-private-cloud/ss9-nsx-manager-login.png" alt-text="Screenshot of the NSX-T Manager sign in page."lightbox="media/tutorial-access-private-cloud/ss9-nsx-manager-login.png" border="true":::
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Screenshot of the NSX-T Manager Overview."lightbox="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" border="true":::
 
@@ -80,6 +82,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a Windows VM to use to connect to vCenter Server
 > * Login to vCenter Server from your VM
+> * Login to NSX-T Manager from your VM
 
 Continue to the next tutorial to learn how to create a virtual network to set up local management for your private cloud clusters.
 

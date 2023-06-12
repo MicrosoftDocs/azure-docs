@@ -7,7 +7,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
+| Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |
 | `af-ZA` | Afrikaans (South Africa) | `af-ZA-AdriNeural`<sup>2</sup> (Female)<br/>`af-ZA-WillemNeural`<sup>2</sup> (Male) |
 | `am-ET` | Amharic (Ethiopia) | `am-ET-AmehaNeural`<sup>2</sup> (Male)<br/>`am-ET-MekdesNeural`<sup>2</sup> (Female) |
@@ -32,17 +32,17 @@ ms.author: eur
 | `bn-BD` | Bangla (Bangladesh) | `bn-BD-NabanitaNeural`<sup>2</sup> (Female)<br/>`bn-BD-PradeepNeural`<sup>2</sup> (Male) |
 | `bn-IN` | Bengali (India) | `bn-IN-BashkarNeural`<sup>2</sup> (Male)<br/>`bn-IN-TanishaaNeural`<sup>2</sup> (Female) |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | `bs-BA-GoranNeural`<sup>2</sup> (Male)<br/>`bs-BA-VesnaNeural`<sup>2</sup> (Female) |
-| `ca-ES` | Catalan | `ca-ES-AlbaNeural` (Female)<br/>`ca-ES-EnricNeural` (Male)<br/>`ca-ES-JoanaNeural` (Female) |
+| `ca-ES` | Catalan (Spain) | `ca-ES-AlbaNeural` (Female)<br/>`ca-ES-EnricNeural` (Male)<br/>`ca-ES-JoanaNeural` (Female) |
 | `cs-CZ` | Czech (Czechia) | `cs-CZ-AntoninNeural` (Male)<br/>`cs-CZ-VlastaNeural` (Female) |
 | `cy-GB` | Welsh (United Kingdom) | `cy-GB-AledNeural`<sup>2</sup> (Male)<br/>`cy-GB-NiaNeural`<sup>2</sup> (Female) |
 | `da-DK` | Danish (Denmark) | `da-DK-ChristelNeural` (Female)<br/>`da-DK-JeppeNeural` (Male) |
 | `de-AT` | German (Austria) | `de-AT-IngridNeural` (Female)<br/>`de-AT-JonasNeural` (Male) |
 | `de-CH` | German (Switzerland) | `de-CH-JanNeural` (Male)<br/>`de-CH-LeniNeural` (Female) |
-| `de-DE` | German (Germany) | `de-DE-AmalaNeural` (Female)<br/>`de-DE-BerndNeural` (Male)<br/>`de-DE-ChristophNeural` (Male)<br/>`de-DE-ConradNeural` (Male)<br/>`de-DE-ElkeNeural` (Female)<br/>`de-DE-GiselaNeural` (Female, Child)<br/>`de-DE-KasperNeural` (Male)<br/>`de-DE-KatjaNeural` (Female)<br/>`de-DE-KillianNeural` (Male)<br/>`de-DE-KlarissaNeural` (Female)<br/>`de-DE-KlausNeural` (Male)<br/>`de-DE-LouisaNeural` (Female)<br/>`de-DE-MajaNeural` (Female)<br/>`de-DE-RalfNeural` (Male)<br/>`de-DE-TanjaNeural` (Female) |
+| `de-DE` | German (Germany) | `de-DE-AmalaNeural` (Female)<br/>`de-DE-BerndNeural` (Male)<br/>`de-DE-ChristophNeural` (Male)<br/>`de-DE-ConradNeural`<sup>1</sup> (Male)<br/>`de-DE-ElkeNeural` (Female)<br/>`de-DE-GiselaNeural` (Female, Child)<br/>`de-DE-KasperNeural` (Male)<br/>`de-DE-KatjaNeural` (Female)<br/>`de-DE-KillianNeural` (Male)<br/>`de-DE-KlarissaNeural` (Female)<br/>`de-DE-KlausNeural` (Male)<br/>`de-DE-LouisaNeural` (Female)<br/>`de-DE-MajaNeural` (Female)<br/>`de-DE-RalfNeural` (Male)<br/>`de-DE-TanjaNeural` (Female) |
 | `el-GR` | Greek (Greece) | `el-GR-AthinaNeural` (Female)<br/>`el-GR-NestorasNeural` (Male) |
-| `en-AU` | English (Australia) | `en-AU-AnnetteNeural`<sup>1</sup> (Female)<br/>`en-AU-CarlyNeural`<sup>1</sup> (Female)<br/>`en-AU-DarrenNeural`<sup>1</sup> (Male)<br/>`en-AU-DuncanNeural`<sup>1</sup> (Male)<br/>`en-AU-ElsieNeural`<sup>1</sup> (Female)<br/>`en-AU-FreyaNeural`<sup>1</sup> (Female)<br/>`en-AU-JoanneNeural`<sup>1</sup> (Female)<br/>`en-AU-KenNeural`<sup>1</sup> (Male)<br/>`en-AU-KimNeural`<sup>1</sup> (Female)<br/>`en-AU-NatashaNeural` (Female)<br/>`en-AU-NeilNeural`<sup>1</sup> (Male)<br/>`en-AU-TimNeural`<sup>1</sup> (Male)<br/>`en-AU-TinaNeural`<sup>1</sup> (Female)<br/>`en-AU-WilliamNeural` (Male) |
+| `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-CarlyNeural` (Female)<br/>`en-AU-DarrenNeural` (Male)<br/>`en-AU-DuncanNeural` (Male)<br/>`en-AU-ElsieNeural` (Female)<br/>`en-AU-FreyaNeural` (Female)<br/>`en-AU-JoanneNeural` (Female)<br/>`en-AU-KenNeural` (Male)<br/>`en-AU-KimNeural` (Female)<br/>`en-AU-NatashaNeural` (Female)<br/>`en-AU-NeilNeural` (Male)<br/>`en-AU-TimNeural` (Male)<br/>`en-AU-TinaNeural` (Female)<br/>`en-AU-WilliamNeural` (Male) |
 | `en-CA` | English (Canada) | `en-CA-ClaraNeural` (Female)<br/>`en-CA-LiamNeural` (Male) |
-| `en-GB` | English (United Kingdom) | `en-GB-AbbiNeural` (Female)<br/>`en-GB-AlfieNeural` (Male)<br/>`en-GB-BellaNeural` (Female)<br/>`en-GB-ElliotNeural` (Male)<br/>`en-GB-EthanNeural` (Male)<br/>`en-GB-HollieNeural` (Female)<br/>`en-GB-LibbyNeural` (Female)<br/>`en-GB-MaisieNeural` (Female, Child)<br/>`en-GB-NoahNeural` (Male)<br/>`en-GB-OliverNeural` (Male)<br/>`en-GB-OliviaNeural` (Female)<br/>`en-GB-RyanNeural`<sup>1</sup> (Male)<br/>`en-GB-SoniaNeural`<sup>1</sup> (Female)<br/>`en-GB-ThomasNeural` (Male) |
+| `en-GB` | English (United Kingdom) | `en-GB-AbbiNeural` (Female)<br/>`en-GB-AlfieNeural` (Male)<br/>`en-GB-BellaNeural` (Female)<br/>`en-GB-ElliotNeural` (Male)<br/>`en-GB-EthanNeural` (Male)<br/>`en-GB-HollieNeural` (Female)<br/>`en-GB-LibbyNeural` (Female)<br/>`en-GB-MaisieNeural` (Female, Child)<br/>`en-GB-NoahNeural` (Male)<br/>`en-GB-OliverNeural` (Male)<br/>`en-GB-OliviaNeural` (Female)<br/>`en-GB-RyanNeural` (Male)<br/>`en-GB-SoniaNeural` (Female)<br/>`en-GB-ThomasNeural` (Male) |
 | `en-HK` | English (Hong Kong SAR) | `en-HK-SamNeural` (Male)<br/>`en-HK-YanNeural` (Female) |
 | `en-IE` | English (Ireland) | `en-IE-ConnorNeural` (Male)<br/>`en-IE-EmilyNeural` (Female) |
 | `en-IN` | English (India) | `en-IN-NeerjaNeural` (Female)<br/>`en-IN-PrabhatNeural` (Male) |
@@ -52,7 +52,7 @@ ms.author: eur
 | `en-PH` | English (Philippines) | `en-PH-JamesNeural` (Male)<br/>`en-PH-RosaNeural` (Female) |
 | `en-SG` | English (Singapore) | `en-SG-LunaNeural` (Female)<br/>`en-SG-WayneNeural` (Male) |
 | `en-TZ` | English (Tanzania) | `en-TZ-ElimuNeural` (Male)<br/>`en-TZ-ImaniNeural` (Female) |
-| `en-US` | English (United States) | `en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural`<sup>1</sup> (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male) |
+| `en-US` | English (United States) | `en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male) |
 | `en-ZA` | English (South Africa) | `en-ZA-LeahNeural` (Female)<br/>`en-ZA-LukeNeural` (Male) |
 | `es-AR` | Spanish (Argentina) | `es-AR-ElenaNeural` (Female)<br/>`es-AR-TomasNeural` (Male) |
 | `es-BO` | Spanish (Bolivia) | `es-BO-MarceloNeural` (Male)<br/>`es-BO-SofiaNeural` (Female) |
@@ -62,11 +62,11 @@ ms.author: eur
 | `es-CU` | Spanish (Cuba) | `es-CU-BelkysNeural` (Female)<br/>`es-CU-ManuelNeural` (Male) |
 | `es-DO` | Spanish (Dominican Republic) | `es-DO-EmilioNeural` (Male)<br/>`es-DO-RamonaNeural` (Female) |
 | `es-EC` | Spanish (Ecuador) | `es-EC-AndreaNeural` (Female)<br/>`es-EC-LuisNeural` (Male) |
-| `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural`<sup>1</sup> (Female)<br/>`es-ES-AlvaroNeural`<sup>1</sup> (Male)<br/>`es-ES-ArnauNeural`<sup>1</sup> (Male)<br/>`es-ES-DarioNeural`<sup>1</sup> (Male)<br/>`es-ES-EliasNeural`<sup>1</sup> (Male)<br/>`es-ES-ElviraNeural` (Female)<br/>`es-ES-EstrellaNeural`<sup>1</sup> (Female)<br/>`es-ES-IreneNeural`<sup>1</sup> (Female)<br/>`es-ES-LaiaNeural`<sup>1</sup> (Female)<br/>`es-ES-LiaNeural`<sup>1</sup> (Female)<br/>`es-ES-NilNeural`<sup>1</sup> (Male)<br/>`es-ES-SaulNeural`<sup>1</sup> (Male)<br/>`es-ES-TeoNeural`<sup>1</sup> (Male)<br/>`es-ES-TrianaNeural`<sup>1</sup> (Female)<br/>`es-ES-VeraNeural`<sup>1</sup> (Female) |
+| `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural` (Female)<br/>`es-ES-AlvaroNeural`<sup>1</sup> (Male)<br/>`es-ES-ArnauNeural` (Male)<br/>`es-ES-DarioNeural` (Male)<br/>`es-ES-EliasNeural` (Male)<br/>`es-ES-ElviraNeural` (Female)<br/>`es-ES-EstrellaNeural` (Female)<br/>`es-ES-IreneNeural` (Female)<br/>`es-ES-LaiaNeural` (Female)<br/>`es-ES-LiaNeural` (Female)<br/>`es-ES-NilNeural` (Male)<br/>`es-ES-SaulNeural` (Male)<br/>`es-ES-TeoNeural` (Male)<br/>`es-ES-TrianaNeural` (Female)<br/>`es-ES-VeraNeural` (Female) |
 | `es-GQ` | Spanish (Equatorial Guinea) | `es-GQ-JavierNeural` (Male)<br/>`es-GQ-TeresaNeural` (Female) |
 | `es-GT` | Spanish (Guatemala) | `es-GT-AndresNeural` (Male)<br/>`es-GT-MartaNeural` (Female) |
 | `es-HN` | Spanish (Honduras) | `es-HN-CarlosNeural` (Male)<br/>`es-HN-KarlaNeural` (Female) |
-| `es-MX` | Spanish (Mexico) | `es-MX-BeatrizNeural` (Female)<br/>`es-MX-CandelaNeural` (Female)<br/>`es-MX-CarlotaNeural` (Female)<br/>`es-MX-CecilioNeural` (Male)<br/>`es-MX-DaliaNeural` (Female)<br/>`es-MX-GerardoNeural` (Male)<br/>`es-MX-JorgeNeural`<sup>1</sup> (Male)<br/>`es-MX-LarissaNeural` (Female)<br/>`es-MX-LibertoNeural` (Male)<br/>`es-MX-LucianoNeural` (Male)<br/>`es-MX-MarinaNeural` (Female)<br/>`es-MX-NuriaNeural` (Female)<br/>`es-MX-PelayoNeural` (Male)<br/>`es-MX-RenataNeural` (Female)<br/>`es-MX-YagoNeural` (Male) |
+| `es-MX` | Spanish (Mexico) | `es-MX-BeatrizNeural` (Female)<br/>`es-MX-CandelaNeural` (Female)<br/>`es-MX-CarlotaNeural` (Female)<br/>`es-MX-CecilioNeural` (Male)<br/>`es-MX-DaliaNeural` (Female)<br/>`es-MX-GerardoNeural` (Male)<br/>`es-MX-JorgeNeural` (Male)<br/>`es-MX-LarissaNeural` (Female)<br/>`es-MX-LibertoNeural` (Male)<br/>`es-MX-LucianoNeural` (Male)<br/>`es-MX-MarinaNeural` (Female)<br/>`es-MX-NuriaNeural` (Female)<br/>`es-MX-PelayoNeural` (Male)<br/>`es-MX-RenataNeural` (Female)<br/>`es-MX-YagoNeural` (Male) |
 | `es-NI` | Spanish (Nicaragua) | `es-NI-FedericoNeural` (Male)<br/>`es-NI-YolandaNeural` (Female) |
 | `es-PA` | Spanish (Panama) | `es-PA-MargaritaNeural` (Female)<br/>`es-PA-RobertoNeural` (Male) |
 | `es-PE` | Spanish (Peru) | `es-PE-AlexNeural` (Male)<br/>`es-PE-CamilaNeural` (Female) |
@@ -84,7 +84,7 @@ ms.author: eur
 | `fr-BE` | French (Belgium) | `fr-BE-CharlineNeural` (Female)<br/>`fr-BE-GerardNeural` (Male) |
 | `fr-CA` | French (Canada) | `fr-CA-AntoineNeural` (Male)<br/>`fr-CA-JeanNeural` (Male)<br/>`fr-CA-SylvieNeural` (Female) |
 | `fr-CH` | French (Switzerland) | `fr-CH-ArianeNeural` (Female)<br/>`fr-CH-FabriceNeural` (Male) |
-| `fr-FR` | French (France) | `fr-FR-AlainNeural` (Male)<br/>`fr-FR-BrigitteNeural` (Female)<br/>`fr-FR-CelesteNeural` (Female)<br/>`fr-FR-ClaudeNeural` (Male)<br/>`fr-FR-CoralieNeural` (Female)<br/>`fr-FR-DeniseNeural`<sup>1</sup> (Female)<br/>`fr-FR-EloiseNeural` (Female, Child)<br/>`fr-FR-HenriNeural`<sup>1</sup> (Male)<br/>`fr-FR-JacquelineNeural` (Female)<br/>`fr-FR-JeromeNeural` (Male)<br/>`fr-FR-JosephineNeural` (Female)<br/>`fr-FR-MauriceNeural` (Male)<br/>`fr-FR-YvesNeural` (Male)<br/>`fr-FR-YvetteNeural` (Female) |
+| `fr-FR` | French (France) | `fr-FR-AlainNeural` (Male)<br/>`fr-FR-BrigitteNeural` (Female)<br/>`fr-FR-CelesteNeural` (Female)<br/>`fr-FR-ClaudeNeural` (Male)<br/>`fr-FR-CoralieNeural` (Female)<br/>`fr-FR-DeniseNeural`<sup>1</sup> (Female)<br/>`fr-FR-EloiseNeural` (Female, Child)<br/>`fr-FR-HenriNeural` (Male)<br/>`fr-FR-JacquelineNeural` (Female)<br/>`fr-FR-JeromeNeural` (Male)<br/>`fr-FR-JosephineNeural` (Female)<br/>`fr-FR-MauriceNeural` (Male)<br/>`fr-FR-YvesNeural` (Male)<br/>`fr-FR-YvetteNeural` (Female) |
 | `ga-IE` | Irish (Ireland) | `ga-IE-ColmNeural`<sup>2</sup> (Male)<br/>`ga-IE-OrlaNeural`<sup>2</sup> (Female) |
 | `gl-ES` | Galician | `gl-ES-RoiNeural`<sup>2</sup> (Male)<br/>`gl-ES-SabelaNeural`<sup>2</sup> (Female) |
 | `gu-IN` | Gujarati (India) | `gu-IN-DhwaniNeural` (Female)<br/>`gu-IN-NiranjanNeural` (Male) |
@@ -95,8 +95,8 @@ ms.author: eur
 | `hy-AM` | Armenian (Armenia) | `hy-AM-AnahitNeural`<sup>2</sup> (Female)<br/>`hy-AM-HaykNeural`<sup>2</sup> (Male) |
 | `id-ID` | Indonesian (Indonesia) | `id-ID-ArdiNeural` (Male)<br/>`id-ID-GadisNeural` (Female) |
 | `is-IS` | Icelandic (Iceland) | `is-IS-GudrunNeural`<sup>2</sup> (Female)<br/>`is-IS-GunnarNeural`<sup>2</sup> (Male) |
-| `it-IT` | Italian (Italy) | `it-IT-BenignoNeural` (Male)<br/>`it-IT-CalimeroNeural` (Male)<br/>`it-IT-CataldoNeural` (Male)<br/>`it-IT-DiegoNeural`<sup>1</sup> (Male)<br/>`it-IT-ElsaNeural` (Female)<br/>`it-IT-FabiolaNeural` (Female)<br/>`it-IT-FiammaNeural` (Female)<br/>`it-IT-GianniNeural` (Male)<br/>`it-IT-ImeldaNeural` (Female)<br/>`it-IT-IrmaNeural` (Female)<br/>`it-IT-IsabellaNeural`<sup>1</sup> (Female)<br/>`it-IT-LisandroNeural` (Male)<br/>`it-IT-PalmiraNeural` (Female)<br/>`it-IT-PierinaNeural` (Female)<br/>`it-IT-RinaldoNeural` (Male) |
-| `ja-JP` | Japanese (Japan) | `ja-JP-AoiNeural`<sup>1</sup> (Female)<br/>`ja-JP-DaichiNeural`<sup>1</sup> (Male)<br/>`ja-JP-KeitaNeural` (Male)<br/>`ja-JP-MayuNeural`<sup>1</sup> (Female)<br/>`ja-JP-NanamiNeural` (Female)<br/>`ja-JP-NaokiNeural`<sup>1</sup> (Male)<br/>`ja-JP-ShioriNeural`<sup>1</sup> (Female) |
+| `it-IT` | Italian (Italy) | `it-IT-BenignoNeural` (Male)<br/>`it-IT-CalimeroNeural` (Male)<br/>`it-IT-CataldoNeural` (Male)<br/>`it-IT-DiegoNeural`<sup>1</sup> (Male)<br/>`it-IT-ElsaNeural` (Female)<br/>`it-IT-FabiolaNeural` (Female)<br/>`it-IT-FiammaNeural` (Female)<br/>`it-IT-GianniNeural` (Male)<br/>`it-IT-ImeldaNeural` (Female)<br/>`it-IT-IrmaNeural` (Female)<br/>`it-IT-IsabellaNeural` (Female)<br/>`it-IT-LisandroNeural` (Male)<br/>`it-IT-PalmiraNeural` (Female)<br/>`it-IT-PierinaNeural` (Female)<br/>`it-IT-RinaldoNeural` (Male) |
+| `ja-JP` | Japanese (Japan) | `ja-JP-AoiNeural` (Female)<br/>`ja-JP-DaichiNeural` (Male)<br/>`ja-JP-KeitaNeural` (Male)<br/>`ja-JP-MayuNeural` (Female)<br/>`ja-JP-NanamiNeural` (Female)<br/>`ja-JP-NaokiNeural` (Male)<br/>`ja-JP-ShioriNeural` (Female) |
 | `jv-ID` | Javanese (Latin, Indonesia) | `jv-ID-DimasNeural`<sup>2</sup> (Male)<br/>`jv-ID-SitiNeural`<sup>2</sup> (Female) |
 | `ka-GE` | Georgian (Georgia) | `ka-GE-EkaNeural`<sup>2</sup> (Female)<br/>`ka-GE-GiorgiNeural`<sup>2</sup> (Male) |
 | `kk-KZ` | Kazakh (Kazakhstan) | `kk-KZ-AigulNeural`<sup>2</sup> (Female)<br/>`kk-KZ-DauletNeural`<sup>2</sup> (Male) |
@@ -139,7 +139,7 @@ ms.author: eur
 | `ta-SG` | Tamil (Singapore) | `ta-SG-AnbuNeural` (Male)<br/>`ta-SG-VenbaNeural` (Female) |
 | `te-IN` | Telugu (India) | `te-IN-MohanNeural` (Male)<br/>`te-IN-ShrutiNeural` (Female) |
 | `th-TH` | Thai (Thailand) | `th-TH-AcharaNeural` (Female)<br/>`th-TH-NiwatNeural` (Male)<br/>`th-TH-PremwadeeNeural` (Female) |
-| `tr-TR` | Turkish (Türkiye) | `tr-TR-AhmetNeural` (Male)<br/>`tr-TR-EmelNeural` (Female) |
+| `tr-TR` | Turkish (Turkey) | `tr-TR-AhmetNeural` (Male)<br/>`tr-TR-EmelNeural` (Female) |
 | `uk-UA` | Ukrainian (Ukraine) | `uk-UA-OstapNeural` (Male)<br/>`uk-UA-PolinaNeural` (Female) |
 | `ur-IN` | Urdu (India) | `ur-IN-GulNeural` (Female)<br/>`ur-IN-SalmanNeural` (Male) |
 | `ur-PK` | Urdu (Pakistan) | `ur-PK-AsadNeural` (Male)<br/>`ur-PK-UzmaNeural` (Female) |

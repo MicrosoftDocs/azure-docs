@@ -5,11 +5,17 @@ description: Learn to migrate existing Service Bus applications away from connec
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
-ms.date: 12/07/2022
-ms.service: service-bus
+ms.date: 04/12/2023
+ms.service: service-bus-messaging
 ms.topic: how-to
-ms.custom: devx-track-csharp, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: csharp
+ms.custom:
+- devx-track-csharp
+- devx-track-azurecli
+- devx-track-azurepowershell
+- passwordless-dotnet
+- passwordless-java
+- passwordless-js
+- passwordless-python
 ---
 
 # Migrate an application to use passwordless connections with Azure Service Bus
@@ -20,11 +26,58 @@ Application requests to Azure Service Bus must be authenticated using either acc
 
 The following code example demonstrates how to connect to Azure Service Bus using a connection string that includes an access key. When you create a Service Bus, Azure generates these keys and connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described in this document.
 
+## [.NET](#tab/dotnet)
+
 ```csharp
-var serviceBusClient = new ServiceBusClient(
-    "<NAMESPACE-CONNECTION-STRING>",
-    clientOptions);
+await using var client = new ServiceBusClient("<CONNECTION-STRING>");
 ```
+
+## [Java](#tab/java)
+
+**JMS:**
+
+```java
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
+    "<CONNECTION-STRING>", 
+    new ServiceBusJmsConnectionFactorySettings());
+```
+
+**Receiver client:**
+
+```java
+ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
+    .connectionString("<CONNECTION-STRING>")
+    .receiver()
+    .topicName("<TOPIC-NAME>")
+    .subscriptionName("<SUBSCRIPTION-NAME>")
+    .buildClient();
+```
+
+**Sender client:**
+
+```java
+ServiceBusSenderClient client = new ServiceBusClientBuilder()
+    .connectionString("<CONNECTION-STRING>")
+    .sender()
+    .queueName("<QUEUE-NAME>")
+    .buildClient();
+```
+
+## [Node.js](#tab/nodejs)
+
+```nodejs
+const client = new ServiceBusClient("<CONNECTION-STRING>");
+```
+
+## [Python](#tab/python)
+
+```python
+client = ServiceBusClient(
+    fully_qualified_namespace = "<CONNECTION-STRING>"
+)
+```
+
+---
 
 Connection strings should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
 
@@ -46,36 +99,152 @@ For local development, make sure you're authenticated with the same Azure AD acc
 
 [!INCLUDE [default-azure-credential-sign-in](../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-Next you'll need to update your code to use passwordless connections.
+Next, update your code to use passwordless connections.
 
-1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
+## [.NET](#tab/dotnet)
+
+1. To use `DefaultAzureCredential` in a .NET application, install the `Azure.Identity` package:
 
    ```dotnetcli
    dotnet add package Azure.Identity
    ```
 
-1. At the top of your `Program.cs` file, add the following `using` statement:
+1. At the top of your file, add the following code:
 
    ```csharp
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that currently create a `ServiceBusClient` to connect to Azure Service Bus. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to match the following example:
+1. Identify the code that creates a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
 
    ```csharp
-    var clientOptions = new ServiceBusClientOptions
-    { 
-        TransportType = ServiceBusTransportType.AmqpWebSockets
-    };
-
-    //TODO: Replace the "<SERVICE-BUS-NAMESPACE-NAME>" placeholder.
-    client = new ServiceBusClient(
+    // TODO: Replace the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+    var client = new ServiceBusClient(
         "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
-        new DefaultAzureCredential(),
-        clientOptions);
+        new DefaultAzureCredential());
    ```
 
-1. Make sure to update the Service Bus namespace in the URI of your `ServiceBusClient`. You can find the namespace on the overview page of the Azure portal.
+## [Java](#tab/java)
+
+1. To use `DefaultAzureCredential`:
+    - In a JMS application, add at least version 1.0.0 of the `azure-servicebus-jms` package to your application:
+
+        ```xml
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-servicebus-jms</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        ```
+
+    - In a Java application, install the `azure-identity` package via one of the following approaches:
+        - [Include the BOM file](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-the-bom-file).
+        - [Include a direct dependency](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-direct-dependency).
+    
+1. At the top of your file, add the following code:
+
+    ```java
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    ```
+
+1. Update the code that connects to Azure Service Bus:
+    - In a JMS application, identify the code that creates a `ServiceBusJmsConnectionFactory` object to connect to Azure Service Bus. Update your code to match the following example:
+
+       ```java
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+            .build();
+    
+        // TODO: Replace the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+        ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
+            credential,
+            "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
+            new ServiceBusJmsConnectionFactorySettings());
+       ```
+
+    - In a Java application, identify the code that creates a Service Bus sender or receiver client object to connect to Azure Service Bus. Update your code to match one of the following examples:
+
+        **Receiver client:**
+        
+        ```java
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+            .build();
+    
+        // TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+        ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
+            .credential("<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", credential)
+            .receiver()
+            .topicName("<TOPIC-NAME>")
+            .subscriptionName("<SUBSCRIPTION-NAME>")
+            .buildClient();
+        ```
+    
+        **Sender client:**
+    
+        ```java
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+            .build();
+    
+        // TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+        ServiceBusSenderClient client = new ServiceBusClientBuilder()
+            .credential("<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", credential)
+            .sender()
+            .queueName("<QUEUE-NAME>")
+            .buildClient();
+        ```
+
+## [Node.js](#tab/nodejs)
+
+1. To use `DefaultAzureCredential` in a Node.js application, install the `@azure/identity` package:
+
+    ```bash
+    npm install --save @azure/identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```nodejs
+    const { DefaultAzureCredential } = require("@azure/identity");
+    ```
+
+1. Identify the code that creates a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
+
+    ```nodejs
+    const credential = new DefaultAzureCredential();
+    
+    // TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+    const client = new ServiceBusClient(
+      "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
+      credential
+    );
+    ```
+
+## [Python](#tab/python)
+
+1. To use `DefaultAzureCredential` in a Python application, install the `azure-identity` package:
+    
+    ```bash
+    pip install azure-identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```python
+    from azure.identity import DefaultAzureCredential
+    ```
+
+1. Identify the code that creates a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
+
+    ```python
+    credential = DefaultAzureCredential()
+
+    # TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+    client = ServiceBusClient(
+        fully_qualified_namespace = "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
+        credential = credential
+    )
+    ```
+
+---
 
 #### Run the app locally
 
@@ -178,7 +347,7 @@ You can assign a managed identity to an Azure Kubernetes Service (AKS) instance 
 ```azurecli
 az aks update \
     --resource-group <resource-group-name> \
-    --name <virtual-machine-name>
+    --name <virtual-machine-name> \
     --enable-managed-identity
 ```
 
@@ -216,7 +385,7 @@ If you connected your services using the Service Connector you don't need to com
 
 ### [Azure CLI](#tab/assign-role-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicebus show` command. You can filter the output properties using the --query parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicebus show` command. You can filter the output properties using the `--query` parameter.
 
 ```azurecli
 az servicebus show \

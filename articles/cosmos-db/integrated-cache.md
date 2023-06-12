@@ -46,6 +46,7 @@ Some workloads shouldn't consider the integrated cache, including:
 
 -	Write-heavy workloads
 -  Rarely repeated point reads or queries
+-  Workloads reading the change feed
 
 ## Item cache
 
@@ -55,7 +56,7 @@ Item cache is used for point reads (key/value look ups based on the Item ID and 
 
 - New writes, updates, and deletes are automatically populated in the item cache of the node that the request is routed through
 - Items from point read requests where the item isn’t already in the cache (cache miss) of the node the request is routed through are added to the item cache
-- Requests that are part of a [transactional batch](./nosql/transactional-batch.md) or written in [bulk mode](./nosql/how-to-migrate-from-bulk-executor-library.md#enable-bulk-support) don't populate the item cache
+- Requests that are part of a [transactional batch](./nosql/transactional-batch.md) or in [bulk mode](./nosql/how-to-migrate-from-bulk-executor-library.md#enable-bulk-support) don't populate the item cache
 
 ### Item cache invalidation and eviction
 
@@ -101,7 +102,7 @@ The easiest way to configure either session or eventual consistency for all read
 
 ### Session consistency
 
-[Session consistency](consistency-levels.md#session-consistency) is the most widely used consistency level for both single region and globally distributed Azure Cosmos DB accounts. With session consistency, single client sessions can read their own writes. Clients outside of the session performing writes will see eventual consistency when they are using the integrated cache.
+[Session consistency](consistency-levels.md#session-consistency) is the most widely used consistency level for both single region and globally distributed Azure Cosmos DB accounts. With session consistency, single client sessions can read their own writes. Any reads with session consistency that don't have a matching session token will incur RU charges. This includes the first request for a given item or query when the client application is started or restarted, unless you explicitly pass a valid session token. Clients outside of the session performing writes will see eventual consistency when they are using the integrated cache.
 
 ## MaxIntegratedCacheStaleness
 

@@ -22,7 +22,7 @@ Knowing about OAuth or OpenID Connect (OIDC) at the protocol level isn't require
 
 Four parties are generally involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. These exchanges are often called *authentication flows* or *auth flows*.
 
-![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagram showing the OAuth 2.0 roles](./media/v2-flows/protocols-roles.svg)
 
 * **Authorization server** - The identity platform is the authorization server. Also called an *identity provider* or *IdP*, it securely handles the end-user's information, their access, and the trust relationships between the parties in the auth flow. The authorization server issues the security tokens your apps and APIs use for granting, denying, or revoking access to resources (authorization) after the user has signed in (authenticated).
 
@@ -63,7 +63,7 @@ The endpoint URIs for your app are generated automatically when you register or 
 
 Two commonly used endpoints are the [authorization endpoint](v2-oauth2-auth-code-flow.md#request-an-authorization-code) and [token endpoint](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). Here are examples of the `authorize` and `token` endpoints:
 
-```Bash
+```
 # Authorization endpoint - used by client to obtain authorization from the resource owner.
 https://login.microsoftonline.com/<issuer>/oauth2/v2.0/authorize
 # Token endpoint - used by client to exchange an authorization grant or refresh token for an access token.

@@ -1,6 +1,6 @@
 ---
-title: Configure PIM for Groups settings (preview)
-description: Learn how to configure PIM for Groups settings (preview).
+title: Configure PIM for Groups settings
+description: Learn how to configure PIM for Groups settings.
 services: active-directory
 documentationcenter: ''
 author: amsliu
@@ -10,17 +10,22 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/27/2023
+ms.date: 6/7/2023
 ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Configure PIM for Groups settings (preview)
+# Configure PIM for Groups settings
 
 In Privileged Identity Management (PIM) for groups in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define membership or ownership assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, etc. Use the following steps to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
-You need to have Global Administrator, Privileged Role Administrator, or group Owner permissions to manage settings for membership or ownership assignments of the group. Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
+You will need group management permissions to manage settings. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not Administrative Unit level). 
+
+> [!NOTE]
+> Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM. 
+
+Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
 
 
 ## Update role settings
@@ -29,7 +34,7 @@ Follow these steps to open the settings for a group role.
 
 1. [Sign in to the Azure portal](https://portal.azure.com).
 
-1. Select **Azure AD Privileged Identity Management -> Groups (Preview)**. 
+1. Select **Azure AD Privileged Identity Management -> Groups**. 
 
 1. Select the group that you want to configure role settings for.
 
@@ -58,11 +63,11 @@ Use the **Activation maximum duration** slider to set the maximum time, in hours
 You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication helps safeguard access to data and applications, providing another layer of security by using a second form of authentication. 
 
 > [!NOTE]
-> User may not be prompted for multi-factor authentication if they authenticated with strong credentials, or provided multi-factor authentication earlier in this session. If your goal is to ensure that users have to provide authentication during activation, you can use [On activation, require Azure AD Conditional Access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context-public-preview) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md) to require users to authenticate during activation using methods different from the one they used to sign-in to the machine. For example, if users sign-in to the machine using Windows Hello for Business, you can use “On activation, require Azure AD Conditional Access authentication context” and Authentication Strengths to require users to do Passwordless sign-in with Microsoft Authenticator when they activate the role. After the user provides Passwordless sign-in with Microsoft Authenticator once in this example, they'll be able to do their next activation in this session without additional authentication because Passwordless sign-in with Microsoft Authenticator will already be part of their token. 
+> User may not be prompted for multi-factor authentication if they authenticated with strong credentials, or provided multi-factor authentication earlier in this session. If your goal is to ensure that users have to provide authentication during activation, you can use [On activation, require Azure AD Conditional Access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md) to require users to authenticate during activation using methods different from the one they used to sign-in to the machine. For example, if users sign-in to the machine using Windows Hello for Business, you can use “On activation, require Azure AD Conditional Access authentication context” and Authentication Strengths to require users to do Passwordless sign-in with Microsoft Authenticator when they activate the role. After the user provides Passwordless sign-in with Microsoft Authenticator once in this example, they'll be able to do their next activation in this session without additional authentication because Passwordless sign-in with Microsoft Authenticator will already be part of their token. 
 > 
 > It's recommended to enable Azure AD Multi-Factor Authentication for all users. For more information, see [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
-### On activation, require Azure AD Conditional Access authentication context (Public Preview)
+### On activation, require Azure AD Conditional Access authentication context
 
 You can require users who are eligible for a role to satisfy Conditional Access policy requirements: use specific authentication method enforced through Authentication Strengths, elevate the role from Intune compliant device, comply with Terms of Use, and more. 
 
@@ -100,7 +105,7 @@ You can require that users enter a support ticket when they activate the eligibl
 
 You can require approval for activation of eligible assignment. Approver doesn’t have to be group member or owner. When using this option, you have to select at least one approver (we recommend selecting at least two approvers), there are no default approvers.
 
-To learn more about approvals, see [Approve activation requests for PIM for Groups members and owners (preview)](groups-approval-workflow.md).
+To learn more about approvals, see [Approve activation requests for PIM for Groups members and owners](groups-approval-workflow.md).
 
 ### Assignment duration
 
@@ -140,6 +145,18 @@ In the **Notifications** tab on the role settings page, Privileged Identity Mana
 - **Send emails to both default recipients and more recipients**<br>You can send emails to both default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
 - **Critical emails only**<br>For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an email requiring admins to approve an extension request will be triggered.
 
+## Manage role settings using Microsoft Graph
+
+To manage role settings for groups using PIM APIs in Microsoft Graph, use the [unifiedRoleManagementPolicy resource type and its related methods](/graph/api/resources/unifiedrolemanagementpolicy).
+
+In Microsoft Graph, role settings are referred to as rules and they're assigned to groups through container policies. You can retrieve all policies that are scoped to a group and for each policy, retrieve the associated collection of rules by using an `$expand` query parameter. The syntax for the request is as follows:
+
+```http
+GET https://graph.microsoft.com/beta/policies/roleManagementPolicies?$filter=scopeId eq '{groupId}' and scopeType eq 'Group'&$expand=rules
+```
+
+For more information about managing role settings through PIM APIs in Microsoft Graph, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagement-for-groups-api-overview#policy-settings-in-pim-for-groups). For examples of updating rules, see [Update rules in PIM using Microsoft Graph](/graph/how-to-pim-update-rules).
+
 ## Next steps
 
-- [Assign eligibility for a group (preview) in Privileged Identity Management](groups-assign-member-owner.md)
+- [Assign eligibility for a group in Privileged Identity Management](groups-assign-member-owner.md)

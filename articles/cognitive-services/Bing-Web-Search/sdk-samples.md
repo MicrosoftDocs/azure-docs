@@ -7,6 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
+ms.custom: devx-track-extended-java, devx-track-python
 ms.topic: sample
 ms.date: 05/15/2019
 ms.author: aahi

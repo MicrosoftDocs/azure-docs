@@ -7,7 +7,7 @@ ms.topic: reference
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.date: 03/16/2023
+ms.date: 04/03/2023
 ms.custom: contperf-fy21q1, ignite-2022
 ---
 
@@ -76,13 +76,13 @@ To view the list of parameters, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at
 The emulator comes with a PowerShell module to start, stop, uninstall, and retrieve the status of the service. Run the following cmdlet to use the PowerShell module:
 
 ```powershell
-Import-Module "$env:ProgramFiles\emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
 or place the `PSModules` directory on your `PSModulePath` and import it as shown in the following command:
 
 ```powershell
-$env:PSModulePath += ";$env:ProgramFiles\emulator\PSModules"
+$env:PSModulePath += ";$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
 Import-Module Microsoft.Azure.CosmosDB.Emulator
 ```
 

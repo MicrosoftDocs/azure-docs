@@ -3,6 +3,7 @@ title: Create an App Service Environment (ASE) v3 with Azure Resource Manager
 description: Learn how to create an external or ILB App Service Environment v3 by using an Azure Resource Manager template.
 author: madsd
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ms.date: 03/09/2023
 ms.author: madsd
 ---

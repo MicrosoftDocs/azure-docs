@@ -8,7 +8,7 @@ ms.subservice: sizes
 ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/27/2023
+ms.date: 04/13/2023
 ms.author: vikancha
 
 ---
@@ -31,7 +31,7 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 | OS | Driver |
 | -------- |------------- |
-| Windows 11 64-bit 21H2<br/><br/>Windows 10 64-bit 21H1, 21H2, 20H2 (RSX not supported on Win10 20H2)<br/><br/>Windows 11 EMS 64-bit 21H2<br/><br/> Windows 10 EMS 64-bit 20H2, 21H2, 21H1(RSX not supported on EMS)<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [22.Q2-1]( https://download.microsoft.com/download/4/1/2/412559d0-4de5-4fb1-aa27-eaa3873e1f81/AMD-Azure-NVv4-Driver-22Q2.exe) (.exe) |
+| Windows 11 64-bit 21H2<br/><br/>Windows 10 64-bit 21H1, 21H2, 20H2 (RSX not supported on Win10 20H2)<br/><br/>Windows 11 EMS 64-bit 21H2<br/><br/> Windows 10 EMS 64-bit 20H2, 21H2, 21H1(RSX not supported on EMS)<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [22.Q2-2]( https://download.microsoft.com/download/4/1/2/412559d0-4de5-4fb1-aa27-eaa3873e1f81/AMD-Azure-NVv4-Driver-22Q2.exe) (.exe) |
 
 
 Previous supported driver versions for Windows builds up to 1909 are [20.Q4-1](https://download.microsoft.com/download/0/e/6/0e611412-093f-40b8-8bf9-794a1623b2be/AMD-Azure-NVv4-Driver-20Q4-1.exe) (.exe) and [21.Q2-1](https://download.microsoft.com/download/4/e/a/4ea28d3f-28e2-4eaa-8ef2-4f7d32882a0b/AMD-Azure-NVv4-Driver-21Q2-1.exe) (.exe) 

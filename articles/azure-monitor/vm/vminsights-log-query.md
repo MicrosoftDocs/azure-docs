@@ -13,6 +13,9 @@ VM insights collects performance and connection metrics, computer and process in
 
 ## Map records
 
+> [!IMPORTANT]
+> If your virtual machine is using VM insights with Azure Monitor agent, then you must have [processes and dependencies enabled](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) for these tables to be created.
+
 One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is added to VM insights. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
 
 There are internally generated properties you can use to identify unique processes and computers:
@@ -449,8 +452,8 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 |:---|:---|:---|:---|:---|
 | Computer    | Heartbeat             | Computer Heartbeat                        | | |
 | Memory      | AvailableMB           | Memory Available Bytes                    | Megabytes      | memorySizeMB - Total memory size|
-| Network     | WriteBytesPerSecond   | Network Write Bytes Per Second            | BytesPerSecond | NetworkDeviceId - Id of the device<br>bytes - Total sent bytes |
-| Network     | ReadBytesPerSecond    | Network Read Bytes Per Second             | BytesPerSecond | networkDeviceId - Id of the device<br>bytes - Total received bytes |
+| Network     | WriteBytesPerSecond   | Network Write Bytes Per Second            | BytesPerSecond | NetworkDeviceId - ID of the device<br>bytes - Total sent bytes |
+| Network     | ReadBytesPerSecond    | Network Read Bytes Per Second             | BytesPerSecond | networkDeviceId - ID of the device<br>bytes - Total received bytes |
 | Processor   | UtilizationPercentage | Processor Utilization Percentage          | Percent        | totalCpus - Total CPUs |
 | LogicalDisk | WritesPerSecond       | Logical Disk Writes Per Second            | CountPerSecond | mountId - Mount ID of the device |
 | LogicalDisk | WriteLatencyMs        | Logical Disk Write Latency Millisecond    | MilliSeconds   | mountId - Mount ID of the device |

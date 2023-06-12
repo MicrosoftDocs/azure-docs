@@ -4,7 +4,7 @@ description: Learn how to set auto shutdown schedules and policies for Azure Dev
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/18/2021
+ms.date: 04/24/2023
 ---
 
 # Configure auto shutdown for labs and VMs in DevTest Labs
@@ -83,7 +83,7 @@ After you update auto shutdown settings, you can see the activity logged in the 
 
 ## Auto shutdown notifications
 
-When you enable notifications in auto shutdown configuration, lab users receive a notification 30 minutes before auto shutdown if any of their VMs will be affected. The notification gives users a chance to save their work before the shutdown. If the auto shutdown settings specify an email address, the notification sends to that email address. If the settings specify a webhook, the notification sends to the webhook URL.
+When you enable notifications in auto shutdown configuration, lab users receive a notification 30 minutes before auto shutdown affects any of their VMs. The notification gives users a chance to save their work before the shutdown. If the auto shutdown settings specify an email address, the notification sends to that email address. If the settings specify a webhook, the notification sends to the webhook URL.
 
 The notification can also provide links that allow the following actions for each VM if someone needs to keep working:
 
@@ -113,15 +113,19 @@ To get started, create a logic app in Azure with the following steps:
 1. At the top of the **Logic apps** page, select **Add**.
 
 1. On the **Create Logic App** page:
+ 
+   |Name  |Value  |
+   |---------|---------|
+   |Subscription |Select your Azure Subscription. |
+   |Resource group |Select a resource group or create a new one. |
+   |Logic app name |Enter a descriptive name for your logic app. |
+   |Publish | Workflow |
+   |Region |Select a region near you or near other services your logic app accesses.         |
+   |Plan type |Consumption. A consumption plan allows you to use the logic app designer to create your app. |
+   |Windows Plan |Accept the default App Service Plan (ASP). |
+   |Pricing plan |Accept the default Workflow Standard WS1 (210 total ACU, 3.5 GB memory, 1 vCPU)         |
+   |Zone redundancy |Accept the default: Disabled.         |
 
-   - Select your Azure **Subscription**.
-   - Select a **Resource Group** or create a new one.
-   - Enter a **Logic App name**.
-   - Select a **Region** for the logic app.
-   - Select a **Plan type** for the logic app.
-   - Select a **Windows Plan** for the logic app.
-   - Select a **Pricing plan** for the logic app.
-   - Enabled **Zone redundancy** if necessary.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/new-logic-app-page.png" alt-text="Screenshot showing the Create Logic App page."::: 
 

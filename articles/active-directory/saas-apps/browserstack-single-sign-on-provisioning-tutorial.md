@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 39999abc-e4a2-4058-81e0-bf88182f8864
 ms.service: active-directory

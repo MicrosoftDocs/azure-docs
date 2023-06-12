@@ -4,9 +4,9 @@ description: Provides guidance to use weather extension
 author: lbethapudi
 ms.author: lbethapudi
 ms.service: data-manager-for-agri
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 02/14/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # How to write a weather extension

@@ -40,7 +40,7 @@ In this tutorial, you'll learn how to:
 
 ## Sample code
 
-In this tutorial, you'll create a store locator for a fictional company named *Contoso Coffee*. Also, this tutorial includes some tips to help you learn about extending the store locator with other optional functionality.
+This tutorial demonstrates how to create a store locator for a fictional company named *Contoso Coffee*, along with tips to extend the store locator with additional functionality.
 
 To see a live sample of what you're creating in this tutorial, see [Simple Store Locator] on the **Azure Maps Code Samples** site.
 
@@ -89,7 +89,7 @@ This section describes how to create a dataset of the stores that you want to di
 
 :::image type="content" source="./media/tutorial-create-store-locator/store-locator-data-spreadsheet.png" alt-text="Screenshot of the store locator data in an Excel workbook.":::
 
-The excel file containing the full dataset for the Contoso Coffee locator sample application can be downloaded from the [data] folder of the _Azure Maps code samples_ repository in GitHub.
+Download the excel file containing the full dataset for the Contoso Coffee locator sample application from the [data] folder of the _Azure Maps code samples_ repository in GitHub.
 
 From the above screenshot of the data, we can make the following observations:
 
@@ -102,7 +102,7 @@ From the above screenshot of the data, we can make the following observations:
 
 ## Load Contoso Coffee shop locator dataset
 
- The Contoso Coffee shop locator dataset is small, so we'll convert the Excel worksheet into a tab-delimited text file. This file can then be downloaded by the browser when the application loads.
+ The Contoso Coffee shop locator dataset is small, so it can be converted into a tab-delimited text file that the browser downloads when the application loads.
 
 > [!TIP]
 > If your dataset is too large for client download, or is updated frequently, you might consider storing your dataset in a database. After your data is loaded into a database, you can then set up a web service that accepts queries for the data, then sends the results to the user's browser.
@@ -213,7 +213,7 @@ To create the HTML:
     </main>
     ```
 
-After you finish, *index.html* should look like _[Simple Store Locator.html]_ in the tutorial sample code.
+Once completed, *index.html* should look like [Simple Store Locator.html] in the tutorial sample code.
 
 ## Define the CSS styles
 
@@ -429,7 +429,7 @@ The next step is to define the CSS styles. CSS styles define how the application
     }
    ```
 
-Run the application. You'll see the header, search box, and search button. However, the map isn't visible because it hasn't been loaded yet. If you try to do a search, nothing happens. We need to add the JavaScript logic described in the next section. This logic accesses all the functionality of the store locator.
+If you run the application at this point, the header, search box, and search button appear. However, the map isn't visible because it hasn't been loaded yet. If you try to do a search, nothing happens. The next section describes adding the JavaScript logic needed to access all the functionality of the store locator.
 
 ## Add JavaScript code
 
@@ -439,7 +439,7 @@ The JavaScript code in the Contoso Coffee shop locator app enables the following
 
 2. When the user selects the search button, or types a location in the search box then presses enter, a fuzzy search against the user's query begins. The code passes in an array of country/region ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned.
   
-3. Once the search completes, the first location result is used as the center focus of the map. When the user selects the My Location button, the code retrieves the user's location using the *HTML5 Geolocation API* that's built into the browser. After retrieving the location, the code centers the map over the user's location.  
+3. Once the search completes, the first location result is used as the center focus of the map. When the user selects the My Location button, the code retrieves the user's location using the *HTML5 Geolocation API* that's built into the browser. Once the location is retrieved, the code centers the map over the user's location.  
 
 To add the JavaScript:
 

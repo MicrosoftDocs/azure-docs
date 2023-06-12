@@ -11,7 +11,7 @@ ms.devlang: azurecli
 
 Get started with Azure Arc-enabled Kubernetes by using Azure CLI or Azure PowerShell to connect an existing Kubernetes cluster to Azure Arc.
 
-For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enabled Kubernetes agent overview](./conceptual-agent-overview.md).
+For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enabled Kubernetes agent overview](./conceptual-agent-overview.md). To try things out in a sample/practice experience, visit the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ In addition to the prerequisites below, be sure to meet all [network requirement
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 * An [identity (user or service principal)](system-requirements.md#azure-ad-identity-requirements) which can be used to [log in to Azure PowerShell](/powershell/azure/authenticate-azureps)  and connect your cluster to Azure Arc.
-* [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps)
+* [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-azure-powershell)
 * The **Az.ConnectedKubernetes** PowerShell module, installed by running the following command:
 
     ```azurepowershell-interactive
@@ -400,3 +400,4 @@ Remove-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName Azure
 
 * Learn how to [deploy configurations using GitOps with Flux v2](tutorial-use-gitops-flux2.md).
 * [Troubleshoot common Azure Arc-enabled Kubernetes issues](troubleshooting.md).
+* Experience Azure Arc-enabled Kubernetes automated scenarios with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/).

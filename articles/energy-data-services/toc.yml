@@ -66,6 +66,8 @@
           href: how-to-integrate-airflow-logs-with-azure-monitor.md
         - name: Elastic logs integration with Azure Monitor
           href: how-to-integrate-elastic-logs-with-azure-monitor.md
+        - name: Integrate OSDU Service Logs with Azure Monitor
+          href: how-to-integrate-osdu-service-logs-with-azure-monitor.md
     - name: Security
       items:
         - name: Set up Private Links
@@ -78,6 +80,8 @@
           href: how-to-use-managed-identity.md  
         - name: Set up Resource sharing (CORS)
           href: how-to-enable-cors.md
+        - name: Set up audit logs
+          href: how-to-manage-audit-logs.md
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY

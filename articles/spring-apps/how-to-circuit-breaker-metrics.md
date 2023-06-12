@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with Application Insights Java in-process agent. With this feature, you can monitor the metrics of Resilience4j circuit breaker from Application Insights with Micrometer.
 
@@ -59,12 +59,12 @@ Use the following steps to build and deploy the sample applications.
        --resource-group ${resource-group-name} \
        --service ${Azure-Spring-Apps-instance-name} \
        --name resilience4j \
-       --jar-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1.BUILD-SNAPSHOT.jar
+       --artifact-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1-SNAPSHOT.jar
    az spring app deploy \
        --resource-group ${resource-group-name} \
        --service ${Azure-Spring-Apps-instance-name} \
        --name reactive-resilience4j \
-       --jar-path ./spring-cloud-circuitbreaker-demo-reactive-resilience4j/target/spring-cloud-circuitbreaker-demo-reactive-resilience4j-0.0.1.BUILD-SNAPSHOT.jar
+       --artifact-path ./spring-cloud-circuitbreaker-demo-reactive-resilience4j/target/spring-cloud-circuitbreaker-demo-reactive-resilience4j-0.0.1-SNAPSHOT.jar
    ```
 
 > [!NOTE]
@@ -102,8 +102,8 @@ Use the following steps to build and deploy the sample applications.
 >
 >   ```console
 >   /get
->   /get/delay/{seconds}
->   /get/fluxdelay/{seconds}
+>   /delay/{seconds}
+>   /fluxdelay/{seconds}
 >   ```
 
 ## Locate Resilence4j Metrics on the Azure portal
@@ -139,5 +139,4 @@ Use the following steps to build and deploy the sample applications.
 ## Next steps
 
 * [Application insights](./how-to-application-insights.md)
-* [Distributed tracing](./how-to-distributed-tracing.md)
 * [Circuit breaker dashboard](./tutorial-circuit-breaker.md)

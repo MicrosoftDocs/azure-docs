@@ -11,11 +11,12 @@ ms.topic: conceptual
 ms.date: 06/29/2022 
 ms.author: jomondi
 ms.reviewer: alamaral
-ms.collection: M365-identity-device-management 
+ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 --- 
 
 
-# SAML Request Signature Verification (Preview)  
+# SAML Request Signature Verification  
 
 SAML Request Signature Verification is a functionality that validates the signature of signed authentication requests. An App Admin now can enable and disable the enforcement of signed requests and upload the public keys that should be used to do the validation.  
 
@@ -28,7 +29,14 @@ If enabled Azure Active Directory will validate the requests against the public 
 - Key identifier in request is missing and two most recently added certificates don't match with the request signature.  
 - Request signed but algorithm missing.  
 - No certificate matching with provided key identifier.  
-- Signature algorithm not allowed. Only RSA-SHA256 is supported.  
+- Signature algorithm not allowed. Only RSA-SHA256 is supported.
+
+> [!NOTE] 
+> A `Signature` element in `AuthnRequest` elements is optional. If `Require Verification certificates` is not checked, Azure AD does not validate signed authentication requests if a signature is present. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
+
+>  If `Require Verification certificates` is checked, SAML Request Signature Verification will work for SP-initiated(service provider/relying party initiated) authentication requests only. Only the application configured by the service provider will have the access to to the private and public keys for signing the incoming SAML Authentication Requests from the application. The public key should be uploaded to allow the verification of the request, in which case AAD will have access to only the public key.
+
+> Enabling `Require Verification certificates` will not allow IDP-initiated authentication requests (like SSO testing feature, MyApps or M365 app launcher) to be validated as the IDP would not possess the same private keys as the registered application.
 
 ## To configure SAML Request Signature Verification in the Azure portal 
 

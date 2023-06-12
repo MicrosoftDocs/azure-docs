@@ -38,6 +38,9 @@ To quickly see SSPR in action and then come back to understand additional deploy
 > [!div class="nextstepaction"]
 > [Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
 
+> [!TIP]
+> As a companion to this article, we recommend using the [Plan your self-service password reset deployment guide](https://go.microsoft.com/fwlink/?linkid=2221501) when signed in to the Microsoft 365 Admin Center. This guide will customize your experience based on your environment. To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600). 
+
 ## Learn about SSPR
 
 Learn more about SSPR. See [How it works: Azure AD self-service password reset](./concept-sspr-howitworks.md).
@@ -70,7 +73,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 
 ### Guided walkthrough
 
-For a guided walkthrough of many of the recommendations in this article, see the [Plan your self-service password reset deployment](https://go.microsoft.com/fwlink/?linkid=2221600) guide.
+For a guided walkthrough of many of the recommendations in this article, see the [Plan your self-service password reset deployment](https://go.microsoft.com/fwlink/?linkid=2221501) guide when signed in to the Microsoft 365 Admin Center.  To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600).
 
 ### Training resources
 
@@ -88,7 +91,7 @@ For a guided walkthrough of many of the recommendations in this article, see the
 |Tutorials |[Complete an Azure AD self-service password reset pilot roll out](./tutorial-enable-sspr.md) |
 | |[Enabling password writeback](./tutorial-enable-sspr-writeback.md) |
 | |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
-| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.yml) |
+| FAQ|[Password management frequently asked questions](./passwords-faq.yml) |
 
 ### Solution architecture
 
@@ -128,7 +131,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 #### Required administrator roles
 
@@ -141,7 +144,7 @@ When technology projects fail, they typically do so due to mismatched expectatio
 
 ### Plan a pilot
 
-We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](../fundamentals/deployment-plans.md).
 
 To create a group, see how to [create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md). 
 
@@ -333,7 +336,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 * Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
-* Follow [Password management frequently asked questions](./active-directory-passwords-faq.yml) 
+* Follow [Password management frequently asked questions](./passwords-faq.yml) 
 
 ### Helpful documentation
 

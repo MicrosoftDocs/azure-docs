@@ -8,6 +8,7 @@ ms.author: jinzhong
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: devx-track-arm-template
 ms.topic: reference
 ms.date: 06/06/2022
 ---
@@ -16,9 +17,7 @@ ms.date: 06/06/2022
 
 This article contains reference information that may be useful when [configuring Kubernetes with Azure Machine Learning](./how-to-attach-kubernetes-anywhere.md).
 
-
 ## Supported Kubernetes version and region
-
 
 - Kubernetes clusters installing Azure Machine Learning extension have a version support window of "N-2", that is aligned with [Azure Kubernetes Service (AKS) version support policy](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy), where 'N' is the latest GA minor version of Azure Kubernetes Service.
 
@@ -76,7 +75,7 @@ Excluding your own deployments/pods, the **total minimum system resources requir
 > * For **higher network bandwidth and better disk I/O performance**, we recommend a larger SKU. 
 >     * Take [DV2/DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) as example, using the large SKU can reduce the time of pulling image for better network/storage performance. 
 >     * More information about AKS reservation can be found in [AKS reservation](../aks/concepts-clusters-workloads.md#resource-reservations).
-> * If you are using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](../aks/faq.md#what-is-the-size-limit-on-a-container-image-in-aks).
+> * If you are using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](../aks/faq.md#whats-the-size-limit-on-a-container-image-in-aks).
 
 ## Prerequisites for ARO or OCP clusters
 ### Disable Security Enhanced Linux (SELinux) 
@@ -395,7 +394,10 @@ More information about how to use ARM template can be found from [ARM template d
 
 | Date | Version |Version description |
 |---|---|---|
-| Feb 14, 2022 | 1.1.21 | Bug fixes.|
+| Apr 18 , 2023| 1.1.26 | Bug fixes and vulnerabilities fix. | 
+| Mar 27, 2023| 1.1.25 | Add amljob throttle. Fast fail for training job when SSH setup failed. Reduce Prometheus scrape interval to 30s. Improve error messages for inference. Fix vulnerable image. |
+| Mar 7, 2023| 1.1.23 | Change default instancetype to use 2Gi memory. Update metrics configurations for scoring-fe that add 15s scrape_interval. Add resource specification for mdc sidecar. Fix vulnerable image. Bug fixes.|
+| Feb 14, 2023 | 1.1.21 | Bug fixes.|
 | Feb 7, 2023 | 1.1.19 | Improve error return message for inference. Update default instance type to use 2Gi memory limit. Do cluster health check for pod healthiness, resource quota, Kubernetes version and extension version. Bug fixes|
 | Dec 27, 2022 | 1.1.17 | Move the Fluent-bit from DaemonSet to sidecars. Add MDC support. Refine error messages. Support cluster mode (windows, linux) jobs. Bug fixes|
 | Nov 29, 2022 | 1.1.16 |Add instance type validation by new CRD. Support Tolerance. Shorten SVC Name. Workload Core hour. Multiple Bug fixes and improvements. |

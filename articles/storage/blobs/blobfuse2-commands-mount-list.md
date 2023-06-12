@@ -60,7 +60,10 @@ The following flags are inherited from parent command [`blobfuse2 mount`](blobfu
 Display all current BlobFuse2 mount points:
 
 ```bash
-~$ blobfuse2 mount list
+sudo blobfuse2 mount list
+```
+Example output
+```output
 1 : /home/<user>/bf2a
 2 : /home/<user>/bf2b
 ```

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 11/07/2022
+ms.date: 03/28/2023
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: engagement-fy23

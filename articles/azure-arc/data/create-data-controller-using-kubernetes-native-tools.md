@@ -122,10 +122,6 @@ Edit the data controller configuration as needed:
 **OPTIONAL**
 - **name**: The default name of the data controller is `arc`, but you can change it if you want.
 - **displayName**: Set this to the same value as the name attribute at the top of the file.
-- **registry**: The Microsoft Container Registry is the default.  If you are pulling the images from the Microsoft Container Registry and [pushing them to a private container registry](offline-deployment.md), enter the IP address or DNS name of your registry here.
-- **dockerRegistry**: The secret to use to pull the images from a private container registry if required.
-- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc-enabled data services container images.
-- **imageTag**: The current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
 - **logsui-certificate-secret**: The name of the secret created on the Kubernetes cluster for the logs UI certificate.
 - **metricsui-certificate-secret**: The name of the secret created on the Kubernetes cluster for the metrics UI certificate.
 
@@ -173,3 +169,4 @@ If you encounter any troubles with creation, please see the [troubleshooting gui
 
 - [Create a SQL managed instance using Kubernetes-native tools](./create-sql-managed-instance-using-kubernetes-native-tools.md)
 - [Create a PostgreSQL server using Kubernetes-native tools](./create-postgresql-server-kubernetes-native-tools.md)
+
