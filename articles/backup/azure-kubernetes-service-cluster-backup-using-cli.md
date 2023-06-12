@@ -1,17 +1,17 @@
 ---
-title: Back up Azure Kubernetes Service (AKS) using Azure PowerShell 
-description: This article explains how to back up Azure Kubernetes Service (AKS) using PowerShell.
+title: Back up Azure Kubernetes Service (AKS) using Azure Azure CLI
+description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: how-to
 ms.service: backup
-ms.date: 05/05/2023
-ms.custom: devx-track-azurepowershell
+ms.date: 06/13/2023
+ms.custom: devx-track-azurecli
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Back up Azure Kubernetes Service using PowerShell (preview) 
+# Back up Azure Kubernetes Service using Azure CLI (preview) 
 
-This article describes how to configure and back up Azure Kubernetes Service (AKS) using Azure PowerShell.
+This article describes how to configure and back up Azure Kubernetes Service (AKS) using Azure CLI.
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 
@@ -33,59 +33,121 @@ For more information on the supported scenarios, limitations, and availability, 
 
 ## Create a Backup vault
 
-A Backup vault is a management entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data while minimizing management overhead. They are based on the Azure Resource Manager model, which provides enhanced capabilities to help secure backup data. Before you create a Backup vault, choose the storage redundancy of the data in the vault, and then create the Backup vault with that storage redundancy and the location. 
+A Backup vault is a management entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Here, we're creating a Backup vault *TestBkpVault* in *West US* region under the resource group *testBkpVaultRG*. Use the `New-AzDataProtectionBackupVault` cmdlet to create a Backup vault. Learn more about [creating a Backup vault](backup-vault-overview.md#create-a-backup-vault).
+Before you create a Backup vault, choose the storage redundancy of the data in the vault, and then create the Backup vault with that storage redundancy and the location. Learn more about [creating a Backup vault](backup-vault-overview.md#create-a-backup-vault).
 
 >[!Note]
 >Though the selected vault may have the *global-redundancy* setting, backup for AKS currently supports **Operational Tier** only. All backups are stored in your subscription in the same region as that of the AKS cluster, and they aren't copied to Backup vault storage.
 
-1. To define the storage settings of the Backup vault, run the following cmdlet:
+To create the Backup vault, run the following command:
 
-   >[!Note]
-   >The vault is created with only *Local Redundancy* and *Operational Data store* support.
-
-    ```azurepowershell
-    $storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type LocallyRedundant -DataStoreType OperationalStore
-    ```
-
-2. To create the Backup vault as per the details mentioned earlier, run the following cmdlet:
-
-   ```azurepowershell
-   New-AzDataProtectionBackupVault -ResourceGroupName testBkpVaultRG -VaultName TestBkpVault -Location westus -StorageSetting $storageSetting
-   $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault
-   ```
+```azurecli
+az dataprotection backup-vault create --resource-group $backupvaultresourcegroup --vault-name $backupvault --location $region --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
+```
 
 Once the vault creation is complete, create a backup policy to protect AKS clusters.
 
 ## Create a backup policy
 
-To understand the inner components of a backup policy for the backup of AKS, retrieve the policy template using the cmdlet `Get-AzDataProtectionPolicyTemplate`. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
+To understand the inner components of a backup policy for the backup of AKS, retrieve the policy template using the command `az dataprotection backup-policy get-default-policy-template`. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
-```azurepowershell
-$policyDefn = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureKubernetesService
+```azurecli
+az dataprotection backup-policy get-default-policy-template --datasource-type AzureKubernetesService > akspolicy.json
+
+
+{
+  "datasourceTypes": [
+    "Microsoft.ContainerService/managedClusters"
+  ],
+  "name": "AKSPolicy1",
+  "objectType": "BackupPolicy",
+  "policyRules": [
+    {
+      "backupParameters": {
+        "backupType": "Incremental",
+        "objectType": "AzureBackupParams"
+      },
+      "dataStore": {
+        "dataStoreType": "OperationalStore",
+        "objectType": "DataStoreInfoBase"
+      },
+      "name": "BackupHourly",
+      "objectType": "AzureBackupRule",
+      "trigger": {
+        "objectType": "ScheduleBasedTriggerContext",
+        "schedule": {
+          "repeatingTimeIntervals": [
+            "R/2023-01-04T09:00:00+00:00/PT4H"
+          ]
+        },
+        "taggingCriteria": [
+          {
+            "isDefault": true,
+            "tagInfo": {
+              "id": "Default_",
+              "tagName": "Default"
+            },
+            "taggingPriority": 99
+          }
+        ]
+      }
+    },
+    {
+      "isDefault": true,
+      "lifecycles": [
+        {
+          "deleteAfter": {
+            "duration": "P7D",
+            "objectType": "AbsoluteDeleteOption"
+          },
+          "sourceDataStore": {
+            "dataStoreType": "OperationalStore",
+            "objectType": "DataStoreInfoBase"
+          }
+        }
+      ],
+      "name": "Default",
+      "objectType": "AzureRetentionRule"
+    }
+  ]
+}
+
 ```
 
 The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *365 days*.
 
 
-```azurepowershell
-$policyDefn.PolicyRule[0]. Trigger | fl
+```azurecli
+Scheduled trigger:
+      "trigger": {
+        "objectType": "ScheduleBasedTriggerContext",
+        "schedule": {
+          "repeatingTimeIntervals": [
+            "R/2023-01-04T09:00:00+00:00/PT4H"
+          ]
+        },
 
-ObjectType: ScheduleBasedTriggerContext
-ScheduleRepeatingTimeInterval: {R/2023-04-05T13:00:00+00:00/PT4H}
-TaggingCriterion: {Default}
+Default retention lifecycle:
+      "lifecycles": [
+        {
+          "deleteAfter": {
+            "duration": "P7D",
+            "objectType": "AbsoluteDeleteOption"
+          },
+          "sourceDataStore": {
+            "dataStoreType": "OperationalStore",
+            "objectType": "DataStoreInfoBase"
+          }
+        }
+      ],
 
-$policyDefn.PolicyRule[1]. Lifecycle | fl
 
-DeleteAfterDuration: P7D
-DeleteAfterObjectType: AbsoluteDeleteOption
-SourceDataStoreObjectType : DataStoreInfoBase
-SourceDataStoreType: OperationalStore
-TargetDataStoreCopySetting:
 ```
 
-Backup for AKS provides multiple backups per day. The backups are equally distributed across the day, if you require more frequent backups by choosing the *Hourly backup frequency* that has the ability to take backups with intervals of every *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the *Time interval* you've selected. For example, if you select *Every 4 hours*, then the backups are taken at approximately in the interval of *every 4 hours*.
+Backup for AKS provides multiple backups per day. If you require more frequent backups, choose the *Hourly backup frequency* that has the ability to take backups with intervals of every *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the *Time interval* you've selected.
+
+For example, if you select *Every 4 hours*, then the backups are taken at approximately in the interval of *every 4 hours*.
 
 If *once a day backup* is sufficient, then choose the *Daily backup frequency*. In the daily backup frequency, you can specify the *time of the day* when your backups should be taken.
 
@@ -233,6 +295,6 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## Next steps
 
-- [Restore Azure Kubernetes Service cluster using PowerShell (preview)](azure-kubernetes-service-cluster-restore-using-powershell.md)
+- [Restore Azure Kubernetes Service cluster using Azure CLI (preview)](azure-kubernetes-service-cluster-restore-using-cli.md)
 - [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)
