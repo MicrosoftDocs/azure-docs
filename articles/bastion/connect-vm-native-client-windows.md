@@ -13,14 +13,15 @@ ms.author: cherylmc
 
 This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local Windows computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD).
 
-Additionally, you can now also upload or download files, depending on the connection type and client. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client. Controlling access to features such as file transfer via Bastion isn't supported.
+The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
 
-For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md).
+After you've configured Bastion for native client support, you can connect to a VM using the native Windows client. This lets you do the following:
+
+  * Connect using SSH or RDP.
+  * [Upload and download files](vm-upload-download-native.md#rdp) over RDP.
+  * If you want to connect using SSH and need to upload files to your target VM, you can use the instructions for the [az network bastion tunnel](connect-vm-native-client-linux.md) command instead.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
-
-> [!NOTE]
-> This configuration requires the Standard SKU tier for Azure Bastion.
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -106,6 +107,20 @@ Verify that the following roles and ports are configured in order to connect to 
 ## <a name="connect-IP"></a>Connect to VM via IP Address
 
 [!INCLUDE [IP address](../../includes/bastion-native-ip-address.md)]
+
+Use the following commands as examples:
+
+   **RDP:**
+   
+   ```azurecli
+   az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>
+   ```
+   
+   **SSH:**
+   
+   ```azurecli
+   az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-addres "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+   ```
 
 ## Next steps
 

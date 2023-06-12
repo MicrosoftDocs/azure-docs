@@ -19,8 +19,9 @@ This article helps you configure your Bastion deployment to accept connections f
 * Controlling access to features such as file transfer via Bastion isn't supported.
 * You can configure this feature by either modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified.
 
-> [!NOTE]
-> This configuration requires the Standard SKU tier for Azure Bastion.
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>
 
 ## Deploy Bastion with the native client feature
 

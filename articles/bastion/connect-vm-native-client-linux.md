@@ -11,16 +11,11 @@ ms.author: cherylmc
 
 # Connect to a VM using Bastion and a Linux native client
 
-This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local Linux computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD).
+This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local Linux computer using the **az network bastion tunnel** command. You can also use the steps in this article to connect from the native client on a Windows computer. 
 
-Additionally, you can now also upload or download files, depending on the connection type and client. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client. Controlling access to features such as file transfer via Bastion isn't supported.
-
-For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md).
+The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
-
-> [!NOTE]
-> This configuration requires the Standard SKU tier for Azure Bastion.
 
 After you've configured Bastion for native client support, you can connect to a VM using the **az network bastion tunnel** command. When you use this command, you can do the following:
 
@@ -56,6 +51,14 @@ This connection supports file upload from the local computer to the target VM. F
 ## <a name="connect-IP"></a>Connect to VM via IP Address
 
 [!INCLUDE [IP address](../../includes/bastion-native-ip-address.md)]
+
+Use the following command as an example:
+   
+   **Tunnel:**
+   
+   ```azurecli
+   az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
+   ```
 
 ## Next steps
 
