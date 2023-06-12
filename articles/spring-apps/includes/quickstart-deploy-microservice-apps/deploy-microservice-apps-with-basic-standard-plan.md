@@ -13,7 +13,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## 2 Prepare Spring Project
+## 2. Prepare Spring Project
 
 Use the following steps to prepare the sample locally.
 
@@ -31,15 +31,15 @@ Use the following steps to prepare the sample locally.
 
 1. After the script executes successfully, go to `http://localhost:8080` in your browser to access the PetClinic app.
 
-## 3 Provision
+## 3. Prepare the cloud environment
 
 The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
 
-### 3.1 Sign in to the Azure portal
+### 3.1. Sign in to the Azure portal
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-### 3.2 Provision an instance of Azure Spring Apps
+### 3.2. Create an Azure Spring Apps instance
 
 1. Select **Create a resource**.
 
@@ -84,7 +84,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. After validation, select **Apply** to finish the Config Server configuration.
 
-## 4 Deployment
+## 4. Deploy the app to Azure Spring Apps
 
 Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy microservice applications.
 

@@ -13,7 +13,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 -->
 
-## 6 Clean up resources
+## 6. Clean up resources
 
 You can delete the Azure resource group, which includes all the resources in the resource group. Use the following steps to delete the entire resource group, including the newly created service:
 

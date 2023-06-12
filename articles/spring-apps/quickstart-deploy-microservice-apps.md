@@ -31,7 +31,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
 
-## 1 Prerequisites
+## 1. Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
@@ -39,21 +39,21 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 [!INCLUDE [deploy-microservice-apps-with-basic-standard-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-basic-standard-plan.md)]
 
-## 5 Validation
+## 5. Validation
 
-### 5.1 Access application
+### 5.1. Access application
 
 According to the content output by the deployment, open the URL exposed by the app  named `api-gateway`, for example, `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io`.
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application.png" alt-text="Screenshot of PetClinic application running on Azure Spring Apps." lightbox="media/quickstart-deploy-microservice-apps/application.png":::
 
-### 5.2 Query application logs
+### 5.2. Query application logs
 
 After you browse each function of the Pet Clinic, the Log Analytics workspace collects logs of each application. You can check the logs by using your custom queries.
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png" alt-text="Screenshot of the Azure portal showing the Logs page of the query on PetClinic application and the results." lightbox="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png":::
 
-### 5.2 Monitor application
+### 5.3. Monitor application
 
 Application Insights monitors the application dependencies, as shown by the following application tracing map:
 
@@ -65,7 +65,7 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 
 [!INCLUDE [clean-up-resources](includes/quickstart-deploy-microservice-apps/clean-up-resources.md)]
 
-## 7 Next steps
+## 7. Next steps
 
 > [!div class="nextstepaction"]
 > [Quickstart: Using Log Analytics with Azure Spring Apps](./quickstart-setup-log-analytics.md)
