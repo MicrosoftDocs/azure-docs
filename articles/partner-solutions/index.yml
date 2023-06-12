@@ -6,7 +6,7 @@ brand: azure
 
 metadata:
   title: Azure Native ISV Services
-  description: Use Azure Native ISV Services to seamlessly provision, manage, and integrate preferred third-party solutions on Azure. 
+  description: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
   author: flang-msft
   ms.topic: hub-page
   ms.date: 06/06/2023
