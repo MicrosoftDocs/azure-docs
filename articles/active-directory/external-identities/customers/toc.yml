@@ -110,6 +110,8 @@ items:
                           href: how-to-single-page-application-react-prepare-tenant.md
                         - name: Prepare app
                           href: how-to-single-page-application-react-prepare-app.md
+                        - name: Configure app for authentication
+                          href: how-to-single-page-application-react-configure-authentication.md
                         - name: Sign in and sign out
                           href: how-to-single-page-application-react-sign-in-out.md
             - name: Web app

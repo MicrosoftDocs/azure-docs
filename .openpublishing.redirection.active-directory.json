@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/reference-app-multi-instancing.md",
+      "redirect_url": "/azure/active-directory/develop/configure-app-multi-instancing",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
       "redirect_url": "/azure/active-directory/develop/enterprise-app-role-management",
       "redirect_document_id": false
@@ -2511,6 +2516,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-authentication-protocols.md",
+      "redirect_url": "/azure/active-directory/develop/authentication-protocols",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-certificate-credentials.md",
+      "redirect_url": "/azure/active-directory/develop/certificate-credentials",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-authentication-scenarios.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-authentication-scenarios",
       "redirect_document_id": false
@@ -2727,6 +2742,16 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-saml-protocol-reference.md",
+      "redirect_url": "/azure/active-directory/develop/saml-protocol-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md",
+      "redirect_url": "/azure/active-directory/develop/howto-add-app-roles-in-apps",
       "redirect_document_id": false
     },
     {
