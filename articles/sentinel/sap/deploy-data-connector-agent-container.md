@@ -50,11 +50,11 @@ The agent connects to your SAP system to pull logs and other data from it, then 
 
 Your SAP authentication mechanism, and where you deploy your VM, will determine how and where your agent configuration information, including your SAP authentication secrets, is stored. These are the options, in descending order of preference:
 
-- An Azure Key Vault, accessed through an Azure **system-assigned managed identity**
-- An Azure Key Vault, accessed through an Azure AD **registered-application service principal**
+- An **Azure Key Vault**, accessed through an Azure **system-assigned managed identity**
+- An **Azure Key Vault**, accessed through an Azure AD **registered-application service principal**
 - A plaintext **configuration file**
 
-If your **SAP authentication** infrastructure is based on **SNC**, using **X.509 certificates**, your only option is to use a configuration file. Select the [**Configuration file** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
+If your SAP authentication is done using SNC and X.509 certificates, your only option is to use a configuration file. Select the [**Configuration file** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
 
 If you're not using SNC, then your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](../../key-vault/general/authentication.md). How you access your key vault depends on where your VM is deployed:
 
