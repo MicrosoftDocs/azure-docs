@@ -36,7 +36,7 @@ Create a new python file `app.py`.
 Install the following dependencies to your project. We will use [flask](https://pypi.org/project/Flask/) to create the web application.
 
 ```console
-python -m pip install flask azure-communication-callautomation azure-eventgrid
+python -m pip install flask azure-communication-callautomation
 ```
 
 ## Set up a public URI for the local application
