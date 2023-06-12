@@ -22,7 +22,7 @@ Use the following steps to prepare the sample locally.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Install the [Azure Developer CLI](https://aka.ms/azd-install)(AZD), version 1.0.0.
+Install the [Azure Developer CLI](https://aka.ms/azd-install)(AZD), version 1.0.1.
 
 Use AZD to initialize the event-driven application from the Azure Developer CLI templates.
 
