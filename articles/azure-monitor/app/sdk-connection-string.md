@@ -3,7 +3,7 @@ title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
 ms.date: 11/15/2022
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---
 
@@ -19,7 +19,7 @@ Key-value pairs provide an easy way for users to define a prefix suffix combinat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-Don't use a connection string and instrumentation key simultaneously. Whichever was set last will take precedence.
+ 
 
 ## Scenario overview
 
@@ -221,7 +221,7 @@ For more information, see [Connection string configuration](./java-standalone-co
 
 JavaScript doesn't support the use of environment variables. You have two options:
 
-- To use the SDK Loader Script, see [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights).
+- To use the SDK Loader Script, see [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#get-started).
 - Manual setup:
    ```javascript
    import { ApplicationInsights } from '@microsoft/applicationinsights-web'

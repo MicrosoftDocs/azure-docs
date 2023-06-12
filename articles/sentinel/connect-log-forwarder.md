@@ -26,7 +26,7 @@ Using the link provided below, you will run a script on the designated machine t
     - listening for Syslog messages from your security solutions on TCP port 514
     - forwarding only the messages it identifies as CEF to the Log Analytics agent on localhost using TCP port 25226
 
-Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+For information about deploying Syslog and/or CEF logs with the Azure Monitor Agent, review the [options for streaming logs in the CEF and Syslog format to Microsoft Sentinel](connect-cef-syslog-options.md).
  
 ## Prerequisites
 
@@ -60,6 +60,7 @@ Your machine must meet the following requirements:
 
 - **Packages**
     - You must have **Python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
+    - You must have the [GNU Wget](https://www.gnu.org/software/wget/) package.
 
 - **Syslog RFC support**
   - Syslog RFC 3164

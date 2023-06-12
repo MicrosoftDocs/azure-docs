@@ -102,6 +102,12 @@ az network bastion create \
 
 It can take a few minutes for the Azure Bastion host to deploy.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
+
 ## Configure NSG
 
 Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.

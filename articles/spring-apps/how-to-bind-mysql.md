@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java, service-connector
+ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java, service-connector, devx-track-extended-java
 ---
 
 # Connect an Azure Database for MySQL instance to your application in Azure Spring Apps

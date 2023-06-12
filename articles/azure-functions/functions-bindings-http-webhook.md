@@ -2,6 +2,7 @@
 title: Azure Functions HTTP triggers and bindings
 description: Learn to use HTTP triggers and bindings in Azure Functions.
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---

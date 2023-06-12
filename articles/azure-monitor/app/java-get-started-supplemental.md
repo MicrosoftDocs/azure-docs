@@ -4,7 +4,7 @@ description: This article shows you how to set-up Application Insights
 ms.topic: conceptual
 ms.date: 05/20/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 
@@ -71,6 +71,8 @@ If you're using a third-party container image that you can't modify, mount the A
 For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 ## Java Application servers
+
+The following sections show how to set the Application Insights Java agent path for different application servers. You can find the configuration options [here](./java-standalone-config.md).
 
 ### Tomcat 8 (Linux)
 
@@ -223,4 +225,3 @@ Create a new file `jvm.options` in the server directory (for example, `<openlibe
 ### Others
 
 See your application server documentation on how to add JVM args.
-

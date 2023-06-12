@@ -17,7 +17,7 @@ keywords:
 
 # QuickStart: Analyze text content
 
-Get started with the Content Studio, REST API, or client SDKs to do basic text moderation. The Content Safety service provides you with AI algorithms for flagging objectionable content. Follow these steps to try it out.
+Get started with the Content Safety Studio, REST API, or client SDKs to do basic text moderation. The Content Safety service provides you with AI algorithms for flagging objectionable content. Follow these steps to try it out.
 
 > [!NOTE]
 > 

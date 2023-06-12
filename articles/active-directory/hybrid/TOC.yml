@@ -21,8 +21,8 @@
       href:  common-scenarios.md
     - name:  Tools for synchronization
       href:  sync-tools.md
-    - name:  Choosing the right sync tool
-      href:  https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad
+    - name:  Choosing the right sync client
+      href:  https://aka.ms/EvaluateSyncOptions
     - name:  Steps to start
       href:  get-started.md
     - name:  Prerequisites
@@ -39,6 +39,8 @@
       href:  connect/how-to-connect-health-operations.md
     - name:  Migrate your sync tool
       href:  cloud-sync/migrate-azure-ad-connect-to-cloud-sync.md
+    - name:  Decommission connect sync V1
+      href:  decommission-connect-sync-v1.md
   - name: Managing users and groups
     items: 
     - name:  Provision users on-demand
