@@ -10,7 +10,7 @@ manager: femila
 # Troubleshoot Azure Virtual Desktop Insights
 
 > [!IMPORTANT]
-> Azure Monitor Agent is currently in PREVIEW.
+> Azure Virtual Desktops Insights support for the Azure Monitor Agent is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article presents known issues and solutions for common problems in Azure Virtual Desktop Insights.

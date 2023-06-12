@@ -114,7 +114,7 @@ To learn more about input delay performance counters, see [User Input Delay perf
 ## Estimating Windows Event Log ingestion
 
 > [!IMPORTANT]
-> Azure Monitor Agent is currently in PREVIEW.
+> Azure Virtual Desktops Insights support for the Azure Monitor Agent is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Windows Event Logs are data sources collected by either the Log Analytics Agent or the Azure Monitor Agent (preview) on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.

@@ -10,7 +10,7 @@ manager: femila
 # Use Azure Virtual Desktop Insights to monitor your deployment
 
 > [!IMPORTANT]
-> Azure Monitor Agent is currently in PREVIEW.
+> Azure Virtual Desktops Insights support for the Azure Monitor Agent is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Virtual Desktop Insights is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Azure Virtual Desktop environments. This topic will walk you through how to set up Azure Virtual Desktop Insights to monitor your Azure Virtual Desktop environments.
