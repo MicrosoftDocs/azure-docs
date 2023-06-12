@@ -4,7 +4,7 @@ description: Troubleshoot cluster baremetalmachine with three Rs for Azure Opera
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 06/13/2023
+ms.date: 06/12/2023
 author: JAC0BSMITH
 ms.author: jacobsmith
 ---
@@ -16,9 +16,9 @@ The time required to complete each of these actions is relatively similar, with 
 
 ## Prerequisites
 
-1. Familiarize yourself with the capabilities referenced in this article by reviewing the [Bare Metal Machine Actions](howto-baremetal-functions.md)
-1. Get the name of the resource group for the BMM
-1. Get the name of the bare metal machine  that requires a lifecycle management operation
+- Familiarize yourself with the capabilities referenced in this article by reviewing the [Bare Metal Machine Actions](howto-baremetal-functions.md)
+- Get the name of the resource group for the BMM
+- Get the name of the bare metal machine  that requires a lifecycle management operation
 
 ## Identifying the corrective action
 
