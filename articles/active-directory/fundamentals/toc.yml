@@ -6,6 +6,10 @@ items:
   items:
   - name: What is Azure Active Directory?
     href: active-directory-whatis.md
+  - name: Identity fundamentals
+    href: identity-fundamental-concepts.md
+  - name: Introduction to identity and access management (IAM)
+    href: introduction-identity-access-management.md
 - name: First steps
   expanded: true
   items:
@@ -158,7 +162,7 @@ items:
       - name: Transition to the cloud
         href: road-to-the-cloud-migrate.md
     - name: Parallel identity options
-      href: azure-active-directory-parallel-identity-options.md
+      href: parallel-identity-options.md
     - name: Automate identity provisioning to applications
       items:
       - name: Automate identity provisioning to applications introduction
@@ -247,6 +251,10 @@ items:
           href: resilience-with-device-states.md
         - name: Continuous access evaluation
           href: resilience-with-continuous-access-evaluation.md
+        - name: The backup authentication system
+          href: backup-authentication-system.md
+        - name: Building application support for the backup authentication system
+          href: backup-authentication-system-apps.md
         - name: External user authentication
           href: resilience-b2b-authentication.md
         - name: Hybrid authentication
@@ -280,23 +288,23 @@ items:
     - name: Secure with Azure Active Directory
       items:
       - name: Introduction
-        href: secure-with-azure-ad-introduction.md
+        href: secure-introduction.md
       - name: Fundamentals
-        href: secure-with-azure-ad-fundamentals.md
+        href: secure-fundamentals.md
       - name: Resource management
-        href: secure-with-azure-ad-resource-management.md
+        href: secure-resource-management.md
       - name: Delegating administration in a single tenant
-        href: secure-with-azure-ad-single-tenant.md
+        href: secure-single-tenant.md
       - name: Delegating administration in multiple tenants
-        href: secure-with-azure-ad-multiple-tenants.md
+        href: secure-multiple-tenants.md
       - name: Best practices
-        href: secure-with-azure-ad-best-practices.md
+        href: secure-best-practices.md
   - name: Deployment guide
     items:
     - name: Azure Active Directory deployment plans
-      href: active-directory-deployment-plans.md
+      href: deployment-plans.md
     - name: Azure Active Directory B2C deployment plans
-      href: azure-active-directory-b2c-deployment-plans.md
+      href: b2c-deployment-plans.md
   - name: Azure AD Operations reference
     items:
     - name: Introduction

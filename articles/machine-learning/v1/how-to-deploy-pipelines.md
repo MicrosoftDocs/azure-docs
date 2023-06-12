@@ -10,7 +10,7 @@ ms.author: zhanxia
 ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022, devx-track-python
 ---
 
 # Publish and track machine learning pipelines
