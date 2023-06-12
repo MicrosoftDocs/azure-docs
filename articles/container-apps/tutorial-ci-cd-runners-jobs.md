@@ -58,12 +58,10 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 
 ## Prerequisites
 
-| Prerequisite | Remarks |
-|---|---|
-| Azure account | If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
-| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
+- **Azure account**: If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+- **Azure CLI**: Install the [Azure CLI](/cli/azure/install-azure-cli).
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
-| Azure DevOps organization with an active subscription | If you don't have one, you [can create one for free](https://azure.microsoft.com/services/devops/). |
+- **Azure DevOps organization**: If you don't have a DevOps organization with an active subscription, you [can create one for free](https://azure.microsoft.com/services/devops/).
 ::: zone-end
 
 Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a list of limitations.
@@ -147,13 +145,19 @@ The Azure Container Apps environment acts as a secure boundary around container 
 
 To execute a workflow, you need to create a GitHub repository that contains the workflow definition.
 
-1. Navigate to [GitHub](https://github.com) and sign in to your account or create a new one.
+1. Navigate to [GitHub](https://github.com/new) and sign in.
 
-1. Create a new repository.
-    - In the **Repository name** field, enter a name for your repository.
-    - Select **Private** visibility.
-    - Select **Add a README file**.
-    - Select **Create repository**.
+1. Create a new repository by entering the following values.
+
+    | Setting | Value |
+    | Owner | Select your GitHub username. |
+    | Repository name | Enter a name for your repository. |
+    | Visibility | Select **Private**. |
+    | Initialize this repository with | Select **Add a README file**. |
+
+    Leave the rest of the values as their default selection.
+
+1. Select **Create repository**.
 
 1. In your new repository, select **Actions**.
 
@@ -175,16 +179,23 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
 1. Select **Generate new token**.
 
-1. In the *New fine-grained personal access token* screen, enter the following information:
-    - In *Token name*, enter a name for your token.
-    - In *Expiration*, select **90 days**. You need to update the job with a new token before it expires.
-    - Under *Repository access*, select **Only select repositories**.
-        - Select the repository you created earlier.
-    - Under *Repository permissions*:
-        - Select **Read-only** access to *actions*
-        - Select **Read and write** access to *administration*
-        - Select **Read** access to *metadata*
-    - Select **Generate token**.
+1. In the *New fine-grained personal access token* screen, enter the following values.
+
+    | Setting | Value |
+    |---|---|
+    | Token name | Enter a name for your token. |
+    | Expiration | Select **30 days**. |
+    | Repository access | Select **Only select repositories** and select the repository you created. |
+
+    Enter the following values for *Repository permissions*.
+
+    | Setting | Value |
+    |---|---|
+    | Actions | Select **Read-only**. |
+    | Administration | Select **Read and write**. |
+    | Metadata | Select **Read-only**. |
+
+1. Select **Generate token**.
 
 1. Copy the token value.
 
@@ -197,9 +208,12 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     ```
 
     Replace the placeholders with the following values:
-    - `<GITHUB_PAT>`: The GitHub PAT you generated.
-    - `<REPO_OWNER>`: The owner of the repository you created earlier. This value is usually your GitHub username.
-    - `<REPO_NAME>`: The name of the repository you created earlier. This value is the same name you entered in the *Repository name* field.
+
+    | Placeholder | Value |
+    |---|---|
+    | `<GITHUB_PAT>` | The GitHub PAT you generated. |
+    | `<REPO_OWNER>` | The owner of the repository you created earlier. This value is usually your GitHub username. |
+    | `<REPO_NAME>` | The name of the repository you created earlier. This value is the same name you entered in the *Repository name* field. |
 
 ## Build the GitHub Actions runner container image
 
@@ -299,19 +313,23 @@ To verify the job was configured correctly, you modify the workflow to use a sel
 
 1. In the GitHub repository, navigate to the workflow you generated earlier. It's a YAML file in the `.github/workflows` directory.
 
-1. Select **Edit**.
+1. Select **Edit in place**.
 
-1. Update the `runs-on` property with to `self-hosted`:
+1. Update the `runs-on` property to `self-hosted`:
 
     ```yaml
     runs-on: self-hosted
     ```
 
-1. Select **Commit changes...** and then **Commit changes**.
+1. Select **Commit changes...**.
+
+1. Select **Commit changes**.
 
 1. Navigate to the **Actions** tab.
 
-    You should see a new workflow run that's queued. Within 30 seconds, the job execution should start and the workflow run should complete.
+    A new workflow is now queued. Within 30 seconds, the job execution will start and the workflow will complete soon after.
+
+    Wait for the action to complete before going on the next step.
 
 1. List the executions of the job to confirm a job execution was created and completed successfully.
 
