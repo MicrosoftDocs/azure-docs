@@ -1,7 +1,7 @@
 ---
 title: Entity metadata provided by Named Entity Recognition
 titleSuffix: Azure Cognitive Services
-description: Learn about entity resolutions in the NER feature.
+description: Learn about entity metadata in the NER feature.
 services: cognitive-services
 author: jboback
 manager: nitinme

@@ -1,7 +1,7 @@
 ---
 title: Preview API Overview
 titleSuffix: Azure Cognitive Services
-description: Learn about the entities the NER feature can recognize from unstructured text.
+description: Learn about the NER preview API.
 services: cognitive-services
 author: jboback
 manager: nitinme
@@ -27,7 +27,7 @@ Entity tags are used to further identify an entity where a detected entity is ta
 The changes introduce better flexibility for named entity recognition, including:
 * More granular entity recognition through introducing the tags list where an entity could be tagged by more than one entity tag.
 * Overlapping entities where entities could be recognized as more than one entity type and if so, this entity would be returned twice. If an entity was recognized to belong to two entity tags under the same entity type, both entity tags are returned in the tags list.
-* Filtering entities using entity tags, you can learn more about this by navigating to [this article](../how-to-call#select-which-entities-to-be-returned.md).
+* Filtering entities using entity tags, you can learn more about this by navigating to [this article](../how-to-call#select-which-entities-to-be-returned-(Preview API only).md).
 * Metadata Objects which contain additional information about the entity but currently only act as a wrapper for the existing entity resolution feature. You can learn more about this new feature [here](entity-metadata.md).
 
 ## Generally Avaialble to Preview API Entity Mappings
