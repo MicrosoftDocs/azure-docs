@@ -11,6 +11,7 @@ ms.author: meyetman
 author: meyetman
 ms.date: 08/01/2022
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-build-2022, devx-track-arm-template
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 
@@ -597,11 +598,7 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 - When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
-- To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
-    - `Microsoft.Network/virtualNetworks/*/read` on the VNet resources.
-    - `Microsoft.Network/virtualNetworks/subnets/join/action` on the subnet resource.
-    
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 - It can sometimes take up to 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
