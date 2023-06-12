@@ -83,7 +83,7 @@ az network vnet subnet update --resource-group $resourceGroupName --vnet-name $v
 
 To configure a private endpoint, the user must have permission to the Microsoft.ElasticSan/elasticSans/volumeGroups/PrivateEndpointConnectionsApproval/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan). Permission for this action is included in the Elastic SAN Network Admin role, but can also be granted via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
-When you create a private endpoint, you must specify the Elastic SAN and the volume group to which it connects.
+When you create a private endpoint, you must specify the Elastic SAN and the volume group to which it connects. You can configure a private endpoint using the Azure portal, PowerShell, or the Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
@@ -104,17 +104,23 @@ If you create your private endpoint from the volume group page, it is done in th
     - **Elastic SAN sub-resource**: The name of the volume group to which the private endpoint will have access.
     - **Virtual network**: The virtual network that contains the subnet to which the endpoint will be connected.
     - **Subnet**: The virtual network subnet to which the endpoint will be connected.
-    - **Integrate with private DNS zone**: Elastic SAN private endpoints require integration with your private DNS zone. Integrating it with a custom DNS deployment is not supported.
+    - **Integrate with private DNS zone**: Select this box. Elastic SAN private endpoints require integration with your private DNS zone. Integrating it with a custom DNS deployment is not supported.
     - **Private DNS zone**: The FQDN of the private DNS zone for the private link.
 1. Back on the **Networking** page, select ***Save**.
 
 > [!NOTE]
 > If you create your endpoint from the private endpoint management page, your experience will vary slightly from the volume group context experience:
 >
-> - Specify the **Resourcetype** as `Microsoft.ElasticSan/elasticSans`.
+> On the **Resource** tab:
+> - Specify the **Resource type** as `Microsoft.ElasticSan/elasticSans`.
 > - Select your Elastic SAN as the **Resource**.
-> - For **Target sub-resource**, select your volume group.
+> - Select your volume group as the **Target sub-resource**.
+>
+> On the **Virtual Network** tab:
 > - Under **Private IP configuration**, select **Dynamically allocate IP address**.
+>
+> On the **DNS** tab:
+> - Under **Private DNS integration**, set **Integrate with private DNS zone** to `Yes`.
 
 :::image type="content" source="media/elastic-san-private-endpoint/elastic-san-private-endpoint-create.png" alt-text="Screenshot of the Elastic SAN private endpoint creation page." lightbox="media/elastic-san-private-endpoint/elastic-san-private-endpoint-create.png":::
 
