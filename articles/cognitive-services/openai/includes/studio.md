@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use Azure OpenAI Service via the Azure AI Studio'
+title: 'Quickstart: Use Azure OpenAI Service via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure AI Studio. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -22,13 +22,13 @@ keywords:
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Prerequisites)
 
-## Go to the Azure AI Studio
+## Go to the Azure OpenAI Studio
 
-Navigate to Azure AI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
+Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-From the Azure AI Studio landing page navigate further to explore examples for prompt completion, manage your deployments and models, and find learning resources such as documentation and community forums. 
+From the Azure OpenAI Studio landing page navigate further to explore examples for prompt completion, manage your deployments and models, and find learning resources such as documentation and community forums. 
 
-:::image type="content" source="../media/quickstarts/studio-start.png" alt-text="Screenshot of the Azure AI Studio landing page." lightbox="../media/quickstarts/studio-start.png":::
+:::image type="content" source="../media/quickstarts/studio-start.png" alt-text="Screenshot of the Azure OpenAI Studio landing page." lightbox="../media/quickstarts/studio-start.png":::
 
 Go to the [Playground](#playground) for experimentation and fine-tuning workflow. 
 
@@ -36,7 +36,7 @@ Go to the [Playground](#playground) for experimentation and fine-tuning workflow
 
 Start exploring Azure OpenAI capabilities with a no-code approach through the GPT-3 Playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. 
 
-:::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the playground page of the Azure AI Studio with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
+:::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
 
 You can select a deployment and choose from a few pre-loaded examples to get started. If your resource doesn't have a deployment, select **Create a deployment** and follow the instructions provided by the wizard. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
@@ -54,13 +54,13 @@ In the GPT-3 playground you can also view Python and curl code samples pre-fille
 
 To use the Azure OpenAI for text summarization in the GPT-3 Playground, follow these steps:
 
-1. Sign in to [Azure AI Studio](https://oai.azure.com).
+1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
 1. Select the subscription and OpenAI resource to work with. 
 1. Select **GPT-3 Playground** at the top of the landing page.
 1. Select your deployment from the **Deployments** dropdown. If your resource doesn't have a deployment, select **Create a deployment** and then revisit this step.
 1. Select **Summarize Text** from the **Examples** dropdown. 
 
-    :::image type="content" source="../media/quickstarts/summarize-text.png" alt-text="Screenshot of the playground page of the Azure AI Studio with the Summarize Text dropdown selection visible" lightbox="../media/quickstarts/summarize-text.png":::
+    :::image type="content" source="../media/quickstarts/summarize-text.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with the Summarize Text dropdown selection visible" lightbox="../media/quickstarts/summarize-text.png":::
 
 1. Select `Generate`. Azure OpenAI will attempt to capture the context of text and rephrase it succinctly. You should get a result that resembles the following text:
 
