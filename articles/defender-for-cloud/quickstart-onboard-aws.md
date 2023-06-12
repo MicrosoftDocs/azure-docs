@@ -100,6 +100,9 @@ The native cloud connector requires:
         > [!NOTE]
         > To enable the Azure Arc auto-provisioning, you'll need an **Owner** permission on the relevant Azure subscription.
         
+        > [!NOTE]
+        > One of the prerequisites for the automatic installation of the ARC agent on an EC2 instance is the association of the IAM role with the EC2 instance. This association occurs automatically for all existing EC2 instances upon execution of the CloudFormation script. However, for new machines, the association will not be present and must be added manually. 
+        
         - If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
         
     - Other extensions should be enabled on the Arc-connected machines:
