@@ -20,6 +20,14 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 Download for [Windows](https://download.microsoft.com/download/e/b/2/eb2f2d87-6382-463e-9d01-45b40c93c05b/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
+### Known issue
+
+You may encounter error `AZCM0026: Network Error` accompanied by a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. At this time, Microsoft recommends using [agent version 1.30](#version-131---june-2023) in networks that require a proxy server. Microsoft has also reverted the agent download URL [aka.ms/AzureConnectedMachineAgent](https://aka.ms/AzureConnectedMachineAgent) to agent version 1.30 to allow existing installation scripts to succeed.
+
+If you've already installed agent version 1.31 and are seeing the error message above, [uninstall the agent](manage-agent.md#uninstall-from-control-panel) and run your installation script again. You do not need to downgrade to agent 1.30 if your agent is connected to Azure.
+
+Microsoft will update the release notes when this issue is resolved.
+
 ### New features
 
 - Added support for Amazon Linux 2023
