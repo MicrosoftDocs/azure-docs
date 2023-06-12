@@ -14,64 +14,17 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## 2 Prepare Spring Project
+## 2. Prepare Spring Project
+
+Use the following steps to prepare the sample locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
 [!INCLUDE [prepare-spring-project](../../includes/quickstart/prepare-spring-project.md)]
 
-## 3 Provision
-
-The main resources you need to run this sample is an Azure Spring Apps instance. Use the following steps to create these resources.
-
-### 3.1 Sign in to the Azure portal
-
-Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
-
-### 3.2 Provision an instance of Azure Spring Apps
-
-[!INCLUDE [provision-spring-apps](../../includes/quickstart/provision-basic-azure-spring-apps.md)]
-
-## 4 Deployment
-
-Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
-
-1. Navigate to the `complete` directory and execute the following command to config the app in Azure Spring Apps:
-
-   ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
-   ```
-
-   Command interaction description:
-    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
-    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
-    - **Input the app name**: Provide an app name. If you use the default project artifact ID, press Enter directly.
-    - **Expose public access for this app (boot-for-azure)?**: Enter *y*.
-    - **Confirm to save all the above configurations (Y/n)**: Enter `y`. If Enter `n`, the configuration won't be saved in the POM files.
-
-1. Use the following command to deploy the app:
-
-   ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
-   ```
-
-   Command interaction description:
-    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-
-   After the command is executed, you can see the following log signs that the deployment was successful.
-
-   ```text
-   [INFO] Deployment(default) is successfully updated.
-   [INFO] Deployment Status: Running
-   [INFO]   InstanceName:demo-default-x-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:UNREGISTERED
-   [INFO] Getting public url of app(demo)...
-   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io
-   ```
-
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Install the [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.0.
+Install the [Azure Developer CLI](https://aka.ms/azd-install)(AZD), version 1.0.1.
 
 Use AZD to initialize the application from the Azure Developer CLI templates.
 
@@ -86,7 +39,7 @@ Use AZD to initialize the application from the Azure Developer CLI templates.
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
     - **Please enter a new environment name**: Provide an environment name, which will be used as a suffix for the resource group that will be created to hold all Azure resources. This name should be unique within your Azure subscription.
 
-   The console outputs messages similar to the following:
+   The console outputs messages similar to the ones below:
 
     ```text
     Initializing a new project (azd init)
@@ -94,18 +47,32 @@ Use AZD to initialize the application from the Azure Developer CLI templates.
     (✓) Done: Initialized git repository
     (✓) Done: Downloading template code to: D:\samples\app
     
-    ? Please enter a new environment name: [? for help] (app-dev) demo
+    ? Please enter a new environment name: [? for help] (app-dev) wingtiptoy
     
-    ? Please enter a new environment name: demo
+    ? Please enter a new environment name: wingtiptoy
     
     SUCCESS: New project initialized!
     You can view the template code in your directory: D:\samples\app
     Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
     ```
 
-## 2 Provision
+---
 
-Use AZD to provision the Azure resources required by the application.
+## 3. Prepare the cloud environment
+
+The main resources you need to run this sample is an Azure Spring Apps instance. Use the following steps to create these resources.
+
+### [Azure portal](#tab/Azure-portal)
+
+### 3.1. Sign in to the Azure portal
+
+Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+
+### 3.2. Create an Azure Spring Apps instance
+
+[!INCLUDE [provision-spring-apps](../../includes/quickstart/provision-basic-azure-spring-apps.md)]
+
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 1. Run the following command to log in Azure with OAuth2, ignore this step if you have already logged in.
 
@@ -130,7 +97,7 @@ Use AZD to provision the Azure resources required by the application.
     - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
     - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
-   The console outputs messages similar to the following:
+   The console outputs messages similar to the ones below:
 
    ```text
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
@@ -139,19 +106,68 @@ Use AZD to provision the Azure resources required by the application.
    ```
 
    > [!NOTE]
-   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources. See more details from [spring-guides/gs-spring-boot-for-azure](https://github.com/spring-guides/gs-spring-boot-for-azure).
+   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources.
 
-## 3 Deployment
+---
 
-Use AZD to package the app, provision the Azure resources required by the application and then deploy to Azure Spring Apps.
+## 4. Deploy the app to Azure Spring Apps
 
-1. Run the following command to provision the template's infrastructure to Azure.
+This section provides the steps to deploy your application to Azure Spring Apps.
+
+### [Azure portal](#tab/Azure-portal)
+
+Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
+
+1. Navigate to the `complete` directory and execute the following command to config the app in Azure Spring Apps:
 
    ```bash
-   azd up
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
    ```
 
-   The console outputs messages similar to the following:
+   Command interaction description:
+    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
+    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
+    - **Input the app name**: Provide an app name. If you use the default project artifact ID, press Enter directly.
+    - **Expose public access for this app (boot-for-azure)?**: Enter *y*.
+    - **Confirm to save all the above configurations (Y/n)**: Enter `y`. If Enter `n`, the configuration doesn't be saved in the POM files.
+
+1. Use the following command to deploy the app:
+
+   ```bash
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
+   ```
+
+   Command interaction description:
+    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+
+   After the command is executed, you can see the following log signs that the deployment was successful.
+
+   ```text
+   [INFO] Deployment(default) is successfully updated.
+   [INFO] Deployment Status: Running
+   [INFO]   InstanceName:demo-default-x-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:UNREGISTERED
+   [INFO] Getting public url of app(demo)...
+   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io
+   ```
+
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+Use AZD to package the app, provision the Azure resources required by the web application and then deploy to Azure Spring Apps.
+
+1. Run the following command to package a deployable copy of your application:
+
+   ```bash
+   azd package
+   ```
+
+1. Run the following command to deploy the application code to those newly provisioned resources:
+
+   ```bash
+   azd deploy
+   ```
+
+   The console outputs messages similar to the ones below:
 
    ```text
    Deploying services (azd deploy)
@@ -163,7 +179,12 @@ Use AZD to package the app, provision the Azure resources required by the applic
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io/
    
    
-   SUCCESS: Your application was provisioned and deployed to Azure in xx minutes xx seconds.
+   SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
+   You can view the resources created under the resource group rg-<your-environment-name>-<a-random-string> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>-<a-random-string>/overview
    ```
+
+> [!NOTE]
+> You can also use `azd up` to combine the previous three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). See more details from [spring-guides/gs-spring-boot-for-azure](https://github.com/spring-guides/gs-spring-boot-for-azure).
 
 ---

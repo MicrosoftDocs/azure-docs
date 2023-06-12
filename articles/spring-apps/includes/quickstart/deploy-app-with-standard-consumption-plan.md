@@ -14,15 +14,15 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## 2 Prepare Spring Project
+## 2. Prepare Spring Project
 
 [!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart/prepare-spring-project.md)]
 
-## 3 Provision
+## 3. Prepare the cloud environment
 
 Use the following steps to create an Azure Spring Apps service instance.
 
-### 3.1 Sign in to the Azure portal
+### 3.1. Sign in to the Azure portal
 
 1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../../../cloud-shell/overview.md).
 
@@ -46,7 +46,7 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account set --subscription <subscription-ID>
    ```
 
-### 3.2 Provision an instance of Azure Spring Apps
+### 3.2. Create an Azure Spring Apps instance
 
 1. Use the following commands to define variables for this quickstart with the names of your resources and desired settings:
 
@@ -97,7 +97,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --location ${LOCATION}
    ```
 
-### 3.3 Create an app in your Azure Spring Apps instance
+### 3.3. Create an app in your Azure Spring Apps instance
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
@@ -108,7 +108,7 @@ You can create an app in either standard consumption or dedicated workload profi
 > [!IMPORTANT]
 > The consumption workload profile has a pay-as-you-go billing model with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-### 3.2.1 Create an app with consumption workload profile
+### 3.2.1. Create an app with consumption workload profile
 
 Use the following command to specify the app name on Azure Spring Apps and to allocate required resources:
 
@@ -129,7 +129,7 @@ Azure Spring Apps creates an empty welcome application and provides its URL in t
 
 :::image type="content" source="../../media/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page for a Spring app in an Azure Spring Apps instance." lightbox="../../media/quickstart/app-welcome-page.png":::
 
-### 3.2.2 Create an app with dedicated workload profile
+### 3.2.2. Create an app with dedicated workload profile
 
 Dedicated workload profiles support running apps with customized hardware and increased cost predictability.
 
@@ -161,7 +161,7 @@ az spring app create \
    --workload-profile my-wlp
 ```
 
-## 4 Deployment
+## 4. Deploy the app to Azure Spring Apps
 
 Use the following command to deploy the *.jar* file for the app:
 

@@ -14,17 +14,17 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## 2 Prepare Spring Project
+## 2. Prepare Spring Project
 
 ## [Azure CLI](#tab/Azure-CLI)
 
 [!INCLUDE [prepare-spring-project](../../includes/quickstart/prepare-spring-project.md)]
 
-## 3 Provision
+## 3. Prepare the cloud environment
 
 Use the following steps to create an Azure Spring Apps service instance.
 
-### 3.1 Sign in to the Azure portal
+### 3.1. Sign in to the Azure portal
 
 1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../../../cloud-shell/overview.md).
 
@@ -48,7 +48,7 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account set --subscription <subscription-ID>
    ```
 
-### 3.2 Provision an instance of Azure Spring Apps
+### 3.2. Create an Azure Spring Apps instance
 
 1. Accept the legal terms and privacy statements for the Enterprise tier. 
 
@@ -89,7 +89,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --sku Enterprise
    ```
 
-### 3.3 Create an app in your Azure Spring Apps instance
+### 3.3. Create an app in your Azure Spring Apps instance
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
@@ -105,7 +105,7 @@ az spring app create \
     --assign-endpoint true
 ```
 
-## 4 Deployment
+## 4. Deploy the app to Azure Spring Apps
 
 Use the following command to deploy the *.jar* file for the app:
 
@@ -123,19 +123,19 @@ Deploying the application can take a few minutes.
 
 [!INCLUDE [generate-spring-project](../../includes/quickstart/generate-spring-project.md)]
 
-## 3 Provision
+## 3. Prepare the cloud environment
 
-### 3.1 Sign in to the Azure portal
+### 3.1. Sign in to the Azure portal
 
 Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-### 3.2 Provision an instance of Azure Spring Apps
+### 3.2. Provision an instance of Azure Spring Apps
 
 [!INCLUDE [provision-spring-apps](../../includes/quickstart/provision-enterprise-azure-spring-apps.md)]
 
-## 4 Deployment
+## 4. Deploy the app to Azure Spring Apps
 
-### 4.1 Import the project
+### 4.1. Import the project
 
 Use the following steps to import the project.
 
@@ -144,7 +144,7 @@ Use the following steps to import the project.
 
    :::image type="content" source="../../media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="../../media/quickstart/intellij-new-project.png":::
 
-### 4.2 Deploy your app
+### 4.2. Deploy the app to Azure Spring Apps
 
 Use the following steps to build and deploy your app.
 

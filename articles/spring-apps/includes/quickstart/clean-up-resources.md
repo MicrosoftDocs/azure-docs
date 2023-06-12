@@ -13,7 +13,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 -->
 
-## 6 Clean up resources
+## 6. Clean up resources
 
 ::: zone pivot="sc-consumption-plan,sc-enterprise"
 
@@ -27,9 +27,9 @@ az group delete --name ${RESOURCE_GROUP}
 
 ::: zone pivot="sc-standard"
 
-### [Azure portal](#tab/Azure-portal)
-
 You can delete the Azure resource group, which includes all the resources in the resource group. To delete the entire resource group, including the newly created service:
+
+### [Azure portal](#tab/Azure-portal)
 
 1. Locate your resource group in the portal. On the menu on the left, select **Resource groups**. Then select the name of your resource group, such as the example, **myresourcegroup**.
 
@@ -46,12 +46,11 @@ You can delete the Azure resource group, which includes all the resources in the
    Command interaction description:
 
     - **Total resources to delete: [your-resources-total], are you sure you want to continue?**: Enter `y`.
-    - **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Enter `y`. Enter `n` if you want to reuse the Key Vault.
 
-   The console outputs messages similar to the following:
+   The console outputs messages similar to the one below:
 
    ```text
-   SUCCESS: Your Azure resources have been deleted.
+   SUCCESS: Your application was removed from Azure in xx minutes xx seconds.
    ```
    
 ---
