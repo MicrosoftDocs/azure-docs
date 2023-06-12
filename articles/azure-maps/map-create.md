@@ -14,29 +14,36 @@ This article shows you ways to create a map and animate a map.
 
 ## Loading a map
 
-To load a map, create a new instance of the [Map class](/javascript/api/azure-maps-control/atlas.map). When initializing the map, pass a DIV element ID to render the map and pass a set of options to use when loading the map. If default authentication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map to the event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely. 
+To load a map, create a new instance of the [Map class](/javascript/api/azure-maps-control/atlas.map). When initializing the map, pass a DIV element ID to render the map and pass a set of options to use when loading the map. If default authentication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map to the event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely.
 
-<br/>
+You can also load multiple maps on the same page, for sample code that demonstrates loading multiple maps on the same page, see [Multiple Maps] in the [Azure Maps Samples].
 
+:::image type="content" source="./media/map-create/multiple-maps.png"alt-text="A screenshot that shows the snap grid on map.":::
+
+<!-------------------------------------------
 <iframe height="500" scrolling="no" title="Basic map load" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>Basic map load</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
+------------------------------------------->
 > [!TIP]
-> You can load multiple maps on the same page. Multiple map on the same page may use the same or different authentication and language settings.
+> You can use the same or different authentication and language settings when using multiple maps on the same page.
 
 ## Show a single copy of the world
 
 When the map is zoomed out on a wide screen, multiple copies of the world will appear horizontally. This option is great for some scenarios, but for other applications it's desirable to see a single copy of the world. This behavior is implemented by setting the maps `renderWorldCopies` option to `false`.
 
-<br/>
+```javascript
+//Only allow one copy of the world be rendered when zoomed out.
+renderWorldCopies: false
+```
 
+<!-------------------------------------------
 <iframe height="500" scrolling="no" title="renderWorldCopies = false" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = false</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
+------------------------------------------->
 
 ## Map options
 
@@ -45,9 +52,9 @@ When creating a map there, are several different types of options that can be pa
 - [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) and [CameraBoundOptions](/javascript/api/azure-maps-control/atlas.cameraboundsoptions) are used to specify the area the map should display.
 - [ServiceOptions](/javascript/api/azure-maps-control/atlas.serviceoptions) are used to specify how the map should interact with services that power the map.
 - [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions) are used to specify the map should be styled and rendered.
-- [UserInteractionOptions](/javascript/api/azure-maps-control/atlas.userinteractionoptions) are used to specify how the map should reach when the user is interacting with the map. 
+- [UserInteractionOptions](/javascript/api/azure-maps-control/atlas.userinteractionoptions) are used to specify how the map should reach when the user is interacting with the map.
 
-These options can also be updated after the map has been loaded using the `setCamera`, `setServiceOptions`, `setStyle`, and `setUserInteraction` functions. 
+These options can also be updated after the map has been loaded using the `setCamera`, `setServiceOptions`, `setStyle`, and `setUserInteraction` functions.
 
 ## Controlling the map camera
 
@@ -61,6 +68,7 @@ The map camera controls what is displayed in the viewport of the map canvas. Cam
 
 ```javascript
 //Set the camera options when creating the map.
+//Map properties, such as center and zoom level, are part of the CameraOptions
 var map = new atlas.Map('map', {
     center: [-122.33, 47.6],
     zoom: 12
@@ -77,10 +85,11 @@ map.setCamera({
 
 In the following code, a [Map object](/javascript/api/azure-maps-control/atlas.map) is created and the center and zoom options are set. Map properties, such as center and zoom level, are part of the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
-<br/>
 
+<!---------------------------------------------------
 <iframe height='500' scrolling='no' title='Create a map via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Create a map via `CameraOptions` </a>by Azure Location Based Services (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+--------------------------------------------------->
 
 <a id="setCameraBoundsOptions"></a>
 
@@ -117,10 +126,20 @@ map.setCamera({
 
 In the following code, the first code block creates a map and sets the enter and zoom map styles. In the second code block, a click event handler is created for the animate button. When this button is clicked, the `setCamera` function is called with some random values for the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) and [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions).
 
-<br/>
 
+```javascript
+map.setCamera({
+    center: [-122.33, 47.6],
+    zoom: 12,
+    duration: 1000,
+    type: 'fly'  
+});
+```
+
+<!------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Animate Map View' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>Animate Map View</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+------------------------------------------------------------>
 
 ## Request transforms
 
@@ -186,10 +205,6 @@ var map = new atlas.Map('myMap', {
 });
 ```
 
-## Try out the code
-
-Look at the code samples. You can edit the JavaScript code inside the **JS tab** and see the map view changes on the **Result tab**. You can also click **Edit on CodePen**, in the top-right corner, and modify the code in CodePen.
-
 <a id="relatedReference"></a>
 
 ## Next steps
@@ -215,3 +230,6 @@ See code examples to add functionality to your app:
 
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
+
+[Multiple Maps]: https://samples.azuremaps.com/?search=multiple%20maps&sample=multiple-maps 
+[Azure Maps Samples]: https://samples.azuremaps.com
