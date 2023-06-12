@@ -3,7 +3,7 @@ title: "Overview of Azure Kubernetes Fleet Manager (preview)"
 services: kubernetes-fleet
 ms.service: kubernetes-fleet
 ms.custom: ignite-2022
-ms.date: 08/29/2022
+ms.date: 06/12/2023
 ms.topic: overview
 author: shashankbarsin
 ms.author: shasb
@@ -22,6 +22,10 @@ Fleet supports the following scenarios:
 * Create Kubernetes resource objects on the Fleet resource's cluster and control their propagation to all or a subset of all member clusters.
 
 * Export a service from one member cluster to the Fleet resource. Once successfully exported, the service and its endpoints are synced to the hub, which other member clusters (or any Fleet resource-scoped load balancer) can consume.
+
+* Orchestrate Kubernetes version and node image upgrades across multiple clusters by using update runs, stages, and groups.
+
+* Balance incoming application traffic across multiple clusters using a layer 4 load balancer.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
