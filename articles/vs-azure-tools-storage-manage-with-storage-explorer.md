@@ -36,7 +36,7 @@ For all versions of Windows, Storage Explorer requires .NET Framework 4.7.2 at a
 
 The following versions of macOS support Storage Explorer:
 
-* macOS 10.12 Sierra and later versions
+* macOS 10.13 High Sierra and later versions
 
 # [Ubuntu](#tab/linux-ubuntu)
 
