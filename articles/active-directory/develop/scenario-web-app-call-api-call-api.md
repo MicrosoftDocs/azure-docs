@@ -295,6 +295,12 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
 }
 ```
 
+# [Node.js](#tab/nodejs)
+
+After successfully retrieving a token, the code uses the **axios** package to query the API endpoint and retrieve a JSON result.
+
+:::code language="js" source="~/ms-identity-node/App/fetch.js" range="8-28":::
+
 # [Python](#tab/python)
 
 After successfully retrieving a token, the code uses the requests package to query the API endpoint and retrieve a JSON result.

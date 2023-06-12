@@ -167,7 +167,7 @@ In the Azure portal, the reply URIs that you register on the **Authentication** 
 
 # [Node.js](#tab/nodejs)
 
-Here, the configuration parameters reside in *.env* as environment variables:
+Here, the configuration parameters reside in *.env.dev* as environment variables:
 
 :::code language="text" source="~/ms-identity-node/App/.env":::
 
