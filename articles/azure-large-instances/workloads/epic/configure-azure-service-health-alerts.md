@@ -14,7 +14,7 @@ downtime that affects your infrastructure.
 
 Follow these steps to ensure you have Service Health alerts configured:
 
-1. Go to the [Microsoft Azure portal](http://portal.Azure.Com).
+1. Go to the [Microsoft Azure portal](https://portal.Azure.Com).
 2. Search for “service health” in the search bar and select **Service Health** from the results.
 3. in the Service Health Dashboard, select **Health Alerts**.
 4. Select **Create service health alert**.
