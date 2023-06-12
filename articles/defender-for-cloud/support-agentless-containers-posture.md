@@ -2,9 +2,8 @@
 title: Support and prerequisites for agentless container posture - Microsoft Defender for Cloud
 description: Learn about the requirements for agentless container posture in Microsoft Defender for Cloud
 ms.service: defender-for-cloud
-ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 05/09/2023
+ms.date: 06/01/2023
 ---
 # Support and prerequisites for agentless containers posture
 
@@ -13,16 +12,16 @@ All of the agentless container capabilities are available as part of the [Defend
 Review the requirements on this page before setting up [agentless containers posture](concept-data-security-posture.md) in Microsoft Defender for Cloud.
 
 > [!IMPORTANT]
-> The Agentless Container Posture preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available" and are excluded from the service-level agreements and limited warranty. Agentless Container Posture previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
+>  Agentless Posture is currently in Preview. Previews are provided "as is" and "as available" and are excluded from the service-level agreements and limited warranty.
 
 ## Availability
 
 | Aspect | Details |
 |---------|---------|
-|Release state:|Preview|
+|Release state:|Preview |
 |Pricing:|Requires [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) and is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts         |
-| Permissions | You need to have access as a Subscription Owner, or, User Access Admin as well as Security Admin permissions for the Azure subscription used for onboarding |
+| Permissions | You need to have access as a:<br><br> - Subscription Owner, **or** <br> - User Access Admin and Security Admin permissions for the Azure subscription used for onboarding |
 
 ## Registries and images
 
@@ -34,18 +33,13 @@ Review the requirements on this page before setting up [agentless containers pos
 
 ## Prerequisites
 
-You need to have a Defender for CSPM plan enabled. There's no dependency on Defender for Containers​.
+You need to have a Defender CSPM plan enabled. There's no dependency on Defender for Containers​.
 
 This feature uses trusted access. Learn more about [AKS trusted access prerequisites](/azure/aks/trusted-access-feature#prerequisites).
 
-### What do I do if I have Read only clusters (locked)?
+### Are you using an updated version of AKS?
 
-We suggest that you do one of the following:
-
-- Remove the lock.
-- Perform the bind operation manually by doing an API request.
-
-Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
+Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
 
 ## Next steps
 
