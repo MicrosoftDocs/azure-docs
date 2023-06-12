@@ -13,7 +13,7 @@ services: iot-central
 
 Smart meters not only enable automated billing, but also advanced metering use cases such as real-time readings and bidirectional communication. 
 
-An application template enables utilities and partners to monitor smart meter status, telemetry, and define alarms and notifications. The template provides sample commands, such as disconnecting a meter and updating software. You can export the meter data to other business applications, and ude the data to develop custom solutions.
+An application template enables utilities and partners to monitor smart meter status, telemetry, and define alarms and notifications. The template provides sample commands, such as disconnecting a meter and updating software. You can export the meter data to other business applications and use the data to develop custom solutions.
 
 The application's key functionality includes:
 

@@ -25,7 +25,7 @@ As shown in the previous application architecture diagram, you can use the appli
 
 * **1**. Connect various IoT sensors to an IoT Central application instance.
 
-   An IoT solution starts with a set of sensors that capture meaningful signals from within a retail store environment. The the various icons at the far left of the architecture diagram represent the sensors.
+   An IoT solution starts with a set of sensors that capture meaningful signals from within a retail store environment. The various icons at the far left of the architecture diagram represent the sensors.
 
 * **2**. Monitor and manage the health of the sensor network and any gateway devices in the environment.
 
