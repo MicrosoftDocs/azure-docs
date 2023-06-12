@@ -13,7 +13,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## 2. Prepare Spring Project
+## 2. Prepare Spring project
 
 Use the following steps to prepare the sample locally.
 
