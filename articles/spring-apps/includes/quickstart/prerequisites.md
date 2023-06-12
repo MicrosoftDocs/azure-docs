@@ -27,14 +27,18 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
-::: zone pivot="sc-consumption-plan"
+::: zone pivot="sc-consumption-plan,sc-enterprise"
 
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for Azure Spring Apps Standard consumption and dedicated plan by using the following command:
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension:
 
   ```azurecli-interactive
   az extension remove --name spring && \
   az extension add --name spring
   ```
+
+::: zone-end
+
+::: zone pivot="sc-consumption-plan"
 
 - Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
 
@@ -47,8 +51,3 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 ::: zone-end
 
-::: zone pivot="sc-standard,sc-enterprise"
-
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-
-::: zone-end
