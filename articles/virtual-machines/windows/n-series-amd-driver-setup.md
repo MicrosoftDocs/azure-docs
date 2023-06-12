@@ -19,10 +19,9 @@ ms.author: vikancha
 
 ## NGads V620 Series (preview) ##
 You can create the VMs using CLI. (Azure AMD GPU driver extensions don't support NGads  V620 Series during preview)
-- Link to the CLI VM creation documentation https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-cli<br>
+- Link to the CLI VM creation documentation https://learn.microsoft.com/azure/virtual-machines/windows/quick-create-cli<br>
 
 To install the driver
-- Driver download [link](https://go.microsoft.com/fwlink/?linkid=2234555)<br>
 - Download the zip file to a local drive.  Unzip to a local drive.  Run setup.exe.  
 
 ## Supported operating systems and drivers
