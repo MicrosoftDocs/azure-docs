@@ -372,7 +372,7 @@ Unless you have a specific reason to, we recommend that you associate a network 
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-11/vm-13.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-13/vm-13.kql":::
 
 ---
 
