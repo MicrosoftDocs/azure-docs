@@ -44,27 +44,27 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 ### 3.2. Define variables 
 
-1. Use the following commands to define variables for this quickstart with the names of your resources:
+Use the following commands to define variables for this quickstart with the names of your resources:
 
-   ```azurecli-interactive
-   LOCATION="<region>"
-   RESOURCE_GROUP="<resource-group-name>"
-   MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-   SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
-   APP_NAME="demo"
-   ```
+```azurecli-interactive
+LOCATION="<region>"
+RESOURCE_GROUP="<resource-group-name>"
+MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
+APP_NAME="demo"
+```
 
 ### 3.3. Install extensions and register namespaces
 
-1. Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
+Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
 
-  ```azurecli-interactive
-  az extension add --name spring
-  az extension add --name containerapp --upgrade
-  az provider register --namespace Microsoft.App
-  az provider register --namespace Microsoft.OperationalInsights
-  az provider register --namespace Microsoft.AppPlatform
-  ```
+```azurecli-interactive
+az extension add --name spring
+az extension add --name containerapp --upgrade
+az provider register --namespace Microsoft.App
+az provider register --namespace Microsoft.OperationalInsights
+az provider register --namespace Microsoft.AppPlatform
+```
 
 ### 3.4. Create an Azure Spring Apps instance
 
