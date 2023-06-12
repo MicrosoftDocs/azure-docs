@@ -13,7 +13,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## Prepare the Spring project
+## 2. Prepare the Spring project
 
 Use the following steps to clone and run the app locally.
 
@@ -38,11 +38,11 @@ Use the following steps to clone and run the app locally.
 
 4. Go to `http://localhost:8080` in your browser to access the application.
 
-## Prepare the cloud environment
+## 3. Prepare the cloud environment
 
 The main resources required to run this sample are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. This section provides the steps to create these resources.
 
-### Provide names for each resource
+### 3.1. Provide names for each resource
 
 Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
@@ -59,7 +59,7 @@ MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
 CONNECTION=<connection-name>
 ```
 
-### Create a new resource group
+### 3.2. Create a new resource group
 
 Use the following steps to create a new resource group.
 
@@ -99,7 +99,7 @@ Use the following steps to create a new resource group.
    az configure --defaults group=${RESOURCE_GROUP}
    ```
 
-### Create an Azure Spring Apps instance
+### 3.3. Create an Azure Spring Apps instance
 
 Azure Spring Apps is used to host the Spring web app. Create an Azure Spring Apps instance and an application inside it.
 
@@ -140,7 +140,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
        --assign-endpoint true
    ```
 
-### Prepare the PostgreSQL instance
+### 3.4. Prepare the PostgreSQL instance
 
 The Spring web app uses H2 for the database in localhost, and Azure Database for PostgreSQL for the database in Azure.
 
@@ -157,7 +157,7 @@ az postgres flexible-server create \
 
 Specifying `0.0.0.0` enables public access from any resources deployed within Azure to access your server.
 
-### Connect app instance to PostgreSQL instance
+### 3.5. Connect app instance to PostgreSQL instance
 
 After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. Use the following steps to enable the app to connect to the PostgreSQL instance.
 
@@ -181,7 +181,7 @@ After the application instance and the PostgreSQL instance are created, the appl
              SPRING_DATASOURCE_PASSWORD="${POSTGRESQL_ADMIN_PASSWORD}"
    ```
 
-## Deploy the app to Azure Spring Apps
+## 4. Deploy the app to Azure Spring Apps
 
 Now that the cloud environment is prepared, the application is ready to deploy.
 
