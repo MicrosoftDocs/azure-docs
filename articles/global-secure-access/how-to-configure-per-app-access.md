@@ -32,7 +32,7 @@ To manage App Proxy connector groups, which is required for per-app access, you 
 
 ## Setup overview
 
-To configure per-app access, you need to have a [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
+To configure per-app access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
 Per-app access is configured by creating a new Enterprise app from the Global Secure Access area of Microsoft Entra. You create the app, select a connector group, and add network access segments. These settings make up the individual app that you can assign users and groups to.
 
@@ -47,7 +47,7 @@ Let's look at each of these steps in more detail.
 
 ## Create an App Proxy connector group
 
-To configure Quick Access, you must have an App Proxy connector group with at least one active connector.
+To configure Quick Access, you must have a connector group with at least one active App Proxy connector.
 
 If you don't already have a connector set up, see [Configure connectors for Quick Access](how-to-configure-quick-access.md).
 
@@ -62,7 +62,7 @@ To create a new app, you provide a name, select a connector group, and add FQDNs
 1. Select **New application**.
 1. Enter a name for the app.
 1. Select a Connector group from the dropdown menu.    
-    - Before you can set up per-app access, you must have an App Proxy connector group set up.
+    - Before you can set up per-app access, you must have a connector group with at least one active App Proxy connector.
     - Your connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your app without adding private resources.
 
@@ -135,7 +135,7 @@ Once you have your app configured, your private resources added, users assigned 
 1. Go to **Global Secure Access** > **Traffic forwarding**.
 1. Select the checkbox for **Private access profile**.
 
-![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-configure-per-app-access/traffic-forwarding-microsoft-365-and-private-access.png)
+![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-configure-per-app-access/private-access-traffic-profile.png)
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

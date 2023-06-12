@@ -36,9 +36,9 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 
 Quick Access for Microsoft Entra Private Access unlocks the ability to specify the FQDNs and IP addresses that you consider private or internal, so you can manage how your organization accesses them.
 
-By configuring Quick Access and enabling Microsoft Entra Private Access, you can modernize how your organization's users access private apps and resources. Remote workers don't need to use a VPN to access these resources if they have the Global Secure Access client installed. The client quietly and seamlessly connects them to the resources they need.
+By configuring Quick Access and enabling Microsoft Entra Private Access, you can modernize how your organization's users access private apps and resources. Remote workers don't need to use a VPN to access these resources if they have the Global Secure Access Client installed. The client quietly and seamlessly connects them to the resources they need.
 
-Quick Access can be a quick and easy way to replace your VPN to allow secure access to your internal resources with an easy-one time configuration, leveraging the secure capabilities of Conditional Access.
+Quick Access can be a quick and easy way to replace your VPN to allow secure access to your internal resources with an easy-one time configuration, using the secure capabilities of Conditional Access.
 
 ## Setup overview
 
@@ -120,24 +120,26 @@ If you're viewing the Quick Access app properties, select **Users and groups** f
 
 Add users and groups following the instructions in the [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) article.
 
+Alternatively, you can assign users and groups when you create the Conditional Access policy for Quick Access. For more information, see [Manage the Private access traffic forwarding profile](how-to-manage-private-access-profile.md#linked-conditional-access-policies).
+
 ### Update Quick access ranges
 
 You can add or update the sites and apps included in your Quick Access app at any time.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access**> **Quick Access**.
-1. To add a new site or app, select **Add quick access range**.
-1. To edit an existing app, select it from the **Destination type** column.
+1. Go to **Global Secure Access** > **Applications** > **Quick Access**.
+    - To add an FQDN or IP address, select **Add quick access range**.
+    - To edit an FQDN or IP address, select it from the **Destination type** column.
 
 ## Enable Microsoft Entra Private Access
 
-Once you have your Quick Access app configured, your private resources added, users assigned to the app, you can enable the Private access profile from **Traffic forwarding**. You can enable the profile before configuring Quick Access, but without the app and profile configured, there's no traffic to forward.
+Once you have your Quick Access app configured, your private resources added, users assigned to the app, you can enable the Private access profile from the **Traffic forwarding** area of Global Secure Access. You can enable the profile before configuring Quick Access, but without the app and profile configured, there's no traffic to forward.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Traffic forwarding**.
+1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
 1. Select the checkbox for **Private access profile**.
 
-![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-configure-quick-access/traffic-forwarding-microsoft-365-and-private-access.png)
+![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-configure-quick-access/private-access-traffic-profile.png)
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
@@ -151,7 +153,7 @@ Once you have your Quick Access app configured, your private resources added, us
 1. Select the **Consent for my entire org** checkbox.
 1. Add the Microsoft Entra Private Access client service principal (760282b4-0cfc-4952-b467-c8e0298fee16) as a Client ID in the **Expose an API** page (with checkbox for user-impersonation selected).
 
-**Question** I cannot access an internal resource using the hostname or FQDN when IP is configured in Quick Access. 
+**Question** I can't access an internal resource using the hostname or FQDN when IP is configured in Quick Access. 
 
 **Answer**: Private DNS is currently not supported.
 Specify the Hostname or FQDN being used to access the internal resource in the Quick Access configuration along with the respective port.

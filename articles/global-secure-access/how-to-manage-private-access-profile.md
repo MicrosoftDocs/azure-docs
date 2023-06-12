@@ -10,7 +10,7 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# How to enable the Private access traffic forwarding profile
+# How to manage the Private access traffic forwarding profile
 
 The private access traffic forwarding profile routes traffic to your private network through the Global Secure Access Client. Enabling this traffic forwarding profile allows remote workers to connect to internal resources without a VPN.
 
