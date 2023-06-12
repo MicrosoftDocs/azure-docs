@@ -17,12 +17,12 @@ This article outlines how to modify inventory assets.  Users can change the stat
 
 Labels help you organize your attack surface and apply business context in a highly customizable way. You can apply any text label to a subset of assets to group assets and better operationalize your inventory. Customers commonly categorize assets that:  
 
-- have recently come under your organization’s ownership through a merger or acquisition  
-- require compliance monitoring 
-- are owned by a specific business unit in their organization 
-- are impacted by a specific vulnerability that requires mitigation 
-- relate to a particular brand owned by the organization  
-- were added to your inventory within a specific time range 
+- Have recently come under your organization’s ownership through a merger or acquisition.
+- Require compliance monitoring.
+- Are owned by a specific business unit in their organization. 
+- Are impacted by a specific vulnerability that requires mitigation. 
+- Relate to a particular brand owned by the organization.
+- Were added to your inventory within a specific time range.
 
 Labels are free-form text fields, so you can create a label for any use case that applies to your organization. 
 
@@ -117,7 +117,7 @@ Once a task is submitted, you will immediately see a notification pop-up that co
 ![Screenshot of "Task submitted" notification immediately after submitting a task.](media/labels-12.png) ![Screenshot of opened Notifications panel displaying recent task statuses.](media/labels-13.png)
 
 
-The Defender EASM system can take seconds to udpdate a handful of assets or minutes to update thousands. The Task Manager enables you to check on the status of any modification tasks in progress. This section outlines how to access the Task Manager and use it to better understand the completion of submitted updates. 
+The Defender EASM system can take seconds to update a handful of assets or minutes to update thousands. The Task Manager enables you to check on the status of any modification tasks in progress. This section outlines how to access the Task Manager and use it to better understand the completion of submitted updates. 
 
 1. From your Defender EASM resource, select **Task Manager** on the left-hand navigation menu. 
 
