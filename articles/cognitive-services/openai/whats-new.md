@@ -34,7 +34,7 @@ keywords:
 
 ### Java & JavaScript SDK support
 
-- NEW Azure OpenAI preview SDKs offering support for [JavaScript](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript) and [Java](/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-java).
+- NEW Azure OpenAI preview SDKs offering support for [JavaScript](/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript) and [Java](/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-java).
 
 ### Azure OpenAI Chat Completion General Availability (GA)
 
