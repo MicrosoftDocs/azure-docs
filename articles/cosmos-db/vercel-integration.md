@@ -111,6 +111,6 @@ We have an [Azure Cosmos DB Next.js Starter](https://aka.ms/azurecosmosdb-vercel
 
 ## Next steps
 
-- To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](../introduction.md).
+- To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md).
 - Create a new [Vercel project](https://vercel.com/dashboard).
-- Learn about [Try Cosmos DB and limits](https://learn.microsoft.com/en-us/azure/cosmos-db/try-free?tabs=nosql).
+- Learn about [Try Cosmos DB and limits](../cosmos-db/try-free.md).
