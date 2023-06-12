@@ -76,7 +76,21 @@ az spring spring-cloud-gateway delete \
 
 ## Restart Spring Cloud Gateway
 
-When clicking `Restart` button and confirm the operation in Azure Portal, gateway instances will be rolling restarted. You can also restart with Azure CLI command:
+Gateway instances will be rolling restarted after performing restart action.
+
+### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to restart Spring Cloud Gateway using the Azure portal:
+
+1. Navigate to your service resource, and then select **Spring Cloud Gateway**.
+1. Select **Restart** button.
+1. Click **Ok** if you confirm to restart gateway.
+
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-restart.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway restart." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-restart.png":::
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI command to restart gateway:
 
 ```azurecli
 az spring spring-cloud-gateway restart \
