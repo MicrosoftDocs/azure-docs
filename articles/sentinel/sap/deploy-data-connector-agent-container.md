@@ -114,7 +114,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
     Learn more about [deploying the connector over a SNC connection](configure-snc.md).
 
     - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**.
-        - If you select **Application Identity**, provide the [application ID and secret](/active-directory/develop/howto-create-service-principal-portal).
+        - If you select **Application Identity**, provide the [application ID and secret](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
