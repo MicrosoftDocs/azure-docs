@@ -35,7 +35,7 @@ Before deploying Exchange Hybrid with cloud sync you must meet the following pre
  - The [provisioning agent](what-is-provisioning-agent.md) must be version 1.1.1107.0 or later.
  - Your on-premises Active Directory must be extended to contain the Exchange schema.
       - To find see if you have the Exchange schema or to verify the version see [Find the current Exchange Schema Version](/troubleshoot/windows-server/identity/find-current-schema-version#find-the-current-exchange-schema-version)
-      - To extend your schema for Exchange see [Prepare Active Directory and domains for Exchange Server](/exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019)
+      - To extend your schema for Exchange see [Prepare Active Directory and domains for Exchange Server](/exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019&preserve-view=true)
      >[!NOTE]
      >If your schema has been extended after you have installed the provisioning agent, you will need to restart it in order to pick up the schema changes.
 
