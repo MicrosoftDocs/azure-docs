@@ -1,6 +1,6 @@
 ---
 title: Enable stateful mode for stateless built-in connectors
-description: 
+description: Enable stateless built-in connectors to run in stateful mode for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, edwardhe, azla
