@@ -17,7 +17,7 @@ ms.custom: template-concept, devx-track-azurepowershell, devx-track-azurecli, en
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure virtual machine (VM) that has the Network Watcher extension installed.
 
 ## Latest version
