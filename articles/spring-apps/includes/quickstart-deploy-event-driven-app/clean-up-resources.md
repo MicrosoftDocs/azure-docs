@@ -51,7 +51,7 @@ You can delete the Azure resource group, which includes all the resources in the
    The console outputs messages similar to the one below:
 
    ```text
-   SUCCESS: Your Azure resources have been deleted.
+   SUCCESS: Your application was removed from Azure in xx minutes xx seconds.
    ```
    
 ---
