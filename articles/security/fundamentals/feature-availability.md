@@ -125,7 +125,7 @@ For more information, see the [Azure Information Protection product documentatio
 
 <sup><a name="aipnote5"></a>5</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
 
-<sup><a name="aipnote6"></a>6</sup> Only on-premises Exchange is supported. Outlook Protection Rules are not supported. On-premises SharePoint is not supported.
+<sup><a name="aipnote6"></a>6</sup> Only on-premises Exchange is supported. Outlook Protection Rules are not supported. File Classification Infrastructure is not supported. On-premises SharePoint is not supported.
 
 <sup><a name="aipnote7"></a>7</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
 

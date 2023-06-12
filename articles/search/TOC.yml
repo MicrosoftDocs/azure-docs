@@ -5,14 +5,18 @@
   items:
   - name: What's Cognitive Search?
     href: search-what-is-azure-search.md
-  - name: What's new in Search?
+  - name: New in Search
     href: whats-new.md
-  - name: Features in Search
+  - name: Features
     href: search-features-list.md
   - name: FAQ
     href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
+  - name: Full text search
+    href: search-get-started-text.md
+  - name: Semantic search (preview)
+    href: search-get-started-semantic.md
   - name: Portal
     items:
     - name: Create an index
@@ -25,26 +29,20 @@
       href: knowledge-store-create-portal.md
     - name: Query with Search Explorer
       href: search-explorer.md
-  - name: C#
-    href: search-get-started-dotnet.md
-  - name: Java
-    href: search-get-started-java.md
-  - name : JavaScript
-    href: search-get-started-javascript.md
   - name: REST
     href: search-get-started-rest.md
   - name: PowerShell
     href: search-get-started-powershell.md
-  - name: Python
-    href: search-get-started-python.md
-  - name: Bicep
-    displayName: ARM, Resource Manager, Template
-    href: search-get-started-bicep.md
-  - name: ARM template
-    displayName: Resource Manager 
-    href: search-get-started-arm.md
-  - name: Terraform
-    href: search-get-started-terraform.md
+  - name: Deployment
+    items:
+    - name: ARM template
+      displayName: Resource Manager 
+      href: search-get-started-arm.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: search-get-started-bicep.md
+    - name: Terraform
+      href: search-get-started-terraform.md
 - name: Tutorials
   items:
   - name: Add search to static web apps
