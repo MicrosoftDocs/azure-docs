@@ -207,6 +207,9 @@ The asset inventory allows you to view the secrets discovered on a specific mach
 
 1. Review each plaintext secret that appears with the relevant metadata.
 
-1. Select a secret to view the other details of that secret.
+1. Select a secret to view additional details of that secret.
 
-Different types of secrets have different sets of additional information. For example, for plaintext SSH private keys, the information includes related public keys (mapping between the private key to the authorized keys’ file we discovered or mapping to a different virtual machine that contains the same SSH private key identifier). 
+Different types of secrets have different sets of additional information. For example, for plaintext SSH private keys, the information includes related public keys (mapping between the private key to the authorized keys’ file we discovered or mapping to a different virtual machine that contains the same SSH private key identifier).
+
+## Next steps
+
