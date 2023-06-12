@@ -1,6 +1,6 @@
 ---
-title: Epic for ALI architecture
-description: Provides an overview of Epic for ALI architecture.
+title: ALI for Epic architecture
+description: Provides an overview of ALI for Epic architecture.
 ms.topic: conceptual
 author: jjaygbay
 ms.author: jacobjaygbay
@@ -8,7 +8,7 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-# Epic for ALI architecture 
+# ALI for Epic architecture 
 
 @MikeLonze to deliver content 16 June
 

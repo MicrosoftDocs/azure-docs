@@ -1,6 +1,6 @@
 ---
 title: Onboarding requirements
-description: Provides an overview of onboarding requirements for Epic for ALI.
+description: Provides an overview of onboarding requirements for ALI for Epic.
 ms.topic: conceptual
 author: jjaygbay
 ms.author: jacobjaygbay
@@ -8,8 +8,7 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-## Onboarding requirements
-
+# Onboarding requirements
 
 When customers receive an environment from the Microsoft ALI team, they are encouraged to perform the following steps:  
 
@@ -17,7 +16,7 @@ When customers receive an environment from the Microsoft ALI team, they are enco
 
 * Use Azure portal to:
   * Create Azure Virtual Network(s) and ExpressRoute Gateway or Gateways with High or Ultra Performance Reference.
-  * Link them with Epic on ALI stamps using Circuit/peer ID and Authorization Key provided by Microsoft team.  
+  * Link them with ALI for Epic stamps using Circuit/peer ID and Authorization Key provided by Microsoft team.  
 
 ## VNET address space
 
@@ -25,27 +24,27 @@ When customers receive an environment from the Microsoft ALI team, they are enco
 
 ## Time sync
 
-* Set up time synchronization with NTP server.  
+* Setup time synchronization with NTP server.  
 
 ## Jump box
 
-* Set up a jump box in a VM to connect to Epic on ALI stamps.
+* Set up a jump box in a VM to connect to ALI for Epic stamps.
   * Change the root password at first login and store password in a secure location.  
 
 ## Satellite server
 
 * Install a red hat satellite server in a VM for RHEL 8.4 and patch download.
 
-## Epic on ALI stamps
+## ALI for Epic stamps
 
-* Validate Epic on ALI stamps and configure and patch OS based on your requirements.  
+* Validate ALI for Epic stamps and configure and patch OS based on your requirements.  
   * Verify that the stamps are visible on Azure Portal.
   >[!Note]
-  > Do NOT place large files like Epic on Azure BMI installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
+  > Do NOT place large files like ALI for Epic installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
 
 ## Secure Server IP pool address range
 
-This IP address range is used to assign the individual IP address to Epic for ALI servers.
+This IP address range is used to assign the individual IP address to ALI for Epic servers.
 The recommended subnet size is a /24 CIDR block. If needed, it can be smaller, with as few as 64 IP addresses.
 
 From this range, the first 30 IP addresses are reserved for use by Microsoft. Make sure that you account for this when you choose the size of the range. This range must NOT overlap with your on-premises or other Azure IP addresses.

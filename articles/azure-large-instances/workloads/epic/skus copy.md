@@ -1,6 +1,6 @@
 ---
 title: SKUs
-description: Provides a list of Epic for ALI SKUs.
+description: Provides a list of ALI for Epic SKUs.
 ms.topic: conceptual
 author: jjaygbay
 ms.author: jacobjaygbay

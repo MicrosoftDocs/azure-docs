@@ -16,7 +16,7 @@ To find your subscription ID, follow the steps in this article.
 1. Go to Azure support portal http://portal.Azure.Com
 2. From the left pane, select **Subscriptions**.
 3. A new blade called “Subscriptions” will open to display your subscriptions.
-1. Choose the subscription you have used for Epic on ALI.
+1. Choose the subscription you have used for ALI for Epic.
 
 
 

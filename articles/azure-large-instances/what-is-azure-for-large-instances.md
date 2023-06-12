@@ -15,7 +15,7 @@ Microsoft Azure offers a cloud infrastructure with a wide range of integrated cl
 In some cases, though, you may need to run services on Azure Large Instances without a virtualization layer. 
 You may need root access and control over the operating system (OS). To meet this need, Azure offers Azure Large Instances for several high-value, mission-critical applications. 
 
-Azure Large Instances (ALI) is made up of dedicated large instances (compute instances). It features: 
+Azure Large Instances (ALI) is comprised of dedicated large instances (compute instances). It features: 
 
 * High-performance storage appropriate to the application (Fiber Channel). Storage can also be shared across Azure Large Instances to enable features like scale-out clusters or high availability pairs with failed-node-fencing capability. 
 
@@ -41,8 +41,9 @@ Azure was the first to offer such solutions and has since led with the largest p
 ## Azure Large Instances benefits 
 
 Azure Large Instances are intended for critical workloads that require certification to run your enterprise applications. 
-The Azure Large Instances are dedicated only to you, and you'll have full access (root access) to the operating system (OS). 
-You manage OS and application installation according to your needs. For security, the instances are provisioned within your Azure Virtual Network (VNet) with no internet connectivity. 
+Azure Large Instances implementations are dedicated only to you, and you'll have full access (root access) to the operating system (OS). 
+You manage OS and application installation according to your needs. 
+For security, the instances are provisioned within your Azure Virtual Network (VNet) with no internet connectivity. 
 Only services running on your virtual machines (VMs), and other Azure services in same Tier 2 network, can communicate with your implementation of Azure Large Instances. 
 
 Azure Large Instances offers these benefits: 
@@ -56,14 +57,15 @@ Azure Large Instances offers these benefits:
     * Accessible via FC 
 * Redundant power, power supplies, NICs, TORs, ports, WANs, storage, and management 
 * Hot spares for replacement on a failure (without the need for reconfiguring) 
-* Customer coordinated maintenance windows 
-* Application aware snapshots, archive, mirroring, and cloning 
+* Customer-coordinated maintenance windows 
+* Application-aware snapshots, archive, mirroring, and cloning 
 
 ## SKU availability in Azure regions 
+
 Azure Large Instances offers multiple SKUs certified for specialized workloads. 
-Use the workload-specific SKUs to meet your needs. 
-Large instances – Ranging from two-socket to four-socket systems. 
-Very Large instances – Ranging from 4-socket to 20-socket systems. 
+Use the workload-specific SKUs to meet your needs: 
+* Large instances – two-socket to four-socket systems
+* Very Large instances – 4-socket to 20-socket systems
 
 Azure Large Instances for specialized workloads is available in the following Azure regions: 
 * East US zones support 
@@ -71,7 +73,7 @@ Azure Large Instances for specialized workloads is available in the following Az
 * South Central US 
 
 >[!NOTE]
->Zones support refers to availability zones within a region where Azure Large Instances can be deployed across zones for high resiliency and availability. This capability enables support for multi-site active-active scaling. 
+>Zones support refers to availability zones in which a region where Azure Large Instances can be deployed across zones for high resiliency and availability. This capability enables support for multi-site active-active scaling. 
 
 ## Managing Azure Large Instances in Azure 
 
@@ -79,15 +81,15 @@ Depending on your needs, the application topologies of Azure Large Instances can
 You may deploy multiple instances in one or more locations. The instances can have shared or dedicated storage, and specialized LAN and WAN connections. 
 Therefore, for Azure Large Instances, Azure offers a consultation with a CSA/GBB in the field who can work with you. 
 
-By the time your Azure Large Instances are provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations have already been configured. 
-You're set to register your OS licenses (BYOL), configure the OS, and install the application layer. 
+By the time your Azure Large Instances implementation has been provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations have already been configured. 
+You're set to register your OS licenses (BYOL), configure the OS, and install the application layer.
 
 You'll see all the Azure Large instance resources, and their state and attributes, in the Azure portal. 
 You can also operate the instances and open service requests and support tickets from there. 
 
 ## Azure Large instances stamp 
 
-The Azure Large instance stamp itself combines the following components: 
+The Azure Large instance stamp itself combines the following components:
 
 ### Computing
 Servers based on the generation of Intel Xeon processors that provide the necessary computing capability and are certified for the specialized workload. 
@@ -102,7 +104,9 @@ Within the multi-tenant infrastructure of the Azure Large instance stamp, custom
 When deploying a tenant, you name an Azure subscription within your Azure enrollment. This Azure subscription is the one billed for your implementation of Azure Large instances. 
 
 >[!Note] 
->A customer deploying a Azure Large instance is isolated into a tenant. A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to different tenants cannot see each other or communicate with each other on their Azure Large instances. 
+>A customer implementing Azure Large instances is isolated into a tenant. 
+A tenant is isolated in the networking, storage, and compute layer from other tenants. 
+Storage and compute units assigned to different tenants cannot see each other or communicate with each other on their Azure Large instances. 
 
 ## Operating system 
 
@@ -145,9 +149,9 @@ The architecture of Azure network services is a key component for a successful d
 * Extended Active Directory and DNS in Azure, or completely running in Azure. 
 * ExpressRoute lets you extend your on-premises network into the Microsoft cloud over a private connection with a connectivity provider's help. You can use ExpressRoute Local for cost-effective data transfer between your on-premises location and the Azure region you want. To extend connectivity across geopolitical boundaries, you can enable ExpressRoute Premium. 
 
-Azure Large instances are provisioned within your Azure VNet server IP address range. 
+Azure Large instances is provisioned within your Azure VNet server IP address range. 
 
-:::image type="content" source="media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of Epic for ALI diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
+:::image type="content" source="media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
 
 The architecture shown is divided into three sections: 
 

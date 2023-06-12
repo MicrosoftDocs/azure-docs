@@ -1,6 +1,6 @@
 ---
 title: Azure Large Instances NETAPP storage data protection
-description: Provides an overview of Epic for ALI NETAPP storage date protection.
+description: Provides an overview of ALI for Epic NETAPP storage date protection.
 ms.topic: conceptual
 author: jjaygbay
 ms.author: jacobjaygbay
