@@ -36,7 +36,9 @@ await using ServiceBusClient client = new("<CONNECTION-STRING>");
 ## [Go](#tab/go)
 
 ```go
-client, err := azservicebus.NewClientFromConnectionString("<CONNECTION-STRING>", nil)
+client, err := azservicebus.NewClientFromConnectionString(
+    "<CONNECTION-STRING>",
+    nil)
 
 if err != nil {
     // handle error
