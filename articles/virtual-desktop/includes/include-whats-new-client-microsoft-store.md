@@ -19,7 +19,7 @@ The following table lists the current version available for the public release:
 
 In this release, we've made the following change:
 
-- Updated Store description to call out the end of Azure Virtual Desktop support.
+- Updated Store description to mention the end of Azure Virtual Desktop support.
 - Fixed the vulnerability known as [CVE-2023-28290](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28290).
 
 ## Updates for version 10.2.3000
