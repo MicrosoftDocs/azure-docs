@@ -1698,6 +1698,15 @@ groups:
     title: Studio
   - id: rest-api
     title: REST
+# Owner: mbullwin
+- id: openai-use-your-data
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: rest-api
+    title: REST
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types

@@ -53,5 +53,5 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 - [Azure cognitive search resources](/azure/search/search-get-started-portal#clean-up-resources)
     
 ## Next steps
-* Learn more about [using your data in Azure OpenAI Service](./concepts/grounding-data.md)
+* Learn more about [using your data in Azure OpenAI Service](./concepts/using-your-data.md)
 * [Chat app sample code on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/sawidder/new-readme/README.md).

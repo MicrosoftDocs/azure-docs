@@ -22,7 +22,7 @@ To get started, [connect your data source](../use-your-own-data.md) using [Azure
 Because the model has access to, and can reference specific sources to support its responses, answers are not only based on its pre-trained knowledge but also on the latest available information. This grounding data also helps the model avoid generating responses based on outdated or incorrect information.
 
 > [!NOTE]
-> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource) with either the gpt-35-turbo or the gpt-4 models deployed.
+> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) with either the gpt-35-turbo or the gpt-4 models deployed.
 
 ## What is Azure OpenAI on your data
 
