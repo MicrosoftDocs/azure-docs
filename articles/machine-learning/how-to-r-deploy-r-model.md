@@ -10,6 +10,7 @@ author: wahalulu
 ms.author: mavaisma
 ms.reviewer: sgilley
 ms.devlang: r
+ms.custom: devx-track-azurecli
 ---
 
 # How to deploy a registered R model to an online (real time) endpoint
