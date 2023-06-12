@@ -65,7 +65,7 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`.
+1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`.
 
 1. Copy and paste the document translation [code sample](#code-sample) into the Program.cs file.
 

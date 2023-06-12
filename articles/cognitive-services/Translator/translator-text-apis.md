@@ -109,7 +109,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. Copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
+1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`. Copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
 
 1. Once you've added a desired code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
