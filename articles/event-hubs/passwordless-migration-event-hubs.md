@@ -101,14 +101,23 @@ The Azure Identity client library, for each of the following ecosystems, provide
     }
 
     // Event Hubs producer
-    producerClient, err = azeventhubs.NewProducerClient(eventHubNamespace, eventHubName, credential, nil)
+    producerClient, err = azeventhubs.NewProducerClient(
+        eventHubNamespace,
+        eventHubName,
+        credential,
+        nil)
 
     if err != nil {
         // handle error
     }
 
     // Event Hubs processor
-    processorClient, err = azeventhubs.NewConsumerClient(eventHubNamespace, eventHubName, azeventhubs.DefaultConsumerGroup, credential, nil)
+    processorClient, err = azeventhubs.NewConsumerClient(
+        eventHubNamespace,
+        eventHubName,
+        azeventhubs.DefaultConsumerGroup,
+        credential,
+        nil)
 
     if err != nil {
         // handle error
