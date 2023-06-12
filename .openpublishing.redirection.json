@@ -13929,6 +13929,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/search/search-get-started-dotnet.md",
+            "redirect_url": "/azure/search/search-get-started-text",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/search/search-get-started-python.md",
+            "redirect_url": "/azure/search/search-get-started-text",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/search-get-started-java.md",
+            "redirect_url": "/azure/search/search-get-started-text",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/search-get-started-javascript.md",
+            "redirect_url": "/azure/search/search-get-started-text",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/search-performance-optimization.md",
             "redirect_url": "/azure/search/search-reliability",
             "redirect_document_id": true

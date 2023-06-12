@@ -1259,9 +1259,7 @@ items:
         displayName: log query, log queries, query, queries
         href: logs/get-started-queries.md
       - name: KQL reference
-        href: /azure/data-explorer/kusto/query/
-      - name: Sample queries
-        href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+        href: /azure/data-explorer/kusto/query?toc=/azure/azure-monitor/toc.json
       - name: Detect and analyze anomalies in log data
         href: logs/kql-machine-learning-azure-monitor.md
       - name: Standard columns
