@@ -255,7 +255,7 @@ The following steps will show you how to create a UAMI for Microsoft Purview to 
 1. Select the identity you want to delete, and then select the **Delete** button.
 
 >[!NOTE]
->If you have deleted a user-assigned managed identity in the Azure portal, and re-created it with the same name you still need to delete the original identiy and create a new one in the Microsoft Purview governance portal. Though the re-created identity has the same name, it does not have the same ID.
+>If you have deleted a user-assigned managed identity in the Azure portal, you need to delete the original identiy and create a new one in the Microsoft Purview governance portal.
 
 ## Next steps
 
