@@ -72,5 +72,3 @@ landingContent:
             url: how-to-access-audit-logs.md
           - text: Network traffic logs
             url: how-to-view-traffic-logs.md
-          - text: Enriched Microsoft 365 logs
-            url: how-to-view-enriched-logs.md
