@@ -12,7 +12,7 @@ ms.custom:
 
 # Global Secure Access remote network configurations
 
-Device links are the physical routers that connect your remote networks, such as branch locations, to Global Secure Access (preview). There's a specific set of combinations you must use if you choose the **Custom** option when adding device links. If you choose the **Default** option, you must enter a specific combination of properties on the cutomer premises equipment (CPE) device.
+Device links are the physical routers that connect your remote networks, such as branch locations, to Global Secure Access (preview). There's a specific set of combinations you must use if you choose the **Custom** option when adding device links. If you choose the **Default** option, you must enter a specific combination of properties on the customer premises equipment (CPE) device.
 
 ## Default IPSec/IKE configurations
 
