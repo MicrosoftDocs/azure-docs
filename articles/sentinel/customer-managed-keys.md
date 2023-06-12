@@ -90,17 +90,15 @@ Follow the instructions to [Register the Azure Cosmos DB Resource Provider](../c
 
 ### STEP 4: Add an access policy to your Azure Key Vault instance
 
-Add an access policy from Azure Cosmos DB to your Azure Key Vault instance. Follow the instructions here to [add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-access-policy) with an Azure Cosmos DB principal. 
+Add an access policy that allows your Azure Cosmos DB to access the Azure Key Vault instance created in [**STEP 1**](#step-1-create-an-azure-key-vault-and-generate-or-import-a-key). 
+
+Follow the instructions here to [add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-access-policy) with an Azure Cosmos DB principal. 
 
 :::image type="content" source="../cosmos-db/media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" lightbox="../cosmos-db/media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" alt-text="Screenshot of the Select principal option on the Add access policy page.":::
 
-### STEP 5: Contact the Microsoft Sentinel Product group to confirm onboarding 
+### STEP 5: Onboard the workspace to Microsoft Sentinel via the onboarding API
 
-You must confirm onboarding of your CMK enabled workspace by contacting the [Microsoft Sentinel Product Group](mailto:onboardrecoeng@microsoft.com).
-
-### STEP 6: Onboard the workspace to Microsoft Sentinel via the onboarding API
-
-Onboard the workspace to Microsoft Sentinel via the [onboarding API](/rest/api/securityinsights/preview/sentinel-onboarding-states/create). For more context on the onboarding API, see [this document](https://github.com/Azure/Azure-Sentinel/raw/master/docs/Azure%20Sentinel%20management.docx) in the Microsoft Sentinel GitHub repo.
+Onboard the CMK enabled workspace to Microsoft Sentinel via the [onboarding API](/rest/api/securityinsights/preview/sentinel-onboarding-states/create) using the `customerManagedKey` property as `true`. For more context on the onboarding API, see [this document](https://github.com/Azure/Azure-Sentinel/raw/master/docs/Azure%20Sentinel%20management.docx) in the Microsoft Sentinel GitHub repo.
 
 For example, the following URI and request body is a valid call to onboard a workspace to Microsoft Sentinel when the proper URI parameters and authorization token are sent.
 
@@ -117,6 +115,10 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     }  
 } 
 ```
+
+### STEP 6: Contact the Microsoft Sentinel Product group to confirm onboarding 
+
+Lastly, you must confirm the onboarding status of your CMK enabled workspace by contacting the [Microsoft Sentinel Product Group](mailto:onboardrecoeng@microsoft.com).
 
 ## Key Encryption Key revocation or deletion
 
