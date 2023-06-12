@@ -159,7 +159,7 @@ class Program
 
 ## Run your application
 
-Once you've added the code sample to your application, run your application from the project directory by typing the following:
+Once you've added the code sample to your application, run your application from the project directory by typing the following command in your terminal:
 
 ```csharp
   dotnet run

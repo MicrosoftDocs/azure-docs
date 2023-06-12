@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 06/12/2023
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: cog-serv-seo-aug-2020, mode-other, devx-track-python
@@ -2295,7 +2295,7 @@ After a successful call, you should see the following response. Unlike the call 
 
 ## Dictionary lookup (alternate translations)
 
-With the  endpoint, you can get alternate translations for a word or phrase. For example, when translating the word "sunshine" from `en` to `es`, this endpoint returns "`luz solar`", "`rayos solares`", and "`soleamiento`", "`sol`", and "`insolación`".
+With the  endpoint, you can get alternate translations for a word or phrase. For example, when translating the word "sunshine" from `en` to `es`, this endpoint returns "`luz solar`," "`rayos solares`," and "`soleamiento`," "`sol`," and "`insolación`."
 
 ### [C#](#tab/csharp)
 
