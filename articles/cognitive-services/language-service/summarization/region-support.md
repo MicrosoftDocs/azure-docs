@@ -1,7 +1,7 @@
 ---
 title: Summarization language support
 titleSuffix: Azure Cognitive Services
-description: Learn about which languages are supported by document summarization.
+description: Learn about which regions are supported by document summarization.
 services: cognitive-services
 author: jboback
 manager: nitinme
