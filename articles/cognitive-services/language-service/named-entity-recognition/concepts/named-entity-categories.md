@@ -810,15 +810,15 @@ The entity in this category can have the following subcategories.
 
 # [Preview API](#tab/preview-api)
 
-# Supported Named Entity Recognition (NER) entity categories 
+## Supported Named Entity Recognition (NER) entity categories 
 
 Use this article to find the entity types and the additional tags that can be returned by [Named Entity Recognition](../how-to-call.md) (NER). NER runs a predictive model to identify and categorize named entities from an input document.
 
-## Type: Address
+### Type: Address
 
 Specific street-level mentions of locations: house/building numbers, streets, avenues, highways, intersections referenced by name.
 
-## Type: Numeric
+### Type: Numeric
 
 Numeric values.
 

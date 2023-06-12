@@ -47,7 +47,7 @@ When you get results from NER, you can stream the results to an application or s
 
 ## Select which entities to be returned (Preview API only)
 
-Starting with **API version 2023-04-15-preview**, the API will attempt to detect the [defined entity types and tags](concepts/entity-types-list.md) for a given document language. The entity types and tags replace the categories and subcategories structure the older models use to define entities for more flexibility. You can also specify which entities will be detected and returned, use the optional `includeList` and `excludeList` parameters with the appropriate entity types. The following example would detect only `Location`. You can specify one or more [entity types](concepts/entity-types-list.md) to be returned. Given the types and tags hierarchy introduced for this version, you have the flexibility to filter on different granuality levels as so:
+Starting with **API version 2023-04-15-preview**, the API will attempt to detect the [defined entity types and tags](concepts/named-entity-categories.md) for a given document language. The entity types and tags replace the categories and subcategories structure the older models use to define entities for more flexibility. You can also specify which entities will be detected and returned, use the optional `includeList` and `excludeList` parameters with the appropriate entity types. The following example would detect only `Location`. You can specify one or more [entity types](concepts/named-entity-categories.md) to be returned. Given the types and tags hierarchy introduced for this version, you have the flexibility to filter on different granuality levels as so:
 
 **Input:**
 
@@ -79,7 +79,7 @@ Starting with **API version 2023-04-15-preview**, the API will attempt to detect
 
 ```
 
-The above examples would return entities falling under the `Location` entity type such as the `GPE`, `Structural`, and `Geological` tagged entities as [outlined by entity types and tags](concepts/entity-types-list.md). We could also further filter the returned entites by filtering using one of the entity tags for the `Location` entity type such as filtering over `GPE` tag only as outlined below:
+The above examples would return entities falling under the `Location` entity type such as the `GPE`, `Structural`, and `Geological` tagged entities as [outlined by entity types and tags](concepts/named-entity-categories.md). We could also further filter the returned entites by filtering using one of the entity tags for the `Location` entity type such as filtering over `GPE` tag only as outlined below:
 
 ```bash
 
