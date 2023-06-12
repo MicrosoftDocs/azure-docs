@@ -77,7 +77,7 @@ During the preview, computed properties must be created using the .NET v3 or Jav
 |**SDK** |**Supported version** |**Notes** |
 |--------|----------------------|----------|
 |.NET SDK v3 |>= [3.34.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.34.0-preview) |Computed properties are currently only available in preview package versions. |
-|Java SDK v4 |>= [4.46.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.46.0) | |
+|Java SDK v4 |>= [4.46.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.46.0) |Computed properties are currently under preview version. |
 
 ### Create computed properties using the SDK
 
