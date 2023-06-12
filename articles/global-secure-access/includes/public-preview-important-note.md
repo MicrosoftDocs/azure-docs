@@ -15,11 +15,3 @@ Your use of the Microsoft Entra Private Access and Microsoft Entra Internet Acce
 Previews are provided “as-is,” “with all faults,” and “as available,” and are excluded from the service level agreements and limited warranty. Previews may not be covered by customer support. We may change or discontinue Previews at any time without notice. We also may choose not to release a Preview into “General Availability”. New capabilities may be added to the preview incrementally.
 
 Previews may be subject to reduced or different security, compliance and privacy commitments, as further explained in the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839), [Microsoft Trust Center](https://go.microsoft.com/fwlink/?linkid=2179910), the [Product Terms](https://go.microsoft.com/fwlink/?linkid=2173816), the [Microsoft Products and Services Data Protection Addendum (“DPA”)](https://go.microsoft.com/fwlink/?linkid=2153219), and any other notices provided with the Preview.
-
-## Feedback and support
-
-If you have feedback or questions about our Global Secure Access public preview capabilities, let the team know by completing the following form:
-
-[https://aka.ms/ssepreviewfeedback](https://aka.ms/ssepreviewfeedback)
-
-For any support related issues, continue to use your standard support channels.

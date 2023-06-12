@@ -627,6 +627,7 @@
         "articles/frontdoor/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=d47b0f41-8326-ec11-b6e6-000d3a4f0789",
         "articles/genomics/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/germany/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+        "articles/global-secure-access/**/*.md": "https://aka.ms/ssepreviewfeedback",
         "articles/governance/**/*.md": "https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0",
         "articles/guidance/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/guides/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
