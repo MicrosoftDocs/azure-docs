@@ -5,7 +5,7 @@ services: storage
 author: pauljewellmsft
 ms.service: storage
 ms.topic: include
-ms.date: 06/09/2023
+ms.date: 06/12/2023
 ms.author: pauljewell
 ms.custom: include file
 ---
@@ -18,7 +18,6 @@ To work with the code examples in this article, add the following import directi
 import com.azure.storage.blob.*;
 import com.azure.storage.blob.models.*;
 import com.azure.storage.blob.sas.*;
-)
 ```
 
 ## Get an authenticated token credential
