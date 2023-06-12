@@ -39,7 +39,7 @@ The following operations are available on Chat API request metrics:
 
 | Operation / Route    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| GetChatMessage       | Gets a message by message id. |
+| GetChatMessage       | Gets a message by message ID. |
 | ListChatMessages     | Gets a list of chat messages from a thread. |
 | SendChatMessage      | Sends a chat message to a thread. |
 | UpdateChatMessage    | Updates a chat message. |
@@ -58,7 +58,7 @@ The following operations are available on Chat API request metrics:
 
 :::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
-If a request is made to an operation that isn't recognized, you'll receive a "Bad Route" value response.
+If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
 
 ### SMS API requests
 
@@ -66,7 +66,7 @@ The following operations are available on SMS API request metrics:
 
 | Operation / Route    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| SMSMessageSent       | Sends a SMS message. |
+| SMSMessageSent       | Sends an SMS message. |
 | SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
 | SMSMessagesReceived      | Gets SMS messages. |
 
@@ -130,8 +130,8 @@ The following operations are available on Rooms API request metrics:
 | ----------------------------- | ---------------------------------------------------------------------------------------------- |
 | CreateRoom                    | Creates a Room. |
 | DeleteRoom                    | Deletes a Room. |
-| GetRoom                       | Gets a Room by Room id. |
-| PatchRoom                     | Updates a Room by Room id. |
+| GetRoom                       | Gets a Room by Room ID. |
+| PatchRoom                     | Updates a Room by Room ID. |
 | ListRooms                     | Lists all the Rooms for an ACS Resource. |
 | AddParticipants               | Adds participants to a Room.|
 | RemoveParticipants            | Removes participants from a Room. |
