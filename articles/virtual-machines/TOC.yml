@@ -381,7 +381,13 @@
         - name: Performance
           href: hbv3-performance.md
       - name: HBv4-series
-        href: hbv4-series.md
+        items:
+        - name: Overview
+          href: hbv4-series-overview.md
+        - name: HBv4-series
+          href: hbv4-series.md
+        - name: Performance
+          href: hbv4-performance.md
       - name: HC-series
         items:
         - name: Overview
@@ -391,7 +397,13 @@
         - name: Performance
           href: hc-series-performance.md
       - name: HX-series
-        href: hx-series.md
+        items:
+        - name: Overview
+          href: hx-series-overview.md
+        - name: HX-series
+          href: hx-series.md
+        - name: Performance
+          href: hx-performance.md
       - name: HPC for HB-series and N-series VMs
         href: overview-hb-hc.md
       - name: Known issues with HB-series and N-series VMs
@@ -399,7 +411,7 @@
       - name: Setup MPI for HPC
         href: setup-mpi.md
       - name: Scaling HPC applications
-        href: compiling-scaling-applications.md        
+        href: compiling-scaling-applications.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
