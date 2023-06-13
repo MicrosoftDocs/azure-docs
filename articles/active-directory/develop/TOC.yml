@@ -14,6 +14,10 @@
     - name: Basics of the identity platform
       displayName: introduction, basics, overview
       items:
+        - name: Identity fundamentals
+          href: ../fundamentals/identity-fundamental-concepts.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: Introduction to identity and access management
+          href: ../fundamentals/introduction-identity-access-management.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Authentication vs. authorization
           href: authentication-vs-authorization.md
         - name: OAuth 2.0 and OpenID Connect

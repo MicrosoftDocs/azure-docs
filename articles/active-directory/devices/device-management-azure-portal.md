@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 06/12/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -139,7 +139,7 @@ Global readers, Cloud Device Administrators, Intune Administrators, and Global A
 
 The exported list includes these device identity attributes:
 
-`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
+`displayName,accountEnabled,operatingSystem,operatingSystemVersion,joinType (trustType),registeredOwners,userNames,mdmDisplayName,isCompliant,registrationTime,approximateLastSignInDateTime,deviceId,isManaged,objectId,profileType,systemLabels,model`
 
 ## Configure device settings
 

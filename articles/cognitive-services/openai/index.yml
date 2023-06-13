@@ -48,7 +48,7 @@ additionalContent:
       items:
         - title: Azure OpenAI
           links:
-            - text: Azure AI Studio
+            - text: Azure OpenAI Studio
               url: https://oai.azure.com/
             - text: Region support
               url: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
