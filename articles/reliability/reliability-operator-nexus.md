@@ -59,7 +59,7 @@ Nexus instances that are geographically distributed, i.e., not in the same opera
 ### Multiple Nexus instances in the same geo-location
 
 There are scenarios where multiple Nexus instances need to be deployed in the same geographic location.
-Workload geo-redundancy is obviously not achieved by deploying workloads on Nexus clusters in the same geographic location.
+Workload geo-redundancy is obviously not achieved by deploying workloads on Nexus instances in the same geographic location.
 
 One consideration in designing for reliability, other than availability, is resiliency and the ability to recover from failures. Recovery from failures, and the ability to meet recovery time objectives, requires that we limit the "blast" or impact radius of failures.  In the scenario where multiple Nexus clusters are deployed in the same geo-location, resilient design demands that these Nexus instances be hosted on different Azure regions. Thus, when an Azure region fails, its impact is limited to one Nexus instance.
 
