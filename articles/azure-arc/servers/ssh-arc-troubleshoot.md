@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot SSH access to Azure Arc-enabled servers issues
 description: This article tells how to troubleshoot and resolve issues with the SSH access to Arc-enabled servers.
-ms.date: 04/30/2023
+ms.date: 07/01/2023
 ms.topic: conceptual
 ---
 
@@ -76,4 +76,4 @@ Resolution:
  ## Disable SSH to Arc-enabled servers
  This functionality can be disabled by completing the following actions:
   - Remove the SSH port and functionality from the Arc-enabled server: ```az rest --method delete --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 --body '{\"properties\": {\"serviceName\": \"SSH\", \"port\": \"22\"}}'```
-  - Delete the default connectivity endpoint: ```az rest --method delete --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview```
+  - Delete the default connectivity endpoint: ```az rest --method delete --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15```
