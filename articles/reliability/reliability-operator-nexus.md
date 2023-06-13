@@ -10,7 +10,7 @@ ms.date: 04/19/2023
 #Customer intent: I want to understand reliability support in Azure Operator Nexus Network Cloud so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
-# Reliability in Azure Operator Nexus Network Cloud
+# Reliability in Azure Operator Nexus
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.
