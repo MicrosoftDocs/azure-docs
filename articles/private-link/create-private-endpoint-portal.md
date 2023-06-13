@@ -83,25 +83,25 @@ Next, you create a private endpoint for the web app that you created in the **Pr
     | Subnet | Select **subnet-1**. |
     | Network policy for private endpoints | Select **edit** to apply Network policy for private endpoints. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables** in the **Network policies setting for all private endpoints in this subnet** pull-down. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
 
-# [**Dynamic IP**](#tab/dynamic-ip)
+    # [**Dynamic IP**](#tab/dynamic-ip)
 
-| Setting | Value |
-| ------- | ----- |
-| **Private IP configuration** | Select **Dynamically allocate IP address**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | **Private IP configuration** | Select **Dynamically allocate IP address**. |
 
-:::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
 
-# [**Static IP**](#tab/static-ip)
+    # [**Static IP**](#tab/static-ip)
 
-| Setting | Value |
-| ------- | ----- |
-| **Private IP configuration** | Select **Statically allocate IP address**. |
-| Name | Enter **ipconfig-1**. |
-| Private IP | Enter **10.0.0.10**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | **Private IP configuration** | Select **Statically allocate IP address**. |
+    | Name | Enter **ipconfig-1**. |
+    | Private IP | Enter **10.0.0.10**. |
 
-:::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
 
----
+    ---
 
 1. Select **Next: DNS**.
 
