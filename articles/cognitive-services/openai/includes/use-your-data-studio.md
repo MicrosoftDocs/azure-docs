@@ -21,7 +21,7 @@ Navigate to [Azure AI studio](https://oai.azure.com/) and sign-in with credentia
 
     :::image type="content" source="../media/quickstarts/chat-playground-card.png" alt-text="A screenshot of the Azure AI studio landing page." lightbox="../media/quickstarts/chat-playground-card.png":::
 
-1. On the **Assistant setup** tile, select **Add your data** > **+ Add a data source (preview)**.
+1. On the **Assistant setup** tile, select **Add your data (preview)** > **+ Add a data source**.
 
     :::image type="content" source="../media/quickstarts/chatgpt-playground-add-your-data.png" alt-text="A screenshot showing the button for adding your data in Azure AI studio." lightbox="../media/quickstarts/chatgpt-playground-add-your-data.png":::
 
