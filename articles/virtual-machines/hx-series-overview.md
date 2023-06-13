@@ -34,11 +34,11 @@ To provide room for the Azure hypervisor to operate without interfering with the
 
 The following diagram shows the topology of the server. We reserve these 16 hypervisor host cores (yellow) symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) in each NUMA domain, with the remaining cores for the HX-series VM (green).
 
-![Topology of the HX-series server](./media/hpc/architecture/hbv4/hbv4-topology-server.png)
+![Screenshot of HX-series server Topology](./media/hpc/architecture/hbv4/hbv4-topology-server.png)
 
 The CCD boundary is different from a NUMA boundary. On HX, a group of six (6) consecutive CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HX VM sizes expose 4 uniform NUMA domains that will appear to an OS and application as shown below, each with different number of cores depending on the specific [HX VM size](hx-series.md).
 
-![Topology of the HX-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.jpg)
+![Screenshot of HX-series VM Topology](./media/hpc/architecture/hbv4/hbv4-topology-vm.jpg)
 
 Each HX VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 9004-series, as follows:
 
