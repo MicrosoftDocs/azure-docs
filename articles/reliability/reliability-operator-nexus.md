@@ -43,7 +43,7 @@ In general, availability targets are achieved through local and geo-redundant de
 
 ### Nexus zone: a mechanism for local workload redundancy
 
-Operator Nexus on-premises clusters (aka instances) consist of a multi-rack design that provides physical redundancy at all levels of the stack. Each rack is designated as a failure domain and, thus, can be configured as a Nexus zone where these zones can and, preferably, should be used for local redundant workload deployments.
+Operator Nexus on-premises instances consist of a multi-rack design that provides physical redundancy at all levels of the stack. Each rack is designated as a failure domain and, thus, can be configured as a Nexus zone where these zones can and, preferably, should be used for local redundant workload deployments.
 
 ### Nexus cluster: a mechanism for geo workload redundancy
 
