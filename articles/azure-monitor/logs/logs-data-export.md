@@ -1066,7 +1066,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | UserPeerAnalytics |  |
 | VIAudit |  |
 | VIIndexing |  |
-| W3CIISLog | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| W3CIISLog | Partial support. Data arriving from the Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | WaaSDeploymentStatus |  |
 | WaaSInsiderStatus |  |
 | WaaSUpdateStatus |  |
