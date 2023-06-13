@@ -132,8 +132,8 @@ Azure AD integrated clusters using a Kubernetes version newer than version 1.24 
     ```azurecli-interactive
     az aks get-credentials --format azure
     ```
-
-* If your Azure AD integrated clusters use a Kubernetes version equals to or older than 1.24, you need to convert the kubeconfig format manually.
+    
+* If your Azure AD integrated cluster uses Kubernetes version 1.24 or lower, you need to manually convert the kubeconfig format.
 
     ```azurecli-interactive
     export KUBECONFIG=/path/to/kubeconfig
