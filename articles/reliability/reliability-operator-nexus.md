@@ -37,7 +37,7 @@ In an availability zone-down scenario, API calls against the cluster and resourc
 In the case of an availability zone failure, reconnection to another Azure availability zone is automatic and requires no interaction from the user.
 ## Availability on Operator Nexus instance deployments
 
-Ensuring availability in the Azure Operator Nexus workload deployments is a split responsibility. As stated in the previous section, the Nexus platform resources are deployed with availability zone redundancy. In this section, we consider best practices for on-premises workload availability.
+Ensuring availability in the Azure Operator Nexus workload deployments is a split responsibility. As stated in the previous section, the Operator Nexus AKS based resources are deployed with availability zone redundancy. In this section, we consider best practices for on-premises workload availability.
 
 In general, availability targets are achieved through local and geo-redundant deployments. 
 
