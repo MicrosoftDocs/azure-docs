@@ -48,7 +48,7 @@ the last 35 days.  Point-in-time restore is useful in multiple scenarios. For
 example, when a user accidentally deletes data, drops an important table or
 database, or if an application accidentally overwrites good data with bad data.
 
-When all nodes are up and running, you can restore cluster without any data loss. In extremely rare cases when a node experienced a catastrophic event (and [high availability](./concepts-high-availability.md) is not enabled on the cluster), you may lose up to 16 minutes of data. 
+When all nodes are up and running, you can restore cluster without any data loss. In an extremely rare case of a node experiencing a catastrophic event (and [high availability](./concepts-high-availability.md) isn't enabled on the cluster), you may lose up to 16 minutes of data. 
 
 > [!IMPORTANT]
 > Deleted clusters can't be restored. If you delete the
