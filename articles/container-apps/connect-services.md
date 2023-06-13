@@ -76,14 +76,6 @@ In this tutorial, you learn to:
     az redis list --resource-group "$RESOURCE_GROUP" --query "[].name" -o table
     ```
 
-1. Create a variable for your DNS name.
-
-    Make sure to replace `<YOUR_DNS_NAME>` with the DNS name of your instance of Azure Cache for Redis.
-
-    ```azurecli
-    AZURE_REDIS_DNS_NAME=<YOUR_DNS_NAME>
-    ```
-
 1. Create a variable to hold your environment name.
 
     Replace `<MY_ENVIRONMENT_NAME>` with the name of your container apps environment.
@@ -196,6 +188,14 @@ Next, create your internet-accessible container app.
 When your application is ready to move to production, you can bind your application to a managed service instead of a dev service.
 
 The following steps bind your application to an existing instance of Azure Cache for Redis.
+
+1. Create a variable for your DNS name.
+
+    Make sure to replace `<YOUR_DNS_NAME>` with the DNS name of your instance of Azure Cache for Redis.
+
+    ```azurecli
+    AZURE_REDIS_DNS_NAME=<YOUR_DNS_NAME>
+    ```
 
 1. Bind to Azure Cache for Redis.
 
