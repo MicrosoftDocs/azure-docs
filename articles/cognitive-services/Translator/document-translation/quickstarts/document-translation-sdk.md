@@ -32,7 +32,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). If you're planning on using the Document Translation feature with [managed identity authorization](document-translation/how-to-guides/create-use-managed-identities.md), choose a geographic region such as **East US**. Select the **Standard S1 or D3** or pricing tier.
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). If you're planning on using the Document Translation feature with [managed identity authorization](../how-to-guides/create-use-managed-identities.md), choose a geographic region such as **East US**. Select the **Standard S1 or D3** or pricing tier.
 
 * An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure Blob Storage account for your source and target files:
 
@@ -45,16 +45,16 @@ You can choose one of the following options to authorize access to your Translat
 
 **✔️ Managed Identity**. A managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for an Azure managed resource. Managed identities enable you to run your Translator application without having to embed credentials in your code. Managed identities are a safer way to grant access to storage data and replace the requirement for you to include shared access signature tokens (SAS) with your source and target URLs.
 
-  :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
-
 To learn more, *see* [Managed identities for Document Translation](../how-to-guides/create-use-managed-identities.md).
 
-**✔️ Shared Access Signature (SAS)**.  A shared access signature is a URL that grants restricted access for a specified period of time to your Translator service. To use this method, you need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](../how-to-guides/create-sas-tokens.md).
+  :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
+
+**✔️ Shared Access Signature (SAS)**.  A shared access signature is a URL that grants restricted access for a specified period of time to your Translator service. To use this method, you need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. 
+
+To learn more, *see* [**Create SAS tokens**](../how-to-guides/create-sas-tokens.md).
 
 * Your **source** container or blob must have designated  **read** and **list** access.
 * Your **target** container or blob must have designated  **write** and **list** access.
-
-To learn more, *see* [Create SAS tokens](../how-to-guides/create-sas-tokens.md).
 
 ::: zone pivot="programming-language-csharp"
 

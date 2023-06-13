@@ -29,17 +29,7 @@ pip install azure-ai-translation-document==1.0.0
 
 1. For this project, you need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.pdf) for this quickstart. The source language is English.
 
-### Create your application
-
-1. Create a new Python application in your preferred editor or IDE called `document-translation-sdk.py`. Then import the following libraries.
-
-  ```python
-  import os
-  from azure.core.credentials import AzureKeyCredential
-  from azure.ai.translation.document import DocumentTranslationClient
-  ```
-
-1. Create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/document-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In your Python application file, create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/document-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
   ```python
   key = "<your-key>"
@@ -47,7 +37,9 @@ pip install azure-ai-translation-document==1.0.0
   
   ```
 
-1. Perform the `begin_translation` operation by passing the `sourceUri`, `targetUri`, and `targetLanguageCode` parameters.
+1. Initialize a `DocumentTranslationClient` object that contains your `endpoint` and `key` parameters.
+
+1. Call the `begin_translation` method by passing the `sourceUri`, `targetUri`, and `targetLanguageCode` parameters.
 
     * For [**Managed Identity authorization**](../../../how-to-guides/create-use-managed-identities.md) create these variables:
 
@@ -71,10 +63,10 @@ pip install azure-ai-translation-document==1.0.0
 
 ### Code Sample
 
-* Enter the following code sample into your Python application:
-
 > [!IMPORTANT]
-  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
+
+**Enter the following code sample into your Python application:**
 
 ```python
 

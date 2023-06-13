@@ -15,13 +15,13 @@ recommendations: false
 
 ## Build your application
 
-There are several tools available for creating, building, and running your Translator C#/.NET application. Here, we guide you through using the command-line interface (CLI) or Visual Studio. Select one of following tabs to get started:
+There are several tools available for creating, building, and running Translator C#/.NET applications. Here, we guide you through using either the command-line interface (CLI) or Visual Studio. Select one of following tabs to get started:
 
 # [.NET CLI](#tab/dotnet)
 
 ## Set up your project
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `batch-document-translation`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `batch-document-translation`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
 ```console
 dotnet new console -n batch-document-translation
@@ -90,10 +90,10 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0
 
 ## Code sample
 
-* Enter the following code sample into your application's Program.cs file:
-
   > [!IMPORTANT]
   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
+
+**Enter the following code sample into your application's Program.cs file:**
 
 ```csharp
 
@@ -211,8 +211,6 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 ## Build your C# application
 
-To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create an `AzureKeyCredential` with your `key` from the Azure portal and a `TextTranslationClient`  instance with the `AzureKeyCredential`. The authentication varies slightly depending on whether your resource uses the regional or global endpoint. For this project, authenticate using the global endpoint. For more information about using a regional endpoint, *see* [Translator text sdks](../../../../text-sdk-overview.md#3-authenticate-the-client).
-
 > [!NOTE]
 >
 > * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
@@ -260,7 +258,7 @@ To interact with the Translator service using the client library, you need to cr
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
 
-**Translate document**
+**Enter the following code sample into your application's Program.cs file:**
 
 ```csharp
 
