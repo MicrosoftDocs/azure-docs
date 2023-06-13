@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 06/12/2023
 ---
 
 # Point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
@@ -59,8 +59,8 @@ back up and running:
 
 * If the new server is meant to replace the original server, redirect clients
   and client applications to the new server
-* Ensure an appropriate server-level firewall is in place for
-  users to connect. These rules aren't copied from the original cluster.
+* Ensure appropriate networking settings for private or public access are in place for
+  users to connect. These settings aren't copied from the original cluster.
 * Adjust PostgreSQL server parameters as needed. The parameters aren't copied
   from the original cluster.
 * Ensure appropriate logins and database level permissions are in place.
