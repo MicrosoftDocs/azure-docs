@@ -38,12 +38,12 @@ curl  -L https://aka.ms/enable-monitoring-msi-bicep-parameters -o existingCluste
 
 2.	Edit the values in the parameter file
  
-•	**aksResourceId**: Use the values on the AKS Overview page for the AKS cluster.
-•	**aksResourceLocation**: Use the values on the AKS Overview page for the AKS cluster.
-•	**workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
-•	**workspaceRegion**: Use the location of your Log Analytics workspace.
-•	**resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
-•	Other parameters are for cost optimization, please refer to this guide https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
+• **aksResourceId**: Use the values on the AKS Overview page for the AKS cluster.
+• **aksResourceLocation**: Use the values on the AKS Overview page for the AKS cluster.
+• **workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
+• **workspaceRegion**: Use the location of your Log Analytics workspace.
+• **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
+• Other parameters are for cost optimization, please refer to this guide https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
 
 3.	Onboarding with the commands below:
 
