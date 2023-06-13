@@ -18,7 +18,7 @@
   - name: Semantic search (preview)
     href: search-get-started-semantic.md
   - name: Vector search (preview)
-    href: search-get-started-vector.md
+    href: vector-search-quickstart.md
   - name: Portal
     items:
     - name: Create an index
@@ -95,11 +95,11 @@
       href: tutorial-multiple-data-sources.md
     - name: Index encrypted blobs
       href: search-howto-index-encrypted-blobs.md
-  - name: Vector search tutorials
+  - name: Vector tutorials
     items:
     - name: Chunk large documents
       href: TBD.md
-  - name: Enrichment (skills) tutorials
+  - name: Skills tutorials
     items:
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
@@ -134,7 +134,7 @@
     - name: Semantic search
       href: semantic-search-overview.md
     - name: Vector search
-      href: TBD.md
+      href: vector-search-overview.md
     - name: Query types and composition
       href: search-query-overview.md
     - name: Relevance scoring
