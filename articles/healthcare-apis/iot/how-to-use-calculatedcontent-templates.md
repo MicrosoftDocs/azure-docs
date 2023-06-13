@@ -153,6 +153,7 @@ We're using this device mapping for the normalization stage:
   ]
 }
 ```
+
 > [!IMPORTANT]
 > The MedTech service evaluates `typeMatchExpression` against the incoming device data payload. If the service finds a matching token value, it considers the template a match.
 >
