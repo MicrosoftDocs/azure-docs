@@ -1,6 +1,6 @@
 ---
-title: Configure Windows Update settings in Update management center (Preview)
-description: This article tells how to configure Windows update settings to work with Update management center (Preview).
+title: Configure Windows Update settings in Update management center
+description: This article tells how to configure Windows update settings to work with Update management center.
 ms.service: update-management-center
 ms.date: 05/02/2023
 ms.topic: conceptual
@@ -8,22 +8,22 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ---
 
-# Configure Windows update settings for update management center (preview)
+# Configure Windows update settings for update management center 
 
-Update management center (Preview) relies on the [Windows Update client](/windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. Many of these settings can be managed by:
+Update management center relies on the [Windows Update client](/windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. Many of these settings can be managed by:
 
 - Local Group Policy Editor
 - Group Policy
 - PowerShell
 - Directly editing the Registry
 
-The Update management center (preview) respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, the Update management center (preview) will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
+The Update management center respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, the Update management center will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
 
 For additional recommendations on setting up WSUS in your Azure subscription and to secure your Windows virtual machines up to date, review [Plan your deployment for updating Windows virtual machines in Azure using WSUS](/azure/architecture/example-scenario/wsus).
 
 ## Pre-download updates
 
-To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates) to 3. This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, update management center (Preview) remains in control of schedules, but allows downloading of updates outside the maintenance window. This behavior prevents `Maintenance window exceeded` errors in update management center (preview).
+To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates) to 3. This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, update management center (Preview) remains in control of schedules, but allows downloading of updates outside the maintenance window. This behavior prevents `Maintenance window exceeded` errors in update management center.
 
 You can enable this setting in PowerShell:
 

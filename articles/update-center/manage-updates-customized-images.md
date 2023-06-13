@@ -1,6 +1,6 @@
 ---
-title: Overview of customized images in Update management center (preview).
-description: The article describes about customized images, how to register, validate the customized images for public preview and its limitations.
+title: Overview of customized images in Update management center.
+description: The article describes about customized images, how to register, validate the customized images for and its limitations.
 ms.service: update-management-center
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -20,7 +20,7 @@ This article describes the customized image support, how to enable the subscript
 
 ## Asynchronous check to validate customized image support
 
-If you're using the Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update management Center (preview) operations such as Check for updates, One-time update, Schedule updates, or Periodic assessment to validate if the virtual machines are supported for guest patching and then initiate patching if the VMs are supported.
+If you're using the Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update management Center operations such as Check for updates, One-time update, Schedule updates, or Periodic assessment to validate if the virtual machines are supported for guest patching and then initiate patching if the VMs are supported.
 
 Unlike marketplace images where support is validated even before Update management center operation is triggered. Here, there are no pre-existing validations in place and the Update management center operations are triggered and only their success or failure determines support. 
 
@@ -29,7 +29,7 @@ For instance, assessment call, will attempt to fetch the latest patch that is av
 
 ## Enable Subscription for Public Preview
 
-To self register your subscription for Public preview in Azure portal, follow these steps:
+To self register your subscription for in Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
 
@@ -48,7 +48,7 @@ To self register your subscription for Public preview in Azure portal, follow th
    :::image type="content" source="./media/manage-updates-customized-images/register-preview.png" alt-text="Screenshot that shows how to register the preview feature.":::
 
 
-## Prerequisites to test the Azure Compute Gallery custom images (preview)
+## Prerequisites to test the Azure Compute Gallery custom images
 
 - Register the subscription for preview using the steps mentioned in [Enable Subscription for Public Preview](#enable-subscription-for-public-preview).
 - Ensure that the VM in which you intend to execute the API calls must be in the same subscription that is enrolled for the feature.
