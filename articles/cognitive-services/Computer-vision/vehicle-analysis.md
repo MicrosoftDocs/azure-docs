@@ -26,8 +26,7 @@ Vehicle analysis is a set of capabilities that, when used with the Spatial Analy
 > [!NOTE]
 > Make sure that the edge device has at least 50GB disk space available before deploying the Spatial Analysis module.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=spatial-analysis&Page=howto&Section=prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Vehicle analysis operations
 
@@ -142,9 +141,6 @@ Below is the graph optimized for the **vehicle in polygon** operation, utilized 
     }
 }
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=spatial-analysis&Page=howto&Section=configuring-the-vehicle-analysis-operations" target="_target">I ran into an issue</a>
 
 ## Sample cognitiveservices.vision.vehicleanalysis-vehiclecount-preview and cognitiveservices.vision.vehicleanalysis-vehiclecount.cpu-preview output
 

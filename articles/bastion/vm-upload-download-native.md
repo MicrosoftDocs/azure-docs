@@ -1,5 +1,5 @@
 ---
-title: File transfer via native client'
+title: 'File transfer via native client'
 titleSuffix: Azure Bastion
 description: Learn how to upload or download files using Azure Bastion and a native client.
 author: cherylmc

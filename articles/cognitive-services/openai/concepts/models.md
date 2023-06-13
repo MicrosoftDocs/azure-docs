@@ -208,7 +208,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 <br><sup>1</sup> Currently, only version `0301` of this model is available.
 
 > [!IMPORTANT]
-> The currently listed deprecation dates in Azure AI Studio and via REST API for gpt-35-turbo (0301) is a temporary placeholder. Deprecation will not happen prior to October 1st 2023.
+> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for gpt-35-turbo (0301) is a temporary placeholder. Deprecation will not happen prior to October 1st 2023.
 
 ### GPT-4 Models
 
@@ -216,14 +216,14 @@ These models can only be used with the Chat Completion API.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| `gpt-4` <sup>1,</sup><sup>2</sup>      |  East US, France Central, UK South |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1,</sup><sup>2</sup>  |  East US, France Central, UK South |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1,</sup><sup>2</sup>      |  East US, France Central |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup>  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
 
 > [!IMPORTANT]
-> The currently listed deprecation dates in Azure AI Studio and via REST API for the gpt-4 and gpt-4-32k (0314) models are temporary placeholders. Deprecation will not happen prior to October 1st 2023.
+> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for the gpt-4 and gpt-4-32k (0314) models are temporary placeholders. Deprecation will not happen prior to October 1st 2023.
 
 ### Dall-E Models
 
