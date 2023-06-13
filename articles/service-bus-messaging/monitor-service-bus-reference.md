@@ -98,7 +98,7 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Virtual network and IP filtering logs
 - Runtime Audit logs
 
-Azure Service Bus now supports sending logs to any of two destination tables-Azure Diagnostic and [Resource specific tables](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs#resource-specific) . 
+Azure Service Bus now supports sending logs to any of two destination tables-Azure Diagnostic and [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) . 
 
 ### Operational logs
 Operational log entries include elements listed in the following table:
