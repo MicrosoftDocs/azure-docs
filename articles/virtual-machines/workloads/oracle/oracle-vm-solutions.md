@@ -242,6 +242,9 @@ Azure NetApp Files was designed to run high-performance workloads like databases
 
 These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems that run in Azure data center environment as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. For more information on how to deploy and access Azure NetApp Files NFS volumes, see [Azure NetApp Files](../../../azure-netapp-files/index.yml). For best practice recommendations for operating an Oracle database on Azure NetApp Files, see [Oracle Solutions Using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-solution-architectures.md#oracle).
 
+> [!IMPORTANT]
+> Customers using Oracle 19c and higher must ensure they are **patched for Oracle bug 32931941, 33132050 and 33676296**, as per [Are there any Oracle patches required with dNFS?](../../../azure-netapp-files/faq-nfs.md#are-there-any-oracle-patches-required-with-dnfs).
+
 ## Licensing Oracle Database and software on Azure
 
 Microsoft Azure is an authorized cloud environment for running Oracle Database. The Oracle Core Factor table isn't applicable when licensing Oracle databases in the cloud. Instead, when using VMs with Hyper-Threading Technology enabled for Enterprise Edition databases, count two vCPUs as equivalent to one Oracle Processor license if hyperthreading is enabled, as stated in the policy document. The policy details can be found at [Licensing Oracle Software in the Cloud Computing Environment](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).

@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 05/15/2023
+ms.date: 06/08/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -203,9 +203,12 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-davinci-002 | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-003 | East US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-fine-tune-002 | N/A | N/A |  |  |
-| gpt-35-turbo<sup>1</sup> (ChatGPT) | East US, France Central, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
+| gpt-35-turbo<sup>1</sup> (ChatGPT) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
 
 <br><sup>1</sup> Currently, only version `0301` of this model is available.
+
+> [!IMPORTANT]
+> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for gpt-35-turbo (0301) is a temporary placeholder. Deprecation will not happen prior to October 1st 2023.
 
 ### GPT-4 Models
 
@@ -218,6 +221,9 @@ These models can only be used with the Chat Completion API.
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
+
+> [!IMPORTANT]
+> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for the gpt-4 and gpt-4-32k (0314) models are temporary placeholders. Deprecation will not happen prior to October 1st 2023.
 
 ### Dall-E Models
 
@@ -247,7 +253,7 @@ These models can only be used with Embedding API requests.
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- |
 | text-embedding-ada-002 (version 2) | East US, South Central US | N/A |8,191 | Sep 2021 |
-| text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |4,095 | Sep 2021 |
+| text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
 | text-similarity-ada-001| East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-babbage-001  | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-curie-001 | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |
