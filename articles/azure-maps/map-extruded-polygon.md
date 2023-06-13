@@ -110,17 +110,20 @@ function InitMap()
 
 ## Add data driven polygons
 
-A choropleth map can be rendered using the polygon extrusion layer. Set the `height` and `fillColor` properties of the extrusion layer to the measurement of the statistical variable in the `Polygon` and `MultiPolygon` feature geometries. The following code sample shows an extruded choropleth map of the United States based on the measurement of the population density by state.
+A choropleth map can be rendered using the polygon extrusion layer. Set the `height` and `fillColor` properties of the extrusion layer to the measurement of the statistical variable in the `Polygon` and `MultiPolygon` feature geometries.
 
-<br/>
+The [Create a Choropleth Map] sample shows an extruded choropleth map of the United States based on the measurement of the population density by state.
 
+:::image type="content" source="./media/map-extruded-polygon/choropleth-map.png"alt-text="A screenshot of a map showing a choropleth map rendered using the polygon extrusion layer.":::
+
+<!------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Extruded choropleth map" src="https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/eYYYNox'>Extruded choropleth map</a> by Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+  See the Pen <a href='https://codepen.io/azuremaps/pen/eYYYNox'>Extruded choropleth map</a> by Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------------------------------------>
 
 ## Add a circle to the map
 
-Azure Maps uses an extended version of the GeoJSON schema that provides a [definition for circles] (./extend-geojson.md#circle). An extruded circle can be rendered on the map by creating a `point` feature with a `subType` property of `Circle` and a numbered `Radius` property representing the radius in **meters**. For example:
+Azure Maps uses an extended version of the GeoJSON schema that provides a [definition for circles](./extend-geojson.md#circle). An extruded circle can be rendered on the map by creating a `point` feature with a `subType` property of `Circle` and a numbered `Radius` property representing the radius in **meters**. For example:
 
 ```javascript
 {
@@ -138,21 +141,64 @@ Azure Maps uses an extended version of the GeoJSON schema that provides a [defin
 
 The Azure Maps Web SDK converts these `Point` features into `Polygon` features under the hood. These `Point` features can be rendered on the map using polygon extrusion layer as shown in the following code sample.
 
-<br/>
+```javascript
+var map, datasource;
 
+function InitMap()
+{
+  map = new atlas.Map('myMap', {
+    center: [-105.2, 39.7],
+    zoom: 10.5,
+    pitch: 60,
+    view: 'Auto',
+
+    //Add authentication details for connecting to Azure Maps.
+    authOptions: {
+      // Get an Azure Maps key at https://azuremaps.com/.
+      authType: 'subscriptionKey',
+      subscriptionKey: 'IoB5cHwWKRxfsh2yyVbtD0p83DOfwRmHmzPaFX3BOrY'
+    },
+  });    
+
+  //Wait until the map resources are ready.
+  map.events.add('ready', function () {
+    /*Create a data source and add it to the map*/
+    datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
+
+    datasource.add(new atlas.data.Feature(new atlas.data.Point([-105.2, 39.7]), {
+      subType: "Circle",
+      radius: 1000
+    }));
+
+
+    /*Create and add a polygon Extrusion layer to render the extruded polygon to the map*/
+    map.layers.add(new atlas.layer.PolygonExtrusionLayer(datasource, null, {
+      base: 5000,
+      fillColor: "#02fae1",
+      fillOpacity: 0.7,
+      height: 5500
+    }));
+  });
+}
+```
+
+:::image type="content" source="./media/map-extruded-polygon/add-circle-to-map.png"alt-text="A screenshot of a map showing a green circle.":::
+
+<!------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Drone airspace polygon" src="https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>Drone airspace polygon</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------------------------------------>
 
 ## Customize a polygon extrusion layer
 
-The Polygon Extrusion layer has several styling options. Here is a tool to try them out.
+The Polygon Extrusion layer has several styling options. The [Polygon Extrusion Layer Options] sample is a tool to try them out.
 
-<br/>
-
-<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer-options.png"alt-text="A screenshot of the Azure Maps code sample that shows how the different options of the polygon extrusion layer affect rendering.":::
+<!------------------------------------------------------------
+<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a></iframe>
+------------------------------------------------------------>
 
 ## Next steps
 
@@ -168,3 +214,6 @@ Additional resources:
 
 > [!div class="nextstepaction"]
 > [Azure Maps GeoJSON specification extension](extend-geojson.md#circle)
+
+[Create a Choropleth Map]: https://samples.azuremaps.com/?sample=create-a-choropleth-map
+[Polygon Extrusion Layer Options]: https://samples.azuremaps.com/?sample=polygon-extrusion-layer-options
