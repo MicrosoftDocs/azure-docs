@@ -176,7 +176,7 @@
       "kubernetesVersion": {
         "type": "string",
         "metadata": {
-          "description": "The version of Kubernetes to be used in the HybridAKS cluster"
+          "description": "The version of Kubernetes to be used in the Nexus Kubernetes cluster"
         },
         "defaultValue": "v1.24.9"
       },

@@ -32,7 +32,7 @@ param agentPoolZones array = []
 // "string" Example: ["1", "2", "3"]
 
 @description('Agent pool mode')
-param agentPoolMode string = 'System'
+param agentPoolMode string = 'User'
 
 @description('The configurations for the initial agent pool')
 param initialPoolAgentOptions object = {}

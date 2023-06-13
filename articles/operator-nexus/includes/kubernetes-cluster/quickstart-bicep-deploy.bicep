@@ -92,7 +92,7 @@ param ipAddressPools array = []
 
 // Cluster Configuration Parameters
 
-@description('The version of Kubernetes to be used in the HybridAKS cluster')
+@description('The version of Kubernetes to be used in the Nexus Kubernetes cluster')
 param kubernetesVersion string = 'v1.24.9'
 
 @description('The number of control plane nodes to be deployed in the cluster')

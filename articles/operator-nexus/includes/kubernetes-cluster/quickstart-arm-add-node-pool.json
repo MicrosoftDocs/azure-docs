@@ -82,7 +82,7 @@
       },
       "agentPoolMode": {
         "type": "string",
-        "defaultValue": "System",
+        "defaultValue": "User",
         "metadata": {
           "description": "Agent pool mode"
         }
