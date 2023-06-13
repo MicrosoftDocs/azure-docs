@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 05/22/2023
+ms.date: 06/13/2023
 ms.author: cshoe
 ---
 
@@ -38,33 +38,16 @@ In this tutorial, you learn to:
 
 ## Set up
 
-1. Set up resource group and location variables.
+1. Set up the resource group variable.
 
     ```azurecli
     RESOURCE_GROUP="my-services-resource-group"
+    ```
+
+1. Set up the location variable.
+
+    ```azurecli
     LOCATION="eastus"
-    ```
-
-1. Create a variable for the Azure Cache for Redis DNS name.
-
-    To display a list of the Azure Cache for Redis instances, run the following command.
-
-    ```azurecli
-    az redis list --resource-group "$RESOURCE_GROUP" --query "[].name" -o table
-    ```
-
-    Make sure to replace `<YOUR_DNS_NAME>` with the DNS name of your instance of Azure Cache for Redis.
-
-    ```azurecli
-    AZURE_REDIS_DNS_NAME=<YOUR_DNS_NAME>
-    ```
-
-1. Create a variable to hold your environment name.
-
-    Replace `<MY_ENVIRONMENT_NAME>` with the name of your container apps environment.
-
-    ```azurecli
-    ENVIRONMENT=<MY_ENVIRONMENT_NAME>
     ```
 
 1. Sign in to the Azure CLI.
@@ -88,7 +71,29 @@ In this tutorial, you learn to:
 1. Register the `Microsoft.ServiceLinker` namespace.
 
     ```azurecli
-    az provider register –namespace Microsoft.ServiceLinker
+    az provider register --namespace Microsoft.ServiceLinker
+    ```
+
+1. Create a variable for the Azure Cache for Redis DNS name.
+
+    To display a list of the Azure Cache for Redis instances, run the following command.
+
+    ```azurecli
+    az redis list --resource-group "$RESOURCE_GROUP" --query "[].name" -o table
+    ```
+
+    Make sure to replace `<YOUR_DNS_NAME>` with the DNS name of your instance of Azure Cache for Redis.
+
+    ```azurecli
+    AZURE_REDIS_DNS_NAME=<YOUR_DNS_NAME>
+    ```
+
+1. Create a variable to hold your environment name.
+
+    Replace `<MY_ENVIRONMENT_NAME>` with the name of your container apps environment.
+
+    ```azurecli
+    ENVIRONMENT=<MY_ENVIRONMENT_NAME>
     ```
 
 1. Create a new environment.
