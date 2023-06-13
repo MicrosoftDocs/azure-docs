@@ -9,7 +9,7 @@ manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 06/13/2023
 ---
 
 # Index data from SharePoint document libraries
@@ -253,17 +253,26 @@ There are a few steps to creating the indexer:
     }
     ```
 
-1. When creating the indexer for the first time it will fail and you’ll see the following error. Go to the link in the error message. If you don’t go to the link within 10 minutes the code will expire and you’ll need to recreate the [data source](#create-data-source).
+1. When creating the indexer for the first time or when your device code has expired, it will fail with an authentication error. You must call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) to get the link and enter your new device code. 
+
+    ```http
+    GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2020-06-30-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    ```
+
+    Note that if you don’t run the [Get Indexer Status](/rest/api/searchservice/get-indexer-status) within 10 minutes the code will expire and you’ll need to recreate the [data source](#create-data-source).
+
+ 1. The link for the device login and the new device code will appear under [Get Indexer Status](/rest/api/searchservice/get-indexer-status) response "errorMessage".
 
     ```http
     {
-        "error": {
-            "code": "",
-            "message": "Error with data source: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code <CODE> to authenticate.  Please adjust your data source definition in order to proceed."
+        "lastResult": {
+            "status": "transientFailure",
+            "errorMessage": "To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code <CODE> to authenticate."
         }
     }
     ```
-
 1. Provide the code that was included in the error message.
 
     :::image type="content" source="media/search-howto-index-sharepoint-online/enter-device-code.png" alt-text="Enter device code":::
@@ -310,6 +319,13 @@ There are a few steps to creating the indexer:
         ]
     }
     ```
+  1. If this is not the first time you are running the indexer and your code expired, and you just renewed it, rerun the indexer (call [Run Indexer](/rest/api/searchservice/run-indexer) to manually kick off [indexer execution](search-howto-run-reset-indexers.md)). This time the request should succeed.
+
+      ```http
+      POST https://[service name].search.windows.net/indexers/sharepoint-indexer/run?api-version=2020-06-30-Preview  
+      Content-Type: application/json
+      api-key: [admin key]
+      ```
 
 > [!NOTE]
 > If the Azure AD application requires admin approval and was not approved before logging in, you may see the following screen. [Admin approval](../active-directory/manage-apps/grant-admin-consent.md) is required to continue.
