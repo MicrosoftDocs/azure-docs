@@ -48,7 +48,7 @@ items:
           items: 
           - name: Node.js - sign in users
             href: how-to-browserless-app-node-sample-sign-in.md
-          - name: .NET - Sign in users
+          - name: .NET - sign in users
             href: how-to-browserless-app-dotnet-sample-sign-in.md
         - name: Daemon, service
           items:
