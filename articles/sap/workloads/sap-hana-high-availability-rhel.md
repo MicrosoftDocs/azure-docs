@@ -111,16 +111,15 @@ To deploy the template, follow these steps:
 
 1. Create a resource group.
 1. Create a virtual network.
-1. Create an availability set.  
-   Set the max update domain.
+1. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a VM scale set with flexible orchestration.
 1. Create a load balancer (internal). We recommend [standard load balancer](../../load-balancer/load-balancer-overview.md).
    * Select the virtual network created in step 2.
 1. Create virtual machine 1.  
    Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the [Red Hat Enterprise Linux 7.4 for SAP HANA image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM).
-   Select the availability set created in step 3.
+   Select the VM scale set, availability zone or availability set created in step 3.
 1. Create virtual machine 2.  
    Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the [Red Hat Enterprise Linux 7.4 for SAP HANA image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM).
-   Select the availability set created in step 3.
+   Select the VM scale set, availability zone or availability set created in step 3 (not the same zone as in step 4).
 1. Add data disks.
 
 > [!IMPORTANT]

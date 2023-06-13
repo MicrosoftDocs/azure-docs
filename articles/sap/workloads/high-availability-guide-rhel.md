@@ -121,14 +121,13 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
 
 1. Create a Resource Group
 1. Create a Virtual Network
-1. Create an Availability Set  
-   Set max update domain
+1. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a VM scale set with flexible orchestration.
 1. Create Virtual Machine 1  
    Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
-   Select Availability Set created earlier  
+   Select the VM scale set, availability zone or availability set created in step 3.
 1. Create Virtual Machine 2  
    Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
-   Select Availability Set created earlier  
+   Select the VM scale set, availability zone or availability set created in step 3 (not the same zone as in step 4).
 1. Add at least one data disk to both virtual machines  
    The data disks are used for the /usr/sap/`<SAPSID`> directory
 1. Create load balancer (internal, standard):  
