@@ -31,9 +31,6 @@ This page will be updated with the details about the upcoming release approximat
 
 Airflow logs from your Azure Data Manager for Energy resource now include extra fields: Dag Name, Dag Task Name, Run ID or Correlation ID, Code Path, TryNumber, Content, Location, Log Severity Level, and Resource ID. These fields can be utilized in the KQL query editor of your linked Log Analytics Workspace to get more specific logs for your executed workflows/DAGs. Learn more about [how to integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md). 
 
-
-<hr width = 100%>
-
 ## April 2023
 
 ### Support for Private Links during instance provisioning
