@@ -12,7 +12,7 @@ ms.date: 06/09/2023
 
 # Quickstart: Full text search using the Azure SDKs
 
-Learn how to use the **Azure.Search.Documents** client library in an Azure SDK to create, load, and query a search index using sample data for [full text search](search-lucene-query-architecture.md) scenarios. Full text search uses Apache Lucene for indexing and queries, and a BM25 ranking algorithm for scoring results.
+Learn how to use the **Azure.Search.Documents** client library in an Azure SDK to create, load, and query a search index using sample data for [**full text search**](search-lucene-query-architecture.md). Full text search uses Apache Lucene for indexing and queries, and a BM25 ranking algorithm for scoring results.
 
 This quickstart has [steps](#create-load-and-query-an-index) for the following SDKs:
 
