@@ -49,7 +49,7 @@ The `Key Vaults should have purge protection enabled` recommendation is deprecat
 |--|--|--|--|
 | [Key vaults should have deletion protection enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)| A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period. | audit, deny, disabled | [2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
-See the [full index of Azure Policy built-in policy definitions for Key Vault](https://learn.microsoft.com/azure/key-vault/policy-reference).
+See the [full index of Azure Policy built-in policy definitions for Key Vault](../key-vault/policy-reference.md)
 
 ### Changes to the Defender for DevOps recommendations environment source and resource ID
 
@@ -173,7 +173,7 @@ Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclud
 
 At that time, all billable data types will be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion.
 
-Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor/logs/daily-cap#workspaces-with-microsoft-defender-for-cloud)
+Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor/logs/daily-cap.md#workspaces-with-microsoft-defender-for-cloud)
 
 ## Next steps
 
