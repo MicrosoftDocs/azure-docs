@@ -1124,10 +1124,10 @@
     - name: Get started
       tocHref: /azure/cost-management-billing/understand
       topicHref: /azure/cost-management-billing/manage/index
-  - name: Automation
+    - name: Automation
       tocHref: /azure/cost-management-billing/automate
       topicHref: /azure/cost-management-billing/costs/index
-    - name: Microsoft Purview
+  - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
   - name: Applied AI Services 
