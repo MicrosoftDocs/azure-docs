@@ -16,7 +16,6 @@ This article helps you configure your Bastion deployment to accept connections f
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
 * Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client.
-* Controlling access to features such as file transfer via Bastion isn't supported.
 * You can configure this feature by either modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified.
 
 > [!IMPORTANT]
