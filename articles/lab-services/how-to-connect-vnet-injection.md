@@ -20,7 +20,7 @@ When you create a new lab plan, you can configure advanced networking settings t
 
 Follow these steps to configure advanced networking for your lab plan:
 
-1. Delegate the virtual network subnet to Azure Lab Services lab plans. This allows Azure Lab Services to create the lab template and lab virtual machines in the virtual network.
+1. Delegate the virtual network subnet to Azure Lab Services lab plans. Delegation allows Azure Lab Services to create the lab template and lab virtual machines in the virtual network.
 1. Configure the network security group to allow inbound RDP or SSH traffic to the lab template virtual machine and lab virtual machines.
 1. Create a lab plan with advance networking and associate it with the virtual network subnet.
 1. (Optional) Configure your virtual network.
@@ -33,7 +33,7 @@ Follow these steps to configure advanced networking for your lab plan:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Your Azure account has the [network contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role assigned.
 - An existing Azure virtual network and subnet in the same Azure region as the lab plan. Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
-- For on-premises connectivity using a [Virtual Network Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways), the gateway, virtual network, network security group, and the lab plan msut all be in the same Azure region.
+- For on-premises connectivity using a [Virtual Network Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways), the gateway, virtual network, network security group, and the lab plan must all be in the same Azure region.
 
 ## Delegate the virtual network subnet to lab plans
 
