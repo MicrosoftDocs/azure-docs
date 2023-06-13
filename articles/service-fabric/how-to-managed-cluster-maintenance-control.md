@@ -31,8 +31,7 @@ MaintenanceControl will be specifically applicable to these background operation
 > This should only be enabled in the regions listed below. In all other regions, defining this will not have any impact on the maintenance operations. There is work underway to block creation of maintenance configuration for SFMC, where they are not supported right now.
 > Supported Regions:
 
-
-- How is Maintenance configuration done. what is required
+##How is Maintenance configuration done. what is required
 
 >[!NOTE] Known Issues
 > There should be atmost one maintenance config resource assigned to a Service Fabric managed cluster. There is work underway to prevent assignment of more than one maintenance config. Until then users are expected to not do multiple config assignments.
