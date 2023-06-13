@@ -30,7 +30,7 @@ Azure Operator Nexus offers availability zone-redundant deployments by default. 
 
 ### Azure availability zone down experience
 
-In a zone-down scenario, API calls against the cluster and resource providers would continue to work without interruption. There would be no ​impact to the currently running on-premises tenant workloads or to the ability to create new tenant workloads. ​ Also, no data loss should occur, as the RPaaS ensure the resilience of the Operator Nexus Network Cloud, and other resource types. 
+In an availability zone-down scenario, API calls against the cluster and resource providers would continue to work without interruption. There would be no ​impact on the currently running on-premises tenant workloads or on the ability to create new tenant workloads. ​ Also, no data loss should occur, as the RPaaS ensures the resilience of the Operator Nexus and other resource types. 
 
 ### Azure availability zone failover support
 
