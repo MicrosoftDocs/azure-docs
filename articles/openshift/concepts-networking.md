@@ -19,7 +19,7 @@ This guide covers an overview of Azure Red Hat OpenShift networking on OpenShift
 When you deploy Azure Red Hat OpenShift on OpenShift 4, your entire cluster is contained within a virtual network. Within this virtual network, your control plane nodes and worker nodes each live in their own subnet. Each subnet uses an internal load balancer and a public load balancer.
 
 > [!NOTE]
-> For information on the latest changes introduced to ARO, check out [What's new with Azure Red Hat OpenShift?](azure-redhat-openshift-release-notes.md). For information about the latest r
+> For information on the latest changes introduced to ARO, check out [What's new with Azure Red Hat OpenShift](azure-redhat-openshift-release-notes.md). 
 
 ## Networking components
 
