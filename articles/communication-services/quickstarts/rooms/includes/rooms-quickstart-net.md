@@ -192,7 +192,7 @@ List<RoomParticipant> addOrUpdateParticipants = new List<RoomParticipant>();
 // Update participant2 from Attendee to Consumer
 RoomParticipant participant2 = new RoomParticipant(user2) { Role = ParticipantRole.Consumer };
 // Add participant3
-CommunicationUserIdentifier user3 = await identityClient.CreateUser();
+CommunicationUserIdentifier user3 = identityClient.CreateUser();
 RoomParticipant participant3 = new RoomParticipant(user3) { Role = ParticipantRole.Attendee };
 addOrUpdateParticipants.Add(participant2);
 addOrUpdateParticipants.Add(participant3);
@@ -242,7 +242,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 
 // Deletes the specified room
 Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(roomId);
-Console.WriteLine("\nDeleted room with id:" + roomId);
+Console.WriteLine("\nDeleted room with id: " + roomId);
 ```
 
 ## Run the code
