@@ -75,7 +75,7 @@ ms.author: eur
 | `es-PR` | Spanish (Puerto Rico) | Plain text<br/><br/>Pronunciation |
 | `es-PY` | Spanish (Paraguay) | Plain text<br/><br/>Pronunciation |
 | `es-SV` | Spanish (El Salvador) | Plain text<br/><br/>Pronunciation |
-| `es-US` | Spanish (United States) | Plain text<br/><br/>Pronunciation |
+| `es-US` | Spanish (United States) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-UY` | Spanish (Uruguay) | Plain text<br/><br/>Pronunciation |
 | `es-VE` | Spanish (Venezuela) | Plain text<br/><br/>Pronunciation |
 | `et-EE` | Estonian (Estonia) | Plain text<br/><br/>Pronunciation |

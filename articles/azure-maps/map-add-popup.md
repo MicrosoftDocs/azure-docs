@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: codepen
 ---
 
 # Add a popup to the map

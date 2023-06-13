@@ -21,9 +21,6 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
-      - name: Cloud sync
-        tocHref: /azure/active-directory/cloud-sync/
-        topicHref: /azure/active-directory/cloud-sync/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -416,6 +413,9 @@
     - name: Content Moderator
       tocHref: /azure/cognitive-services/content-moderator/
       topicHref: /azure/cognitive-services/content-moderator/
+    - name: Content Safety
+      tocHref: /azure/cognitive-services/content-safety/
+      topicHref: /azure/cognitive-services/content-safety/
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
@@ -910,9 +910,9 @@
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
-  - name: Resiliency
-    tocHref: /azure/resiliency/
-    topicHref: /azure/architecture/framework/resiliency/app-design
+  - name: Reliability
+    tocHref: /azure/reliability/
+    topicHref: /azure/reliability
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
@@ -1035,6 +1035,9 @@
       - name: Elastic SAN
         tocHref: /azure/storage/elastic-san/
         topicHref: /azure/storage/elastic-san/elastic-san-introduction
+      - name: Container Storage
+        tocHref: /azure/storage/container-storage/
+        topicHref: /azure/storage/container-storage/container-storage-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction

@@ -53,6 +53,9 @@ See [Upgrade Web Application Firewall policies using Azure PowerShell](migrate-p
 
 ## Upgrade Application Gateway v1 to WAF v2 with WAF policy
 
+> [!IMPORTANT]
+> We announced the deprecation of the Application Gateway V1 SKU (Standard and WAF) on April 28, 2023 and subsequently this SKU retires on April 28, 2026. For more information, see [Migrate your Application Gateways from V1 SKU to V2 SKU by April 28, 2026](../../application-gateway/v1-retirement.md).
+
 Application Gateway v1 doesn't support WAF policy. Upgrading to WAF policy is a two step process:
 
 - Upgrade Application Gateway v1 to v2 version.
@@ -70,4 +73,5 @@ Application Gateway v1 doesn't support WAF policy. Upgrading to WAF policy is a 
 
 ## Next steps
 
-For more information about WAF on Application Gateway policy, see [Azure Web Application Firewall (WAF) policy overview](policy-overview.md).
+- For more information about WAF on Application Gateway policy, see [Azure Web Application Firewall (WAF) policy overview](policy-overview.md).
+- [Migrate your Application Gateways from V1 SKU to V2 SKU by April 28, 2026](../../application-gateway/v1-retirement.md)

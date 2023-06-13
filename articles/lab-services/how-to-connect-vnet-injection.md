@@ -47,6 +47,9 @@ Follow these steps to delegate your subnet for use with a lab plan:
 
 1. Select the subnet you wish to delegate to Azure Lab Services.
 
+    > [!IMPORTANT]
+    > You can't use a VNET Gateway subnet with Azure Lab Services.
+
 1. In **Delegate subnet to a service**, select **Microsoft.LabServices/labplans**, and then select **Save**.
 
    :::image type="content" source="./media/how-to-connect-vnet-injection/delegate-subnet-for-azure-lab-services.png" alt-text="Screenshot of the subnet properties page in the Azure portal, highlighting the Delegate subnet to a service setting.":::

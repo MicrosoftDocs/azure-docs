@@ -729,7 +729,7 @@ app.generic('helloWorld1', {
     return: output.generic({
         type: 'http'
     }),
-    handler: async (request: HttpRequest, context: InvocationContext) => {
+    handler: async (request, context) => {
         context.log(`Http function processed request for url "${request.url}"`);
 
         return { body: `Hello, world!` };

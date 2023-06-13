@@ -248,7 +248,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Australia East| 100 | 40 |
 |Australia Southeast | 100 | 20 |
 |Brazil South| 100 | 20 |
-|Canada Central| 100 | 20 |
+|Canada Central| 100 | 100 |
 |Central India| 100 | 20 |
 |Central US| 100 | 100 |
 |China East 2| 100 | 20 |

@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. Refer to the full [list of supported text-to-speech locales](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
+The text to speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. Refer to the full [list of supported text to speech locales](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) to match your input text and use the wanted voice:
 
@@ -39,7 +39,7 @@ The voice that speaks is determined in order of priority as follows:
 
 ## Synthesize speech to a file
 
-Next, you create a [`SpeechSynthesizer`](/cpp/cognitive-services/speech/speechsynthesizer) object. This object executes text-to-speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
+Next, you create a [`SpeechSynthesizer`](/cpp/cognitive-services/speech/speechsynthesizer) object. This object executes text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
 
 - The [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) object that you created in the previous step
 - An [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig) object that specifies how output results should be handled
@@ -144,7 +144,7 @@ Running your program again will write a .wav file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
@@ -185,9 +185,9 @@ void synthesizeSpeech()
 
 ## Subscribe to synthesizer events
 
-You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
 
-While using the [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
+While using the [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthesizer) for text to speech, you can subscribe to the events in this table:
 
 [!INCLUDE [Event types](events.md)]
 
@@ -339,7 +339,7 @@ std::string getEnvironmentVariable(const char* name)
 }
 ```
 
-You can find more text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).
+You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/samples).
 
 ## Run and use a container
 

@@ -104,23 +104,20 @@ msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\
 
 To unpack a package into a VHDX disk image:
 
-> [!NOTE]
-> If you're using VHD or VHDX, we recommend the size is four times the size of MSIX package.
-
 ```
-msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -vhdSize 200 -filetype VHDX -rootDirectory apps
+msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp\myapp.vhdx" -applyACLs -create -filetype VHDX -rootDirectory apps
 ```
 
 To unpack a package into a CIM disk image:
 
 ```
-msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -filetype CIM -rootDirectory apps
+msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp\myapp.vhdx" -applyACLs -create -filetype CIM -rootDirectory apps
 ```
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
 |-applyacls|Applies ACLs to the resulting package folder(s) and their parent folder. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs` |
-|-create|Creates a new image with the specified -filetype and unpacks the packages to that image. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType VHDX -vhdSize 200` |
+|-create|Creates a new image with the specified -filetype and unpacks the packages to that image. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType VHDX` |
 |-fileType|The type of file to unpack packages to. Valid file types include `VHD`, `VHDX`, `CIM`. This is a required parameter when unpacking to CIM files. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType CIM -rootDirectory apps` |
 |-rootDirectory|Specifies root directory on image to unpack packages to. Required parameter for unpacking to new and existing CIM files. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -filetype CIM -rootDirectory apps` |
 |-validateSignature|Validates a package's signature file before unpacking package. This parameter will require that the package's certificate is installed on the machine.<br /><br />For more information, see [Certificate Stores](/windows-hardware/drivers/install/certificate-stores).|`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\Myapp" -validateSignature -applyACLs`|

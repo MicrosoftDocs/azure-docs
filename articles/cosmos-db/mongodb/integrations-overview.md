@@ -7,6 +7,7 @@ ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/25/2022
 ms.author: sidandrews
+ms.subservice: mongodb
 ---
 
 # Integrate Azure Cosmos DB for MongoDB with Azure services

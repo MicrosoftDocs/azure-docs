@@ -55,6 +55,9 @@ conceptualContent:
         - itemType: overview
           text: Text analytics for health
           url:  text-analytics-for-health/overview.md
+        - itemType: overview
+          text: Custom text analytics for health
+          url:  custom-text-analytics-for-health/overview.md
     - title: Summarize text-based content
       summary: Summarize lengthy documents and conversation transcripts.
       links:

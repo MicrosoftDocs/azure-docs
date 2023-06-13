@@ -4,7 +4,7 @@ description: Structure of transformation in Azure Monitor including limitations 
 author: bwren
 ms.author: bwren
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 06/09/2023
 ms.reviwer: nikeist
 
 ---
@@ -63,9 +63,6 @@ let galaxyDictionary = parsejson('{"ES": "Spain","US": "United States"}');
 source
 | extend Galaxy_CF = galaxyDictionary[Location]
 ```
-
-### has operator
-Transformations don't currently support [has](/azure/data-explorer/kusto/query/has-operator). Use [contains](/azure/data-explorer/kusto/query/contains-operator) which is supported and performs similar functionality.
 
 
 ### Handling dynamic data
@@ -177,6 +174,10 @@ The following [String operators](/azure/data-explorer/kusto/query/datatypes-stri
 - !contains
 - contains_cs
 - !contains_cs
+- has
+- !has
+- has_cs
+- !has_cs
 - startswith
 - !startswith
 - startswith_cs
@@ -188,6 +189,7 @@ The following [String operators](/azure/data-explorer/kusto/query/datatypes-stri
 - matches regex
 - in
 - !in
+
 
 #### Bitwise operators
 

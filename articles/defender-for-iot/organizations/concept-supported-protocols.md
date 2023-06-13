@@ -23,7 +23,6 @@ OT network sensors can detect the following protocols when identifying assets an
 |**DNP. org**     |   DNP3      |
 |**Emerson**     |   DeltaV<br> DeltaV - Discovery<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
 |**Emerson Fischer**     |  ROC       |
-|**Eurocontrol**     |      ASTERIX   |
 |**GE**     | Bentley Nevada (System 1 / BN3500)<br>ClassicSDI (MarkVle) <br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br> InterSite<br> SDI (MarkVle) <br>  SRTP (GE)<br> GE_CMP        |
 |**Generic Applications** | Active Directory<br> RDP<br> Teamviewer<br> VNC<br>  |
 |**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA<br> Honeywell EUCN <br> Honeywell Discovery     |

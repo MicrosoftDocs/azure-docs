@@ -1,28 +1,28 @@
 ---
-title: How to work with the Chat Completion API (preview)
+title: How to work with the Chat Completion API 
 titleSuffix: Azure OpenAI
-description: Learn how to work with Chat Completion API (preview)
+description: Learn how to work with Chat Completion API 
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/21/2023
+ms.date: 05/31/2023
 manager: nitinme
 keywords: ChatGPT
 
 ---
 
-## Working with the ChatGPT and GPT-4 models (preview)
+## Working with the ChatGPT and GPT-4 models 
 
 The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with the Chat Completion API. If this is your first time using these models programmatically, we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
-**GPT-4 models are currently in preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+**GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
 ```python
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -85,7 +85,7 @@ Consider setting `max_tokens` to a slightly higher value than normal such as 300
 
 Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model as well as the `gpt-4` and `gpt-4-32k` models will continue to be updated. When creating a [deployment](../how-to/create-resource.md#deploy-a-model) of these models, you'll also need to specify a model version.
 
-Currently, only version `0301` is available for ChatGPT and `0314` for GPT-4 models. We'll continue to make updated versions available in the future. You can find model deprecation times on our [models](../concepts/models.md) page.
+Currently, only version `0301` is available for ChatGPT and `0314` for GPT-4 models. We'll continue to make updated versions available in the future. You can find the model deprecation times for these models on our [models](../concepts/models.md#gpt-35-turbo-0301-and-gpt-4-0314-expiration) page.
 
 ## Working with the Chat Completion API
 
@@ -211,7 +211,7 @@ This means that every time a new question is asked, a running transcript of the 
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -238,6 +238,9 @@ The previous example will run until you hit the model's token limit. With each q
 
 It's your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the limit.
 
+> [!NOTE]  
+> We strongly recommend staying within the [documented input token limit](../concepts/models.md) for all models even if you find you are able to exceed that limit.
+
 The following code sample shows a simple chat loop example with a technique for handling a 4096 token count using OpenAI's tiktoken library.
 
 The code requires tiktoken `0.3.0`. If you have an older version run `pip install tiktoken --upgrade`.
@@ -247,7 +250,7 @@ import tiktoken
 import openai
 import os
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
 openai.api_key = os.getenv("OPENAI_API_KEY")
 

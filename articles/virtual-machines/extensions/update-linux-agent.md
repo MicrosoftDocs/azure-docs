@@ -342,7 +342,7 @@ sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 4. Restart the waagent service:
 
 ```bash
-sudo systemctl restart waagent
+sudo service waagent restart
 ```
 
 5. Validate waagent service is up and running

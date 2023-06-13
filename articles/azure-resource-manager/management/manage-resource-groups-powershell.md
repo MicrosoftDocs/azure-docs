@@ -12,7 +12,7 @@ Learn how to use Azure PowerShell with [Azure Resource Manager](overview.md) to 
 
 ## Prerequisites
 
-* Azure PowerShell. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+* Azure PowerShell. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 * After installing, sign in for the first time. For more information, see [Sign in](/powershell/azure/install-az-ps#sign-in).
 

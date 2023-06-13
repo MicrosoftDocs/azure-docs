@@ -67,7 +67,7 @@ Uninstall-ADServiceAccount
   
 To work effectively, gMSAs must be in the Managed Service Accounts container.
   
-![Screenshot of a gMSA in the Managed Service Accounts container.](./media/securing-service-accounts/secure-gmsa-image-1.png)
+![Screenshot of a gMSA in the Managed Service Accounts container.](./media/govern-service-accounts/secure-gmsa-image-1.png)
 
 To find service MSAs not in the list, run the following commands:
 

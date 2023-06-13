@@ -42,7 +42,7 @@ Verify that you have met the following criteria:
 
 ## <a name="signin"></a>1. Sign in
 
-Make sure you install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps). This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.
+Make sure you install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.
 
 1. Open your PowerShell console with elevated privileges, and sign in to your Azure account. This cmdlet prompts you for the sign-in credentials. After signing in, it downloads your account settings so that they are available to Azure PowerShell.
 

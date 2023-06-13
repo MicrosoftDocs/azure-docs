@@ -10,6 +10,7 @@ ms.date: 02/09/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-power
 ---
 

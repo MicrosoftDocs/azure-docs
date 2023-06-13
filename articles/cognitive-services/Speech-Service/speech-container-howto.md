@@ -59,10 +59,10 @@ The following table describes the minimum and recommended allocation of resource
 
 | Container | Minimum | Recommended |Speech Model|
 |-----------|---------|-------------| -------- |
-| Speech-to-text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
-| Custom speech-to-text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
+| Speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
+| Custom speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
 | Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |n/a|
-| Neural text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |n/a|
+| Neural text to speech | 6 core, 12-GB memory | 8 core, 16-GB memory |n/a|
 
 Each core must be at least 2.6 gigahertz (GHz) or faster.
 
@@ -70,7 +70,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 > [!NOTE]
 > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
-> For example, speech-to-text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech models (see above table).
+> For example, speech to text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech models (see above table).
 > Also, the first run of either container might take longer because models are being paged into memory.
 
 ## Host computer requirements and recommendations
@@ -147,8 +147,8 @@ You can have this container and a different Cognitive Services container running
 
 | Protocol | Host URL | Containers |
 |--|--|--|
-| WS | `ws://localhost:5000` | [Speech-to-text](speech-container-stt.md#use-the-container)<br/><br/>[Custom speech-to-text](speech-container-cstt.md#use-the-container)  |
-| HTTP | `http://localhost:5000` | [Neural text-to-speech](speech-container-ntts.md#use-the-container)<br/><br/>[Speech language identification](speech-container-lid.md#use-the-container) |
+| WS | `ws://localhost:5000` | [Speech to text](speech-container-stt.md#use-the-container)<br/><br/>[Custom speech to text](speech-container-cstt.md#use-the-container)  |
+| HTTP | `http://localhost:5000` | [Neural text to speech](speech-container-ntts.md#use-the-container)<br/><br/>[Speech language identification](speech-container-lid.md#use-the-container) |
 
 For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security) in the Azure Cognitive Services documentation.
 

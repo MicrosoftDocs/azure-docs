@@ -27,7 +27,7 @@ The Web Application Routing add-on deploys the following components:
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - Azure CLI version 2.47.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 - An Azure Key Vault to store certificates.
-- The `aks-preview` Azure CLI extension version 0.5.75 or later installed. If you need to install or update, see [Install or update the `aks-preview` extension](#install-or-update-the-aks-preview-azure-cli-extension).
+- The `aks-preview` Azure CLI extension version 0.5.137 or later installed. If you need to install or update, see [Install or update the `aks-preview` extension](#install-or-update-the-aks-preview-azure-cli-extension).
 - Optionally, a DNS solution, such as [Azure DNS](../dns/dns-getstarted-portal.md).
 
 ### Install or update the `aks-preview` Azure CLI extension
@@ -74,10 +74,10 @@ The Web Application Routing add-on deploys the following components:
 
 ### Import certificate into Azure Key Vault
 
-- Import the SSL certificate into Azure Key Vault using the [`az keyvault certificate import`][az-keyvault-certificate-import] command.
+- Import the SSL certificate into Azure Key Vault using the [`az keyvault certificate import`][az-keyvault-certificate-import] command. If your certificate is password protected, you can pass the password through the `--password` flag.
 
     ```azurecli-interactive
-    az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx
+    az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx [--password <certificate password if specified>]
     ```
 
 ### Create an Azure DNS zone
@@ -179,7 +179,7 @@ The following extra add-on is required:
 
 ## Retrieve the add-on's managed identity object ID
 
-You use the managed identity in the next steps to grant permissions to manage the Azure DNS zone and retrieve certificates from the Azure Key Vault.
+You use the managed identity in the next steps to grant permissions to manage the Azure DNS zone and retrieve secrets and certificates from the Azure Key Vault.
 
 - Get the add-on's managed identity object ID using the [`az aks show`][az-aks-show] command and setting the output to a variable named *MANAGEDIDENTITY_OBJECTID*.
 
@@ -217,11 +217,24 @@ You use the managed identity in the next steps to grant permissions to manage th
 
 The Web Application Routing add-on creates a user-created managed identity in the cluster resource group. You need to grant permissions to the managed identity so it can retrieve SSL certificates from the Azure Key Vault.
 
-- Grant `GET` permissions for the Web Application Routing add-on to retrieve certificates from Azure Key Vault using the [`az keyvault set-policy`][az-keyvault-set-policy] command.
+Azure Key Vault offers [two authorization systems](../key-vault/general/rbac-access-policy.md): **Azure role-based access control (Azure RBAC)**, which operates on the management plane, and the **access policy model**, which operates on both the management plane and the data plane. To find out which system your key vault is using, you can query the `enableRbacAuthorization` property. 
 
-    ```azurecli-interactive
-    az keyvault set-policy --name <KeyVaultName> --object-id $MANAGEDIDENTITY_OBJECTID --secret-permissions get --certificate-permissions get
-    ```
+```azurecli-interactive
+az keyvault show --name <KeyVaultName> --query properties.enableRbacAuthorization
+```
+
+If Azure RBAC authorization is enabled for your key vault, you should configure permissions using Azure RBAC. Add the `Key Vault Secrets User` role assignment to the key vault.
+
+```azurecli-interactive
+KEYVAULTID=$(az keyvault show --name <KeyVaultName> --query "id" --output tsv)
+az role assignment create --role "Key Vault Secrets User" --assignee $MANAGEDIDENTITY_OBJECTID --scope $KEYVAULTID
+```
+
+If Azure RBAC authorization is not enabled for your key vault, you should configure permissions using the access policy model. Grant `GET` permissions for the Web Application Routing add-on to retrieve certificates from Azure Key Vault using the [`az keyvault set-policy`][az-keyvault-set-policy] command.
+
+```azurecli-interactive
+az keyvault set-policy --name <KeyVaultName> --object-id $MANAGEDIDENTITY_OBJECTID --secret-permissions get --certificate-permissions get
+```
 
 ## Connect to your AKS cluster
 

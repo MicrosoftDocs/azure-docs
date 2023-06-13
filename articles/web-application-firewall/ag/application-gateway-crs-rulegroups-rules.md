@@ -1134,6 +1134,8 @@ The following rule groups and rules are available when using Web Application Fir
 |Bot100100|Malicious bots detected by threat intelligence|
 |Bot100200|Malicious bots that have falsified their identity|
 
+ Bot100100 scans both client IP addresses and the IPs in the X-Forwarded-For header.
+ 
 ### <a name="bot200"></a> Good bots
 |RuleId|Description|
 |---|---|
@@ -1148,11 +1150,14 @@ The following rule groups and rules are available when using Web Application Fir
 |Bot300300|General purpose HTTP clients and SDKs|
 |Bot300400|Service agents|
 |Bot300500|Site health monitoring services|
-|Bot300600|Unknown bots detected by threat intelligence<br />(This rule also includes IP addresses matched to the Tor network.)|
+|Bot300600|Unknown bots detected by threat intelligence|
 |Bot300700|Other bots|
+
+  Bot300600 scans both client IP addresses and the IPs in the X-Forwarded-For header.
 
 ---
 
 ## Next steps
 
 - [Customize Web Application Firewall rules using the Azure portal](application-gateway-customize-waf-rules-portal.md)
+- [Learn more about Azure network security](../../networking/security/index.yml)

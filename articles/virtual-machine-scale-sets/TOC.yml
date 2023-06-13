@@ -71,6 +71,8 @@
       maintainContext: true
 - name: Scale
   items:
+  - name: Scaling Profile
+    href: virtual-machine-scale-sets-scaling-profile.md
   - name: Autoscale
     href: virtual-machine-scale-sets-autoscale-overview.md
   - name: Configure autoscale
@@ -84,6 +86,8 @@
     href: virtual-machine-scale-sets-scale-in-policy.md 
   - name: Instance protection
     href: virtual-machine-scale-sets-instance-protection.md
+  - name: Attach VMs to a scale set
+    href: virtual-machine-scale-sets-attach-detach-vm.md
   - name: Working with large uniform scale sets
     href: virtual-machine-scale-sets-placement-groups.md
 - name: Availability
@@ -120,6 +124,8 @@
       href: azure-hybrid-benefit-linux.md
 - name: Management
   items: 
+  - name: Manage Upgrade Policies
+    href: virtual-machine-scale-sets-upgrade-policy.md
   - name: Common management tasks
     items:
     - name: Use the Azure CLI

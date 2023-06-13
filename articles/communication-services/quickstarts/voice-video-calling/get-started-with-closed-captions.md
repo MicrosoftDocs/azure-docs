@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-js
 ---
 
 # QuickStart: Add closed captions to your calling app
