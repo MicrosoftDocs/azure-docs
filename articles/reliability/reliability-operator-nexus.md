@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
-ms.service: operator-nexus
+ms.service: azure-operator-nexus
 ms.date: 06/13/2023
 #Customer intent: I want to understand reliability support in Azure Operator Nexus so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
