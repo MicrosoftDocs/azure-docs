@@ -27,7 +27,7 @@ To reduce the risk of stale access, you should enable periodic reviews of users 
 ## Prerequisites
 
 To enable reviews of access packages, you must meet the prerequisites for creating an access package:
-- Azure AD Premium P2
+- Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
 - Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).

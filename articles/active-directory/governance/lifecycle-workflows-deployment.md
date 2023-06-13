@@ -43,7 +43,7 @@ For more information on deployment plans, see [Azure AD deployment plans](../fun
 ## License requirements
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+[!INCLUDE [Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license](../../../includes/lifecycle-workflows-license.md)]
 
 >[!Note]
 >Be aware that if your license expires, any workflows that you have created will stop working.

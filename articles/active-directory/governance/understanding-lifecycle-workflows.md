@@ -21,7 +21,7 @@ The following document provides an overview of a workflow created using Lifecycl
 ## License requirements 
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+[!INCLUDE [Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license](../../../includes/lifecycle-workflows-license.md)]
 
 ## Permissions and Roles
 

@@ -45,7 +45,7 @@ This rest of this article uses the Azure portal to configure and demonstrate ent
 
 To use entitlement management, you must have one of the following licenses:
 
-- Azure AD Premium P2
+- Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
@@ -84,7 +84,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. In the left menu, select **Identity Governance**
 
-1. In the left menu, select **Access packages**.  If you see **Access denied**, ensure that an Azure AD Premium P2 license is present in your directory.
+1. In the left menu, select **Access packages**.  If you see **Access denied**, ensure that an Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license is present in your directory.
 
 1. Select **New access package**.
 

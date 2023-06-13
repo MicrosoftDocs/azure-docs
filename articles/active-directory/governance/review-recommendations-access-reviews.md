@@ -22,7 +22,7 @@ Decision makers who review users' access and perform access reviews can use syst
 
 ## Prerequisites
  
-- Azure AD Premium P2
+- Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
  
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
