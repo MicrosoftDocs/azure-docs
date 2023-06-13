@@ -55,7 +55,7 @@ az extension add -n ml --yes
 az extension show -n ml #(the version value needs to be 2.15.1 or later)
 ```
 
-# [Python SDK](#tab/SDK)
+# [Python SDK](#tab/Python-SDK)
 
 ```python
 pip uninstall azure-ai-ml
@@ -75,7 +75,7 @@ Not available.
 
 The following code samples can import data from external databases. The `connection` that handles the import action determines the external database data source metadata. In this sample, the code imports data from a Snowflake resource. The connection points to a Snowflake source. With a little modification, the connection can point to an Azure SQL database source and an Azure SQL database source. The imported asset `type` from an external database source is `mltable`.
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/CLI)
 
 Create a `YAML` file `<file-name>.yml`:
 
@@ -125,7 +125,7 @@ ml_client.data.import_data(data_import=data_import)
 
 ```
 
-# [Studio](#tab/External-Databases)
+# [Studio](#tab/Studio)
 
 > [!NOTE]
 > The example seen here describes the process for a Snowflake database. However, this process covers other external database formats, like Azure SQL, Amazon S3, etc.
@@ -165,7 +165,7 @@ The `connection` that handles the data import action determines the details of t
 
 The next code sample imports data from an Amazon S3 resource.
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/CLI)
 
 Create a `YAML` file `<file-name>.yml`:
 
@@ -215,7 +215,7 @@ ml_client.data.import_data(data_import=data_import)
 
 ```
 
-# [Studio](#tab/Amazon-S3)
+# [Studio](#tab/Studio)
 
 In the left nav, select **Data**, then select the Data Connections tab. Then, select **Create**, as shown in this screenshot:
 
@@ -229,7 +229,7 @@ The data import action is an asynchronous action. It can take a long time. After
 
 The next example returns the status of the submitted data import activity. The command or method uses the "data asset" name as the input to determine the status of the data materialization.
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/CLI)
 
 
 ```cli
@@ -248,7 +248,7 @@ ml_client.data.show_materialization_status(name="<name>")
 
 ```
 
-# [Studio](#tab/External-Data-Sources)
+# [Studio](#tab/Studio)
 
 Not available.
 

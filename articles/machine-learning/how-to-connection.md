@@ -51,7 +51,7 @@ az extension add -n ml --yes
 az extension show -n ml #(the version value needs to be 2.15.1 or later)
 ```
 
-# [SDK](#tab/SDK)
+# [Python SDK](#tab/SDK)
 
 ```python
 pip uninstall azure-ai-ml
@@ -67,7 +67,7 @@ Not available.
 
 ## Create a Snowflake DB connection
 
-# [CLI: Credentials](#tab/cli-username-password)
+# [CLI](#tab/CLI)
 This YAML file creates a Snowflake DB connection. Be sure to update the appropriate values:
 
 ```yaml
@@ -98,7 +98,7 @@ az ml connection create --file my_snowflakedb_connection.yaml
 az ml connection create --file my_snowflakedb_connection.yaml --set credentials.username="XXXXX" credentials.password="XXXXX" 
 ```
 
-# [Python SDK: username/ password](#tab/sdk-username-password)
+# [SDK](#tab/SDK)
 
 ### Option 1: Load connection from YAML file
 
@@ -144,7 +144,7 @@ In the **Create connection** pane, fill in the values as shown in the screenshot
 
 ## Create an Azure SQL DB connection
 
-# [CLI: Credentials](#tab/cli-sql-username-password)
+# [CLI](#tab/CLI)
 
 This YAML script creates an Azure SQL DB connection. Be sure to update the appropriate values:
 
@@ -177,7 +177,7 @@ az ml connection create --file my_sqldb_connection.yaml
 az ml connection create --file my_sqldb_connection.yaml --set credentials.username="XXXXX" credentials.password="XXXXX" 
 ```
 
-# [Python SDK: username/ password](#tab/sdk-sql-username-password)
+# [SDK](#tab/SDK)
 
 ### Option 1: Load connection from YAML file
 
@@ -224,7 +224,7 @@ In the **Create connection** pane, fill in the values as shown in the screenshot
 
 ## Create Amazon S3 connection
 
-# [CLI: Credentials](#tab/cli-s3-access-key)
+# [CLI](#tab/CLI)
 
 Create an Amazon S3 connection with the following YAML file. Be sure to update the appropriate values:
 
@@ -248,7 +248,7 @@ Create the Azure Machine Learning connection in the CLI:
 az ml connection create --file my_s3_connection.yaml
 ```
 
-# [Python SDK: Access key](#tab/sdk-s3-access-key)
+# [SDK](#tab/SDK)
 
 ### Option 1: Load connection from YAML file
 
