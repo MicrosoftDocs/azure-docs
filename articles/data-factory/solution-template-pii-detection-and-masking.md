@@ -45,15 +45,15 @@ This template defines 3 parameters:
 	
     Clicking **New** will require you to create a new linked service connection. 
 	
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-12.png" alt-text="Screenshot of template set up page where you can create a new connection or select an existing connection to the source from a drop down menu.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-12.png" alt-text="Screenshot of the template set up page with a fly-out open to create a new linked service connection to a data source.":::
 
 3. Use the drop down to create a **New** connection to your Cognitive Services resource or choose an existing connection. You will need an endpoint URL and resource key to create this connection. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of template set up page to create a new connection or select an existing connection to Cognitive Services from a drop down menu.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of the template set up page to create a new connection or select an existing connection to Cognitive Services from a drop down menu.":::
 	
    Clicking **New** will require you to create a new linked service connection. Make sure to enter your resource's endpoint URL and the resource key under the Auth header **Ocp-Apim-Subscription-Key**. 
    
-   :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-13.png" alt-text="Screenshot of template set up page to create a new connection or select an existing connection to Cognitive Services from a drop down menu.":::
+   :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-13.png" alt-text="Screenshot of the template set up page with a fly-out open to create a new linked service connection to Cognitive Services.":::
    
 
 4. Select **Use this template** to create the pipeline. 
