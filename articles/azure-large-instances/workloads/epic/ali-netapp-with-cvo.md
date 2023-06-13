@@ -1,6 +1,6 @@
 ---
 title: ArchitectureAzure Large Instances NETAPP storage data protection with Azure CVO   
-description: Provides an overview of ALI for Epic architecture.
+description: Provides an overview of ALI for Epic NETAPP storage data protection.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -15,9 +15,9 @@ It's intended to help you gain a better understanding of end to end solution arc
 For a more detailed step by step implementation of the solution, 
 consult your NETAPP professional service/account presentative and MSFT account representative for ALI integration.
 
-:::image type="content" source="media/ali-netapp-with-cvo/end-to-end-solution-architecture.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
+:::image type="content" source="media/ali-netapp-with-cvo/end-to-end-solution-architecture.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="media/ali-netapp-with-cvo/end-to-end-solution-architecture.png" border="false":::
 
-## High level E2E key steps 
+## High level E2E key steps
 
 1. Setup BlueXP account (formerly NETAPP cloud manager) to support the creation of Azure.
 Connector and subsequent CVO (Cloud Volume Ontap) on Azure setup. 
@@ -36,7 +36,7 @@ VM host via ISCSI protocol to support various use cases (backup, testing, traini
 
 ## More details on E2E key steps
 
-### Azure CVO setup 
+### Azure CVO setup
 
 1. Create NETAPP account through NETAPP central portal to be used for BlueXP.
 2. Ensure the necessary Azure CVO marketplace license and Azure subscription are in place.
@@ -80,7 +80,7 @@ can create custom IPSpace just for two nodes in the cluster instead on all the n
 to create snap-mirror peering at both cluster and SVM level between ALIstorage and Azure CVO. 
 In addition, you can leverage the same IPSpace if existed, to create SVM peering between single ALI NETAPP storage cluster SVM and multiple Azure CVO SVMs too.
 
-### SVM peering between ALI NETAPP storage and Azure CVO 
+### SVM peering between ALI NETAPP storage and Azure CVO
 
 1. Setup peering between selected ALIdata SVM(Vsever) and Azure CVO data SVM (Vserver)
 Volume snap-mirroring setup between Source and target volumes 
