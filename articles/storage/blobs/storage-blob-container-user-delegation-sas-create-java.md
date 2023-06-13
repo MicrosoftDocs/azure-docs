@@ -53,7 +53,7 @@ To learn more about creating a user delegation SAS using the Azure Blob Storage 
 
 ### REST API operations
 
-The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library method for getting a user delegation key uses the following REST API operations:
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library method for getting a user delegation key uses the following REST API operation:
 
 - [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key) (REST API)
 
