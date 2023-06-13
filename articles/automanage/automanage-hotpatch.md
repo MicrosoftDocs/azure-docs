@@ -224,6 +224,10 @@ There are some important considerations to running a supported _Windows Server A
 
 * You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the Service option, search for and select **Virtual Machine running Windows** under Compute. Select **Azure Features** for the problem type and **Automatic VM Guest Patching** for the problem subtype.
 
+### Are VM Scale Sets Uniform Orchestration Supported on Azure-Edition images?
+
+* The [Windows Server 2022 Azure Edition Images](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsserver.windowsserver?tab=PlansAndPrice) provide the best in class operating system that includes the innovation built into Windows Server 2022 images plus additional features. Since Azure Edition images support Hotpatching, VM scale sets (VMSS) with Uniform Orchestration cannot be created on these images. The blockade on using VMSS Uniform Orchestration on these images will be lifted once [Auto Guest Patching](https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machine-scale-sets%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json) and Hotpatching are supported.
+
 ## Next steps
 
 * Learn about [Azure Update Management](../automation/update-management/overview.md)
