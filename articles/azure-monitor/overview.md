@@ -47,7 +47,7 @@ Artificial Intelligence for IT Operations (AIOps) improves service quality and r
 
 The following diagram gives a high-level view of Azure Monitor. 
 
-:::image type="content" source="media/overview/overview_2023_06.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview_2023_06.png":::
+:::image type="content" source="media/overview/overview-2023-06.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-2023-06.png":::
 
 The diagram depicts the Azure Monitor system components:
 - The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. The data is collected and routed to the **data platform**.
