@@ -62,11 +62,30 @@ Select an option to set prerequisites:
 
 ::: zone pivot="sc-enterprise"
 
+## [Azure CLI](#tab/Azure-CLI)
+
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
+
+## [IntelliJ](#tab/IntelliJ)
+
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+- [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+
+## [Visual Studio Code](#tab/visual-studio-code)
+
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [Visual Studio Code](https://code.visualstudio.com/).
+
+---
 
 ::: zone-end
 
@@ -92,7 +111,7 @@ Select an option to set prerequisites:
 
 After deployment, you can access the app at `https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io`, then you will get the response `Hello World`.
 
-::: zone pivot="sc-consumption-plan,sc-enterprise"
+::: zone pivot="sc-consumption-plan"
 
 Use the following command to check the app's log to investigate any deployment issue:
 
@@ -109,6 +128,35 @@ az spring app logs \
 From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
 
 :::image type="content" source="media/quickstart/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
+
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+
+## [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to check the app's log to investigate any deployment issue:
+
+```azurecli
+az spring app logs \
+    --service ${SERVICE_NAME} \
+    --name ${APP_NAME}
+```
+
+## [IntelliJ](#tab/IntelliJ)
+
+Use the following steps to stream your application logs:
+
+1. Open the **Azure Explorer** window, expand the node **Azure**, expand the service node **Azure Spring Apps**, and expand the Azure Spring Apps instance you created, then select the instance *demo* of the app you created.
+2. Right-click and select **Start Streaming Logs**, then select **OK**, and you will see real-time application logs.
+
+   :::image type="content" source="media/quickstart/app-stream-log.png" alt-text="Azure Spring Apps streaming logs.":::
+
+## [Visual Studio Code](#tab/visual-studio-code)
+
+Follow the steps in [Stream your application logs](https://code.visualstudio.com/docs/java/java-spring-apps#_stream-your-application-logs) to stream your application logs.
+
+---
 
 ::: zone-end
 
