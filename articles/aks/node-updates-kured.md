@@ -69,7 +69,7 @@ kubectl create namespace kured
 helm install my-release kubereboot/kured --namespace kured --set controller.nodeSelector."kubernetes\.io/os"=linux
 ```
 
-You can also configure extra parameters for `kured`, such as integration with Prometheus or Slack. For more information about configuration parameters, see the [kured Helm chart][kured-install].
+You can also configure extra parameters for `kured`, such as integration with Prometheus or Slack. For more information about configuration parameters, see the [kured Helm chart](https://github.com/kubereboot/charts/tree/main/charts/kured).
 
 ## Update cluster nodes
 
