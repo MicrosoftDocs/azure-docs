@@ -43,7 +43,7 @@ The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL
 
 * An [OpenSSL](https://www.openssl.org/) installation. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
 
-  >[!NOTE]
+  > [!NOTE]
   > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 ## Create a root CA
@@ -96,9 +96,9 @@ You must first create an internal root certificate authority (CA) and a self-sig
     - The CA policy used by the root CA for certificate Distinguished Name (DN) fields
     - Certificate requests created by the root CA
     - X.509 extensions applied to root CA certificates, subordinate CA certificates, and client certificates issued by the root CA
-    
-    >[!NOTE]
-    >The `home` attribute, in the `ca_default` section, is set to `../rootca` because this configuration file is also used when creating the certificate for your subordinate CA. The specified relative path allows OpenSSL to navigate from your subordinate CA folder to your root CA folder during that process.
+
+    > [!NOTE]
+    > The `home` attribute, in the `ca_default` section, is set to `../rootca` because this configuration file is also used when creating the certificate for your subordinate CA. The specified relative path allows OpenSSL to navigate from your subordinate CA folder to your root CA folder during that process.
 
     For more information about the syntax of OpenSSL configuration files, see the [config](https://www.openssl.org/docs/manmaster/man5/config.html) manual page in OpenSSL documentation.
 
