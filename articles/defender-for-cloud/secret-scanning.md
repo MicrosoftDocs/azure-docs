@@ -23,7 +23,7 @@ By using agentless secret scanning, you can proactively discover the following t
 > [!NOTE]
 > All of the standards are supported by the RSA algorithm.
 
-The agentless secret scanner also lets you know if the SSH private key is validated against the corresponding public key, if it's insecure or secure and if the target resource was detected.
+In addition to detecting SSH private keys, the agentless scanner verifies whether they can be used to move laterally in the network. Keys that can't be used are categorized as `unvalidated`.
 
 ## Prerequisites
 
