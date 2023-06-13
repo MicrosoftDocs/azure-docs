@@ -193,7 +193,7 @@ Use the following steps to build and deploy your app.
 1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. You don't usually need to change it.
 1. In the **Artifact** textbox, select **Maven:demo(Java 17)**.
 1. In the **Subscription** textbox, verify that your subscription is correct.
-1. In the **Spring Apps** textbox, select the instance of Azure Spring Apps that you created in the [Provision an instance of Azure Spring Apps](#32-provision-an-instance-of-azure-spring-apps) section.
+1. In the **Spring Apps** textbox, select the instance of Azure Spring Apps that you created in the [Create an Azure Spring Apps instance](#32-create-an-azure-spring-apps-instance) section.
 1. In the **App** textbox, select the plus sign (**+**) to create a new app.
 
    :::image type="content" source="../../media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box." lightbox="../../media/quickstart/intellij-create-new-app.png":::
