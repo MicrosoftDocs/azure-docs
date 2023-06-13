@@ -412,18 +412,12 @@
     items:
     - name: Generate embeddings
       href: vector-search-how-to-generate-embeddings.md
+    - name: Chunk documents
+      href: vector-search-how-to-chunk-documents.md
     - name: Create a vector index
-      href: vector-search-create-index.md
-    - name: Add vectors to an index
-      href: TBD.md
+      href: vector-search-how-to-create-index.md
     - name: Create a vector query
-      href: TBD.md
-    - name: Cache vector data
-      href: TBD.md
-    - name: Monitor vector search
-      href: TBD.md
-    - name: Troubleshoot vector search
-      href: TBD.md
+      href: vector-search-how-to-query.md
   - name: Queries
     items:
     - name: Create a basic query
