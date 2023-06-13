@@ -115,7 +115,7 @@ Make sure to use managed disks, as managed disks provide better reliability for 
 
 ---
 
-#### Disaster recovery
+### Disaster recovery
 
 #### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-4: Replicate VMs using Azure Site Recovery**
 When you replicate Azure VMs using Site Recovery, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you a Recovery Point Objective (RPO) in the order of minutes. You can conduct disaster recovery drills as many times as you want, without affecting the production application or the ongoing replication.
@@ -139,7 +139,7 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 
 ---
 
-#### Performance
+### Performance
 
 ####  ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-6: Host application and database data on a data disk**
 
@@ -193,7 +193,7 @@ When AccelNet is enabled, the default Azure Virtual Network interface in the Gue
 
 ---
 
-#### Management
+### Management
 
 #### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-9: Watch for VMs in Stopped state** 
 Azure Virtual Machines (VM) instances go through different states. There are provisioning and power states. If a Virtual Machine is not running that indicates the Virtual Machine might facing an issue or is no longer necessary and could be removed helping to reduce costs.
@@ -215,7 +215,7 @@ The maintenance configuration settings allows user to schedule and manage update
 
 ---
 
-#### Security
+### Security
 
 #### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-12: VMs should not have a Public IP directly associated** 
 
@@ -290,7 +290,7 @@ For more information about managed disk encryption options, see [Overview of man
 
 ---
 
-#### Networking
+### Networking
 
 #### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-15: Customer DNS Servers should be configured in the Virtual Network level**
 
@@ -304,7 +304,7 @@ Configure the DNS Server in the Virtual Network to avoid name resolution inconsi
 ---
 
 
-#### Storage
+### Storage
 
 #### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-16: Shared disks should only be enabled in clustered servers**
 
@@ -320,7 +320,7 @@ To learn more about how to enable shared disks for managed disks, see [Enable sh
 ---
 
 
-#### Compliance
+### Compliance
 
 #### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-18: Ensure that your VMs are compliant with Azure Policies**
 
@@ -333,7 +333,7 @@ It’s important to keep your virtual machine (VM) secure for the applications t
 
 ---
 
-#### Monitoring
+### Monitoring
 
 #### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-20: Enable VM Insights** 
 
