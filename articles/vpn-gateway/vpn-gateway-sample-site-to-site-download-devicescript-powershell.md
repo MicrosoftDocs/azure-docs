@@ -8,7 +8,7 @@ author: yushwang
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 01/09/2020
+ms.date: 06/13/2023
 ms.author: yushwang 
 ms.custom: devx-track-azurepowershell
 
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 
 This script downloads the VPN device template for a connection
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables
