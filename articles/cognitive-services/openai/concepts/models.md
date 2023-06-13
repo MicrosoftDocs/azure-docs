@@ -57,7 +57,7 @@ You can get a list of models that are available for both inference and fine-tuni
 
 Azure OpenAI now supports automatic updates for select model deployments. On models where automatic update support is available, a model version drop-down will be visible in Azure OpenAI Studio under **Create new deployment** and **Edit deployment**:
 
-:::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deploy model UI of Azure OpenAI Studio" lightbox="../media/models/auto-update.png":::
+:::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deploy model UI of Azure OpenAI Studio." lightbox="../media/models/auto-update.png":::
 
 ### Auto update to latest
 
@@ -79,11 +79,11 @@ The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expir
 
 For currently deployed models, from Azure OpenAI Studio select **Deployments**:
 
-:::image type="content" source="../media/models/deployments.png" alt-text="Screenshot of the deployment UI of Azure OpenAI Studio" lightbox="../media/models/deployments.png":::
+:::image type="content" source="../media/models/deployments.png" alt-text="Screenshot of the deployment UI of Azure OpenAI Studio." lightbox="../media/models/deployments.png":::
 
 To view deprecation/expiration dates for all available models in a given region from Azure OpenAI Studio select **Models** > **Column options** > Select **Deprecation fine tune** and **Deprecation inference**:
 
-:::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the models UI of Azure OpenAI Studio" lightbox="../media/models/column-options.png":::
+:::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the models UI of Azure OpenAI Studio." lightbox="../media/models/column-options.png":::
 
 ### Update & deploy models via the API
 
@@ -98,7 +98,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | ```acountname``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deploymentName``` | string | Required | The deployment name you chose when you deployed an existing model or the name you would like a new model deployment to have.   |
 | ```resourceGroupName``` | string |  Required | The name of the associated resource group for this model deployment. |
-| ```subscriptionId``` | string |  Required | Subscription Id for the associated subscription. |
+| ```subscriptionId``` | string |  Required | Subscription ID for the associated subscription. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
 
 **Supported versions**
@@ -114,7 +114,7 @@ This is only a subset of the available request body parameters. For the full lis
 |versionUpgradeOption | String | Deployment model version upgrade options:<br>`OnceNewDefaultVersionAvailable`<br>`OnceCurrentVersionExpired`<br>`NoAutoUpgrade`|
 |capacity|integer|This represents the amount of [quota](../how-to/quota.md) you are assigning to this deployment. A value of 1 equals 1,000 Tokens per Minute (TPM)|
 
-#### Example Request
+#### Example request
 
 ```Bash
 curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1" \
@@ -126,7 +126,7 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 > [!NOTE]
 > There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from https://portal.azure.com. Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
 
-#### Example Response
+#### Example response
 
 ```json
 {
