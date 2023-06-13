@@ -179,7 +179,7 @@ Logs contain:
 - Errors received from the server or QGIS.
 - Statistics about the number of features loaded
 
-### Error logs for Edits
+### Error logs for edits
 
 Error logs for edits are also stored in a separate folder called "AzureMaps_ErrorLogs". They contain more detailed information about the request made, including headers and body, and the response received from the server.
 
