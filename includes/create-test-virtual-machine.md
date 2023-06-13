@@ -30,7 +30,7 @@ The following procedure creates a test virtual machine (VM) named **vm-1** in th
     | Region | Select **East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Leave the default of **Standard**. |
-    | Image | Select **Windows Server 2022**. |
+    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |  |
