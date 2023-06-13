@@ -147,7 +147,7 @@ In the following code, the first code block creates a map and sets the enter and
         style: 'road',
 
       
-        //Add authentication details for connecting to Azure Maps.
+        // Add authentication details for connecting to Azure Maps.
         authOptions: {
           // Get an Azure Maps key at https://azuremaps.com/.
           authType: 'subscriptionKey',
