@@ -9,7 +9,7 @@ ms.service: virtual-machines
 ms.date: 06/12/2023
 ---
 
-# Reliability in Virtual Machines?
+# Reliability in Virtual Machines
 
 This article contains [specific reliability recommendations for Virtual Machines](#reliability-recommendations), as well as detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
 
