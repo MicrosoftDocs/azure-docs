@@ -128,8 +128,6 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 ::: zone-end
 
-::: zone-end
-
 ::: zone pivot="sc-standard"
 
 1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
