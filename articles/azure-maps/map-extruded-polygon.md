@@ -3,7 +3,7 @@ title: Add a polygon extrusion layer to a map | Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps Web SDK.
 author: dubiety
 ms.author: yuchungchen
-ms.date: 06/07/2023
+ms.date: 06/15/2023
 ms.topic: how-to
 ms.service: azure-maps
 ---
@@ -19,10 +19,94 @@ Connect the [polygon extrusion layer](/javascript/api/azure-maps-control/atlas.l
 > [!NOTE]
 > The `base` value defined in the polygon extrusion layer should be less than or equal to that of the `height`.
 
-<br/>
+```javascript
+var map, datasource, polygonLayer;
 
+function InitMap()
+{
+  map = new atlas.Map('myMap', {
+    center: [-73.985708, 40.75773],
+    zoom: 12,
+    //Pitch the map so that the extrusion of the polygons is visible.
+    pitch: 45,
+    view: 'Auto',
+
+    //Add authentication details for connecting to Azure Maps.
+    authOptions: {
+      // Get an Azure Maps key at https://azuremaps.com/.
+      authType: 'subscriptionKey',
+      subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+    },
+    styleDefinitionsVersion: "2023-01-01"
+  });
+
+  //Wait until the map resources are ready.
+  map.events.add('ready', function () {
+    /*Create a data source and add it to the map*/
+    datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
+
+    datasource.add(new atlas.data.Polygon([
+      [
+        [
+        -73.95838379859924,
+        40.80027995478159
+        ],
+        [
+        -73.98154735565186,
+        40.76845986171129
+        ],
+        [
+        -73.98124694824219,
+        40.767761062136955
+        ],
+        [
+        -73.97361874580382,
+        40.76461637311633
+        ],
+        [
+        -73.97306084632874,
+        40.76512830937617
+        ],
+        [
+        -73.97259950637817,
+        40.76490890860481
+        ],
+        [
+        -73.9494466781616,
+        40.79658450499243
+        ],
+        [
+        -73.94966125488281,
+        40.79708807289436
+        ],
+        [
+        -73.95781517028809,
+        40.80052360358227
+        ],
+        [
+        -73.95838379859924,
+        40.80027995478159
+        ]
+      ]
+    ]));
+
+    //Create and add a polygon extrusion layer to the map below the labels so that they are still readable.
+    map.layers.add(new atlas.layer.PolygonExtrusionLayer(datasource, null, {
+      fillColor: "#fc0303",
+      fillOpacity: 0.7,
+      height: 500
+      }), "labels");
+  });
+}
+```
+
+:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer.png"alt-text="A screenshot of a map showing New York City with a polygon extrusion layer covering central park with what looks like a rectangular red box. The maps angle is set to 45 degrees giving it a 3d appearance.":::
+
+<!------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Extruded polygon" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>Extruded polygon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------------------------------------>
 
 ## Add data driven polygons
 
