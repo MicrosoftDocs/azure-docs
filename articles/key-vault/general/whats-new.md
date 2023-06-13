@@ -21,7 +21,7 @@ Here's what's new with Azure Key Vault. New features and improvements are also a
 
 ## June 2023
 
-Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/azure/active-directory/enable-support-tls-environment.md#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
+Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/azure/active-directory/enable-support-tls-environment/#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
 
 ## May 2023
 
