@@ -282,6 +282,8 @@ After creating the connection, you can use the connection string in your applica
 
 :::zone pivot="postgresql"
 
+### [Java](#tab/java)
+
 1. Add the following dependencies in your pom.xml file.
 
     ```xml
@@ -305,6 +307,8 @@ After creating the connection, you can use the connection string in your applica
     String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");  
     Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin");
     ```
+
+### [Dotnet](#tab/dotnet)
 
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
 
@@ -353,6 +357,7 @@ namespace NpgsqlConnectionExample
 }
 ```
 
+
 For more information, see 
 * [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md)
 * [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
@@ -363,6 +368,7 @@ For more information, see
 
 :::zone pivot="mysql"
 
+### [Java](#tab/java)
 1. Add the following dependencies in your pom.xml file.
 
     ```xml
@@ -384,6 +390,8 @@ For more information, see
     String url = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");  
     Connection connection = DriverManager.getConnection(url + "&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin");
     ```
+
+### [Dotnet](#tab/dotnet)
 
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
 
@@ -435,6 +443,7 @@ For more information, see
 
 For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
 
+### [Dotnet](#tab/dotnet)
 ```csharp
 // The connection string should have been set to environment variables by Service Connector
 // string ConnectionString1 = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; Database=testdb";
@@ -442,11 +451,12 @@ string ConnectionString1 = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECT
 using (SqlConnection conn = new SqlConnection(ConnectionString1)) {
     conn.Open();
 }
-
 ```
+
 
 ### [User managed identity](#tab/user)
 
+### [Dotnet](#tab/dotnet)
 For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-managed-identity-authentication)
 
 ```csharp
@@ -456,12 +466,13 @@ string ConnectionString1 = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECT
 using (SqlConnection conn = new SqlConnection(ConnectionString1)) {
     conn.Open();
 }
-
 ```
+
 
 ### [Service principal](#tab/sp)
 For Service principal authentication, see [Using Active Directory Service Principal authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
 
+### [Dotnet](#tab/dotnet)
 ```csharp
 // The connection string should have been set to environment variables by Service Connector
 // string ConnectionString = @"Server=demo.database.windows.net; Authentication=Active Directory Service Principal; Encrypt=True; Database=testdb; User Id=AppId; Password=secret";
@@ -471,6 +482,7 @@ using (SqlConnection conn = new SqlConnection(ConnectionString1)) {
 }
 
 ```
+
 
 For more information, see this site [Homepage for client programming to Microsoft SQL Server](/sql/connect/homepage-sql-connection-programming)
 
