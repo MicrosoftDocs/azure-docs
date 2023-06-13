@@ -130,9 +130,6 @@ You can also run custom queries to divide Application Insights data to generate 
 > [!NOTE]
 > It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
-> [!TIP]
-> If you're adding the Click Analytics plug-in, [add Click Analytics advanced configuration](./javascript-feature-extensions.md#advanced-configuration) if needed.
-
 ### Use React Hooks
 
 [React Hooks](https://react.dev/reference/react) are an approach to state and lifecycle management in a React application without relying on class-based React components. The Application Insights React plug-in provides several Hooks integrations that operate in a similar way to the higher-order component approach.
@@ -287,6 +284,9 @@ If a custom `PageView` duration isn't provided, `PageView` duration defaults to 
 
 Check out the [Application Insights React demo](https://github.com/microsoft/applicationinsights-react-js/tree/main/sample/applicationinsights-react-sample).
 
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+
 ## [React Native](#tab/reactnative)
 
 ### React Native plugin for Application Insights JavaScript SDK
@@ -434,7 +434,7 @@ JavaScript correlation is turned off by default in order to minimize the telemet
 If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0.
 
 > [!TIP]
-> If you're adding the Click Analytics plug-in, [add Click Analytics advanced configuration](./javascript-feature-extensions.md#advanced-configuration) if needed.
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
  
 ## [Angular](#tab/angular)
@@ -573,7 +573,7 @@ The Angular Plugin automatically tracks route changes and collects other Angular
 If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0. 
 
 > [!TIP]
-> If you're adding the Click Analytics plug-in, [add Click Analytics advanced configuration](./javascript-feature-extensions.md#advanced-configuration) if needed.
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
 ---
 
