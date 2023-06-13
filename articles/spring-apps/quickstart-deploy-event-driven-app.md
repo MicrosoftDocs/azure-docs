@@ -61,7 +61,7 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone pivot="sc-standard"
 
-Choose an option to set prerequisites:
+Select an option to set prerequisites:
 
 ### [Azure portal](#tab/Azure-portal)
 
