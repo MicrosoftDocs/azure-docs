@@ -23,17 +23,17 @@ The following parameters are available to customize the Recognize function:
 
 | Parameter | Type|Default (if not specified) | Description | Required or Optional |
 | ------- |--| ------------------------ | --------- | ------------------ |
-| Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-action.md))* | FileSource | Not set |This will be the message you wish to play before recognizing input. | Optional |
-| InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS will wait for the caller to press another digit (inter-digit timeout). | Optional |
-| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | How long recognize action will wait for input before considering it a timeout. | Optional |
+| Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-action.md))* | FileSource | Not set |This is the message you wish to play before recognizing input. | Optional |
+| InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS waits for the caller to press another digit (inter-digit timeout). | Optional |
+| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | How long recognize action waits for input before considering it a timeout. | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
 | StopTones |IEnumeration\<DtmfTone\> | Not set | The digit participants can press to escape out of a batch DTMF event. | Optional |
 | InterruptPrompt | Bool | True | If the participant has the ability to interrupt the playMessage by pressing a digit. | Optional |
-| InterruptCallMediaOperation | Bool | True | If this flag is set it will interrupt the current call media operation. For example if any audio is being played it will interrupt that operation and initiate recognize. | Optional |
+| InterruptCallMediaOperation | Bool | True | If this flag is set it interrupts the current call media operation. For example if any audio is being played it interrupts that operation and initiates recognize. | Optional |
 | OperationContext | String | Not set | String that developers can pass mid action, useful for allowing developers to store context about the events they receive. | Optional |
 
-## Create a new Javascript application
-Create a new Javascript application in your project directory. Initialize a new Node.js project with the following command. This creates a package.json file for your project which is used to manage your project's dependencies. 
+## Create a new JavaScript application
+Create a new JavaScript application in your project directory. Initialize a new Node.js project with the following command. This creates a package.json file for your project, which is used to manage your project's dependencies. 
 
 ``` console
 npm init -y
@@ -44,7 +44,7 @@ npm init -y
 npm install @azure/communication-call-automation
 ```
 
-Create a new JavaScript file in your project directory, for example, name it app.js. You will write your JavaScript code in this file. Run your application using Node.js with the following command. This will execute the JavaScript code you have written. 
+Create a new JavaScript file in your project directory, for example, name it app.js. You write your JavaScript code in this file. Run your application using Node.js with the following command. This executes the JavaScript code you have written. 
 
 ``` console
 node app.js
@@ -52,7 +52,7 @@ node app.js
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this instance, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this instance, we answer an incoming call.
 
 ## Call the recognize action
 
@@ -78,7 +78,7 @@ const recognizeOptions: CallMediaRecognizeDtmfOptions = {
 callMedia.startRecognizing(targetParticipant, maxTonesToCollect, recognizeOptions);
 ```
 
-**Note:** If parameters aren't set, the defaults will be applied where possible.
+**Note:** If parameters aren't set, the defaults are applied where possible.
 
 ## Receiving recognize event updates
 
