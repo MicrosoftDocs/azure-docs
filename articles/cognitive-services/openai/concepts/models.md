@@ -60,7 +60,7 @@ You can get a list of models that are available for both inference and fine-tuni
 
 Azure OpenAI now supports automatic updates for select model deployments. On models where automatic update support is available, a model version drop-down will be visible in Azure OpenAI Studio under **Create new deployment** and **Edit deployment**:
 
-:::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deployment UI of Azure AI Studio" lightbox="../media/models/auto-update.png":::
+:::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deploy model UI of Azure OpenAI Studio" lightbox="../media/models/auto-update.png":::
 
 ### Auto update to latest
 
@@ -82,11 +82,11 @@ The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expir
 
 For currently deployed models, from Azure OpenAI Studio select **Deployments**:
 
-:::image type="content" source="../media/models/deployments.png" alt-text="Screenshot of the deployment UI of Azure AI Studio" lightbox="../media/models/deployments.png":::
+:::image type="content" source="../media/models/deployments.png" alt-text="Screenshot of the deployment UI of Azure OpenAI Studio" lightbox="../media/models/deployments.png":::
 
 To view deprecation/expiration dates for all available models in a given region from Azure OpenAI Studio select **Models** > **Column options** > Select **Deprecation fine tune** and **Deprecation inference**:
 
-:::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the deployment UI of Azure AI Studio" lightbox="../media/models/column-options.png":::
+:::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the models UI of Azure OpenAI Studio" lightbox="../media/models/column-options.png":::
 
 ### Update & deploy models via the API
 
@@ -127,7 +127,7 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 ```
 
 > [!NOTE]
-> There are multiple ways to generate an authorization token. The easiest method for initial testing is from https://portal.azure.com launch the Cloud Shell. Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token). You can use this token as your temporary authorization token for API testing.
+> There are multiple ways to generate an authorization token. The easiest method for initial testing is from https://portal.azure.com launch the Cloud Shell. Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
 
 #### Example Response
 
