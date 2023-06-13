@@ -115,7 +115,7 @@ Set up your notebook to query your Log Analytics workspace:
 
     `LogsQueryClient` typically only supports authentication with Azure Active Directory (Azure AD) token credentials. However, we can pass a custom authentication policy to enable the use of API keys. This allows the client to [query the demo workspace](../logs/api/access-api.md#authenticate-with-a-demo-api-key). The availability and access to this demo workspace is subject to change, so we recommend using your own Log Analytics workspace.
 
-1. Define a helper functions, called `query_logs_workspace`, to run a given query in the Log Analytics workspace and return the results as a Pandas DataFrame.
+1. Define a helper function, called `query_logs_workspace`, to run a given query in the Log Analytics workspace and return the results as a Pandas DataFrame.
    
 
     ```python
@@ -166,7 +166,7 @@ Let's look at some data in the workspace by running a query from the notebook:
 
     The resulting DataFrame shows the hourly ingestion in each of the tables in the Log Analytics workspace:  
     
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables-dataframe.png" alt-text="A DataFrame generated in a notebook with log ingestion data retrieved from a Log Analytics workspace." 
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables-dataframe.png" alt-text="Screenshot of a DataFrame generated in a notebook with log ingestion data retrieved from a Log Analytics workspace." 
 
 1. Now, let's view the data as a graph that shows hourly usage for various data types over time, based on the Pandas DataFrame:
 
