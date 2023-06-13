@@ -49,7 +49,7 @@ In this section, you create **myVNet** virtual network with two subnets and an A
     | Name | Enter *myVNet*. |
     | Region | Select **East US**. |
 
-1. Select the **IP Addresses** tab, or select the **Next** button the bottom of the page twice. 
+1. Select the **IP Addresses** tab, or select the **Next** button at the bottom of the page twice. 
 
 1. Accept the default IP address space **10.0.0.0/16**.
 
@@ -84,6 +84,7 @@ In this section, you create two virtual machines: **myVM1** and **myVM2** to tes
     | Image | Select **Ubuntu Server 20.04 LTS - x64 Gen2**. |
     | Size | Choose a size or leave the default setting. |
     | **Administrator account** |   |
+    | Authentication type | Select **Password**. |
     | Username | Enter a username. |
     | Password | Enter a password. |
     | Confirm password | Reenter password. |
@@ -106,11 +107,7 @@ In this section, you create two virtual machines: **myVM1** and **myVM2** to tes
 
 ### Create the second virtual machine
 
-Repeat the steps in [Create the first virtual machine](#create-the-first-virtual-machine), with the following changes:
-
-| Setting | Value |
-|---|---|
-| Virtual machine name | **myVM2**. |
+Repeat the steps in [Create the first virtual machine](#create-the-first-virtual-machine) and use **myVM2** for the virtual machine name.
 
 ## Create a connection monitor
 
@@ -157,7 +154,7 @@ In this section, you create a connection monitor to monitor communication over T
     | ------- | ----- |
     | Test configuration name | Enter *SSH-from-myVM1-to-myVM2*. |
     | Protocol | Select **TCP**. |
-    | Destination port | Enter *3389*. | 
+    | Destination port | Enter *22*. | 
     | Test frequency | Select the default **Every 30 seconds**. | 
 
     :::image type="content" source="./media/connection-monitor/add-test-configuration.png" alt-text="Screenshot shows how to add a test configuration for a connection monitor in the Azure portal.":::
@@ -183,7 +180,7 @@ In this section, you view all the details of the connection monitor that you cre
 
 1. Go to the **Connection monitor** page. If you don't see **myConnectionMonitor** in the list of connection monitors, wait a few minutes, then select **Refresh**. 
 
-    :::image type="content" source="./media/connection-monitor/new-connection-monitor.png" alt-text="Screenshot shows the new connection monitor that you've just created.":::
+    :::image type="content" source="./media/connection-monitor/new-connection-monitor.png" alt-text="Screenshot shows the new connection monitor that you've just created." lightbox="./media/connection-monitor/new-connection-monitor.png":::
 
 1. Select **myConnectionMonitor** to see the performance metrics of the connection monitor like round trip time and percentage of failed checks
   
@@ -195,7 +192,7 @@ In this section, you view all the details of the connection monitor that you cre
 
 ## View a problem
 
-The connection monitor you created in the previous section monitors the connection between **myVM1** and port 22 on **myVM2**. If the connection fails for any reason, Connection monitor logs the failure. In this section, you simulate a problem by stopping **myVM2**.
+The connection monitor you created in the previous section monitors the connection between **myVM1** and port 22 on **myVM2**. If the connection fails for any reason, Connection monitor detects and logs the failure. In this section, you simulate a problem by stopping **myVM2**.
 
 1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** in the search results.
 
@@ -221,7 +218,7 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this tutorial, you learned how to monitor a connection between two virtual machines. You learned that connection monitor logged a failure in the connection after you stopped the target virtual machine. To learn about all of the different metrics that connection monitor can return, see [Metrics in Azure Monitor](connection-monitor-overview.md#metrics-in-azure-monitor).
+In this tutorial, you learned how to monitor a connection between two virtual machines. You learned that connection monitor detected the connection failure to port 22 on target virtual machine after you stopped it. To learn about all of the different metrics that connection monitor can return, see [Metrics in Azure Monitor](connection-monitor-overview.md#metrics-in-azure-monitor).
 
 To learn how to diagnose and troubleshoot problems with virtual network gateways, advance to the next tutorial.
 
