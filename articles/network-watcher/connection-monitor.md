@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Create a virtual network
 > * Create two virtual machines
 > * Monitor communication between the two virtual machines
-> * Diagnose a communication problem between two virtual machines
+> * Diagnose a communication problem between the two virtual machines
 
 ## Prerequisites
 
