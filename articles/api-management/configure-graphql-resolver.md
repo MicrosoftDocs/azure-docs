@@ -38,7 +38,7 @@ Currently, API Management supports resolvers that can access the following data 
 
 ## Create a resolver
 
-The following steps create a resolver using an HTTP-based data source. The general steps are similar for anya resolver that uses any of the supported data sources.
+The following steps create a resolver using an HTTP-based data source. The general steps are similar for any resolver that uses a supported data source.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 

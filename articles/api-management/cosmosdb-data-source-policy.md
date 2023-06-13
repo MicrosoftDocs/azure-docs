@@ -97,7 +97,7 @@ Use the policy to configure a single query request, read request, delete request
     
     <response> 
         <set-body>...set-body policy configuration...</set-body> 
-        <publish-event>... publish-event policy configuration...</publish-event>
+        <publish-event>...publish-event policy configuration...</publish-event>
     </response>
     
 </cosmosdb-data-source> 
@@ -183,7 +183,7 @@ Use the policy to configure a single query request, read request, delete request
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | consistency-level | String. Sets the Cosmos DB [consistency level](../cosmos-db/consistency-levels.md) of the delete request. | No  | N/A   |
 | pre-trigger | String. Identifier of a [pre-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) function that is registered in your Cosmos DB container. | No | N/A |
-| post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your CosmosDB container. | No | N/A |
+| post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your Cosmos DB container. | No | N/A |
 
 ### delete-request elements
 
