@@ -39,5 +39,3 @@ Microsoft Entra Private Access is currently supported in the following locations
 | Berlin, Germany | San Jose, California, USA |
 | Dublin, Ireland | Toronto, Ontario, Canada |
 | Paris, France | |
-
-The locations in the preceding table are also supported for the private preview of Microsoft Entra Internet Access public internet traffic forwarding profiles.
