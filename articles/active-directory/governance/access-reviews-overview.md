@@ -63,7 +63,7 @@ Depending on what you want to review, you'll either create your access review in
 
 ## License requirements
 
-[!INCLUDE [Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license](../../../includes/active-directory-p2-license.md)]
+[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 ## Next steps
 
