@@ -141,7 +141,5 @@ After the maintenance configuration is created, it has to be attached to the SFM
 >[!NOTE]
 >To disable the maintenance control on this cluster, delete the assignment defined above.
 
-You can download this [ARM Template to enable maintenanceControl](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-mrp/sfmc-deploy-mrp.json) which contains the above example
-
 [overviewimage]: ./media/maintenance-control-sfmc/overview.png
 
