@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: how-to 
-ms.date: 06/05/2023
+ms.date: 06/13/2023
 ms.custom: template-how-to-pattern 
 ---
 
@@ -16,7 +16,7 @@ In this guide, we walk through the steps to migrate Azure DDoS Protection tiers 
 
 ## Cost assessment
 
-When both Network Protection and IP Protection are enabled for the same service, you're billed for the lower *per Public IP resource* rate. For example, if both SKUs are enabled on a service with one public IP address you'll be billed for Network Protection. To learn more about the pricing scenarios, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=ddos-protection).
+When IP Protection is enabled for a public IP resource and then a DDoS Protection plan is created and enabled on its virtual network, customers are billed for the lower *per Public IP resource* rate. In this case, we will automatically start billing for Network Protection. To learn more about the pricing scenarios, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=ddos-protection).
 
 Network Protection cost begins once the DDoS Protection plan is created. IP Protection cost begins once the Public IP address is configured with IP Protection. 
 
