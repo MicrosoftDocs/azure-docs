@@ -1,10 +1,12 @@
 ---
-title: How to test the attack path and security explorer using a vulnerable container image 
+title: How-to test the attack path and security explorer using a vulnerable container image 
 description: Learn how to view and remediate vulnerability assessment findings for registry images 
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 06/13/2023
 ---
+
+# Testing the Attack Path and Security Explorer using a vulnerable container image
 
 ## Observing potential Attack Paths in the Attack Path experience
 
