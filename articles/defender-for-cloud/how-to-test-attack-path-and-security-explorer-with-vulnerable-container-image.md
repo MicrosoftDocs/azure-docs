@@ -6,23 +6,20 @@ ms.topic: how-to
 ms.date: 06/13/2023
 ---
 
-# How to test the attack path and security explorer using a vulnerable container image 
-
 ## Observing potential Attack Paths in the Attack Path experience
 
 Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers may use to breach your environment.
 
 1.	Go to “Microsoft Defender for Cloud” = > “Recommendations” 
-2.	Click on the “Attack Path” link to open the Attack Paths view.
-3.	A listing of attack paths is displayed.
+1.	Click on the “Attack Path” link to open the Attack Paths view.
+1.	A listing of attack paths is displayed.
 1.	Sort your attack paths based on name, environment, paths count, risk categories.
-2.	Investigate an attack path by clicking on it and browsing the information bar and the map of involved resources.
-3.	Investigate further by clicking on a node in the map. Clicking the “insights” tab leads to a summary of security insights on the resource. 
-The following insight types are shown:
+1.	Investigate an attack path by clicking on it and browsing the information bar and the map of involved resources.
+1.	Investigate further by clicking on a node in the map. Clicking the “insights” tab leads to a summary of security insights on the resource. The following insight types are shown:
+
 -	Pod Exposed to the   internet 
 -	Privileged container 
 -	Pod uses host network 
-
 -	Container image is vulnerable to remote code execution
 
 If there are no entries in the list of attack path, it is still possible to test this feature using the following steps. 
