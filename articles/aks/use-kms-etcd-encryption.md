@@ -349,11 +349,12 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 
 ## KMS V2 support 
 
-Since AKS version 1.27 and above, enabling the KMS feature configures KMS V2. With KMS V2, you aren't limited to the 2000 secrets support. For more information, you can refer to the [KMS V2 Improvements](https://kubernetes.io/blog/2022/09/09/kms-v2-improvements/).
+Since AKS version 1.27 and above, enabling the KMS feature configures KMS V2. With KMS V2, you aren't limited to the 2,000 secrets support. For more information, you can refer to the [KMS V2 Improvements](https://kubernetes.io/blog/2022/09/09/kms-v2-improvements/).
 
 ### Migration to KMS v2
 
 If your cluster version is less than 1.27 and you already enabled KMS, use the following steps to migrate to KMS V2:
+
 1. Disable KMS on the cluster.
 2. Perform the storage migration.
 3. Upgrade the cluster to version 1.27 or higher.
@@ -382,7 +383,9 @@ Upgrade the AKS cluster using the `az aks upgrade` command and specify your desi
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version <AKS version>
 ```
+
 Example:
+
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.27.1
 ```
