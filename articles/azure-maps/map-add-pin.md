@@ -158,7 +158,7 @@ function InitMap()
 }
 ```
 
-:::image type="content" source="./media/map-add-symbol/add-custom-icon-to-symbol-layer.png"alt-text="A screenshot of map with a pin added using the symbol layer with a custom icon.":::
+:::image type="content" source="./media/map-add-symbol/add-custom-icon-to-symbol-layer.png" alt-text="A screenshot of map with a pin added using the symbol layer with a custom icon.":::
 
 <!-----------------------------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Custom Symbol Image Icon' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Custom Symbol Image Icon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
