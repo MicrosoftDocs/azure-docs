@@ -44,7 +44,7 @@ NFSv3 uses ancillary protocols like Network Lock Manager (NLM) and Network Statu
 NLM helps establish and release locks, while NSM notifies peers of server reboots. With NFSv3 locking, when a client reboots, the server must release the locks. When a server reboots, the client reminds the server of the locks it held
 
 > [!NOTE]
-> In some cases, the NFS lock mechanisms don’t communicate properly (such as in the event of a network outage), and stale locks are leftover on the server and must be manually cleared. For more information on this task, see [troubleshoot file locks](troubleshoot-file-locks).
+> In some cases, the NFS lock mechanisms don’t communicate properly (such as in the event of a network outage), and stale locks are leftover on the server and must be manually cleared. For more information on this task, see [troubleshoot file locks](troubleshoot-file-locks.md).
 
 ## NFSv4.x locking
 
