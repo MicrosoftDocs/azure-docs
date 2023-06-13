@@ -3,7 +3,7 @@ title: Add a popup to a point on a map |Microsoft Azure Maps
 description: Learn about popups, popup templates, and popup events in Azure Maps. See how to add a popup to a point on a map and how to reuse and customize popups.
 author: dubiety
 ms.author: yuchungchen
-ms.date: 06/07/2023
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: azure-maps
 ---
@@ -87,7 +87,7 @@ By default, the popup has a white background, a pointer arrow on the bottom, and
 
 For a fully functional sample that shows how to customize the look of a popup, see [Customize a popup] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/map-add-popup/customize-popup.png"alt-text="A screenshot of map with three blue pins.":::
+:::image type="content" source="./media/map-add-popup/customize-popup.png"alt-text="A screenshot of map with a custom popup in the center of the map with the caption 'hello world'.":::
 
 <!-----------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Customized Popup" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -420,7 +420,7 @@ Similar to reusing popup, you can reuse popup templates. This approach is useful
 
 For a fully functional sample that shows hot to reuse a single popup template with multiple features that share a common set of property fields, see [Reuse a popup template] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/map-add-popup/reuse-popup-template.png"alt-text="A screenshot of map with six blue dots.":::
+:::image type="content" source="./media/map-add-popup/reuse-popup-template.png"alt-text="A screenshot of a map showing Seattle with three blue pins to demonstrating how to reuse popup templates.":::
 
 <!-----------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>ReusePopupTemplate</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -433,7 +433,7 @@ Popups can be opened, closed, and dragged. The popup class provides events to he
 
 For a fully functional sample that shows how to add events to popups, see [Popup events] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/map-add-popup/popup-events.png"alt-text="A screenshot of map with six blue dots.":::
+:::image type="content" source="./media/map-add-popup/popup-events.png"alt-text="A screenshot of a map of the world with a popup in the center and a list of events in the upper left that are highlighted when the user opens, closes, or drags the popup.":::
 
 <!-----------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Popup events" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
