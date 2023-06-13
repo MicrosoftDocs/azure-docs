@@ -156,7 +156,7 @@
       # end v1
       - name: MLflow models
         displayName: tracking models, mlflow, custom, flavors
-        href: concept-mlflow-models.m
+        href: concept-mlflow-models.md
       - name: Configure MLflow for Azure Machine Learning
         href: how-to-use-mlflow-configure-tracking.md
       - name: Train & track
@@ -541,7 +541,7 @@
     - name: Using the Responsible AI text dashboard
       href: how-to-responsible-ai-text-dashboard.md
     - name: Using the Responsible AI image dashboard
-      href: how-to-responsible-ai-image-dashboard 
+      href: how-to-responsible-ai-image-dashboard.md
   - name: Viewing a Responsible AI scorecard
     items:
       - name: Responsible AI scorecard
