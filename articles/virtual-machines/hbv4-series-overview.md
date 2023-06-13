@@ -34,11 +34,11 @@ To provide room for the Azure hypervisor to operate without interfering with the
 
 The following diagram shows the topology of the server. We reserve these 16 hypervisor host cores (yellow) symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) in each NUMA domain, with the remaining cores for the HBv4-series VM (green).
 
-![Topology of the HBv4-series server](./media/hpc/architecture/hbv4/hbv4-topology-server.png)
+![Screenshot of HBv4-series server Topology](./media/hpc/architecture/hbv4/hbv4-topology-server.png)
 
 The CCD boundary is different from a NUMA boundary. On HBv4, a group of six (6) consecutive CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HBv4 VM sizes expose 4 uniform NUMA domains that appear to an OS and application as shown below, each with different number of cores depending on the specific [HBv4 VM size](hbv4-series.md).
 
-![Topology of the HBv4-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.jpg)
+![Screenshot of HBv4-series VM Topology](./media/hpc/architecture/hbv4/hbv4-topology-vm.jpg)
 
 Each HBv4 VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 9V33X, as follows:
 
