@@ -28,6 +28,8 @@ The application code used in this tutorial is a simple app. When you've complete
 
 ::: zone-end
 
+## 1. Prerequisites
+
 ::: zone pivot="sc-consumption-plan"
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -39,7 +41,7 @@ The application code used in this tutorial is a simple app. When you've complete
 
 ::: zone pivot="sc-standard"
 
-Choose an option to set prerequisites:
+Select an option to set prerequisites:
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -90,11 +92,27 @@ Choose an option to set prerequisites:
 
 After deployment, you can access the app at `https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io`, then you will get the response `Hello World`.
 
+[!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart/clean-up-resources.md)]
+
+::: zone pivot="sc-consumption-plan,sc-enterprise"
+
+Use the following command to check the app's log to investigate any deployment issue:
+
+```azurecli
+az spring app logs \
+    --service ${SERVICE_NAME} \
+    --name ${APP_NAME}
+```
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
 From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
 
 :::image type="content" source="media/quickstart/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
 
-[!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart/clean-up-resources.md)]
+::: zone-end
 
 ## 7. Next steps
 
