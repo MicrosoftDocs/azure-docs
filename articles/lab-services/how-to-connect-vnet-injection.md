@@ -14,7 +14,7 @@ ms.date: 06/13/2023
 
 This article describes how to connect a lab plan to a virtual network with Azure Lab Services advanced networking. With advanced networking, you have more control over the virtual network configuration of your labs. For example, to connect to on-premises resources such as licensing servers, or to use user-defined routes (UDRs). Advanced networking for lab plans replaces [Azure Lab Services virtual network peering](how-to-connect-peer-virtual-network.md) that is used with lab accounts.
 
-Learn more about the [supported networking scenarios and topologies for advanced networking]((https://techcommunity.microsoft.com/t5/azure-lab-services-blog/network-architectures-and-topologies-with-lab-plans/ba-p/3781597#M130)).
+Learn more about the [supported networking scenarios and topologies for advanced networking](https://techcommunity.microsoft.com/t5/azure-lab-services-blog/network-architectures-and-topologies-with-lab-plans/ba-p/3781597#M130).
 
 When you create a new lab plan, you can configure advanced networking settings to connect the lab plan to a virtual network. You can't configure advanced networking after the lab plan is created.
 
