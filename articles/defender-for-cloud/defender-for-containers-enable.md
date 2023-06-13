@@ -6,7 +6,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022, devx-track-azurecli
 zone_pivot_groups: k8s-host
-ms.date: 10/30/2022
+ms.date: 06/13/2023
 ---
 
 # Enable Microsoft Defender for Containers
