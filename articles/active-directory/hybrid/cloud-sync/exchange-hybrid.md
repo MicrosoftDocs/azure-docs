@@ -96,17 +96,8 @@ Provisioning on-demand with Exchange hybrid use the following steps
     >[!NOTE]
     >This final step may take up to 2 minutes to complete.
 
-## API for schema detection
-Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  The refresh can be done automatically by restarting the provisioning agent or manually using an API call.
-
-You can use the [directoryDefinition:discover](/graph/api/directorydefinition-discover?view=graph-rest-beta&tabs=http&preserve-view=true) to initiate schema discovery. 
-
-```
-POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema/directories/{directoryId}/discover
-```
-Things to remember when using the API to refresh or discover the schema.
- - The job id needs to be the AD2AADProvisioning job id
- - The directory id needs to be AD directory id
+## Exchange hybrid writeback using MS Graph	
+You can use MS Graph API to enable Exchange hybrid writeback.  For more information, see [Exchange hybrid writeback with MS Graph](how-to-inbound-synch-ms-graph.md#exchange-hybrid-writeback)
 
 ## Next steps
 

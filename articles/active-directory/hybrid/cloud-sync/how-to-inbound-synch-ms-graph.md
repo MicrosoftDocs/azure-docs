@@ -66,7 +66,7 @@ The output of the above command returns the objectId of the service principal th
 
 Documentation for creating a sync job can be found [here](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true).
 
-If you did not record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
+If you didn't record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
 
 `GET https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -145,7 +145,7 @@ Add the following key/value pair in the below value array based on what you're t
 - Enable both PHS and sync tenant flags
   { key: "AppKey", value: "{"appKeyScenario":"AD2AADPasswordHash"}" }
 
-- Enable only sync tenant flag (do not turn on PHS)
+- Enable only sync tenant flag (don't turn on PHS)
   { key: "AppKey", value: "{"appKeyScenario":"AD2AADProvisioning"}" }
 
 ```
@@ -217,7 +217,7 @@ Here, the highlighted "Domain" value is the name of the on-premises Active Direc
 
    Copy/paste the mapping from the **Create AD2AADProvisioning and AD2AADPasswordHash jobs** step above into the attributeMappings array.
 
-   Order of elements in this array doesn't matter (the backend sorts for you). Be careful about adding this attribute mapping if the name exists already in the array (e.g. if there's already an item in attributeMappings that has the targetAttributeName CredentialData) - you may get conflict errors, or the pre-existing and new mappings may be combined together (usually not desired outcome). Backend does not dedupe for you.
+   Order of elements in this array doesn't matter (the backend sorts for you). Be careful about adding this attribute mapping if the name exists already in the array (e.g. if there's already an item in attributeMappings that has the targetAttributeName CredentialData) - you may get conflict errors, or the pre-existing and new mappings may be combined together (usually not desired outcome). Backend doesn't dedupe for you.
 
    Remember to do this for both Users and inetOrgpersons.
 
@@ -234,7 +234,7 @@ Add the Schema in the request body.
 
 This section covers how to enable/disable and use [Exchange hybrid writeback](exchange-hybrid.md) programmatically.
 
-To enable Exchange hybrid writeback programmitically requires 2 steps.
+Enabling Exchange hybrid writeback programmatically requires 2 steps.
 	1.  Schema verification
 	2.  Create the Exchange hybrid writeback job
 
@@ -297,7 +297,7 @@ Request body -
 
 The "Enabled" setting in the example is for enabling/disabling notification emails when the job is quarantined.
 
-Currently, we do not support PATCH requests for secrets, so you need to add all the values in the body of the PUT request(like in the example) in order to preserve the other values.
+Currently, we don't support PATCH requests for secrets, so you need to add all the values in the body of the PUT request(like in the example) in order to preserve the other values.
 
 The existing values for all the secrets can be retrieved by using:
 
