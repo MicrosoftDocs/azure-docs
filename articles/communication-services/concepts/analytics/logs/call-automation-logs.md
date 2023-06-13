@@ -2,11 +2,11 @@
 title: Azure Communication Services Call Automation logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services Call Automation.
-author: ddematheu2
+author: mkhribech
 services: azure-communication-services
 
-ms.author: dademath
-ms.date: 03/21/2023
+ms.author: mkhribech
+ms.date: 05/24/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
@@ -16,15 +16,30 @@ ms.subservice: data
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
+## Prerequisites
+
+Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
+  * Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
+  * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
+  * A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to five diagnostic settings.
+
 > [!IMPORTANT]
-> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send call automation data to one of these options your survey data will not be stored and will be lost
+The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
+
+> [!NOTE]
+> Under diagnostic setting name please select “Operation call automation logs” and “Call Automation Events summary logs” to enable the logs for end of call automation logs.
+ 
+ :::image type="content" source="..\media\log-analytics\call-automation-log.png" alt-text="Screenshot of diagnostic settings for call automation.":::
+
 
 ## Resource log categories
 
 Communication Services offers the following types of logs that you can enable:
 
-* **Usage logs** - provides usage data associated with each billed service offering
+* **Usage logs** - provides usage data associated with each billed service offering.
 * **Call Automation operational logs** - provides operational information on Call Automation API requests. These logs can be used to identify failure points, query all requests made in a call (using Correlation ID or Server Call ID) or query all requests made by a specific service application in the call (using Participant ID).
+* **Call Automation media summary logs** - Provides information about the operation’s outcome. These come to the user asynchronously when making media requests using Call Automation APIs. These can be used to help identify failure points and possible patterns on how end users are interacting with your application. 
 
 ## Usage logs schema
 
@@ -62,3 +77,73 @@ Communication Services offers the following types of logs that you can enable:
 | `SDKType` | The SDK type used for the request. |
 | `ParticipantId` | ID to identify the call participant that made the request. |
 | `SubOperationName` | Used to identify the sub type of media operation (play, recognize) |
+|`operationID`| it represents the operation ID used to correlate asynchronous events| 
+
+**Examples**
+
+```json
+[
+{
+"TimeGenerated [UTC]": "5/25/2023, 5:43:25.746 PM",
+"Level": "Informational",
+"CorrelationId": "e2a97d52-0cbb-4adf-8c4b-e10f791fb764",
+"OperationName": "Play",
+"OperationVersion": "3/6/23",
+"URI": "ccts-media-synthetics-prod.communication.azure.com",
+"ResultType": "Succeeded",
+"ResultSignature": "202",
+"DurationMs": "82",
+"CallerIpAddress": "40.88.50.228",
+"CallConnectionId": "401f3500-fcb6-4b84-927e-81cd6372560b",
+"ServerCallId": "aHR0cHM6Ly9hcGkuZmxpZ2h0cHJveHkuc2t5cGUuY29tL2FwaS92Mi9jcC9jb252LXVzZWEyLTAxLmNvbnYuc2t5cGUuY29tL2NvbnYvZzRoWlVoS1ZEVUtma19HenRDZ1JTQT9pPTEyJmU9NjM4MjA1NDc4MDg5MzEzMjIz",
+"SdkVersion": "",
+"SdkType": "unknown",
+"SubOperationName": "File",
+"OperationId": "5fab0875-3211-4879-8051-c688d0854c4d",
+}
+```
+
+## Call Automation media summary logs
+
+| Property | Description |
+| -------- | ---------------|
+| `TimeGenerated` | it represents the timestamp (UTC) of the event|
+|`level`| It represents the severity level of the event. Must be one of Informational, Warning, Error, or Critical.   |
+|`resourceId`| it represents the resource ID of the resource that emitted the event |
+|`durationMs`| it represents the duration of the operation in milliseconds |
+|`callerIpAddress`| |
+|`correlationId`| Skype Chain ID   |
+|`operationName`| The name of the operation represented by this event|
+|`operationVersion`
+| `resultType`| The status of the event. Typical values include Completed, Canceled, Failed|
+| `resultSignature`| The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call|
+|`operationId`| it represents the operation ID used to correlate asynchronous events|
+|`recognizePromptSubOperationName`|A subtype of the operation. Potential values: File, TextToSpeech, SSML, etc.|
+| `playInLoop`| True if looping was requested for the Play operation, else otherwise|
+|`playToParticipant`| True if the Play operation had a target. False if it was a play to all operation|
+| `interrupted`| True in case of the prompt being interrupted, false otherwise|
+|`resultCode`|Operation Result Code |
+|`resultSubcode`| Operation Result Subcode |
+|`resultMessage`| Operation result message |
+
+
+**Examples**
+```json
+[
+{
+"TimeGenerated [UTC]": "5/24/2023, 7:57:40.480 PM",
+"Level": "Informational",
+"CorrelationId": "d149d528-a392-404c-8fcd-69087e9d0802",
+"ResultType": "Completed",
+"OperationName": "Play",
+"OperationId": "7bef24d5-eb95-4ee6-bbab-0b7d45d91288",
+"PlayInLoop": "FALSE",
+"PlayToParticipant": "TRUE",
+"PlayInterrupted": "FALSE",
+"RecognizePromptSubOperationName": "",
+"ResultCode": "200",
+"ResultSubcode": "0",
+"ResultMessage": "Action completed successfully."
+}
+
+````
