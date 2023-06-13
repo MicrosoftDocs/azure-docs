@@ -17,7 +17,7 @@ In Standard logic app workflows, the following built-in, service provider-based 
 - Azure Service Bus
 - SAP
 
-To run these connector operations in stateful mode, you have to enable stateful mode, or their affinity capability. This how-to guide shows how to enable stateful mode for these connectors.
+To run these connector operations in stateful mode, you must enable this capability. This how-to guide shows how to enable stateful mode for these connectors.
 
 ## Prerequisites
 
@@ -172,9 +172,9 @@ Set-AzResource :
 }
 ```
 
-## Prevent context loss during resource scale in
+## Prevent context loss during resource scale-in events
 
-If you choose to scale in resources, prevent the loss of context by fixing the number of instances available for your logic app resource:
+Resource scale-in events might cause the loss of context for built-in connectors with stateful mode enabled. To prevent this potential loss before such events can happen, fix the number of instances available for your logic app resource. This way, no scale-in events can happen to cause this potential context loss.
 
 1. On your logic app resource menu, under **Settings**, select **Scale out**.
 
@@ -188,5 +188,5 @@ If you choose to scale in resources, prevent the loss of context by fixing the n
 
 ## Next steps
 
-- [Connect to SAP](../logic-apps/logic-apps-using-sap-connector.md)
 - [Connect to Azure Service Bus](connectors-create-api-servicebus.md)
+- [Connect to SAP](../logic-apps/logic-apps-using-sap-connector.md)
