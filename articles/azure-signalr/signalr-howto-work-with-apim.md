@@ -14,45 +14,99 @@ Azure API Management service provides a hybrid, multicloud management platform f
 
 :::image type="content" source="./media/signalr-howto-work-with-apim/architecture.png" alt-text="Diagram that shows the architecture of using SignalR Service with API Management.":::
 
-## Set up and configure
+
+## Create resources
 
 ### Create a SignalR Service instance
-* Follow [the article](./signalr-quickstart-azure-signalr-service-arm-template.md) and create a SignalR Service instance **_ASRS1_**
+* Follow [Quickstart: Use an ARM template to deploy Azure SignalR](./signalr-quickstart-azure-signalr-service-arm-template.md) and create a SignalR Service instance **_ASRS1_**
 
 ### Create an API Management instance
-* Follow [the article](../api-management/get-started-create-service-instance-cli.md) and create an API Managment instance **_APIM1_**
+* Follow [Quickstart: Use an ARM template to deploy Azure API Management](../api-management/quickstart-arm-template.md) and create an API Managment instance **_APIM1_**
 
-### Configure SignalR related APIs
+## Configure APIs
 
-When a client goes through API Management to Azure SignalR, there are two types of requests:
+### Limitations
 
-* HTTP POST request to `<APIM-URL>/client/negotiate`, which we call as **negotiate request**
-* WebSocket/SSE/LongPolling connection request depending on your transport type to `<APIM-URL>/client`, which we call as **connect request**.
+There are two types of requests for a SignalR client:
 
-As for now, API Management doesn't yet support different types of APIs for the same suffix. For example, when suffix `/client` is configured as a `WebSocket` API, it only supports WebSocket connections. With this limitation, SignalR clients are unable to fallback to other transport types if request with `WebSocket` transport type fails when they go through API Management.
+* **negotiate request**: HTTP `POST` request to `<APIM-URL>/client/negotiate/`
+* **connect request**: request to `<APIM-URL>/client/`, it could be `WebSocket` or `ServerSentEvent` or `LongPolling` depends on the transport type of your SignalR client
 
-To support SignalR requests, let's add 2 types of APIs in API Management, one for **negotiate HTTP request** and one for **WebSocket** **connect request**:
+The type of **connect request** varies depending on the transport type of the SignalR clients. As for now, API Management doesn't yet support different types of APIs for the same suffix. With this limitation, when using API Management, your SignalR client does not support fallback from `WebSocket` transport type to other transport types. Fallback from `ServerSentEvent` to `LongPolling` could be supported. Below sections describe the detailed configurations for different transport types.
 
-#### Configure for negotiate request
-1. Go to **APIs** tab in the portal for API Managment instance **_APIM1_**, click **Add API** and choose **HTTP**, create with the following parameters:
+### Configure APIs when client connects with `WebSocket` transport
+
+This section describes the steps to configure API Management when the SignalR clients connects with `WebSocket` transport. When SignalR clients connect with `WebSocket` transport, 3 types of requests are involved:
+1. **OPTIONS** preflight HTTP request for negotiate
+1. **POST** HTTP request for negotiate
+1. WebSocket request for connect
+
+Let's configure API Management from the portal.
+1. Go to **APIs** tab in the portal for API Managment instance **_APIM1_**, click **Add API** and choose **HTTP**, **Create** with the following parameters:
     * Display name: `SignalR negotiate`
-    * Web service URL: `https://<your-signalr-service-url>/client/negotiate`
-    * API URL suffix: `client/negotiate`
-2. Click the created `SignalR negotiate`, in **Design** tab, click **Add operation**, and **Save** with the following parameters:
-    * Display name: `negotiate`
-    * URL: `POST /`
-3. Click the created `negotiate` operation, in **Inbound processing** panel, click **Add policy** and choose **cors**, for demo purpose, we use `*` in **Allowed origins**. Please note that in production usage, please update the value to the URL your website hosts.
+    * Web service URL: `https://<your-signalr-service-url>/client/negotiate/`
+    * API URL suffix: `client/negotiate/`
+1. Click the created `SignalR negotiate` API, **Save** with below settings:
+    1. In **Design** tab
+        1.  click **Add operation**, and **Save** with the following parameters:
+            * Display name: `negotiate preflight`
+            * URL: `OPTIONS` `/`
+        1.  click **Add operation**, and **Save** with the following parameters:
+            * Display name: `negotiate`
+            * URL: `POST` `/`
+    1. Switch to **Settings** tab and uncheck **Subscription required** for quick demo purpose
+1. Click **Add API** and choose **WebSocket**, **Create** with the following parameters:
+    * Display name: `SignalR connect`
+    * WebSocket URL: `wss://<your-signalr-service-url>/client/`
+    * API URL suffix: `client/`
+1. Click the created `SignalR connect` API, **Save** with below settings:
+    1. Switch to **Settings** tab and uncheck **Subscription required** for quick demo purpose
 
-#### Configure for connect request
-Now let's configure **WebSocket** **connect request** so that the SignalR clients can connect with WebSocket transport type.
+Now API Management is successfully configured to support SignalR client with `WebSocket` transport.
 
-Click **Add API** and choose **WebSocket**, Create with the following parameters:
-* Display name: `SignalR connect`
-* WebSocket URL: `wss://<your-signalr-service-url>/client`
-* API URL suffix: `client`
+### Configure APIs when client connects with `ServerSentEvents` or `LongPolling` transport
+
+This sections describes the steps to configure API Management when the SignalR clients connect with `ServerSentEvents` or `LongPolling` transport type. When SignalR clients connect with `ServerSentEvents` or `LongPolling` transport, 3 types of requests are involved:
+1. **OPTIONS** preflight HTTP request for negotiate
+1. **POST** HTTP request for negotiate
+1. **OPTIONS** preflight HTTP request for connect
+1. **POST** HTTP request for connect
+1. **GET** HTTP request for connect
+
+Now let's configure API Management from the portal.
+
+1. Go to **APIs** tab in the portal for API Managment instance **_APIM1_**, click **Add API** and choose **HTTP**, **Create** with the following parameters:
+    * Display name: `SignalR`
+    * Web service URL: `https://<your-signalr-service-url>/client`
+    * API URL suffix: `client`
+1. Click the created `SignalR` API, **Save** with below settings:
+    1. In **Design** tab
+        1.  click **Add operation**, and **Save** with the following parameters:
+            * Display name: `negotiate preflight`
+            * URL: `OPTIONS` `/negotiate`
+        1.  click **Add operation**, and **Save** with the following parameters:
+            * Display name: `negotiate`
+            * URL: `POST` `/negotiate`
+        1.  click **Add operation**, and **Save** with the following parameters:
+            * Display name: `connect preflight`
+            * URL: `OPTIONS` `/`
+        1.  click **Add operation**, and **Save** with the following parameters:
+            * Display name: `connect`
+            * URL: `POST` `/`
+        1.  click **Add operation**, and **Save** with the following parameters:
+            * Display name: `connect get`
+            * URL: `GET` `/`
+        1. Click the newly added **connect get** operation, and edit the Backend policy as below to disable buffering for `ServerSentEvents`, [check here](/articles/api-management/how-to-server-sent-events.md) for more details.
+            ```xml
+            <backend>
+                <forward-request buffer-response="false" />
+            </backend>
+            ```
+    1. Switch to **Settings** tab and uncheck **Subscription required** for quick demo purpose
+
+Now API Management is successfully configured to support SignalR client with `ServerSentEvents` or `LongPolling` transport.
 
 ### Run chat
-
 Now, the traffic can reach SignalR Service through API Management.Let’s use [this chat application](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/ChatRoom) as an example. Let's start with running it locally.
 
 * First let's get the connection string of **_ASRS1_**
@@ -70,7 +124,26 @@ Now, the traffic can reach SignalR Service through API Management.Let’s use [t
     dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-onnection-string-with-client-endpoint>" 
     dotnet run
     ```
-* Open http://localhost:5000 from the browser and use F12 to view the network traces, you can see that the WebSocket connection is established through **_APIM1_**
+* Configre transport type for the client
+
+    Open index.html page and find the code when connection is created, update it to specify the transport type.
+
+    For example, to specify the connection to use server-sent-events or longpolling, update the code to:
+
+    ```javascript
+    const connection = new signalR.HubConnectionBuilder()
+                    .withUrl('/hub1', signalR.HttpTransportType.ServerSentEvents | signalR.HttpTransportType.LongPolling)
+                                            .build();
+    ```
+    To specify the connection to use WebSockets, update the code to:
+     
+    ```javascript
+    const connection = new signalR.HubConnectionBuilder()
+                    .withUrl('/hub1', signalR.HttpTransportType.WebSockets)
+                                            .build();
+    ```
+
+* Open http://localhost:5000 from the browser and use F12 to view the network traces, you can see that the connection is established through **_APIM1_**
 
 ## Next steps
 

@@ -143,7 +143,7 @@
           href: signalr-howto-reverse-proxy-overview.md
         - name: Use SignalR Service with Application Gateway
           href: signalr-howto-work-with-app-gateway.md
-        - name: Use SignalR Service with APIM
+        - name: Use SignalR Service with API Management
           href: signalr-howto-work-with-apim.md
   - name: Monitor
     items:
