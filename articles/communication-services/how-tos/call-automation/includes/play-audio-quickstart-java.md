@@ -145,7 +145,7 @@ assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 
 ## Enhance play with audio file caching
 
-If you'll be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
+If you are playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files is not suitable for dynamic prompts. If you change the URL provided to ACS, it will not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` java
 var targetUser = new PhoneNumberIdentifier(<target>);
