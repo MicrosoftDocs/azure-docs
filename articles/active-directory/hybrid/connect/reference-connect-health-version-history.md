@@ -41,10 +41,10 @@ Microsoft Azure AD Connect Health ADFS Agents (versions 4.5.x)
 ## 27 March 2023
 **Agent Update**
 
-Azure AD Connect Health ADDS and ADFS Health Agents (version 3.2.2256.26, Download Center Only)
+Azure AD Connect Health AD DS and ADFS Health Agents (version 3.2.2256.26, Download Center Only)
 
 - We created a fix for so that the agents would be FIPS compliant
-  - the change was to have the agents use ‘CloudStorageAccount.UseV1MD5 = false’ so the agent only uses only FIPS compliant cryptography, otherwise azure blob client causes FIPs exceptions to be thrown.
+  - the change was to have the agents use ‘CloudStorageAccount.UseV1MD5 = false’ so the agent only uses only FIPS compliant cryptography, otherwise Azure blob client causes FIPs exceptions to be thrown.
 - Update of Newtonsoft.json library from 12.0.1 to 13.0.1 to resolve a component governance alert. 
 - In ADFS health agent, the TestADFSDuplicateSPN test was disabled as the test was unreliable, it would generate misleading alerts when server experienced transient connectivity issues.
 
