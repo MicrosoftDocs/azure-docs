@@ -12,10 +12,12 @@ This article shows you how to perform tasks related to configuring your function
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you must either create a new storage account or link to an existing storage account. The storage account linked to your app must be a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. During function app creation, you can secure a new storage account behind a virtual network and integrate the function app with this network. At this time, you can't secure an existing storage account being used by your function app in the same way. 
+When you create a function app, you either create a new storage account or link to an existing storage account. During function app creation, you can secure a new storage account behind a virtual network and integrate the function app with this network. At this time, you can't secure an existing storage account being used by your function app in the same way. 
 
 > [!NOTE]  
 > Securing your storage account is supported for all tiers in both Dedicated (App Service) and Elastic Premium plans. Consumption plans currently don't support virtual networks.
+
+For a list of all restrictions on storage accounts, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
 ### During function app creation 
 
