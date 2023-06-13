@@ -42,18 +42,18 @@ Partners who specialize in reading data from HR systems can build an integration
 :::image type="content" source="media/application-provisioning-api-concepts/end-to-end-workflow.png" alt-text="Diagram of the end-to-end workflow of inbound provisioning." lightbox="media/application-provisioning-api-concepts/end-to-end-workflow.png":::
 
 ### Steps of the workflow
-    1) IT Admin creates a generic inbound provisioning app in the Azure AD Portal from the Enterprise App gallery. Specify worker data accepted by the API endpoint using SCIM schema   
+1. IT Admin creates a generic inbound provisioning app in the Azure AD Portal from the Enterprise App gallery. Specify worker data accepted by the API endpoint using SCIM schema   
     extensions.   
-    2) IT Admin provides endpoint access details to the developer/system integrator.
-    3) Developer builds API client to send HR data to Azure AD.
-    4) The API client reads HR data from CSV/SQL or any HR system.
-    5) The API client sends a POST request to the Azure AD Provisioning Service. The data is a SCIM Bulk Request.
-    6) If successful, an ``Accepted 202 Status`` is returned. 
-    7) The Azure AD Provisioning Service then waits for the next sync cycle to apply attribute mappings and process data.
-    8) The user is provisioned into AD or Azure AD.
-    9) The API Client then queries the provisioning logs API endpoint for the status of each record sent.
-    10) If the processing of any record fails, the API client can check the error details and include the HR record of failed workers in the next bulk request (step 5). 
-    11)	IT Admin can check the status of the provisioning job and view events in the provisioning logs at any time.
+2. IT Admin provides endpoint access details to the developer/system integrator.
+3. Developer builds API client to send HR data to Azure AD.
+4. The API client reads HR data from CSV/SQL or any HR system.
+5. The API client sends a POST request to the Azure AD Provisioning Service. The data is a SCIM Bulk Request.
+6. If successful, an ``Accepted 202 Status`` is returned. 
+7. The Azure AD Provisioning Service then waits for the next sync cycle to apply attribute mappings and process data.
+8. The user is provisioned into AD or Azure AD.
+9. The API Client then queries the provisioning logs API endpoint for the status of each record sent.
+10. If the processing of any record fails, the API client can check the error details and include the HR record of failed workers in the next bulk request (step 5). 
+11.	IT Admin can check the status of the provisioning job and view events in the provisioning logs at any time.
 
 ### Key features of the Inbound Provisioning API
 - It's a Microsoft Graph API endpoint that can be accessed using valid OAuth token.
