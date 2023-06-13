@@ -22,7 +22,7 @@ The NGads V620 Series VMs support the AMD Cloud Software driver that comes in tw
 
 To take advantage of the GPU capabilities of Azure NGads V620 Series VMs, AMD GPU drivers must be installed.
 
-### Supported operating systems and drivers
+### Requirements
 
 | OS | Driver |
 | -------- |------------- |
