@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a private endpoint - Azure portal'
 titleSuffix: Azure Private Link
-description: In this quickstart, you'll learn how to create a private endpoint using the Azure portal.
+description: In this quickstart, learn how to create a private endpoint using the Azure portal.
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
@@ -15,7 +15,7 @@ ms.custom: mode-ui, template-quickstart
 
 Get started with Azure Private Link by creating and using a private endpoint to connect securely to an Azure web app.
 
-In this quickstart, you'll create a private endpoint for an Azure web app and then create and deploy a virtual machine (VM) to test the private connection.  
+In this quickstart, create a private endpoint for an Azure web app and then create and deploy a virtual machine (VM) to test the private connection.  
 
 You can create private endpoints for various Azure services, such as Azure SQL and Azure Storage.
 
@@ -127,7 +127,7 @@ Use the virtual machine that you created earlier to connect to the web app acros
 
 6. After you've connected, open PowerShell on the server.
 
-7. Enter `nslookup mywebapp1979.azurewebsites.net`. You'll receive a message that's similar to the following example:
+7. Enter `nslookup mywebapp1979.azurewebsites.net`. You receive a message that's similar to the following example:
 
     ```powershell
     Server:  UnKnown
@@ -145,7 +145,7 @@ Use the virtual machine that you created earlier to connect to the web app acros
 
 9. Enter the URL of your web app, `https://mywebapp1979.azurewebsites.net`.
 
-   If your web app hasn't been deployed, you'll get the following default web app page:
+   If your web app hasn't been deployed, you get the following default web app page:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
