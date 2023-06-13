@@ -26,7 +26,7 @@ Updates in June include:
 
 |Date |Update  |
 |---------|---------|
-| June 13 | [Streamlined multicloud account onboarding with enhanced settings](#streamlined-multi-cloud-account-onboarding-with-enhanced-settings) |
+| June 13 | [Streamlined multicloud account onboarding with enhanced settings](#streamlined-multicloud-account-onboarding-with-enhanced-settings) |
 |June 11 | [Planning of cloud migration with an Azure Migrate business case now includes Defender for Cloud](#planning-of-cloud-migration-with-an-azure-migrate-business-case-now-includes-defender-for-cloud) |
 |June 7 | [Express configuration for vulnerability assessments in Defender for SQL is now Generally Available](#express-configuration-for-vulnerability-assessments-in-defender-for-sql-is-now-generally-available) |
 |June 6 | [More scopes added to existing Azure DevOps Connectors](#more-scopes-added-to-existing-azure-devops-connectors) |
@@ -43,13 +43,13 @@ When you onboard new cloud accounts, you can customize the role names that are r
 - **Default access** - Allows Defender for Cloud to scan your resources and automatically include future capabilities. 
 - **Least privileged access** -Grants Defender for Cloud access only to the current permissions needed for the selected plans. 
 
-If you select the least privileged permissions, you will only receive notifications on any new roles and permissions that are required to get full functionality on the connector health.
+If you select the least privileged permissions, you'll only receive notifications on any new roles and permissions that are required to get full functionality on the connector health.
 
 ### Planning of cloud migration with an Azure Migrate business case now includes Defender for Cloud
 
 June 11, 2023
 
-Now you can discover potential cost savings in security by leveraging Defender for Cloud within the context of an [Azure Migrate business case](/azure/migrate/how-to-build-a-business-case).
+Now you can discover potential cost savings in security by applying Defender for Cloud within the context of an [Azure Migrate business case](/azure/migrate/how-to-build-a-business-case).
 
 ### Express configuration for vulnerability assessments in Defender for SQL is now Generally Available
 
