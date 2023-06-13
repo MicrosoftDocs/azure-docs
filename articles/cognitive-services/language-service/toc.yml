@@ -1195,7 +1195,7 @@ items:
       - name: Conversation summarization
         items:
         - name: .NET
-          href: /dotnet/api/overview/azure/ai.language.conversations-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme?view=azure-dotnet&preserve-view=true
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python
   - name: Custom (preview)
