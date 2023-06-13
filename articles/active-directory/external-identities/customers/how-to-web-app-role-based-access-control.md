@@ -20,19 +20,19 @@ Role-based access control (RBAC) is a mechanism to enforce authorization in appl
 
 You can also configure your Azure AD for customers tenant to return the group memberships of the user. Developers can then use security groups to implement RBAC in their applications, where the memberships of the user in specific groups are interpreted as their role memberships. 
 
-Once you assign users and groups to roles, the *roles* claim is emitted in your security token. However, to emit the *groups* membership claim in security tokens, you need additional configuration in your customers tenant.
+Once you assign users and groups to roles, the *roles* claim is emitted in your security token. However, to emit the *groups* membership claim in security tokens, you need additional configuration in your customer's tenant.
 
 In this article, you learn how to receive user roles or group membership or both as claims in a security token for your Node.js web app.  
 
 ## Prerequisites
 
-- A security group in your customers tenant. If you've not done so, [create one](../../roles/groups-create-eligible.md#azure-portal).
+- A security group in your customer's tenant. If you've not done so, [create one](../../roles/groups-create-eligible.md#azure-portal).
 
-- If you've not done so, complete the steps in [Using role-based access control for applications](how-to-use-app-roles-customers.md) article. This articles shows you how to create roles for your application, how to assign users and groups to those roles, how to add members to a group and how add a group claim to a to security token.
+- If you've not done so, complete the steps in [Using role-based access control for applications](how-to-use-app-roles-customers.md) article. This article shows you how to create roles for your application, how to assign users and groups to those roles, how to add members to a group and how to add a group claim to a to security token.
 
 ## Receive groups and roles claims in your Node.js web app 
 
-One you've configured your customers tenant, you can retrieve your *roles* and *groups* claims in your app. You receive these claims whether your app requests for an ID token or an access token, but your app only needs to check for these claims in the ID token.
+One you've configured your customer's tenant, you can retrieve your *roles* and *groups* claims in your app. You receive these claims whether your app requests for an ID token or an access token, but your app only needs to check for these claims in the ID token.
 
 You can check your *roles* claim value as shown in the following code snippet:
 
@@ -43,7 +43,7 @@ let roles = tokenResponse.idTokenClaims.roles;
 
 ```
 
-If you assign a user to multiple roles, the `roles` string contain all roles separated by a comma, such as *Orders.Manager,Store.Manager*. Make sure you build your application to handle the following conditions:
+If you assign a user to multiple roles, the `roles` string contains all roles separated by a comma, such as *Orders.Manager,Store.Manager,...*. Make sure you build your application to handle the following conditions:
 
 - absence of `roles` claim in the token
 - user hasn't been assigned to any role
@@ -67,7 +67,7 @@ To ensure that the security token size doesn’t exceed the HTTP header size lim
 
 ### Detect group overage in your source code 
 
-If you can't avoid groups overages, then you need to handle it in your code. When you exceed the overage limit, the token won't contain the *groups* claim. Instead, the token contain a *_claim_names* claim that contains a *groups* member of the array. So, you need to check the existence of *_claim_names* claim to tell that an overage has occurred as shown in the following code snippet: 
+If you can't avoid groups overages, then you need to handle it in your code. When you exceed the overage limit, the token won't contain the *groups* claim. Instead, the token contains a *_claim_names* claim that contains a *groups* member of the array. So, you need to check the existence of *_claim_names* claim to tell that an overage has occurred as shown in the following code snippet: 
 
 ```javascript
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
@@ -77,15 +77,15 @@ if(tokenResponse.idTokenClaims.hasOwnProperty('_claim_names') && tokenResponse.i
 }
 ```
 
-Use the instructions in [Configuring group claims and app roles in tokens](/security/zero-trust/develop/configure-tokens-group-claims-app-roles#group-overages) article to learn how request for the full groups list when groups overage occur.
+Use the instructions in [Configuring group claims and app roles in tokens](/security/zero-trust/develop/configure-tokens-group-claims-app-roles#group-overages) article to learn how request for the full groups list when groups overage occurs.
 
 ## How to use groups and roles values in your Node.js web app 
 
-In the client app (one that signs in the user), you can check whether a signed in user belongs to the required role(s) to access a protected route. You can do this by checking for the `roles` claim in the ID token. By doing this, you can make sure that only authorized users can view certain pages of your application. 
+In the client app (one that signs in the user), you can check whether a signed in user belongs to the required role(s) to access a protected route. You can do this action by checking for the `roles` claim in the ID token. By doing this, you can make sure that only authorized users can view certain pages of your application. 
 
 Still in the client app, you can also enforce that a user belongs to the required role(s) to make a call to an API on an endpoint. You can build these guards by using custom middleware, which checks for the required roles or groups. 
 
-If your client app calls an API, then you need to also protect the API endpoints in the the API app. In this case, you check for the *roles* or *groups* claim in the access token that the client app sends to the API.      
+If your client app calls an API, then you need to also protect the API endpoints in the API app. In this case, you check for the *roles* or *groups* claim in the access token that the client app sends to the API.      
 
 ## Do I use App Roles or Groups?
 
