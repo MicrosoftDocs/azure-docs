@@ -156,7 +156,7 @@ function InitMap()
     authOptions: {
       // Get an Azure Maps key at https://azuremaps.com/.
       authType: 'subscriptionKey',
-      subscriptionKey: 'IoB5cHwWKRxfsh2yyVbtD0p83DOfwRmHmzPaFX3BOrY'
+      subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
     },
   });    
 
