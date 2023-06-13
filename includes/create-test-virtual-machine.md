@@ -12,7 +12,7 @@
 
 ## Create test virtual machine
 
-The following procedure creates a test virtual machines (VM) named **vm-test** in the virtual network.
+The following procedure creates a test virtual machine (VM) named **vm-1** in the virtual network.
 
 1. In the portal, search for and select **Virtual machines**.
 

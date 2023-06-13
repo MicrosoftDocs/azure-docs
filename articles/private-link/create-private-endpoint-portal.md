@@ -19,6 +19,8 @@ In this quickstart, you'll create a private endpoint for an Azure web app and th
 
 You can create private endpoints for various Azure services, such as Azure SQL and Azure Storage.
 
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -58,7 +60,7 @@ Next, you create a private endpoint for the web app that you created in the "Pre
     | **Instance details** |   |
     | Name | Enter **private-endpoint**. |
     | Network Interface Name | Leave the default of **private-endpoint-nic**. |
-    | Region | Select **West Europe**. |
+    | Region | Select **East US 2**. |
 
 4. Select **Next: Resource**.
     
@@ -115,9 +117,9 @@ Use the virtual machine that you created earlier to connect to the web app acros
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
 
-2. Select **vm-test**.
+2. Select **vm-1**.
 
-3. On the overview page for **vm-test**, select **Connect**, and then select **Bastion**.
+3. On the overview page for **vm-1**, select **Connect**, and then select **Bastion**.
 
 4. Enter the username and password that you used when you created the VM.
 
@@ -139,7 +141,7 @@ Use the virtual machine that you created earlier to connect to the web app acros
 
     A private IP address of **10.0.0.5** is returned for the web app name if you chose dynamic IP address in the previous steps. This address is in the subnet of the virtual network you created earlier.
 
-8. In the bastion connection to **vm-test**, open the web browser.
+8. In the bastion connection to **vm-1**, open the web browser.
 
 9. Enter the URL of your web app, `https://mywebapp1979.azurewebsites.net`.
 
@@ -147,7 +149,7 @@ Use the virtual machine that you created earlier to connect to the web app acros
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
-10. Close the connection to **test-vm**.
+10. Close the connection to **vm-1**.
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
