@@ -1113,7 +1113,7 @@
       tocHref: /azure/cost-management-billing/reservations
       topicHref: /azure/cost-management-billing/reservations
     - name: Microsoft Customer Agreement
-      tocHref: /azure/cost-management-billing
+      tocHref: /azure/cost-management-billing/microsoft-customer-agreement
       topicHref: /azure/cost-management-billing/microsoft-customer-agreement
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
