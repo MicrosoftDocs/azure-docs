@@ -36,13 +36,15 @@ curl  -L https://aka.ms/enable-monitoring-msi-bicep-template -o existingClusterO
 curl  -L https://aka.ms/enable-monitoring-msi-bicep-parameters -o existingClusterParam.json
 ```
 
-2.	Edit the values in the parameter file 
-•	aksResourceId: Use the values on the AKS Overview page for the AKS cluster.
-•	aksResourceLocation: Use the values on the AKS Overview page for the AKS cluster.
-•	workspaceResourceId: Use the resource ID of your Log Analytics workspace.
-•	workspaceRegion: Use the location of your Log Analytics workspace.
-•	resourceTagValues: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
+2.	Edit the values in the parameter file
+ 
+•	**aksResourceId**: Use the values on the AKS Overview page for the AKS cluster.
+•	**aksResourceLocation**: Use the values on the AKS Overview page for the AKS cluster.
+•	**workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
+•	**workspaceRegion**: Use the location of your Log Analytics workspace.
+•	**resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 •	Other parameters are for cost optimization, please refer to this guide https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
+
 3.	Onboarding with the commands below:
 
 ```
@@ -61,11 +63,13 @@ Enable Monitoring with MSI with syslog
 ```
 
 2.	Edit the values in the parameter file
-•	aksResourceId: Use the values on the AKS Overview page for the AKS cluster.
-•	aksResourceLocation: Use the values on the AKS Overview page for the AKS cluster.
-•	workspaceResourceId: Use the resource ID of your Log Analytics workspace.
-•	workspaceRegion: Use the location of your Log Analytics workspace.
-•	resourceTagValues: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
+
+•	**aksResourceId**: Use the values on the AKS Overview page for the AKS cluster.
+•	**aksResourceLocation**: Use the values on the AKS Overview page for the AKS cluster.
+•	**workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
+•	**workspaceRegion**: Use the location of your Log Analytics workspace.
+•	**resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
+
 3.	Onboarding with the commands below:
 
 ```
@@ -75,7 +79,8 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 ```
 
 For new aks cluster:
-Replace and use the managed cluster resources in this guide: Quickstart - Create an Azure Kubernetes Service (AKS) cluster by using Bicep - Azure Kubernetes Service | Microsoft Learn. Add the same addonProfiles in the managedClusters resources, remove the dependency of managedClusters depending on dcra and add dcra dependency on the managedClusters resource.
+Replace and use the managed cluster resources in this [guide](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-bicep?tabs=azure-cli)
+
 
 ## [Terraform](#tab/terraform)
 
@@ -85,6 +90,7 @@ Enable Monitoring with MSI without syslog for new aks cluster
 https://aka.ms/enable-monitoring-msi-syslog-terraform
 2.	Adjust the azurerm_kubernetes_cluster resource in main.tf based on what cluster settings you are going to have
 3.	Update parameters in variables.tf to replace values in "<>"
+
 •	aks_resource_group_name: Use the values on the AKS Overview page for the resource group.
 •	resource_group_location: Use the values on the AKS Overview page for the resource group.
 •	cluster_name: Define the cluster name that you would like to create
@@ -101,6 +107,7 @@ Enable Monitoring with MSI with syslog for new aks cluster
 https://aka.ms/enable-monitoring-msi-terraform
 2.	Adjust the azurerm_kubernetes_cluster resource in main.tf based on what cluster settings you are going to have
 3.	Update parameters in variables.tf to replace values in "<>"
+
 •	aks_resource_group_name: Use the values on the AKS Overview page for the resource group.
 •	resource_group_location: Use the values on the AKS Overview page for the resource group.
 •	cluster_name: Define the cluster name that you would like to create
@@ -151,9 +158,13 @@ https://aka.ms/enable-monitoring-msi-azure-policy-parameters
 
 Onboarding guide:
 You can create the policy definition using a command:
+```
 az policy definition create --name "AKS-Monitoring-Addon-MSI" --display-name "AKS-Monitoring-Addon-MSI" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules azure-policy.rules.json --params azure-policy.parameters.json
+```
 You can create the policy assignment with the following command like :
+```
 az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring-Addon-MSI" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <location> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
+```
 
 **NOTE**
 •	Please make sure when performing remediation task, the policy assignment has access to workspace you specified.
