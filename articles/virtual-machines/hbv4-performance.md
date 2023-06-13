@@ -75,8 +75,8 @@ The [Mellanox Perftest package](https://github.com/linux-rdma/perftest) has many
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
-[!NOTE]
-The NUMA node affinity for InfiniBand NIC is NUMA0.
+> [!NOTE]
+> The NUMA node affinity for InfiniBand NIC is NUMA0.
 
 ## Next steps
 - Learn about [scaling MPI applications](./workloads/hpc/compiling-scaling-applications.md).
