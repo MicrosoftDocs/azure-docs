@@ -30,8 +30,12 @@ If the agent upgrade fails for a cluster hosted on AKS, this article also descri
 Enable Monitoring with MSI without syslog 
 
 1.	Download Bicep templates and Parameter files 
- 	curl  -L https://aka.ms/enable-monitoring-msi-bicep-template -o existingClusterOnboarding.bicep 
+
+```
+curl  -L https://aka.ms/enable-monitoring-msi-bicep-template -o existingClusterOnboarding.bicep 
 curl  -L https://aka.ms/enable-monitoring-msi-bicep-parameters -o existingClusterParam.json
+```
+
 2.	Edit the values in the parameter file 
 •	aksResourceId: Use the values on the AKS Overview page for the AKS cluster.
 •	aksResourceLocation: Use the values on the AKS Overview page for the AKS cluster.
@@ -40,15 +44,22 @@ curl  -L https://aka.ms/enable-monitoring-msi-bicep-parameters -o existingCluste
 •	resourceTagValues: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 •	Other parameters are for cost optimization, please refer to this guide https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
 3.	Onboarding with the commands below:
+
+```
 az login
 az account set --subscription "Subscription Name"
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.bicep --parameters ./existingClusterParam.json
+```
 
 Enable Monitoring with MSI with syslog
 
 1.	Download Bicep templates and Parameter files 
+
+```
  	curl  -L https://aka.ms/enable-monitoring-msi-syslog-bicep-template  -o existingClusterOnboarding.bicep 
  	curl  -L https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters -o existingClusterParam.json
+```
+
 2.	Edit the values in the parameter file
 •	aksResourceId: Use the values on the AKS Overview page for the AKS cluster.
 •	aksResourceLocation: Use the values on the AKS Overview page for the AKS cluster.
@@ -56,9 +67,13 @@ Enable Monitoring with MSI with syslog
 •	workspaceRegion: Use the location of your Log Analytics workspace.
 •	resourceTagValues: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 3.	Onboarding with the commands below:
+
+```
 az login
 az account set --subscription "Subscription Name"
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.bicep --parameters ./existingClusterParam.json
+```
+
 For new aks cluster:
 Replace and use the managed cluster resources in this guide: Quickstart - Create an Azure Kubernetes Service (AKS) cluster by using Bicep - Azure Kubernetes Service | Microsoft Learn. Add the same addonProfiles in the managedClusters resources, remove the dependency of managedClusters depending on dcra and add dcra dependency on the managedClusters resource.
 
@@ -152,7 +167,7 @@ o	Now that the policy is assigned to the subscription, whenever you create a new
 
 
 ## Limitations 
-1.	Ingestion Transformations are not supported   
+1.	Ingestion Transformations are not supported: See [Data collection transformation](https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-transformations) to read more.    
 2.	Dependency on DCR/DCRA for region availability - For new AKS region, there might be chances that DCR is still not supported in the new region. In that case, onboarding Container Insights with MSI will fail. One workaround is to onboard to Container Insights through CLI with the old way (with the use of Container Insights solution)
 
 ## Timeline  
