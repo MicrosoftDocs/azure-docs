@@ -25,6 +25,7 @@ The structure of how to do this consists of the following steps.  They are:
   - [Create sync job](#create-sync-job)
   - [Update targeted domain](#update-targeted-domain)
   - [Enable Sync password hashes on configuration blade](#enable-sync-password-hashes-on-configuration-blade)
+  - [Exchange hybrid writeback](#exchange-hybrid-writeback)
   - [Accidental deletes](#accidental-deletes)
     - [Enabling and setting the threshold](#enabling-and-setting-the-threshold)
     - [Allowing deletes](#allowing-deletes)
@@ -228,6 +229,38 @@ Here, the highlighted "Domain" value is the name of the on-premises Active Direc
    ```
 
 Add the Schema in the request body.
+
+## Exchange hybrid writeback
+
+This section covers how to enable/disable and use [Exchange hybrid writeback](exchange-hybrid.md) programmatically.
+
+To enable Exchange hybrid writeback programmitically requires 2 steps.
+	1.  Schema verification
+	2.  Create the Exchange hybrid writeback job
+
+Things to remember when using the API to refresh or discover the schema.
+ - The job id needs to be the AD2AADProvisioning job id
+ - The directory id needs to be AD directory id
+
+### Schema verification
+Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  The refresh can be done automatically by restarting the provisioning agent or manually using an API call.
+
+You can use the [directoryDefinition:discover](/graph/api/directorydefinition-discover?view=graph-rest-beta&tabs=http&preserve-view=true) to initiate schema discovery. 
+
+```
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema/directories/{directoryId}/discover
+```
+
+
+### Create the Exchange hybrid writeback job
+Once you have verified the schema you can create the job.
+
+```
+POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs Content-type: application/json { "templateId":"AAD2ADExchangeHybridWriteback" }
+```
+
+
+
 
 ## Accidental deletes
 
