@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 03/03/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
-recommendations: false
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->

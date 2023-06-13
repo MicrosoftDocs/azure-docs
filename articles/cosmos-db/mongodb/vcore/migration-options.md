@@ -2,8 +2,8 @@
 title: Migrate data from MongoDB
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Learn about the various options to migrate your data from other MongoDB sources to Azure Cosmos DB for MongoDB vCore.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore

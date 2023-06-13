@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/14/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP single sign-on
@@ -22,7 +23,7 @@ In this article, you can learn to secure header and LDAP-based applications usin
 * Full single sign-on (SSO) between Azure AD and BIG-IP published services
 * Manage identities and access from one control plane, the [Azure portal](https://portal.azure.com/)
 
-To learn about more benefits, see [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md).
+To learn about more benefits, see [F5 BIG-IP and Azure AD integration](./f5-integration.md).
 
 ## Scenario description
 
@@ -248,7 +249,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 3. Check **Enable Redirect Port** and then enter **Redirect Port** to redirects incoming HTTP client traffic to HTTPS.
 4. The Client SSL Profile enables the virtual server for HTTPS, so client connections are encrypted over TLS. Select the **Client SSL Profile** you created or leave the default while testing.
 
-    ![Screenshot of Desitnation Address, Service Port, and Common entries under General Properties on Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
+    ![Screenshot of Destination Address, Service Port, and Common entries under General Properties on Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
 ### Pool Properties
 
@@ -258,7 +259,7 @@ The **Application Pool** tab has the services behind a BIG-IP represented as a p
 2. Choose the **Load Balancing Method** such as Round Robin.
 3. For **Pool Servers** select a node or specify an IP and port for the server hosting the header-based application.
  
-    ![Screenshot of IP Address/Node Name and Port entries under Applicaiton Pool, on Pool Properties.](./media/f5-big-ip-oracle/application-pool.png)
+    ![Screenshot of IP Address/Node Name and Port entries under Application Pool, on Pool Properties.](./media/f5-big-ip-oracle/application-pool.png)
 
 >[!NOTE]
 >Our back-end application sits on HTTP port 80. Switch to 443 if yours is HTTPS.
@@ -365,6 +366,6 @@ If there's no error page, then the issue is probably related to the back-end req
 
 Use the following command from the BIG-IP bash shell to validate the APM service account for LDAP queries. Confirm authentication and query of a user object.
 
- ```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=partners,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
+ ```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=partners,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)"```
 
 For more information, see the F5 article [K11072: Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). You can use a BIG-IP reference table to help diagnose LDAP-related issues in AskF5 document, [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).

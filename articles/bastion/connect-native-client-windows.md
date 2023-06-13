@@ -5,13 +5,15 @@ description: Learn how to connect to a VM from a Windows computer by using Basti
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 05/18/2023
 ms.author: cherylmc
 ---
 
 # Connect to a VM using a native client
 
 This article helps you configure your Bastion deployment, and then connect to a VM in the VNet using the native client (SSH or RDP) on your local computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). Additionally with this feature, you can now also upload or download files, depending on the connection type and client.
+
+:::image type="content" source="./media/connect-native-client-windows/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/connect-native-client-windows/native-client-architecture.png":::
 
 Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client. Controlling access to features such as file transfer via Bastion isn't supported.
 
@@ -30,7 +32,7 @@ After you deploy this feature, there are two different sets of connection instru
 
   * Use native clients on *non*-Windows local computers (example: a Linux PC).
   * Use the native client of your choice. (This includes the Windows native client.)
-  * Connect using SSH or RDP. (Note that bastion tunnel does not relay web servers or hosts.)
+  * Connect using SSH or RDP. (The bastion tunnel doesn't relay web servers or hosts.)
   * Set up concurrent VM sessions with Bastion.
   * [Upload files](vm-upload-download-native.md#tunnel-command) to your target VM from your local computer. File download from the target VM to the local client is currently not supported for this command.
 
@@ -141,8 +143,8 @@ Use the example that corresponds to the type of target VM to which you want to c
    az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
    ```
 
-> [!IMPORTANT]
-> Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM. 
+   > [!IMPORTANT]
+   > Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM. 
 
    **SSH:**
 
@@ -152,7 +154,7 @@ Use the example that corresponds to the type of target VM to which you want to c
    az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
    ```
 
-1. Once you sign in to your target VM, the native client on your computer will open up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
+   Once you sign in to your target VM, the native client on your computer opens up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
 
 ### <a name="connect-linux"></a>Connect to a Linux VM
 
@@ -190,11 +192,11 @@ Use the example that corresponds to the type of target VM to which you want to c
       az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId or VMSSInstanceResourceId>" --auth-type "password" --username "<Username>"
       ```
 
-1. Once you sign in to your target VM, the native client on your computer will open up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
+   1. Once you sign in to your target VM, the native client on your computer opens up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
 
 ## <a name="connect-tunnel"></a>Connect to VM - other native clients
 
-This section helps you connect to your virtual machine from native clients on *non*-Windows local computers (example: a Linux PC) using the **az network bastion tunnel** command. You can also connect using this method from a Windows computer. This is helpful when you require an SSH connection and want to upload files to your VM. Note that bastion tunnel supports RDP/SSH connection but does not relay web servers or hosts.
+This section helps you connect to your virtual machine from native clients on *non*-Windows local computers (example: a Linux PC) using the **az network bastion tunnel** command. You can also connect using this method from a Windows computer. This is helpful when you require an SSH connection and want to upload files to your VM. The bastion tunnel supports RDP/SSH connection, but doesn't relay web servers or hosts.
 
 This connection supports file upload from the local computer to the target VM. For more information, see [Upload files](vm-upload-download-native.md).
 

@@ -266,11 +266,11 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig.SpeechRecognitionLanguage = "it-IT";
 ```
 
-The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
+The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech to text locales](../../../language-support.md?tabs=stt).
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text) with Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
 For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text).
 
@@ -283,6 +283,12 @@ var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourSer
 speechConfig.EndpointId = "YourEndpointId";
 var speechRecognizer = new SpeechRecognizer(speechConfig);
 ```
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
 
 ## Change how silence is handled
 

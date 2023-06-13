@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 05/09/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -27,12 +27,9 @@ Role assignment conditions are only evaluated when using Azure RBAC for authoriz
 - [Account shared access signature](/rest/api/storageservices/create-account-sas) (SAS)
 - [Service SAS](/rest/api/storageservices/create-service-sas).
 
-Similarly, conditions are not evaluated when access is granted using [access control lists (ACLs)](data-lake-storage-access-control.md) in storage accounts with a [hierarchical namespace](data-lake-storage-namespace.md) (HNS).
+Similarly, conditions aren't evaluated when access is granted using [access control lists (ACLs)](data-lake-storage-access-control.md) in storage accounts with a [hierarchical namespace](data-lake-storage-namespace.md) (HNS).
 
 You can prevent shared key, account-level SAS, and service-level SAS authorization by [disabling shared key authorization](../common/shared-key-authorization-prevent.md) for your storage account. Since user delegation SAS depends on Azure RBAC, role-assignment conditions are evaluated when using this method of authorization.
-
-> [!NOTE]
-> Role-assignment conditions are not evaluated when access is granted using ACLs with Data Lake Storage Gen2. In this case, you must plan the scope of access so it does not overlap with that granted through ACLs.
 
 ## Securing storage attributes used in conditions
 
@@ -53,11 +50,11 @@ In addition, if blob index tags are used in conditions, data may be vulnerable i
 
 #### Tags on copied blobs
 
-By default, blob index tags are not copied from a source blob to the destination when you use [Copy Blob](/rest/api/storageservices/Copy-Blob) API or any of its variants. To preserve the scope of access for blob upon copy, you should copy the tags as well.
+By default, blob index tags aren't copied from a source blob to the destination when you use [Copy Blob](/rest/api/storageservices/Copy-Blob) API or any of its variants. To preserve the scope of access for blob upon copy, you should copy the tags as well.
 
 #### Tags on snapshots
 
-Tags on blob snapshots cannot be modified. This implies that you must update the tags on a blob before taking the snapshot. If you modify the tags on a base blob, the tags on it's snapshot will continue to have their previous value.
+Tags on blob snapshots can't be modified. Therefore, you must update the tags on a blob before taking the snapshot. If you modify the tags on a base blob, the tags on its snapshot continue to have their previous value.
 
 If a tag on a base blob is modified after a snapshot is taken, the scope of access may be different for the base blob and the snapshot.
 
@@ -65,11 +62,11 @@ If a tag on a base blob is modified after a snapshot is taken, the scope of acce
 
 Blob index tags aren't copied when a blob version is created through the [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) or [Copy Blob](/rest/api/storageservices/Copy-Blob) APIs. You can specify tags through the header for these APIs.
 
-Tags can be set individually on a current base blob and on each blob version. When you modify tags on a base blob, the tags on previous versions are not updated. If you want to change the scope of access for a blob and all its versions using tags, you must update the tags on each version.
+Tags can be set individually on a current base blob and on each blob version. When you modify tags on a base blob, the tags on previous versions aren't updated. If you want to change the scope of access for a blob and all its versions using tags, you must update the tags on each version.
 
 #### Querying and filtering limitations for versions and snapshots
 
-When using tags to query and filter blobs in a container, only the base blobs are included in the response. Blob versions or snapshots with the requested keys and values aren't included.
+When you use tags to query and filter blobs in a container, only the base blobs are included in the response. Blob versions or snapshots with the requested keys and values aren't included.
 
 ## Roles and permissions
 
@@ -79,9 +76,9 @@ If you're using role assignment conditions for [Azure built-in roles](../../role
 
 Role assignments can be configured for a management group, subscription, resource group, storage account, or a container, and are inherited at each level in the stated order. Azure RBAC has an additive model, so the effective permissions are the sum of role assignments at each level. If a principal has the same permission assigned to them through multiple role assignments, then access for an operation using that permission is evaluated separately for each assignment at every level.
 
-Since conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the condition. Let's say you assign the *Storage Blob Data Contributor* role to a user for a storage account and on a subscription, but add a condition only to the assignment for the storage account. In this case, the user will have unrestricted access to the storage account through the role assignment at the subscription level.
+Since conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the condition. Let's say you assign the *Storage Blob Data Contributor* role to a user for a storage account and on a subscription, but add a condition only to the assignment for the storage account. The result will be that the user has unrestricted access to the storage account through the role assignment at the subscription level.
 
-That's why you should apply conditions consistently for all role assignments across a resource hierarchy.
+Therefore, you should apply conditions consistently for all role assignments across a resource hierarchy.
 
 ## Other considerations
 

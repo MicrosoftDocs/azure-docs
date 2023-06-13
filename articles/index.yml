@@ -1576,7 +1576,7 @@ productDirectory:
     # Card
     - title: Azure Operator Nexus
       summary: Build your mission-critical mobile networks with a carrier-grade, hybrid cloud platform
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      imageSrc: ./media/index/operator-nexus.svg
       azureCategories:
        - 5g-space
       url: operator-nexus/index.yml

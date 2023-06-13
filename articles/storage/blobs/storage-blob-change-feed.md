@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 
 ms.author: normesta
-ms.date: 03/22/2023
+ms.date: 05/30/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -15,7 +15,7 @@ ms.custom: engagement-fy23
 
 # Change feed support in Azure Blob Storage
 
-The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. Each change generates exactly one transaction log entry, so you won't have to manage multiple log entries for the same change. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
 
 To learn how to process records in the change feed, see [Process change feed in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
@@ -555,8 +555,7 @@ This section describes known issues and conditions in the current release of the
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call the ListContainers API. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
-- [Storage account failover](../common/storage-disaster-recovery-guidance.md) is not supported on accounts with the change feed enabled. Disable the change feed before initiating a failover.
-- Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file.
+- Storage account failover of geo-redundant storage accounts with the change feed enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. For more information about such inconsistencies, see [Change feed and blob data inconsistencies](../common/storage-disaster-recovery-guidance.md#change-feed-and-blob-data-inconsistencies).
 - You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** and **$blobchangefeedsys** containers. You can safely ignore these errors.
 
 ## Feature support

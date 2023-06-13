@@ -132,7 +132,7 @@ resource ehLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/log
     loggerType: 'azureEventHub'
     description: 'Event hub logger with system-assigned managed identity'
     credentials: {
-      endpointAddress: 'https://<EventHubsNamespace>.servicebus.windows.net/<EventHubName>'
+      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net/<EventHubName>'
       identityClientId: 'systemAssigned'
       name: 'ApimEventHub'
     }
@@ -154,7 +154,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
     "description": "Event hub logger with system-assigned managed identity",
     "resourceId": "<EventHubsResourceID>",
     "credentials": {
-      "endpointAddress": "https://<EventHubsNamespace>.servicebus.windows.net/<EventHubName>",
+      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net/<EventHubName>",
       "identityClientId": "SystemAssigned",
       "name": "ApimEventHub"
     },
@@ -182,7 +182,7 @@ resource ehLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/logge
     loggerType: 'azureEventHub'
     description: 'Event hub logger with user-assigned managed identity'
     credentials: {
-      endpointAddress: 'https://<EventHubsNamespace>.servicebus.windows.net/<EventHubName>'
+      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net/<EventHubName>'
       identityClientId: '<ClientID>'
       name: 'ApimEventHub'
     }
@@ -204,7 +204,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
     "description": "Event hub logger with user-assigned managed identity",
     "resourceId": "<EventHubsResourceID>",
     "credentials": {
-      "endpointAddress": "https://<EventHubsNamespace>.servicebus.windows.net/<EventHubName>",
+      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net/<EventHubName>",
       "identityClientId": "<ClientID>",
       "name": "ApimEventHub"
     },

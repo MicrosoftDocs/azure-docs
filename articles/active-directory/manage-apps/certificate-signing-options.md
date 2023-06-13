@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 07/21/2022
 ms.author: jomondi
 ms.reviewer: saumadan
-ms.custom: aaddev
+ms.custom: aaddev, enterprise-apps
 ms.collection: M365-identity-device-management
 ---
 

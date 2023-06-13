@@ -50,7 +50,7 @@ Read the following articles that apply to you to learn how discounts apply to a 
 - [Azure SQL Edge](discount-sql-edge.md)
 - [Database for MariaDB](understand-reservation-charges-mariadb.md)
 - [Database for MySQL](understand-reservation-charges-mysql.md)
-- [Database for PostgreSQL](understand-reservation-charges-postgresql.md)
+- [Database for PostgreSQL](../../postgresql/single-server/concept-reserved-pricing.md)
 - [Databricks](reservation-discount-databricks.md)
 - [Data Explorer](understand-azure-data-explorer-reservation-charges.md)
 - [Dedicated Hosts](billing-understand-dedicated-hosts-reservation-charges.md)

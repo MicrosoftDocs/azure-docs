@@ -35,3 +35,7 @@
       href: /cli/azure/connectedvmware
     - name: Azure Arc resource bridge
       href:  /cli/azure/arcappliance
+- name: Resources
+  items:
+   - name: Azure Arc Jumpstart
+     href: https://azurearcjumpstart.io

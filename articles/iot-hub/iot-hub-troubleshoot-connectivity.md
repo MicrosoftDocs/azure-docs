@@ -48,7 +48,7 @@ When you use Event Grid to monitor or trigger alerts on device disconnects, make
 
 Explore the following topics to learn more about monitoring device connection events with Event Grid:
 
-* For an overview of using Event Grid with IoT Hub, see [React to IoT Hub events with Event Grid](iot-hub-event-grid.md). Pay particular attention to the [Limitations for device connected and device disconnected events](iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events) section.
+* For an overview of using Event Grid with IoT Hub, see [React to IoT Hub events with Event Grid](iot-hub-event-grid.md). Pay particular attention to the [Limitations for device connection state events](iot-hub-event-grid.md#limitations-for-device-connection-state-events) section.
 
 * For a tutorial about ordering device connection events, see [Order device connection events from Azure IoT Hub using Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
@@ -185,7 +185,7 @@ If the previous steps didn't help, try:
 
 * Verify that your devices are **Enabled** in the Azure portal > your IoT hub > IoT devices.
 
-* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 * Get help from [Microsoft Q&A question page for Azure IoT Hub](/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
 

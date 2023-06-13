@@ -123,15 +123,15 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Insights and curated visualizations
-            url: /insights/insights-overview
+            url: insights/insights-overview.md
           - text: Workbooks 
-            url: /visualize/workbooks-overview.md
+            url: visualize/workbooks-overview.md
           - text: Dashboards
-            url: /visualize/tutorial-logs-dashboards.md
+            url: visualize/tutorial-logs-dashboards.md
           - text: Power BI
-            url: /logs/log-powerbi.md
+            url: logs/log-powerbi.md
           - text: Grafana
-            url: /visualize/grafana-plugin.md
+            url: visualize/grafana-plugin.md
 
  # Card
   - title: Respond to issues
@@ -139,9 +139,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Alerts 
-            url: /alerts/alerts-overview.md
+            url: alerts/alerts-overview.md
           - text: Autoscale
-            url: /autoscale/autoscale-overview.md
+            url: autoscale/autoscale-overview.md
 
   # Card
   - title: Reference

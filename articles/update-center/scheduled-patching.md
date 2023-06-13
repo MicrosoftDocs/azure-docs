@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Update management center (preview)
 description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
 ms.service: update-management-center
-ms.date: 04/11/2023
+ms.date: 05/02/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -12,6 +12,10 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
+> [!IMPORTANT]
+> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
+
+
 You can use update management center (preview) in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule for single VM and at scale.
 
 Update management center (preview) uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
@@ -19,10 +23,10 @@ Update management center (preview) uses maintenance control schedule instead of 
 ## Prerequisites for scheduled patching
 
 1. See [Prerequisites for Update management center (preview)](./overview.md#prerequisites)
-1. Patch orchestration of the Azure machines should be set to **Azure Orchestrated (Automatic By Platform)**. For Azure Arc-enabled machines, it isn't a requirement.
+1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules (Preview)**. For more information, see [how to enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!Note]
-	> If you set the patch orchestration mode to Azure orchestrated (Automatic By Platform) but don't attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule.
+	> If you set the patch mode to Azure orchestrated (AutomaticByPlatform) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule. [Learn more](./overview.md#prerequisites).
 
 
 ## Schedule recurring updates on single VM
@@ -206,12 +210,12 @@ You can create a new Guest OS update maintenance configuration or modify an exis
 
    :::image type="content" source="./media/scheduled-updates/change-update-selection-criteria-of-maintenance-configuration-inline.png" alt-text="Change update selection criteria of Maintenance configuration." lightbox="./media/scheduled-updates/change-update-selection-criteria-of-maintenance-configuration-expanded.png":::
 
-## Grouping using policy
+## Onboarding to Schedule using Policy
 
 The update management center (preview) allows you to target a group of Azure or non-Azure VMs for update deployment via Azure Policy. The grouping using policy, keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags or regions to define the scope and use this feature for the built-in policies which you can customize as per your use-case.
 
 > [!NOTE]
-> This policy also ensures that the patch orchestration property for Azure machines is set to **Azure-orchestrated (Automatic by Platform)** as it is a prerequisite for scheduled patching.
+> This policy also ensures that the patch orchestration property for Azure machines is set to **Customer Managed Schedules (Preview)** as it is a prerequisite for scheduled patching. 
 
 
 ### Assign a policy

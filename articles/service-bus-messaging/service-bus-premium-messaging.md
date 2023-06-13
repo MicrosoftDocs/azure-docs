@@ -3,7 +3,7 @@ title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 10/12/2022
+ms.date: 05/02/2023
 ---
 
 # Service Bus Premium and Standard messaging tiers
@@ -87,7 +87,7 @@ Azure Service Bus premium tier namespaces support the ability to send large mess
 
 Here are some considerations when sending large messages on Azure Service Bus -
    * Supported on Azure Service Bus premium tier namespaces only.
-   * Supported only when using the AMQP protocol. Not supported when using the SBMP protocol.
+   * Supported only when using the AMQP protocol. Not supported when using SBMP or HTTP protocols.
    * Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
    * Sending large messages will result in decreased throughput and increased latency.
    * While 100 MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.

@@ -19,7 +19,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
 ## Prerequisite
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- The [PowerShell Az module](/powershell/azure/install-az-ps).
+- The [PowerShell Az module](/powershell/azure/install-azure-powershell).
 
 ## Create an Apache Spark cluster in HDInsight
 

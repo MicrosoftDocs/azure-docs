@@ -23,7 +23,7 @@ In this article, you'll learn how to create a mesh network topology with Azure V
 ## Prerequisites
 
 * Read about [mesh](concept-connectivity-configuration.md#mesh-network-topology) network topology.
-* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md#create-virtual-network-manager).
+* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md#create-a-virtual-network-manager-instance).
 * Identify virtual networks you want to use in the mesh configuration or create new [virtual networks](../virtual-network/quick-create-powershell.md).
 * Version `5.3.0` of `Az.Network` is required to access the required cmdlets for Azure Virtual Network Manager.
 * If you're running PowerShell locally, you need to run `Connect-AzAccount` to create a connection with Azure.
