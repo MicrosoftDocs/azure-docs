@@ -25,7 +25,7 @@ items:
       displayName: ChatGPT, chatgpt
     - name: DALL-E (preview)
       href: dall-e-quickstart.md
-    - name: Use your data
+    - name: Use your data (preview)
       href: use-your-data-quickstart.md
 - name: Concepts
   items:
@@ -41,7 +41,7 @@ items:
       href: ./concepts/advanced-prompt-engineering.md
     - name: System message templates
       href: ./concepts/system-message.md
-    - name: Using your data
+    - name: Using your data (preview)
       href: ./concepts/using-your-data.md
 - name: How-to 
   items:

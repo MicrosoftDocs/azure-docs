@@ -17,7 +17,7 @@ keywords:
 
 ## June 2023
 
-### Use Azure OpenAI on your own data
+### Use Azure OpenAI on your own data (Preview)
 
 - [Azure OpenAI on your data](./concepts/using-your-data.md) is now available in preview, enabling you to chat with OpenAI models such as ChatGPT and GPT-4 and receive responses based on your data. 
 
