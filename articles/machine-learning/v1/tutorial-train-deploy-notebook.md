@@ -10,7 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 09/14/2022
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, devx-track-python
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
@@ -355,4 +355,3 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 + Learn how to [authenticate to the deployed model](../how-to-authenticate-online-endpoint.md).
 + [Make predictions on large quantities of data](../tutorial-pipeline-batch-scoring-classification.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).
-

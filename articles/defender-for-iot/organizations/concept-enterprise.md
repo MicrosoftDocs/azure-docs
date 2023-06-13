@@ -47,6 +47,7 @@ For more information, see:
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Proactively hunt with advanced hunting in Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview)
 
 ## Next steps
 
