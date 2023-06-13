@@ -147,4 +147,4 @@ Now, the traffic can reach SignalR Service through API Management.Let’s use [t
 
 ## Next steps
 
-Now, you have successfully added real-time capability to your APIs. [Learn more about SignalR Service](./signalr-overview.md).
+Now, you have successfully added real-time capability to your API Management using Azure SignalR. [Learn more about SignalR Service](./signalr-overview.md).
