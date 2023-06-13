@@ -12,7 +12,7 @@ audience: admin
 
 # Azure Communication Services direct routing: SIP protocol details
 
-This article describes how direct routing implements the Session Initiation Protocol (SIP). To properly route traffic between a Session Border Controller (SBC) and the SIP proxy, some SIP parameters must have specific values. This article is intended for voice administrators who are responsible for configuring the connection between the SBC and the SIP proxy service.
+This article describes how direct routing implements the Session Initiation Protocol (SIP) to ensure proper traffic routes between a Session Border Controller (SBC) and the SIP proxy. It also highlights the importance of certain SIP parameters that require specific values. This article is intended for voice administrators who are responsible for configuring the connection between the SBC and the SIP proxy service.
 
 ## Processing the incoming request: finding the Communication resource
 
@@ -32,7 +32,7 @@ Before an incoming or outbound call can be processed, OPTIONS messages are excha
 | Contact Header | Contact: <sip:sbc1.contoso.com:5061;transport=tls> |
 
 > [!NOTE]
-> The SIP headers do not contain userinfo in the SIP URI in use. As per [RFC 3261, section 19.1.1](https://tools.ietf.org/html/rfc3261#section-19.1.1), the userinfo part of a URI is optional and MAY be absent when the destination host does not have a notion of users or when the host itself is the resource being identified. If the @ sign is present in a SIP URI, the user field MUST NOT be empty.
+> The SIP headers do not contain userinfo in the SIP URI in use. As per [RFC 3261, section 19.1.1](https://tools.ietf.org/html/rfc3261#section-19.1.1), the userinfo part of a URI is optional and may be absent when the destination host does not have a notion of users or when the host itself is the resource being identified. If the @ sign is present in a SIP URI, the user field must not be empty.
 > Please note, that SIPS URI should not be used with direct routing as it is not supported.
 > Check your Session Border Controller configuration and make sure that you are not using "Replaces" headers in SIP requests. Direct routing  will reject SIP requests that have Replaces headers defined.
 
@@ -92,7 +92,7 @@ For all incoming SIP messages (OPTIONS, INVITE) to the Microsoft SIP proxy, the 
 
 Syntax: Contact:  <sip:phone or sip address@FQDN of the SBC;transport=tls> 
 
-As per [RFC 3261, section 11.1](https://tools.ietf.org/html/rfc3261#section-11.1), a Contact header field MAY be present in an OPTIONS message. In direct routing, the contact header is required. For INVITE messages in format above, for OPTIONS messages the userinfo can be removed from SIP URI and only FQDN sent in format as follows:
+As per [RFC 3261, section 11.1](https://tools.ietf.org/html/rfc3261#section-11.1), a Contact header field MAY be present in an OPTIONS message. In direct routing, the contact header is required. When it comes to OPTIONS messages, the userinfo can be excluded from the SIP URI and only the FQDN can be sent in the following format:  
 
 Syntax: Contact:  <sip:FQDN of the SBC;transport=tls>
 
@@ -107,7 +107,7 @@ As rule of thumb for direct routing, it's important that FQDN is used to populat
 #### Request-URI
 
 For all incoming calls, the Request-URI is used to identify a callee.
-Currently The phone number must contain a plus sign (+) as shown in the following example. 
+Currently the phone number must contain a plus sign (+) as shown in the following example. 
 
 ```console
 INVITE sip:+12345@sip.pstnhub.microsoft.com SIP /2.0
@@ -125,8 +125,8 @@ From: <sip:+12345@sbc1.contoso.com;transport=udp;tag=1c68821811
 
 ## Contact and Record-Route headers considerations
 
-The SIP proxy needs to calculate the next hop FQDN for new in-dialog client transactions (for example Bye or Re-Invite), and when replying to SIP Options. Either Contact or Record-Route are used.
-According to [RFC 3261, section 8.1.1.8](https://tools.ietf.org/html/rfc3261#section-8.1.1.8), Contact header is required in any request that can result in a new dialog. The Record-Route is only required if a proxy wants to stay on the path of future requests in a dialog.
+The SIP proxy needs to calculate the next hop FQDN for new in-dialog client transactions (for example Bye or Re-Invite), and when replying to SIP OPTIONS. This can be done using either Contact or Record-Route.
+According to [RFC 3261, section 8.1.1.8](https://tools.ietf.org/html/rfc3261#section-8.1.1.8), a Contact header is required in any request that can result in a new dialog. The Record-Route is only required if a proxy wants to stay on the path of future requests in a dialog.
 
 To calculate the next hop, the SIP proxy uses:
 
@@ -140,7 +140,7 @@ If both Contact and Record-Route are used, the SBC administrator must keep their
 
 Use of an IP address isn't supported in either Record-Route or Contact. The only supported option is an FQDN, which must match either the Common Name or Subject Alternative Name of the SBC certificate (wildcard values in the certificate are supported).
 
-- If an IP address is presented in Record-route or Contact, the certificate check fails and the call fails.
+- If an IP address is presented in Record-route or Contact, the certificate check fails, and the call fails.
 
 - If the FQDN doesn't match the value of the Common or Subject Alternative Name in the presented certificate, the call fails.
 
@@ -163,7 +163,7 @@ An ACS identity might be used in multiple endpoints (applications) at the same t
 - Media answer – converted by the SIP proxy to message 183 with media candidates in Session Description Protocol (SDP). On receiving message 183, the SBC expects to connect to the media candidates received in the SDP message.
 
     > [!NOTE]
-    > In some cases the Media answer might not be generated, and the end point might answer with “Call Accepted” message.
+    > In some cases, the Media answer might not be generated, and the end point might answer with “Call Accepted” message.
 
 - Call accepted – converted by the SIP proxy to SIP message 200 with SDP. On receiving message 200, the SBC is expected to send and receive media to and from the provided SDP candidates.
 
@@ -174,13 +174,13 @@ An ACS identity might be used in multiple endpoints (applications) at the same t
 
 1. On receiving the first Invite from the SBC, the SIP proxy sends the message "SIP SIP/2.0 100 Trying" and notifies all end user endpoints about the incoming call.
 
-2. Upon notification, each endpoint starts ringing and sending "Call progress” messages to the SIP proxy. Because an ACS identity is used by multiple endpoints, the SIP proxy might receive multiple Call Progress messages.
+2. Upon notification, each endpoint starts ringing and sending "Call progress” messages to the SIP proxy. As the Azure Communication Services identity is used by multiple endpoints, the SIP proxy might receive multiple Call Progress messages.
 
 3. For every Call Progress message received from the endpoints, the SIP proxy converts the Call Progress message to the SIP message "SIP SIP/2.0 180 Ringing". The interval for sending such messages correlates to the interval of the receiving messages from the Call Controller. In the following diagram, there are two 180 messages generated by the SIP proxy. These messages come from the two ACS endpoints. The endpoints each have a unique Tag ID.  Every message coming from a different endpoint is a separate session (the parameter “tag” in the “To” field is different). But an endpoint might not generate message 180 and send message 183 right away as shown in the following diagram.
 
 4. Once an endpoint generates a Media Answer message with the IP addresses of endpoint’s media candidates, the SIP proxy converts the message received to a "SIP 183 Session Progress" message with the SDP from the endpoint replaced by the SDP from the Media Processor. In the following diagram, the endpoint from Fork 2 answered the call. The 183 SIP message is generated only once. The 183 might come on an existing fork or start a new one.
 
-5. A Call Acceptance message is sent with the final candidates of the endpoint that accepted the call. The Call Acceptance message is converted to SIP message 200.
+5. A Call Acceptance message is sent to the SIP Proxy with the final candidates of the endpoint that accepted the call. The Call Acceptance message is converted to SIP message 200.
 
    [![Diagram showing multiple endpoints ringing with provisional answer.](../media/direct-routing-sip-specification/direct-routing-protocol-1.png)](../media/direct-routing-sip-specification/direct-routing-protocol-1.png#lightbox)
 
@@ -188,11 +188,11 @@ An ACS identity might be used in multiple endpoints (applications) at the same t
 
 1. On receiving the first Invite from the SBC, the SIP proxy sends the message "SIP SIP/2.0 100 Trying" and notifies all end user endpoints about the incoming call. 
 
-2. Upon notification, each endpoint starts ringing and sending the message "Call progress” to the SIP proxy. Because a Teams user can have multiple endpoints, the SIP proxy might receive multiple Call Progress messages.
+2. Upon notification, each endpoint starts ringing and sending the message "Call progress” to the SIP proxy. Because same ACS identity can be used in multiple applications, the SIP proxy might receive multiple Call Progress messages.
 
-3. For every Call Progress message received from the endpoints, the SIP proxy converts the Call Progress message to the SIP message "SIP SIP/2.0 180 Ringing". The interval for sending the messages correlates to the interval of receiving the messages from the Call Controller. On the picture there are two 180 messages generated by the SIP proxy, meaning that user logged into three Teams clients and each client send the call progress. Every message is a separate session (parameter “tag” in “To” field is different)
+3. For every Call Progress message received from the endpoints, the SIP proxy converts the Call Progress message to the SIP message "SIP SIP/2.0 180 Ringing". The interval for sending the messages correlates to the interval of receiving the messages from the Call Controller. On the picture there are two 180 messages generated by the SIP proxy, meaning that call is forked to two different clients and each client send the call progress. Every message is a separate session (parameter “tag” in “To” field is different)
 
-4. A Call Acceptance message is sent with the final candidates of the endpoint that accepted the call. The Call Acceptance message is converted to SIP message 200. 
+4. A Call Acceptance message is sent to the SIP Proxy with the final candidates of the endpoint that accepted the call. The Call Acceptance message is converted to SIP message 200. 
 
    [![Diagram showing multiple endpoints ringing without provisional answer.](../media/direct-routing-sip-specification/direct-routing-protocol-2.png)](../media/direct-routing-sip-specification/direct-routing-protocol-2.png#lightbox)
 
@@ -262,7 +262,7 @@ The SIP proxy forms the REFER-TO as a SIP URI comprised of a SIP proxy FQDN in t
 
 - x-m and x-t parameters encoding the full transfer target MRI and Communication resource ID respectively.
 
-The REFERRED-BY header is a SIP URI with transferor MRI encoded in it and transferor resource ID and other transfer context parameters as shown in the following table:
+The REFERRED-BY header has a SIP URI with transferor MRI encoded in it and transferor resource ID and other transfer context parameters as shown in the following table:
 
 | Parameter | Value | Description |  
 |:---------------------  |:---------------------- |:---------------------- |
@@ -308,7 +308,7 @@ The History-Info header is used for retargeting SIP requests and “provide(s) a
 
 History-Info is enabled as follows:
 
-- The SIP proxy inserts a parameter containing the associated phone number in individual History-Info entries that comprise the History-Info header sent to the PSTN Controller. Using only entries that have the phone number parameter, the PSTN Controller rebuilds a new History-Info header, and passes it on to the SIP trunk provider via SIP proxy.
+- The SIP proxy inserts a parameter containing the associated phone number in individual History-Info entries that comprise the History-Info header sent to the PSTN Controller. Using only entries that have the phone number parameter, the PSTN Controller rebuilds a new History-Info header and passes it on to the SIP trunk provider via SIP proxy.
 
 - History-Info header is added for simultaneous ring and call forwarding cases.
 
