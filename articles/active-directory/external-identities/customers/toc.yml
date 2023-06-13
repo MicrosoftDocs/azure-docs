@@ -131,7 +131,7 @@ items:
                         - name: Use client certificate
                           href: how-to-web-app-node-use-certificate.md 
                         - name: Use role-based access control
-                          href: how-to-web-app-node-sign-in-call-api-rbac.md 
+                          href: how-to-web-app-role-based-access-control.md 
                           displayName: rbac, roles claim, groups claim
                     - name: Sign in users and call an API
                       items:

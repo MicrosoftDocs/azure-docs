@@ -16,7 +16,7 @@ ms.custom: developer
 
 # Use role-based access control in your Node.js web application
 
-Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. Azure AD for customers allows you to define application roles for your application and assign those roles to users and groups. The roles you assign to a user or group define their level of access to the resources and operations in your application. When Azure AD for customers issues a security token for an authenticated user, it includes the names of the roles you've assigned the user or group in the security token's roles claim. 
+Role-based access control (RBAC) is a mechanism to enforce authorization in applications. Azure Active Directory (AD) for customers allows you to define application roles for your application and assign those roles to users and groups. The roles you assign to a user or group define their level of access to the resources and operations in your application. When Azure AD for customers issues a security token for an authenticated user, it includes the names of the roles you've assigned the user or group in the security token's roles claim. 
 
 You can also configure your Azure AD for customers tenant to return the group memberships of the user. Developers can then use security groups to implement RBAC in their applications, where the memberships of the user in specific groups are interpreted as their role memberships. 
 
@@ -81,11 +81,11 @@ Use the instructions in [Configuring group claims and app roles in tokens](/secu
 
 ## How to use groups and roles values in your Node.js web app 
 
-In the client app (one that signs in the user), you can check whether a signed in user belongs to the required role(s) to access a protected route. You can do this by checking `roles` claim the ID token of the. By doing this, you can make sure that only authorized users can view certain pages of your application. 
+In the client app (one that signs in the user), you can check whether a signed in user belongs to the required role(s) to access a protected route. You can do this by checking for the `roles` claim in the ID token. By doing this, you can make sure that only authorized users can view certain pages of your application. 
 
 Still in the client app, you can also enforce that a user belongs to the required role(s) to make a call to an API on an endpoint. You can build these guards by using custom middleware, which checks for the required roles or groups. 
 
-If your client app calls an API, then you need to also protect the API endpoints in the the API app. In this case, you check for the *roles* or *groups* claim in the access token that your client app sends to the API.      
+If your client app calls an API, then you need to also protect the API endpoints in the the API app. In this case, you check for the *roles* or *groups* claim in the access token that the client app sends to the API.      
 
 ## Do I use App Roles or Groups?
 
