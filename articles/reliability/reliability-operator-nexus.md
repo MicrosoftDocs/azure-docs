@@ -49,7 +49,7 @@ Operator Nexus on-premises instances consist of a multi-rack design that provide
 
 The Nexus on-premises clusters are hosted in a specific Azure region. As stated previously, the used Azure services and the Nexus resources are deployed in multiple availability zones of that Azure region.
 
-Nexus clusters that are geographically distributed, i.e., not in the same operator data center (possibly not even the same geographic region), **and hosted on different Azure regions** should be utilized to redundantly deploy workloads for geo-redundancy.
+Nexus instances that are geographically distributed, i.e., not in the same operator data center (possibly not even the same geographic region), **and hosted on different Azure regions** should be utilized to redundantly deploy workloads for geo-redundancy.
 
 > [!WARNING]
 > Deploying workloads on, say, two geographically distributed Nexus clusters is insufficient to achieve true geo-redundancy unless the geo-redundant Nexus clusters are hosted on different Azure regions.
