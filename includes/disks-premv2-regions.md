@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 03/16/2023
  ms.author: rogarana
- ms.custom: include file
+ ms.custom: include file, references_regions
 ---
 Currently only available in the following regions:
 - Southeast Asia (Two availability zones)
