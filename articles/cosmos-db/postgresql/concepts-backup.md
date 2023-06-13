@@ -16,7 +16,7 @@ ms.date: 06/12/2023
 
 Azure Cosmos DB for PostgreSQL automatically creates
 backups of each node and stores them in locally redundant storage. Backups can
-be used to restore your cluster to a specified time - point in time restore (PITR).
+be used to restore your cluster to a specified time - point-in-time restore (PITR).
 Backup and restore are an essential part of any business continuity strategy
 because they protect your data from accidental corruption or deletion.
 
@@ -48,6 +48,8 @@ the last 35 days.  Point-in-time restore is useful in multiple scenarios. For
 example, when a user accidentally deletes data, drops an important table or
 database, or if an application accidentally overwrites good data with bad data.
 
+When all nodes are up and running, you can restore cluster without any data loss. In extremely rare cases when a node experienced a catastrophic event (and [high availability](./concepts-high-availability.md) is not enabled on the cluster), you may lose up to 16 minutes of data. 
+
 > [!IMPORTANT]
 > Deleted clusters can't be restored. If you delete the
 > cluster, all nodes that belong to the cluster are deleted and can't
@@ -61,9 +63,11 @@ original's configuration: the same number of nodes, number of vCores, storage
 size, user roles, PostgreSQL version, and version of the Citus extension.
 
 Networking settings and PostgreSQL server parameters aren't preserved from the
-original cluster, they're reset to default values. You will need to manually adjust these settings after
+original cluster, they're reset to default values. You'll need to manually adjust these settings after
 restore. In general, see our list of suggested [post-restore
 tasks](howto-restore-portal.md#post-restore-tasks).
+
+In most cases, cluster restore takes up to 1 hour.
 
 ## Next steps
 
