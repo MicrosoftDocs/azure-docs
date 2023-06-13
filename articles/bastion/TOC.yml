@@ -89,7 +89,7 @@
       href: bastion-vm-copy-paste.md
     - name: Full screen view
       href: bastion-vm-full-screen.md
-    - name: Upload or download files
+    - name: Transfer files - native client
       href: vm-upload-download-native.md
   - name: Monitoring
     items:
