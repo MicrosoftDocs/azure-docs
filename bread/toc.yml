@@ -1104,7 +1104,7 @@
     topicHref: /azure/cost-management-billing/
     items:
     - name: Get started
-      tocHref: /azure/cost-management-billing/understand/
+      tocHref: /azure/cost-management-billing/
       topicHref: /azure/cost-management-billing/understand/
     - name: Manage costs and usage
       tocHref: /azure/cost-management-billing/costs/
@@ -1113,19 +1113,19 @@
       tocHref: /azure/cost-management-billing/manage/
       topicHref: /azure/cost-management-billing/manage/
     - name: Reservations
-      tocHref: /azure/cost-management-billing/reservations/
+      tocHref: /azure/cost-management-billing/
       topicHref: /azure/cost-management-billing/reservations/
     - name: Microsoft Customer Agreement
-      tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
+      tocHref: /azure/cost-management-billing/
       topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
     - name: Azure savings plans
-      tocHref: /azure/cost-management-billing/savings-plan
+      tocHref: /azure/cost-management-billing/
       topicHref: /azure/cost-management-billing/savings-plan
     - name: Billing and subscriptions
-      tocHref: /azure/cost-management-billing/manage
+      tocHref: /azure/cost-management-billing/
       topicHref: /azure/cost-management-billing/manage
   - name: Microsoft Purview
     tocHref: /azure/purview/
