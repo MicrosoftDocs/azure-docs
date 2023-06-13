@@ -3,16 +3,11 @@ title: Create and customize Microsoft Sentinel playbooks from templates | Micros
 description: This article shows how to create playbooks from and work with playbook templates, to customize them to fit your needs.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 06/13/2023
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Create and customize Microsoft Sentinel playbooks from out-of-the-box templates
-
-> [!IMPORTANT]
->
-> **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 A playbook template is a prebuilt, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
 
@@ -24,7 +19,7 @@ Get playbook templates from the following sources:
 
 - On the **Automation** page, the **Playbook templates** tab lists the playbook templates installed. Multiple active playbooks can be created from the same template.
 
-    When a new version of the template is published, the active playbook created from that template (in the **Playbooks** tab) is labeled with a notification that an update is available.
+    When a new version of the template is published, the active playbooks created from that template show in the **Active playbooks** tab that an update is available.
 
 - Playbook templates are available as part of product solutions or standalone content that you install from the content hub in Microsoft Sentinel. For more information, see [Microsoft Sentinel content and solutions](sentinel-solutions.md) and [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
@@ -39,6 +34,10 @@ This article helps you understand how to:
 > [!div class="checklist"]
 > - Explore out-of-the-box playbook templates
 > - Deploy a playbook template
+
+> [!IMPORTANT]
+>
+> **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Explore playbook templates
 

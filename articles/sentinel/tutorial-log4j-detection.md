@@ -4,7 +4,7 @@ description: In this tutorial, learn how to use analytics rules in Microsoft Sen
 author: yelevin
 ms.author: yelevin
 ms.topic: tutorial
-ms.date: 01/08/2023
+ms.date: 06/13/2023
 ---
 
 # Tutorial: Detect threats by using analytics rules in Microsoft Sentinel
@@ -58,10 +58,15 @@ To complete this tutorial, make sure you have:
 
 1. Search for and select your workspace from the list of available Microsoft Sentinel workspaces.
 
-1. On the **Microsoft Sentinel | Overview** page, select **Analytics** from the navigation menu, under **Configuration**.
+## Install a solution from the content hub
+
+1. In Microsoft Sentinel, on the left-hand side menu under **Content management**, select **Content hub**.
+1. Search for and select the solution **Log4j Vulnerability Detection**.
+1. From the toolbar at the top of the page, select **Install/Update**.
 
 ## Create a scheduled analytics rule from a template
 
+1. In Microsoft Sentinel, on the left-hand side menu under **Configuration**, select **Analytics**.
 1. From the **Analytics** page, select the **Rule templates** tab.
 
 1. In the search field at the top of the list of rule templates, enter **log4j**.
