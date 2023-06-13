@@ -114,7 +114,8 @@ Name | Description | Supported in Azure Diagnostics | Supported in Resource Spec
 
 Here's an example of a runtime audit log entry:
 
-```AzureDiagnostics
+AzureDiagnostics :
+```json
 {
     "ActivityId": "<activity id>",
     "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
@@ -131,7 +132,8 @@ Here's an example of a runtime audit log entry:
  }
 
 ```
-```AZMSRuntimeAuditLogs
+Resource Specific Table Entry:
+```json 
 {
     "ActivityId": "<activity id>",
     "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
