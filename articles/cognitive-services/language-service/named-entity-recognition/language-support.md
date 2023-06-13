@@ -24,7 +24,7 @@ Use this article to learn which natural languages are supported by the NER featu
 
 ## NER language support
 
-# [Generally Avaialble API](#tab/ga-api)
+# [Generally Available API](#tab/ga-api)
 
 |Language|Language Code|Supports resolution|Notes|
 |:----|:----|:----|:----|
@@ -110,7 +110,7 @@ Use this article to learn which natural languages are supported by the NER featu
 
 # [Preview API](#tab/preview-api)
 
-|Language|Language Code|Supports mmetadata|Notes|
+|Language|Language Code|Supports metadata|Notes|
 |:----|:----|:----|:----|
 |Afrikaans|`af`|✓||
 |Albanian|`sq`|✓||
@@ -125,7 +125,7 @@ Use this article to learn which natural languages are supported by the NER featu
 |Bosnian|`bs`|✓||
 |Breton (new)|`br`|✓||
 |Bulgarian|`bg`|✓||
-|Burmese|`my`|✓|zh also accepted|
+|Burmese|`my`|✓|`zh` also accepted|
 |Catalan|`ca`|✓||
 |Chinese (Simplified)|`zh-Hans`|✓||
 |Chinese (Traditional)|`zh-Hant`|✓||

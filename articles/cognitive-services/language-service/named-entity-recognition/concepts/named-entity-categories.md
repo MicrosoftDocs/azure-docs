@@ -18,9 +18,9 @@ ms.custom: language-service-ner, ignite-fall-2021
 Use this article to find the entity categories that can be returned by [Named Entity Recognition](../how-to-call.md) (NER). NER runs a predictive model to identify and categorize named entities from an input document. 
 
 > [!NOTE]
-> * Starting form API version 2023-04-15-preview, the category and subcategory fields are replaced with entity types and tags to introduce better flexibility. 
+> * Starting from API version 2023-04-15-preview, the category and subcategory fields are replaced with entity types and tags to introduce better flexibility. 
 
-# [Generally Avaialble API](#tab/ga-api)
+# [Generally Available API](#tab/ga-api)
  
 ## Category: Person
 
@@ -823,6 +823,7 @@ Specific street-level mentions of locations: house/building numbers, streets, av
 Numeric values.
 
 This entity type could be tagged by the following entity tags:
+
 #### Age
 
 **Description:** Ages
@@ -857,151 +858,22 @@ This entity type could be tagged by the following entity tags:
 
 This entity tag also supports tagging the entity type with the following tags:
 
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Length
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Length of an object
-
-    :::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Weight
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Weight of an object
-
-    :::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Height
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Height of an object
-
-    :::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Speed
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Speed of an object
-
-    :::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Area
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Area of an object
-
-    :::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Volume
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Volume of an object
-
-    :::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Information
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Unit of measure for digital information
-
-    :::column-end:::
-
-:::row-end:::
+|Entity tag |Details            |
+|-----------|-------------------|
+|Length     |Length of an object|
+|Weight     |Weight of an object|
+|Height     |Height of an object|
+|Speed      |Speed of an object |
+|Area       |Area of an object  |
+|Volume     |Volume of an object|
+|Information|Unit of measure for digital information|
 
 ## Type: Temporal
 
 Dates and times of day
 
 This entity type could be tagged by the following entity tags:
+
 #### Date
 
 **Description:** Calendar dates
@@ -1039,6 +911,7 @@ This entity type could be tagged by the following entity tags:
 Events with a timed period
 
 This entity type could be tagged by the following entity tags:
+
 #### SocialEvent
 
 **Description:** Social events
@@ -1062,85 +935,12 @@ This entity type could be tagged by the following entity tags:
 
 This entity tag also supports tagging the entity type with the following tags:
 
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        City
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-        
-        Cities
-
-    :::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        State
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-        
-        States
-
-    :::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        CountryRegion
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-        
-        Countries/Regions.
-
-    :::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Continent
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-        
-        Continents
-
-    :::column-end:::
-
-:::row-end:::
+|Entity tag   |Details            |
+|-------------|-------------------|
+|City         |Cities             |
+|State        |States             |
+|CountryRegion|Countries/Regions  |
+|Continent    |Continents         |
 
 #### Structural
 
@@ -1148,25 +948,9 @@ This entity tag also supports tagging the entity type with the following tags:
 
 This entity tag also supports tagging the entity type with the following tags:
 
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Airport
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Airports
-
-    :::column-end:::
-
-:::row-end:::
+|Entity tag   |Details            |
+|-------------|-------------------|
+|Airport      |Airports           |
 
 #### Geological
 
@@ -1174,73 +958,18 @@ This entity tag also supports tagging the entity type with the following tags:
 
 This entity tag also supports tagging the entity type with the following tags:
 
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        River
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Rivers
-
-    :::column-end:::
-
-:::row-end:::
-
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Ocean
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Oceans
-
-    :::column-end:::
-
-:::row-end:::
-
-
-:::row:::
-
-    :::column span="":::
-
-        **Entity tag**
-
-        Desert
-
-    :::column-end:::
-
-    :::column span="2":::
-
-        **Details**
-
-        Deserts
-    
-    :::column-end:::
-
-:::row-end:::
+|Entity tag   |Details            |
+|-------------|-------------------|
+|River        |Rivers             |
+|Ocean        |Oceans             |
+|Desert       |Deserts            |
 
 ## Type: Organization
 
 Corporations, agencies, and other groups of people defined by some established organizational structure
 
 This entity type could be tagged by the following entity tags:
+
 #### MedicalOrganization
 
 **Description:** Medical companies and groups
@@ -1282,6 +1011,7 @@ Phone numbers
 Commercial, consumable objects
 
 This entity type could be tagged by the following entity tags:
+
 #### ComputingProduct
 
 **Description:** Computing products

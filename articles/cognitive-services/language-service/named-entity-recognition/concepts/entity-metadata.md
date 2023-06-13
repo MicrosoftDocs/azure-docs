@@ -1,5 +1,5 @@
 ---
-title: Entity metadata provided by Named Entity Recognition
+title: Entity Metadata provided by Named Entity Recognition
 titleSuffix: Azure Cognitive Services
 description: Learn about entity metadata in the NER feature.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 6/13/2022
 ms.author: jboback
 ms.custom: language-service-ner
 ---
 # Entity Metadata
 
-The Entity Metadata object captures optional additional information about detected entities, providing resolutions specifically for numeric and temporal entities. This attribute is populated only when there is supplementary data available, enhancing the comprehensiveness of the detected entities. The Metadata component encompasses resolutions specifically designed for both numeric and temporal entities. It is important to handle cases where the Metadata attribute may be empty or absent, as its presence is not guaranteed for every entity.
+The Entity Metadata object captures optional additional information about detected entities, providing resolutions specifically for numeric and temporal entities. This attribute is populated only when there's supplementary data available, enhancing the comprehensiveness of the detected entities. The Metadata component encompasses resolutions designed for both numeric and temporal entities. It's important to handle cases where the Metadata attribute may be empty or absent, as its presence isn't guaranteed for every entity.
 
 Currently, metadata components handle resolutions to a standard format for an entity. Entities can be expressed in various forms and resolutions provide standard predictable formats for common quantifiable types. For example, "eighty" and "80" should both resolve to the integer `80`.
 
-You can use NER resolutions to implement actions or retrieve further information. For example, your service can extract datetime entities to extract dates and times that will be provided to a meeting scheduling system. 
+You can use NER resolutions to implement actions or retrieve further information. For example, your service can extract datetime entities to extract dates and times that are provided to a meeting scheduling system. 
 
 > [!NOTE]
 >  are only supported starting from **_api-version=2023-04-15-preview_**. For older API versions, you may check the [Entity Resolutions article](./entity-resolutions.md).
