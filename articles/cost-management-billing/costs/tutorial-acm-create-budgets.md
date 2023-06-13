@@ -146,9 +146,9 @@ Budget cost evaluations are based on actual cost. They don't include amortizatio
 
 ## Trigger an action group
 
-When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform various actions when your budget threshold is met. 
+When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform various actions when your budget threshold is met. You can receive mobile push notifications when your budget threshold is met by enabling [Azure app push notifications](../../azure-monitor/alerts/action-groups.md#create-an-action-group-in-the-azure-portal) while configuring the action group.
 
-Action Groups are currently only supported for subscription and resource group scopes. For more information about creating action groups, see [action groups](../../azure-monitor/alerts/action-groups.md). 
+Action groups are currently only supported for subscription and resource group scopes. For more information about creating action groups, see [action groups](../../azure-monitor/alerts/action-groups.md). 
 
 For more information about using budget-based automation with action groups, see [Manage costs with budgets](../manage/cost-management-budget-scenario.md).
 
@@ -160,13 +160,15 @@ Next, select **Add action group** and create the action group.
 
 Budget integration with action groups works for action groups that have enabled or disabled common alert schema. For more information on how to enable common alert schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#enable-the-common-alert-schema)
 
-## View budgets in the Azure mobile app
+## Budgets in the Azure mobile app
 
 You can view budgets for your subscriptions and resource groups from the **Cost Management** card in the [Azure app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/).
 
 1. Navigate to any subscription or resource group.
 1. Find the **Cost Management** card and tap **More**.
 1. Budgets load below the **Current cost** card. They're sorted by descending order of usage.
+
+To receive mobile push notifications when your budget threshold is met, you can configure action groups. When setting up budget alerts, make sure to select an action group that has [Azure app push notifications](../../azure-monitor/alerts/action-groups.md#create-an-action-group-in-the-azure-portal) enabled.
 
 > [!NOTE]
 > Currently, the Azure mobile app only supports the subscription and resource group scopes for budgets.
