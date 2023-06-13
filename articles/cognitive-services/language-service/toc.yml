@@ -1013,6 +1013,8 @@ items:
         items:
           - name: Create projects
             href: sentiment-opinion-mining/custom/how-to/create-project.md
+          - name: Train model
+            href: sentiment-opinion-mining/custom/how-to/train-model.md
         
 - name: Text Analytics for health
   items:
