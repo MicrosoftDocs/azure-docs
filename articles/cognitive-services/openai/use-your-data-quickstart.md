@@ -52,7 +52,7 @@ If you want to clean up and remove an OpenAI or Azure Cognitive Search resource,
 
 - [Cognitive Services resources](../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure Cognitive Search resources](/azure/search/search-get-started-portal#clean-up-resources)
-- [Azure app service resources](/app-service/quickstart-dotnetcore?pivots=development-environment-vs#clean-up-resources)
+- [Azure app service resources](/azure/app-service/quickstart-dotnetcore?pivots=development-environment-vs#clean-up-resources)
 - 
 ## Next steps
 * Learn more about [using your data in Azure OpenAI Service](./concepts/using-your-data.md)
