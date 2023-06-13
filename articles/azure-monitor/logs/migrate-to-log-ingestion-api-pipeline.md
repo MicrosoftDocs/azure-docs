@@ -38,7 +38,7 @@ The Log Ingestion API requires you to create two new types of resources, which t
 - [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the the data you collect is ingested into the pipeline for processing.
 - [Data collection rules](../essentials/data-collection-rule-overview.md), which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
 
-## Prepare destination tables
+## Migrate existing custom tables that use the Data Collector API
 
 The Log Ingestion API expects that the destination tables to which you send data already exist. You can use the Log Ingestion API to send data to any custom tables and a few Azure tables, as described in [Supported tables](../logs/logs-ingestion-api-overview.md#supported-tables).
 
@@ -55,6 +55,8 @@ If you have an existing custom table to which you currently send data using the 
     This call is idempotent, so it has no effect if the table has already been converted.    
 
 - Maintain the existing table and data and set up a new data into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready.
+
+    This is the preferred option, especially if you to need to make changes to the existing table. Changes to existing data types and multiple multiple schema changes to existing Data Collector API custom tables can lead to internal server error 500.
 
 > [!IMPORTANT]
 > - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
