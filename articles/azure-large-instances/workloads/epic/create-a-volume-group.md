@@ -52,7 +52,7 @@ Expected output: lists all the logical volumes created.
 
 5. Make the file system
  
-`[root @themetal05 ~] # mkfs.xfs /dev/mapper/prodvg-prodlv`
+    `[root @themetal05 ~] # mkfs.xfs /dev/mapper/prodvg-prodlv`
 
 6. Create the folders to mount.
 
@@ -81,9 +81,9 @@ Expected output: lists all the logical volumes created.
 [root @themetal05 ~] /dev/mapper/instvg-prd /prd xfs defaults 0 0
 ```
 
-9. Mount storage 
- 
-      `mount -a`
+9. Mount storage
+
+     `mount -a`
 
 
 
