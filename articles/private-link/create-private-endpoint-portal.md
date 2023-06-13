@@ -29,15 +29,13 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
     - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
     
-    - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
+    - The example webapp in this article is named **webapp-1**. Replace the example with your webapp name.
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
-
-[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
 
 ## Create a private endpoint
 
@@ -111,6 +109,8 @@ Next, you create a private endpoint for the web app that you created in the "Pre
 
 10. Select **Create**.
 
+[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
+
 ## Test connectivity to the private endpoint
 
 Use the virtual machine that you created earlier to connect to the web app across the private endpoint.
@@ -127,23 +127,23 @@ Use the virtual machine that you created earlier to connect to the web app acros
 
 6. After you've connected, open PowerShell on the server.
 
-7. Enter `nslookup mywebapp1979.azurewebsites.net`. You receive a message that's similar to the following example:
+7. Enter `nslookup webapp-1.azurewebsites.net`. You receive a message that's similar to the following example:
 
-    ```powershell
+    ```output
     Server:  UnKnown
     Address:  168.63.129.16
 
     Non-authoritative answer:
-    Name:    mywebapp1979.privatelink.azurewebsites.net
+    Name:    webapp-1.privatelink.azurewebsites.net
     Address:  10.1.0.5
-    Aliases:  mywebapp1979.azurewebsites.net
+    Aliases:  webapp-1.azurewebsites.net
     ```
 
     A private IP address of **10.0.0.5** is returned for the web app name if you chose dynamic IP address in the previous steps. This address is in the subnet of the virtual network you created earlier.
 
 8. In the bastion connection to **vm-1**, open the web browser.
 
-9. Enter the URL of your web app, `https://mywebapp1979.azurewebsites.net`.
+9. Enter the URL of your web app, `https://webapp-1.azurewebsites.net`.
 
    If your web app hasn't been deployed, you get the following default web app page:
 
