@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and Bicep files | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: conceptual
-ms.date: 06/05/2023
+ms.date: 06/13/2023
 ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template, devx-track-bicep
 ---
 
@@ -171,6 +171,8 @@ az deployment group create \
 ```
 
 However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, set the variable to a JSON string. Escape the quotation marks: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
+
+The evaluation of parameters follows a sequential order, meaning that if a value is assigned multiple times, only the last assigned value is used. To ensure proper parameter assignment, it is advised to provide your parameters file initially and selectively override specific parameters using the _KEY=VALUE_ syntax. It's important to mention that if you are supplying a `bicepparam` parameters file, you can use this argument only once.
 
 ### Parameters files
 

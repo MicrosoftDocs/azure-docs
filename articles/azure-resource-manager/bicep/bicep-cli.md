@@ -3,7 +3,7 @@ title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 06/05/2023
+ms.date: 06/13/2023
 ---
 
 # Bicep CLI commands
@@ -63,12 +63,10 @@ To use the `--no-restore` switch, you must have Bicep CLI version **0.4.1008 or 
 
 ## build-params
 
-jgao: need to test the following sample. Verify the outfile name.
-
 The `build-params` command builds a _.bicepparam_ file into a JSON parameters file.
 
 ```azurecli
-az bicep build-params params.bicepparam
+bicep build-params params.bicepparam
 ```
 
 This command converts a _params.bicepparam_ parameters file into a _params.json_ JSON parameters file.
@@ -85,20 +83,28 @@ The command creates a file named _main.bicep_ in the same directory as _main.jso
 
 For more information about using this command, see [Decompiling ARM template JSON to Bicep](decompile.md).
 
-## generate-params
+## decompile-params
 
-jgao: need to test the following samples.
+The `decompile-params` command decompile a JSON parameters file to a _.bicepparam_ parameters file.
+
+```azurecli
+bicep decompile-params azuredeploy.parameters.json --bicep-file ./dir/main.bicep
+```
+
+This command decompiles a _azuredeploy.parameters.json_ parameters file into a _azuredeploy.parameters.bicepparam_ file. `-bicep-file` specifies the path to the Bicep file (relative to the .bicepparam file) that will be referenced in the `using` declaration.
+
+## generate-params
 
 The `generate-params` command builds a parameters file from the given Bicep file, updates if there is an existing parameters file.
 
 ```azurecli
-az bicep generate-params --file main.bicep --output-format bicepparam --include-params all
+bicep generate-params main.bicep --output-format bicepparam --include-params all
 ```
 
 The command creates a Bicep parameters file named _main.bicepparam_. The parameter file contains all parameters in the Bicep file, whether configured with default values or not.
 
 ```azurecli
-az bicep generate-params --file main.bicep --outfile main.parameters.json
+bicep generate-params --file main.bicep --outfile main.parameters.json
 ```
 
 The command creates a parameter file named _main.parameters.json_. The parameter file only contains the parameters without default values configured in the Bicep file.
