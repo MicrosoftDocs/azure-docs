@@ -26,7 +26,7 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 - **Security findings**: Analyze API security findings, including information about external, unused, or unauthenticated APIs.
 - **Security posture**: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
 - **API data classification**: Classify APIs that receive or respond with sensitive data, to support risk prioritization.
-- **Real time threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats.
+- **Threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP API Top 10](https://owasp.org/www-project-api-security/) critical threats. 
 - **Defender CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your organization.
 - **Azure API Management integration**: With the Defender for APIs plan enabled, you can receive API security recommendations and alerts in the Azure API Management portal.
 - **SIEM integration**: Integrate with security information and event management (SIEM) systems, making it easier for security teams to investigate with existing threat response workflows. [Learn more](tutorial-security-incident.md).
@@ -37,17 +37,17 @@ Review the inventory and security findings for onboarded APIs in the Defender fo
 
 :::image type="content" source="media/defender-for-apis-introduction/inventory.png" alt-text="Screenshot that shows the onboarded API inventory.":::
 
-You can drill down into API collection to review security findings for onboarded API endpoints.
+You can drill down into the API collection to review security findings for onboarded API endpoints.
 
 :::image type="content" source="media/defender-for-apis-introduction/endpoint-details.png" alt-text="Screenshot for reviewing the API endpoint details.":::
 
 API endpoint information includes:
 
 - **Endpoint name**: The name of API endpoint/operation as defined in Azure API Management.
-- **Endpoint**: The URL path of the API endpoints, and the HTTPS method. 
+- **Endpoint**: The URL path of the API endpoints, and the HTTP method. 
 Last called data (UTC): The date when API traffic was last observed going to/from API endpoints (in UTC time zone). 
-- **30 days unused**: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as Inactive. 
-- **Authentication**: Shows when a monitored API endpoint has no authentication. Defender for APIs assesses the authentication state using the subscription keys, JSON web token (JWT), and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as "unauthenticated".
+- **30 days unused**: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as *Inactive*. 
+- **Authentication**: Shows when a monitored API endpoint has no authentication. Defender for APIs assesses the authentication state using the subscription keys, JSON web token (JWT), and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as *unauthenticated*.
 - **External traffic observed date**: The date when external API traffic was observed going to/from the API endpoint. 
 - **Data classification**: Classifies API request and response bodies based on supported data types. 
 
@@ -64,24 +64,23 @@ Defender for API provides a number of recommendations, including recommendations
 
 
 
-## Detecting runtime threats
+## Detecting threats
 
-Defender for APIs monitors runtime traffic and threat intelligence feeds, and issues threat detection alerts. API alerts detect the top 10 OWASP threats, data exfiltration, volumetric attacks, anomalous and suspicious API parameters, traffic and IP access anomalies, and usage patterns.
+Defender for APIs monitors runtime traffic and threat intelligence feeds, and issues threat detection alerts. API alerts detect the top 10 OWASP API threats, data exfiltration, volumetric attacks, anomalous and suspicious API parameters, traffic and IP access anomalies, and usage patterns.
 
 [Review the security alerts reference](alerts-reference.md).
 
 ## Responding to threats
 
-Act on recommendations and alerts to mitigate threats and risk. Defender for Cloud alerts and recommendations can be exported into SIEM systems such as Microsoft Sentinel, for investigation within existing threat response workflows for fast and efficient remediation. [Learn more](export-to-siem.md).
+Act on alerts to mitigate threats and risk. Defender for Cloud alerts and recommendations can be exported into SIEM systems such as Microsoft Sentinel, for investigation within existing threat response workflows for fast and efficient remediation. [Learn more](export-to-siem.md).
 
 ## Investigating Cloud Security Graph insights
-
 
 [Cloud Security Graph](concept-attack-path.md) in the Defender CSPM plan analyses assets and connections across your organization, to expose risks, vulnerabilities, and possible lateral movement paths. 
 
 **When Defender for APIs is enabled together with the Defender CSPM plan**, you can use Cloud Security Explorer to proactively and efficiently query your organizational information to locate, identify, and remediate API assets, security issues, and risks.
 
-:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Screenshot that shows review API information in Cloud Security Explorer." lightbox="media/defender-for-apis-introduction/cloud-security-explorer.png":::
+:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Screenshot that shows the cloud security explorer.":::
 
 ## Next steps
 

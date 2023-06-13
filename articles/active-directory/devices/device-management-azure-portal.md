@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 06/12/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -139,7 +139,7 @@ Global readers, Cloud Device Administrators, Intune Administrators, and Global A
 
 The exported list includes these device identity attributes:
 
-`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
+`displayName,accountEnabled,operatingSystem,operatingSystemVersion,joinType (trustType),registeredOwners,userNames,mdmDisplayName,isCompliant,registrationTime,approximateLastSignInDateTime,deviceId,isManaged,objectId,profileType,systemLabels,model`
 
 ## Configure device settings
 
@@ -148,9 +148,11 @@ If you want to manage device identities by using the Azure portal, the devices n
 You must be assigned one of the following roles to view or manage device settings in the Azure portal:
 
 - Global Administrator
-- Cloud Device Administrator
 - Global Reader
-- Directory Reader
+- Cloud Device Administrator
+- Intune administrator
+- Windows 365 administrator
+- Directory reviewer
 
 ![Screenshot that shows device settings related to Azure AD.](./media/device-management-azure-portal/device-settings-azure-portal.png)
 

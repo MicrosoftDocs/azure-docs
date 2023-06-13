@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -56,7 +55,7 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 ::: moniker range="form-recog-3.0.0"
 
-The following tools are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -66,7 +65,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ::: moniker range="form-recog-2.1.0"
 
-The following tools are supported by Form Recognizer v2.1:
+Form Recognizer v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -296,7 +295,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 
 The JSON output has three parts:
 
-* `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words.
+* `"readResults"` node contains all of the recognized text and selection marks. Text is organized via page, then by line, then by individual words.
 * `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
 * `"documentResults"` node contains the invoice-specific values and line items that the model discovered. It's where to find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
 

@@ -34,7 +34,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * If you prefer, [install](/powershell/scripting/install/installing-powershell) PowerShell locally.
 
-  * [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps). (The module is installed by default in the Azure Cloud Shell PowerShell environment.) 
+  * [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell). (The module is installed by default in the Azure Cloud Shell PowerShell environment.) 
   * Sign in to PowerShell by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command.  To finish the authentication process, follow the steps displayed in your terminal.  For additional sign-in options, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 

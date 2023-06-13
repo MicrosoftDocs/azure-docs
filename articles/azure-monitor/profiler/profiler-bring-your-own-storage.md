@@ -97,7 +97,7 @@ To configure BYOS for code-level diagnostics (Profiler/Snapshot Debugger), there
 
 1. Make sure you've installed Az PowerShell 4.2.0 or greater.
 
-    To install Azure PowerShell, see the [Azure PowerShell documentation](/powershell/azure/install-az-ps).
+    To install Azure PowerShell, see the [Azure PowerShell documentation](/powershell/azure/install-azure-powershell).
 
 1. Install the Application Insights PowerShell extension.
 

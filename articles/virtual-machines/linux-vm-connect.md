@@ -24,7 +24,7 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 - To connect to a Linux VM, you need the appropriate port open. Typically SSH uses port 22. The following instructions assume port 22 but the process is the same for other port numbers. You can validate an appropriate port is open for SSH using the troubleshooter or by checking manually in your VM settings. To check if port 22 is open: 
 
     1. On the page for the VM, select **Networking** from the left menu.
-    1. On the **Networking** page, check to see if there's a rule that allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
+    1. On the **Networking** page, check to see if there's a rule that allows TCP on port 22 from the IP address of the computer you're using to connect to the VM. If the rule exists, you can move to the next section.
     
        :::image type="content" source="media/linux-vm-connect/check-rule.png" alt-text="Screenshot showing how to check to see if there's already a rule allowing S S H connections.":::
 
@@ -42,7 +42,7 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
  
     If your VM doesn't have a public IP Address, it looks like this:
 
-    :::image type="content" source="media/linux-vm-connect/no-public-ip.png" alt-text="Screenshot of how the networking section looks when you do not have a public I P.":::
+    :::image type="content" source="media/linux-vm-connect/no-public-ip.png" alt-text="Screenshot of how the networking section looks when you don't have a public I P.":::
 
  
     To learn more about adding a public IP address to an existing VM, see  [Associate a public IP address to a virtual machine](../virtual-network/ip-services/associate-public-ip-address-vm.md)
@@ -50,6 +50,12 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 - Verify your VM is running. On the Overview tab, in the **Essentials** section, verify the status of the VM is **Running**. To start the VM, select **Start** at the top of the page.
 
     :::image type="content" source="media/linux-vm-connect/running.png" alt-text="Screenshot showing how to check to make sure your virtual machine is in the running state.":::
+    
+If you're having trouble connecting, you can also use portal:
+1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
+2. Select the virtual machine from the list.
+3. Select **Connect** from the left menu.
+4. Select the option that fits with your preferred way of connecting. The portal helps walk you through the prerequisites for connecting.
    
 ## Connect to the VM
 
@@ -84,7 +90,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
     ```
 4. Validate the returned fingerprint.
 
-    If you've never connected to this VM before, you're asked to verify the hosts fingerprint. It's tempting to simply accept the fingerprint presented, but that exposes you to a potential person in the middle attack. You should always validate the hosts fingerprint. You only need to do this the first time you connect from a client. To get the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you have never connected to this VM before, you're asked to verify the hosts fingerprint. It's tempting to accept the fingerprint presented, but that exposes you to a potential person in the middle attack. You should always validate the hosts fingerprint. You only need to do this the first time you connect from a client. To get the host fingerprint via the portal, use the Run Command feature to execute the command:
     
      ```bash
      ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
@@ -98,7 +104,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
     ```
 2. Validate the returned fingerprint.
     
-    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you have never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
     
     ```bash
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
@@ -121,7 +127,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
 
 2. Validate the returned fingerprint.
 
-    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you have never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
     ```bash
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
     ```
@@ -142,14 +148,14 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
     ```
 3. Validate the returned fingerprint.
 
-    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you have never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
     
     ```azurepowershell-interactive
     Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunPowerShellScript' -ScriptString 
     'ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}''
     ```
 
-4. Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+4. Success! You should now be connected to your VM. If you're unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ### Password authentication
  
@@ -166,7 +172,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
 
 2. Validate the returned fingerprint.
     
-    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you have never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
     
     ```bash
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'

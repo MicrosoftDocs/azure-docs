@@ -1,5 +1,5 @@
 ---
-title: Configure cross-tenant synchronization (preview)
+title: Configure cross-tenant synchronization
 description: Learn how to configure cross-tenant synchronization in Azure Active Directory using the Azure portal.
 services: active-directory
 author: rolyon
@@ -8,18 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 05/31/2023
 ms.author: rolyon
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# Configure cross-tenant synchronization (preview)
-
-> [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Configure cross-tenant synchronization
 
 This article describes the steps to configure cross-tenant synchronization using the Azure portal. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
@@ -75,7 +71,7 @@ By the end of this article, you'll be able to:
 
 1. Under **Inbound access** of the added organization, select **Inherited from default**.
 
-1. Select  the **Cross-tenant sync (Preview)** tab.
+1. Select  the **Cross-tenant sync** tab.
 
 1. Check the **Allow users sync into this tenant** check box.
 
@@ -91,9 +87,9 @@ In this step, you automatically redeem invitations so users from the source tena
 
 1. In the target tenant, on the same **Inbound access settings** page, select the **Trust settings** tab.
 
-1. Check the **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant** check box.
+1. Check the **Automatically redeem invitations with the tenant** &lt;tenant&gt; check box.
 
-    :::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound suppress consent prompt check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
+    :::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound Automatic redemption check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
 
 1. Select **Save**. 
 
@@ -119,9 +115,9 @@ In this step, you automatically redeem invitations in the source tenant.
 
 1. Select  the **Trust settings** tab.
 
-1. Check the **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant** check box.
+1. Check the **Automatically redeem invitations with the tenant** &lt;tenant&gt; check box.
 
-    :::image type="content" source="../media/external-identities/outbound-consent-prompt-setting.png" alt-text="Screenshot that shows the outbound suppress consent prompt check box." lightbox="../media/external-identities/outbound-consent-prompt-setting.png":::
+    :::image type="content" source="../media/external-identities/outbound-consent-prompt-setting.png" alt-text="Screenshot that shows the outbound Automatic redemption check box." lightbox="../media/external-identities/outbound-consent-prompt-setting.png":::
 
 1. Select **Save**. 
 
@@ -129,7 +125,7 @@ In this step, you automatically redeem invitations in the source tenant.
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/azure-ad-overview.png" alt-text="Screenshot that shows the Azure Active Directory Overview page." lightbox="./media/cross-tenant-synchronization-configure/azure-ad-overview.png":::
 
@@ -272,6 +268,9 @@ Attribute mappings allow you to define how data should flow between the source t
     | **Member** | Default. Users will be created as external member (B2B collaboration users) in the target tenant. Users will be able to function as any internal member of the target tenant. |
     | **Guest** | Users will be created as external guests (B2B collaboration users) in the target tenant. |
 
+    > [!NOTE]
+    > If the the B2B user already exists in the target tenant then **Member (userType)** will not changed to **Member**, unless the **Apply this mapping** setting is set to **Always**.
+    
     The user type you choose has the following limitations for apps or services (but aren't limited to):
     
     [!INCLUDE [user-type-workload-limitations-include](../includes/user-type-workload-limitations-include.md)]
@@ -325,7 +324,7 @@ Attribute mappings allow you to define how data should flow between the source t
 
 Now that you have a configuration, you can test on-demand provisioning with one of your users.
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
 1. Select **Configurations** and then select your configuration.
 
@@ -363,7 +362,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 The provisioning job starts the initial synchronization cycle of all users defined in **Scope** of the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
 1. Select **Configurations** and then select your configuration.
 
@@ -419,7 +418,7 @@ This setting also applies to B2B collaboration and B2B direct connect, so if you
 
 Follows these steps to delete a configuration on the **Configurations** page.
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
 1. On the **Configurations** page, add a check mark next to the configuration you want to delete.
 
@@ -447,11 +446,11 @@ This error indicates the policy to automatically redeem invitations in both the 
 
 Follow the steps in [Step 3: Automatically redeem invitations in the target tenant](#step-3-automatically-redeem-invitations-in-the-target-tenant) and [Step 4: Automatically redeem invitations in the source tenant](#step-4-automatically-redeem-invitations-in-the-source-tenant). 
 
-#### Symptom - Suppress consent prompt check box is disabled
+#### Symptom - Automatic redemption check box is disabled
 
-When configuring cross-tenant synchronization, the suppress consent prompt check box is disabled.
+When configuring cross-tenant synchronization, the **Automatic redemption** check box is disabled.
 
-:::image type="content" source="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png" alt-text="Screenshot that shows the Suppress consent prompt as disabled." lightbox="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png":::
+:::image type="content" source="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png" alt-text="Screenshot that shows the Automatic redemption check box as disabled." lightbox="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png":::
 
 **Cause**
 

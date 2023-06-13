@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 04/28/2023
+ms.date: 05/11/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -126,12 +126,22 @@ When the key version is explicitly specified, then you must manually update the 
 
 ## Revoke access to a storage account that uses customer-managed keys
 
-To revoke access to a storage account that uses customer-managed keys, disable the key in the key vault. After the key has been disabled, clients can't call operations that read from or write to a blob or its metadata. Attempts to call any of the following operations will fail with error code 403 (Forbidden) for all users:
+To revoke access to a storage account that uses customer-managed keys, disable the key in the key vault. To learn how to disable the key, see [Revoke access to a storage account that uses customer-managed keys](../../storage/common/customer-managed-keys-configure-existing-account.md#revoke-access-to-a-storage-account-that-uses-customer-managed-keys).
+
+After the key has been disabled, clients can't call operations that read from or write to a resource or its metadata. Attempts to call these operations will fail with error code 403 (Forbidden) for all users.
+
+To call these operations again, restore access to the customer-managed key.
+
+All data operations that aren't listed in the following sections may proceed after customer-managed keys are revoked or after a key is disabled or deleted.
+
+To revoke access to customer-managed keys, use [PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) or [Azure CLI](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys).
+
+### Blob Storage operations that fail after a key is revoked
 
 - [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](/rest/api/storageservices/get-blob)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
-- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
+- [Get Blob Metadata](/rest/api/storageservices/get-bl- ob-metadata)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Snapshot Blob](/rest/api/storageservices/snapshot-blob), when called with the `x-ms-meta-name` request header
 - [Copy Blob](/rest/api/storageservices/copy-blob)
@@ -146,11 +156,26 @@ To revoke access to a storage account that uses customer-managed keys, disable t
 - [Put Page From URL](/rest/api/storageservices/put-page-from-url)
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 
-To call these operations again, restore access to the customer-managed key.
+### Azure Files operations that fail after a key is revoked
 
-All data operations that aren't listed in this section may proceed after customer-managed keys are revoked or a key is disabled or deleted.
-
-To revoke access to customer-managed keys, use [PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) or [Azure CLI](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys).
+- [Create Permission](/rest/api/storageservices/create-permission)
+- [Get Permission](/rest/api/storageservices/get-permission)
+- [List Directories and Files](/rest/api/storageservices/list-directories-and-files)
+- [Create Directory](/rest/api/storageservices/create-directory)
+- [Get Directory Properties](/rest/api/storageservices/get-directory-properties)
+- [Set Directory Properties](/rest/api/storageservices/set-directory-properties)
+- [Get Directory Metadata](/rest/api/storageservices/get-directory-metadata)
+- [Set Directory Metadata](/rest/api/storageservices/set-directory-metadata)
+- [Create File](/rest/api/storageservices/create-file)
+- [Get File](/rest/api/storageservices/get-file)
+- [Get File Properties](/rest/api/storageservices/get-file-properties)
+- [Set File Properties](/rest/api/storageservices/set-file-properties)
+- [Put Range](/rest/api/storageservices/put-range)
+- [Put Range From URL](/rest/api/storageservices/put-range-from-url)
+- [Get File Metadata](/rest/api/storageservices/get-file-metadata)
+- [Set File Metadata](/rest/api/storageservices/set-file-metadata)
+- [Copy File](/rest/api/storageservices/copy-file)
+- [Rename File](/rest/api/storageservices/rename-file)
 
 ## Customer-managed keys for Azure managed disks
 

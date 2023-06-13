@@ -205,7 +205,7 @@ Search for the **azure.extensions** parameter on the Server Parameters blade on 
 :::image type="content" source="./media/concepts-single-to-flexible/allowlist-extensions.png" alt-text="Diagram that shows allow listing of extensions on Flexible Server." lightbox="./media/concepts-single-to-flexible/allowlist-extensions.png":::
 
 > [!NOTE]  
-> If TIMESCALEDB, PG_PARTMAN or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
+> If TIMESCALEDB, POSTGIS, POSTGIS_TOPOLOGY, POSTGIS_SFCGAL or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
 
 Check if the list contains any of the following extensions:
 - PG_CRON
@@ -233,18 +233,36 @@ Use the **Save and Restart** option and wait for the postgresql server to restar
 
 Once the pre-migration steps are complete, you're ready to carry out the migration of the production databases of your single server. At this point, you've finalized the day and time of production migration along with a planned downtime for your applications.
 
-- Create a flexible server with a **General-Purpose** or **Memory Optimized** compute tier. Pick a minimum 4VCore or higher SKU to complete the migration quickly. Burstable SKUs are  blocked for use as migration target servers.
-- Don't include HA or geo redundancy option while creating flexible server. You can always enable it with zero downtime once the migration from single server is complete. Don't create any read-replicas yet on the flexible server.
+- Create a flexible server with a **General-Purpose** or **Memory Optimized** compute tier. Pick a minimum 4VCore or higher SKU to complete the migration quickly. Burstable SKUs are blocked for use as migration target servers.
+- Don't include HA option while creating flexible server. You can always enable it with zero downtime once the migration from single server is complete. Don't create any read-replicas yet on the flexible server.
 - Before initiating the migration, stop all the applications that connect to your production server.
 - Checkpoint the source server by running **checkpoint** command and restart the source server.
 This command ensures any remaining applications or connections are disconnected. Additionally, you can run **select * from pg_stat_activity;** after the restart to ensure no applications is connected to the source server.
 
 Trigger the migration of your production databases using the single to flex migration tool. The migration requires close monitoring, and the monitoring user interface of the migration tool comes in handy. Check the migration status over the period of time to ensure there is progress and wait for the migration to complete.
 
+#### Improve migration speed - Parallel migration of tables
+
+As stated above, a powerful SKU is recommended for both the source and target servers. A higher SKU enables a greater number of tables to be migrated in parallel. You can scale the SKU back to your preferred configuration after the migration. This section contains steps to troubleshoot migrations that are not fast enough because the data distribution among the tables is skewed.
+
+If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration is not fully utilized and it creates a bottleneck. In this case, the following steps can help improve the migration speed.
+
+1. The table must have a column with a primary key or unique index of type int or big int.
+
+2. If the table doesn't have such a primary key or unique index, you can create one using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html)  and drop it post-migration. Note that running the `ALTER` command requires a lock on the table.
+
+```sql
+    alter table <table name> add column <column name> bigserial unique;
+```
+
+3. Please run the [ANALYZE](https://www.postgresql.org/docs/current/sql-analyze.html) command for each database and wait for it to finish before performing the migration.
+
+If the above conditions are met, the table will be migrated in multiple partitions in parallel, which should provide marked increase in migration speed.
+
 ### Post migration
 
 - Once the migration is complete, verify the data on your flexible server and make sure it's an exact copy of the single server.
-- Post verification, enable HA/ backup options as needed on your flexible server.
+- Post verification, enable HA option as needed on your flexible server.
 - Change the SKU of the flexible server to match the application needs. This change needs a database server restart.
 - Migrate users and roles from single to flexible servers. This step can be done by creating users on flexible servers and providing them with suitable privileges or by using the steps that are listed in this [doc](../single-server/how-to-upgrade-using-dump-and-restore.md).
 - If you've changed any server parameters from their default values in single server, copy those server parameter values in flexible server.

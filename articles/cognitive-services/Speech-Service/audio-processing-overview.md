@@ -7,7 +7,7 @@ author: hasyashah
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 09/07/2022
 ms.author: hasshah
 ms.custom: ignite-fall-2021

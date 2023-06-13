@@ -160,6 +160,11 @@
             "source_path_from_root": "/articles/applied-ai-services/form-recognizer/form-recognizer-studio-overview.md",
             "redirect_url": "/azure/applied-ai-services/form-recognizer/studio-overview",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/project-share-custom-classifier.md",
+            "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/project-share-custom-models",
+            "redirect_document_id": true
           }
      ]
 }

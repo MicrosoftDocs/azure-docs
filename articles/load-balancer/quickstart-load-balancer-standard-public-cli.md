@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/16/2022
 ms.author: mbender
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
+ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
@@ -178,6 +178,12 @@ Create a network security group rule using [az network nsg rule create](/cli/azu
 ## Create a bastion host
 
 In this section, you'll create the resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 
 ### Create a public IP address
 

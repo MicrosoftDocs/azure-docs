@@ -4,6 +4,8 @@ description: This article shows you how to connect your ITSM products or service
 ms.topic: conceptual
 ms.date: 03/30/2022
 ms.reviewer: nolavime
+author: AbbyMSFT
+ms.author: abbyweisberg
 
 ---
 

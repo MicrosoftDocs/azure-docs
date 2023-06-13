@@ -23,16 +23,20 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 1. [Prepare SAP environment](preparing-sap.md)
 
+1. [Configure auditing](configure-audit.md)
+
 1. **Deploy data connector agent (*You are here*)**
 
 1. [Deploy SAP security content](deploy-sap-security-content.md)
 
 1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 
-1. Optional deployment steps
-   - [Configure auditing](configure-audit.md)
-   - [Configure SAP data connector to use SNC](configure-snc.md)
-
+1. Optional deployment steps   
+   - [Configure data connector to use SNC](configure-snc.md)
+   - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+   - [Configure audit log monitoring rules](configure-audit-log-rules.md)
+   - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
+   - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 ## Data connector agent deployment overview
 

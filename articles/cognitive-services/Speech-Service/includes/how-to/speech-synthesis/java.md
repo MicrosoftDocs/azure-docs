@@ -13,7 +13,7 @@ ms.author: eur
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants.
+The text to speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants.
 You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) to match your input text and use the wanted voice:
@@ -40,7 +40,7 @@ The voice that speaks is determined in order of priority as follows:
 
 ## Synthesize speech to a file
 
-Next, you create a [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) object. This object executes text-to-speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
+Next, you create a [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) object. This object executes text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
 
 - The [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) object that you created in the previous step
 - An [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig) object that specifies how output results should be handled
@@ -62,7 +62,7 @@ public static void main(String[] args) {
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 
     SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    speechSynthesizer.SpeakText("I'm excited to try text-to-speech");
+    speechSynthesizer.SpeakText("I'm excited to try text to speech");
 }
 ```
 
@@ -70,7 +70,7 @@ Run the program. A synthesized .wav file is written to the location that you spe
 
 ## Synthesize to speaker output
 
-You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
 
 To output synthesized speech to the current active output device such as a speaker, instantiate `AudioConfig` by using the `fromDefaultSpeakerOutput()` static function. Here's an example:
 
@@ -104,7 +104,7 @@ public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
 
-    SpeechSynthesisResult result = speechSynthesizer.SpeakText("I'm excited to try text-to-speech");
+    SpeechSynthesisResult result = speechSynthesizer.SpeakText("I'm excited to try text to speech");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     System.out.print(stream.getStatus());
 }
@@ -137,7 +137,7 @@ public static void main(String[] args) {
     speechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 
     SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
-    SpeechSynthesisResult result = speechSynthesizer.SpeakText("I'm excited to try text-to-speech");
+    SpeechSynthesisResult result = speechSynthesizer.SpeakText("I'm excited to try text to speech");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     stream.saveToWavFile("path/to/write/file.wav");
 }
@@ -147,7 +147,7 @@ Running your program again will write a .wav file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
@@ -198,9 +198,9 @@ public static void main(String[] args) {
 
 ## Subscribe to synthesizer events
 
-You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
 
-While using the [SpeechSynthesizer](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
+While using the [SpeechSynthesizer](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) for text to speech, you can subscribe to the events in this table:
 
 [!INCLUDE [Event types](events.md)]
 
@@ -311,7 +311,7 @@ public class SpeechSynthesis {
 }
 ```
 
-You can find more text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).
+You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/samples).
 
 ## Run and use a container
 

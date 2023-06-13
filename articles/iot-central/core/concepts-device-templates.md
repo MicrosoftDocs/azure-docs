@@ -1,9 +1,9 @@
 ---
-title: What are device templates in Azure IoT Central | Microsoft Docs
-description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and views an operator uses.
+title: What are device templates in Azure IoT Central
+description: Device templates let you specify the behavior of the devices connected to your application. They also define a UI for the device in IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/03/2022
+ms.date: 06/05/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -15,7 +15,7 @@ ms.custom: device-developer
 
 A device template in Azure IoT Central is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types.
 
-A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
 
 A device template includes the following sections:
 
@@ -40,7 +40,10 @@ IoT Central can automatically assign a device to a device template when the devi
 
 1. If the device template is already published in the IoT Central application, the device is assigned to the device template.
 1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.
-1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassigned**. An operator can either create a device template for the device and then migrate the unassigned device to the new device template, or [autogenerate a device template](howto-set-up-template.md#autogenerate-a-device-template) based on the data the device sends.
+1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassigned**. An operator can:
+
+    - Create a device template for the device and then migrate the unassigned device to the new device template.
+    - [Autogenerate a device template](howto-set-up-template.md#autogenerate-a-device-template) based on the data the device sends.
 
 The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **Edit identity**:
 
@@ -64,259 +67,37 @@ To learn more about the DPS payload, see the sample code used in the [Tutorial: 
 
 ## Device models
 
-A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines a complete device model or individual interface into a device template, or use the web UI in IoT Central to create or edit a device model.
+A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can:
+
+- Import a JSON file that defines a complete device model or individual interface into a device template.
+- Use the web UI in IoT Central to create or edit a device model.
+
+> [!NOTE]
+> IoT Central accepts any valid JSON payload from a device but it can only use the data for visualizations if it matches a definition in the device model. You can export data that doesn't match a definition, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 
 To learn more about editing a device model, see [Edit an existing device template](howto-edit-device-template.md)
 
 A solution developer can also export a JSON file from the device template that contains a complete device model or individual interface. A device developer can use this JSON document to understand how the device should communicate with the IoT Central application.
 
-The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central expects the JSON file to contain the device model with the interfaces defined inline, rather than in separate files. To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
-
-A typical IoT device is made up of:
-
-- Custom parts, which are the things that make your device unique.
-- Standard parts, which are things that are common to all devices.
-
-These parts are called _interfaces_ in a device model. Interfaces define the details of each part your device implements. Interfaces are reusable across device models. In DTDL, a component refers to another interface, which may be defined in a separate DTDL file or in a separate section of the file.
-
-The following example shows the outline of device model for a [temperature controller device](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json). The root component includes definitions for `workingSet`, `serialNumber`, and `reboot`. The device model also includes two `thermostat` components and a `deviceInformation` component. The contents of the three components have been removed for the sake of brevity:
+The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central expects the JSON file to contain the device model with the interfaces defined inline, rather than in separate files. Models created in IoT Central have the context `dtmi:iotcentral:context;2` defined to indicate that the model was created in IoT Central:
 
 ```json
-[
-  {
-    "@context": [
-      "dtmi:iotcentral:context;2",
-      "dtmi:dtdl:context;2"
-    ],
-    "@id": "dtmi:com:example:TemperatureController;2",
-    "@type": "Interface",
-    "contents": [
-      {
-        "@type": [
-          "Telemetry",
-          "DataSize"
-        ],
-        "description": {
-          "en": "Current working set of the device memory in KiB."
-        },
-        "displayName": {
-          "en": "Working Set"
-        },
-        "name": "workingSet",
-        "schema": "double",
-        "unit": "kibibit"
-      },
-      {
-        "@type": "Property",
-        "displayName": {
-          "en": "Serial Number"
-        },
-        "name": "serialNumber",
-        "schema": "string",
-        "writable": false
-      },
-      {
-        "@type": "Command",
-        "commandType": "synchronous",
-        "description": {
-          "en": "Reboots the device after waiting the number of seconds specified."
-        },
-        "displayName": {
-          "en": "Reboot"
-        },
-        "name": "reboot",
-        "request": {
-          "@type": "CommandPayload",
-          "description": {
-            "en": "Number of seconds to wait before rebooting the device."
-          },
-          "displayName": {
-            "en": "Delay"
-          },
-          "name": "delay",
-          "schema": "integer"
-        }
-      },
-      {
-        "@type": "Component",
-        "displayName": {
-          "en": "thermostat1"
-        },
-        "name": "thermostat1",
-        "schema": "dtmi:com:example:Thermostat;2"
-      },
-      {
-        "@type": "Component",
-        "displayName": {
-          "en": "thermostat2"
-        },
-        "name": "thermostat2",
-        "schema": "dtmi:com:example:Thermostat;2"
-      },
-      {
-        "@type": "Component",
-        "displayName": {
-          "en": "DeviceInfo"
-        },
-        "name": "deviceInformation",
-        "schema": "dtmi:azure:DeviceManagement:DeviceInformation;1"
-      }
-    ],
-    "displayName": {
-      "en": "Temperature Controller"
-    }
-  },
-  {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:com:example:Thermostat;2",
-    "@type": "Interface",
-    "displayName": "Thermostat",
-    "description": "Reports current temperature and provides desired temperature control.",
-    "contents": [
-      ...
-    ]
-  },
-  {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:azure:DeviceManagement:DeviceInformation;1",
-    "@type": "Interface",
-    "displayName": "Device Information",
-    "contents": [
-      ...
-    ]
-  }
+"@context": [
+  "dtmi:iotcentral:context;2",
+  "dtmi:dtdl:context;2"
 ]
 ```
 
-An interface has some required fields:
+To learn more about DTDL models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
 
-- `@id`: a unique ID in the form of a simple Uniform Resource Name.
-- `@type`: declares that this object is an interface.
-- `@context`: specifies the DTDL version used for the interface.
-- `contents`: lists the properties, telemetry, and commands that make up your device. The capabilities may be defined in multiple interfaces.
-
-There are some optional fields you can use to add more details to the capability model, such as display name and description.
-
-Each entry in the list of interfaces in the implements section has a:
-
-- `name`: the programming name of the interface.
-- `schema`: the interface the capability model implements.
-
-## Interfaces
-
-The DTDL lets you describe the capabilities of your device. Related capabilities are grouped into interfaces. Interfaces describe the properties, telemetry, and commands a part of your device implements:
-
-- `Properties`. Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on-off state of a coolant pump. Properties can also represent basic device properties, such as the firmware version of the device. You can declare properties as read-only or writable. Only devices can update the value of a read-only property. An operator can set the value of a writable property to send to a device.
-- `Telemetry`. Telemetry fields represent measurements from sensors. Whenever your device takes a sensor measurement, it should send a telemetry event containing the sensor data.
-- `Commands`. Commands represent methods that users of your device can execute on the device. For example, a reset command or a command to switch a fan on or off.
-
-The following example shows the thermostat interface definition:
-
-```json
-{
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:Thermostat;2",
-  "@type": "Interface",
-  "displayName": "Thermostat",
-  "description": "Reports current temperature and provides desired temperature control.",
-  "contents": [
-    {
-      "@type": [
-        "Telemetry",
-        "Temperature"
-      ],
-      "name": "temperature",
-      "displayName": "Temperature",
-      "description": "Temperature in degrees Celsius.",
-      "schema": "double",
-      "unit": "degreeCelsius"
-    },
-    {
-      "@type": [
-        "Property",
-        "Temperature"
-      ],
-      "name": "targetTemperature",
-      "schema": "double",
-      "displayName": "Target Temperature",
-      "description": "Allows to remotely specify the desired target temperature.",
-      "unit": "degreeCelsius",
-      "writable": true
-    },
-    {
-      "@type": [
-        "Property",
-        "Temperature"
-      ],
-      "name": "maxTempSinceLastReboot",
-      "schema": "double",
-      "unit": "degreeCelsius",
-      "displayName": "Max temperature since last reboot.",
-      "description": "Returns the max temperature since last device reboot."
-    },
-    {
-      "@type": "Command",
-      "name": "getMaxMinReport",
-      "displayName": "Get Max-Min report.",
-      "description": "This command returns the max, min and average temperature from the specified time to the current time.",
-      "request": {
-        "name": "since",
-        "displayName": "Since",
-        "description": "Period to return the max-min report.",
-        "schema": "dateTime"
-      },
-      "response": {
-        "name": "tempReport",
-        "displayName": "Temperature Report",
-        "schema": {
-          "@type": "Object",
-          "fields": [
-            {
-              "name": "maxTemp",
-              "displayName": "Max temperature",
-              "schema": "double"
-            },
-            {
-              "name": "minTemp",
-              "displayName": "Min temperature",
-              "schema": "double"
-            },
-            {
-              "name": "avgTemp",
-              "displayName": "Average Temperature",
-              "schema": "double"
-            },
-            {
-              "name": "startTime",
-              "displayName": "Start Time",
-              "schema": "dateTime"
-            },
-            {
-              "name": "endTime",
-              "displayName": "End Time",
-              "schema": "dateTime"
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-This example shows two properties (one read-only and one writable), a telemetry type, and a command. A minimal field description has a:
-
-- `@type` to specify the type of capability: `Telemetry`, `Property`, or `Command`.  In some cases, the type includes a semantic type to enable IoT Central to make some assumptions about how to handle the value.
-- `name` for the telemetry value.
-- `schema` to specify the data type for the telemetry or the property. This value can be a primitive type, such as double, integer, boolean, or string. Complex object types and maps are also supported.
-
-Optional fields, such as display name and description, let you add more details to the interface and capabilities.
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL v2 language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Properties
 
 By default, properties are read-only. Read-only properties mean that the device reports property value updates to your IoT Central application. Your IoT Central application can't set the value of a read-only property.
 
-You can also mark a property as writable on an interface. A device can receive an update to a writable property from your IoT Central application as well as reporting property value updates to your application.
+You can also mark a property as writable on an interface. A device can receive an update to a writable property from your IoT Central application and report property value updates to your application.
 
 Devices don't need to be connected to set property values. The updated values are transferred when the device next connects to the application. This behavior applies to both read-only and writable properties.
 
@@ -369,6 +150,94 @@ Offline commands are one-way notifications to the device from your solution. Off
 > [!NOTE]
 > Offline commands are marked as `durable` if you export the model as DTDL.
 
+Offline commands use [IoT Hub cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md) to send the command and payload to the device.
+
+The payload of the message the device receives is the raw value of the parameter. A custom property called `method-name` stores the name of the IoT Central command. The following table shows some example payloads:
+
+| IoT Central request schema | Example payload received by device |
+| -------------------------- | ---------------------------------- |
+| No request parameter       | `@`                                |
+| Double                     | `1.23`                             |
+| String                     | `sample string`                    |
+| Object                     | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
+
+The following snippet from a device model shows the definition of a command. The command has an object parameter with a datetime field and an enumeration:
+
+```json
+{
+  "@type": "Command",
+  "displayName": {
+    "en": "Generate Diagnostics"
+  },
+  "name": "GenerateDiagnostics",
+  "request": {
+    "@type": "CommandPayload",
+    "displayName": {
+      "en": "Payload"
+    },
+    "name": "Payload",
+    "schema": {
+      "@type": "Object",
+      "displayName": {
+        "en": "Object"
+      },
+      "fields": [
+        {
+          "displayName": {
+            "en": "StartTime"
+          },
+          "name": "StartTime",
+          "schema": "dateTime"
+        },
+        {
+          "displayName": {
+            "en": "Bank"
+          },
+          "name": "Bank",
+          "schema": {
+            "@type": "Enum",
+            "displayName": {
+              "en": "Enum"
+            },
+            "enumValues": [
+              {
+                "displayName": {
+                  "en": "Bank 1"
+                },
+                "enumValue": 1,
+                "name": "Bank1"
+              },
+              {
+                "displayName": {
+                  "en": "Bank2"
+                },
+                "enumValue": 2,
+                "name": "Bank2"
+              },
+              {
+                "displayName": {
+                  "en": "Bank3"
+                },
+                "enumValue": 3,
+                "name": "Bank3"
+              }
+            ],
+            "valueSchema": "integer"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+If you enable the **Queue if offline** option in the device template UI for the command in the previous snippet, then the message the device receives includes the following properties:
+
+| Property name | Example value |
+| ---------- | ----- |
+| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
+| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
+
 ## Views
 
 A solution developer creates views that let operators monitor and manage connected devices. Views are part of the device template, so a view is associated with a specific device type. A view can include:
@@ -382,4 +251,4 @@ A solution developer creates views that let operators monitor and manage connect
 
 ## Next steps
 
-Now that you've learned about device templates, a suggested next steps is to read [Telemetry, property, and command payloads](./concepts-telemetry-properties-commands.md) to learn more about the data a device exchanges with IoT Central.
+Now that you've learned about device templates, a suggested next step is to read [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md) to learn more about the data a device exchanges with IoT Central.

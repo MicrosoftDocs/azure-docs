@@ -1,7 +1,7 @@
 ---
-title: Speech-to-text REST API for short audio - Speech service
+title: Speech to text REST API for short audio - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Speech-to-text REST API for short audio to convert speech to text.
+description: Learn how to use Speech to text REST API for short audio to convert speech to text.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,18 +14,18 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Speech-to-text REST API for short audio
+# Speech to text REST API for short audio
 
-Use cases for the speech-to-text REST API for short audio are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). 
+Use cases for the Speech to text REST API for short audio are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). 
 
-Before you use the speech-to-text REST API for short audio, consider the following limitations:
+Before you use the Speech to text REST API for short audio, consider the following limitations:
 
 * Requests that use the REST API for short audio and transmit audio directly can contain no more than 60 seconds of audio. The input [audio formats](#audio-formats) are more limited compared to the [Speech SDK](speech-sdk.md).
 * The REST API for short audio returns only final results. It doesn't provide partial results.
 * [Speech translation](speech-translation.md) is not supported via REST API for short audio. You need to use [Speech SDK](speech-sdk.md).
-* [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md) are not supported via REST API for short audio. You should always use the [Speech to Text REST API](rest-speech-to-text.md) for batch transcription and Custom Speech.
+* [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md) are not supported via REST API for short audio. You should always use the [Speech to text REST API](rest-speech-to-text.md) for batch transcription and Custom Speech.
 
-Before you use the speech-to-text REST API for short audio, understand that you need to complete a token exchange as part of authentication to access the service. For more information, see [Authentication](#authentication).
+Before you use the Speech to text REST API for short audio, understand that you need to complete a token exchange as part of authentication to access the service. For more information, see [Authentication](#authentication).
 
 ## Regions and endpoints
 
@@ -54,7 +54,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 
 ## Request headers
 
-This table lists required and optional headers for speech-to-text requests:
+This table lists required and optional headers for speech to text requests:
 
 |Header| Description | Required or optional |
 |------|-------------|---------------------|

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/12/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure time to live in Azure Cosmos DB

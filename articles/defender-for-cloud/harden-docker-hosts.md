@@ -1,8 +1,8 @@
 ---
 title: Use Microsoft Defender for Cloud to harden your Docker hosts and protect the containers
 description: How-to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 11/09/2021
 ---

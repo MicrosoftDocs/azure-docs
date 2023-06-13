@@ -2,7 +2,7 @@
 title: Enable Profiler for Azure App Service apps | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 05/01/2023
 ms.reviewer: jogrima
 ---
 
@@ -138,6 +138,5 @@ We recommend that you have Profiler enabled on all your apps to discover any per
 You can delete Profiler's files when you use WebDeploy to deploy changes to your web application. You can prevent the deletion by excluding the *App_Data* folder from being deleted during deployment.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Generate load and view Profiler traces](./profiler-data.md)
+- Learn how to [generate load and view Profiler traces](./profiler-data.md)
+- Learn how to use the [Code Optimizations feature](../insights/code-optimizations.md) alongside the Application Insights Profiler

@@ -60,7 +60,8 @@ The appliance VM has the following requirements:
 - The appliance VM needs to be able to resolve the management machine and vice versa.
 - Internet access.
 - Connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy and firewall.
-- Static IP assigned, used for the `k8snodeippoolstart` in configuration command. (If using DHCP, then the address must be reserved.)
+- Static IP assigned (strongly recommended), used for the `k8snodeippoolstart` in configuration command. This IP address should only be used for the appliance VM and not in-use anywhere else on the network. (If using DHCP, then the address must be reserved.)
+- Appliance VM IP address must be from within the IP address prefix provided during configuration creation command.
 - Ability to reach a DNS server that can resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses, container registry names, and other [required URLs](network-requirements.md#outbound-connectivity).
 - If using a proxy, the proxy server configuration is provided when running the `createconfig` command, which is used to create the configuration files of the appliance VM. The proxy should allow internet access on the appliance VM to connect to [required URLs](network-requirements.md#outbound-connectivity) needed for deployment, such as the URL to download OS images.
 
@@ -79,7 +80,7 @@ The reserved appliance VM IP has the following requirements:
 
 ## Control plane IP requirements
 
-The appliance VM hosts a management Kubernetes cluster with a control plane that should be given a static IP. This IP is assigned from the `controlplaneendpoint` parameter in the `createconfig` command.
+The appliance VM hosts a management Kubernetes cluster with a control plane that should be given a single, static IP address. This IP is assigned from the `controlplaneendpoint` parameter in the `createconfig` command.
 
 The control plane IP has the following requirements:
 
@@ -103,7 +104,7 @@ There are several different types of configuration files, based on the on-premis
 
 ### Appliance configuration files
 
-Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): <resourcename>-resource.yaml, <resourcename>-appliance.yaml and <resourcename>-infra.yaml.
+Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): \<resourcename\>-resource.yaml, \<resourcename\>-appliance.yaml and \<resourcename\>-infra.yaml.
 
 By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 
@@ -126,5 +127,6 @@ When deploying Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the
 - Understand [network requirements for Azure Arc resource bridge (preview)](network-requirements.md).
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
 
 

@@ -61,8 +61,12 @@
       href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
+    - name: Oracle database performance on Azure NetApp Files multiple volumes
+      href: performance-oracle-multiple-volumes.md
     - name: Azure NetApp Files datastore performance benchmarks for AVS 
       href: performance-benchmarks-azure-vmware-solution.md
+    - name: AVS datastore performance considerations for Azure NetApp Files 
+      href: performance-azure-vmware-solution-datastore.md
     - name: Performance reference for Azure NetApp Files
       items:
       - name: Linux direct I/O best practices
@@ -393,6 +397,8 @@
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
+  - name: Feature availability
+    href: https://azure.github.io/azure-netapp-files/map/
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos

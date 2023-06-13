@@ -10,7 +10,6 @@ ms.topic: reference
 ms.date: 03/02/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
-recommendations: false
 ---
 
 # Form Recognizer containers in disconnected environments

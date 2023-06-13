@@ -208,7 +208,7 @@ We support two different didModels. One is `ion` and the other supported method 
 | -------- | -------- | -------- |
 | `subscriptionId` | string | The Azure subscription this Key Vault resides |
 | `resourceGroup` | string | name of the resource group from this Key Vault |
-| `resouceName` | string | Key Vault name |
+| `resourceName` | string | Key Vault name |
 | `resourceUrl` | string | URL to this Key Vault |
 
 

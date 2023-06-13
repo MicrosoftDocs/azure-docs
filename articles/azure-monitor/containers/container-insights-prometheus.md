@@ -10,7 +10,7 @@ ms.reviewer: aul
 # Collect Prometheus metrics with Container insights
 [Prometheus](https://aka.ms/azureprometheus-promio) is a popular open-source metric monitoring solution and is the most common monitoring tool used to monitor Kubernetes clusters. Container insights uses its containerized agent to collect much of the same data that Prometheus typically collects from the cluster without requiring a Prometheus server. This data is presented in Container insights views and available to other Azure Monitor features such as [log queries](container-insights-log-query.md) and [log alerts](container-insights-log-alerts.md).
 
-Container insights can also scrape Prometheus metrics from your cluster and send the data to either Azure Monitor Logs or to Azure Monitor managed service for Prometheus. This requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring one of the addons for the Azure Monitor agent used by Container insights as shown the following diagram.
+Container insights can also scrape your custom Prometheus metrics from your application on your cluster and send the data to either Azure Monitor Logs or to Azure Monitor managed service for Prometheus (preview). This requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring one of the addons for the Azure Monitor agent used by Container insights as shown the following diagram. Metrics sent to the Log Analytics workspace are queried through log queries, whereas Metrics sent through Azure Monitor managed Prometheus are queried through PromQL and Prometheus recording rules and alerts are supported.
 
 :::image type="content" source="media/container-insights-prometheus/monitoring-kubernetes-architecture.png" lightbox="media/container-insights-prometheus/monitoring-kubernetes-architecture.png" alt-text="Diagram of container monitoring architecture sending Prometheus metrics to Azure Monitor Logs." border="false":::
 
@@ -40,14 +40,14 @@ Use the following procedure to add Prometheus collection to your cluster that's 
 
 6. Click **Configure** to complete the configuration.
 
-See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on [verifying your deployment](../essentials/prometheus-metrics-enable.md#verify-deployment) and [limitations](../essentials/prometheus-metrics-enable.md#limitations)
+See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on [verifying your deployment](../essentials/prometheus-metrics-enable.md#verify-deployment) and [limitations](../essentials/prometheus-metrics-enable.md#limitations-during-enablementdeployment)
 
 ## Send metrics to Azure Monitor Logs
 You may want to collect more data in addition to the predefined set of data collected by Container insights. This data isn't used by Container insights views but is available for log queries and alerts like the other data it collects. This requires configuring the *monitoring addon* for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace.
 
-### Prometheus scraping settings
+### Prometheus scraping settings (for metrics stored as logs)
 
-Active scraping of metrics from Prometheus is performed from one of two perspectives:
+Active scraping of metrics from Prometheus is performed from one of two perspectives below and metrics are sent to configured log analytics workspace :
 
 - **Cluster-wide**: Defined in the ConfigMap section *[Prometheus data_collection_settings.cluster]*.
 - **Node-wide**: Defined in the ConfigMap section *[Prometheus_data_collection_settings.node]*.
@@ -75,7 +75,7 @@ When a URL is specified, Container insights only scrapes the endpoint. When Kube
 | Node-wide or cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, and h. |
 | Node-wide or cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allowlist first. |
 
-### Configure ConfigMaps
+### Configure ConfigMaps to specify Prometheus scrape configuration (for metrics stored as logs)
 Perform the following steps to configure your ConfigMap configuration file for your cluster. ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You can't have another ConfigMaps overruling the collections.
 
 
@@ -132,7 +132,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
 
     To configure scraping of Prometheus metrics by specifying a pod annotation:
 
-    1. In the ConfigMap, specify the following configuration:
+      1. In the ConfigMap, specify the following configuration:
 
     ```
     prometheus-data-collection-settings: |- ​
@@ -142,7 +142,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
     monitor_kubernetes_pods = true 
     ```
 
-    1. Specify the following configuration for pod annotations:
+      2. Specify the following configuration for pod annotations:
 
     ```
     - prometheus.io/scrape:"true" #Enable scraping for this pod ​

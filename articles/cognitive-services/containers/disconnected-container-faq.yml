@@ -20,11 +20,10 @@ sections:
           Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. 
           Disconnected containers are offered through commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
           * Speech Services
-            *	Speech-to-Text
-            *	Custom Speech-to-Text
-            * Neural Text-to-Speech
+            *	Speech to text
+            *	Custom Speech to text
+            * Neural Text to speech
           *	Text Translation (Standard)
-          * Language Understanding (LUIS)
           *	Azure Cognitive Service for Language
             *	Sentiment Analysis
             *	Key Phrase Extraction
@@ -129,11 +128,10 @@ sections:
           > To find the pricing information for disconnected containers on these pricing pages, scroll down to **Commitment Tiers** section.
 
           * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for:
-            *	Speech-to-Text
-            *	Custom Speech-to-Text
-            * Neural Text-to-Speech
+            *	Speech to text
+            *	Custom Speech to text
+            * Neural Text to speech
           * [Text Translation (Standard)](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)
-          * [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)
           *	[Azure Cognitive Service for Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for
             * Sentiment Analysis
             * Key Phrase Extraction
@@ -151,11 +149,10 @@ sections:
           Cognitive Services containers are x64-based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
 
           * Speech Service for:
-            *	[Speech-to-Text](../speech-service/speech-container-stt.md) 
-            *	[Custom Speech-to-Text](../speech-service/speech-container-cstt.md) 
-            * [Neural Text-to-Speech](../speech-service/speech-container-ntts.md) 
+            *	[Speech to text](../speech-service/speech-container-stt.md) 
+            *	[Custom Speech to text](../speech-service/speech-container-cstt.md) 
+            * [Neural Text to speech](../speech-service/speech-container-ntts.md) 
           * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
-          * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
           *	Azure Cognitive Service for Language documentation for
             * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
             * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)

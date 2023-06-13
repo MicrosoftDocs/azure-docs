@@ -5,7 +5,7 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 04/24/2023
+ms.date: 06/06/2023
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -13,12 +13,19 @@ ms.custom: mvc, engagement-fy23
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (June 2023)
+- Envision security cost savings with [Microsoft Defender for Cloud (MDC)](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-cloud) using Azure Migrate business case. 
+- Resolve issues impacting the performance data collection and accuracy of Azure VM and Azure VMware Solution assessment recommendation and improve the confidence ratings of assessments.[Learn more](common-questions-discovery-assessment.md).
+
+## Update (May 2023)
+- SQL Server discovery and assessment in Azure Migrate is now Generally Available (GA). [Learn more](concepts-azure-sql-assessment-calculation.md).
+
 ## Update (April 2023)
 - Build a quick business case for servers imported via a .csv file. [Learn more](tutorial-discover-import.md)
 - Build business case using Azure Migrate for:
     - Servers and workloads running in your Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
     - SQL Server Always On Failover Cluster Instances and Always On Availability Groups. [Learn more](how-to-discover-applications.md).
-
+- Envision savings with Azure Hybird Benefits by bringing your existing Windows Server licenses to Azure using Azure VM assessments. 
 ## Update (March 2023)
 - Support for discovery and assessment of web apps for Azure app service for Hyper-V and Physical servers. [Learn more](how-to-create-azure-app-service-assessment.md).
 

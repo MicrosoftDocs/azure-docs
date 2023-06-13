@@ -31,8 +31,7 @@ curl -X GET  $LANGUAGE_ENDPOINT/language/analyze-text/jobs/{JOB-ID}?api-version=
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Text-analytics-for-health" target="_target">I ran into an issue</a>
+
 
 ### JSON response
 

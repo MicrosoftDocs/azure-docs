@@ -65,6 +65,8 @@
     items:
     - name: About virtual hub routing
       href: about-virtual-hub-routing.md
+    - name: About Route-maps
+      href: route-maps-about.md
     - name: Routing scenarios
       items:
       - name: Virtual hub routing preference
@@ -249,6 +251,8 @@
         href: how-to-virtual-hub-routing-preference-powershell.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
+    - name: Configure Route-maps
+      href: route-maps-how-to.md
     - name: How to configure routing intent and policies
       href: how-to-routing-policies.md
     - name: Route traffic from a virtual hub to an NVA (legacy)
@@ -267,7 +271,7 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
-    - name: Inter-hub and branch-to-branch via Azure Firewall
+    - name: Inter-hub and branch-to-branch inspection
       href: how-to-routing-policies.md
     - name: Software-as-a-service (SaaS)
       href: how-to-palo-alto-cloud-ngfw.md
@@ -283,6 +287,8 @@
       href: azure-monitor-insights.md
     - name: BGP dashboard
       href: monitor-bgp-dashboard.md
+    - name: Route-maps dashboard
+      href: route-maps-dashboard.md
     - name: Configure S2S VPN packet captures
       items:
       - name: Azure portal

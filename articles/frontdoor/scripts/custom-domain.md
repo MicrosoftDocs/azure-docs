@@ -46,7 +46,7 @@ The script will:
 
 To run this script, copy the following code to a .sh file, change the hardcoded variables to your domain values, and then execute the following command to pass these variables into the script
 
-```bash
+```
 AZURE_DNS_ZONE_NAME=www.contoso.com AZURE_DNS_ZONE_RESOURCE_GROUP=contoso-rg ./deploy-custom-apex-domain.sh
 ```
 

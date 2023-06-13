@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/04/2023
+ms.date: 05/18/2023
 ms.author: phjensen
 ---
 
@@ -26,7 +26,18 @@ For specific information on Preview features, refer to the [AzAcSnap Preview](az
 
 ## May-2023
 
-### AzAcSnap 8 (Build: 1AC073A)
+### AzAcSnap 8a (Build: 1AC55A6)
+
+AzAcSnap 8a is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Configure (`-c configure`) changes:
+    - Fix for `-c configure` related changes in AzAcSnap 8.
+    - Improved workflow guidance for better customer experience.
+
+Download the [AzAcSnap 8a](https://aka.ms/azacsnap-8a) installer.
+
+### AzAcSnap 8 (Build: 1AC279E)
 
 AzAcSnap 8 is being released with the following fixes and improvements:
 
@@ -36,6 +47,7 @@ AzAcSnap 8 is being released with the following fixes and improvements:
   - Backup (`-c backup`) changes:
     - Fix for incorrect error output when using `-c backup` and the database has ‘backint’ configured.
     - Remove lower-case conversion for anfBackup rename-only option using `-c backup` so the snapshot name maintains case of Volume name.
+    - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA cannot be put into backup-mode, AzAcSnap will immediately exit with an error.
   - Details (`-c details`) changes:
     - Fix for listing snapshot details with `-c details` when using Azure Large Instance storage.
   - Logging enhancements:

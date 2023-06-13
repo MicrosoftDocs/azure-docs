@@ -84,7 +84,7 @@ Follow these steps to create a new console application.
         text = response['choices'][0]['text'].replace('\n', ' ').replace(' .', '.').strip()
         print('Azure OpenAI response:' + text)
         
-        # Azure text-to-speech output
+        # Azure text to speech output
         speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
     
         # Check result
