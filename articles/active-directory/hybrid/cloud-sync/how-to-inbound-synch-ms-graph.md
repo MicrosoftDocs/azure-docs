@@ -234,31 +234,41 @@ Add the Schema in the request body.
 
 This section covers how to enable/disable and use [Exchange hybrid writeback](exchange-hybrid.md) programmatically.
 
-Enabling Exchange hybrid writeback programmatically requires 2 steps.
-	1.  Schema verification
+Enabling Exchange hybrid writeback programmatically requires two steps.
+	
+  1.  Schema verification
 	2.  Create the Exchange hybrid writeback job
 
-Things to remember when using the API to refresh or discover the schema.
- - The job id needs to be the AD2AADProvisioning job id
- - The directory id needs to be AD directory id
-
 ### Schema verification
-Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  The refresh can be done automatically by restarting the provisioning agent or manually using an API call.
+Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  
 
 You can use the [directoryDefinition:discover](/graph/api/directorydefinition-discover?view=graph-rest-beta&tabs=http&preserve-view=true) to initiate schema discovery. 
 
 ```
-POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema/directories/{directoryId}/discover
+POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/[AD2AADProvisioningJobId]/schema/directories/[ADDirectoryID]/discover
 ```
+The expected response is … 
+HTTP 200/Success
+
+The response should look similar to the following:
+
+```
+```
+
+Now check to see if the mailNickName attribute is present.  If it is, then your schema contains the necessary Exchange attributes. 
+
 
 
 ### Create the Exchange hybrid writeback job
 Once you have verified the schema you can create the job.
 
 ```
-POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs Content-type: application/json { "templateId":"AAD2ADExchangeHybridWriteback" }
+POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs
+Content-type: application/json
+{
+"templateId":"AAD2ADExchangeHybridWriteback"
+}
 ```
-
 
 
 
@@ -323,13 +333,13 @@ Request Body:
 
 ## Start sync job
 
-The job can be retrieved again via the following command:
+The jobs can be retrieved again via the following command:
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/`
 
 Documentation for retrieving jobs can be found [here](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta&preserve-view=true).
 
-To start the job, issue this request, using the objectId of the service principal created in the first step, and the job identifier returned from the request that created the job.
+To start the jobs, issue this request, using the objectId of the service principal created in the first step, and the job identifiers returned from the request that created the job.
 
 Documentation for how to start a job can be found [here](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta&preserve-view=true).
 
