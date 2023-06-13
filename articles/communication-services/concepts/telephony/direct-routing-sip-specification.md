@@ -295,7 +295,7 @@ The SIP proxy supports (always offers) the Session Timer. Use of the Session Tim
 
 ## Use of Request-URI parameter user=phone
 
-The SIP proxy analyses the Request-URI and if the parameter user=phone is present, the service handles the Request-URI as a phone number, matching the number to a user. If parameter is not present, the SIP proxy applies heuristics to determine the Request-URI user type (phone number or a SIP address).
+The SIP proxy analyses the Request-URI and if the parameter user=phone is present, the service handles the Request-URI as a phone number, matching the number to a user. If parameter isn't present, the SIP proxy applies heuristics to determine the Request-URI user type (phone number or a SIP address).
 
 Microsoft recommends always applying the user=phone parameter to simplify the call setup process. 
 
@@ -312,7 +312,7 @@ History-Info is enabled as follows:
 
 - History-Info header is added for simultaneous ring and call forwarding cases.
 
-- History-Info header is not added for call transfer cases.
+- History-Info header isn't added for call transfer cases.
 
 - An individual history entry in the reconstructed History-Info header has the phone number parameter provided combined with the direct routing FQDN (sip.pstnhub.microsoft.com) set as the host part of the URI. A parameter of ‘user=phone’ added as part of the SIP URI. Any other parameters associated with the original History-Info header, except for phone context parameters, passed through in the reconstructed History-Info header.  
 
