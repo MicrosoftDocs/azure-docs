@@ -12,4 +12,4 @@ ms.date: 06/29/2023
 
 # Query vectors in a search index
 
-Under construction
+<!-- Raouf, for private preview, we relied on quickstarts and demos to explain how to query vectors, but customers will expect to see a how-to from us that explains this basic task. Let me know if you need more clarification on scope, or how this doc would be different from a quicksart or tutorial. -->

@@ -98,7 +98,7 @@
   - name: Vector tutorials
     items:
     - name: Chunk large documents
-      href: TBD.md
+      href: vector-search-tutorial.md
   - name: Skills tutorials
     items:
     - name: C#
