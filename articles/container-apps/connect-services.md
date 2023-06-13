@@ -38,18 +38,6 @@ In this tutorial, you learn to:
 
 ## Set up
 
-1. Set up the resource group variable.
-
-    ```azurecli
-    RESOURCE_GROUP="my-services-resource-group"
-    ```
-
-1. Set up the location variable.
-
-    ```azurecli
-    LOCATION="eastus"
-    ```
-
 1. Sign in to the Azure CLI.
 
     ``` azurecli
@@ -74,6 +62,12 @@ In this tutorial, you learn to:
     az provider register --namespace Microsoft.ServiceLinker
     ```
 
+1. Set up the resource group variable.
+
+    ```azurecli
+    RESOURCE_GROUP="my-services-resource-group"
+    ```
+
 1. Create a variable for the Azure Cache for Redis DNS name.
 
     To display a list of the Azure Cache for Redis instances, run the following command.
@@ -81,6 +75,8 @@ In this tutorial, you learn to:
     ```azurecli
     az redis list --resource-group "$RESOURCE_GROUP" --query "[].name" -o table
     ```
+
+1. Create a variable for your DNS name.
 
     Make sure to replace `<YOUR_DNS_NAME>` with the DNS name of your instance of Azure Cache for Redis.
 
@@ -94,6 +90,12 @@ In this tutorial, you learn to:
 
     ```azurecli
     ENVIRONMENT=<MY_ENVIRONMENT_NAME>
+    ```
+
+1. Set up the location variable.
+
+    ```azurecli
+    LOCATION="eastus"
     ```
 
 1. Create a new environment.
