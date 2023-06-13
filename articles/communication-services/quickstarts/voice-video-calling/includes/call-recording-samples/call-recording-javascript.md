@@ -7,14 +7,14 @@ ms.custom: public_preview
 ---
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallRecording)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/call-recording)
 
 ## Prerequisites
 
 - You need an Azure account with an active subscription.
 - Deploy a Communication Service resource. Record your resource **connection string**.
 - Subscribe to events via [Azure Event Grid](../../../../../event-grid/event-schema-communication-services.md).
-- Download the [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet)
+- [Node.js](https://nodejs.org/en) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended)
 
 ## Before you start
 
@@ -22,12 +22,12 @@ Call Recording APIs use exclusively the `serverCallId`to initiate recording. The
 
 ### Call Automation scenarios
 - When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
-    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-csharp#update-programcs) from Call Automation SDK.
+    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-javascript#update-programcs) from Call Automation SDK.
     2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
 ### Calling SDK scenarios
-- When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `getServerCallId` method on the call. 
-Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK. 
+- When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `getServerCallId` method on the call.
+Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK.
 
 
 
@@ -37,11 +37,11 @@ Let's get started with a few simple steps!
 
 ## 1. Create a Call Automation client
 
-Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/call-automation/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client. 
+Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/call-automation/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client.
 To create a call automation client, you'll use your Communication Services connection string and pass it to `CallAutomationClient` object.
 
-```csharp
-CallAutomationClient callAutomationClient = new CallAutomationClient("<ACSConnectionString>");
+```javascript
+const callAutomationClient = new CallAutomationClient.CallAutomationClient("<ACSConnectionString>");
 ```
 
 ## 2. Start recording session with StartRecordingOptions using 'StartAsync' API
@@ -51,72 +51,82 @@ Use the `serverCallId` received during initiation of the call.
 - RecordingChannel is used to pass the recording channel type. Use mixed or unmixed.
 - RecordingFormat is used to pass the format of the recording. Use wav.
 
-```csharp
-StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
+```javascript
+var locator: CallLocator = { id: "<ServerCallId>", kind: "serverCallLocator" };
+
+var options: StartRecordingOptions =
 {
-    RecordingContent = RecordingContent.Audio,
-    RecordingChannel = RecordingChannel.Unmixed,
-    RecordingFormat = RecordingFormat.Wav,
-    RecordingStateCallbackUri = new Uri("<CallbackUri>");
+  callLocator: locator,
+  recordingContent: "audio",
+  recordingChannel:"unmixed",
+  recordingFormat: "wav",
+  recordingStateCallbackEndpointUrl: "<CallbackUri>"
 };
-Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
-.StartAsync(recordingOptions);
+var response = await callAutomationClient.getCallRecording().start(options);
 ```
 
 ### 2.1. Only for Unmixed - Specify a user on channel 0
-To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking. 
+To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking.
 
-```csharp
-StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
+```javascript
+var locator: CallLocator = { id: "<ServerCallId>", kind: "serverCallLocator" };
+
+var options: StartRecordingOptions =
 {
-    RecordingContent = RecordingContent.Audio,
-    RecordingChannel = RecordingChannel.Unmixed,
-    RecordingFormat = RecordingFormat.Wav,
-    RecordingStateCallbackUri = new Uri("<CallbackUri>"),
-    AudioChannelParticipantOrdering = { new CommunicationUserIdentifier("<ACS_USER_MRI>") }
-    
+  callLocator: locator,
+  recordingContent: "audio",
+  recordingChannel:"unmixed",
+  recordingFormat: "wav",
+  recordingStateCallbackEndpointUrl: "<CallbackUri>",
+  audioChannelParticipantOrdering:[{communicationUserId: "<ACS_USER_MRI>"}]
 };
-Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording().StartAsync(recordingOptions);
+var response = await callAutomationClient.getCallRecording().start(options);
 ```
 
 ### 2.2. Only for Unmixed - Specify channel affinity
 
-```csharp
-var channelAffinity = new ChannelAffinity(new CommunicationUserIdentifier("<ACS_USER_MRI>")) { Channel = 0};
-StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>"))
+```javascript
+var options: StartRecordingOptions =
 {
-   RecordingContent = RecordingContent.Audio,
-   RecordingChannel = RecordingChannel.Unmixed,
-   RecordingFormat = RecordingFormat.Wav,
-   RecordingStateCallbackUri = new Uri("<CallbackUri>"),
-   ChannelAffinity = { channelAffinity }
+  callLocator: locator,
+  recordingContent: "audio",
+  recordingChannel:"unmixed",
+  recordingFormat: "wav",
+  recordingStateCallbackEndpointUrl: "<CallbackUri>",
+  ChannelAffinity:
+  [
+    {
+      channel:0,
+      targetParticipant:{communicationUserId: "<ACS_USER_MRI>"}
+    }
+  ]
 };
-Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording().StartAsync(recordingOptions);
+var response = await callAutomationClient.getCallRecording().start(options);
 ```
 The `StartAsync` API response contains the `recordingId` of the recording session.
 
-## 3.	Stop recording session using 'StopAsync' API
+## 3.	Stop recording session using 'stop' API
 
-Use the `recordingId` received in response of `StartAsync`.
+Use the `recordingId` received in response of `start`.
 
-```csharp
-var stopRecording = await callAutomationClient.GetCallRecording().StopAsync(recordingId);
+```javascript
+var stopRecording = await callAutomationClient.getCallRecording().stop(recordingId);
 ```
 
-## 4.	Pause recording session using 'PauseAsync' API
+## 4.	Pause recording session using 'pause' API
 
-Use the `recordingId` received in response of `StartAsync`.
+Use the `recordingId` received in response of `start`.
 
-```csharp
-var pauseRecording = await callAutomationClient.GetCallRecording ().PauseAsync(recordingId);
+```javascript
+var pauseRecording = await callAutomationClient.getCallRecording().pause(recordingId);
 ```
 
 ## 5.	Resume recording session using 'ResumeAsync' API
 
-Use the `recordingId` received in response of `StartAsync`.
+Use the `recordingId` received in response of `start`.
 
-```csharp
-var resumeRecording = await callAutomationClient.GetCallRecording().ResumeAsync(recordingId);
+```javascript
+var resumeRecording = await callAutomationClient.getCallRecording().resume(recordingId);
 ```
 
 ## 6.	Download recording File using 'DownloadToAsync' API
@@ -156,19 +166,17 @@ Below is an example of the event schema.
 }
 ```
 
-Use `DownloadToAsync` API for downloading the recorded media.
+Use `downloadToPath` API for downloading the recorded media.
 
-```csharp
-var recordingDownloadUri = new Uri(contentLocation);
-var response = await callAutomationClient.GetCallRecording().DownloadToAsync(recordingDownloadUri, fileName);
+```javascript
+var response = await callAutomationClient.getCallRecording().downloadToPath(contentLocation, fileName);
 ```
 The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `DownloadToAsync` method download the content into provided filename.
 
 ## 7. Delete recording content using 'DeleteAsync' API
 
-Use `DeleteAsync` API for deleting the recording content (for example, recorded media, metadata)
+Use `delete` API for deleting the recording content (for example, recorded media, metadata)
 
-```csharp
-var recordingDeleteUri = new Uri(deleteLocation);
-var response = await callAutomationClient.GetCallRecording().DeleteAsync(recordingDeleteUri);
+```javascript
+var response = await callAutomationClient.getCallRecording().delete(deleteLocation);
 ```
