@@ -73,7 +73,7 @@ When you select a specific model version for a deployment this version will rema
 
 ### GPT-35-Turbo 0301 and GPT-4 0314 expiration
 
-The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire no earlier than September 30th, 2023. Upon expiration their deployments will automatically be upgraded to the default version at the time of expiry.  If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.  
+The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire no earlier than September 30th, 2023. Upon expiration deployments will automatically be upgraded to the default version at the time of expiry.  If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.  
 
 ### Viewing deprecation dates
 
