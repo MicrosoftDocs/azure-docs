@@ -144,7 +144,7 @@ It's recommended that you install the Log Analytics agent on at least two server
 
 #### New Azure virtual machine
 
-If you're creating a new Azure VM for monitoring connectivity your VNet, you can install the Network Watcher agent when [creating the VM](../network-watcher/connection-monitor.md#create-the-first-vm).
+If you're creating a new Azure VM for monitoring connectivity your VNet, you can install the Network Watcher agent when creating the VM.
 
 #### Existing Azure virtual machine
 
