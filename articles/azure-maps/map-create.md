@@ -158,7 +158,7 @@ In the following code, the first code block creates a map and sets the enter and
     
     /* Animate map view to set camera location
        to random points on the map*/
-    function animateMap(){
+    function animateMap() {
       map.setCamera({
       zoom: Math.random() *2 + 12,
       duration: 1000,
