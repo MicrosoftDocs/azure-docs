@@ -150,7 +150,7 @@ sections:
 
       - question: How long can I retain backup points of Azure VM using the backup policy?
         answer: |
-          The maximum retention of backup points are:
+          The maximum retention of the backup points are:
 
           - **Retention of daily backup points**: 9999 days
           - **Retention of weekly backup points**: 5163 weeks
