@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 05/03/2023
+ms.date: 06/13/2023
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
