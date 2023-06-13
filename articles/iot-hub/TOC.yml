@@ -39,12 +39,17 @@
       href: ../iot-hub-device-update/device-update-raspberry-pi.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
-    - name: Data visualization in Power BI
-      displayName: Stream Analytics
-      href: iot-hub-live-data-visualization-in-power-bi.md
     - name: Create and upload certificates for testing
       displayName: X.509 certificates, root certificate authority (CA), verify certificate, certificate signing request (CSR)
       href: tutorial-x509-test-certs.md
+    - name: Integrate with other services
+      items:
+      - name: Visualize data in Power BI
+        displayName: Stream Analytics
+        href: iot-hub-live-data-visualization-in-power-bi.md
+      - name: Visualize data in an App Service web app
+        displayName: Node.js
+        href: iot-hub-live-data-visualization-in-web-apps.md
 - name: Concepts
   items:
     - name: IoT Hub concepts overview
@@ -443,11 +448,6 @@
               href: iot-hub-raspberry-pi-kit-c-get-started.md
     - name: Extended IoT scenarios
       items:
-        - name: Device management with IoT extension for Azure CLI
-          href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
-        - name: Data visualization in a web app
-          displayName: Node.js, App Service
-          href: iot-hub-live-data-visualization-in-web-apps.md
         - name: Remote monitoring and notifications with Logic Apps
           href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
     - name: Troubleshoot and problem solution

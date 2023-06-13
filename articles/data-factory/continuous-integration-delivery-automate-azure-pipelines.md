@@ -8,7 +8,7 @@ ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 10/25/2022 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Automate continuous integration using Azure Pipelines releases

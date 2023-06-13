@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 8/11/2020
-ms.custom: mvc
+ms.custom: mvc, build-2023, build-2023-dataai
 ---
 
 # Tutorial: Build a PHP (Laravel) and MySQL Flexible Server app on Azure App Service

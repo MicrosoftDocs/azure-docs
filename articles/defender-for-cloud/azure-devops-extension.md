@@ -17,7 +17,7 @@ The Microsoft Security DevOps uses the following Open Source tools:
 
 | Name | Language | License |
 |--|--|--|
-| [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Windows Defender, that scans source code and breaks the build if malware has been found | Not Open Source |
+| [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Microsoft Defender for Endpoint, that scans for malware and breaks the build if malware has been found. This tool scans by default on windows-latest agent. | Not Open Source |
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
 | [Credscan](detect-exposed-secrets.md) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: default passwords, SQL connection strings, Certificates with private keys | Not Open Source |
@@ -124,9 +124,9 @@ The pipeline will run for a few minutes and save the results.
 
 ## Learn more
 
-- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
-- Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure?toc=%2Fazure%2Fdevops%2Fcross-service%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fcross-service%2Fbreadcrumb%2Ftoc.json&view=azure-devops).
+- Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure).
 
 ## Next steps
 

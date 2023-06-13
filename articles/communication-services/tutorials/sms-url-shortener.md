@@ -10,6 +10,7 @@ ms.date: 03/8/2023
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: sms
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
 ---
 

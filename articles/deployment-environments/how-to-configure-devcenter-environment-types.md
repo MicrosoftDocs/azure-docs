@@ -3,7 +3,7 @@ title: Configure dev center environment types
 titleSuffix: Azure Deployment Environments
 description: Learn how to define dev center level permissions and deployment settings for the environments that developers can deploy.
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 04/25/2023
@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Configure environment types for a dev center
 
-In Azure Deployment Environments Preview, you use [environment types](./concept-environments-key-concepts.md#dev-center-environment-types) to define the environments that development teams can deploy. You have the flexibility to name the environment types according to the nomenclature that your enterprise uses: for example, sandbox, dev, test, or production. You can specify deployment settings and the permissions that are available to developers per environment type and per project. 
+In Azure Deployment Environments, you use [environment types](./concept-environments-key-concepts.md#dev-center-environment-types) to define the environments that development teams can deploy. You have the flexibility to name the environment types according to the nomenclature that your enterprise uses: for example, sandbox, dev, test, or production. You can specify deployment settings and the permissions that are available to developers per environment type and per project. 
 
 In this article, you'll learn how to:
 
@@ -20,9 +20,6 @@ In this article, you'll learn how to:
 * Delete an environment type from a dev center.
 
 :::image type="content" source="./media/configure-dev-center-environment-types/azure-deployment-environments-environment-types.png" alt-text="Screenshot of example environment types.":::
-
-> [!IMPORTANT]
-> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Add a new dev center environment type
 

@@ -54,6 +54,12 @@ Create an Azure Bastion host to securely manage the virtual machines in the back
 
 * Create an Azure Bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion)
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
+
 ```azurepowershell-interactive
 ## Create backend subnet config ##
 $subnet = @{

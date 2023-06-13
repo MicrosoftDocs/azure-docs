@@ -416,6 +416,9 @@
     - name: Content Moderator
       tocHref: /azure/cognitive-services/content-moderator/
       topicHref: /azure/cognitive-services/content-moderator/
+    - name: Content Safety
+      tocHref: /azure/cognitive-services/content-safety/
+      topicHref: /azure/cognitive-services/content-safety/
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
@@ -910,9 +913,9 @@
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
-  - name: Resiliency
-    tocHref: /azure/resiliency/
-    topicHref: /azure/architecture/framework/resiliency/app-design
+  - name: Reliability
+    tocHref: /azure/reliability/
+    topicHref: /azure/reliability
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/

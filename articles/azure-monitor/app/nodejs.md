@@ -148,9 +148,9 @@ Review their descriptions in your IDE's built-in type hinting or [applicationins
 
 ### Sampling
 
-By default, the SDK will send all collected data to the Application Insights service. If you want to enable sampling to reduce the amount of data, set the `samplingPercentage` field on the `config` object of a client. Setting `samplingPercentage` to 100 (the default) means all data will be sent, and 0 means nothing will be sent.
+By default, the SDK sends all collected data to the Application Insights service. If you want to enable sampling to reduce the amount of data, set the `samplingPercentage` field on the `config` object of a client. Setting `samplingPercentage` to 100 (the default) means all data will be sent, and 0 means nothing will be sent.
 
-If you're using automatic correlation, all data associated with a single request will be included or excluded as a unit.
+If you're using automatic correlation, all data associated with a single request is included or excluded as a unit.
 
 Add code such as the following to enable sampling:
 
@@ -176,7 +176,7 @@ appInsights.start();
 
 ### Automatic web Instrumentation[Preview]
 
- Automatic web Instrumentation can be enabled for node server via configuration 
+ Automatic web Instrumentation can be enabled for node server via SDK Loader Script injection by configuration.
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -187,11 +187,11 @@ appInsights.setup("<connection_string>")
 
 or by setting environment variable `APPLICATIONINSIGHTS_WEB_INSTRUMENTATION_ENABLED = true`.
 
-Web Instrumentation will be enabled on node server responses when all of the following requirements are met:
+Web Instrumentation is enabled on node server responses when all of the following requirements are met:
 
 - Response has status code `200`.
 - Response method is `GET`.
-- Sever response has `Content-Type` html.
+- Server response has `Content-Type` html.
 - Server response contains both `<head>` and `</head>` Tags.
 - If response is compressed, it must have only one `Content-Encoding` type, and encoding type must be one of `gzip`, `br` or `deflate`.
 - Response does not contain current /backup web Instrumentation CDN endpoints.  (current and backup Web Instrumentation CDN endpoints [here](https://github.com/microsoft/ApplicationInsights-JS#active-public-cdn-endpoints))
@@ -204,7 +204,7 @@ web Instrumentation connection string can be changed by setting environment vari
 
 ### Automatic third-party instrumentation
 
-To track context across asynchronous calls, some changes are required in third-party libraries, such as MongoDB and Redis. By default, Application Insights will use [`diagnostic-channel-publishers`](https://github.com/Microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers) to monkey-patch some of these libraries. This feature can be disabled by setting the `APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL` environment variable.
+To track context across asynchronous calls, some changes are required in third-party libraries, such as MongoDB and Redis. By default, Application Insights uses [`diagnostic-channel-publishers`](https://github.com/Microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers) to monkey-patch some of these libraries. This feature can be disabled by setting the `APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL` environment variable.
 
 > [!NOTE]
 > By setting that environment variable, events might not be correctly associated with the right operation.
@@ -213,7 +213,7 @@ To track context across asynchronous calls, some changes are required in third-p
 
 Currently, nine packages are instrumented: `bunyan`,`console`,`mongodb`,`mongodb-core`,`mysql`,`redis`,`winston`,`pg`, and `pg-pool`. For information about exactly which version of these packages are patched, see the [diagnostic-channel-publishers' README](https://github.com/Microsoft/node-diagnostic-channel/blob/master/src/diagnostic-channel-publishers/README.md).
 
-The `bunyan`, `winston`, and `console` patches will generate Application Insights trace events based on whether `setAutoCollectConsole` is enabled. The rest will generate Application Insights dependency events based on whether `setAutoCollectDependencies` is enabled.
+The `bunyan`, `winston`, and `console` patches generate Application Insights trace events based on whether `setAutoCollectConsole` is enabled. The rest generates Application Insights dependency events based on whether `setAutoCollectDependencies` is enabled.
 
 ### Live metrics
 
@@ -224,7 +224,7 @@ To enable sending live metrics from your app to Azure, use `setSendLiveMetrics(t
 > [!NOTE]
 > The ability to send extended native metrics was added in version 1.4.0.
 
-To enable sending extended native metrics from your app to Azure, install the separate native metrics package. The SDK will automatically load when it's installed and start collecting Node.js native metrics.
+To enable sending extended native metrics from your app to Azure, install the separate native metrics package. The SDK automatically loads when it's installed and start collecting Node.js native metrics.
 
 ```bash
 npm install applicationinsights-native-metrics
@@ -238,7 +238,7 @@ Currently, the native metrics package performs autocollection of garbage collect
 
 ### Distributed tracing modes
 
-By default, the SDK will send headers understood by other applications or services instrumented with an Application Insights SDK. You can enable sending and receiving of [W3C Trace Context](https://github.com/w3c/trace-context) headers in addition to the existing AI headers. In this way, you won't break correlation with any of your existing legacy services. Enabling W3C headers will allow your app to correlate with other services not instrumented with Application Insights but that do adopt this W3C standard.
+By default, the SDK sends headers understood by other applications or services instrumented with an Application Insights SDK. You can enable sending and receiving of [W3C Trace Context](https://github.com/w3c/trace-context) headers in addition to the existing AI headers. In this way, you won't break correlation with any of your existing legacy services. Enabling W3C headers allows your app to correlate with other services not instrumented with Application Insights but that do adopt this W3C standard.
 
 ```Javascript
 const appInsights = require("applicationinsights");
@@ -369,7 +369,7 @@ server.on("listening", () => {
 
 By default, telemetry is buffered for 15 seconds before it's sent to the ingestion server. If your application has a short lifespan, such as a CLI tool, it might be necessary to manually flush your buffered telemetry when the application terminates by using `appInsights.defaultClient.flush()`.
 
-If the SDK detects that your application is crashing, it will call flush for you by using `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state and isn't suitable to send telemetry. Instead, the SDK will save all buffered telemetry to [persistent storage](./data-retention-privacy.md#nodejs) and let your application terminate. When your application starts again, it will try to send any telemetry that was saved to persistent storage.
+If the SDK detects that your application is crashing, it calls flush for you by using `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state and isn't suitable to send telemetry. Instead, the SDK saves all buffered telemetry to [persistent storage](./data-retention-privacy.md#nodejs) and lets your application terminate. When your application starts again, it tries to send any telemetry that was saved to persistent storage.
 
 ### Preprocess data with telemetry processors
 
@@ -379,7 +379,7 @@ You can process and filter collected data before it's sent for retention by usin
 public addTelemetryProcessor(telemetryProcessor: (envelope: Contracts.Envelope, context: { http.RequestOptions, http.ClientRequest, http.ClientResponse, correlationContext }) => boolean)
 ```
 
-If a telemetry processor returns `false`, that telemetry item won't be sent.
+If a telemetry processor returns `false`, that telemetry item isn't sent.
 
 All telemetry processors receive the telemetry data and its envelope to inspect and modify. They also receive a context object. The contents of this object are defined by the `contextObjects` parameter when calling a track method for manually tracked telemetry. For automatically collected telemetry, this object is filled with available request information and the persistent request content as provided by `appInsights.getCorrelationContext()` (if automatic dependency correlation is enabled).
 

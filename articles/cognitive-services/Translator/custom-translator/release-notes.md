@@ -6,14 +6,85 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 11/04/2022
+ms.date: 06/01/2023
 ms.author: lajanuar
 ms.topic: release-notes
 ms.custom: cogserv-non-critical-translator
 ---
 # Custom Translator release notes
 
-This page has the latest release notes for features, improvements, bug fixes, and known issues for the Custom Translator service.
+This page presents the latest feature, improvement, bug fix, and known issue release notes for Custom Translator service.
+
+## 2023-June release
+
+### June 2023 new features and model updates
+
+#### Custom Translator platform upgrade
+
+&emsp; 🆕 ***Model Upgrade Wizard*** is now available in **Workspace settings** to help guide customers through the V1-model-upgrade-to-new-platform process. For more information, *see* [Custom Translator platform upgrade](platform-upgrade.md).
+
+#### Custom Translator copy model
+
+&emsp; 🆕 ***Copy Model*** is now available in **Model details** to enable the copying of models from one workspace to another. This feature enables model lifecycle management (development → testing → production) and/or scaling. For more information, *see* [Copy a custom model](how-to/copy-model.md).
+
+#### Restrict access to published models
+
+ &emsp; Published model security is now enhanced and restricted access is now enabled within **Workspace settings** to allow only linked Translator resources to request translation.
+
+#### June language model updates
+
+&emsp; Current supported language pairs are listed in the following table. For higher quality, we encourage you to retrain your models accordingly. For more information, *see* [Language support](../language-support.md#custom-translator-language-pairs).
+
+|Source Language|Target Language|
+|:----|:----|
+| Czech (cs-cz)     | English (en-us) |
+| Danish (da-dk)     | English (en-us) |
+| German (de-&#8203;de)     | English (en-us) |
+| Greek (el-gr)     | English (en-us) |
+| English (en-us)     | Arabic (ar-sa) |
+| English (en-us)     | Czech (cs-cz) |
+| English (en-us)     | Danish (da-dk) |
+| English (en-us)     | German (de-&#8203;de) |
+| English (en-us)     | Greek (el-gr) |
+| English (en-us)     | Spanish (es-es) |
+| English (en-us)     | French (fr-fr) |
+| English (en-us)     | Hebrew (he-il) |
+| English (en-us)     | Hindi (hi-in) |
+| English (en-us)     | Croatian (hr-hr) |
+| English (en-us)     | Hungarian (hu-hu) |
+| English (en-us)     | Indonesian (id-id) |
+| English (en-us)     | Italian (it-it) |
+| English (en-us)     | Japanese (ja-jp) |
+| English (en-us)     | Korean (ko-kr) |
+| English (en-us)     | Lithuanian (lt-lt) |
+| English (en-us)     | Latvian (lv-lv) |
+| English (en-us)     | Norwegian (nb-no) |
+| English (en-us)     | Polish (pl-pl) |
+| English (en-us)     | Portuguese (pt-pt) |
+| English (en-us)     | Russian (ru-ru) |
+| English (en-us)     | Slovak (sk-sk) |
+| English (en-us)     | Swedish (sv-se) |
+| English (en-us)     | Ukrainian (uk-ua) |
+| English (en-us)     | Vietnamese (vi-vn) |
+| English (en-us)     | Chinese Simplified (zh-cn) |
+| Spanish (es-es)     | English (en-us) |
+| French (fr-fr)     | English (en-us) |
+| Hindi (hi-in)     | English (en-us) |
+| Hungarian (hu-hu)     | English (en-us) |
+| Indonesian (id-id)     | English (en-us) |
+| Italian (it-it)     | English (en-us) |
+| Japanese (ja-jp)     | English (en-us) |
+| Korean (ko-kr)     | English (en-us) |
+| Norwegian (nb-no)     | English (en-us) |
+| Dutch (nl-nl)     | English (en-us) |
+| Polish (pl-pl)     | English (en-us) |
+| Portuguese (pt-br)     | English (en-us) |
+| Russian (ru-ru)     | English (en-us) |
+| Swedish (sv-se)     | English (en-us) |
+| Thai (th-th)     | English (en-us) |
+| Turkish (tr-tr)     | English (en-us) |
+| Vietnamese (vi-vn)     | English (en-us) |
+| Chinese Simplified (zh-cn)     | English (en-us) |
 
 ## 2022-November release
 
@@ -25,9 +96,9 @@ This page has the latest release notes for features, improvements, bug fixes, an
 
 * Upload history has been added to the workspace, next to Projects and Documents tabs.
 
-#### Language model updates
+#### November language model updates
 
-* Language pairs are listed in the table below. We encourage you to retrain your models accordingly for higher quality.
+* Language pairs are listed in the following table. We encourage you to retrain your models accordingly for higher quality.
 
 |Source Language|Target Language|
 |:----|:----|

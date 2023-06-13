@@ -17,7 +17,7 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 |**Status** | Supported |
 
 > [!IMPORTANT]
-> Versions 22.2.x of the sensor are incompatible with Hyper-V. Until the issue has been resolved, we recommend using either version 22.3.x or 22.1.7.
+> Versions 22.2.x of the sensor are incompatible with Hyper-V. Until the issue has been resolved, we recommend using versions 22.3.x and above.
 
 ## Prerequisites
 
@@ -30,6 +30,9 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 - The OT sensor software [downloaded from Defender for IoT in the Azure portal](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal).
 
 Make sure the hypervisor is running.
+
+> [!NOTE]
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
 
 ## Create the virtual machine
 

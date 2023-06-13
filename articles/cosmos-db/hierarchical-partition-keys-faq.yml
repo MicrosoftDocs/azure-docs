@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions on hierarchical partition keys in Azure Cosmos DB (preview)
+  title: Frequently asked questions on hierarchical partition keys in Azure Cosmos DB
   description: Frequently asked questions about subpartitioning in Azure Cosmos DB
   author: seesharprun
   ms.author: sidandrews
-  ms.service: cosmos-db
-  ms.custom: event-tier1-build-2022, ignite-2022
-  ms.topic: faq
   ms.reviewer: dech
-  ms.date: 05/09/2022
-title: Frequently asked questions on hierarchical partition keys in Azure Cosmos DB (preview)
+  ms.service: cosmos-db
+  ms.topic: faq
+  ms.date: 05/05/2023
+  ms.custom: event-tier1-build-2022, ignite-2022, build-2023
+title: Frequently asked questions on hierarchical partition keys in Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
@@ -18,6 +18,10 @@ summary: |
 sections:
   - name: General
     questions:
+      - question: |
+          Can I add hierarchical partition keys to existing containers?
+        answer: |
+          This is not supported. However, you can create a new container with your desired hierarchical partition key and run a container copy job to copy data from your existing container to your new one. For more guidance on how to do this, check out our [documentation] (intra-account-container-copy.md).
       - question: |
           Is there a storage limit on the size of a logical partition key?
         answer: |
@@ -29,15 +33,15 @@ sections:
       - question: |
           What happens if I query and only specify a partition key in the "middle" of the path?
         answer: |
-          Your query will still be a cross-partition query. For example, if you partition by TenantId -> UserId, and provide only the UserId in the query, this query will fan out to all physical partitions. 
+          Your query is a cross-partition query. For example, if you partition by TenantId -> UserId, and provide only the UserId in the query, this query fans out to all physical partitions. 
           
           To have an efficiently routed query using the TenantId -> UserId example, there are two options:
-          - Provide the TenantId. Queries will go to all physical partitions containing the TenantId data.
-          - Provide both the TenantId and UserId. Queries will go to the single physical partition containing the TenantId and the specific UserId.
+          - Provide the TenantId. Queries go to all physical partitions containing the TenantId data.
+          - Provide both the TenantId and UserId. Queries go to the single physical partition containing the TenantId and the specific UserId.
       - question: |
           Do I have to create a new property in my documents to use this feature?
         answer: |
-          No. Specify the hierarchy of partition key paths you want to use during container creation. For example, if you partition by TenantId -> UserId, you don't need to create a new property with these values concatenated. Ensure that each document has a property TenantId and a property UserId. For more information, see [subpartitioning code examples](hierarchical-partition-keys.md#sample-code).
+          No. Specify the hierarchy of partition key paths you want to use during container creation. For example, if you partition by TenantId -> UserId, you don't need to create a new property with these values concatenated. Ensure that each document has a property TenantId and a property UserId. For more information, see [subpartitioning code examples](hierarchical-partition-keys.md#use-the-sdks-to-work-with-containers-with-hierarchical-partition-keys).
 
 additionalContent: |
 

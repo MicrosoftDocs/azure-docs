@@ -63,7 +63,7 @@ The end-users can only interact with the proxy resources, they never interact wi
 
 Azure users can see the latest image versions shared to the community in the portal, or query for them using the CLI. Only the latest version of an image is listed in the community gallery.
 
-When creating a community gallery, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing it:
+When creating a community gallery, you will need to provide contact information for your images. The objective and underlying intention of this information is to facilitate communication between the consumer of the image and the publisher, like if the consumer needs assistance. Be aware that Microsoft does not offer support for these images. This information will be shown **publicly**, so be careful when providing it:
 - Community gallery prefix
 - Publisher support email
 - Publisher URL

@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/25/2023
+ms.date: 03/31/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
@@ -150,10 +150,29 @@ The following example will walk you through setting up a custom synchronization 
 > [!NOTE]
 >- **msDS-cloudExtensionAttribute1** is an example source.
 >- **Starting with [Azure AD Connect 2.0.3.0](../hybrid/reference-connect-version-history.md#functional-changes-10), `employeeHireDate` is added to the default 'Out to Azure AD' rule, so steps 10-16 are not required.**
+>- **Starting with [Azure AD Connect 2.1.19.0](../hybrid/reference-connect-version-history.md#functional-changes-1), `employeeLeaveDateTime` is added to the default 'Out to Azure AD' rule, so steps 10-16 aren't required.**
 
 For more information, see [How to customize a synchronization rule](../hybrid/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/how-to-connect-sync-change-the-configuration.md)
 
 
+## How to verify these attribute values in Azure AD
+To review the values set on these properties on user objects in Azure AD, you can use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example:
+
+```PowerShell
+# Import Module
+Import-Module Microsoft.Graph.Users
+
+# Define the necessary scopes
+$Scopes =@("User.Read.All", "User-LifeCycleInfo.Read.All")
+
+# Connect using the scopes defined and select the Beta API Version
+Connect-MgGraph -Scopes $Scopes
+Select-MgProfile -Name beta
+
+# Query a user, using its user ID, and return the desired properties
+Get-MgUser -UserId "44198096-38ea-440d-9497-bb6b06bcaf9b" | Select-Object DisplayName, EmployeeLeaveDateTime
+```
+![Screenshot of the result.](media/how-to-lifecycle-workflow-sync-attributes/user-lifecycle-properties-return.png)
 
 ## Next steps
 - [What are lifecycle workflows?](what-are-lifecycle-workflows.md)

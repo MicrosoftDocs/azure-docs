@@ -1,5 +1,5 @@
 ---
-title: Minimal Prometheus ingestion profile in Azure Monitor (preview)
+title: Minimal Prometheus ingestion profile in Azure Monitor
 description: Describes minimal ingestion profile in Azure Monitor managed service for Prometheus and how you can configure it collect more data.
 ms.topic: conceptual
 ms.custom: ignite-2022
@@ -9,7 +9,7 @@ ms.reviewer: aul
 
 
 
-# Minimal ingestion profile for Prometheus metrics in Azure Monitor (preview)
+# Minimal ingestion profile for Prometheus metrics in Azure Monitor
 Azure monitor metrics addon collects number of Prometheus metrics by default. `Minimal ingestion profile` is a setting that helps reduce ingestion volume of metrics, as only metrics used by default dashboards, default recording rules & default alerts are collected. This article describes how this setting is configured. This article also lists metrics collected by default when `minimal ingestion profile` is enabled. You can modify collection to enable collecting more metrics, as specified below.
 
 > [!NOTE]

@@ -1,6 +1,6 @@
 ---
 title: Use the REST API to manage data export in Azure IoT Central
-description: How to use the IoT Central REST API to manage data export in an application
+description: How to use the IoT Central REST API to manage data export in an application. Export data to desinations such as blob storage, event hubs, and service bus.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/15/2022

@@ -1,14 +1,14 @@
 ---
 title: Use Python to connect and run SQL on Azure Cosmos DB for PostgreSQL
 description: See how to use Python to connect and run SQL statements on Azure Cosmos DB for PostgreSQL.
-ms.author: sasriram
-author: saimicrosoft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-python
 ms.topic: quickstart
 recommendations: false
-ms.date: 10/27/2022
+ms.date: 06/05/2023
 ---
 
 # Use Python to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
@@ -39,7 +39,7 @@ import psycopg2
 from psycopg2 import pool
 
 # NOTE: fill in these variables for your own cluster
-host = "c.<cluster>.postgres.database.azure.com"
+host = "c-<cluster>.<uniqueID>.postgres.cosmos.azure.com"
 dbname = "citus"
 user = "citus"
 password = "<password>"
@@ -184,7 +184,7 @@ import psycopg2
 import time
 from psycopg2 import pool
 
-host = "c.<cluster>.postgres.database.azure.com"
+host = "c-<cluster>.<uniqueID>.postgres.cosmos.azure.com"
 dbname = "citus"
 user = "citus"
 password = "<password>"

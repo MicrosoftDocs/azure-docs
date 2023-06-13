@@ -233,7 +233,7 @@ Check the expiration date of your service principal credentials using the [`az a
 az ad app credential list --id <app-id> --query "[].endDateTime" -o tsv
 ```
 
-The default expiration time for the service principal credentials is one year. If your credentials are older than one year, you can [reset the existing credentials](update-credentials.md#reset-the-existing-service-principal-credentials) or [create a new service principal](update-credentials.md#create-a-new-service-principal).
+The default expiration time for the service principal credentials is one year. If your credentials are older than one year, you can [reset the existing credentials][reset-credentials] or [create a new service principal][new-service-principal].
 
 **General Azure CLI troubleshooting**
 
@@ -284,7 +284,9 @@ For information on how to update the credentials, see [Update or rotate the cred
 [rbac-disk-contributor]: ../role-based-access-control/built-in-roles.md#virtual-machine-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: cluster-container-registry-integration.md
-[update-credentials]: update-credentials.md
+[update-credentials]: ./update-credentials.md
+[reset-credentials]: ./update-credentials.md#reset-the-existing-service-principal-credentials
+[new-service-principal]: ./update-credentials.md#create-a-new-service-principal
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
 [aks-permissions]: concepts-identity.md#aks-service-permissions
 [install-the-azure-az-powershell-module]: /powershell/azure/install-az-ps

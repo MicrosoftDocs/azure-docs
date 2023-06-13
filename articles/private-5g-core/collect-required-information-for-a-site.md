@@ -122,8 +122,8 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
 
    1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
 
-      - [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Private Mobile Network** service principal.
-      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (RBAC)](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Private Mobile Network** service principal.
+      - [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Azure Private MEC** service principal.
+      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (RBAC)](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Azure Private MEC** service principal.
       - If you want to, assign the Key Vault access policy or Azure RBAC to a [user-assigned identity](../active-directory/managed-identities-azure-resources/overview.md).
 
           - If you have an existing user-assigned identity configured for diagnostic collection you can modify it.
