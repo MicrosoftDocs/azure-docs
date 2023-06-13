@@ -28,7 +28,7 @@ In this tutorial, you play the role of an IT administrator for Woodgrove Bank. Y
  
 To use entitlement management, you must have one of these licenses:
 
-- Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
+- Microsoft Entra Premium P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).

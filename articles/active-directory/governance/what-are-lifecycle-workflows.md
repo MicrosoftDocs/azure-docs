@@ -71,7 +71,7 @@ You can use lifecycle workflows to address any of the following conditions:
 
 ## License requirements
 
-[!INCLUDE [Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license](../../../includes/lifecycle-workflows-license.md)]
+[!INCLUDE [Microsoft Entra Premium P2 or Microsoft Entra ID Governance license](../../../includes/lifecycle-workflows-license.md)]
 
 During this preview, you can:
 

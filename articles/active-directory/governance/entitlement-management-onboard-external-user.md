@@ -25,7 +25,7 @@ In this tutorial, you work for WoodGrove Bank as an IT administrator. You’ve b
 Approval is needed by an internal sponsor for collaborating organizations. Also, you've been informed that the partner's access needs to expire after 60 days.
 To use entitlement management, you must have one of the following licenses:
 
-- Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
+- Microsoft Entra Premium P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
@@ -38,7 +38,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 2. In the left menu, select **Identity Governance**.
 
-3. In the left menu, select **Access packages**. If you see Access denied, ensure that an Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license is present in your directory.
+3. In the left menu, select **Access packages**. If you see Access denied, ensure that an Microsoft Entra Premium P2 or Microsoft Entra ID Governance license is present in your directory.
 
 4. Select **New access package**.
 

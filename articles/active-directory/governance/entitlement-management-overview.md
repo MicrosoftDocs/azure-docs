@@ -142,7 +142,7 @@ To better understand entitlement management and its documentation, you can refer
 
 ### How many licenses must you have?
 
-Ensure that your directory has at least as many Microsoft Entra Premuim P2 or Microsoft Entra ID Governance licenses as you have:
+Ensure that your directory has at least as many Microsoft Entra Premium P2 or Microsoft Entra ID Governance licenses as you have:
 
 - Member users who *can* request an access package.
 - Member users who *request* an access package.
@@ -150,13 +150,13 @@ Ensure that your directory has at least as many Microsoft Entra Premuim P2 or Mi
 - Member users who *review assignments* for an access package.
 - Member users who have a *direct assignment* or an *automatic assignment* to an access package.
 
-For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Microsoft Entra Premuim P2 or Microsoft Entra ID Governance usage:
+For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Microsoft Entra Premium P2 or Microsoft Entra ID Governance usage:
 - Guest users who *request* an access package.
 - Guest users who *approve requests* for an access package.
 - Guest users who *review assignments* for an access package.
 - Guest users who have a *direct assignment* to an access package.
 
-Microsoft Entra Premuim P2 or Microsoft Entra ID Governance licenses are **not** required for the following tasks:
+Microsoft Entra Premium P2 or Microsoft Entra ID Governance licenses are **not** required for the following tasks:
 
 - No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegate administrative tasks to other users.
 - No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
