@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 06/13/2023
 ms.author: jammart
 ms.reviewer: santoshc
-ms.subservice: common 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement-fy23
 ---
 
@@ -42,6 +41,7 @@ Storage firewall rules apply to the public endpoint of a storage account. You do
 > When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
 >
 > Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
+
 Network rules are enforced on all network protocols for Azure Storage, including REST and SMB. To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must configure explicit network rules.
 
 After you apply network rules, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but they don't grant new access beyond configured network rules.
