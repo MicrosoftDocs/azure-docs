@@ -118,7 +118,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 ::: zone pivot="sc-consumption-plan,sc-enterprise"
 
-1. Use the following command to check the app's log to investigate any deployment issue:
+3. Use the following command to check the app's log to investigate any deployment issue:
 
    ```azurecli
    az spring app logs \
@@ -130,7 +130,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 ::: zone pivot="sc-standard"
 
-1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
+3. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
 
    :::image type="content" source="media/quickstart-deploy-event-driven-app/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
 
