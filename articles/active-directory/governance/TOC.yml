@@ -257,6 +257,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Services and integration partners
+    href: services-and-integration-partners.md
   - name: Identity Governance - PowerShell
     href: /powershell/module/microsoft.graph.identity.governance/?view=graph-powershell-beta&preserve-view=true
   - name: Access reviews - Microsoft Graph API
