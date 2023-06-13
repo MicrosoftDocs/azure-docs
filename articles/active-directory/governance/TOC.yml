@@ -89,7 +89,7 @@
       href: review-recommendations-access-reviews.md
     - name:  Review and remove users from external organizations
       href: access-reviews-external-users.md
-  - name: Lifecycle Workflows (Preview) 
+  - name: Lifecycle Workflows
     items:
     - name: Understanding Lifecycle Workflows
       href: understanding-lifecycle-workflows.md
@@ -222,7 +222,7 @@
       items:
       - name: Create an access review
         href: create-access-review-pim-for-groups.md
-  - name: Lifecycle Workflows (Preview)
+  - name: Lifecycle Workflows
     items:
       - name: Deployment
         href: lifecycle-workflows-deployment.md   
