@@ -15,7 +15,7 @@ Your web app or web API running in Azure App Service may need to sign in and aut
 
 - **Azure App Service built-in authentication** - Allows you to sign in users and access data by writing minimal or no code in your web app, RESTful API, or mobile back end. It’s built directly into the platform and doesn’t require any particular language, library, security expertise, or even any code to utilize.
 - **Microsoft Authentication Library (MSAL)** - Enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. Available in multiple supported platforms and frameworks, these are general purpose libraries that can be used in a variety of hosted environments. You can integrate with multiple sign-in providers. For example, Azure AD, Facebook, Google, Twitter.
-- **Microsoft.Identity.Web** - A wrapper for MSAL.NET, it provides a set of ASP.NET Core libraries that simplifies adding authentication support to web apps and web APIs integrating with the Microsoft identity platform. This library can be used in apps in a variety of hosted environments. You can integrate with multiple sign-in providers. For example, Azure AD, Facebook, Google, Twitter.
+- **Microsoft.Identity.Web** - A wrapper for MSAL.NET, it provides a set of ASP.NET Core libraries that simplifies adding authentication support to web apps and web APIs integrating with the Microsoft identity platform.  It provides a single-surface API convenience layer that ties together ASP.NET Core, its authentication middleware, and MSAL.NET. This library can be used in apps in a variety of hosted environments. You can integrate with multiple sign-in providers. For example, Azure AD, Facebook, Google, Twitter.
 
 ## Scenario recommendations
 
@@ -31,17 +31,17 @@ The following table lists authentication scenarios and the authentication soluti
 
 |Scenario |App Service built-in auth| Microsoft Authentication Library | Microsoft.Identity.Web |
 |:--|:--:|:--:|:--:|
-| Need a fast and simple way to limit access to user in your organization? | ✅ | ❌ | ❌ |
-| Able to modify the application code (app migration)? | ❌ | ✅ | ✅ |
-| Need to sign in users from external or social identity providers?  | ✅ | ✅ | ✅ |
-| Single page app or static web app? | ✅ | ✅ | ✅ |
-| Need to call more than one downstream API as the user? | ❌ | ✅ | ✅ |
+| Need a fast and simple way to limit access to users in your organization? | ✅ | ❌ | ❌ |
+| Unable to modify the application code (app migration scenario)? | ✅ | ❌ | ❌ |
 | Your app's language and libraries support user sign-in/authorization?  | ❌ | ✅ | ✅ |
 | Even if you can use a code solution, would you rather *not* use libraries? Don't want the maintenance burden?  | ✅ | ❌ | ❌ |
 | Does your web app need to provide incremental consent?  | ❌ | ✅ | ✅ |
 | Your app need to handle the access token expiring without making the user sign in again (use a refresh token)? | ❌ | ✅ | ✅ |
-| Need custom authorization logic or info about signed-in user? | ❌ | ✅ | ✅ |
-| Need some unauthenticated web pages? | ✅ | ✅ | ✅ |
+| Need custom authorization logic or info about the signed-in user? | ❌ | ✅ | ✅ |
+| Need to sign in users from external or social identity providers?  | ✅ | ✅ | ✅ |
+| You have an ASP.NET Core app? | ✅ | ❌ | ✅ |
+| You have a single page app or static web app? | ✅ | ✅ | ✅ |
+| Want Visual Studio integration? | ❌ | ✅ | ✅ |
 | Need single sign-on support in your IDE during local development? | ❌ | ✅ | ✅ |
 
 ## Built-in App Service authentication and authorization
@@ -57,7 +57,7 @@ The [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/ms
 
 To get started, read:
 - [Sign in users to a web app](/azure/active-directory/develop/scenario-web-app-sign-user-overview)
-- [Sign in users to a web API](/azure/active-directory/develop/scenario-protected-web-api-overview)
+- [Only allow authenticated user to access a web API](/azure/active-directory/develop/scenario-protected-web-api-overview)
 - [Sign in users to a single-page application (SPA)](/azure/active-directory/develop/scenario-spa-overview)
 
 ## Microsoft.Identity.Web
@@ -67,7 +67,7 @@ To get started, read:
 To get started, read:
 
 - [Sign in users to a web app](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore)
-- [Sign in users to a web API](/azure/active-directory/develop/scenario-protected-web-api-overview)
+- [Only allow authenticated user to access a web API](/azure/active-directory/develop/scenario-protected-web-api-overview)
 - [Sign in users to a Blazor Server app](/azure/active-directory/develop/tutorial-blazor-server)
 
 ## Next steps
