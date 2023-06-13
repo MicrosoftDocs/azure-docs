@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.date: 06/13/2023
 ms.custom: template-quickstart, mode-ui, engagement-fy23
 ---
 
@@ -22,7 +22,192 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 >
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Prerequisites
+## Bicep Template Modules
+
+The Bicep solution for this sample is broken down into modules to enable deployments at both a resource group and subscription scope. The template sections detailed below are the unique components for Virtual Network Manager. In addition to the sections detailed below, the solution deploys Virtual Networks, a User Assigned Identity, and a Role Assignment. 
+
+### Virtual Network Manager, Connectivity Configurations, and Network Groups
+
+#### Virtual Network Manager
+
+```bicep
+@description('This is the Azure Virtual Network Manager which will be used to implement the connected group for spoke-to-spoke connectivity.')
+resource networkManager 'Microsoft.Network/networkManagers@2022-09-01' = {
+  name: 'vnm-learn-prod-${location}-001'
+  location: location
+  properties: {
+    networkManagerScopeAccesses: [
+      'Connectivity'
+    ]
+    networkManagerScopes: {
+      subscriptions: [
+        '/subscriptions/${subscription().subscriptionId}'
+      ]
+      managementGroups: []
+    }
+  }
+}
+```
+
+#### Network Groups
+
+The solution supports creating either static membership Network Groups or dynamic membership Network Groups. The static membership network group specifies its members by Virtual Network ID
+
+**Static Membership Network Group**
+
+```bicep
+@description('This is the static network group for the spoke VNETs, and hub when topology is mesh.')
+resource networkGroupSpokesStatic 'Microsoft.Network/networkManagers/networkGroups@2022-09-01' = if (networkGroupMembershipType == 'static') {
+  name: 'ng-learn-prod-${location}-static001'
+  parent: networkManager
+  properties: {
+    description: 'Network Group - Static'
+  }
+
+  // add spoke vnets A, B, and C to the static network group
+  resource staticMemberSpoke 'staticMembers@2022-09-01' = [for spokeMember in spokeNetworkGroupMembers: if (contains(groupedVNETs,last(split(spokeMember,'/')))) {
+    name: 'sm-${(last(split(spokeMember, '/')))}'
+    properties: {
+      resourceId: spokeMember
+    }
+  }]
+
+  // add hub if connectivity topology is 'mesh' (otherwise, hub is connected via hub and spoke peering)
+  resource staticMemberHub 'staticMembers@2022-09-01' = {
+    name: 'sm-${(toLower(last(split(hubVnetId, '/'))))}'
+    properties: {
+      resourceId: hubVnetId
+    }
+  }
+}
+```
+
+**Dynamic Membership Network Group**
+
+```bicep
+@description('This is the dynamic group for spoke VNETs.')
+resource networkGroupSpokesDynamic 'Microsoft.Network/networkManagers/networkGroups@2022-09-01' = if (networkGroupMembershipType == 'dynamic') {
+  name: 'ng-learn-prod-${location}-dynamic001'
+  parent: networkManager
+  properties: {
+    description: 'Network Group - Dynamic'
+  }
+}
+```
+
+#### Deployment Script
+
+In order to deploy the configuration to the target network group, a Deployment Script is used to call the `Deploy-AzNetworkManagerCommit` PowerShell command. In addition to the Deployment Script, a User Assigned Identity is created and granted the 'Contributor' role on the target resources group. 
+
+```bicep
+@description('Create a Deployment Script resource to perform the commit/deployment of the Network Manager connectivity configuration.')
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+  name: deploymentScriptName
+  location: location
+  kind: 'AzurePowerShell'
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${userAssignedIdentityId}': {}
+    }
+  }
+  properties: {
+    azPowerShellVersion: '8.3'
+    retentionInterval: 'PT1H'
+    timeout: 'PT1H'
+    arguments: '-networkManagerName "${networkManagerName}" -targetLocations ${location} -configIds ${configurationId} -subscriptionId ${subscription().subscriptionId} -configType ${configType} -resourceGroupName ${resourceGroup().name}'
+    scriptContent: '''
+    param (
+      # AVNM subscription id
+      [parameter(mandatory=$true)][string]$subscriptionId,
+
+      # AVNM resource name
+      [parameter(mandatory=$true)][string]$networkManagerName,
+
+      # string with comma-separated list of config ids to deploy. ids must be of the same config type
+      [parameter(mandatory=$true)][string[]]$configIds,
+
+      # string with comma-separated list of deployment target regions
+      [parameter(mandatory=$true)][string[]]$targetLocations,
+
+      # configuration type to deploy. must be either connecticity or securityadmin
+      [parameter(mandatory=$true)][ValidateSet('Connectivity','SecurityAdmin')][string]$configType,
+
+      # AVNM resource group name
+      [parameter(mandatory=$true)][string]$resourceGroupName
+    )
+  
+    $null = Login-AzAccount -Identity -Subscription $subscriptionId
+  
+    [System.Collections.Generic.List[string]]$configIdList = @()  
+    $configIdList.addRange($configIds) 
+    [System.Collections.Generic.List[string]]$targetLocationList = @() # target locations for deployment
+    $targetLocationList.addRange($targetLocations)     
+    
+    $deployment = @{
+        Name = $networkManagerName
+        ResourceGroupName = $resourceGroupName
+        ConfigurationId = $configIdList
+        TargetLocation = $targetLocationList
+        CommitType = $configType
+    }
+  
+    try {
+      Deploy-AzNetworkManagerCommit @deployment -ErrorAction Stop
+    }
+    catch {
+      Write-Error "Deployment failed with error: $_"
+      throw "Deployment failed with error: $_"
+    }
+    '''
+    }
+}
+```
+
+#### Dynamic Network Group Membership Policy
+
+When the deployment is configured to use `dynamic` network group membership, the solution also deploys an Azure Policy Defintion and Assignment. The Policy Definition is shown below.
+
+```bicep
+@description('This is a Policy definition for dyanamic group membership')
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
+  name: uniqueString(networkGroupId)
+  properties: {
+    description: 'AVNM quickstart dynamic group membership Policy'
+    displayName: 'AVNM quickstart dynamic group membership Policy'
+    mode: 'Microsoft.Network.Data'
+    policyRule: {
+      if: {
+        allof: [
+          {
+            field: 'type'
+            equals: 'Microsoft.Network/virtualNetworks'
+          }
+          {
+            // virtual networks must have a tag where the key is '_avnm_quickstart_deployment'
+            field: 'tags[_avnm_quickstart_deployment]'
+            exists: true
+          }
+          {
+            // virtual network ids must include this sample's resource group ID - limiting the chance that dynamic membership impacts other vnets in your subscriptions
+            field: 'id'
+            like: '${subscription().id}/resourcegroups/${resourceGroupName}/*'
+          }
+        ]
+      }
+      then: {
+        // 'addToNetworkGroup' is a special effect used by AVNM network groups
+        effect: 'addToNetworkGroup'
+        details: {
+          networkGroupId: networkGroupId
+        }
+      }
+    }
+  }
+}
+```
+
+## Deployment Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Permissions to create a Policy Definition and Policy Assignment at the target subscription scope (this is required when using the deployment parameter `networkGroupMembershipType=Dynamic` to deploy the required Policy resources for Network Group membership. The default is `static`, which does not deploy a Policy.
@@ -34,7 +219,7 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 Alternatively, you can use `git` to clone the repo with `git clone https://github.com/mspnp/samples.git`
 
-### [Powershell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 #### Sign in to your Azure account and select your subscription
 
@@ -80,11 +265,12 @@ az account set -s <subscriptionId>
 
 When deploying or managing Azure Virtual Network Manager using infrastructure-as-code, special consideration should be given to the fact that Azure Virtual Network Manager configuration involves a two step process:
 
-A configuration and configuration scope or target are defined, then
-The configuration is deployed to the target resources (typically, Virtual Networks).
+  1. A configuration and configuration scope or target are defined, then
+  2. The configuration is deployed to the target resources (typically, Virtual Networks).
+
 To complete these steps using the Portal, you create a configuration then choose to deploy it in a separate action. For infrastructure code, after defining a configuration in code, the Azure Virtual Network Manager API must be called to perform a 'commit' action (mirroring the 'deploy' step in the Portal).
 
-Declarative infrastructure code on its own cannot call the API, requiring the use of a Deployment Script resource. The Deployment Script resource invokes a script in an Azure Container Instance to execute the Deploy-AzNetworkManagerCommit Azure PowerShell command.
+Declarative infrastructure code on its own cannot call the API, requiring the use of a Deployment Script resource. The Deployment Script resource (see [Deployment Script](#### Deployment Script)) invokes a script in an Azure Container Instance to execute the Deploy-AzNetworkManagerCommit Azure PowerShell command.
 
 Because the PowerShell script runs within the Deployment Script resource, troubleshooting a failed deployment may require reviewing the script logs found on the Deployment Script resource if the Deployment Script resource deployment reports a failure. It is also possible to view the deployment in the Portal, but note that the Portal interface may take several minutes to update after a code deployment is run.
 
@@ -92,9 +278,9 @@ Because the PowerShell script runs within the Deployment Script resource, troubl
 
 * **resourceGroupName**: [required] This parameter specifies the name of the resource group where the virtual network manager and sample virtual networks will be deployed.
 * **location**: [required] This parameter specifies the location of the resources to deploy. 
-* **networkGroupMembershipType**: [optional] This parameter specifies the type of Network Group membership to deploy. The default is `static`, but dynamic group membership can be used by specifying `dynamic`. Note, dynamic group membership deploys an Azure Policy to manage membership, requiring [additional permissions](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy). 
+* **networkGroupMembershipType**: [optional] This parameter specifies the type of Network Group membership to deploy. The default is `static`, but dynamic group membership can be used by specifying `dynamic`. Note, dynamic group membership deploys an Azure Policy to manage membership, requiring [more permissions](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy). 
 
-### [Powershell](#tab/powershell1)
+### [PowerShell](#tab/powershell1)
 
 ```powershell
     $templateParameterObject = @{
@@ -116,13 +302,13 @@ Because the PowerShell script runs within the Deployment Script resource, troubl
 
 Use the **Network Manager** section for each virtual network to verify that you deployed your configuration:
 
-1. Go to the **vnet-spokeA** virtual network.
+1. Go to the **vnet-learn-prod-{location}-spoke001** virtual network.
 1. Under **Settings**, select **Network Manager**.
-1. On the **Connectivity Configurations** tab, verify that **cc-{location}-mesh** appears in the list.
+1. On the **Connectivity Configurations** tab, verify that **cc-learn-prod-{location}-mesh001** appears in the list.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of a connectivity configuration listed for a virtual network." lightbox="./media/create-virtual-network-manager-portal/vnet-configuration-association.png":::
 
-1. Repeat the previous steps on **vnet-spokeD**--you should see the **vnet-spokeD** is excluded from the connectivity configuration.
+1. Repeat the previous steps on **vnet-learn-prod-{location}-spoke004**--you should see the **vnet-learn-prod-{location}-spoke004** is excluded from the connectivity configuration.
 
 ## Clean up resources
 
