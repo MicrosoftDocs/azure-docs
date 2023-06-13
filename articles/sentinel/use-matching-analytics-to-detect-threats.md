@@ -10,13 +10,7 @@ ms.author: austinmc
 
 # Use matching analytics to detect threats
 
-Take advantage of threat intelligence produced by Microsoft to generate high fidelity alerts and incidents with the **Microsoft Defender Threat Intelligence Analytics** rule. This rule will match indicators with the following logs:
-
-- Common Event Format (CEF) logs
-- Windows DNS events with domain, IP and URL threat indicators
-- Syslog data
-- Office activity logs
-- Azure activity logs
+Take advantage of threat intelligence produced by Microsoft to generate high fidelity alerts and incidents with the **Microsoft Defender Threat Intelligence Analytics** rule. This built-in rule in Microsoft Sentinel matches indicators with Common Event Format (CEF) logs, Windows DNS events with domain and IPv4 threat indicators, syslog data, and more.
 
 > [!IMPORTANT]
 > Matching analytics is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -24,8 +18,7 @@ Take advantage of threat intelligence produced by Microsoft to generate high fid
 
 ## Prerequisites
 
-- Install the solution **Threat Intelligence (Preview)** from the content hub in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)](sentinel-solutions-deploy.md).
-- Install the appropriate solutions from the content hub and connect the data connectors to get following data sources in Microsoft Sentinel:
+Install the appropriate solutions from the content hub and connect the data connectors to get following data sources in Microsoft Sentinel:
 
   - Common Event Format (CEF)
   - DNS (Preview)
@@ -39,17 +32,15 @@ Take advantage of threat intelligence produced by Microsoft to generate high fid
 
   |Solution |Data connector  |
   |---------|---------|
-  |[Common Event Format solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-commoneventformat?tab=Overview) | [Common Event Format (CEF) via AMA connector for Microsoft Sentinel](data-connectors/common-event-format-cef-via-ama.md)|
-  |[Windows Server DNS](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dns?tab=Overview)  |[Windows DNS Events via AMA (Preview) connector for Microsoft Sentinel](data-connectors/windows-dns-events-via-ama.md) |
+  |[Common Event Format solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-commoneventformat?tab=Overview) | [Common Event Format (CEF) connector for Microsoft Sentinel](data-connectors/common-event-format-cef.md)|
+  |[Windows Server DNS](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dns?tab=Overview)  |[DNS connector for Microsoft Sentinel](data-connectors/dns.md) |
   |[Syslog solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-syslog?tab=Overview)  |[Syslog connector for Microsoft Sentinel](data-connectors/syslog.md)  |
   |[Microsoft 365 solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-office365?tab=Overview) | [Office 365 connector for Microsoft Sentinel](data-connectors/office-365.md)    |
   |[Azure Activity solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivity?tab=Overview)    |  [Azure Activity connector for Microsoft Sentinel](data-connectors/azure-activity.md)       |
 
-
-
 ## Configure the matching analytics rule
 
-Matching analytics is configured when you enable the **Microsoft Defender Threat Intelligence Analytics** rule. 
+Matching analytics is configured when you enable the **Microsoft Defender Threat Intelligence Analytics** rule.
 
 1. Click the **Analytics** menu from the **Configuration** section.
 
