@@ -1,6 +1,6 @@
 ---
-title: Global Secure Access remote network configurations
-description: Global Secure Access configurations for remote network device links.
+title: Global Secure Access supported locations
+description: Global Secure Access supported locations.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -40,4 +40,4 @@ Microsoft Entra Private Access is currently supported in the following locations
 | Dublin, Ireland | Toronto, Ontario, Canada |
 | Paris, France | |
 
-The locations in the preceding table are also supported for the private preview of the public internet traffic forwarding profile of Microsoft Entra Internet Access.
+The locations in the preceding table are also supported for the private preview of Microsoft Entra Internet Access public internet traffic forwarding profiles.
