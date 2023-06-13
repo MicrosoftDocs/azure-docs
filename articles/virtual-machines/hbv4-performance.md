@@ -70,11 +70,13 @@ Define source(src) and destination(dst).
 
 ## Mellanox Perftest
 The [Mellanox Perftest package](https://github.com/linux-rdma/perftest) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below.
+
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
+
 [!NOTE]
-NUMA node affinity for InfiniBand NIC is NUMA0.
+The NUMA node affinity for InfiniBand NIC is NUMA0.
 
 ## Next steps
 - Learn about [scaling MPI applications](./workloads/hpc/compiling-scaling-applications.md).
