@@ -89,7 +89,7 @@ If your client app calls an API, then you need to also protect the API endpoints
 
 ## Do I use App Roles or Groups?
 
-In this article, you've learnt that you can use *App Roles* or *Groups* to implement RBAC in your application. The preferred approach is to use app roles as it is the easiest to implement. For more information on how to choose an approach, see [Choose an approach](../../develop/custom-rbac-for-developers.md#choose-an-approach).   
+In this article, you have learned that you can use *App Roles* or *Groups* to implement RBAC in your application. The preferred approach is to use app roles as it is the easiest to implement. For more information on how to choose an approach, see [Choose an approach](../../develop/custom-rbac-for-developers.md#choose-an-approach).   
 
 ## Next steps
 
