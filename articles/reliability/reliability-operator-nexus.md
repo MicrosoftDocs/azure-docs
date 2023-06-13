@@ -35,6 +35,33 @@ In a zone-down scenario, API calls against the cluster and resource providers wo
 ### Zonal failover support
 
 In the case of a zonal failure, reconnection to an Azure zone is automatic and requires no interaction from the user.
+## Availability on Nexus on-premises deployments
+
+Ensuring availability in the Azure Operator Nexus workload deployments is a split responsibility. As stated in the previous section, the Nexus platform resources are deployed with availability zone redundancy. In this section, we consider best practices for on-premises workload availability.
+
+In general, availability targets are achieved through local and geo-redundant deployments. 
+
+### Nexus zone: a mechanism for local workload redundancy
+
+Operator Nexus on-premises clusters (aka instances) consist of a multi-rack design that provides physical redundancy at all levels of the stack. Each rack is designated as a failure domain and, thus, can be configured as a Nexus zone where these zones can and, preferably, should be used for local redundant workload deployments.
+
+### Nexus cluster: a mechanism for geo workload redundancy
+
+The Nexus on-premises clusters are hosted in a specific Azure region. As stated previously, the used Azure services and the Nexus resources are deployed in multiple availability zones of that Azure region.
+
+Nexus clusters that are geographically distributed, i.e., not in the same operator data center (possibly not even the same geographic region), **and hosted on different Azure regions** should be utilized to redundantly deploy workloads for geo-redundancy.
+
+> [!WARNING]
+> Deploying workloads on, say, two geographically distributed Nexus clusters is insufficient to achieve true geo-redundancy unless the geo-redundant Nexus clusters are hosted on different Azure regions.
+> 
+> In the unlikely event that an Azure region becomes unavailable, the Azure services as well as the Nexus resources on that region will also become unavailable. While this doesn't impact running workloads, it prevents capabilities such as starting new workloads, analytics, etc.
+
+### Multiple Nexus clusters in the same geo-location
+
+There are scenarios where multiple Nexus clusters need to be deployed in the same geographic location.
+Workload geo-redundancy is obviously not achieved by deploying workloads on Nexus clusters in the same geographic location.
+
+One consideration in designing for reliability, other than availability, is resiliency and the ability to recover from failures. Recovery from failures, and the ability to meet recovery time objectives, requires that we limit the "blast" or impact radius of failures.  In the scenario where multiple Nexus clusters are deployed in the same geo-location, resilient design demands that these Nexus clusters be hosted on different Azure regions. Thus, when an Azure region fails, its impact is limited to one Nexus instance.
 
 ## Next steps
 
