@@ -34,7 +34,7 @@ Assigning a policy creates a baseline snapshot that is the current state of the 
 
 ## Configure a backup policy
 
-A backup policy enables a volume to be protected on a regularly scheduled interval.  
+A backup policy enables a volume to be protected on a regularly scheduled interval. It does not require snapshot policies to be configured. Backup policies continues the daily cadence based on the time of day when the backup policy is linked to the volume, using the time zone of the Azure region where the volume exists. Weekly schedules are preset to occur each Sunday after 11:59 p.m. Monthly schedules are preset to occur after 11:59 p.m. on the last day of each calendar month. If backups are needed at a specific time/day, consider using [manual backups](backup-configure-manual.md). 
 
 You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended either by disabling the policy or by disabling backups at the volume level. Backups can also be completely disabled at the volume level, resulting in the clean-up of all the associated data in the Azure storage. A backup policy can't be deleted if it's attached to any volumes.
 

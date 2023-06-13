@@ -29,8 +29,7 @@ Use the Image Analysis client SDK for C++ to analyze an image to read text and g
     * You need the key and endpoint from the resource you create to connect your application to the Computer Vision service. 
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Set up application
 
@@ -64,8 +63,7 @@ From the project directory, open the _ImageAnalysisQuickstart.cpp_ file that was
 
 Then, compile and run the application by selecting **Start Debugging** from the **Debug** menu at the top of the IDE window (or press **F5**). You should see output similar to the one shown here.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>
+
 
 ## Output
 
@@ -134,9 +132,6 @@ Text:
      Word: "Product", Bounding polygon {{539,370},{559,371},{558,376},{539,376}}, Confidence 0.615
      Word: "review", Bounding polygon {{560,371},{576,371},{575,376},{559,376}}, Confidence 0.04
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Output" target="_target">I ran into an issue</a>
 
 ## Clean up resources
 
