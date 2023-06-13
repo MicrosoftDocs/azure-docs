@@ -8,6 +8,7 @@ ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp, javascript
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Connect Azure Functions to Azure SQL Database using Visual Studio Code
@@ -534,10 +535,10 @@ You've updated your HTTP triggered function to write data to Azure SQL Database.
 ::: zone pivot="programming-language-javascript"  
 + [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
-+ [Azure Functions JavaScript developer guide](functions-reference-node.md)  
++ [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
 
-+ [Azure Functions Python developer guide](functions-reference-node.md)  
++ [Azure Functions Python developer guide](functions-reference-python.md)  
 ::: zone-end

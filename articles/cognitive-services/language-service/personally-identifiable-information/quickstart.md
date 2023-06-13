@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 02/17/2023
 ms.author: jboback
 ms.devlang: csharp, java, javascript, python
-ms.custom: language-service-pii, ignite-fall-2021, mode-other
+ms.custom: language-service-pii, ignite-fall-2021, mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
@@ -57,8 +57,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
 
 ## Next steps
 

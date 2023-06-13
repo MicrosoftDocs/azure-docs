@@ -32,6 +32,20 @@ You should be familiar with the concept of AI face detection. If you aren't, see
 * [Face detection concepts](../concept-face-detection.md)
 * [Call the detect API](identity-detect-faces.md)
 
+
+## Evaluate different models
+
+The different face detection models are optimized for different tasks. See the following table for an overview of the differences.
+
+|**detection_01**  |**detection_02**  |**detection_03** 
+|---------|---------|---|
+|Default choice for all face detection operations. | Released in May 2019 and available optionally in all face detection operations. |  Released in February 2021 and available optionally in all face detection operations.
+|Not optimized for small, side-view, or blurry faces.  | Improved accuracy on small, side-view, and blurry faces. | Further improved accuracy, including on smaller faces (64x64 pixels) and rotated face orientations.
+|Returns main face attributes (head pose, age, emotion, and so on) if they're specified in the detect call. |  Does not return face attributes.     | Returns mask and head pose attributes if they're specified in the detect call.
+|Returns face landmarks if they're specified in the detect call.   | Does not return face landmarks.  | Returns face landmarks if they're specified in the detect call.
+
+The best way to compare the performances of the detection models is to use them on a sample dataset. We recommend calling the [Face - Detect] API on a variety of images, especially images of many faces or of faces that are difficult to see, using each detection model. Pay attention to the number of faces that each model returns.
+
 ## Detect faces with specified model
 
 Face detection finds the bounding-box locations of human faces and identifies their visual landmarks. It extracts the face's features and stores them for later use in [recognition](../concept-face-recognition.md) operations.
@@ -50,7 +64,7 @@ If you are using the client library, you can assign the value for `detectionMode
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_04", detectionModel: "detection_03");
+var faces = await faceClient.Face.DetectWithUrlAsync(url: imageUrl, returnFaceId: false, returnFaceLandmarks: false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
 ## Add face to Person with specified model
@@ -91,18 +105,6 @@ This code creates a **FaceList** called `My face collection` and adds a Face to 
 > [!NOTE]
 > You don't need to use the same detection model for all faces in a **FaceList** object, and you don't need to use the same detection model when detecting new faces to compare with a **FaceList** object.
 
-## Evaluate different models
-
-The different face detection models are optimized for different tasks. See the following table for an overview of the differences.
-
-|**detection_01**  |**detection_02**  |**detection_03** 
-|---------|---------|---|
-|Default choice for all face detection operations. | Released in May 2019 and available optionally in all face detection operations. |  Released in February 2021 and available optionally in all face detection operations.
-|Not optimized for small, side-view, or blurry faces.  | Improved accuracy on small, side-view, and blurry faces. | Further improved accuracy, including on smaller faces (64x64 pixels) and rotated face orientations.
-|Returns main face attributes (head pose, age, emotion, and so on) if they're specified in the detect call. |  Does not return face attributes.     | Returns mask and head pose attributes if they're specified in the detect call.
-|Returns face landmarks if they're specified in the detect call.   | Does not return face landmarks.  | Returns face landmarks if they're specified in the detect call.
-
-The best way to compare the performances of the detection models is to use them on a sample dataset. We recommend calling the [Face - Detect] API on a variety of images, especially images of many faces or of faces that are difficult to see, using each detection model. Pay attention to the number of faces that each model returns.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
-ms.date: 11/25/2022
+ms.date: 05/23/2023
 ms.custom: engagement-fy23
 ---
 
@@ -57,6 +57,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Independent disks** | Not supported.
 **RDM/passthrough disks** | If VMs have RDM or passthrough disks, these disks won't be replicated to Azure.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
+**ReiserFS** | Not supported.
 **iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported. 
@@ -146,6 +147,7 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **Independent disks** | Supported.
 **Passthrough disks** | Supported.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
+**ReiserFS** | Not supported.
 **iSCSI targets** | Supported.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported

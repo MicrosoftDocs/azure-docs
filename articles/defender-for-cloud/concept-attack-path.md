@@ -4,7 +4,7 @@ description: Learn how to prioritize remediation of cloud misconfigurations and 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 03/06/2023
+ms.date: 05/07/2023
 ---
 
 # Identify and analyze risks across your environment
@@ -15,7 +15,7 @@ One of the biggest challenges that security teams face today is the number of se
 
 Defender for Cloud's contextual security capabilities assists security teams to assess the risk behind each security issue, and identify the highest risk issues that need to be resolved soonest. Defender for Cloud assists security teams to reduce the risk of an impactful breach to their environment in the most effective way.
 
-All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan and require the enablement of [agentless scanning for VMs](concept-agentless-data-collection.md)
+All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan and require you to enable either [agentless scanning for VMs](concept-agentless-data-collection.md) or the [vulnerability assessment capability](deploy-vulnerability-assessment-vm.md) on the [Defender for Servers plan](apply-security-baseline.md).
 
 ## What is cloud security graph?
 

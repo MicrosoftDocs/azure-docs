@@ -1,6 +1,6 @@
 ---
-title: Edit a device template in your Azure IoT Central application | Microsoft Docs
-description: Iterate over your device templates without impacting your live connected devices
+title: Edit device templates in your Azure IoT Central application
+description: Iteratively update your device templates without impacting your live connected devices by using versioned device templates.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/31/2022
@@ -11,8 +11,6 @@ ms.custom: device-developer
 ---
 
 # Edit an existing device template
-
-*This article applies to solution builders and device developers.*
 
 A device template includes a model that describes how a device interacts with IoT Central. This model defines the capabilities of the device and how to IoT Central interacts with them. Devices can send telemetry and property values to IoT Central, IoT Central can send property updates and commands to a device. IoT Central also uses the model to define interactions with IoT Central features such as jobs, rules, and exports.
 

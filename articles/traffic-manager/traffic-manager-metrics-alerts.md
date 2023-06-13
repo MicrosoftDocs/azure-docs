@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/11/2018
+ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: template-concept
 ---

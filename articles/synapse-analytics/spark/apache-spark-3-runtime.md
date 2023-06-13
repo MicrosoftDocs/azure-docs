@@ -7,7 +7,7 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 11/28/2022
 ms.author: eskot
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.1 (EOLA)

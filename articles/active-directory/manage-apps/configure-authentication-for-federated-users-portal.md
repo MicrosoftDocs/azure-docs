@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 03/16/2023
 ms.author: jomondi
 ms.reviewer: ludwignick
-ms.custom: seoapril2019, contperf-fy22q2
+ms.custom: seoapril2019, contperf-fy22q2, enterprise-apps
 ms.collection: M365-identity-device-management
 zone_pivot_groups: home-realm-discovery
 

@@ -58,10 +58,13 @@ Run an assessment as follows:
         - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
         - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' setting is not applicable.
-    **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
-    **Currency** | The billing currency for your account.
-    **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
-    **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings.
+        
+        **Option** | **Description**
+        ----- | -----
+        **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
+        **Currency** | The billing currency for your account.
+        **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
+        **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Retain the default settings for reserved instances and discount (%) properties.
 
 1. In **Create assessment**, select **Next**.
 1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment.

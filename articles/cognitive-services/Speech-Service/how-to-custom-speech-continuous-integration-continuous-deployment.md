@@ -7,7 +7,7 @@ author: nitinme
 manager: cmayomsft
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2022
 ms.author: nitinme
 ---

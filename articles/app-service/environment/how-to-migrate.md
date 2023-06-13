@@ -78,7 +78,7 @@ Using the new IPs, update any of your resources or networking components to ensu
 App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the [Azure portal](https://portal.azure.com).
 
 ```azurecli
-az network vnet subnet update --resource-group $VNET_RG -name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
+az network vnet subnet update --resource-group $VNET_RG --name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
 ```
 
 ## 6. Confirm there are no locks on the virtual network
@@ -94,7 +94,7 @@ az lock list --resource-group $VNET_RG --resource <vnet-name> --resource-type Mi
 Delete any exisiting locks using the following command.
 
 ```azurecli
-az lock delete --resource-group jordan-rg --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
+az lock delete --resource-group $VNET_RG --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
 ```
 
 For related commands to check if your subscription or resource group has locks, see [Azure CLI reference for locks](../../azure-resource-manager/management/lock-resources.md#azure-cli).
@@ -256,7 +256,7 @@ Once you've completed all of the above steps, you can start migration. Make sure
 
 When migration is complete, you'll have an App Service Environment v3, and all of your apps will be running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 
-If your migration included a custom domain suffix, for App Service Environment v3, the custom domain will no longer be shown in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously. 
+If your migration included a custom domain suffix, the domain was shown in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it is no longer shown there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously. 
 
 :::image type="content" source="./media/migration/custom-domain-suffix-app-service-environment-v3.png" alt-text="Screenshot that shows how to access custom domain suffix configuration for App Service Environment v3.":::
 

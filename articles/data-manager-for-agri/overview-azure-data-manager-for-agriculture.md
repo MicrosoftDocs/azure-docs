@@ -30,7 +30,7 @@ Azure Data Manager for Agriculture helps reduce data engineering investments thr
 
 ## Our key features
 
->:::image type="content" source="./media/about-data-manager.png" alt-text="Screenshot showing key features.":::
+:::image type="content" source="./media/about-data-manager.png" alt-text="Screenshot showing key features.":::
 
 * Ingest, store and manage farm data: Connectors for satellite, weather forecast, farm operations, sensor data and  extensibility framework help ingest your farm data. 
 * Run Apps on your farm data: Use REST APIs to power your apps. 

@@ -65,7 +65,6 @@
     items:
     - name: Manage with Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
-
   - name: Azure CLI samples
     items:
     - name: Overview
@@ -199,6 +198,12 @@
       href: cache-remove-tls-10-11.md
     - name: Management FAQs
       href: cache-management-faq.yml
+    - name: Azure Functions
+      href: cache-how-to-functions.md
+    - name: Role-based access control
+      href: cache-configure-role-based-access-control.md
+    - name: Azure AD for authentication
+      href: cache-azure-active-directory-for-authentication.md
   - name: Monitor
     items:
     - name: Monitor in Azure portal

@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 04/02/2023
+ms.date: 06/12/2023
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -24,7 +24,7 @@ Microsoft Azure cloud environments meet demanding US government compliance requi
 - [FedRAMP High](/azure/compliance/offerings/offering-fedramp) Provisional Authorization to Operate (P-ATO) issued by the FedRAMP Joint Authorization Board (JAB)
 - [DoD IL2](/azure/compliance/offerings/offering-dod-il2) Provisional Authorization (PA) issued by the Defense Information Systems Agency (DISA)
 
-**Azure Government** maintains the following authorizations that pertain to Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia:
+**Azure Government** maintains the following authorizations that pertain to Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions):
 
 - [FedRAMP High](/azure/compliance/offerings/offering-fedramp) P-ATO issued by the JAB
 - [DoD IL2](/azure/compliance/offerings/offering-dod-il2) PA issued by DISA
@@ -35,13 +35,12 @@ For current Azure Government regions and available services, see [Products avail
 
 > [!NOTE]
 >
-> - Some Azure services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
-> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
+> - Some Azure services deployed in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
+> - For DoD IL5 PA compliance scope in Azure Government regions US DoD Central and US DoD East (US DoD regions), see **[US DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
 
 **Azure Government Secret** maintains:
 
 - [DoD IL6](/azure/compliance/offerings/offering-dod-il6) PA issued by DISA
-- [ICD 503](/azure/compliance/offerings/offering-icd-503) ATO with facilities at ICD 705 (for authorization details, contact your Microsoft account representative)
 - [JSIG PL3](/azure/compliance/offerings/offering-jsig) ATO (for authorization details, contact your Microsoft account representative)
 
 **Azure Government Top Secret** maintains:
@@ -103,6 +102,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Sphere](/azure-sphere/) | &#x2705; | &#x2705; |
 | [Azure Spring Apps](../../spring-apps/index.yml) | &#x2705; | &#x2705; |
 | [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; |
+| [Azure Stack HCI](/azure-stack/hci/) | &#x2705; | &#x2705; |
 | [Azure Video Indexer](../../azure-video-indexer/index.yml) | &#x2705; | &#x2705; |
 | [Azure Virtual Desktop](../../virtual-desktop/index.yml) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; |
 | [Azure VMware Solution](../../azure-vmware/index.yml) | &#x2705; | &#x2705; |
@@ -192,6 +192,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Microsoft Graph](/graph/) | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/) | &#x2705; | &#x2705; |
+| [Microsoft Purview](../../purview/index.yml) (Includes Data Map, Governance Portal, and Data Estate Insight) | &#x2705; | &#x2705; |
 | [Microsoft Sentinel](../../sentinel/index.yml)  | &#x2705; | &#x2705; |
 | [Microsoft Stream](/stream/) | &#x2705; | &#x2705; |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; |
@@ -256,7 +257,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 
 ### Terminology used
 
-- Azure Government = Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia
+- Azure Government = Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions)
 - FedRAMP High = FedRAMP High Provisional Authorization to Operate (P-ATO) in Azure Government
 - DoD IL2 = DoD SRG Impact Level 2 Provisional Authorization (PA) in Azure Government
 - DoD IL4 = DoD SRG Impact Level 4 Provisional Authorization (PA) in Azure Government
@@ -267,7 +268,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 > [!NOTE]
 >
 > - Some services deployed in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
-> - For DoD IL5 PA compliance scope in Azure Government DoD regions US DoD Central and US DoD East (US DoD regions), see **[Azure Government DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
+> - For DoD IL5 PA compliance scope in Azure Government regions US DoD Central and US DoD East (US DoD regions), see **[US DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
 
 | Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5 | DoD IL6 |
 | ------- |:------------:|:-------:|:-------:|:-------:|:-------:|

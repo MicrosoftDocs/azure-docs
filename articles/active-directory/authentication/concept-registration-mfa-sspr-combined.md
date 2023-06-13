@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2023
+ms.date: 05/03/2023
 
 ms.author: justinha
 author: justinha
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Combined security information registration for Azure Active Directory overview
 
-Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for multifactor authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both multifactor authentication and SSPR. We recommend this video on [How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)
+Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for multifactor authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both multifactor authentication and SSPR. We recommend this video on [How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ).
 
 
 ![My Account showing registered Security info for a user](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
@@ -50,10 +50,15 @@ Combined registration supports the authentication methods and actions in the fol
 | FIDO2 security keys*| Yes | No | Yes |
 
 > [!NOTE]
-> <b>Alternate phone</b> can only be registered in *manage mode* on the [Security info](https://mysignins.microsoft.com/security-info) page and requires Voice calls to be enabled in the Authentication methods policy. <br /> 
-> <b>Office phone</b> can only be registered in *Interrupt mode* if the users *Business phone* property has been set. Office phone can be added by users in *Managed mode from the [Security info](https://mysignins.microsoft.com/security-info)* without this requirement.  <br />
-> <b>App passwords</b> are available only to users who have been enforced for per-user MFA. App passwords aren't available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy. <br />
-> <b>FIDO2 security keys</b>, can only be added in *manage mode only* on the [Security info](https://mysignins.microsoft.com/security-info) page.
+> If you enable Microsoft Authenticator for passwordless authentication mode in the Authentication methods policy, users need to also enable passwordless sign-in in the Authenticator app.
+>
+> Alternate phone can only be registered in *Manage mode* on [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) and requires Voice calls to be enabled in the Authentication methods policy.
+>
+> Office phone can only be registered in *Interrupt mode* if the users *Business phone* property has been set. Office phone can be added by users in *Managed mode* from [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) without this requirement.
+>
+> App passwords are available only to users who have been enforced for per-user MFA. App passwords aren't available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy.
+>
+> FIDO2 security keys, can only be added in *Manage mode* on [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
 
 Users can set one of the following options as the default multifactor authentication method. 
 

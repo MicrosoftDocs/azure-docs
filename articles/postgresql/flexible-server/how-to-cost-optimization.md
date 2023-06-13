@@ -27,8 +27,7 @@ This article provides a list of recommendations for optimizing Azure Postgres Fl
 
 ## 1. Use reserved capacity pricing
 
-Azure Postgres reserved capacity pricing allows committing to a specific capacity for 1-3 years, saving costs for customers using Azure Database for PostgreSQL service. The cost savings compared to pay-as-you-go pricing can be significant, depending on the amount of capacity reserved and the length of the term. Customers can purchase reserved capacity in increments of vCores and storage. Reserved capacity can cover costs for Azure Database for PostgreSQL servers in the same region, applied to the customer's Azure subscription. Reserved Pricing for Azure Postgres Flexible Server offers cost savings up to 40% for 1 year and up to 60% for 3-year commitments, for customers who reserve capacity. For more details, please refer Pricing Calculator | Microsoft Azure
-
+Azure Postgres reserved capacity pricing allows committing to a specific capacity for **1-3** **years**, saving costs for customers using Azure Database for PostgreSQL service. The cost savings compared to pay-as-you-go pricing can be significant, depending on the amount of capacity reserved and the length of the term. Customers can purchase reserved capacity in increments of vCores and storage. Reserved capacity can cover costs for Azure Database for PostgreSQL servers in the same region, applied to the customer's Azure subscription. Reserved Pricing for Azure Postgres Flexible Server offers cost savings up to 40% for 1 year and up to 60% for 3-year commitments, for customers who reserve capacity. For more details, please refer Pricing Calculator | Microsoft Azure
 To learn more, refer [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
 ## 2. Scale compute up/down
@@ -138,3 +137,4 @@ To learn more about cost optimization, see:
 * [Tradeoffs for cost](/azure/architecture/framework/cost/tradeoffs)
 * [Checklist - Optimize cost](/azure/architecture/framework/cost/optimize-checklist)
 * [Checklist - Monitor cost](/azure/architecture/framework/cost/monitor-checklist)
+

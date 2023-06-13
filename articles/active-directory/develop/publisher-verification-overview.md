@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2022
+ms.date: 04/27/2023
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: ardhanap, brianokoyo, jesakowi
+ms.reviewer: xurobert
 ---
 
 # Publisher verification

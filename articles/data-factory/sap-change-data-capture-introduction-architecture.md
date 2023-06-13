@@ -52,7 +52,7 @@ The Azure side includes the Data Factory mapping data flow that can transform an
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-architecture-diagram.png" border="false" alt-text="Diagram of the architecture of the SAP CDC solution.":::
 
-To get started, create a Data Factory SAP CDC linked service, an SAP CDC source dataset, and a pipeline with a mapping data flow activity in which you use the SAP CDC source dataset. To extract the data from SAP, a self-hosted integration runtime is required that you install on an on-premises computer or on a virtual machine (VM). An on-premises computer has a line of sight to your SAP source systems and to your SLT server. The Data Factory data flow activity runs on a serverless Azure Databricks or Apache Spark cluster, or on an Azure integration runtime.
+To get started, create a Data Factory SAP CDC linked service, an SAP CDC source dataset, and a pipeline with a mapping data flow activity in which you use the SAP CDC source dataset. To extract the data from SAP, a self-hosted integration runtime is required that you install on an on-premises computer or on a virtual machine (VM). An on-premises computer has a line of sight to your SAP source systems and to your SLT server. The Data Factory data flow activity runs on a serverless Azure Databricks or Apache Spark cluster, or on an Azure integration runtime. A staging storage is required to be configured in data flow activity to make your self-hosted integration runtime work seamlessly with Data Flow integration runtime.
 
 The SAP CDC connector uses the SAP ODP framework to extract various data source types, including:
 

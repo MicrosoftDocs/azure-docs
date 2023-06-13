@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: aahi
 ms.devlang: csharp, golang
-ms.custom: devx-track-csharp, mode-api
+ms.custom: devx-track-csharp, mode-api, devx-track-go
 ---
 # Quickstart: Use the Bing Autosuggest client library
 

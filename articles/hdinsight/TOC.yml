@@ -205,8 +205,12 @@ items:
         href: ./hdinsight-delete-cluster.md
       - name: Manually scale a cluster
         href: ./hdinsight-scaling-best-practices.md
-      - name: Autoscale clusters
-        href: ./hdinsight-autoscale-clusters.md
+      - name: Autoscale
+        items:
+        - name: Autoscale clusters
+          href: ./hdinsight-autoscale-clusters.md
+        - name: Custom configure Autoscale
+          href: ./how-to-custom-configure-hdinsight-autoscale.md 
       - name: Use external metadata stores
         href: ./hdinsight-use-external-metadata-stores.md
       - name: Custom Ambari DB
@@ -775,6 +779,8 @@ items:
         href: ./hbase/apache-hbase-phoenix-performance.md
       - name: Create Apache HBase cluster in Azure VNet
         href: ./hbase/apache-hbase-provision-vnet.md
+      - name: Use Apache HBase HBCK2 Tool
+        href: ./hbase/how-to-use-hbck2-tool.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Apache HBase performance issues

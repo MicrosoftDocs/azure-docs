@@ -4,8 +4,8 @@ description: Details of the NIST SP 800-53 Rev. 4 Regulatory Compliance built-in
 ms.date: 08/02/2022
 ms.topic: sample
 ms.custom: generated
-author: timwarner-msft
-ms.author: timwarner
+author: davidsmatlak
+ms.author: davidsmatlak
 ---
 # Details of the NIST SP 800-53 Rev. 4 Regulatory Compliance built-in initiative
 

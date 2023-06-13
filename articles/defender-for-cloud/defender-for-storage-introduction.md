@@ -3,8 +3,8 @@ title: Microsoft Defender for Storage - the benefits and features
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 ms.date: 03/23/2023
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: overview
 ---
 
@@ -104,19 +104,19 @@ By default, the limit is set to 5,000GB per month per storage account. Once this
 Microsoft Defender for Storage enables you to secure your data at scale with granular controls. You can apply consistent security policies across all your storage accounts within a subscription or customize them for specific accounts to suit your business needs. You can also control your costs by choosing the level of protection you need for each resource. To get started, visit [enable Defender for Storage](../storage/common/azure-defender-storage-configure.md).
 
 
-## Malware Scanning and hash reputation analysis  
+## Understanding the differences between Malware Scanning and hash reputation analysis  
 
-**Malware Scanning** is a paid add-on feature to Defender for Storage, currently available for Azure Blob Storage. It leverages MDAV (Microsoft Defender Antivirus) to do a full malware scan, with high efficacy. It is significantly more comprehensive than only file hash reputation analysis.   
- 
-The Activity Monitoring feature in Defender for Storage includes blob/file hash reputation analysis. 
+Defender for Storage offers two capabilities to detect malicious content uploaded to storage accounts: **Malware Scanning** (paid add-on feature available only on the new plan) and **hash reputation analysis** (available in all plans).
 
-### Limitations of hash reputation analysis
+### Malware Scanning (paid add-on feature available only on the new plan)
 
-- **Hash reputation isn't deep file inspection** - Microsoft Defender for Storage uses hash reputation analysis supported by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) to determine whether an uploaded file is suspicious. The threat protection tools don’t scan the uploaded files; rather they analyze the telemetry generated from the Blobs Storage and Files services. Defender for Storage then compares the hashes of newly uploaded files with hashes of known viruses, trojans, spyware, and ransomware.  
+**Malware Scanning** leverages Microsoft Defender Antivirus (MDAV) to scan blobs uploaded to Blob storage, providing a comprehensive analysis that includes deep file scans and hash reputation analysis. This feature provides an enhanced level of detection against potential threats.
 
-- **Hash reputation analysis isn't supported for all files protocols and operation types** - Some, but not all, of the telemetry logs contain the hash value of the related blob or file. In some cases, the telemetry doesn't contain a hash value. As a result, some operations can't be monitored for known malware uploads. Examples of such unsupported use cases include SMB file-shares and when a blob is created using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list).
+### Hash reputation analysis (available in all plans)
 
-For blob storage, you can enable [Malware Scanning](defender-for-storage-malware-scan.md) to get fuller coverage and efficacy.  
+**Hash reputation analysis** detects potential malware in Blob storage and Azure Files by comparing the hash values of newly uploaded blobs/files against those of known malware by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). Not all file protocols and operation types are supported with this capability, leading to some operations not being monitored for potential malware uploads. Unsupported use cases include SMB file shares and when a blob is created using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list).
+
+In summary, Malware Scanning, which is only available on the new plan for Blob storage, offers a more comprehensive approach to malware detection by analyzing the full content of files and incorporating hash reputation analysis in its scanning methodology.
 
 
 ## Common questions
@@ -143,7 +143,9 @@ The Defender for Storage (classic) will still continue to be supported for three
 
 ### Can I switch back to the Defender for Storage (classic)?
 
-Yes, using the REST API, you can return to using the Defender for Storage (classic).
+Yes, you can use the REST API to return to the Defender for Storage (classic) plan.
+
+If you want to switch back to the Defender for Storage (classic) plan, you need to do two things. First, disable the new Defender for Storage plan that is enabled now. Second, check if there are any policies that can re-enable the new plan and turn them off too. **The two Azure built-in policies enabling the new plan are Configure Microsoft Defender for Storage to be enabled** and **Configure basic Microsoft Defender for Storage to be enabled (Activity Monitoring only).**
 
 ### How can I calculate the cost of each plan?
 

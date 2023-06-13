@@ -59,12 +59,12 @@ Use the following steps to build and deploy the sample applications.
        --resource-group ${resource-group-name} \
        --service ${Azure-Spring-Apps-instance-name} \
        --name resilience4j \
-       --jar-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1.BUILD-SNAPSHOT.jar
+       --artifact-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1-SNAPSHOT.jar
    az spring app deploy \
        --resource-group ${resource-group-name} \
        --service ${Azure-Spring-Apps-instance-name} \
        --name reactive-resilience4j \
-       --jar-path ./spring-cloud-circuitbreaker-demo-reactive-resilience4j/target/spring-cloud-circuitbreaker-demo-reactive-resilience4j-0.0.1.BUILD-SNAPSHOT.jar
+       --artifact-path ./spring-cloud-circuitbreaker-demo-reactive-resilience4j/target/spring-cloud-circuitbreaker-demo-reactive-resilience4j-0.0.1-SNAPSHOT.jar
    ```
 
 > [!NOTE]
@@ -102,8 +102,8 @@ Use the following steps to build and deploy the sample applications.
 >
 >   ```console
 >   /get
->   /get/delay/{seconds}
->   /get/fluxdelay/{seconds}
+>   /delay/{seconds}
+>   /fluxdelay/{seconds}
 >   ```
 
 ## Locate Resilence4j Metrics on the Azure portal

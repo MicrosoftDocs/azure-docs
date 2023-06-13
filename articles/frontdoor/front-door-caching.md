@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door - caching | Microsoft Docs
+title: Caching with Azure Front Door
 description: This article helps you understand behavior for Front Door with routing rules that have enabled caching.
 services: frontdoor
 author: duongau

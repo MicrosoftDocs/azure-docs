@@ -233,7 +233,9 @@ Register the Azure Linux VM as a Desired State Configuration (DSC) node for the 
 
    ```cmd
    ssh user@IP
+   ```
 
+   ```bash
    sudo apt-get update
    sudo apt-get install -y python
    ```

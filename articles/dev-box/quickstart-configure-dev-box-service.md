@@ -6,7 +6,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/24/2023
+ms.date: 04/25/2023
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 

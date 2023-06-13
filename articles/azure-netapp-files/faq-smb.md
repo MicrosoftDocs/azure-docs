@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/6/2023
+ms.date: 05/03/2023
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -16,9 +16,13 @@ This article answers frequently asked questions (FAQs) about the SMB protocol of
 
 Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0). 
 
+## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
+
+Azure NetApp Files supports 'manual' offline files, allowing users on Windows clients to manually select files to be cached locally.
+
 ## Is an Active Directory connection required for SMB access? 
 
-Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](./azure-netapp-files-create-volumes-smb.md) for details. 
+Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection. See [Create an SMB volume](./azure-netapp-files-create-volumes-smb.md) for details. 
 
 ## How many Active Directory connections are supported?
 
@@ -34,13 +38,11 @@ If you're using Azure NetApp Files with Azure Active Directory Domain Services, 
 
 ## How do the Netlogon protocol changes in the April 2023 Windows Update affect Azure NetApp Files? 
 
-The Windows April 2023 update will include a patch for Netlogon protocol changes, however these changes are not enforced at this time.
- 
-You should not modify the `RequireSeal` value to 2 at this time. Azure NetApp Files adds support for setting `RequireSeal` to 2 in May 2023.
+The Windows April 2023 updated included a patch for Netlogon protocol changes, which were not enforced at release. 
 
-The enforcement of setting `RequireSeal` value to 2 will occur by default with the June 2023 Azure update.
+The upgrades to the Azure NetApp File storage resource have been completed. The enforcement of setting `RequireSeal` value to 2 will occur by default with the June 2023 Azure update. No action is required regarding the June 13 enforcement phase.  
 
-For more information, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
+For more information about this update, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
 
 ## What versions of Windows Server Active Directory are supported?
 
@@ -89,6 +91,8 @@ Yes.
 Azure NetApp Files supports [`CHANGE_NOTIFY` response](/openspecs/windows_protocols/ms-smb2/14f9d050-27b2-49df-b009-54e08e8bf7b5). This response is for the client’s request that comes in the form of a [`CHANGE_NOTIFY` request](/openspecs/windows_protocols/ms-smb2/598f395a-e7a2-4cc8-afb3-ccb30dd2df7c).  
 
 Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/ms-smb2/e215700a-102c-450a-a598-7ec2a99cd82c). This response is for the client’s request that comes in the form of a [`LOCK` request](/openspecs/windows_protocols/ms-smb2/6178b960-48b6-4999-b589-669f88e9017d).  
+
+Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
 
 ## What network authentication methods are supported for SMB volumes in Azure NetApp Files?
 

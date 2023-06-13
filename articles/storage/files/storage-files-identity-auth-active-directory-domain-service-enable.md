@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 05/03/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
@@ -14,7 +14,7 @@ recommendations: false
 # Enable Azure Active Directory Domain Services authentication on Azure Files
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-This article focuses on enabling and configuring Azure AD DS for identity-based authentication with Azure file shares.
+This article focuses on enabling and configuring Azure AD DS for identity-based authentication with Azure file shares. In this authentication scenario, Azure AD credentials and Azure AD DS credentials are the same and can be used interchangeably.
 
 We strongly recommend that you review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right AD source for authentication. The setup is different depending on the AD source you choose.
 
@@ -72,12 +72,12 @@ Azure Files authentication with Azure AD DS is available in [all Azure Public, G
 
 Before you enable Azure AD DS authentication over SMB for Azure file shares, verify that your Azure AD and Azure Storage environments are properly configured. We recommend that you walk through the [prerequisites](#prerequisites) to make sure you've completed all the required steps.
 
-Next, do the following things to grant access to Azure Files resources with Azure AD credentials:
+Follow these steps to grant access to Azure Files resources with Azure AD credentials:
 
 1. Enable Azure AD DS authentication over SMB for your storage account to register the storage account with the associated Azure AD DS deployment.
-2. Assign share-level permissions to an Azure AD identity (a user, group, or service principal).
-3. Connect to your Azure file share using a storage account key and configure Windows access control lists (ACLs) for directories and files.
-4. Mount an Azure file share from a domain-joined VM.
+1. Assign share-level permissions to an Azure AD identity (a user, group, or service principal).
+1. Connect to your Azure file share using a storage account key and configure Windows access control lists (ACLs) for directories and files.
+1. Mount an Azure file share from a domain-joined VM.
 
 The following diagram illustrates the end-to-end workflow for enabling Azure AD DS authentication over SMB for Azure Files.
 
@@ -105,7 +105,7 @@ To enable Azure AD DS authentication over SMB with the [Azure portal](https://po
 
 # [PowerShell](#tab/azure-powershell)
 
-To enable Azure AD DS authentication over SMB with Azure PowerShell, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer). For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+To enable Azure AD DS authentication over SMB with Azure PowerShell, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer). For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 To create a new storage account, call [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), and then set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for enabling the feature is **EnableAzureFilesAadIntegrationForSMB**.)
 
@@ -179,6 +179,9 @@ Set-ADUser $userObject -KerberosEncryptionType AES256
 
 Get-ADUser $userObject -properties KerberosEncryptionType
 ```
+
+> [!IMPORTANT]
+> If you were previously using RC4 encryption and update the storage account to use AES-256, you should run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 

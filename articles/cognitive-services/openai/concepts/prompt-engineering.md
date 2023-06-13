@@ -5,7 +5,7 @@ description: Learn how to use prompt engineering to optimize your work with Azur
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 03/21/2023
-ms.custom: event-tier1-build-2022, references_regions
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
@@ -36,9 +36,9 @@ As you develop more complex prompts, it's helpful to keep this fundamental behav
 
 ### Prompt components
 
-When using the Completion API while there is no differentiation between different parts of the prompt, it can still be useful for learning and discussion to identify underlying prompt components. With the [Chat Completion API](../how-to/chatgpt.md) there are distinct sections of the prompt that are sent to the API in the form of an array of dictionaries with associated roles: system, user, and assistant. This guidance will focus more generally on how to think about prompt construction rather than providing prescriptive guidance that is specific to one API over another.
+When using the Completion API while there's no differentiation between different parts of the prompt, it can still be useful for learning and discussion to identify underlying prompt components. With the [Chat Completion API](../how-to/chatgpt.md) there are distinct sections of the prompt that are sent to the API in the form of an array of dictionaries with associated roles: system, user, and assistant. This guidance will focus more generally on how to think about prompt construction rather than providing prescriptive guidance that is specific to one API over another.
 
-It is also important to understand that while there could be other valid ways to dissect prompts, the goal of this breakdown is to provide a relatively simple way to think about prompt construction. With the Completion API, all the components are optional, but at least one must be present and most prompts include more than one component. There can be some grey area between components as well. The order presented below roughly corresponds to how commonly each component is used, from most to least.
+It's also important to understand that while there could be other valid ways to dissect prompts, the goal of this breakdown is to provide a relatively simple way to think about prompt construction. With the Completion API, all the components are optional, but at least one must be present and most prompts include more than one component. There can be some grey area between components as well. The order presented below roughly corresponds to how commonly each component is used, from most to least.
 
 #### Instructions
 
@@ -75,10 +75,10 @@ GPT models can also handle primary content that is structured. In the example be
 
 Successful prompts often rely on the practice of “one-shot” or “few-shot” learning. This refers to the inclusion of one or more examples of the desired behavior of the model, typically by including input and output pairs. This is not learning in the sense that the model is permanently changed, but rather that the examples better condition the model to respond as desired for only the current inference. The use of prompts with no examples is sometimes referred to as “zero-shot” learning. Please note that with the Chat Completion API few-shot learning examples are typically added to the messages array in the form of example user/assistant interactions after the initial system message.
 
-| Learning Type| Prompt| Completion|
-|------------------------------------- |-------|-----------|
-| Headline: Coach confident injury won't derail Warriors<br>Topic:| The coach is confident that the injury won't derail the Warriors' season. The team is still focused on their goals and that they will continue to work hard to achieve them.|
-| Headline: Twins' Correa to use opt-out, test free agency<br>Topic: Baseball<br>Headline: Qatar World Cup to have zones for sobering up<br>Topic: Soccer<br>Headline: Yates: Fantasy football intel for Week 6<br>Topic: Football<br>Headline: Coach confident injury won't derail Warriors<br>Topic: | Basketball |
+| Learning Type|  Prompt| Completion|
+|------------------------------------- |-------|-----|
+| Zero-shot | Headline: Coach confident injury won't derail Warriors<br>Topic:| The coach is confident that the injury won't derail the Warriors' season. The team is still focused on their goals and that they will continue to work hard to achieve them.|
+| Few-shot | Headline: Twins' Correa to use opt-out, test free agency<br>Topic: Baseball<br>Headline: Qatar World Cup to have zones for sobering up<br>Topic: Soccer<br>Headline: Yates: Fantasy football intel for Week 6<br>Topic: Football<br>Headline: Coach confident injury won't derail Warriors<br>Topic: | Basketball |
 
 The example above illustrates the utility of few-shot learning. Without the examples, the model seems to be guessing at the desired behavior, while the examples cleanly show the model how to operate. This also demonstrates the power of the model, it can infer the category of label that is wanted, even without a ‘basketball’ label in the examples.
 

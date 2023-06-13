@@ -15,10 +15,6 @@
   - name: Configure a Route Server - ARM template
     href: quickstart-configure-template.md
   expanded: true
-- name: Samples
-  items:
-  - name: Resource Manager templates
-    href: resource-manager-template-samples.md
 - name: Tutorials
   items:
   - name: Peer Route Server with NVA

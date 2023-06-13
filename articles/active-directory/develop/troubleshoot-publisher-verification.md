@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 03/16/2023
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: ardhanap, jesakowi
+ms.reviewer: xurobert
 ---
 
 # Troubleshoot publisher verification

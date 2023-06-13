@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/15/2022
+ms.date: 05/05/2023
 ---
 
 # Create an index in Azure Cognitive Search
@@ -20,7 +20,7 @@ In this article, learn the steps for defining and publishing a search index. Cre
 
 ## Prerequisites
 
-+ Write permissions on the search service. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
++ Write permissions on the search service. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're using [role-based access control](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
 
 + An external data source that provides the content to be indexed. You should refer to the data source to understand the schema requirements of your search index. Index creation is largely a schema definition exercise. Before creating one, you should have:
 

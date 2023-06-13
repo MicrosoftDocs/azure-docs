@@ -22,11 +22,11 @@ The extension can be used with the following languages, which are supported by t
 
 * [C# compiled](functions-dotnet-class-library.md)
 * [C# script](functions-reference-csharp.md)<sup>*</sup>
-* [JavaScript](functions-reference-node.md)
+* [JavaScript](functions-reference-node.md?tabs=javascript)
 * [Java](functions-reference-java.md)
 * [PowerShell](functions-reference-powershell.md)
 * [Python](functions-reference-python.md)
-* [TypeScript](functions-reference-node.md#typescript)
+* [TypeScript](functions-reference-node.md?tabs=typescript)
 
 <sup>*</sup>Requires that you [set C# script as your default project language](#c-script-projects).
 

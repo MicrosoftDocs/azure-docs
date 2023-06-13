@@ -10,15 +10,12 @@ ms.reviewer: franksolomon
 author: samuel100
 ms.author: samkemp
 ms.date: 01/23/2023
-ms.custom: devx-track-python, data4ml, event-tier1-build-2022
+ms.custom: data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need secure access to my data in my Azure storage solutions, and I need to use that data to accomplish my machine learning tasks.
 ---
 
 # Data concepts in Azure Machine Learning
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you use:"]
-> * [v1](./v1/concept-data.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](concept-data.md)
 
 With Azure Machine Learning, you can bring data from a local machine or an existing cloud-based storage. In this article, you'll learn the main Azure Machine Learning data concepts.
 

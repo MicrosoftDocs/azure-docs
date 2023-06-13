@@ -4,7 +4,7 @@ description: Learn how to attach or detach a data disk for a lab virtual machine
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/29/2022
+ms.date: 04/24/2023
 ---
 
 # Attach or detach a data disk for a lab virtual machine in Azure DevTest Labs

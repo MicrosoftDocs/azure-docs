@@ -1,12 +1,12 @@
 ---
 title: Azure Peering Service locations and partners
-description: Learn about Azure Peering Service available locations and partners.
+description: Learn about available locations and partners for Azure Peering Service.
 services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: conceptual
 ms.workload: Infrastructure-services
-ms.date: 04/05/2023
+ms.date: 05/18/2023
 ms.author: halkazwini
 ms.custom: template-concept, references_regions, engagement-fy23
 ---
@@ -40,9 +40,9 @@ The following table provides information on the Peering Service connectivity par
 | [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/)| Europe |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) | Oceania  |
 | [LINX](https://www.linx.net/services/microsoft-azure-peering/) | Europe |
-| [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) | Africa |
+| [Liquid Telecom](https://liquidc2.com/connect/#maps) | Africa |
 | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) | Asia, Europe, North America |
-| [MainOne](https://www.mainone.net/connectivity-services/) | Africa |
+| [MainOne](https://www.mainone.net/connectivity-services/cloud-connect/) | Africa |
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) | Africa |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) | Asia |
@@ -67,13 +67,13 @@ The following table provides information on the Peering Service connectivity par
 | Brussels | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Budapest | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Bucharest | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Cape Town | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |
+| Cape Town | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidc2.com/connect/#maps) |
 | Dublin | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Frankfurt | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://www.colt.net/product/cloud-prioritisation/) |
 | Geneva | [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |
-| Hong Kong | [Colt](https://www.colt.net/product/cloud-prioritisation/), [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
+| Hong Kong SAR | [Colt](https://www.colt.net/product/cloud-prioritisation/), [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Jakarta | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) |
-| Johannesburg | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |
+| Johannesburg | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidc2.com/connect/#maps) |
 | Kuala Lumpur | [Telekom Malaysia](https://www.tm.com.my/) |
 | Los Angeles | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |
 | London | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://www.colt.net/product/cloud-prioritisation/) |
@@ -82,7 +82,7 @@ The following table provides information on the Peering Service connectivity par
 | Milan | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Manila | [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |
 | Marseilles | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Nairobi | [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |
+| Nairobi | [Liquid Telecom](https://liquidc2.com/connect/#maps) |
 | Osaka | [Colt](https://www.colt.net/product/cloud-prioritisation/), [IIJ](https://www.iij.ad.jp/en/), [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) |
 | Paris | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Prague | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |

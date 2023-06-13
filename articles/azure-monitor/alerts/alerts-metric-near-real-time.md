@@ -25,7 +25,6 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 
 |Resource type  |Dimensions supported |Multi-resource alerts| Metrics available|
 |---------|---------|-----|----------|
-|Microsoft.Aadiam/azureADMetrics | Yes | No | Azure Active Directory (metrics in private preview) |
 |Microsoft.ApiManagement/service | Yes | No | [Azure API Management](../essentials/metrics-supported.md#microsoftapimanagementservice) |
 |Microsoft.App/containerApps | Yes | No | Azure Container Apps |
 |Microsoft.AppConfiguration/configurationStores |Yes | No | [Azure App Configuration](../essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores) |

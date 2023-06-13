@@ -52,7 +52,7 @@ Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
                         {
                             "State": "FL",
                             "City": "Orlando",
-                            "Country": "United States"
+                            "countryOrRegion": "United States"
                         }
                     ]
                 }
@@ -64,7 +64,7 @@ Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
     "Patients": [
         {
             "Info": {
-                "gender": "female",
+                "sex": "female",
                 "birthDate": "01/01/1987",
                 "ClinicalInfo": [
                     

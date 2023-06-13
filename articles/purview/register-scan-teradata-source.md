@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -35,9 +35,13 @@ When scanning Teradata source, Microsoft Purview supports:
     - Stored procedures including the parameter dataset and result set
     - Functions including the parameter dataset
 
-- Fetching static lineage on assets relationships among tables, views and stored procedures.
+- Fetching static lineage on assets relationships among tables and views.
 
 When setting up scan, you can choose to scan an entire Teradata server, or scope the scan to a subset of databases matching the given name(s) or name pattern(s).
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ### Required permissions for scan
 
@@ -68,7 +72,7 @@ For classification, user also needs to have read permission on the tables/views 
 
     * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
-    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist).
 
     * Download the [Teradata JDBC driver](https://downloads.teradata.com/) on the machine where your self-hosted integration runtime is running. Note down the folder path which you will use to set up the scan.
 

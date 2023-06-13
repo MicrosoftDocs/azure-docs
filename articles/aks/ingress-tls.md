@@ -130,7 +130,8 @@ When you upgrade your ingress controller, you must pass a parameter to the Helm 
     helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
       --namespace $NAMESPACE \
       --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL \
-      --set controller.service.loadBalancerIP=$STATIC_IP
+      --set controller.service.loadBalancerIP=$STATIC_IP \
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -165,7 +166,8 @@ When you upgrade your ingress controller, you must pass a parameter to the Helm 
     helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
       --namespace $Namespace `
       --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
-      --set controller.service.loadBalancerIP=$StaticIP
+      --set controller.service.loadBalancerIP=$StaticIP `
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
     ```
 
 ---
@@ -292,7 +294,8 @@ NAMESPACE="ingress-basic"
 
 helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNSLABEL
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNSLABEL \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -303,7 +306,8 @@ $Namespace = "ingress-basic"
 
 helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
   --namespace $Namespace `
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ---
