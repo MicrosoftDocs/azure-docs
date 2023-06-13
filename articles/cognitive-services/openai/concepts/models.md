@@ -55,9 +55,6 @@ You can get a list of models that are available for both inference and fine-tuni
 
 ## Model updates
 
-> [!IMPORTANT]
-> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for the new `(0613)` gpt-35-turbo, gpt-35-turbo-16k, gpt-4, and gpt-4-32k model versions are temporary placeholders. Expiration of `0613` models will not happen prior to December 1st 2023, but this date may be extended depending on the timing of future model version releases from OpenAI.
-
 Azure OpenAI now supports automatic updates for select model deployments. On models where automatic update support is available, a model version drop-down will be visible in Azure OpenAI Studio under **Create new deployment** and **Edit deployment**:
 
 :::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deploy model UI of Azure OpenAI Studio" lightbox="../media/models/auto-update.png":::
@@ -127,13 +124,13 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 ```
 
 > [!NOTE]
-> There are multiple ways to generate an authorization token. The easiest method for initial testing is from https://portal.azure.com launch the Cloud Shell. Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
+> There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from https://portal.azure.com. Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
 
 #### Example Response
 
 ```json
 {
-  "id": "/subscriptions/{subscription-id}/resourceGroups/resourcegroup-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1",
+  "id": "/subscriptions/{subscription-id}/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1",
   "type": "Microsoft.CognitiveServices/accounts/deployments",
   "name": "text-embedding-ada-002-test-1",
   "sku": {
@@ -331,9 +328,6 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 
 <br><sup>1</sup> Currently, only version `0301` of this model is available.
 
-> [!IMPORTANT]
-> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for gpt-35-turbo (0301) is a temporary placeholder. Deprecation will not happen prior to October 1st 2023.
-
 ### GPT-4 Models
 
 These models can only be used with the Chat Completion API.
@@ -345,9 +339,6 @@ These models can only be used with the Chat Completion API.
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
-
-> [!IMPORTANT]
-> The currently listed deprecation dates in Azure OpenAI Studio and via REST API for the gpt-4 and gpt-4-32k (0314) models are temporary placeholders. Deprecation will not happen prior to October 1st 2023.
 
 ### Dall-E Models
 
