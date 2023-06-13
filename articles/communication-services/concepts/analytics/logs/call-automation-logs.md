@@ -109,8 +109,8 @@ Communication Services offers the following types of logs that you can enable:
 | -------- | ---------------|
 | `TimeGenerated` | it represents the timestamp (UTC) of the event|
 |`level`| It represents the severity level of the event. Must be one of Informational, Warning, Error, or Critical.   |
-|`resourceId`| it represents the resource id of the resource that emitted the event |
-|`durationMs`| it represents the the duration of the operation in milliseconds |
+|`resourceId`| it represents the resource ID of the resource that emitted the event |
+|`durationMs`| it represents the duration of the operation in milliseconds |
 |`callerIpAddress`| |
 |`correlationId`| Skype Chain ID   |
 |`operationName`| The name of the operation represented by this event|
