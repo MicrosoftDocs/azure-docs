@@ -27,7 +27,7 @@ If the agent upgrade fails for a cluster hosted on AKS, this article also descri
 
 ## [Bicep](#tab/bicep)
 
-Enable Monitoring with MSI without syslog 
+**Enable Monitoring with MSI without syslog** 
 
 1.	Download Bicep templates and Parameter files 
 
@@ -53,7 +53,7 @@ az account set --subscription "Subscription Name"
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.bicep --parameters ./existingClusterParam.json
 ```
 
-Enable Monitoring with MSI with syslog
+**Enable Monitoring with MSI with syslog**
 
 1.	Download Bicep templates and Parameter files 
 
