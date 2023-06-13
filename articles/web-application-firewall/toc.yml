@@ -72,8 +72,8 @@
       href: ./ag/bot-protection-overview.md
     - name: WAF engine
       href: ./ag/waf-engine.md
-    - name: Log scrubbing
-      href: ./ag/waf-log-scrubbing.md
+    - name: Sensitive Data Protection
+      href: ./ag/waf-sensitive-data-protection.md
     - name: Best practices
       href: ./ag/best-practices.md
     - name: FAQ
@@ -140,8 +140,8 @@
        href: ./ag/web-application-firewall-logs.md
      - name: Monitoring and logging
        href: ./ag/application-gateway-waf-metrics.md
-     - name: Configure log scrubbing
-       href: ./ag/waf-log-scrubbing-configure.md
+     - name: Mask sensitive data
+       href: ./ag/waf-sensitive-data-protection-configure.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
