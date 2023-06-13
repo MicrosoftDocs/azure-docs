@@ -29,6 +29,7 @@ The list of templates are as follows:
 - [Onboard pre-hire employee](lifecycle-workflow-templates.md#onboard-pre-hire-employee)
 - [Onboard new hire employee](lifecycle-workflow-templates.md#onboard-new-hire-employee)
 - [Post-Onboarding of an employee](lifecycle-workflow-templates.md#post-onboarding-of-an-employee)
+- [Real-time employee change](lifecycle-workflow-templates.md#real-time-employee-change)
 - [Real-time employee termination](lifecycle-workflow-templates.md#real-time-employee-termination)  
 - [Pre-Offboarding of an employee](lifecycle-workflow-templates.md#pre-offboarding-of-an-employee)
 - [Offboard an employee](lifecycle-workflow-templates.md#offboard-an-employee)
@@ -99,6 +100,23 @@ The default specific parameters for the **Post-Onboarding of an employee** templ
 |Execution conditions     | (department eq 'Marketing')        |  ✔️       |
 |Tasks     | **Add User To Group**, **Add user to selected teams**    |  ✔️       |
 
+
+### Real-time employee change
+
+The **Real-time employee change** template is designed to configure tasks that are completed immediately when an employee changes roles.
+
+:::image type="content" source="media/lifecycle-workflow-templates/on-demand-change-template.png" alt-text="Screenshot of a Lifecycle Workflow real time employee change template.":::
+
+The default specific parameters for the **Real-time employee termination** template are as follows:
+
+|parameter  |description  |Customizable  |
+|---------|---------|---------|
+|Category     |  Mover       |  ❌       |
+|Trigger Type     | On-demand        |  ❌       |
+|Tasks     | **Run a Custom Task Extension**    |  ✔️       |
+
+> [!NOTE]
+> As this template is designed to run on-demand, no execution condition is present.
 
 ### Real-time employee termination
 
