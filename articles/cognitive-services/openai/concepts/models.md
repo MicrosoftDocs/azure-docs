@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 06/08/2023
+ms.date: 06/13/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -76,7 +76,7 @@ When you select a specific model version for a deployment this version will rema
 
 ### GPT-35-Turbo 0301 and GPT-4 0314 expiration
 
-The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire on October 1st, 2023. When these model versions expire on October 1, 2023, their deployments will automatically be upgraded to the default version at the time of expiry.  If you would like your deployment to stop accepting completion requests on October 1, then you will be able to set the model upgrade option to expire though the API. We will publish guidelines on this by September 1.  
+The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire no earlier than September 30th, 2023. Upon expiration their deployments will automatically be upgraded to the default version at the time of expiry.  If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.  
 
 ### Viewing deprecation dates
 
@@ -115,19 +115,19 @@ This is only a subset of the available request body parameters for the full list
 |Parameter|Type| Description |
 |--|--|--|
 |versionUpgradeOption | String | Deployment model version upgrade options:<br>`OnceNewDefaultVersionAvailable`<br>`OnceCurrentVersionExpired`<br>`NoAutoUpgrade`|
-|capacity|integer|This represents the amount of [quota](../how-to/quota.md) you are assigning to the this deployment. A value of 1 equals 1,000 Tokens per Minute (TPM)|
+|capacity|integer|This represents the amount of [quota](../how-to/quota.md) you are assigning to this deployment. A value of 1 equals 1,000 Tokens per Minute (TPM)|
 
 #### Example Request
 
 ```Bash
-curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mbullwin-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1" \
+curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1" \
   -H "Content-Type: application/json" \
   -H 'Authorization: Bearer YOUR_AUTH_TOKEN' \
   -d '{"sku":{"name":"Standard","capacity":1},"properties": {"model": {"format": "OpenAI","name": "text-embedding-ada-002","version": "2"},"versionUpgradeOption":"OnceCurrentVersionExpired"}}'
 ```
 
 > [!NOTE]
-> There are many ways to generate an authorization token. The easiest method for initial testing is from https://portal.azure.com launch the Cloud Shell. Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token). You can use this token as your temporary authorization token for testing.
+> There are multiple ways to generate an authorization token. The easiest method for initial testing is from https://portal.azure.com launch the Cloud Shell. Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token). You can use this token as your temporary authorization token for API testing.
 
 #### Example Response
 
