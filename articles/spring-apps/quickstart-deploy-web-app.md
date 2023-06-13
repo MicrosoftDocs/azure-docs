@@ -43,12 +43,30 @@ This article provides 2 options for deploying to Azure Spring Apps:
 
 ## 1. Prerequisites
 
+::: zone pivot="sc-standard"
+
+#### [Azure portal](#tab/Azure-portal)
+
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
+#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.
+
+---
+
+::: zone-end
+
 ::: zone pivot="sc-consumption-plan,sc-enterprise"
 
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 
 ::: zone-end
