@@ -22,29 +22,9 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 Use the following steps to create an Azure Spring Apps service instance.
 
-### 3.1. Sign in to the Azure portal
+### 3.1. Provide names for each resource
 
-1. Use the following command to sign in to Azure:
-
-   ```azurecli
-   az login
-   ```
-
-1. After you sign in successfully, use the following command to display a list of your subscriptions:
-
-   ```azurecli-interactive
-   az account list --output table
-   ```
-
-1. Use the following command to set your default subscription:
-
-   ```azurecli-interactive
-   az account set --subscription <subscription-ID>
-   ```
-
-### 3.2. Define variables 
-
-Use the following commands to define variables for this quickstart with the names of your resources:
+Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
 ```azurecli-interactive
 LOCATION="<region>"
@@ -54,12 +34,52 @@ SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
 APP_NAME="demo"
 ```
 
+### 3.2. Create a new resource group
+
+Use the following steps to create a new resource group.
+
+1. Use the following command to sign in to the Azure CLI.
+
+   ```azurecli
+   az login
+   ```
+
+1. Use the following command to set the default location.
+
+   ```azurecli
+   az configure --defaults location=${LOCATION}
+   ```
+
+1. Use the following command to list all available subscriptions to determine the subscription ID to use.
+
+   ```azurecli
+   az account list --output table
+   ```
+
+1. Use the following command to set the default subscription:
+
+   ```azurecli
+   az account set --subscription <subscription-ID>
+   ```
+
+1. Use the following command to create a resource group.
+
+   ```azurecli
+   az group create --resource-group ${RESOURCE_GROUP}
+   ```
+
+1. Use the following command to set the newly created resource group as the default resource group.
+
+   ```azurecli
+   az configure --defaults group=${RESOURCE_GROUP}
+   ```
+
 ### 3.3. Install extensions and register namespaces
 
 Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
 
 ```azurecli-interactive
-az extension add --name spring
+az extension add --name spring --upgrade
 az extension add --name containerapp --upgrade
 az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights

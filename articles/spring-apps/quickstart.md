@@ -28,7 +28,45 @@ The application code used in this tutorial is a simple app. When you've complete
 
 ::: zone-end
 
-[!INCLUDE [prerequisites](includes/quickstart/prerequisites.md)]
+::: zone pivot="sc-consumption-plan"
+
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.46.0 or higher.
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
+Choose an option to set prerequisites:
+
+### [Azure portal](#tab/Azure-portal)
+
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [Azure Developer CLI(AZD)](https://aka.ms/azd-install), version 1.0.1 or higher.
+
+---
+
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.46.0 or higher.
+
+::: zone-end
 
 ::: zone pivot="sc-consumption-plan"
 
@@ -61,20 +99,33 @@ From the navigation pane of the Azure Spring Apps instance overview page, select
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy your first web application to Azure Spring Apps](./quickstart-deploy-web-app.md)
+> [Structured application log for Azure Spring Apps](./structured-app-log.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy event-driven application to Azure Spring Apps](./quickstart-deploy-event-driven-app-standard-consumption.md)
-
-::: zone pivot="sc-consumption-plan"
-
-To learn how to create a Standard consumption and dedicated plan in Azure Spring Apps for app deployment, advance to the Standard consumption and dedicated quickstart series:
+> [Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](./quickstart-provision-standard-consumption-service-instance.md)
+> [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
+
+> [!div class="nextstepaction"]
+> [Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md)
+
+::: zone pivot="sc-standard, sc-consumption-plan"
+
+> [!div class="nextstepaction"]
+> [Run microservice apps(Pet Clinic)](./quickstart-sample-app-introduction.md)
 
 ::: zone-end
 
-For a packaged app template with Azure Spring Apps infrastructure provisioned using Bicep, see [Spring Boot PetClinic Microservices Application Deployed to Azure Spring Apps](https://github.com/Azure-Samples/apptemplates-microservices-spring-app-on-AzureSpringApps).
+::: zone pivot="sc-enterprise"
 
-More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+> [!div class="nextstepaction"]
+> [Run polyglot apps on Enterprise plan(ACME Fitness Store)](./quickstart-sample-app-acme-fitness-store-introduction.md)
+
+::: zone-end
+
+For more information, see the following articles:
+
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+- [Spring on Azure](/azure/developer/java/spring/)
+- [Spring Cloud Azure](/azure/developer/java/spring-framework/)
