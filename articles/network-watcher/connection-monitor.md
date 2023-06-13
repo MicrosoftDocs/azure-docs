@@ -4,7 +4,7 @@ description: In this tutorial, learn how to monitor network communication betwee
 author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 06/12/2023
+ms.date: 06/13/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, engagement-fy23
 # Customer intent: I need to monitor the communication between two virtual machines in Azure. If the communication fails, I need to be alerted and I want to know why it failed, so that I can resolve the problem. 
@@ -17,11 +17,10 @@ Successful communication between a virtual machine (VM) and an endpoint such as 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network and a Bastion host
+> * Create a virtual network
 > * Create two virtual machines
 > * Monitor communication between the two virtual machines
-> * Generate alerts on Connection monitor metrics
-> * Diagnose a communication problem between two VMs, and learn how you can resolve it
+> * Diagnose a communication problem between two virtual machines
 
 ## Prerequisites
 
@@ -31,7 +30,7 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-# Create a virtual network
+## Create a virtual network
 
 In this section, you create **myVNet** virtual network with two subnets and an Azure Bastion host. The first subnet is used for the virtual machine, and the second subnet is used for the Bastion host.
 
@@ -137,7 +136,7 @@ In this section, you create a connection monitor to monitor communication over T
     | Region | Select **(US) East US**. |
     | Workspace configuration | Leave the default. |
 
-    :::image type="content" source="./media/connection-monitor/create-connection-monitor-basics.png" alt-text="Screenshot shows Connection monitor page in the Azure portal.":::
+    :::image type="content" source="./media/connection-monitor/create-connection-monitor-basics.png" alt-text="Screenshot shows the Basics tab of creating a connection monitor in the Azure portal.":::
 
 1. Select the **Test groups** tab, or select **Next: Test groups** button.
 
@@ -222,7 +221,7 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this tutorial, you learned how to monitor a connection between two virtual machines. You learned that connection monitor logged a failure in the conneciton after you stopped the target virtual machine. To learn about all of the different metrics that connection monitor can return, see [Metrics in Azure Monitor](connection-monitor-overview.md#metrics-in-azure-monitor).
+In this tutorial, you learned how to monitor a connection between two virtual machines. You learned that connection monitor logged a failure in the connection after you stopped the target virtual machine. To learn about all of the different metrics that connection monitor can return, see [Metrics in Azure Monitor](connection-monitor-overview.md#metrics-in-azure-monitor).
 
 To learn how to diagnose and troubleshoot problems with virtual network gateways, advance to the next tutorial.
 
