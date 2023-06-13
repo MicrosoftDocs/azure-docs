@@ -66,7 +66,7 @@ Azure OpenAI now supports automatic updates for select model deployments. On mod
 
 When **Auto-update to latest** is selected your model deployment will be automatically updated within two weeks of a new version being released.
 
-If you are still in the early testing phases we recommend deploying models with **auto-update to latest** set whenever it is available. 
+If you are still in the early testing phases we recommend deploying models with **auto-update to latest** set whenever it is available.
 
 ### Specific model version
 
@@ -87,6 +87,92 @@ For currently deployed models, from Azure OpenAI Studio select **Deployments**:
 To view deprecation/expiration dates for all available models in a given region from Azure OpenAI Studio select **Models** > **Column options** > Select **Deprecation fine tune** and **Deprecation inference**:
 
 :::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the deployment UI of Azure AI Studio" lightbox="../media/models/column-options.png":::
+
+### Update & deploy models via the API
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments/{deploymentName}?api-version=2023-05-01
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```acountname``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```deploymentName``` | string | Required | The deployment name you chose when you deployed an existing model or the name you would like a new model deployment to have.   |
+| ```resourceGroupName``` | string |  Required | The name of the associated resource group for this model deployment. |
+| ```subscriptionId``` | string |  Required | The name of the associated resource group for this model deployment. |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
+
+**Supported versions**
+
+- `2023-05-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/1e71ad94aeb8843559d59d863c895770560d7c93/specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2023-05-01/cognitiveservices.json)
+
+**Request body**
+
+This is only a subset of the available request body parameters for the full list of the parameters you can refer to the [REST API spec](https://github.com/Azure/azure-rest-api-specs/blob/1e71ad94aeb8843559d59d863c895770560d7c93/specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2023-05-01/cognitiveservices.json).
+
+|Parameter|Type| Description |
+|--|--|--|
+|versionUpgradeOption | String | Deployment model version upgrade options:<br>`OnceNewDefaultVersionAvailable`<br>`OnceCurrentVersionExpired`<br>`NoAutoUpgrade`|
+|capacity|integer|This represents the amount of [quota](../how-to/quota.md) you are assigning to the this deployment. A value of 1 equals 1,000 Tokens per Minute (TPM)|
+
+#### Example Request
+
+```Bash
+curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mbullwin-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1" \
+  -H "Content-Type: application/json" \
+  -H 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+  -d '{"sku":{"name":"Standard","capacity":1},"properties": {"model": {"format": "OpenAI","name": "text-embedding-ada-002","version": "2"},"versionUpgradeOption":"OnceCurrentVersionExpired"}}'
+```
+
+#### Example Response
+
+```json
+{
+  "id": "/subscriptions/{subscription-id}/resourceGroups/resourcegroup-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1",
+  "type": "Microsoft.CognitiveServices/accounts/deployments",
+  "name": "text-embedding-ada-002-test-1",
+  "sku": {
+    "name": "Standard",
+    "capacity": 1
+  },
+  "properties": {
+    "model": {
+      "format": "OpenAI",
+      "name": "text-embedding-ada-002",
+      "version": "2"
+    },
+    "versionUpgradeOption": "OnceCurrentVersionExpired",
+    "capabilities": {
+      "embeddings": "true",
+      "embeddingsMaxInputs": "1"
+    },
+    "provisioningState": "Succeeded",
+    "ratelimits": [
+      {
+        "key": "request",
+        "renewalPeriod": 10,
+        "count": 2
+      },
+      {
+        "key": "token",
+        "renewalPeriod": 60,
+        "count": 1000
+      }
+    ]
+  },
+  "systemData": {
+    "createdBy": "docs@contoso.com",
+    "createdByType": "User",
+    "createdAt": "2023-06-13T00:12:38.885937Z",
+    "lastModifiedBy": "docs@contoso.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2023-06-13T02:41:04.8410965Z"
+  },
+  "etag": "\"{GUID}\""
+}
+```
 
 ## Finding the right model
 
