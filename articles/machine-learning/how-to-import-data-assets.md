@@ -47,20 +47,24 @@ To create and work with data assets, you need:
 
 ### Code versions
 
-# [SDK](#tab/SDK)
-
-```python
-pip uninstall azure-ai-ml
-pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
-```
-
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
 ```cli
 az extension remove -n ml
 az extension add -n ml --yes
 az extension show -n ml #(the version value needs to be 2.15.1 or later)
 ```
+
+# [Python SDK](#tab/SDK)
+
+```python
+pip uninstall azure-ai-ml
+pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
+```
+
+# [Studio](#tab/Studio)
+
+Not available.
 
 ---
 
@@ -140,15 +144,15 @@ At the Data Type screen, fill in the values, and then select Next, as shown in t
 
 At the Create data import screen, fill in the values, and select Next, as shown in this screenshot:
 
-:::image type="content" source="media/how-to-import-data-assets/create-data-import.png" alt-text="Screenshot showing details of the data source for the import.":::
+:::image type="content" source="media/how-to-import-data-assets/create-data-import.png" alt-text="Screenshot showing details of the data source selection.":::
 
 Fill in the values at the Choose a datastore to output screen, and select Next, as shown in this screenshot:
 
-:::image type="content" source="media/how-to-import-data-assets/choose-datastore-to-output.png" alt-text="Screenshot showing details of the data source for the import.":::
+:::image type="content" source="media/how-to-import-data-assets/choose-datastore-to-output.png" alt-text="Screenshot showing details of the data source to output.":::
 
 As shown in the next screenshot, review your choices at the last screen of this process, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens if you'd like to change your choices of values.
 
-:::image type="content" source="media/how-to-import-data-assets/create-data-import-review-values-and-create.png" alt-text="Screenshot showing details of the data source for the import.":::
+:::image type="content" source="media/how-to-import-data-assets/create-data-import-review-values-and-create.png" alt-text="Screenshot showing all parameters of the data import.":::
 
 ---
 
@@ -243,6 +247,10 @@ ml_client = MLClient.from_config()
 ml_client.data.show_materialization_status(name="<name>")
 
 ```
+
+# [Studio](#tab/External-Data-Sources)
+
+Not available.
 
 ---
 

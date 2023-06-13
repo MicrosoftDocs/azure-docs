@@ -63,7 +63,7 @@ az extension show -n ml #(the version value needs to be 2.15.1 or later)
 
 ## Create a Snowflake DB connection
 
-# [CLI: Username/password](#tab/cli-username-password)
+# [CLI: Credentials](#tab/cli-username-password)
 This YAML file creates a Snowflake DB connection. Be sure to update the appropriate values:
 
 ```yaml
@@ -140,7 +140,7 @@ In the **Create connection** pane, fill in the values as shown in the screenshot
 
 ## Create an Azure SQL DB connection
 
-# [CLI: Username/password](#tab/cli-sql-username-password)
+# [CLI: Credentials](#tab/cli-sql-username-password)
 
 This YAML script creates an Azure SQL DB connection. Be sure to update the appropriate values:
 
@@ -220,7 +220,7 @@ In the **Create connection** pane, fill in the values as shown in the screenshot
 
 ## Create Amazon S3 connection
 
-# [CLI: Access key](#tab/cli-s3-access-key)
+# [CLI: Credentials](#tab/cli-s3-access-key)
 
 Create an Amazon S3 connection with the following YAML file. Be sure to update the appropriate values:
 
