@@ -187,7 +187,7 @@ This error occurs because of a bug with the underlying metadata. The issue happe
 
 #### Solution
 
-- Until the bug is fixed, you can work around the problem by adding a test budget in the Azure portal at the billing account/EA enrollment level. The test budget unblocks connecting with Power BI. For more information about creating a budget, see [Tutorial: Create and manage Azure budgets](tutorial-acm-create-budgets.md).
+- Until the bug is fixed, you can work around the problem by adding a test budget in the Azure portal at the billing account/EA enrollment level. The test budget unblocks connecting with Power BI. For more information about creating a budget, see [Tutorial: Create and manage budgets](tutorial-acm-create-budgets.md).
 
 ### Invalid credentials for AzureBlob error
 

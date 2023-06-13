@@ -39,8 +39,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and Zoom](../app-provisioning/customize-application-attributes.md). 
+1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine what data to [map between Azure AD and Zoom](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Zoom to support provisioning with Azure AD
 
@@ -48,22 +48,22 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Screenshot of Zoom Integrations.](media/zoom-provisioning-tutorial/app-navigations.png)
 
-2. Navigate to **Manage** in the top-right corner of the page. 
+1. Navigate to **Manage** in the top-right corner of the page. 
 
 	![Screenshot of the Zoom App Marketplace with the Manage option called out.](media/zoom-provisioning-tutorial/zoom-manage.png)
 
-3. Navigate to your created Azure AD app. 
+1. Navigate to your created Azure AD app. 
 	
 	![Screenshot of the Created Apps section with the Azure A D app called out.](media/zoom-provisioning-tutorial/zoom03.png)
 
 	> [!NOTE]
-	> If you don't have an Azure AD app already created, then have a [JWT type Azure AD app](https://marketplace.zoom.us/docs/guides/build/jwt-app) created.
+	> If you don't have an Azure AD app already created, then have a [JWT type Azure AD app](https://developers.zoom.us/docs/platform/build/jwt-app/) created.
 
-4. Select **App Credentials** in the left navigation pane.
+1. Select **App Credentials** in the left navigation pane.
 
 	![Screenshot of the left navigation pane with the App Credentials option highlighted.](media/zoom-provisioning-tutorial/zoom04.png)
 
-5. Copy and save the **JWT Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Zoom application in the Azure portal. If you need a new non-expiring token, you will need to reconfigure the expiration time which will auto generate a new token. 
+1. Copy and save the **JWT Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Zoom application in the Azure portal. If you need a new non-expiring token, you will need to reconfigure the expiration time which will auto generate a new token. 
 
 	![Screenshot of the App Credentials page.](media/zoom-provisioning-tutorial/zoom05.png)
 
@@ -88,33 +88,42 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com/?feature.userProvisioningV2Authentication=true), ensure you are using the link (https://portal.azure.com/?feature.userProvisioningV2Authentication=true) then Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot of the Enterprise applications blade.](common/enterprise-applications.png)
 
-2. In the applications list, select **Zoom**.
+1. In the applications list, select **Zoom**.
 
-	![The Zoom link in the Applications list](common/all-applications.png)
+	![Screenshot of the Zoom link in the Applications list.](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, enter `https://api.zoom.us/scim` in **Tenant URL**. Input the **JWT Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, select desired **Authentication Method**.
 
- 	![Zoom provisioning](./media/zoom-provisioning-tutorial/provisioning.png)
+	* If the Authentication Method is **OAuth2 Authorization Code Grant**, enter `https://api.zoom.us/scim` in **Tenant URL**, click on **Authorize**, make sure that you enter your Zoom account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+ 		![Screenshot of the Zoom provisioning Token.](./media/zoom-provisioning-tutorial/provisioning-oauth.png)
 
-	![Notification Email](common/provisioning-notification-email.png)
+	* If the Authentication Method is **Bearer Authentication**, enter `https://api.zoom.us/scim` in **Tenant URL**. Input the **JWT Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
 
-7. Select **Save**.
+ 		![Screenshot of the Zoom provisioning OAuth.](./media/zoom-provisioning-tutorial/provisioning-bearer-token.png)
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zoom**.
+  		> [!NOTE] 
+  		> You will have two options for your Authentication Method: **Bearer Authentication** and **OAuth2 Authorization Code Grant**. Make sure that you select OAuth2 Authorization Code Grant.
 
-9. Review the user attributes that are synchronized from Azure AD to Zoom in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zoom for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Zoom API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+
+	![Screenshot of the Notification Email.](common/provisioning-notification-email.png)
+
+1. Select **Save**.
+
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zoom**.
+
+1. Review the user attributes that are synchronized from Azure AD to Zoom in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zoom for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Zoom API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -125,19 +134,19 @@ This section guides you through the steps to configure the Azure AD provisioning
    |emails[type eq "work"]|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Screenshot of the Scoping filter tutorial.](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Zoom, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Zoom, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+	![Screenshot of the Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to Zoom by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to Zoom by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+	![Screenshot of the Provisioning Scope.](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+1. When you are ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
@@ -153,7 +162,8 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change log
 * 05/14/2020 - Support for UPDATE operations  added for emails[type eq "work"] attribute.
-* 10/20/2020 - Added support for two new roles "Licensed" and "on-premises" to replace existing roles "Pro" and "Corp". Support for roles "Pro" and "Corp" will be removed in the future.
+* 10/20/2020 - Added support for two new roles **Licensed** and **on-premises** to replace existing roles **Pro** and **Corp**. Support for roles **Pro** and **Corp** will be removed in the future.
+* 05/30/2023 - Added support for new authentication method i.e. **OAuth 2.0**.
 
 ## Additional resources
 

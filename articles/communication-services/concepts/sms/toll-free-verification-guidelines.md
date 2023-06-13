@@ -38,6 +38,9 @@ If you're using multiple sending numbers for the same use case, justify how you'
 ## Company details  
 You need to provide information about your company and point of contact. Status updates for your short code application are sent to the point of contact email address.
 
+> [!IMPORTANT]
+> Toll-free verification is meant for the end business actually sending the message traffic and not for resellers. ISVs are required to surface this verification form to the businesses or fill out the all information including company information, program details and opt-in information on behalf of the customer . 
+
 ## Program content
 Message Senders are required to provide detailed information on the content of their SMS campaign and to ensure that the customer consents to receive text messages, and understands the nature of the program.
 
@@ -45,6 +48,8 @@ Message Senders are required to provide detailed information on the content of t
 You need to describe the program for which the toll-free number is used to send SMS. Include who will be receiving the messages and frequency of the messages.
 
 ### Opt-in 
+
+This is the most crucial step in the verification application and providing the correct information will ensure faster approval times. If proof of opt-in is not provided in Opt-in URL field, URL is inaccessible, or if opt-in process is unclear, the application will be rejected.
 
 The general rule of thumb for opt-in are:  
 - Making sure the opt-in flow is thoroughly detailed.  
