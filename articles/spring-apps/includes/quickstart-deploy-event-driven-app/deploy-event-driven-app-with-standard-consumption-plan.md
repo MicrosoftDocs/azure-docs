@@ -89,26 +89,7 @@ az provider register --namespace Microsoft.OperationalInsights
 az provider register --namespace Microsoft.AppPlatform
 ```
 
-### 3.4. Create a Service Bus instance
-
-Use the following command to create a Service Bus namespace:
-
-```azurecli
-az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
-```
-
-Use the following commands to create two queues named `lower-case` and `upper-case`:
-
-```azurecli
-az servicebus queue create \
-    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-    --name lower-case
-az servicebus queue create \
-    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-    --name upper-case
-```
-
-### 3.5. Create an Azure Container Apps environment instance
+### 3.4. Create an Azure Container Apps environment instance
 
 The Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
@@ -118,7 +99,7 @@ Use the following steps to create the environment:
 az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} --enable-workload-profiles
 ```
 
-### 3.6. Create an Azure Spring Apps instance
+### 3.5. Create an Azure Spring Apps instance
 
 An Azure Spring Apps service instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
@@ -140,14 +121,14 @@ An Azure Spring Apps service instance hosts the Spring event-driven app. Use the
        --sku standardGen2
    ```
 
-### 3.7. Create an app in your Azure Spring Apps instance
+### 3.6. Create an app in your Azure Spring Apps instance
 
 The following sections show you how to create an app in either the standard consumption or dedicated workload profiles.
 
 > [!IMPORTANT]
 > The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-#### 3.7.1. Create an app with the consumption workload profile
+#### 3.6.1. Create an app with the consumption workload profile
 
 Use the following command to create an app in the Azure Spring Apps instance:
 
@@ -162,7 +143,7 @@ az spring app create \
     --runtime-version Java_17
 ```
 
-#### 3.7.2. Create an app with the dedicated workload profile
+#### 3.6.2. Create an app with the dedicated workload profile
 
 Dedicated workload profiles support running apps with customized hardware and increased cost predictability.
 
@@ -192,6 +173,25 @@ az spring app create \
     --workload-profile my-wlp
 ```
 
+### 3.7. Create a Service Bus instance
+
+Use the following command to create a Service Bus namespace:
+
+```azurecli
+az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
+```
+
+Use the following commands to create two queues named `lower-case` and `upper-case`:
+
+```azurecli
+az servicebus queue create \
+    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+    --name lower-case
+az servicebus queue create \
+    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+    --name upper-case
+```
+
 ### 3.8. Connect app instance to Service Bus instance
 
 Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus.
@@ -218,11 +218,11 @@ az spring app update \
 
 ## 4. Deploy the app to Azure Spring Apps
 
-1. Now the cloud environment is ready. Deploy the app by using the following command.
+Now the cloud environment is ready. Deploy the app by using the following command.
 
-   ```azurecli
-   az spring app deploy \
-       --service ${AZURE_SPRING_APPS_INSTANCE} \
-       --name ${APP_NAME} \
-       --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
-   ```
+```azurecli
+az spring app deploy \
+    --service ${AZURE_SPRING_APPS_INSTANCE} \
+    --name ${APP_NAME} \
+    --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
+```

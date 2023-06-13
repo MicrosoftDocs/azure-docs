@@ -85,7 +85,25 @@ az extension add --name spring --upgrade
 az provider register --namespace Microsoft.SaaS
 ```
 
-### 3.4. Create a Service Bus instance
+### 3.4. Create an Azure Spring Apps instance
+
+Use the following command to create your Azure Spring Apps instance:
+
+```azurecli
+az spring create \
+    --name ${AZURE_SPRING_APPS_INSTANCE} \
+    --sku Enterprise
+```
+
+Use the following command to create an app in the Azure Spring Apps instance:
+
+```azurecli
+az spring app create \
+    --service ${AZURE_SPRING_APPS_INSTANCE} \
+    --name ${APP_NAME}
+```
+
+### 3.5. Create a Service Bus instance
 
 Use the following command to create a Service Bus namespace:
 
@@ -102,24 +120,6 @@ az servicebus queue create \
 az servicebus queue create \
     --namespace-name ${SERVICE_BUS_NAME_SPACE} \
     --name upper-case
-```
-
-### 3.5. Create an Azure Spring Apps instance
-
-Use the following command to create your Azure Spring Apps instance:
-
-```azurecli
-az spring create \
-    --name ${AZURE_SPRING_APPS_INSTANCE} \
-    --sku Enterprise
-```
-
-Use the following command to create an app in the Azure Spring Apps instance:
-
-```azurecli
-az spring app create \
-    --service ${AZURE_SPRING_APPS_INSTANCE} \
-    --name ${APP_NAME}
 ```
 
 ### 3.6. Connect app instance to Service Bus instance
@@ -148,11 +148,11 @@ az spring app update \
 
 ## 4. Deploy the app to Azure Spring Apps
 
-1. Now the cloud environment is ready. Deploy the app by using the following command.
+Now the cloud environment is ready. Deploy the app by using the following command.
 
-   ```azurecli
-   az spring app deploy \
-       --service ${AZURE_SPRING_APPS_INSTANCE} \
-       --name ${APP_NAME} \
-       --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
-   ```
+```azurecli
+az spring app deploy \
+    --service ${AZURE_SPRING_APPS_INSTANCE} \
+    --name ${APP_NAME} \
+    --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
+```
