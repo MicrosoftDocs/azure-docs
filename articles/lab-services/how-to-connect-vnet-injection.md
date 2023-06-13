@@ -25,6 +25,10 @@ Follow these steps to configure advanced networking for your lab plan:
 1. Create a lab plan with advance networking and associate it with the virtual network subnet.
 1. (Optional) Configure your virtual network.
 
+The following diagram shows an overview of the Azure Lab Services advanced networking configuration.
+
+:::image type="content" source="./media/how-to-connect-vnet-injection/lab-services-advanced-networking-overview.png" alt-text="Diagram that shows an overview of the advanced networking configuration in Azure Lab Services.":::
+
 > [!NOTE]
 > If your organization needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
 
