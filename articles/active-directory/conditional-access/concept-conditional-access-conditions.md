@@ -15,6 +15,7 @@ ms.reviewer: calebb, sandeo
 
 ms.collection: M365-identity-device-management
 ---
+
 # Conditional Access: Conditions
 
 Within a Conditional Access policy, an administrator can make use of signals from conditions like risk, device platform, or location to enhance their policy decisions. 
@@ -112,6 +113,7 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | iOS | Microsoft Edge, Safari (see the notes) |
 | Android | Microsoft Edge, Chrome |
 | macOS | Microsoft Edge, Chrome, Safari |
+|Linux|Microsoft Edge|
 
 These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode or if cookies are disabled. 
 
@@ -196,7 +198,7 @@ By selecting **Other clients**, you can specify a condition that affects apps th
 The device state condition was used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
 For example, *All users* accessing the *Microsoft Azure Management* cloud app including **All device state** excluding **Device Hybrid Azure AD joined** and **Device marked as compliant** and for *Access controls*, **Block**. 
-   - This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
+- This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
 
 The above scenario, can be configured using *All users* accessing the *Microsoft Azure Management* cloud app with **Filter for devices** condition in **exclude** mode using the following rule **device.trustType -eq "ServerAD" -or device.isCompliant -eq True** and for *Access controls*, **Block**.
 - This example would create a policy that blocks access to Microsoft Azure Management cloud app from unmanaged or non-compliant devices.
@@ -213,3 +215,5 @@ There’s a new optional condition in Conditional Access called filter for devic
 - [Conditional Access: Grant](concept-conditional-access-grant.md)
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
+
+
