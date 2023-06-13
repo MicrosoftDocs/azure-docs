@@ -13,7 +13,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 -->
 
-When no longer needed, you can clean up unnecessary resources to avoid Azure charges. 
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, you can clean up unnecessary resources to avoid Azure charges.
 
 #### [Azure portal](#tab/Azure-portal)
 
