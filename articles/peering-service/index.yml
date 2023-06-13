@@ -43,15 +43,15 @@ landingContent:
         links:
           - text: Create a Peering Service connection
             url: azure-portal.md
-
-  # Card
-  - title: Telemetry
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Connection telemetry
-            url: connection-telemetry.md
-      - linkListType: how-to-guide
-        links:
           - text: Access connection telemetry
             url: connection-telemetry.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.peering/
+          - text: Azure CLI
+            url: /cli/azure/peering/
