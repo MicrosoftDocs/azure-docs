@@ -38,8 +38,8 @@ The following are instructions for configuring your Azure Monitor resource to st
 Communication Services offers the following types of logs that you can enable:
 
 * **Usage logs** - provides usage data associated with each billed service offering.
-* **Call Automation operational logs** - provides operational information on Call Automation API requests. These logs can be used to identify failure points, query all requests made in a call (using Correlation ID or Server Call ID) or query all requests made by a specific service application in the call (using Participant ID).
-* **Call Automation media summary logs** - Provides information about the operation’s outcome. These come to the user asynchronously when making media requests using Call Automation APIs. These can be used to help identify failure points and possible patterns on how end users are interacting with your application. 
+* **Call Automation operational logs** - provides operational information on Call Automation API requests. These logs can be used to identify failure points and query all requests made in a call (using Correlation ID or Server Call ID).
+* **Call Automation media summary logs** - Provides information about outcome of media operations. These come to the user asynchronously when making media requests using Call Automation APIs. These can be used to help identify failure points and possible patterns on how end users are interacting with your application. 
 
 ## Usage logs schema
 
