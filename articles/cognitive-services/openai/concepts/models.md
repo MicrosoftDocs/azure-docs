@@ -63,7 +63,7 @@ Azure OpenAI now supports automatic updates for select model deployments. On mod
 
 When **Auto-update to latest** is selected your model deployment will be automatically updated within two weeks of a new version being released.
 
-If you are still in the early testing phases we recommend deploying models with **auto-update to latest** set whenever it is available.
+If you are still in the early testing phases for completion and chat completion based models we recommend deploying models with **auto-update to latest** set whenever it is available. For embeddings models while we recommend using the latest model version, you should choose when you want to upgrade since embeddings generated with an earlier model version will not be interchangeable with the new version.
 
 ### Specific model version
 
@@ -73,7 +73,7 @@ When you select a specific model version for a deployment this version will rema
 
 ### GPT-35-Turbo 0301 and GPT-4 0314 expiration
 
-The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire no earlier than September 30th, 2023. Upon expiration deployments will automatically be upgraded to the default version at the time of expiry.  If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.  
+The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire no earlier than September 30th, 2023. Upon expiration deployments will automatically be upgraded to the default version at the time of expiry. If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.  
 
 ### Viewing deprecation dates
 
@@ -98,7 +98,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | ```acountname``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deploymentName``` | string | Required | The deployment name you chose when you deployed an existing model or the name you would like a new model deployment to have.   |
 | ```resourceGroupName``` | string |  Required | The name of the associated resource group for this model deployment. |
-| ```subscriptionId``` | string |  Required | The name of the associated resource group for this model deployment. |
+| ```subscriptionId``` | string |  Required | Subscription Id for the associated subscription. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
 
 **Supported versions**
@@ -107,7 +107,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **Request body**
 
-This is only a subset of the available request body parameters for the full list of the parameters you can refer to the [REST API spec](https://github.com/Azure/azure-rest-api-specs/blob/1e71ad94aeb8843559d59d863c895770560d7c93/specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2023-05-01/cognitiveservices.json).
+This is only a subset of the available request body parameters. For the full list of the parameters you can refer to the [REST API spec](https://github.com/Azure/azure-rest-api-specs/blob/1e71ad94aeb8843559d59d863c895770560d7c93/specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2023-05-01/cognitiveservices.json).
 
 |Parameter|Type| Description |
 |--|--|--|
