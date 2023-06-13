@@ -118,7 +118,7 @@ Use the following steps to create the environment:
 az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} --enable-workload-profiles
 ```
 
-### 3.6. Create the Azure Spring Apps instance
+### 3.6. Create an Azure Spring Apps instance
 
 An Azure Spring Apps service instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
