@@ -116,6 +116,7 @@ Available to organizations with a business presence in China. See more informati
 - **Regions:**
   - China East 2
   - China North 2
+  - China North 3
 - **Available pricing tiers:**
   - Free (F0) and Standard (S0). See more details [here](https://www.azure.cn/pricing/details/cognitive-services/index.html)
 - **Supported features:**
@@ -154,6 +155,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 |--|--|
 | **China East 2**  | `chinaeast2` |
 | **China North 2**  | `chinanorth2` |
+| **China North 3**  | `chinanorth3` |
 
 #### Speech SDK
 
@@ -198,3 +200,6 @@ Replace `subscriptionKey` with your Speech resource key. Replace `azCnHost` with
 | **China North 2** | |
 | Speech to text | `wss://chinanorth2.stt.speech.azure.cn` |
 | Text to speech | `https://chinanorth2.tts.speech.azure.cn` |
+| **China North 3** | |
+| Speech to text | `wss://chinanorth3.stt.speech.azure.cn` |
+| Text to speech | `https://chinanorth3.tts.speech.azure.cn` |

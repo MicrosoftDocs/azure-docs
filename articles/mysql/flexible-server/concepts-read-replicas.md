@@ -45,6 +45,11 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There's a measurable delay between the source and the replica. The data on the replica eventually becomes consistent with the data on the source. Use this feature for workloads that can accommodate this delay.
 
+## Cross-region replication
+
+You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users. Azure database for MySQL Flexible Server allows you to provision read-replica in the Azure supported geo-paired region to the source server. Learn more about Azure Paired Regions [here](https://learn.microsoft.com/azure/reliability/cross-region-replication-azure).
+
+
 ## Create a replica
 
 If a source server has no existing replica servers, the source first restarts to prepare itself for replication.

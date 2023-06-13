@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD033 -->

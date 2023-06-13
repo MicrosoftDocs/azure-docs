@@ -28,8 +28,8 @@ landingContent:
         links:
           - text: Automatically upgrade node images
             url: auto-upgrade-node-image.md
-          - text: Mariner container host for AKS
-            url: use-mariner.md
+          - text: Azure Linux container host for AKS
+            url: use-azure-linux.md
           - text: Vertical Pod Autoscaler (preview)
             url: vertical-pod-autoscaler.md
           - text: Workload identity (preview)

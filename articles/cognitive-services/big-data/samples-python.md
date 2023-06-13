@@ -9,6 +9,7 @@ ms.topic: sample
 ms.date: 11/01/2022
 ms.author: marhamil
 ms.devlang: python
+ms.custom: devx-track-python
 ---
 
 # Python Samples for Cognitive Services for big data

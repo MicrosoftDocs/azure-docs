@@ -320,25 +320,48 @@ For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers)
 }
 ```
 ### JavaScript telemetry initializers
-*JavaScript*
 
-Insert a telemetry initializer using the snippet onInit callback:
+Insert a JavaScript telemetry initializer, if needed. For more information on the telemetry initializers for the Application Insights JavaScript SDK, see [Telemetry initializers](https://github.com/microsoft/ApplicationInsights-JS#telemetry-initializers).
+
+#### [SDK Loader Script](#tab/sdkloaderscript)
+
+Insert a telemetry initializer by adding the onInit callback function in the [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration):
 
 ```html
 <script type="text/javascript">
-!function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+!function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {
   sdk.addTelemetryInitializer(function (envelope) {
+    envelope.data = envelope.data || {};
     envelope.data.someField = 'This item passed through my telemetry initializer';
   });
 }, // Once the application insights instance has loaded and initialized this method will be called
 cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY"
+    connectionString: "YOUR_CONNECTION_STRING"
 }});
 </script>
 ```
+
+#### [npm package](#tab/npmpackage)
+
+   ```js
+   import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+   const appInsights = new ApplicationInsights({ config: {
+     connectionString: 'YOUR_CONNECTION_STRING'
+     /* ...Other Configuration Options... */
+   } });
+   appInsights.loadAppInsights();
+   // To insert a telemetry initializer, uncomment the following code.
+   /** var telemetryInitializer = (envelope) => {   envelope.data = envelope.data || {}; envelope.data.someField = 'This item passed through my telemetry initializer'; 
+   };
+   appInsights.addTelemetryInitializer(telemetryInitializer); **/ 
+   appInsights.trackPageView();
+   ```
+
+---
 
 For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-telemetry.md#application-insights-export-data-model).
 

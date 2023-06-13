@@ -6,18 +6,15 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.date: 04/25/2023
 ---
 
 # Quickstart: Create and configure a dev center for Azure Deployment Environments
 
-This quickstart shows you how to create and configure a dev center in Azure Deployment Environments Preview.
+This quickstart shows you how to create and configure a dev center in Azure Deployment Environments.
 
 An enterprise development infrastructure team typically sets up a dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams create [environments](concept-environments-key-concepts.md#environments) by using [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy applications.
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -58,7 +55,7 @@ To create and configure a Dev center in Azure Deployment Environments by using t
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-devcenter-created.png" alt-text="Screenshot that shows the Dev centers overview, to confirm that the dev center is created.":::
 
 ## Create a Key Vault
-You need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Key Vaults can control access with either access policies or role-based access control (RBAC). In this quickstart, you use an RBAC Key Vault.
+You need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Key Vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. In this quickstart, you create an RBAC Key Vault. For help with configuring an access policy for a key vault, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?branch=main&tabs=azure-portal). 
 
 If you don't have an existing key vault, use the following steps to create one:
 
@@ -77,7 +74,7 @@ If you don't have an existing key vault, use the following steps to create one:
     
     Leave the other options at their defaults.
 
-1. On the Access policy tab, select **Azure role-based access control**, and then select **Review + create**.
+1. On the Access configuration tab, select **Azure role-based access control**, and then select **Review + create**.
 
 1. On the Review + create tab, select **Create**.
 
@@ -170,7 +167,7 @@ Configure vault access:
     | **Members** | Select the dev center managed identity that you created in [Attach a system-assigned managed identity](#attach-a-system-assigned-managed-identity). |
 
 ## Add a catalog to the dev center
-Azure Deployment Environments Preview supports attaching Azure DevOps repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
+Azure Deployment Environments supports attaching Azure DevOps repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
 
 In this quickstart, you attach a GitHub repository that contains samples created and maintained by the Azure Deployment Environments team.
 

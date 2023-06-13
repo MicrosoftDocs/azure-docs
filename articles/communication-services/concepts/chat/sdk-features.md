@@ -11,6 +11,7 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
+ms.custom: devx-track-js
 ---
 
 # Chat SDK overview
