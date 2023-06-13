@@ -201,7 +201,8 @@ Next, update your code to use passwordless connections.
        ```java
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
-        String serviceBusNamespace = "https://" + namespace + ".servicebus.windows.net";
+        String serviceBusNamespace = 
+            "https://" + namespace + ".servicebus.windows.net";
     
         ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
             credential,
@@ -216,7 +217,8 @@ Next, update your code to use passwordless connections.
         ```java
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
-        String serviceBusNamespace = "https://" + namespace + ".servicebus.windows.net";
+        String serviceBusNamespace = 
+            "https://" + namespace + ".servicebus.windows.net";
     
         ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
             .credential(serviceBusNamespace, credential)
@@ -231,7 +233,8 @@ Next, update your code to use passwordless connections.
         ```java
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
-        String serviceBusNamespace = "https://" + namespace + ".servicebus.windows.net";
+        String serviceBusNamespace = 
+            "https://" + namespace + ".servicebus.windows.net";
     
         ServiceBusSenderClient client = new ServiceBusClientBuilder()
             .credential(serviceBusNamespace, credential)
