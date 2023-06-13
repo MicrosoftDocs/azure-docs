@@ -42,7 +42,6 @@ The following new capabilities are available in the private preview of Microsoft
 - Protect user access to the public internet while leveraging Microsoft's cloud-delivered, identity-aware SWG solution 
 - Enable web content filtering to regulate access to websites based on their content categories through secure web gateway.
 - Apply universal Conditional Access policies for all internet destinations, even if not federated with Microsoft Entra ID.
-- Enriched key security SharePoint logs for better visibility and detection.
 
 ## Microsoft Entra Private Access
 

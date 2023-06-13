@@ -134,7 +134,7 @@ Global Secure Access remote networks can be viewed and managed using Microsoft G
 1. Select BETA as the API version. 
 1. Add the following query to use Create Branches API (add hyperlink to the Graph API) 
     ```
-    POST https://graph.microsoft.com/beta/networkaccess/branches 
+    POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches 
     { 
         "name": "ContosoBranch", 
         "country": "United States ", //must be removed 
@@ -168,14 +168,14 @@ Associating a traffic forwarding profile to your remote network using the Micros
 1. Select the API version to **beta**. 
 1. Enter the query:
     ```
-    GET https://graph.microsoft.com/beta/networkaccess/forwardingprofiles 
+    GET https://graph.microsoft.com/beta/networkaccess/connectivity/forwardingprofiles 
     ```
 1. Select **Run query**. 
 1. Find the ID of the desired traffic forwarding profile. 
 1. Select PATCH as the HTTP method from the dropdown. 
 1. Enter the query:
     ```
-        PATCH https://graph.microsoft.com/beta/networkaccess/branches/d2b05c5-1e2e-4f1d-ba5a-1a678382ef16/forwardingProfiles
+        PATCH https://graph.microsoft.com/beta/networkaccess/connectivity/branches/d2b05c5-1e2e-4f1d-ba5a-1a678382ef16/forwardingProfiles
         {
             "@odata.context": "#$delta",
             "value":

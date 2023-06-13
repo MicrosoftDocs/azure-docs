@@ -43,7 +43,7 @@ To edit the details of a remote network:
 1. Select the API version to **beta**. 
 1. Enter the query:
     ```
-    PATCH https://graph.microsoft.com/beta/networkaccess/branches/8d2b05c5-1e2e-4f1d-ba5a-1a678382ef16
+    PATCH https://graph.microsoft.com/beta/networkaccess/connectivity/branches/8d2b05c5-1e2e-4f1d-ba5a-1a678382ef16
     {
         "@odata.context": "#$delta",
         "name": "ContosoRemoteNetwork2"
@@ -68,7 +68,7 @@ To edit the details of a remote network:
 1. Select the API version to **beta**. 
 1. Enter the query:
     ```
-    DELETE https://graph.microsoft.com/beta/networkaccess/branches/97e2a6ea-c6c4-4bbe-83ca-add9b18b1c6b 
+    DELETE https://graph.microsoft.com/beta/networkaccess/connectivity/branches/97e2a6ea-c6c4-4bbe-83ca-add9b18b1c6b 
     ```
 1. Select **Run query** to delete the remote network. 
 
