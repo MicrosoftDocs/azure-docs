@@ -276,6 +276,8 @@
       href: how-to-enable-agentless-containers.md
     - name: View and remediate vulnerability assessment findings for registry images 
       href: view-and-remediate-vulnerability-assessment-findings.md
+    - name: How to test the attack path and security explorer using a vulnerable container image
+      href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md  
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
