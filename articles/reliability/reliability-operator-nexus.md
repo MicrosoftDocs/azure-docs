@@ -56,7 +56,7 @@ Nexus clusters that are geographically distributed, i.e., not in the same operat
 > 
 > In the unlikely event that an Azure region becomes unavailable, the Azure services as well as the Nexus resources on that region will also become unavailable. While this doesn't impact running workloads, it prevents capabilities such as starting new workloads, analytics, etc.
 
-### Multiple Nexus clusters in the same geo-location
+### Multiple Nexus instances in the same geo-location
 
 There are scenarios where multiple Nexus clusters need to be deployed in the same geographic location.
 Workload geo-redundancy is obviously not achieved by deploying workloads on Nexus clusters in the same geographic location.
