@@ -39,7 +39,7 @@ When customers receive an environment from the Microsoft ALI team, they are enco
 
 * Validate ALI for Epic stamps and configure and patch OS based on your requirements.  
   * Verify that the stamps are visible on Azure Portal.
-  >[!Note]
+  > [!Note]
   > Do NOT place large files like ALI for Epic installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
 
 ## Secure Server IP pool address range

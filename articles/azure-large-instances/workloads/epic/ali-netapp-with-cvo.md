@@ -26,7 +26,7 @@ Connector and subsequent CVO (Cloud Volume Ontap) on Azure setup.
 and target volume of Azure CVO followed by initial data transfer from source to target.
 4. Enable Azure VM host setup with ISCSI.
 
->[!Note] 
+> [!Note] 
 >Snap-mirror policy is created by cluster admin to be used for volume level snap-mirroring relationship.
 
 5. Create read/writable Snap-mirrored target volumes using Flxclone technology and map to Azure 
@@ -74,7 +74,7 @@ Doing so allows you to isolate replication traffic in multitenant environments.
 3. Setup Routing of Azure CVO default ipspace network /Intercluster LIF to reach ALI storage custom IPSpace network and intercluster LIF.
 4. Setup the cluster level peering between ALIstorage cluster and Azure CVO cluster.
 
->[!Note] 
+> [!Note] 
 >Full meshed IPSpace on all the nodes in the cluster can be optional if needed. For example, you 
 can create custom IPSpace just for two nodes in the cluster instead on all the nodes and use that IPSpace 
 to create snap-mirror peering at both cluster and SVM level between ALIstorage and Azure CVO. 
@@ -89,7 +89,7 @@ target volume name, snap-mirror schedule, snap-mirror policy) to initialize the 
 async mirroring between two volumes.
 3. Initialize the data transfer and async mirroring on source and target volume.
 
->[!Note] 
+> [!Note] 
 >You can use default policy or create custom policy which will include the network bandwidth throttling for the snap-mirror traffic to co-exist with other network traffic with minimum impact.
 Similarly, you can also define the schedule of snap-mirror operation to take place in the off-peak period where
 higher network bandwidth between ALI and Azure CVO can be available for large baseline transfer.

@@ -72,7 +72,7 @@ Azure Large Instances for specialized workloads is available in the following Az
 * West US 2 zones support 
 * South Central US 
 
->[!NOTE]
+> [!Note]
 >Zones support refers to availability zones in which a region where Azure Large Instances can be deployed across zones for high resiliency and availability. This capability enables support for multi-site active-active scaling. 
 
 ## Managing Azure Large Instances in Azure 
@@ -103,7 +103,7 @@ An infrastructure accessed through a unified network fabric.
 Within the multi-tenant infrastructure of the Azure Large instance stamp, customers are deployed in isolated tenants. 
 When deploying a tenant, you name an Azure subscription within your Azure enrollment. This Azure subscription is the one billed for your implementation of Azure Large instances. 
 
->[!Note] 
+> [!Note] 
 >A customer implementing Azure Large instances is isolated into a tenant. 
 A tenant is isolated in the networking, storage, and compute layer from other tenants. 
 Storage and compute units assigned to different tenants cannot see each other or communicate with each other on their Azure Large instances. 
@@ -167,5 +167,5 @@ Shows Azure IaaS, and in this case, use of VMs to host your applications, which 
 ### ExpressRoute Gateway (lower)
 Shows using your ExpressRoute Gateway enabled with ExpressRoute FastPath for Azure Large instances connectivity offering low latency. 
 
->[!Note]
+> [!Note]
 >To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
