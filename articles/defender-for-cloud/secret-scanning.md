@@ -1,11 +1,11 @@
 ---
-title: Agentless secret scanning
+title: Manage secrets with agentless secret scanning
 description: Learn how to scan your servers for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
 ms.date: 06/13/2023
 ---
 
-# Agentless secret scanning
+# Manage secrets with agentless secret scanning
 
 Attackers can move laterally across networks, searching for sensitive data and ways to damage critical information systems by exploiting exposed credentials and secrets in internet-facing workloads.
 
