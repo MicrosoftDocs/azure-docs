@@ -87,10 +87,6 @@ For locked clusters, you can also do one of the following:
 
 Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
-## What's the refresh interval?
-
-Agentless information in Defender CSPM is updated through a snapshot mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
-
 ## Are you using an updated version of AKS?
 
 Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
