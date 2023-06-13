@@ -543,7 +543,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    </code></pre>
 
    > [!NOTE]
-   > On SLES 15 SP04 check the version of *crmsh* and *pacemaker* package, and make sure that the miniumum version requirements are met:
+   > On SLES 15 SP4 check the version of *crmsh* and *pacemaker* package, and make sure that the miniumum version requirements are met:
    > - crmsh-4.4.0+20221028.3e41444-150400.3.9.1 or later
    > - pacemaker-2.1.2+20211124.ada5c3b36-150400.4.6.1 or later
 
@@ -789,7 +789,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 ### Create a fencing device on the Pacemaker cluster
 
-1. **[1]** If you're using an SDB device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
+1. **[1]** If you're using an SBD device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
 
    <pre><code>sudo crm configure property stonith-timeout=144
    sudo crm configure property stonith-enabled=true
@@ -819,7 +819,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params <b>msi=true</b> subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" \
-   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
    op monitor interval=3600 timeout=120
    
    sudo crm configure property stonith-timeout=900

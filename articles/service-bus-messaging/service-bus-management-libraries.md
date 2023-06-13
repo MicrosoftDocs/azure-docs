@@ -23,7 +23,7 @@ The Azure Resource Manager-based libraries allow you to manage namespaces, queue
 
 | Language | Package | Documentation | Samples|
 |-|-|-|-|
-|.NET | [Microsoft.Azure.Management.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceBus/) |[API reference for Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)|[.NET](https://github.com/Azure-Samples/service-bus-dotnet-management/tree/a55185bef30d1763c1a8182a3361dbb548bad436) |
+|.NET | [Azure.ResourceManager.ServiceBus](https://www.nuget.org/packages/Azure.ResourceManager.ServiceBus/)|[API reference for Microsoft.Azure.Management.ServiceBus](/dotnet/api/azure.resourcemanager.servicebus)|[.NET](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ServiceBus_1.0.0/sdk/servicebus/Azure.ResourceManager.ServiceBus/samples) |
 | Java | [azure-resourcemanager-servicebus](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-servicebus)|[API reference for com.azure.resourcemanager.servicebus](/java/api/com.azure.resourcemanager.servicebus)|[Java](https://github.com/Azure-Samples/service-bus-java-manage-publish-subscribe-with-basic-features/tree/e4718a825e8fcfe58e5921770ff8084da67ccd89)|
 | JavaScript |[@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus)|[API reference for @azure/arm-servicebus](/javascript/api/@azure/arm-servicebus/)||
 |Python|[azure-mgmt-servicebus](https://pypi.org/project/azure-mgmt-servicebus/)|[API reference for azure-mgmt-servicebus](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus)||
