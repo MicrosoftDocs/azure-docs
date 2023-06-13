@@ -17,10 +17,8 @@ Azure API Management service provides a hybrid, multicloud management platform f
 
 ## Create resources
 
-### Create a SignalR Service instance
 * Follow [Quickstart: Use an ARM template to deploy Azure SignalR](./signalr-quickstart-azure-signalr-service-arm-template.md) and create a SignalR Service instance **_ASRS1_**
 
-### Create an API Management instance
 * Follow [Quickstart: Use an ARM template to deploy Azure API Management](../api-management/quickstart-arm-template.md) and create an API Management instance **_APIM1_**
 
 ## Configure APIs
@@ -107,7 +105,7 @@ Now let's configure API Management from the portal.
 Now API Management is successfully configured to support SignalR client with `ServerSentEvents` or `LongPolling` transport.
 
 ### Run chat
-Now, the traffic can reach SignalR Service through API Management.Let’s use [this chat application](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/ChatRoom) as an example. Let's start with running it locally.
+Now, the traffic can reach SignalR Service through API Management. Let’s use [this chat application](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/ChatRoom) as an example. Let's start with running it locally.
 
 * First let's get the connection string of **_ASRS1_**
     * On the **Connection strings** tab of **_ASRS1_**
@@ -124,11 +122,11 @@ Now, the traffic can reach SignalR Service through API Management.Let’s use [t
     dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-onnection-string-with-client-endpoint>" 
     dotnet run
     ```
-* Configre transport type for the client
+* Configure transport type for the client
 
-    Open `index.html` under folder `wwwroot` and find the code when connection is created, update it to specify the transport type.
+    Open `index.html` under folder `wwwroot` and find the code when `connection` is created, update it to specify the transport type.
 
-    For example, to specify the connection to use server-sent-events or longpolling, update the code to:
+    For example, to specify the connection to use server-sent-events or long polling, update the code to:
 
     ```javascript
     const connection = new signalR.HubConnectionBuilder()
