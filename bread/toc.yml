@@ -1121,7 +1121,13 @@
     - name: Billing and subscriptions
       tocHref: /azure/cost-management-billing/manage
       topicHref: /azure/cost-management-billing/manage/index
-  - name: Microsoft Purview
+    - name: Get started
+      tocHref: /azure/cost-management-billing/understand
+      topicHref: /azure/cost-management-billing/manage/index
+  - name: Automation
+      tocHref: /azure/cost-management-billing/automate
+      topicHref: /azure/cost-management-billing/costs/index
+    - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
   - name: Applied AI Services 
