@@ -21,7 +21,7 @@ Azure API Management service provides a hybrid, multicloud management platform f
 * Follow [Quickstart: Use an ARM template to deploy Azure SignalR](./signalr-quickstart-azure-signalr-service-arm-template.md) and create a SignalR Service instance **_ASRS1_**
 
 ### Create an API Management instance
-* Follow [Quickstart: Use an ARM template to deploy Azure API Management](../api-management/quickstart-arm-template.md) and create an API Managment instance **_APIM1_**
+* Follow [Quickstart: Use an ARM template to deploy Azure API Management](../api-management/quickstart-arm-template.md) and create an API Management instance **_APIM1_**
 
 ## Configure APIs
 
@@ -32,41 +32,41 @@ There are two types of requests for a SignalR client:
 * **negotiate request**: HTTP `POST` request to `<APIM-URL>/client/negotiate/`
 * **connect request**: request to `<APIM-URL>/client/`, it could be `WebSocket` or `ServerSentEvent` or `LongPolling` depends on the transport type of your SignalR client
 
-The type of **connect request** varies depending on the transport type of the SignalR clients. As for now, API Management doesn't yet support different types of APIs for the same suffix. With this limitation, when using API Management, your SignalR client does not support fallback from `WebSocket` transport type to other transport types. Fallback from `ServerSentEvent` to `LongPolling` could be supported. Below sections describe the detailed configurations for different transport types.
+The type of **connect request** varies depending on the transport type of the SignalR clients. As for now, API Management doesn't yet support different types of APIs for the same suffix. With this limitation, when using API Management, your SignalR client doesn't support fallback from `WebSocket` transport type to other transport types. Fallback from `ServerSentEvent` to `LongPolling` could be supported. Below sections describe the detailed configurations for different transport types.
 
 ### Configure APIs when client connects with `WebSocket` transport
 
-This section describes the steps to configure API Management when the SignalR clients connects with `WebSocket` transport. When SignalR clients connect with `WebSocket` transport, 3 types of requests are involved:
+This section describes the steps to configure API Management when the SignalR clients connect with `WebSocket` transport. When SignalR clients connect with `WebSocket` transport, three types of requests are involved:
 1. **OPTIONS** preflight HTTP request for negotiate
 1. **POST** HTTP request for negotiate
 1. WebSocket request for connect
 
 Let's configure API Management from the portal.
-1. Go to **APIs** tab in the portal for API Managment instance **_APIM1_**, click **Add API** and choose **HTTP**, **Create** with the following parameters:
+1. Go to **APIs** tab in the portal for API Management instance **_APIM1_**, select **Add API** and choose **HTTP**, **Create** with the following parameters:
     * Display name: `SignalR negotiate`
     * Web service URL: `https://<your-signalr-service-url>/client/negotiate/`
     * API URL suffix: `client/negotiate/`
-1. Click the created `SignalR negotiate` API, **Save** with below settings:
+1. Select the created `SignalR negotiate` API, **Save** with below settings:
     1. In **Design** tab
-        1.  click **Add operation**, and **Save** with the following parameters:
+        1.  Select **Add operation**, and **Save** with the following parameters:
             * Display name: `negotiate preflight`
             * URL: `OPTIONS` `/`
-        1.  click **Add operation**, and **Save** with the following parameters:
+        1.  Select **Add operation**, and **Save** with the following parameters:
             * Display name: `negotiate`
             * URL: `POST` `/`
     1. Switch to **Settings** tab and uncheck **Subscription required** for quick demo purpose
-1. Click **Add API** and choose **WebSocket**, **Create** with the following parameters:
+1. Select **Add API** and choose **WebSocket**, **Create** with the following parameters:
     * Display name: `SignalR connect`
     * WebSocket URL: `wss://<your-signalr-service-url>/client/`
     * API URL suffix: `client/`
-1. Click the created `SignalR connect` API, **Save** with below settings:
+1. Select the created `SignalR connect` API, **Save** with below settings:
     1. Switch to **Settings** tab and uncheck **Subscription required** for quick demo purpose
 
 Now API Management is successfully configured to support SignalR client with `WebSocket` transport.
 
 ### Configure APIs when client connects with `ServerSentEvents` or `LongPolling` transport
 
-This sections describes the steps to configure API Management when the SignalR clients connect with `ServerSentEvents` or `LongPolling` transport type. When SignalR clients connect with `ServerSentEvents` or `LongPolling` transport, 3 types of requests are involved:
+This section describes the steps to configure API Management when the SignalR clients connect with `ServerSentEvents` or `LongPolling` transport type. When SignalR clients connect with `ServerSentEvents` or `LongPolling` transport, five types of requests are involved:
 1. **OPTIONS** preflight HTTP request for negotiate
 1. **POST** HTTP request for negotiate
 1. **OPTIONS** preflight HTTP request for connect
@@ -75,28 +75,28 @@ This sections describes the steps to configure API Management when the SignalR c
 
 Now let's configure API Management from the portal.
 
-1. Go to **APIs** tab in the portal for API Managment instance **_APIM1_**, click **Add API** and choose **HTTP**, **Create** with the following parameters:
+1. Go to **APIs** tab in the portal for API Management instance **_APIM1_**, select **Add API** and choose **HTTP**, **Create** with the following parameters:
     * Display name: `SignalR`
     * Web service URL: `https://<your-signalr-service-url>/client`
     * API URL suffix: `client`
-1. Click the created `SignalR` API, **Save** with below settings:
+1. Select the created `SignalR` API, **Save** with below settings:
     1. In **Design** tab
-        1.  click **Add operation**, and **Save** with the following parameters:
+        1.  Select **Add operation**, and **Save** with the following parameters:
             * Display name: `negotiate preflight`
             * URL: `OPTIONS` `/negotiate`
-        1.  click **Add operation**, and **Save** with the following parameters:
+        1.  Select **Add operation**, and **Save** with the following parameters:
             * Display name: `negotiate`
             * URL: `POST` `/negotiate`
-        1.  click **Add operation**, and **Save** with the following parameters:
+        1.  Select **Add operation**, and **Save** with the following parameters:
             * Display name: `connect preflight`
             * URL: `OPTIONS` `/`
-        1.  click **Add operation**, and **Save** with the following parameters:
+        1.  Select **Add operation**, and **Save** with the following parameters:
             * Display name: `connect`
             * URL: `POST` `/`
-        1.  click **Add operation**, and **Save** with the following parameters:
+        1.  Select **Add operation**, and **Save** with the following parameters:
             * Display name: `connect get`
             * URL: `GET` `/`
-        1. Click the newly added **connect get** operation, and edit the Backend policy as below to disable buffering for `ServerSentEvents`, [check here](/articles/api-management/how-to-server-sent-events.md) for more details.
+        1. Select the newly added **connect get** operation, and edit the Backend policy to disable buffering for `ServerSentEvents`, [check here](../api-management/how-to-server-sent-events.md) for more details.
             ```xml
             <backend>
                 <forward-request buffer-response="false" />
@@ -126,20 +126,20 @@ Now, the traffic can reach SignalR Service through API Management.Let’s use [t
     ```
 * Configre transport type for the client
 
-    Open index.html page and find the code when connection is created, update it to specify the transport type.
+    Open `index.html` under folder `wwwroot` and find the code when connection is created, update it to specify the transport type.
 
     For example, to specify the connection to use server-sent-events or longpolling, update the code to:
 
     ```javascript
     const connection = new signalR.HubConnectionBuilder()
-                    .withUrl('/hub1', signalR.HttpTransportType.ServerSentEvents | signalR.HttpTransportType.LongPolling)
+                    .withUrl('/chat', signalR.HttpTransportType.ServerSentEvents | signalR.HttpTransportType.LongPolling)
                                             .build();
     ```
     To specify the connection to use WebSockets, update the code to:
      
     ```javascript
     const connection = new signalR.HubConnectionBuilder()
-                    .withUrl('/hub1', signalR.HttpTransportType.WebSockets)
+                    .withUrl('/chat', signalR.HttpTransportType.WebSockets)
                                             .build();
     ```
 
