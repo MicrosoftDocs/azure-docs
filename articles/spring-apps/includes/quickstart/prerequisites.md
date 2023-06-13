@@ -25,7 +25,6 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Apache Maven](https://maven.apache.org/download.cgi)
 
 ::: zone pivot="sc-consumption-plan,sc-enterprise"
 
