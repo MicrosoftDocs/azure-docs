@@ -54,7 +54,7 @@
         href: /graph/tutorial-accessreviews-securitygroup?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Review access to privileged roles - Microsoft Graph
         href: /graph/tutorial-accessreviews-roleassignments?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
-    - name: Lifecycle Workflows (Preview)
+    - name: Lifecycle Workflows
       items:
       - name: Automate employee onboarding tasks - Azure portal
         href: tutorial-onboard-custom-workflow-portal.md 
@@ -263,7 +263,7 @@
     href: /graph/api/resources/accessreviewsv2-overview
   - name: Entitlement management - Microsoft Graph API
     href: /graph/api/resources/entitlementmanagement-overview
-  - name: Lifecycle Workflows (Preview)
+  - name: Lifecycle Workflows
     items:
     - name: Lifecycle Workflows - Microsoft Graph API
       href: /graph/api/resources/identitygovernance-lifecycleworkflows-overview
