@@ -49,6 +49,7 @@ Whenever the maintenance window is activated as per the schedule in the maintena
 ## Example deployment
 
 The following is a step by step process to setup a cluster with maintenance control.
+Download this sample which contains all the required resources. [Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-mrp/sfmc-deploy-autoscale.json)
 
 1) Create resource group in a region
 
@@ -60,7 +61,6 @@ The following is a step by step process to setup a cluster with maintenance cont
 
 2) Create cluster resource
 
-   Download this sample [Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Autoscale/azuredeploy.json)
    Execute this command to deploy the cluster resource:
 
    ```powershell
@@ -100,7 +100,7 @@ The following is a step by step process to setup a cluster with maintenance cont
 ```
 
 >[!NOTE]
-> As shown above, the maintenance configuraiton for SFMC cluster resource should have maintenanceScope: Resource and maintenanceSubScope: SFMC.
+> As shown above, the maintenance configuration for SFMC cluster resource should have maintenanceScope: Resource and maintenanceSubScope: SFMC.
 
     After the maintenance configuration is created, it has to be attached to the SFMC cluster, using the assignment resource. [More details about assignment](https://learn.microsoft.com/en-us/azure/templates/microsoft.maintenance/configurationassignments?pivots=deployment-language-arm-template)
 
@@ -141,7 +141,7 @@ The following is a step by step process to setup a cluster with maintenance cont
 >[!NOTE]
 >To disable the maintenance control on this cluster, delete the assignment defined above.
 
-You can download this [ARM Template to enable maintenanceControl](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-mrp/sfmc-deploy-autoscale.json) which contains the above example
+You can download this [ARM Template to enable maintenanceControl](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-mrp/sfmc-deploy-mrp.json) which contains the above example
 
 [overviewimage]: ./media/maintenance-control-sfmc/overview.png
 
