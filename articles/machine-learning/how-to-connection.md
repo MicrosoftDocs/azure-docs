@@ -59,7 +59,7 @@ pip install azure-ai-ml
 pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
 ```
 
-#[Studio](#tab/Studio)
+# [Studio](#tab/Studio)
 
 Not available.
 
