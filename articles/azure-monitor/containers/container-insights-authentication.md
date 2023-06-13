@@ -43,7 +43,7 @@ curl  -L https://aka.ms/enable-monitoring-msi-bicep-parameters -o existingCluste
 - **workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
 - **workspaceRegion**: Use the location of your Log Analytics workspace.
 - **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
-- Other parameters are for cost optimization, please refer to this guide https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
+- Other parameters are for cost optimization, please refer to this guide https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
 
 3.	Onboarding with the commands below:
 
@@ -79,7 +79,7 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 ```
 
 For new aks cluster:
-Replace and use the managed cluster resources in this [guide](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-bicep?tabs=azure-cli)
+Replace and use the managed cluster resources in this [guide](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-bicep?tabs=azure-cli)
 
 
 ## [Terraform](#tab/terraform)
@@ -99,7 +99,7 @@ https://aka.ms/enable-monitoring-msi-syslog-terraform
 - resource_tag_values: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 - Other parameters are for cluster settings or cost optimization, please refer to those guides:
 o	azurerm_kubernetes_cluster | Resources | hashicorp/azurerm | Terraform Registry
-o	https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
+o	https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
 
 Enable Monitoring with MSI with syslog for new aks cluster
 
@@ -133,7 +133,7 @@ If you are deploying a new AKS cluster using Terraform with ama logs addon enabl
 9.	resource_tag_values: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 10.	Other parameters are for cluster settings or cost optimization, please refer to those guides:
 azurerm_kubernetes_cluster | Resources | hashicorp/azurerm | Terraform Registry
-https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
+https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
 4. Run `terraform init -upgrade` to initialize the Terraform deployment.
 5. Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6. Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
