@@ -40,8 +40,8 @@ If there are no entries in the list of attack path, it is still possible to test
 
 1. Allow work on a cluster:
     
-    1. Run the command: ```az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>```dotnetcli
-        ```
+    1. Run the command: ```az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>```
+    
 1. Verify success by doing the following:
 
    - Look for an entry with **mdc-dcspm-demo** as namespace
@@ -52,9 +52,20 @@ If there are no entries in the list of attack path, it is still possible to test
 
     1. RUn the command: ```helm install dcspmcharts oci://dcspmtesting.azurecr.io/dcspmcharts --version 1.0.0  --namespace mdc-dcspm-demo --create-namespace --set registry=<your-registry>```
 
-NOTE
-The system’s architecture is based on a snapshotting mechanism with an interval of every 6 hours, which is typically the time to observe inventory. For insights and attack paths it can take up to 24 hours. 
+    > [!NOTE]
+    > The system’s architecture is based on a snapshot mechanism with an interval of every 6 hours, which is typically the time to observe inventory. For insights and attack paths it can take up to 24 hours. 
+
+1. Query the security explorer for containers images that are vulnerable.
+1. Find this security issue under attack paths:
+
+    1.	Go to “Microsoft Defender for Cloud” = > “Recommendations” 
+    1.	Click on the **Attack Path** link to open the Attack Paths view
+    1.	Locate the entry that details this security issue under “Internet exposed Kubernetes pod is running a container with high severity vulnerabilities”. Depending on the way you have connected the container to internet, the issue can be instead found under “Try triggering an additional attack path: an AKS pod with host network access is running a container with a vulnerability that can be exploited remotely." 
+
+    > [!NOTE]
+    > After completing the above flow, it can take up to 24 hours to see results in the Security Explorer and Attack Path.
+
 
 ## Next Steps 
-
+- Learn how to [configure Azure COntainer Registry integration for existing AKS clusters](https://learn.microsoft.com/azure/aks/cluster-container-registry-integration?tabs=azure-cli#configure-acr-integration-for-existing-aks-clusters)
  - Learn more about the Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).
