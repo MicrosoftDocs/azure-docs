@@ -56,4 +56,4 @@ If you want to clean up and remove an OpenAI or Azure Cognitive Search resource,
 - 
 ## Next steps
 * Learn more about [using your data in Azure OpenAI Service](./concepts/using-your-data.md)
-* [Chat app sample code on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/sawidder/new-readme/README.md).
+* [Chat app sample code on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main).

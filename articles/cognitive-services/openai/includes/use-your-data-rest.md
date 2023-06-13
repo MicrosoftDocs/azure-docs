@@ -118,12 +118,10 @@ export SearchIndex=REPLACE_WITH_YOUR_INDEX_NAME_HERE
 
 ---
 
-<!-- Add a feedback button here that says "I had with setting up." -->
-
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Set-up)
 
-## Example cURL command
+## Example cURL commands
 
 The ChatGPT models are optimized to work with inputs formatted as a conversation. The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, tool, and assistant. The `dataSources` variable connects to your Azure Cognitive Search index, and enables Azure OpenAI models to respond using your data.
 
@@ -186,10 +184,68 @@ curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/ch
 }
 ```
 
+### Streaming example
+
+You can send a streaming request using the `stream` parameter, allowing data to be sent and received incrementally, without waiting for the entire API response. This can improve performance and user experience, especially for large or dynamic data.
+
+```bash
+curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/chat/completions?api-version=2023-06-01-preview \
+-H "Content-Type: application/json" \
+-H "api-key: $AOAIKey" \
+-H "chatgpt_url: $ChatGptUrl" \
+-H "chatgpt_key: $ChatGptKey" \
+-d \
+'
+{
+    "stream": true,
+    "dataSources": [
+        {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": "'$SearchEndpoint'",
+                "key": "'$SearchKey'",
+                "indexName": "'$SearchIndex'"
+            }
+        }
+    ],
+    "messages": [
+        {
+            "role": "user",
+            "content": "What are the differences between Azure Machine Learning and Azure Cognitive Services?"
+        }
+    ]
+}
+'
+```
+
+### Example output
+
+```json
+data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"role": "tool", "content": "{\"citations\": [{\"content\": \"\\nIntroduction\\nAzure Cognitive Services are cloud-based artificial intelligence (AI) services... \", \"id\": null, \"title\": \"Introduction\", \"filepath\": null, \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=264. Scores=0.9834403 and 1.718505859375.Org Highlight count=2.\"}, \"chunk_id\": \"0\"}], \"intent\": \"what is tprompt\"}"}, "index": 0}], "finish_reason": null}]}
+
+data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"role": "assistant"}, "index": 1}], "finish_reason": null}]}
+
+data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": " \n"}, "index": 1}], "finish_reason": null}]}
+
+data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": "TP"}, "index": 1}], "finish_reason": null}]}
+
+data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": "rompt"}, "index": 1}], "finish_reason": null}]}
+
+data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": " is"}, "index": 1}], "finish_reason": null}]}
+
+data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": " a"}, "index": 1}], "finish_reason": null}]}
+
+data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": " generic"}, "index": 1}], "finish_reason": null}]}
+
+data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": "[DONE]"}, "index": 2}], "finish_reason": null}]}
+```
+
 > [!div class="nextstepaction"]
 > [I ran into an issue with sending the request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Send-request)
 
 ## Chat with your model using a web app
+
+To start chatting with the Azure OpenAI model that uses your data, you can deploy a Python web app using example code we [provide on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main). This app deploys using Azure app service, Deploy this app using. Using this web app, you can send queries 
 
 > [!TIP]
 > This web app can be used without using your data with Azure OpenAI. 
@@ -206,7 +262,7 @@ To start chatting with your model using the API:
     * `AZURE_SEARCH_INDEX`: The name of your Azure Cognitive Search index.
     * `AZURE_SEARCH_KEY`: An admin key for your Azure Cognitive Search resource.
 
-    There are additional variables you can optionally change, see the [sample code documentation on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/sawidder/new-readme/README.md) for more information.
+    There are additional variables you can optionally change, see the [sample code documentation on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main) for more information.
 
 1. Start the app with `start.cmd`. This will build the frontend, install backend dependencies, and start the app.
 1. You can see the local running app at `http://127.0.0.1:5000`.

@@ -93,7 +93,7 @@ app from the dropdown menu.
 
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
     
-    :::image type="content" source="../media/quickstarts/web-app-authentication.png" alt-text="Screenshot of the playground page of the Azure AI studio with sections highlighted." lightbox="../media/quickstarts/web-app-authentication.png":::
+        :::image type="content" source="../media/quickstarts/web-app-authentication.png" alt-text="Screenshot of the authentication page in the Azure portal." lightbox="../media/quickstarts/web-app-authentication.png":::
 
     1. Select Microsoft as the identity provider. The default settings on this page will restrict the app to your tenant only, so you don't need to change anything else here. Then select **Add**
     

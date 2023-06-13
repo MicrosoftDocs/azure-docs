@@ -116,17 +116,6 @@ sections:
           Can I use quota to increase the max token limit of a model?
         answer:
           No, quota Tokens-Per-Minute (TPM) allocation is not related to the max input token limit of a model. Model input token limits are defined in the [models table](./concepts/models.md) and are not impacted by changes made to TPM.  
-  - name: Using your data
-    questions:
-      - question: |
-          What is Azure OpenAI on Your Data?  
-        answer:
-          Azure OpenAI on Your Data is an Azure Cognitive Services tool for organizations to generate customized insights, content, and searches using their own specific data. It uses OpenAI's capabilities to provide accurate and relevant responses to user queries on their data in natural language. Azure OpenAI on Your Data can be integrated with customer's existing applications and workflows, offers insights into key performance indicators, and interacts with users seamlessly.  
-      - question: |
-          How can I access Azure OpenAI on Your Data?  
-        answer:
-          All Azure OpenAI customers can use Azure OpenAI on Your Data via the Azure AI studio. See [Using your data](./concepts/using-your-data.md#data-storage-options) for details
-
 additionalContent: |
 
   ## Next steps

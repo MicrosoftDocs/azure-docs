@@ -44,6 +44,12 @@ The Azure AI portal enables you to upload files locally into a blob storage cont
 | --- | --- |
 | **File Formats** | txt, md, html, Word files, PowerPoint, PDF |
 
+
+### Conversation history for better results
+
+When chatting with a model, providing a history of the chat will help the model understand the conversation and returns the high quality results. For more information, see the [Completions article](../how-to/completions.md#conversation). 
+
+
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-own-data.md)
 * [Introduction to prompt engineering](./prompt-engineering.md)
