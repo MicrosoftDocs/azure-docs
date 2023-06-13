@@ -238,15 +238,7 @@ var shape1 = new atlas.Shape(new atlas.data.Point[0,0], { myProperty: 1 });
 var shape2 = new atlas.Shape(new atlas.data.Feature(new atlas.data.Point[0,0], { myProperty: 1 });
 ```
 
-The following code sample shows how to wrap a circle GeoJSON object with a shape class. As the value of the radius changes in the shape, the circle renders automatically on the map.
-
-<!---------------------------------------------------------
-
-```javascript
-//TODO: Complete working sample goes here
-```
-
----------------------------------------------------------->
+The [Make a geometry easy to update] sample shows how to wrap a circle GeoJSON object with a shape class. As the value of the radius changes in the shape, the circle renders automatically on the map.
 
 :::image type="content" source="./media/map-add-shape/easy-to-update-geometry.png" alt-text="A screenshot of a map showing a red circle in New York City with a slider bar titled Circle Radius and as you slide the bar to the right or left, the value of the radius changes in the shape and the changing size of the circle renders automatically on the map.":::
 
@@ -290,5 +282,6 @@ Additional resources:
 > [!div class="nextstepaction"]
 > [Azure Maps GeoJSON specification extension](extend-geojson.md#circle)
 
-[Fill polygon with built-in icon template]: https://samples.azuremaps.com/?search=pattern&sample=fill-polygon-with-built-in-icon-template
+[Fill polygon with built-in icon template]: https://samples.azuremaps.com/?sample=fill-polygon-with-built-in-icon-template
 [Azure Maps Samples]: https://samples.azuremaps.com
+[Make a geometry easy to update]: https://samples.azuremaps.com/?sample=make-a-geometry-easy-to-update
