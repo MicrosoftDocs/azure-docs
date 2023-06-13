@@ -58,7 +58,25 @@ The following example uploads `BinaryData` to a block blob using a `BlobClient` 
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobUpload.java" id="Snippet_UploadBlobData":::
 
-## Upload a block blob with index tags
+## Upload a block blob with configuration options
+
+You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The following code examples show how to use [BlobUploadFromFileOptions](/java/api/com.azure.storage.blob.options.blobuploadfromfileoptions) to define configuration options when calling an upload method. If you're not uploading from a file, you can set similar options using [BlobParallelUploadOptions](/java/api/com.azure.storage.blob.options.blobparalleluploadoptions) on an upload method.
+
+### Specify data transfer options on upload
+
+You can configure values in [ParallelTransferOptions](/java/api/com.azure.storage.blob.models.paralleltransferoptions) to improve performance for data transfer operations. The following table lists the methods you can use to set these options, along with a description:
+
+| Method | Description |
+| --- | --- |
+| [`setBlockSizeLong(Long blockSize)`](/java/api/com.azure.storage.blob.models.paralleltransferoptions#com-azure-storage-blob-models-paralleltransferoptions-setblocksizelong(java-lang-long)) | Sets the block size to transfer for each request. For uploads, the parameter `blockSize` is the size of each block that will be staged. This value also determines the number of requests that need to be made. If `blockSize` is large, the upload will make fewer network calls, but each individual call will send more data. |
+| [`setMaxConcurrency(Integer maxConcurrency)`](/java/api/com.azure.storage.blob.models.paralleltransferoptions#com-azure-storage-blob-models-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) | The parameter `maxConcurrency` is the maximum number of parallel requests that will be issued at any given time as a part of a single parallel transfer. This value applies per API call. |
+| [`setMaxSingleUploadSizeLong(Long maxSingleUploadSize)`](/java/api/com.azure.storage.blob.models.paralleltransferoptions#com-azure-storage-blob-models-paralleltransferoptions-setmaxsingleuploadsizelong(java-lang-long)) | If the size of the data is less than or equal to this value, it will be uploaded in a single put rather than broken up into chunks. If the data is uploaded in a single shot, the block size will be ignored. |
+
+The following code example shows how to set values for [ParallelTransferOptions](/java/api/com.azure.storage.blob.models.paralleltransferoptions) and include the options as part of a [BlobUploadFromFileOptions](/java/api/com.azure.storage.blob.options.blobuploadfromfileoptions) instance. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobUpload.java" id="Snippet_UploadBlobTags":::
+
+### Upload a block blob with index tags
 
 The following example uploads a block blob with index tags set using `BlobUploadFromFileOptions`:
 
