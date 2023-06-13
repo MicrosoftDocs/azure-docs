@@ -97,20 +97,11 @@ az provider register --namespace Microsoft.SaaS
       --product azure-spring-cloud-vmware-tanzu-2 \
       --plan asa-ent-hr-mtr
    ```
-   
-1. Use the following command to create a resource group:
-
-   ```azurecli-interactive
-   az group create \
-       --resource-group ${RESOURCE_GROUP} \
-       --location ${LOCATION}
-   ```
 
 1. Use the following command to create an Azure Spring Apps service instance:
 
    ```azurecli-interactive
    az spring create \
-       --resource-group ${RESOURCE_GROUP} \
        --name ${SERVICE_NAME} \
        --sku Enterprise
    ```
@@ -125,7 +116,6 @@ Use the following command to create the app on Azure Spring Apps:
 
 ```azurecli-interactive
 az spring app create \
-    --resource-group ${RESOURCE_GROUP} \
     --service ${SERVICE_NAME} \
     --name ${APP_NAME} \
     --assign-endpoint true
@@ -137,7 +127,6 @@ Use the following command to deploy the *.jar* file for the app:
 
 ```azurecli-interactive
 az spring app deploy \
-    --resource-group ${RESOURCE_GROUP} \
     --service ${SERVICE_NAME} \
     --name ${APP_NAME} \
     --artifact-path target/demo-0.0.1-SNAPSHOT.jar

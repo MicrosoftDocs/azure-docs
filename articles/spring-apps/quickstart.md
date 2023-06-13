@@ -92,8 +92,6 @@ Select an option to set prerequisites:
 
 After deployment, you can access the app at `https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io`, then you will get the response `Hello World`.
 
-[!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart/clean-up-resources.md)]
-
 ::: zone pivot="sc-consumption-plan,sc-enterprise"
 
 Use the following command to check the app's log to investigate any deployment issue:
@@ -113,6 +111,8 @@ From the navigation pane of the Azure Spring Apps instance overview page, select
 :::image type="content" source="media/quickstart/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
 
 ::: zone-end
+
+[!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart/clean-up-resources.md)]
 
 ## 7. Next steps
 
