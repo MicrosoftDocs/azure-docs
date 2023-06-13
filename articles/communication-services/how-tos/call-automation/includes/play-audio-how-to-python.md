@@ -108,7 +108,7 @@ If you'll be playing the same audio file multiple times, your application can pr
 ``` python
 call_connection.play_media(
     play_source=FileSource(url= https://example.com/audio/test.wav,
-        play_source_id='example_source'
+        play_source_cache_id='example_source'
     ),
     play_to=[ PhoneNumberIdentifier(target_phone_number) ],
     loop=True
