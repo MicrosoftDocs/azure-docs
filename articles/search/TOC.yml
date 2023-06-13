@@ -410,9 +410,19 @@
         href: knowledge-store-connect-power-bi.md
   - name: Vectors
     items:
+    - name: Generate embeddings
+      href: vector-search-how-to-generate-embeddings.md
+    - name: Create a vector index
+      href: vector-search-create-index.md
     - name: Add vectors to an index
       href: TBD.md
     - name: Create a vector query
+      href: TBD.md
+    - name: Cache vector data
+      href: TBD.md
+    - name: Monitor vector search
+      href: TBD.md
+    - name: Troubleshoot vector search
       href: TBD.md
   - name: Queries
     items:
