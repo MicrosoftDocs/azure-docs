@@ -1,5 +1,5 @@
 ---
-title: Create reports using workbooks in update management center (preview)..
+title: Create reports using workbooks in update management center.
 description: This article describes how to create and manage workbooks for VM insights.
 ms.service: update-management-center
 author: SnehaSudhirG
@@ -8,7 +8,7 @@ ms.date: 01/16/2023
 ms.topic: how-to
 ---
 
-# Create reports in update management center (preview)
+# Create reports in update management center
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -16,7 +16,7 @@ This article describes how to create a workbook and how to edit a workbook to cr
 
 ## Create a workbook
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center.
 1. Under **Monitoring**, select **Workbooks** to view the Update management center (Preview)| Workbooks|Gallery.
 1. Select **Quick start** tile > **Empty** or alternatively, you can select **+New** to create a workbook.
 1. Select **+Add** to select any [elements](../azure-monitor/visualize/workbooks-create-workbook.md#create-a-new-azure-workbook) to add to the workbook.
@@ -26,9 +26,9 @@ This article describes how to create a workbook and how to edit a workbook to cr
 1. Select **Done Editing**.
 
 ## Edit a workbook
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center.
 1. Under **Monitoring**, select **Workbooks** to view the Update management center (Preview)| Workbooks|Gallery.
-1. Select **Update management center** tile > **Overview** to view the Update management center (Preview)|Workbooks|Overview page.
+1. Select **Update management center** tile > **Overview** to view the Update management center |Workbooks|Overview page.
 1. Select your subscription, and select **Edit** to enable the edit mode for all the four options.
 
     - Machines overall status & configuration

@@ -1,6 +1,6 @@
 ---
-title: What's new in Update management center (Preview)
-description: Learn about what's new and recent updates in the Update management center (Preview) service.
+title: What's new in Update management center
+description: Learn about what's new and recent updates in the Update management center service.
 ms.service: update-management-center
 ms.topic: overview
 author: SnehaSudhirG
@@ -8,19 +8,19 @@ ms.author: sudhirsneha
 ms.date: 06/12/2023
 ---
 
-# What's new in Update management center (Preview)
+# What's new in Update management center
 
-[Update management center (preview)](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update management center (Preview).
+[Update management center](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update management center.
 
 ## May 2023
 
 ### Customized image support
 
-Update management center (preview) now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update management center now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
 
 ### Multi-subscription support
 
-The limit on the number of subscriptions that you can manage using the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
+The limit on the number of subscriptions that you can manage using the Update management center portal has now been removed. You can now manage all your subscriptions using the update management center portal.
 
 ## April 2023
 
