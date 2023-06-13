@@ -51,7 +51,6 @@ To create and work with data assets, you need:
 
 ```python
 pip uninstall azure-ai-ml
-pip install azure-ai-ml
 pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
 ```
 
@@ -122,6 +121,35 @@ ml_client.data.import_data(data_import=data_import)
 
 ```
 
+# [Studio](#tab/External-Databases)
+
+> [!NOTE]
+> The example seen here describes the process for a Snowflake database. However, this process covers other external database formats, like Azure SQL, Amazon S3, etc.
+
+In the left nav, select Data, then select the Data Import tab. Then, select Create, as shown in this screenshot:
+
+:::image type="content" source="media/how-to-import-data-assets/create-new-data-import.png" alt-text="Screenshot showing creation of a new Amazon S3 connection in Azure Machine Learning studio UI.":::
+
+At the Data Source screen, select Snowflake, and then select Next, as shown in this screenshot:
+
+:::image type="content" source="media/how-to-import-data-assets/select-source-for-data-asset.png" alt-text="Screenshot showing selection of a Snowflake data asset.":::
+
+At the Data Type screen, fill in the values, and then select Next, as shown in this screenshot:
+
+:::image type="content" source="media/how-to-import-data-assets/select-data-asset-type.png" alt-text="Screenshot showing selection of a Snowflake data asset type.":::
+
+At the Create data import screen, fill in the values, and select Next, as shown in this screenshot:
+
+:::image type="content" source="media/how-to-import-data-assets/create-data-import.png" alt-text="Screenshot showing details of the data source for the import.":::
+
+Fill in the values at the Choose a datastore to output screen, and select Next, as shown in this screenshot:
+
+:::image type="content" source="media/how-to-import-data-assets/choose-datastore-to-output.png" alt-text="Screenshot showing details of the data source for the import.":::
+
+As shown in the next screenshot, review your choices at the last screen of this process, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens if you'd like to change your choices of values.
+
+:::image type="content" source="media/how-to-import-data-assets/create-data-import-review-values-and-create.png" alt-text="Screenshot showing details of the data source for the import.":::
+
 ---
 
 ## Import data from an external file system source as a folder data asset
@@ -182,6 +210,12 @@ data_import = DataImport(
 ml_client.data.import_data(data_import=data_import)
 
 ```
+
+# [Studio](#tab/Amazon-S3)
+
+In the left nav, select **Data**, then select the Data Connections tab. Then, select **Create**, as shown in this screenshot:
+
+:::image type="content" source="media/how-to-import-data-assets/create-s3-connection.png" alt-text="Screenshot showing creation of a new Amazon S3 connection in the Azure Machine Learning studio UI.":::
 
 ---
 

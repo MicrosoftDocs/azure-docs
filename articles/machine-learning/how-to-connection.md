@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 05/25/2023
+ms.date: 06/13/2023
 ms.custom: data4ml, devx-track-python
 # Customer intent: As an experienced data scientist with Python skills, I have data located in external sources outside of Azure. I need to make that data available to the Azure Machine Learning platform, to train my machine learning models.
 ---
@@ -70,7 +70,7 @@ This YAML file creates a Snowflake DB connection. Be sure to update the appropri
 # my_snowflakedb_connection.yaml
 $schema: http://azureml/sdk-2-0/Connection.json
 type: snowflake
-name: my_snowflakedb_connection # add your datastore name here
+name: my-snowflakedb-connection # add your datastore name here
 
 target: jdbc:snowflake://<myaccount>.snowflakecomputing.com/?db=<mydb>&warehouse=<mywarehouse>&role=<myrole>
 # add the Snowflake account, database, warehouse name and role name here. If no role name provided it will default to PUBLIC
@@ -130,6 +130,12 @@ ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ```
 
+# [Studio](#tab/Studio)
+
+In the **Create connection** pane, fill in the values as shown in the screenshot. Choose Snowflake for the category, and **Username password** for the Authentication type.
+
+:::image type="content" source="media/how-to-connection/create-snowflake-connection.png" alt-text="Screenshot showing creation of a new Snowflake connection in Azure Machine Learning studio UI.":::
+
 ---
 
 ## Create an Azure SQL DB connection
@@ -143,7 +149,7 @@ This YAML script creates an Azure SQL DB connection. Be sure to update the appro
 $schema: http://azureml/sdk-2-0/Connection.json
 
 type: azure_sql_db
-name: my_sqldb_connection
+name: my-sqldb-connection
 
 target: Server=tcp:<myservername>,<port>;Database=<mydatabase>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30
 # add the sql servername, port addresss and database
@@ -191,7 +197,7 @@ from azure.ai.ml.entities import WorkspaceConnection
 from azure.ai.ml.entities import UsernamePasswordConfiguration
 
 target= "Server=tcp:<myservername>,<port>;Database=<mydatabase>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-# add the sql servername, port addresss and database
+# add the sql servername, port address and database
 
 name= <my_sql_connection> # name of the connection
 wps_connection = WorkspaceConnection(name= name,
@@ -203,6 +209,12 @@ credentials= UsernamePasswordConfiguration(username="XXXXX", password="XXXXXX")
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ```
+
+# [Studio](#tab/Studio)
+
+In the **Create connection** pane, fill in the values as shown in the screenshot. Choose AzureSqlDb for the category, and **Username password** for the Authentication type.
+
+:::image type="content" source="media/how-to-connection/how-to-create-azuredb-connection.png" alt-text="Screenshot showing creation of a new Azure DB connection in Azure Machine Learning studio UI.":::
 
 ---
 
@@ -265,6 +277,13 @@ credentials= AccessKeyConfiguration(access_key_id="XXXXXX",acsecret_access_key="
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ```
+
+# [Studio](#tab/Studio)
+
+In the **Create connection** pane, fill in the values as shown in the screenshot. Choose AzureSqlDb for the category, and **Username password** for the Authentication type.
+
+:::image type="content" source="media/how-to-connection/how-to-create-amazon-s3-connection.png" alt-text="Screenshot showing creation of a new Amazon S3 connection in Azure Machine Learning studio UI.":::
+
 ---
 
 ## Next steps
