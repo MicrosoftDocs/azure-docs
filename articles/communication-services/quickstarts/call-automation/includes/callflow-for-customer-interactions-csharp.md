@@ -136,12 +136,8 @@ app.MapPost("/api/calls/{contextId}", async (
         if (@event is RecognizeCompleted { OperationContext: "MainMenu" })
         {
             // this RecognizeCompleted correlates to the previous action as per the OperationContext value
-            var addThisPerson = new PhoneNumberIdentifier(phoneNumberToAddToCall); 
-            var listOfPersonToBeAdded = new List<CommunicationIdentifier>(); 
-            listOfPersonToBeAdded.Add(addThisPerson); 
-            var addParticipantsOption = new AddParticipantsOptions(listOfPersonToBeAdded); 
-            addParticipantsOption.SourceCallerId = new PhoneNumberIdentifier(applicationPhoneNumber);
-            AddParticipantsResult result = await client.GetCallConnection(@event.CallConnectionId).AddParticipantsAsync(addParticipantsOption);
+            var addThisPerson = new CallInvite(new PhoneNumberIdentifier(phoneNumberToAddToCall), new PhoneNumberIdentifier(applicationPhoneNumber));
+            AddParticipantsResult result = await client.GetCallConnection(@event.CallConnectionId).AddParticipantsAsync(addThisPerson);
         }
     }
     return Results.Ok();

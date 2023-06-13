@@ -31,6 +31,14 @@ In this quickstart, you'll learn how to build an application that uses the Azure
 [!INCLUDE [Call flows for customer interactions with Java](./includes/callflow-for-customer-interactions-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Call flows for customer interactions with JavaScript](./includes/callflow-for-customer-interactions-javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Call flows for customer interactions with Python](./includes/callflow-for-customer-interactions-python.md)]
+::: zone-end
+
 ## Subscribe to IncomingCall event
 
 IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource. To learn more about it, see [this guide](../../concepts/call-automation/incoming-call-notification.md). 

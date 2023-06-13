@@ -196,14 +196,10 @@ public class ActionController {
 
                 // This RecognizeCompleted correlates to the previous action as per the OperationContext value
                 if (event.getOperationContext().equals("MainMenu")) {
-                    CallConnectionAsync callConnectionAsync = getCallAutomationAsyncClient().getCallConnectionAsync(event.getCallConnectionId());
-
-                    // Invite other participants to the call
-                    CommunicationIdentifier target = new PhoneNumberIdentifier(phoneNumberToAddToCall); 
-                    List<CommunicationIdentifier> targets = new ArrayList<>(Arrays.asList(target)); 
-                    AddParticipantsOptions addParticipantsOptions = new AddParticipantsOptions(targets) 
-        .setSourceCallerId(new PhoneNumberIdentifier(applicationPhoneNumber));  
-                    Response<AddParticipantsResult> addParticipantsResultResponse = callConnectionAsync.addParticipantsWithResponse(addParticipantsOptions).block();
+                    CallConnectionAsync callConnectionAsync = getCallAutomationAsyncClient().getCallConnectionAsync(event.getCallConnectionId());                   
+                    CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier(phoneNumberToAddToCall), new PhoneNumberIdentifier(applicationPhoneNumber)); 
+                    AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+                    Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
                 }
             }
         }
