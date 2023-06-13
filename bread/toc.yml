@@ -1103,7 +1103,7 @@
     tocHref: /azure/cost-management-billing
     topicHref: /azure/cost-management-billing
     items:
-    - name: Manage costs and usage
+    - name: Cost Management
       tocHref: /azure/cost-management-billing/costs
       topicHref: /azure/cost-management-billing/costs
     - name: Reservations
@@ -1121,10 +1121,10 @@
     - name: Billing and subscriptions
       tocHref: /azure/cost-management-billing/manage
       topicHref: /azure/cost-management-billing/manage/index
-    - name: Get started
+    - name: Billing and subscriptions
       tocHref: /azure/cost-management-billing/understand
       topicHref: /azure/cost-management-billing/manage/index
-    - name: Automation
+    - name: Cost Management
       tocHref: /azure/cost-management-billing/automate
       topicHref: /azure/cost-management-billing/costs/index
   - name: Microsoft Purview
