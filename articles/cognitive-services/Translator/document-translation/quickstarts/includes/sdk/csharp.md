@@ -59,14 +59,14 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0
 
 1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/document-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
-  ```csharp
-  private static readonly string endpoint = "<your-document-translation-endpoint>";
-  private static readonly string key = "<your-key>";
-  ```
+    ```csharp
+    private static readonly string endpoint = "<your-document-translation-endpoint>";
+    private static readonly string key = "<your-key>";
+    ```
 
-1. To Start a translation operation for one or more documents in a single blob container, call the `StartTranslationAsync` method.
+1. Call the `StartTranslationAsync` method to Start a translation operation for one or more documents in a single blob container.
 
-1. To call `StartTranslationAsync`, you need to initialize a `DocumentTranslationInput` object that contains the `sourceUri` and `targetUri` parameters:
+1. To call `StartTranslationAsync`, you need to initialize a `DocumentTranslationInput` object that contains the `sourceUri`, `targetUri`, and `targetLanguageCode` parameters:
 
     * For [**Managed Identity authorization**](../../../how-to-guides/create-use-managed-identities.md) create these variables:
 
@@ -253,7 +253,7 @@ To interact with the Translator service using the client library, you need to cr
 
       * **sourceUri**. The SAS URI, with a SAS token appended as a query string, for the source container containing documents to be translated.
       * **targetUri** The SAS URI, with a SAS token appended as a query string,for the target container to which the translated documents are written.
-      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../language-support.md) page.
+      * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
 ## Code sample
 

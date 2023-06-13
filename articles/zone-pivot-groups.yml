@@ -106,7 +106,7 @@ groups:
   prompt: Choose a programming language
   pivots:
   - id: programming-language-csharp
-    title: C#"
+    title: C#
   - id: programming-language-python
     title: Python
 - id: programming-languages-set-two

@@ -23,7 +23,7 @@ recommendations: false
 >
 > * C# and Python SDKs are generally available (GA) releases ready for use in your production applications.
 
-Azure Document Translation is a cloud-based REST API feature of the Azure Translator service. The Document Translation API enables quick and accurate source-to-target whole document translations asynchronously in supported languages and various file formats. I. The Document Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Translation REST API capabilities into your applications. Document Translation SDK is available across programming platforms in C#/.NET, Java, JavaScript, and Python.
+Azure Document Translation is a cloud-based REST API feature of the Azure Translator service. The Document Translation API enables quick and accurate source-to-target whole document translations, asynchronously, in supported languages and various file formats. The Document Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Translation REST API capabilities into your applications.
 
 ## Supported languages
 
@@ -64,7 +64,7 @@ This section provides a version-based description of Document Translation featur
 
 ## Use Document Translation SDK in your applications
 
-The Document Translation SDK enables the use and management of the Document Translation service in your application. The SDK builds on the underlying Document Translation REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Document Translation SDK for your preferred programming language:
+The Document Translation SDK enables the use and management of the Translation service in your application. The SDK builds on the underlying Document Translation REST APIs for use within your programming language paradigm. Choose your preferred programming language:
 
 ### 1. Install the SDK client library
 
@@ -109,7 +109,7 @@ from azure.core.credentials import AzureKeyCredential
 
 ### [C#/.NET](#tab/csharp)
 
-Create an instance of the DocumentTranslationClient object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The DocumentTranslationClient is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
+Create an instance of the `DocumentTranslationClient` object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The `DocumentTranslationClient` is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
 
 ```csharp
 private static readonly string endpoint = "<your-custom-endpoint>";
@@ -121,7 +121,7 @@ DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoin
 
 ### [Python](#tab/python)
 
-Create an instance of the DocumentTranslationClient object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The DocumentTranslationClient is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
+Create an instance of the `DocumentTranslationClient` object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The `DocumentTranslationClient` is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
 
 ```python
 endpoint = "<endpoint>"
@@ -137,7 +137,7 @@ client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
 ### [C#/.NET](#tab/csharp)
 
-The Document Translation service requires that you upload your files to an Azure Blob Storage source container and provide a target container where the translated documents can be written
+The Document Translation service requires that you upload your files to an Azure Blob Storage source container (sourceUri), provide a target container where the translated documents can be written (targetUri), and include the target language code (targetLanguage).
 
 ```csharp
 
@@ -150,7 +150,7 @@ DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetU
 
 ### [Python](#tab/python)
 
-The Document Translation service requires that you upload your files to an Azure Blob Storage source container and provide a target container where the translated documents can be written.
+The Document Translation service requires that you upload your files to an Azure Blob Storage source container (sourceUri), provide a target container where the translated documents can be written (targetUri), and include the target language code (targetLanguage).
 
 ```python
 sourceUrl = "<your-source container-url>"
