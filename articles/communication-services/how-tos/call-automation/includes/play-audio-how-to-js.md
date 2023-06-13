@@ -18,8 +18,8 @@ ms.author: kpunjabi
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Have Node.js installed, you can install it from their [official website](https://nodejs.org).
 
-## Create a new Javascript application
-Create a new Javascript application in your project directory. Initialize a new Node.js project with the following command. This creates a package.json file for your project which is used to manage your project's dependencies. 
+## Create a new JavaScript application
+Create a new JavaScript application in your project directory. Initialize a new Node.js project with the following command. This creates a package.json file for your project, which is used to manage your project's dependencies. 
 
 ``` console
 npm init -y
@@ -30,7 +30,7 @@ npm init -y
 npm install @azure/communication-call-automation
 ```
 
-Create a new JavaScript file in your project directory, for example, name it app.js. You will write your JavaScript code in this file. Run your application using Node.js with the following command. This will execute the JavaScript code you have written. 
+Create a new JavaScript file in your project directory, for example, name it app.js. You write your JavaScript code in this file. Run your application using Node.js with the following command. This executes the JavaScript code you have written. 
 
 ``` console
 node app.js
@@ -44,15 +44,15 @@ You can test creating your own audio file using our [Speech synthesis with Audio
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we answer an incoming call.
 
 ## Play audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
+Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has joined the call or play audio to all the participants in the call.
 
 ## Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ```javascript
 const fileSource: FileSource = {
@@ -63,7 +63,7 @@ const fileSource: FileSource = {
 
 ## Play audio - All participants
 
-In this scenario audio will be played to all participants on the call. 
+In this scenario, audio is played to all participants on the call. 
 
 ``` javascript 
 callMedia.playToAll(fileSource);
@@ -71,7 +71,7 @@ callMedia.playToAll(fileSource);
 
 ## Play audio - Specific participant
 
-In this scenario audio is played to a specific participant.
+In this scenario, audio is played to a specific participant.
 
 ``` javascript 
 callMedia.play(fileSource, [targetParticipant]);
@@ -90,19 +90,19 @@ callMedia.play(fileSource, [targetParticipant], playOptions);
 
 ## Enhance play with audio file caching
 
-If you'll be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
+If you are playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files is not suitable for dynamic prompts. If you change the URL provided to ACS, it will not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` javascript
 const fileSource: FileSource = {
     url: https://example.com/audio/test.wav,
-    playSourceId: "example_source",
+    playSourceCacheId: "example_source",
     kind: "fileSource"
 };
 ```
 
 ## Handle play action event updates 
 
-Your application will receive action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. 
+Your application receives action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. 
 
 ### Example of how you can deserialize the *PlayCompleted* event:
 
@@ -130,7 +130,7 @@ To learn more about other supported events, visit the [Call Automation overview 
 
 ## Cancel play action
 
-Cancel all media operations, all pending media operations will be canceled. This action will also cancel other queued play actions.
+Cancel all media operations, all pending media operations are canceled. This action also cancels other queued play actions.
 
 ```javascript
 callMedia.cancelAllOperations();
