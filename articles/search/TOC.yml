@@ -17,6 +17,8 @@
     href: search-get-started-text.md
   - name: Semantic search (preview)
     href: search-get-started-semantic.md
+  - name: Vector search (preview)
+    href: search-get-started-vector.md
   - name: Portal
     items:
     - name: Create an index
@@ -79,8 +81,12 @@
         href: tutorial-python-search-query-integration.md
   - name: Add search to ASP.NET Core (MVC)
     href: tutorial-csharp-create-mvc-app.md             
-  - name: Index with indexers
+  - name: Indexing tutorials
     items:
+    - name: Index any data
+      href: tutorial-optimize-indexing-push-api.md
+    - name: Index at scale (Apache Spark)
+      href: search-synapseml-cognitive-services.md
     - name: Index Azure SQL Database
       href: search-indexer-tutorial.md
     - name: Index Azure JSON blobs
@@ -89,11 +95,11 @@
       href: tutorial-multiple-data-sources.md
     - name: Index encrypted blobs
       href: search-howto-index-encrypted-blobs.md
-  - name: Index any data
-    href: tutorial-optimize-indexing-push-api.md
-  - name: Index at scale (Apache Spark)
-    href: search-synapseml-cognitive-services.md
-  - name: Enrich with AI (skills)
+  - name: Vector search tutorials
+    items:
+    - name: Chunk large documents
+      href: TBD.md
+  - name: Enrichment (skills) tutorials
     items:
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
@@ -101,8 +107,8 @@
       href: cognitive-search-tutorial-blob.md
     - name: Python
       href: cognitive-search-tutorial-blob-python.md
-  - name: Debug a skillset
-    href: cognitive-search-tutorial-debug-sessions.md
+    - name: Debug a skillset
+      href: cognitive-search-tutorial-debug-sessions.md
   - name: Create a custom analyzer
     href: tutorial-create-custom-analyzer.md
   - name: Query from Power Apps   
@@ -127,6 +133,8 @@
       href: search-lucene-query-architecture.md
     - name: Semantic search
       href: semantic-search-overview.md
+    - name: Vector search
+      href: TBD.md
     - name: Query types and composition
       href: search-query-overview.md
     - name: Relevance scoring
@@ -399,7 +407,13 @@
       - name: Projection example
         href: knowledge-store-projection-example-long.md
       - name: Connect with Power BI
-        href: knowledge-store-connect-power-bi.md 
+        href: knowledge-store-connect-power-bi.md
+  - name: Vectors
+    items:
+    - name: Add vectors to an index
+      href: TBD.md
+    - name: Create a vector query
+      href: TBD.md
   - name: Queries
     items:
     - name: Create a basic query
