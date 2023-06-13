@@ -1,17 +1,17 @@
 ---
-title: Scan for secrets with agentless secret scanning
-description: Learn how to scan your server's for secrets with Defender for Server's agentless secret scanning.
+title: Agentless secret scanning
+description: Learn how to scan your servers for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 06/12/2023
+ms.date: 06/13/2023
 ---
 
-# Scan your servers for secrets with agentless secret scanning
+# Agentless secret scanning
 
 Attackers can move laterally across networks, searching for sensitive data and ways to damage critical information systems by exploiting exposed credentials and secrets in internet-facing workloads.
 
 Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, Defender for Cloud can assist your security team to prioritize and take actionable remediation steps to minimize the risk of lateral movement and prevent attackers from affecting your machine's performance.
 
-Through the use of agentless secret scanning, you can proactively discover the following types of secrets across your environments:
+By using agentless secret scanning, you can proactively discover the following types of secrets across your environments:
 
 - **Insecure (plaintext) SSH private keys** - Detects Putty and PKCS#8 and PKCS#1 (RSA algorithm). 
 - **Plaintext AWS access keys** - CLI & plaintext on many file extensions.
@@ -22,6 +22,8 @@ Through the use of agentless secret scanning, you can proactively discover the f
 
 > [!NOTE]
 > All of the standards are supported by the RSA algorithm.
+
+The agentless secret scanner also lets you know if the SSH private key is validated against the corresponding public key, if it's insecure or secure and if the target resource was detected.
 
 ## Prerequisites
 
@@ -62,26 +64,6 @@ If you only enable one of the two plans, you gain only part of the available fea
 | [Cloud security explorer](#remediate-secrets-with-cloud-security-explorer) | No | Yes |
 | [Recommendations](#remediate-secrets-with-recommendations) | Yes | Yes |
 | [Asset Inventory](#remediate-secrets-from-your-asset-inventory) - Secrets | Yes | No |
-
-## Secret validation
-
-Defender for Cloud assists your security team in the prioritization of any detected secrets with the following validations 
-
-### For SSH key pairs
-
-- Every detected SSH private key is validated against the corresponding public key.
-
-- The corresponding public key is checked to see if it's listed in the target machine's authorized keys file for authentication. 
-
-    - Results for this check are listed in the findings section of the recommendation as `Insecure SSH private key` or `Unvalidated insecure SSH private key`, depending on where the secret was found.
-
-- If the target resource is detected, `Yes` or `No`.
-
-### For Storage account, AWS access key, SQL connection string and AWS RDS SQL connection string
-
-- A check to see if the target machine exists as long as it was scanned by the disk scanning engine. 
-
-- All findings, with or without the existence of the target machine, are streamlined to the same security check. For example, an insecure storge account connection string or an insecure SQL connection string. 
 
 ## Remediate secrets with attack path
 
@@ -207,7 +189,7 @@ The asset inventory allows you to view the secrets discovered on a specific mach
 
 1. Review each plaintext secret that appears with the relevant metadata.
 
-1. Select a secret to view additional details of that secret.
+1. Select a secret to view extra details of that secret.
 
 Different types of secrets have different sets of additional information. For example, for plaintext SSH private keys, the information includes related public keys (mapping between the private key to the authorized keys’ file we discovered or mapping to a different virtual machine that contains the same SSH private key identifier).
 
