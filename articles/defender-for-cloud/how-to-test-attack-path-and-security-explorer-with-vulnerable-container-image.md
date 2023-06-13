@@ -1,6 +1,6 @@
 ---
 title: How-to test the attack path and security explorer using a vulnerable container image 
-description: Learn how to view and remediate vulnerability assessment findings for registry images 
+description: Learn how to test the attack path and security explorer using a vulnerable container image
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 06/13/2023
@@ -63,5 +63,5 @@ If there are no entries in the list of attack paths, you can still test this fea
 
 
 ## Next Steps 
-- Learn how to [configure Azure Container Registry integration for existing AKS clusters](https://learn.microsoft.com/azure/aks/cluster-container-registry-integration?tabs=azure-cli#configure-acr-integration-for-existing-aks-clusters)
+
  - Learn more about the Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).
