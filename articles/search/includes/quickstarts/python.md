@@ -48,9 +48,11 @@ In this task, create the notebook, load the libraries, and set up your clients.
 
 1. Add a second cell and paste in the connection information. This cell also sets up the clients you'll use for specific operations: [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) to create an index, and [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) to query an index.
 
+    Because the code builds out the URI for you, specify just the search service name in the service name property.
+
     ```python
-    service_name = "YOUR-SEARCH-SERVICE-NAME"
-    admin_key = "YOUR-SEARCH-SERVICE-ADMIN-API-KEY"
+    service_name = "<YOUR-SEARCH-SERVICE-NAME>"
+    admin_key = "<YOUR-SEARCH-SERVICE-ADMIN-API-KEY>"
     
     index_name = "hotels-quickstart"
     

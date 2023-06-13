@@ -16,7 +16,7 @@ We used the following tools to create this quickstart.
 
 * [Visual Studio Code with the Python extension](https://code.visualstudio.com/docs/languages/python) (or an equivalent IDE), with Python 3.7 or later
 
-* [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from the Azure SDK for Python
+* [azure-search-documents package (beta version)](https://pypi.org/project/azure-search-documents/11.4.0b3/) from the Azure SDK for Python
 
 #### Connect to Azure Cognitive Search
 
@@ -53,7 +53,7 @@ In this task, create the notebook, load the libraries, and set up your clients.
     )
     ```
 
-1. Set the service endpoint and API key from the environment.
+1. Set the service endpoint and API key from the environment. Because the code builds out the URI for you, specify just the search service name in the service name property.
 
     ```python
     service_name = "<YOUR-SEARCH-SERVICE-NAME>"
@@ -83,7 +83,7 @@ In this task, create the notebook, load the libraries, and set up your clients.
 
 #### Create or update an index
 
-1. Create or update an index schema to include `SemanticConfiguration` and `SemanticSettings`. If you're updating an existing index, this modification doesn't require a reindexing of your documents. Fields and other index elements are unchanged.
+1. Create or update an index schema to include `SemanticConfiguration` and `SemanticSettings`. If you're updating an existing index, this modification doesn't require a reindexing because the structure of your documents is unchanged.
 
     ```python
     name = index_name
