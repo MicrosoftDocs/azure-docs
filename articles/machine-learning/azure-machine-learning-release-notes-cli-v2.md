@@ -58,16 +58,16 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning CLI (v2) v2.15.0
 
 - `az ml compute`
-  - Added `--tags` to create and update for AzureML Compute.
+  - Added `--tags` to create and update for Azure Machine Learning compute.
 
 - `az ml data import`
   - Support create a data asset version by first importing data from database and file_system to Azure cloud storage.
 
 - `az ml data list-materialization-status`
-  - Support list status of data import materialization jobs that create data asset versions of <asset_name> via `--name` argumant.
+  - Support list status of data import materialization jobs that create data asset versions of <asset_name> via `--name` argument.
 
 - `az ml online-deployment update`
-  - Added `--skip-script-validation` to create for AzureML Online Deployment.
+  - Added `--skip-script-validation` to create for Azure Machine Learning online deployment.
 
 - `az ml workspace provision-network`
   - Support to provision managed network for workspace
@@ -78,7 +78,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning CLI (v2) v2.14.0
 
 - `az ml compute`
-  - Added `--location` to create for AzureML Compute.
+  - Added `--location` to create for Azure Machine Learning compute.
   - Added `--enable-node-public-ip` to create for Compute.
 
 - `az ml data`
