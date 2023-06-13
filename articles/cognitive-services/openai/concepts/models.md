@@ -126,6 +126,9 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
   -d '{"sku":{"name":"Standard","capacity":1},"properties": {"model": {"format": "OpenAI","name": "text-embedding-ada-002","version": "2"},"versionUpgradeOption":"OnceCurrentVersionExpired"}}'
 ```
 
+> [!NOTE]
+> There are many ways to generate an authorization token. The easiest method for initial testing is from https://portal.azure.com launch the Cloud Shell. Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token). You can use this token as your temporary authorization token for testing.
+
 #### Example Response
 
 ```json
