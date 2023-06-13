@@ -13,9 +13,13 @@ ms.date: 06/12/2023
 
 This article provides a PowerShell script that sets up all of the resources you need before you can send data to Azure Monitor Logs using the [Logs ingestion API](logs-ingestion-api-overview.md). 
 
+## Create resources and permissions 
 The script creates these resources, if they don't already exist:
 
-- A Log Analytics workspace and a resource group for the Log Analytics workspace.
+- A Log Analytics workspace and a resource group for the Log Analytics workspace. 
+    
+    You probably already have a Log Analytics workspace, in which case, provide the workspace details so the script sets up the other resources in the same region as the workspace. 
+
 - An Azure AD application to authenticate against the API and:
     - A service principal on the Azure AD application
     - A secret for the Azure AD application
