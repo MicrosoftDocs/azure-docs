@@ -9,7 +9,7 @@ ms.date: 09/06/2022
 ms.author: kpunjabi
 ms.custom: public_preview
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java-javascript-python
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Customize voice prompts to users with Play action
