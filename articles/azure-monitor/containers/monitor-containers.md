@@ -91,7 +91,7 @@ Azure Monitor was designed to monitor the availability and performance of cloud 
 
 
 
-## Configuration
+## Configure monitoring
 
 ### Prerequisites
 
@@ -106,7 +106,7 @@ Configuration changes to your AKS cluster are stored in the [Activity log](../es
 
 ### Prometheus
 
-[Azure Monitor managed service for Prometheus](..//essentials/prometheus-metrics-overview.md) is a fully managed service that scrapes metrics from your AKS and Azure-enabled clusters. It's compatible with the Prometheus query language (PromQL) and Prometheus alerts in addition to integration with Azure Managed Grafana for visualization. This service supports your investment in open source tools without the complexity of managing your own Prometheus environment.
+[Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed service that scrapes metrics from your AKS and Azure-enabled clusters. It's compatible with the Prometheus query language (PromQL) and Prometheus alerts in addition to integration with Azure Managed Grafana for visualization. This service supports your investment in open source tools without the complexity of managing your own Prometheus environment.
 
 - If you're not using Container insights, then see [Collect Prometheus metrics from an AKS cluster](../essentials/prometheus-metrics-enable.md) or [Collect Prometheus metrics from an Arc-enabled Kubernetes cluster (preview)](../essentials/prometheus-metrics-from-arc-enabled-cluster.md) for details on enabling Prometheus on its own.
 - See [Default Prometheus metrics configuration in Azure Monitor](../essentials/prometheus-metrics-scrape-default.md) for details on the metrics that are collected by default and their frequency of collection and [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-scrape-configuration.md) for customizing the configuration beyond defaults.
@@ -116,14 +116,14 @@ Configuration changes to your AKS cluster are stored in the [Activity log](../es
 
 ### Container Insights
 
-Container insights is a monitoring solution for AKS and Azure Arc-enabled Kubernetes clusters that provides performance visibility and diagnostics. It collects stdout/stderr logs, performance metrics, and Kubernetes events from each node in your cluster and stores them in a Log Analytics workspace. It also collects metrics from the Kubernetes control plane and stores them in the workspace. You can view the data in the Azure portal or query it using the [Log Analytics query language](../logs/log-analytics-query-language.md).
+Container insights is a monitoring solution for AKS and Azure Arc-enabled Kubernetes clusters that provides performance visibility and diagnostics. It collects stdout/stderr logs, performance metrics, and Kubernetes events from each node in your cluster and stores them in a Log Analytics workspace. It also collects metrics from the Kubernetes control plane and stores them in the workspace. You can view the data in the Azure portal or query it using  [Log Analytics](../logs/log-analytics-overview.md).
 
 When you enable Container Insights for your AKS cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/..//agents/log-analytics-agent.md) that sends data to Azure Monitor. For prerequisites and configuration options, see [Enable cost optimization settings in Container insights (preview)](container-insights-cost-config.md).
 
 - See [Enable Container insights](../containers/container-insights-onboard.md) for details on the different options for enabling Container insights.
-- Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. See [Reduce costs for Azure Monitor Logs](../logs/cost-reduce-data.md) for details.
+- Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. See [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) for details.
 - [Enable the ContainerLogV2](container-insights-logging-v2.md) schema for improved query experience and reduce collection costs. 
-- Use [Reduce costs for Azure Monitor Logs](../logs/cost-reduce-data.md) to remove collection of metrics since these are the same metrics being collection in Prometheus. In this case, you would use Grafana for visualization since the Container insights workbooks use data from the Log Analytics workspace. Container insights in this case would only be used for log collection.
+- Use [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) to remove collection of metrics since these are the same metrics being collection in Prometheus. In this case, you would use Grafana for visualization since the Container insights workbooks use data from the Log Analytics workspace. Container insights in this case would only be used for log collection.
 - Consider configuring ContainerLogV2 as [basic logs](../logs/basic-logs-configure.md).
 
 
@@ -135,7 +135,7 @@ When you enable Container Insights for your AKS cluster, it deploys a containeri
 
 The logs for AKS control plane components are implemented in Azure as [resource logs](..//essentials/resource-logs.md). Container Insights doesn't use these logs, so you need to create your own log queries to view and analyze them. For details on log structure and queries, see [How to query logs from Container Insights](container-insights-log-query.md#resource-logs).
 
-- [Create diagnostic setting](essentials/diagnostic-settings.md) for each AKS cluster to send resource logs to a Log Analytics workspace.
+- [Create diagnostic setting](../essentials/diagnostic-settings.md) for each AKS cluster to send resource logs to a Log Analytics workspace.
 - For a description of the categories that are available for AKS, see [Resource logs](../../aks/monitor-aks-reference.md#resource-logs). 
 
 There's a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs. You can send logs to an Azure storage account to reduce costs if you need to retain the information. For details on the cost of ingesting and retaining log data, see [Azure Monitor Logs pricing details](..//logs/cost-logs.md).
@@ -272,8 +272,8 @@ Monitor external components such as Service Mesh, Ingress, Egress with Prometheu
 
 #### Network monitoring
 
-- [Network Observability add-on for AKS](../network-watcher/network-watcher-monitoring-overview.md)
-- [Network Watcher](https://learn.microsoft.com/en-us/azure/network-watcher/)
+- [Network Observability add-on for AKS](../../network-watcher/network-watcher-monitoring-overview.md)
+- [Network Watcher](/azure/network-watcher/)
 
 ## Analyze Data 
 

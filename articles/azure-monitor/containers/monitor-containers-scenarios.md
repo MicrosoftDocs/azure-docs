@@ -27,9 +27,9 @@ The cluster administrator, also known as the platform engineer, is responsible f
 **What is the most cost effective way to setup logging and metrics?**
 
 - See [Enable Container insights](../containers/container-insights-onboard.md) for details on the different options for enabling Container insights.
-- Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. See [Reduce costs for Azure Monitor Logs](../logs/cost-reduce-data.md) for details.
+- Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. See [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) for details.
 - [Enable the ContainerLogV2](container-insights-logging-v2.md) schema for improved query experience and reduce collection costs. 
-- Use [Reduce costs for Azure Monitor Logs](../logs/cost-reduce-data.md) to remove collection of metrics since these are the same metrics being collection in Prometheus. In this case, you would use Grafana for visualization since the Container insights workbooks use data from the Log Analytics workspace. Container insights in this case would only be used for log collection.
+- Use [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) to remove collection of metrics since these are the same metrics being collection in Prometheus. In this case, you would use Grafana for visualization since the Container insights workbooks use data from the Log Analytics workspace. Container insights in this case would only be used for log collection.
 - Consider configuring ContainerLogV2 as [basic logs](../logs/basic-logs-configure.md).
 
 **How do I keep costs to a minimum when using AKS and its larger ecosystem?**

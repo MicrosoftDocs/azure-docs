@@ -538,9 +538,9 @@ items:
   - name: Monitor containers
     items:
     - name: Monitor Kubernetes
-      href: ../monitor-containers.md
+      href: containers/monitor-containers.md
     - name: Monitor Kubernetes scenarios
-      href: ../monitor-containers-scenarios.md
+      href: containers/monitor-containers-scenarios.md
     - name: Container insights
       items:
       - name: Overview
