@@ -12,7 +12,7 @@ ms.author: askaur
 manager: jasha
 ms.custom: public_preview
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java-javascript-python
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # How to secure webhook endpoint

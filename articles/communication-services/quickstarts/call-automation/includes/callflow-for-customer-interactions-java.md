@@ -208,7 +208,7 @@ public class ActionController {
 }
 
 ```
-Replace the placeholders with the actual values in lines 28-32. In your production code, we recommend using [Secret Manager](https://learn.microsoft.com/aspnet/core/security/app-secrets) for storing sensitive information like this. 
+Replace the placeholders with the actual values in lines 28-32.
 
 ## Run the app
 
