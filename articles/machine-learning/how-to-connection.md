@@ -43,6 +43,14 @@ In this article, learn how to connect to data sources located outside of Azure, 
 
 ### Code versions
 
+# [CLI](#tab/CLI)
+
+```cli
+az extension remove -n ml
+az extension add -n ml --yes
+az extension show -n ml #(the version value needs to be 2.15.1 or later)
+```
+
 # [SDK](#tab/SDK)
 
 ```python
@@ -51,13 +59,9 @@ pip install azure-ai-ml
 pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
 ```
 
-# [CLI](#tab/CLI)
+#[Studio](#tab/Studio)
 
-```cli
-az extension remove -n ml
-az extension add -n ml --yes
-az extension show -n ml #(the version value needs to be 2.15.1 or later)
-```
+Not available.
 
 ---
 
