@@ -17,7 +17,7 @@ recommendations: false
 
 Azure OpenAI on your data enables you to run OpenAI models such as ChatGPT and GPT-4 on your data without needing to train or fine-tune models. Running Azure OpenAI models on your data enables you to chat on top of, and analyze your data with greater accuracy and speed. By doing so, you can unlock valuable insights that can help you make better business decisions, identify trends and patterns, and optimize your operations. One of the key benefits of Azure OpenAI on your data is its conversational AI capabilities. With Azure OpenAI on your data, you can create a powerful conversational AI solution that streamlines communication, improves customer service, and boosts productivity throughout your organization. 
 
-To get started, [connect your data source](../use-your-own-data.md) using [Azure AI studio](https://oai.azure.com/) and start asking questions and chatting on your data.
+To get started, [connect your data source](../use-your-data-quickstart.md) using [Azure AI studio](https://oai.azure.com/) and start asking questions and chatting on your data.
 
 Because the model has access to, and can reference specific sources to support its responses, answers are not only based on its pre-trained knowledge but also on the latest available information. This grounding data also helps the model avoid generating responses based on outdated or incorrect information.
 
@@ -51,5 +51,5 @@ When chatting with a model, providing a history of the chat will help the model 
 
 
 ## Next steps
-* [Get started using your data with Azure OpenAI](../use-your-own-data.md)
+* [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)
 * [Introduction to prompt engineering](./prompt-engineering.md)

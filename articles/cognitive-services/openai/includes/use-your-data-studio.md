@@ -19,7 +19,7 @@ Navigate to [Azure AI studio](https://oai.azure.com/) and sign-in with credentia
 
 1. Select the **Chat playground** tile.
 
-    :::image type="content" source="../media/quickstarts/chat-playground-card.png" alt-text="A screenshot of the Azure AI studio landing page." lightbox="../media/quickstarts/chat-playground-card":::
+    :::image type="content" source="../media/quickstarts/chat-playground-card.png" alt-text="A screenshot of the Azure AI studio landing page." lightbox="../media/quickstarts/chat-playground-card.png":::
 
 1. On the **Assistant setup** tile, select **Add your data** > **+ Add a data source (preview)**.
 
