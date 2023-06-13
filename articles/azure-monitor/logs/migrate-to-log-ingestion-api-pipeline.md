@@ -16,6 +16,13 @@ The Azure Monitor [Log Ingestion API](../logs/logs-ingestion-api-overview.md) pr
 > [!NOTE]
 > As a Microsoft MVP, [Morten Waltorp Knudsen](https://mortenknudsen.net/) contributed to and provided material feedback for this article. For an example of how you can automate the setup and ongoing use of the Log Ingestion API, see Morten's publicly available [AzLogDcrIngestPS PowerShell module](https://github.com/KnudsenMorten/AzLogDcrIngestPS).
 
+## Advantages of the Log Ingestion API
+
+The Log Ingestion API provides the following advantages over the Data Collector API:
+
+- Supports [transformations](../essentials/data-collection-transformations.md), which enable you to modify the data before it's ingested into the destination table, including filtering and data manipulation.
+- Lets you send data to multiple destinations.  
+- Enables you to manage the destination table schema, including column names, and whether to add new columns to the destination table when the source data schema changes.
 ## Prerequisites
 
 The migration procedure described in this article assumes you have:
@@ -23,13 +30,6 @@ The migration procedure described in this article assumes you have:
 - A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create data collection rules](../essentials/data-collection-rule-overview.md#permissions) in the Log Analytics workspace.
 - [An Azure AD application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
-
-## Create required new resources
-
-The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
-
-- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the the data you collect is ingested into the pipeline for processing.
-- [Data collection rules](../essentials/data-collection-rule-overview.md), which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
 
 ## Migrate existing custom tables that use the Data Collector API
 
@@ -47,6 +47,8 @@ If you have an existing custom table to which you currently send data using the 
     
     This call is idempotent, so it has no effect if the table has already been converted.    
 
+    > [!NOTE] This API enables all DCR-based custom logs features on the table. The Data Collector API will continue to ingest data into existing columns, but won't create any new columns. Any previously defined [custom fields](../logs/custom-fields.md) will stop populating.
+
 - Maintain the existing table and data and set up a new data into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready.
 
     This is the preferred option, especially if you to need to make changes to the existing table. Changes to existing data types and multiple multiple schema changes to existing Data Collector API custom tables can lead to internal server error 500.
@@ -56,6 +58,16 @@ If you have an existing custom table to which you currently send data using the 
 > - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
 > - Custom columns you add to an Azure table must have the suffix `_CF`.
 > - If you update the table schema in your Log Analytics workspace, you must also update the table schema you define in the data collection rule to ingest data into new or modified columns.
+
+### Migrate existing custom tables but continue using the Data Collector API
+
+
+## Create new resources required for the Log ingestion API
+
+The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
+
+- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the the data you collect is ingested into the pipeline for processing.
+- [Data collection rules](../essentials/data-collection-rule-overview.md), which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
     
 ## Call the Log Ingestion API
 
