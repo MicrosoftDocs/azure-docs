@@ -14,7 +14,7 @@ This article has the latest updates for multimedia redirection (MMR) for Azure V
 
 ## Updates for version 1.0.2304.12009 
 
-*Date published: June 15, 2023*
+*Date published: June 13, 2023*
 
 In this release, we've made the following changes: 
 
