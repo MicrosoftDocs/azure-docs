@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.date: 06/16/2022
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: synapse
 ---
 
 # Create and configure a self-hosted integration runtime

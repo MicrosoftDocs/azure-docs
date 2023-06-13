@@ -85,6 +85,12 @@ With Kafka you can set the partition key when you create the `ProducerRecord` as
 ProducerRecord<String, String> record = new ProducerRecord<String, String>(TOPIC, "Key-1" , "Value-1");
 ```
 
+## Quotas and limits
+| Limit | Basic | Standard | Premium |  Dedicated |
+| ----- | ----- | -------- | -------- | --------- | 
+| Size of compacted event hub  | N/A | 1 GB per partition | 250 GB per partition | 250 GB per partition |
+
+For other quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md).
 
 ## Consuming events from a compacted topic
 There are no changes required at the consumer side to consume events from a compacted event hub. So, you can use any of the existing consumer applications to consume data from a compacted event hub. 

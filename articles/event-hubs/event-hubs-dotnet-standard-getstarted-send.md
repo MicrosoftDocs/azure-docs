@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.service: event-hubs
 ms.date: 03/09/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet
+ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Send events to and receive events from Azure Event Hubs using .NET
@@ -413,4 +413,3 @@ See the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs](../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=%2Fazure%2Fevent-hubs%2FTOC.json)
-

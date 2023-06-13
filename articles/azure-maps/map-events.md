@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: codepen
 ---
 
 # Interact with the map

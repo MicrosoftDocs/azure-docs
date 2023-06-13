@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Tutorial: Extract image details using the Bing Image Search API and C#

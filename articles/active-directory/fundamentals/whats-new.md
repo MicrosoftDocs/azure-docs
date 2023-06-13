@@ -122,7 +122,7 @@ The ability for users to create tenants from the Manage Tenant overview has been
 
 ---
 
-### Public Preview - Devices Self-Help Capability for Pending Devices
+### General Availability - Devices Self-Help Capability for Pending Devices
 
 
 
@@ -256,7 +256,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 **Service category:** MFA                        
 **Product capability:** Identity Security & Protection               
 
-We have improved My Sign-ins and My Security-Info to give you more clarity on the types of Microsoft Authenticator other Authenticator apps a user has registered. Users will now see Microsoft Authenticator registrations with additional information showing the app as being registered as Push-based MFA or Password-less phone sign-in (PSI) and for other Authenticator apps (Software OATH) we now indicate they're registered as a Time-based One-time password method.  For more information, see: [Set up the Microsoft Authenticator app as your verification method](https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29).
+We have improved My Sign-ins and My Security-Info to give you more clarity on the types of Microsoft Authenticator or other Authenticator apps a user has registered. Users will now see Microsoft Authenticator registrations with additional information showing the app as being registered as Push-based MFA or Password-less phone sign-in (PSI) and for other Authenticator apps (Software OATH) we now indicate they're registered as a Time-based One-time password method.  For more information, see: [Set up the Microsoft Authenticator app as your verification method](https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29).
 
 ---
 

@@ -38,7 +38,7 @@ When filtered to **All Applications**, the **All Applications** **List** shows e
 - When a [user consents to an application](../develop/howto-convert-app-to-be-multi-tenant.md) to use data in your tenant
 - When you enable certain services that store data in your tenant. One example is Password Reset, which is modeled as a service principal to store your password reset policy securely.
 
-Learn more about how, and why, apps are added to your directory, see [How applications are added to Azure AD](../develop/active-directory-how-applications-are-added.md).
+Learn more about how, and why, apps are added to your directory, see [How applications are added to Azure AD](../develop/how-applications-are-added.md).
 
 ## Next steps
 

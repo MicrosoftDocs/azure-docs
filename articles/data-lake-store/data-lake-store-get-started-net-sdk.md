@@ -7,8 +7,7 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: normesta
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # Account management operations on Azure Data Lake Storage Gen1 using .NET SDK
 > [!div class="op_single_selector"]
