@@ -51,7 +51,7 @@
       href: large-volumes-requirements-considerations.md
   - name: NAS volumes as a service
     items:
-    - name: Understand file locking and the different types of locks
+    - name: Understand file locking
       href: understand-file-locks.md
   - name: Performance
     items:
