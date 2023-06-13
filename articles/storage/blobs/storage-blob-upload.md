@@ -5,7 +5,7 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/23/2023
+ms.date: 06/13/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -34,7 +34,7 @@ You can use either of the following methods to upload data to a block blob:
 - [Upload](/dotnet/api/azure.storage.blobs.blobclient.upload)
 - [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync)
 
-When using these upload methods, the client library may call either [Put Blob](/rest/api/storageservices/put-blob) or [Put Block](/rest/api/storageservices/put-block), depending on the overall size of the object and how the [data transfer options](#specify-data-transfer-options-on-upload) are set.
+When using these upload methods, the client library may call either [Put Blob](/rest/api/storageservices/put-blob) or a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list). This behavior depends on the overall size of the object and how the [data transfer options](#specify-data-transfer-options-on-upload) are set.
 
 To open a stream in Blob Storage and write to that stream, use either of the following methods:
 
