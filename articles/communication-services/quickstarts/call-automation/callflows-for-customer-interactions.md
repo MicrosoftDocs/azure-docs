@@ -10,7 +10,7 @@ ms.date: 09/06/2022
 ms.author: askaur
 ms.custom: public_preview
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java
+zone_pivot_groups: acs-csharp-java-javascript-python
 ---
 
 # Build a customer interaction workflow using Call Automation
