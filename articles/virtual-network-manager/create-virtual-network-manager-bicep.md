@@ -31,7 +31,7 @@ The Bicep solution for this sample is broken down into modules to enable deploym
 #### Virtual Network Manager
 
 ```bicep
-@description('This is the Azure Virtual Network Manager which will be used to implement the connected group for spoke-to-spoke connectivity.')
+@description('This is the Azure Virtual Network Manager which will be used to implement the connected group for inter-vnet connectivity.')
 resource networkManager 'Microsoft.Network/networkManagers@2022-09-01' = {
   name: 'vnm-learn-prod-${location}-001'
   location: location
@@ -56,7 +56,7 @@ The solution supports creating either static membership Network Groups or dynami
 **Static Membership Network Group**
 
 ```bicep
-@description('This is the static network group for the spoke VNETs, and hub when topology is mesh.')
+@description('This is the static network group for the all VNETs.')
 resource networkGroupSpokesStatic 'Microsoft.Network/networkManagers/networkGroups@2022-09-01' = if (networkGroupMembershipType == 'static') {
   name: 'ng-learn-prod-${location}-static001'
   parent: networkManager
@@ -72,7 +72,6 @@ resource networkGroupSpokesStatic 'Microsoft.Network/networkManagers/networkGrou
     }
   }]
 
-  // add hub if connectivity topology is 'mesh' (otherwise, hub is connected via hub and spoke peering)
   resource staticMemberHub 'staticMembers@2022-09-01' = {
     name: 'sm-${(toLower(last(split(hubVnetId, '/'))))}'
     properties: {
@@ -85,7 +84,7 @@ resource networkGroupSpokesStatic 'Microsoft.Network/networkManagers/networkGrou
 **Dynamic Membership Network Group**
 
 ```bicep
-@description('This is the dynamic group for spoke VNETs.')
+@description('This is the dynamic group for all VNETs.')
 resource networkGroupSpokesDynamic 'Microsoft.Network/networkManagers/networkGroups@2022-09-01' = if (networkGroupMembershipType == 'dynamic') {
   name: 'ng-learn-prod-${location}-dynamic001'
   parent: networkManager
@@ -166,10 +165,10 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 
 #### Dynamic Network Group Membership Policy
 
-When the deployment is configured to use `dynamic` network group membership, the solution also deploys an Azure Policy Defintion and Assignment. The Policy Definition is shown below.
+When the deployment is configured to use `dynamic` network group membership, the solution also deploys an Azure Policy Definition and Assignment. The Policy Definition is shown below.
 
 ```bicep
-@description('This is a Policy definition for dyanamic group membership')
+@description('This is a Policy definition for dynamic group membership')
 resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
   name: uniqueString(networkGroupId)
   properties: {
@@ -207,21 +206,23 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01'
 }
 ```
 
-## Deployment Prerequisites
+## Deploying the Bicep Solution
+
+### Deployment Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Permissions to create a Policy Definition and Policy Assignment at the target subscription scope (this is required when using the deployment parameter `networkGroupMembershipType=Dynamic` to deploy the required Policy resources for Network Group membership. The default is `static`, which does not deploy a Policy.
 
-### Download the Bicep Solution
+#### Download the Bicep Solution
 
 1. Download a Zip archive of the MSPNP repo at [this link](https://github.com/mspnp/samples/archive/refs/heads/main.zip)
 1. Extract the downloaded Zip file and in your terminal, navigate to the `solutions/avnm-mesh-connected-group/bicep` directory.
 
 Alternatively, you can use `git` to clone the repo with `git clone https://github.com/mspnp/samples.git`
 
-### [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell)
 
-#### Sign in to your Azure account and select your subscription
+##### Sign in to your Azure account and select your subscription
 
 To begin your configuration, sign in to your Azure account:
 
@@ -235,7 +236,7 @@ Then, connect to your subscription:
 Set-AzContext -Subscription <subscription name or id>
 ```
 
-#### Install the Azure PowerShell module
+##### Install the Azure PowerShell module
 
 Install the latest *Az.Network* Azure PowerShell module by using this command:
 
@@ -243,9 +244,9 @@ Install the latest *Az.Network* Azure PowerShell module by using this command:
  Install-Module -Name Az.Network -RequiredVersion 5.3.0
 ```
 
-### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
-#### Sign in to your Azure account and select your subscription
+##### Sign in to your Azure account and select your subscription
 
 To begin your configuration, sign in to your Azure account:
 
@@ -261,26 +262,13 @@ az account set -s <subscriptionId>
 
 ---
 
-## Deploy the Bicep Template
-
-When deploying or managing Azure Virtual Network Manager using infrastructure-as-code, special consideration should be given to the fact that Azure Virtual Network Manager configuration involves a two step process:
-
-  1. A configuration and configuration scope or target are defined, then
-  2. The configuration is deployed to the target resources (typically, Virtual Networks).
-
-To complete these steps using the Portal, you create a configuration then choose to deploy it in a separate action. For infrastructure code, after defining a configuration in code, the Azure Virtual Network Manager API must be called to perform a 'commit' action (mirroring the 'deploy' step in the Portal).
-
-Declarative infrastructure code on its own cannot call the API, requiring the use of a Deployment Script resource. The Deployment Script resource (see [Deployment Script](#### Deployment Script)) invokes a script in an Azure Container Instance to execute the Deploy-AzNetworkManagerCommit Azure PowerShell command.
-
-Because the PowerShell script runs within the Deployment Script resource, troubleshooting a failed deployment may require reviewing the script logs found on the Deployment Script resource if the Deployment Script resource deployment reports a failure. It is also possible to view the deployment in the Portal, but note that the Portal interface may take several minutes to update after a code deployment is run.
-
-## Deployment Parameters
+### Deployment Parameters
 
 * **resourceGroupName**: [required] This parameter specifies the name of the resource group where the virtual network manager and sample virtual networks will be deployed.
 * **location**: [required] This parameter specifies the location of the resources to deploy. 
 * **networkGroupMembershipType**: [optional] This parameter specifies the type of Network Group membership to deploy. The default is `static`, but dynamic group membership can be used by specifying `dynamic`. Note, dynamic group membership deploys an Azure Policy to manage membership, requiring [more permissions](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy). 
 
-### [PowerShell](#tab/powershell1)
+#### [PowerShell](#tab/powershell1)
 
 ```powershell
     $templateParameterObject = @{
@@ -290,7 +278,7 @@ Because the PowerShell script runs within the Deployment Script resource, troubl
     New-AzSubscriptionDeployment -TemplateFile ./main.bicep -Location <deploymentLocation> -TemplateParameterObject $templateParameterObject
 ```
 
-### [Azure CLI](#tab/azurecli1)
+#### [Azure CLI](#tab/azurecli1)
 
 ```azurecli
     az deployment sub create -l <deploymentLocation> -f ./main.bicep -p location=<resourceLocation> resourceGroupName=<newOrExistingResourceGroup>
