@@ -220,6 +220,8 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01'
 
 Alternatively, you can use `git` to clone the repo with `git clone https://github.com/mspnp/samples.git`
 
+#### Connect to Azure
+
 #### [PowerShell](#tab/powershell)
 
 ##### Sign in to your Azure account and select your subscription
