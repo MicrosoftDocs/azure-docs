@@ -3,7 +3,7 @@ title: Install the Remote Desktop client for Windows on a per-user basis with In
 description: How to install the Azure Virtual Desktop client on a per-user basis with Intune or Configuration Manager.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 06/09/2023
 ms.author: helohr
 manager: femila
 ---
@@ -48,13 +48,13 @@ To install the client on a per-user basis using a batch file:
 
 1. Upload your `.intunewin` file, then fill out the required app information fields.
 
-1. In the Program tab, select the install.bat file as the installer, and use the MSI product code `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)` for the Uninstall command.
+1. In the **Program** tab, select the install.bat file as the installer, then use the MSI product code `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)` for the Uninstall command, as shown in the following screenshot.
+   
+    :::image type="content" source="./media/install-client-per-user/uninstall-command.png" alt-text="A screenshot of the Program tab. The product code in the Uninstall command field is msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/uninstall-command.png" :::
 
 1. Toggle the **Install behavior** to **User**.
 
-1. In the **Detection rules** tab, enter the MSI product code `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)`, as shown in the following screenshot.
-   
-    :::image type="content" source="./media/install-client-per-user/uninstall-command.png" alt-text="A screenshot of the Detection Rules tab. The product code in the MSI product code field is msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/uninstall-command.png" :::
+1. In the **Detection rules** tab, enter the MSI product code `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)`.
 
 1.  Follow the rest of the prompts until you complete the workflow.
 

@@ -701,6 +701,10 @@ items:
             href: storage-blob-container-lease-java.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-java.md
+          - name: Generate a shared access signature (SAS)
+            items:
+            - name: Create a user delegation SAS for a container
+              href: storage-blob-container-user-delegation-sas-create-java.md
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -725,6 +729,10 @@ items:
             href: storage-blob-lease-java.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-java.md
+          - name: Generate a shared access signature (SAS)
+            items:
+            - name: Create a user delegation SAS for a blob
+              href: storage-blob-user-delegation-sas-create-java.md
       - name: JavaScript
         items:
         - name: Get started
