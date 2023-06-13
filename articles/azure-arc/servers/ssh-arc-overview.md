@@ -1,7 +1,7 @@
 ---
 title: SSH access to Azure Arc-enabled servers
 description: Leverage SSH remoting to access and manage Azure Arc-enabled servers.
-ms.date: 04/30/2023
+ms.date: 07/01/2023
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -71,18 +71,24 @@ This operation can take 2-5 minutes to complete.  Before moving on, check that t
 > [!NOTE]
 > The following actions must be completed for each Arc-enabled server.
 
-Create the default endpoint in PowerShell:
- ```powershell
- az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{\"properties\": {\"type\": \"default\"}}'
- ```
-Create the default endpoint in Bash:
+#### [Create the default endpoint in Bash:](#tab/azure-cli)
 ```bash
-az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{"properties": {"type": "default"}}'
+az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15 --body '{"properties": {"type": "default"}}'
 ```
 Validate endpoint creation:
+ ```bash
+ az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15
  ```
- az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview
+ 
+#### [Create the default endpoint in PowerShell:](#tab/azure-powershell)
+ ```powershell
+Invoke-AzRestMethod -Method put -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15 --body '{\"properties\": {\"type\": \"default\"}}'
  ```
+Validate endpoint creation:
+ ```powershell
+ Invoke-AzRestMethod -Method get -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15
+ ```
+ ---
  
  ### Install local command line tool
 This functionality is currently packaged in an Azure CLI extension and an Azure PowerShell module.
