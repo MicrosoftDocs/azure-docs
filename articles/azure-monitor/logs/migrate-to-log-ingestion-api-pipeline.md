@@ -23,13 +23,6 @@ The migration procedure described in this article assumes you have:
 - A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create data collection rules](../essentials/data-collection-rule-overview.md#permissions) in the Log Analytics workspace.
 - [An Azure AD application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
-## Advantages of the Log Ingestion API
-
-The Log Ingestion API provides the following advantages over the Data Collector API:
-
-- Supports [transformations](../essentials/data-collection-transformations.md), which enable you to modify the data before it's ingested into the destination table, including filtering and data manipulation.
-- Lets you send data to multiple destinations.  
-- Enables you to manage the destination table schema, including column names, and whether to add new columns to the destination table when the source data schema changes.
 
 ## Create required new resources
 
