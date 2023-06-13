@@ -26,7 +26,7 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 The Bicep solution for this sample is broken down into modules to enable deployments at both a resource group and subscription scope. The template sections detailed below are the unique components for Virtual Network Manager. In addition to the sections detailed below, the solution deploys Virtual Networks, a User Assigned Identity, and a Role Assignment. 
 
-### Virtual Network Manager, Connectivity Configurations, and Network Groups
+### Virtual Network Manager, Network Groups, and Connectivity Configurations
 
 #### Virtual Network Manager
 
@@ -90,6 +90,33 @@ resource networkGroupSpokesDynamic 'Microsoft.Network/networkManagers/networkGro
   parent: networkManager
   properties: {
     description: 'Network Group - Dynamic'
+  }
+}
+```
+
+#### Connectivity Configuration
+
+The Connectivity Configuration associates the Network Group with the specified network topology. 
+
+```bicep
+@description('This connectivity configuration defines the connectivity between VNETs using Direct Connection. The hub will be part of the mesh, but gateway routes from the hub will not propagate to spokes.')
+resource connectivityConfigurationMesh 'Microsoft.Network/networkManagers/connectivityConfigurations@2022-09-01' = {
+  name: 'cc-learn-prod-${location}-mesh001'
+  parent: networkManager
+  properties: {
+    description: 'Mesh connectivity configuration'
+    appliesToGroups: [
+      {
+        networkGroupId: (networkGroupMembershipType == 'static') ? networkGroupSpokesStatic.id : networkGroupSpokesDynamic.id
+        isGlobal: 'False'
+        useHubGateway: 'False'
+        groupConnectivity: 'DirectlyConnected'
+      }
+    ]
+    connectivityTopology: 'Mesh'
+    deleteExistingPeering: 'True'
+    hubs: []
+    isGlobal: 'False'
   }
 }
 ```
