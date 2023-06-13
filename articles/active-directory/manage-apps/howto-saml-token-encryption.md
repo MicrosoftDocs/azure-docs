@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/21/2022
+ms.date: 06/13/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
@@ -21,6 +21,8 @@ ms.custom: enterprise-apps
 > Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 SAML token encryption enables the use of encrypted SAML assertions with an application that supports it. When configured for an application, Azure AD will encrypt the SAML assertions it emits for that application using the public key obtained from a certificate stored in Azure AD. The application must use the matching private key to decrypt the token before it can be used as evidence of authentication for the signed in user.
+
+This article provides instructions on how to configure token encryption for enterprise applications. It also provides instructions on how to configure SAML token encryption registered applications.
 
 Encrypting the SAML assertions between Azure AD and the application provides additional assurance that the content of the token can't be intercepted, and personal or corporate data compromised.
 
@@ -98,8 +100,6 @@ To configure token encryption, follow these steps:
 1. Select the **All apps** tab to show all apps, and then select the application that you want to configure.
 
 1. In the application's page, select **Manifest** to edit the [application manifest](../develop/reference-app-manifest.md).
-
-1. Set the value for the `tokenEncryptionKeyId` attribute.
 
     The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEncryptionKeyId.
 
@@ -218,7 +218,6 @@ To configure token encryption, follow these steps:
     ```
 
 ---
-
 
 ## Next steps
 
