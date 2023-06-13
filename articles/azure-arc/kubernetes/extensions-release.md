@@ -97,7 +97,7 @@ With the integration between Azure API Management and Azure Arc on Kubernetes, y
 For more information, see [Deploy an Azure API Management gateway on Azure Arc (preview)](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md).
 
 > [!IMPORTANT]
-> API Management self-hosted gateway on Azure Arc is currently in public preview. During preview, the API Management gateway extension is available in the following regions: West Europe, East US.
+> API Management self-hosted gateway on Azure Arc is currently in public preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Azure Arc-enabled Machine Learning

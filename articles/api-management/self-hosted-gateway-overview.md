@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 06/12/2023
 ms.author: danlep
 ---
 
@@ -59,7 +59,7 @@ We provide a variety of container images for self-hosted gateways to meet your n
 
 You can find a full list of available tags [here](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
 
-<sup>1</sup>Preview versions are not officially supported and are for experimental purposes only.<br/> 
+<sup>1</sup>Preview versions are not officially supported and are for experimental purposes only. See the [self-hosted gateway support policies](self-hosted-gateway-support-policies.md#self-hosted-gateway-container-image-support-coverage). <br/> 
 
 ### Use of tags in our official deployment options
 
@@ -116,9 +116,20 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 <sup>4</sup>Only required when feature is used and requires public IP address, port, and hostname information.<br/>
 
 > [!IMPORTANT]
-> * DNS hostnames must be resolvable to IP addresses and the corresponding IP addresses must be reachable.
+> * DNS hostnames must be resolvable to IP addresses and the corresponding IP addres
+
+ses must be reachable.
 > * The associated storage account names are listed in the service's **Network connectivity status** page in the Azure portal.
 > * Public IP addresses underlying the associated storage accounts are dynamic and can change without notice.
+
+### Authentication options
+
+To authenticate the connection between the self-hosted gateway and the cloud-based API Management instance's configuration endpoint, you have the following options in the gateway container's [configuration settings](self-hosted-gateway-settings-reference.md).
+
+|Option  |Considerations  |
+|---------|---------|
+| Gateway access token (also called authentication key)    |  Token expires every 30 days at maximum and must be renewed in the containers<br/><br/>Backed by a gateway key that can be rotated independently (for example, to revoke access) <br/><br/>Regenerating gateway key invalidates all access tokens created with it        |
+| [Azure Active Directory authentication](self-hosted-gateway-enable-azure-ad.md)   | Configure one or more Azure AD apps for access to gateway<br/><br/>Manage access separately per app<br/><br/>Configure longer expiry times for secrets in accordance with your organization's policies<br/><br/>Use standard Azure AD procedures to assign or revoke user or group permissions to app and to rotate secrets<br/><br/>        |
 
 ### Connectivity failures
 
