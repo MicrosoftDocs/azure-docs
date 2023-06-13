@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/05/2023
+ms.date: 06/08/2023
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
@@ -172,10 +172,6 @@ The following applications and directories aren't yet supported.
    - When a user is managed by Azure AD Connect, the source of authority is on-premises Azure AD. So, user attributes can't be changed in Azure AD. This preview doesn't change the source of authority for users managed by Azure AD Connect.
    - Attempting to use Azure AD Connect and the on-premises provisioning to provision groups or users into Active Directory Domain Services can lead to creation of a loop, where Azure AD Connect can overwrite a change that was made by the provisioning service in the cloud. Microsoft is working on a dedicated capability for group or user writeback. Upvote the UserVoice feedback on [this website](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789/) to track the status of the preview. Alternatively, you can use [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for user or group writeback from Azure AD to Active Directory.
 
-#### Connectors other than SQL and LDAP
-
-   The Azure AD ECMA Connector Host is officially supported for the generic SQL and LDAP connectors. While it's possible to use other connectors such as the web services connector or custom ECMA connectors, it's *not yet supported*.
-
 #### Azure AD
 
    By using on-premises provisioning, you can take a user already in Azure AD and provision them into a third-party application. *You can't bring a user into the directory from a third-party application.* Customers will need to rely on our native HR integrations, Azure AD Connect, Microsoft Identity Manager, or Microsoft Graph, to bring users into the directory.
@@ -202,8 +198,6 @@ The following attributes and objects aren't supported:
 - The agent doesn't currently support auto update for the on-premises application provisioning scenario. We're actively working to close this gap and ensure that auto update is enabled by default and required for all customers. 
 - The same provisioning agent can't be used for on-premises app provisioning and cloud sync / HR- driven provisioning. 
 
-#### ECMA Host
-The ECMA host doesn't support updating the password in the connectivity page of the wizard. Create a new connector when changing the password. 
 ::: zone-end
 
 ## Next steps

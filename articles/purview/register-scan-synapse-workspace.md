@@ -22,6 +22,8 @@ This article outlines how to register Azure Synapse Analytics workspaces. It als
 
 Currently, Azure Synapse Analytics lake databases are not supported.
 
+For external tables, Azure Synapse Analytics doesn't currently capture the relationship of those tables to their original files.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

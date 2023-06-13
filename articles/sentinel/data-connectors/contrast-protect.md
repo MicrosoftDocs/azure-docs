@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Contrast Protect connector for Microsoft Sentinel
 
-Contrast Protect mitigates security threats in production applications with runtime protection and observability.  Attack event results (blocked, probed, suspicious...) and other information can be sent to Microsoft Microsoft Sentinel to blend with security information from other systems.
+Contrast Protect mitigates security threats in production applications with runtime protection and observability.  Attack event results (blocked, probed, suspicious...) and other information can be sent to Microsoft Sentinel to blend with security information from other systems.
 
 ## Connector attributes
 

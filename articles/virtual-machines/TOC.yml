@@ -661,6 +661,9 @@
         - name: Windows
           displayName: Image builder, images, building, update
           href: ./windows/image-builder-gallery-update-image-version.md
+      - name: How to use AIB triggers to set up an automatic image build (preview)
+        displayName: Image builder, images, building, triggers
+        href: image-builder-triggers-how-to.md
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
@@ -1623,7 +1626,7 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Boot integrity monitoring (guest attestation) overview
+    - name: Boot integrity monitoring overview
       href: boot-integrity-monitoring-overview.md
  
   - name: Just-in-time access
