@@ -17589,6 +17589,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-download-vpndevicescript",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md",
             "redirect_url": "/azure/vpn-gateway/create-routebased-vpn-gateway-powershell",
             "redirect_document_id": false
