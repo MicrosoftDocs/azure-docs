@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/13/2023
 ms.author: jasteppe
 ---
 
@@ -206,5 +206,10 @@ To learn how to use the MedTech service custom functions, see:
 
 > [!div class="nextstepaction"]
 > [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
+
+For and overview of the MedTech service FHIR destination mapping, see
+
+> [!div class="nextstepaction"]
+> [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office, and is used with permission.

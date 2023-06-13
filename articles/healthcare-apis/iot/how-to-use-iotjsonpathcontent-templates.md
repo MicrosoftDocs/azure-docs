@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/05/2023
+ms.date: 06/13/2023
 ms.author: jasteppe
 ---
 
@@ -120,7 +120,12 @@ The resulting normalized message will look like this after the normalization sta
 
 ## Next steps
 
-In this article, you learned how to use IotJsonPathContent templates with the MedTech service device mapping. 
+In this article, you learned how to use IotJsonPathContent templates with the MedTech service device mapping.
+
+To learn how to use the MedTech service custom functions, see:
+
+> [!div class="nextstepaction"]
+> [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md) 
 
 For and overview of the MedTech service FHIR destination mapping, see
 
