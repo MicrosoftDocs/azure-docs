@@ -515,8 +515,6 @@
       href: connect/reference-connect-user-privacy.md
     - name: Azure AD Connect Health user privacy
       href: connect/reference-connect-health-user-privacy.md
-    - name: Azure AD Connect in Germany
-      href: connect/reference-connect-germany.md
     - name: DirSync Deprecation
       href: connect/reference-connect-dirsync-deprecated.md
     - name: Attributes synchronized
