@@ -17,6 +17,19 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## June 13, 2023
+
+### Image tag
+
+`v1.20.0_2023-06-13`
+
+For complete release version information, review [Version log](version-log.md#june-13-2023).
+
+### Release notes
+
+- Azure Arc-enabled SQL Managed Instance
+    -  [Added Azure CLI support to manage transparent data encryption (TDE)](configure-transparent-data-encryption-sql-managed-instance.md).
+
 ## May 9, 2023
 
 ### Image tag
