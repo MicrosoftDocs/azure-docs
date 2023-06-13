@@ -2,7 +2,7 @@
 title: How to configure Azure Functions with a virtual network
 description: Article that shows you how to perform certain virtual networking tasks for Azure Functions.
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 06/13/2023
 ms.custom: template-how-to
 ---
 
