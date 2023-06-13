@@ -47,7 +47,8 @@ If you have an existing custom table to which you currently send data using the 
     
     This call is idempotent, so it has no effect if the table has already been converted.    
 
-    > [!NOTE] This API enables all DCR-based custom logs features on the table. The Data Collector API will continue to ingest data into existing columns, but won't create any new columns. Any previously defined [custom fields](../logs/custom-fields.md) will stop populating.
+    > [!NOTE] 
+    > This API call enables all DCR-based custom logs features on the table. The Data Collector API will continue to ingest data into existing columns, but won't create any new columns. Any previously defined [custom fields](../logs/custom-fields.md) will stop populating. Another way to migrate an existing table to using data collection rules, but not necessarily the Log Ingestion API is applying a [workspace transformation](../logs/tutorial-workspace-transformations-portal.md) to the table.
 
 - Maintain the existing table and data and set up a new data into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready.
 
