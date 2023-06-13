@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to create an image from a vhd.
 author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 6/09/2023
 ms.author: corsini
@@ -27,7 +27,7 @@ Azure Cloud Shell is a free interactive shell that you can use to run the steps 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
-If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run `az--version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create a resource group
 
@@ -37,23 +37,23 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 ```azurecli - interactive
 az group create --name $resourceGroupName --location eastus
 ```
-## Create custom image for Confidential VMs
+## Create Custom Image for Confidential VMs
 
-1. [Create a virtual machine](/azure/virtual-machines/linux/quick-create-cli) with an Ubuntu image of choice. Use the steps in this document to see list of [Azure supported images.](/azure/virtual-machines/linux/cli-ps-findimage)
+1. [Create a virtual machine](/azure/virtual-machines/linux/quick-create-cli) with an Ubuntu image of choice from the list of [Azure supported images.](/azure/virtual-machines/linux/cli-ps-findimage)
 
-2. Ensure the kernel version is atleast 5.15.0-1037-azure. You can use "uname -r" after connecting to the VM to check the kernel version. Here you can add any changes to the image as you see fit. 
+2. Ensure the kernel version is at least 5.15.0-1037-azure. You can use "uname -r" after connecting to the VM to check the kernel version. Here you can add any changes to the image as you see fit. 
 
 3. Deallocate your virtual machine.
     ```azurecli
     az vm deallocate --name $vmname --resource-group $resourceGroupName
     ```
-3. Create a shared access token (SAS token) for the OS disk and store it in a variable. //chris change
+3. Create a shared access token (SAS token) for the OS disk and store it in a variable.
     ```azurecli
     disk_name=$(az vm show --name $vmname --resource-group $resourceGroupName | jq -r .storageProfile.osDisk.name)
     disk_url=$(az disk grant-access --duration-in-seconds 3600 --name $disk_name --resource-group $resourceGroupName | jq -r .accessSas)
     ```
 
-#### Create a storage account to store the exported disk
+#### Create a Storage Account to store the Exported Disk
 
 1. Create a storage account.
     ```azurecli
@@ -63,25 +63,25 @@ az group create --name $resourceGroupName --location eastus
     ```azurecli
     az storage container create --name $storageContainerName --account-name $storageAccountName --resource-group $resourceGroupName
     ```
-3. Generate a read [shared access token (SAS token) to the storage container](/cli/azure/storage/container) and save it in a variable. 
+3. Generate a read shared access token (SAS token) to the [storage container](/cli/azure/storage/container) and save it in a variable. 
     ```azurecli
     container_sas=$(az storage container generate-sas --name $storageContainerName --account-name $storageAccountName --auth-mode key --expiry 2024-01-01 --https-only --permissions dlrw -o tsv)
     ```
-4. Using azcopy, copy the vhd from the disk to the storage account.
+4. Using azcopy, copy the OS disk to the storage container.
     ```azurecli
      blob_url="https://${storageAccountName}.blob.core.windows.net/$storageContainerName/$referenceVHD"
      azcopy copy "$disk_url" "${blob_url}?${container_sas}"
     ```
 
-#### Create a confidential supported image
+#### Create a Confidential Supported Image
 
-1. Create a Compute Gallery.
+1. Create a Shared Image Gallery.
    ```azurecli
     az sig create --resource-group $resourceGroupName --gallery-name $galleryName
     ```
-2. [Create a shared image gallery (SIG) definition](/cli/azure/sig/image-definition) confidential VM supported. Create new names for the gallery name, image definition name, sig publisher name, sku name offer name.  
+2. Create a [shared image gallery (SIG) definition](/cli/azure/sig/image-definition) confidential VM supported. Set new names for the gallery name, gallery image definition, SIG publisher name, and SKU.  
    ```azurecli
-    az sig image-definition create --resource-group  $resourceGroupName --location $region --gallery-name $galleryName --gallery-image-definition $imageDefinitionName --publisher $sigPublisherName --offer ubuntu --sku $sigSkuName --os-type $osType --os-state specialized --hyper-v-generation V2  --features SecurityType=ConfidentialVMSupported
+    az sig image-definition create --resource-group  $resourceGroupName --location $region --gallery-name $galleryName --gallery-image-definition $imageDefinitionName --publisher $sigPublisherName --offer ubuntu --sku $sigSkuName --os-type Linux --os-state specialized --hyper-v-generation V2  --features SecurityType=ConfidentialVMSupported
     ```
 3. Get the storage account ID.
    ```azurecli
@@ -95,7 +95,7 @@ az group create --name $resourceGroupName --location eastus
    ```azurecli
     galleryImageId=$(az sig image-version show --gallery-image-definition $imageDefinitionName --gallery-image-version $galleryImageVersion --gallery-name $galleryName --resource-group $resourceGroupName | jq -r .id)
     ```
-#### Create a confidential VM
+#### Create a Confidential VM
 
 1. Create a VM with the [az vm create](/cli/azure/vm) command. For more information, see [secure boot and vTPM](/azure/virtual-machines/trusted-launch). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
     ```azurecli-interactive
