@@ -44,8 +44,6 @@ Use the following steps to clone and run the app locally.
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Install the [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.
-
 Use AZD to initialize the web application from the Azure Developer CLI templates.
 
 1. Open a terminal, create a new empty folder, and change directory to it.
