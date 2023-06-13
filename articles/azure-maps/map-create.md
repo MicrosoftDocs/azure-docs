@@ -67,8 +67,8 @@ There are two ways to set the displayed area of the map using the camera of a ma
 The map camera controls what is displayed in the viewport of the map canvas. Camera options can be passed into the map options when being initialized or passed into the maps `setCamera` function.
 
 ```javascript
-//Set the camera options when creating the map.
-//Map properties, such as center and zoom level, are part of the CameraOptions
+// Set the camera options when creating the map.
+// Map properties, such as center and zoom level, are part of the CameraOptions
 var map = new atlas.Map('map', {
     center: [-122.33, 47.6],
     zoom: 12
