@@ -16,12 +16,11 @@ ms.author: godonnell
 
 # Tutorial: Add sign-in and sign-out to a React single-page app (SPA) for a customer tenant
 
-In the [previous article](./how-to-single-page-application-react-prepare-app.md), you created a React single-page app (SPA) in Visual Studio Code and configured it for authentication.
+In the [previous article](./how-to-single-page-application-react-configure-authentication.md), you created a React single-page app (SPA) in Visual Studio Code and configured it for authentication. This tutorial shows you how to add sign-in and sign-out functionality to the app.
 
-In this tutorial you'll;
+In this tutorial;
 
 > [!div class="checklist"]
-> * Add functional components to the application
 > * Create a page layout and add the sign in and sign out experience
 > * Replace the default function to render authenticated information
 > * Sign in and sign out of the application using the user flow
@@ -30,234 +29,83 @@ In this tutorial you'll;
 
 * Completion of the prerequisites and steps in [Prepare an single-page app for authentication](./how-to-single-page-application-react-prepare-app.md).
 
-## Add components to the application
 
-Functional components are the building blocks of React apps, and are used to build the sign in and sign out experiences in a React SPA. 
-
-1. Right click on *src*, select **New Folder** and call it *components*.
-1. Right click on *components* and using the **New File** option, create the following files to create a structure as depicted in the following code block;
-    - *PageLayout.jsx*
-    - *SignInButton.jsx*
-    - *SignOutButton.jsx*
-
-    ```txt
-    reactspalocal/
-    ├── src/
-    │   ├── components/
-    │   │   ├── PageLayout.jsx
-    │   │   ├── SignInButton.jsx
-    │   │   └── SignOutButton.jsx
-    │   └── ...
-    └── ...
-    ```
-
-### Add the page layout
-
-1. Open *PageLayout.jsx* and add the following code to render the page layout. The [useIsAuthenticated](/javascript/api/@azure/msal-react) hook returns whether or not a user is currently signed-in.
-
-   ```javascript
-   /*
-    * Copyright (c) Microsoft Corporation. All rights reserved.
-    * Licensed under the MIT License.
-    */
-
-   import React from "react";
-   import Navbar from "react-bootstrap/Navbar";
-
-   import { useIsAuthenticated } from "@azure/msal-react";
-   import { SignInButton } from "./SignInButton";
-   import { SignOutButton } from "./SignOutButton";
-
-   /**
-    * Renders the navbar component with a sign in or sign out button depending on whether or not a user is authenticated
-    * @param props
-    */
-   export const PageLayout = (props) => {
-     const isAuthenticated = useIsAuthenticated();
-
-     return (
-       <>
-         <Navbar bg="primary" variant="dark" className="navbarStyle">
-           <a className="navbar-brand" href="/">
-             Microsoft Identity Platform
-           </a>
-           <div className="collapse navbar-collapse justify-content-end">
-             {isAuthenticated ? <SignOutButton /> : <SignInButton />}
-           </div>
-         </Navbar>
-         <br />
-         <br />
-         <h5>
-           <center>
-             Welcome to the Microsoft Authentication Library For Javascript -
-             React SPA Tutorial
-           </center>
-         </h5>
-         <br />
-         <br />
-         {props.children}
-       </>
-     );
-   };
-   ```
-
-1. Save the file.
-
-### Add the sign in experience
-
-1. Open *SignInButton.jsx* and add the following code, which creates a button that signs in the user using either a pop-up or redirect. The `useMsal` hook is used to retrieve an access token to allow user sign in:
-
-   ```javascript 
-   import React from "react";
-   import { useMsal } from "@azure/msal-react";
-   import { loginRequest } from "../authConfig";
-   import DropdownButton from "react-bootstrap/DropdownButton";
-   import Dropdown from "react-bootstrap/Dropdown";
-
-   /**
-    * Renders a drop down button with child buttons for logging in with a popup or redirect
-    * Note the [useMsal] package 
-    */
-
-   export const SignInButton = () => {
-     const { instance } = useMsal();
-
-     const handleLogin = (loginType) => {
-       if (loginType === "popup") {
-         instance.loginPopup( 
-         ...loginRequest,
-                redirectUri: '/redirect',
-                ).catch((e) => {
-           console.log(e);
-         });
-       } else if (loginType === "redirect") {
-         instance.loginRedirect(loginRequest).catch((e) => {
-           console.log(e);
-         });
-       }
-     };
-     return (
-       <DropdownButton
-         variant="secondary"
-         className="ml-auto"
-         drop="start"
-         title="Sign In"
-       >
-         <Dropdown.Item as="button" onClick={() => handleLogin("popup")}>
-           Sign in using Popup
-         </Dropdown.Item>
-         <Dropdown.Item as="button" onClick={() => handleLogin("redirect")}>
-           Sign in using Redirect
-         </Dropdown.Item>
-       </DropdownButton>
-     );
-   };
-   ```
-
-1. Save the file.
-
-### Add the sign out experience
-
-1. Open *SignOutButton.jsx* and add the following code, which creates a button that signs out the user using either a pop-up or redirect.
-
-   ```javascript 
-   import React from "react";
-   import { useMsal } from "@azure/msal-react";
-   import DropdownButton from "react-bootstrap/DropdownButton";
-   import Dropdown from "react-bootstrap/Dropdown";
-
-   /**
-    * Renders a sign out button 
-    */
-   export const SignOutButton = () => {
-     const { instance } = useMsal();
-
-     const handleLogout = (logoutType) => {
-       if (logoutType === "popup") {
-         instance.logoutPopup({
-           postLogoutRedirectUri: "/",
-           mainWindowRedirectUri: "/",
-         });
-       } else if (logoutType === "redirect") {
-         instance.logoutRedirect({
-           postLogoutRedirectUri: "/",
-         });
-       }
-     };
-
-     return (
-       <DropdownButton
-         variant="secondary"
-         className="ml-auto"
-         drop="start"
-         title="Sign Out"
-       >
-         <Dropdown.Item as="button" onClick={() => handleLogout("popup")}>
-           Sign out using Popup
-         </Dropdown.Item>
-         <Dropdown.Item as="button" onClick={() => handleLogout("redirect")}>
-           Sign out using Redirect
-         </Dropdown.Item>
-       </DropdownButton>
-     );
-   };
-   ```
-
-## Change filename and add required imports
+## Change filename and add function to render authenticated information
 
 By default, the application runs via a JavaScript file called *App.js*. It needs to be changed to a *.jsx* file, which is an extension that allows a developer to write HTML in React.
 
 1. Rename *App.js* to *App.jsx*.
-1. Replace the existing imports with the following snippet:
+1. Replace the existing code with the following snippet:
 
    ```javascript
-   import React, { useState } from 'react';
-
-   import { PageLayout } from './components/PageLayout';
-   import { loginRequest } from './authConfig';
-
-   import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
-
-   import './App.css';
-
-   import Button from 'react-bootstrap/Button';
-   ```
-
-### Replacing the default function to render authenticated information
-
-1. Replace the default function `App()` to render authenticated information with the following code:
-
-    ```javascript
+    import { MsalProvider, AuthenticatedTemplate, useMsal, UnauthenticatedTemplate } from '@azure/msal-react';
+    import { Container, Button } from 'react-bootstrap';
+    import { PageLayout } from './components/PageLayout';
+    import { IdTokenData } from './components/DataDisplay';
+    import { loginRequest } from './authConfig';
+    
+    import './styles/App.css';
+    
     /**
-    * If a user is authenticated the ProfileContent component above is rendered. Otherwise a message indicating a user is not authenticated is rendered.
-    */
+     * Most applications will need to conditionally render certain components based on whether a user is signed in or not. 
+     * msal-react provides 2 easy ways to do this. AuthenticatedTemplate and UnauthenticatedTemplate components will 
+     * only render their children if a user is authenticated or unauthenticated, respectively. For more, visit:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/getting-started.md
+     */
     const MainContent = () => {
+        /**
+         * useMsal is hook that returns the PublicClientApplication instance,
+         * that tells you what msal is currently doing. For more, visit:
+         * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/hooks.md
+         */
+        const { instance } = useMsal();
+        const activeAccount = instance.getActiveAccount();
+    
+        const handleRedirect = () => {
+            instance
+                .loginRedirect({
+                    ...loginRequest,
+                    prompt: 'create',
+                })
+                .catch((error) => console.log(error));
+        };
         return (
             <div className="App">
                 <AuthenticatedTemplate>
-                    <ProfileContent />
+                    {activeAccount ? (
+                        <Container>
+                            <IdTokenData idTokenClaims={activeAccount.idTokenClaims} />
+                        </Container>
+                    ) : null}
                 </AuthenticatedTemplate>
-        
                 <UnauthenticatedTemplate>
-                    <h5>
-                        <center>
-                            Please sign-in to see your profile information.
-                        </center>
-                    </h5>
+                    <Button className="signInButton" onClick={handleRedirect} variant="primary">
+                        Sign up
+                    </Button>
                 </UnauthenticatedTemplate>
             </div>
         );
     };
-        
-    export default function App() {
+    
+    
+    /**
+     * msal-react is built on the React context API and all parts of your app that require authentication must be 
+     * wrapped in the MsalProvider component. You will first need to initialize an instance of PublicClientApplication 
+     * then pass this to MsalProvider as a prop. All components underneath MsalProvider will have access to the 
+     * PublicClientApplication instance via context as well as all hooks and components provided by msal-react. For more, visit:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/getting-started.md
+     */
+    const App = ({ instance }) => {
         return (
-            <PageLayout>
-                <center>
+            <MsalProvider instance={instance}>
+                <PageLayout>
                     <MainContent />
-                </center>
-            </PageLayout>
+                </PageLayout>
+            </MsalProvider>
         );
-    }
+    };
+    
+    export default App;
     ```
 
 ## Run your project and sign in
