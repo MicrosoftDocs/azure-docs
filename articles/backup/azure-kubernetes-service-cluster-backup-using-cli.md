@@ -1,5 +1,5 @@
 ---
-title: Back up Azure Kubernetes Service (AKS) using Azure Azure CLI
+title: Back up Azure Kubernetes Service (AKS) using Azure CLI
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: how-to
 ms.service: backup
@@ -249,7 +249,7 @@ Now, use the JSON output of this command to configure backup for the AKS cluster
 
 ### Assign required permissions and validate
 
-Backup vault uses managed identity to access other Azure resources. To configure backup of AKS cluster, Backup vault's managed identity requires a set of permissions on the AKS cluster and resource groups, where snapshots are created and managed.Also, the AKS cluster requires permission on the Snapshot Resource group.
+Backup vault uses managed identity to access other Azure resources. To configure backup of AKS cluster, Backup vault's managed identity requires a set of permissions on the AKS cluster and resource groups, where snapshots are created and managed. Also, the AKS cluster requires permission on the Snapshot Resource group.
 
 Only, system-assigned managed identity is currently supported for backup (both Backup vault and AKS cluster). A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more [about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
