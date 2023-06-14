@@ -49,7 +49,7 @@ For example:
 
 :::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
 
-## View added security value and hunt for threats in Microsoft 365 Defender
+## View added security value in Microsoft 365 Defender
 
 This procedure describes how to view related alerts, recommendations, and vulnerabilities for a specific device in Microsoft 365 Defender. Alerts, recommendations, and vulnerabilities are shown for IoT devices only after you've added an Enterprise IoT plan.
 
