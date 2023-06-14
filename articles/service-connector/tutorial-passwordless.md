@@ -439,48 +439,47 @@ For more information, see
 
 :::zone pivot="sql"
 
-### [System managed identity](#tab/system)
-
+### [Dotnet](#tab/dotnet)
 For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
 
-### [Dotnet](#tab/dotnet)
 ```csharp
 // The connection string should have been set to environment variables by Service Connector
-// string ConnectionString1 = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; Database=testdb";
-string ConnectionString1 = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");  
-using (SqlConnection conn = new SqlConnection(ConnectionString1)) {
-    conn.Open();
+// string ConnectionStringSystemMI = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; Database=testdb";
+// string ConnectionStringUserMI = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; User Id=ObjectIdOfManagedIdentity; Database=testdb";
+// string ConnectionStringServicePrincipal = @"Server=demo.database.windows.net; Authentication=Active Directory Service Principal; Encrypt=True; Database=testdb; User Id=AppId; Password=secret";
+string ConnectionString = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");  
+using (SqlConnection conn = new SqlConnection(ConnectionString)) {
+    conn.Open            ();
 }
 ```
 
 
-### [User managed identity](#tab/user)
+### [Java](#tab/java)
+For managed identity authentication, see [Connect using Azure Active Directory authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication)
 
-### [Dotnet](#tab/dotnet)
-For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-managed-identity-authentication)
+```java
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
-```csharp
-// The connection string should have been set to environment variables by Service Connector
-// string ConnectionString1 = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; User Id=ObjectIdOfManagedIdentity; Database=testdb";
-string ConnectionString1 = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");  
-using (SqlConnection conn = new SqlConnection(ConnectionString1)) {
-    conn.Open();
+import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+
+public class Main {
+    public static void main(String[] args) {
+        // Azure_SQL_CONNECTIONSTRING should be 
+        // For system assigned identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};authentication=ActiveDirectoryMSI;"
+        // For user assigned identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};msiClientId={UserAssignedMiClientId};authentication=ActiveDirectoryMSI;"
+        // For service principal: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};user={ServicePrincipalClientId};password={spSecret};authentication=ActiveDirectoryServicePrincipal;"
+        String connectionString = System.getenv("Azure_SQL_CONNECTIONSTRING");
+        SQLServerDataSource ds = new SQLServerDataSource();
+        ds.setURL(connectionString);
+        try (Connection connection = ds.getConnection()) {
+            System.out.println("Connected successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
-```
-
-
-### [Service principal](#tab/sp)
-For Service principal authentication, see [Using Active Directory Service Principal authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
-
-### [Dotnet](#tab/dotnet)
-```csharp
-// The connection string should have been set to environment variables by Service Connector
-// string ConnectionString = @"Server=demo.database.windows.net; Authentication=Active Directory Service Principal; Encrypt=True; Database=testdb; User Id=AppId; Password=secret";
-string ConnectionString1 = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");  
-using (SqlConnection conn = new SqlConnection(ConnectionString1)) {
-    conn.Open();
-}
-
 ```
 
 
