@@ -15,9 +15,6 @@ ms.custom: UpdateFrequency5, contperf-fy21q1, event-tier1-build-2022
 # Hyperparameter tuning a model with Azure Machine Learning (v1)
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](how-to-tune-hyperparameters.md)
-> * [v2 (current version)](../how-to-tune-hyperparameters.md?view=azureml-api-2&preserve-view=true)
      
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 

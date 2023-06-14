@@ -1950,7 +1950,7 @@ Previously, Conditional Access policies applied only to users when they access a
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
  
-Several user attributes have been added to the list of attributes available to map to claims to bring attributes available in claims more in line with what is available on the user object in Microsoft Graph. New attributes include mobilePhone and ProxyAddresses. [Learn more](../develop/reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source).
+Several user attributes have been added to the list of attributes available to map to claims to bring attributes available in claims more in line with what is available on the user object in Microsoft Graph. New attributes include mobilePhone and ProxyAddresses. [Learn more](../develop/reference-claims-mapping-policy-type.md).
  
 ---
 
@@ -7964,7 +7964,7 @@ For more information about this feature, see [Quickstart: Download an audit repo
 
 We're in the process of updating how Exchange ActiveSync (EAS) evaluates the following conditions:
 
-- User location, based on country, region, or IP address
+- User location, based on country/region or IP address
 
 - Sign-in risk
 

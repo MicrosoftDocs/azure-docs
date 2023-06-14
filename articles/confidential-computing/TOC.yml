@@ -134,8 +134,6 @@
       href: key-rotation-offline.md
     - name: Use sample app with guest attestation
       href: guest-attestation-example.md
-    - name: Create a custom image for a confidential VM
-      href: how-to-create-custom-image-cvm.md
     - name: Secure Key Release (SKR) with Azure Key Vault
       items:
       - name: SKR with Azure Confidential Computing Concept

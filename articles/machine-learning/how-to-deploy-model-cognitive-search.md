@@ -83,7 +83,7 @@ The following code demonstrates how to create a new Azure Kubernetes Service (AK
 > You can also attach an existing Azure Kubernetes Service to your Azure Machine Learning workspace. For more information, see [How to deploy models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
 
 > [!IMPORTANT]
-> Notice that the code uses the `enable_ssl()` method to enable transport layer security (TLS) for the cluster. This is required when you plan on using the deployed model from Cognitive Services.
+> Notice that the code uses the `enable_ssl()` method to enable transport layer security (TLS) for the cluster. This is required when you plan on using the deployed model from Cognitive Search.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -127,7 +127,7 @@ The entry script receives data submitted to the web service, passes it to the mo
 > The entry script is specific to your model. For example, the script must know the framework to use with your model, data formats, etc.
 
 > [!IMPORTANT]
-> When you plan on using the deployed model from Azure Cognitive Services, you must use the `inference_schema` package to enable schema generation for the deployment. This package provides decorators that allow you to define the input and output data format for the web service that performs inference using the model.
+> When you plan on using the deployed model from Azure Cognitive Search you must use the `inference_schema` package to enable schema generation for the deployment. This package provides decorators that allow you to define the input and output data format for the web service that performs inference using the model.
 
 ```python
 from azureml.core.model import Model
