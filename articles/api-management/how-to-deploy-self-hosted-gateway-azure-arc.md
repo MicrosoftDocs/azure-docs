@@ -85,7 +85,7 @@ Deploying the API Management gateway on an Azure Arc-enabled Kubernetes cluster 
 
 ## Available extension configurations
 
-The self-hosted gateway extension for Azure Arc provides a number of configuration settings to customize the extension for your environment. This section lists required deployment settings and optional settings for integration with Log Analytics. For a complete list of settings, see the self-hosted gateway extension [reference](self-hosted-gateway-arc-reference.md).
+The self-hosted gateway extension for Azure Arc provides many configuration settings to customize the extension for your environment. This section lists required deployment settings and optional settings for integration with Log Analytics. For a complete list of settings, see the self-hosted gateway extension [reference](self-hosted-gateway-arc-reference.md).
 
 ### Required settings
 
