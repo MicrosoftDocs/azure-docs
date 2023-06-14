@@ -22,7 +22,7 @@ This logic works well when you route traffic directly to the Internet. However, 
 - To configure Azure Firewall to **never** SNAT traffic processed by network rules regardless of the destination IP address, use **0.0.0.0/0** as your private IP address range. With this configuration, Azure Firewall can never route traffic directly to the Internet. 
 
 - To configure the firewall to **always** SNAT processed by network rules regardless of the destination address, use **255.255.255.255/32** as your private IP address range.
-- Azure Firewall can be configured to [auto-learn (preview)](#snat-auto-learn-preview) registered and private ranges every hour and use the learned routes for SNAT. This capability must have Azure Route Service deployed in the same VNet as Azure Firewall.
+- Azure Firewall can be configured to [auto-learn](#auto-learn-snat-routes-preview) registered and private ranges every hour and use the learned routes for SNAT. This preview capability must have [Azure Route Server](../route-server/overview.md) deployed in the same VNet as the Azure Firewall.
 
 > [!IMPORTANT]
 > The private address range configuration only applies to network rules. Currently, application rules always SNAT.
@@ -173,13 +173,13 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 
 4.	 Select **Apply**.
 
-## SNAT auto-learn (preview)
+## Auto-learn SNAT routes (preview)
 
-You can configure Azure Firewall to auto-learn (preview) registered and private ranges every hour and use the learned routes for SNAT. You must have Azure Route Service deployed in the same VNet as Azure Firewall for this feature. You can currently use JSON, Azure PowerShell, or the Azure portal to configure SNAT auto-learn.
+You can configure Azure Firewall to auto-learn (preview) registered and private ranges every hour and use the learned routes for SNAT. You must have Azure Route Server deployed in the same VNet as Azure Firewall for this feature. You can currently use JSON, Azure PowerShell, or the Azure portal to configure auto-learn SNAT routes.
 
 ### JSON
 
-You can use the following JSON to configure auto-learn (preview). Azure Firewall must be associated with Azure Route Service.
+You can use the following JSON to configure auto-learn (preview). Azure Firewall must be associated with Azure Route Server.
 
 ```json
 	  "type": "Microsoft.Network/firewallPolicies",
@@ -196,7 +196,7 @@ You can use the following JSON to configure auto-learn (preview). Azure Firewall
             } 
 ```
 
-Use the following JSON to assocaite Azure Route Service:
+Use the following JSON to associate an Azure Route Server:
 
 ```json
             "type": "Microsoft.Network/azureFirewalls",
@@ -280,11 +280,11 @@ Use the following JSON to assocaite Azure Route Service:
    ```
 ### Azure portal
 
-You can use the portal to associate a Route Server with Azure Firewall to confgiure SNAT auto-learn (preview).
+You can use the portal to associate a Route Server with Azure Firewall to configure auto-learn SNAT routes(preview).
 
 1. Select your resource group, and then select your firewall. 
 2.	Select **Overview**.
-3.	Add a Route Service.
+3.	Add a Route Server.
 
 Review learned routes:
 
