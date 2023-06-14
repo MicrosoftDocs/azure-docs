@@ -1,5 +1,5 @@
 ---
-title: How to upload large files in ADME using File service API in Microsoft Azure Data Manager for Energy Preview
+title: How to upload large files using File service API in Microsoft Azure Data Manager for Energy Preview
 description: This article describes how to to upload large files in ADME using File service API in Microsoft Azure Data Manager for Energy Preview
 author: harshit283
 ms.author: haaggarw
@@ -9,8 +9,8 @@ ms.date: 06/13/2023
 ms.custom: template-how-to
 ---
 
-# How to upload files in ADME using File service
-In this article, you know how to upload large files in ADME using File service API in Microsoft Azure Data Manager for Energy Preview. The upload process involves fetching a signed URL from [File API](https://community.opengroup.org/osdu/platform/system/file/-/tree/master/) and then using the signed URL to store the file into Azure Blob Storage
+# How to upload files in Azure Data Manager for Energy preview using File service
+In this article, you know how to upload large files using File service API in Microsoft Azure Data Manager for Energy Preview. The upload process involves fetching a signed URL from [File API](https://community.opengroup.org/osdu/platform/system/file/-/tree/master/) and then using the signed URL to store the file into Azure Blob Storage
 
 ## Generate a signed URL
 Run the below curl command in Azure Cloud Bash to get a signed URL from file service for a given data partition of your Azure Data Manager for Energy Preview instance.
@@ -72,10 +72,10 @@ In order to upload files with sizes >= 5000 MiB, we would need [azcopy](https://
 
 3. Sample response 
 
-:::image type="content" source="media/how-to-upload-large-files-in-ADME-via-file-service/1-azcopy-sample-response.png" alt-text="Screenshot of azcopy copy command response":::
+:::image type="content" source="media/how-to-upload-large-files-in-via-file-service/1-azcopy-sample-response.png" alt-text="Screenshot of azcopy copy command response":::
 
 ## Next steps
-Begin your journey by ingesting data into your Azure Data Manager for Energy Preview instance.
+Begin your journey by ingesting data into your Azure Data Manager for Energy Preview resource.
 > [!div class="nextstepaction"]
 > [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
 > [!div class="nextstepaction"]
