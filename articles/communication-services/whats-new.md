@@ -147,7 +147,7 @@ Add first-class calling capabilities to your Windows applications.
 
 
 ### View of May's new features
-:::image type="content" source="./media/whats-new-images/05-23/new-features.png" alt-text="Screenshot of SMS insights dashboard data graphic." lightbox="./media/whats-new-images/04-23/features-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/05-23/new-features.png" alt-text="Screenshot of SMS insights dashboard data graphic." :::
 
 In May, we launched a host of new features, including:
 * Simulcast support on Edge/Chrome desktop
