@@ -40,6 +40,8 @@
         - name: Use ARM template
           displayName: Resource Manager
           href: learn/quick-kubernetes-deploy-rm-template.md
+        - name: Use Terraform
+          href: learn/quick-kubernetes-deploy-terraform.md
     - name: Deploy a Windows-based AKS Cluster
       items:
         - name: Use the Azure CLI
