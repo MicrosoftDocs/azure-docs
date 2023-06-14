@@ -5,8 +5,8 @@ ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
 ms.date: 06/13/2023
-ms.author: v-sathysubra
-author: v-sathysubra
+ms.author: Sathyadevi-S
+author: Sathyadevi-S
 ---
 # Troubleshoot post BMM cordon & reboot, vSRX VMs show up as error on portal. Power & Restart doesn’t work anymore
 Follow these steps for BMM Cordon & Reboot:
@@ -55,4 +55,4 @@ Perform the following CLI update on any affected VMs with some dummy tag values 
 
 This process facilitates the restoration of the VM to an online state. 
 
-:::image type="content" source="media\Troubleshoot-bmm-server\BMM-runningstatus.png" alt-text="Screenshot of Sample VSRx VM in Error status." lightbox="media\Troubleshoot-bmm-server\BMM-runningstatus.png":::
+:::image type="content" source="media\Troubleshoot-bmm-server\BMM-runningstatus.png" alt-text="Screenshot of Sample VSRx VM in running status." lightbox="media\Troubleshoot-bmm-server\BMM-runningstatus.png":::
