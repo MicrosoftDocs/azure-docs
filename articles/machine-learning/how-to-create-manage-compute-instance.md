@@ -520,16 +520,6 @@ ml_client = MLClient(credential, sub_id, rg_name, ws_name)
 data = ml_client.data.get(name=data_name, version="1")
 ```
 
-You can also use SDK V1:
-
-```python
-from azureml.core.authentication import MsiAuthentication
-from azureml.core import Workspace
-client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
-auth = MsiAuthentication(identity_config={"client_id": client_id})
-workspace = Workspace.get("chrjia-eastus", auth=auth, subscription_id="381b38e9-9840-4719-a5a0-61d9585e1e91", resource_group="chrjia-rg", location="East US")
-```
-
 You can use V2 CLI to create a compute instance with assign system-assigned managed identity:
 
 ```azurecli
