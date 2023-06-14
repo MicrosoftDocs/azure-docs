@@ -17,7 +17,7 @@ In addition to the core SDK, there are also plugins available for specific frame
 These plugins provide extra functionality and integration with the specific framework.
 
 > [!IMPORTANT]
-> If you haven't already, [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) first before you enable a framework extension.
+> If you haven't already, you need to [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) first before you enable a framework extension.
 
 ## What does the plug-in enable?
 
@@ -51,7 +51,7 @@ The Angular plugin for the Application Insights JavaScript SDK, enables:
 
 ---
 
-## Enable a plug-in
+## Add a plug-in
 
 To enable a plug-in, follow the steps in this section.
 
