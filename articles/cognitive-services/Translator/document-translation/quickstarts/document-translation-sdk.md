@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: build-2023, devx-track-dotnet, devx-track-python
 ms.topic: reference
-ms.date: 06/02/2023
+ms.date: 06/14/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-document-sdk
 ---
@@ -51,10 +51,12 @@ To learn more, *see* [Managed identities for Document Translation](../how-to-gui
 
 **✔️ Shared Access Signature (SAS)**.  A shared access signature is a URL that grants restricted access for a specified period of time to your Translator service. To use this method, you need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. 
 
-To learn more, *see* [**Create SAS tokens**](../how-to-guides/create-sas-tokens.md).
-
 * Your **source** container or blob must have designated  **read** and **list** access.
 * Your **target** container or blob must have designated  **write** and **list** access.
+
+To learn more, *see* [**Create SAS tokens**](../how-to-guides/create-sas-tokens.md).
+
+  :::image type="content" source="../media/sas-url-token.png" alt-text="Screenshot of a resource URI with a SAS token.":::
 
 ::: zone pivot="programming-language-csharp"
 

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 06/12/2023
+ms.date: 06/14/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -105,14 +105,18 @@ using System.Text;
 
 class Program
 {
-
+  // create variables for your resource key, custom endpoint
   private static readonly string endpoint = "<your-document-translation-endpoint>";
   private static readonly string key = "<your-key>";
 
   static async Task Main(string[] args)
     {
+
+    // create variables for your sourceUrl, targetUrl, and targetLanguageCode
     Uri sourceUri = new Uri("<sourceUrl>");
     Uri targetUri = new Uri("<targetUrl>");
+    string targetLanguage = "<targetLanguageCode>"
+
 
   // initialize a new instance  of the DocumentTranslationClient object to interact with the Azure Document Translation Service
 
@@ -120,7 +124,7 @@ class Program
 
   // initialize a new instance of the `DocumentTranslationInput` object to provide the location of input for the translation operation
 
-        DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, "es");
+        DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, targetLanguage);
 
     // initializes a new instance of the DocumentTranslationOperation class to track the status of the translation operation
 

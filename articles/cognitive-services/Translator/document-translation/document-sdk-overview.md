@@ -19,10 +19,6 @@ recommendations: false
 
 # Azure Document Translation SDK
 
-> [!NOTE]
->
-> * C# and Python SDKs are generally available (GA) releases ready for use in your production applications.
-
 Azure Document Translation is a cloud-based REST API feature of the Azure Translator service. The Document Translation API enables quick and accurate source-to-target whole document translations, asynchronously, in supported languages and various file formats. The Document Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Translation REST API capabilities into your applications.
 
 ## Supported languages
@@ -176,7 +172,4 @@ The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](htt
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Document Translation SDK quickstart**](quickstarts/document-translation-sdk.md)
-
->[!div class="nextstepaction"]
-> [**Document Translation v1.0 REST API reference**](reference/rest-api-guide.md)
+> [**Document Translation SDK quickstart**](quickstarts/document-translation-sdk.md) [**Document Translation v1.0 REST API reference**](reference/rest-api-guide.md)

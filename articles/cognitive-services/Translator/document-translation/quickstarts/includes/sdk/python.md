@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 06/12/2023
+ms.date: 06/14/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -39,7 +39,7 @@ pip install azure-ai-translation-document==1.0.0
 
 1. Initialize a `DocumentTranslationClient` object that contains your `endpoint` and `key` parameters.
 
-1. Call the `begin_translation` method by passing the `sourceUri`, `targetUri`, and `targetLanguageCode` parameters.
+1. Call the `begin_translation` method and pass in the `sourceUri`, `targetUri`, and `targetLanguageCode` parameters.
 
     * For [**Managed Identity authorization**](../../../how-to-guides/create-use-managed-identities.md) create these variables:
 
@@ -74,18 +74,19 @@ pip install azure-ai-translation-document==1.0.0
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.translation.document import DocumentTranslationClient
 
-# Create variables for your resource key, custom endpoint, sourceUrl, and targetUrl. 
+# create variables for your resource key, custom endpoint, sourceUrl, targetUrl, and targetLanguage
 key = "<your-key>"
 endpoint = "<your-custom-endpoint>"
 sourceUri = "<your-container-sourceUrl>"
 targetUri = "<your-container-targetUrl>"
+targetLanguage = "<target-language-code>"
 
 
 # initialize a new instance of the DocumentTranslationClient object to interact with the Azure Document Translation Service
 client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
 # include source and target locations and target language code for the begin translation operation
-poller = client.begin_translation(sourceUri, targetUri, "fr")
+poller = client.begin_translation(sourceUri, targetUri, targetLanguage)
 result = poller.result()
 
 print("Status: {}".format(poller.status()))
