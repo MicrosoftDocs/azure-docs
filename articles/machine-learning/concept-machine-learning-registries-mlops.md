@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: mabables
 author: ManojBableshwar
 ms.reviewer: larryfr
-ms.date: 9/9/2022
+ms.date: 06/14/2023
 ms.topic: conceptual
 ms.custom: ignite-2022, build-2023
 ---
@@ -42,6 +42,6 @@ The following diagram illustrates promotion of pipelines between exploratory and
 
 ## Next steps
 
-* [Create a registry](./how-to-manage-registries.md).
-* [Network isolation with registries](./how-to-registry-network-isolation.md).
-* [Share models, components, and environments using registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md).
+* [Create a registry](./how-to-manage-registries.md)
+* [Network isolation with registries](./how-to-registry-network-isolation.md)
+* [Share models, components, and environments using registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
