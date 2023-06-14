@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start, we cover a way to make an outbound call and recognize various events in the call.
 
-## Sample Code
+## Sample code
 
 Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/callautomation-outboundcalling)
 
@@ -80,7 +80,7 @@ call_automation_client = CallAutomationClient.from_connection_string(ACS_CONNECT
 call_connection_properties = call_automation_client.create_call(call_invite, CALLBACK_EVENTS_URI)
 ```
 
-## Start Recording a Call
+## Start recording a call
 
 The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](../../voice-video-calling/get-started-call-recording.md).
 

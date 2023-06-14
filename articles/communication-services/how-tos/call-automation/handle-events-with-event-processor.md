@@ -138,11 +138,11 @@ CallDisconnected disconnectedEvent = (CallDisconnected)await eventProcessor.Wait
 );
 ```
 
-## Advanced: Detailed Specification
+## Advanced: Detailed specification
 
 - The default timeout for waiting on EventProcessor is 4 minutes. After that, it will throw timeout exception.
 - The same call automation client that made the request must be used to wait on event using EventProcessor.
-- Once the CallDisconnect event is recieved for the call, all of the call's events are removed from the memory.
+- Once the CallDisconnect event is received for the call, all of the call's events are removed from the memory.
 - In some rare cases, event may arrive earlier than the response of the request. In these cases, it's saved in backlog for 5 seconds.
 - You may have multiple EventProcessor wait on the same event. Once the matching event arrives, all of EventProcessors waiting on that event returns with arrived event.
 

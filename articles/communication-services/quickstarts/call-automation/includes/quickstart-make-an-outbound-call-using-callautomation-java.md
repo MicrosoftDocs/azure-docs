@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start, we cover a way to make an outbound call and recognize various events in the call.
 
-## Sample Code
+## Sample code
 
 Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling)
 
@@ -67,7 +67,7 @@ CreateCallOptions createCallOptions = new CreateCallOptions(callInvite, appConfi
 Response<CreateCallResult> result = client.createCallWithResponse(createCallOptions, Context.NONE);
 ```
 
-## Start Recording a Call
+## Start recording a call
 
 The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](../../voice-video-calling/get-started-call-recording.md).
 

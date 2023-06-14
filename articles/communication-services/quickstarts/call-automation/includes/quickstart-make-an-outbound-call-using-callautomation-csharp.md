@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start we cover a way to: make an outbound call and recognize various events in the call.
 
-## Sample Code
+## Sample code
 
 Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation/callautomationQuickStart/CallAutomation_OutboundCalling)
 
