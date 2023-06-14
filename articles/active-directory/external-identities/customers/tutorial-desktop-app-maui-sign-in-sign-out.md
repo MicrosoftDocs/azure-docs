@@ -167,7 +167,7 @@ The next steps will organize the code so that `claims view` is defined.
 1. Select **.NET MAUI** in the template list.
 1. Select the **.NET MAUI ContentPage (XAML)** template. Name the file **ClaimsView.xaml**.
 1. Select **Add**.
-1. The _ClaimsView.xaml_ file will opens a new document tab, displaying all of the XAML markup that represents the UI of the page. Replace the XAML markup with the following markup:
+1. The _ClaimsView.xaml_ file will open in a new document tab, displaying all of the XAML markup that represents the UI of the page. Replace the XAML markup with the following markup:
 
    ```xaml
    <?xml version="1.0" encoding="utf-8" ?>
@@ -279,7 +279,9 @@ The next step is to add the code to handle `ClaimsView` data.
     }
    ```
 
-   The _ClaimsView.xaml.cs_ code represents the code-behind for a claim view in a .NET MAUI app. It starts by importing the necessary namespaces and defining the `ClaimsView` class, which extends `ContentPage`. The `IdTokenClaims` property is an enumerable of strings, initially set to a single string indicating no claims found. The `ClaimsView` constructor sets the binding context to the current instance, initializes the view components, and calls the `SetViewDataAsync` method asynchronously. The `SetViewDataAsync` method attempts to acquire a token silently, retrieves the claims from the authentication result, and sets the `IdTokenClaims` property to display them in the `ListView` named `Claims`. If a `MsalUiRequiredException` occurs, indicating that user interaction is needed for authentication, the app navigates to the claims view.
+   The _ClaimsView.xaml.cs_ code represents the code-behind for a claim view in a .NET MAUI app. It starts by importing the necessary namespaces and defining the `ClaimsView` class, which extends `ContentPage`. The `IdTokenClaims` property is an enumerable of strings, initially set to a single string indicating no claims found. 
+
+   The `ClaimsView` constructor sets the binding context to the current instance, initializes the view components, and calls the `SetViewDataAsync` method asynchronously. The `SetViewDataAsync` method attempts to acquire a token silently, retrieves the claims from the authentication result, and sets the `IdTokenClaims` property to display them in the `ListView` named `Claims`. If a `MsalUiRequiredException` occurs, indicating that user interaction is needed for authentication, the app navigates to the claims view.
 
    The `OnBackButtonPressed` method overrides the back button behavior to always return true, preventing the user from going back from this view. The `SignOutButton_Clicked` event handler signs the user out using the `PublicClientSingleton` instance, and upon completion, navigates to the `main view`.
 
