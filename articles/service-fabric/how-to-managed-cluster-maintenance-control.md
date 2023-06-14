@@ -33,7 +33,7 @@ MaintenanceControl will be specifically applicable to these background operation
 >* Supported Regions: eastus, eastus2, westus, westus2, westus3, soutncentralus, centralus, westeurope, northeurope, ukwest, uksouth, australiaeast, australiasoutheast, northcentralus, eastasia, southeastasia, japaneast, japanwest, southindia, westindia, centralindia, brazilsouth, koreacentral, koreasouth, centralcanada, eastcanada, francecentral, francesouth, australiacentral, australiacentral2, southafricawest, southafricanorth, uaecentral, uaenorth, switzerlandwest, switzerlandnorth, germanynorth, germanywestcentral, norwayeast, norwaywest, brazilsoutheast, jioindiawest, jioindiacentral, swedensouth, swedencentral, qatarcentral, polandcentral
 
 ## How does MaintenanceControl work for SFMC
-* Customers need to define a maintenance configuration which contains the schedule and the recurrence rule for the maintenance window, by creating a maintenance configuration resource with the maintenance RP. [More details](https://learn.microsoft.com/azure/virtual-machines/maintenance-and-updates)
+* Customers need to define a maintenance configuration which contains the schedule and the recurrence rule for the maintenance window, by creating a maintenance configuration resource with the maintenance RP. [More details](../virtual-machines/maintenance-and-updates)
 * Using this maintenance configuration, an assignment resource is created to assign the maintenance configuration to the SFMC cluster resource, thus linking the two.
 * When this assignment resource is created, the maintenance RP notifies the ServiceFabric RP about the link and the maintenance control is then enabled on the SFMC cluster. All background maintenance operations are blocked outside the maintenance window.
 * Whenever the maintenance window is activated as per the schedule in the maintenance configuraiton, the maintenance RP notifies the ServiceFabric RP which activates the maintenance window on corresponding SFMC cluster. All background operations are allowed to execute during this window.
@@ -74,7 +74,7 @@ Download this sample which contains all the required resources. [Standard SKU Se
 
 3) Configure and enable maintenance control on the cluster using the following maintenance configuration:
 
-This maintenance configuration defines a schedule for updates to happen everyday from 10PM PST, for 5hours, starting 30-05-2023. [More details about configuration](https://learn.microsoft.com/azure/templates/microsoft.maintenance/maintenanceconfigurations?pivots=deployment-language-arm-template)
+This maintenance configuration defines a schedule for updates to happen everyday from 10PM PST, for 5hours, starting 30-05-2023. [More details about maintenance configuration](https://learn.microsoft.com/azure/templates/microsoft.maintenance/maintenanceconfigurations?pivots=deployment-language-arm-template)
 
 ```JSON
     "resources": [
