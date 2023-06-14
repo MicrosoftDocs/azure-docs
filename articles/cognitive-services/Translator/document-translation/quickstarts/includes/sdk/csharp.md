@@ -103,61 +103,52 @@ using System;
 using System.Threading;
 using System.Text;
 
-class Program
-{
-  // create variables for your resource key, custom endpoint
+class Program {
+
+  // create variables for your custom endpoint and resource key
   private static readonly string endpoint = "<your-document-translation-endpoint>";
   private static readonly string key = "<your-key>";
 
-  static async Task Main(string[] args)
-    {
+  static async Task Main(string[] args) {
 
     // create variables for your sourceUrl, targetUrl, and targetLanguageCode
     Uri sourceUri = new Uri("<sourceUrl>");
     Uri targetUri = new Uri("<targetUrl>");
     string targetLanguage = "<targetLanguageCode>"
 
-
-  // initialize a new instance  of the DocumentTranslationClient object to interact with the Azure Document Translation Service
-
+    // initialize a new instance  of the DocumentTranslationClient object to interact with the Azure Document Translation Service
     DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(key));
 
-  // initialize a new instance of the `DocumentTranslationInput` object to provide the location of input for the translation operation
+    // initialize a new instance of the `DocumentTranslationInput` object to provide the location of input for the translation operation
+    DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, targetLanguage);
 
-        DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, targetLanguage);
+    // initialize a new instance of the DocumentTranslationOperation class to track the status of the translation operation
+    DocumentTranslationOperation operation = await client.StartTranslationAsync(input);
 
-    // initializes a new instance of the DocumentTranslationOperation class to track the status of the translation operation
+    await operation.WaitForCompletionAsync();
 
-        DocumentTranslationOperation operation = await client.StartTranslationAsync(input);
+    Console.WriteLine($"  Status: {operation.Status}");
+    Console.WriteLine($"  Created on: {operation.CreatedOn}");
+    Console.WriteLine($"  Last modified: {operation.LastModified}");
+    Console.WriteLine($"  Total documents: {operation.DocumentsTotal}");
+    Console.WriteLine($"    Succeeded: {operation.DocumentsSucceeded}");
+    Console.WriteLine($"    Failed: {operation.DocumentsFailed}");
+    Console.WriteLine($"    In Progress: {operation.DocumentsInProgress}");
+    Console.WriteLine($"    Not started: {operation.DocumentsNotStarted}");
 
-        await operation.WaitForCompletionAsync();
-
-        Console.WriteLine($"  Status: {operation.Status}");
-        Console.WriteLine($"  Created on: {operation.CreatedOn}");
-        Console.WriteLine($"  Last modified: {operation.LastModified}");
-        Console.WriteLine($"  Total documents: {operation.DocumentsTotal}");
-        Console.WriteLine($"    Succeeded: {operation.DocumentsSucceeded}");
-        Console.WriteLine($"    Failed: {operation.DocumentsFailed}");
-        Console.WriteLine($"    In Progress: {operation.DocumentsInProgress}");
-        Console.WriteLine($"    Not started: {operation.DocumentsNotStarted}");
-
-        await foreach (DocumentStatusResult document in operation.Value)
-        {
-            Console.WriteLine($"Document with Id: {document.Id}");
-            Console.WriteLine($"  Status:{document.Status}");
-            if (document.Status == DocumentTranslationStatus.Succeeded)
-            {
-                Console.WriteLine($"  Translated Document Uri: {document.TranslatedDocumentUri}");
-                Console.WriteLine($"  Translated to language: {document.TranslatedToLanguageCode}.");
-                Console.WriteLine($"  Document source Uri: {document.SourceDocumentUri}");
-            }
-            else
-            {
-                Console.WriteLine($"  Error Code: {document.Error.Code}");
-                Console.WriteLine($"  Message: {document.Error.Message}");
-            }
-        }
+    await foreach(DocumentStatusResult document in operation.Value) {
+      Console.WriteLine($"Document with Id: {document.Id}");
+      Console.WriteLine($"  Status:{document.Status}");
+      if (document.Status == DocumentTranslationStatus.Succeeded) {
+        Console.WriteLine($"  Translated Document Uri: {document.TranslatedDocumentUri}");
+        Console.WriteLine($"  Translated to language: {document.TranslatedToLanguageCode}.");
+        Console.WriteLine($"  Document source Uri: {document.SourceDocumentUri}");
+      } else {
+        Console.WriteLine($"  Error Code: {document.Error.Code}");
+        Console.WriteLine($"  Message: {document.Error.Message}");
+      }
     }
+  }
 }
 ```
 
@@ -268,61 +259,53 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 using Azure;
 using Azure.AI.Translation.Document;
-using System;
-using System.Threading;
-using System.Text;
 
-class Program
-{
+class Program {
 
+  // create variables for your custom endpoint and resource key
   private static readonly string endpoint = "<your-document-translation-endpoint>";
   private static readonly string key = "<your-key>";
 
-  static async Task Main(string[] args)
-    {
+  static async Task Main(string[] args) {
+
+    // create variables for your sourceUrl, targetUrl, and targetLanguageCode
     Uri sourceUri = new Uri("<sourceUrl>");
     Uri targetUri = new Uri("<targetUrl>");
+    string targetLanguage = "<targetLanguageCode>";
 
-  // initialize a new instance  of the DocumentTranslationClient object to interact with the Azure Document Translation Service
-
+    // initialize a new instance  of the DocumentTranslationClient object to interact with the Azure Document Translation Service
     DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(key));
 
-  // initialize a new instance of the `DocumentTranslationInput` object to provide source and target locations and target language for the translation operation
+    // initialize a new instance of the `DocumentTranslationInput` object to provide source and target locations and target language for the translation operation
+    DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, targetLanguage);
 
-        DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, "es");
+    // initialize a new instance of the DocumentTranslationOperation class to track the status of the translation operation
+    DocumentTranslationOperation operation = await client.StartTranslationAsync(input);
 
-    // initializes a new instance of the DocumentTranslationOperation class to track the status of the translation operation
+    await operation.WaitForCompletionAsync();
 
-        DocumentTranslationOperation operation = await client.StartTranslationAsync(input);
+    Console.WriteLine($"  Status: {operation.Status}");
+    Console.WriteLine($"  Created on: {operation.CreatedOn}");
+    Console.WriteLine($"  Last modified: {operation.LastModified}");
+    Console.WriteLine($"  Total documents: {operation.DocumentsTotal}");
+    Console.WriteLine($"    Succeeded: {operation.DocumentsSucceeded}");
+    Console.WriteLine($"    Failed: {operation.DocumentsFailed}");
+    Console.WriteLine($"    In Progress: {operation.DocumentsInProgress}");
+    Console.WriteLine($"    Not started: {operation.DocumentsNotStarted}");
 
-        await operation.WaitForCompletionAsync();
-
-        Console.WriteLine($"  Status: {operation.Status}");
-        Console.WriteLine($"  Created on: {operation.CreatedOn}");
-        Console.WriteLine($"  Last modified: {operation.LastModified}");
-        Console.WriteLine($"  Total documents: {operation.DocumentsTotal}");
-        Console.WriteLine($"    Succeeded: {operation.DocumentsSucceeded}");
-        Console.WriteLine($"    Failed: {operation.DocumentsFailed}");
-        Console.WriteLine($"    In Progress: {operation.DocumentsInProgress}");
-        Console.WriteLine($"    Not started: {operation.DocumentsNotStarted}");
-
-        await foreach (DocumentStatusResult document in operation.Value)
-        {
-            Console.WriteLine($"Document with Id: {document.Id}");
-            Console.WriteLine($"  Status:{document.Status}");
-            if (document.Status == DocumentTranslationStatus.Succeeded)
-            {
-                Console.WriteLine($"  Translated Document Uri: {document.TranslatedDocumentUri}");
-                Console.WriteLine($"  Translated to language: {document.TranslatedToLanguageCode}.");
-                Console.WriteLine($"  Document source Uri: {document.SourceDocumentUri}");
-            }
-            else
-            {
-                Console.WriteLine($"  Error Code: {document.Error.Code}");
-                Console.WriteLine($"  Message: {document.Error.Message}");
-            }
-        }
+    await foreach(DocumentStatusResult document in operation.Value) {
+      Console.WriteLine($"Document with Id: {document.Id}");
+      Console.WriteLine($"  Status:{document.Status}");
+      if (document.Status == DocumentTranslationStatus.Succeeded) {
+        Console.WriteLine($"  Translated Document Uri: {document.TranslatedDocumentUri}");
+        Console.WriteLine($"  Translated to language: {document.TranslatedToLanguageCode}.");
+        Console.WriteLine($"  Document source Uri: {document.SourceDocumentUri}");
+      } else {
+        Console.WriteLine($"  Error Code: {document.Error.Code}");
+        Console.WriteLine($"  Message: {document.Error.Message}");
+      }
     }
+  }
 }
 ```
 
