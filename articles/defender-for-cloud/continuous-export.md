@@ -84,7 +84,7 @@ If you're setting up a continuous export to Log Analytics or Azure Event Hubs:
 
 1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target of a different subscription (for example, on a Central Event Hubs instance or a central Log Analytics workspace).
 
-    You can also send the data to an [Event hubs or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
+    You can also send the data to an [Event hubs or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hubs-or-log-analytics-workspace-in-another-tenant).
 
 1. Select **Save**.
 
@@ -101,7 +101,7 @@ Continuous export can be configured and managed via the Microsoft Defender for C
 - Log Analytics workspace
 - Azure Logic Apps
 
-You can also send the data to an [Event Hubs or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
+You can also send the data to an [Event Hubs or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hubs-or-log-analytics-workspace-in-another-tenant).
 
 Here are some examples of options that you can only use in the API:
 
