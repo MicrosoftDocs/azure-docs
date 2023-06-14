@@ -39,7 +39,7 @@ sections:
       - question: |
           Can I ship different hardware units within a single order to different locations?
         answer: |
-          Yes. While creating the order, you can add multiple shipping addresses in the **Shipping + quantity** tab. Make sure that all the addresses are within the same country. To ship hardware to addresses across different countries, you'll have to create separate orders.            
+          Yes. While creating the order, you can add multiple shipping addresses in the **Shipping + quantity** tab. Make sure that all the addresses are within the same country. To ship hardware to addresses across different countries/regions, you'll have to create separate orders.            
 
       - question: |
           In which regions, can I create Azure Edge Hardware Center orders? 
@@ -52,7 +52,7 @@ sections:
           There are two methods to limit who can order Azure Stack devices:
 
           - For individual permissions, device ordering is limited to users with contributor access to the subscription.
-          - Use custom roles to restrict access control. For more information, see [Azure custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) and [Create an Azure Edge Hardware Center](azure-edge-hardware-center-create-order.md#prerequisites).
+          - Use custom roles to restrict access control. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md) and [Create an Azure Edge Hardware Center](azure-edge-hardware-center-create-order.md#prerequisites).
 
       - question: |
           I created an order via the Azure Edge Hardware Center. Can I now cancel the order?

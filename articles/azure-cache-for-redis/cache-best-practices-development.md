@@ -5,7 +5,7 @@ description: Learn how to develop code for Azure Cache for Redis.
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 04/10/2023
 ms.author: franlanglois
 
 ---
@@ -62,7 +62,7 @@ Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, 
 
 ## Choose an appropriate tier
 
-Use Standard or Premium tier for production systems.  Don't use the Basic tier in production. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
+Use Standard, Premium, Enterprise, or Enterprise Flash tiers for production systems.  Don't use the Basic tier in production. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
 
 - they share a CPU core
 - use little memory
@@ -78,11 +78,20 @@ While you can connect from outside of Azure, it isn't recommended *especially wh
 
 ## Rely on hostname not public IP address
 
-The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname, in the form `<cachename>.redis.cache.windows.net`, instead of an explicit public IP address.
+The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname instead of an explicit public IP address. Here are the recommended forms for the various tiers:
+
+|Tier | Form |
+|----|----|
+| Basic, Standard, Premium | `<cachename>.redis.cache.windows.net` |
+| Enterprise, Enterprise Flash | `<DNS name>.<Azure region>.redisenterprise.cache.azure.net.`  |
 
 ## Choose an appropriate Redis version
 
 The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
+
+## Specific guidance for the Enterprise tiers
+
+Because the _Enterprise_ and _Enterprise Flash_ tiers are built on Redis Enterprise rather than open-source Redis, there are some differences in development best practices. See [Best Practices for the Enterprise and Enterprise Flash tiers](cache-best-practices-enterprise-tiers.md) for more information.
 
 ## Use TLS encryption
 
@@ -101,7 +110,9 @@ Microsoft is updating Azure services to use TLS server certificates from a diffe
 
 #### Does this change affect me?
 
-We expect that most Azure Cache for Redis customers aren't affected by the change. Your application may be impacted if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration.
+We expect that most Azure Cache for Redis customers aren't affected by the change. Your application might be affected if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration. 
+
+Azure Cache for Redis doesn't support [OCSP stapling](https://docs.redis.com/latest/rs/security/certificates/ocsp-stapling/).
 
 The following table provides information about the certificates that are being rolled. Depending on which certificate your application uses, you might need to update it to prevent loss of connectivity to your Azure Cache for Redis instance.
 
@@ -142,17 +153,9 @@ If your application validates certificate in code, you need to modify it to reco
 
 ## Client library-specific guidance
 
-- [StackExchange.Redis (.NET)](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
-- [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
-- [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
-- [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
-- [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
-- [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
-- [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
-- [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+For more information, see [Client libraries](cache-best-practices-client-libraries.md#client-libraries).
 
-## Next steps
+## Next steps  
 
-- [Azure Cache for Redis development FAQs](cache-development-faq.yml)
 - [Performance testing](cache-best-practices-performance.md)
 - [Failover and patching for Azure Cache for Redis](cache-failover.md)

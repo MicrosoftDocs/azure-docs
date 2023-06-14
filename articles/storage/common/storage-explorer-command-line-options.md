@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Explorer command-line options | Microsoft Docs
+title: Azure Storage Explorer command-line options
 description: Documentation of Azure Storage Explorer start-up command-line options
 services: storage
 author: JasonYeMSFT

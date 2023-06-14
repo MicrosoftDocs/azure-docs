@@ -11,5 +11,5 @@ ms.custom: "include file"
 ---
 
 > [!TIP]
-> The content in this article applies to Azure Table storage and the Azure Cosmos DB Table API. The Azure Cosmos DB Table API is a premium offering for table storage that offers throughput-optimized tables, global distribution, and automatic secondary indexes.
+> The content in this article applies to Azure Table storage and the Azure Cosmos DB for Table. The Azure Cosmos DB for Table is a premium offering for table storage that offers throughput-optimized tables, global distribution, and automatic secondary indexes.
 >

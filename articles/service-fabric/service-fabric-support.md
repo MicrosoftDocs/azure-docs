@@ -1,12 +1,14 @@
 ---
 title: Learn about Azure Service Fabric Support options 
 description: Azure Service Fabric cluster versions supported and links to file support tickets
-author: erikadoyle
 ms.topic: troubleshooting
-ms.date: 5/17/2021
-ms.author: edoyle
-ms.custom: support-help-page
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Azure Service Fabric support options
 
 We have created a number of support request options to serve the needs of managing your Service Fabric clusters and application workloads, depending on the urgency of support needed and the severity of the issue.
@@ -75,6 +77,18 @@ Report Azure Service Fabric issues at the [Service Fabric GitHub](https://github
 </div>
 
 The `azure-service-fabric` tag on [StackOverflow][stackoverflow] is used for asking general questions about how the platform works and how you may use it to accomplish certain tasks.
+
+## Service Fabric community Q & A schedule 
+Join the community call on the following days to hear about new feature releases and key updates and get answers to the questions from the Service Fabric team.
+
+| Schedule	| 
+|---------	|
+| March 30, 2023 | 
+| May 25, 2023 |
+| July 27, 2023|
+| September 28, 2023| 
+| January 25, 2024	|
+| March 28, 2024 |
 
 ## Stay informed of updates and new releases
 

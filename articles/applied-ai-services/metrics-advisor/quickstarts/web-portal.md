@@ -1,12 +1,11 @@
 ---
 title: 'Quickstart: Metrics Advisor web portal'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn how to start using the Metrics Advisor web portal.
-services: cognitive-services
 author: mrbullwinkle
 ms.author: mbullwin
 manager: nitinme
-ms.date: 09/30/2020
+ms.date: 11/07/2022
 ms.topic: quickstart
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
@@ -15,7 +14,7 @@ ms.custom: mode-ui
 
 # Quickstart: Monitor your first metric by using the web portal
 
-When you provision an instance of Azure Metrics Advisor, you can use the APIs and web-based workspace to work with the service. The web-based workspace can be used as a straightforward way to quickly get started with the service. It also provides a visual way to configure settings, customize your model, and perform root cause analysis. 
+When you provision an instance of Azure Metrics Advisor, you can use the APIs and web-based workspace to interact with the service. The web-based workspace can be used as a straightforward way to quickly get started with the service. It also provides a visual way to configure settings, customize your model, and perform root cause analysis. 
 
 ## Prerequisites
 
@@ -79,7 +78,7 @@ After the data is loaded by running the query, select the appropriate fields.
 |---------|---------|---------|
 |**Timestamp**     | The timestamp of a data point. If the timestamp is omitted, Metrics Advisor uses the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as timestamp.        | Optional. Should be specified with at most one column.       |
 |**Measure**     |  The numeric values in the data feed. For each data feed, you can specify multiple measures, but at least one column should be selected as measure.        | Should be specified with at least one column.        |
-|**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series. Examples include country, language, and tenant. You can select none, or an arbitrary number of columns as dimensions. If you're selecting a non-string column as dimension, be cautious with dimension explosion. | Optional.        |
+|**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series. Examples include country/region, language, and tenant. You can select none, or an arbitrary number of columns as dimensions. If you're selecting a non-string column as dimension, be cautious with dimension explosion. | Optional.        |
 |**Ignore**     | Ignore the selected column.        | Optional. For data sources that support using a query to get data, there's no ignore option.       |
 
 
@@ -113,7 +112,7 @@ When detection is applied, select one of the metrics listed in the data feed to 
 
 After tuning the detection configuration, you should find that detected anomalies reflect actual anomalies in your data. Metrics Advisor performs analysis on multidimensional metrics to locate the root cause to a specific dimension. The service also performs cross-metrics analysis by using the metrics graph feature. 
 
-To view the diagnostic insights, select the red dots on time series visualizations. These red dots represent detected anomalies. A window will appear with a link to the incident analysis page. 
+To view diagnostic insights, select the red dots on time series visualizations. These red dots represent detected anomalies. A window will appear with a link to the incident analysis page. 
 
 :::image type="content" source="../media/incident-link.png" alt-text="Screenshot that shows an incident link." lightbox="../media/incident-link.png":::
 

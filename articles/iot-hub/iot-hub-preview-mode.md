@@ -3,7 +3,7 @@
  description: Learn how to turn on preview mode for IoT Hub, why you would want to, and some warnings
  services: iot-hub
  author: kgremban
- ms.service: iot-fundamentals
+ ms.service: iot-hub
  ms.topic: conceptual
  ms.date: 11/24/2020
  ms.author: kgremban
@@ -70,6 +70,6 @@ Do *not* use an IoT hub in preview mode for production. Preview mode is intended
 
 ## Next steps
 
-- To preview the MQTT 5 support, see [IoT Hub MQTT 5 support overview (preview)](iot-hub-mqtt-5.md)
+- To preview the MQTT 5 support, see [IoT Hub MQTT 5 support overview (preview)](../iot/iot-mqtt-5-preview.md)
 - To preview the ECC server certificate, see [Elliptic Curve Cryptography (ECC) server TLS certificate (preview)](iot-hub-tls-support.md#elliptic-curve-cryptography-ecc-server-tls-certificate-preview)
 - To preview TLS fragment size negotiation, see [TLS maximum fragment length negotiation (preview)](iot-hub-tls-support.md#tls-maximum-fragment-length-negotiation-preview)

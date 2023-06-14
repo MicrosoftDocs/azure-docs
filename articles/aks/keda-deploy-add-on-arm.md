@@ -1,10 +1,10 @@
 ---
 title: Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using an ARM template
 description: Use an ARM template to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS).
-services: container-service
 author: jahabibi
 ms.topic: article
-ms.date: 05/24/2022
+ms.custom: devx-track-azurecli, devx-track-arm-template
+ms.date: 10/10/2022
 ms.author: jahabibi
 ---
 
@@ -14,28 +14,43 @@ This article shows you how to deploy the Kubernetes Event-driven Autoscaling (KE
 
 [!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
+- Firewall rules are configured to allow access to the Kubernetes API server. ([learn more][aks-firewall-requirements])
 
-### Register the `AKS-KedaPreview` feature flag
+## Install the aks-preview Azure CLI extension
 
-To use the KEDA, you must enable the `AKS-KedaPreview` feature flag on your subscription. 
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
 
 ```azurecli
-az feature register --name AKS-KedaPreview --namespace Microsoft.ContainerService
+az extension add --name aks-preview
 ```
 
-You can check on the registration status by using the `az feature list` command:
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+## Register the 'AKS-KedaPreview' feature flag
+
+Register the `AKS-KedaPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-KedaPreview')].{Name:name,State:properties.state}"
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-KedaPreview"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AKS-KedaPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -137,27 +152,11 @@ To remove the resource group, and all related resources, use the [Az PowerShell 
 az group delete --name MyResourceGroup
 ```
 
-### Enabling add-on on clusters with self-managed open-source KEDA installations
-
-While Kubernetes only allows one metric server to be installed, you can in theory install KEDA multiple times. However, it isn't recommended given only one installation will work.
-
-When the KEDA add-on is installed in an AKS cluster, the previous installation of open-source KEDA will be overridden and the add-on will take over.
-
-This means that the customization and configuration of the self-installed KEDA deployment will get lost and no longer be applied.
-
-While there's a possibility that the existing autoscaling will keep on working, there's a risk given it will be configured differently and won't support features such as managed identity.
-
-It's recommended to uninstall existing KEDA installations before enabling the KEDA add-on given the installation will succeed without any error.
-
-Following error will be thrown in the operator logs but the installation of KEDA add-on will be completed. 
-
-Error logged in now-suppressed non-participating KEDA operator pod:
-the error logged inside the already installed KEDA operator logs.
-E0520 11:51:24.868081 1 leaderelection.go:330] error retrieving resource lock default/operator.keda.sh: config maps "operator.keda.sh" is forbidden: User "system:serviceaccount:default:keda-operator" can't get resource "config maps" in API group "" in the namespace "default"
-
 ## Next steps
 
-This article showed you how to install the KEDA add-on on an AKS cluster, and then verify that it's installed and running. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps
+This article showed you how to install the KEDA add-on on an AKS cluster, and then verify that it's installed and running. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps.
+
+You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -165,9 +164,14 @@ This article showed you how to install the KEDA add-on on an AKS cluster, and th
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
+[aks-firewall-requirements]: outbound-rules-control-egress.md#azure-global-required-network-rules
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [keda]: https://keda.sh/
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue

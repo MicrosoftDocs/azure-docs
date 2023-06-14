@@ -43,7 +43,7 @@ Using dynamic concurrency provides the following benefits:
 
 ### Dynamic concurrency configuration
 
-Dynamic concurrency can be enabled at the host level in the host.json file. When, enabled any binding extensions used by your function app that support dynamic concurrency will adjust concurrency dynamically as needed. Dynamic concurrency settings override any manually configured concurrency settings for triggers that support dynamic concurrency. 
+Dynamic concurrency can be enabled at the host level in the host.json file. When, enabled any binding extensions used by your function app that support dynamic concurrency adjust concurrency dynamically as needed. Dynamic concurrency settings override any manually configured concurrency settings for triggers that support dynamic concurrency. 
 
 By default, dynamic concurrency is disabled. With dynamic concurrency enabled, concurrency starts at 1 for each function, and is adjusted up to an optimal value, which is determined by the host.
 

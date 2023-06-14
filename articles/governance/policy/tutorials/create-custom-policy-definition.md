@@ -183,9 +183,8 @@ but control something else.
 #### Resource reference docs
 
 To validate **supportsHttpsTrafficOnly** is correct property, check the ARM template reference for
-the [storage account resource](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) on the
-storage provider. The properties object has a list of valid parameters. Selecting the
-[StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object)
+the [storage account resource](/azure/templates/microsoft.storage/storageaccounts) on the
+storage provider. The properties object has a list of valid parameters. Selecting the StorageAccountPropertiesCreateParameters-object
 link shows a table of acceptable properties. **supportsHttpsTrafficOnly** is present and the
 description matches what we are looking for to meet the business requirements.
 

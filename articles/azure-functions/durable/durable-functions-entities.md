@@ -3,9 +3,10 @@ title: Durable entities - Azure Functions
 description: Learn what durable entities are and how to use them in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 05/10/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, python
+ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-dotnet
 #Customer intent: As a developer, I want to learn what durable entities are and how to use them to solve distributed, stateful problems in my applications.
 ---
 
@@ -15,7 +16,7 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 
 > [!NOTE]
-> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET, JavaScript, and Python.
+> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, JavaScript, and Python, but not in .NET isolated worker, PowerShell, or Java.
 
 ## General concepts
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Use Holographic Remoting and Remote Rendering in Unity
 
-[Holographic Remoting](/windows/mixed-reality/holographic-remoting-player) and Azure Remote Rendering are mutually exclusive within one application. As such, [Unity play mode](/windows/mixed-reality/unity-play-mode) is also not available.
+[Holographic Remoting](/windows/mixed-reality/holographic-remoting-player) and Azure Remote Rendering are mutually exclusive within one application. As such, [Unity play mode](/windows/mixed-reality/develop/unity/preview-and-debug-your-app) is also not available.
 
 For each run of the Unity editor only one of the two can be used. To use the other one, restart Unity first.
 

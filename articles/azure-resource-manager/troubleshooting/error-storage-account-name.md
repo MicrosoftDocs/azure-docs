@@ -1,17 +1,22 @@
 ---
-title: Storage account name errors
-description: Describes errors that can occur when specifying a storage account name in an Azure Resource Manager template (ARM template) or Bicep file.
+title: Resolve errors for storage account names
+description: Describes how to resolve errors for Azure storage account names that can occur during deployment with a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 11/12/2021
+ms.custom: devx-track-arm-template, devx-track-bicep
+ms.date: 04/05/2023
 ---
 
 # Resolve errors for storage account names
 
-This article describes naming errors that can occur when deploying a storage account with an Azure Resource Manager template (ARM template) or Bicep file.
+This article describes how to resolve errors for Azure storage account names that can occur during deployment with a Bicep file or Azure Resource Manager template (ARM template). Common causes for an error are a storage account name with invalid characters or a storage account that uses the same name as an existing storage account. Storage account names must be globally unique across Azure.
 
 ## Symptom
 
-If your storage account name includes prohibited characters, like an uppercase letter or exclamation point, you receive an error:
+An invalid storage account name causes an error code during deployment. The following are some examples of errors for storage account names.
+
+### Account name invalid
+
+If your storage account name includes prohibited characters, like an uppercase letter or special character like an exclamation point.
 
 ```Output
 Code=AccountNameInvalid
@@ -19,29 +24,54 @@ Message=S!torageckrexph7isnoc is not a valid storage account name. Storage accou
 between 3 and 24 characters in length and use numbers and lower-case letters only.
 ```
 
-For storage accounts, you must provide a resource name that's unique across Azure. If you don't provide a unique name, you receive an error:
+### Invalid resource location
+
+If you try to deploy a new storage account with the same name and in the same resource group, but use a different location as an existing storage account in your Azure subscription. The error indicates the storage account already exists and can't be created in the new location. Select a different name to create the new storage account.
+
+```Output
+Code=InvalidResourceLocation
+Message=The resource 'storageckrexph7isnoc' already exists in location 'westus'
+in resource group 'demostorage'. A resource with the same name cannot be created in location 'eastus'.
+Please select a new resource name.
+```
+
+### Storage account in another resource group
+
+If you try to deploy a new storage account with the same name and location as an existing storage account but in a different resource group in your subscription.
+
+```Output
+Code=StorageAccountInAnotherResourceGroup
+Message=The account storageckrexph7isnoc is already in another resource group in this subscription.
+```
+
+### Storage account already taken
+
+If you try to deploy a new storage account with the same name as a storage account that already exists in Azure. The existing storage account name might be in your subscription or tenant, or anywhere across Azure. Storage account names must be globally unique across Azure.
 
 ```Output
 Code=StorageAccountAlreadyTaken
-Message=The storage account named mystorage is already taken.
+Message=The storage account named storageckrexph7isnoc is already taken.
 ```
-
-If you deploy a storage account with the same name as an existing storage account in your subscription, but in a different location, you receive an error. The error indicates the storage account already exists in a different location. Either delete the existing storage account or use the same location as the existing storage account.
 
 ## Cause
 
-Storage account names must be between 3 and 24 characters in length and only use numbers and lowercase letters. No uppercase letters or special characters. The name must be unique.
+Common reasons for an error are because the storage account name uses invalid characters or is a duplicate name. Storage account names must meet the following criteria:
+
+- Length between 3 and 24 characters with only lowercase letters and numbers.
+- Must be globally unique across Azure. Storage account names can't be duplicated in Azure.
 
 ## Solution
 
-You can create a unique name by concatenating your naming convention with the result of the `uniqueString` function.
+You can create a unique name by concatenating a prefix or suffix with a value from the `uniqueString` function.
+
+The following examples specify a prefix with the string `storage` that's concatenated with the value from `uniqueString`.
 
 # [Bicep](#tab/bicep)
 
 Bicep uses [string interpolation](../bicep/bicep-functions-string.md#concat) with [uniqueString](../bicep/bicep-functions-string.md#uniquestring).
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-09-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
 ```
 
@@ -58,7 +88,7 @@ ARM templates use [concat](../templates/template-functions-string.md#concat) wit
 
 Make sure your storage account name doesn't exceed 24 characters. The `uniqueString` function returns 13 characters. If you want to concatenate a prefix or suffix, provide a value that's 11 characters or less.
 
-The following examples use a parameter that creates a prefix with a maximum of 11 characters.
+The following examples use a parameter named `storageNamePrefix` that creates a prefix with a maximum of 11 characters.
 
 # [Bicep](#tab/bicep)
 
@@ -85,7 +115,7 @@ param storageNamePrefix string = 'storage'
 
 ---
 
-You then concatenate the parameter value with the `uniqueString` value to create a storage account name.
+You then concatenate the `storageNamePrefix` parameter's value with the `uniqueString` value to create a storage account name.
 
 # [Bicep](#tab/bicep)
 

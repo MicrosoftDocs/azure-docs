@@ -3,11 +3,11 @@ title: Configure TLS for a cloud service  | Microsoft Docs
 description: Learn how to specify an HTTPS endpoint for a web role and how to upload a TLS/SSL certificate to secure your application. These examples use the Azure portal.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Configuring TLS for an application in Azure
@@ -43,12 +43,9 @@ Next, you must include information about the certificate in your service definit
 ## Step 2: Modify the service definition and configuration files
 Your application must be configured to use the certificate, and an HTTPS endpoint must be added. As a result, the service definition and service configuration files need to be updated.
 
-1. In your development environment, open the service definition file
-   (CSDEF), add a **Certificates** section within the **WebRole**
-   section, and include the following information about the
-   certificate (and intermediate certificates):
+1. In your development environment, open the service definition file (CSDEF), add a **Certificates** section within the **WebRole** section, and include the following information about the certificate (and intermediate certificates):
 
-   ```xml
+    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
     ...
         <Certificates>
@@ -84,7 +81,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 2. In your service definition file, add an **InputEndpoint** element
    within the **Endpoints** section to enable HTTPS:
 
-   ```xml
+    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
     ...
         <Endpoints>
@@ -99,7 +96,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
    the **Sites** section. This element adds an HTTPS binding to map the
    endpoint to your site:
 
-   ```xml
+    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
     ...
         <Sites>
@@ -120,7 +117,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 value with that of your certificate. The following code sample provides
    details of the **Certificates** section, except for the thumbprint value.
 
-   ```xml
+    ```xml
     <Role name="Deployment">
     ...
         <Certificates>
@@ -188,6 +185,3 @@ connect to it using HTTPS.
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
-
-
-

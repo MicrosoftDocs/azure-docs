@@ -8,10 +8,14 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: rust
 ms.custom: kr2b-contr-experiment
-ms.date: 05/17/2022
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Use Rust to interact with Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 In this article, you will learn how to use the [PostgreSQL driver for Rust](https://github.com/sfackler/rust-postgres) to connect and query data in Azure Database for PostgreSQL. You can explore CRUD (create, read, update, delete) operations implemented in sample code, and run the application locally to see it in action.
 
@@ -33,6 +37,7 @@ For this quickstart, you need:
 - [Git](https://git-scm.com/downloads) installed.
 
 ## Get database connection information
+
 Connecting to an Azure Database for PostgreSQL database requires a fully qualified server name and login credentials. You can get this information from the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL server name.
@@ -75,7 +80,7 @@ The sample application uses a simple `inventory` table to demonstrate the CRUD (
 CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);
 ```
 
-The `drop_create_table` function initially tries to `DROP` the `inventory` table before creating a new one. This makes it easier for learning/experimentation, as you always start with a known (clean) state. The [execute](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.execute) method is used for create and drop operations. 
+The `drop_create_table` function initially tries to `DROP` the `inventory` table before creating a new one. This makes it easier for learning/experimentation, as you always start with a known (clean) state. The [execute](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.execute) method is used for create and drop operations.
 
 ```rust
 const CREATE_QUERY: &str =
@@ -97,8 +102,7 @@ fn drop_create_table(pg_client: &mut postgres::Client) {
 
 ### Insert data
 
-`insert_data` adds entries to the `inventory` table. It creates a [prepared statement](https://docs.rs/postgres/0.19.0/postgres/struct.Statement.html) with [prepare](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.prepare) function. 
-
+`insert_data` adds entries to the `inventory` table. It creates a [prepared statement](https://docs.rs/postgres/0.19.0/postgres/struct.Statement.html) with [prepare](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.prepare) function.
 
 ```rust
 const INSERT_QUERY: &str = "INSERT INTO inventory (name, quantity) VALUES ($1, $2) RETURNING id;";
@@ -159,7 +163,7 @@ Finally, a `for` loop is used to add `item-3`, `item-4` and, `item-5` with rando
 
 ### Query data
 
-`query_data` function demonstrates how to retrieve data from the `inventory` table. The [query_one](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.query_one) method is used to get an item by its `id`. 
+`query_data` function demonstrates how to retrieve data from the `inventory` table. The [query_one](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.query_one) method is used to get an item by its `id`.
 
 ```rust
 const SELECT_ALL_QUERY: &str = "SELECT * FROM inventory;";
@@ -184,7 +188,7 @@ fn query_data(pg_client: &mut postgres::Client) {
 }
 ```
 
-All rows in the inventory table are fetched using a `select * from` query with the [query](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.query) method. The returned rows are iterated over to extract the value for each column using [get](https://docs.rs/postgres/0.19.0/postgres/row/struct.Row.html#method.get). 
+All rows in the inventory table are fetched using a `select * from` query with the [query](https://docs.rs/postgres/0.19.0/postgres/struct.Client.html#method.query) method. The returned rows are iterated over to extract the value for each column using [get](https://docs.rs/postgres/0.19.0/postgres/row/struct.Row.html#method.get).
 
 > [!TIP]
 > Note how `get` makes it possible to specify the column either by its numeric index in the row, or by its column name.
@@ -234,7 +238,7 @@ fn update_data(pg_client: &mut postgres::Client) {
                 ],
             )
             .expect("update failed");
-        
+
         let quantity: i32 = row.get("quantity");
         println!("updated item id {} to quantity = {}", id, quantity);
     }
@@ -243,7 +247,7 @@ fn update_data(pg_client: &mut postgres::Client) {
 
 ### Delete data
 
-Finally, the `delete` function demonstrates how to remove an item from the `inventory` table by its `id`. The `id` is chosen randomly - it's a random integer between `1` to `5` (`5` inclusive) since the `insert_data` function had added `5` rows to start with. 
+Finally, the `delete` function demonstrates how to remove an item from the `inventory` table by its `id`. The `id` is chosen randomly - it's a random integer between `1` to `5` (`5` inclusive) since the `insert_data` function had added `5` rows to start with.
 
 > [!TIP]
 > Note that we use `query` instead of `execute` since we intend to get back the info about the item we just deleted (using [RETURNING clause](https://www.postgresql.org/docs/current/dml-returning.html)).
@@ -337,6 +341,7 @@ az group delete \
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Manage Azure Database for PostgreSQL server using Portal](./how-to-create-manage-server-portal.md)<br/>
 

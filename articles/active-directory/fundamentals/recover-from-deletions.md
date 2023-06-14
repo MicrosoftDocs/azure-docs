@@ -2,15 +2,15 @@
 title: Recover from deletions in Azure Active Directory
 description: Learn how to recover from unintended deletions.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 04/20/2022
-ms.author: baselden
-ms.reviewer: baselden
+ms.date: 11/14/2022
+ms.author: jricketts
+ms.reviewer: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -69,7 +69,7 @@ Users enter the soft-delete state anytime the user object is deleted by using th
 
 The most frequent scenarios for user deletion are:
 
-* An administrator intentionally deletes a user in the Azure AD portal in response to a request or as part of routine user maintenance.
+* An administrator intentionally deletes a user in the Azure portal in response to a request or as part of routine user maintenance.
 * An automation script in Microsoft Graph or PowerShell triggers the deletion. For example, you might have a script that removes users who haven't signed in for a specified time.
 * A user is moved out of scope for synchronization with Azure AD Connect.
 * A user is removed from an HR system and is deprovisioned via an automated workflow.
@@ -89,19 +89,25 @@ The most frequent scenarios for application deletion are:
 * An administrator intentionally deletes the application, for example, in response to a support request.
 * An automation script in Microsoft Graph or PowerShell triggers the deletion. For example, you might want a process for deleting abandoned applications that are no longer used or managed. In general, create an offboarding process for applications rather than scripting to avoid unintentional deletions.
 
-### Properties maintained with soft delete
+When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps and service principals in Azure AD - Microsoft identity platform](../develop/app-objects-and-service-principals.md).
 
-| Object type| Important properties maintained |
-| - | - |
-| Users (including external users)| *All properties are maintained*, including ObjectID, group memberships, roles, licenses, and application assignments. |
-| Microsoft 365 Groups| *All properties are maintained*, including ObjectID, group memberships, licenses, and application assignments. |
-| Application registration| *All properties are maintained.* (See more information after this table.) |
+### Administrative units
 
-When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps and service principals in Azure AD - Microsoft identity platform](/azure/active-directory/develop/app-objects-and-service-principals).
+The most common scenario for deletions is when administrative units (AU) are deleted by accident, although still needed. 
 
 ## Recover from soft deletion
 
-You can restore soft-deleted items in the Azure portal or with Microsoft Graph.
+You can restore soft-deleted items in the administrative portal, or by using Microsoft Graph. Not all object classes can manage soft-delete capabilities in the portal, some are only listed, viewed, hard deleted, or restored using the deletedItems Microsoft Graph API.
+
+### Properties maintained with soft delete
+
+|Object type|Important properties maintained|
+|---|---|
+|Users (including external users)|All properties maintained, including ObjectID, group memberships, roles, licenses, and application assignments|
+|Microsoft 365 Groups|All properties maintained, including ObjectID, group memberships, licenses, and application assignments|
+|Application registration | All properties maintained. See more information after this table.|
+|Service principal|All properties maintained|
+|Administrative unit (AU)|All properties maintained|
 
 ### Users
 
@@ -125,13 +131,19 @@ For more information on how to restore soft-deleted Microsoft 365 Groups, see th
 * To restore from the Azure portal, see [Restore a deleted Microsoft 365 Group](../enterprise-users/groups-restore-deleted.md).
 * To restore by using Microsoft Graph, see [Restore deleted item – Microsoft Graph v1.0](/graph/api/directory-deleteditems-restore?tabs=http).
 
-### Applications
+### Applications and service principals
 
-Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Azure AD](/azure/active-directory/develop/app-objects-and-service-principals).
+Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Azure AD](../develop/app-objects-and-service-principals.md).
 
 To restore an application from the Azure portal, select **App registrations** > **Deleted applications**. Select the application registration to restore, and then select **Restore app registration**.
 
 [![Screenshot that shows the app registration restore process in the azure portal.](./media/recoverability/deletion-restore-application.png)](./media/recoverability/deletion-restore-application.png#lightbox)
+
+Currently, service principals can be listed, viewed, hard deleted, or restored via the deletedItems Microsoft Graph API. To restore applications using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http).
+
+### Administrative units
+
+AUs can be listed, viewed, or restored via the deletedItems Microsoft Graph API. To restore AUs using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http). Once an AU is deleted it remains in a soft deleted state and can be restored for 30 days, but cannot be hard deleted during that time. Soft deleted AUs are hard deleted automatically after 30 days.
 
 ## Hard deletions
 
@@ -140,6 +152,8 @@ A hard deletion is the permanent removal of an object from your Azure AD tenant.
 * Users
 * Microsoft 365 Groups
 * Application registration
+* Service principal
+* Administrative unit
 
 > [!IMPORTANT]
 > All other item types are hard deleted. When an item is hard deleted, it can't be restored. It must be re-created. Neither administrators nor Microsoft can restore hard-deleted items. Prepare for this situation by ensuring that you have processes and documentation to minimize potential disruption from a hard delete.
@@ -148,7 +162,7 @@ A hard deletion is the permanent removal of an object from your Azure AD tenant.
 
 ### When hard deletes usually occur
 
-Hard deletes most often occur in the following circumstances.
+Hard deletes might occur in the following circumstances.
 
 Moving from soft to hard delete:
 
@@ -174,7 +188,7 @@ Ensure you have a process to frequently review items in the soft-delete state an
 * Ensure that you have specific roles or users assigned to evaluate and restore items as appropriate.
 * Develop and test a continuity management plan. For more information, see [Considerations for your Enterprise Business Continuity Management Plan](/compliance/assurance/assurance-developing-your-ebcm-plan).
 
-For more information on how to avoid unwanted deletions, see the following topics in [Recoverability best practices](recoverability-overview.md):
+For more information on how to avoid unwanted deletions, see the following articles in [Recoverability best practices](recoverability-overview.md):
 
 * Business continuity and disaster planning
 * Document known good states

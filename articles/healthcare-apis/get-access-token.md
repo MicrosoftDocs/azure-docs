@@ -2,7 +2,7 @@
 title: Get access token using Azure CLI or Azure PowerShell
 description: This article explains how to obtain an access token for Azure Health Data Services using the Azure CLI or Azure PowerShell.
 services: healthcare-apis
-author: ginalee-dotcom
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual

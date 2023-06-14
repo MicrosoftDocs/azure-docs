@@ -1,12 +1,12 @@
 ---
 title: Exporting de-identified data for Azure API for FHIR
 description: This article describes how to set up and use de-identified export for Azure API for FHIR
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/03/2022
-ms.author: ginle
+ms.date: 08/24/2022
+ms.author: kesheth
 ---
 # Exporting de-identified data for Azure API for FHIR
 

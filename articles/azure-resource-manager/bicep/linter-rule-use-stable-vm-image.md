@@ -2,6 +2,7 @@
 title: Linter rule - use stable VM image
 description: Linter rule - use stable VM image
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 12/15/2021
 ---
 
@@ -56,3 +57,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
   }
 }
 ```
+
+## Next steps
+
+For more information about the linter, see [Use Bicep linter](./linter.md).

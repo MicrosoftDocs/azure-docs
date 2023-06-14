@@ -19,7 +19,7 @@ This quickstart shows you how to create a Service Bus namespace and a queue usin
 
 To complete this quickstart, make sure you have an Azure subscription. If you don't have an Azure subscription, you can create a [free account][] before you begin. 
 
-In this quickstart, you use Azure Cloud Shell that you can launch after sign into the Azure portal. For details about Azure Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md). You can also [install](/powershell/azure/install-Az-ps) and use Azure PowerShell on your machine. 
+In this quickstart, you use Azure Cloud Shell that you can launch after sign into the Azure portal. For details about Azure Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md). You can also [install](/powershell/azure/install-azure-powershell) and use Azure PowerShell on your machine. 
 
 
 ## Provision resources

@@ -8,8 +8,8 @@ author: tamram
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/29/2021
-ms.author: tamram   
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.author: tamram
+ms.custom: devx-track-azurecli
 ---
 
 # Upgrade to a general-purpose v2 storage account
@@ -45,7 +45,7 @@ To upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps) for information about installing PowerShell.
+To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) for information about installing PowerShell.
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
@@ -132,7 +132,7 @@ To monitor data access patterns for Blob storage, you need to enable the hourly 
 
 To get a good approximation of your data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage and extrapolate. One option is to retain the metrics data for seven days and collect the data every week, for analysis at the end of the month. Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30-day period.
 
-For details on enabling, collecting, and viewing metrics data, see [Storage analytics metrics](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For details on enabling, collecting, and viewing metrics data, see [Storage analytics metrics](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json).
 
 > [!NOTE]
 > Storing, accessing, and downloading analytics data is also charged just like regular user data.

@@ -9,7 +9,7 @@
 
 ### Is RADIUS authentication supported on all Azure VPN Gateway SKUs?
 
-RADIUS authentication is supported for VpnGw1, VpnGw2, and VpnGw3 SKUs.
+RADIUS authentication is supported for all SKUs except the Basic SKU.
 
 For legacy SKUs, RADIUS authentication is supported on Standard and High Performance SKUs. It isn't supported on the Basic Gateway SKU.
 
@@ -49,4 +49,4 @@ Yes, RADIUS authentication is supported for both IKEv2, and SSTP VPN.
 
 ### Does RADIUS authentication work with the OpenVPN client?
 
-RADIUS authentication is supported for the OpenVPN protocol only through PowerShell.
+RADIUS authentication is supported for the OpenVPN protocol.

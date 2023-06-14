@@ -5,7 +5,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 06/10/2022
+ms.date: 07/20/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
@@ -102,6 +102,9 @@ The table category often determines which option to choose for distributing the 
 | Fact           | Use hash-distribution with clustered columnstore index. Performance improves when two hash tables are joined on the same distribution column. |
 | Dimension      | Use replicated for smaller tables. If tables are too large to store on each Compute node, use hash-distributed. |
 | Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to production tables. |
+
+> [!NOTE]
+> For recommendations on the best table distribution strategy to use based on your workloads, see the [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md).
 
 ## Table partitions
 
@@ -370,4 +373,8 @@ ORDER BY    distribution_id
 
 ## Next steps
 
-After creating the tables for your dedicated SQL pool, the next step is to load data into the table.  For a loading tutorial, see [Loading data to dedicated SQL pool](load-data-wideworldimportersdw.md).
+After creating the tables for your dedicated SQL pool, the next step is to load data into the table. For a loading tutorial, see [Loading data to dedicated SQL pool](load-data-wideworldimportersdw.md) and review [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](design-elt-data-loading.md).
+
+- [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md)
+- [Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md)
+- [Cheat sheet for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](cheat-sheet.md)

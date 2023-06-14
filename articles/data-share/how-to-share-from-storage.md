@@ -1,11 +1,11 @@
 ---
 title: Share and receive data from Azure Blob Storage and Azure Data Lake Storage
 description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage.
-author: jifems
-ms.author: jife
+author:  sidontha
+ms.author: sidontha
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 10/27/2022
 ---
 
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
@@ -57,7 +57,7 @@ Existing files that have the same name are overwritten during a snapshot. A file
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
-- Your data recipient's Azure sign in e-mail address (using their e-mail alias won't work).
+- Your data recipient's Azure sign-in e-mail address (using their e-mail alias won't work).
 - If your Azure SQL resource is in a different Azure subscription than your Azure Data Share account, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where your source Azure SQL resource is located.
 
 ### Prerequisites for the source storage account
@@ -80,31 +80,31 @@ Existing files that have the same name are overwritten during a snapshot. A file
 
 1. Provide the details for your share. Specify a name, share type, description of share contents, and terms of use (optional).
 
-    ![Screenshot showing data share details.](./media/enter-share-details.png "Enter the data share details.")
+   :::image type="content" source="./media/enter-share-details.png " alt-text="Screenshot of the share creation page in Azure Data Share, showing the share name, type, description, and terms of used filled out.":::
 
 1. Select **Continue**.
 
 1. To add datasets to your share, select **Add Datasets**.
 
-    ![Screenshot showing how to add datasets to your share.](./media/datasets.png "Datasets.")
+   :::image type="content" source="./media/datasets.png" alt-text="Screenshot of the datasets page in share creation, the add datasets button is highlighted.":::
 
 1. Select a dataset type to add. The list of dataset types depends on whether you selected snapshot-based sharing or in-place sharing in the previous step.
 
-    ![Screenshot showing where to select a dataset type.](./media/add-datasets.png "Add datasets.")
+   :::image type="content" source="./media/add-datasets.png" alt-text="Screenshot showing the available dataset types.":::
 
 1. Go to the object you want to share. Then select **Add Datasets**.
 
-    ![Screenshot showing how to select an object to share.](./media/select-datasets.png "Select datasets.")
+   :::image type="content" source="./media/select-datasets.png" alt-text="Screenshot of the select datasets page, showing a folder selected.":::
 
 1. On the **Recipients** tab, add the email address of your data consumer by selecting **Add Recipient**.
 
-    ![Screenshot showing how to add recipient email addresses.](./media/add-recipient.png "Add recipients.")
+   :::image type="content" source="./media/add-recipient.png" alt-text="Screenshot of the recipients page, showing a recipient added.":::
 
 1. Select **Continue**.
 
 1. If you selected a snapshot share type, you can set up the snapshot schedule to update your data for the data consumer.
 
-    ![Screenshot showing the snapshot schedule settings.](./media/enable-snapshots.png "Enable snapshots.")
+   :::image type="content" source="./media/enable-snapshots.png" alt-text="Screenshot of the settings page, showing the snapshot toggle enabled.":::
 
 1. Select a start time and recurrence interval.
 
@@ -142,7 +142,7 @@ You can open an invitation from email or directly from the [Azure portal](https:
 
    If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it's valid for 12 months.
 
-   ![Screenshot showing the list of invitations in the Azure portal.](./media/invitations.png "List of invitations.")
+   :::image type="content" source="./media/invitations.png" alt-text="Screenshot of the invitations page, showing a pending invitation.":::
 
 1. Select the share you want to view.
 
@@ -150,7 +150,7 @@ You can open an invitation from email or directly from the [Azure portal](https:
 
 1. Review all of the fields, including the **Terms of use**. If you agree to the terms, select the check box.
 
-   ![Screenshot showing the Terms of use area.](./media/terms-of-use.png "Terms of use.")
+   :::image type="content" source="./media/terms-of-use.png" alt-text="Screenshot of the invitation acceptance page, showing the terms of use highlighted and the agreement selected.":::
 
 1. Under **Target Data Share account**, select the subscription and resource group where you'll deploy your Data Share. Then fill in the following fields:
 
@@ -160,7 +160,7 @@ You can open an invitation from email or directly from the [Azure portal](https:
 
 1. Select **Accept and configure**. A share subscription is created.
 
-   ![Screenshot showing where to accept the configuration options.](./media/accept-options.png "Accept options")
+   :::image type="content" source="./media/accept-options.png" alt-text="Screenshot of the acceptance page, showing the target data share account information filled out.":::
 
     The received share appears in your Data Share account.
 
@@ -170,15 +170,15 @@ You can open an invitation from email or directly from the [Azure portal](https:
 
 1. On the **Datasets** tab, select the check box next to the dataset where you want to assign a destination. Select **Map to target** to choose a target data store.
 
-   ![Screenshot showing how to map to a target.](./media/dataset-map-target.png "Map to target.")
+   :::image type="content" source="./media/dataset-map-target.png" alt-text="Screenshot of the received shares page with the map to target button highlighted.":::
 
 1. Select a target data store for the data. Files in the target data store that have the same path and name as files in the received data will be overwritten.
 
-   ![Screenshot showing where to select a target storage account.](./media/map-target.png "Target storage.")
+   :::image type="content" source="./media/map-target.png" alt-text="Screenshot of the map datasets to target window, showing a filesystem name given.":::
 
 1. For snapshot-based sharing, if the data provider uses a snapshot schedule to regularly update the data, you can enable the schedule from the **Snapshot Schedule** tab. Select the box next to the snapshot schedule. Then select **Enable**. The first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
 
-   ![Screenshot showing how to enable a snapshot schedule.](./media/enable-snapshot-schedule.png "Enable snapshot schedule.")
+   :::image type="content" source="./media/enable-snapshot-schedule.png" alt-text="Screenshot showing the snapshot schedule tab with the enable button selected.":::
 
 ### Trigger a snapshot
 
@@ -186,11 +186,11 @@ The steps in this section apply only to snapshot-based sharing.
 
 1. You can trigger a snapshot from the **Details** tab. On the tab, select **Trigger snapshot**. You can choose to trigger a full snapshot or incremental snapshot of your data. If you're receiving data from your data provider for the first time, select **Full copy**. When a snapshot is executing, subsequent snapshots won't start until the previous one complete.
 
-   ![Screenshot showing the Trigger snapshot selection.](./media/trigger-snapshot.png "Trigger snapshot.")
+   :::image type="content" source="./media/trigger-snapshot.png" alt-text="Screenshot of the received shares page, showing the trigger snapshot dropdown selected and the full copy option highlighted.":::
 
 1. When the last run status is *successful*, go to the target data store to view the received data. Select **Datasets**, and then select the target path link.
 
-   ![Screenshot showing a consumer dataset mapping.](./media/consumer-datasets.png "Consumer dataset mapping.")
+   :::image type="content" source="./media/consumer-datasets.png" alt-text="Screenshot of the datasets tab showing a successful dataset selected.":::
 
 ### View history
 

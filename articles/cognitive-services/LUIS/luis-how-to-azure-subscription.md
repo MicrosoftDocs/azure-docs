@@ -9,12 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 07/19/2022
 ms.custom: contperf-fy21q4, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 # How to create and manage LUIS resources
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 Use this article to learn about the types of Azure resources you can use with LUIS, and how to manage them.
 
@@ -43,7 +46,7 @@ You can use the [v3.0-preview LUIS Endpoint API](https://westus.dev.cognitive.mi
 
 ## Create LUIS resources
 
-To create LUIS resources, you can use the LUIS portal, [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne), or Azure CLI. After you've created your resources, you will need to assign them to your apps to be used by them.
+To create LUIS resources, you can use the LUIS portal, [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne), or Azure CLI. After you've created your resources, you'll need to assign them to your apps to be used by them.
 
 # [LUIS portal](#tab/portal)
 
@@ -262,7 +265,7 @@ You can configure your metrics charts for a specific **time period** and **metri
 ## Total transactions threshold alert
 If you want to know when you reach a certain transaction threshold, for example 10,000 transactions, you can create an alert:
 
-1. From the left side menu select **Alerts**
+1. From the left side menu, select **Alerts**
 2. From the top menu select **New alert rule**
 
     :::image type="content" source="./media/luis-usage-tiers/alerts.png" alt-text="Screenshot that shows the alert rules page." lightbox="./media/luis-usage-tiers/alerts.png":::

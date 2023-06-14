@@ -1,17 +1,17 @@
 ---
-title: Configure managed identities on virtual machine scale sets using PowerShell - Azure AD
+title: Configure managed identities on virtual machine scale sets using PowerShell
 description: Step-by-step instructions for configuring a system and user-assigned managed identities on a virtual machine scale set using PowerShell.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 06/24/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell, mode-api
@@ -47,7 +47,7 @@ In this article, using PowerShell, you learn how to perform the managed identiti
 
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
-    - Run scripts locally by installing the latest version of [Azure PowerShell](/powershell/azure/install-az-ps), then sign in to Azure using `Connect-AzAccount`. 
+    - Run scripts locally by installing the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell), then sign in to Azure using `Connect-AzAccount`. 
 
 ## System-assigned managed identity
 
@@ -122,7 +122,7 @@ If your virtual machine scale set has multiple user-assigned managed identities,
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"
 ```
-If your virtual machine scale set does not have a system-assigned managed identity and you want to remove all user-assigned managed identities from it, use the following command:
+If your virtual machine scale set doesn't have a system-assigned managed identity and you want to remove all user-assigned managed identities from it, use the following command:
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None

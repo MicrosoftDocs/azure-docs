@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure IDEO for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure IDEO for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to IDEO.
 services: active-directory
 author: twimmers
@@ -9,17 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
 # Tutorial: Configure IDEO for automatic user provisioning
 
 The objective of this tutorial is to demonstrate the steps to be performed in IDEO and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to IDEO. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
-
-> [!NOTE]
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## Capabilities supported
 > [!div class="checklist"]
@@ -35,7 +31,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* [A IDEO tenant](https://www.shape.space/product/pricing)
+* [A IDEO tenant](https://www.saasworthy.com/product/shape-space/pricing)
 * A user account on IDEO | Shape with Admin permissions.
 
 

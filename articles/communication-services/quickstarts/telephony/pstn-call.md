@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Call To Phone
+title: Quickstart - Call to a telephone number
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add PSTN calling capabilities to your app using Azure Communication Services.
 author: nikuklic
@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 zone_pivot_groups: acs-plat-web-ios-android
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-js
 ---
 
-# Quickstart: Call To Phone
+# Quickstart: Outbound call to a telephone number
 
 Get started with Azure Communication Services by using the Communication Services Calling SDK to add PSTN calling to your app.
 

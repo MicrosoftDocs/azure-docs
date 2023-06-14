@@ -2,15 +2,15 @@
 title: Convert managed disks storage between different disk types by using Azure PowerShell
 description: How to convert Azure managed disks between the different disks types by using Azure PowerShell.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.topic: how-to
-ms.date: 02/13/2021
+ms.date: 02/09/2023
 ms.author: albecker 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Update the storage type of a managed disk
+# Change the disk type of an Azure managed disk - PowerShell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows 
 
@@ -19,11 +19,14 @@ There are four disk types of Azure managed disks: Azure ultra disks, premium SSD
 This functionality is not supported for unmanaged disks. But you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
 
 
-
 ## Before you begin
 
-* Because conversion requires a restart of the virtual machine (VM), you should schedule the migration of your disk storage during a pre-existing maintenance window.
-* If your disk is unmanaged, first [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) so you can switch between storage options.
+Because conversion requires a restart of the virtual machine (VM), schedule the migration of your disk during a pre-existing maintenance window.
+
+## Restrictions
+
+- You can only change disk type once per day.
+- You can only change the disk type of managed disks. If your disk is unmanaged, [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) to switch between disk types.
 
 ## Switch all managed disks of a VM between from one account to another
 

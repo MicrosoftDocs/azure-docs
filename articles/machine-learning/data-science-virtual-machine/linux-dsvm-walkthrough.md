@@ -5,10 +5,10 @@ description: Learn how to complete several common data science tasks by using th
 services: machine-learning
 ms.service: data-science-vm
 
-author: timoklimmer
-ms.author: tklimmer
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 06/23/2022
 
 ---
 
@@ -24,7 +24,7 @@ Before you can use a Linux DSVM, you must have the following prerequisites:
 
 * **Azure subscription**. To get an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/).
 
-* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](./release-notes.md).
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](./release-notes.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](dsvm-ubuntu-intro.md#x2go).
 
 ## Download the spambase dataset
@@ -32,7 +32,7 @@ Before you can use a Linux DSVM, you must have the following prerequisites:
 The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains 4,601 examples. The dataset is a convenient size for demonstrating some of the key features of the DSVM because it keeps the resource requirements modest.
 
 > [!NOTE]
-> This walkthrough was created by using a D2 v2-size Linux DSVM (Ubuntu 18.04 Edition). You can use a DSVM this size to complete the procedures that are demonstrated in this walkthrough.
+> This walkthrough was created by using a D2 v2-size Linux DSVM. You can use a DSVM this size to complete the procedures that are demonstrated in this walkthrough.
 
 If you need more storage space, you can create additional disks and attach them to your DSVM. The disks use persistent Azure storage, so their data is preserved even if the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your DSVM, complete the steps in [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The steps for adding a disk use the Azure CLI, which is already installed on the DSVM. You can complete the steps entirely from the DSVM itself. Another option to increase storage is to use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
 
@@ -74,8 +74,7 @@ To get copies of the code samples that are used in this walkthrough, use git to 
 git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 ```
 
-Open a terminal window and start a new R session in the R interactive console. You also can use RStudio, which is preinstalled on the DSVM.
-
+Open a terminal window and start a new R session in the R interactive console.
 To import the data and set up the environment:
 
 ```R

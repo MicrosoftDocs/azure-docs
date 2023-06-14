@@ -2,14 +2,14 @@
 title: Protecting Microsoft 365 from on-premises attacks
 description: Learn how to configure your systems to help protect your Microsoft 365 cloud environment from on-premises compromise.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/29/2022
-ms.author: baselden
+ms.date: 08/26/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom:
   - it-pro
@@ -157,7 +157,7 @@ Deploy Azure AD joined Windows 10 workstations with mobile device management pol
 - **Use Windows 10 workstations**.
   - Deprecate machines that run Windows 8.1 and earlier.
   - Don't deploy computers that have server operating systems as workstations.
-- **Use Microsoft Endpoint Manager as the authority for all device management workloads.** See [Microsoft Endpoint Manager](https://www.microsoft.com/security/business/microsoft-endpoint-manager).
+- **Use Microsoft Intune as the authority for all device management workloads.** See [Microsoft Intune](https://www.microsoft.com/security/business/endpoint-management/microsoft-intune).
 - **Deploy privileged access devices.** For more information, see [Device roles and profiles](/security/compass/privileged-access-devices#device-roles-and-profiles).
 
 ### Workloads, applications, and resources 
@@ -206,9 +206,9 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
 - **Suspicious activity**
 
-  Monitor all Azure AD risk events for suspicious activity. See [Risk detection and remediation](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation). Azure AD Identity Protection is natively integrated with Microsoft Defender for Cloud. See [What is Identity Protection](../identity-protection/overview-identity-protection.md).
+  Monitor all Azure AD risk events for suspicious activity. See [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md). Azure AD Identity Protection is natively integrated with [Microsoft Defender for Identity](/defender-for-identity/what-is).
 
-  Define the network named locations to avoid noisy detections on location-based signals. See [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md).
+  Define network named locations to avoid noisy detections on location-based signals. See [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md).
 
 - **User and Entity Behavioral Analytics (UEBA) alerts**
 
@@ -281,4 +281,4 @@ Define a log storage and retention strategy, design, and implementation to facil
 
 - [Build resilience into identity and access management by using Azure AD](resilience-overview.md)
 - [Secure external access to resources](secure-external-access-resources.md) 
-- [Integrate all your apps with Azure AD](five-steps-to-full-application-integration-with-azure-ad.md)
+- [Integrate all your apps with Azure AD](five-steps-to-full-application-integration.md)

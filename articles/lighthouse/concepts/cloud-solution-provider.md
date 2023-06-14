@@ -1,7 +1,7 @@
 ---
 title: Cloud Solution Provider program considerations
 description: For CSP partners, Azure delegated resource management helps improve security and control by enabling granular permissions.
-ms.date: 06/09/2022
+ms.date: 11/28/2022
 ms.topic: conceptual
 ---
 
@@ -28,7 +28,7 @@ Using Azure Lighthouse, you can assign different groups to different customers o
 
 Azure Lighthouse helps improve security by limiting unnecessary access to your customers' resources. It also gives you more flexibility to manage multiple customers at scale, using the [Azure built-in role](tenants-users-roles.md#role-support-for-azure-lighthouse) that's most appropriate for each user's duties, without granting a user more access than necessary.
 
-To further minimize the number of permanent assignments, you can [create eligible authorizations](../how-to/create-eligible-authorizations.md) (currently in public preview) to grant additional permissions to your users on a just-in-time basis.
+To further minimize the number of permanent assignments, you can [create eligible authorizations](../how-to/create-eligible-authorizations.md) to grant additional permissions to your users on a just-in-time basis.
 
 Onboarding a subscription that you created through the CSP program follows the steps described in [Onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md). Any user who has the Admin Agent role in the customer's tenant can perform this onboarding.
 

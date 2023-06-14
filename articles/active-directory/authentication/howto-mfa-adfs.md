@@ -1,16 +1,16 @@
 ---
-title: Secure resources with Azure AD MFA and ADFS - Azure Active Directory
+title: Secure resources with Azure AD MFA and ADFS
 description: This is the Azure AD Multi-Factor Authentication page that describes how to get started with Azure AD MFA and AD FS in the cloud.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -84,7 +84,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 12. In the Custom rule box, enter:
 
     ```ad-fs-claim-rule
-        c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
+        c:[Type == "https://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c); 
     ```
 

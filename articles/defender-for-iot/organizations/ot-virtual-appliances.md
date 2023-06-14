@@ -2,12 +2,18 @@
 title: OT monitoring with virtual appliances - Microsoft Defender for IoT
 description: Learn about system requirements for virtual appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
 ms.date: 05/03/2022
-ms.topic: conceptual
+ms.topic: limits-and-quotas
 ---
 
 # OT monitoring with virtual appliances
 
-This article lists the specifications required if you want to install Microsoft Defender for IoT OT sensor and on-premises management console software on your own virtual appliances.
+This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and lists the specifications required if you want to install Microsoft Defender for IoT software on your own virtual appliances.
+
+:::image type="content" source="media/deployment-paths/progress-plan-and-prepare.png" alt-text="Diagram of a progress bar with Plan and prepare highlighted." border="false" lightbox="media/deployment-paths/progress-plan-and-prepare.png":::
+
+> [!NOTE]
+> This article also includes information relevant for on-premises management consoles. For more information, see the [Air-gapped OT sensor management deployment path](ot-deploy/air-gapped-deploy.md).
+>
 
 ## About hypervisors
 
@@ -41,18 +47,22 @@ This section outlines considerations for virtual appliance components, for both 
 
 ## OT network sensor VM requirements
 
-The following tables list system requirements for OT network sensors on virtual appliances.
+The following tables list system requirements for OT network sensors on virtual appliances, and performance measured in our qualification labs.
 
 For all deployments, bandwidth results for virtual machines may vary, depending on the distribution of protocols and the actual hardware resources that are available, including the CPU model, memory bandwidth, and IOPS.
 
 |Hardware profile  |Performance / Monitoring  |Physical specifications  |
 |---------|---------|---------|
-|**Corporate**     |   **Max bandwidth**: 2.5 Gb/sec <br>**Max monitored assets**: 12,000      | **vCPU**: 32 <br>**Memory**: 32 GB <br>**Storage**: 5.6 TB (600 IOPS)        |
-|**Enterprise**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1.8 TB (300 IOPS)        |
-|**SMB**     |   **Max bandwidth**: 160 Mb/sec <br>**Max monitored assets**: 1,000      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 500 GB (150 IOPS)        |
-|**Office**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
-|**Rugged**     |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
+|**C5600**     |   **Max bandwidth**: 2.5 Gb/sec <br>**Max monitored assets**: 12,000      | **vCPU**: 32 <br>**Memory**: 32 GB <br>**Storage**: 5.6 TB (600 IOPS)        |
+|**E1800**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1.8 TB (300 IOPS)        |
+|**E1000**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1 TB (300 IOPS)        |
+|**E500**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 500 GB (300 IOPS)        |
+|**L500**     |   **Max bandwidth**: 160 Mb/sec <br>**Max monitored assets**: 1,000      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 500 GB (150 IOPS)        |
+|**L100**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
+|**L60** [*](ot-appliance-sizing.md#l60) |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
 
+> [!NOTE]
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
 
 ## On-premises management console VM requirements
 
@@ -60,6 +70,7 @@ An on-premises management console on a virtual appliance is supported for enterp
 
 | Specification               | Requirements |
 | ------------------ | ---------- |
+| Hardware profile               | E1800          |
 | vCPU               | 8          |
 | Memory             | 32 GB       |
 | Storage            | 1.8 TB      |
@@ -67,15 +78,5 @@ An on-premises management console on a virtual appliance is supported for enterp
 
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see:
-
-- [Which appliances do I need?](ot-appliance-sizing.md)
-- [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
-
-Then, use any of the following procedures to continue:
-
-- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](how-to-install-software.md)
-
-Reference articles for OT monitoring appliances also include installation procedures in case you need to install software on your own appliances, or re-install software on preconfigured appliances.
+> [!div class="step-by-step"]
+> [« Prepare an OT site deployment](best-practices/plan-prepare-deploy.md)

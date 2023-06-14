@@ -2,14 +2,16 @@
 title: Create and query Azure Data Lake Analytics - Azure CLI
 description: Learn how to use the Azure CLI to create an Azure Data Lake Analytics account and submit a U-SQL job.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: conceptual
-ms.date: 06/18/2017 
+ms.date: 01/20/2023 
 ms.custom: devx-track-azurecli
 ---
 # Get started with Azure Data Lake Analytics using Azure CLI
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
+
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
 
 This article describes how to use the Azure CLI command-line interface to create Azure Data Lake Analytics accounts, submit USQL jobs, and catalogs. The job reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file.
 
@@ -18,7 +20,7 @@ This article describes how to use the Azure CLI command-line interface to create
 Before you begin, you need the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* This article requires that you are running the Azure CLI version 2.0 or later. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+* This article requires that you're running the Azure CLI version 2.0 or later. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sign in to Azure
 
@@ -28,9 +30,9 @@ To sign in to your Azure subscription:
 az login
 ```
 
-You are requested to browse to a URL, and enter an authentication code.  And then follow the instructions to enter your credentials.
+You're requested to browse to a URL, and enter an authentication code.  And then follow the instructions to enter your credentials.
 
-Once you have logged in, the login command lists your subscriptions.
+Once you've logged in, the login command lists your subscriptions.
 
 To use a specific subscription:
 
@@ -125,7 +127,7 @@ This U-SQL script reads the source data file using **Extractors.Tsv()**, and the
 
 Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics creates the output folder if it doesn't exist.
 
-It is simpler to use relative paths for files stored in default Data Lake Store accounts. You can also use absolute paths.  For example:
+It's simpler to use relative paths for files stored in default Data Lake Store accounts. You can also use absolute paths.  For example:
 
 ```usql
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv

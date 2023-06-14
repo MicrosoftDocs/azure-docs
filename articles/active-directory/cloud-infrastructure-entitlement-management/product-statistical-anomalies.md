@@ -2,21 +2,17 @@
 title: Create and view statistical anomalies and anomaly triggers in Permissions Management
 description: How to create and view statistical anomalies and anomaly triggers in the Statistical Anomaly tab in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: active-directory
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Create and view statistical anomalies and anomaly triggers
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 Statistical anomalies can detect outliers in an identity's behavior if recent activity is determined to be unusual based on models defined in an activity trigger. The goal of this anomaly trigger is a high recall rate.
 
@@ -74,7 +70,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
      - The **Controller** column displays if the controller is enabled or disabled.
 
 
-1. On the **Configuration** tab, to update the **Time Interval**, from the **Time Range** dropdown, select **90 Days**, **60 Days**, or **30 Days**, and then select **Save**.
+1. Select **Save**.
 
 ## View statistical anomaly triggers
 

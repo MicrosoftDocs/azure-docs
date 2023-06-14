@@ -1,5 +1,5 @@
 ---
-title: azcopy jobs show | Microsoft Docs
+title: azcopy jobs show
 description: This article provides reference information for the azcopy jobs show command.
 author: normesta
 ms.service: storage

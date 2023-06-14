@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 10/27/2022
 ms.author: victorh
 ---
 
@@ -32,22 +32,17 @@ When you deploy an Azure Firewall into a subnet, one step is to create a default
 When you introduce the firewall into your load balancer scenario, you want your Internet traffic to come in through your firewall's public IP address. From there, the firewall applies its firewall rules and NATs the packets to your load balancer's public IP address. This is where the problem occurs. Packets arrive on the firewall's public IP address, but return to the firewall via the private IP address (using the default route).
 To avoid this problem, create an additional host route for the firewall's public IP address. Packets going to the firewall's public IP address are routed via the Internet. This avoids taking the default route to the firewall's private IP address.
 
-![Asymmetric routing](media/integrate-lb/Firewall-LB-asymmetric.png)
-
+:::image type="content" source="media/integrate-lb/Firewall-LB-asymmetric.png" alt-text="Diagram of asymmetric routing." lightbox="media/integrate-lb/Firewall-LB-asymmetric.png":::
 ### Route table example
 
 For example, the following routes are for a firewall at public IP address 20.185.97.136, and private IP address 10.0.1.4.
 
-> [!div class="mx-imgBorder"]
-> ![Route table](media/integrate-lb/route-table.png)
-
+:::image type="content" source="media/integrate-lb/route-table.png" alt-text="Screenshot of route table." lightbox="media/integrate-lb/route-table.png":::
 ### NAT rule example
 
 In the following example, a NAT rule translates RDP traffic to the firewall at 20.185.97.136 over to the load balancer at 20.42.98.220:
 
-> [!div class="mx-imgBorder"]
-> ![NAT rule](media/integrate-lb/nat-rule-02.png)
-
+:::image type="content" source="media/integrate-lb/nat-rule-02.png" alt-text="Screenshot of NAT rule." lightbox="media/integrate-lb/nat-rule-02.png":::
 ### Health probes
 
 Remember, you need to have a web service running on the hosts in the load balancer pool if you use TCP health probes to port 80, or HTTP/HTTPS probes.
@@ -69,7 +64,7 @@ To further enhance the security of your load-balanced scenario, you can use netw
 
 For example, you can create an NSG on the backend subnet where the load-balanced virtual machines are located. Allow incoming traffic originating from the firewall IP address/port.
 
-![Network security group](media/integrate-lb/nsg-01.png)
+:::image type="content" source="media/integrate-lb/nsg-01.png" alt-text="Screenshot of network security group." lightbox="media/integrate-lb/nsg-01.png":::
 
 For more information about NSGs, see [Security groups](../virtual-network/network-security-groups-overview.md).
 

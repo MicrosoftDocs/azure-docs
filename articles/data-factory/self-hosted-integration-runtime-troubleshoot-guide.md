@@ -7,17 +7,19 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 02/16/2022
+ms.date: 05/18/2023
 ms.author: lle
 ---
 
 # Troubleshoot self-hosted integration runtime
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-mp.md)]
 
 This article explores common troubleshooting methods for self-hosted integration runtime (IR) in Azure Data Factory and Synapse workspaces.
 
 ## Gather self-hosted IR logs
+
+### Azure Data Factory and Azure Synapse Analytics
 
 For failed activities that are running on a self-hosted IR or a shared IR, the service supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
 
@@ -39,7 +41,7 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
     
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png" alt-text="Screenshot of the activity logs for the failed activity."::: 
     
-3. For further assistance, select **Send logs**.
+1. For further assistance, select **Send logs**.
  
    The **Share the self-hosted integration runtime (IR) logs with Microsoft** window opens.
 
@@ -56,6 +58,41 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
 > [!NOTE]
 > Log viewing and uploading requests are executed on all online self-hosted IR instances. If any logs are missing, make sure that all the self-hosted IR instances are online. 
 
+### Microsoft Purview
+
+For failed Microsoft Purview activities that are running on a self-hosted IR or shared IR, the service supports viewing and uploading error logs from the [Windows Event Viewer](/shows/inside/event-viewer).
+
+You can look up any errors you see in the error guide below.
+To get support and troubleshooting guidance for SHIR issues, you may need to generate an error report ID and [reach out to Microsoft support](https://azure.microsoft.com/support/create-ticket/).
+
+To generate the error report ID for Microsoft Support, follow these instructions:
+
+1. Before starting a scan in the Microsoft Purview governance portal:
+
+    1. Navigate to the machine where the self-hosted integration runtime is installed and open the Windows Event Viewer.
+    1. Clear the Windows Event Viewer logs in the **Integration Runtime** section. Right-click on the logs and select the clear logs option.
+    1. Navigate back to the Microsoft Purview governance portal and start the scan.
+
+1. Once the scan shows status **Failed**, navigate back to the SHIR VM, or machine and refresh the event viewer in the **Integration Runtime** section.
+1. The activity logs are displayed for the failed scan run.
+
+1. For further assistance from Microsoft, select **Send Logs**.
+
+   The **Share the self-hosted integration runtime (SHIR) logs with Microsoft** window opens.
+
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs-integration-runtime.png" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs-integration-runtime.png" alt-text="Screenshot of the send logs button on the self-hosted integration runtime (SHIR) to upload logs to Microsoft.":::
+
+1. Select which logs you want to send.
+
+    * For a *self-hosted IR*, you can upload logs that are related to the failed activity or all logs on the self-hosted IR node.
+    * For a *shared IR*, you can upload only logs that are related to the failed activity.
+
+1. When the logs are uploaded, keep a record of the Report ID for later use if you need further assistance to solve the issue.
+
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs-complete.png" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs-complete.png" alt-text="Screenshot of the displayed report ID in the upload progress window for the Purview SHIR logs.":::
+
+> [!NOTE]
+> Log viewing and uploading requests are executed on all online self-hosted IR instances. If any logs are missing, make sure that all the self-hosted IR instances are online.
 
 ## Self-hosted IR general failure or error
 
@@ -873,7 +910,7 @@ How to determine whether you're affected:
 
     The self-hosted IR couldn't connect to the Azure Data Factory or Azure Synapse service.
     
-    When you check the self-hosted IR event log or the client notification logs in the CustomLogEvent table, you'll find the following error message:
+    When you check the self-hosted IR event log after going to **Windows** > **Event viewer (logs)** > **Applications and Services Logs** > **Integration Runtime**, you'll find the following error message.
     
     "The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. The remote certificate is invalid according to the validation procedure."
     
@@ -909,7 +946,7 @@ How to determine whether you're affected:
 
 For more help with troubleshooting, try the following resources:
 
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

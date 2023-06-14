@@ -8,8 +8,8 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/27/2022
-ms.custom: devx-track-azurepowershell, synapse
+ms.date: 02/08/2023
+ms.custom: synapse
 ---
 
 # Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics
@@ -114,7 +114,7 @@ For a complete sample, see [Quickstart: Create a data factory by using the REST 
 The following sample command shows you how to manually run your pipeline by using Azure PowerShell:
 
 ```powershell
-Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json -ResourceGroupName "myResourceGroup"
 ```
 
 You pass parameters in the body of the request payload. In the .NET SDK, Azure PowerShell, and the Python SDK, you pass values in a dictionary that's passed as an argument to the call:

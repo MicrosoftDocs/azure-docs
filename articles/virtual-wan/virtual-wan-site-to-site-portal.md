@@ -5,7 +5,7 @@ description: Learn how to use Azure Virtual WAN to create a site-to-site VPN con
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 05/02/2022
+ms.date: 06/16/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -46,7 +46,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
 A virtual hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab in the next section. It's also possible to create an empty virtual hub (a virtual hub that doesn't contain any gateways) and then add gateways (S2S, P2S, ExpressRoute, etc.) later. Once a virtual hub is created, you'll be charged for the virtual hub, even if you don't attach any sites or create any gateways within the virtual hub.
 
-[!INCLUDE [Create a virtual hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+[!INCLUDE [Create a virtual hub](../../includes/virtual-wan-hub-basics.md)]
 
 Don't create the virtual hub yet. Continue on to the next section to configure additional settings.
 
@@ -80,13 +80,13 @@ Use the VPN device configuration file to configure your on-premises VPN device. 
 
 1. From your Virtual WAN page, go to **Hubs -> Your virtual hub -> VPN (Site to site)** page.
 
-1. At the top of the **VPN (Site to site)** page, click **Download VPN Config**. You'll see a series of messages as Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN.
+1. At the top of the **VPN (Site to site)** page, click **Download VPN Config**. You'll see a series of messages as Azure creates a new storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. You can also add an existing storage account by clicking "Use Existing" and adding a valid SAS URL with write permissions enabled. To learn more about creating a new SAS URL, see [Generate the SAS URL](packet-capture-site-to-site-portal.md#URL).
 
-1. Once the file finishes creating, click the link to download the file. To learn about the contents of the file, see [About the VPN device configuration file](#config-file) in this section.
+1. Once the file finishes creating, click the link to download the file. This creates a new file with VPN configuration at the provided SAS url location. To learn about the contents of the file, see [About the VPN device configuration file](#config-file) in this section.
 
 1. Apply the configuration to your on-premises VPN device. For more information, see [VPN device configuration](#vpn-device) in this section.
 
-1. After you've applied the configuration to your VPN devices, it isn't necessary to keep the storage account that Azure created. You can delete it.
+1. After you've applied the configuration to your VPN devices, it is not required to keep the storage account that you created.
 
 ### <a name="config-file"></a>About the VPN device configuration file
 

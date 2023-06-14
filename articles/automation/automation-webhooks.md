@@ -3,9 +3,9 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/21/2021
+ms.date: 05/09/2022
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Start a runbook from a webhook
@@ -90,7 +90,7 @@ Consider the following strategies:
 ## Create a webhook
 
 > [!NOTE]
-> When you use the webhook with PowerShell 7 runbook, it auto-converts the webhook input parameter to an invalid JSON. For more information, see [Known issues - 7.1 (preview)](./automation-runbook-types.md#known-issues---71-preview). We recommend that you use the webhook with PowerShell 5 runbook.
+> When you use the webhook with PowerShell 7 runbook, it auto-converts the webhook input parameter to an invalid JSON. For more information, see [Known issues - PowerShell 7.1 (preview)](./automation-runbook-types.md#limitations-and-known-issues). We recommend that you use the webhook with PowerShell 5 runbook.
 
 1. Create PowerShell runbook with the following code:
 
@@ -104,16 +104,14 @@ Consider the following strategies:
     write-output "start"
     write-output ("object type: {0}" -f $WebhookData.gettype())
     write-output $WebhookData
-    #write-warning (Test-Json -Json $WebhookData)
-    $Payload = $WebhookData | ConvertFrom-Json
     write-output "`n`n"
-    write-output $Payload.WebhookName
-    write-output $Payload.RequestBody
-    write-output $Payload.RequestHeader
+    write-output $WebhookData.WebhookName
+    write-output $WebhookData.RequestBody
+    write-output $WebhookData.RequestHeader
     write-output "end"
 
-    if ($Payload.RequestBody) { 
-        $names = (ConvertFrom-Json -InputObject $Payload.RequestBody)
+    if ($WebhookData.RequestBody) { 
+        $names = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
             foreach ($x in $names)
             {

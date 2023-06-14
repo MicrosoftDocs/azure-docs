@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 08/20/2022
 ---
 
 # Call logic apps from Power Automate and Power Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To call your logic apps from Microsoft Power Automate and Microsoft Power Apps, you can export your logic apps as connectors. When you expose a logic app as a custom connector in a Power Automate or Power Apps environment, you can then call your logic app from flows there.
 
@@ -32,7 +34,11 @@ If you want to migrate your flow from Power Automate or Power to Logic Apps inst
 
 * A Power Automate or Power Apps license.
 
-* A logic app with a request trigger to export.
+* A Consumption logic app workflow with a request trigger to export.
+
+  > [!NOTE]
+  >
+  > The Export capability is available only for Consumption logic app workflows in multi-tenant Azure Logic Apps.
 
 * A flow in Power Automate or Power Apps from which you want to call your logic app.
 
@@ -68,7 +74,7 @@ Here are errors that might happen when you export your logic app as a custom con
 
 To connect to the logic app that you exported with your Power Automate flow:
 
-1. Sign in to [Power Automate](https://flow.microsoft.com).
+1. Sign in to [Power Automate](https://make.powerautomate.com).
 
 1. From the **Power Automate** home page menu, select **My flows**.
 
@@ -96,7 +102,7 @@ To connect to the logic app that you exported with your Power Automate flow:
 
 ## Delete logic app connector from Power Automate
 
-1. Sign in to [Power Automate](https://flow.microsoft.com).
+1. Sign in to [Power Automate](https://make.powerautomate.com).
 
 1. On the **Power Automate** home page, select **Data** &gt; **Custom connectors** in the menu.
 
@@ -150,5 +156,5 @@ To connect to the logic app that you exported with your Power Apps flow:
 
 ## Next steps
 
-* Learn more about [Connectors for Azure Logic Apps](../connectors/apis-list.md)
-* Learn more about [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

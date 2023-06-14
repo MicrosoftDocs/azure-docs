@@ -1,8 +1,12 @@
 ---
 title: Restart policy for run-once tasks 
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
-ms.topic: article
-ms.date: 08/11/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Run containerized tasks with restart policies
@@ -62,7 +66,7 @@ az container show \
 
 Example output:
 
-```bash
+```output
 "Terminated"
 ```
 
@@ -74,7 +78,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 Output:
 
-```bash
+```output
 [('the', 990),
  ('and', 702),
  ('of', 628),

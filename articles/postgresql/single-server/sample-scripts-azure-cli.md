@@ -8,9 +8,14 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurecli
 ms.custom: sample, mvc, devx-track-azurecli, seo-azure-cli
-ms.date: 09/17/2021
+ms.date: 06/24/2022
 ---
+
 # Azure CLI samples for Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 The following table includes links to sample Azure CLI scripts for Azure Database for PostgreSQL.
 
@@ -28,5 +33,3 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 | [Restore a server](../scripts/sample-point-in-time-restore.md) | Azure CLI script that restores an Azure Database for PostgreSQL server to a previous point in time. |
 |**Download server logs**||
 | [Enable and download server logs](../scripts/sample-server-logs.md) | Azure CLI script that enables and downloads server logs of an Azure Database for PostgreSQL server. |
-|||
-

@@ -1,14 +1,14 @@
 ---
 title: Use PowerShell to deploy Azure Spot Virtual Machines
 description: Learn how to use Azure PowerShell to deploy Azure Spot Virtual Machines to save on costs.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/22/2021
-ms.author: cynthn
-ms.reviewer: jagaveer 
+ms.date: 02/28/2023
+ms.author: jushiman
+ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -77,7 +77,7 @@ You can simulate an eviction of an Azure Spot Virtual Machine using REST, PowerS
 
 In most cases, you will want to use the REST API [Virtual Machines - Simulate Eviction](/rest/api/compute/virtualmachines/simulateeviction) to help with automated testing of applications. For REST, a `Response Code: 204` means the simulated eviction was successful. You can combine simulated evictions with the [Scheduled Event service](scheduled-events.md), to automate how your app will respond when the VM is evicted.
 
-To see scheduled events in action, watch Azure Friday - Using Azure Scheduled Events to prepare for VM maintenance.
+To see scheduled events in action, watch Azure Friday - [Using Azure Scheduled Events to prepare for VM maintenance](https://youtu.be/ApsoXLVg_0U).
 
 
 ### Quick test

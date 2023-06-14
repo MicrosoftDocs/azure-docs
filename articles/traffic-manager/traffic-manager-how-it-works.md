@@ -1,16 +1,15 @@
 ---
-title: How Azure Traffic Manager works | Microsoft Docs
-description: This article will help you understand how Traffic Manager routes traffic for high performance and availability of your web applications
+title: How Azure Traffic Manager works
+description: This article will help you understand how Traffic Manager routes traffic for high performance and availability of your web applications.
 services: traffic-manager
-documentationcenter: ''
-author: asudbring
-manager: twooley
+author: greg-lindsay
+manager: kumud
 ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
-ms.author: allensu
+ms.date: 02/27/2023
+ms.author: greglin
+ms.custom: template-concept
 ---
 
 # How Traffic Manager Works
@@ -33,8 +32,11 @@ Contoso Corp have developed a new partner portal. The URL for this portal is `ht
 To achieve this configuration, they complete the following steps:
 
 1. Deploy three instances of their service. The DNS names of these deployments are 'contoso-us.cloudapp.net', 'contoso-eu.cloudapp.net', and 'contoso-asia.cloudapp.net'.
-1. Create a Traffic Manager profile, named 'contoso.trafficmanager.net', and configure it to use the 'Performance' traffic-routing method across the three endpoints.
-1. Configure their vanity domain name, 'partners.contoso.com', to point to 'contoso.trafficmanager.net', using a DNS CNAME record.
+2. Create a Traffic Manager profile, named 'contoso.trafficmanager.net', and configure it to use the 'Performance' traffic-routing method across the three endpoints.
+3. Configure their vanity domain name, 'partners.contoso.com', to point to 'contoso.trafficmanager.net', using a DNS CNAME record.
+
+> [!IMPORTANT]
+> Only one Azure [tenant ID] can own a given root traffic manager DNS name. Attempting to use a name that is already in use will display an error. In the following example, the root DNS name is **contoso**. Also, if a profile is created using a dot-separated name, such as **partners.contoso.trafficmanager.net**, then **contoso.trafficmanager.net** is automatically reserved.
 
 ![Traffic Manager DNS configuration][1]
 
@@ -61,6 +63,8 @@ Continuing from the previous example, when a client requests the page `https://p
 7. The recursive DNS service consolidates the results and returns a single DNS response to the client.
 8. The client receives the DNS results and connects to the given IP address. The client connects to the application service endpoint directly, not through Traffic Manager. Since it is an HTTPS endpoint, the client performs the necessary SSL/TLS handshake, and then makes an HTTP GET request for the '/login.aspx' page.
 
+#### Traffic Manager and the DNS cache
+
 The recursive DNS service caches the DNS responses it receives. The DNS resolver on the client device also caches the result. Caching enables subsequent DNS queries to be answered more quickly by using data from the cache rather than querying other name servers. The duration of the cache is determined by the 'time-to-live' (TTL) property of each DNS record. Shorter values result in faster cache expiry and thus more round-trips to the Traffic Manager name servers. Longer values mean that it can take longer to direct traffic away from a failed endpoint. Traffic Manager allows you to configure the TTL used in Traffic Manager DNS responses to be as low as 0 seconds and as high as 2,147,483,647 seconds (the maximum range compliant with [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)), enabling you to choose the value that best balances the needs of your application.
 
 ## FAQs
@@ -72,6 +76,8 @@ The recursive DNS service caches the DNS responses it receives. The DNS resolver
 * [Does Traffic Manager support "sticky" sessions?](./traffic-manager-faqs.md#does-traffic-manager-support-sticky-sessions)
 
 * [Why am I seeing an HTTP error when using Traffic Manager?](./traffic-manager-faqs.md#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+
+* [How can I resolve a 500 (Internal Server Error) problem when using Traffic Manager?](./traffic-manager-faqs.md#how-can-i-resolve-a-500-internal-server-error-problem-when-using-traffic-manager)
 
 * [What is the performance impact of using Traffic Manager?](./traffic-manager-faqs.md#what-is-the-performance-impact-of-using-traffic-manager)
 

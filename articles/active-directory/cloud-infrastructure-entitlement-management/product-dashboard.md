@@ -2,23 +2,17 @@
 title: View data about the activity in your authorization system in Permissions Management
 description: How to view data about the activity in your authorization system in the Permissions Management Dashboard in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: active-directory
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 01/25/2023
+ms.author: jfields
 ---
 
-
-
 # View data about the activity in your authorization system
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 The Permissions Management **Dashboard** provides an overview of the authorization system and account activity being monitored. You can use this dashboard to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
 
@@ -30,6 +24,9 @@ The Permissions Management **Dashboard** provides an overview of the authorizati
 1. Select the accounts and folders you want, and then select **Apply**.
 
    The **Permission Creep Index (PCI)** chart updates to display information about the accounts and folders you selected. The number of days since the information was last updated displays in the upper right corner.
+
+   >[!NOTE]
+   >Default and GCP-managed service accounts are not included in the PCI calculation.
 
 1. In the Permission Creep Index (PCI) graph, select a bubble.
 

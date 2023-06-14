@@ -36,7 +36,7 @@ Communication Monitoring is compatible with the same browsers as the Calling SDK
 
 ## Get started with Communication Monitoring
 
-The tool can be accessed through an npm package `@azure/communication-monitoring`. The package contains the `CommunicationMonitoring` object that can be attached to a `Call`. Instructions on how to initialize the required `CallClient` and `CallAgent` objects can be found [here](https://docs.microsoft.com/azure/communication-services/how-tos/calling-sdk/manage-calls?pivots=platform-web#initialize-required-objects). `CommunicationMonitoring` also requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the rendered panel.
+The tool can be accessed through an npm package `@azure/communication-monitoring`. The package contains the `CommunicationMonitoring` object that can be attached to a `Call`. Instructions on how to initialize the required `CallClient` and `CallAgent` objects can be found [here](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web#initialize-required-objects). `CommunicationMonitoring` also requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the rendered panel.
 
 ### Installing Communication Monitoring
 
@@ -104,4 +104,4 @@ The tool includes the ability to download the logs captured using the `Download 
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
 - [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
 - [Leverage Network Diagnostic Tool](./network-diagnostic.md)
-- [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
+- [Consume call logs with Azure Monitor](../analytics/logs/voice-and-video-logs.md)

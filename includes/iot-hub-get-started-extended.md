@@ -22,7 +22,6 @@ Use other Azure services and tools. When you have connected your device to IoT H
 | [Save IoT Hub messages to Azure storage](../articles/iot-hub/tutorial-routing.md#route-to-a-storage-account)  | Azure table storage                |
 | [Visualize sensor data](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [Visualize sensor data](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Azure Web Apps                     |
-| [Forecast weather with sensor data](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |
 | [Automatic anomaly detection and reaction](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) | Azure Logic Apps                   |
 
 ## Next steps

@@ -47,7 +47,7 @@ The Network Mapping watchlist lists IP subnets and their respective organization
 
 | Field name | Format       | Example                      | Mandatory/Optional |
 | ---------- | ------------ | ---------------------------- | ------------------ |
-| **IP Subnet**  | Subnet range |` 198.51.100.0/24 - 198….../22` | Mandatory          |
+| **IP Subnet**  | Subnet range | `198.51.100.0/24` | Mandatory          |
 | **Range Name** | String       | `DMZ`                          | Optional           |
 | **Tags**       | List         | `["Example","Example"]`        | Optional           |
 

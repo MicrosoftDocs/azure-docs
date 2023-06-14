@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/03/2022
+ms.date: 04/05/2023
 ms.author: banders
 ---
 
@@ -194,7 +194,7 @@ The total charges for using 100 TB of data in this scenario is **180.5**
 
 #### You have multiple billing profiles.
 
-Now, let's assume you created another billing profile and used 50 GB through subscriptions that are billed to the first billing profile and 50 GB through subscriptions that are billed to the second billing profile, here's how much you would be charged.
+Now, let's assume you created another billing profile and used 50 TB through subscriptions that are billed to the first billing profile and 50 TB through subscriptions that are billed to the second billing profile, here's how much you would be charged.
 
 `Charges for the first billing profile`
 

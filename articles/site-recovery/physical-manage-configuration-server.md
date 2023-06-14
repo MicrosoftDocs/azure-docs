@@ -2,11 +2,11 @@
 title: Manage the configuration server for physical servers in Azure Site Recovery
 description: This article describes how to manage the Azure Site Recovery configuration server for physical server disaster recovery to Azure.
 services: site-recovery
-author: mayurigupta13
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/28/2019
-ms.author: mayg
+ms.date: 07/27/2022
+ms.author: ankitadutta
 ---
 
 # Manage the configuration server for physical server disaster recovery
@@ -254,7 +254,7 @@ Upgrade the server as follows:
    * Microsoft Azure Site Recovery Provider
    * Microsoft Azure Site Recovery Configuration Server/Process Server
    * Microsoft Azure Site Recovery Configuration Server Dependencies
-   * MySQL Server 5.5
+   * MySQL Server 5.7
 4. Run the following command from and admin command prompt.
    ```
    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
@@ -262,28 +262,28 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](/powershell/azure/install-Az-ps) Azure PowerShell module
+1. [Install](/powershell/azure/install-azure-powershell) Azure PowerShell module
 2. Login into to your Azure account using the command
     
-    `Connect-AzAccount`
+    `Connect-AzAccount –UseDeviceAuthentication`
 3. Select the subscription under which the vault is present
 
-     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select–AzSubscription`
 3.  Now set up your vault context
     
     ```powershell
-    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
-    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
+    $vault = Get–AzRecoveryServicesVault –Name <name of your vault>
+    Set-AzRecoveryServicesAsrVaultContext –Vault $vault
     ```
 4. Get select your configuration server
 
-    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get–AzRecoveryServicesAsrFabric –FriendlyName <name of your configuration server>`
 6. Delete the Configuration Server
 
-    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
+    `Remove–AzRecoveryServicesAsrFabric –Fabric $Fabric –Force`
 
 > [!NOTE]
-> The **-Force** option in the Remove-AzSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
+> The **-Force** option in the Remove-AzRecoveryServicesAsrFabric can be used to force the removal/deletion of the Configuration server.
 
 ## Renew TLS/SSL certificates
 The configuration server has an inbuilt web server, which orchestrates activities of the Mobility service, process servers, and master target servers connected to it. The web server uses a TLS/SSL certificate to authenticate clients. The certificate expires after three years, and can be renewed at any time.

@@ -1,19 +1,16 @@
 ---
 
-title: How to troubleshoot sign-in errors reports | Microsoft Docs
+title: How to troubleshoot sign-in errors reports
 description: Learn how to troubleshoot sign-in errors using Azure Active Directory reports in the Azure portal
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
+ms.date: 02/16/2023
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
 
 ms.collection: M365-identity-device-management
@@ -35,7 +32,7 @@ In addition, the sign-ins report can also help you troubleshoot sign-in failures
 You need:
 
 * An Azure AD tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
-* A user, who is in the **global administrator**, **security administrator**, **security reader**, or **report reader** role for the tenant. In addition, any user can access their own sign-ins. 
+* A user, who is in the **global administrator**, **security administrator**, **security reader**, or **reports reader** role for the tenant. In addition, any user can access their own sign-ins. 
 
 ## Troubleshoot sign-in errors using the sign-ins report
 
@@ -45,7 +42,7 @@ You need:
 
     ![Filter results](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identify the failed sign-in you want to investigate. Select it to open up the additional details window with more information about the failed sign-in. Note down the **Sign-in error code** and **Failure reason**. 
+4. Identify the failed sign-in you want to investigate. Select it to open up the other details window with more information about the failed sign-in. Note down the **Sign-in error code** and **Failure reason**. 
 
     ![Select record](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +52,7 @@ You need:
 
 6. The failure reason describes the error. For example, in the above scenario, the failure reason is **Invalid username or password or Invalid on-premises username or password**. The fix is to simply sign-in again with the correct username and password.
 
-7. You can get additional information, including ideas for remediation, by searching for the error code, **50126** in this example, in the [sign-ins error codes reference](./concept-sign-ins.md). 
+7. You can get additional information, including ideas for remediation, by searching for the error code, **50126** in this example, in the [sign-ins error codes reference](../develop/reference-error-codes.md). 
 
 8. If all else fails, or the issue persists despite taking the recommended course of action, [open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) following the steps in the **Troubleshooting and support** tab. 
 

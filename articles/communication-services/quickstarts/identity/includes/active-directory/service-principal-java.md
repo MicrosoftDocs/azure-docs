@@ -26,7 +26,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0</version>
+    <version>[1.4.0,)</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -75,8 +75,8 @@ Now we'll add code which uses the created credential, to issue a VoIP Access Tok
                     .credential(this.credential)
                     .buildClient();
 
-          CommunicationUserIdentifier user = communicationIdentityClient.createUser();
-          return communicationIdentityClient.getToken(user, new ArrayList<>(Arrays.asList(CommunicationTokenScope.CHAT)));
+          CommunicationUserIdentifierAndToken result =  communicationIdentityClient.createUserAndToken(new ArrayList<>(Arrays.asList(CommunicationTokenScope.CHAT)));
+          return result.getUserToken();
     }
 ```
 
@@ -146,14 +146,15 @@ public class App
           // Send the message and check the response for a message id
           return smsClient.send(from, to, message);
     }
+    
     public AccessToken createIdentityAndGetTokenAsync(String endpoint) {
           CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
                     .endpoint(endpoint)
                     .credential(this.credential)
                     .buildClient();
 
-          CommunicationUserIdentifier user = communicationIdentityClient.createUser();
-          return communicationIdentityClient.getToken(user, new ArrayList<>(Arrays.asList(CommunicationTokenScope.CHAT)));
+          CommunicationUserIdentifierAndToken result =  communicationIdentityClient.createUserAndToken(new ArrayList<>(Arrays.asList(CommunicationTokenScope.CHAT)));
+          return result.getUserToken();
     }
 
     public static void main(String[] args) {

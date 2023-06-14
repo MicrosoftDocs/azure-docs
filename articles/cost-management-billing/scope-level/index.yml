@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 09/30/2021
+  ms.date: 04/23/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -19,24 +19,31 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
+
   - title: Get started
     linkLists:
     - linkListType: overview
       links:
       - text: What is centralized management?
         url: overview-azure-hybrid-benefit-scope.md
-    - linkListType: tutorial
+    - linkListType: video
       links:
-      - text: Optimize centrally managed Azure Hybrid Benefit
-        url: tutorial-azure-hybrid-benefits-sql.md
-    - linkListType: how-to-guide
+      - text: Demo - Reduce costs and increase SQL license utilization using Azure Hybrid Benefit
+        url: https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo
+    - linkListType: tutorial
       links:
       - text: Create SQL Server license assignments
         url: create-sql-license-assignments.md
+      - text: Optimize centrally managed Azure Hybrid Benefit
+        url: tutorial-azure-hybrid-benefits-sql.md
 
   # Card (optional)
   - title: Manage
     linkLists:
+    - linkListType: concept
+      links:
+      - text: SQL IaaS extension registration options
+        url: sql-iaas-extension-registration.md
     - linkListType: how-to-guide
       links:
       - text: Transition to centrally managed Azure Hybrid Benefit

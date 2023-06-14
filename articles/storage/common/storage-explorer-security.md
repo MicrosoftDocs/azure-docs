@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Explorer security guide | Microsoft Docs
+title: Azure Storage Explorer security guide
 description: Security guidance for Azure Storage Explorer
 services: storage
 author: cralvord

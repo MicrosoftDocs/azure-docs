@@ -1,0 +1,80 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions - Azure confidential ledger 
+  description: Get answers to frequently asked questions about Azure confidential ledger
+  services: confidential-ledger
+  author: msmbaldwin
+  tags: azure-resource-manager
+  
+  ms.service: confidential-ledger
+  ms.topic: faq
+  ms.date: 06/05/2022
+  ms.author: mbaldwin
+title: Azure confidential ledger FAQ
+summary: This article answers frequently asked questions about Azure confidential ledger.
+
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          How can I tell if the Azure confidential ledger service would be useful to my organization?
+        answer: |
+          Azure confidential ledger is ideal for organizations with records valuable enough for a motivated attacker to try to compromise the underlying logging or storage system, including "insider" scenarios where a rogue employee might attempt to forge, modify, or remove previous records.
+          
+      - question: |
+          What makes Azure confidential ledger much more secure?
+        answer: |
+          As its name suggests, the ledger utilizes the [Azure Confidential Computing platform](../confidential-computing/index.yml) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper-protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
+          
+      - question: |
+          When writing to the Azure confidential ledger, do I need to store write receipts?
+        answer: |
+          Not necessarily. Some solutions today require users to maintain write receipts for future log validation. This requires users to manage those receipts in a secure storage facility, which adds an extra burden. The ledger eliminates this challenge through a Merkle tree-based approach, where write receipts include a full tree path to a signed root-of-trust. Users can verify transactions without storing or managing any ledger data.
+          
+      - question: |
+          How do I verify ledger's authenticity?
+        answer: |
+          You can verify that the ledger server nodes that your client is communicating with are authentic. For details, see [Authenticating confidential ledger Nodes](authenticate-ledger-nodes.md).
+
+      - question: |
+          Could the communication between a client and ACL be compromised by an Azure Admin, since Azure controls the TLS between client and ACL?
+        answer: |
+          The TLS connection is established between a client and a specific node running inside an enclave. As the connection terminates inside the enclave, neither Azure admins nor anyone else has access to the enclave data by virtue of the security provided by the Intel SGX specialized hardware.
+
+      - question: |
+          Does ACL offers querying on attributes other than the receipt/transaction ID?
+        answer: |
+          Besides querying with the receipt/transaction ID, ACL offers historical querying capability to read the data from Genesis(or within a range) for a specific key using the collection ID (also called the sub ledger ID) parameter. We would be interested to know what other attributes would be useful for querying, as we are gathering input on for our product roadmap.
+
+      - question: |
+          Is the data on disk encrypted separately? If so, where are the keys stored?
+        answer: |
+          When storing data on the ledger, you can choose the public or private option. The public option is not encrypted; plain-text and a good fit for certain use cases which require tamper-evident and auditable ledger use. The private option, however, is encrypted. The data is encrypted using three levels of encryption (i.e. Ledger Secrets, Ledger Secret Wrapping Key, and Recovery key Shares), which is explained in detail [here](https://microsoft.github.io/CCF/main/architecture/cryptography.html).
+
+  - name: User management
+    questions:
+
+      - question: |
+          How can I manage users on a ledger?
+        answer: |
+          You can manage users on a ledger through the portal or one of the available SDKs: [python](https://pypi.org/project/azure-confidentialledger/), [.NET](/dotnet/api/overview/azure/security.confidentialledger-readme), or [Java (preview)](/java/api/overview/azure/data-confidentialledger-readme?view=azure-java-preview).
+
+      - question: |
+          Can Microsoft help me manage users on a ledger I have created?
+        answer: |
+          No. Once a ledger is created, Microsoft has no access to user management. 
+
+      - question: |
+          I've created a ledger without an administrator. Can I still add users?
+        answer: |
+          If you create a ledger without an administrator, the AAD/cert gets admin rights. That identity can be used to manage the ledger.
+          
+
+
+additionalContent: |
+
+  ## Next steps
+  
+  - [Azure confidential ledger](./overview.md)
+

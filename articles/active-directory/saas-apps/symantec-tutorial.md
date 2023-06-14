@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/28/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Symantec Web Security Service (WSS)
@@ -18,7 +18,7 @@ In this tutorial, you will learn how to integrate your Symantec Web Security Ser
 
 Integrating Symantec Web Security Service (WSS) with Azure AD provides you with the following benefits:
 
-* Manage all of the end users and groups used by your WSS account from your Azure AD portal.
+* Manage all of the end users and groups used by your WSS account from your Azure portal.
 
 * Allow the end users to authenticate themselves in WSS using their Azure AD credentials.
 
@@ -53,6 +53,8 @@ To configure the integration of Symantec Web Security Service (WSS) into Azure A
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Symantec Web Security Service (WSS)** in the search box.
 1. Select **Symantec Web Security Service (WSS)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Symantec Web Security Service (WSS)
 

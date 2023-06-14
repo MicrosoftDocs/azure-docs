@@ -4,14 +4,14 @@ title: Virtual machines in Azure # < 60 chars
 summary: Documentation for creating and managing virtual machines in Azure. # < 160 chars
 
 metadata:
-  title: Virtual machines in Azure # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Documentation for creating and managing Linux virtual machines in Azure. # Required; article description that is displayed in search results. < 160 chars.
+  title: Virtual machines in Azure
+  description: Documentation for creating and managing Linux virtual machines in Azure.
   services: virtual-machines
-  ms.service: virtual-machines #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: cynthn #Required; your GitHub user alias, with correct capitalization.
-  ms.author: cynthn #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/13/2021 #Required; mm/dd/yyyy format.
+  ms.service: virtual-machines
+  ms.topic: landing-page
+  author: cynthn
+  ms.author: cynthn
+  ms.date: 12/13/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -29,6 +29,8 @@ landingContent:
             url: trusted-launch.md
           - text: VM applications in Azure Compute Gallery 
             url: vm-applications.md
+          - text: VM restore points 
+            url: virtual-machines-create-restore-points.md
 
   # Card (optional)
   - title: Linux quickstarts
@@ -41,6 +43,8 @@ landingContent:
             url: ./linux/quick-create-portal.md
           - text: Azure PowerShell
             url: ./linux/quick-create-powershell.md
+          - text: Terraform
+            url: ./linux/quick-create-terraform.md
 
   # Card (optional)
   - title: Windows quickstarts
@@ -51,6 +55,8 @@ landingContent:
             url: ./windows/quick-create-portal.md
           - text: Azure PowerShell
             url: ./windows/quick-create-powershell.md
+          - text: Terraform
+            url: ./windows/quick-create-terraform.md
           - text: Azure CLI
             url: ./windows/quick-create-cli.md
 
@@ -60,9 +66,9 @@ landingContent:
       - linkListType: learn
         links:
           - text:  Create a Linux virtual machine in Azure
-            url: /learn/modules/create-linux-virtual-machine-in-azure/
+            url: /training/modules/create-linux-virtual-machine-in-azure/
           - text:  Create a Windows virtual machine in Azure
-            url: /learn/modules/create-windows-virtual-machine-in-azure/         
+            url: /training/modules/create-windows-virtual-machine-in-azure/         
 
   # Card
   - title: Troubleshooting

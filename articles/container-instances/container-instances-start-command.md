@@ -1,8 +1,13 @@
 ---
 title: Override entrypoint in container instance
 description: Set a command line to override the entrypoint in a container image when you deploy an Azure container instance
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Set the command line in a container instance to override the default command line operation
@@ -73,9 +78,7 @@ Once the container's state shows as *Terminated* (use [az container show][az-con
 az container logs --resource-group myResourceGroup --name mycontainer1
 ```
 
-Output:
-
-```console
+```output
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
@@ -99,9 +102,7 @@ Again, once the container is *Terminated*, view the output by showing the contai
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Output:
-
-```console
+```output
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 

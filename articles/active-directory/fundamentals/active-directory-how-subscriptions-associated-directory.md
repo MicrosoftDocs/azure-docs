@@ -1,16 +1,16 @@
 ---
-title: Add an existing Azure subscription to your tenant - Azure AD
+title: Add an existing Azure subscription to your tenant
 description: Instructions about how to add an existing Azure subscription to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/05/2021
-ms.author: ajburnle
+ms.date: 01/23/2023
+ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18, contperf-fy20q4"
 ms.collection: M365-identity-device-management
@@ -18,46 +18,40 @@ ms.collection: M365-identity-device-management
 
 # Associate or add an Azure subscription to your Azure Active Directory tenant
 
-An Azure subscription has a trust relationship with Azure Active Directory (Azure AD). A subscription trusts Azure AD to authenticate users, services, and devices.
-
-Multiple subscriptions can trust the same Azure AD directory. Each subscription can only trust a single directory.
-
-One or more Azure subscriptions can establish a trust relationship with an instance of Azure Active Directory (Azure AD) in order to authenticate and authorize security principals and devices against Azure services.  When a subscription expires, the trusted instance of the Azure AD service remains, but the security principals lose access to Azure resources.
+All Azure subscriptions have a trust relationship with an Azure Active Directory (Azure AD) instance. Subscriptions rely on their trusted Azure AD to authenticate and authorize security principals and devices.  When a subscription expires, the trusted instance of the Azure AD service remains, but the security principals lose access to Azure resources. Subscriptions can only trust a single directory while one Azure AD may be trusted by multiple subscriptions.
 
 When a user signs up for a Microsoft cloud service, a new Azure AD tenant is created and the user is made a member of the Global Administrator role. However, when an owner of a subscription joins their subscription to an existing tenant, the owner isn't assigned to the Global Administrator role.
 
-All of your users have a single *home* directory for authentication. Your users can also be guests in other directories. You can see both the home and guest directories for each user in Azure AD.
+While users may only have a single authentication *home* directory, users may participate as guests in multiple directories. You can see both the home and guest directories for each user in Azure AD.
 
 :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/trust-relationship-azure-ad.png" alt-text="Screenshot that shows the trust relationship between Azure subscriptions and Azure active directories.":::
 
 > [!Important]
-> When you associate a subscription with a different directory, users that have roles assigned using [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
+> When a subscription is associated with a different directory, users who have roles assigned using [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
 >
 > Moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principal's rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](../../aks/index.yml).
 
 ## Before you begin
 
-Before you can associate or add your subscription, do the following tasks:
+Before you can associate or add your subscription, do the following steps:
 
-- Review the following list of changes that will occur after you associate or add your subscription, and how you might be affected:
-
-  - Users that have been assigned roles using Azure RBAC will lose their access.
-  - Service Administrator and Co-Administrators will lose access.
-  - If you have any key vaults, they'll be inaccessible and you'll have to fix them after association.
-  - If you have any managed identities for resources such as Virtual Machines or Logic Apps, you must re-enable or recreate them after the association.
-  - If you have a registered Azure Stack, you'll have to re-register it after association.
-  - For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
+- Review the following list of changes that will occur after you associate or add your subscription, and how you might be affected:    
+    - Users that have been assigned roles using Azure RBAC will lose their access.
+    - Service Administrator and Co-Administrators will lose access.
+    - If you have any key vaults, they'll be inaccessible, and you'll have to fix them after association.
+    - If you have any managed identities for resources such as Virtual Machines or Logic Apps, you must re-enable or recreate them after the association.
+    - If you have a registered Azure Stack, you'll have to re-register it after association.
+  
+  For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 - Sign in using an account that:
-
-  - Has an [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment for the subscription. For information about how to assign the Owner role, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-  - Exists in both the current directory and in the new directory. The current directory is associated with the subscription. You'll associate the new directory with the subscription. For more information about getting access to another directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
-
-- Make sure that you're not using an Azure Cloud Service Providers (CSP) subscription (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), a Microsoft Internal subscription (MS-AZR-0015P), or a Microsoft Azure for Students Starter subscription (MS-AZR-0144P).
+    - Has an [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment for the subscription. For information about how to assign the Owner role, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    - Exists in both the current directory and in the new directory. The current directory is associated with the subscription. You'll associate the new directory with the subscription. For more information about getting access to another directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
+    - Make sure that you're not using an Azure Cloud Service Providers (CSP) subscription (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), a Microsoft Internal subscription (MS-AZR-0015P), or a Microsoft Azure for Students Starter subscription (MS-AZR-0144P).
 
 ## Associate a subscription to a directory<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
-To associate an existing subscription to your Azure AD directory, follow these steps:
+To associate an existing subscription with your Azure AD, follow these steps:
 
 1. Sign in and select the subscription you want to use from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
@@ -69,7 +63,7 @@ To associate an existing subscription to your Azure AD directory, follow these s
 
    :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="Screenshot that shows the Change the directory page with a sample directory and the Change button highlighted.":::
 
-   After the directory is changed for the subscription, you will get a success message.
+   After the directory is changed for the subscription, you'll get a success message.
 
 1. Select **Switch directories** on the subscription page to go to your new directory.
 
@@ -81,7 +75,7 @@ Changing the subscription directory is a service-level operation, so it doesn't 
 
 ## Post-association steps
 
-After you associate a subscription to a different directory, you might need to do the following tasks to resume operations:
+After you associate a subscription with a different directory, you might need to do the following tasks to resume operations:
 
 - If you have any key vaults, you must change the key vault tenant ID. For more information, see [Change a key vault tenant ID after a subscription move](../../key-vault/general/move-subscription.md).
 
@@ -95,6 +89,6 @@ After you associate a subscription to a different directory, you might need to d
 
 - To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-- To learn more about how Microsoft Azure controls resource access, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+- To learn more about how Microsoft Azure controls resource access, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 - To learn more about how to assign roles in Azure AD, see [Assign administrator and non-administrator roles to users with Azure Active Directory](active-directory-users-assign-role-azure-portal.md).

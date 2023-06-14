@@ -3,14 +3,14 @@ title: Common alerts and resolutions in Azure AD Domain Services | Microsoft Doc
 description: Learn how to resolve common alerts generated as part of the health status for Azure Active Directory Domain Services
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 06/07/2021
+ms.date: 03/15/2023
 ms.author: justinha
 
 ---
@@ -193,7 +193,9 @@ The managed domain's health automatically updates itself within two hours and re
 
 ### Resolution
 
-This error is unrecoverable. To resolve the alert, [delete your existing managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+Azure AD DS creates additional resources to function properly, such as public IP addresses, virtual network interfaces, and a load balancer. If any of these resources are modified, the managed domain is in an unsupported state and can't be managed. For more information about these resources, see [Network resources used by Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
+
+This alert is generated when one of these required resources is modified and can't automatically be recovered by Azure AD DS. To resolve the alert, [open an Azure support request][azure-support] to fix the instance.
 
 ## AADDS114: Subnet invalid
 
@@ -234,6 +236,27 @@ To check for applied policies on the Azure AD DS components and update them, com
 
 1. For each of the managed domain's network components in your resource group, such as virtual network, NIC, or public IP address, check the operation logs in the Azure portal. These operation logs should indicate why an operation is failing and where a restrictive policy is applied.
 1. Select the resource where a policy is applied, then under **Policies**, select and edit the policy so it's less restrictive.
+
+## AADDS120: The managed domain has encountered an error onboarding one or more custom attributes
+
+### Alert message
+
+*The following Azure AD extension properties have not successfully onboarded as a custom attribute for synchronization. This may happen if a property conflicts with the built-in schema: \[extensions]*
+
+### Resolution
+
+>[!WARNING]
+>If a custom attribute's LDAPName conflicts with an existing AD built-in schema attribute, it can't be onboarded and results in an error. Contact Microsoft Support if your scenario is blocked. For more information, see [Onboarding Custom Attributes](https://aka.ms/aadds-customattr).
+
+Review the [Azure AD DS Health](check-health.md) alert and see which Azure AD extension properties failed to onboard successfully. Navigate to the **Custom Attributes** page to find the expected Azure AD DS LDAPName of the extension. Make sure the LDAPName doesn't conflict with another AD schema attribute, or that it's one of the allowed built-in AD attributes. 
+
+Then follow these steps to retry onboarding the custom attribute in the **Custom Attributes** page:
+
+1. Select the attributes that were unsuccessful, then click **Remove** and **Save**.
+1. Wait for the health alert to be removed, or verify that the corresponding attributes have been removed from the **AADDSCustomAttributes** OU from a domain-joined VM.
+1. Select **Add** and choose the desired attributes again, then click **Save**.
+
+Upon successful onboarding, Azure AD DS will back fill synchronized users and groups with the onboarded custom attribute values. The custom attribute values appear gradually, depending on the size of the tenant. To check the backfill status, go to [Azure AD DS Health](check-health.md) and verify the **Synchronization with Azure AD** monitor timestamp has updated within the last hour.
 
 ## AADDS500: Synchronization has not completed in a while
 
@@ -290,6 +313,19 @@ When the managed domain is enabled again, the managed domain's health automatica
 > If a managed domain is suspended for an extended period of time, there's a danger of it being deleted. Resolve the reason for suspension as quickly as possible. For more information, see [Understand the suspended states for Azure AD DS](suspension.md).
 
 [Check the Azure AD DS health](check-health.md) for alerts that indicate problems in the configuration of the managed domain. If you're able to resolve alerts that indicate a configuration issue, wait two hours and check back to see if the synchronization has completed. When ready, [open an Azure support request][azure-support] to re-enable the managed domain.
+
+## AADDS600: Unresolved health alerts for 30 days
+
+### Alert Message
+
+*Microsoft can’t manage the domain controllers for this managed domain due to unresolved health alerts \[IDs\]. This is blocking critical security updates as well as a planned migration to Windows Server 2019 for these domain controllers. Follow steps in the alert to resolve the issue. Failure to resolve this issue within 30 days will result in suspension of the managed domain.*
+
+### Resolution
+
+> [!WARNING]
+> If a managed domain is suspended for an extended period of time, there's a danger of it being deleted. Resolve the reason for suspension as quickly as possible. For more information, see [Understand the suspended states for Azure AD DS](suspension.md).
+
+[Check the Azure AD DS health](check-health.md) for alerts that indicate problems in the configuration of the managed domain. If you're able to resolve alerts that indicate a configuration issue, wait six hours and check back to see if the alert is removed. [Open an Azure support request][azure-support] if you need assistance.
 
 ## Next steps
 

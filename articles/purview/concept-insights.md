@@ -14,8 +14,6 @@ ms.date: 05/16/2022
 
 This article provides an overview of the Data Estate Insights application in Microsoft Purview.
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 The Data Estate Insights application is purpose-built for governance stakeholders, primarily for roles focused on data management, compliance, and data use: like a Chief Data Officer. The application provides actionable insights into the organization’s data estate, catalog usage, adoption, and processes. As organizations scan and populate their Microsoft Purview Data Map, the Data Estate Insights application automatically extracts valuable governance gaps and highlights them in its top metrics. Then it also provides drill-down experience that enables all stakeholders, such as data owners and data stewards, to take appropriate action to close the gaps. 
 
 All the reports within the Data Estate Insights application are automatically generated and populated, so governance stakeholders can focus on the information itself, rather than building the reports.
@@ -37,9 +35,15 @@ Data, governance, and quality focused users like chief data officers and data st
 
 The data stewardship dashboard highlights key performing indicators that the governance stakeholders need to focus on, to attain a clean and governance-ready data estate. Information like asset curation rates, data ownership rates, and classification rates are calculated out of the box and trended over time.
 
-Management-focused users, like a Chief Data Officer, can also get a high-level understanding of weekly and monthly active users of their catalog, and information about how the catalog is being used. Is the catalog being adopted across their organization, as better adoption will lead to better overall governance penetration in the organization?
+Management-focused users, like a Chief Data Officer, can also get a high-level understanding of weekly and monthly active users of their catalog, and information about how the catalog is being used. Is the catalog being adopted across their organization, as better adoption leads to better overall governance penetration in the organization?
 
 For more information about these dashboards, see the [data Stewardship documentation.](data-stewardship.md)
+
+### Catalog adoption
+
+The catalog adoption dashboard highlights active users, searches, viewed assets, and top searched keywords. This report helps you understand how and if your data catalog is being used, so you can see the impact it's having on data usage and discoverability.
+
+For more information about these dashboards, see the [catalog adoption documentation.](catalog-adoption-insights.md)
 
 ## Inventory and ownership
 

@@ -2,12 +2,12 @@
 title: FAQs about Azure Health Data Services
 description: This document provides answers to the frequently asked questions about Azure Health Data Services.
 services: healthcare-apis
-author: ginalee-dotcom
+author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 06/10/2022
-ms.author: ginle
+ms.date: 12/15/2022
+ms.author: jasteppe
 ---
 
 # Frequently asked questions about Azure Health Data Services
@@ -38,7 +38,7 @@ No, unfortunately we don't offer migration capabilities at this time.
 
 ### What is the pricing of Azure Health Data Services?
 
-At this time, Azure Health Data Services is available for you to use at no charge.
+For pricing information, see [Azure Health Data Services pricing](https://azure.microsoft.com/pricing/details/health-data-services/).
 
 ### What regions are Azure Health Data Services available?
 
@@ -54,6 +54,6 @@ For more information, see [Azure Health Data Services service limits](../azure-r
 
 [FAQs about Azure Health Data Services DICOM service](./dicom/dicom-services-faqs.yml)
 
-[FAQs about Azure Health Data Services MedTech service](./iot/iot-connector-faqs.md)
+[FAQs about Azure Health Data Services MedTech service](./iot/frequently-asked-questions.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

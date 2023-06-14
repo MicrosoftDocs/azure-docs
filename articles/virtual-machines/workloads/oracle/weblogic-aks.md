@@ -33,7 +33,7 @@ Beyond certifying WLS on AKS, Oracle and Microsoft jointly provide a [marketplac
 
 After the offer performs most boilerplate resource provisioning and configuration, you can focus on deploying your WLS application to AKS, typically through a DevOps tool such as GitHub Actions and tools from WebLogic Kubernetes tooling such as the WebLogic Image Tool and WebLogic Deploy Tooling. You are completely free to customize the deployment further.
 
-You can find detailed documentation on the solution template [here](https://oracle.github.io/weblogic-kubernetes-operator/userguide/aks/).
+You can find detailed documentation on the solution template [here](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster).
 
 ## Guidance, scripts, and samples for WLS on AKS
 
@@ -61,7 +61,7 @@ Explore running Oracle WebLogic Server on the Azure Kubernetes Service.
 > [WLS on AKS marketplace solution](https://portal.azure.com/#create/oracle.20210620-wls-on-aks20210620-wls-on-aks)
 
 > [!div class="nextstepaction"]
-> [WLS on AKS marketplace solution documentation](https://oracle.github.io/weblogic-kubernetes-operator/userguide/aks/)
+> [WLS on AKS marketplace solution documentation](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster)
 
 > [!div class="nextstepaction"]
 > [Guidance, scripts and samples for running WLS on AKS](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/)

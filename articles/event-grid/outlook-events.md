@@ -46,7 +46,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 		"resourceData": {
 			"Id": "<event id>",
 			"@odata.etag": "<tag id>",
-			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
+			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Event",
 			"OtherResourceData": "<some other resource data>"
 		}
@@ -76,7 +76,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 		"resourceData": {
 			"Id": "<event id>",
 			"@odata.etag": "<tag id>",
-			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
+			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Event",
 			"OtherResourceData": "<some other resource data>"
 		}
@@ -105,7 +105,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 		"resourceData": {
 			"Id": "<event id>",
 			"@odata.etag": "<tag id>",
-			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
+			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Event",
 			"OtherResourceData": "<some other resource data>"
 		}
@@ -135,7 +135,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 		"resourceData": {
 			"Id": "<contact id>",
 			"@odata.etag": "<tag id>",
-			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
+			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Contact",
 			"OtherResourceData": "<some other resource data>"
 		}
@@ -165,7 +165,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 		"resourceData": {
 			"Id": "<contact id>",
 			"@odata.etag": "<tag id>",
-			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
+			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Contact",
 			"OtherResourceData": "<some other resource data>"
 		}
@@ -194,7 +194,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 		"resourceData": {
 			"Id": "<contact id>",
 			"@odata.etag": "<tag id>",
-			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
+			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Contact",
 			"OtherResourceData": "<some other resource data>"
 		}

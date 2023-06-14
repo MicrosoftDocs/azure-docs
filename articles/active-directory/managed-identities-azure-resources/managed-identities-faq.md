@@ -1,10 +1,10 @@
 ---
-title: Managed identities for Azure resources frequently asked questions - Azure AD"
+title: Managed identities for Azure resources frequently asked questions"
 description: Frequently asked questions about managed identities
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 02/23/2022
+ms.date: 07/27/2022
 ms.author: barclayn
 ---
 
-# Managed identities for Azure resources frequently asked questions - Azure AD
+# Managed identities for Azure resources frequently asked questions
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -111,9 +111,9 @@ Managed identities use certificate-based authentication. Each managed identity�
 
 In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SP) created in Azure AD is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Azure AD. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities wouldn't be impacted.
 
-### Does managed identities for Azure resources work with Azure Cloud Services?
+### Does managed identities for Azure resources work with Azure Cloud Services (Classic)?
 
-No, there are no plans to support managed identities for Azure resources in Azure Cloud Services.
+Managed identities for Azure resources don’t have support for [Azure Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) at this time. “
 
 
 ### What is the security boundary of managed identities for Azure resources?

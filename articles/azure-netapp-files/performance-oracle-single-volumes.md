@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 08/04/2022
 ms.author: anfdocs
 ---
 # Oracle database performance on Azure NetApp Files single volumes
@@ -22,6 +22,8 @@ This article addresses the following topics about Oracle in the cloud. These top
 * When you drive an online transaction processing (OLTP) workload (mostly random I/O) or an online analytical processing (OLAP) workload (mostly sequential I/O), what does performance look like?   
 * What is the difference in performance between the regular Linux kernel NFS (kNFS) client and Oracle’s own Direct NFS client?
 * As far as bandwidth is concerned, is the performance of a single Azure NetApp Files volume enough?
+
+[!INCLUDE [Oracle dNFS warning](includes/oracle-dnfs.md)]
 
 ## Testing environment and components
 

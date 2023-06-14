@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 06/06/2023
 ms.author: duau
 ms.custom: references_regions
 
@@ -32,7 +32,6 @@ ExpressRoute Global Reach is supported in the following places.
 
 > [!NOTE] 
 > * To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations-providers.md#locations), your circuits must be **Premium SKU**.
-> * IPv6 support for ExpressRoute Global Reach is now in Public Preview. See [Enable Global Reach](expressroute-howto-set-global-reach.md) to learn more.
 
 * Australia
 * Canada
@@ -47,6 +46,7 @@ ExpressRoute Global Reach is supported in the following places.
 * Netherlands
 * New Zealand
 * Norway
+* Poland
 * Singapore
 * South Africa (Johannesburg only)
 * Sweden

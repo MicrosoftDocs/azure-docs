@@ -6,7 +6,7 @@ summary: Learn how to set up data modeling with Analysis Services in the cloud. 
 metadata: 
   title: Azure Analysis Services documentation | Microsoft Docs
   description: Azure Analysis Services is a fully managed platform as a service (PaaS) that provides enterprise-grade data models in the cloud. 
-  ms.service: azure-analysis-services
+  ms.service: analysis-services
   ms.topic: landing-page
   ms.collection: 
   author: minewiskan

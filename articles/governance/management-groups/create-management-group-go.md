@@ -4,7 +4,7 @@ description: In this quickstart, you use Go to create a management group to orga
 ms.date: 08/17/2021
 ms.topic: quickstart
 ms.devlang: golang
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-go
 ---
 # Quickstart: Create a management group with Go
 
@@ -68,10 +68,10 @@ can be used, including [bash on Windows 10](/windows/wsl/install-win10) or local
 
    ```bash
    # Add the management group package for Go
-   go get -u github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups
+   go install github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups@latest
 
    # Add the Azure auth package for Go
-   go get -u github.com/Azure/go-autorest/autorest/azure/auth
+   go install github.com/Azure/go-autorest/autorest/azure/auth@latest
    ```
 
 ## Application setup

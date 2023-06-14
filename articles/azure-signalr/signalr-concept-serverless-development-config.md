@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 04/20/2022
 ms.author: lianwei
 ms.devlang: csharp, javascript
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Azure Functions development and configuration with Azure SignalR Service
@@ -49,7 +49,7 @@ Use the `SignalRTrigger` binding to handle messages sent from SignalR Service. Y
 
 For more information, see the [SignalR Service trigger binding reference](../azure-functions/functions-bindings-signalr-service-trigger.md).
 
-You also need to configure your function endpoint as an upstream so that service will trigger the function when there's message from a client. For more information about how to configure upstream, see [Upstream settings in Azure SignalR Service](concept-upstream.md).
+You also need to configure your function endpoint as an upstream endpoint so that service will trigger the function when there's message from a client. For more information about how to configure upstream endpoints, see [Upstream endpoints](concept-upstream.md).
 
 > [!NOTE]
 > SignalR Service doesn't support the `StreamInvocation` message from a client in Serverless Mode.

@@ -4,9 +4,9 @@ description: Describes how to back up and recover Azure VMs using Azure Backup w
 ms.topic: conceptual
 ms.date: 04/25/2022
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up and restore Azure VMs with PowerShell
@@ -43,7 +43,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 To begin:
 
-1. [Download the latest version of PowerShell](/powershell/azure/install-az-ps)
+1. [Download the latest version of PowerShell](/powershell/azure/install-azure-powershell)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 

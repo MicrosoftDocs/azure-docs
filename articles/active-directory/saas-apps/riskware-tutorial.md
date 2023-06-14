@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Riskware | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Riskware'
 description: Learn how to configure single sign-on between Azure Active Directory and Riskware.
 services: active-directory
 author: jeevansd
@@ -9,142 +9,137 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Riskware
+# Tutorial: Azure AD SSO integration with Riskware
 
-In this tutorial, you learn how to integrate Riskware with Azure Active Directory (Azure AD).
-Integrating Riskware with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Riskware with Azure Active Directory (Azure AD). When you integrate Riskware with Azure AD, you can:
 
-* You can control in Azure AD who has access to Riskware.
-* You can enable your users to be automatically signed-in to Riskware (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Azure AD who has access to Riskware.
+* Enable your users to be automatically signed-in to Riskware with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with Riskware, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* Riskware single sign-on enabled subscription
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* Riskware single sign-on enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Riskware supports **SP** initiated SSO
+* Riskware supports **SP** initiated SSO.
 
-## Adding Riskware from the gallery
+## Add Riskware from the gallery
 
 To configure the integration of Riskware into Azure AD, you need to add Riskware from the gallery to your list of managed SaaS apps.
 
-**To add Riskware from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Riskware** in the search box.
+1. Select **Riskware** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-	![The Azure Active Directory button](common/select-azuread.png)
+## Configure and test Azure AD SSO for Riskware
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+Configure and test Azure AD SSO with Riskware using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Riskware.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+To configure and test Azure AD SSO with Riskware, perform the following steps:
 
-3. To add new application, click **New application** button on the top of dialog.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Riskware SSO](#configure-riskware-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Riskware test user](#create-riskware-test-user)** - to have a counterpart of B.Simon in Riskware that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![The New application button](common/add-new-app.png)
+## Configure Azure AD SSO
 
-4. In the search box, type **Riskware**, select **Riskware** from result panel then click **Add** button to add the application.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	![Riskware in the results list](common/search-new-app.png)
+1. In the Azure portal, on the **Riskware** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-## Configure and test Azure AD single sign-on
+    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-In this section, you configure and test Azure AD single sign-on with Riskware based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Riskware needs to be established.
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-To configure and test Azure AD single sign-on with Riskware, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Riskware Single Sign-On](#configure-riskware-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Riskware test user](#create-riskware-test-user)** - to have a counterpart of Britta Simon in Riskware that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with Riskware, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **Riskware** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![Riskware Domain and URLs single sign-on information](common/sp-identifier.png)
-
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type one of the following URLs:
+	
+	| Environment| URL |
+	|--|--|
+	| UAT| `https://riskcloud.net/uat` |
+	| PROD| `https://riskcloud.net/prod` |
+	| DEMO| `https://riskcloud.net/demo` |
+	
+	
+	b. In the **Sign on URL** text box, type a URL using one of the following patterns:
 	
 	| Environment| URL Pattern|
 	|--|--|
 	| UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
 	| PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
 	| DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
-	|||
-
-    b. In the **Identifier (Entity ID)** text box, type the URL:
-	
-	| Environment| URL Pattern|
-	|--|--|
-	| UAT| `https://riskcloud.net/uat` |
-	| PROD| `https://riskcloud.net/prod` |
-	| DEMO| `https://riskcloud.net/demo` |
-	|||
 
 	> [!NOTE]
 	> The Sign on URL value is not real. Update the value with the actual Sign-On URL. Contact [Riskware Client support team](mailto:support@pansoftware.com.au) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
-6. On the **Set up Riskware** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up Riskware** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Metadata") 
 
-	a. Login URL
+### Create an Azure AD test user
 
-	b. Azure AD Identifier
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	c. Logout URL
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-### Configure Riskware Single Sign-On
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Riskware.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Riskware**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure Riskware SSO
 
 1. In a different web browser window, sign in to your Riskware company site as an administrator.
 
 1. On the top right, click **Maintenance** to open the maintenance page.
 
-	![Riskware Configurations maintain](./media/riskware-tutorial/tutorial_riskware_maintain.png)
+	![Screenshot shows the Riskware Configurations maintain.](./media/riskware-tutorial/maintain.png "Maintenance")
 
 1. In the maintenance page, click **Authentication**.
 
-	![Riskware Configuration authen](./media/riskware-tutorial/tutorial_riskware_authen.png)
+	![Screenshot shows the Riskware Configuration authentication.](./media/riskware-tutorial/profile.png "Authentication")
 
 1. In **Authentication Configuration** page, perform the following steps:
 
-	![Riskware Configuration authenconfig](./media/riskware-tutorial/tutorial_riskware_config.png)
+	![Screenshot shows the Riskware Configuration Authentication Configuration.](./media/riskware-tutorial/menu.png "Configure")
 
 	a. Select **Type** as **SAML** for authentication.
 
@@ -156,11 +151,11 @@ To configure Azure AD single sign-on with Riskware, perform the following steps:
 
 	e. In **Sign out Page** textbox, paste the **Logout URL** value, which you have copied from Azure portal.
 
-	f. In the **Post Form Field** textbox, type the field name present in Post Response that contains SAML like SAMLResponse
+	f. In the **Post Form Field** textbox, type the field name present in Post Response that contains SAML like SAMLResponse.
 
 	g. In the **XML Identity Tag Name** textbox, type attribute, which contains the unique identifier in the SAML response like NameID.
 
-	h. Open the downloaded **Metadata Xml** from Azure portal in notepad, copy the certificate from the Metadata file and paste it into the **Certificate** textbox
+	h. Open the downloaded **Metadata Xml** from Azure portal in notepad, copy the certificate from the Metadata file and paste it into the **Certificate** textbox.
 
 	i. In **Consumer URL** textbox, paste the value of **Reply URL**, which you get from the support team.
 
@@ -175,57 +170,6 @@ To configure Azure AD single sign-on with Riskware, perform the following steps:
 
 	m. Click **Save**.
 
-### Create an Azure AD test user
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Riskware.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Riskware**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **Riskware**.
-
-	![The Riskware link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
 ### Create Riskware test user
 
 To enable Azure AD users to sign in to Riskware, they must be provisioned into Riskware. In Riskware, provisioning is a manual task.
@@ -236,15 +180,15 @@ To enable Azure AD users to sign in to Riskware, they must be provisioned into R
 
 1. On the top right, click **Maintenance** to open the maintenance page. 
 
-	![Riskware Configuration maintains](./media/riskware-tutorial/tutorial_riskware_maintain.png)
+	![Screenshot shows the Riskware Configuration maintain.](./media/riskware-tutorial/maintain.png "Maintenance")
 
 1. In the maintenance page, click **People**.
 
-	![Riskware Configuration people](./media/riskware-tutorial/tutorial_riskware_people.png)
+	![Screenshot shows the Riskware Configuration people.](./media/riskware-tutorial/people.png "Users")
 
 1. Select **Details** tab and perform the following steps:
 
-	![Riskware Configuration details](./media/riskware-tutorial/tutorial_riskware_details.png)
+	![Screenshot shows the Riskware Configuration details.](./media/riskware-tutorial/details.png "Tasks")
 
 	a. Select **Person Type** like Employee.
 
@@ -254,7 +198,7 @@ To enable Azure AD users to sign in to Riskware, they must be provisioned into R
 
 1. On the **Security** tab, perform the following steps:
 
-	![Riskware Configuration security](./media/riskware-tutorial/tutorial_riskware_security.png)
+	![Screenshot shows the Riskware Configuration security.](./media/riskware-tutorial/security.png "Groups")
 
 	a. Under **Authentication** section, select the **Authentication** mode, which you have setup like AZURE Configuration for SSO.
 
@@ -264,7 +208,7 @@ To enable Azure AD users to sign in to Riskware, they must be provisioned into R
 
 1. On the **Organization** tab, perform the following steps:
 
-	![Riskware Configuration org](./media/riskware-tutorial/tutorial_riskware_org.png)
+	![Screenshot shows the Riskware Configuration Organization.](./media/riskware-tutorial/status.png "Organization")
 
 	a. Select the option as **Level1** organization.
 
@@ -274,16 +218,16 @@ To enable Azure AD users to sign in to Riskware, they must be provisioned into R
 
 	d. Click **Save**.
 
-### Test single sign-on
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Riskware tile in the Access Panel, you should be automatically signed in to the Riskware for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Click on **Test this application** in Azure portal. This will redirect to Riskware Sign-On URL where you can initiate the login flow. 
 
-## Additional Resources
+* Go to Riskware Sign-On URL directly and initiate the login flow from there.
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the Riskware tile in the My Apps, this will redirect to Riskware Sign-On URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+Once you configure Riskware you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

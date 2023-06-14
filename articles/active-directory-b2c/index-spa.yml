@@ -1,0 +1,55 @@
+### YamlMime:Landing
+
+title: Single-page app (SPA) authentication documentation
+summary: >
+  Choose your target language to learn how to sign in users and access web APIs in your single-page apps with our quickstarts and how-to guides.
+
+metadata:
+  author: kengaderdus
+  manager: CelesteDG
+  ms.author: kengaderdus
+  ms.date: 08/31/2022
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
+
+landingContent:
+
+## ROW 1 ################################################### ROW 1 ##
+  - title: "Configure ready apps quickly"
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Angular
+            url: configure-authentication-sample-angular-spa-app.md
+          - text: JavaScript
+            url: configure-authentication-sample-spa-app.md
+          - text: React
+            url: configure-authentication-sample-react-spa-app.md
+  - title: "Build your own app"
+    linkLists:
+      - linkListType: how-to-guide
+        links: 
+          - text: Angular
+            url: enable-authentication-angular-spa-app.md
+          - text: JavaScript
+            url: enable-authentication-spa-app.md
+          - text: React
+            url: enable-authentication-react-spa-app.md
+  - title: "Configuration options"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Angular
+            url: enable-authentication-angular-spa-app-options.md
+          - text: JavaScript
+            url: enable-authentication-spa-app-options.md
+          - text: React
+            url: enable-authentication-react-spa-app-options.md
+  - title: "Samples"
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Single-page application (SPA) samples
+            url: integrate-with-app-code-samples.md#single-page-apps
+           

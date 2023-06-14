@@ -1,11 +1,11 @@
 ---
 title: What is Azure App Configuration?
 description: Read an overview of the Azure App Configuration service. Understand why you would want to use App Configuration, and learn how you can use it.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 04/19/2022
+ms.date: 03/20/2023
 ---
 
 # What is Azure App Configuration?
@@ -60,3 +60,10 @@ The easiest way to add an App Configuration store to your application is through
 
 > [!div class="nextstepaction"]
 > [Best practices](howto-best-practices.md)
+
+> [!div class="nextstepaction"]
+> [FAQ](faq.yml)
+> 
+> [!div class="nextstepaction"]
+> [Create an App Configuration store](quickstart-azure-app-configuration-create.md) 
+

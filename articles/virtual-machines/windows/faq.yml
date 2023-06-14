@@ -141,7 +141,7 @@ sections:
           What are the password requirements when creating a VM?
         answer: |
           There are varying password length requirements, depending on the tool you are using:
-           - Portal - between 12 - 72 characters
+           - Portal - between 12 - 123 characters
            - PowerShell - between 8 - 123 characters
            - CLI - between 12 - 123
           

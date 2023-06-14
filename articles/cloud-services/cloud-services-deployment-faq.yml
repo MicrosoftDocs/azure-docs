@@ -4,11 +4,11 @@ metadata:
   description: This article lists the frequently asked questions about deployment for Microsoft Azure Cloud Services.
   ms.topic: faq
   ms.service: cloud-services
-  ms.date: 10/14/2020
+  ms.date: 02/21/2023
   author: hirenshah1
   ms.author: hirshah
   ms.reviewer: mimckitt
-  ms.custom: 
+  ms.custom: compute-evergreen
 title: 'Deployment issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
   [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
@@ -60,7 +60,7 @@ sections:
           
           You could also track the current usage/quota for your subscription at the portal: Azure portal => Subscriptions => \<appropriate subscription> => "Usage + quota".
           
-          Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure consumption API overview](../cost-management-billing/manage/consumption-api-overview.md).
+          Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure consumption API overview](../cost-management-billing/automate/automation-overview.md).
           
       - question: |
           How can I change the size of a deployed cloud service VM without redeploying it?

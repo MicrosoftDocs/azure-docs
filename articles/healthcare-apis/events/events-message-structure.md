@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 07/06/2022
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ ms.author: jasteppe
 In this article, you'll learn about the Events message structure, required and non-required elements, and you'll be provided with samples of Events message payloads.
 
 > [!IMPORTANT]
-> Events currently supports only the following FHIR resource operations:
+> Events currently supports only the following operations:
 >
 > - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
@@ -23,10 +23,13 @@ In this article, you'll learn about the Events message structure, required and n
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 >
+> - **DicomImageCreated** - The event emitted after a DICOM image gets created successfully.
+> 
+> - **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
+> 
 > For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
-
-## Events message structure
+## FHIR events message structure
 
 |Name|Type|Required|Description|
 |----|----|--------|-----------|
@@ -43,7 +46,7 @@ In this article, you'll learn about the Events message structure, required and n
 |dataVersion|string|No|Same as “data.resourceVersionId”.|
 |metadataVersion|string|No|The schema version of the event metadata. This is defined by Azure Event Grid and should be constant most of the time.|
 
-## Events message samples
+## FHIR events message samples
 
 ### FhirResourceCreated event
  
@@ -171,6 +174,112 @@ In this article, you'll learn about the Events message structure, required and n
 ```
 ---
 
+## DICOM events message structure
+
+|Name | Type | Required	| Description
+|-----|------|----------|-----------|
+|topic	| string	| Yes	| The topic is the Azure Resource ID of your Azure Health Data Services workspace.
+|subject | string | Yes | The Uniform Resource Identifier (URI) of the DICOM image that was changed. Customer can access the image with the subject with https:// scheme. Customer should use the dataVersion or data.resourceVersionId to visit specific data version regarding this event.
+| eventType	| string(enum)	| Yes	| The type of change on the DICOM image.
+| eventTime	| string(datetime)	| Yes	| The UTC time when the DICOM image change was committed.
+| id	| string	| Yes	| Unique identifier for the event.
+| data	| object	| Yes	| DICOM image change event details.
+| data.imageStudyInstanceUid	| string	| Yes | The image's Study Instance UID.
+| data.imageSeriesInstanceUid	| string	| Yes	| The image's Series Instance UID.
+| data.imageSopInstanceUid	| string	| Yes	| The image's SOP Instance UID.
+| data.serviceHostName	| string	| Yes	| The hostname of the dicom service where the change occurred. 
+| data.sequenceNumber	| int	| Yes	| The sequence number of the change in the DICOM service. Every image creation and deletion will have a unique sequence within the service. This number correlates to the sequence number of the DICOM service's Change Feed. Querying the DICOM Service Change Feed with this sequence number will give you the change that created this event.
+| dataVersion	| string	| No	| The data version of the DICOM image.
+| metadataVersion	| string	| No	| The schema version of the event metadata. This is defined by Azure Event Grid and should be constant most of the time.
+
+## DICOM events message samples
+
+### DicomImageCreated
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+```json
+{
+  "id": "d621839d-958b-4142-a638-bb966b4f7dfd",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "data": {
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 1
+  },
+  "eventType": "Microsoft.HealthcareApis.DicomImageCreated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2022-09-15T01:14:04.5613214Z"
+}
+```
+# [CloudEvent schema](#tab/cloud-event-schema)
+
+```json
+{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "type": "Microsoft.HealthcareApis.DicomImageCreated",
+  "time": "2022-09-15T01:14:04.5613214Z",
+  "id": "d621839d-958b-4142-a638-bb966b4f7dfd",
+  "data": {
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 1
+  },
+  "specVersion": "1.0"
+}
+```
+---
+
+### DicomImageDeleted
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+```json
+{
+  "id": "eac1c1a0-ffa8-4b28-97cc-1d8b9a0a6021",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "data": {
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 2
+  },
+  "eventType": "Microsoft.HealthcareApis.DicomImageDeleted",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2022-09-15T01:16:07.5692209Z"
+}
+```
+# [CloudEvent schema](#tab/cloud-event-schema)
+
+```json
+{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "type": "Microsoft.HealthcareApis.DicomImageDeleted",
+  "time": "2022-09-15T01:14:04.5613214Z",
+  "id": "eac1c1a0-ffa8-4b28-97cc-1d8b9a0a6021",
+  "data": {
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 2
+  },
+  "specVersion": "1.0"
+}
+```
+---
+
 ## Next steps
 
 For more information about deploying Events, see
@@ -178,4 +287,4 @@ For more information about deploying Events, see
 >[!div class="nextstepaction"]
 >[Deploying Events in the Azure portal](./events-deploy-portal.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

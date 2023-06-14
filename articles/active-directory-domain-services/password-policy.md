@@ -3,25 +3,25 @@ title: Create and use password policies in Azure AD Domain Services | Microsoft 
 description: Learn how and why to use fine-grained password policies to secure and control account passwords in an Azure AD DS managed domain.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 05/09/2023
 ms.author: justinha
 
 ---
 # Password and account lockout policies on Azure Active Directory Domain Services managed domains
 
-To manage user security in Azure Active Directory Domain Services (Azure AD DS), you can define fine-grained password policies that control account lockout settings or minimum password length and complexity. A default fine grained password policy is created and applied to all users in an Azure AD DS managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific groups of users.
+To manage user security in Azure Active Directory Domain Services (Azure AD DS), you can define fine-grained password policies that control account lockout settings or minimum password length and complexity. A default fine grained password policy is created and applied to all users in an Azure AD DS managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific users or groups.
 
 This article shows you how to create and configure a fine-grained password policy in Azure AD DS using the Active Directory Administrative Center.
 
 > [!NOTE]
-> Password policies are only available for managed domains created using the Resource Manager deployment model. For older managed domains created using Classic, [migrate from the Classic virtual network model to Resource Manager][migrate-from-classic].
+> Password policies are only available for managed domains created using the Resource Manager deployment model. 
 
 ## Before you begin
 
@@ -33,7 +33,7 @@ To complete this article, you need the following resources and privileges:
   * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
   * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
-  * The managed domain must have been created using the Resource Manager deployment model. If needed, [Migrate from the Classic virtual network model to Resource Manager][migrate-from-classic].
+  * The managed domain must have been created using the Resource Manager deployment model. 
 * A Windows Server management VM that is joined to the managed domain.
   * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
@@ -110,15 +110,15 @@ To create a custom password policy, you use the Active Directory Administrative 
 
     ![Select the users and groups to apply the password policy to](./media/password-policy/fgpp-applies-to.png)
 
-1. Password policies can only be applied to groups. In the **Locations** dialog, expand the domain name, such as *aaddscontoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
+1. In the **Locations** dialog, expand the domain name, such as *aaddscontoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
 
     ![Select the OU that the group belongs to](./media/password-policy/fgpp-container.png)
 
-1. Type the name of the group you wish to apply the policy to, then select **Check Names** to validate that the group exists.
+1. Type the name of the user or group you wish to apply the policy to. Select **Check Names** to validate the account.
 
     ![Search for and select the group to apply FGPP](./media/password-policy/fgpp-apply-group.png)
 
-1. With the name of the group you selected now displayed in **Directly Applies To** section, select **OK** to save your custom password policy.
+1. Click **OK** to save your custom password policy.
 
 ## Next steps
 
@@ -132,4 +132,3 @@ For more information about password policies and using the Active Directory Admi
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
-[migrate-from-classic]: migrate-from-classic-vnet.md

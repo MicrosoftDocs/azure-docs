@@ -6,9 +6,7 @@ ms.service: signalr
 ms.topic: how-to
 ms.date: 05/23/2022
 ms.author: lianwei 
-ms.custom:
-- subject-moving-resources
-- kr2b-contr-experiment
+ms.custom: subject-moving-resources, kr2b-contr-experiment, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Move an Azure SignalR resource to another region
@@ -20,7 +18,7 @@ You can use an Azure Resource Manager template to export the existing configurat
 ## Prerequisites
 
 - Ensure that the service and features that you're using are supported in the target region.
-- Verify that your Azure subscription allows you to create SignalR resource in the target region that's used.
+- Verify that your Azure subscription allows you to create SignalR resource in the target region.
 - Contact support to enable the required quota.
 - For preview features, ensure that your subscription is allowlisted for the target region.
 

@@ -3,14 +3,14 @@ title: How synchronization works in Azure AD Domain Services | Microsoft Docs
 description: Learn how the synchronization process works for objects and credentials from an Azure AD tenant or on-premises Active Directory Domain Services environment to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 04/03/2023
 ms.author: justinha
 
 ---
@@ -20,20 +20,24 @@ Objects and credentials in an Azure Active Directory Domain Services (Azure AD D
 
 In a hybrid environment, objects and credentials from an on-premises AD DS domain can be synchronized to Azure AD using Azure AD Connect. Once those objects are successfully synchronized to Azure AD, the automatic background sync then makes those objects and credentials available to applications using the managed domain.
 
-If on-premises AD DS and Azure AD are configured for federated authentication using ADFS without password hash sync, or if third-party identity protection products and Azure AD are configured for federated authentication without password hash sync, no (current/valid) password hash is available in Azure DS. Azure AD user accounts created before fed auth was implemented might have an old password hash, but this likely doesn't match a hash of their on-premises password. Hence, Azure AD DS won't be able to validate a user's credentials.
-
 The following diagram illustrates how synchronization works between Azure AD DS, Azure AD, and an optional on-premises AD DS environment:
 
 ![Synchronization overview for an Azure AD Domain Services managed domain](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
 ## Synchronization from Azure AD to Azure AD DS
 
-
 User accounts, group memberships, and credential hashes are synchronized one way from Azure AD to Azure AD DS. This synchronization process is automatic. You don't need to configure, monitor, or manage this synchronization process. The initial synchronization may take a few hours to a couple of days, depending on the number of objects in the Azure AD directory. After the initial synchronization is complete, changes that are made in Azure AD, such as password or attribute changes, are then automatically synchronized to Azure AD DS.
 
 When a user is created in Azure AD, they're not synchronized to Azure AD DS until they change their password in Azure AD. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Azure AD. The password hashes are needed to successfully authenticate a user in Azure AD DS.
 
-The synchronization process is one way / unidirectional by design. There's no reverse synchronization of changes from Azure AD DS back to Azure AD. A managed domain is largely read-only except for custom OUs that you can create. You can't make changes to user attributes, user passwords, or group memberships within a managed domain.
+The synchronization process is one-way by design. There's no reverse synchronization of changes from Azure AD DS back to Azure AD. A managed domain is largely read-only except for custom OUs that you can create. You can't make changes to user attributes, user passwords, or group memberships within a managed domain.
+
+## Scoped synchronization and group filter
+
+You can scope synchronization to only user accounts that originated in the cloud. Within that synchronization scope, you can filter for specific groups or users. You can choose between cloud only groups, on-premises groups, or both. For more information about how to configure scoped synchronization, see [Configure scoped synchronization](scoped-synchronization.md).
+
+:::image type="content" border="true" source="./media/scoped-synchronization/filter.png" alt-text="Screenshot of group filter option.":::
+
 
 ## Attribute synchronization and mapping to Azure AD DS
 
@@ -108,7 +112,7 @@ Azure AD Connect is used to synchronize user accounts, group memberships, and cr
 > [!IMPORTANT]
 > Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in a managed domain to synchronize objects back to Azure AD.
 
-If you configure write-back, changes from Azure AD are synchronized back to the on-premises AD DS environment. For example, if a user changes their password using Azure AD self-service password management, the password is updated back in the on-premises AD DS environment.
+If you configure writeback, changes from Azure AD are synchronized back to the on-premises AD DS environment. For example, if a user changes their password using Azure AD self-service password management, the password is updated back in the on-premises AD DS environment.
 
 > [!NOTE]
 > Always use the latest version of Azure AD Connect to ensure you have fixes for all known bugs.
@@ -134,7 +138,7 @@ The following objects or attributes aren't synchronized from an on-premises AD D
 
 ## Password hash synchronization and security considerations
 
-When you enable Azure AD DS, legacy password hashes for NTLM + Kerberos authentication are required. Azure AD doesn't store clear-text passwords, so these hashes can't be automatically generated for existing user accounts. Once generated and stored, NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD.
+When you enable Azure AD DS, legacy password hashes for NTLM and Kerberos authentication are required. Azure AD doesn't store clear-text passwords, so these hashes can't be automatically generated for existing user accounts. NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD.
 
 The encryption keys are unique to each Azure AD tenant. These hashes are encrypted such that only Azure AD DS has access to the decryption keys. No other service or component in Azure AD has access to the decryption keys.
 

@@ -3,12 +3,12 @@
   topicHref: /azure/index
   items:
   - name: Internet of Things
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/index
+    tocHref: /azure/iot/
+    topicHref: /azure/iot/index
     items:
     - name: IoT Edge
       tocHref: /azure/azure-sql-edge/
       topicHref: /azure/iot-edge/index
     - name: IoT Edge
-      tocHref: /azure/iot-fundamentals/
+      tocHref: /azure/iot/
       topicHref: /azure/iot-edge/index

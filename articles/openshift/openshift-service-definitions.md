@@ -3,8 +3,8 @@ title: Azure Red Hat OpenShift service definition
 description: Azure Red Hat OpenShift service definition
 ms.service: azure-redhat-openshift
 ms.topic: article
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.date: 02/01/2022
 keywords: azure, openshift, aro, red hat, service, definition
 #Customer intent: I need to understand Azure Red Hat OpenShift service definitions to manage my subscription.
@@ -230,6 +230,7 @@ Azure Red Hat OpenShift runs on OpenShift 4 and uses the CRI-O implementation of
 ### Operating system
 
 Azure Red Hat OpenShift runs on OpenShift 4 using Red Hat Enterprise Linux CoreOS (RHCOS) as the operating system for all control plane and worker nodes.
+Windows workloads are not supported on Azure OpenShift as the platform does not currently support Windows worker nodes.
 
 ### Kubernetes operator support
 

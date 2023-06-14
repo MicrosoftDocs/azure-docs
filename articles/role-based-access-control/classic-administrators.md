@@ -4,19 +4,22 @@ description: Describes how to add or change the Azure Co-Administrator and Servi
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2021
+ms.date: 06/07/2023
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
 # Azure classic subscription administrators
+
+> [!IMPORTANT]
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -25,7 +28,7 @@ This article describes how to add or change the Co-Administrator and Service Adm
 ## Add a Co-Administrator
 
 > [!TIP]
-> You only need to add a Co-Administrator if the user needs to manage Azure classic deployments by using [Azure Service Management PowerShell Module](/powershell/module/servicemanagement/azure.service). If the user only uses the Azure portal to manage the classic resources, you won’t need to add the classic administrator for the user.
+> You only need to add a Co-Administrator if the user needs to manage Azure classic deployments by using [Azure Service Management PowerShell Module](/powershell/azure/servicemanagement/install-azure-ps). If the user only uses the Azure portal to manage the classic resources, you won’t need to add the classic administrator for the user.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Service Administrator or a Co-Administrator.
 
@@ -54,6 +57,8 @@ To add a guest user as a Co-Administrator, follow the same steps as in the previ
 - The guest user must have a presence in your directory. This means that the user was invited to your directory and accepted the invite.
 
 For more information, about how to add a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+
+Before you remove a guest user from your directory, you should first remove any role assignments for that guest user. For more information, see [Remove a guest user from your directory](./role-assignments-external-users.md#remove-a-guest-user-from-your-directory).
 
 ### Differences for guest users
 

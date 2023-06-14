@@ -2,9 +2,7 @@
 title: Use Azure Private Link to securely connect networks to Azure Automation
 description: Use Azure Private Link to securely connect networks to Azure Automation
 ms.topic: conceptual
-ms.date: 12/11/2020
-ms.subservice:  
-ms.custom: devx-track-azurepowershell
+ms.date: 12/15/2022
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Automation
@@ -39,9 +37,10 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 ## Limitations
 
-- In the current implementation of Private Link, Automation account cloud jobs cannot access Azure resources that are secured using private endpoint. For example, Azure Key Vault, Azure SQL, Azure Storage account, etc. To workaround this, use a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) instead.
+- In the current implementation of Private Link, Automation account cloud jobs cannot access Azure resources that are secured using private endpoint. For example, Azure Key Vault, Azure SQL, Azure Storage account, etc. To workaround this, use a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) instead. Hence, on-premises VMs are supported to run Hybrid Runbook Workers against an Automation Account with Private Link enabled.
 - You need to use the latest version of the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows or Linux.
 - The [Log Analytics Gateway](../../azure-monitor/agents/gateway.md) does not support Private Link.
+- Azure alert (metric, log, and activity log) can't be used to trigger an Automation webhook when the Automation account is configured with  **Public access** set to **Disable**.
 
 ## How it works
 
@@ -91,60 +90,54 @@ Before setting up your Automation account resource, consider your network isolat
 
 ### Connect to a private endpoint
 
-Create a private endpoint to connect our network. You can create it in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Once your changes to publicNetworkAccess and Private Link are applied, it can take up to 35 minutes for them to take effect.
+Follow the steps below to create a private endpoint for your Automation account.
 
-In this section, you'll create a private endpoint for your Automation account.
+1. Go to [Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) in Azure portal to create a private endpoint to connect our network. 
 
-1. On the upper-left side of the screen, select **Create a resource > Networking > Private Link Center**.
+1. On **Private Link Center**, select **Create private endpoint**.
 
-2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
+    :::image type="content" source="./media/private-link-security/create-private-endpoint.png" alt-text="Screenshot of how to create a private endpoint.":::
 
-3. In **Create a virtual machine - Basics**, enter or select the following information:
+1. On **Basics**, enter the following details:
+    - **Subscription**
+    - **Resource group**
+    - **Name**
+    - **Network Interface Name**
+    - **Region** and select **Next: Resource**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **PROJECT DETAILS** | |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. You created this in the previous section.  |
-    | **INSTANCE DETAILS** |  |
-    | Name | Enter your *PrivateEndpoint*. |
-    | Region | Select **YourRegion**. |
-    |||
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-basics.png" alt-text="Screenshot of how to create a private endpoint in Basics tab.":::
 
-4. Select **Next: Resource**.
+1. On **Resource**, enter the following details:
+    - **Connection method**, select the default option - *Connect to an Azure resource in my directory*. 
+    - **Subscription**
+    - **Resource type**
+    - **Resource**. 
+    - The **Target sub-resource** can either be *Webhook* or *DSCAndHybridWorker* as per your scenario and select **Next : Virtual Network**.
+ 
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-resource-inline.png" alt-text="Screenshot of how to create a private endpoint in Resource tab." lightbox="./media/private-link-security/create-private-endpoint-resource-expanded.png":::
 
-5. In **Create a private endpoint - Resource**, enter or select the following information:
+1. On **Virtual Network**, enter the following details:
+    - **Virtual network**
+    - **Subnet**
+    -  Enable the checkbox for **Enable network policies for all private endpoints in this subnet**.
+    - Select **Dynamically allocate IP address** and select **Next : DNS**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    |Connection method  | Select connect to an Azure resource in my directory.|
-    | Subscription| Select your subscription. |
-    | Resource type | Select **Microsoft.Automation/automationAccounts**. |
-    | Resource |Select *myAutomationAccount*|
-    |Target subresource |Select *Webhook* or *DSCAndHybridWorker* depending on your scenario.|
-    |||
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-virtual-network-inline.png" alt-text="Screenshot of how to create a private endpoint in Virtual network tab." lightbox="./media/private-link-security/create-private-endpoint-virtual-network-expanded.png":::
 
-6. Select **Next: Configuration**.
+1. On **DNS**, the data is populated as per the information entered in the **Basics**, **Resource**, **Virtual Network** tabs and it creates a Private DNS zone. Enter the following details:
+    - **Integrate with private DNS Zone**
+    - **Subscription** 
+    - **Resource group** and select **Next : Tags**
 
-7. In **Create a private endpoint - Configuration**, enter or select the following information:
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-dns-inline.png" alt-text="Screenshot of how to create a private endpoint in DNS tab." lightbox="./media/private-link-security/create-private-endpoint-dns-expanded.png":::
 
-    | Setting | Value |
-    | ------- | ----- |
-    |**NETWORKING**| |
-    | Virtual network| Select *MyVirtualNetwork*. |
-    | Subnet | Select *mySubnet*. |
-    |**PRIVATE DNS INTEGRATION**||
-    |Integrate with private DNS zone |Select **Yes**. |
-    |Private DNS Zone |Select *(New)privatelink.azure-automation.net* |
-    |||
+1. On **Tags**, you can categorize resources. Select **Name** and **Value** and select **Review + create**. 
 
-8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
+You're taken to the **Review + create** page where Azure validates your configuration. Once your changes to public Network Access and Private Link are applied, it can take up to 35 minutes for them to take effect.
 
-9. When you see the **Validation passed** message, select **Create**.
+On the **Private Link Center**, select **Private endpoints** to view your private link resource.
 
-In the **Private Link Center**, select **Private endpoints** to view your private link resource.
-
-![Automation resource private link](./media/private-link-security/private-link-automation-resource.png)
+:::image type="content" source="./media/private-link-security/private-link-automation-resource-inline.png" alt-text="Screenshot Automation resource private link." lightbox="./media/private-link-security/private-link-automation-resource-expanded.png":::
 
 Select the resource to see all the details. This creates a new private endpoint for your Automation account and assigns it a private IP from your virtual network. The **Connection status** shows as **approved**.
 
@@ -162,7 +155,7 @@ The following PowerShell script shows how to `Get` and `Set` the **Public Networ
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false -Force
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 

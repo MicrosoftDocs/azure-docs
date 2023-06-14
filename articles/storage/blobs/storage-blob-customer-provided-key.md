@@ -1,5 +1,6 @@
 ---
-title: Specify a customer-provided key on a request to Blob storage with .NET - Azure Storage
+title: Specify a customer-provided key on a request to Blob storage with .NET
+titleSuffix: Azure Storage
 description: Learn how to specify a customer-provided key on a request to Blob storage using .NET.
 services: storage
 author: tamram
@@ -11,7 +12,7 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Specify a customer-provided key on a request to Blob storage with .NET

@@ -3,14 +3,12 @@ title: Azure Government virtual machine extensions
 description: This article provides customer guidance on how to obtain a complete list of virtual machine extensions available in Azure Government.
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/31/2021 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Government virtual machine extensions

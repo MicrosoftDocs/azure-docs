@@ -1,18 +1,18 @@
 ---
-title: Azure Policy samples for onboarding resources in Azure Chaos Studio
-description: Sample Azure policies to onboard resources to Azure Chaos Studio using targets and capabilities
+title: Azure Policy samples for adding resources to Chaos Studio Preview
+description: Sample Azure policies to add resources to Azure Chaos Studio Preview by using targets and capabilities.
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: sample
 ms.date: 11/11/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ---
 
-# Azure Policy samples for onboarding resources to Azure Chaos Studio
-This article includes sample [Azure policy](../governance/policy/overview.md) definitions that create [targets and capabilities](chaos-studio-targets-capabilities.md) for a specific resource type. You can automatically onboard resources to Chaos Studio by [deploying these samples as custom policy definitions](../governance/policy/tutorials/create-custom-policy-definition.md) and [assigning the policy](../governance/policy/assign-policy-portal.md) to a scope.
+# Azure Policy samples for adding resources to Azure Chaos Studio Preview
+This article includes sample [Azure Policy](../governance/policy/overview.md) definitions that create [targets and capabilities](chaos-studio-targets-capabilities.md) for a specific resource type. You can automatically add resources to Azure Chaos Studio Preview. First, you [deploy these samples as custom policy definitions](../governance/policy/tutorials/create-custom-policy-definition.md). Then you [assign the policy](../governance/policy/assign-policy-portal.md) to a scope.
 
-In these samples, we onboard service-direct targets and capabilities for each [supported resource type](chaos-studio-fault-providers.md) using [targets and capabilities](chaos-studio-targets-capabilities.md).
+In these samples, we add service-direct targets and capabilities for each [supported resource type](chaos-studio-fault-providers.md) by using [targets and capabilities](chaos-studio-targets-capabilities.md).
 
 ## Azure Cache for Redis policy definition
 
@@ -354,7 +354,7 @@ In these samples, we onboard service-direct targets and capabilities for each [s
 }
 ```
 
-## Azure Network Security Group policy definition
+## Azure network security group policy definition
 
 ```json
 {
@@ -626,5 +626,5 @@ In these samples, we onboard service-direct targets and capabilities for each [s
 
 ## Next steps
 
-* [Learn more about Chaos Studio](chaos-studio-overview.md).
-* [Learn more about targets and capabilities](chaos-studio-targets-capabilities.md).
+* [Learn more about Chaos Studio](chaos-studio-overview.md)
+* [Learn more about targets and capabilities](chaos-studio-targets-capabilities.md)

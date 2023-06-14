@@ -1,10 +1,10 @@
 ---
-title: Assign a managed identity access to a resource using the Azure portal - Azure AD
+title: Assign a managed identity access to a resource using the Azure portal
 description: Step-by-step instructions for assigning a managed identity on one resource access to another resource, by using the Azure portal.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 
 ms.custom: subject-rbac-steps
@@ -30,6 +30,9 @@ After you've configured an Azure resource with a managed identity, you can give 
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 
 ## Use Azure RBAC to assign a managed identity access to another resource
+
+>[!IMPORTANT]
+> The steps outlined below show is how you grant access to a service using Azure RBAC. Check specific service documentation on how to grant access - for example check Azure Data Explorer for instructions. Some Azure services are in the process of adopting Azure RBAC on the data plane
 
 After you've enabled managed identity on an Azure resource, such as an [Azure VM](qs-configure-portal-windows-vm.md) or [Azure virtual machine scale set](qs-configure-portal-windows-vmss.md):
 

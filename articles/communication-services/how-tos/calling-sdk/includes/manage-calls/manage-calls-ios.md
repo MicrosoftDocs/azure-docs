@@ -31,6 +31,9 @@ self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { 
 ```
 
 ### Place a 1:n call with users and PSTN
+> [!NOTE]
+> Please check [details of PSTN calling offering](../../../../concepts/numbers/sub-eligibility-number-capability.md). For preview program access, [apply to the early adopter program](https://aka.ms/ACS-EarlyAdopter).
+
 To place the call to PSTN, you have to specify a phone number acquired with Communication Services.
 
 ```swift
@@ -45,6 +48,38 @@ self.callAgent?.startCall(participants: [pstnCallee, callee], options: StartCall
      }
 }
 ```
+
+## Join a room call
+
+To join a `room` call, specify the `roomId` property as the `room` identifier. To join the call, use the `join` method and pass the `roomCallLocator`.
+
+```Swift
+func joinRoomCall() {
+    if self.callAgent == nil {
+        print("CallAgent not initialized")
+        return
+    }
+    
+    if (self.roomId.isEmpty) {
+        print("Room ID not set")
+        return
+    }
+    
+    // Join a call with a Room ID
+    let options = JoinCallOptions()
+    let audioOptions = AudioOptions()
+    audioOptions.muted = self.muted
+    
+    options.audioOptions = audioOptions
+    
+    let roomCallLocator = RoomCallLocator(roomId: roomId)
+    self.callAgent!.join(with: roomCallLocator, joinCallOptions: options) { (call, error) in
+        self.setCallAndObserver(call: call, error: error)
+    }
+}
+```
+
+A `room` offers application developers better control over **who** can join a call, **when** they meet and **how** they collaborate. To learn more about `rooms`, you can read the [conceptual documentation](../../../../concepts/rooms/room-concept.md) or follow the [quick start guide](../../../../quickstarts/rooms/join-rooms-call.md).
 
 ## Join a group call
 To join a call, you need to call one of the APIs on `CallAgent`.

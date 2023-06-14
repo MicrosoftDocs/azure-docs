@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Configure Atlassian Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Atlassian Cloud for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Atlassian Cloud.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 ms.assetid: 53b804ba-b632-4c4b-a77e-ec6468536898
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/27/2019
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 
@@ -51,18 +51,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Atlassian Cloud to support provisioning with Azure AD
 1. Navigate to [Atlassian Admin Console](http://admin.atlassian.com/). Select your organization if you have more than one.
-1. Select **Settings > User provisioning**.
-	![Screenshot showing the User Provisioning tab.](media/atlassian-cloud-provisioning-tutorial/atlassian-select-settings.png)
-1. Select **Create a directory**.
-1. Enter a name to identify the user directory, for example Azure AD users, then select **Create**.
-	![Screenshot showing the Create directory page.](media/atlassian-cloud-provisioning-tutorial/atlassian-create-directory.png)
-1. Copy the values for **Directory base URL** and **API key**. You'll need those for your identity provider configuration later.
-
+1. Select **Security > Identity providers**.
+1. Select your Identity provider directory.
+1. Select **Set up user provisioning**.
+1. Copy the values for **SCIM base URL** and **API key**. You'll need them when you configure Azure. 
+1. Save your **SCIM configuration**.
    > [!NOTE]
    > Make sure you store these values in a safe place, as we won't show them to you again.
-
-	![Screenshot showing the API key page.](media/atlassian-cloud-provisioning-tutorial/atlassian-apikey.png)
-
+   
    Users and groups will automatically be provisioned to your organization. See the [user provisioning](https://support.atlassian.com/provisioning-users/docs/understand-user-provisioning) page for more details on how your users and groups sync to your organization.
 ## Step 3. Add Atlassian Cloud from the Azure AD application gallery
 
@@ -112,7 +108,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Atlassian Cloud**.
 
 9. Review the user attributes that are synchronized from Azure AD to Atlassian Cloud in the **Attribute Mapping** section.
-   The email attribute will be used to match Atlassian Cloud accounts with your Azure AD accounts.
+   **The email attribute will be used to match Atlassian Cloud accounts with your Azure AD accounts.**
    Select the **Save** button to commit any changes.
 
    |Attribute|Type|
@@ -159,14 +155,17 @@ Once you've configured provisioning, use the following resources to monitor your
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Connector Limitations
-* Atlassian Cloud only supports provisioning updates for users with verified domains. Changes made to users from a non-verified domain will not be pushed to Atlassian Cloud. Learn more about Atlassian verified domains [here] (https://support.atlassian.com/provisioning-users/docs/understand-user-provisioning/).
+
+* Atlassian Cloud only supports provisioning updates for users with verified domains. Changes made to users from a non-verified domain will not be pushed to Atlassian Cloud. Learn more about Atlassian verified domains [here](https://support.atlassian.com/provisioning-users/docs/understand-user-provisioning/).
 * Atlassian Cloud does not support group renames today. This means that any changes to the displayName of a group in Azure AD will not be updated and reflected in Atlassian Cloud.
 * The value of the **mail** user attribute in Azure AD is only populated if the user has a Microsoft Exchange Mailbox. If the user does not have one, it is recommended to map a different desired attribute to the **emails** attribute in Atlassian Cloud.
+
 
 ## Change log
 
 * 06/15/2020 - Added support for batch PATCH for groups.
 * 04/21/2021 - Added support for **Schema Discovery**.
+* 10/14/2022 - Updated Connector Limitations.
 
 ## Additional resources
 

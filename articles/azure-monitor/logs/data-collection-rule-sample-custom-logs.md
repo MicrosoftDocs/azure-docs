@@ -7,17 +7,17 @@ ms.date: 02/15/2022
 ---
 
 # Sample data collection rule - custom logs
-The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for use with [custom logs](../logs/custom-logs-overview.md). It has the following details:
+The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for use with [custom logs](../logs/logs-ingestion-api-overview.md). It has the following details:
 
 - Sends data to a table called MyTable_CL in a workspace called my-workspace.
-- Applies a [transformation](../essentials/data-collection-rule-transformations.md) to the incoming data.
+- Applies a [transformation](../essentials//data-collection-transformations.md) to the incoming data.
 
 ## Sample DCR
 
 ```json
 {
     "properties": { 
-        "dataCollectionEndpointId": "https://my-dcr.westus2-1.ingest.monitor.azure.com",
+        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-groups/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
         "streamDeclarations": {
             "Custom-MyTableRawData": {
                 "columns": [
@@ -63,6 +63,6 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 
 ## Next steps
 
-- [Walk through a tutorial on configuring custom logs using resource manager templates.](tutorial-custom-logs-api.md)
+- [Walk through a tutorial on configuring custom logs using resource manager templates.](tutorial-logs-ingestion-api.md)
 - [Get details on the structure of data collection rules.](../essentials/data-collection-rule-structure.md)
-- [Get an overview on custom logs](custom-logs-overview.md).
+- [Get an overview on custom logs](logs-ingestion-api-overview.md).

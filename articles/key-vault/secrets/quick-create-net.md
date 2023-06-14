@@ -1,17 +1,17 @@
 ---
-title: Quickstart - Azure Key Vault secrets client library for .NET (version 4)
-description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library (version 4)
+title: Quickstart - Azure Key Vault secrets client library for .NET
+description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/23/2020
+ms.date: 01/20/2023
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
-# Quickstart: Azure Key Vault secret client library for .NET (SDK v4)
+# Quickstart: Azure Key Vault secret client library for .NET
 
 Get started with the Azure Key Vault secret client library for .NET. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library
 
@@ -26,10 +26,9 @@ For more information about Key Vault and secrets, see:
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
-* [Azure CLI](/cli/azure/install-azure-cli)
-* [Azure PowerShell](/powershell/azure/install-az-ps)
-* A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
+* [.NET 6 SDK or later](https://dotnet.microsoft.com/download)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
+* A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 
 This quickstart is using `dotnet` and Azure CLI or Azure PowerShell.
 
@@ -121,7 +120,7 @@ From the command shell, install the Azure Key Vault secret client library for .N
 dotnet add package Azure.Security.KeyVault.Secrets
 ```
 
-For this quickstart, you'll also need to install the Azure SDK client library for Azure Identity:
+For this quickstart, you'll also need to install the Azure Identity client library:
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -158,9 +157,11 @@ Add the following directives to the top of *Program.cs*:
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
+Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/dotnet/azure/sdk/authentication#defaultazurecredential) class provided by the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. For more information about authenticating to key vault, see [Developer's Guide](../general/developers-guide.md#authenticate-to-key-vault-in-code).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -173,7 +174,7 @@ await client.SetSecretAsync(secretName, secretValue);
 ```
 
 > [!NOTE]
-> If secret name exists, above code will create new version of that secret.
+> If secret name exists, the code will create new version of that secret.
 
 
 ### Retrieve a secret
@@ -195,12 +196,12 @@ var operation = await client.StartDeleteSecretAsync("mySecret");
 // You only need to wait for completion if you want to purge or recover the key.
 await operation.WaitForCompletionAsync();
 
-await client.PurgeDeletedKeyAsync("mySecret");
+await client.PurgeDeletedSecretAsync("mySecret");
 ```
 
 ## Sample code
 
-Modify the .NET Core console app to interact with the Key Vault by completing the following steps:
+Modify the .NET console app to interact with the Key Vault by completing the following steps:
 
 1. Replace the code in *Program.cs* with the following code:
 

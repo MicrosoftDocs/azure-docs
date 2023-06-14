@@ -4,7 +4,6 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/22/2022
 ms.author: cephalin 
-ms.custom: devx-track-azurepowershell
 ---
 ## <a name="rest"></a>Deploy ZIP file with REST APIs 
 
@@ -42,10 +41,6 @@ curl -X POST \
     -H "Authorization: Bearer <access_token>" \
     "https://<app_name>.scm.azurewebsites.net/api/zipdeploy"
 ```
-
-#### Asynchronous zip deployment
-
-While deploying synchronously you may receive errors related to connection timeouts. Add `?isAsync=true` to the URL to deploy asynchronously. You will receive a response as soon as the zip file is uploaded with a `Location` header pointing to the pollable deployment status URL. When polling the URL provided in the `Location` header, you will receive a HTTP 202 (Accepted) response while the process is ongoing and a HTTP 200 (OK) response once the archive has been expanded and the deployment has completed successfully.
 
 ### With PowerShell
 

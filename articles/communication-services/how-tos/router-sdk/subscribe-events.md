@@ -17,8 +17,6 @@ This guide outlines the steps to set up a subscription for Job Router events and
 
 For more details on Event Grid, see the [Event Grid documentation][event-grid-overview].
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -86,7 +84,7 @@ Copy the following code snippet and paste into source file: **Program.cs**
 using Azure.Storage.Queues;
 using Azure.Messaging.EventGrid;
 
-// For more detailed tutorials on storage queues, see: https://docs.microsoft.com/azure/storage/queues/storage-tutorial-queues
+// For more detailed tutorials on storage queues, see: https://learn.microsoft.com/azure/storage/queues/storage-tutorial-queues
 
 var queueClient = new QueueClient("<Storage Account Connection String>", "router-events");
 

@@ -1,3 +1,4 @@
+items:
 - name: Logz.io Azure Integration Documentation
   href: index.yml
 - name: Overview
@@ -19,6 +20,8 @@
     href: troubleshoot.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/logz
   - name: Azure PowerShell
     href: /powershell/module/az.logz/get-azlogzmonitor
   - name: Java

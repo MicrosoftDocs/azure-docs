@@ -1,11 +1,11 @@
 ---
 title: Revoke a share subscription in Azure Data Share 
 description: Learn how to revoke a share subscription from a recipient using Azure Data Share.
-author: jifems
-ms.author: jife
+author: sidontha
+ms.author: sidontha
 ms.service: data-share
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 10/31/2022
 ---
 # How to revoke a consumer's share subscription in Azure Data Share
 

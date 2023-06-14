@@ -14,6 +14,9 @@ ms.date: 05/28/2021
 
 # Prediction endpoint changes for V3
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. There is currently no date by which migration needs to be completed.
 
 **Generally available status** - this V3 API include significant JSON request and response changes from V2 API.

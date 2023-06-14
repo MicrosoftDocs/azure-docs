@@ -1,6 +1,6 @@
 ---
 title: Understand Azure IoT Hub AMQP support | Microsoft Docs
-description: Developer guide - support for devices connecting to IoT Hub device-facing and service-facing endpoints using the AMQP Protocol. Includes information about built-in AMQP support in the Azure IoT device SDKs.
+description: This article describes support for devices connecting to IoT Hub device-facing and service-facing endpoints using the AMQP Protocol. Includes information about built-in AMQP support in the Azure IoT device SDKs.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
@@ -38,7 +38,7 @@ import urllib
 import time
 
 # Use generate_sas_token implementation available here:
-# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
+# https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -153,7 +153,7 @@ import uamqp
 import urllib
 import time
 
-# Use the generate_sas_token implementation that's available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
+# Use the generate_sas_token implementation that's available here: https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -233,7 +233,7 @@ import urllib
 import uuid
 
 # Use generate_sas_token implementation available here:
-# https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
+# https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-security#sas-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -373,4 +373,4 @@ To learn more about IoT Hub messaging, see:
 
 * [Cloud-to-device messages](./iot-hub-devguide-messages-c2d.md)
 * [Support for additional protocols](../iot-edge/iot-edge-as-gateway.md)
-* [Support for the Message Queuing Telemetry Transport (MQTT) Protocol](./iot-hub-mqtt-support.md)
+* [Support for the Message Queuing Telemetry Transport (MQTT) Protocol](../iot/iot-mqtt-connect-to-iot-hub.md)

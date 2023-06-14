@@ -3,12 +3,12 @@ title: Custom home page for published apps - Azure Active Directory Application 
 description: Covers the basics about Azure Active Directory Application Proxy connectors
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: harshja
 ---
@@ -42,7 +42,7 @@ You can set the home page URL either through the Azure portal or by using PowerS
 
 ## Change the home page in the Azure portal
 
-To change the home page URL of your app through the Azure AD portal, follow these steps:
+To change the home page URL of your app through the Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an administrator.
 1. Select **Azure Active Directory**, and then **App registrations**. The list of registered apps appears.

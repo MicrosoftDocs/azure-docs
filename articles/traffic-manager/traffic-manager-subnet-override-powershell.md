@@ -1,14 +1,13 @@
 ---
-title: Azure Traffic Manager subnet override using Azure PowerShell | Microsoft Docs
+title: Azure Traffic Manager subnet override using Azure PowerShell
 description: This article will help you understand how Traffic Manager subnet override is used to override the routing method of a Traffic Manager profile to direct traffic to an endpoint based upon the end-user IP address via predefined IP range to endpoint mappings using Azure PowerShell.
 services: traffic-manager
-documentationcenter: ''
-author: asudbring
-
+author: greg-lindsay
 ms.topic: how-to
 ms.service: traffic-manager
-ms.date: 09/18/2019
-ms.author: allensu
+ms.date: 05/07/2023
+ms.author: greglin
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Traffic Manager subnet override using Azure PowerShell
@@ -26,30 +25,33 @@ There are two types of routing profiles that support subnet overrides:
 * **Geographic** - If Traffic Manager finds a subnet override for the DNS query's IP address, it will route the query to the endpoint whatever the health of the endpoint is.
 * **Performance** - If Traffic Manager finds a subnet override for the DNS query's IP address, it will only route the traffic to the endpoint if it's healthy.  Traffic Manager will fall back to the performance routing heuristic if the subnet override endpoint isn't healthy.
 
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- For this guide you will need an App Service and a Traffic Manager profile. To learn more, see [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
 ## Create a Traffic Manager subnet override
 
 To create a Traffic Manager subnet override, you can use Azure PowerShell to add the subnets for the override to the Traffic Manager endpoint.
 
-## Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. 
-If you run PowerShell from your computer, you need the Azure PowerShell module, 1.0.0 or later. You can run `Get-Module -ListAvailable Az` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to sign in to Azure.
-
+### Add IP Address range to Endpoint 
 
 1. **Retrieve the Traffic Manager endpoint:**
 
     To enable the subnet override, retrieve the endpoint you wish to add the override to and store it in a variable using [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint).
 
-    Replace the Name, ProfileName, and ResourceGroupName with the values of the endpoint that you're changing.
+    Replace the Name, ProfileName, and ResourceGroupName with the values of the endpoint that you're changing. In this example we will use the endpoint name *myAppServicePlan* and the profile name *myTrafficManagerProfile*. 
 
     ```powershell
 
-    $TrafficManagerEndpoint = Get-AzTrafficManagerEndpoint -Name "contoso" -ProfileName "ContosoProfile" -ResourceGroupName "ResourceGroup" -Type AzureEndpoints
+    $TrafficManagerEndpoint = Get-AzTrafficManagerEndpoint -Name "myAppServicePlan" -ProfileName "myTrafficManagerProfile" -ResourceGroupName "MyResourceGroup" -Type AzureEndpoints
 
     ```
-2. **Add the IP address range to the endpoint:**
+1. **Add the IP address range to the endpoint:**
     
     To add the IP address range to the endpoint, you'll use [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange) to add the range.
 
@@ -65,14 +67,19 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    Once the ranges are added, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
 
-    ```powershell
+### Update Endpoint 
 
-    Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
+Once the ranges are added, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
 
-    ```
-Removal of the IP address range can be completed by using [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange).
+```powershell
+
+Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
+
+```
+
+### Remove IP address range from Endpoint
+
 
 1.  **Retrieve the Traffic Manager endpoint:**
 
@@ -82,30 +89,33 @@ Removal of the IP address range can be completed by using [Remove-AzTrafficManag
 
     ```powershell
 
-    $TrafficManagerEndpoint = Get-AzTrafficManagerEndpoint -Name "contoso" -ProfileName "ContosoProfile" -ResourceGroupName "ResourceGroup" -Type AzureEndpoints
+    $TrafficManagerEndpoint = Get-AzTrafficManagerEndpoint -Name "myAppServicePlan" -ProfileName "myTrafficManagerProfile" -ResourceGroupName "MyResourceGroup" -Type AzureEndpoints
 
     ```
-2. **Remove the IP address range from the endpoint:**
+1. **Remove the IP address range from the endpoint:**
 
     ```powershell
     
     ### Remove a range of IPs ###
-    Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "1.2.3.4" -Last "5.6.7.8"
+    Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "1.2.3.4" 
 
     ### Remove a subnet ###
-    Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "9.10.11.0" -Scope 24
+    Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "9.10.11.0" 
 
     ### Remove a range of IPs with a subnet ###
-    Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
+    Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" 
 
     ```
-     Once the ranges are removed, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
 
-    ```powershell
+### Update Endpoint
 
-    Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
+Once the ranges are removed, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
 
-    ```
+```powershell
+Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
+
+```
+
 
 ## Next steps
 Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Bastion documentation
-summary: Learn how to use Azure Bastion to connect to a virtual machine. Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address.
+summary: Learn how to use Azure Bastion to connect to a virtual machine. Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines don't need a public IP address.
 
 metadata:
   title: Azure Bastion documentation
@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 03/22/2022
+  ms.date: 05/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -32,7 +32,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Bastion
-            url: /learn/modules/intro-to-azure-bastion/
+            url: /training/modules/intro-to-azure-bastion/
       - linkListType: video
         links:
           - text: Azure Bastion
@@ -55,7 +55,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Connect to a VM using Azure Bastion
-            url: /learn/modules/connect-vm-with-azure-bastion/
+            url: /training/modules/connect-vm-with-azure-bastion/
       - linkListType: video
         links:
           - text: Working with Azure Bastion
@@ -77,3 +77,17 @@ landingContent:
             url: bastion-vm-full-screen.md
           - text: Upload or download files
             url: vm-upload-download-native.md
+            
+ # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.network/
+          - text: Azure CLI
+            url: /cli/azure/network/bastion
+          - text: REST
+            url: /rest/api/virtualnetwork/bastion-hosts
+
+            

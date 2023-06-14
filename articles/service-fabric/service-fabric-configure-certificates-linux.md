@@ -1,12 +1,14 @@
 ---
 title: Configure certificates for applications on Linux 
 description: Configure certificates for your app with the Service Fabric runtime on a Linux cluster
-
-ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: pepogors
-
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Certificates and security on Linux clusters
 
 This article provides information about configuring X.509 certificates on Linux clusters.

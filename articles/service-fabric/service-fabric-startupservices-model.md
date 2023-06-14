@@ -1,10 +1,14 @@
 ---
 title: Define Service Configuration in StartupServices.xml for a Service Fabric Application
 description: Learn how to use StartupServices.xml to separate service level configuration from ApplicationManifest.xml.
-
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Introducing StartupServices.xml in Service Fabric Application
 This feature introduces StartupServices.xml file in a Service Fabric Application design. This file hosts DefaultServices section of ApplicationManifest.xml. With this implementation, DefaultServices and Service definition-related parameters are moved from existing ApplicationManifest.xml to this new file called StartupServices.xml. This file is used in each functionalities (Build/Rebuild/F5/Ctrl+F5/Publish) in Visual Studio.
 

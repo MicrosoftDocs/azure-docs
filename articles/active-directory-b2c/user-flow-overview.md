@@ -3,15 +3,15 @@ title: User flows and custom policies in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn more about built-in user flows and the custom policy extensible policy framework of Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.custom: project-no-code
-ms.author: kengaderdus
+ms.date: 10/24/2022
+ms.custom: project-no-code, engagement-fy23
+ms.author: godonnell
 ms.subservice: B2C
 ---
 
@@ -23,11 +23,11 @@ In Azure AD B2C, there are two ways to provide identity user experiences:
 
 * **User flows** are predefined, built-in, configurable policies that we provide so you can create sign-up, sign-in, and policy editing experiences in minutes.
 
-* **Custom policies** enable you to create your own user journeys for complex identity experience scenarios.
+* **Custom policies** enable you to create your own user journeys for complex identity experience scenarios that are not supported by user flows. Azure AD B2C uses custom policies to provide extensibility.
 
 The following screenshot shows the user flow settings UI, versus custom policy configuration files.
 
-![Screenshot shows the user flow settings UI, versus custom policy configuration files.](media/user-flow-overview/user-flow-vs-custom-policy.png)
+:::image type="content" source="media/user-flow-overview/user-flow-vs-custom-policy.png" alt-text="Screenshot of the user flow settings UI, versus custom policy configuration files." lightbox="media/user-flow-overview/user-flow-vs-custom-policy.png":::
 
 This article gives a brief overview of user flows and custom policies, and helps you decide which method will work best for your business needs.
 
@@ -64,7 +64,7 @@ Each user journey is defined by a policy. You can build as many or as few polici
 
 ![Diagram showing an example of a complex user journey enabled by IEF](media/user-flow-overview/custom-policy-diagram.png)
 
-A custom policy is defined by several XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey orchestration steps, and other aspects of the identity experience.
+A custom policy is defined by multiple XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey orchestration steps, and other aspects of the identity experience.
 
 The powerful flexibility of custom policies is most appropriate for when you need to build complex identity scenarios. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
 

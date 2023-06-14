@@ -11,6 +11,8 @@ ms.date: 05/03/2022
 
 This article describes how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
 
+If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](../azure-monitor/logs/migrate-splunk-to-azure-monitor-logs.md).
+
 ## Identify and migrate rules
 
 Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Microsoft Sentinel. Therefore, don't migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
@@ -101,7 +103,7 @@ Use these samples to compare and map rules from Splunk to Microsoft Sentinel in 
 |`rename`     |Renames a field. Use wildcards to specify multiple fields.	         |[project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)         |`T | project-rename new_column_name = column_name`      |
 |`rex`     |Specifies group names using regular expressions to extract fields.	|[matches regex](/azure/data-explorer/kusto/query/re2)         |`… | where field matches regex "^addr.*"`         |
 |`search`     |Filters results to results that match the search expression.	 |[search](/azure/data-explorer/kusto/query/searchoperator?pivots=azuredataexplorer)         |`search "X"`         |
-|`sort`     |Sorts the search results by the specified fields.	   |[sort](/azure/data-explorer/kusto/query/sortoperator)         |`T | sort by strlen(country) asc, price desc`         |
+|`sort`     |Sorts the search results by the specified fields.	   |[sort](/azure/data-explorer/kusto/query/sort-operator)         |`T | sort by strlen(country) asc, price desc`         |
 |`stats`     |Provides statistics, optionally grouped by fields. Learn more about [common stats commands](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/SPL%20to%20KQL.md#common-stats-commands).     |[summarize](/azure/data-explorer/kusto/query/summarizeoperator)         |[KQL example](#stats-command-kql-example) |
 |`mstats`     |Similar to stats, used on metrics instead of events.	  |[summarize](/azure/data-explorer/kusto/query/summarizeoperator)          |[KQL example](#mstats-command-kql-example) |
 |`table`     |Specifies which fields to keep in the result set, and retains data in tabular format.	|[project](/azure/data-explorer/kusto/query/projectoperator)         |`T | project columnA, columnB`         |
@@ -245,7 +247,7 @@ series_decompose_anomalies(Trend)
 |`match(X,Y)`	     |Returns if X matches the regex pattern Y.	         |`match(field, "^\d{1,3}.\d$")`         |[matches regex](/azure/data-explorer/kusto/query/re2)         |`… | where field matches regex @"^\d{1,3}.\d$")` |
 |`max(X,…)`	    |Returns the maximum value in a column.	         |`max(delay, mydelay)`         |• [max()](/azure/data-explorer/kusto/query/max-aggfunction)<br>• [arg_max()](/azure/data-explorer/kusto/query/arg-max-aggfunction)         |`… | summarize max(field)` |
 |`md5(X)`	     |Returns the MD5 hash of a string value `X`.	         |`md5(field)`         |[hash_md5](/azure/data-explorer/kusto/query/md5hashfunction)         |`hash_md5("X")` |
-|`min(X,…)`     |Returns the minimum value in a column.	         |`min(delay, mydelay)`	         |• [min_of()](/azure/data-explorer/kusto/query/min-offunction)<br>• [min()](/azure/data-explorer/kusto/query/min-aggfunction)<br>• [arg_min](/azure/data-explorer/kusto/query/arg-min-%3Csub%3E**aggfunction) |[KQL example](#minx-kql-example) |
+|`min(X,…)`     |Returns the minimum value in a column.	         |`min(delay, mydelay)`	         |• [min_of()](/azure/data-explorer/kusto/query/min-offunction)<br>• [min()](/azure/data-explorer/kusto/query/min-aggfunction)<br>• [arg_min](/azure/data-explorer/kusto/query/arg-min-aggfunction) |[KQL example](#minx-kql-example) |
 |`mvcount(X)`     |Returns the number (total) of `X` values.	  |`mvcount(multifield)`         |[dcount](/azure/data-explorer/kusto/query/dcount-aggfunction)         |`…| summarize dcount(X) by Y` |
 |`mvfilter(X)`     |Filters a multi-valued field based on the boolean `X` expression.	         |`mvfilter(match(email, "net$"))`         |[mv-apply](/azure/data-explorer/kusto/query/mv-applyoperator)         |[KQL example](#mvfilterx-kql-example) |
 |`mvindex(X,Y,Z)`     |Returns a subset of the multi-valued `X` argument from a start position (zero-based) `Y` to `Z` (optional).	         |`mvindex( multifield, 2)`	         |[array_slice](/azure/data-explorer/kusto/query/arrayslicefunction)         |`array_slice(arr, 1, 2)` |

@@ -1,16 +1,16 @@
 ---
-title: Manage zone redundant high availability - Azure CLI - Azure Database for MySQL Flexible Server
-description: This article describes how to configure zone redundant high availability in Azure Database for MySQL flexible Server with the Azure CLI.
-author: mksuni
-ms.author: sumuth
+title: Manage zone redundant high availability - Azure CLI - Azure Database for MySQL - Flexible Server
+description: This article describes how to configure zone redundant high availability in Azure Database for MySQL - Flexible Server with the Azure CLI.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
+author: VandhanaMehta
+ms.author: vamehta
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
-# Manage zone redundant high availability in Azure Database for MySQL Flexible Server with Azure CLI
+# Manage zone redundant high availability in Azure Database for MySQL - Flexible Server with Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -58,7 +58,7 @@ You can only create server using  General purpose or Business Critical pricing t
 **Example:**
 
    ```azurecli
-    az mysql flexible-server create --name myservername --sku-name Standard_D2ds_v4 --tier Genaralpurpose --resource-group myresourcegroup --high-availability ZoneRedundant --location eastus
+    az mysql flexible-server create --name myservername --sku-name Standard_D2ds_v4 --tier GeneralPurpose --resource-group myresourcegroup --high-availability ZoneRedundant --location eastus
    ```
 
 ## Disable high availability

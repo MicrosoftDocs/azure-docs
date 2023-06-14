@@ -2,21 +2,17 @@
 title: View analytic information about active tasks in Permissions Management
 description: How to view analytic information about active tasks in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: active-directory
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 02/08/2023
+ms.author: jfields
 ---
 
 # View analytic information about active tasks
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 The **Analytics** dashboard in Permissions Management collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for:
 
@@ -38,9 +34,11 @@ When you select **Active Tasks**, the **Analytics** dashboard provides a high-le
     The dashboard only lists tasks that are active. The following components make up the **Active Tasks** dashboard:
 
     - **Authorization System Type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-    - **Authorization System**: Select from a **List** of accounts and **Folders***.
+    - **Authorization System**: Select from a **List** of accounts and **Folders**.
+      > [!NOTE]
+      > Folders can be used to organize and group together your list of accounts, or subscriptions. To create a folder, go to **Settings (gear icon) > Folders > Create Folder**.
     - **Tasks Type**: Select **All** tasks, **High Risk tasks** or, for a list of tasks where users have deleted data, select **Delete Tasks**.
-    - **Search**: Enter criteria to find specific tasks.
+    - **Search**: Enter criteria to find specific tasks. 
 
 1. Select **Apply** to display the criteria you've selected.
 
@@ -52,11 +50,10 @@ When you select **Active Tasks**, the **Analytics** dashboard provides a high-le
 The **Active Tasks** table displays the results of your query.
 
 - **Task Name**: Provides the name of the task.
-    - To view details about the task, select the down arrow in the table.
+    - To view details about the task, select the down arrow next to the task in the table.
 
-        - A **Normal Task** icon displays to the left of the task name if the task is normal (that is, not risky).
-        - A **Deleted Task** icon displays to the left of the task name if the task involved deleting data.
-        - A **High-Risk Task** icon displays to the left of the task name if the task is high-risk.
+        - An icon (![Image of task icon](media/usage-analytics-active-tasks/normal-task.png)) displays to the left of the task name if the task is a **Normal Task** (that is, not risky).
+        - A highlighted icon (![Image of highlighted task icon](media/usage-analytics-active-tasks/high-risk-deleted-task.png)) displays to the left of the task name if the task involved deleting data &mdash; a **High-Delete Task** &mdash; or if the task is a **High-Risk Task**.
 
 - **Performed on (resources)**: The number of resources on which the task was used.
 

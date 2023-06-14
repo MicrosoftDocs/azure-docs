@@ -1,11 +1,10 @@
 ---
 title: Further analyze an incident and evaluate impact
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn how to leverage analysis tools to further analyze an incident. 
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: how-to
 ms.date: 04/15/2021

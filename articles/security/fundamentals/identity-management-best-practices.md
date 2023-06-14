@@ -8,12 +8,12 @@ manager: RKarlin
 editor: TomSh
 
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 12/19/2022
 ms.author: terrylan
 
 ---
@@ -65,7 +65,7 @@ The following sections list best practices for identity and access security usin
 
 In a hybrid identity scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
 
-**Best practice**: Establish a single Azure AD instance. Consistency and a single authoritative sources will increase clarity and reduce security risks from human errors and configuration complexity.
+**Best practice**: Establish a single Azure AD instance. Consistency and a single authoritative source will increase clarity and reduce security risks from human errors and configuration complexity.
 **Detail**: Designate a single Azure AD directory as the authoritative source for corporate and organizational accounts.
 
 **Best practice**: Integrate your on-premises directories with Azure AD.  
@@ -166,7 +166,7 @@ Following are options and benefits for enabling two-step verification:
 This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information in [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)
 
 **Option 2**: [Enable Multi-Factor Authentication by changing user state](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure AD Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](../../active-directory/authentication/concept-mfa-howitworks.md). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
+**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure AD Multi-Factor Authentication in the cloud and Azure AD Multi-Factor Authentication Server](../../active-directory/authentication/concept-mfa-howitworks.md). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
 
 To determine where Multi-Factor Authentication needs to be enabled, see [Which version of Azure AD MFA is right for my organization?](../../active-directory/authentication/concept-mfa-howitworks.md).
 
@@ -318,14 +318,14 @@ Organizations that are not controlling how resources are created are more suscep
 
 ## Actively monitor for suspicious activities
 
-An active identity monitoring system can quickly detect suspicious behavior and trigger an alert for further investigation. The following table lists two Azure AD capabilities that can help organizations monitor their identities:
+An active identity monitoring system can quickly detect suspicious behavior and trigger an alert for further investigation. The following table lists Azure AD capabilities that can help organizations monitor their identities:
 
 **Best practice**: Have a method to identify:
 
-- Attempts to sign in [without being traced](../../active-directory/reports-monitoring/howto-find-activity-reports.md).
-- [Brute force](../../active-directory/reports-monitoring/howto-find-activity-reports.md) attacks against a particular account.
+- Attempts to sign in [without being traced](../../active-directory/reports-monitoring/howto-access-activity-logs.md).
+- [Brute force](../../active-directory/reports-monitoring/howto-access-activity-logs.md) attacks against a particular account.
 - Attempts to sign in from multiple locations.
-- Sign-ins from [infected devices](../../active-directory/reports-monitoring/howto-find-activity-reports.md).
+- Sign-ins from [infected devices](../../active-directory/reports-monitoring/howto-access-activity-logs.md).
 - Suspicious IP addresses.
 
 **Detail**: Use Azure AD Premium [anomaly reports](../../active-directory/reports-monitoring/overview-reports.md). Have processes and procedures in place for IT admins to run these reports on a daily basis or on demand (usually in an incident response scenario).

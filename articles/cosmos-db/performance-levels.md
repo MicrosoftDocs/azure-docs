@@ -6,11 +6,10 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Retiring the S1, S2, and S3 performance levels
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 > [!IMPORTANT] 
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new Azure Cosmos DB accounts.
@@ -76,10 +75,6 @@ Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East re
 
 <a name="more-storage-needed"></a>
 
-## What if I need more than 20 GB of storage?
-
-Whether you have a collection with S1, S2, or S3 performance level, or have a single partition collection, all of which have 20 GB of storage available, you can use the Azure Cosmos DB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md). 
-
 <a name="change-before"></a>
 
 ## Can I change between the S1, S2, and S3 performance levels before the planned migration?
@@ -94,7 +89,7 @@ You can migrate from the S1, S2, and S3 performance levels to single partition c
 
 ### Migrate to single partition collections by using the .NET SDK
 
-This section only covers changing a collection's performance level using the [SQL .NET API](sql-api-sdk-dotnet.md), but the process is similar for our other SDKs.
+This section only covers changing a collection's performance level using the [SQL .NET API](nosql/sdk-dotnet-v3.md), but the process is similar for our other SDKs.
 
 Here is a code snippet for changing the collection throughput to 5,000 request units per second:
     
@@ -128,6 +123,6 @@ EA customers will be price protected until the end of their current contract.
 ## Next steps
 To learn more about pricing and managing data with Azure Cosmos DB, explore these resources:
 
-1.	[Partitioning data in Cosmos DB](partitioning-overview.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
-2.	[Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). Learn about the cost of provisioning throughput and consuming storage.
+1.	[Partitioning data in Azure Cosmos DB](partitioning-overview.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
+2.	[Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). Learn about the cost of provisioning throughput and consuming storage.
 3.	[Request units](request-units.md). Understand the consumption of throughput for different operation types, for example Read, Write, Query.

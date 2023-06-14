@@ -14,6 +14,9 @@ ms.date: 01/07/2022
 ---
 # Simple entity
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 A simple entity is a generic entity that describes a single concept and is learned from the machine-learning context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](concepts/patterns-features.md) when using a simple entity to boost the signal of the names used.
 
 **The entity is a good fit when:**
