@@ -179,7 +179,7 @@ You can configure Azure Firewall to auto-learn registered and private ranges eve
 
 ### JSON
 
-You can use the following JSON to configure auto-learn (preview). Azure Firewall must be associated with an Azure Route Server.
+You can use the following JSON to configure auto-learn. Azure Firewall must be associated with an Azure Route Server.
 
 ```json
 	  "type": "Microsoft.Network/firewallPolicies",
@@ -280,7 +280,7 @@ Use the following JSON to associate an Azure Route Server:
    ```
 ### Azure portal
 
-You can use the portal to associate a Route Server with Azure Firewall to configure auto-learn SNAT routes(preview).
+You can use the portal to associate a Route Server with Azure Firewall to configure auto-learn SNAT routes (preview).
 
 1. Select your resource group, and then select your firewall. 
 2.	Select **Overview**.
