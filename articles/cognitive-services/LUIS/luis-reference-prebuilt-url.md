@@ -14,6 +14,9 @@ ms.date: 10/04/2019
 ---
 
 # URL prebuilt entity for a LUIS app
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 URL entity extracts URLs with domain names or IP addresses. Because this entity is already trained, you do not need to add example utterances containing URLs to the application. URL entity is supported in `en-us` culture only.
 
 ## Types of URLs

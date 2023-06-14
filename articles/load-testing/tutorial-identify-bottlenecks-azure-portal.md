@@ -6,14 +6,14 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 02/15/2022
+ms.date: 01/18/2023
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps that I'm running in Azure.
 ---
 
 # Tutorial: Run a load test to identify performance bottlenecks in a web app
 
-In this tutorial, you'll learn how to identify performance bottlenecks in a web application by using Azure Load Testing Preview. You'll create a load test for a sample Node.js application.
+In this tutorial, you'll learn how to identify performance bottlenecks in a web application by using Azure Load Testing. You'll create a load test for a sample Node.js application.
 
 The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database.
 
@@ -27,9 +27,6 @@ In this tutorial, you'll learn how to:
 > * Identify performance bottlenecks in the app.
 > * Remove a bottleneck.
 > * Rerun the load test to check performance improvements.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -99,21 +96,21 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 > [!NOTE]
 > The sample Apache JMeter script requires two plugins: ```Custom Thread Groups``` and ```Throughput Shaping Timer```. To open the script on your local Apache JMeter instance, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
 
-### Create the Azure Load Testing resource
+### Create the Azure load testing resource
 
-The Load Testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
+The Azure load testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
 
-If you already have a Load Testing resource, skip this section and continue to [Create a load test](#create_test).
+If you already have a load testing resource, skip this section and continue to [Create a load test](#create-a-load-test).
 
-If you don't yet have a Load Testing resource, create one now:
+If you don't yet have an Azure load testing resource, create one now:
 
-[!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
+[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
 
-### <a name="create_test"></a> Create a load test
+### Create a load test
 
-To create a load test in the Load Testing resource for the sample app:
+Next, you create a load test in your load testing resource for the sample app. You create the load test by using an existing JMeter script in the sample app repository.
 
-1. Go to the Load Testing resource and select **Create new test** on the command bar.
+1. Go to your load testing resource, and select **Create** on the **Overview** page.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-test.png" alt-text="Screenshot that shows the button for creating a new test." :::
 
@@ -228,7 +225,7 @@ For Azure Cosmos DB, increase the database RU scale setting:
 
 1. Select **Scale & Settings**, and update the throughput value to **1200**.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/1200-ru-scaling-for-cosmos-db.png" alt-text="Screenshot that shows the updated Azure Cosmos D B scale settings.":::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/1200-ru-scaling-for-cosmos-db.png" alt-text="Screenshot that shows the updated Azure Cosmos DB scale settings.":::
 
 1. Select **Save** to confirm the changes.
 
@@ -246,7 +243,7 @@ Now that you've increased the database throughput, rerun the load test and verif
 
 1. Check the server-side metrics for Azure Cosmos DB and ensure that the performance has improved.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the Azure Cosmos D B client-side metrics after update of the scale settings.":::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the Azure Cosmos DB client-side metrics after update of the scale settings.":::
 
    The Azure Cosmos DB **Normalized RU Consumption** value is now well below 100%.
 
@@ -266,4 +263,4 @@ As a result, the overall performance of your application has improved.
 Advance to the next tutorial to learn how to set up an automated regression testing workflow by using Azure Pipelines or GitHub Actions.
 
 > [!div class="nextstepaction"]
-> [Set up automated regression testing](./tutorial-cicd-azure-pipelines.md)
+> [Set up automated regression testing](./tutorial-identify-performance-regression-with-cicd.md)

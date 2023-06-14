@@ -4,7 +4,7 @@ description: The app expression is used in an Azure Monitor log query to retriev
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/11/2021
+ms.date: 04/20/2023
 
 ---
 
@@ -26,42 +26,34 @@ The `app` expression is used in an Azure Monitor query to retrieve data from a s
 
 | Identifier | Description | Example
 |:---|:---|:---|
-| Resource Name | Human readable name of the app (Also known as "component name") | app("fabrikamapp") |
-| Qualified Name | Full name of the app in the form: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
-| ID | GUID of the app | app("988ba129-363e-4415-8fe7-8cbab5447518") |
-| Azure Resource ID | Identifier for the Azure resource |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
+| ID | GUID of the app | app("00000000-0000-0000-0000-000000000000") |
+| Azure Resource ID | Identifier for the Azure resource |app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
 ## Notes
 
 * You must have read access to the application.
-* Identifying an application by its name assumes that it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query will fail because of the ambiguity. In this case you must use one of the other identifiers.
+* Identifying an application by its ID or Azure Resource ID is strongly recommended since unique, removes ambiguity, and more performant.
 * Use the related expression [workspace](../logs/workspace-expression.md) to query across Log Analytics workspaces.
 
 ## Examples
 
 ```Kusto
-app("fabrikamapp").requests | count
+app("00000000-0000-0000-0000-000000000000").requests | count
 ```
 ```Kusto
-app("AI-Prototype/Fabrikam/fabrikamapp").requests | count
-```
-```Kusto
-app("b438b4f6-912a-46d5-9cb1-b44069212ab4").requests | count
-```
-```Kusto
-app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
 ```
 ```Kusto
 union 
-(workspace("myworkspace").Heartbeat | where Computer contains "Con"),
-(app("myapplication").requests | where cloud_RoleInstance contains "Con")
+(workspace("00000000-0000-0000-0000-000000000000").Heartbeat | where Computer == "myComputer"),
+(app("00000000-0000-0000-0000-000000000000").requests | where cloud_RoleInstance == "myColumnInstance")
 | count  
 ```
 ```Kusto
 union 
-(workspace("myworkspace").Heartbeat), (app("myapplication").requests)
-| where TimeGenerated between(todatetime("2018-02-08 15:00:00") .. todatetime("2018-12-08 15:05:00"))
+(workspace("00000000-0000-0000-0000-000000000000").Heartbeat), (app("00000000-0000-0000-0000-000000000000").requests)
+| where TimeGenerated between(todatetime("2023-03-08 15:00:00") .. todatetime("2023-04-08 15:05:00"))
 ```
 
 ## Next steps

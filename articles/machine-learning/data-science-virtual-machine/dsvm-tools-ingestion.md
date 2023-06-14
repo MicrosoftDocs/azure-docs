@@ -5,12 +5,12 @@ description: Learn about the data ingestion tools and utilities that are preinst
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: data-science-vm
+ms.custom: ignite-2022, devx-track-azurecli
 
 author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/12/2021
-
 ---
 
 # Data Science Virtual Machine data ingestion tools
@@ -45,11 +45,11 @@ Here are some data movement tools that are available in the DSVM.
 
 |--|--|
 | ------------- | ------------- |
-| What is it? | Tool to import data from various sources into Azure Cosmos DB, a NoSQL database in the cloud. These sources include JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB SQL API collections. |
+| What is it? | Tool to import data from various sources into Azure Cosmos DB, a NoSQL database in the cloud. These sources include JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB for NoSQL collections. |
 | Supported DSVM versions | Windows |
-| Typical uses | Importing files from a VM to CosmosDB, importing data from Azure table storage to CosmosDB, and importing data from a Microsoft SQL Server database to CosmosDB. |
+| Typical uses | Importing files from a VM to Azure Cosmos DB, importing data from Azure table storage to Azure Cosmos DB, and importing data from a Microsoft SQL Server database to Azure Cosmos DB. |
 | How to use / run it? | To use the command-line version, open a command prompt and type `dt`. To use the GUI tool, open a command prompt and type `dtui`. |
-| Links to samples | [CosmosDB Import data](../../cosmos-db/import-data.md) |
+| Links to samples | [Import data into Azure Cosmos DB](../../cosmos-db/import-data.md) |
 
 ## Azure Storage Explorer
 

@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Teamgo for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Teamgo for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Teamgo.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: d05259eb-97aa-4746-9f0f-a74fe2586ac9
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/04/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

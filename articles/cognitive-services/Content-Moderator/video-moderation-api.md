@@ -12,8 +12,7 @@ ms.topic: how-to
 ms.date: 10/27/2021
 ms.author: pafarley
 ms.devlang: csharp
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, devx-track-dotnet
 #Customer intent: As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
@@ -117,6 +116,9 @@ private const string OUTPUT_FOLDER = "";
 private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 ```
+
+> [!IMPORTANT]
+> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
 
 If you wish to use a local video file (simplest case), add it to the project and enter its path as the `INPUT_FILE` value (relative paths are relative to the execution directory).
 

@@ -6,7 +6,7 @@ ms.assetid:
 ms.topic: reference
 ms.date: 11/15/2021
 ms.author: cachai
-ms.custom:
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -42,7 +42,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Rabbitmq).
 

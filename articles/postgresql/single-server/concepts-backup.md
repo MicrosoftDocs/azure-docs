@@ -4,12 +4,16 @@ description: Learn about automatic backups and restoring your Azure Database for
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: srranga
-author: sr-msft
-ms.date: 11/08/2021
+ms.author: alkuchar
+author: AwdotiaRomanowna
+ms.date: 06/24/2022
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 Azure Database for PostgreSQL automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to a point-in-time. Backup and restore are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
 
@@ -23,19 +27,18 @@ These backup files cannot be exported. The backups can only be used for restore 
 
 #### Servers with up to 4-TB storage
 
-For servers which support up to 4-TB maximum storage, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.
-
+For servers that support up to 4-TB maximum storage, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.
 
 #### Servers with up to 16-TB storage
 
-In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. Differential snapshot backups do not occur on a fixed schedule. In a day, three differential snapshot backups are performed. Transaction log backups occur every five minutes. 
+In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. Differential snapshot backups do not occur on a fixed schedule.  In a day, multiple differential snapshot backups are performed, but only 3 backups are retained. Transaction log backups occur every five minutes.
 
 > [!NOTE]
 > Automatic backups are performed for [replica servers](./concepts-read-replicas.md) that are configured with up to 4TB storage configuration.
 
 ### Backup retention
 
-Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or later by updating the backup configuration using [Azure portal](./how-to-restore-server-portal.md#set-backup-configuration) or [Azure CLI](./how-to-restore-server-cli.md#set-backup-configuration). 
+Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or later by updating the backup configuration using [Azure portal](./how-to-restore-server-portal.md#set-backup-configuration) or [Azure CLI](./how-to-restore-server-cli.md#set-backup-configuration).
 
 The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in backup storage. For example - if the backup retention period is set to 7 days, the recovery window is considered last 7 days. In this scenario, all the backups required to restore the server in last 7 days are retained. With a backup retention window of seven days:
 - Servers with up to 4-TB storage will retain up to 2 full database backups, all the differential backups, and transaction log backups performed since the earliest full database backup.
@@ -43,22 +46,22 @@ The backup retention period governs how far back in time a point-in-time restore
 
 ### Backup redundancy options
 
-Azure Database for PostgreSQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](../../availability-zones/cross-region-replication-azure.md). This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
+Azure Database for PostgreSQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, an additional backup copy is replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md). This provides better protection and ability to restore your server in the event of a regional disaster. The Basic tier only offers locally redundant backup storage.
 
 > [!IMPORTANT]
 > Configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option.
 
 ### Backup storage cost
 
-Azure Database for PostgreSQL provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GB of storage, you have 250 GB of additional storage available for server backups at no additional charge. Storage consumed for backups more than 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/).
+Azure Database for PostgreSQL provides up to 100% of your provisioned server storage as backup storage at no extra cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GB of storage, you have 250 GB of additional storage available for server backups at no extra cost. Storage consumed for backups more than 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/).
 
-You can use the [Backup Storage used](concepts-monitoring.md) metric in Azure Monitor available in the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained earlier. Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size. For geo-redundant storage, backup storage usage is twice that of the locally redundant storage. 
+You can use the [Backup Storage used](concepts-monitoring.md) metric in Azure Monitor available in the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained earlier. Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size. For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.
 
 The primary means of controlling the backup storage cost is by setting the appropriate backup retention period and choosing the right backup redundancy options to meet your desired recovery goals. You can select a retention period from a range of 7 to 35 days. General Purpose and Memory Optimized servers can choose to have geo-redundant storage for backups.
 
 ## Restore
 
-In Azure Database for PostgreSQL, performing a restore creates a new server from the original server's backups. 
+In Azure Database for PostgreSQL, performing a restore creates a new server from the original server's backups.
 
 There are two types of restore available:
 
@@ -68,7 +71,7 @@ There are two types of restore available:
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time varies depending on the the last data backup and the amount of recovery needs to be performed. It is usually less than 12 hours.
 
 > [!NOTE] 
-> If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations. 
+> If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
 
 > [!NOTE]
 > If you want to restore a deleted PostgreSQL server, follow the procedure documented [here](how-to-restore-dropped-server.md).
@@ -89,7 +92,7 @@ If you want to restore a dropped table,
 5. You can optionally delete the restored server.
 
 >[!Note]
-> It is recommended not to create multiple restores for the same server at the same time. 
+> It is recommended not to create multiple restores for the same server at the same time.
 
 ### Geo-restore
 

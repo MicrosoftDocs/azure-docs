@@ -8,8 +8,7 @@ ms.collection: linux
 ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18, devx-track-azurepowershell
-
+ms.custom: seodec18
 ---
 # Azure Disk Encryption for Linux VMs troubleshooting guide
 
@@ -23,7 +22,6 @@ Before taking any of the steps below, first ensure that the VMs you are attempti
 - [Networking requirements](disk-encryption-overview.md#networking-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
- 
 
 ## Troubleshooting Linux OS disk encryption
 

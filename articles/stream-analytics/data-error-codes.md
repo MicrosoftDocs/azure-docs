@@ -1,8 +1,8 @@
 ---
 title: Data error codes - Azure Stream Analytics
 description: Troubleshoot Azure Stream Analytics issues with data error codes, which occur when there's bad data in the stream.
-ms.author: sidram
-author: sidramadoss
+author: ahartoon
+ms.author: anboisve
 ms.topic: troubleshooting
 ms.date: 05/25/2022
 ms.service: stream-analytics
@@ -19,7 +19,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## InputEventTimestampNotFound
 
-* **Cause**: Stream Analytics is unable to get a timestamp for a resource. 
+* **Cause**: Stream Analytics is unable to get a time stamp for a resource. 
 
 ## InputEventTimestampByOverValueNotFound
 
@@ -31,7 +31,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## InputEventEarlyBeyondThreshold
 
-* **Cause**: An input event arrival time is earlier than the input event application timestamp threshold.
+* **Cause**: An input event arrival time is earlier than the input event application time stamp threshold.
 
 ## AzureFunctionMessageSizeExceeded
 

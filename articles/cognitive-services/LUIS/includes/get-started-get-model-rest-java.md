@@ -47,6 +47,8 @@ ms.custom: devx-track-java
 
     Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
 
+    [!INCLUDE [Remember to remove credentials when you're done](app-secrets.md)]
+
 1. With a command prompt in the same directory as where you created the `Model.java` file, enter the following command to compile the Java file:
 
     * If you are using Windows, use this command: `javac -cp ";lib/*" Model.java`

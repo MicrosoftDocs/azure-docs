@@ -6,19 +6,19 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Cassandra in Microsoft Purview (Preview)
+# Connect to and manage Cassandra in Microsoft Purview
 
 This article outlines how to register Cassandra, and how to authenticate and interact with Cassandra in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan) | No | No| No| [Yes](#lineage)| No |
 
 The supported Cassandra server versions are 3.*x* or 4.*x*.
 
@@ -35,21 +35,22 @@ When scanning Cassandra source, Microsoft Purview supports:
 
 When setting up scan, you can choose to scan an entire Cassandra instance, or scope the scan to a subset of keyspaces matching the given name(s) or name pattern(s).
 
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
+
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active [Microsoft Purview account](create-catalog-portal.md).
+- You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
-* An active [Microsoft Purview account](create-catalog-portal.md).
+> [!NOTE]
+> **If your data store is not publicly accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.), **you will need to configure a self hosted integration runtime to connect to it**.
 
-* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
-
-**If your data store is not publically accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.) you need to configure a self-hosted integration runtime to connect to it:
-
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
-
-    * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
-
-    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+- If your data store isn't publicly accessible, set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
+    - Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
+    - Ensure Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist).
 
 ## Register
 
@@ -59,7 +60,10 @@ This section describes how to register Cassandra in Microsoft Purview using the 
 
 To register a new Cassandra server in your data catalog:
 
-1. Go to your Microsoft Purview account.
+1. Open the Microsoft Purview governance portal by:
+
+    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left pane.
 1. Select **Register**.
 1. On the **Register sources** screen, select **Cassandra**, and then select **Continue**:
@@ -78,17 +82,17 @@ To register a new Cassandra server in your data catalog:
 
 ## Scan
 
-Follow the steps below to scan Cassandra to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
+Follow the steps below to scan Cassandra to automatically identify assets. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
 
 ### Create and run scan
 
 To create and run a new scan:
 
-1. In the Management Center, select **Integration runtimes**. Make sure a
-    self-hosted integration runtime is set up. If you don't have one set up, complete
-    [these steps to set up a self-hosted integration runtime](./manage-integration-runtimes.md).
+1. If your server is publicly accessible, skip to step two. Otherwise, you'll need to make sure your self-hosted integration runtime is configured:
+    1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/), got to the Management Center, and select **Integration runtimes**.
+    1. Make sure a self-hosted integration runtime is available. If one isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
 
-1. Go to **Sources**.
+1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/), navigate to **Sources**.
 
 1. Select the registered Cassandra server.
 
@@ -98,7 +102,7 @@ To create and run a new scan:
 
     1. **Name**: Specify a name for the scan.
 
-    1. **Connect via integration runtime**: Select the Azure auto-resolved integration runtime or your configured self-hosted integration runtime used to perform scan.
+    1. **Connect via integration runtime**: Select the Azure auto-resolved integration runtime if your server is publicly accessible, or your configured self-hosted integration runtime if it isn't publicly available.
 
     1. **Credential**: When you configure the Cassandra credentials, be sure
         to:

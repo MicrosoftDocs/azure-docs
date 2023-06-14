@@ -341,7 +341,7 @@ When your results are ready, you'll have two sets of them for the primary and se
 
 * **You see packet matches sent and received on both MSEEs**: This result indicates healthy traffic inbound to and outbound from the MSEEs on your circuit. If loss is occurring either on-premises or in Azure, it's happening downstream from the MSEEs.
 * **If you're testing PsPing from on-premises to Azure, received results show matches, but sent results show no matches**: This result indicates that traffic is coming in to Azure but isn't returning to on-premises. Check for return-path routing issues. For example, are you advertising the appropriate prefixes to Azure? Is a user-defined route (UDR) overriding prefixes?
-* **If you're testing PsPing from Azure to on-premises, sent results show no matches, but received results show matches**: This result indicates that traffic is coming in to on-premises but isn't returning to Azure. Work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
+* **If you're testing PsPing from Azure to on-premises, sent results show matches, but received results show no matches**: This result indicates that traffic is coming in to on-premises but isn't returning to Azure. Work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
 * **One MSEE shows no matches, but the other shows good matches**: This result indicates that one MSEE isn't receiving or passing any traffic. It might be offline (for example, BGP/ARP is down).
 
 Your test results for each MSEE device will look like the following example:

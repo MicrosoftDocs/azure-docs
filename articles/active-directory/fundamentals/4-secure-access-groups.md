@@ -2,187 +2,202 @@
 title: Secure external access with groups in Azure Active Directory and Microsoft 365 
 description: Azure Active Directory and Microsoft 365 Groups can be used to increase security when external users access your resources.
 services: active-directory
-author: BarbaraSelden
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.author: baselden
+ms.date: 02/09/2023
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Securing external access with groups 
+# Secure external access with groups in Azure Active Directory and Microsoft 365  
 
-Groups are an essential part of any access control strategy. Azure Active Directory (Azure AD) security groups and Microsoft 365 Groups can be used as the basis for securing access to resources.
-
-Groups are the best option to use as the basis for the following access control mechanisms:
+Groups are part of an access control strategy. You can use Azure Active Directory (Azure AD) security groups and Microsoft 365 Groups as the basis for securing access to resources. Use groups for the following access-control mechanisms:
 
 * Conditional Access policies
-
-* Entitlement Management Access Packages 
-
+  * [What is Conditional Access?](../conditional-access/overview.md)
+* Entitlement management access packages
+  *  [What is entitlement management?](../governance/entitlement-management-overview.md)
 * Access to Microsoft 365 resources, Microsoft Teams, and SharePoint sites
 
 Groups have the following roles:
 
-* Owners – Group owners manage the group settings and its membership.
+* **Group owners** – manage group settings and its membership
+* **Members** – inherit permissions and access assigned to the group
+* **Guests** – are members outside your organization
 
-* Members – Members who inherit the permissions and access assigned to the group.
+## Before you begin
 
-* Guests – Guests are members from outside of your organization. 
+This article is number 4 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
 
-## Determine your group strategy
+## Group strategy
 
-As you develop your group strategy to secure external access to your resources, consider [your desired security posture](1-secure-access-posture.md) to determine the following choices.
+To develop a group strategy to secure external access to your resources, consider the security posture that you want.
 
-* **Who should be able to create groups?** Do you want only administrators to create groups, or do you want employees and or external users to also create these groups.
+Learn more: [Determine your security posture for external access](1-secure-access-posture.md)
 
-   * *By default any tenant member can create Azure AD security groups*. 
+### Group creation 
 
-      * You can [restrict access to the portal for non-administrators](../develop/howto-restrict-your-app-to-a-set-of-users.md) and disable group creation ability in [PowerShell.](../enterprise-users/groups-troubleshooting.md) 
+Determine who is granted permissions to create groups: Administrators, employees, and/or external users. Consider the following scenarios:
 
-      * You can also [set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md). 
+* Tenant members can create Azure AD security groups
+* Internal and external users can join groups in your tenant
+* Users can create Microsoft 365 Groups
+* [Manage who can create Microsoft 365 Groups](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide&preserve-view=true) 
+  * Use Windows PowerShell to configure this setting 
+* [Restrict your Azure AD app to a set of users in an Azure AD tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md)
+* [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md) 
+* [Troubleshoot and resolve groups issues](../enterprise-users/groups-troubleshooting.md) 
 
-   * *By default all users can create Microsoft 365 Groups and groups are open for all (internal and external) users in your tenant to join*. 
+### Invitations to groups
 
-      * [You can restrict Microsoft 365 Group creation](/microsoft-365/solutions/manage-creation-of-groups) to the members of a particular security group. Use Windows PowerShell to configure this setting. 
-
-* **Who should be able to invite people to groups?** Can all group members be able to add other members, or can only group owners add members?
-
-* **Who can be invited to groups?** By default, external users can be added to groups. 
+As part of the group strategy, consider who can invite people, or add them, to groups. Group members can add other members, or group owners can add members. Decide who can be invited. By default, external users can be added to groups. 
 
 ### Assign users to groups
 
-Users can be assigned to groups both manually based on the user attributes in their user object, or on other criteria. Users can only be assigned to groups dynamically based on their attributes.
+Users are assigned to groups manually, based on user attributes in their user object, or users are assigned based on other criteria. Users are assigned to groups dynamically based on their attributes. For example, you can assign users to groups based on:
 
-For example, you can assign users to groups based on their:
+* Job title or department
+* Partner organization to which they belong 
+  * Manually, or through connected organizations
+* Member or guest user type
+* Participation in a project 
+  * Manually
+* Location
 
-* specific job title or department
+Dynamic groups have users or devices, but not both. To assign users to the dynamic group, add queries based on user attributes. The following screenshot has queries that add users to the group if they are finance department members.
 
-* partner organization to which they belong (manually, or through Connected organizations)
+   ![Screenshot of options and entries under Dynamic membership rules.](media/secure-external-access/4-dynamic-membership-rules.png)
 
-* user type (Member or Guest)
+Learn more: [Create or update a dynamic group in Azure AD](../enterprise-users/groups-create-rule.md)
 
-* participation in a specific project (manually)
+### Use groups for one function
 
-* location
+When using groups, it's important they have a single function. If a group is used to grant access to resources, don't use it for another purpose. We recommend a security-group naming convention that makes the purpose clear:
 
-Dynamic groups can contain either users or devices, but not both. You add queries based on user attributes to assign users into the dynamic group. The below example shows queries that add users to the group if they are members (not guests) and in the finance department.
+* Secure_access_finance_apps
+* Team_membership_finance_team
+* Location_finance_building
 
-![Screenshot of configuring dynamic membership rules.](media/secure-external-access/4-dynamic-membership-rules.png)
+### Group types
 
-For more information on dynamic groups, see [Create or update a dynamic group in Azure Active Directory.](../enterprise-users/groups-create-rule.md)
+You can create Azure AD security groups and Microsoft 365 Groups in the Azure portal or the Microsoft 365 Admin portal. Use either group type for securing external access.
 
-### Do not use groups for multiple purposes
-
-When using groups for security or resource access purposes, it's important that they have a single function. If a group is used to grant access to resources, it shouldn't be used for any other purpose. If a group is used for generic purposes such as to define location or team membership, it shouldn't also be used to secure access. 
-
-We recommend a naming convention for security groups that makes the purpose clear. For example:
-
-* *Secure_access_finance_apps*
-
-* *Team_membership_finance_team*
-
-* *Location_finance_building*
-
-
-
-### Types of groups
-
-Both Azure AD security groups and Microsoft 365 groups can be created from the Azure AD portal or the Microsoft 365 admin portal. Both types can be used as the basis for securing external access:
-
-| Considerations | Azure AD security groups (manual and dynamic)| Microsoft 365 Groups |
+| Considerations |Manual and dynamic Azure AD security groups| Microsoft 365 Groups |
 | - | - | - |
-| What can the group contain?| Users<br>Groups<br>Service principals<br>Devices| Users only |
-| Where is the group created?| Azure AD portal<br>Microsoft 365 portal (if to be mail enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| Microsoft 365 portal<br>Azure AD portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
-| Who creates by default?| Administrators <br>Users| Administrators<br>Users |
-| Who can be added by default?| Internal users (tenant members)| Tenant members and guests from any organization |
-| What does it grant access to?| Only resources to which it's assigned.| All group-related resources:<br>(Group mailbox, site, team, chats, and other included Microsoft 365 resources)<br>Any other resources to which group is added |
-| Can be used with| Conditional Access<br>Entitlement Management<br>Group licensing| Conditional Access<br>Entitlement Management<br>Sensitivity labels |
+| The group contains| Users<br>Groups<br>Service principals<br>Devices| Users only |
+| Where the group is created| Azure portal<br>Microsoft 365 portal, if mail-enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| Microsoft 365 portal<br>Azure portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
+| Who creates, by default| Administrators <br>Users| Administrators<br>Users |
+| Who is added, by default| Internal users (tenant members) and guest users | Tenant members and guests from an organization |
+| Access is granted to| Resources to which it's assigned.| Group-related resources:<br>(Group mailbox, site, team, chats, and other Microsoft 365 resources)<br>Other resources to which group is added |
+| Can be used with| Conditional Access<br>entitlement management<br>group licensing| Conditional Access<br>entitlement management<br>sensitivity labels |
 
-
-
-Use Microsoft 365 groups to create and manage a set of Microsoft 365 resources, such as a Team and its associated sites and content. They’re a great choice for a project-based effort. 
-
- 
+> [!NOTE]
+> Use Microsoft 365 Groups to create and manage a set of Microsoft 365 resources, such as a Team and its associated sites and content. 
 
 ## Azure AD security groups 
 
-[Azure AD security groups](./active-directory-manage-groups.md) can contain users or devices and can be used to manage access to 
+Azure AD security groups can have users or devices. Use these groups to manage access to:
 
-* Azure resources such as Microsoft 365 apps, custom apps, and Software as a Service (SaaS) apps such as ServiceNow of Dropbox.
+* Azure resources
+  * Microsoft 365 apps
+  * Custom apps
+  * Software as a Service (SaaS) apps such as Dropbox ServiceNow
+* Azure data and subscriptions
+* Azure services
 
-* Azure data and subscriptions.
+Use Azure AD security groups to assign:
 
-* Azure services.
+* Licenses for services
+  * Microsoft 365
+  * Dynamics 365
+  * Enterprise mobility and security
+  * See, [What is group-based licensing in Azure Active Directory?](./active-directory-licensing-whatis-azure-portal.md)
+* Elevated permissions
+  * See, [Use Azure AD groups to manage role assignments](../roles/groups-concept.md)
 
-Azure AD security groups can also be used to:
+Learn more:
 
-* assign licenses for services such as Microsoft 365, Dynamics 365, and Enterprise Mobility and Security. For more information, see [group-based licensing](./active-directory-licensing-whatis-azure-portal.md).
-
-* assign elevated permissions. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md). 
-
-To create a group [in the Azure portal](./active-directory-groups-create-azure-portal.md) navigate to Azure Active Directory, then to Groups. You can also create Azure AD security groups by using [PowerShell cmdlets](../enterprise-users/groups-settings-v2-cmdlets.md). 
+* [Manage Azure AD groups and group membership](how-to-manage-groups.md)
+* [Azure AD version 2 cmdlets for group management](../enterprise-users/groups-settings-v2-cmdlets.md). 
 
 > [!NOTE]
-> A security group can be used for assignment of up to 1500 applications, but not more. 
+> Use security groups to assign up to 1,500 applications. 
 
-![Screenshot of creating a security group.](media/secure-external-access/4-create-security-group.png)
+   ![Screenshot of entries and options under New Group.](media/secure-external-access/4-create-security-group.png)
 
-> [!IMPORTANT]
-> **To create a mail-enabled security group, go to the [Microsoft 365 Admin center](https://admin.microsoft.com/)**. You cannot create it in the Azure AD portal. 
-<br>You must enable a security group for mail at the time of creation. You can’t enable it later.
+### Mail-enabled security group
+
+To create a mail-enabled security group, go to the [Microsoft 365 admin center](https://admin.microsoft.com/). Enable a security group for mail during creation. You can’t enable it later. You can't create the group in the Azure portal. 
 
 ### Hybrid organizations and Azure AD security groups
 
-Hybrid organizations have both an on-premises infrastructure and an Azure AD cloud infrastructure. Many hybrid organizations that use Active Directory create their security groups on-premises and sync them to the cloud. By using this method, only users in the on-premises environment can be added to the security groups.
+Hybrid organizations have infrastructure for on-premises and an Azure AD. Hybrid organizations that use Active Directory can create security groups on-premises and sync them to the cloud. Therefore, only users in the on-premises environment can be added to the security groups.
 
-**Protect your on-premises infrastructure from compromise, as a breach on-premises can be used to gain access to your Microsoft 365 tenant**. See [Protecting Microsoft 365 from on-premises attacks](./protect-m365-from-on-premises-attacks.md) for guidance.
+> [!IMPORTANT]
+> Protect your on-premises infrastructure from compromise. See, [Protecting Microsoft 365 from on-premises attacks](./protect-m365-from-on-premises-attacks.md).
 
 ## Microsoft 365 Groups
 
-[Microsoft 365 Groups](/microsoft-365/admin/create-groups/office-365-groups) are the foundational membership service that drives all access across Microsoft 365. They can be created from the [Azure portal](https://portal.azure.com/), or the [Microsoft 365 portal](https://admin.microsoft.com/). When a Microsoft 365 group is created, you grant access to a group of resources used to collaborate. See [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups) for a complete listing of these resources.
+Microsoft 365 Groups is the membership service for access across Microsoft 365. They can be created from the Azure portal, or the Microsoft 365 admin center. When you create a Microsoft 365 Group, you grant access to a group of resources for collaboration.
 
-Microsoft 365 Groups have the following nuances for their roles:
+Learn more:
 
-* **Owners** - Group owners can add or remove members and have unique administrative permissions in the group, such as the ability to delete conversations from the shared inbox or change group settings. Group owners can rename the group, update the description or picture and more.
+* [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&preserve-view=true)
+* [Create a group in the Microsoft 365 admin center](/microsoft-365/admin/create-groups/create-groups?view=o365-worldwide&preserve-view=true)
+* [Azure portal](https://portal.azure.com/)
+* [Microsoft 365 admin center](https://admin.microsoft.com/)
 
-* **Members** - Group members can access everything in the group but can't change group settings. By default, group members can invite guests to join your group. You can [control that setting](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
+### Microsoft 365 Groups roles
 
-* **Guests** - Group guests are members who are from outside your organization. Guests by default have some limits to functionality in Teams.
-
- 
+* **Group owners**
+  * Add or remove members
+  * Delete conversations from the shared inbox
+  * Change group settings
+  * Rename the group
+  * Update the description or picture
+* **Members**
+  * Access everything in the group
+  * Can't change group settings
+  * Can invite guests to join the group
+  * [Manage guest access in Microsoft 365 groups](/microsoft-365/admin/create-groups/manage-guest-access-in-groups)
+* **Guests**
+  * Are members from outside your organization 
+  * Have some limits to functionality in Teams
 
 ### Microsoft 365 Group settings
 
-You select email alias, privacy, and whether to enable the group for teams at the time of set-up. 
+Select email alias, privacy, and whether to enable the group for teams. 
 
-![Screenshot of editing Microsoft 365 Group settings](media/secure-external-access/4-edit-group-settings.png)
+   ![Screenshot of options and entries under Edit settings.](media/secure-external-access/4-edit-group-settings.png)
 
-After setup, you add members, and configure settings for email usage, etc.
+After setup, add members, and configure settings for email usage, etc.
 
-### Next steps
+## Next steps
 
-See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your desired security posture for external access](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 
-2. [Discover your current state](2-secure-access-current-state.md)
+2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
-3. [Create a governance plan](3-secure-access-plan.md)
+3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Use groups for security](4-secure-access-groups.md) (You are here.)
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) (You're here)
 
-5. [Transition to Azure AD B2B](5-secure-access-b2b.md)
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
 
-6. [Secure access with Entitlement Management](6-secure-access-entitlement-managment.md)
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
 
-7. [Secure access with Conditional Access policies](7-secure-access-conditional-access.md)
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Secure access with Sensitivity labels](8-secure-access-sensitivity-labels.md)
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)

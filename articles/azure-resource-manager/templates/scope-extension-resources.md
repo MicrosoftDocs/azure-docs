@@ -2,7 +2,7 @@
 title: Scope on extension resource types
 description: Describes how to use the scope property when deploying extension resource types.
 ms.topic: conceptual
-ms.date: 01/13/2021 
+ms.date: 07/11/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -78,6 +78,8 @@ To apply an extension resource to a resource, use the `scope` property. Set the 
 The following example creates a storage account and applies a role to it.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/storageandrole.json" highlight="56":::
+
+The resourceGroup and subscription properties are only allowed on nested or linked deployments. These properties are not allowed on individual resources. Use nested or linked deployments if you want to deploy an extension resource with the scope set to a resource in a different resource group.
 
 ## Next steps
 

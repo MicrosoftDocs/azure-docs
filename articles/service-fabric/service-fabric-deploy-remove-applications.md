@@ -1,10 +1,14 @@
 ---
 title: Azure Service Fabric deployment with PowerShell
 description: Learn about removing and deploying applications in Azure Service Fabric and how to perform these actions in PowerShell.
-
-ms.topic: conceptual
-ms.date: 01/19/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Deploy and remove applications using PowerShell
 
 > [!div class="op_single_selector"]

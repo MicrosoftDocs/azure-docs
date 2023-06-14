@@ -2,15 +2,15 @@
 title: Recoverability best practices in Azure Active Directory
 description: Learn the best practices for increasing recoverability.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 04/20/2022
-ms.author: baselden
-ms.reviewer: baselden
+ms.date: 08/26/2022
+ms.author: jricketts
+ms.reviewer: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -33,7 +33,7 @@ Deletions and misconfigurations have different impacts on your tenant.
 
 The impact of deletions depends on the object type.
 
-Users, Microsoft 365 Groups, and applications can be soft deleted. Soft-deleted items are sent to the Azure AD recycle bin. While in the recycle bin, items aren't available for use. However, they retain all their properties and can be restored via a Microsoft Graph API call or in the Azure AD portal. Items in the soft-delete state that aren't restored within 30 days are permanently, or hard, deleted.
+Users, Microsoft 365 Groups, and applications can be soft deleted. Soft-deleted items are sent to the Azure AD recycle bin. While in the recycle bin, items aren't available for use. However, they retain all their properties and can be restored via a Microsoft Graph API call or in the Azure portal. Items in the soft-delete state that aren't restored within 30 days are permanently, or hard, deleted.
 
 ![Diagram that shows that users, Microsoft 365 Groups, and applications are soft deleted and then hard deleted after 30 days.](media/recoverability/overview-deletes.png)
 
@@ -160,12 +160,14 @@ The Audit log always records a "Delete \<object\>" event when an object in the t
 
 :::image type="content" source="media/recoverability/deletions-audit-log.png" alt-text="Screenshot that shows Audit log detail." lightbox="media/recoverability/deletions-audit-log.png":::
 
-A Delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type, it's a hard delete.
+A Delete event for applications, service principals, users, and Microsoft 365 Groups is a soft delete. For any other object type, it's a hard delete.
 
 | Object type | Activity in log| Result |
 | - | - | - |
-| Application| Delete application| Soft deleted |
-| Application| Hard delete application| Hard deleted |
+| Application| Delete application and service principal| Soft deleted |
+| Application| Hard delete application | Hard deleted |
+| Service principal| Delete service principal| Soft deleted |
+| Service principal| Hard delete service principal| Hard deleted |
 | User| Delete user| Soft deleted |
 | User| Hard delete user| Hard deleted |
 | Microsoft 365 Groups| Delete group| Soft deleted |

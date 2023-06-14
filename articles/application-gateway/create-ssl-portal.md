@@ -1,16 +1,17 @@
 ---
-title: 'Tutorial: Configure TLS termination in portal - Azure Application Gateway'
+title: 'Tutorial: Configure an Application Gateway with TLS termination using the Azure portal'
 description: In this tutorial, you learn how to configure an application gateway and add a certificate for TLS termination using the Azure portal.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 06/30/2022
 ms.author: greglin
+ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
 
-# Tutorial: Configure an application gateway with TLS termination using the Azure portal
+# Tutorial: Configure an Application Gateway with TLS termination using the Azure portal
 
 You can use the Azure portal to configure an [application gateway](overview.md) with a certificate for TLS termination that uses virtual machines for backend servers.
 
@@ -28,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+- An Azure subscription
 
 ## Create a self-signed certificate
 
@@ -52,7 +53,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate. Make sure your password is 4 - 12 characters long:
+Use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate. The supported PFX algorithms are listed at [PFXImportCertStore function](/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore#remarks). Make sure your password is 4 - 12 characters long:
 
 
 ```powershell
@@ -63,19 +64,23 @@ Export-PfxCertificate `
   -Password $pwd
 ```
 
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
+
 ## Create an application gateway
 
-1. Select **Create a resource** on the left menu of the Azure portal. The **New** window appears.
+1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Application Gateway**, or search for *Application Gateway* in the portal search box.
 
-2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
+2. Select **Create**.
 
 ### Basics tab
 
-1. On the **Basics** tab, enter these values for the following application gateway settings:
+1. On the **Basics** tab, enter or select these values:
 
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
-
+    
         ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
@@ -110,7 +115,7 @@ Export-PfxCertificate `
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -155,7 +160,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 5. For the **HTTP setting**, select **Add new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add a HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add a HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
-   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Create new application gateway: HTTP setting":::
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Screenshot of Adding H T T P setting from the configuration tab of Create new Application Gateway":::
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
@@ -179,8 +184,9 @@ To do this, you'll:
 
 ### Create a virtual machine
 
-1. On the Azure portal, select **Create a resource**. The **New** window appears.
-2. Select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.
+1. From the Azure portal menu, select **+ Create a resource** > **Compute** > **Windows Server 2016 Datacenter**, or search for *Windows Server* in the portal search box and select **Windows Server 2016 Datacenter**.
+
+2. Select **Create**.
 
    Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
 
@@ -233,7 +239,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 4. Under **Target type**, select **Virtual machine** from the drop-down list.
 
-5. Under **Target**, select the the network interface under **myVM** from the drop-down list.
+5. Under **Target**, select the network interface under **myVM** from the drop-down list.
 
 6. Repeat to add the network interface for **myVM2**.
 
@@ -265,5 +271,14 @@ When no longer needed, delete the resource group and all related resources. To d
 
 ## Next steps
 
+In this tutorial, you:
+
+- Created a self-signed certificate
+- Created an application gateway with the certificate
+
+To learn more about Application Gateway TLS support, see [end to end TLS with Application Gateway](ssl-overview.md) and [Application Gateway TLS policy](application-gateway-ssl-policy-overview.md).
+
+To learn how to create and configure an Application Gateway to host multiple web sites using the Azure portal, advance to the next tutorial.
+
 > [!div class="nextstepaction"]
-> [Learn more about Application Gateway TLS support](ssl-overview.md)
+> [Host multiple sites](create-multiple-sites-portal.md)

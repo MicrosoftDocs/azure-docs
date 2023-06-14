@@ -1,13 +1,10 @@
 ---
 title: Create UI definition string functions
 description: Describes the string functions to use when constructing UI definitions for Azure Managed Applications
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: tomfitz
-
 ---
+
 # CreateUiDefinition string functions
 
 These functions to use with JSON strings.
@@ -115,4 +112,3 @@ The following example returns `"CONTOSO"`:
 ## Next steps
 
 * For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).
-

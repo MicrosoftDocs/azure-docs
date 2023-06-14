@@ -5,16 +5,15 @@ description: In this article, learn now to mitigate speculative execution side-c
 services: cloud-services
 documentationcenter: ''
 author: cynthn
-
-editor: ''
 tags: azure-resource-manager
 keywords: spectre,meltdown,specter
 ms.service: cloud-services
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 02/21/2023
 ms.author: cynthn
+ms.custom: compute-evergreen
 ---
 
 

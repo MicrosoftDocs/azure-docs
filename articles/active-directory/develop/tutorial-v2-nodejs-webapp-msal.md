@@ -2,14 +2,15 @@
 title: "Tutorial: Sign in users in a Node.js & Express web app"
 description: In this tutorial, you add support for signing-in users in a web app.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 02/17/2021
-ms.author: marsma
+ms.date: 11/09/2022
+ms.author: cwerner
+ms.custom: engagement-fy23, devx-track-js
 ---
 
 # Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app
@@ -25,6 +26,8 @@ Follow the steps in this tutorial to:
 > - Add app registration details
 > - Add code for user login
 > - Test the app
+
+For more information, see the [sample code](https://github.com/Azure-Samples/ms-identity-node) that shows how to use MSAL Node to sign in, sign out and acquire an access token for a protected resource such as Microsoft Graph.
 
 ## Prerequisites
 
@@ -60,7 +63,7 @@ Use the [Express application generator tool](https://expressjs.com/en/starter/ge
     npm install
 ```
 
-You now have a simple Express web app. The file and folder structure of your project should look similar to the following:
+You now have a simple Express web app. The file and folder structure of your project should look similar to the following folder structure:
 
 ```
 ExpressWebApp/
@@ -100,7 +103,7 @@ The web app sample in this tutorial uses the [express-session](https://www.npmjs
 
 ## Add app registration details
 
-1. Create a *.env* file in the root of your project folder. Then add the following code:
+1. Create an *.env* file in the root of your project folder. Then add the following code:
 
 :::code language="text" source="~/ms-identity-node/App/.env":::
 
@@ -109,7 +112,7 @@ Fill in these details with the values you obtain from Azure app registration por
 - `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
   - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com/` (include the trailing forward-slash).
   - For **national** clouds (for example, China), you can find appropriate values in [National clouds](authentication-national-cloud.md).
-- `Enter_the_Tenant_Info_here` should be one of the following:
+- `Enter_the_Tenant_Info_here` should be one of the following parameters:
   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
   - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`.
@@ -128,17 +131,17 @@ Fill in these details with the values you obtain from Azure app registration por
 
 :::code language="js" source="~/ms-identity-node/App/authConfig.js":::
 
-## Add code for user login and token acquisition
+## Add code for user sign-in and token acquisition
 
-1. Create a new file named *auth.js* under the *router* folder and add the following code there:
+1. Create a new file named *auth.js* under the *routes* folder and add the following code there:
 
 :::code language="js" source="~/ms-identity-node/App/routes/auth.js":::
 
-2. Next, update the *index.js* route by replacing the existing code with the following:
+2. Next, update the *index.js* route by replacing the existing code with the following code snippet:
 
 :::code language="js" source="~/ms-identity-node/App/routes/index.js":::
 
-3. Finally, update the *users.js* route by replacing the existing code with the following:
+3. Finally, update the *users.js* route by replacing the existing code with the following code snippet:
 
 :::code language="js" source="~/ms-identity-node/App/routes/users.js":::
 
@@ -164,7 +167,7 @@ Create a file named *fetch.js* in the root of your project and add the following
 
 ## Register routers and add state management
 
-In the *app.js* file in the root of the project folder, register the routes you have created earlier and add session support for tracking authentication state using the **express-session** package. Replace the existing code there with the following:
+In the *app.js* file in the root of the project folder, register the routes you've created earlier and add session support for tracking authentication state using the **express-session** package. Replace the existing code there with the following code snippet:
 
 :::code language="js" source="~/ms-identity-node/App/app.js":::
 
@@ -208,7 +211,7 @@ You've completed creation of the application and are now ready to test the app's
 
 ## How the application works
 
-In this tutorial, you instantiated an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing it a configuration object (*msalConfig*) that contains parameters obtained from your Azure AD app registration on Azure portal. The web app you created uses the [OpenID Connect protocol](./v2-protocols-oidc.md) to sign-in users and the [OAuth 2.0 Authorization code grant flow](./v2-oauth2-auth-code-flow.md) obtain access tokens.
+In this tutorial, you instantiated an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing it a configuration object (*msalConfig*) that contains parameters obtained from your Azure AD app registration on Azure portal. The web app you created uses the [OpenID Connect protocol](./v2-protocols-oidc.md) to sign-in users and the [OAuth 2.0 authorization code flow](./v2-oauth2-auth-code-flow.md) to obtain access tokens.
 
 ## Next steps
 

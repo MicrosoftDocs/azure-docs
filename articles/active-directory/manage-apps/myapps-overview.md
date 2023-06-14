@@ -2,21 +2,23 @@
 title: My Apps portal overview
 description: Learn about how to manage applications in the My Apps portal.
 services: active-directory
-author: saipradeepb23
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/05/2022
-ms.author: saibandaru
+ms.date: 11/24/2022
+ms.author: jomondi
+ms.reviewer: saibandaru
+ms.custom: contperf-fy23q1, enterprise-apps
 #Customer intent: As an Azure AD administrator, I want to make applications available to users in the My Apps portal.
 
 ---
 
 # My Apps portal overview
 
-[My Apps](https://myapps.microsoft.com) is a web-based portal that is used for managing and launching applications in Azure Active Directory (Azure AD). To work with applications in My Apps, use an organizational account in Azure AD and obtain access granted by the Azure AD administrator. My Apps is separate from the Azure portal and doesn't require users to have an Azure subscription or Microsoft 365 subscription.
+My Apps is a web-based portal that is used for managing and launching applications in Azure Active Directory (Azure AD). To work with applications in My Apps, use an organizational account in Azure AD and obtain access granted by the Azure AD administrator. My Apps is separate from the Azure portal and doesn't require users to have an Azure subscription or Microsoft 365 subscription.
 
 Users access the My Apps portal to:
 
@@ -54,7 +56,7 @@ For more information, see [Properties of an enterprise application](application-
 
 ### Discover applications
 
-When signed in to the My Apps portal, the applications that have been made visible are shown. For an application to be visible in the My Apps portal, set the appropriate properties in the Azure portal. Also in the Azure portal, assign a user or group with the appropriate members.
+When signed in to the [My Apps](https://myapps.microsoft.com) portal, the applications that have been made visible are shown. For an application to be visible in the My Apps portal, set the appropriate properties in the [Azure portal](https://portal.azure.com). Also in the Azure portal, assign a user or group with the appropriate members.
 
 In the My Apps portal, to search for an application, enter an application name in the search box at the top of the page to find an application. The applications that are listed can be formatted in **List view** or a **Grid view**.
 
@@ -73,7 +75,7 @@ In the Azure portal, define the logo and name for the application to represent c
 
 For more information, see [Add branding to your organization's sign-in page](../fundamentals/customize-branding.md).
 
-## Access applications
+## Manage access to applications
 
 Multiple factors affect how and whether an application can be accessed by users. Permissions that are assigned to the application can affect what can be done with it. Applications can be configured to allow self-service access, or access may be only granted by an administrator of the tenant.
 
@@ -94,6 +96,9 @@ To download and install the extension:
 - **Google Chrome** - From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
 
 An icon is added to the right of the address bar, which enables sign in and customization of the extension.
+
+> [!NOTE]
+> Sign-in into the extension is currently not supported for Guest B2B Microsoft Accounts (MSA).
 
 ### Permissions
 

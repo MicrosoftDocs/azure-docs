@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 08/29/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -35,28 +35,28 @@ Optionally, you can define projections to accept image-analyzed output into a [k
 
 ## Set up source files
 
-Image processing is indexer-driven, which means that the raw inputs must be a supported file type (as determined by the skills you choose) from a [supported data source](search-indexer-overview.md#supported-data-sources). 
+Image processing is indexer-driven, which means that the raw inputs must be in a [supported data source](search-indexer-overview.md#supported-data-sources). 
 
 + Image analysis supports JPEG, PNG, GIF, and BMP
-+ OCR supports JPEG, PNG, GIF, BMP, and TIF
++ OCR supports JPEG, PNG, BMP, and TIF
 
 Images are either standalone binary files or embedded in documents (PDF, RTF, and Microsoft application files). A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated.
 
-Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. There are three main tasks related to retrieving images from the source:
+Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. There are three main tasks related to retrieving images from a blob container:
 
-+ Access rights on the container. If you're using a full access connection string that includes a key, the key gives you access to the content. Alternatively, you can [authenticate using Azure Active Directory (Azure AD)](search-howto-managed-identities-data-sources.md) or [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
++ Enable access to content in the container. If you're using a full access connection string that includes a key, the key gives you permission to the content. Alternatively, you can [authenticate using Azure Active Directory (Azure AD)](search-howto-managed-identities-data-sources.md) or [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
 
 + [Create a data source](search-howto-indexing-azure-blob-storage.md) of type "azureblob" that connects to the blob container storing your files.
 
-+ Optionally, [set file type criteria](search-blob-storage-integration.md#PartsOfBlobToIndex) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings. You can filter out files you don't want.
++ Review [service tier limits](search-limits-quotas-capacity.md) to make sure that your source data is under maximum size and quantity limits for indexers and enrichment.
 
 <a name="get-normalized-images"></a>
 
 ## Configure indexers for image processing
 
-Image extraction is the first step of indexer processing. Extracted images are queued for image processing. Extracted text is queued for text processing, if applicable.
+Extracting images from the source content files is the first step of indexer processing. Extracted images are queued for image processing. Extracted text is queued for text processing, if applicable.
 
-Image processing requires image normalization to make images more uniform for downstream processing. This step occurs automatically and is internal to indexer processing. As a developer, you enable image normalization by setting the `"imageAction"` parameter in indexer configuration.
+Image processing requires image normalization to make images more uniform for downstream processing. This second step occurs automatically and is internal to indexer processing. As a developer, you enable image normalization by setting the `"imageAction"` parameter in indexer configuration.
 
 Image normalization includes the following operations:
 
@@ -90,8 +90,8 @@ Metadata adjustments are captured in a complex type created for each image. You 
 1. Set `"imageAction"` to enable the *normalized_images* node in an enrichment tree (required):
 
    + `"generateNormalizedImages"` to generate an array of normalized images as part of document cracking.
- 
-   + `"generateNormalizedImagePerPage"` (applies to PDF only) to generate an array of normalized images where each page in the PDF is rendered to one output image. For non-PDF files, the behavior of this parameter is same as if you had set "generateNormalizedImages".
+
+   + `"generateNormalizedImagePerPage"` (applies to PDF only) to generate an array of normalized images where each page in the PDF is rendered to one output image. For non-PDF files, the behavior of this parameter is similar as if you had set "generateNormalizedImages". However, note that setting "generateNormalizedImagePerPage" can make indexing operation less performant by design (especially for big documents) since several images would have to be generated.
 
 1. Optionally, adjust the width or height of the generated normalized images:
 
@@ -100,6 +100,19 @@ Metadata adjustments are captured in a complex type created for each image. You 
    + `"normalizedImageMaxHeight"` (in pixels). Default is 2000. Maximum value is 10000.
 
    The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). The [OCR skill](cognitive-search-skill-ocr.md) supports a maximum width and height of 4200 for non-English languages, and 10000 for English.  If you increase the maximum limits, processing could fail on larger images depending on your skillset definition and the language of the documents. 
+
++ Optionally, [set file type criteria](search-blob-storage-integration.md#PartsOfBlobToIndex) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings. You can filter out files you don't want.
+
+  ```json
+  {
+    "parameters" : { 
+        "configuration" : { 
+            "indexedFileNameExtensions" : ".pdf, .docx",
+            "excludedFileNameExtensions" : ".png, .jpeg" 
+        } 
+    }
+  }
+  ```
 
 ### About normalized images
 
@@ -113,7 +126,7 @@ When "imageAction" is set to a value other than "none", the new *normalized_imag
 | originalWidth      | The original width of the image before normalization. |
 | originalHeight      | The original height of the image before normalization. |
 | rotationFromOriginal |  Counter-clockwise rotation in degrees that occurred to create the normalized image. A value between 0 degrees and 360 degrees. This step reads the metadata from the image that is generated by a camera or scanner. Usually a multiple of 90 degrees. |
-| contentOffset | The character offset within the content field where the image was extracted from. This field is only applicable for files with embedded images. |
+| contentOffset | The character offset within the content field where the image was extracted from. This field is only applicable for files with embedded images. Note that the *contentOffset* for images extracted from PDF documents will always be at the end of the text on the page it was extracted from in the document. This means images will be after all the text on that page, regardless of the original location of the image in the page. |
 | pageNumber | If the image was extracted or rendered from a PDF, this field contains the page number in the PDF it was extracted or rendered from, starting from 1.  If the image was not from a PDF, this field will be 0.  |
 
  Sample value of *normalized_images*:
@@ -142,6 +155,8 @@ This section supplements the [skill reference](cognitive-search-predefined-skill
 1. Add templates for OCR and Image Analysis from the portal, or copy the definitions from the [skill reference](cognitive-search-predefined-skills.md) documentation. Insert them into the skills array of your skillset definition.
 
 1. If necessary, [include multi-service key](cognitive-search-attach-cognitive-services.md) in the Cognitive Services property of the skillset. Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis for transactions that exceed the free limit (20 per indexer per day). Cognitive Services must be in the same region as your search service.
+
+1. If original images are embedded in PDF or application files like PPTX or DOCX, you'll need to add a Text Merge skill if you want image output and text output together. Working with embedded images is discussed further on in this article.
 
 Once the basic framework of your skillset is created and Cognitive Services is configured, you can focus on each individual image skill, defining inputs and source context, and mapping outputs to fields in either an index or knowledge store.
 
@@ -391,7 +406,7 @@ Image analysis output is illustrated in the JSON below (search result). The skil
 
 When the images you want to process are embedded in other files, such as PDF or DOCX, the enrichment pipeline will extract just the images and then pass them to OCR or image analysis for processing. Separation of image from text content occurs during the document cracking phase, and once the images are separated, they remain separate unless you explicitly merge the processed output back into the source text. 
 
-[**Text Merge**](cognitive-search-skill-textmerger.md) is used to put image processing output back into the document. Although Text Merge is not a hard requirement, it's frequently invoked so that image output (OCR text, OCR layoutText, image tags, image captions) can be reintroduced into the document at the same location where the image was found. Essentially, the goal is to replace an embedded binary image with an in-place text equivalent.
+[**Text Merge**](cognitive-search-skill-textmerger.md) is used to put image processing output back into the document. Although Text Merge is not a hard requirement, it's frequently invoked so that image output (OCR text, OCR layoutText, image tags, image captions) can be reintroduced into the document. Depending on the skill, the image output replaces an embedded binary image with an in-place text equivalent. Image Analysis output can be merged at image location. OCR output always appears at the end of each page.
 
 The following workflow outlines the process of image extraction, analysis, merging, and how to extend the pipeline to push image-processed output into other text-based skills such as Entity Recognition or Text Translation.
 
@@ -403,7 +418,7 @@ The following workflow outlines the process of image extraction, analysis, mergi
 
 1. Image outputs are passed into enriched documents, with each output as a separate node. Outputs vary by skill (text and layoutText for OCR, tags and captions for Image Analysis).
 
-1. Optional but recommended if you want search documents to include both text and image-origin text together, [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string, where the OCR output or image tags and captions are inserted in the same location as the image.
+1. Optional but recommended if you want search documents to include both text and image-origin text together, [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string, where the text is inserted first in the string and then the OCR text output or image tags and captions.
 
    The output of Text Merge is now the definitive text to analyze for any downstream skills that perform text processing. For example, if your skillset includes both OCR and Entity Recognition, the input to Entity Recognition should be `"document/merged_text"` (the targetName of the Text Merge skill output).
 

@@ -6,10 +6,10 @@ author: mbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
-
 ---
 
 # Manage a Managed HSM using the Azure CLI
@@ -55,7 +55,7 @@ Use `az keyvault key create` command to create a key.
 
 ### Create an RSA key
 
-The example below shows how to create a 3072-bit **RSA** key that will be only used for **wrapKey, unwrapKey** operations (--ops). 
+The example below shows how to create a 3072-bit **RSA** key that will be only used for **wrapKey, unwrapKey** operations (--ops).
 
 
 ```azurecli-interactive
@@ -223,7 +223,7 @@ az keyvault key import --hsm-name ContosoHSM --name myrsakey --pem-file mycert.k
 az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --pem-file mycert.key --password 'mypassword'
 ```
 
-To import a key from your on-premise HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md)
+To import a key from your on-premises HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md)
 
 ## Next steps
 

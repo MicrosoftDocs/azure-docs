@@ -8,8 +8,8 @@ manager: rkarlin
 editor: TomSh
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -40,8 +40,8 @@ Additionally, "encryption by default" using MACsec (an IEEE standard at the data
 
 **Data redundancy**: Microsoft helps ensure that data is protected if there is a cyberattack or physical damage to a datacenter. Customers may opt for:
 
-- In-country/in-region storage for compliance or latency considerations.
-- Out-of-country/out-of-region storage for security or disaster recovery purposes.
+- In-country/region storage for compliance or latency considerations.
+- Out-of-country/region storage for security or disaster recovery purposes.
 
 Data can be replicated within a selected geographic area for redundancy but cannot be transmitted outside it. Customers have multiple options for replicating data, including the number of copies and the number and location of replication datacenters.
 

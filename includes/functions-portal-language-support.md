@@ -2,8 +2,9 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/23/2021
+ms.date: 03/21/2023
 ms.author: glenga
+ms.custom: devdivchpfy22
 ---
 
 ## Language support details 
@@ -14,15 +15,16 @@ The following table shows which languages supported by Functions can run on Linu
 |:--- |:-- |:--|:--- |:--- |
 | [C# class library](../articles/azure-functions/functions-dotnet-class-library.md)<sup>1</sup> |.NET|✓ |✓ | | 
 | [C# script](../articles/azure-functions/functions-reference-csharp.md) | .NET | ✓ |✓ |✓ |
-| [JavaScript](../articles/azure-functions/functions-reference-node.md) | Node.js |✓ |✓ | ✓ |
-| [Python](../articles/azure-functions/functions-reference-python.md) | Python |✓ | |✓ |
+| [JavaScript](../articles/azure-functions/functions-reference-node.md?tabs=javascript) | Node.js |✓ |✓ | ✓ |
+| [Python](../articles/azure-functions/functions-reference-python.md)<sup>2</sup> | Python |✓ | |✓ |
 | [Java](../articles/azure-functions/functions-reference-java.md) | Java |✓ |✓ | |
 | [PowerShell](../articles/azure-functions/functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
-| [TypeScript](../articles/azure-functions/functions-reference-node.md) | Node.js |✓ |✓ |  |
+| [TypeScript](../articles/azure-functions/functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
 | [Go/Rust/other](../articles/azure-functions/functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
  
-<sup>1</sup> In the portal, you can't currently create function apps that run on .NET 5.0. To learn more, see [Develop and publish .NET 5 functions using Azure Functions](../articles/azure-functions/dotnet-isolated-process-guide.md). 
+<sup>1</sup> In the portal, you can't currently create function apps that run on .NET 7.0. For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).  
+<sup>2</sup> In-portal editing requires your function to be defined in a function.json file. Because the [Python v2 programming model](../articles/azure-functions/functions-reference-python.md?pivots=python-mode-decorators#programming-model) uses Python code decorators instead of function.json to define functions, only the Python v1 programming model is supported for in-portal development.   
 
-For more details, see [Operating system/runtime support](../articles/azure-functions/functions-scale.md#operating-systemruntime). 
+For more information on operating system and language support, see [Operating system/runtime support](../articles/azure-functions/functions-scale.md#operating-systemruntime).
 
 When in-portal editing isn't available, you must instead [develop your functions locally](../articles/azure-functions/functions-develop-local.md#local-development-environments).

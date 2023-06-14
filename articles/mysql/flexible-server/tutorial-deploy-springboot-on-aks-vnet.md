@@ -7,7 +7,7 @@ author: shreyaaithal
 ms.author: shaithal
 ms.topic: tutorial
 ms.date: 11/11/2021
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, build-2023, build-2023-dataai
 ---
 
 # Tutorial: Deploy a Spring Boot application on AKS cluster with MySQL Flexible Server in a VNet
@@ -307,7 +307,7 @@ az acr login && mvn compile jib:build
 
 We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*. 
 
-In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to configure kubenet networking instead, see [Use kubenet networking in AKS](../../aks/configure-kubenet.md#create-a-service-principal-and-assign-permissions).  
+In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to configure kubenet networking instead, see [Use kubenet networking in AKS](../../aks/configure-kubenet.md).  
 
 1. Create a subnet *subnet-aks* for the AKS cluster to use.
 
@@ -464,5 +464,3 @@ az group delete --name rg-mysqlaksdemo
 
 > [!div class="nextstepaction"]
 > [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
-
-

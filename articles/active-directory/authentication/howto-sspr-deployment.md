@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: gargi-sinha
@@ -38,6 +38,9 @@ To quickly see SSPR in action and then come back to understand additional deploy
 > [!div class="nextstepaction"]
 > [Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
 
+> [!TIP]
+> As a companion to this article, we recommend using the [Plan your self-service password reset deployment guide](https://go.microsoft.com/fwlink/?linkid=2221501) when signed in to the Microsoft 365 Admin Center. This guide will customize your experience based on your environment. To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600). 
+
 ## Learn about SSPR
 
 Learn more about SSPR. See [How it works: Azure AD self-service password reset](./concept-sspr-howitworks.md).
@@ -68,6 +71,9 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 
 * An account with Global Administrator privileges.
 
+### Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Plan your self-service password reset deployment](https://go.microsoft.com/fwlink/?linkid=2221501) guide when signed in to the Microsoft 365 Admin Center.  To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600).
 
 ### Training resources
 
@@ -85,7 +91,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 |Tutorials |[Complete an Azure AD self-service password reset pilot roll out](./tutorial-enable-sspr.md) |
 | |[Enabling password writeback](./tutorial-enable-sspr-writeback.md) |
 | |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
-| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.yml) |
+| FAQ|[Password management frequently asked questions](./passwords-faq.yml) |
 
 ### Solution architecture
 
@@ -125,7 +131,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 #### Required administrator roles
 
@@ -138,7 +144,7 @@ When technology projects fail, they typically do so due to mismatched expectatio
 
 ### Plan a pilot
 
-We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](../fundamentals/deployment-plans.md).
 
 To create a group, see how to [create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md). 
 
@@ -188,6 +194,14 @@ Set **Number of days before users is asked to reconfirm their authentication inf
 ### Notifications settings
 
 Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password is reset. It also ensures that all admins are aware when an admin changes a password. If users or admins receive a notification and they haven't initiated the change, they can immediately report a potential security issue.
+
+> [!NOTE]
+> Email notifications from the SSPR service will be sent from the following addresses based on the Azure cloud you are working with: 
+> - Public: msonlineservicesteam@microsoft.com
+> - China: msonlineservicesteam@oe.21vianet.com 
+> - Government: msonlineservicesteam@azureadnotifications.us
+> 
+> If you observe issues in receiving notifications, please check your spam settings. 
 
 ### Customization settings
 
@@ -247,7 +261,7 @@ You can also refer to [Complete out an Azure AD self-service password reset pilo
 
 ### Plan support
 
-While SSPR does not typically create user issues, it is important to prepare support staff to deal with issues that may arise. While an administrator can reset the password for end users through the Azure AD portal, it is better to help resolve the issue via a self-service support process.
+While SSPR does not typically create user issues, it is important to prepare support staff to deal with issues that may arise. While an administrator can reset the password for end users through the Azure portal, it is better to help resolve the issue via a self-service support process.
 
 To enable your support team's success, you can create a FAQ based on questions you receive from your users. Here are a few examples:
 
@@ -257,7 +271,7 @@ To enable your support team's success, you can create a FAQ based on questions y
 | User isn't receiving a text or call on their office or cell phone| A user is trying to verify their identity via text or call but isn't receiving a text/call. |
 | User can't access the password reset portal| A user wants to reset their password but isn't enabled for password reset and can't access the page to update passwords. |
 | User can't set a new password| A user completes verification during the password reset flow but can't set a new password. |
-| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Microsoft Endpoint Manager device policy isn't enabled |
+| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Microsoft Intune device policy isn't enabled |
 
 ### Plan rollback
 
@@ -322,7 +336,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 * Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
-* Follow [Password management frequently asked questions](./active-directory-passwords-faq.yml) 
+* Follow [Password management frequently asked questions](./passwords-faq.yml) 
 
 ### Helpful documentation
 

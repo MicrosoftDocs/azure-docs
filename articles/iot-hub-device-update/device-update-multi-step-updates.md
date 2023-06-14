@@ -1,24 +1,25 @@
 ---
-title: Using multiple steps for Updates with Device Update for Azure IoT Hub| Microsoft Docs
+title: Using multiple steps for Updates with Device Update for Azure IoT Hub
 description: Using multiple steps for Updates with Device Update for Azure IoT Hub
-author: ValOlson
-ms.author: valls
+author: kgremban
+ms.author: kgremban
 ms.date: 11/12/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
-# Multi-Step Ordered Execution
-Based on customer requests we have added the ability to run pre-install and post-install tasks when deploying an over-the-air update. This capability is called Multi-Step Ordered Execution (MSOE) and is part of the Public Preview Refresh Update Manifest v4 schema.  
+# Multi-step ordered execution
 
-See the [Update Manifest](update-manifest.md) documentation before reviewing the following changes as part of the Public Preview Refresh release.
+Multi-step ordered execution gives you the ability to run pre-install and post-install tasks when deploying an over-the-air update. This capability is part of the Public Preview Refresh Update Manifest v4 schema.  
 
-With MSOE we have introduced are two types of Steps:
+See the [Update Manifest](update-manifest.md) documentation before reviewing the following changes as part of the public preview refresh release.
 
-- Inline Step (Default)
-- Reference Step
+With multi-step ordered execution there are two types of steps:
 
-Example Update Manifest with one Inline Step:
+- Inline step (default)
+- Reference step
+
+An example update manifest with one inline step:
 
 ```json
 {
@@ -26,8 +27,8 @@ Example Update Manifest with one Inline Step:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "du-device",
-            "deviceModel": "e2e-test"
+            "manufacturer": "du-device",
+            "model": "e2e-test"
         }
     ],
     "instructions": {
@@ -50,7 +51,7 @@ Example Update Manifest with one Inline Step:
 }
 ```
 
-Example Update Manifest with two Inline Steps:
+An example update manifest with two inline steps:
 
 ```json
 {
@@ -58,8 +59,8 @@ Example Update Manifest with two Inline Steps:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "du-device",
-            "deviceModel": "e2e-test"
+            "manufacturer": "du-device",
+            "model": "e2e-test"
         }
     ],
     "instructions": {
@@ -92,139 +93,143 @@ Example Update Manifest with two Inline Steps:
 }
 ```
 
-Example Update Manifest with one Reference Step:
+An example update manifest with one reference step:
 
-- Parent Update
+- The parent update that references a child update
 
-```json
-{
-    "updateId": {...},
-    "isDeployable": true,
-    "compatibility": [
-        {
-            "deviceManufacturer": "du-device",
-            "deviceModel": "e2e-test"
-        }
-    ],
-    "instructions": {
-        "steps": [
-            {
-                "type": "reference",
-                "description": "Cameras Firmware Update",
-                "updateId": {
-                    "provider": "contoso",
-                    "name": "virtual-camera",
-                    "version": "1.2"
-                }
-            }
-        ]
-    },
-    "manifestVersion": "4.0",
-    "importedDateTime": "2021-11-17T07:26:14.7484389Z",
-    "createdDateTime": "2021-11-17T07:22:10.6014567Z"
-}
-```
+  ```json
+  {
+      "updateId": {...},
+      "isDeployable": true,
+      "compatibility": [
+          {
+              "manufacturer": "du-device",
+              "model": "e2e-test"
+          }
+      ],
+      "instructions": {
+          "steps": [
+              {
+                  "type": "reference",
+                  "description": "Cameras Firmware Update",
+                  "updateId": {
+                      "provider": "contoso",
+                      "name": "virtual-camera",
+                      "version": "1.2"
+                  }
+              }
+          ]
+      },
+      "manifestVersion": "4.0",
+      "importedDateTime": "2021-11-17T07:26:14.7484389Z",
+      "createdDateTime": "2021-11-17T07:22:10.6014567Z"
+  }
+  ```
 
-- Child Update
+- The child update with inline steps
 
-```json
-{
-    "updateId": {
-        "provider": "contoso",
-        "name": "virtual-camera",
-        "version": "1.2"
-    },
-    "isDeployable": false,
-    "compatibility": [
-        {
-            "group": "cameras"
-        }
-    ],
-    "instructions": {
-        "steps": [
-            {
-                "description": "Cameras Update - pre-install step",
-                "handler": "microsoft/script:1",
-                "files": [
-                    "contoso-camera-installscript.sh"
-                ],
-                "handlerProperties": {
-                    "scriptFileName": "contoso-camera-installscript.sh",
-                    "arguments": "--pre-install-sim-success --component-name --component-name-val --component-group --component-group-val --component-prop path --component-prop-val path",
-                    "installedCriteria": "contoso-virtual-camera-1.2-step-0"
-                }
-            },
-            {
-                "description": "Cameras Update - firmware installation (failure - missing file)",
-                "handler": "microsoft/script:1",
-                "files": [
-                    "contoso-camera-installscript.sh",
-                    "camera-firmware-1.1.json"
-                ],
-                "handlerProperties": {
-                    "scriptFileName": "missing-contoso-camera-installscript.sh",
-                    "arguments": "--firmware-file camera-firmware-1.1.json --component-name --component-name-val --component-group --component-group-val --component-prop path --component-prop-val path",
-                    "installedCriteria": "contoso-virtual-camera-1.2-step-1"
-                }
-            },
-            {
-                "description": "Cameras Update - post-install step",
-                "handler": "microsoft/script:1",
-                "files": [
-                    "contoso-camera-installscript.sh"
-                ],
-                "handlerProperties": {
-                    "scriptFileName": "contoso-camera-installscript.sh",
-                    "arguments": "--post-install-sim-success --component-name --component-name-val --component-group --component-group-val --component-prop path --component-prop-val path",
-                    "installedCriteria": "contoso-virtual-camera-1.2-stop-2"
-                }
-            }
-        ]
-    },
-    "referencedBy": [
-        {
-            "provider": "DU-Client-Eng",
-            "name": "MSOE-Update-Demo",
-            "version": "3.1"
-        }
-    ],
-    "manifestVersion": "4.0",
-    "importedDateTime": "2021-11-17T07:26:14.7376536Z",
-    "createdDateTime": "2021-11-17T07:22:09.2232968Z",
-    "etag": "\"ad7a553d-24a8-492b-9885-9af424d44d58\""
-}
-```
-
-## Parent Update vs. Child Update
-
-For Public Preview Refresh, we will refer to the top-level Update Manifest as `Parent Update` and refer to an Update Manifest specified in a Reference Step as `Child Update`.  
-
-Currently, a `Child Update` must not contain any reference steps. This restriction is validated at import time and if not followed the import will fail.
-
-### Inline Step In Parent Update
-
-Inline step(s) specified in `Parent Update` will be applied to the Host Device. Here the ADUC_WorkflowData object that is passed to a Step Handler (also known as Update Content Handler) and it will not contain the `Selected Components` data. The handler for this type of step should *not* be a `Component-Aware` handler.  
+  ```json
+  {
+      "updateId": {
+          "provider": "contoso",
+          "name": "virtual-camera",
+          "version": "1.2"
+      },
+      "isDeployable": false,
+      "compatibility": [
+          {
+              "group": "cameras"
+          }
+      ],
+      "instructions": {
+          "steps": [
+              {
+                  "description": "Cameras Update - pre-install step",
+                  "handler": "microsoft/script:1",
+                  "files": [
+                      "contoso-camera-installscript.sh"
+                  ],
+                  "handlerProperties": {
+                      "scriptFileName": "contoso-camera-installscript.sh",
+                      "arguments": "--pre-install-sim-success --component-name --component-name-val --component-group --component-group-val --component-prop path --component-prop-val path",
+                      "installedCriteria": "contoso-virtual-camera-1.2-step-0"
+                  }
+              },
+              {
+                  "description": "Cameras Update - firmware installation (failure - missing file)",
+                  "handler": "microsoft/script:1",
+                  "files": [
+                      "contoso-camera-installscript.sh",
+                      "camera-firmware-1.1.json"
+                  ],
+                  "handlerProperties": {
+                      "scriptFileName": "missing-contoso-camera-installscript.sh",
+                      "arguments": "--firmware-file camera-firmware-1.1.json --component-name --component-name-val --component-group --component-group-val --component-prop path --component-prop-val path",
+                      "installedCriteria": "contoso-virtual-camera-1.2-step-1"
+                  }
+              },
+              {
+                  "description": "Cameras Update - post-install step",
+                  "handler": "microsoft/script:1",
+                  "files": [
+                      "contoso-camera-installscript.sh"
+                  ],
+                  "handlerProperties": {
+                      "scriptFileName": "contoso-camera-installscript.sh",
+                      "arguments": "--post-install-sim-success --component-name --component-name-val --component-group --component-group-val --component-prop path --component-prop-val path",
+                      "installedCriteria": "contoso-virtual-camera-1.2-stop-2"
+                  }
+              }
+          ]
+      },
+      "referencedBy": [
+          {
+              "provider": "DU-Client-Eng",
+              "name": "MSOE-Update-Demo",
+              "version": "3.1"
+          }
+      ],
+      "manifestVersion": "4.0",
+      "importedDateTime": "2021-11-17T07:26:14.7376536Z",
+      "createdDateTime": "2021-11-17T07:22:09.2232968Z",
+      "etag": "\"ad7a553d-24a8-492b-9885-9af424d44d58\""
+  }
+  ```
 
 > [!NOTE]
-> See [Steps Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler/README.md) and [Implementing a custom component-Aware Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
+> In the [update manifest](update-manifest.md), each step should have a different **installedCriteria** string if that string is being used to determine whether the step should be performed or not.
 
-### Reference Step In Parent Update
+## Parent updates and child updates
 
-Reference step(s) specified in `Parent Update` will be applied to the component on or components connected to the Host Device. A **Reference Step** is a step that contains update identifier of another Update, called as a `Child Update`.  When processing a Reference Step, the Steps Handler will download a Detached Update Manifest file specified in the Reference Step data, then validate the file integrity.
+When update manifests reference each other, the top-level manifest is called the **parent update** and a manifest specified in a reference step is called a **child update**.  
 
-Next, the Steps Handler will parse the Child Update Manifest and create ADUC_Workflow object (also known as Child Workflow Data) by combining the data from Child Update Manifest and File URLs information from the Parent Update Manifest.  This Child Workflow Data also has a 'level' property set to '1'.
+Currently, a child update can't contain any reference steps. This restriction is validated at import time and if not followed the import will fail.
+
+### Inline steps in a parent update
+
+Inline step(s) specified in a parent update are applied to the host device. Here the ADUC_WorkflowData object that is passed to a step handler (also known as an update content handler) and it will not contain the `Selected Components` data. The handler for this type of step should *not* be a `Component-Aware` handler.
+
+The steps content handler applies **IsInstalled** validation logic for each step. The Device Update agent’s step handler checks to see if particular update is already installed by checking whether IsInstalled() resulted in a result code “900” which means ‘true’. If an update is already installed, to avoid reinstalling an update that is already on the device, the DU agent will skip future steps because we use it to determine whether to perform the step or not.
+
+To report an update result, the result of a step handler execution must be written to ADUC_Result struct in a desired result file as specified in --result-file option. Then based on results of the execution, for success return 0, for any fatal errors return -1 or 0xFF.
+
+For more information, see [Steps content handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/step_handlers) and [Implementing a custom component-aware content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md).
+
+### Reference steps in a parent update
+
+Reference step(s) specified in a parent update are applied to components on or connected to the host device. A **reference step** is a step that contains update identifier of another update, called a child update.
+
+When processing a reference step, the steps handler downloads a detached update manifest file specified in the reference step data, then validates the file integrity. Next, the steps handler parses the child update manifest and creates an **ADUC_Workflow** object (also known as child workflow data) by combining the data from the child update manifest and file URLs information from the parent update manifest.  This child workflow data also has a 'level' property set to '1'.
 
 > [!NOTE]
-> For Update Manfiest version v4, the Child Udpate cannot contain any Reference Steps.
+> Currently, child updates can't contain any reference steps.
 
-## Detached Update Manifest
+## Detached update manifests
 
-To avoid deployment failure because of IoT Hub Twin Data Size Limits, any large Update Manifest will be delivered in the form of a JSON data file, also called as a 'Detached Update Manifest'.
+To avoid deployment failure because of IoT Hub twin data size limits, any large update manifest will be delivered in the form of a JSON data file, also called a **detached update manifest**.
 
-If an update with large content is imported into Device Update for IoT Hub, the generated Update Manifest will contain another payload file called `Detached Update Manifest`, which contains the full data of the Update Manifest.
+If an update with large content is imported into Device Update for IoT Hub, the generated update manifest will contain another payload file called `Detached Update Manifest`, which contains the full data of the Update Manifest.
 
-The `UpdateManifest` property in the Device or Module Twin will contain the Detached Update Manifest file information.
+The `UpdateManifest` property in the device or module twin will contain the detached update manifest file information.
 
-When processing PnP Property Changed Event, the Device Update Agent will automatically download the Detached Update Manifest file, and create ADUC_WorkflowData object that contains the full Update Manifest data.
-
- 
+When processing PnP property changed event, the Device Update agent will automatically download the detached update manifest file and create an ADUC_WorkflowData object that contains the full update manifest data.

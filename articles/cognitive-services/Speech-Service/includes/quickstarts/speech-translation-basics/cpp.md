@@ -14,20 +14,18 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=Speech-translation&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Set up the environment
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements.
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=Speech-translation&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
 ## Translate speech from a microphone
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Create a new C++ console project in Visual Studio named `SpeechTranslation`.
+1. Create a new C++ console project in Visual Studio Community 2022 named `SpeechTranslation`.
 1. Install the Speech SDK in your new project with the NuGet package manager.
     ```powershell
     Install-Package Microsoft.CognitiveServices.Speech
@@ -36,18 +34,22 @@ Follow these steps to create a new console application and install the Speech SD
     
     ```cpp
     #include <iostream> 
+    #include <stdlib.h>
     #include <speechapi_cxx.h>
     
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
     using namespace Microsoft::CognitiveServices::Speech::Translation;
     
-    auto YourSubscriptionKey = "YourSubscriptionKey";
-    auto YourServiceRegion = "YourServiceRegion";
+    std::string GetEnvironmentVariable(const char* name);
     
     int main()
     {
-        auto speechTranslationConfig = SpeechTranslationConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        auto speechKey = GetEnvironmentVariable("SPEECH_KEY");
+        auto speechRegion = GetEnvironmentVariable("SPEECH_REGION");
+
+        auto speechTranslationConfig = SpeechTranslationConfig::FromSubscription(speechKey, speechRegion);
         speechTranslationConfig->SetSpeechRecognitionLanguage("en-US");
         speechTranslationConfig->AddTargetLanguage("it");
     
@@ -84,13 +86,30 @@ Follow these steps to create a new console application and install the Speech SD
             }
         }
     }
+
+    std::string GetEnvironmentVariable(const char* name)
+    {
+    #if defined(_MSC_VER)
+        size_t requiredSize = 0;
+        (void)getenv_s(&requiredSize, nullptr, 0, name);
+        if (requiredSize == 0)
+        {
+            return "";
+        }
+        auto buffer = std::make_unique<char[]>(requiredSize);
+        (void)getenv_s(&requiredSize, buffer.get(), requiredSize, name);
+        return buffer.get();
+    #else
+        auto value = getenv(name);
+        return value ? value : "";
+    #endif
+    }
     ```
 
-1. In `SpeechTranslation.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
-1. To change the translation target language, replace `it` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es` for Spanish (Spain). The default language is `en` if you don't specify a language.
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-to-text). Specify the full locale with a dash (`-`) separator. For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
+1. To change the translation target language, replace `it` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-translation). With few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. The default language is `en` if you don't specify a language.
 
-Build and run your new console application to start speech recognition from a microphone.
+[Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech recognition from a microphone.
 
 Speak into your microphone when prompted. What you speak should be output as translated text in the target language: 
 
@@ -99,9 +118,6 @@ Speak into your microphone.
 RECOGNIZED: Text=I'm excited to try speech translation.
 Translated into 'it': Sono entusiasta di provare la traduzione vocale.
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=Speech-translation&Page=quickstart&Section=Translate-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
@@ -116,4 +132,3 @@ Now that you've completed the quickstart, here are some additional consideration
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
-

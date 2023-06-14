@@ -2,7 +2,7 @@
 title: Attach a data disk to a Windows VM in Azure by using PowerShell
 description: How to attach a new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.collection: windows
 ms.topic: how-to
 ms.date: 06/08/2022

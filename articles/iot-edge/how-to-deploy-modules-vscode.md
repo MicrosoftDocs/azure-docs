@@ -1,6 +1,6 @@
 ---
 title: Deploy modules from Visual Studio Code - Azure IoT Edge
-description: Use Visual Studio Code with the Azure IoT Tools to push an IoT Edge module from your IoT Hub to your IoT Edge device, as configured by a deployment manifest.
+description: Use Visual Studio Code with Azure IoT Edge for Visual Studio Code to push an IoT Edge module from your IoT Hub to your IoT Edge device, as configured by a deployment manifest.
 author: PatAltimore
 
 ms.author: patricka
@@ -13,7 +13,7 @@ services: iot-edge
 
 # Deploy Azure IoT Edge modules from Visual Studio Code
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
@@ -27,7 +27,7 @@ This article shows how to create a JSON deployment manifest, then use that file 
   If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) for Visual Studio Code.
+* [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
 ## Configure a deployment manifest
 
@@ -112,7 +112,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 1. At the bottom of the Explorer, expand the **Azure IoT Hub** section.
 
-   ![Expand Azure IoT Hub section](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   :::image type="content" source="./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png" alt-text="Screenshot showing the expanded Azure I o T Hub section.":::
 
 1. Click on the **...** in the **Azure IoT Hub** section header. If you don't see the ellipsis, hover over the header.
 
@@ -139,9 +139,9 @@ You deploy modules to your device by applying the deployment manifest that you c
 
 1. Navigate to the deployment manifest JSON file that you want to use, and click **Select Edge Deployment Manifest**.
 
-   ![Select Edge Deployment Manifest](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
+   :::image type="content" source="./media/how-to-deploy-modules-vscode/select-deployment-manifest.png" alt-text="Screenshot showing where to select the I o T Edge Deployment Manifest.":::
 
-The results of your deployment are printed in the VS Code output. Successful deployments are applied within a few minutes if the target device is running and connected to the internet.
+The results of your deployment are printed in the Visual Studio Code output. Successful deployments are applied within a few minutes if the target device is running and connected to the internet.
 
 ## View modules on your device
 

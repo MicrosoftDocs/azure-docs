@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.devlang: cpp, csharp, java, javascript, objective-c, python
-ms.custom: devx-track-js, ignite-fall-2021
+ms.custom: devx-track-js, ignite-fall-2021, devx-track-python
 ---
 
 # Select an audio input device with the Speech SDK
@@ -192,7 +192,7 @@ void enumerateDeviceIds()
 
     promise.Completed(
         [](winrt::Windows::Foundation::IAsyncOperation<DeviceInformationCollection> const& sender,
-           winrt::Windows::Foundation::AsyncStatus /* asyncStatus */ ) {
+           winrt::Windows::Foundation::AsyncStatus /* asyncStatus */) {
         auto info = sender.GetResults();
         auto num_devices = info.Size();
 

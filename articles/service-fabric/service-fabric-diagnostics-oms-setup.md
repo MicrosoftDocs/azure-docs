@@ -1,9 +1,13 @@
 ---
 title: Set up monitoring with Azure Monitor logs 
 description: Learn how to set up Azure Monitor logs for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
-ms.topic: conceptual
-ms.date: 02/20/2019 
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-arm-template, devx-track-azurepowershell
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Set up Azure Monitor logs for a cluster
@@ -43,7 +47,7 @@ If you are using Windows, continue with the following steps to connect Azure Mon
 
 1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfWorkspace\>** and go to its overview page. From there, you can change solution settings, workspace settings, and access the Log Analytics workspace.
 
-2. On the left navigation menu, under **Workspace Data Sources**, select **Storage accounts logs**.
+2. On the left navigation menu, click on **Overview tab**,under **Connect a Data Source Tab** select **Storage accounts logs**.
 
 3. On the **Storage account logs** page, select **Add** at the top to add your cluster's logs to the workspace.
 
@@ -85,7 +89,7 @@ Azure Resource Manager detects that this command is an update to an existing res
 
 ## Deploy Azure Monitor logs with Azure PowerShell
 
-You can also deploy your log analytics resource via PowerShell by using the `New-AzOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](/powershell/azure/install-az-ps). Use this script to create a new Log Analytics workspace and add the Service Fabric solution to it: 
+You can also deploy your log analytics resource via PowerShell by using the `New-AzOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](/powershell/azure/install-azure-powershell). Use this script to create a new Log Analytics workspace and add the Service Fabric solution to it: 
 
 ```powershell
 
@@ -118,4 +122,4 @@ You can also add other solutions or make other modifications to your Log Analyti
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
 * Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
-* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/visualize/view-designer.md)
+* [Use View Designer to create custom views in Azure Monitor logs](/previous-versions/azure/azure-monitor/visualize/view-designer)

@@ -3,7 +3,7 @@ title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/11/2022
+ms.date: 4/12/2023
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager
@@ -143,7 +143,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 1. Enter the remote site details, and then select **NEXT**.
 
    >[!NOTE]
-   >An Azure VMware Solution private cloud operates with an embedded Platform Services Controller (PSC), so only one local vCenter can be selected. If the remote vCenter Server is using an embedded Platform Service Controller (PSC), use the vCenter Server's FQDN (or its IP address) and port to specify the PSC. 
+   >An Azure VMware Solution private cloud operates with an embedded Platform Services Controller (PSC), so only one local vCenter Server can be selected. If the remote vCenter Server is using an embedded Platform Service Controller (PSC), use the vCenter Server's FQDN (or its IP address) and port to specify the PSC. 
    >
    >The remote user must have sufficient permissions to perform the pairings. An easy way to ensure this is to give that user the VRM administrator and SRM administrator roles in the remote vCenter Server. For a remote Azure VMware Solution private cloud, cloudadmin is configured with those roles.
 
@@ -219,20 +219,7 @@ While Microsoft aims to simplify VMware SRM and vSphere Replication installation
 
 ## Scale limitations
 
-Scale limitations are per private cloud.
-
-| Configuration | Limit |
-| --- | --- |
-| Number of protected Virtual Machines  | 1000  |
-| Number of Virtual Machines per recovery plan  | 1000  |
-| Number of protection groups per recovery plan  | 250  |
-| RPO Values  | 5 min or higher*  |
-| Total number of virtual machines per protection group  | 500  |
-| Total number of recovery plans  | 250  |
-
-\* For information about Recovery Point Objective (RPO) lower than 15 minutes, see [How the 5 Minute Recovery Point Objective Works](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-9E17D567-A947-49CD-8A84-8EA2D676B55A.html) in the _vSphere Replication Administration guide_.
-
-
+To learn about the limits for the VMware Site Recovery Manager Add-On with the Azure VMware Solution, check the [Azure subscription and service limits, quotas, and constraints.](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-vmware-solution-limits)
 
 ## SRM licenses
 

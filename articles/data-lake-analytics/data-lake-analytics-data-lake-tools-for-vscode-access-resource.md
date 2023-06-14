@@ -2,12 +2,14 @@
 title: Accessing resources with Data Lake Tools 
 description: Learn how to use Azure Data Lake Tools for accessing Azure Data Lake Analytics resources.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 02/09/2018
+ms.date: 01/23/2023
 ---
 
 # Accessing resources with Azure Data Lake Tools
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 You can access Azure Data Lake Analytics resources with Azure Data Tools commands or actions in VS Code easily.
 
@@ -146,7 +148,7 @@ Expand your Azure subscription. Under the **U-SQL Databases** node, you can brow
 
 Expand **U-SQL Databases**. You can create a database, schema, table, table type, index, or statistic by right-clicking the corresponding node, and then selecting **Script to Create** on the shortcut menu. On the opened script page, edit the script according to your needs. Then submit the job by right-clicking it and selecting **ADL: Submit Job**.
 
-After you finish creating the item, right-click the node and then select **Refresh** to show the item. You can also delete the item by right-clicking it and then selecting **Delete**.
+After you finish creating the item, right-click the node, and then select **Refresh** to show the item. You can also delete the item by right-clicking it and then selecting **Delete**.
 
 !["Script to Create" command on the shortcut menu in the Data Lake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
 
@@ -194,7 +196,7 @@ Browse to Blob storage:
 
 Data Lake Tools opens the Azure Storage path in the Azure portal. You can find the path and preview the file from the web.
 
-## Additional features
+## More features
 
 Data Lake Tools for VS Code supports the following features:
 
@@ -212,8 +214,6 @@ Data Lake Tools for VS Code supports the following features:
     ![IntelliSense object types](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
 
 - **IntelliSense autocomplete on Data Lake Analytics metadata**: Data Lake Tools downloads the Data Lake Analytics metadata information locally. The IntelliSense feature automatically populates objects from the Data Lake Analytics metadata. These objects include the database, schema, table, view, table-valued function, procedures, and C# assemblies.
-
-  ![IntelliSense metadata](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
 
 - **IntelliSense error marker**: Data Lake Tools underlines editing errors for U-SQL and C#.
 - **Syntax highlights**: Data Lake Tools uses colors to differentiate items like variables, keywords, data types, and functions.

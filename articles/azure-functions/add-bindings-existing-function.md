@@ -3,6 +3,7 @@ title: Connect functions to other Azure services
 description: Learn how to add bindings that connect to other Azure services to an existing function in your Azure Functions project.
 ms.topic: how-to
 ms.date: 04/29/2020
+ms.custom: vscode-azure-extension-update-not-needed
 #Customer intent: As a developer, I need to know how to add a binding to an existing function so that I can integrate external services to my function.
 ---
 

@@ -8,4 +8,4 @@ ms.author: sgilley
 
 **APPLIES TO:**
 :::image type="icon" source="media/applies-to/yes.png"  border="false":::[Azure CLI ml extension v2 (current)](../articles/machine-learning/how-to-configure-cli.md)
-:::image type="icon" source="media/applies-to/yes.png" border="false"::: [Python SDK azure-ai-ml **v2 (preview)**](https://aka.ms/sdk-v2-install)
+:::image type="icon" source="media/applies-to/yes.png" border="false"::: [Python SDK azure-ai-ml v2 (current)](https://aka.ms/sdk-v2-install)

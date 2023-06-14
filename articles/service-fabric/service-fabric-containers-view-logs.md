@@ -1,10 +1,14 @@
 ---
 title: View containers logs in Azure Service Fabric 
 description: Describes how to view container logs for a running Service Fabric container services using Service Fabric Explorer.
-
-ms.topic: conceptual
-ms.date: 05/15/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # View logs for a Service Fabric container service
 Azure Service Fabric is a container orchestrator and supports both [Linux and Windows containers](service-fabric-containers-overview.md).  This article describes how to view container logs of a running container service or a dead container so that you can diagnose and troubleshoot problems.
 

@@ -1,13 +1,13 @@
 ---
-title: Connect a  RuuviTag in Azure IoT Central | Microsoft Docs
-description: Learn how to connect a RuuviTag environment sensor to your IoT Central application. 
+title: Connect a  RuuviTag in Azure IoT Central
+description: Learn how to configure and connect a RuuviTag environment sensor device to your IoT Central application.
+ms.author: dobett
+author: dominicbetts
+ms.date: 11/01/2022
 services: iot-central
 ms.service: iot-central
 ms.topic: how-to
 ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
-ms.author: avneets
-author: avneet723
-ms.date: 08/20/2021
 
 # This article applies to solution builders.
 ---
@@ -36,15 +36,9 @@ To onboard a RuuviTag sensor into your Azure IoT Central application instance, y
 
 To add a RuuviTag device template:
 
-1. Navigate to the **Device Templates** tab in the left pane, select **+ New**:
+1. Navigate to the **Device Templates** tab in the left pane, select **+ New**. The page gives you an option to **Create a custom template** or **Use a preconfigured device template**.
 
-    ![Create new device template](./media/howto-connect-ruuvi/device-template-new.png)
-
-    The page gives you an option to **Create a custom template** or **Use a preconfigured device template**.
-
-1. Select the RuuviTag Multisensor device template from the list of preconfigured device templates:
-
-    ![Select RuuviTag device template](./media/howto-connect-ruuvi/device-template-pre-configured.png)
+1. Select the RuuviTag Multisensor device template from the list of preconfigured device templates.
 
 1. Select **Next: Customize** to continue to the next step.
 
@@ -62,7 +56,7 @@ To connect the RuuviTag with your IoT Central application, you need to set up a 
 
 1. In a few seconds, your RuuviTag appears in the list of devices within IoT Central:
 
-    ![RuuviTag Device List](./media/howto-connect-ruuvi/ruuvi-device-list.png)
+    :::image type="content" source="media/howto-connect-ruuvi/ruuvi-device-list.png" alt-text="Screenshot that shows the device list with a RuuviTag." lightbox="media/howto-connect-ruuvi/ruuvi-device-list.png":::
 
 You can now use this RuuviTag device within your IoT Central application.  
 

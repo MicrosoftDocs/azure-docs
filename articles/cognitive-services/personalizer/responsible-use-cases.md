@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.date: 05/23/2022
-ms.topic: article
+ms.topic: conceptual
 ---
 
 # Use cases for Personalizer
@@ -19,8 +19,7 @@ An AI system includes not only the technology, but also the people who will use 
 
 Microsoft provides *Transparency Notes* to help you understand how our AI technology works. This includes the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. You can use Transparency Notes when developing or deploying your own system, or share them with the people who will use or be affected by your system.
 
-Transparency Notes are part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Microsoft AI Principles](https://
-www.microsoft.com/ai/responsible-ai).
+Transparency Notes are part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Microsoft AI Principles](https://www.microsoft.com/ai/responsible-ai).
 
 ## Introduction to Personalizer
 

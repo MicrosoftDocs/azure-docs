@@ -4,7 +4,7 @@ description: Learn how to use PowerShell to deploy Private Endpoint for your Web
 author: ericgre
 ms.assetid: e1cc08d5-91cf-49d7-8d0a-c0e7bd2046ac
 ms.topic: sample
-ms.date: 07/07/2020
+ms.date: 12/06/2022
 ms.author: ericg
 ms.service: app-service
 ms.workload: web 

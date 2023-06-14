@@ -4,24 +4,25 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 04/28/2021
+ ms.date: 04/27/2023
  ms.author: timlt
  ms.custom: include file
 ---
 
-[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp)
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/pnp)
 
 In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to create a temperature controller, connect it securely to IoT Central, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Central.
 
 > [!TIP]
-> As a developer, you have some options for how to connect devices to Azure IoT. To learn about connection options, see [Overview: Connection options for Azure IoT device developers](../articles/iot-develop/concepts-overview-connection-options.md).
+> As a developer, you have some options for how to connect devices to Azure IoT. To learn about connection options, see [What is Azure IoT device and application development?](../articles/iot-develop/about-iot-develop.md#selecting-a-service).
 
 ## Prerequisites
 This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
 
-- Windows 10
+- Windows 10 or Windows 11
 - Ubuntu 20.04 LTS
 - Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 Install the following prerequisites on your development machine:
 
@@ -77,18 +78,18 @@ In this section, you configure your local environment, install the Azure IoT Pyt
 1. Copy the Azure IoT Python device SDK to your local machine.
 
     ```console
-    git clone https://github.com/Azure/azure-iot-sdk-python
+    git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python
     ```
 1. Navigate to the sample directory.
 
     **Windows**
     ```console
-    cd azure-iot-sdk-python\azure-iot-device\samples\pnp
+    cd azure-iot-sdk-python\samples\pnp
     ```
 
     **Linux or Raspberry Pi OS**
     ```console
-    cd azure-iot-sdk-python/azure-iot-device/samples/pnp
+    cd azure-iot-sdk-python/samples/pnp
     ```
 
 1. Install the Azure IoT Python SDK.
@@ -100,7 +101,7 @@ In this section, you configure your local environment, install the Azure IoT Pyt
 
 1. In your console, run the following code sample from the SDK. The sample creates a temperature controller with thermostat sensors.
     ```console
-    python3 temp_controller_with_thermostats.py
+    python temp_controller_with_thermostats.py
     ```
 
     After your device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 

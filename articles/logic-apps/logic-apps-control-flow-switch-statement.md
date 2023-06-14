@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/08/2018
+ms.date: 09/01/2022
 ---
 
 # Create switch actions that run workflow actions based on specific values in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To run specific actions based on the values of objects, expressions, 
 or tokens, add a *switch* action. This structure evaluates the object, 
@@ -37,9 +39,7 @@ email to an approver. Based on whether the approver selects
 * An Azure subscription. If you don't have a subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* To follow the example in this article, 
-[create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com account or a work or school account.
+* To follow the example in this article, [create the example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) with an Outlook.com account or a work or school account.
 
   1. When you add the action to send email, 
   find and select this action instead: 

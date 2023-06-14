@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 01/25/2023
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -123,7 +123,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 Commands from [**Az.Search**](/powershell/module/az.search) are not available until you load the module.
 
 ```azurepowershell-interactive
-Install-Module -Name Az.Search
+Install-Module -Name Az.Search -Scope CurrentUser
 ```
 
 ### List all Az.Search commands
@@ -193,9 +193,10 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3 -HostingMode Default
 ``` 
+
 Results should look similar to the following output.
 
-```
+```azurepowershell
 ResourceGroupName : demo-westus
 Name              : my-demo-searchapp
 Id                : /subscriptions/<alphanumeric-subscription-ID>/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
@@ -206,6 +207,21 @@ PartitionCount    : 3
 HostingMode       : Default
 Tags
 ```     
+
+[**Remove-AzSearchService**](/powershell/module/az.search/remove-azsearchservice) is used to delete a service and its data.
+
+```azurepowershell-interactive
+Remove-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name>
+``` 
+
+You'll be asked to confirm the action.
+
+```azurepowershell
+Confirm
+Are you sure you want to remove Search Service 'pstestazuresearch01'?
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+```
+
 
 ### Create a service with IP rules
 

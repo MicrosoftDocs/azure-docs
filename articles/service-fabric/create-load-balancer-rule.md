@@ -1,11 +1,13 @@
 ---
 title: Create an Azure Load Balancer rule for a cluster
 description: Configure an Azure Load Balancer to open ports for your Azure Service Fabric cluster.
-
-ms.topic: conceptual
-ms.date: 12/06/2017 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
-ms.devlang: azurecli
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-azurecli
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Open ports for a Service Fabric cluster

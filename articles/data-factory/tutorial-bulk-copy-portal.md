@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.workload: data-services 
 ms.topic: tutorial
-ms.date: 07/06/2021
+ms.date: 09/26/2022
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal

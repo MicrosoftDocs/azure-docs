@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Managed Applications documentation
+title: Azure Managed Applications documentation
 summary: Offer cloud solutions that are easy for consumers to deploy and operate.
 
 metadata:
   title: Azure Managed Applications documentation
-  description: Azure managed applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
+  description: Azure Managed Applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   ms.service: managed-applications
   ms.topic: landing-page
   ms.collection: na
-  author: tfitzmac
-  ms.author: tomfitz
-  ms.date: 01/02/2020
+  author: davidsmatlak
+  ms.author: davidsmatlak
+  ms.date: 04/24/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -29,23 +29,27 @@ landingContent:
             url: concepts-view-definition.md
           - text: Azure Policy for associations
             url: concepts-built-in-policy.md
-          - text: Role definition artifact
-            url: concepts-custom-role-definition.md
 
   # Card
   - title: Create Managed Applications
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Publish application definition
-            url: ./publish-service-catalog-app.md
-          - text: Deploy service catalog app
+          - text: Publish managed app definition
+            url: publish-service-catalog-app.md
+          - text: Publish definition with bring your own storage
+            url: publish-service-catalog-bring-your-own-storage.md
+          - text: Publish managed app definition with Bicep
+            url: publish-bicep-definition.md
+          - text: Deploy service catalog managed app
             url: deploy-service-catalog-quickstart.md
+          - text: Deploy managed app definition with Bicep
+            url: deploy-bicep-definition.md
+          - text: Deploy Azure Marketplace managed app
+            url: deploy-marketplace-app-quickstart.md
       - linkListType: tutorial
         links:
-          - text: Create definition files
-            url: publish-service-catalog-app.md
-          - text: Publish marketplace application 
+          - text: Publish marketplace application
             url: ../../marketplace/azure-app-offer-setup.md
           - text: Create managed application with custom provider
             url: tutorial-create-managed-app-with-custom-provider.md
@@ -53,8 +57,8 @@ landingContent:
         links:
           - text: Use secret from Key Vault
             url: key-vault-access.md
-          - text: Publish through portal
-            url: publish-portal.md
+          - text: Create storage with customer-managed key
+            url: create-storage-customer-managed-key.md
 
   # Card
   - title: Access control
@@ -65,7 +69,7 @@ landingContent:
             url: request-just-in-time-access.md
           - text: Approve just-in-time access
             url: approve-just-in-time-access.md
-          - text: Deploy with Managed Identity
+          - text: Deploy with Managed identity
             url: publish-managed-identity.md
 
   # Card

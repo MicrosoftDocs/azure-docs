@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/24/2022
 ---
 
 # Execute Wait activity in Azure Data Factory and Synapse Analytics

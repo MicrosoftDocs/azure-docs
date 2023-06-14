@@ -8,7 +8,7 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: rosouz
 ms.reviewer: sngun, wiassaf, sidandrews
-ms.custom: cosmos-db, mode-other, event-tier1-build-2022
+ms.custom: cosmos-db, mode-other, event-tier1-build-2022, ignite-2022
 ---
 
 # Copy data from Azure Cosmos DB into a dedicated SQL pool using Apache Spark
@@ -19,13 +19,13 @@ Azure Synapse Link for Azure Cosmos DB enables users to run near real-time analy
 * [Provision a Synapse workspace](../quickstart-create-workspace.md) with:
     * [Serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md)
     * [dedicated SQL pool](../quickstart-create-sql-pool-studio.md)
-* [Provision a Cosmos DB account with a HTAP container with data](../../cosmos-db/configure-synapse-link.md)
+* [Provision an Azure Cosmos DB account with a HTAP container with data](../../cosmos-db/configure-synapse-link.md)
 * [Connect the Azure Cosmos DB HTAP container to the workspace](./how-to-connect-synapse-link-cosmos-db.md)
 * [Have the right setup to import data into a dedicated SQL pool from Spark](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## Steps
 In this tutorial, you'll connect to the analytical store so there's no impact on the transactional store (it won't consume any Request Units). We'll go through the following steps:
-1. Read the Cosmos DB HTAP container into a Spark dataframe
+1. Read the Azure Cosmos DB HTAP container into a Spark dataframe
 2. Aggregate the results in a new dataframe
 3. Ingest the data into a dedicated SQL pool
 
@@ -51,7 +51,7 @@ We'll aggregate the sales (*quantity*, *revenue* (price x quantity) by *productC
 Create a Spark notebook with Scala as Spark (Scala) as the main language. We use the notebook's default setting for the session.
 
 ## Read the data in Spark
-Read the Cosmos DB HTAP container with Spark into a dataframe in the first cell.
+Read the Azure Cosmos DB HTAP container with Spark into a dataframe in the first cell.
 
 ```java
 val df_olap = spark.read.format("cosmos.olap").

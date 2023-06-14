@@ -1,21 +1,22 @@
 ---
-title: Phone authentication methods - Azure Active Directory
+title: Phone authentication methods
 description: Learn about using phone authentication methods in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 04/17/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to understand how to use phone authentication methods in Azure AD to improve and secure user sign-in events.
 ---
+
 # Authentication methods in Azure Active Directory - phone options
 
 For direct authentication using text message, you can [Configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md). SMS-based sign-in is great for Frontline workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
@@ -30,7 +31,7 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 > [!NOTE]
 > There needs to be a space between the country/region code and the phone number.
 >
-> Password reset doesn't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
+> Password reset and Azure AD Multi-Factor Authentication support phone extensions only in office phone.
 
 ## Mobile phone verification
 
@@ -40,11 +41,15 @@ If users don't want their mobile phone number to be visible in the directory but
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Screenshot of the Azure portal that shows authentication methods with a phone number populated":::
 
-Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries / regions besides the United States and Canada.
+Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries/regions besides the United States and Canada.
 
 ### Text message verification
 
-With text message verification during SSPR or Azure AD Multi-Factor Authentication, an SMS is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface.
+With text message verification during SSPR or Azure AD Multi-Factor Authentication, a Short Message Service (SMS) text is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface. 
+
+Android users can enable Rich Communication Services (RCS) on their devices. RCS offers encryption and other improvements over SMS. For Android, MFA text messages may be sent over RCS rather than SMS. The MFA text message is similar to SMS, but RCS messages have more Microsoft branding and a verified checkmark so users know they can trust the message.
+
+:::image type="content" source="media/concept-authentication-methods/brand.png" alt-text="Screenshot of Microsoft branding in RCS messages.":::
 
 ### Phone call verification
 
@@ -52,14 +57,14 @@ With phone call verification during SSPR or Azure AD Multi-Factor Authentication
 
 ## Office phone verification
 
-With phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
+With office phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
 
 ## Troubleshooting phone options
 
 If you have problems with phone authentication for Azure AD, review the following troubleshooting steps:
 
 * “You've hit our limit on verification calls” or “You’ve hit our limit on text verification codes” error messages during sign-in
-   * Microsoft may limit repeated authentication attempts that are performed by the same user or organization in a short period of time. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.
+   * Microsoft may limit repeated authentication attempts that are performed by the same user or organization in a short period of time. This limitation does not apply to Microsoft Authenticator or verification codes. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.
 * "Sorry, we're having trouble verifying your account" error message during sign-in
    * Microsoft may limit or block voice or SMS authentication attempts that are performed by the same user, phone number, or organization due to high number of voice or SMS authentication attempts. If you are experiencing this error, you can try another method, such as Authenticator App or verification code, or reach out to your admin for support.
 * Blocked caller ID on a single device.
@@ -77,8 +82,14 @@ If you have problems with phone authentication for Azure AD, review the followin
 * Faulty telecom providers such as no phone input detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked SMS across multiple devices.
    * Microsoft uses multiple telecom providers to route phone calls and SMS messages for authentication. If you see any of the above issues, have a user attempt to use the method at least five times within 5 minutes and have that user's information available when contacting Microsoft support.
 *  Poor signal quality.
-   * Have the user attempt to log in using a wi-fi connection by installing the Microsoft Authenticator app.
+   * Have the user attempt to log in using a wi-fi connection by installing the Authenticator app.
    * Or, use SMS authentication instead of phone (voice) authentication.
+
+* Phone number is blocked and unable to be used for Voice MFA 
+
+   - There are a few country codes blocked for voice MFA unless your Azure AD administrator has opted in for those country codes. Have your Azure AD administrator opt-in to receive MFA for those country codes. 
+
+   - Or, use Microsoft Authenticator instead of voice authentication.
 
 ## Next steps
 
@@ -92,6 +103,11 @@ Learn more about configuring authentication methods using the [Microsoft Graph R
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md
+
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
+
 [concept-sspr]: concept-sspr-howitworks.md
+
 [concept-mfa]: concept-mfa-howitworks.md
+
+

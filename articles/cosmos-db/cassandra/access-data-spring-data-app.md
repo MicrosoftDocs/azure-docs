@@ -1,19 +1,20 @@
 ---
-title: How to use Spring Data Apache Cassandra API with Azure Cosmos DB
-description: Learn how to use Spring Data Apache Cassandra API with Azure Cosmos DB.
+title: How to use Spring Data API for Apache Cassandra with Azure Cosmos DB for Apache Cassandra
+description: Learn how to use Spring Data API for Apache Cassandra with Azure Cosmos DB for Apache Cassandra.
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.devlang: java
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/17/2021
 ---
 
-# How to use Spring Data Apache Cassandra API with Azure Cosmos DB
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# How to use Spring Data API for Apache Cassandra with Azure Cosmos DB for Apache Cassandra
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using the [Azure Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction).
+This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using the [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction).
 
 ## Prerequisites
 
@@ -26,9 +27,9 @@ The following prerequisites are required in order to complete the steps in this 
 * A [Git](https://git-scm.com/downloads) client.
 
 > [!NOTE]
-> The samples mentioned below implement custom extensions for a better experience when using Azure Cosmos DB Cassandra API. They include custom retry and load balancing policies, as well as implementing recommended connection settings. For a more extensive exploration of how the custom policies are used, see Java samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4). 
+> The samples mentioned below implement custom extensions for a better experience when using Azure Cosmos DB for Apache Cassandra. They include custom retry and load balancing policies, as well as implementing recommended connection settings. For a more extensive exploration of how the custom policies are used, see Java samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4). 
 
-## Create a Cosmos DB Cassandra API account
+## Create an Azure Cosmos DB for Apache Cassandra account
 
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
@@ -51,7 +52,7 @@ The following procedure configures the test application.
    ```     
 
     > [!NOTE]    
-    > Although the usage described below is identical for both Java version 3 and version 4 samples above, the way in which they have been implemented in order to include custom retry and load balancing policies is different. We recommend reviewing the code to understand how to implement custom policies if you are making changes to an existing spring java application.  
+    > Although the usage described below is identical for both Java version 3 and version 4 samples above, the way in which they have been implemented in order to include custom retry and load balancing policies is different. We recommend reviewing the code to understand how to implement custom policies if you are making changes to an existing Spring Java application.  
 
 1. Locate the *application.properties* file in the *resources* directory of the sample project, or create the file if it does not already exist.
 

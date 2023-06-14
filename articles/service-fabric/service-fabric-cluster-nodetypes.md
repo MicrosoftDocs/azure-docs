@@ -2,9 +2,13 @@
 title: Node types and virtual machine scale sets 
 description: Learn how Azure Service Fabric node types relate to virtual machine scale sets and how to remotely connect to a scale set instance or cluster node.
 ms.topic: conceptual
-ms.date: 03/23/2018
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Azure Service Fabric node types and virtual machine scale sets
 
 [Virtual machine scale sets](../virtual-machine-scale-sets/index.yml) are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up exactly one scale set: multiple node types cannot be backed by the same scale set and one node type should not be backed by multiple scale sets.
@@ -78,7 +82,7 @@ The following are the property descriptions:
 | nicPrefixOverride | string | Subnet Prefix like "10.0.0.0/24" |
 | commonNames | string[] | Common Names of installed cluster certificates |
 | x509StoreName | string | Name of Store where installed cluster certificate is located |
-| typeHandlerVersion | 1.1 | Version of Extension. 1.0 classic version of extension are recommended to upgrade to 1.1 |
+| typeHandlerVersion | 1.1 | Version of Extension. 1.0 classic versions of extension are recommended to upgrade to 1.1 |
 | dataPath | string | Path to the drive used to save state for Service Fabric system services and application data.
 
 ## Next steps

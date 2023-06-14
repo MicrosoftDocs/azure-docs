@@ -1,25 +1,25 @@
 ---
-title: Reprocess requests for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to reprocess a request for an access package in Azure Active Directory entitlement management.
+title: Reprocess requests for an access package in entitlement management
+description: Learn how to reprocess a request for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/25/2021
-ms.author: ajburnle
+ms.date: 05/31/2023
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
 #Customer intent: As a global administrator or access package manager, I want detailed information about how I can repreocess a request for an access package if a request failed so that requestors have the resources in the access package they need to perform their job.
 
 ---
-# Reprocess requests for an access package in Azure AD entitlement management
+# Reprocess requests for an access package in entitlement management
 
 As an access package manager, you can automatically retry a user’s request for access to an access package at any time by using the reprocess functionality. Reprocessing eliminates the need for users to repeat the access package request process if their access to resources is not successfully provisioned.
 
@@ -30,7 +30,7 @@ This article describes how to reprocess requests for an existing access package.
 
 ## Prerequisites
 
-To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
+To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license

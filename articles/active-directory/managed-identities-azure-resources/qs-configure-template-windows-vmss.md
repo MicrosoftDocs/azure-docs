@@ -1,10 +1,10 @@
 ---
-title: Configure template to use managed identities on virtual machine scale sets - Azure AD
+title: Configure template to use managed identities on virtual machine scale sets
 description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-arm-template
 ---
 
 # Configure managed identities for Azure resources on an Azure virtual machine scale using a template
@@ -151,7 +151,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
        }
 
    }
-   ```   
+   ```
 
    **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
 
@@ -168,12 +168,12 @@ In this section, you assign a user-assigned managed identity to a virtual machin
                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
            ]
        }
-
    }
+   ```
 
 3. When you are done, your template should look similar to the following:
 
-   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
    ```json
    "resources": [
@@ -224,6 +224,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
         }
     ]
    ```
+
 ### Remove user-assigned managed identity from an Azure virtual machine scale set
 
 If you have a virtual machine scale set that no longer needs a user-assigned managed identity:

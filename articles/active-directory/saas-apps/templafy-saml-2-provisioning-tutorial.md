@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Templafy SAML2 for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Templafy SAML2 for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Templafy SAML2.
 services: active-directory
 author: twimmers
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -21,7 +21,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in Te
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -128,6 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Templafy SAML2 in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Templafy SAML2 for update operations. Select the **Save** button to commit any changes.
 
+
    |Attribute|Type|Supported for filtering|
    |---|---|---|
    |userName|String|&check;|
@@ -149,6 +149,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
 
+      > [!NOTE]
+      > Schema Discovery feature is enabled for this application.
+
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Templafy**.
 
 	![Templafy SAML2 Group Mappings](media/templafy-saml-2-provisioning-tutorial/group-mapping.png)
@@ -161,6 +164,8 @@ This section guides you through the steps to configure the Azure AD provisioning
       |members|Reference|
       |externalId|String|      
 
+      > [!NOTE]
+      > Schema Discovery feature is enabled for this application.
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -184,6 +189,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Change log
+
+* 05/04/2023 - Added support for **Schema Discovery**.
 
 ## Additional resources
 

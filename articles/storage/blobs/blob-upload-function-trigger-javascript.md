@@ -6,7 +6,8 @@ ms.author: diberry
 ms.service: storage
 ms.topic: tutorial
 ms.date: 05/13/2022
-ms.custom: devx-track-js
+ms.devlang: javascript
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # JavaScript Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
@@ -81,7 +82,7 @@ This procedure expects a public container. To change that configuration, make th
 
 ### [Azure portal](#tab/storage-resource-azure-portal)
 
-Sign in to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount).
+Sign in to the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount).
 
 1) In the search bar at the top of the portal, search for *Storage* and select the result labeled **Storage accounts**.
 

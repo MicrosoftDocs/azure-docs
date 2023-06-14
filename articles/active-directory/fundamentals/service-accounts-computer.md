@@ -1,51 +1,48 @@
 ---
-title: Secure computer accounts | Azure Active Directory
-description: A guide to helping secure on-premises computer accounts.
+title: Secure on-premises computer accounts with Active Directory
+description: A guide to help secure on-premises computer accounts, or LocalSystem accounts, with Active Directory
 services: active-directory
-author: BarbaraSelden
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 2/15/2021
-ms.author: baselden
+ms.date: 02/03/2023
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Secure on-premises computer accounts
+# Secure on-premises computer accounts with Active Directory
 
-A computer account, or LocalSystem account, is a built-in, highly privileged account with access to virtually all resources on the local computer. The account is not associated with any signed-on user account. Services run as LocalSystem access network resources by presenting the computer's credentials to remote servers in the format <domain_name>\\<computer_name>$. The computer account's predefined name is NT AUTHORITY\SYSTEM. You can use it to start a service and provide security context for that service.
+A computer account, or LocalSystem account, is highly privileged with access to almost all resources on the local computer. The account isn't associated with signed-on user accounts. Services run as LocalSystem access network resources by presenting the computer credentials to remote servers in the format `<domain_name>\\<computer_name>$`. The computer account predefined name is `NT AUTHORITY\SYSTEM`. You can start a service and provide security context for that service.
 
-![Screenshot of a list of local services on a computer account.](.\media\securing-service-accounts\secure-computer-accounts-image-1.png)
+   ![Screenshot of a list of local services on a computer account.](./media/govern-service-accounts/secure-computer-accounts-image-1.png)
 
 ## Benefits of using a computer account
 
-A computer account provides the following benefits:
+A computer account has the following benefits:
 
-* **Unrestricted local access**: The computer account provides complete access to the machine’s local resources.
+* **Unrestricted local access** - the computer account provides complete access to the machine's local resources
+* **Automatic password management** - removes the need for manually changed passwords. The account is a member of Active Directory, and its password is changed automatically. With a computer account, there's no need to register the service principal name.
+* **Limited access rights off-machine** - the default access-control list in Active Directory Domain Services (AD DS) permits minimal access to computer accounts. During access by an unauthorized user, the service has limited access to network resources.
 
-* **Automatic password management**: Removes the need for you to manually change passwords. The account is a member of Active Directory, and the account password is changed automatically. Using a computer account eliminates the need to register the service principal name for the service.
+## Computer account security-posture assessment
 
-* **Limited access rights off-machine**: The default access-control list in Active Directory Domain Services (AD DS) permits minimal access to computer accounts. In the event of access by an unauthorized user, the service would have only limited access to resources on your network.
-
-## Assess the security posture of computer accounts
-
-Some potential challenges and associated mitigations when you use a computer account are listed in the following table:
+Use the following table to review potential computer-account issues and mitigations.
  
-| Issue | Mitigation |
+| Computer-account issue | Mitigation |
 | - | - |
-| Computer accounts are subject to deletion and re-creation when the computer leaves and rejoins the domain. | Validate the need to add a computer to an Active Directory group, and verify which computer account has been added to a group by using the example scripts in the next section of this article.| 
-| If you add a computer account to a group, all services that run as LocalSystem on that computer are given the access rights of the group.| Be selective about the group memberships of your computer account. Avoid making a computer account a member of any domain administrator groups, because the associated service has complete access to AD DS. |
-| Improper network defaults for LocalSystem. | Do not assume that the computer account has the default limited access to network resources. Instead, check group memberships for the account carefully. |
-| Unknown services that run as LocalSystem. | Ensure that all services that run under the LocalSystem account are Microsoft services or trusted services from third parties. |
-| | |
+| Computer accounts are subject to deletion and re-creation when the computer leaves and rejoins the domain. | Confirm the requirement to add a computer to an Active Directory group. To verify computer accounts added to a group, use the scripts in the following section.| 
+| If you add a computer account to a group, services that run as LocalSystem on that computer get group access rights.| Be selective about computer-account group memberships. Don't make a computer account a member of a domain administrator group. The associated service has complete access to AD DS. |
+| Inaccurate network defaults for LocalSystem. | Don't assume the computer account has the default limited access to network resources. Instead, confirm group memberships for the account. |
+| Unknown services that run as LocalSystem. | Ensure services that run under the LocalSystem account are Microsoft services, or trusted services. |
 
-## Find services that run under the computer account
+## Find services and computer accounts
 
-To find services that run under the LocalSystem context, use the following PowerShell cmdlet:
+To find services that run under the computer account, use the following PowerShell cmdlet:
 
 ```powershell
 Get-WmiObject win32_service | select Name, StartName | Where-Object {($_.StartName -eq "LocalSystem")}
@@ -63,21 +60,21 @@ To find computer accounts that are members of identity administrators groups (do
 Get-ADGroupMember -Identity Administrators -Recursive | Where objectClass -eq "computer"
 ```
 
-## Move from computer accounts
+## Computer account recommendations
 
 > [!IMPORTANT]
-> Computer accounts are highly privileged accounts and should be used only when your service needs unrestricted access to local resources on the machine and you can't use a managed service account (MSA).
+> Computer accounts are highly privileged, therefore use them if your service requires unrestricted access to local resources, on the machine, and you can't use a managed service account (MSA).
 
-* Check with your service owner to see whether their service can be run by using an MSA, and use a group managed service account (gMSA) or a standalone managed service account (sMSA) if your service supports it.
-
-* Use a domain user account with only the permissions that you need to run your service.
+* Confirm the service owner's service runs with an MSA
+* Use a group managed service account (gMSA), or a standalone managed service account (sMSA), if your service supports it
+* Use a domain user account with the permissions needed to run the service
 
 ## Next steps 
 
 To learn more about securing service accounts, see the following articles:
 
-* [Introduction to on-premises service accounts](service-accounts-on-premises.md)
+* [Securing on-premises service accounts](service-accounts-on-premises.md)
 * [Secure group managed service accounts](service-accounts-group-managed.md)
 * [Secure standalone managed service accounts](service-accounts-standalone-managed.md)
-* [Secure user accounts](service-accounts-user-on-premises.md)  
+* [Secure user-based service accounts in Active Directory](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)

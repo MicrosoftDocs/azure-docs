@@ -1,14 +1,16 @@
 ---
-title: Block connections for specific API connectors
-description: Restrict creating and using API connections in Azure Logic Apps.
+title: Block connector usage
+description: Block creating and using specific API connections in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
-ms.date: 05/18/2022
+ms.date: 08/22/2022
 ---
 
-# Block connections created by connectors in Azure Logic Apps
+# Block connector usage in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 If your organization doesn't permit connecting to restricted or unapproved resources using their [managed connectors](../connectors/managed.md) in Azure Logic Apps, you can block the capability to create and use those connections in logic app workflows. With [Azure Policy](../governance/policy/overview.md), you can define and enforce [policies](../governance/policy/overview.md#policy-definition) that prevent creating or using connections for connectors that you want to block. For example, for security reasons, you might want to block connections to specific social media platforms or other services and systems.
 
@@ -36,7 +38,7 @@ If you already have a logic app with the connection that you want to block, foll
 
    For example, if you want to block the Instagram connector, which is deprecated, go to this page:
 
-   `https://docs.microsoft.com/connectors/instagram/`
+   `https://learn.microsoft.com/connectors/instagram/`
 
 1. From the page's URL, copy and save the connector reference ID at the end without the forward slash (`/`), for example, `instagram`.
 

@@ -7,7 +7,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.date: 10/01/2021
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurepowershell
 ---
 
 # Tutorial: Configure routing preference for a VM using Azure PowerShell
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -107,4 +107,3 @@ Remove-AzResourceGroup -Name 'TutorVMRoutePref-rg'
 Advance to the next article to learn how to create a virtual machine with mixed routing preference:
 > [!div class="nextstepaction"]
 > [Configure both routing preference options for a virtual machine](routing-preference-mixed-network-adapter-portal.md)
-

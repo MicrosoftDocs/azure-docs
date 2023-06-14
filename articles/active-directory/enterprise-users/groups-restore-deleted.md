@@ -1,22 +1,22 @@
 ---
-title: Restore a deleted Microsoft 365 group - Azure AD | Microsoft Docs
+title: Restore a deleted Microsoft 365 group
 description: How to restore a deleted group, view restorable groups, and permanently delete a group in Azure Active Directory
 services: active-directory
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 12/02/2020
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan, mode-other
 ms.collection: M365-identity-device-management
 ---
 # Restore a deleted Microsoft 365 group in Azure Active Directory
 
-When you delete a Microsoft 365 group in the Azure Active Directory (Azure AD), the deleted group is retained but not visible for 30 days from the deletion date. This behavior is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Microsoft 365 groups in Azure AD. It is not available for security groups and distribution groups. Please note that the 30-day group restoration period is not customizable.
+When you delete a Microsoft 365 group in Azure Active Directory (Azure AD), part of Microsoft Entra, the deleted group is retained but not visible for 30 days from the deletion date. This behavior is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Microsoft 365 groups in Azure AD. It is not available for security groups and distribution groups. Please note that the 30-day group restoration period is not customizable.
 
 > [!NOTE]
 > Don't use `Remove-MsolGroup` because it purges the group permanently. Always use `Remove-AzureADMSGroup` to delete a Microsoft 365 group.
@@ -31,9 +31,9 @@ User | Can restore any deleted Microsoft 365 group that they own
 
 ## View and manage the deleted Microsoft 365 groups that are available to restore
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a User Administrator account.
 
-2. Select **Groups**, then select **Deleted groups** to view the deleted groups that are available to restore.
+2. Browse to **Azure Active Directory** > **Groups**, then select **Deleted groups** to view the deleted groups that are available to restore.
 
     ![view groups that are available to restore](./media/groups-restore-deleted/deleted-groups3.png)
 

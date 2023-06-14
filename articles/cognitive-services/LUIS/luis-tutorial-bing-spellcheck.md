@@ -15,6 +15,9 @@ ms.date: 01/05/2022
 
 # Correct misspelled words with Bing Resource
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 The V3 prediction API now supports the [Bing Spellcheck API](/bing/search-apis/bing-spell-check/overview). Add spell checking to your application by including the key to your Bing search resource in the header of your requests. You can use an existing Bing resource if you already own one, or [create a new one](https://portal.azure.com/#create/Microsoft.BingSearch) to use this feature. 
 
 Prediction output example for a misspelled query:

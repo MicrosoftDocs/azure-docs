@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Detecting image types with Computer Vision
+# Image type detection
 
 With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API, Computer Vision can analyze the content type of images, indicating whether an image is clip art or a line drawing.
 

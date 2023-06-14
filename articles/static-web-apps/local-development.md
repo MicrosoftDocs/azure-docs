@@ -5,9 +5,9 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 08/09/2022
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Set up local development for Azure Static Web Apps
@@ -41,7 +41,7 @@ The following chart shows how requests are handled locally.
 :::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Azure Static Web App CLI request and response flow":::
 
 > [!IMPORTANT]
-> Navigate to `http://localhost:4280` to access the application served by the CLI.
+> Go to `http://localhost:4280` to access the application served by the CLI.
 
 - **Requests** made to port `4280` are forwarded to the appropriate server depending on the type of request.
 
@@ -49,7 +49,7 @@ The following chart shows how requests are handled locally.
 
 - **Authentication and authorization** requests are handled by an emulator, which provides a fake identity profile to your app.
 
-- **Functions Core Tools runtime** handles requests to the site's API.
+- **Functions Core Tools runtime**<sup>1</sup> handles requests to the site's API.
 
 - **Responses** from all services are returned to the browser as if they were all a single application.
 
@@ -59,12 +59,15 @@ The following article details the steps for running a node-based application, bu
 swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071
 ```
 
+Optionally, if you use the `swa init` command, the Static Web Apps CLI looks at your application code and build a _swa-cli.config.json_ configuration file for the CLI. When you use the _swa-cli.config.json_ file, you can run `swa start` to launch your application locally.
+
+<sup>1</sup> The Azure Functions Core Tools are automatically installed by the CLI if they aren't already on your system.
+
 ## Prerequisites
 
 - **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter app.
 - **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access to [npm](https://www.npmjs.com/).
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Used for debugging the API application, but not required for the CLI.
-- **[Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)**: Required to run the API locally.
 
 ## Get started
 
@@ -73,14 +76,20 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 1. Install the CLI.
 
     ```console
-    npm install -g @azure/static-web-apps-cli azure-functions-core-tools
+    npm install @azure/static-web-apps-cli
     ```
 
 1. Build your app if required by your application.
 
     Run `npm run build`, or the equivalent command for your project.
 
-1. Change into the output directory for your app. Output folders are often named _build_ or something similar.
+1. Initialize the repository for the CLI.
+
+    ```console
+    swa init
+    ```
+
+    Answer the questions posed by the CLI to verify your configuration settings are correct.
 
 1. Start the CLI.
 
@@ -88,22 +97,22 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
     swa start
     ```
 
-1. Navigate to `http://localhost:4280` to view the app in the browser.
+1. Go to `http://localhost:4280` to view the app in the browser.
 
 ### Other ways to start the CLI
 
-| Description | Command |
-|--- | --- |
-| Serve a specific folder | `swa start ./output-folder` |
-| Use a running framework development server | `swa start http://localhost:3000` |
-| Start a Functions app in a folder | `swa start ./output-folder --api-location ./api` |
-| Use a running Functions app | `swa start ./output-folder --api-location http://localhost:7071` |
+| Description | Command | Comments |
+|--|--|--|
+| Serve a specific folder | `swa start ./<OUTPUT_FOLDER_NAME>` | Replace `<OUTPUT_FOLDER_NAME>` with the name of your output folder. |
+| Use a running framework development server | `swa start http://localhost:3000` | This command works when you have an instance of your application running under port `3000`. Update the port number if your configuration is different. |
+| Start a Functions app in a folder | `swa start ./<OUTPUT_FOLDER_NAME> --api-location ./api` | Replace `<OUTPUT_FOLDER_NAME>` with the name of your output folder. This command expects your application's API to have files in the _api_ folder. Update this value if your configuration is different. |
+| Use a running Functions app | `swa start ./<OUTPUT_FOLDER_NAME> --api-location http://localhost:7071` | Replace `<OUTPUT_FOLDER_NAME>` with the name of your output folder. This command expects your Azure Functions application to be available through port `7071`. Update the port number if your configuration is different. |
 
 ## Authorization and authentication emulation
 
 The Static Web Apps CLI emulates the [security flow](./authentication-authorization.md) implemented in Azure. When a user logs in, you can define a fake identity profile returned to the app.
 
-For instance, when you try to navigate to `/.auth/login/github`, a page is returned that allows you to define an identity profile.
+For instance, when you try to go to `/.auth/login/github`, a page is returned that allows you to define an identity profile.
 
 > [!NOTE]
 > The emulator works with any security provider, not just GitHub.
@@ -117,6 +126,7 @@ The emulator provides a page allowing you to provide the following [client princ
 | **Username** | The account name associated with the security provider. This value appears as the `userDetails` property in the client principal and is autogenerated if you don't provide a value. |
 | **User ID** | Value autogenerated by the CLI.  |
 | **Roles** | A list of role names, where each name is on a new line.  |
+| **Claims** | A list of [user claims](user-information.md#client-principal-data), where each name is on a new line.  |
 
 Once logged in:
 
@@ -136,12 +146,11 @@ The following steps show you a common scenario that uses development servers for
 
 1. Start the Static Web Apps CLI using the following command.
 
-
     ```console
-    swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071
+    swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --appDevserverUrl http://localhost:7071
     ```
 
-    Replace `<DEV-SERVER-PORT-NUMBER>` with the development server's port number.
+    Replace `<DEV_SERVER_PORT_NUMBER>` with the development server's port number.
 
 The following screenshots show the terminals for a typical debugging scenario:
 

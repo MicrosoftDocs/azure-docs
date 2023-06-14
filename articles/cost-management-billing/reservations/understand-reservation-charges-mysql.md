@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/06/2022
 ---
 
 # How a reservation discount is applied to Azure Database for MySQL
@@ -15,9 +15,11 @@ After you buy an Azure Database for MySQL reserved capacity, the reservation dis
 
 ## How reservation discount is applied
 
-A reservation discount is ***use-it-or-lose-it***. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.</br>
+A reservation discount is ***use-it-or-lose-it***. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
+
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
 
 ## Discount applied to Azure Database for MySQL
 

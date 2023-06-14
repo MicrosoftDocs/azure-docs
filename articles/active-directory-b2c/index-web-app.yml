@@ -1,0 +1,58 @@
+### YamlMime:Landing
+
+title: Web app documentation
+summary: >
+  Choose your target language to learn how to sign in users in your web apps with our quickstarts and how-to guides.
+
+metadata:
+  author: kengaderdus
+  manager: CelesteDG
+  ms.author: kengaderdus
+  ms.date: 08/31/2022
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
+
+landingContent:
+
+## ROW 1 ################################################### ROW 1 ##
+  - title: "Configure ready web apps quickly"
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: ASP.NET Core
+            url: configure-authentication-sample-web-app.md
+          - text: Node.js
+            url: configure-a-sample-node-web-app.md
+          - text: Python
+            url: configure-authentication-sample-python-web-app.md      
+          - text: Azure Web apps 
+            url: configure-authentication-in-azure-web-app.md 
+          - text: Static web app 
+            url: configure-authentication-in-azure-static-app.md                                
+  - title: "Build your own web app"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: ASP.NET Core
+            url: enable-authentication-web-application.md
+          - text: Node.js
+            url: enable-authentication-in-node-web-app.md
+          - text: Python
+            url: enable-authentication-python-web-app.md 
+  - title: "Web app configuration options"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: ASP.NET Core
+            url: enable-authentication-web-application-options.md
+          - text: Node.js
+            url: enable-authentication-in-node-web-app-options.md
+          - text: Python
+            url: enable-authentication-python-web-app-options.md 
+  - title: "Sample"
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Java 
+            url: https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/1.%20Server-Side%20Scenarios/msal-b2c-web-sample

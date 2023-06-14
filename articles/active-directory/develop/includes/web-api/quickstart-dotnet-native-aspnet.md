@@ -2,30 +2,31 @@
 title: "Quickstart: Call an ASP.NET web API that is protected by the Microsoft identity platform"
 description: In this quickstart, learn how to call an ASP.NET web API that's protected by the Microsoft identity platform from a Windows Desktop (WPF) application.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 01/11/2022
-ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", mode-api
+ms.date: 04/17/2023
+ms.author: cwerner 
+ms.reviewer: jmprieur
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", mode-api, engagement-fy23
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application that's built by using Node.js with Express.
 ---
 
-In this quickstart, you download and run a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+The following quickstart uses, uses a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
 
-The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how you can request an access token to access a web API.
+The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how to request an access token to access a web API.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Visual Studio 2017 or 2019. Download [Visual Studio for free](https://www.visualstudio.com/downloads/).
+* Visual Studio 2022. Download [Visual Studio for free](https://www.visualstudio.com/downloads/).
 
 ## Clone or download the sample
 
-You can obtain the sample in either of two ways:
+The code sample can be obtained in two ways:
 
 * Clone it from your shell or command line:
 
@@ -48,7 +49,7 @@ Register your web API in **App registrations** in the Azure portal.
 1. Enter a **Name** for your application, for example `AppModelv2-NativeClient-DotNet-TodoListService`. Users of your app might see this name, and you can change it later.
 1. For **Supported account types**, select **Accounts in any organizational directory**.
 1. Select **Register** to create the application.
-1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You'll need it to configure the Visual Studio configuration file for this project (that is, `ClientId` in the *TodoListService\Web.config* file).
+1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You'll need it to configure the Visual Studio configuration file for this project (that is, `ClientId` in the *TodoListService\appsettings.json* file).
 1. Under **Manage**, select **Expose an API** > **Add a scope**. Accept the proposed Application ID URI (`api://{clientId}`) by selecting **Save and continue**, and then enter the following information:
 
     1. For **Scope name**, enter `access_as_user`.
@@ -64,9 +65,9 @@ Register your web API in **App registrations** in the Azure portal.
 
 Configure the service project to match the registered web API.
 
-1. Open the solution in Visual Studio, and then open the *Web.config* file under the root of the TodoListService project.
+1. Open the solution in Visual Studio, and then open the *appsettings.json* file under the root of the TodoListService project.
 
-1. Replace the value of the `ida:ClientId` parameter with the Client ID (Application ID) value from the application you registered in the **App registrations** portal.
+1. Replace the value of the `Enter_the_Application_Id_here` by the Client ID (Application ID) value from the application you registered in the **App registrations** portal both in the `ClientID` and the `Audience` properties.
 
 ### Add the new scope to the app.config file
 
@@ -127,7 +128,7 @@ Configure your TodoListClient project by adding the Application ID to the *app.c
 
 ## Run your projects
 
-Start both projects. If you are using Visual Studio:
+Start both projects. For Visual Studio users;
 
 1. Right click on the Visual Studio solution and select **Properties**
 
@@ -166,18 +167,7 @@ You can allow users from other directories to access your web API by pre-authori
 
 By default, any personal accounts, such as *outlook.com* or *live.com* accounts, or work or school accounts from organizations that are integrated with Azure AD can request tokens and access your web API.
 
-To specify who can sign in to your application, use one of the following options:
-
-### Option 1: Limit access to a single organization (single tenant)
-
-You can limit sign-in access to your application to user accounts that are in a single Azure AD tenant, including guest accounts of that tenant. This scenario is common for line-of-business applications.
-
-1. Open the *App_Start\Startup.Auth* file, and then change the value of the metadata endpoint that's passed into the `OpenIdConnectSecurityTokenProvider` to `https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration`. You can also use the tenant name, such as `contoso.onmicrosoft.com`.
-1. In the same file, set the `ValidIssuer` property on the `TokenValidationParameters` to `https://sts.windows.net/{Tenant ID}/`, and set the `ValidateIssuer` argument to `true`.
-
-### Option 2: Use a custom method to validate issuers
-
-You can implement a custom method to validate issuers by using the `IssuerValidator` parameter. For more information about this parameter, see [TokenValidationParameters class](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
+To specify who can sign in to your application, by changing the `TenantId` property in the *appsettings.json* file.
 
 [!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 

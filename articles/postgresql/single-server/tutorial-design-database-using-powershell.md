@@ -8,10 +8,14 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurepowershell
 ms.custom: mvc, devx-track-azurepowershell
-ms.date: 06/08/2020
+ms.date: 06/24/2022
 ---
 
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using PowerShell
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on PostgreSQL
 Community Edition database engine. In this tutorial, you use PowerShell and other utilities to learn
@@ -35,7 +39,7 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > While the Az.PostgreSql PowerShell module is in preview, you must install it separately from the Az
@@ -270,7 +274,7 @@ original server are restored.
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and select the final *Delete* button.
 
 ## Next steps
 

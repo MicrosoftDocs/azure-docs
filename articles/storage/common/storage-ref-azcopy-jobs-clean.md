@@ -1,5 +1,5 @@
 ---
-title: azcopy jobs clean | Microsoft Docs
+title: azcopy jobs clean
 description: This article provides reference information for the azcopy jobs clean command.
 author: normesta
 ms.service: storage

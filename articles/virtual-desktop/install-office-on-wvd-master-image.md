@@ -111,9 +111,9 @@ Here's how to install OneDrive in per-machine mode:
 
 1. First, create a location to stage the OneDrive installer. A local disk folder or [\\\\unc] (file://unc) location is fine.
 
-2. Download OneDriveSetup.exe to your staged location with this link: <https://go.microsoft.com/fwlink/?linkid=844652>
+2. Download [OneDriveSetup.exe](https://go.microsoft.com/fwlink/?linkid=844652) to your staged location.
 
-3. If you installed office with OneDrive by omitting **\<ExcludeApp ID="OneDrive" /\>**, uninstall any existing OneDrive per-user installations from an elevated command prompt by running the following command:
+3. If you installed Office with OneDrive by omitting `<ExcludeApp ID="OneDrive" /`, uninstall any existing OneDrive per-user installations from an elevated command prompt by running the following command:
 
     ```cmd
     "[staged location]\OneDriveSetup.exe" /uninstall
@@ -128,13 +128,13 @@ Here's how to install OneDrive in per-machine mode:
 5. Run this command to install OneDrive in per-machine mode:
 
     ```cmd
-    Run "[staged location]\OneDriveSetup.exe" /allusers
+    "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Run this command to configure OneDrive to start at sign in for all users:
 
     ```cmd
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
+    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. Enable **Silently configure user account** by running the following command.

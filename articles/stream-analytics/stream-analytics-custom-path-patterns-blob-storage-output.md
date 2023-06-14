@@ -1,11 +1,11 @@
 ---
 title: Azure Stream Analytics custom blob output partitioning
 description: This article describes the custom DateTime path patterns and the custom field or attributes features for blob storage output from Azure Stream Analytics jobs.
-author: enkrumah
-ms.author: ebnkruma
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2021
+ms.date: 02/15/2023
 ms.custom: seodec18
 ---
 
@@ -19,13 +19,13 @@ Custom field or input attributes improve downstream data-processing and reportin
 
 ### Partition key options
 
-The partition key, or column name, used to partition input data may contain any character that is accepted for [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). It is not possible to use nested fields as a partition key unless used in conjunction with aliases, but you can use certain characters to create a hierarchy of files. For example, you can use the following query to create a column that combines data from two other columns to make a unique partition key.
+The partition key, or column name, used to partition input data may contain any character that is accepted for [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). It isn't possible to use nested fields as a partition key unless used in conjunction with aliases, but you can use certain characters to create a hierarchy of files. For example, you can use the following query to create a column that combines data from two other columns to make a unique partition key.
 
 ```sql
 SELECT name, id, CONCAT(name, "/", id) AS nameid
 ```
 
-The partition key must be NVARCHAR(MAX), BIGINT, FLOAT, or BIT (1.2 compatibility level or higher). DateTime, Array, and Records types are not supported, but could be used as partition keys if they are converted to Strings. For more information, see [Azure Stream Analytics Data types](/stream-analytics-query/data-types-azure-stream-analytics).
+The partition key must be NVARCHAR(MAX), BIGINT, FLOAT, or BIT (1.2 compatibility level or higher). DateTime, Array, and Records types aren't supported, but could be used as partition keys if they're converted to Strings. For more information, see [Azure Stream Analytics Data types](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### Example
 
@@ -36,15 +36,15 @@ Suppose a job takes input data from live user sessions connected to an external 
 Similarly, if the job input was sensor data from millions of sensors where each sensor had a **sensor_id**, the Path Pattern would be **{sensor_id}** to partition each sensor data to different folders.  
 
 
-Using the REST API, the output section of a JSON file used for that request may look like the following:  
+When you use the REST API, the output section of a JSON file used for that request may look like the following image:  
 
 ![REST API output](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
 
-Once the job starts running, the *clients* container may look like the following:  
+Once the job starts running, the `clients` container may look like the following image:  
 
 ![Clients container](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
-Each folder may contain multiple blobs where each blob contains one or more records. In the above example, there is a single blob in a folder labeled "06000000" with the following contents:
+Each folder may contain multiple blobs where each blob contains one or more records. In the above example, there's a single blob in a folder labeled "06000000" with the following contents:
 
 ![Blob contents](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
@@ -61,11 +61,11 @@ Notice that each record in the blob has a **client_id** column matching the fold
 
 2. If customers want to use more than one input field, they can create a composite key in query for custom path partition in blob output by using **CONCAT**. For example: **select  concat (col1, col2) as compositeColumn into blobOutput from input**. Then they can specify **compositeColumn** as the custom path in blob storage.
    
-3. Partition keys are case insensitive, so partition keys like "John" and "john" are equivalent. Also, expressions cannot be used as partition keys. For example, **{columnA + columnB}** does not work.  
+3. Partition keys are case insensitive, so partition keys like `John` and `john` are equivalent. Also, expressions can't be used as partition keys. For example, **{columnA + columnB}** doesn't work.  
 
-4. When an input stream consists of records with a partition key cardinality under 8000, the records will be appended to existing blobs and only create new blobs when necessary. If the cardinality is over 8000 there is no guarantee existing blobs will be written to and new blobs won't be created for an arbitrary number of records with the same partition key.
+4. When an input stream consists of records with a partition key cardinality under 8000, the records are appended to existing blobs, and only create new blobs when necessary. If the cardinality is over 8000, there's no guarantee existing blobs will be written to, and new blobs won't be created for an arbitrary number of records with the same partition key.
 
-5. If the blob output is [configured as immutable](../storage/blobs/immutable-storage-overview.md), Stream Analytics will create a new blob each time data is sent.
+5. If the blob output is [configured as immutable](../storage/blobs/immutable-storage-overview.md), Stream Analytics creates a new blob each time data is sent.
 
 ## Custom DateTime path patterns
 
@@ -87,7 +87,7 @@ The following format specifier tokens can be used alone or in combination to ach
 |{datetime:m}|Minutes from 0 to 60|6|
 |{datetime:ss}|Seconds from 00 to 60|08|
 
-If you do not wish to use custom DateTime patterns, you can add the {date} and/or {time} token to the Path Prefix to generate a dropdown with built-in DateTime formats.
+If you don't wish to use custom DateTime patterns, you can add the {date} and/or {time} token to the Path Prefix to generate a dropdown with built-in DateTime formats.
 
 ![Stream Analytics old DateTime formats](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 

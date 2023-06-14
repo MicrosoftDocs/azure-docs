@@ -12,7 +12,7 @@ In a PowerShell-based shell on Windows, use `Invoke-WebRequest` to download the 
 
 ```powershell
 # Specify the OSM version that will be leveraged throughout these instructions
-$OSM_VERSION="v1.0.0"
+$OSM_VERSION="v1.2.0"
 
 [Net.ServicePointManager]::SecurityProtocol = "tls12"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/osm-$OSM_VERSION-windows-amd64.zip" -OutFile "osm-$OSM_VERSION.zip"

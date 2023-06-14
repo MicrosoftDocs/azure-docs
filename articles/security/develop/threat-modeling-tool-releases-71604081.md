@@ -1,18 +1,17 @@
 ---
-title: Microsoft Threat Modeling Tool release 4/9/2019 
+title: Microsoft Threat Modeling Tool release 4/9/2019
 titleSuffix: Azure
 description: Documenting the release notes for the threat modeling tool release 7.1.60408.1.
 author: jegeib
 ms.author: jegeib
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
 ms.topic: article
 ms.date: 04/03/2019
 ---
 
 # Threat Modeling Tool update release 7.1.60408.1 - 4/9/2019
 
-Version 7.1.60408.1 of the Microsoft Threat Modeling Tool (TMT) was released on April 9 2019 and contains the following changes:
+Version 7.1.60408.1 of the Microsoft Threat Modeling Tool (TMT) was released on April 9, 2019 and contains the following changes:
 
 - New Stencils for Azure Key Vault and Azure Traffic Manager
 - TMT version number is now shown on the home screen
@@ -42,13 +41,13 @@ All support links within the tool have been updated to direct users to [tmtextsu
 - Supported Operating Systems
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) or later
 - .NET Version Required
-  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
+  - [.NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework) or later
 - Additional Requirements
-  - An Internet connection is required to receive updates to the tool as well as templates.
+  - An Internet connection is required to receive updates to the tool and templates.
 
 ## Documentation and feedback
 
-- Documentation for the Threat Modeling Tool is located on [docs.microsoft.com](threat-modeling-tool.md), and includes information [about using the tool](threat-modeling-tool-getting-started.md).
+- Documentation for the Threat Modeling Tool is [located](threat-modeling-tool.md), and includes information [about using the tool](threat-modeling-tool-getting-started.md).
 
 ## Next steps
 

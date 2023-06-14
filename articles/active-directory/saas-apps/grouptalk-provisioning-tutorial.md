@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure GroupTalk for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure GroupTalk for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GroupTalk.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: e537d393-2724-450f-9f5b-4611cdc9237c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/18/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

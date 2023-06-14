@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 11/09/2022
 ms.author: anfdocs
 ---
 # Manage disaster recovery using cross-region replication 
@@ -55,7 +55,7 @@ After disaster recovery, you can reactivate the source volume by performing a re
 > [!IMPORTANT] 
 > The reverse resync operation synchronizes the source and destination volumes by incrementally updating the source volume with the latest updates from the destination volume, based on the last available common snapshots. This operation avoids the need to synchronize the entire volume in most cases because only changes to the destination volume *after* the most recent common snapshot will have to be replicated to the source volume.  
 > 
-> The reverse resync operation overwrites any newer data (than the most common snapshot) in the source volume with the updated destination volume data. The UI warns you about the potential for data loss. You will be prompted to confirm the resync action before the operation starts.  
+> ***The reverse resync operation overwrites any newer data (than the most common snapshot) in the source volume with the updated destination volume data. The UI warns you about the potential for data loss. You will be prompted to confirm the resync action before the operation starts.***  
 > 
 > In case the source volume did not survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
 

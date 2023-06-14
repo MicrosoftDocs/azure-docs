@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 11/10/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -24,7 +24,7 @@ Before creating a custom text classification model, you need to have labeled dat
 Before you can label data, you need:
 
 * [A successfully created project](create-project.md) with a configured Azure blob storage account, 
-* Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
+* Documents containing text data that have [been uploaded](design-schema.md#data-preparation) to your storage account.
 
 See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
@@ -73,6 +73,8 @@ Use the following steps to label your data:
     :::image type="content" source="../media/single.png" alt-text="A screenshot showing the single label classification tag page" lightbox="../media/single.png":::
     
     ---
+
+    You can also use the [auto labeling feature](use-autolabeling.md) to ensure complete labeling.
 
 6. In the right side pane under the **Labels** pivot you can find all the classes in your project and the count of labeled instances per each.
 

@@ -4,13 +4,13 @@ description: Learn how to grant access to Azure resources for users external to 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.devlang:
 ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 06/07/2023
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
 
@@ -87,7 +87,7 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to a guest u
 
     The Add role assignment page opens.
 
-1. On the **Roles** tab, select a role such as **Virtual Machine Contributor**.
+1. On the **Role** tab, select a role such as **Virtual Machine Contributor**.
 
    ![Screenshot of Add role assignment page with Roles tab.](./media/shared/roles.png)
 
@@ -133,7 +133,7 @@ If the guest user is not yet in your directory, you can invite the user directly
 
     The Add role assignment page opens.
 
-1. On the **Roles** tab, select a role such as **Virtual Machine Contributor**.
+1. On the **Role** tab, select a role such as **Virtual Machine Contributor**.
 
 1. On the **Members** tab, select **User, group, or service principal**.
 
@@ -181,6 +181,10 @@ Before you remove a guest user from a directory, you should first remove any rol
 
 1. In the remove role assignment message that appears, click **Yes**.
 
+1. Click the **Classic administrators** tab.
+
+1. If the guest user has a Co-Administrator assignment, add a check mark next to the guest user and click **Remove**.
+
 1. In the left navigation bar, click **Azure Active Directory** > **Users**.
 
 1. Click the guest user you want to remove.
@@ -225,11 +229,10 @@ If a guest user has been granted access to a directory, but they do not see the 
 
 If a guest user has been granted access to a directory, but they do not see the resources they have been granted access to in the Azure portal, make sure the guest user has selected the correct directory. A guest user might have access to multiple directories. To switch directories, in the upper left, click **Settings** > **Directories**, and then click the appropriate directory.
 
-![Screenshot of Poral setting Directories section in Azure portal.](./media/role-assignments-external-users/directory-switch.png)
+![Screenshot of Portal setting Directories section in Azure portal.](./media/role-assignments-external-users/directory-switch.png)
 
 ## Next steps
 
 - [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md)
 - [Properties of an Azure Active Directory B2B collaboration user](../active-directory/external-identities/user-properties.md)
 - [The elements of the B2B collaboration invitation email - Azure Active Directory](../active-directory/external-identities/invitation-email-elements.md)
-- [Add a guest user as a Co-Administrator](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

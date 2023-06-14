@@ -1,12 +1,14 @@
 ---
 title: Introducing the Service Fabric Cluster Resource Manager 
 description: Learn about the Service Fabric Cluster Resource Manager, a way to manage orchestration of your application's services.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Introducing the Service Fabric cluster resource manager
 Traditionally managing IT systems or online services meant dedicating specific physical or virtual machines to those specific services or systems. Services were architected as tiers. There would be a “web” tier and a “data” or “storage” tier. Applications would have a messaging tier where requests flowed in and out, as well as a set of machines dedicated to caching. Each tier or type of workload had specific machines dedicated to it: the database got a couple machines dedicated to it, the web servers a few. If a particular type of workload caused the machines it was on to run too hot, then you added more machines with that same configuration to that tier. However, not all workloads could be scaled out so easily - particularly with the data tier you would typically replace machines with larger machines. Easy. If a machine failed, that part of the overall application ran at lower capacity until the machine could be restored. Still fairly easy (if not necessarily fun).
 
@@ -16,7 +18,7 @@ Suddenly managing your environment is not so simple as managing a few machines d
 
 Because your app is no longer a series of monoliths spread across several tiers, you now have many more combinations to deal with. Who decides what types of workloads can run on which hardware, or how many? Which workloads work well on the same hardware, and which conflict? When a machine goes down how do you know what was running there on that machine? Who is in charge of making sure that workload starts running again? Do you wait for the (virtual?) machine to come back or do your workloads automatically fail over to other machines and keep running? Is human intervention required? What about upgrades in this environment?
 
-As developers and operators dealing in this environment, we’re going to want help managing this complexity. A hiring binge and trying to hide the complexity with people is probably not the right answer, so what do we do?
+As developers and operators dealing in this environment, we’re going to want help with managing this complexity. A hiring binge and trying to hide the complexity with people is probably not the right answer, so what do we do?
 
 ## Introducing orchestrators
 An “Orchestrator” is the general term for a piece of software that helps administrators manage these types of environments. Orchestrators are the components that take in requests like “I would like five copies of this service running in my environment." They try to make the environment match the desired state, no matter what happens.

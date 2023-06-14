@@ -1,5 +1,5 @@
 ---
-title: azcopy doc | Microsoft Docs
+title: azcopy doc
 description: This article provides reference information for the azcopy doc command.
 author: normesta
 ms.service: storage

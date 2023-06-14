@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure BenQ IAM for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure BenQ IAM for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to BenQ IAM.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 8c21c81c-f9dc-4818-b2fe-7a06b205af8d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/27/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

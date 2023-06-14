@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 editor: ''
 
@@ -13,7 +13,8 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: include file
 ---
 

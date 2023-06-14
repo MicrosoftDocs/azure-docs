@@ -7,7 +7,7 @@ author:   sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 06/24/2022
 ms.author: sipastak
 ---
 
@@ -124,6 +124,7 @@ This equipment is designed to operate in the following environment:
 * Relative humidity specifications
     * Storage: 5% to 95% relative humidity
     * Operating: 5% to 85% relative humidity
+      * For models with GPU(s), derate allowable max operating temperature by 1°C/210m (2.6°F/1000ft) above 950m (3,117ft).
 * Maximum altitude specifications
     * Operating: 3,050 meters (10,000 feet)
     * Storage: 9,150 meters (30,000 feet)
@@ -185,7 +186,7 @@ For Model: DB040-W only
 
 Hereby, declares that this device is in compliance with EU Directive 2014/53/EU and UK Radio Equipment Regulations 2017 (S.I. 2017/1206). The full text of the EU and UK declaration of conformity are available on the [product webpage](https://azure.microsoft.com/products/azure-stack/edge/#overview).
 
-This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150 - 5350 MHz frequency range in the following countries:  
+This device may operate in all member states of the EU. Observe national/regional and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150 - 5350 MHz frequency range in the following countries:  
 
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-eu-countries-indoor-use.png" alt-text="List of EU countries":::
 

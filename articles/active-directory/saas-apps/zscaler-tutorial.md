@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler"
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -45,6 +45,8 @@ To configure the integration of Zscaler into Azure AD, you need to add Zscaler f
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Zscaler** in the search box.
 1. Select **Zscaler** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Zscaler
 
@@ -135,16 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Zscaler SSO
-
-1. To automate the configuration within Zscaler, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-   ![My apps extension](common/install-myappssecure-extension.png)
-
-1. After adding extension to the browser, click on **Setup Zscaler** will direct you to the Zscaler application. From there, provide the admin credentials to sign into Zscaler. The browser extension will automatically configure the application for you and automate steps 3-6.
-
-   ![Setup SSO](common/setup-sso.png)
-
-1. If you want to setup Zscaler manually, open a new web browser window and sign into your Zscaler company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Zscaler company site as an administrator
 
 1. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
 

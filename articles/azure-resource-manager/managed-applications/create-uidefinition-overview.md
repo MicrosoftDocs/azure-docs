@@ -1,13 +1,10 @@
 ---
 title: CreateUiDefinition.json file for portal pane
 description: Describes how to create user interface definitions for the Azure portal. Used when defining Azure Managed Applications.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.author: tomfitz
-
 ---
+
 # CreateUiDefinition.json for Azure managed application's create experience
 
 This document introduces the core concepts of the **createUiDefinition.json** file. The Azure portal uses this file to define the user interface when creating a managed application.
@@ -119,13 +116,13 @@ The basics config lets you customize the basics step.
 
 For `description`, provide a markdown-enabled string that describes your resource. Multi-line format and links are supported.
 
-The `subscription` and `resourceGroup` elements enable you to specify more validations. The syntax for specifying validations is identical to the custom validation for [text box](microsoft-common-textbox.md). You can also specify `permission` validations on the subscription or resource group.  
+The `subscription` and `resourceGroup` elements enable you to specify more validations. The syntax for specifying validations is identical to the custom validation for [text box](microsoft-common-textbox.md). You can also specify `permission` validations on the subscription or resource group.
 
-The subscription control accepts a list of resource provider namespaces. For example, you can specify **Microsoft.Compute**. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.  
+The subscription control accepts a list of resource provider namespaces. For example, you can specify **Microsoft.Compute**. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.
 
-The resource group control has an option for `allowExisting`. When `true`, the users can select resource groups that already have resources. This flag is most applicable to solution templates, where default behavior mandates users must select a new or empty resource group. In most other scenarios, specifying this property isn't necessary.  
+The resource group control has an option for `allowExisting`. When `true`, the users can select resource groups that already have resources. This flag is most applicable to solution templates, where default behavior mandates users must select a new or empty resource group. In most other scenarios, specifying this property isn't necessary.
 
-For `location`, specify the properties for the location control you wish to override. Any properties not overridden are set to their default values. `resourceTypes` accepts an array of strings containing fully qualified resource type names. The location options are restricted to only regions that support the resource types. `allowedValues` accepts an array of region strings. Only those regions appear in the dropdown. You can set both `allowedValues` and `resourceTypes`. The result is the intersection of both lists. Lastly, the `visible` property can be used to conditionally or completely disable the location dropdown.  
+For `location`, specify the properties for the location control you wish to override. Any properties not overridden are set to their default values. `resourceTypes` accepts an array of strings containing fully qualified resource type names. The location options are restricted to only regions that support the resource types. `allowedValues` accepts an array of region strings. Only those regions appear in the dropdown. You can set both `allowedValues` and `resourceTypes`. The result is the intersection of both lists. Lastly, the `visible` property can be used to conditionally or completely disable the location dropdown. 
 
 ## Basics
 
@@ -195,7 +192,7 @@ To filter the available locations to only those locations that support the resou
         "resourceTypes": ["Microsoft.Compute/disks"],
         "basics": [
           ...
-```  
+```
 
 ## Functions
 

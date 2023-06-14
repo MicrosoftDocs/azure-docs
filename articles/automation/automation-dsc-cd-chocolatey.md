@@ -10,6 +10,9 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 # Set up continuous deployment with Chocolatey
 
+> [!NOTE]
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+
 In a DevOps world, there are many tools to assist with various points in the continuous integration
 pipeline. Azure Automation [State Configuration](automation-dsc-overview.md) is a welcome new addition to the options that DevOps teams can employ.
 

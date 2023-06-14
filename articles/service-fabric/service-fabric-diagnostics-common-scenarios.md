@@ -1,8 +1,12 @@
 ---
 title: Azure Service Fabric Diagnose Common Scenarios 
 description: Learn about troubleshooting common monitoring and diagnostic scenarios within Azure Service Fabric applications.
-ms.topic: article
-ms.date: 02/25/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Diagnose common scenarios with Service Fabric
@@ -130,7 +134,7 @@ Check these links for the full list of performance counters on Reliable [Service
 
 * [Look Up Common Code Package Activation Errors](./service-fabric-diagnostics-code-package-errors.md)
 * [Set up Alerts in AI](../azure-monitor/alerts/alerts-log.md) to be notified about changes in performance or usage
-* [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems
+* [Smart Detection in Application Insights](../azure-monitor/alerts/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems
 * Learn more about Azure Monitor logs [alerting](../azure-monitor/alerts/alerts-overview.md) to aid in detection and diagnostics.
 * For on-premises clusters, Azure Monitor logs offers a gateway (HTTP Forward Proxy) that can be used to send data to Azure Monitor logs. Read more about that in [Connecting computers without Internet access to Azure Monitor logs using the Log Analytics gateway](../azure-monitor/agents/gateway.md)
 * Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs

@@ -1,14 +1,13 @@
 ---
 title: Use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
-services: container-service
 ms.topic: article
-ms.date: 1/14/2022
+ms.date: 05/03/2023
 ---
 
 # Use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
 
-Accessing a private AKS cluster requires that you connect to that cluster either from the cluster virtual network, from a peered network, or via a configured private endpoint. These approaches require configuring a VPN, Express Route, deploying a *jumpbox* within the cluster virtual network, or creating a private endpoint inside of another virtual network. Alternatively, you can use `command invoke` to access private clusters without having to configure a VPN or Express Route. Using `command invoke` allows you to remotely invoke commands like `kubectl` and `helm` on your private cluster through the Azure API without directly connecting to the cluster. Permissions for using `command invoke` are controlled through the `Microsoft.ContainerService/managedClusters/runcommand/action` and `Microsoft.ContainerService/managedclusters/commandResults/read` roles.
+When you access a private AKS cluster, you must connect to the cluster from the cluster virtual network, from a peered network, or via a configured private endpoint. These approaches require configuring a VPN, Express Route, deploying a *jumpbox* within the cluster virtual network, or creating a private endpoint inside of another virtual network. You can also use `command invoke` to access private clusters without the need to configure a VPN or Express Route. `command invoke` allows you to remotely invoke commands, like `kubectl` and `helm`, on your private cluster through the Azure API without directly connecting to the cluster. The `Microsoft.ContainerService/managedClusters/runcommand/action` and `Microsoft.ContainerService/managedclusters/commandResults/read` actions control the permissions for using `command invoke`.
 
 ## Prerequisites
 
@@ -18,61 +17,68 @@ Accessing a private AKS cluster requires that you connect to that cluster either
 
 ### Limitations
 
-The pod created by the `run` command provides the following binaries:
+The pod created by the `run` command provides `helm` and the latest compatible version of `kubectl` for your cluster with `kustomize`.
 
-* The latest compatible version of `kubectl` for your cluster with `kustomize`.
-* `helm`
-
-In addition, `command invoke` runs the commands from your cluster so any commands run in this manner are subject to networking and other restrictions you have configured on your cluster.
+`command invoke` runs the commands from your cluster, so any commands run in this manner are subject to your configured networking restrictions and any other configured restrictions. Make sure there are enough nodes and resources in your cluster to schedule this command pod.
 
 ## Use `command invoke` to run a single command
 
-Use `az aks command invoke --command` to run a command on your cluster. For example:
+* Run a command on your cluster using the `az aks command invoke --command` command. The following example command runs the `kubectl get pods -n kube-system` command on the *myPrivateCluster* cluster in *myResourceGroup*.
 
-```azurecli-interactive
-az aks command invoke \
-  --resource-group myResourceGroup \
-  --name myAKSCluster \
-  --command "kubectl get pods -n kube-system"
-```
-
-The above example runs the `kubectl get pods -n kube-system` command on the *myAKSCluster* cluster in *myResourceGroup*.
+    ```azurecli-interactive
+    az aks command invoke \
+      --resource-group myResourceGroup \
+      --name myPrivateCluster \
+      --command "kubectl get pods -n kube-system"
+    ```
 
 ## Use `command invoke` to run multiple commands
 
-Use `az aks command invoke --command` to run multiple commands on your cluster. For example:
+* Run multiple commands on your cluster using the `az aks command invoke --command` command. The following example command runs three `helm` commands on the *myPrivateCluster* cluster in *myResourceGroup*.
 
-```azurecli-interactive
-az aks command invoke \
-  --resource-group myResourceGroup \
-  --name myAKSCluster \
-  --command "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release bitnami/nginx"
-```
+    ```azurecli-interactive
+    az aks command invoke \
+      --resource-group myResourceGroup \
+      --name myPrivateCluster \
+      --command "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release bitnami/nginx"
+    ```
 
-The above example runs three `helm` commands on the *myAKSCluster* cluster in *myResourceGroup*.
+## Use `command invoke` to run commands with an attached file or directory
 
-## Use `command invoke` to run commands an with attached file or directory
+* Run commands with an attached file or directory using the `az aks command invoke --command` command with the `--file` parameter. The following example command runs `kubectl apply -f deployment.yaml -n default` on the *myPrivateCluster* cluster in *myResourceGroup*. The `deployment.yaml` file is attached from the current directory on the development computer where `az aks command invoke` was run.
 
-Use `az aks command invoke --command` to run commands on your cluster and `--file` to attach a file or directory for use by those commands. For example:
+    ```azurecli-interactive
+    az aks command invoke \
+      --resource-group myResourceGroup \
+      --name myPrivateCluster \
+      --command "kubectl apply -f deployment.yaml -n default" \
+      --file deployment.yaml
+    ```
 
-```azurecli-interactive
-az aks command invoke \
-  --resource-group myResourceGroup \
-  --name myAKSCluster \
-  --command "kubectl apply -f deployment.yaml -n default" \
-  --file deployment.yaml
-```
+### Use `command invoke` to run commands with all files in the current directory attached
 
-The above runs `kubectl apply -f deployment.yaml -n default` on the *myAKSCluster* cluster in *myResourceGroup*. The `deployment.yaml` file used by that command is attached from the current directory on the development computer where `az aks command invoke` was run.
+* Run commands with all files in the current directory attached using the `az aks command invoke --command` command with the `--file` parameter. The following example command runs  `kubectl apply -f deployment.yaml configmap.yaml -n default` on the *myPrivateCluster* cluster in *myResourceGroup*. The `deployment.yaml` and `configmap.yaml` files are part of the current directory on the development computer where `az aks command invoke` was run.
 
-You can also attach all files in the current directory. For example:
+    ```azurecli-interactive
+    az aks command invoke \
+      --resource-group myResourceGroup \
+      --name myPrivateCluster \
+      --command "kubectl apply -f deployment.yaml configmap.yaml -n default" \
+      --file .
+    ```
 
-```azurecli-interactive
-az aks command invoke \
-  --resource-group myResourceGroup \
-  --name myAKSCluster \
-  --command "kubectl apply -f deployment.yaml configmap.yaml -n default" \
-  --file .
-```
+## Troubleshooting
 
-The above runs `kubectl apply -f deployment.yaml configmap.yaml -n default` on the *myAKSCluster* cluster in *myResourceGroup*. The `deployment.yaml` and `configmap.yaml` files used by that command are part of the current directory on the development computer where `az aks command invoke` was run.
+For information on the most common issues with `az aks command invoke` and how to fix them, see [Resolve `az aks command invoke` failures][command-invoke-troubleshoot].
+
+## Next steps
+
+In this article, you learned how to use `command invoke` to access a private cluster and run commands on that cluster. For more information on AKS clusters, see the following articles:
+
+* [Use a private endpoint connection in AKS](./private-clusters.md#use-a-private-endpoint-connection)
+* [Virtual networking peering in AKS](./private-clusters.md#virtual-network-peering)
+* [Hub and spoke with custom DNS in AKS](./private-clusters.md#hub-and-spoke-with-custom-dns)
+
+<!-- links - internal -->
+
+[command-invoke-troubleshoot]: /troubleshoot/azure/azure-kubernetes/resolve-az-aks-command-invoke-failures

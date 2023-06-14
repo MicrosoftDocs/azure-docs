@@ -2,7 +2,8 @@
 title: Template test cases for test toolkit
 description: Describes the template tests that are run by the Azure Resource Manager template test toolkit.
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.custom: devx-track-arm-template
+ms.date: 11/09/2022
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -57,6 +58,8 @@ This test finds parameters that aren't used in the template or parameters that a
 
 To reduce confusion in your template, delete any parameters that are defined but not used. Eliminating unused parameters simplifies template deployments because you don't have to provide unnecessary values.
 
+In Bicep, use [Linter rule - no unused parameters](../bicep/linter-rule-no-unused-parameters.md).
+
 The following example **fails** because the expression that references a parameter is missing the leading square bracket (`[`).
 
 ```json
@@ -86,6 +89,8 @@ Don't provide a hard-coded default value for a secure parameter in your template
 You use the types `secureString` or `secureObject` on parameters that contain sensitive values, like passwords. When a parameter uses a secure type, the value of the parameter isn't logged or stored in the deployment history. This action prevents a malicious user from discovering the sensitive value.
 
 When you provide a default value, that value is discoverable by anyone who can access the template or the deployment history.
+
+In Bicep, use [Linter rule - secure parameter default](../bicep/linter-rule-secure-parameter-default.md).
 
 The following example **fails**.
 
@@ -125,6 +130,8 @@ Test name: **DeploymentTemplate Must Not Contain Hardcoded Uri**
 
 Don't hard-code environment URLs in your template. Instead, use the [environment](template-functions-deployment.md#environment) function to dynamically get these URLs during deployment. For a list of the URL hosts that are blocked, see the [test case](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
 
+In Bicep, use [Linter rule - no hardcoded environment URL](../bicep/linter-rule-no-hardcoded-environment-urls.md).
+
 The following example **fails** because the URL is hard-coded.
 
 ```json
@@ -159,6 +166,8 @@ To set a resource's location, your templates should have a parameter named `loca
 Template users may have limited access to regions where they can create resources. A hard-coded resource location might block users from creating a resource. The `"[resourceGroup().location]"` expression could block users if the resource group was created in a region the user can't access. Users who are blocked are unable to use the template.
 
 By providing a `location` parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
+
+In Bicep, use [Linter rule - no location expressions outside of parameter default values](../bicep/linter-rule-no-loc-expr-outside-params.md).
 
 The following example **fails** because the resource's `location` is set to `resourceGroup().location`.
 
@@ -255,6 +264,8 @@ The following example **passes** when the template is used as the main template.
 Test name: **Resources Should Have Location**
 
 The location for a resource should be set to a [template expression](template-expressions.md) or `global`. The template expression would typically use the `location` parameter described in [Location uses parameter](#location-uses-parameter).
+
+In Bicep, use [Linter rule - no hardcoded locations](../bicep/linter-rule-no-hardcoded-location.md).
 
 The following example **fails** because the `location` isn't an expression or `global`.
 
@@ -448,6 +459,8 @@ When you include parameters for `_artifactsLocation` and `_artifactsLocationSasT
 - `_artifactsLocationSasToken` can only have an empty string for its default value.
 - `_artifactsLocationSasToken` can't have a default value in a nested template.
 
+In Bicep, use [Linter rule - artifacts parameters](../bicep/linter-rule-artifacts-parameters.md).
+
 ## Declared variables must be used
 
 Test name: **Variables Must Be Referenced**
@@ -455,6 +468,8 @@ Test name: **Variables Must Be Referenced**
 This test finds variables that aren't used in the template or aren't used in a valid expression. To reduce confusion in your template, delete any variables that are defined but not used.
 
 Variables that use the `copy` element to iterate values must be referenced. For more information, see [Variable iteration in ARM templates](copy-variables.md).
+
+In Bicep, use [Linter rule - no unused variables](../bicep/linter-rule-no-unused-variables.md).
 
 The following example **fails** because the variable that uses the `copy` element isn't referenced.
 
@@ -587,6 +602,8 @@ A warning that an API version wasn't found only indicates the version isn't incl
 
 Learn more about the [toolkit cache](https://github.com/Azure/arm-ttk/tree/master/arm-ttk/cache).
 
+In Bicep, use [Linter rule - use recent API versions](../bicep/linter-rule-use-recent-api-versions.md).
+
 The following example **fails** because the API version is more than two years old.
 
 ```json
@@ -708,7 +725,11 @@ When specifying a resource ID, use one of the resource ID functions. The allowed
 - [tenantResourceId](template-functions-resource.md#tenantresourceid)
 - [extensionResourceId](template-functions-resource.md#extensionresourceid)
 
-Don't use the concat function to create a resource ID. The following example **fails**.
+Don't use the concat function to create a resource ID.
+
+In Bicep, use [Linter rule - use resource ID functions](../bicep/linter-rule-use-resource-id-functions.md).
+
+The following example **fails**.
 
 ```json
 "networkSecurityGroup": {
@@ -765,6 +786,8 @@ When setting the deployment dependencies, don't use the [if](template-functions-
 
 The `dependsOn` element can't begin with a [concat](template-functions-array.md#concat) function.
 
+In Bicep, use [Linter rule - no unnecessary dependsOn entries](../bicep/linter-rule-no-unnecessary-dependson.md).
+
 The following example **fails** because it contains an `if` function.
 
 ```json
@@ -817,6 +840,8 @@ Test name: **adminUsername Should Not Be A Literal**
 
 When setting an `adminUserName`, don't use a literal value. Create a parameter for the user name and use an expression to reference the parameter's value.
 
+In Bicep, use [Linter rule - admin user name should not be literal](../bicep/linter-rule-admin-username-should-not-be-literal.md).
+
 The following example **fails** with a literal value.
 
 ```json
@@ -841,6 +866,8 @@ This test is disabled, but the output shows that it passed. The best practice is
 
 If your template includes a virtual machine with an image, make sure it's using the latest version of the image.
 
+In Bicep, use [Linter rule - use stable VM image](../bicep/linter-rule-use-stable-vm-image.md).
+
 ## Use stable VM images
 
 Test name: **Virtual Machines Should Not Be Preview**
@@ -848,6 +875,8 @@ Test name: **Virtual Machines Should Not Be Preview**
 Virtual machines shouldn't use preview images. The test checks the `storageProfile` to verify that the `imageReference` doesn't use a string that contains _preview_. And that _preview_ isn't used in the `imageReference` properties `offer`, `sku`, or `version`.
 
 For more information about the `imageReference` property, see [Microsoft.Compute virtualMachines](/azure/templates/microsoft.compute/virtualmachines#imagereference-object) and [Microsoft.Compute virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets#imagereference-object).
+
+In Bicep, use [Linter rule - use stable VM image](../bicep/linter-rule-use-stable-vm-image.md).
 
 The following example **fails** because `imageReference` is a string that contains _preview_.
 
@@ -900,6 +929,8 @@ Test name: **Outputs Must Not Contain Secrets**
 Don't include any values in the `outputs` section that potentially exposes secrets. For example, secure parameters of type `secureString` or `secureObject`, or [list*](template-functions-resource.md#list) functions such as `listKeys`.
 
 The output from a template is stored in the deployment history, so a malicious user could find that information.
+
+In Bicep, use [Linter rule - outputs should not contain secrets](../bicep/linter-rule-outputs-should-not-contain-secrets.md).
 
 The following example **fails** because it includes a secure parameter in an output value.
 
@@ -955,6 +986,8 @@ For resources with type `CustomScript`, use the encrypted `protectedSettings` wh
 
 Don't use secret data in the `settings` object because it uses clear text. For more information, see [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions), [Windows](
 /azure/virtual-machines/extensions/custom-script-windows), or [Linux](../../virtual-machines/extensions/custom-script-linux.md).
+
+In Bicep, use [Linter rule - use protectedSettings for commandToExecute secrets](../bicep/linter-rule-protect-commandtoexecute-secrets.md).
 
 The following example **fails** because `settings` uses `commandToExecute` with a secure parameter.
 
@@ -1077,6 +1110,8 @@ Use the nested template's `expressionEvaluationOptions` object with `inner` scop
 
 For more information about nested templates, see [Microsoft.Resources deployments](/azure/templates/microsoft.resources/deployments) and [Expression evaluation scope in nested templates](linked-templates.md#expression-evaluation-scope-in-nested-templates).
 
+In Bicep, use [Linter rule - secure params in nested deploy](../bicep/linter-rule-secure-params-in-nested-deploy.md).
+
 The following example **fails** because `expressionEvaluationOptions` uses `outer` scope to evaluate secure parameters or `list*` functions.
 
 ```json
@@ -1114,7 +1149,7 @@ The following example **passes** because `expressionEvaluationOptions` uses `inn
 ## Next steps
 
 - To learn about running the test toolkit, see [Use ARM template test toolkit](test-toolkit.md).
-- For a Microsoft Learn module that covers using the test toolkit, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
+- For a Learn module that covers using the test toolkit, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/training/modules/arm-template-test/).
 - To test parameter files, see [Test cases for parameter files](parameters.md).
 - For createUiDefinition tests, see [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md).
 - To learn about tests for all files, see [Test cases for all files](all-files-test-cases.md).

@@ -7,8 +7,9 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: oracle
 ms.topic: article
+
 ms.date: 06/10/2023
----
+
 # Storage options for Oracle on Azure VMs
 In this article, you learn about the storage choices available to you for Oracle on Azure VMs. The choices of database storage affect how well your Oracle tasks run, how reliable they are, and how much they cost. When exploring the upper limits of performance, it's important to recognize and reduce any constraints that could falsely skew results. Oracle database and applications set the bar high due to the intense demands on storage I/O with a mixed read and write workload driven by a single compute node. Understanding the choices of available storage options and their performance capabilities is the key to successfully migrating  Oracle to Azure VMs. This article describes all the Azure native storage offerings with their capabilities.
 

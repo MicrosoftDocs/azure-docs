@@ -8,9 +8,9 @@ metadata:
   ms.service: private-link
   ms.topic: landing-page
   ms.collection: collection
-  author: malopMSFT
+  author: asudbring
   ms.author: allensu
-  ms.date: 09/16/2019
+  ms.date: 03/28/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,7 +27,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Private Link
-            url: /learn/modules/introduction-azure-private-link/
+            url: /training/modules/introduction-azure-private-link/
       - linkListType: video
         links:
           - text: Secure Azure PaaS resources using Private Link
@@ -74,4 +74,23 @@ landingContent:
             url: /rest/api/virtualnetwork/privatelinkservices
 
 
+  - title: Learn about Private Link architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Multitenancy and Azure Private Link
+            url: /azure/architecture/guide/multitenant/service/private-link
+          
+      - linkListType: learn
+        links:
+          - text: Design and implement private access to Azure Services
+            url: /training/modules/design-implement-private-access-to-azure-services
 
+      - linkListType: reference
+        links:
+          - text: Azure Private Link in a hub-and-spoke network
+            url: /azure/architecture/guide/networking/private-link-hub-spoke-network
+          - text: Web app private connectivity to Azure SQL Database
+            url: /azure/architecture/example-scenario/private-web-app/private-web-app
+          - text: Multi-tier app service with private endpoint
+            url: /azure/architecture/example-scenario/web/multi-tier-app-service-private-endpoint

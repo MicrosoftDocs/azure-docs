@@ -12,6 +12,9 @@ ms.date: 01/07/2022
 
 # How to improve a LUIS app
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 Use this article to learn how you can improve your LUIS apps, such as reviewing for correct predictions, and working with optional text in utterances. 
 
 ## Active Learning

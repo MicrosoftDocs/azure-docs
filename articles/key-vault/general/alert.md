@@ -30,7 +30,7 @@ You can choose between these alert types:
 > [!IMPORTANT]
 > It can take up to 10 minutes for newly configured alerts to start sending notifications. 
 
-This article focuses on alerts for Key Vault. For information about Key Vault insights, which combines both logs and metrics to provide a global monitoring solution, see [Monitoring your key vault with Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights).
+This article focuses on alerts for Key Vault. For information about Key Vault insights, which combines both logs and metrics to provide a global monitoring solution, see [Monitoring your key vault with Key Vault insights](../key-vault-insights-overview.md#introduction-to-key-vault-insights).
 
 ## Configure an action group 
 
@@ -123,6 +123,7 @@ You can set an alert to fire after a certain number of violations within a set t
 
 1. Use the following configuration parameters:
 
+   + Set **Dimension Name** to **Transaction Type** and **Dimension Values** to **vaultoperation**.
    + Set **Threshold** to **Dynamic**. 
    + Set **Operator** to **Greater than**.
    + Set **Aggregation type** to **Average**.

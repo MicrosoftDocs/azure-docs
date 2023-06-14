@@ -12,16 +12,19 @@ ms.custom: include file
 ms.author: rifox
 ---
 
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat).
-
 ## Prerequisites
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Install [Python](https://www.python.org/downloads/).
-- Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). You'll need to record your resource endpoint for this quickstart.
-- A [user access token](../../access-tokens.md). Be sure to set the scope to `chat`, and note the `token` string as well as the `userId` string.
+- Install [Python](https://www.python.org/downloads/) 3.7+.
+- Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
+- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity token issue --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -77,7 +80,7 @@ pip install azure-communication-identity
 ```python
 from azure.communication.chat import ChatClient, CommunicationTokenCredential
 
-endpoint = "https://<RESOURCE_NAME>.communication.azure.com"
+endpoint = "<replace with your resource endpoint>"
 chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"))
 ```
 This quickstart doesn't cover creating a service tier to manage tokens for your chat application, but that's recommended. For more information, see the "Chat architecture" section of [Chat concepts](../../../concepts/chat/concepts.md).
@@ -282,3 +285,6 @@ Run the application from your application directory with the `python` command.
 ```console
 python start-chat.py
 ```
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat).

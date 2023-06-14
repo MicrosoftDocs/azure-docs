@@ -21,7 +21,7 @@ When you create a public IP address resource, you can assign a static public IP 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -103,7 +103,20 @@ The removal of the **`--zone`** parameter is the default selection for standard 
 
 ---
 
+# [**Routing Preference Interent IPv4 prefix**](#tab/ipv4-routing-pref)
 
+To create a IPv4 public IP prefix with routing preference Internet, enter **RoutingPreference=Internet** in the **`--ip-tags`** parameter.
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --length 28 \
+    --name myPublicIpPrefix-rpinternet \
+    --resource-group QuickStartCreateIPPrefix-rg \
+    --location eastus2 \
+    --version IPv4
+    --iptags 'RoutingPreference=Internet'
+```
+---
 
 ## IPv6
 

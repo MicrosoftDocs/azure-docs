@@ -1,11 +1,11 @@
 ---
 title: Review cost estimations in the Azure Site Recovery Deployment Planner
 description: This articles describes how to review the cost estimations in the Azure Site Recovery Deployment Planner for VMware disaster recovery.
-author: Sharmistha-Rai
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: ankitadutta
 ms.date: 05/27/2021
 
 ---

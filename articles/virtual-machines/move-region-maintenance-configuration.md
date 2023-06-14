@@ -62,7 +62,7 @@ After moving the configurations, compare configurations and resources in the new
 
 ## Clean up source resources
 
-After the move, consider deleting the moved maintenance configurations in the source region, [PowerShell](../virtual-machines/maintenance-configurations-powershell.md#remove-a-maintenance-configuration), or [CLI](../virtual-machines/maintenance-configurations-cli.md#delete-a-maintenance-configuration).
+After the move, consider deleting the moved maintenance configurations in the source region, [PowerShell](../virtual-machines/maintenance-configurations-powershell.md#delete-a-maintenance-configuration), or [CLI](../virtual-machines/maintenance-configurations-cli.md#delete-a-maintenance-configuration).
 
 
 ## Next steps

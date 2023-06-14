@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 # Tutorial: Single-page Video Search app
 
@@ -340,7 +340,7 @@ A renderer function can accept the following parameters:
 
 The `index` and `count` parameters can be used to number results, to generate special HTML for the beginning or end of a collection, to insert line breaks after a certain number of items, and so on. If a renderer does not need this functionality, it does not need to accept these two parameters.
 
-The `video` renderer is shown in the following javascript excerpt. Using the Videos endpoint, all results are of type `Videos`. The `searchItemRenderers` are shown in the following code segment.
+The `video` renderer is shown in the following JavaScript excerpt. Using the Videos endpoint, all results are of type `Videos`. The `searchItemRenderers` are shown in the following code segment.
 
 ```javascript
 // render functions for various types of search results

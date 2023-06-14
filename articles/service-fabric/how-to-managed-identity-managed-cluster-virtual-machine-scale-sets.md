@@ -2,8 +2,12 @@
 title: Add a managed identity to a Service Fabric managed cluster node type
 description: This article shows how to add a managed identity to a Service Fabric managed cluster node type
 ms.topic: how-to
-ms.date: 5/10/2021 
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
 ms.custom: devx-track-azurepowershell
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Add a managed identity to a Service Fabric managed cluster node type
@@ -18,6 +22,9 @@ For an example of a Service Fabric managed cluster deployment that makes use of 
 
 > [!NOTE]
 > Only user-assigned identities are currently supported for this feature.
+
+> [!NOTE]
+> See [Configure and use applications with managed identity on a Service Fabric managed cluster](./how-to-managed-cluster-application-managed-identity.md) for application configuration.
 
 ## Prerequisites
 

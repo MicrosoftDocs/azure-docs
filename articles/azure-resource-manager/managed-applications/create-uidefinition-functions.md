@@ -1,13 +1,10 @@
 ---
 title: Create UI definition functions
 description: Describes the functions to use when constructing UI definitions for Azure Managed Applications
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: tomfitz
-
 ---
+
 # CreateUiDefinition functions
 
 This article provides an overview of the supported functions for CreateUiDefinition.

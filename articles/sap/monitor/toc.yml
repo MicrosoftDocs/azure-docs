@@ -1,0 +1,43 @@
+items:
+  - name: Overview
+    href: about-azure-monitor-sap-solutions.md
+  - name: FAQ
+    href: faq.yml
+  - name: Quickstarts
+    items:
+    - name: Get started with Azure Monitor for SAP solutions - Azure portal
+      href: quickstart-portal.md
+    - name: Get started with Azure Monitor for SAP solutions - PowerShell
+      href: quickstart-powershell.md
+  - name: Concepts
+    items:
+    - name: Providers in Azure Monitor for SAP solutions
+      href: providers.md
+  - name: How-to guides
+    items:
+    - name: Set up network for Azure Monitor for SAP solutions
+      href: set-up-network.md
+    - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
+      href: get-alerts-portal.md
+    - name: Enable TLS in Azure Monitor for SAP solutions
+      href: enable-tls-azure-monitor-sap-solutions.md
+    - name: Enable Insights to troubleshoot SAP workload issues
+      href: enable-sap-insights.md
+    - name: Provider configuration
+      items:
+      - name: Configure NetWeaver provider
+        href: provider-netweaver.md
+      - name: Configure SAP HANA provider
+        href: provider-hana.md
+      - name: Configure Microsoft SQL Server provider
+        href: provider-sql-server.md
+      - name: Configure High-availability cluster (Pacemaker) provider
+        href: provider-ha-pacemaker-cluster.md
+      - name: Configure OS (Linux) provider
+        href: provider-linux.md
+      - name: Configure IBM Db2 provider
+        href: provider-ibm-db2.md
+  - name: Reference
+    items:
+    - name: Data reference for Azure Monitor for SAP solutions
+      href: data-reference.md

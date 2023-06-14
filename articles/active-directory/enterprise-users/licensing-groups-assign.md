@@ -1,18 +1,18 @@
 ---
-title: Assign licenses to a group - Azure Active Directory | Microsoft Docs
+title: Assign licenses to a group
 description: How to assign licenses to users by means of Azure Active Directory group licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/26/2022
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Assign licenses to users by group membership in Azure Active Directory
 
-This article walks you through assigning product licenses to a group of users and verifying that they're licensed correctly in Azure Active Directory (Azure AD).
+This article walks you through assigning product licenses to a group of users and verifying that they're licensed correctly in Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 In this example, the Azure AD organization contains a security group called **HR Department**. This group includes all members of the human resources department (around 1,000 users). You want to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product must be temporarily disabled until the department is ready to start using it. You also want to deploy Enterprise Mobility + Security licenses to the same group of users.
 
@@ -31,9 +31,9 @@ In this example, the Azure AD organization contains a security group called **HR
 
 ## Step 1: Assign the required licenses
 
-1. Sign in to the [**Azure AD admin center**](https://aad.portal.azure.com) with a license administrator account. To manage licenses, the account must be a license administrator, user administrator, or global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a license administrator account. To manage licenses, the account must be a License Administrator, User Administrator, or Global Administrator.
 
-1. Select **Licenses** to open a page where you can see and manage all licensable products in the organization.
+1. Browse to **Azure Active Directory** > **Licenses** to open a page where you can see and manage all licensable products in the organization.
 
 1. Under **All products**, select both Office 365 Enterprise E5 and Enterprise Mobility + Security E3 by selecting the product names. To start the assignment, select **Assign** at the top of the page.
 

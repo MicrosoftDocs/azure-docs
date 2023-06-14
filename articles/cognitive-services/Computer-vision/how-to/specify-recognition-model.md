@@ -16,6 +16,8 @@ ms.custom: devx-track-csharp
 
 # Specify a face recognition model
 
+[!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
+
 This guide shows you how to specify a face recognition model for face detection, identification and similarity search using the Azure Face service.
 
 The Face service uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers can specify which version of the face recognition model they'd like to use. They can choose the model that best fits their use case.
@@ -39,7 +41,7 @@ You should be familiar with the concepts of AI face detection and identification
 
 ## Detect faces with specified model
 
-Face detection identifies the visual landmarks of human faces and finds their bounding-box locations. It also extracts the face's features and stores them for use in identification. All of this information forms the representation of one face.
+Face detection identifies the visual landmarks of human faces and finds their bounding-box locations. It also extracts the face's features and stores them temporarily for up to 24 hours for use in identification. All of this information forms the representation of one face.
 
 The recognition model is used when the face features are extracted, so you can specify a model version when performing the Detect operation.
 
@@ -58,8 +60,11 @@ If you're using the client library, you can assign the value for `recognitionMod
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_01", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(url: imageUrl, returnFaceId: true, returnFaceLandmarks: true, recognitionModel: "recognition_01", returnRecognitionModel: true);
 ```
+
+> [!NOTE]
+> The _returnFaceId_ parameter must be set to `true` in order to enable the face recognition scenarios in later steps.
 
 ## Identify faces with specified model
 

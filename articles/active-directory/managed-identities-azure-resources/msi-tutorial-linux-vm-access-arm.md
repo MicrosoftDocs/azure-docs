@@ -4,12 +4,13 @@ description: A tutorial that walks you through the process of using a user-assig
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: daveba
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
+ms.custom: devx-track-arm-template
 ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn

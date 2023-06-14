@@ -28,11 +28,12 @@ To get access to the Azure Remote Rendering service, you first need to [create a
 The following software must be installed:
 
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* The latest version of Visual Studio 2022 [(download)](https://visualstudio.microsoft.com/vs/)
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
-* GIT [(download)](https://git-scm.com/downloads)
+* Git [(download)](https://git-scm.com/downloads)
+* Git LFS plugin [(download)](https://git-lfs.github.com/)
 * Unity (see [system requirements](../overview/system-requirements.md#unity) for supported versions)
 
 ## Clone the sample app
@@ -93,7 +94,7 @@ You can now explore the scene graph by selecting the new node and clicking **Sho
 
 ![Unity Hierarchy](./media/unity-hierarchy.png)
 
-There is a [cut plane](../overview/features/cut-planes.md) object in the scene. Try enabling it in its properties and moving it around:
+There is a [cut plane](../overview/features/cut-planes.md) object in the scene. Try enabling it by checking the box in front of **CutPlane** under Inspector pane and move around:
 
 ![Changing the cut plane](media/arr-sample-unity-cutplane.png)
 

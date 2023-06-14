@@ -17,7 +17,7 @@ ms.collection:
 
 # Scenario - Using Azure Active Directory to secure access to SAP platforms and applications
 
-This document provides advice on the technical design and configuration of SAP platforms and applications when using Azure Active Directory as the primary user authentication service.
+This document provides advice on the **technical design and configuration** of SAP platforms and applications when using Azure Active Directory as the primary user authentication service. Learn more about the initial setup in [this tutorial](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md).
 
 ## Terminology used in this guide
 
@@ -29,7 +29,7 @@ This document provides advice on the technical design and configuration of SAP p
 | [IPS](https://help.sap.com/viewer/f48e822d6d484fa5ade7dda78b64d9f5/Cloud/en-US/2d2685d469a54a56b886105a06ccdae6.html) | SAP Cloud Identity Services - Identity Provisioning Service.  IPS helps to synchronize identities between different stores / target systems.                                                           |
 | [XSUAA](https://blogs.sap.com/2019/01/07/uaa-xsuaa-platform-uaa-cfuaa-what-is-it-all-about/)                          | Extended Services for Cloud Foundry User Account and Authentication.  XSUAA is a multi-tenant OAuth authorization server within the SAP BTP.                                                                   |
 | [CF](https://www.cloudfoundry.org/)                                                                                   | Cloud Foundry. Cloud Foundry is the environment on which SAP built their multi-cloud offering for BTP (AWS, Azure, GCP, Alibaba).                                                                                      |
-| [Fiori](https://www.sap.com/products/fiori/develop.html)                                                              | The web-based user experience of SAP (as opposed to the desktop-based experience).                                                                                                                            |
+| [Fiori](https://www.sap.com/products/fiori.html)                                                              | The web-based user experience of SAP (as opposed to the desktop-based experience).                                                                                                                            |
 
 ## Overview
 
@@ -50,6 +50,9 @@ Based on these assumptions, we focus mostly on the products and services present
 
 > [!NOTE]
 > Most of the guidance here applies to [Azure Active Directory B2C](../../active-directory-b2c/overview.md) as well, but there are some important differences. See [Using Azure AD B2C as the Identity Provider](#using-azure-ad-b2c-as-the-identity-provider) for more information.
+
+> [!WARNING]
+> Be aware of the SAP SAML assertion limits and impact of the length of SAP Cloud Foundry role collection names and amount of collections proxied by groups in SAP Cloud Identity Service. See SAP note [2732890](https://launchpad.support.sap.com/?sap-support-cross-site-visitor-id=b73c7292f9a46d52#/notes/2732890) for more information. Exceeded limits result in authorization issues.
 
 ## Recommendations
 
@@ -131,7 +134,7 @@ While that could be a valid reason for using "User assignment required", it does
 
 #### Summary of implementation
 
-On the Azure AD Enterprise Application representing the federation relation with IAS, disable "[User assignment required](../manage-apps/assign-user-or-group-access-portal.md)". This also means you can safely skip [assignment of users as detailed in Microsoft Docs](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md#assign-the-azure-ad-test-user).
+On the Azure AD Enterprise Application representing the federation relation with IAS, disable "[User assignment required](../manage-apps/assign-user-or-group-access-portal.md)". This also means you can safely skip [assignment of users](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md#assign-the-azure-ad-test-user).
 
 ### 3 - Use Azure AD groups for Authorization through Role Collections in IAS/BTP
 
@@ -246,7 +249,7 @@ As discussed before, we recommend setting up a trust configuration in BTP toward
 
 ![Rolling over SAML Signing Certs](./media/scenario-azure-first-sap-identity-integration/sap-rollover-saml-signing-certs.png)
 
-SAP has example implementations for client certificate notifications with SAP Cloud Platform Integration [here](https://blogs.sap.com/2017/12/06/sap-cloud-platform-integration-automated-notification-of-keystore-entries-reaching-expiry/) and [here](https://blogs.sap.com/2019/03/01/sap-cloud-platform-integration-automated-notification-for-client-certificates-reaching-expiry/). This could be adapted with Azure Integration Services or PowerAutomate. However, they would need to be adapted to work with server certificates. Such approach requires a custom implementation.
+SAP has example implementations for [client certificate notifications](https://blogs.sap.com/2017/12/06/sap-cloud-platform-integration-automated-notification-of-keystore-entries-reaching-expiry/) with SAP Cloud Integration and [near-expiry handling](https://blogs.sap.com/2019/03/01/sap-cloud-platform-integration-automated-notification-for-client-certificates-reaching-expiry/). Find another example focusing on the SAP BTP trust store and Azure Key Vault [here](https://blogs.sap.com/2022/12/02/automatic-sap-btp-trust-store-certificate-renewal-with-azure-key-vault-or-how-to-stop-thinking-about-expiry-dates-once-and-for-all/). This could be adapted with Azure Integration Services or PowerAutomate. However, they would need to be adapted to work with server certificates. Such approach requires a custom implementation.
 
 #### Why this recommendation?
 
@@ -260,7 +263,9 @@ Consider building automation to execute the entire certificate rollover process.
 
 ## Using Azure AD B2C as the Identity Provider
 
-[Azure Active Directory B2C](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. Given that the integration with Azure AD B2C is similar to how you would allow enterprise users to sign in with Azure AD, the recommendations above still mostly apply when you want to use Azure AD B2C for your customers, consumers or citizens and allow them to use their preferred social, enterprise, or local account identities. There are a few important differences, however.
+[Azure Active Directory B2C](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. Given that the integration with Azure AD B2C is similar to how you would allow enterprise users to sign in with Azure AD, the recommendations above still mostly apply when you want to use Azure AD B2C for your customers, consumers or citizens and allow them to use their preferred social, enterprise, or local account identities. 
+
+There are a few important differences, however. Setting up Azure AD B2C as a corporate identity provider in IAS and configuring federation between both tenants is described in more detail in [this blog post](https://blogs.sap.com/2023/02/08/identity-federation-between-azure-ad-b2c-and-sap-cloud-identity-services-using-custom-policies/).
 
 ### Registering a SAML application in Azure AD B2C
 
@@ -273,3 +278,8 @@ Azure AD B2C doesn't natively support the use of groups to create collections of
 Fortunately, Azure AD B2C is highly customizable, so you can configure the SAML tokens it sends to IAS to include any custom information. For various options on supporting authorization claims, see the documentation accompanying the [Azure AD B2C App Roles sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles), but in summary: through its [API Connector](../../active-directory-b2c/api-connectors-overview.md) extensibility mechanism you can optionally still use groups, app roles, or even a custom database to determine what the user is allowed to access.
 
 Regardless of where the authorization information comes from, it can then be emitted as the `Groups` attribute inside the SAML token by configuring that attribute name as the [default partner claim type on the claims schema](../../active-directory-b2c/claimsschema.md#defaultpartnerclaimtypes) or by overriding the [partner claim type on the output claims](../../active-directory-b2c/relyingparty.md#outputclaims). Note however that BTP allows you to [map Role Collections to User Attributes](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/b3fbb1a9232d4cf99967a0b29dd85d4c.html), which means that *any* attribute name can be used for authorization decisions, even if you don't use the `Groups` attribute name.
+
+## Next Steps
+
+- Learn more about the initial setup in [this tutorial](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
+- Discover additional [SAP integration scenarios with Azure AD](../../sap/workloads/integration-get-started.md#azure-ad) and beyond

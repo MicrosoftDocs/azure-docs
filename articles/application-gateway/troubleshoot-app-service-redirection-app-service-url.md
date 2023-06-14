@@ -3,17 +3,16 @@ title: Troubleshoot redirection to App Service URL
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to troubleshoot the redirection issue when Azure Application Gateway is used with Azure App Service
 services: application-gateway
-author: jaesoni
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 04/15/2021
-ms.author: jaysoni 
-ms.custom: devx-track-azurepowershell
+ms.author: greglin 
 ---
 
 # Troubleshoot App Service issues in Application Gateway
 
-Learn how to diagnose and resolve issues you might encounter when Azure App Service is used as a back-end target with Azure Application Gateway.
+Learn how to diagnose and resolve issues you might encounter when Azure App Service is used as a backend target with Azure Application Gateway.
 
 ## Overview
 

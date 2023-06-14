@@ -1,9 +1,9 @@
 ---
-author: timwarner-msft
+author: davidsmatlak
 ms.service: resource-graph
 ms.topic: include
-ms.date: 03/08/2022
-ms.author: timwarner
+ms.date: 07/07/2022
+ms.author: davidsmatlak
 ms.custom: generated
 ---
 

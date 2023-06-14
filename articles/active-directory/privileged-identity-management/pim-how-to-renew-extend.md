@@ -1,28 +1,26 @@
 ---
-title: Renew Azure AD role assignments in PIM - Azure Active Directory | Microsoft Docs
+title: Renew Azure AD role assignments in PIM
 description: Learn how to extend or renew Azure Active Directory role assignments in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/19/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-
-
 # Extend or renew Azure AD role assignments in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) provides controls to manage the access and assignment lifecycle for Azure AD roles. Administrators can assign roles using start and end date-time properties. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to Azure AD administrators to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
+Privileged Identity Management (PIM) provides controls to manage the access and assignment lifecycle for roles in Azure Active Directory (Azure AD), part of Microsoft Entra. Administrators can assign roles using start and end date-time properties. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to Azure AD administrators to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
 
 ## Who can extend and renew?
 

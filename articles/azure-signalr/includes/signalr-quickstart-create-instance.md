@@ -31,5 +31,5 @@ You don't need to change the settings on the **Networking** and **Tags** tabs fo
 6. Select the **Review + create** button at the bottom of the **Basics** tab.
 1. On the **Review + create** tab, review the values and then select **Create**. It will take a few moments for deployment to complete.
 1. When the deployment is complete, select the **Go to resource** button.
-1. On the SignalR resource screen, select **Keys** from the menu on the left, under **Settings**.
+1. On the SignalR resource page, select **Keys** from the menu on the left, under **Settings**.
 1. Copy the **Connection string** for the primary key. You'll need this connection string to configure your app later in this tutorial.

@@ -19,10 +19,9 @@ You can connect to a VM that is deployed to your VNet by creating a Remote Deskt
 
      ```azurepowershell-interactive
      $VMs = Get-AzVM
-     $Nics = Get-AzNetworkInterface | Where VirtualMachine -ne $null
+     $Nics = Get-AzNetworkInterface | Where-Object VirtualMachine -ne $null
 
-     foreach($Nic in $Nics)
-     {
+     foreach ($Nic in $Nics) {
       $VM = $VMs | Where-Object -Property Id -eq $Nic.VirtualMachine.Id
       $Prv = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAddress
       $Alloc = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAllocationMethod

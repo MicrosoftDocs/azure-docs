@@ -1,9 +1,9 @@
 ---
-author: ericmitt
-ms.author: ericmitt
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 07/13/2020
+ms.date: 11/17/2022
 ---
 
 1. Open Azure IoT explorer.
@@ -20,7 +20,7 @@ ms.date: 07/13/2020
 
 1. Select **IoT Plug and Play components** to view the model information for your device.
 
-1. You can view the different components of the device. The default component and any additional ones. Select a component to work with.
+1. You can view the different components of the device. The default component and any extra ones. Select a component to work with.
 
 1. Select the **Telemetry** page and then select **Start** to view the telemetry data the device is sending for this component.
 

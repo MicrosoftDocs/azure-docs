@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Five9 Plus Adapter (CTI, Contact Center Agents) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Five9 Plus Adapter (CTI, Contact Center Agents)'
 description: Learn how to configure single sign-on between Azure Active Directory and Five9 Plus Adapter (CTI, Contact Center Agents).
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Five9 Plus Adapter (CTI, Contact Center Agents)
@@ -46,6 +46,8 @@ To configure the integration of Five9 Plus Adapter (CTI, Contact Center Agents) 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Five9 Plus Adapter (CTI, Contact Center Agents)** in the search box.
 1. Select **Five9 Plus Adapter (CTI, Contact Center Agents)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Five9 Plus Adapter (CTI, Contact Center Agents)
 
@@ -126,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. “Five9 Plus Adapter for Agent Desktop Toolkit” Admin Guide: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
 	
-	b. “Five9 Plus Adapter for Microsoft Dynamics CRM” Admin Guide: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
+	b. “Five9 Plus Adapter for Microsoft Dynamics CRM” Admin Guide: [https://manualzz.com/download/25793001](https://manualzz.com/download/25793001)
 	
 	c. “Five9 Plus Adapter for Zendesk” Admin Guide: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
 

@@ -3,12 +3,12 @@ title: PowerShell sample - List basic info for Application Proxy apps
 description: PowerShell example that lists Azure Active Directory (Azure AD) Application Proxy applications along with the application ID (AppId), name (DisplayName), and object ID (ObjId).
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
-ms.date: 04/29/2021
+ms.date: 08/29/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---

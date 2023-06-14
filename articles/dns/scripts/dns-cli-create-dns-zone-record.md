@@ -2,11 +2,11 @@
 title: Create a DNS zone and record for a domain name - Azure CLI - Azure DNS
 description: This Azure CLI script example shows how to create a DNS zone and record for a domain name
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: sample
-ms.date: 09/20/2019
-ms.author: rohink 
+ms.date: 09/27/2022
+ms.author: greglin 
 ms.custom: devx-track-azurecli
 ---
 

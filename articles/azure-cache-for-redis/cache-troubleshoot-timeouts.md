@@ -50,7 +50,7 @@ Monitor how your `ThreadPool` statistics change over time using [an example `Thr
 In the preceding exception, there are several issues that are interesting:
 
 - Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
-- You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
+- You can also see `in: 64221`. This value indicates that 64,221 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
 
 You can [configure your `ThreadPool` Settings](cache-management-faq.yml#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
 
@@ -134,7 +134,7 @@ For more information on failovers, see [Failover and patching for Azure Cache fo
 
 High server load means the Redis server is unable to keep up with the requests, leading to timeouts. The server might be slow to respond and unable to keep up with request rates.
 
-[Monitor metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) such as server load. Watch for spikes in `Server Load` usage that correspond with timeouts. [Create alerts](cache-how-to-monitor.md#alerts) on metrics on server load to be notified early about potential impacts.
+[Monitor metrics](cache-how-to-monitor.md#monitor-azure-cache-for-redis) such as server load. Watch for spikes in `Server Load` usage that correspond with timeouts. [Create alerts](cache-how-to-monitor.md#create-alerts) on metrics on server load to be notified early about potential impacts.
 
 There are several changes you can make to mitigate high server load:
 
@@ -180,7 +180,7 @@ event_no_wait_count:1
 
 Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data won't be sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough.
 
-The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) in the portal. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
+The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-cache-metrics) in the portal. [Create alerts](cache-how-to-monitor.md#create-alerts) on metrics like cache read or cache write to be notified early about potential impacts.
 
 To mitigate situations where network bandwidth usage is close to maximum capacity:
 

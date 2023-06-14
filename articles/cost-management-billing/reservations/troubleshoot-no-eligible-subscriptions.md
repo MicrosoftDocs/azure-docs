@@ -5,9 +5,9 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.author: banders
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 ms.topic: troubleshooting
-ms.date: 03/22/2022
+ms.date: 12/06/2022
 ---
 
 # Troubleshoot no eligible subscriptions

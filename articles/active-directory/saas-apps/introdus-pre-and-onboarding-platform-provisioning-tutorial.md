@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure introDus Pre and Onboarding Platform for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure introDus Pre and Onboarding Platform for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to introDus Pre and Onboarding Platform.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 829376bb-41d8-42da-89ee-853f5630121b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -32,8 +32,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md)
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* An introdus subscription, that includes Single Sign-On (SSO)
-* A valid introdus API Token. A guide on how to generate Token, can be found [here](https://help.introdus.dk/en/articles/2011815-introdus-open-api).
+* An introdus subscription, that includes single sign-on (SSO)
+* A valid introdus API Token.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -46,7 +46,7 @@ A subscription that allows SSO. No other configuration is necessary on introdus 
 
 ## Step 3. Add introDus Pre and Onboarding Platform from the Azure AD application gallery
 
-Add introDus Pre and Onboarding Platform from the Azure AD application gallery to start managing provisioning to introDus Pre and Onboarding Platform. If you have previously setup introDus Pre and Onboarding Platform for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+Add introDus Pre and Onboarding Platform from the Azure AD application gallery to start managing provisioning to introDus Pre and Onboarding Platform. If you have previously setup introDus Pre and Onboarding Platform for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
 ## Step 4. Define who will be in scope for provisioning
 
@@ -91,7 +91,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to introDus Pre and Onboarding Platform**.
 
-9. Review the user attributes that are synchronized from Azure AD to introDus Pre and Onboarding Platform in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in introDus Pre and Onboarding Platform for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the introDus Pre and Onboarding Platform API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to introDus Pre and Onboarding Platform in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in introDus Pre and Onboarding Platform for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the introDus Pre and Onboarding Platform API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+13. When you're ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 

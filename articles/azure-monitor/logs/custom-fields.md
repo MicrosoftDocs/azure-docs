@@ -1,20 +1,20 @@
 ---
-title: Custom fields in Azure Monitor (Preview) | Microsoft Docs
+title: Custom fields in Azure Monitor (Preview)
 description: The Custom Fields feature of Azure Monitor allows you to create your own searchable fields from records in a Log Analytics workspace that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 10/20/2021
+author: guywild
+ms.author: guywild
+ms.reviewer: roygal
+ms.date: 03/31/2023
 
 ---
 
 # Create custom fields in a Log Analytics workspace in Azure Monitor (Preview)
 
-> [!NOTE]
-> This article describes how to parse text data in a Log Analytics workspace as it's collected. We recommend parsing text data in a query filter after it's collected following the guidance described in [Parse text data in Azure Monitor](./parse-text.md). It provides several advantages over using custom fields.
-
 > [!IMPORTANT]
-> Custom fields increases the amount of data collected in the Log Analytics workspace which can increase your cost. See [Azure Monitor Logs pricing details](cost-logs.md) for details.
+> Creation of new custom fields will be disabled starting March 31, 2023. Custom fields functionality will be deprecated, and existing custom fields will stop functioning by March 31, 2026. You should [migrate to ingestion-time transformations](custom-fields-migrate.md) to keep parsing your log records.
+> 
+> Currently, when you add a new custom field, it may take up to 7 days before data starts appearing.
 
 The **Custom Fields** feature of Azure Monitor allows you to extend existing records in your Log Analytics workspace by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
@@ -63,11 +63,6 @@ Once you have performed the initial extract, Log Analytics will display its resu
 6. Wait for new records matching the specified criteria to be collected and then run the log search again. New records should have the custom field.
 7. Use the custom field like any other record property.  You can use it to aggregate and group data and even use it to produce new insights.
 
-## Viewing custom fields
-You can view a list of all custom fields in your management group from the **Advanced Settings** menu of your Log Analytics workspace in the Azure portal.  Select **Data** and then **Custom fields** for a list of all custom fields in your workspace.  
-
-![Custom fields](media/custom-fields/list.png)
-
 ## Removing a custom field
 There are two ways to remove a custom field.  The first is the **Remove** option for each field when viewing the complete list as described above.  The other method is to retrieve a record and click the button to the left of the field.  The menu will have an option to remove the custom field.
 
@@ -76,17 +71,13 @@ The following section walks through a complete example of creating a custom fiel
 
 We enter the following query to return all events from Service Control Manager that have an Event ID of 7036 which is the event that indicates a service starting or stopping.
 
-![Screenshot shows a query for an event source and ID.](media/custom-fields/query.png)
+![Screenshot showing a query for an event source and ID.](media/custom-fields/query.png)
 
-We then select and expand any record with event ID 7036.
+We then right-click on any record with event ID 7036 and select **Extract fields from \`Event`**.
 
-![Source record](media/custom-fields/source-record.png)
+![Screenshot showing the Copy and Extract fields options, which are available when you right-click a record from the list of results.](media/custom-fields/extract-fields.png)
 
-We define custom fields by clicking the ellipsis next to the top property.
-
-![Extract fields](media/custom-fields/extract-fields.png)
-
-The **Field Extraction Wizard** is opened, and the **EventLog** and **EventID** fields are selected in the **Main Example** column.  This indicates that the custom field will be defined for events from the System log with an event ID of 7036.  This is sufficient so we don’t need to select any other fields.
+The **Field Extraction Wizard** opens with the **EventLog** and **EventID** fields selected in the **Main Example** column.  This indicates that the custom field will be defined for events from the System log with an event ID of 7036.  This is sufficient so we don’t need to select any other fields.
 
 ![Main example](media/custom-fields/main-example.png)
 

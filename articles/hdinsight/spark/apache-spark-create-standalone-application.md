@@ -4,7 +4,7 @@ description: Tutorial - Create a Spark application written in Scala with Apache 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: contperf-fy21q1
-ms.date: 03/30/2022
+ms.date: 04/24/2023
 
 # Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a Scala Maven application for Spark in HDInsight using IntelliJ.
 ---
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [Oracle Java Development kit](https://www.azul.com/downloads/azure-only/zulu/).  This tutorial uses Java version 8.0.202.
+* [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  This tutorial uses Java version 8.0.202.
 
 * A Java IDE. This article uses [IntelliJ IDEA Community 2018.3.4](https://www.jetbrains.com/idea/download/).
 

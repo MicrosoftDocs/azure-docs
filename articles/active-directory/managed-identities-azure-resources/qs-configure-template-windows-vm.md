@@ -1,10 +1,10 @@
 ---
-title: Configure managed identities on Azure VM using template - Azure AD
+title: Configure managed identities on Azure VM using template
 description: Step-by-step instructions for configuring managed identities for Azure resources on an Azure VM, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-arm-template
 ---
 
 # Configure managed identities for Azure resources on an Azure VM using templates
@@ -120,7 +120,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
 
 ### Assign a user-assigned managed identity to an Azure VM
 
-To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No other Azure AD directory role assignments are required.
+To assign a user-assigned identity to a VM, your account needs the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignment. No other Azure AD directory role assignments are required.
 
 1. Under the `resources` element, add the following entry to assign a user-assigned managed identity to your VM.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user-assigned managed identity you created.
 

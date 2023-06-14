@@ -2,7 +2,8 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 03/14/2022
+ms.custom: devx-track-bicep
+ms.date: 11/03/2022
 ---
 
 # What is Bicep?
@@ -15,7 +16,7 @@ Bicep provides concise syntax, reliable type safety, and support for code reuse.
 
 Bicep provides the following advantages:
 
-- **Support for all resource types and API versions**: Bicep immediately supports all preview and GA versions for Azure services. As soon as a resource provider introduces new resources types and API versions, you can use them in your Bicep file. You don't have to wait for tools to be updated before using the new services.
+- **Support for all resource types and API versions**: Bicep immediately supports all preview and GA versions for Azure services. As soon as a resource provider introduces new resource types and API versions, you can use them in your Bicep file. You don't have to wait for tools to be updated before using the new services.
 - **Simple syntax**: When compared to the equivalent JSON template, Bicep files are more concise and easier to read. Bicep requires no previous knowledge of programming languages. Bicep syntax is declarative and specifies which resources and resource properties you want to deploy.
 
   The following examples show the difference between a Bicep file and the equivalent JSON template. Both examples deploy a storage account.
@@ -76,8 +77,10 @@ Bicep provides the following advantages:
   ---
 
 - **Authoring experience**: When you use the [Bicep Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) to create your Bicep files, you get a first-class authoring experience. The editor provides rich type-safety, intellisense, and syntax validation.
-  
+
   ![Bicep file authoring example](./media/overview/bicep-intellisense.gif)
+
+  You can also create Bicep files in Visual Studio with the [Bicep extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
 
 - **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Bicep files are idempotent, which means you can deploy the same file many times and get the same resource types in the same state. You can develop one file that represents the desired state, rather than developing lots of separate files to represent updates.
 - **Orchestration**: You don't have to worry about the complexities of ordering operations. Resource Manager orchestrates the deployment of interdependent resources so they're created in the correct order. When possible, Resource Manager deploys resources in parallel so your deployments finish faster than serial deployments. You deploy the file through one command, rather than through multiple imperative commands.
@@ -95,13 +98,13 @@ Bicep provides the following advantages:
 To start with Bicep:
 
 1. **Install the tools**. See [Set up Bicep development and deployment environments](./install.md). Or, you can use the [VS Code Devcontainer/Codespaces repo](https://github.com/Azure/vscode-remote-try-bicep) to get a pre-configured authoring environment.
-2. **Complete the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md) and the [Microsoft Learn Bicep modules](./learn-bicep.md)**.
+2. **Complete the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md) and the [Learn modules for Bicep](./learn-bicep.md)**.
 
 To decompile an existing ARM template to Bicep, see [Decompiling ARM template JSON to Bicep](./decompile.md). You can use the [Bicep Playground](https://aka.ms/bicepdemo) to view Bicep and equivalent JSON side by side.
 
 To learn about the resources that are available in your Bicep file, see [Bicep resource reference](/azure/templates/)
 
-Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/bicep/tree/main/docs/examples).
+Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
 
 ## About the language
 

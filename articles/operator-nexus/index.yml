@@ -1,0 +1,154 @@
+### YamlMime:Landing
+
+title: Operator Nexus  
+summary: Operator Nexus runs network-intensive workloads under stringent security, performance and manageability. Learn Operator Nexus with these quickstarts and how-to guides. # < 160 chars
+
+metadata:
+  title: Operator Nexus  
+  description: Azure Operator Nexus, the next-generation hybrid cloud platform for operators, 
+   proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
+   resiliency, observability, manageability, and performance required by telecommunication' operators. 
+   Learn how to deploy, manage and use Operator Nexus with these concepts, quickstarts, and how-to guides.
+  ms.service: azure-operator-nexus
+  ms.topic: landing-page
+  author: jashobhit
+  ms.author: shobhitjain
+  ms.date: 01/23/2023
+# linkListType: architecture | concept | how-to-guide | overview | quickstart | reference | tutorial # | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Operator Nexus overview
+    linkLists:
+      - linkListType: overview
+        links:
+           - text: What is Operator Nexus?
+             url: overview.md
+      - linkListType: concept
+        links:
+           - text: Resource types
+             url: concepts-resource-types.md
+           - text: Observability
+             url: concepts-observability.md
+#     - linkListType: how-to-guide
+#       links:
+#          - text: Deploy agents and monitoring
+#            url: howto-monitoring-vnf-aks-h-vms.md
+#          - text: Deploy workbooks and alerts
+#            url: howto-workbooks-alerts.md
+#  
+  # Card
+  - title: QuickStart guides
+    linkLists:
+      - linkListType: quickstart
+        links:
+           - text: Before you start NFC/CM deployment
+             url: howto-azure-operator-nexus-prerequisites.md      
+           - text: Before you start platform deployment
+             url: howto-platform-prerequisites.md
+      - linkListType: quickstart
+        links:
+           - text: Before you start tenant workload deployment
+             url: quickstarts-tenant-workload-prerequisites.md
+           - text: Tenant workload deployment
+             url: quickstarts-tenant-workload-deployment.md
+#
+  # Card
+  - title: Observability
+    linkLists:
+      - linkListType: concept
+        links:
+           - text: Observability concepts
+             url: concepts-observability.md 
+      - linkListType: how-to-guide
+        links:
+           - text: Monitor AKS-Hybrid Cluster
+             url: howto-monitor-aks-h-cluster.md      
+           - text: Monitor VMs for VNF
+             url: howto-monitor-virtualized-network-functions-virtual-machines.md
+           - text: Cluster metrics configuration management
+             url: howto-cluster-metrics-configuration-management.md
+      - linkListType: reference
+        links:
+           - text: List of metrics collected
+             url: List-of-metrics-collected.md
+#
+  # Card
+# - title: How-to guides
+#   linkLists:
+#     - linkListType: how-to-guide
+#       links:
+#          - text: BareMetal functions
+#            url: bare-metal-functions.md
+#          - text: Workbooks and alerts
+#            url: workbooks-alerts.md
+#          - text: Cluster manager
+#            url: howto-cluster-manager.md
+#          - text: AKS-Hybrid manager
+#            url: howto-aks-h-manager.md
+#
+  # Card
+# - title: Deploy platform
+#   linkLists:
+#     - linkListType: quickstart
+#       links:
+#          - text: Before you start platform deployment
+#            url: quickstarts-platform-prerequisites.md
+#          - text: Platform deployment
+#            url: quickstarts-platform-deployment.md
+#     - linkListType: how-to-guide
+#       links:
+#          - text: Network fabric controller
+#            url: howto-configure-network fabric-controller.md
+#         links:
+#          - text: Cluster manager
+#            url: howto-cluster-manager.md
+#         links:
+#          - text: Configure: network fabric
+#            url: howto-configure-network fabric.md
+  # Card
+# - title: Deploy workloads
+#   linkLists:
+#     - linkListType: sample
+#       links:
+#          - text: Sample VNF deployment
+#            url: sample-vnf-deployment.md
+#       links:
+#          - text: Sample CNF deployment
+#            url: sample-cnf-deployment.md
+#     - linkListType: quickstart
+#       links:
+#          - text: Before you start tenant workload deployment
+#            url: quickstarts-tenant-workload-prerequisites.md
+#       links:
+#          - text: Tenant workload deployment
+#            url: quickstarts-tenant-workload-deployment.md           
+#     - linkListType: how-to-guide
+#       links:
+#          - text: Bare metal operations
+#            url: howto-baremetal-functions.md
+#        links:
+#          - text: AKS-Hybrid clusters
+#            url: howto-hybrid-aks.md
+#        links:
+#          - text: Tenant networking
+#            url: howto-configure-isolation-domain.md
+#        links:
+#          - text: Install CLI extensions
+#            url: howto-install-cli-extensions.md            
+#
+ # Card
+# - title: References and resources
+#   linkLists:
+#     - linkListType: reference
+#       links:
+          #- text: Resource and other links
+          #  url: #### <TBD>
+#       links:
+#          - text: APIs
+#            url: /rest/api/azure/
+#       links:
+#          - text: Monitor metrics
+#            url: https:///azure/azure-monitor/essentials/data-platform-metrics

@@ -33,7 +33,7 @@ To complete this article, the following are required:
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](./index.yml) to hold the watcher and action runbooks and the Watcher Task.
 * A [hybrid runbook worker](automation-hybrid-runbook-worker.md) where the watcher task runs.
-* PowerShell runbooks. PowerShell Workflow runbooks aren't supported by watcher tasks.
+* PowerShell runbooks. PowerShell Workflow runbooks and Graphical runbooks aren't supported by watcher tasks.
 
 ## Import a watcher runbook
 

@@ -1,10 +1,10 @@
 ### YamlMime:FAQ
 metadata:
-  title: Troubleshoot Azure AD roles assigned to groups - Azure Active Directory
+  title: Troubleshoot Azure AD roles assigned to groups
   description: Learn some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory.
   services: active-directory
   author: rolyon
-  manager: karenhoran
+  manager: amycolannino
   ms.service: active-directory
   ms.workload: identity
   ms.subservice: roles
@@ -73,7 +73,7 @@ sections:
         answer: |
           This answer is applicable only to Azure AD Premium P1 organizations.
           
-          1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) and open **Azure Active Directory**.
+          1. Sign in to the [Azure portal](https://portal.azure.com)  and open **Azure Active Directory**.
           1. Select users and open a user profile.
           1. Select **Assigned roles**.
           1. Select the gear icon. A pane opens that can give this information. There's a "Remove" button beside direct assignments. To remove indirect role assignment, remove the user from the group that has been assigned the role.
@@ -83,7 +83,7 @@ sections:
         answer: |
           Follow these steps:
           
-          1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) and open **Azure Active Directory**.
+          1. Sign in to the [Azure portal](https://portal.azure.com)  and open **Azure Active Directory**.
           1. Select **Groups** > **All groups**.
           1. Select **Add filters**.
           1. Filter to **Role assignable**.
@@ -93,7 +93,7 @@ sections:
         answer: |
           Follow these steps:
           
-          1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) and open **Azure Active Directory**.
+          1. Sign in to the [Azure portal](https://portal.azure.com)  and open **Azure Active Directory**.
           1. Select users and open a user profile.
           1. Select **Assigned roles**, and then:
           

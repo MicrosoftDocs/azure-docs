@@ -3,18 +3,17 @@ title: Create a connection monitor - PowerShell
 titleSuffix: Azure Network Watcher
 description: Learn how to create a connection monitor by using PowerShell.
 services: network-watcher
-documentationcenter: na
-author: vinigam
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
-ms.author: vinigam 
+ms.author: halkazwini 
 ms.custom: devx-track-azurepowershell
 #Customer intent: I need to create a connection monitor by using PowerShell to monitor communication between one VM and another.
 ---
-# Create a connection monitor by using PowerShell
+
+# Create an Azure Network Watcher connection monitor using PowerShell
 
 > [!IMPORTANT]
 > Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You will also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
@@ -49,9 +48,9 @@ Select-AzSubscription -SubscriptionId <your-subscription>
 //Select region
 $nw = "NetworkWatcher_centraluseuap"
 //Declare endpoints like Azure VM below. You can also give VNET,Subnet,Log Analytics workspace
-$sourcevmid1 = New-AzNetworkWatcherConnectionMonitorEndpointObject -Name MyAzureVm -ResourceID /subscriptions/<your-subscription>/resourceGroups/<your resourceGroup>/providers/Microsoft.Compute/virtualMachines/<vm-name>
+$sourcevmid1 = New-AzNetworkWatcherConnectionMonitorEndpointObject -AzureVM -Name MyAzureVm -ResourceID /subscriptions/<your-subscription>/resourceGroups/<your resourceGroup>/providers/Microsoft.Compute/virtualMachines/<vm-name>
 //Declare endpoints like URL, IPs
-$bingEndpoint = New-AzNetworkWatcherConnectionMonitorEndpointObject -name Bing -Address www.bing.com # Destination URL
+$bingEndpoint = New-AzNetworkWatcherConnectionMonitorEndpointObject -ExternalAddress -Name Bing -Address www.bing.com # Destination URL
 //Create test configuration.Choose Protocol and parametersSample configs below.
 
 $IcmpProtocolConfiguration = New-AzNetworkWatcherConnectionMonitorProtocolConfigurationObject -IcmpProtocol

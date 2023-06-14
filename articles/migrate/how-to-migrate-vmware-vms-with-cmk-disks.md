@@ -1,12 +1,11 @@
 ---
-title: Migrate VMware virtual machines to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using Azure Migrate Server Migration
-description: Learn how to migrate VMware VMs to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using Azure Migrate Server Migration 
-author: anvar-ms 
-ms.author: anvar
-ms.manager: bsiva
+title: Migrate VMware virtual machines to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using the Migration and modernization tool
+description: Learn how to migrate VMware VMs to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using the Migration and modernization tool 
+author: jyothisuri
+ms.author: jsuri
 ms.topic: how-to
-ms.date: 03/12/2020 
-ms.custom: devx-track-azurepowershell
+ms.date: 05/31/2023
+ms.custom: devx-track-azurepowershell, engagement-fy23
 
 ---
 
@@ -14,9 +13,9 @@ ms.custom: devx-track-azurepowershell
 
 # Migrate VMware VMs to Azure VMs enabled with server-side encryption and customer-managed keys
 
-This article describes how to migrate VMware VMs to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK), using Azure Migrate Server Migration (agentless replication).
+This article describes how to migrate VMware VMs to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK), using Migration and modernization (agentless replication).
 
-The Azure Migrate Server Migration portal experience lets you [migrate VMware VMs to Azure with agentless replication.](tutorial-migrate-vmware.md) The portal experience currently doesn't offer the ability to turn on SSE with CMK for your replicated disks in Azure. The ability to turn on SSE with CMK for the replicated disks is currently available only through REST API. In this article, you'll see how to create and deploy an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to replicate a VMware VM and configure the replicated disks in Azure to use SSE with CMK.
+The Migration and modernization portal experience lets you [migrate VMware VMs to Azure with agentless replication.](tutorial-migrate-vmware.md) The portal experience supports DES/CMK. DES should be created before starting replication and must be provided while starting replication. It cannot be provided at the time of migration. In this article, you'll see how to create and deploy an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to replicate a VMware VM and configure the replicated disks in Azure to use SSE with CMK.
 
 The examples in this article use [Azure PowerShell](/powershell/azure/new-azureps-module-az) to perform the tasks needed to create and deploy the Resource Manager template.
 
@@ -25,26 +24,26 @@ The examples in this article use [Azure PowerShell](/powershell/azure/new-azurep
 ## Prerequisites
 
 - [Review the tutorial](tutorial-migrate-vmware.md) on migration of VMware VMs to Azure with agentless replication to understand tool requirements.
-- [Follow these instructions](./create-manage-projects.md) to create an Azure Migrate project and add the **Azure Migrate: Server Migration** tool to the project.
+- [Follow these instructions](./create-manage-projects.md) to create an Azure Migrate project and add the **Migration and modernization** tool to the project.
 - [Follow these instructions](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for VMware in your on-premises environment and complete discovery.
 
 ## Prepare for replication
 
-Once VM discovery is complete, the Discovered Servers line on the Server Migration tile will show a count of VMware VMs discovered by the appliance.
+Once VM discovery is complete, the Discovered Servers line on the Migration and modernization tile will show a count of VMware VMs discovered by the appliance.
 
 Before you can start replicating VMs, the replication infrastructure needs to be prepared.
 
-1. Create a Service Bus instance in the target region. The Service Bus is used by the on-premises Azure Migrate appliance to communicate with the Server Migration service to coordinate replication and migration.
+1. Create a Service Bus instance in the target region. The Service Bus is used by the on-premises Azure Migrate appliance to communicate with the Migration and modernization service to coordinate replication and migration.
 2. Create a storage account for transfer of operation logs from replication.
 3. Create a storage account that the Azure Migrate appliance uploads replication data to.
 4. Create a Key Vault and configure the Key Vault to manage shared access signature tokens for blob access on the storage accounts created in step 3 and 4.
 5. Generate a shared access signature token for the service bus created in step 1 and create a secret for the token in the Key Vault created in the previous step.
-6. Create a Key Vault access policy to give the on-premises Azure Migrate appliance (using the appliance AAD app) and the Server Migration Service access to the Key Vault.
-7. Create a replication policy and configure the Server Migration service with details of the replication infrastructure created in the previous step.
+6. Create a Key Vault access policy to give the on-premises Azure Migrate appliance (using the appliance AAD app) and the Migration and modernization Service access to the Key Vault.
+7. Create a replication policy and configure the Migration and modernization service with details of the replication infrastructure created in the previous step.
 
 The replication infrastructure must be created in the target Azure region for the migration and in the target Azure subscription that the VMs are being migrated to.
 
-The Server Migration portal experience simplifies preparation of the replication infrastructure by automatically doing this for you when you replicate a VM for the first time in a project. In this article, we'll assume that you've already replicated one or more VMs using the portal experience and that the replication infrastructure is already created. We'll look at how to discover details of the existing replication infrastructure and how to use these details as inputs to the Resource Manager template that will be used to set up replication with CMK.
+The Migration and modernization portal experience simplifies preparation of the replication infrastructure by automatically doing this for you when you replicate a VM for the first time in a project. In this article, we'll assume that you've already replicated one or more VMs using the portal experience and that the replication infrastructure is already created. We'll look at how to discover details of the existing replication infrastructure and how to use these details as inputs to the Resource Manager template that will be used to set up replication with CMK.
 
 ### Identifying replication infrastructure components
 

@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse lake database concepts
 description: Learn about the lake database concept and how it helps structure data.
-author: gsaurer
-ms.author: gesaur
+author: matt1883
+ms.author: mahi
 ms.service: synapse-analytics
 ms.subservice: database-editor
 ms.topic: conceptual
@@ -20,12 +20,18 @@ The lake database in Azure Synapse Analytics enables customers to bring together
 
 ## Database designer
 
-The new database designer gives you the possibility to create a data model for your lake database and add additional information to it. Every Entity and Attribute can be described to provide more information about the model, which not only contains Entities but relationships as well. In particular, the inability to model relationships has been a challenge for the interaction on the data lake. This challenge is now addressed with an integrated designer that provides possibilities that have been available in databases but not on the lake. Also the capability to add descriptions and possible demo values to the model allows people who are interacting with it in the future to have information where they need it to get a better understanding about the data. 
+The new database designer in Synapse Studio gives you the possibility to create a data model for your lake database and add additional information to it. Every Entity and Attribute can be described to provide more information about the model, which not only contains Entities but relationships as well. In particular, the inability to model relationships has been a challenge for the interaction on the data lake. This challenge is now addressed with an integrated designer that provides possibilities that have been available in databases but not on the lake. Also the capability to add descriptions and possible demo values to the model allows people who are interacting with it in the future to have information where they need it to get a better understanding about the data. 
 
 ## Data storage 
 
-Lake databases use a data lake on the Azure Storage account to store the data of the database. The data can be stored in Parquet or CSV format and different settings can be used to optimize the storage. Every lake database uses a linked service to define the location of the root data folder. For every entity, separate folders are created by default within this database folder on the data lake. By default all tables within a lake database use the same format but the formats and location of the data can be changed per entity if that is requested. 
+Lake databases use a data lake on the Azure Storage account to store the data of the database. The data can be stored in Parquet, Delta or CSV format and different settings can be used to optimize the storage. Every lake database uses a linked service to define the location of the root data folder. For every entity, separate folders are created by default within this database folder on the data lake. By default all tables within a lake database use the same format but the formats and location of the data can be changed per entity if that is requested. 
 
+> [!NOTE] 
+> Publishing a lake database does not create any of the underlying structures or schemas needed to query the data in Spark or SQL. After publishing, load data into your lake database using [pipelines](../data-integration/data-integration-data-lake.md) to begin querying it.
+> 
+> Currently, Delta format support for lake databases is not supported in Synapse Studio.
+> 
+> The synchronization of lake database objects between storage and Synapse is one-directional. Be sure to perform any creation or schema modification of lake database objects using the database designer in Synapse Studio. If you instead make such changes from Spark or directly in storage, the definitions of your lake databases will become out of sync. If this happens, you may see old lake database definitions in the database designer. You will need to replicate and publish such changes in the database designer in order to bring your lake databases back in sync.
 
 ## Database compute
 

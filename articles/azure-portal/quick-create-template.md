@@ -2,13 +2,13 @@
 title: Create an Azure portal dashboard by using an Azure Resource Manager template
 description: Learn how to create an Azure portal dashboard by using an Azure Resource Manager template.
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 01/13/2022
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 09/16/2022
 ---
 
 # Quickstart: Create a dashboard in the Azure portal by using an ARM template
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a dashboard. The dashboard shows the performance of a virtual machine (VM), as well as some static information and links.
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a dashboard. The dashboard shows the performance of a virtual machine (VM), and some static information and links.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -19,35 +19,33 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
+- A virtual machine. The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by following these steps.
 
-## Create a virtual machine
+    1. In the Azure portal, select **Cloud Shell** from the global controls at the top of the page.
 
-The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by following these steps.
+        :::image type="content" source="media/quick-create-template/cloud-shell.png" alt-text="Screenshot showing the Cloud Shell option in the Azure portal.":::
 
-1. In the Azure portal, select **Cloud Shell** from the global controls at the top of the page.
+    1. In the **Cloud Shell** window, select **PowerShell**.
 
-    :::image type="content" source="media/quick-create-template/cloud-shell.png" alt-text="Screenshot showing the Cloud Shell option in the Azure portal.":::
+        :::image type="content" source="media/quick-create-template/powershell.png" alt-text="Screenshot showing the PowerShell option in Cloud Shell.":::
 
-1. In the **Cloud Shell** window, select **PowerShell**.
+    1. Copy the following command and enter it at the command prompt to create a resource group.
 
-    :::image type="content" source="media/quick-create-template/powershell.png" alt-text="Screenshot showing the PowerShell option in Cloud Shell.":::
+        ```powershell
+        New-AzResourceGroup -Name SimpleWinVmResourceGroup -Location EastUS
+        ```
 
-1. Copy the following command and enter it at the command prompt to create a resource group.
+    1. Next, copy the following command and enter it at the command prompt to create a VM in your new resource group.
 
-    ```powershell
-    New-AzResourceGroup -Name SimpleWinVmResourceGroup -Location EastUS
-    ```
+        ```powershell
+        New-AzVm `
+            -ResourceGroupName "SimpleWinVmResourceGroup" `
+            -Name "myVM1" `
+            -Location "East US"
+        ```
 
-1. Next, copy the following command and enter it at the command prompt to create a VM in your new resource group.
-
-    ```powershell
-    New-AzVm `
-        -ResourceGroupName "SimpleWinVmResourceGroup" `
-        -Name "myVM1" `
-        -Location "East US" 
-    ```
-
-1. Enter a username and password for the VM. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+    1. Enter a username and password for the VM. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
     After the VM has been created, move on to the next section.
 
