@@ -27,7 +27,6 @@ Isolated process
 Functions execute in an isolated C# worker process. To learn more, see Guide for running C# Azure Functions in an isolated process.
 
 ::: zone-end
-
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"
 
 Install bundle

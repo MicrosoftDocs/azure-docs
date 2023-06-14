@@ -24,26 +24,23 @@ In-process
 <!--Content and samples from the C# tab in ##Examples go here.-->
 Isolated process
 <!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example: :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49"::: -->
-::: zone-end ::: zone pivot="programming-language-java"
+::: zone-end
+::: zone pivot="programming-language-java"
 
 <!--Content and samples from the Java tab in ##Examples go here.-->
 ::: zone-end
-
 ::: zone pivot="programming-language-javascript"
 
 <!--Content and samples from the JavaScript tab in ##Examples go here.-->
 ::: zone-end
-
 ::: zone pivot="programming-language-powershell"
 
 <!--Content and samples from the PowerShell tab in ##Examples go here.-->
 ::: zone-end
-
 ::: zone pivot="programming-language-python"
 
 <!--Content and samples from the Python tab in ##Examples go here.-->
 ::: zone-end
-
 ::: zone pivot="programming-language-csharp"
 
 Attributes
@@ -55,13 +52,11 @@ In-process
 Isolated process
 <!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16"::: -->
 ::: zone-end
-
 ::: zone pivot="programming-language-java"
 
 Annotations
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end
-
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
 Configuration
@@ -80,14 +75,13 @@ In-process
 <!--Any usage information specific to in-process, including types. -->
 Isolated process
 <!--Any usage information specific to isolated worker process, including types. -->
-::: zone-end
 
+::: zone-end
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
-
 ::: zone pivot="programming-language-javascript,programming-language-powershell"
 
 <!--Any usage information from the JavaScript tab in ## Usage. -->

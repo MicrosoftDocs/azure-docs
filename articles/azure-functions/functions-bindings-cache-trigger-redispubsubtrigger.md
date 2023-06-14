@@ -7,7 +7,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 06/14/2023
 
 ---
 
@@ -24,7 +24,9 @@ In-process
 <!--Content and samples from the C# tab in ##Examples go here.-->
 Isolated process
 <!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example: :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49"::: -->
-::: zone-end ::: zone pivot="programming-language-java"
+::: zone-end
+
+::: zone pivot="programming-language-java"
 
 <!--Content and samples from the Java tab in ##Examples go here.-->
 ::: zone-end

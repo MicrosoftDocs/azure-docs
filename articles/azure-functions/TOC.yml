@@ -717,14 +717,14 @@
               displayName: 
             - name: Trigger
               items: 
-              - name: Input Binding
+              - name: Pub Sub Trigger
                 href: functions-bindings-cache-trigger-redispubsubtrigger.md
                 displayName: Azure Cache for Redis
-              - name: Service Invocation
-                href: functions-bindings-cache-trigger-redislisttrigger.md
+              - name: List Trigger
+                href: functions-bindings-cache-trigger-redisliststrigger.md
                 displayName: Azure Cache for Redis
-              - name: Topic
-                href: functions-bindings-cache-trigger-redisstreamtrigger.md
+              - name: Stream Trigger
+                href: functions-bindings-cache-trigger-redisstreamstrigger.md
                 displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
