@@ -27,8 +27,6 @@ Mission critial apps often need to have a robust failover system and serve users
 ### Contoso, a social media company
 Contoso is a social media company with its customer base spread across the US and Canada. Contoso provides a mobile and web app to its users so that they can connect with each other. Contoso application is deployed in Central US. As part of Contoso's architecture, Web PubSub is used to establish persistent WebSocket connections between client apps and the application server. Contoso **likes** that they can offload managing WebSocket connections to Web PubSub, but **doesn't** like reading reports of users in Canada experiencing higher latency. Furthermore, Contoso's development team wants to insure the app against regional outage so that the users can access the app with no interruptions.
 
-<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/5a4a3460-161a-4fe4-b254-f2cd5e59db87">
-
 ![Screenshot of using one Azure WebPubSub instance to handle traffic from two countries. ](./media/howto-enable-geo-replication/webpubsub-single.png  "Single WebPubSub Example")
 
 Contoso **could** set up another Web PubSub resource in Canada Central which is geographically closer to its users in Canada. However, managing multiple Web PubSub resources brings some challenges:
@@ -38,27 +36,19 @@ Contoso **could** set up another Web PubSub resource in Canada Central which is 
 
 All of the above takes engineering resources away from focusing on product innovation.
 
-<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/dd9b491c-0c09-49dd-aa73-9f78fbd41b4c">
-
 ![Screenshot of using two Azure Web PubSub instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/webpubsub-multiple.png  "Mutiple Web PubSub Example")
 
 ### Harnessing the geo-replication feature
 With the geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned challenges. The developer team is glad to find out that they don't need to make any code changes. It's as easy as clicking a few buttons on Azure portal. The developer team is also happy to share with the stakeholders that as Contoso plans to enter the European market, they simply need to add another replica in Europe. 
-
-<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/abad4c0e-0cc7-4c24-a286-9440d3c3a13c">
 
 ![Screenshot of using one Azure Web PubSub instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/webpubsub-replica.png  "Replica Example")
 
 ## How to enable geo-replication in a Web PubSub resource
 To create a replica in an Azure region, go to your Web PubSub resource and find the **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 
-![Web PubSub Replica Creation](https://github.com/bjqian/azure-docs/assets/16233725/ecc24f6f-7b14-452f-9a69-65c3cd80ef8a)
-
 ![Screenshot of creating replica for Azure Web PubSub on Portal.](./media/howto-enable-geo-replication/webpubsub-replica-create.png  "Replica create")
 
 After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
-
-![Web PubSub Replica Overview](https://github.com/bjqian/azure-docs/assets/16233725/846955ea-9b0b-4fc1-a08d-9b5720af4bc0)
 
 ![Screenshot of overview blade of Azure Web PubSub replica resource. ](./media/howto-enable-geo-replication/webpubsub-replica-overview.svg  "Replica Overview")
 
@@ -85,8 +75,6 @@ To ensure effective failover management, it is recommended to enable [autoscalin
 > * Autoscaling for replica is configured on its own resource level. Scaling primary resource won't change the unit size of the replica.
 
 ## Understand how the geo-replication feature works
-
-![replica_overview-Page-1 drawio](https://github.com/bjqian/azure-docs/assets/16233725/80241a26-d0cf-4dc6-876d-df29d441639a)
 
 ![Screenshot of the arch of Azure Web PubSub replica. ](./media/howto-enable-geo-replication/webpubsub-replica-arch.png  "Replica Arch")
 
