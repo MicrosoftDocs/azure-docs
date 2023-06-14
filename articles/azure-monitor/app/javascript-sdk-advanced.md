@@ -8,9 +8,9 @@ ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
-# Microsoft Azure Monitor Application Insights JavaScript SDK advanced topics
+# Microsoft Azure Monitor Application Insights JavaScript SDK configuration
 
-The Azure Application Insights JavaScript SDK provides advanced features for tracking, monitoring, and debugging your web applications.
+The Azure Application Insights JavaScript SDK provides configuration for tracking, monitoring, and debugging your web applications.
 
 > [!div class="checklist"]
 > - [SDK configuration](#sdk-configuration)
@@ -20,10 +20,7 @@ The Azure Application Insights JavaScript SDK provides advanced features for tra
 
 ## SDK configuration
 
-These configuration fields are optional and default to false unless otherwise stated. Depending on how you're enabling Application Insights, add these configuration fields as follows: 
-
-- If you're using the SDK Loader Script to enable Application Insights, add these configuration fields within the `cfg` object.
--  If you're using the npm package to enable Application Insights, add these configuration fields within the `config` object.
+These configuration fields are optional and default to false unless otherwise stated.
 
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
@@ -259,4 +256,3 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 * [Track usage](usage-overview.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-* [JavaScript SDK advanced topics](javascript-sdk-advanced.md)
