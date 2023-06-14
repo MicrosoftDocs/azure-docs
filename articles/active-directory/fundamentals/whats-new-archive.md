@@ -7916,15 +7916,6 @@ For more information about the new **Audit logs** page, see [Audit activity repo
 
 ---
 
-### New warnings and guidance to help prevent accidental administrator lockout from misconfigured Conditional Access policies
-
-**Type:** Changed feature
-**Service category:** Conditional Access
-**Product capability:** Identity Security & Protection
-
-To help prevent administrators from accidentally locking themselves out of their own tenants through misconfigured Conditional Access policies, we've created new warnings and updated guidance in the Azure portal. For more information about the new guidance, see [What are service dependencies in Azure Active Directory Conditional Access](../conditional-access/service-dependencies.md).
-
----
 
 
 
