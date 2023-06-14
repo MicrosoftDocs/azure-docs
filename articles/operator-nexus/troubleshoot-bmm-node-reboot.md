@@ -55,4 +55,4 @@ Perform the following CLI update on any affected VMs with some dummy tag values 
 
 This process facilitates the restoration of the VM to an online state. 
 
-:::image type="content" source="media\troubleshoot-bmm-server\BMM-runningstatus.png" alt-text="Screenshot of Sample VSRx VM in Error status." lightbox="media\troubleshoot-bmm-server\BMM-runningstatus.png":::
+:::image type="content" source="media\troubleshoot-bmm-server\BMM-runningstatus.png" alt-text="Screenshot of Sample VM in running status." lightbox="media\troubleshoot-bmm-server\BMM-runningstatus.png":::
