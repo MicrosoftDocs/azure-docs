@@ -107,7 +107,7 @@ sections:
       - question: |
           How does vector search work in Azure Cognitive Search?
         answer: |
-          In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is "Collection(Edm.Single)", but other types of vector fields will be supported in the future, like Collection(Edm.Double) and Collection(Edm.Int32). Vector fields can be populated using an Indexer or by the Push API. 
+          In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is "Collection(Edm.Single)". Vector fields can be populated using an Indexer or by the Push API. 
           
           Vector queries can be issued standalone or in combination with other query types, including term queries and filters in the same search request.
 
