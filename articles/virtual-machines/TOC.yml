@@ -305,7 +305,7 @@
       - name: NDv2-series
         href: ndv2-series.md
       - name: NGads V620-series (preview)
-        href: NGads-V620-series.md
+        href: ngads-v-620-series.md
       - name: NV-series
         href: nv-series.md
       - name: NVv3-series
