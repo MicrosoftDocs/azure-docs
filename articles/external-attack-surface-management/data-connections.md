@@ -22,7 +22,7 @@ The data connector sends Defender EASM asset data to two different platforms: Mi
 
 ## Data content options
 
-<br>Defender EASM data connections offers users the ability to integrate two different kinds of attack surface data into the tool of their choice. Users can elect to migrate asset data, attack surface insights or both data types. Asset data provides granular details about your entire inventory, whereas attack surface insights provide immediately actionable insights based on Defender EASM dashboards. 
+<br>Defender EASM data connections offer users the ability to integrate two different kinds of attack surface data into the tool of their choice. Users can elect to migrate asset data, attack surface insights or both data types. Asset data provides granular details about your entire inventory, whereas attack surface insights provide immediately actionable insights based on Defender EASM dashboards. 
 
 To accurately present the infrastructure that matters most to your organization, please note that both content options will only include assets in the “Approved Inventory” state.
 
@@ -110,7 +110,7 @@ A configuration pane will open on the right-hand side of the Data Connections sc
 - **Content**: users can select to integrate asset data, attack surface insights or both datasets. 
 - **Frequency**: select the frequency that the Defender EASM connection sends updated data to the tool of your choice. Available options are daily, weekly and monthly.
 
-   ![Screenshot of the "add data connection.](media/data-connections/data-connector-12.png)
+   ![Screenshot of the "add data connection" screen for Azure Data Explorer.](media/data-connections/data-connector-12.png)
    
    
    Once all fields are configured, select **Add** to create the data connection. At this point, the Data Connections page will display a banner that indicates the resource has been successfully created and data will begin populating within 30 minutes. Once connections are created, they will be listed under the applicable tool on the main Data Connections page. 
