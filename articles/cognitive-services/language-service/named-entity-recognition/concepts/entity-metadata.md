@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 6/13/2022
+ms.date: 06/13/2023
 ms.author: jboback
 ms.custom: language-service-ner
 ---
@@ -21,7 +21,7 @@ Currently, metadata components handle resolutions to a standard format for an en
 You can use NER resolutions to implement actions or retrieve further information. For example, your service can extract datetime entities to extract dates and times that are provided to a meeting scheduling system. 
 
 > [!NOTE]
->  are only supported starting from **_api-version=2023-04-15-preview_**. For older API versions, you may check the [Entity Resolutions article](./entity-resolutions.md).
+>  Entity Metadata are only supported starting from **_api-version=2023-04-15-preview_**. For older API versions, you may check the [Entity Resolutions article](./entity-resolutions.md).
 
 This article documents the resolution objects returned for each entity category or subcategory under the metadata object.
 

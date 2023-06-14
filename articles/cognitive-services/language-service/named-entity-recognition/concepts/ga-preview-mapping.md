@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 06/14/2023
 ms.author: jboback
 ms.custom: language-service-ner, ignite-fall-2021
 ---
 
 # Preview API changes
 
-Use this article to get an overview of the new API changes starting from `2023-04-15-preview` version. This API change mainly introduces two new concepts (`entity types` and `entity tags`) replacing the `category` and `subcategory` fields in the current Generally Avaialble API.
+Use this article to get an overview of the new API changes starting from `2023-04-15-preview` version. This API change mainly introduces two new concepts (`entity types` and `entity tags`) replacing the `category` and `subcategory` fields in the current Generally Available API.
 
 ## Entity types
-Entity types represent the lowest (or finest) granuality at which the entity has been detected and can be considered to be the base class that has been detected.
+Entity types represent the lowest (or finest) granularity at which the entity has been detected and can be considered to be the base class that has been detected.
 
 ## Entity tags
 Entity tags are used to further identify an entity where a detected entity is tagged by the entity type and additional tags to differentiate the identified entity. The entity tags list could be considered to include categories, subcategories, sub-subcategories, and so on.
@@ -31,7 +31,7 @@ The changes introduce better flexibility for named entity recognition, including
 * Metadata Objects which contain additional information about the entity but currently only act as a wrapper for the existing entity resolution feature. You can learn more about this new feature [here](entity-metadata.md).
 
 ## Generally available to preview API entity mappings
-You can see a comparison between the structure of the entity categories/types in the [Supported Named Entity Recognition (NER) entity categories and entity types article](./named-entity-categories.md). Below is a table describing the mappings between the results you would expect seeing from the Generally Available API and the Preview API.
+You can see a comparison between the structure of the entity categories/types in the [Supported Named Entity Recognition (NER) entity categories and entity types article](./named-entity-categories.md). Below is a table describing the mappings between the results you would expect to see from the Generally Available API and the Preview API.
 
 | Type           | Tags                                   |
 |----------------|----------------------------------------|

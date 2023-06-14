@@ -26,9 +26,8 @@ Use this quickstart to send Named Entity Recognition (NER) requests using the RE
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 > * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-> * Go to the Azure portal and find the key and endpoint for the Language resource you created in the prerequisites. They are be located on the resource's **key and endpoint** page, under **resource management**. Then replace the strings in the code with your key and endpoint.
+> * Go to the Azure portal and find the key and endpoint for the Language resource you created in the prerequisites. They are located on the resource's **key and endpoint** page, under **resource management**. Then replace the strings in the code with your key and endpoint.
 To call the API, you need the following information:
-
 
 |parameter  |Description  |
 |---------|---------|
@@ -38,10 +37,6 @@ To call the API, you need the following information:
 |`-d <documents>`     | The JSON containing the documents you want to send.         |
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
-
-
-
-
 
 ## Named Entity Extraction (NER)
 
