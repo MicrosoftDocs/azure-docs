@@ -146,7 +146,6 @@
     - name: Enable Enterprise IoT security
       href: eiot-defender-for-endpoint.md
       displayName: onboard
-      displayName: Enterprise IoT sensor
     - name: Enterprise IoT networks FAQ
       href: faqs-eiot.md
 - name: Tutorials
