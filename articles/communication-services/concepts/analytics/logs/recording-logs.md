@@ -29,6 +29,9 @@ Communication Services offers the following types of logs that you can enable:
   - Media content (for example, audio/video, unmixed, or transcription).
   - Format types used for the recording (for example, WAV or MP4).
   - The reason why the recording ended.
+* **Recording incoming operations logs** - provides information regarding incoming requests for Call Recording operations. Every entry corresponds to the result of a call to the Call Recording APIs, e.g. StartRecording, StopRecording, PauseRecording, ResumeRecording, etc.
+
+
 
 A recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot). It can also end because of a system failure.
 
@@ -74,12 +77,12 @@ Summary logs are published after a recording is ready to be downloaded. The logs
 ```json
 "operationName":            "Call Recording Summary",
 "operationVersion":         "1.0",
-"category":                 "RecordingSummaryPUBLICPREVIEW",
+"category":                 "RecordingSummary",
 
 ```
 A call can have one recording or many recordings, depending on how many times a recording event is triggered.
 
-For example, if an agent initiates an outbound call on a recorded line and the call drops because of a poor network signal, `callid` will have one `recordingid` value. If the agent calls back the customer, the system generates a new `callid` instance and a new `recordingid` value. 
+For example, if an agent initiates an outbound call on a recorded line and the call drops because of a poor network signal, `callID` will have one `recordingID` value. If the agent calls back the customer, the system generates a new `callID` instance and a new `recordingID` value. 
 
 
 #### Example: Call Recording for one call to one recording
@@ -105,7 +108,7 @@ For example, if an agent initiates an outbound call on a recorded line and the c
 }
 ```
 
-If the agent initiates a recording and then stops and restarts the recording multiple times while the call is still on, `callid` will have many `recordingid` values, depending on how many times the recording events were triggered.
+If the agent initiates a recording and then stops and restarts the recording multiple times while the call is still on, `callID` will have many `recordingID` values, depending on how many times the recording events were triggered.
 
 #### Example: Call Recording for one call to many recordings
 
@@ -146,6 +149,49 @@ If the agent initiates a recording and then stops and restarts the recording mul
     "AudioChannelsCount": 1
 }
 ```
+ACSCallRecordingIncomingOperations logs
+
+Properties
+
+| Property | Description |
+| -------- | ---------------|
+|` TimeGenerated`| Represents the timestamp (UTC) of when the log was generated. |
+|` CallConnectionId`| Represents the IDd of the call connection/leg, if available. |
+|` CallerIpAddress`| Represents the caller IP address, if the operation corresponds to an API call that would come from an entity with a publicly available IP address. |
+|` CorrelationId`| Represents the ID for correlated events. Can be used to identify correlated events between multiple tables. |
+|` DurationMs`|Represents the duration of the operation in milliseconds. |
+|` Level`| Represents the severity level of the operation. |
+|` OperationName`| Represents the operation associated with log records. |
+|` OperationVersion`| Represents the API version associated with the operation or version of the operation (if there is no API version). |
+|` ResourceId`| Represents a unique identifier for the resource that the record is associated with. |
+|` ResultSignature`| Represents the sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
+|` ResultType`| Represents the status of the operation. |
+|` SdkType`| Represents the SDK type used in the request. |
+|` SdkVersion`| Represents the SDK Version. |
+|` ServerCallId`| Represents the server Call Id. |
+|` URI`| Represents the URI of the request. |
+
+ Sample
+
+```json
+"properties"
+{  "TimeGenerated": "2023-05-09T15:58:30.100Z",
+    "Level": "Informational",
+    "CorrelationId": "a999f996-b4e1-xxxx-ac04-a59test87d97",
+    "OperationName": "ResumeCallRecording",
+    "OperationVersion": "2023-03-06",
+    "URI": "https://acsresouce.communication.azure.com/calling/recordings/   eyJQbGF0Zm9ybUVuZHBviI0MjFmMTIwMC04MjhiLTRmZGItOTZjYi0...:resume?api-version=2023-03-06",
+    "ResultType": "Succeeded",
+    "ResultSignature": 202,
+    "DurationMs": 130,
+    "CallerIpAddress": "127.0.0.1",
+    "CallConnectionId": "d5596715-ab0b-test-8eee-575c250e4234",
+    "ServerCallId": "aHR0cHM6Ly9hcGk0vjCCCCCCQd2pRP2k9OTMmZT02Mzc5OTQ3xMDAzNDUwMzg...",
+    "SdkVersion": "1.0.0-alpha.20220829.1",
+    "SdkType": "dotnet"
+}
+```
+
 
 ## Next steps
 
