@@ -1,5 +1,5 @@
 - name: Virtual Machines Documentation
-  href: index.yaml
+  href: index.yml
 - name: Overview
   items:
   - name: About Linux Virtual Machines

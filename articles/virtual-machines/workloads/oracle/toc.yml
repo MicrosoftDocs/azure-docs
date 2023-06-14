@@ -1,5 +1,5 @@
 - name: Oracle on Azure VMs
-  href: index.yaml
+  href: index.yml
 - name: Overview 
   items:
   - name: Oracle applications and solutions on Azure
