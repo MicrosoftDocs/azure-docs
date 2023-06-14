@@ -125,8 +125,6 @@ items:
       href: concepts/custom-features/project-versioning.md
   - name: Tutorials
     items:
-    - name: Enrich a Cognitive Search index 
-      href: custom-text-classification/tutorials/cognitive-search.md
     - name: Triage incoming emails with power automate
       href: custom-text-classification/tutorials/triage-email.md
   - name: Reference
@@ -220,10 +218,6 @@ items:
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
-  - name: Tutorials
-    items:
-      - name: Enrich a Cognitive Search index with custom entities
-        href: custom-named-entity-recognition/tutorials/cognitive-search.md
   - name: Concepts
     items:
       - name: Evaluation metrics
@@ -370,8 +364,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -451,8 +445,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -537,8 +531,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -617,8 +611,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -768,8 +762,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -967,8 +961,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -1055,8 +1049,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
