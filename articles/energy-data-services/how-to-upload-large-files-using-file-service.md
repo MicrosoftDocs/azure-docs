@@ -72,7 +72,7 @@ In order to upload files with sizes >= 5000 MiB, we would need [azcopy](https://
 
 3. Sample response 
 
-:::image type="content" source="media/how-to-upload-large-files-in-via-file-service/1-azcopy-sample-response.png" alt-text="Screenshot of azcopy copy command response":::
+:::image type="content" source="media/how-to-upload-large-files-using-file-service/1-azcopy-sample-response.png" alt-text="Screenshot of azcopy copy command response":::
 
 ## Next steps
 Begin your journey by ingesting data into your Azure Data Manager for Energy Preview resource.
