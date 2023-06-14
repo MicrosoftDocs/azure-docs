@@ -14,7 +14,7 @@ ms.author: jboback
 
 # Regional availability
 
-This article contains the regional availability for all summarization features.
+This article contains the regional availability for all summarization features. More regions will be added to this list as they become available.
 
 ## Regional availability table
 

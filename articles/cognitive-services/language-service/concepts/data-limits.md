@@ -16,7 +16,7 @@ ms.author: aahi
 # Service limits for Azure Cognitive Service for Language
 
 > [!NOTE]
-> This article only describes the limits for pre-configured features in Azure Cognitive Service for Language:
+> This article only describes the limits for preconfigured features in Azure Cognitive Service for Language:
 > To see the service limits for customizable features, see the following articles: 
 > * [Custom classification](../custom-classification/service-limits.md)
 > * [Custom NER](../custom-named-entity-recognition/service-limits.md)
@@ -46,8 +46,8 @@ The following limit specifies the maximum number of characters that can be in a 
 | Feature | Value |
 |------------------------|---------------|
 | Text Analytics for health | 125,000 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  | 
-| All other pre-configured features (synchronous) | 5,120 as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). If you need to submit larger documents, consider using the feature asynchronously. |
-| All other pre-configured features ([asynchronous](use-asynchronously.md))  | 125,000 characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). |
+| All other preconfigured features (synchronous) | 5,120 as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). If you need to submit larger documents, consider using the feature asynchronously. |
+| All other preconfigured features ([asynchronous](use-asynchronously.md))  | 125,000 characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). |
 
 If a document exceeds the character limit, the API behaves differently depending on how you're sending requests.
 
@@ -63,7 +63,7 @@ The following limit specifies the maximum size of documents contained in the ent
 
 | Feature | Value |
 |------------------------|---------------|
-| All pre-configured features  | 1MB |
+| All preconfigured features  | 1 MB |
 
 ## Maximum documents per request
 
@@ -87,7 +87,7 @@ Exceeding the following document limits generates an HTTP 400 error code.
 
 ## Rate limits
 
-Your rate limit varies with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which does not have a set rate limit.
+Your rate limit varies with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which doesn't have a set rate limit.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|
