@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 06/14/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.custom: enterprise-apps
@@ -25,15 +25,14 @@ In this article, you learn how to review and take action on admin consent reques
 To review and take action on admin consent requests, you need:
 
 - An Azure account. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- Global Administrator administrator role.
 
 ## Review and take action on admin consent requests
 
 To review the admin consent requests and take action:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as one of the registered reviewers of the admin consent workflow.
-1. Select **All services** at the top of the left-hand navigation menu.
-1. In the filter search box, type and select **Azure Active Directory**.
+1. Search for and select **Azure Active Directory**.
 1. From the navigation menu, select **Enterprise applications**.
 1. Under **Activity**, select **Admin consent requests**.
 1. Select **My Pending** tab to view and act on the pending requests. 
