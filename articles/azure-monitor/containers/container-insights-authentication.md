@@ -169,6 +169,7 @@ az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring
 >  o	Click on 'Assign' and then go to the 'Parameters' tab and fill in the details. Then click 'Review + Create'.
 >  o	Once the policy is assigned to the subscription, whenever you create a new cluster, the policy will run and check if Container Insights is enabled. If not, it will deploy the resource. If you want to apply the policy to existing AKS cluster, create a 'Remediation task' for that resource after going to the 'Policy Assignment'.
 
+---
 
 ## Limitations 
 1.	Ingestion Transformations are not supported: See [Data collection transformation](https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-transformations) to read more.    
