@@ -13,7 +13,7 @@ ms.date: 06/01/2023
 
 Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs. 
 In some cases, though, you may need to run services on Azure Large Instances without a virtualization layer. 
-You may need root access and control over the operating system (OS). To meet this need, Azure offers Azure Large Instances for several high-value, mission-critical applications. 
+You may need root access and control over the operating system (OS). To meet this need, Azure offers Azure Large Instances for several high-value, mission-critical applications.
 
 Azure Large Instances (ALI) is comprised of dedicated large instances (compute instances). It features: 
 
@@ -67,10 +67,17 @@ Use the workload-specific SKUs to meet your needs:
 * Large instances – two-socket to four-socket systems
 * Very Large instances – 4-socket to 20-socket systems
 
-Azure Large Instances for specialized workloads is available in the following Azure regions: 
-* East US zones support 
-* West US 2 zones support 
-* South Central US 
+Azure Large Instances for specialized workloads is available in the following Azure regions:
+
+* West Europe
+* North Europe
+* Germany West Central zones support 
+* East US zones support
+* East US 2 zones support
+* West US zones support
+* West US 2 zones support
+* South Central US
+* South Central US
 
 > [!Note]
 >Zones support refers to availability zones in which a region where Azure Large Instances can be deployed across zones for high resiliency and availability. This capability enables support for multi-site active-active scaling. 

@@ -8,39 +8,40 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-# Onboarding requirements
+# ALI for Epic Onboarding requirements
 
-When customers receive an environment from the Microsoft ALI team, they are encouraged to perform the following steps:  
+This article suggests actions to take after you receive an environment from the Microsoft ALI team.
 
 ## Azure portal
 
 * Use Azure portal to:
-  * Create Azure Virtual Network(s) and ExpressRoute Gateway or Gateways with High or Ultra Performance Reference.
-  * Link them with ALI for Epic stamps using Circuit/peer ID and Authorization Key provided by Microsoft team.  
+  * Create Azure Virtual Network (or networks) and ExpressRoute Gateway or Gateways with High or Ultra Performance Reference.
+  * Link them with ALI for Epic stamps using the Circuit/peer ID and Authorization Keys provided by Microsoft team.  
 
 ## VNET address space
 
-* Ensure that the VNET address space provided in your request is the same as what you configure.  
+Ensure that the VNET address space provided in your request is the same as what you configure.  
 
 ## Time sync
 
-* Setup time synchronization with NTP server.  
+Setup time synchronization with NTP server.  
 
 ## Jump box
 
 * Set up a jump box in a VM to connect to ALI for Epic stamps.
-  * Change the root password at first login and store password in a secure location.  
+* Change the root password at first login and store password in a secure location.  
 
 ## Satellite server
 
-* Install a red hat satellite server in a VM for RHEL 8.4 and patch download.
+Install a red hat satellite server in a VM for RHEL 8.4 and patch download.
 
 ## ALI for Epic stamps
 
 * Validate ALI for Epic stamps and configure and patch OS based on your requirements.  
-  * Verify that the stamps are visible on Azure Portal.
+* Verify that the stamps are visible on Azure Portal.
+
   > [!Note]
-  > Do NOT place large files like ALI for Epic installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
+  > Do *not* place large files like ALI for Epic installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
 
 ## Secure Server IP pool address range
 
@@ -66,7 +67,7 @@ This range may not overlap with the  IP address ranges you defined before. 
 
 You can use ExpressRoute Fast Path to access your Azure ALI servers from anywhere, Azure VMs (hub and spoke) and on-premises.
 
-For setup instructions, see [How to enable ExpressRoute Fast Path](how-to enable-expressroute-fast-path).
+For setup instructions, see [Enable ExpressRoute Fast Path](#enable-expressroute-fast-path).
 
 To see the learned routes from ALI, one of the options is looking at the Effective Routes table of one of your VMs, as follows:
 
@@ -80,9 +81,9 @@ To see the learned routes from ALI, one of the options is looking at the Effecti
 6. Set up a storage snapshot, backup, and data offload. (For detailed steps, see [FAQ](faq.md)).  
 
 The Azure subscription you use for Azure Large Instance deployments is already registered with the ALI resource provider by the Microsoft Operations team during the provisioning process.
-If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. For more information, see [Register the ALI source provider](register-the-ali-source-provider.md).
+If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. For more information, see [Register the ALI resource provider](register-the-ali-resource-provider.md).
 
-## How to enable ExpressRoute Fast Path
+### Enable ExpressRoute Fast Path
 
 Before you begin, install the latest version of the Azure resource manager power shell cmdlets, at least 4.0 or later.
 For more information about installing the power shell cmdlets, see [How to install Azure Powershell](https://learn.microsoft.com/en-us/powershell/azure/install-azure-powershell?view=azps-10.0.0).
@@ -149,21 +150,21 @@ Get-AzureRmSubscription 
 Select-AzureRmSubscription -SubscriptionName $Sub1  
 ```
   
-### Enable ER fast path on the gateway connection  
+### Enable ExpressRoute fast path on the gateway connection  
 
-#### Declare variable for Gateway object
+#### Declare a variable for the gateway object
 
 ```azurecli
 $gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1  
 ```
 
-#### Declare variable for Express route circuit ID
+#### Declare a variable for the Express route circuit ID
 
 ```azurecli
 $id = "/subscriptions/”express route subscrioption ID”/resourceGroups/”ER resource group”/providers/Microsoft.Network/expressRouteCircuits/”circuit”  
 ```
 
-#### Enable MSEEv2 using “ExpressRouteGatewayBypass” flag
+#### Enable MSEEv2 using the **ExpressRouteGatewayBypass** flag
 
 ```azurecli
 New-AzureRmVirtualNetworkGatewayConnection -Name "Virtual Gateway connection name" -ResourceGroupName $RG1 -Location $Location1 -VirtualNetworkGateway1 $gw -PeerId $id -AuthorizationKey $Authkey -ConnectionType ExpressRoute -ExpressRouteGatewayBypass   
@@ -173,7 +174,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name "Virtual Gateway connection nam
 
 To take advantage of low latency access on VMs network stack, enable accelerated networking (AN), also known as SR-IOV, on supported VMs.
 Ffor more details on supported VM sizes, OS and how to enable AN for existing VMs, see
-[Use Azure CLI to create a Windows or Linux VM with Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli)
+[Use Azure CLI to create a Windows or Linux VM with Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli).
 
 ## Next steps
 
