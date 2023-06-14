@@ -7956,20 +7956,3 @@ For more information about this feature, see [Quickstart: Download an audit repo
 
 ---
 
-### Breaking change: Updates to condition evaluation by Exchange ActiveSync (EAS)
-
-**Type:** Plan for change
-**Service category:** Conditional Access
-**Product capability:** Access Control
-
-We're in the process of updating how Exchange ActiveSync (EAS) evaluates the following conditions:
-
-- User location, based on country/region or IP address
-
-- Sign-in risk
-
-- Device platform
-
-If you've previously used these conditions in your Conditional Access policies, be aware that the condition behavior might change. For example, if you previously used the user location condition in a policy, you might find the policy now being skipped based on the location of your user.
-
----
