@@ -79,13 +79,13 @@ az group create --name $resourceGroupName --location eastus
    ```azurecli
     az sig create --resource-group $resourceGroupName --gallery-name $galleryName
     ```
-2. Create a [shared image gallery (SIG) definition](/cli/azure/sig/image-definition) confidential VM supported. Set new names for the gallery name, gallery image definition, SIG publisher name, and SKU.  
+2. Create a [shared image gallery (SIG) definition](/cli/azure/sig/image-definition) confidential VM supported. Set new names for gallery image definition, SIG publisher, and SKU.  
    ```azurecli
     az sig image-definition create --resource-group  $resourceGroupName --location $region --gallery-name $galleryName --gallery-image-definition $imageDefinitionName --publisher $sigPublisherName --offer ubuntu --sku $sigSkuName --os-type Linux --os-state specialized --hyper-v-generation V2  --features SecurityType=ConfidentialVMSupported
     ```
 3. Get the storage account ID.
    ```azurecli
-    storageAccountId=$(az storage account show --name $storageAccountName --resource-group $resourceGroupName | jq - r .id)
+    storageAccountId=$(az storage account show --name $storageAccountName --resource-group $resourceGroupName | jq -r .id)
     ```
 4. Create a SIG image version.
    ```azurecli
