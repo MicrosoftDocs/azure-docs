@@ -15,7 +15,7 @@ In this article, you learn about the storage choices available to you for Oracle
 ## Azure managed disks versus shared files
 The throughput & IOPs are limited by the SKU of the selected disk and the virtual machine –whichever is lower.  Managed disks are less expensive and simpler to manage than shared storage; however, managed disks may offer lower IOPs and throughput than a given virtual machine allows.    
 
-For example, while Azure’s Ultra Disks provides 160k IOPs and 2k MB/sec throughput that would become a bottleneck when attached to a Standard_L80s_v2 virtual machine, which allows reads of more than 3 million IOPs and 20k MB/sec throughput.  When high IOPs are required, consider selecting an appropriate virtual machine with shared storage choices like [Azure Elastic SAN](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-introduction), [Azure NetApp Files.](https://learn.microsoft.com/azure/azure-netapp-files/performance-oracle-multiple-volumes)
+For example, while Azure’s Ultra Disks provides 160k IOPs and 2k MB/sec throughput that would become a bottleneck when attached to a Standard_L80s_v2 virtual machine that allows reads of more than 3 million IOPs and 20k MB/sec throughput.  When high IOPs are required, consider selecting an appropriate virtual machine with shared storage choices like [Azure Elastic SAN](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-introduction), [Azure NetApp Files.](https://learn.microsoft.com/azure/azure-netapp-files/performance-oracle-multiple-volumes)
 
  ## Azure managed disks
 

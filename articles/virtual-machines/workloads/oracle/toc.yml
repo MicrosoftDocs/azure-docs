@@ -38,7 +38,7 @@
     href: oracle-database-backup-azure-backup.md
   - name: Stream database backups using Oracle RMAN
     href: oracle-rman-streaming-backup.md
-  - name: Disaster Recovery 12c Oracle on Azure
+  - name: Disaster Recovery 12c of Oracle on Azure
     href: oracle-disaster-recovery.md
 - name: Solution architecture
   items:

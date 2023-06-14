@@ -84,7 +84,7 @@ landingContent:
             url: oracle-database-backup-azure-storage.md
           - text: Oracle Database backup using Azure backup 
             url: oracle-database-backup-azure-backup.md 
-          - text: Oracle disaster recovery options
+          - text: Disaster Recovery 12c of Oracle on Azure
             url: oracle-disaster-recovery.md
           - text: Oracle RMAN streaming backup to Azure storage
             url: oracle-rman-streaming-backup.md
