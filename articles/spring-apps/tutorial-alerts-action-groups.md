@@ -38,13 +38,13 @@ The following procedures initialize both **Action Group** and **Alert** starting
 
 Navigate from a resource group to your Azure Spring Apps instance. Select **Alerts** in the navigation pane, then select **Manage actions**:
 
-:::image type="content" source="media/alerts-action-groups/action-1-a.png" alt-text="Screenshot of the Azure portal showing the Alerts page with Manage actions highlighted." lightbox="media/alerts-action-groups/action-1-a.png":::
+:::image type="content" source="media/alerts-action-groups/alerts-page-action-groups.png" alt-text="Screenshot of the Azure portal showing the Alerts page with Manage actions highlighted." lightbox="media/alerts-action-groups/alerts-page-action-groups.png":::
 
 ### Set up an Action Group
 
 To begin the procedure to initialize a new **Action Group**, select **Add action group**.
 
-:::image type="content" source="media/alerts-action-groups/action-1.png" alt-text="Screenshot of the Azure portal showing the Manage actions page with Add action group highlighted." lightbox="media/alerts-action-groups/action-1.png":::
+:::image type="content" source="media/alerts-action-groups/alerts-action-groups.png" alt-text="Screenshot of the Azure portal showing the Manage actions page with Add action group highlighted." lightbox="media/alerts-action-groups/alerts-action-groups.png":::
 
 On the **Add action group** page:
 
@@ -62,7 +62,7 @@ On the **Add action group** page:
 
 1. Select **OK** in the **Add action group** dialog.
 
-   :::image type="content" source="media/alerts-action-groups/action-2.png" alt-text="Screenshot of the Azure portal showing the Add action group page with the Action type pane open." lightbox="media/alerts-action-groups/action-2.png":::
+   :::image type="content" source="media/alerts-action-groups/alerts-create-action-group.png" alt-text="Screenshot of the Azure portal showing the Add action group page with the Action type pane open." lightbox="media/alerts-action-groups/alerts-create-action-group.png":::
 
 ### Set up an Alert
 
@@ -70,13 +70,13 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Navigate back to the **Alerts** page and then select **Manage Alert Rules**.
 
-   :::image type="content" source="media/alerts-action-groups/alerts-2.png" alt-text="Screenshot of the Azure portal showing the Alerts page with Manage alert rules highlighted." lightbox="media/alerts-action-groups/alerts-2.png":::
+   :::image type="content" source="media/alerts-action-groups/alerts-page-rules.png" alt-text="Screenshot of the Azure portal showing the Alerts page with Manage alert rules highlighted." lightbox="media/alerts-action-groups/alerts-page-rules.png":::
 
 1. Select the **Resource** for the alert.
 
 1. Select **New alert rule**.
 
-   :::image type="content" source="media/alerts-action-groups/alerts-3.png" alt-text="Screenshot of the Azure portal showing the Rules page with Add alert rule highlighted and the Resource dropdown menu highlighted." lightbox="media/alerts-action-groups/alerts-3.png":::
+   :::image type="content" source="media/alerts-action-groups/alerts-rules-page.png" alt-text="Screenshot of the Azure portal showing the Rules page with Add alert rule highlighted and the Resource dropdown menu highlighted." lightbox="media/alerts-action-groups/alerts-rules-page.png":::
 
 1. On the **Create rule** page, specify the **RESOURCE**.
 
@@ -84,11 +84,11 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Select a condition. This example uses **System CPU Usage Percentage**.
 
-   :::image type="content" source="media/alerts-action-groups/alerts-3-1.png" alt-text="Screenshot of the Azure portal showing the Configure signal logic pane." lightbox="media/alerts-action-groups/alerts-3-1.png":::
+   :::image type="content" source="media/alerts-action-groups/create-alert-rule.png" alt-text="Screenshot of the Azure portal showing the Configure signal logic pane." lightbox="media/alerts-action-groups/create-alert-rule.png":::
 
 1. Scroll down the **Configure signal logic** pane to set the **Threshold value** to monitor.
 
-   :::image type="content" source="media/alerts-action-groups/alerts-3-2.png" alt-text="Screenshot of the Azure portal showing Configure signal logic pane with Threshold value highlighted." lightbox="media/alerts-action-groups/alerts-3-2.png":::
+   :::image type="content" source="media/alerts-action-groups/rule-value.png" alt-text="Screenshot of the Azure portal showing Configure signal logic pane with Threshold value highlighted." lightbox="media/alerts-action-groups/rule-value.png":::
 
 1. Select **Done**.
 
@@ -96,7 +96,7 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Under **ACTIONS**, select **Select action group**. From the ACTIONS pane, select the previously defined **Action Group**.
 
-   :::image type="content" source="media/alerts-action-groups/alerts-3-3.png" alt-text="Screenshot of the Azure portal showing the Select an action group to attach to this alert rule pane with an Action group name highlighted." lightbox="media/alerts-action-groups/alerts-3-3.png":::
+   :::image type="content" source="media/alerts-action-groups/select-action-group.png" alt-text="Screenshot of the Azure portal showing the Select an action group to attach to this alert rule pane with an Action group name highlighted." lightbox="media/alerts-action-groups/select-action-group.png":::
 
 1. Scroll down, and under **ALERT DETAILS**, name the alert rule.
 
@@ -104,15 +104,13 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Select **Create alert rule**.
 
-   :::image type="content" source="media/alerts-action-groups/alerts-3-4.png" alt-text="Screenshot of the Azure portal showing the Create rule page with Alert Details highlighted." lightbox="media/alerts-action-groups/alerts-3-4.png":::
+   :::image type="content" source="media/alerts-action-groups/create-rule-details.png" alt-text="Screenshot of the Azure portal showing the Create rule page with Alert Details highlighted." lightbox="media/alerts-action-groups/create-rule-details.png":::
 
 1. Verify that the new alert rule is enabled.
 
-   :::image type="content" source="media/alerts-action-groups/alerts-4.png" alt-text="Screenshot of the Azure portal showing the Rules page for Alerts." lightbox="media/alerts-action-groups/alerts-4.png":::
+   :::image type="content" source="media/alerts-action-groups/alert-rule-enabled.png" alt-text="Screenshot of the Azure portal showing the Rules page for Alerts." lightbox="media/alerts-action-groups/alert-rule-enabled.png":::
 
-A rule can also be created using the **Metrics** page:
-
-   :::image type="content" source="media/alerts-action-groups/alerts-5.png" alt-text="Screenshot of the Azure portal showing the Metrics page with Metrics highlighted in the navigation pane." lightbox="media/alerts-action-groups/alerts-5.png":::
+A rule can also be created using the **Metrics** page.
 
 ## Next steps
 
