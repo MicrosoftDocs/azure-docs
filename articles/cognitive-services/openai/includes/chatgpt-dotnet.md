@@ -56,7 +56,7 @@ Build succeeded.
 
 Install the OpenAI .NET client library with:
 
-```console
+```dotnetcli
 dotnet add package Azure.AI.OpenAI --prerelease
 ```
 
@@ -122,8 +122,8 @@ using Azure;
 using Azure.AI.OpenAI;
 using static System.Environment;
 
-string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
+string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")!;
+string key = GetEnvironmentVariable("AZURE_OPENAI_KEY")!;
 
 OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 
