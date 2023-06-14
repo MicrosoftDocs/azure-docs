@@ -248,14 +248,31 @@ You can use the [directoryDefinition:discover](/graph/api/directorydefinition-di
 POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/[AD2AADProvisioningJobId]/schema/directories/[ADDirectoryID]/discover
 ```
 The expected response is … 
-HTTP 200/Success
+HTTP 200/OK
 
 The response should look similar to the following:
 
 ```
+HTTP/1.1 200 OK
+Content-type: application/json
+{
+  "objects": [
+    {
+      "name": "user",
+      "attributes": [
+        {
+          "name": "mailNickName",
+          "type": "String"
+        },
+        ...
+      ]
+    },
+    ...
+  ]
+}
 ```
 
-Now check to see if the mailNickName attribute is present.  If it is, then your schema contains the necessary Exchange attributes. 
+Now check to see if the **mailNickName** attribute is present.  If it is, then your schema is verified and contains the Exchange attributes. If not, review the [prerequisties](/azure/active-directory/hybrid/cloud-sync/exchange-hybrid#prerequisites) for Exchange hybrid writeback.
 
 
 
