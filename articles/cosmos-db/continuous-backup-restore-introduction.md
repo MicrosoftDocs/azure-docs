@@ -39,7 +39,7 @@ Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB,
 By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. For the regions that have zone redundancy configured, the backup is stored in zone-redundant storage blobs. In continuous backup mode, you can't update the backup storage redundancy.
 
 ## Different ways to restore
-Continuous backup mode supports two ways to restore deleted containers, databases. Existing restore mechanism restores into a [new account](restore-account-continuous-backup.md) as documented here. Restore into existing account is described [here](restore-account-continuous-backup.md). The choice between two depends on the scenarios and impact. Most of the deleted containers, databases can prefer in-account (existing) account restore to prevent data transfer which is required in case you restored to a new account. For scenarios where you have modified the data accidently restore into new account is the right thing to do. 
+Continuous backup mode supports two ways to restore deleted containers, databases. Existing restore mechanism restores into a [new account](restore-account-continuous-backup.md) as documented here. Restore into existing account is described [here](restore-account-continuous-backup.md). The choice between two depends on the scenarios and impact. Most of the deleted containers, databases can prefer in-account (existing) account restore to prevent data transfer which is required in case you restored to a new account. For scenarios where you have modified the data accidentally restore into new account is the right thing to do. 
 
 ## What is restored into a new account?
 
