@@ -80,20 +80,20 @@ Listen to Azure Communication Services PMs Ashwinder Bhatti and Anuj Bhatia talk
 
 [Learn more about Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services/)
 
-[Learn more about Azure Event Grid](../event-grid/overview)
+[Learn more about Azure Event Grid](../event-grid/overview.md)
 
 
 <br>
 <br>
 
 ### Create custom virtual meetings apps with Azure Communication Services and Microsoft Teams
-:::image type="content" source="./media/whats-new-images/05-23/virtual-appts.png" alt-text="Screenshot of a diagram describing the extensibility layer of Azure Communication Services and Teams." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
+:::image type="content" source="./media/whats-new-images/05-23/virtual-appts.png" alt-text="Diagram describing the extensibility layer of Azure Communication Services and Teams." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
 
 Join Microsoft PMs Tomas Chladek  and Ben Olson as they discuss how to create virtual meetings applications that use Azure Communication Services and interop seamlessly with Microsoft Teams
 
 [Watch the video](https://youtu.be/IBCp_-dk_m0)
 
-[Learn how to set up the Microsoft Teams virtual appointments app](../../microsoft-365/frontline/virtual-appointments-app)
+[Learn how to set up the Microsoft Teams virtual appointments app](../../microsoft-365/frontline/virtual-appointments-app.md)
 
 [Read more about Microsoft Teams Premium](https://www.microsoft.com/microsoft-teams/premium)
 
@@ -117,7 +117,7 @@ Learn how to convert a lengthy URL into a format that fits the format of SMS, an
 <br>
 
 ### Building on the Microsoft Cloud: Audio/video calling from a custom app
-:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="Visual representation of the challenge of fitting a long URL into a short SMS.":::
+:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="Microsoft Build event banner.":::
 
 Join Microsoft Senior Cloud Advocate Ayca Bas and Principal Content Engineer Dan Wahlin as they share how Microsoft Cloud services can empower your apps with audio/video communication. 
 
@@ -136,7 +136,7 @@ Join Microsoft Senior Cloud Advocate Ayca Bas and Principal Content Engineer Dan
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
 ### Calling SDK for Windows is now generally available
-:::image type="content" source="./media/whats-new-images/05-23/calling-windows.png" alt-text="":::
+:::image type="content" source="./media/whats-new-images/05-23/calling-windows.png" alt-text="Graphic showing windows laptop integrating with Azure Communication Services":::
 
 Add first-class calling capabilities to your Windows applications.
 
