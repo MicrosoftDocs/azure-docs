@@ -714,7 +714,7 @@
           items: 
             - name: Overview
               href: functions-bindings-cache.md
-              displayName: 
+              displayName: Azure Cache for Redis
             - name: Trigger
               items: 
               - name: Pub Sub Trigger
