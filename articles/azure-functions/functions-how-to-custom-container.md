@@ -1,7 +1,7 @@
 ---
 title: Working with Azure Functions in containers
 description: Learn how to work with function apps running in Linux containers.
-ms.date: 05/09/2023
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.custom: build-2023
 zone_pivot_groups: functions-container-hosting
@@ -121,7 +121,7 @@ You should also consider [enabling continuous deployment](#enable-continuous-dep
 :::zone pivot="azure-functions,container-apps"
 ## Azure portal create using containers
 
-When you create a function app in the [Azure portal](https://portal.azure.com), you can also create a deployment of the function app from an existing container image. The following steps create and deploy a function app from an existing container image.
+When you create a function app in the [Azure portal](https://portal.azure.com), you can also create a deployment of the function app from an existing container image. The following steps create and deploy a function app from an [existing container image](#creating-your-function-app-in-a-container).
 
 1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
