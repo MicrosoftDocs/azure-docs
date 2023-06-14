@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 04/18/2023
+ms.date: 06/14/2023
 ms.custom: seodec18
 
 ---
@@ -61,7 +61,9 @@ Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux dist
 Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption; of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
 | Publisher | Offer | SKU | URN | Volume type supported for encryption |
-| --- | --- |--- | --- |
+| --- | --- |--- | --- | --- |
+| MicrosoftCBLMariner | cbl-mariner | cbl-mariner-2 | MicrosoftCBLMariner:cbl-mariner:cbl-mariner-2:latest\* | OS and data disk |
+| MicrosoftCBLMariner | cbl-mariner | cbl-mariner-2-gen2 | MicrosoftCBLMariner:cbl-mariner:cbl-mariner-2-gen2:latest* | OS and data disk |
 | Canonical | Ubuntu | 22.04-LTS | Canonical:0001-com-ubuntu-server-focal:22_04-lts:latest | OS and data disk |
 | Canonical | Ubuntu | 22.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:22_04-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-LTS | Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest | OS and data disk |
@@ -110,6 +112,8 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | Data disk only |
 | SUSE | SLES 12-SP4 | 12-SP4 | SUSE:SLES:12-SP4:latest | Data disk only |
 | SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Data disk only |
+
+\* For image versions greater than or equal to May 2023.
 
 > [!NOTE]
 > RHEL:
