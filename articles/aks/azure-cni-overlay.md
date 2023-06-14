@@ -99,8 +99,8 @@ Azure CNI Overlay has the following limitations:
 
 ## Set up Overlay clusters
 
->[!NOTE]
-> You must have CLI version 2.47.0 or later to use the `--network-plugin-mode` argument. For Windows, you must have the [latest aks-preview Azure CLI extension installed](#install-the-aks-preview-azure-cli-extension---windows-only).
+> [!NOTE]
+> You must have CLI version 2.48.0 or later to use the `--network-plugin-mode` argument. For Windows, you must have the latest aks-preview Azure CLI extension installed and can follow the instructions below.
 
 Create a cluster with Azure CNI Overlay using the [`az aks create`][az-aks-create] command. Make sure to use the argument `--network-plugin-mode` to specify an overlay cluster. If the pod CIDR isn't specified, then AKS assigns a default space: `viz. 10.244.0.0/16`.
 
