@@ -152,7 +152,7 @@ Although Permissions Management supports all resources, Microsoft only requires 
 
 ## How do I figure out how many resources I have? 
 
-To find out how many resources you have across your multicloud infrastructure, select Settings (gear icon), view the Billable Resources tab in Permissions Management.
+To find out how many resources you have across your multicloud infrastructure, select Settings (gear icon), and view the Billable Resources tab in Permissions Management.
 
 ## What do I do if I’m using Public Preview version of Entra Permissions Management?  
 
