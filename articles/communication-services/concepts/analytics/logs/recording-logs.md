@@ -167,8 +167,8 @@ Properties
 |` resultSignature`| Represents the sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
 |` resultType`| Represents the status of the operation. |
 |` sdkType`| Represents the SDK type used in the request. |
-|` sdkVersion`| Represents the SDK Version. |
-|` serverCallId`| Represents the server Call Id. |
+|` sdkVersion`| Represents the SDK version. |
+|` serverCallId`| Represents the server Call ID. |
 |` URI`| Represents the URI of the request. |
 
  Sample
