@@ -15,7 +15,7 @@ ms.date: 06/05/2023
 
 This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) shell and run the app on the Windows platform.
 
-In this tutorial, you learn how to:
+In this tutorial:
 
 > [!div class="checklist"]
 >
