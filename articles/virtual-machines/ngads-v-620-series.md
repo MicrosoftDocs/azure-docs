@@ -1,12 +1,12 @@
 ---
-title: 'Overview of NGads V620 Series (preview)' #Required; page title is displayed in search results. 60 characters max.
-description: Overview of NGads V620 series GPU-enabled virtual machines  #Required; this appears in search as the short description
-author: isgonzalez-MSFT #Required. GitHub user alias, with correct capitalization.
-ms.author: isgonzalez #Required. Microsoft alias of author or team alias.
-ms.service: virtual-machines #Required
-ms.subservice: sizes #Required
-ms.topic: conceptual #Required 
-ms.date: 06/11/2023 #Required; mm/dd/yyyy format. Date the article was created or the last time it was tested and confirmed correct 
+title: Overview of NGads V620 Series (preview)
+description: Overview of NGads V620 series GPU-enabled virtual machines  
+author: isgonzalez-MSFT 
+ms.author: isgonzalez
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: conceptual
+ms.date: 06/11/2023 
 
 ---
 
