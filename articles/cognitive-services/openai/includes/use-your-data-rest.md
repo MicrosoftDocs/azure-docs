@@ -175,69 +175,13 @@ curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/ch
                 },
                 {
                     "role": "assistant",
-                    "content": " \nAzure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. [doc1]. Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. [doc1].",
+                    "content": " \nAzure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. [doc1]. Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle. [doc1].",
                     "end_turn": true
                 }
             ]
         }
     ]
 }
-```
-
-### Streaming example
-
-You can send a streaming request using the `stream` parameter, allowing data to be sent and received incrementally, without waiting for the entire API response. This can improve performance and user experience, especially for large or dynamic data.
-
-```bash
-curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/chat/completions?api-version=2023-06-01-preview \
--H "Content-Type: application/json" \
--H "api-key: $AOAIKey" \
--H "chatgpt_url: $ChatGptUrl" \
--H "chatgpt_key: $ChatGptKey" \
--d \
-'
-{
-    "stream": true,
-    "dataSources": [
-        {
-            "type": "AzureCognitiveSearch",
-            "parameters": {
-                "endpoint": "'$SearchEndpoint'",
-                "key": "'$SearchKey'",
-                "indexName": "'$SearchIndex'"
-            }
-        }
-    ],
-    "messages": [
-        {
-            "role": "user",
-            "content": "What are the differences between Azure Machine Learning and Azure Cognitive Services?"
-        }
-    ]
-}
-'
-```
-
-### Example output
-
-```json
-data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"role": "tool", "content": "{\"citations\": [{\"content\": \"\\nIntroduction\\nAzure Cognitive Services are cloud-based artificial intelligence (AI) services... \", \"id\": null, \"title\": \"Introduction\", \"filepath\": null, \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=264. Scores=0.9834403 and 1.718505859375.Org Highlight count=2.\"}, \"chunk_id\": \"0\"}], \"intent\": \"what is tprompt\"}"}, "index": 0}], "finish_reason": null}]}
-
-data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"role": "assistant"}, "index": 1}], "finish_reason": null}]}
-
-data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": " \n"}, "index": 1}], "finish_reason": null}]}
-
-data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": "TP"}, "index": 1}], "finish_reason": null}]}
-
-data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": "rompt"}, "index": 1}], "finish_reason": null}]}
-
-data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": " is"}, "index": 1}], "finish_reason": null}]}
-
-data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": " a"}, "index": 1}], "finish_reason": null}]}
-
-data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": " generic"}, "index": 1}], "finish_reason": null}]}
-
-data:{"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx", "model": "", "created": 1684015661, "object": "chat.completion.chunk", "choices": [{"index": 0, "messages": [{"delta": {"content": "[DONE]"}, "index": 2}], "finish_reason": null}]}
 ```
 
 > [!div class="nextstepaction"]
