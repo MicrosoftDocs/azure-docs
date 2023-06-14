@@ -39,14 +39,10 @@ Anyone monitoring Azure Virtual Desktop Insights for your environment will also 
 
 ## Open Azure Virtual Desktop Insights
 
-You can open Azure Virtual Desktop Insights with one of the following methods:
+To open Azure Virtual Desktop Insights:
 
-- Go to [aka.ms/avdi](https://aka.ms/avdi).
-- Search for and select **Azure Virtual Desktop** from the Azure portal, then select **Insights**.
-- Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Azure Virtual Desktop**.
-Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
-
-
+1. Go to the Azure portal and select **Azure Virtual Desktop Insights**.
+1. Select **Workbooks**, then select **Check configuration**.
 
 ## Log Analytics settings
 
@@ -81,13 +77,14 @@ To set up host pool diagnostics using the resource diagnostic settings section i
 
 1. Under **Host pool**, check to see whether Azure Virtual Desktop diagnostics are enabled. If they aren't, an error message will appear that says "No existing diagnostic configuration was found for the selected host pool." You'll need to enable the following supported diagnostic tables:
 
-    - Checkpoint
-    - Error
-    - Management
-    - Connection
+    - Management Activities
+    - Feed
+    - Connections
+    - Errors
+    - Checkpoints
     - HostRegistration
     - AgentHealthStatus
-    
+  
     >[!NOTE]
     > If you don't see the error message, you don't need to do steps 2 through 4.
 
@@ -101,10 +98,10 @@ To set up workspace diagnostics using the resource diagnostic settings section i
 
 1. Under **Workspace**, check to see whether Azure Virtual Desktop diagnostics are enabled for the Azure Virtual Desktop workspace. If they aren't, an error message will appear that says "No existing diagnostic configuration was found for the selected workspace." You'll need to enable the following supported diagnostics tables:
  
-    - Checkpoint
-    - Error
-    - Management
+    - Management Activities
     - Feed
+    - Errors
+    - Checkpoints
     
     >[!NOTE]
     > If you don't see the error message, you don't need to do steps 2-4.
@@ -113,9 +110,9 @@ To set up workspace diagnostics using the resource diagnostic settings section i
 1. Select **Deploy**.
 1. Refresh the configuration workbook.
 
-# [Log Analytics agent](#tab/analytics)
-
 ### Session host data settings
+
+# [Log Analytics agent](#tab/analytics)
 
 To collect information on your Azure Virtual Desktop session hosts, you'll need to install the Log Analytics agent on all session hosts in the host pool, make sure the session hosts are sending to a Log Analytics workspace, and configure your Log Analytics agent settings to collect performance data and Windows Event Logs.
 
@@ -173,8 +170,6 @@ To set up Windows Event Logs using the configuration workbook:
 >If automatic event deployment fails, select **Open agent configuration** in the configuration workbook to manually add any missing Windows Event Logs.
 
 # [Azure Monitor Agent (preview)](#tab/monitor)
-
-### Session host data settings
 
 To collect information on your Azure Virtual Desktop session hosts, you must configure a [Data Collection Rule (DCR)](../azure-monitor/essentials/data-collection-rule-overview.md) to collect performance data and Windows Event Logs, associate the session hosts with the DCR, install the Azure Monitor Agent on all session hosts in host pools you're collecting data from, and ensure the session hosts are sending data to a Log Analytics workspace. 
 
