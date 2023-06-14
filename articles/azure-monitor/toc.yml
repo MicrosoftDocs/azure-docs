@@ -189,7 +189,7 @@ items:
         - name: JavaScript
           items:
           - name: Get started
-            displayName: browser, client-side, SDK Loader Script
+            displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
           - name: JavaScript SDK configuration
             href: app/javascript-sdk-advanced.md

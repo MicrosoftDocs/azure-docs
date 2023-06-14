@@ -51,13 +51,13 @@ The following key properties are captured by default when the plug-in is enabled
 
 ## Add the Click Analytics Auto-Collection plug-in
 
-Users can set up the Click Analytics Auto-Collection plug-in via SDK Loader Script or NPM.
+Users can set up the Click Analytics Auto-Collection plug-in via Javascript (Web) SDK Loader Script or NPM.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### 1. Set up the code
 
-### SDK Loader Script setup
+### Javascript (Web) SDK Loader Script setup
 
 Ignore this setup if you use the npm setup.
 
@@ -85,8 +85,8 @@ Ignore this setup if you use the npm setup.
       [clickPluginInstance.identifier] : clickPluginConfig
     },
   };
-  // Application Insights SDK Loader Script code
-  !function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
+  // Application Insights Javascript (Web) SDK Loader Script code
+  !function(v,y,T){<!-- Removed the Javascript (Web) SDK Loader Script code for brevity -->}(window,document,{
     src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
     crossOrigin: "anonymous",
     cfg: configObj // configObj is defined above.
@@ -95,7 +95,7 @@ Ignore this setup if you use the npm setup.
 ```
 
 > [!NOTE]
-> To add or update SDK Loader Script configuration, see [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration).
+> To add or update Javascript (Web) SDK Loader Script configuration, see [Javascript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration).
 
 ### npm setup
 
