@@ -710,6 +710,22 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
+        - name: Azure Cache for Redis
+          items: 
+            - name: Overview
+              href: functions-bindings-cache.md
+              displayName: 
+            - name: Trigger
+              items: 
+              - name: Input Binding
+                href: functions-bindings-cache-trigger-redispubsubtrigger.md
+                displayName: Azure Cache for Redis
+              - name: Service Invocation
+                href: functions-bindings-cache-trigger-redislisttrigger.md
+                displayName: Azure Cache for Redis
+              - name: Topic
+                href: functions-bindings-cache-trigger-redisstreamtrigger.md
+                displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
