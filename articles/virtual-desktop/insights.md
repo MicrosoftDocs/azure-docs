@@ -184,8 +184,8 @@ To configure a DCR and select a Log Analytics workspace destination using the co
 
 1. Select the **Session host data settings** tab in the configuration workbook.
 1. Select the **Log Analytics workspace** you want to send session host data to.
-1. If you haven't already configured a DCR, select **Create data collection rule** to automatically configure the DCR using the configuration workbook.
 1. If you haven't already created a resource group for the DCR, select **Create a resource group** to create one.
+1. If you haven't already configured a DCR, select **Create data collection rule** to automatically configure the DCR using the configuration workbook.
 
 #### Session hosts
 
