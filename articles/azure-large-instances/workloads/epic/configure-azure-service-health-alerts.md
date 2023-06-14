@@ -34,3 +34,7 @@ Learn how to identify and interact with ALI instances through the Azure portal.
 
 > [!div class="nextstepaction"]
 > [What is Azure for Large Instances?](../../what-is-azure-for-large-instances.md)
+
+
+> [!div class="nextstepaction"]
+> [What is Azure for Large Instances?](../../what-is-azure-for-large-instances.md)
