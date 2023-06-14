@@ -257,6 +257,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Identity Governance Dashboard
+    href: iga-dashboard.md
   - name: Identity Governance - PowerShell
     href: /powershell/module/microsoft.graph.identity.governance/?view=graph-powershell-beta&preserve-view=true
   - name: Access reviews - Microsoft Graph API
