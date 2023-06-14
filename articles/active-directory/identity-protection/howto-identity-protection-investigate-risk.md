@@ -35,6 +35,34 @@ Selecting individual entries expands a details window below the detections. The 
 
 ## Risky users
 
+The risky users report lists all users whose accounts are currently or were considered at risk of compromise. Risky users should be investigated and remediated to prevent unauthorized access to resources. 
+
+### Why is a user at risk?  
+
+A user becomes a risky user when:
+
+- They have one or more risky sign-ins.
+- There are one or more [risks](concept-identity-protection-risks.md) detected on the user’s account, like Leaked Credentials. 
+
+### How to investigate risky users? 
+
+To view and investigate a user’s risky sign-ins, click on the “Recent risky sign-ins” tab or the “Users risky sign-ins” link. 
+
+To view and investigate risks on a user’s account, click on the “Detections not linked to a sign-in” tab or the “User’s risk detections” link. 
+
+The Risk history tab also shows all the events that have led to a user risk change in the last 90 days, including risk detections that increased the user’s risk and admin remediation actions that lowered the user’s risk. View it to understand how the user’s risk has changed. 
+
+| Column name | Description |
+| --- | --- |
+| User |  |
+| Username |  |
+| Risk state |  |
+| Risk level |  |
+| Risk detail |  |
+| Risk last updates |  |
+| Status |  |
+| Risk processing state |  |
+
 :::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Risky users report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
 
 With the information provided by the risky users report, administrators can find:
@@ -107,6 +135,9 @@ Organizations may use the following frameworks to begin their investigation into
       1. IP address 
       1. User agent string
    1. If you have access to other security tools like [Microsoft Sentinel](../../sentinel/overview.md), check for corresponding alerts that might indicate a larger issue.
+   1. Organizations with access to [Microsoft 365 Defender](/defender-for-identity/understanding-security-alerts) can follow a user risk event through other related alerts and incidents and the MITRE ATT&CK chain. 
+       1. Select the user in the Risky users report.
+       1. Select the **elipsis (...)** in the toolbar then choose **Investigate with Microsoft 365 Defender**.
 1. Reach out to the user to confirm if they recognize the sign-in. Methods such as email or Teams may be compromised.
    1. Confirm the information you have such as:
       1. Application
@@ -137,7 +168,5 @@ If more information is shown for the detection:
 ## Next steps
 
 - [Remediate and unblock users](howto-identity-protection-remediate-unblock.md)
-
 - [Policies available to mitigate risks](concept-identity-protection-policies.md)
-
 - [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)
