@@ -9,15 +9,9 @@ ms.date: 06/12/2023
 ---
 # Connect to on-premises environment with Azure Active Directory
 
-Azure Active Directory (Azure AD) with the Hybrid Authentication Management module enables hybrid cloud users to authenticate cloud and on-premises credentials with Azure AD. 
 [Azure AD Connect](../active-directory/hybrid/connect/whatis-azure-ad-connect-v2.md)
 
-This allows you to 
-
-The Azure AD with the help of Hybrid Authentication Management module enables hybrid identity organisations (those with Active Directory on-premises) to use modern credentials for their applications and enables Azure AD to become the trusted source for both cloud and on-premises authentication. 
-
-With Azure AD the clients connecting to ANF volume need not join premises AD domain. 
-Only need to join Azure AD with user identities managed/synced from on-premises Active Directory to Azure AD using Azure AD connect application. 
+You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Management module to authenticate credentials in your hybrid cloud. This solution enables Azure AD to become the trusted source for both cloud and on-premises authentication, circumventing the need for clients connecting to an Azure NetApp Files to join the on-premises AD domain. 
 
 ## Steps
 
@@ -63,11 +57,12 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     * `domainCred`: On-premises Active Directory administrator credentials 
     * `cloudCred`: Azure AD credentials with global administrator privilege from a fully qualified domain name.
     For example: 
+
     ```powershell
     $servicePrincipalName = "CIFS/NETBIOS-1234.CONTOSO.COM
     $targetApplicationID = 0c94fc72-c3e9-4e4e-9126-2c74b45e66fe
     $domainCred = Get-Credential
-    $cloudCred = $cloudCred = Get-Credential
+    $cloudCred = Get-Credential
     ```
 
 1. Import the CIFS details to Azure AD: 
@@ -78,24 +73,26 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 
 ### AAD Joined machine creation and mount to ANF Volume 
 
-1. Create two VM in Azure NetApp Files: one registered to Azure AD and the other Azure AD-joined. 
-    * The **Azure AD-registered VM** facilitates access to the Azure AD-joined machine.
-        Sign onto the VM using the credentials created during machine creation in the Azure portal.
-        In **Settings** under **Work and school account**, select 
+1. Create two VMs in Azure NetApp Files: one registered to Azure AD and the other Azure AD-joined. 
+    1. The **Azure AD-registered VM** facilitates access to the Azure AD-joined machine. Sign into the AD-registered VM using the credentials created during machine creation in the Azure portal:
+        In **Settings** under **Work and school account**, select **Connect to Azure > Use global Azure AD cloud account user name and password**. 
 
-    * The **Azure AD-joined VM**:
+    1. The **Azure AD-joined VM**:
         Sign into the Azure-joined VM then launch a remote desktop to the Azure AD-joined VM.
         In **Settings** under **Work and school account**, select **Join this device to Azure Active Directory** then **Use hybrid user credentials**. Reboot the VM.
 
-1. Sign into the Azure AD-joined VM again using your hybrid credentials (for example: AZUREAD\huser@anfdev.onmicrosoft.com).
+1. Sign into the Azure AD-joined VM again using your hybrid credentials (for example: AZUREAD\user@anfdev.onmicrosoft.com).
 
     >[!NOTE]
     > If you run into issues signing on, select more choices then provide credentials. 
 
-1. 
 1. Manually add DNS mapping in the hosts. 
-    Open `C:\Windows\System32\drivers\etc\hosts` and add entry based on the mount point and LIF, for example `10.5.1.4 NETBIOS-1234.contoso.com`. Use the credentials retrieved during the machine creation. Cloud user credentials do not have the correct permission to modify the `/etc/hosts/` file. 
-1. . Mount using the mount info provided in the ANF. 
+    Open `C:\Windows\System32\drivers\etc\hosts` and add an entry based on the mount point and LIF, for example `10.5.1.4 NETBIOS-1234.contoso.com`. Use the credentials retrieved during the machine creation. Cloud user credentials do not have the correct permission to modify the `/etc/hosts/` file. 
+1. Mount using the mount info provided in the Azure NetApp Files. 
 net use * \\ NETBIOS-1234.contoso.com\volume1 
-1. In the `klist` command observe Cloud TGT and CIFS Service Ticket. 
-<!-- why? >
+1. Open a Command Prompt to issue the `klist` command. Record the cloud TGT (`krbtgt`) and CIFS server ticket information.  
+<!-- why? and when do you issue this -->
+
+## Further information 
+* [Understand guidelines for Active Directory Domain Services](understand-guidelines-active-directory-domain-service-site.md)
+* [Create and manage Active Directory connections](create-active-directory-connections.md)
