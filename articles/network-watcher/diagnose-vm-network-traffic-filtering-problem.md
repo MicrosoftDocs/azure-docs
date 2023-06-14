@@ -105,6 +105,9 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     | Remote IP address | Enter *13.107.21.200*. This IP address is one of the IP addresses of `www.bing.com` website. |
     | Remote port | Enter *80* |
 
+    > [!NOTE]
+    > If you don't see the virtual machine in the list of virtual machines available to select, make sure that it is running. Stopped virtual machines are not available to select for IP flow verify test.
+
     :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify.png" alt-text="Screenshot shows the values to input in IP flow verify for first test." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify.png":::
 
 1. Select **Verify IP flow** button. 
