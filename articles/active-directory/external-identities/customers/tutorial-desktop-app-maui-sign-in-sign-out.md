@@ -31,7 +31,7 @@ In this tutorial:
 
 ## Add sign-in and sign-out code
 
-The user interface of a .NET MAUI app is constructed of objects that map to the native controls of each target platform. The main control groups used to create the user interface of a .NET MAUI app are pages, layouts, and views.
+The user interface (UI) of a .NET MAUI app is constructed of objects that map to the native controls of each target platform. The main control groups used to create the UI of a .NET MAUI app are pages, layouts, and views.
 
 ### Add main view page
 
