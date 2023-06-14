@@ -149,7 +149,7 @@ If the agent initiates a recording and then stops and restarts the recording mul
     "AudioChannelsCount": 1
 }
 ```
-ACSCallRecordingIncomingOperations logs
+### ACSCallRecordingIncomingOperations logs
 
 Properties
 
