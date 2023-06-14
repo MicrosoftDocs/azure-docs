@@ -5,7 +5,7 @@ author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 06/12/2023
 ms.custom: template-concept, references_regions
 ---
 
@@ -17,83 +17,116 @@ We've created this page to keep you updated on new features, blog posts, and oth
 <br>
 <br>
 
+## Blog posts and case studies 
+Go deeper on common scenarios and learn more about how customers are using advanced Azure Communication 
+Services features.
+
+
+### Generate and send SMS and Email using Azure OpenAI Services and Azure Communication Services
+:::image type="content" source="./media/whats-new-images/05-23/sms-ai.png" alt-text="Screenshot of a financial advisor talking to a customer using a custom Azure Communication Services app." lightbox="./media/whats-new-images/05-23/sms-ai-lightbox.png":::
+
+Learn how to us openAI and Azure Communication Services to send automated alerts.
+
+[Read the blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/generate-and-send-sms-and-email-using-azure-openai-services-and/ba-p/3836098)
+
+[Read the step-by-step instructions](https://github.com/pnp/powerplatform-samples/blob/main/samples/contoso-school/lab/manual.md)
+
+[Check out the pre-built solution](https://github.com/pnp/powerplatform-samples/tree/main/samples/contoso-school)
+
+<br>
+<br>
+
+
+### Transforming customer experiences with automated, AI-assisted communication
+:::image type="content" source="./media/whats-new-images/05-23/transform-customer-experiences.png" alt-text="Screenshot of the UI library chat composite." lightbox="./media/whats-new-images/05-23/transform-customer-experiences-lightbox.png":::
+
+Use Azure Communication Services call automation to transform your customer experiences.
+
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/build-2023-transforming-customer-experiences-with-automated-ai/ba-p/3827857)
+
+[Try out a sample](https://aka.ms/acs-ca-demo)
+
+[Learn more about call automation](https://aka.ms/acs-ca)
+
+
+
+<br>
+<br>
+
+
+### Azure Communications Services at Microsoft Build
+:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="Screenshot of the UI library chat composite.":::
+
+A recap of all of the Azure Communication Services sessions and discussions at Microsoft Build. 
+
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/build-communication-apps-for-microsoft-teams-users-with-azure/ba-p/3775688)
+
+[View the UI Library documentation](https://azure.github.io/communication-ui-library/)
+
+
+<br>
+<br>
+
 ## From the community
 See examples and get inspired by what's being done in the community of Azure Communication Services users.
 
 
-### Extend Azure Communication Services with Power Platform Connectors
-:::image type="content" source="./media/whats-new-images/04-23/azure-communication-services-powerplatform.png" alt-text="Screenshot of power platform flow." lightbox="./media/whats-new-images/04-23/azure-communication-services-powerplatform-lightbox.png":::
+### Build AI-assisted communication workflows for customer engagement
+:::image type="content" source="./media/whats-new-images/05-23/customer-service-workflow.png" alt-text="Screenshot of the architecture of the demo app." lightbox="./media/whats-new-images/05-23/customer-service-workflow-large.png":::
 
-Listen to Azure Communication Services PMs Tomas Chladek and David de Matheu talk about how to connect your Azure Communication Services app to Microsoft Teams, and extend it with the Microsoft Power Platform.
+Listen to Azure Communication Services PMs Ashwinder Bhatti and Anuj Bhatia talk about how to use Azure Communication Services features and tools to build intelligent workflows that businesses can use to improve customer engagement.
 
-[Watch the video](https://www.youtube.com/watch?v=-TPI293h0mY&t=3s&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
+[Watch the video](https://youtu.be/EYTjH1xrmtI)
 
-[Read the Power Pages documentation](https://learn.microsoft.com/power-pages/configure/component-framework)
+[Learn more about Azure Cognitive Services](https://azure.microsoft.com/en-us/products/cognitive-services/)
 
-[Read the tutorial on integrating with Teams](https://aka.ms/mscloud-acs-teams-tutorial)
-
-
-<br>
-<br>
-
-### Integrate Azure Communication Services calling into a React App 
-:::image type="content" source="./media/whats-new-images/04-23/create-react-app.png" alt-text="Screenshot of code needed to build a react app.":::
-
-Learn how to create an app using Azure Communication services front-end components in React.
-
-[Watch the video](https://www.youtube.com/watch?v=ZyBNYblzISs&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
-
-[View the Microsoft Cloud Integrations repo](https://github.com/microsoft/microsoftcloud)
-
-[Read the tutorial on integrating with Teams](https://aka.ms/mscloud-acs-teams-tutorial)
-
-[Read more about the UI Library](https://aka.ms/acs-ui-library)
+[Learn more about Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/overview)
 
 
 <br>
 <br>
 
-### Dynamically create an Azure Communication Services identity and token 
-:::image type="content" source="./media/whats-new-images/04-23/token.png" alt-text="Screenshot of a step in the token creation process." lightbox="./media/whats-new-images/04-23/token-lightbox.png":::
+### Create custom virtual meetings apps with Azure Communication Services and Microsoft Teams
+:::image type="content" source="./media/whats-new-images/05-23/virtual-appts.png" alt-text="Screenshot of a diagram describing the extensibility layer of Azure Communication Services and Teams." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
 
-Learn how an external developer can get a token that allows your app to join a teams meeting through Azure Communication Services.
+Join Microsoft PMs Tomas Chladek  and Ben Olson as they discuss how to create virtual meetings applications that use Azure Communication Services and interop seamlessly with Microsoft Teams
 
-[Watch the video](https://www.youtube.com/watch?v=OgE72PGq6TM&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
+[Watch the video](https://youtu.be/IBCp_-dk_m0)
 
-[Read more about Microsoft Cloud Integrations](https://aka.ms/microsoft-cloud)
+[Learn how to set up the Microsoft Teams virtual appointments app](https://learn.microsoft.com/en-us/microsoft-365/frontline/virtual-appointments-app?view=o365-worldwide)
 
-[View the Microsoft Cloud Integrations repo](https://github.com/microsoft/microsoftcloud)
-
-[Read the tutorial on integrating with Teams](https://aka.ms/mscloud-acs-teams-tutorial)
-
-[Read more about the UI Library](https://aka.ms/acs-ui-library)
-
-[Read the documentation on Azure Functions](https://aka.ms/msazure--functions)
-
-[View the Graph Explorer](https://aka.ms/ge)
+[Read more about Microsoft Teams Premium](https://www.microsoft.com/en-us/microsoft-teams/premium)
 
 
 <br>
 <br>
 
-### Deploy an Azure Communication Services app to Azure 
-:::image type="content" source="./media/whats-new-images/04-23/deploy-to-azure.png" alt-text="Screenshot of a step in the deployment process."  lightbox="./media/whats-new-images/04-23/deploy-to-azure-lightbox.png":::
+### Building a SMS generator with short URLs using Azure Functions, Storage, and Communication Services
+:::image type="content" source="./media/whats-new-images/05-23/sms-generator-blog.png" alt-text="Visual representation of the challenge of fitting a long URL into a short SMS." lightbox=""./media/whats-new-images/05-23/sms-generator-blog-large.png":::
 
-Learn how to quickly and easily deploy your Azure Communication Services app to Azure. 
+Learn how to convert a lengthy URL into a format that fits the format of SMS, and then send the SMS using Azure Communication Services.
 
-[Watch the video](https://www.youtube.com/watch?v=JYs5CPyu2Io&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
+[Watch the video](https://youtu.be/Knctudbao1o)
 
-[Read more about Microsoft Cloud Integrations](https://aka.ms/microsoft-cloud)
+[Read the accompanying tutorial](https://aka.ms/sms-shorturl)
 
-[View the Microsoft Cloud Integrations repo](https://github.com/microsoft/microsoftcloud)
+[Read the quickstart on how to send an SMS using Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send?ns-enrollment-type=Collection&ns-enrollment-id=3n70tjm2nwe5oj&tabs=windows&pivots=platform-azcli)
 
-[Read the tutorial on integrating with Teams](https://aka.ms/mscloud-acs-teams-tutorial)
 
-[Read more about the UI Library](https://aka.ms/acs-ui-library)
+<br>
+<br>
 
-[Read the documentation on Azure Functions](https://aka.ms/msazure--functions)
+### Building on the Microsoft Cloud: Audio/video calling from a custom app
+:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="Visual representation of the challenge of fitting a long URL into a short SMS.":::
 
-[View the Graph Explorer](https://aka.ms/ge)
+Join Microsoft Senior Cloud Advocate Ayca Bas and Principal Content Engineer Dan Wahlin as they share how Microsoft Cloud services can empower your apps with audio/video communication. 
+
+[Watch the video](https://build.microsoft.com/en-US/sessions/78b513e3-6e5b-4c4a-a3da-d663219ed674?source=/speakers/2432ad6b-4c45-44ae-b1d6-2c0334e7eb33)
+
+[Read the accompanying tutorial](http://aka.ms/mscloud-acs-teams-tutorial)
+
+[Read the quickstart on how to send an SMS using Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send?ns-enrollment-type=Collection&ns-enrollment-id=3n70tjm2nwe5oj&tabs=windows&pivots=platform-azcli)
+
 
 <br>
 <br>
@@ -102,73 +135,33 @@ Learn how to quickly and easily deploy your Azure Communication Services app to 
 
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
-### Email service now generally available
-:::image type="content" source="./media/whats-new-images/04-23/email.png" alt-text="Screenshot of Azure communication services email logo.":::
+### Calling SDK for Windows is now generally available
+:::image type="content" source="./media/whats-new-images/05-23/calling-windows.png" alt-text="":::
 
-Azure Communication Services announces the general availability of our Email service. Email is powered by Exchange Online and meets the security and privacy requirements of enterprises.
+Add first-class calling capabilities to your Windows applications.
 
-[Read about ACS Email](https://techcommunity.microsoft.com/t5/azure-communication-services/simpler-faster-azure-communication-services-email-now-generally/ba-p/3788541)
+[Read about the calling SDK for Windows](https://techcommunity.microsoft.com/t5/azure-communication-services/add-first-class-calling-capabilities-to-your-windows/ba-p/3836731)
 
 <br>
 <br>
 
 
-### View of April's new features
-:::image type="content" source="./media/whats-new-images/04-23/features.png" alt-text="Screenshot of SMS insights dashboard data graphic." lightbox="./media/whats-new-images/04-23/features-lightbox.png":::
+### View of May's new features
+:::image type="content" source="./media/whats-new-images/05-23/new-features.png" alt-text="Screenshot of SMS insights dashboard data graphic." lightbox="./media/whats-new-images/04-23/features-lightbox.png":::
 
-In April, we launched a host of new features, including:
-* Troubleshooting capability in UI library for native
-* Toll-free verification
-* SMS insights dashboard
+In May, we launched a host of new features, including:
+* Simulcast support on Edge/Chrome desktop
+* Inline image support and other Teams interoperability improvements
+* Skip setup screen for UI Library native
+* Raised hand
+* Power Automate inbound SMS connector
 * and others...
 
-[View the complete list](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-april-2023-feature-updates/ba-p/3786509) of all new features added to Azure Communication Services in April.
+[View the complete list](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-may-2023-feature-updates/ba-p/3813869) of all new features added to Azure Communication Services in April.
 
 <br>
 <br>
 
-<br>
-
-## Blog posts and case studies 
-Go deeper on common scenarios and learn more about how customers are using advanced Azure Communication 
-Services features.
-
-
-### ABN AMRO case study 
-:::image type="content" source="./media/whats-new-images/04-23/abn-amro.png" alt-text="Screenshot of a financial advisor talking to a customer using a custom Azure Communication Services app.":::
-
-ABN AMRO used Azure Communication Services to make it easier for customers to get financial advice from anywhere. And they boosted their NPS in the process!
-
-[Read the full story](https://customers.microsoft.com/story/1607768338625418317-abnamro-bankingandcapitalmarkets-microsofteams)
-
-<br>
-<br>
-
-
-### Get insights from customer interactions with Azure Communication Services and OpenAI  
-:::image type="content" source="./media/whats-new-images/04-23/openai.png" alt-text="Graphic with Azure Communication Services and openAI logos.":::
-
-Use the gold mine of customer conversations to automatically generate customer insights and create better customer experiences. 
-
-[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/get-insights-from-customer-interactions-with-azure-communication/ba-p/3783858)
-
-[Read about the Azure OpenAI service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
-
-<br>
-<br>
-
-
-### Latest updates to the UI library 
-:::image type="content" source="./media/whats-new-images/04-23/ui-library.png" alt-text="Screenshot of the UI library chat composite." lightbox="./media/whats-new-images/04-23/ui-library-lightbox.png":::
-
-Get up-to-date on the latest additions to the Azure Communication Services UI library. UI library makes it easier to create custom applications with only a few lines of code. 
-
-[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/build-communication-apps-for-microsoft-teams-users-with-azure/ba-p/3775688)
-
-[View the UI Library documentation](https://azure.github.io/communication-ui-library/)
-
-
-<br>
 <br>
 
 
