@@ -28,11 +28,11 @@ In this article, you learn how to receive user roles or group membership or both
 
 - A security group in your customer's tenant. If you've not done so, [create one](../../roles/groups-create-eligible.md#azure-portal).
 
-- If you've not done so, complete the steps in [Using role-based access control for applications](how-to-use-app-roles-customers.md) article. This article shows you how to create roles for your application, how to assign users and groups to those roles, how to add members to a group and how to add a group claim to a to security token.
+- If you've not done so, complete the steps in [Using role-based access control for applications](how-to-use-app-roles-customers.md) article. This article shows you how to create roles for your application, how to assign users and groups to those roles, how to add members to a group and how to add a group claim to a to security token. Learn more about [ID tokens](../../develop/id-tokens.md) and [access tokens](../../develop/access-tokens.md). 
 
 ## Receive groups and roles claims in your Node.js web app 
 
-One you've configured your customer's tenant, you can retrieve your *roles* and *groups* claims in your app. You receive these claims whether your app requests for an ID token or an access token, but your app only needs to check for these claims in the ID token.
+One you've configured your customer's tenant, you can retrieve your *roles* and *groups* claims in your client app. The *roles* and *groups* claims both present in an ID token and an access token, but your client app only needs to check for these claims in the ID token to implement authorization in the client side. The API app can also retrieve these claims when it receives the access token.
 
 You can check your *roles* claim value as shown in the following code snippet:
 
@@ -61,7 +61,7 @@ The groups claim value is the group's *objectId*. If a user is a member of multi
 > [!NOTE] 
 > If you assign a user [Azure AD in-built roles](../../roles/permissions-reference.md) or commonly known as directory roles, those roles appear in the *groups* claim of the security token. 
 
-## Handle groups overages
+## Handle groups overage
 
 To ensure that the security token size doesn’t exceed the HTTP header size limits, Azure AD for customers limits the number of object IDs that it includes in the *groups* claim. The overage limit **150 for SAML tokens, 200 for JWT tokens, six for SPA using implicit flow**. It's possible to exceed this limit if a user belongs to many groups, and you request for all the groups. 
 
