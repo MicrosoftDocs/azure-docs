@@ -334,9 +334,9 @@ Rate limiting applies across all subscriptions. Rate limiting is applied as soon
 
 When an email address is rate limited, a notification is sent to communicate that rate limiting was applied and when the rate limiting expires.
 
-## Email
+## Email Azure Resource Manager
 
-When you use email notifications, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
+When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
 
 A notification email is sent only to the primary email address.
 
