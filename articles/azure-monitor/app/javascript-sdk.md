@@ -142,7 +142,10 @@ If you want to use the extra features provided by plugins for specific framework
 1. Go to your Application Insights resource that you've enabled the SDK for. 
 1. In the Application Insights resource menu on the left, under **Investigate**, select the **Transaction search** pane.
 1. Open the **Event types** dropdown menu and select **Select all** to clear the checkboxes in the menu. 
-1. From the **Event types** dropdown menu, select **Page View**.
+1. From the **Event types** dropdown menu, select:
+
+   - **Page View** for Azure Monitor Application Insights Real User Monitoring
+   - **Custom Event** for the Click Analytics Auto-Collection plug-in.
 
    It might take a few minutes for data to show up in the portal.
 
@@ -166,3 +169,4 @@ If you can't run the application or you aren't getting data as expected, see the
 * [Build-measure-learn](usage-overview.md)
 * [JavaScript SDK advanced topics](javascript-sdk-advanced.md)
 * See the detailed [release notes](https://github.com/microsoft/ApplicationInsights-JS/releases) on GitHub for updates and bug fixes.
+- To learn about the Kusto Query Language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/logs/log-query-overview.md).
