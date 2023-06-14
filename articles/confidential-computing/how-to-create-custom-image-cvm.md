@@ -1,6 +1,6 @@
 ---
-title: Create a custom image for Confidential VMs
-description: Learn how to use the Azure CLI to create an image from a vhd.
+title: Create a Custom Image for Confidential VMs
+description: Learn how to use the Azure CLI to create a Confidential VM custom image from a vhd.
 author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
@@ -11,7 +11,7 @@ ms.author: corsini
 ms.custom: devx-track-azurecli
 ---
 
-# How to create a custom image for Confidential VMs
+# How to create a Custom Image for Confidential VMs
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -37,7 +37,7 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 ```azurecli - interactive
 az group create --name $resourceGroupName --location eastus
 ```
-## Create Custom Image for Confidential VMs
+## Create custom image for confidential VMs
 
 1. [Create a virtual machine](/azure/virtual-machines/linux/quick-create-cli) with an Ubuntu image of choice from the list of [Azure supported images.](/azure/virtual-machines/linux/cli-ps-findimage)
 
@@ -53,7 +53,7 @@ az group create --name $resourceGroupName --location eastus
     disk_url=$(az disk grant-access --duration-in-seconds 3600 --name $disk_name --resource-group $resourceGroupName | jq -r .accessSas)
     ```
 
-#### Create a Storage Account to store the Exported Disk
+#### Create a storage account to store the exported disk
 
 1. Create a storage account.
     ```azurecli
@@ -73,7 +73,7 @@ az group create --name $resourceGroupName --location eastus
      azcopy copy "$disk_url" "${blob_url}?${container_sas}"
     ```
 
-#### Create a Confidential Supported Image
+#### Create a confidential supported image
 
 1. Create a Shared Image Gallery.
    ```azurecli
@@ -95,9 +95,9 @@ az group create --name $resourceGroupName --location eastus
    ```azurecli
     galleryImageId=$(az sig image-version show --gallery-image-definition $imageDefinitionName --gallery-image-version $galleryImageVersion --gallery-name $galleryName --resource-group $resourceGroupName | jq -r .id)
     ```
-#### Create a Confidential VM
+#### Create a confidential VM
 
-1. Create a VM with the [az vm create](/cli/azure/vm) command. For more information, see [secure boot and vTPM](/azure/virtual-machines/trusted-launch). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
+1. Create a VM with the [az vm create](/cli/azure/vm) command. For more information, see [secure boot and vTPM](/azure/virtual-machines/trusted-launch). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md). Currently confidential VMs support the [DC series](/azure/virtual-machines/dcasv5-dcadsv5-series) and [EC series](/azure/virtual-machines/ecasv5-ecadsv5-series) VM sizes.
     ```azurecli-interactive
     az vm create \
     --resource-group $resourceGroupName \
