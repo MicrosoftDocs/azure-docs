@@ -864,7 +864,6 @@ There are some limitations that you might see in Delta Lake support in serverles
 - Make sure that you're referencing the root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - The root folder must have a subfolder named `_delta_log`. The query fails if there's no `_delta_log` folder. If you don't see that folder, you're referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) by using Apache Spark pools.
   - Don't specify wildcards to describe the partition schema. The Delta Lake query automatically identifies the Delta Lake partitions.
-- Delta Lake tables that are created in the Apache Spark pools are automatically available in serverless SQL pool, but the schema is not updated (public preview limitation). If you add columns in the Delta table using a Spark pool, the changes will not be shown in serverless SQL pool database.
 - External tables don't support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on the Delta Lake folder to use the partition elimination. See known issues and workarounds later in the article.
 - Serverless SQL pools don't support time travel queries. Use Apache Spark pools in Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools don't support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Synapse Analytics to [update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
@@ -920,13 +919,10 @@ Our engineering team is currently working on a full support for Spark 3.3.
 
 ### Delta table created in Spark is not shown in serverless pool
 
-> [!NOTE]  
-> Replication of Delta tables that are created in Spark is still in public preview.
-
 If you created a Delta table in Spark, and it is not shown in the serverless SQL pool, check the following:
 - Wait some time (usually 30 seconds) because the Spark tables are synchronized with delay.
 - If the table didn't appear in the serverless SQL pool after some time, check the schema of the Spark Delta table. Spark tables with complex types or the types that are not supported in serverless are not available. Try to create a Spark Parquet table with the same schema in a lake database and check would that table appears in the serverless SQL pool.
-- Check the workspace Managed Identity access Delta Lake folder that is referenced by the table. Serverless SQL pool uses workspace Managed Identity to get the table column information from the storage to create the table.
+- Check could the workspace Managed Identity access Delta Lake folder that is referenced by the table. Serverless SQL pool uses workspace Managed Identity to get the table column information from the storage to create the Delta table that is created in a Lake database.
 
 ## Lake database
 
@@ -938,7 +934,6 @@ Tables that are created might not be immediately available in serverless SQL poo
 - The tables will be available in serverless pools with some delay. You might need to wait 5-10 minutes after creation of a table in Spark to see it in serverless SQL pool.
 - Only the tables that reference Parquet, CSV, and Delta formats are available in serverless SQL pool. Other table types are not available.
 - A table that contains some [unsupported column types](../metadata/table.md#share-spark-tables) will not be available in serverless SQL pool.
-- Accessing Delta Lake tables in Lake databases is in **public preview**. Check other issues listed in this section or in the Delta Lake section.
 
 ### Operation isn't allowed for a replicated database
 
@@ -968,9 +963,7 @@ Try to set up a data source in some SQL Database that references your Azure Data
 
 ### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
 
-Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that are created in Lake database using Spark or Synapse designer. Accessing the Delta tables is still in public preview, and currently serverless will synchronize a Delta table with Spark at the time of creation but will not update the schema if the columns are added later using the `ALTER TABLE` statement in Spark.
-
-This is a public preview limitation. Drop and re-create the Delta table in Spark (if it is possible) instead of altering tables to resolve this issue.
+Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that are created in Lake database using Spark or Synapse designer. Some Spark types are not available in the serverless pool, so the columns with these types will not be in the serverless SQL pool table schema.
 
 ## Performance
 
