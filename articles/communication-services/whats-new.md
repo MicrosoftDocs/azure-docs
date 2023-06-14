@@ -23,7 +23,7 @@ Services features.
 
 
 ### Generate and send SMS and Email using Azure OpenAI Services and Azure Communication Services
-:::image type="content" source="./media/whats-new-images/05-23/sms-ai.png" alt-text="Screenshot of a financial advisor talking to a customer using a custom Azure Communication Services app." lightbox="./media/whats-new-images/05-23/sms-ai-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/05-23/sms-ai.png" alt-text="Part of an architecture diagram showing how Azure Communication Services, Power platform, and Azure OpenAI can be used together to create a great experience." lightbox="./media/whats-new-images/05-23/sms-ai-lightbox.png":::
 
 Learn how to us openAI and Azure Communication Services to send automated alerts.
 
@@ -38,7 +38,7 @@ Learn how to us openAI and Azure Communication Services to send automated alerts
 
 
 ### Transforming customer experiences with automated, AI-assisted communication
-:::image type="content" source="./media/whats-new-images/05-23/transform-customer-experiences.png" alt-text="Screenshot of the UI library chat composite." lightbox="./media/whats-new-images/05-23/transform-customer-experiences-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/05-23/transform-customer-experiences.png" alt-text="Part of an architecture diagram showing how Azure Communication Services call automation can be used to transform customer experiences." lightbox="./media/whats-new-images/05-23/transform-customer-experiences-lightbox.png":::
 
 Use Azure Communication Services call automation to transform your customer experiences.
 
@@ -55,7 +55,7 @@ Use Azure Communication Services call automation to transform your customer expe
 
 
 ### Azure Communications Services at Microsoft Build
-:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="Screenshot of the UI library chat composite.":::
+:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="Graphic of the Microsoft Build banner":::
 
 A recap of all of the Azure Communication Services sessions and discussions at Microsoft Build. 
 
@@ -78,9 +78,9 @@ Listen to Azure Communication Services PMs Ashwinder Bhatti and Anuj Bhatia talk
 
 [Watch the video](https://youtu.be/EYTjH1xrmtI)
 
-[Learn more about Azure Cognitive Services](https://azure.microsoft.com/en-us/products/cognitive-services/)
+[Learn more about Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services/)
 
-[Learn more about Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/overview)
+[Learn more about Azure Event Grid](../event-grid/overview)
 
 
 <br>
@@ -93,16 +93,16 @@ Join Microsoft PMs Tomas Chladek  and Ben Olson as they discuss how to create vi
 
 [Watch the video](https://youtu.be/IBCp_-dk_m0)
 
-[Learn how to set up the Microsoft Teams virtual appointments app](https://learn.microsoft.com/en-us/microsoft-365/frontline/virtual-appointments-app?view=o365-worldwide)
+[Learn how to set up the Microsoft Teams virtual appointments app](../../microsoft-365/frontline/virtual-appointments-app)
 
-[Read more about Microsoft Teams Premium](https://www.microsoft.com/en-us/microsoft-teams/premium)
+[Read more about Microsoft Teams Premium](https://www.microsoft.com/microsoft-teams/premium)
 
 
 <br>
 <br>
 
 ### Building a SMS generator with short URLs using Azure Functions, Storage, and Communication Services
-:::image type="content" source="./media/whats-new-images/05-23/sms-generator-blog.png" alt-text="Visual representation of the challenge of fitting a long URL into a short SMS." lightbox=""./media/whats-new-images/05-23/sms-generator-blog-large.png":::
+:::image type="content" source="./media/whats-new-images/05-23/sms-generator-blog.png" alt-text="Visual representation of the challenge of fitting a long URL into a short SMS." lightbox="./media/whats-new-images/05-23/sms-generator-blog-large.png":::
 
 Learn how to convert a lengthy URL into a format that fits the format of SMS, and then send the SMS using Azure Communication Services.
 
@@ -110,7 +110,7 @@ Learn how to convert a lengthy URL into a format that fits the format of SMS, an
 
 [Read the accompanying tutorial](https://aka.ms/sms-shorturl)
 
-[Read the quickstart on how to send an SMS using Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send?ns-enrollment-type=Collection&ns-enrollment-id=3n70tjm2nwe5oj&tabs=windows&pivots=platform-azcli)
+[Read the quickstart on how to send an SMS using Azure Communication Services](quickstarts/sms/send?ns-enrollment-type=Collection&ns-enrollment-id=3n70tjm2nwe5oj&tabs=windows&pivots=platform-azcli)
 
 
 <br>
@@ -121,11 +121,11 @@ Learn how to convert a lengthy URL into a format that fits the format of SMS, an
 
 Join Microsoft Senior Cloud Advocate Ayca Bas and Principal Content Engineer Dan Wahlin as they share how Microsoft Cloud services can empower your apps with audio/video communication. 
 
-[Watch the video](https://build.microsoft.com/en-US/sessions/78b513e3-6e5b-4c4a-a3da-d663219ed674?source=/speakers/2432ad6b-4c45-44ae-b1d6-2c0334e7eb33)
+[Watch the video](https://build.microsoft.com/sessions/78b513e3-6e5b-4c4a-a3da-d663219ed674?source=/speakers/2432ad6b-4c45-44ae-b1d6-2c0334e7eb33)
 
-[Read the accompanying tutorial](http://aka.ms/mscloud-acs-teams-tutorial)
+[Read the accompanying tutorial](https://aka.ms/mscloud-acs-teams-tutorial)
 
-[Read the quickstart on how to send an SMS using Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send?ns-enrollment-type=Collection&ns-enrollment-id=3n70tjm2nwe5oj&tabs=windows&pivots=platform-azcli)
+[Read the quickstart on how to send an SMS using Azure Communication Services](../communication-services/quickstarts/sms/send?ns-enrollment-type=Collection&ns-enrollment-id=3n70tjm2nwe5oj&tabs=windows&pivots=platform-azcli)
 
 
 <br>
