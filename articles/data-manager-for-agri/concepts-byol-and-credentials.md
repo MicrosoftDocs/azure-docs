@@ -39,7 +39,8 @@ For sharing your satellite or weather service credentials, customer stores clien
 you have to enable system identity for your Data Manager for Agriculture instance. There are two options:
     
 1. Via UI
-:::image type="content" source="./media/concepts-byol-and-credentials/enable-via-ui.png" alt-text="Screenshot showing usage of UI to enable key.":::
+
+    :::image type="content" source="./media/concepts-byol-and-credentials/enable-via-ui.png" alt-text="Screenshot showing usage of UI to enable key.":::
 
 2. Via Azure Resource Manager client
 
@@ -49,13 +50,16 @@ you have to enable system identity for your Data Manager for Agriculture instanc
 Add an access policy in key vault for your Data Manager for Agriculture instance.
     
 1. Go to access policies tab in the created key vault.
-:::image type="content" source="./media/concepts-byol-and-credentials/select-access-policies.png" alt-text="Screenshot showing selection of access policy.":::
+
+    :::image type="content" source="./media/concepts-byol-and-credentials/select-access-policies.png" alt-text="Screenshot showing selection of access policy.":::
 
 2. Choose Secret GET and LIST permissions.
-:::image type="content" source="./media/concepts-byol-and-credentials/select-permissions.png" alt-text="Screenshot showing selection of permissions.":::
+
+    :::image type="content" source="./media/concepts-byol-and-credentials/select-permissions.png" alt-text="Screenshot showing selection of permissions.":::
 
 3. Select the next tab, and then select Data Manager for Agriculture instance name and then select the review + create tab to create the access policy.
-:::image type="content" source="./media/concepts-byol-and-credentials/selecting-tabs.png" alt-text="Screenshot showing selection create and review tab.":::
+
+    :::image type="content" source="./media/concepts-byol-and-credentials/selecting-tabs.png" alt-text="Screenshot showing selection create and review tab.":::
 
 ### Provide your secret URL to Data Manager for Agriculture.
 You can use Data Manager for Agriculture control-plane API  to communicate credentials of Sentinel hub or IBM weather service.
@@ -80,13 +84,14 @@ Flow showing how Azure Data Manager for Agriculture accesses secret.
 :::image type="content" source="./media/concepts-byol-and-credentials/access-to-keys.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
 
 ## Error codes and mitigation steps
-### Control Plane APIs
+
+Control Plane APIs
 * Error code: ConnectorConfigurationInvalid: This error appears when control plane API is invoked with invalid model or body. 
 * Error code: SecretAccessFailure: This error appears when control plane API is invoked without prerequisite steps like:
     * Enabling System managed identity for Data Manager for Agriculture.
     * Add access policy for Data Manager for Agriculture in key vault of secret.
 
-### Data Plane APIs
+Data Plane APIs
 * Error code: ConnectorConfigurationMissing: This error appears when data plane API call is invoked with no credentials in the API call and connector credentials aren't provided via control plane API call. 
 * Error code: ConnectorConfigurationInvalid: This error appears when data plane API call is invoked with  invalid credentials model.
 * Error code: SecretAccessFailure: This error appears when Data Manager for Agriculture isn't able to access secret.
