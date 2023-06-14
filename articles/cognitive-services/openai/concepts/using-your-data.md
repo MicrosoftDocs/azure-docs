@@ -70,9 +70,9 @@ Give the model instructions about how it should behave and any context it should
 
 For example, if you're creating a chatbot where the data consists of transcriptions of quarterly financial earnings calls, you might use the following system message:
 
-    *"You are a financial chatbot useful for answering questions from financial reports. You are given excerpts from the earnings call. Please answer the questions by parsing through all dialogue."*
+*"You are a financial chatbot useful for answering questions from financial reports. You are given excerpts from the earnings call. Please answer the questions by parsing through all dialogue."*
 
-This system message can help improve the quality of the response by specifying the domain (in this case finance) and also mentioning that the data consists of call transcriptions. It helps set the necessary context for the model to respond appropriately. 
+This system message can help improve the quality of the response by specifying the domain (in this case finance) and mentioning that the data consists of call transcriptions. It helps set the necessary context for the model to respond appropriately. 
 
 > [!NOTE] 
 > The system message is only guidance. The model might not adhere to every instruction specified because it has been primed with certain behaviors such as objectivity, and avoiding controversial statements. Unexpected behavior may occur if the system message contradicts with these behaviors. 
@@ -89,7 +89,7 @@ This option encourages the model to respond using your data only, and is selecte
 
 > [!IMPORTANT]
 > * Semantic search is subject to [additional pricing](/azure/search/semantic-search-overview#availability-and-pricing)
-> * Only enable semantic search if both your documents and use case are in English.
+> * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
 
 If [semantic search](/azure/search/semantic-search-overview) is enabled for your Azure Cognitive Search service, you are more likely to produce better retrieval of your data, which can improve response and citation quality.
 
@@ -126,7 +126,7 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 * Azure OpenAI on your data supports queries that are in the same language as the documents. For example, if your data is in Japanese, then queries need to be in Japanese too.  
 
-* Currently [semantic search](/azure/search/semantic-search-overview) only supports English. Don't enable semantic search if your data is in other languages.   
+* Currently Azure OpenAI on your data supports [semantic search](/azure/search/semantic-search-overview) for English data only. Don't enable semantic search if your data is in other languages.   
 
 * We recommend using a system message to inform the model that your data is in another language. For example:
     
