@@ -59,10 +59,10 @@ In order to upload file sizes less than 5000 MiB one can directly use [PUT blob 
 If the upload is successful we will get a 201 Created status code in response
 
 ## Upload files with size greater or equal to 5000 MiB
-In order to upload files with sizes >= 5000 MiB we would need (azcopy)[https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy] utility as a single PUT blob call can't be greater than 5000 MiB [doc link](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage)
+In order to upload files with sizes >= 5000 MiB we would need [azcopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy)utility as a single PUT blob call can't be greater than 5000 MiB [doc link](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage)
 
 ### Steps
-1. Download azcopy using this (link)[https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy]
+1. Download azcopy using this [link](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)
 
 2. Run below command to upload your file
 
