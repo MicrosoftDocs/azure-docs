@@ -9,7 +9,7 @@ ms.date: 06/15/2023
 ms.custom: template-concept
 ---
 
-# Store and using your license keys.
+# Store and use your license keys.
 
 Azure Data Manager for Agriculture supports a range of data ingress connectors to centralize your fragmented accounts. These connections require the customer to populate their credentials in a Bring Your Own License (BYOL) model, so that the data manager may retrieve data on behalf of the customer.
 
@@ -20,60 +20,64 @@ Azure Data Manager for Agriculture supports a range of data ingress connectors t
 
 ## Overview
 
-In BYOL model, you're  responsible for providing your own licenses for satellite imagery and weather connector. In the vault reference model, you'll store credentials as secret in a customer managed Azure Key Vault. The URI of the secret must be shared and read permissions granted to Azure Data Manager for Agriculture so that the APIs can work seamlessly. This is a one-time setup for each connector. Our Data Manager then refers to and reads the secret from the customers’ key vault as part of the API call with no exposure of the secret. There is no impact for ISVs as there is no change to the data pull API request model, as the secrets are'nt provided by the ISV service. 
+In BYOL model, you're  responsible for providing your own licenses for satellite imagery and weather connector. In the vault reference model, you'll store credentials as secret in a customer managed Azure Key Vault. The URI of the secret must be shared and read permissions granted to Azure Data Manager for Agriculture so that the APIs can work seamlessly. This is a one-time setup for each connector. Our Data Manager then refers to and reads the secret from the customers’ key vault as part of the API call with no exposure of the secret. There is no impact for ISVs as there is no change to the data pull API request model, as the secrets are'nt provided by the ISV service. The steps to use Azure Key Vault in Data Manager for Agriculture are as follows: 
 
-## Using Azure Key Vault in Data Manager for Agriculture
-1. Create Key Vault: Customers are required to create a key vault to share license credentials for satellite (Sentinel Hub) and weather (IBM Weather). Customer creates (or reuse existing one) Azure Key Vault with following properties:
+### Create Key Vault 
+Customers are required to create a key vault to share license credentials for satellite (Sentinel Hub) and weather (IBM Weather). Customer creates (or reuse existing one) Azure Key Vault with following properties:
 
-    :::image type="content" source="./media/concepts-byol-and-credentials/create-key-vault.png" alt-text="Screenshot showing key vault properties.":::
+:::image type="content" source="./media/concepts-byol-and-credentials/create-key-vault.png" alt-text="Screenshot showing key vault properties.":::
 
-    It's recommended that customer keeps key vault accessible over internet so that Data Manager for Agriculture can access the key vault. In next Data Manager for Agriculture release, we will support private networked key vaults in addition to publicly available key vault.
+It's recommended that customer keeps key vault accessible over internet so that Data Manager for Agriculture can access the key vault. In next Data Manager for Agriculture release, we will support private networked key vaults in addition to publicly available key vault.
+
+:::image type="content" source="./media/concepts-byol-and-credentials/provide-access-to-keys.png" alt-text="Screenshot showing key vault access.":::
+
+### Store Secret in Azure Key Vault
+For sharing your satellite or weather service credentials, customer stores client secrets in a key vault. Customers are in control of secret name and rotation. 
+:::image type="content" source="./media/concepts-byol-and-credentials/store-credential-keys.png" alt-text="Screenshot showing storage of key values.":::
+
+### Enable System Identity 
+you have to enable system identity for your Data Manager for Agriculture instance. There are two options:
     
-     :::image type="content" source="./media/concepts-byol-and-credentials/provide-access-to-keys.png" alt-text="Screenshot showing key vault access.":::
+1. Via UI
+:::image type="content" source="./media/concepts-byol-and-credentials/enable-via-ui.png" alt-text="Screenshot showing usage of UI to enable key.":::
 
-2. Store Secret in Azure Key Vault: For sharing your satellite or weather service credentials, customer stores client secrets in a key vault. Customers are in control of secret name and rotation. 
+2. Via Azure Resource Manager client
 
-     :::image type="content" source="./media/concepts-byol-and-credentials/store-credential-keys.png" alt-text="Screenshot showing storage of key values.":::
+   ``` armclient patch /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{ADMA_instance_name}?api-version=2021-09-01-preview "{identity: { type: 'systemAssigned' }}"```
 
-3. Customer enables System Identity for their Data Manager for Agriculture instance. There are two options:
+### Access policy
+Add an access policy in key vault for your Data Manager for Agriculture instance.
     
-    a. Via UI
-    :::image type="content" source="./media/concepts-byol-and-credentials/enable-via-ui.png" alt-text="Screenshot showing usage of UI to enable key.":::
-    
-    b. Via Azure Resource Manager client
+1. Go to access policies tab in the created key vault.
+:::image type="content" source="./media/concepts-byol-and-credentials/select-access-policies.png" alt-text="Screenshot showing selection of access policy.":::
 
-      ``` armclient patch /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{ADMA_instance_name}?api-version=2021-09-01-preview "{identity: { type: 'systemAssigned' }}"```
+2. Choose Secret GET and LIST permissions.
+:::image type="content" source="./media/concepts-byol-and-credentials/select-permissions.png" alt-text="Screenshot showing selection of permissions.":::
 
-4. Add an access policy in key vault for your Data Manager for Agriculture instance.
-    
-    a.	Go to access policies tab in the created key vault.
-     :::image type="content" source="./media/concepts-byol-and-credentials/select-access-policies.png" alt-text="Screenshot showing selection of access policy.":::
+3. Select the next tab, and then select Data Manager for Agriculture instance name and then select the review + create tab to create the access policy.
+:::image type="content" source="./media/concepts-byol-and-credentials/selecting-tabs.png" alt-text="Screenshot showing selection create and review tab.":::
 
-    b.	Choose Secret GET and LIST permissions.
-       :::image type="content" source="./media/concepts-byol-and-credentials/select-permissions.png" alt-text="Screenshot showing selection of permissions.":::
+### Provide your Secret URL Data Manager for Agriculture.
+You can use Data Manager for Agriculture control-plane API  to communicate credentials of Sentinel hub or IBM weather service.
 
-    c.	Select the next tab, and then select Data Manager for Agriculture instance name and then select the review + create tab to create the access policy.
-      :::image type="content" source="./media/concepts-byol-and-credentials/selecting-tabs.png" alt-text="Screenshot showing selection of permissions.":::
+POST/<ADMA_resourceurl>/provider-credentials/sentinelhub
+{
+clientid: “clientid”
+clientsecretURL: 
+``` “https://keyvaultname.vault.azure.net/secrets/sentinehubsecret/key-version”```
+} 
 
-5. Communicate secret URL to Data Manager for Agriculture. Customer can use Data Manager for Agriculture control-plane API to ADMA to communicate credentials of Sentinel hub or IBM weather.
+Use the API call to specify credentials. Key vault URI/ key name/ key version can be found after creating secret as shown in the figure.
 
-    POST/<ADMA_resourceurl>/provider-credentials/sentinelhub
-    {
-	clientid: “clientid”
-	clientsecretURL: 
-        ``` “https://keyvaultname.vault.azure.net/secrets/sentinehubsecret/key-version”```
-    } 
-
-    Use the API call to specify credentials. Key vault URI/ key name/ key version can be found after creating secret as shown in the figure.
-
-      :::image type="content" source="./media/concepts-byol-and-credentials/key-vault-details.png" alt-text="Screenshot showing selection of permissions.":::
+:::image type="content" source="./media/concepts-byol-and-credentials/key-vault-details.png" alt-text="Screenshot showing where key name and key version is available.":::
 
 ## High level flow diagrams
-1.	Creating and sharing credentials
-   :::image type="content" source="./media/concepts-byol-and-credentials/flow-creating-sharing.png" alt-text="Screenshot showing selection of permissions.":::
 
-2. Azure Data Manager for Agriculture access secret
- :::image type="content" source="./media/concepts-byol-and-credentials/access-to-keys.png" alt-text="Screenshot showing selection of permissions.":::
+Flow diagram showing creation and sharing of credentials.
+:::image type="content" source="./media/concepts-byol-and-credentials/flow-creating-sharing.png" alt-text="Screenshot showing credential sharing flow.":::
+
+Flow showing how Azure Data Manager for Agriculture accesses secret.
+:::image type="content" source="./media/concepts-byol-and-credentials/access-to-keys.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
 
 ## Error codes from and mitigation steps
 Control Plane APIs
