@@ -26,6 +26,13 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 - Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
 - To tunnel network traffic based on rules of FQDNs (in the forwarding profile), DNS over HTTPS (Secure DNS) needs to be disabled. 
 
+## Enable the Private access traffic forwarding profile
+
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
+1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
+1. Select the checkbox for **Private access profile**.
+
+![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-manage-private-access-profile/private-access-traffic-profile.png)
 ## Private access traffic policies
 
 To enable the Private access traffic forwarding profile, we recommend you first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDNs) for the private resources you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md).
