@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Device application development
+    - name: General device development
       items: 
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
@@ -83,6 +83,8 @@
       href: concepts-architecture.md
     - name: IoT Plug and Play conventions
       href: concepts-convention.md
+    - name: IoT Plug and Play message payloads
+      href: concepts-message-payloads.md
     - name: Device developer guide
       href: concepts-developer-guide-device.md
     - name: Service developer guide

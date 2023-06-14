@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 02/14/2023
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: cog-serv-seo-aug-2020, mode-other
+ms.custom: cog-serv-seo-aug-2020, mode-other, devx-track-python
 keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 

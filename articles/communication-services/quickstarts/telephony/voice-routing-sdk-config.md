@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 zone_pivot_groups: acs-azp-java-python-csharp-js
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Configure voice routing programmatically

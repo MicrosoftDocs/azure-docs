@@ -15,7 +15,7 @@ ms.custom: it-pro
 #Customer intent: As an it admin, I want to learn about the options for customizing the look and feel of the customer sign-in and sing-up experience.
 ---
 
-# Customize the neutral branding in your customer tenant
+# Customize the neutral branding in your customer tenant (preview)
 
 After creating a new customer tenant, you can customize the end-user experience. Create a custom look and feel for users signing in to your web-based apps by configuring **Company branding** settings for your tenant. With these settings, you can add your own background images, colors, company logos, and text to customize the sign-in experiences across your apps.  
 You can also create user flows programmatically using the Company Branding Graph API.
@@ -27,11 +27,13 @@ You can also create user flows programmatically using the Company Branding Graph
 - [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md)
 - Review the file size requirements for each image you want to add. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG, but JPG is accepted.
 
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
+
 ## Comparing the default sign-in experiences between the customer tenant and the Azure AD tenant
 
 The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. The default branding experiences between the customer tenant and the default Azure AD tenant are distinct.
 
-Your Azure AD tenant supports Microsoft look and feel as a default state for authentication experience. You can [customize the default Microsoft sign-in experience](/azure/active-directory/fundamentals/how-to-customize-branding) with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. If the custom company branding fails to load for any reason, the sign-in page will revert to the default Microsoft branding.
+Your Azure AD tenant supports Microsoft look and feel as a default state for authentication experience. You can [customize the default Microsoft sign-in experience](/azure/active-directory/fundamentals/how-to-customize-branding) with a custom background image or color, favicon, layout, header, and footer. You can also upload a [custom CSS](/azure/active-directory/fundamentals/reference-company-branding-css-template). If the custom company branding fails to load for any reason, the sign-in page will revert to the default Microsoft branding.
 
 Microsoft provides a neutral branding as the default for the customer tenant, which can be customized to meet the specific needs of your company. The default branding for the customer tenant is neutral and doesn't include any existing Microsoft branding. If the custom company branding fails to load for any reason, the sign-in page will revert to this neutral branding. It's also possible to add each custom branding property to the custom sign-in page individually.
 
@@ -44,14 +46,14 @@ The following list and image outline the elements of the default Microsoft sign-
 5.	Microsoft footer hyperlinks, for example,  Privacy & cookies, Terms of use and troubleshooting details also known as ellipsis in the right bottom corner of the screen.
 6.	Microsoft overlay.
 
-   :::image type="content" source="media/how-to-customize-branding-customers/azure-ad-microsoft-branding.png" alt-text="Screenshot of the Azure AD default Microsoft branding." lightbox="media/how-to-customize-branding-customers/azure-ad-microsoft-branding.png":::
+   :::image type="content" source="media/how-to-customize-branding-customers/microsoft-branding.png" alt-text="Screenshot of the Azure AD default Microsoft branding." lightbox="media/how-to-customize-branding-customers/microsoft-branding.png":::
 
 The following image displays the neutral default branding of the customer tenant:
    :::image type="content" source="media/how-to-customize-branding-customers/ciam-neutral-branding.png" alt-text="Screenshot of the CIAM neutral branding." lightbox="media/how-to-customize-branding-customers/ciam-neutral-branding.png":::
 
 ## How to customize the default sign-in experience
 
-Before you customize any settings, the neutral default branding will appear in your sign-in and sign-up pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. 
+Before you customize any settings, the neutral default branding will appear in your sign-in and sign-up pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a [custom CSS](/azure/active-directory/fundamentals/reference-company-branding-css-template). 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.

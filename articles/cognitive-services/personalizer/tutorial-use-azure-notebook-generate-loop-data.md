@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.custom: devx-track-python
+ms.custom:
 #Customer intent: As a Python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---
 
@@ -659,4 +659,3 @@ If you do not intend to continue the tutorial series, clean up the following res
 ## Next steps
 
 The [Jupyter notebook and data files](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) used in this sample are available on the GitHub repo for Personalizer.
-

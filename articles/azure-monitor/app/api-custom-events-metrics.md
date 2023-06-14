@@ -4,7 +4,7 @@ description: Insert a few lines of code in your device or desktop app, webpage, 
 ms.topic: conceptual
 ms.date: 01/24/2023
 ms.devlang: csharp, java, javascript, vb
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ms.reviewer: mmcc
 ---
 

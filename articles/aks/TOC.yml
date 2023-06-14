@@ -109,8 +109,12 @@
       href: concepts-storage.md
     - name: Scaling
       href: concepts-scale.md
-    - name: Node auto-repair
-      href: node-auto-repair.md
+    - name: Node Health
+      items:
+        - name: Node auto-repair
+          href: node-auto-repair.md
+        - name: Node Problem Detector (NPD)
+          href: node-problem-detector.md  
     - name: Multi-instance GPU Node pool
       href: gpu-multi-instance.md
     - name: Service meshes
@@ -360,8 +364,6 @@
               href: use-cvm.md
             - name: Use Dedicated Hosts with AKS
               href: use-azure-dedicated-hosts.md
-            - name: BYOK for disks
-              href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
             - name: Enable FIPS
@@ -422,8 +424,6 @@
               href: configure-azure-cni-dynamic-ip-allocation.md
             - name: Use Azure CNI Overlay
               href: azure-cni-overlay.md
-            - name: Deploy Isovalent Cilium Enterprise
-              href: cilium-enterprise-marketplace.md
         - name: DNS
           items:
             - name: Use a static IP address and DNS label
@@ -521,6 +521,8 @@
               href: use-premium-v2-disks.md
             - name: Use Azure ultra disks
               href: use-ultra-disks.md
+            - name: Bring your own keys for disks
+              href: azure-disk-customer-managed-keys.md
         - name: Other storage options
           items:
             - name: Azure HPC Cache
