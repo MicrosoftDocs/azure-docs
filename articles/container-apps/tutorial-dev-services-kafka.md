@@ -11,9 +11,9 @@ ms.author: ahmels
 
 # Tutorial: Create and use an Apache Kafka service for development
 
-The Azure Container Apps service enables you to provision services like Apache Kafka, Redis, [PostgreSQL](./tutorial-dev-services-postgresql.md), etc on the same environment as your applications. Those services are deployed as special type of Container Apps that is managed for you and you can connect other applications to them securely without exporting secrets, or sharing them anywhere. Those services are deployed in the same private network as your applications so you don't have to setup or manage VNETs for simple development workflows. Finally, these services compute scale to 0 like other Container Apps when not used to cut down on cost for development.
+The Azure Container Apps service enables you to provision services like Apache Kafka, Redis, [PostgreSQL](./tutorial-dev-services-postgresql.md) etc., on the same environment as your applications. Those services are deployed as special type of Container Apps. You can connect other applications to them securely without exporting secrets, or sharing them anywhere. Those services are deployed in the same private network as your applications so you don't have to setup or manage VNETs for simple development workflows. Finally, these services compute scale to 0 like other Container Apps when not used to cut down on cost for development.
 
-In this tutorial you learn how to create and use a development Apache Kafka service. There are both step-by-step Azure CLI commands, as well as Bicep template fragments for each step. For Bicep, adding all fragments to the same bicep file and deploying the template all at once or after each incremental update works equally.
+In this tutorial, you learn how to create and use a development Apache Kafka service. There are both step-by-step Azure CLI commands, and Bicep template fragments for each step. For Bicep, adding all fragments to the same bicep file and deploying the template all at once or after each incremental update works equally.
 
 > [!div class="checklist"]
 > * Create a Container Apps environment to deploy your service and container apps
@@ -49,7 +49,7 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 
     # [Bicep](#tab/bicep)
 
-    You'll still need to use the CLI to deploy the bicep template into a resource group. So define the following variables for the CLI
+    You still need to use the CLI to deploy the bicep template into a resource group. So define the following variables for the CLI
 
     ```bash
     RESOURCE_GROUP="kafka-dev"
@@ -107,7 +107,7 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 
     ----
 
-1. Make sure to login and upgrade/register all providers needed for your Azure Subscription
+1. Make sure to log in and upgrade/register all providers needed for your Azure Subscription
 
     ```bash
     az login
@@ -155,7 +155,7 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
     azd up
     ```
 
-    Which should create an empty resource group.
+    That should create an empty resource group.
 
     ----
 
@@ -350,7 +350,7 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
     output serviceId string = service.id
     ```
 
-    Then update `./infra/main.bicep` to use the module with the following:
+    Then update `./infra/main.bicep` to use the module with the following declaration:
 
     ```bicep
     module kafka './core/host/container-app-service.bicep' = {
@@ -385,7 +385,7 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 
     # [Bicep](#tab/bicep)
 
-    The bicep example above includes an output for the command to view the logs. For example:
+    The previous bicep example includes an output for the command to view the logs. For example:
 
     ```bash
     [
@@ -415,11 +415,11 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 
     ----
 
-    :::image type="content" source="media/services/azure-container-apps-kafka-service-logs.png" alt-text="Screenshot of container app kafka service logs.":::
+    :::image type="content" source="media/tutorial-dev-services-kafka/azure-container-apps-kafka-service-logs.png" alt-text="Screenshot of container app kafka service logs.":::
 
-## Create a command line test apps
+## Create a command line test app
 
-We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-producer.sh`, and `kafka-console-consumer.sh` to connect to the Kafka instance.
+We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-producer.sh`, and `kafka-console-consumer.sh` to connect to the Kafka instance.
 
 1. Create a `kafka-cli-app` app that binds to the PostgreSQL service
 
@@ -559,7 +559,7 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
 
     ----
 
-1. Run CLI exec command to exec command to connect to the test app
+1. Run CLI exec command to connect to the test app
 
     # [Bash](#tab/bash)
 
@@ -572,7 +572,7 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
 
     # [Bicep](#tab/bicep)
 
-    The bicep example above includes an output a second for the command to exec into the app. For example:
+    The previous bicep example includes an output a second for the command to exec into the app. For example:
 
     ```bash
     [
@@ -581,7 +581,7 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
     ]
     ```
 
-    If you don't have the command, you can get use the app name to exec using the CLI
+    If you don't have the command, you can get the app name to exec using the CLI
 
     ```bash
     az containerapp exec \
@@ -663,7 +663,7 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
     ```
 
     > [!NOTE]
-    > The `./kafka-console-producer.sh` command will prompt you to write events with `>`. Write some events as shown above, then hit `CTRL-C` any time to finish.
+    > The `./kafka-console-producer.sh` command will prompt you to write events with `>`. Write some events as shown, then hit `CTRL-C` any time to finish.
 
 1. Use `kafka-console-consumer.sh` to read events from the topic
 
@@ -679,7 +679,7 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
     # this is my third event
     ```
 
-:::image type="content" source="media/services/azure-container-apps-kafka-cli-output.png" alt-text="Screenshot of container app kafka cli output logs.":::
+:::image type="content" source="media/tutorial-dev-services-kafka/azure-container-apps-kafka-cli-output.png" alt-text="Screenshot of container app kafka CLI output logs.":::
 
 ## Using a dev service with an existing app
 
@@ -698,7 +698,7 @@ KAFKA_SASL_MECHANISM=PLAIN
 
 Then using the CLI (or bicep) you can update the app to add a `--bind $KAFKA_SVC` to use the created dev service.
 
-## Deploying `kafka-ui` and binding it to the the PostgreSQL service
+## Deploying `kafka-ui` and binding it to the Kafka service
 
 For example, we can deploy [kafka-ui](https://github.com/provectus/kafka-ui) to view and manage the Kafka instance we have.
 
@@ -794,7 +794,7 @@ then deploy the template with `azd up`
 
 ---
 
-:::image type="content" source="media/services/azure-container-apps-kafka-ui-data.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
+:::image type="content" source="media/tutorial-dev-services-kafka/azure-container-apps-kafka-ui-data.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
 
 ## Final Bicep template for deploying all resources
 
@@ -938,7 +938,7 @@ az deployment group create -g $RESOURCE_GROUP \
 
 ## Final `azd` template for all resource
 
-A final template can be found [here](https://github.com/ahmelsayed/aca-dev-service-kafka-azd). To deploy it 
+A final template can be found [here](https://github.com/ahmelsayed/aca-dev-service-kafka-azd). To deploy it run the following commands
 
 ```bash
 git clone https://github.com/Azure-Samples/aca-dev-service-kafka-azd

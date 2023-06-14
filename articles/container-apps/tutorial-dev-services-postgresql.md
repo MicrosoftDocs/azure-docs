@@ -11,9 +11,9 @@ ms.author: ahmels
 
 # Tutorial: Create and use a PostgreSQL service for development
 
-The Azure Container Apps service enables you to provision services like PostgreSQL, Redis, and Apache Kafka on the same environment as your applications. Those services are deployed as special type of Container Apps that is managed for you and you can connect other applications to them securely without exporting secrets, or sharing them anywhere. Those services are deployed in the same private network as your applications so you don't have to setup or manage VNETs for simple development workflows. Finally, these services compute scale to 0 like other Container Apps when not used to cut down on cost for development.
+The Azure Container Apps service enables you to provision services like PostgreSQL, Redis, and Apache Kafka on the same environment as your applications. Those services are deployed as special type of Container Apps. You can connect other applications to them securely without exporting secrets, or sharing them anywhere. Those services are deployed in the same private network as your applications so you don't have to setup or manage VNETs for simple development workflows. Finally, these services compute scale to 0 like other Container Apps when not used to cut down on cost for development.
 
-In this tutorial you learn how to create and use a development PostgreSQL service. There are both step-by-step Azure CLI commands, as well as Bicep template fragments for each step. For Bicep, adding all fragments to the same bicep file and deploying the template all at once or after each incremental update works equally.
+In this tutorial, you learn how to create and use a development PostgreSQL service. There are both step-by-step Azure CLI commands, and Bicep template fragments for each step. For Bicep, adding all fragments to the same bicep file and deploying the template all at once or after each incremental update works equally.
 
 > [!div class="checklist"]
 > * Create a Container Apps environment to deploy your service and container apps
@@ -49,7 +49,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
 
     # [Bicep](#tab/bicep)
 
-    You'll still need to use the CLI to deploy the bicep template into a resource group. So define the following variables for the CLI
+    You still need to use the CLI to deploy the bicep template into a resource group. So define the following variables for the CLI
 
     ```bash
     RESOURCE_GROUP="postgres-dev"
@@ -105,7 +105,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
 
     ---
 
-2. Make sure to login and upgrade/register all providers needed for your Azure Subscription
+2. Make sure to log in and upgrade/register all providers needed for your Azure Subscription
 
     ```bash
     az login
@@ -153,7 +153,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
     azd up
     ```
 
-    Which should create an empty resource group.
+    That should create an empty resource group.
 
     ---
 
@@ -342,7 +342,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
     output serviceId string = service.id
     ```
 
-    Then update `./infra/main.bicep` to use the module with the following:
+    Then update `./infra/main.bicep` to use the module with the following declaration:
 
     ```bicep
     module postgres './core/host/container-app-service.bicep' = {
@@ -377,7 +377,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
 
     # [Bicep](#tab/bicep)
 
-    The bicep example above includes an output for the command to view the logs. For example:
+    The previous bicep example includes an output for the command to view the logs. For example:
 
     ```bash
     [
@@ -407,11 +407,11 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
 
     ---
 
-    :::image type="content" source="media/services/azure-container-apps-postgresql-service-logs.png" alt-text="Screenshot of container app PostgreSQL service logs.":::
+    :::image type="content" source="media/tutorial-dev-services-postgresql/azure-container-apps-postgresql-service-logs.png" alt-text="Screenshot of container app PostgreSQL service logs.":::
 
 ## Create a command line test app to view and connect to the service
 
-We will start by creating a debug app to use `psql` cli to connect to the PostgreSQL instance.
+We start by creating a debug app to use `psql` CLI to connect to the PostgreSQL instance.
 
 1. Create a `psql` app that binds to the PostgreSQL service
 
@@ -546,7 +546,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
 
     ---
 
-1. Run CLI exec command to exec command to connect to the test app
+1. Run CLI exec command to connect to the test app
 
     # [Bash](#tab/bash)
 
@@ -559,7 +559,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
 
     # [Bicep](#tab/bicep)
 
-    The bicep example above includes an output a second for the command to exec into the app. For example:
+    The previous bicep example includes an output a second for the command to exec into the app. For example:
 
     ```bash
     [
@@ -568,7 +568,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
     ]
     ```
 
-    If you don't have the command, you can get use the app name to exec using the CLI
+    If you don't have the command, you can get the app name to exec using the CLI
 
     ```bash
     az containerapp exec \
@@ -609,7 +609,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
     psql $POSTGRES_URL
     ```
 
-    :::image type="content" source="media/services/azure-container-apps-postgresql-psql.png" alt-text="Screenshot of container app using pgsql to connect to a PostgreSQL service.":::
+    :::image type="content" source="media/tutorial-dev-services-postgresql/azure-container-apps-postgresql-psql.png" alt-text="Screenshot of container app using pgsql to connect to a PostgreSQL service.":::
 
 1. Create a table `accounts` and insert some data 
 
@@ -631,7 +631,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
     postgres=# SELECT * FROM accounts;
     ```
 
-    :::image type="content" source="media/services/azure-container-apps-postgresql-psql-data.png" alt-text="Screenshot of container app using pgsql connect to PostgreSQL and create a table and seed some data.":::
+    :::image type="content" source="media/tutorial-dev-services-postgresql/azure-container-apps-postgresql-psql-data.png" alt-text="Screenshot of container app using pgsql connect to PostgreSQL and create a table and seed some data.":::
 
 ## Using a dev service with an existing app
 
@@ -650,7 +650,7 @@ POSTGRES_CONNECTION_STRING=host=postgres01 database=postgres user=postgres passw
 
 Then using the CLI (or bicep) you can update the app to add a `--bind $PG_SVC` to use the created dev service.
 
-## Deploying `pgweb` and binding it to the the PostgreSQL service
+## Deploying `pgweb` and binding it to the PostgreSQL service
 
 For example, we can deploy [pgweb](https://github.com/sosedoff/pgweb) to view and manage the PostgreSQL instance we have.
 
@@ -743,7 +743,7 @@ then deploy the template with `azd up`
 ---
 
 
-:::image type="content" source="media/services/azure-container-apps-postgresql-pgweb.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
+:::image type="content" source="media/tutorial-dev-services-postgresql/azure-container-apps-postgresql-pgweb.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
 
 
 ## Final Bicep template for deploying all resources
