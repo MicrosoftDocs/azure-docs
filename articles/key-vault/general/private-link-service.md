@@ -46,10 +46,10 @@ You can create a new key vault with the [Azure portal](../general/quick-create-p
 
 After configuring the key vault basics, select the Networking tab and follow these steps:
 
-1. Select the Private Endpoint radio button in the Networking tab.
-1. Select the "+ Add" Button to add a private endpoint.
+1. Disable public access by toggling off the radio button.
+1. Select the "+ Create a private endpoint" Button to add a private endpoint.
 
-    ![Screenshot that shows the 'Networking' tab on the 'Create key vault' page.](../media/private-link-service-1.png)
+    ![Screenshot that shows the 'Networking' tab on the 'Create key vault' page.](../media/private-link-service-10.png)
 
 1. In the "Location" field of the Create Private Endpoint Blade, select the region in which your virtual network is located. 
 1. In the "Name" field, create a descriptive name that will allow you to identify this private endpoint. 
