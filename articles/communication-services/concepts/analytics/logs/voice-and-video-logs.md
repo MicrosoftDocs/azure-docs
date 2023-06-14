@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services - voice and video logs 
 titleSuffix: An Azure Communication Services concept document
-description: Learn about logging for Azure Communication Services Voice and Video.
+description: Learn about logging for Azure Communication Services voice and video.
 author:  timmitchell
 services: azure-communication-services
 
@@ -12,27 +12,29 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Azure Communication Services voice and video Logs 
+# Azure Communication Services voice and video Logs
 
-Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
+Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. You configure these capabilities through the Azure portal.
 
-> [!IMPORTANT]
-> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
+The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for Communications Services, see [Enable logging in diagnostic settings](../enable-logging.md).
 
-## Data Concepts
+## Data concepts
+
 The following are high level descriptions of data concepts specific to Voice and Video calling. These concepts are important to review in order to understand the meaning of the data captured in the logs.
 
 ### Entities and IDs
 
 A *Call*, as represented in the data, is an abstraction depicted by the `correlationId`. `CorrelationId`s are unique per Call, and are time-bound by `callStartTime` and `callDuration`. Every Call is an event that contains data from two or more *Endpoints*, which represent the various human, bot, or server participants in the Call.
 
-A *Participant* (`participantId`) is present only when the Call is a *Group* Call, as it represents the connection between an Endpoint and the server. 
+A *Participant* (`participantId`) is present only when the Call is a *Group* Call, as it represents the connection between an Endpoint and the server.
 
-An *Endpoint* is the most unique entity, represented by `endpointId`. `EndpointType` tells you whether the Endpoint represents a human user (PSTN, VoIP), a Bot (Bot), or the server that is managing multiple Participants within a Call. When an `endpointType` is `"Server"`, the Endpoint is not assigned a unique ID. By analyzing endpointType and the number of `endpointIds`, you can determine how many users and other non-human Participants (bots, servers) join a Call. Our native SDKs (Android, iOS) reuse the same `endpointId` for a user across multiple Calls, thus enabling an understanding of experience across sessions. This differs from web-based Endpoints, which always generates a new `endpointId` for each new Call.
+An *Endpoint* is the most unique entity, represented by `endpointId`. `EndpointType` tells you whether the Endpoint represents a human user (PSTN, VoIP), a Bot (Bot), or the server that is managing multiple Participants within a Call. When an `endpointType` is `"Server"`, the Endpoint is not assigned a unique ID. By analyzing endpointType and the number of `endpointIds`, you can determine how many users and other non-human Participants (bots, servers) join a Call.
+
+Our native SDKs (Android, iOS) reuse the same `endpointId` for a user across multiple Calls, thus enabling an understanding of experience across sessions. This differs from web-based Endpoints, which always generates a new `endpointId` for each new Call.
 
 A *Stream* is the most granular entity, as there is one Stream per direction (inbound/outbound) and `mediaType` (for example, audio and video).  
 
-## Data Definitions
+## Data definitions
 
 ### Usage logs schema
 
@@ -49,8 +51,9 @@ A *Stream* is the most granular entity, as there is one Stream per direction (in
 | `Unit Type` | The type of unit that usage is based off for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
 | `Quantity` | The number of units used or consumed for this record. |
 
-### Call Summary log schema
-The Call Summary Log contains data to help you identify key properties of all Calls. A different Call Summary Log is created per each `participantId` (`endpointId` in the case of P2P calls) in the Call.
+### Call summary log schema
+
+The call summary Log contains data to help you identify key properties of all Calls. A different Call Summary Log is created per each `participantId` (`endpointId` in the case of P2P calls) in the Call.
 
 > [!IMPORTANT]
 > Participant information in the call summary log vary based on the participant tenant. The SDK and OS version is redacted if the participant is not within the same tenant (also referred to as cross-tenant) as the ACS resource. Cross-tenants’ participants are classified as external users invited by a resource tenant to join and collaborate during a call.
@@ -77,14 +80,15 @@ The Call Summary Log contains data to help you identify key properties of all Ca
 |     `osVersion`                 |     String that represents the operating system and version of each Endpoint device.                                                                        |
 |     `participantTenantId`               |    The ID of the Microsoft tenant associated with the participant. This field is used to guide cross-tenant redaction.
 
+### Call diagnostic log schema
 
-### Call Diagnostic log schema
-Call Diagnostic Logs provide important information about the Endpoints and the media transfers for each Participant, and as measurements that help to understand quality issues.
+Call diagnostic logs provide important information about the Endpoints and the media transfers for each Participant, and as measurements that help to understand quality issues.
+
 For each Endpoint within a Call, a distinct Call Diagnostic Log is created for outbound media streams (audio, video, etc.) between Endpoints.
 In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In Group Calls the participantId serves as key identifier to join the related outbound logs into a distinct Participant connection. Note that Call diagnostic logs remain intact and are the same regardless of the participant tenant.
 
 > [!NOTE]
-> In this document, P2P and group calls are by default within the same tenant, for all call scenarios that are cross-tenant they are specified accordingly throughout the document.
+> In this document, P2P and group calls are by default within the same tenant, for all call scenarios that are cross-tenant. They're specified accordingly throughout the document.
 
 |     Property              |     Description                     |
 |---------------------------|-------------------------------------|
@@ -104,61 +108,61 @@ In a P2P Call, each log contains data relating to each of the outbound stream(s)
 |     `jitterAvg`             |     This metric is the average change in delay between successive packets. Azure Communication Services can adapt to some levels of jitter through buffering. It's only when the jitter exceeds the buffering, which is approximately at `jitterAvg` >30 ms, that a negative quality impact is likely occurring. The packets arriving at different speeds cause a speaker's voice to sound robotic. This metric is measured per media stream over the `participantDuration` in a group Call or `callDuration` in a P2P Call.      |
 |     `jitterMax`             |     This metric is the maximum jitter value measured between packets per media stream. Bursts in network conditions can cause issues in the audio/video traffic flow.  |
 |     `packetLossRateAvg`     |     This metric is the average percentage of packets that are lost. Packet loss directly affects audio quality—from small, individual lost packets that have almost no impact to back-to-back burst losses that cause audio to cut out completely. The packets being dropped and not arriving at their intended destination cause gaps in the media, resulting in missed  syllables and words, and choppy video and sharing. A packet loss rate of greater than 10% (0.1) should be considered a rate that's likely having a negative quality impact. This metric is measured per media stream  over the `participantDuration` in a group Call or `callDuration` in a P2P Call.    |
-|     `packetLossRateMax`     |     This value represents the maximum packet loss rate (%) per media stream over the `participantDuration` in a group Call or `callDuration` in a P2P Call. Bursts in network conditions can cause issues in the audio/video traffic flow.                                                                                                                                
-### P2P vs. Group Calls
+|     `packetLossRateMax`     |     This value represents the maximum packet loss rate (%) per media stream over the `participantDuration` in a group Call or `callDuration` in a P2P Call. Bursts in network conditions can cause issues in the audio/video traffic flow.
 
-There are two types of Calls (represented by `callType`): P2P and Group. 
+### P2P vs. group calls
 
-**P2P** calls are a connection between only two Endpoints, with no server Endpoint. P2P calls are initiated as a Call between those Endpoints and are not created as a group Call event prior to the connection.
+There are two types of Calls (represented by `callType`):
+
+- **P2P** calls are a connection between only two Endpoints, with no server Endpoint. P2P calls are initiated as a Call between those Endpoints and are not created as a group Call event prior to the connection.
 
   :::image type="content" source="../media/call-logs-azure-monitor/p2p-diagram.png" alt-text="Screenshot displays P2P call across 2 endpoints."::: 
 
-**Group** Calls include any Call that has more than 2 Endpoints connected. Group Calls include a server Endpoint, and the connection between each Endpoint and the server. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. You can determine the timeline of when each endpoints joined the call by using the `participantStartTime` and `participantDuration` metrics.
-
+- **Group** Calls include any Call that has more than 2 Endpoints connected. Group Calls include a server Endpoint, and the connection between each Endpoint and the server. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. You can determine the timeline of when each endpoints joined the call by using the `participantStartTime` and `participantDuration` metrics.
 
   :::image type="content" source="../media/call-logs-azure-monitor/group-call-version-a.png" alt-text="Screenshot displays group call across multiple endpoints.":::
 
+## Log structure
 
-## Log Structure
-
-Two types of logs are created: **Call Summary** logs and **Call Diagnostic** logs. 
+Two types of logs are created: **Call Summary** logs and **Call Diagnostic** logs.
 
 Call Summary Logs contain basic information about the Call, including all the relevant IDs, timestamps, Endpoint and SDK information. For each participant within a call, a distinct call summary log is created (if someone rejoins a call, they have the same EndpointId, but a different ParticipantId, so there can be two Call Summary logs for that endpoint).
 
-Call Diagnostic Logs contain information about the Stream as well as a set of metrics that indicate quality of experience measurements. For each Endpoint within a Call (including the server), a distinct Call Diagnostic Log is created for each media stream (audio, video, etc.) between Endpoints. In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In a Group Call, each stream associated with `endpointType`= `"Server"` creates a log containing data for the inbound streams, and all other streams creates logs containing data for the outbound streams for all non-sever endpoints. In Group Calls, use the `participantId` as the key to join the related inbound/outbound logs into a distinct Participant connection.
+Call Diagnostic Logs contain information about the Stream as well as a set of metrics that indicate quality of experience measurements. For each Endpoint within a Call (including the server), a distinct Call Diagnostic Log is created for each media stream (audio, video, etc.) between Endpoints. 
 
-### Example 1: P2P Call
+In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In a Group Call, each stream associated with `endpointType`= `"Server"` creates a log containing data for the inbound streams, and all other streams creates logs containing data for the outbound streams for all non-sever endpoints. In Group Calls, use the `participantId` as the key to join the related inbound/outbound logs into a distinct Participant connection.
+
+### Example 1: P2P call
 
 The below diagram represents two endpoints connected directly in a P2P Call. In this example, 2 Call Summary Logs would be created (one per `participantID`) and four Call Diagnostic Logs would be created (one per media stream). Each log contains data relating to the outbound stream of the `participantID`.
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-1-p2p-call-same-tenant.png" alt-text="Screenshot displays P2P call within the same tenant.":::
 
-
-### Example 2: Group Call
+### Example 2: Group call
 
 The below diagram represents a Group Call example with three `participantIDs`, which means three `participantIDs` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. One Call Summary Logs would be created per `participantID`, and four Call Diagnostic Logs would be created relating to each `participantID`, one for each media stream. 
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-2-group-call-same-tenant.png" alt-text="Screenshot displays group call within the same tenant.":::
-                                                                   
-### Example 3: P2P Call cross-tenant
+
+### Example 3: P2P call cross-tenant
+
 The below diagram represents two participants across multiple tenants that are connected directly in a P2P Call. In this example, one Call Summary Logs would be created (one per participant) with redacted OS and SDK versioning and four Call Diagnostic Logs would be created (one per media stream). Each log contains data relating to the outbound stream of the `participantID`.
- 
+
 :::image type="content" source="../media/call-logs-azure-monitor/example-3-p2p-call-cross-tenant.png" alt-text="Screenshot displays P2P call cross-tenant.":::
 
+### Example 4: Group call cross-tenant
 
-### Example 4: Group Call cross-tenant
-The below diagram represents a Group Call example with three `participantIds` across multiple tenants. One Call Summary Logs would be created per participant with redacted OS and SDK versioning, and four Call Diagnostic Logs would be created relating to each `participantId` , one for each media stream. 
+The below diagram represents a Group Call example with three `participantIds` across multiple tenants. One Call Summary Logs would be created per participant with redacted OS and SDK versioning, and four Call Diagnostic Logs would be created relating to each `participantId` , one for each media stream.
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-4-group-call-cross-tenant.png" alt-text="Screenshot displays group call cross-tenant.":::
 
-
 > [!NOTE]
 > Only outbound diagnostic logs can be supported in this release. 
-> Please note that participants and bots identity are treated the same way, as a result OS and SDK versioning associated to the bot and the participant can be redacted 
+> Please note that participants and bots identity are treated the same way, as a result OS and SDK versioning associated to the bot and the participant can be redacted
 
-## Sample Data
+## Sample data
 
-### P2P Call
+### P2P call
 
 Shared fields for all logs in the call:
 
@@ -168,7 +172,8 @@ Shared fields for all logs in the call:
 "correlationId":            "8d1a8374-344d-4502-b54b-ba2d6daaf0ae",
 ```
 
-#### Call Summary Logs
+#### Call summary Logs
+
 Call Summary Logs have shared operation and category information:
 
 ```json
@@ -177,7 +182,9 @@ Call Summary Logs have shared operation and category information:
 "category":                 "CallSummary",
 
 ```
-Call Summary for VoIP user 1
+
+Call Summary for VoIP user 1:
+
 ```json
 "properties": {
     "identifier":               "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
@@ -196,7 +203,8 @@ Call Summary for VoIP user 1
 }
 ```
 
-Call summary for VoIP user 2
+Call summary for VoIP user 2:
+
 ```json
 "properties": {
     "identifier":               "acs:7af14122-9ac7-4b81-80a8-4bf3582b42d0_06f9276d-8efe-4bdd-8c22-ebc5434903f0",
@@ -214,7 +222,9 @@ Call summary for VoIP user 2
     "osVersion":                "null"
 }
 ```
+
 Call Summary Logs crossed tenants: Call summary for VoIP user 1
+
 ```json
 "properties": {
     "identifier":               "1e4c59e1-r1rr-49bc-893d-990dsds8f9f5",
@@ -233,7 +243,8 @@ Call Summary Logs crossed tenants: Call summary for VoIP user 1
     "osVersion":                "Redacted"
 }
 ```
-Call summary for PSTN call 
+
+Call summary for PSTN call
 
 > [!NOTE]
 > P2P or group call logs emitted have OS, and SDK version redacted regardless is the participant or bot’s tenant
@@ -257,13 +268,17 @@ Call summary for PSTN call
 ```
 
 #### Call Diagnostic Logs
+
 Call diagnostics logs share operation information:
+
 ```json
 "operationName":            "CallDiagnostics",
 "operationVersion":         "1.0",
 "category":                 "CallDiagnostics",
 ```
+
 Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2:
+
 ```json
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
@@ -281,7 +296,9 @@ Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2:
     "packetLossRateMax":    "0"
 }
 ```
+
 Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1:
+
 ```json
 "properties": {
     "identifier":           "acs:7af14122-9ac7-4b81-80a8-4bf3582b42d0_06f9276d-8efe-4bdd-8c22-ebc5434903f0",
@@ -299,7 +316,9 @@ Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1:
     "packetLossRateMax":    "0"
 }
 ```
+
 Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2:
+
 ```json
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
@@ -317,9 +336,11 @@ Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2:
     "packetLossRateMax":    "0.001769911"
 }
 ```
+
 ### Group Call
 
 The data would be generated in three Call Summary Logs and 6 Call Diagnostic Logs. Shared fields for all logs in the Call:
+
 ```json
 "time":                     "2021-07-05T06:30:06.402Z",
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
@@ -327,7 +348,9 @@ The data would be generated in three Call Summary Logs and 6 Call Diagnostic Log
 ```
 
 #### Call Summary Logs
+
 Call Summary Logs have shared operation and category information:
+
 ```json
 "operationName":            "CallSummary",
 "operationVersion":         "1.0",
@@ -335,6 +358,7 @@ Call Summary Logs have shared operation and category information:
 ```
 
 Call summary for VoIP Endpoint 1:
+
 ```json
 "properties": {
     "identifier":               "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-729f-ac00-343a0d00d975",
@@ -352,7 +376,9 @@ Call summary for VoIP Endpoint 1:
     "osVersion":                "Darwin Kernel Version 18.7.0: Mon Nov 9 15:07:15 PST 2020; root:xnu-4903.272.3~3/RELEASE_ARM64_S5L8960X"
 }
 ```
+
 Call summary for VoIP Endpoint 3:
+
 ```json
 "properties": {
     "identifier":               "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-57c6-ac00-343a0d00d972",
@@ -370,7 +396,9 @@ Call summary for VoIP Endpoint 3:
     "osVersion":                "Android 11.0; Manufacturer: Google; Product: redfin; Model: Pixel 5; Hardware: redfin"
 }
 ```
+
 Call summary for PSTN Endpoint 2:
+
 ```json
 "properties": {
     "identifier":               "null",
@@ -388,7 +416,9 @@ Call summary for PSTN Endpoint 2:
     "osVersion":                "null"
 }
 ```
+
 Call Summary Logs cross-tenant
+
 ```json
 "properties": {
     "identifier":               "1e4c59e1-r1rr-49bc-893d-990dsds8f9f5",
@@ -407,8 +437,10 @@ Call Summary Logs cross-tenant
     "osVersion":                "Redacted"
 }
 ```
+
 Call summary log crossed tenant with bot as a participant
 Call summary for bot
+
 ```json
 
 "properties": {
@@ -427,14 +459,19 @@ Call summary for bot
     "osVersion":              "Redacted"
 }
 ```
+
 #### Call Diagnostic Logs
+
 Call diagnostics logs share operation information:
+
 ```json
 "operationName":            "CallDiagnostics",
 "operationVersion":         "1.0",
 "category":                 "CallDiagnostics",
 ```
+
 Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint:
+
 ```json
 "properties": {
     "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-729f-ac00-343a0d00d975",
@@ -452,7 +489,9 @@ Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint:
     "packetLossRateMax":    "0"
 }
 ```
+
 Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 1:
+
 ```json
 "properties": {
     "identifier":           null,
@@ -470,7 +509,9 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 1:
     "packetLossRateMax":    "0"
 }
 ```
+
 Diagnostic log for audio stream from VoIP Endpoint 3 to Server Endpoint:
+
 ```json
 "properties": {
     "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-57c6-ac00-343a0d00d972",
@@ -488,7 +529,9 @@ Diagnostic log for audio stream from VoIP Endpoint 3 to Server Endpoint:
     "packetLossRateMax":    "0"
 }
 ```
+
 Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3:
+
 ```json
 "properties": {
     "identifier":           "null",
@@ -504,5 +547,7 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3:
     "jitterMax":            "4",
     "packetLossRateAvg":    "0",
 ```
-### Error Codes
+
+### Error codes
+
 The `participantEndReason` contains a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, per Endpoint. See [troubleshooting in Azure communication Calling SDK error codes](../../troubleshooting-info.md?tabs=csharp%2cios%2cdotnet#calling-sdk-error-codes)
