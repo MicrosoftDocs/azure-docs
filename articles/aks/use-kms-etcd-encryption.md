@@ -404,7 +404,6 @@ Re-encrypt all secrets under KMS V2 using the `kubectl get secrets` command with
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
-
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
