@@ -577,6 +577,8 @@ items:
           href: containers/container-insights-logging-v2.md
         - name: Enable cost optimization settings (preview)
           href: containers/container-insights-cost-config.md
+        - name: Authentication
+          href: containers/container-insights-authentication.md
       - name: Monitor
         items:
         - name: Monitor performance
