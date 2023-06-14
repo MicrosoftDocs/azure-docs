@@ -10,11 +10,11 @@ ms.author: jolov
 
 There are two modes of authenticating using the Event Grid output binding:
 
-- The `Connection` property is a reference to environment configuration which specifies how the app should connect to Event Grid. If set, it must specify:
+- Using Identity
+  - The `Connection` property must be set to the name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections).
 
-  - The name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections).
-
-- The `TopicEndpointUri` and `TopicKeySetting` properties must be set, as described in [Using the topic key](#using-the-topic-key).
+- Using Topic Key
+  - The `TopicEndpointUri` and `TopicKeySetting` properties must be set, as described in [Using the topic key](#using-the-topic-key).
 
 ### Identity-based connections
 
