@@ -394,9 +394,10 @@ More information about how to use ARM template can be found from [ARM template d
 
 | Date | Version |Version description |
 |---|---|---|
+|June 4, 2023 | 1.1.28 | Improve auto-scaler to handle multiple node pool. Bug fixes. |
 | Apr 18 , 2023| 1.1.26 | Bug fixes and vulnerabilities fix. | 
-| Mar 27, 2023| 1.1.25 | Add amljob throttle. Fast fail for training job when SSH setup failed. Reduce Prometheus scrape interval to 30s. Improve error messages for inference. Fix vulnerable image. |
-| Mar 7, 2023| 1.1.23 | Change default instancetype to use 2Gi memory. Update metrics configurations for scoring-fe that add 15s scrape_interval. Add resource specification for mdc sidecar. Fix vulnerable image. Bug fixes.|
+| Mar 27, 2023| 1.1.25 | Add Azure machine learning job throttle. Fast fail for training job when SSH setup failed. Reduce Prometheus scrape interval to 30s. Improve error messages for inference. Fix vulnerable image. |
+| Mar 7, 2023| 1.1.23 | Change default instance-type to use 2Gi memory. Update metrics configurations for scoring-fe that add 15s scrape_interval. Add resource specification for mdc sidecar. Fix vulnerable image. Bug fixes.|
 | Feb 14, 2023 | 1.1.21 | Bug fixes.|
 | Feb 7, 2023 | 1.1.19 | Improve error return message for inference. Update default instance type to use 2Gi memory limit. Do cluster health check for pod healthiness, resource quota, Kubernetes version and extension version. Bug fixes|
 | Dec 27, 2022 | 1.1.17 | Move the Fluent-bit from DaemonSet to sidecars. Add MDC support. Refine error messages. Support cluster mode (windows, linux) jobs. Bug fixes|
@@ -409,4 +410,4 @@ More information about how to use ARM template can be found from [ARM template d
 | Sept 16, 2021 | 1.0.29 | New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. Job queue expandability. See job queue details in Azure Machine Learning Workspace Studio. Auto-killing policy. Support max_run_duration_seconds in ScriptRunConfig. The system will attempt to automatically cancel the run if it took longer than the setting value. Performance improvement on cluster auto scaling support. Arc agent and ML extension deployment from on premises container registry.|
 | August 24, 2021 | 1.0.28 | Compute instance type is supported in job YAML. Assign Managed Identity to AMLArc compute.|
 | August 10, 2021 | 1.0.20 |New Kubernetes distribution support, K3S - Lightweight Kubernetes. Deploy Azure Machine Learning extension to your AKS cluster without connecting via Azure Arc. Automated Machine Learning (AutoML) via Python SDK. Use 2.0 CLI to attach the Kubernetes cluster to Azure Machine Learning Workspace. Optimize Azure Machine Learning extension components CPU/memory resources utilization.|
-| July 2, 2021 | 1.0.13 | New Kubernetes distributions support, OpenShift Kubernetes and GKE (Google Kubernetes Engine). Autoscale support. If the user-managed Kubernetes cluster enables the autoscale, the cluster will be automatically scaled out or scaled in according to the volume of active runs and deployments. Performance improvement on job launcher, which shortens the job execution time to a great deal.|
+| July 2, 2021 | 1.0.13 | New Kubernetes distributions support, OpenShift Kubernetes and GKE (Google Kubernetes Engine). Auto-scale support. If the user-managed Kubernetes cluster enables the auto-scale, the cluster will be automatically scaled out or scaled in according to the volume of active runs and deployments. Performance improvement on job launcher, which shortens the job execution time to a great deal.|

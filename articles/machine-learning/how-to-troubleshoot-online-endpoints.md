@@ -553,7 +553,7 @@ This is a list of reasons you might run into this error when creating/updating t
 * The Azure ARC (For Azure Arc Kubernetes cluster) or Azure Machine Learning extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or Azure Machine Learning extension configuration and status. 
 * The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate.
   * If you are using a private AKS cluster, it is necessary to set up private endpoints for ACR, storage account, workspace in the AKS vnet. 
-* Make sure your azure machine learning extension version is greater than v1.1.25.
+* Make sure your Azure machine learning extension version is greater than v1.1.25.
 
 ### ERROR: TokenRefreshFailed
 
