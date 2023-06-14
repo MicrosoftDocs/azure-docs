@@ -148,7 +148,7 @@ sections:
           1. You need to wait at least 12 hours to be sure there's an issue to investigate.
           1. If after 12 hours you still don't see the extension running on your machines, check that you've met [Prerequisites](integration-defender-for-endpoint.md#prerequisites) for the integration.
           1. Ensure you've enabled the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for the subscriptions related to the machines you're investigating.
-          1. If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+          1. If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud deploys Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
           
       - question: |
           What are the licensing requirements for Microsoft Defender for Endpoint?
@@ -160,18 +160,18 @@ sections:
         answer: |
           No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
 
-          - On Windows Server 2012 R2 with MDE unified solution integration enabled, Defender for Servers will deploy [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
+          - On Windows Server 2012 R2 with MDE unified solution integration enabled, Defender for Servers deploy [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
           - On newer Windows Server operating systems, Microsoft Defender Antivirus is part of the operating system and will be enabled in *active mode*.
-          - On Linux, Defender for Servers will deploy MDE including the anti-malware component, and set the component in *passive mode*.
+          - On Linux, Defender for Servers deploy MDE including the anti-malware component, and set the component in *passive mode*.
                     
       - question: |
           If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?
         answer: |
-          If you already have a license for **Microsoft Defender for Endpoint for Servers** , you won't pay for that part of your [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) license. Learn more about [the Microsoft 365 license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
+          If you already have a license for **Microsoft Defender for Endpoint for Servers**, you won't pay for that part of your [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) license. Learn more about [the Microsoft 365 license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 
-          To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
+          To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
 
-          The discount will be effective starting from the approval date, and won't take place retroactively.
+          The discount is effective starting from the approval date, and won't take place retroactively.
           
       - question: |
           How do I switch from a third-party EDR tool?
@@ -207,9 +207,9 @@ sections:
       - question: |
           Why do some of my resources show blank values in the Defender for Cloud or monitoring agent columns?
         answer: |
-          Not all Defender for Cloud monitored resources require agents. For example, Defender for Cloud doesn't require agents to monitor Azure Storage accounts or PaaS resources, such as disks, Logic Apps, Data Lake Analysis, and Event Hubs.
+          Not all Defender for Cloud monitored resources requires agents. For example, Defender for Cloud doesn't require agents to monitor Azure Storage accounts or PaaS resources, such as disks, Logic Apps, Data Lake Analysis, and Event Hubs.
 
-          When pricing or agent monitoring isn't relevant for a resource, nothing will be shown in those columns of inventory.
+          When pricing or agent monitoring isn't relevant for a resource, nothing is shown in those columns of inventory.
 
           :::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the monitoring agent  or Defender for Cloud columns." lightbox="./media/asset-inventory/agent-pricing-blanks.png":::
 
@@ -228,7 +228,7 @@ sections:
       - question: |
           When should I use a "Deny all traffic" rule?
         answer: |
-          A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Defender for Cloud does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as "*System Generated*". After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, "DENY", and a random number.
+          A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Defender for Cloud doesn't identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as "*System Generated*". After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, "DENY", and a random number.
 
 additionalContent: |
 
