@@ -158,7 +158,7 @@ The next step is to add the code for the button's `Clicked` event.
 
 ### Add claims view page
 
-The next steps will organize our code so that the `claims view` is defined.
+The next steps will organize the code so that `claims view` is defined.
 
 1. In the **Solution Explorer** pane of Visual Studio, right-click on the **Views**.
 1. Select **Add** > **New Item...**.
