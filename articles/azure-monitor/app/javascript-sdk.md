@@ -166,6 +166,6 @@ If you can't run the application or you aren't getting data as expected, see the
 * [Track page views](api-custom-events-metrics.md#page-views)
 * [Custom events and metrics](api-custom-events-metrics.md)
 * [JavaScript telemetry initializers](api-filtering-sampling.md#javascript-telemetry-initializers)
-* [JavaScript SDK advanced topics](javascript-sdk-advanced.md)
+* [JavaScript SDK configuration](javascript-sdk-advanced.md)
 * See the detailed [release notes](https://github.com/microsoft/ApplicationInsights-JS/releases) on GitHub for updates and bug fixes.
 * [querying data in Log Analytics](../../azure-monitor/logs/log-query-overview.md).
