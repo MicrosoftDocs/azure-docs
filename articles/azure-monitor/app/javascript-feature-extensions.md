@@ -16,12 +16,46 @@ Application Insights JavaScript SDK feature extensions are extra features that c
 
 In this article, we cover the Click Analytics plug-in, which automatically tracks click events on webpages and uses `data-*` attributes or customized tags on HTML elements to populate event telemetry.
 
+> [!IMPORTANT]
+> If you haven't already, you need to [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) first before you enable the Click Analytics plug-in.
 
-## Get started
+## What data does the plug-in collect?
+
+The following key properties are captured by default when the plug-in is enabled.
+
+### Custom event properties
+
+| Name                  | Description                            | Sample          |
+| --------------------- | ---------------------------------------|-----------------|
+| Name                  | The name of the custom event. For more information on how a name gets populated, see [Name column](#name).| About              |
+| itemType              | Type of event.                                      | customEvent      |
+|sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
+
+### Custom dimensions
+
+| Name                  | Description                            | Sample          |
+| --------------------- | ---------------------------------------|-----------------|
+| actionType            | Action type that caused the click event. It can be a left or right click. | CL              |
+| baseTypeSource        | Base Type source of the custom event.                                      | ClickEvent      |
+| clickCoordinates      | Coordinates where the click event is triggered.                            | 659X47          |
+| content               | Placeholder to store extra `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
+| pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
+| parentId              | ID or name of the parent element. For more information on how a parentId is populated, see [parentId key](#parentid-key).        | navbarContainer |
+
+### Custom measurements
+
+| Name                  | Description                            | Sample          |
+| --------------------- | ---------------------------------------|-----------------|
+| timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
+
+
+## Add the Click Analytics Auto-Collection plug-in
 
 Users can set up the Click Analytics Auto-Collection plug-in via SDK Loader Script or NPM.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+### 1. Set up the code
 
 ### SDK Loader Script setup
 
@@ -97,19 +131,19 @@ const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
 ```
 
-## Set the authenticated user context
+### 2. (Optional) Set the authenticated user context
 
-If you need to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). This setting isn't required to use Click Analytics.
+If you need to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). This setting isn't required to use the Click Analytics plug-in.
 
-## Use the plug-in
+### 3. Use the plug-in
 
 The following sections describe how to use the plug-in.
 
-### Telemetry data storage
+#### Telemetry data storage
 
 Telemetry data generated from the click events are stored as `customEvents` in the Azure portal > Application Insights > Logs section.
 
-### `name`
+#### `name`
 
 The `name` column of the `customEvent` is populated based on the following rules:
   1. The `id` provided in the `data-*-id`, which means it must start with `data` and end with `id`, is used as the `customEvent` name. For example, if the clicked HTML element has the attribute `"data-sample-id"="button1"`, then `"button1"` is the `customEvent` name.
@@ -119,7 +153,7 @@ The `name` column of the `customEvent` is populated based on the following rules
   > [!TIP]
   > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
 
-### `parentId` key
+#### `parentId` key
 
 To populate the `parentId` key within `customDimensions` of the `customEvent` table in the logs, declare the tag `parentDataTag` or define the `data-parentid` attribute.
      
@@ -146,7 +180,7 @@ If you declare `parentDataTag` and define the `data-parentid` or `data-*-parenti
 > [!CAUTION]
 > If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 
-### `customDataPrefix`
+#### `customDataPrefix`
 
 The `customDataPrefix` provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix should always be lowercase and start with `data-`. For example:
 
@@ -161,36 +195,7 @@ You can replace the asterisk (`*`) in `data-*` with any name following the [prod
 - The name must not contain a semicolon (U+003A).
 - The name must not contain capital letters.
 
-## What data does the plug-in collect?
-
-The following key properties are captured by default when the plug-in is enabled.
-
-### Custom event properties
-
-| Name                  | Description                            | Sample          |
-| --------------------- | ---------------------------------------|-----------------|
-| Name                  | The name of the custom event. For more information on how a name gets populated, see [Name column](#name).| About              |
-| itemType              | Type of event.                                      | customEvent      |
-|sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
-
-### Custom dimensions
-
-| Name                  | Description                            | Sample          |
-| --------------------- | ---------------------------------------|-----------------|
-| actionType            | Action type that caused the click event. It can be a left or right click. | CL              |
-| baseTypeSource        | Base Type source of the custom event.                                      | ClickEvent      |
-| clickCoordinates      | Coordinates where the click event is triggered.                            | 659X47          |
-| content               | Placeholder to store extra `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
-| pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
-| parentId              | ID or name of the parent element. For more information on how a parentId is populated, see [parentId key](#parentid-key).        | navbarContainer |
-
-### Custom measurements
-
-| Name                  | Description                            | Sample          |
-| --------------------- | ---------------------------------------|-----------------|
-| timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
-
-## Advanced configuration
+## Add advanced configuration
 
 | Name                  | Type                               | Default | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -520,6 +525,7 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 ## Next steps
 
+- [Confirm data is flowing](./javascript-sdk.md#5-confirm-data-is-flowing).
 - See the [documentation on utilizing HEART workbook](usage-heart.md) for expanded product analytics.
 - See the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection Plug-in.
 - Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
