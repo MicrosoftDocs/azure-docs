@@ -18,15 +18,15 @@ ms.date: 05/10/2023
 
 Use Vector Search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate your AI-based applications, including apps built using [Azure OpenAI embeddings](../../../cognitive-services/openai/tutorials/embeddings.md), with your data stored in Azure Cosmos DB. Vector search enables you to efficiently store, index, and query high dimensional vector data stored directly in Azure Cosmos DB for MongoDB vCore, eliminating the need to transfer your data to more expensive alternatives for vector search capabilities.
 
-## What is Vector search?
+## What is vector search?
 
 Vector search is a method that helps you find similar items based on their data characteristics rather than exact matches on a property field. This technique is useful in applications such as searching for similar text, finding related images, making recommendations, or even detecting anomalies. It works by taking the vector representations (lists of numbers) of your data that you have created using an ML model, or an embeddings API. Examples of embeddings APIs could be [Azure OpenAI Embeddings](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/embeddings) or [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/). It then measures the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
 
-By integrating vector search capabilities natively, you can now unlock the full potential of your data in applications built on top of the OpenAI API. You can also create custom-built solutions that use vector embeddings.
+By integrating vector search capabilities natively, you can unlock the full potential of your data in applications built on top of the OpenAI API. You can also create custom-built solutions that use vector embeddings.
 
 ## Create a vector index
 
-To create a vector index, use the following createIndex Spec template:
+To create a vector index, use the following `createIndexes` Spec template:
 
 ```json
 {
@@ -51,7 +51,7 @@ To create a vector index, use the following createIndex Spec template:
 | Field | Type | Description |
 | --- | --- | --- |
 | `index_name` | `string` | Unique name of the index. |
-| `path_to_property` | `string` | Path to the property containing the vector. This path can be a top-level property or a `dot-notation` path to the property. If a `dot-notation` path is used, then all the nonleaf elements can't be arrays. |
+| `path_to_property` | `string` | Path to the property that contains the vector. This path can be a top-level property or a `dot-notation` path to the property. If a `dot-notation` path is used, then all the nonleaf elements can't be arrays. |
 | `kind` | `string` | Type of vector index to create. Currently, `vector-ivf` is the only supported index option. |
 | `numLists` | `integer` | This integer is the number of clusters the IVF index uses to group the vector data. It's recommended that numLists are set to `rowCount()/1000` for up to a million rows and `sqrt(rowCount)` for more than a million rows. |
 | `similarity` | `string` | Similarity metric to use with the IVF index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance) or `IP` (inner product) |
@@ -135,7 +135,7 @@ db.exampleCollection.aggregate([
 ]);
 ```
 
-In this example, a vector search is performed using `queryVector` as an input via the Mongo shell. The search result is a list of the two most similar items to the query vector, sorted by their similarity scores.
+In this example, a vector search is performed by using `queryVector` as an input via the Mongo shell. The search result is a list of the two most similar items to the query vector, sorted by their similarity scores.
 
 ```javascript
 [

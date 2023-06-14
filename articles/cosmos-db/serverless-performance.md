@@ -15,13 +15,13 @@ ms.reviewer: dech
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Azure Cosmos DB serverless resources have performance characteristics that are different than the characteristics of provisioned throughput resources. Serverless containers don't offer any guarantees of predictable throughput or latency. The maximum capacity of a serverless container is determined by the data stored that's within it. The capacity varies by storage size.
+Azure Cosmos DB serverless resources have performance characteristics that are different than the characteristics of provisioned throughput resources. Serverless containers don't offer any guarantees of predictable throughput or latency. The maximum capacity of a serverless container is determined by the data that stored within it. The capacity varies by storage size.
 
 ## Request unit changes
 
-An Azure Cosmos DB serverless account offers 5,000 request units per second (RU/s) for a container. However, if your workload increases above 250 GB or by more than five physical partitions, whichever occurs first, then the request units (RUs) grow linearly with the number of underlying physical partitions that were created in the container. With the addition of each new physical partition beyond the original five physical partitions, 1,000 RU/s are added to the container's maximum throughput capacity.
+An Azure Cosmos DB serverless account offers 5,000 request units per second (RU/s) for a container. But if your workload increases to more than 250 GB or by more than five physical partitions, whichever occurs first, the request units (RUs) grow linearly with the number of underlying physical partitions that were created in the container. With the addition of each new physical partition beyond the original five physical partitions, 1,000 RU/s are added to the container's maximum throughput capacity.
 
-The following table lists RU growth with with increased storage size:
+The following table lists RU growth with increased storage size:
 
 | Maximum storage | Minimum physical partitions | RU/s per container | RU/s per physical partition  
 |:---:|:---:|:---:|:---:|

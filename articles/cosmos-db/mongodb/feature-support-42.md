@@ -11,7 +11,7 @@ ms.date: 10/12/2022
 ms.custom: ignite-2022, build-2023
 ---
 
-# Azure Cosmos DB for MongoDB (4.2 server version): supported features and syntax
+# Azure Cosmos DB for MongoDB (4.2 server version): Supported features and syntax
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
@@ -19,12 +19,12 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 By using the Azure Cosmos DB for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Azure Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
-## Protocol Support
+## Protocol support
 
-The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for MongoDB. When you create Azure Cosmos DB for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
+The supported operators and any limitations or exceptions are listed in this article. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for MongoDB. When you create Azure Cosmos DB for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
 
 > [!NOTE]
-> This article only lists the supported server commands, and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with the Azure Cosmos DB for MongoDB.
+> This article lists only the supported server commands, and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with the Azure Cosmos DB for MongoDB.
 
 ## Query language support
 
@@ -114,7 +114,9 @@ Azure Cosmos DB for MongoDB supports the following database commands:
 | `top`              | No        |
 | `whatsmyuri`       | Yes       |
 
-## <a name="aggregation-pipeline"></a>Aggregation pipeline
+<a name="aggregation-pipeline"></a>
+
+## Aggregation pipeline
 
 ### Aggregation commands
 
@@ -477,11 +479,11 @@ We recommend enabling Server Side Retry and avoiding wildcard indexes to ensure 
 
 In the $regex queries, left-anchored expressions allow index search. However, using 'i' modifier (case-insensitivity) and 'm' modifier (multiline) causes the collection scan in all expressions.
 
-When there's a need to include '$' or '|', it's best to create two (or more) regex queries. For example, given the following original query: `find({x:{$regex: /^abc$/})`, it has to be modified as follows:
+When there's a need to include `$` or `|`, it's best to create two (or more) regex queries. For example, given the following original query: `find({x:{$regex: /^abc$/})`, it has to be modified as follows:
 
 `find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
-The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. The bar operator '|' acts as an "or" function - the query `find({x:{$regex: /^abc |^def/})` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: `find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })`.
+The first part uses the index to restrict the search to those documents beginning with ^abc and the second part matches the exact entries. The bar operator `|` acts as an "or" function - the query `find({x:{$regex: /^abc |^def/})` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: `find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })`.
 
 ### Array operators
 
@@ -594,9 +596,9 @@ Azure Cosmos DB supports automatic, native replication at the lowest layers. Thi
 
 ## Retryable Writes
 
-The Retryable writes feature enables MongoDB drivers to automatically retry certain write operations. The feature results in more stringent requirements for certain operations, which match MongoDB protocol requirements. With this feature enabled, update operations, including deletes, in sharded collections will require the shard key to be included in the query filter or update statement.
+The Retryable writes feature enables MongoDB drivers to automatically retry certain write operations. The feature results in more stringent requirements for certain operations, which match MongoDB protocol requirements. With this feature enabled, update operations, including deletes, in sharded collections require the shard key to be included in the query filter or update statement.
 
-For example, with a sharded collection, sharded on key “country”: To delete all the documents with the field **city** = `"NYC"`, the application will need to execute the operation for all shard key (country) values if the Retryable writes feature is enabled.
+For example, with a sharded collection, sharded on key “country”: To delete all the documents with the field **city** = `"NYC"`, the application needs to execute the operation for all shard key (country) values if the Retryable writes feature is enabled.
 
 - `db.coll.deleteMany({"country": "USA", "city": "NYC"})` – **Success**
 - `db.coll.deleteMany({"city": "NYC"})` - Fails with error **ShardKeyNotFound(61)**
@@ -618,33 +620,33 @@ Azure Cosmos DB doesn't yet support server-side sessions commands.
 
 Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure portal](https://portal.azure.com).
 
-#### Custom Time-To-Live (TTL)
+### Custom Time-To-Live (TTL)
 
 This feature provides the ability to set a customer TTL on any one field in a collection.
 
 On a collection with TTL enabled on a field:
 
-Acceptable types are: BSON date type and numeric types (integer, long, double) which will be interpreted as a unix milliseconds timestamp, for the purpose of expiration.
+Acceptable types are: BSON date type and numeric types (integer, long, double) which will be interpreted as a Unix milliseconds timestamp, for the purpose of expiration.
 
 - If the TTL field is an array, then the smallest element of the array that is of an acceptable type is considered for document expiry.
 
 - If the TTL field is missing from a document, the document won’t expire.
 
-- If the TTL field is not an acceptable type, the document will not expire.
+- If the TTL field isn't an acceptable type, the document won't expire.
 
-##### Limitations of Custom TTL
+#### Limitations of a custom TTL
 
 - Only one field in a collection can have a TTL set on it.
 
-- With a custom TTL field set, the \_ts field cannot be used for document expiration
+- With a custom TTL field set, the \_ts field can't be used for document expiration
 
 - Is `\_ts` field in addition possible? No
 
-##### Configuration
+#### Configuration
 
 This feature can be enabled by updating the account capability "EnableTtlOnCustomPath". Refer [how to configure capabilities](../../cosmos-db/mongodb/how-to-configure-capabilities.md)
 
-#### To set up the TTL:
+### To set up the TTL:
 
 - `db.coll.createIndex({"YOUR_CUSTOM_TTL_FIELD":1}, {expireAfterSeconds: 10})`
 

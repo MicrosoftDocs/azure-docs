@@ -62,7 +62,7 @@ You can monitor consumption by viewing a chart in your Azure Cosmos DB account i
 
 :::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Chart showing the consumed Request Units." border="false":::
 
-You can use the same [chart in Azure Monitor](monitor-request-unit-usage.md). When you use Azure Monitor, you can set up [alerts](../azure-monitor/alerts/alerts-metric-overview.md) so that you are notified when your RU consumption passes a threshold that you set.
+You can use the same [chart in Azure Monitor](monitor-request-unit-usage.md). When you use Azure Monitor, you can set up [alerts](../azure-monitor/alerts/alerts-metric-overview.md) so that you're notified when your RU consumption passes a threshold that you set.
 
 ## Next steps
 
