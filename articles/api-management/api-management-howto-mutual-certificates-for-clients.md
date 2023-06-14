@@ -19,7 +19,7 @@ API Management provides the capability to secure access to APIs (that is, client
 
 For information about securing access to the backend service of an API using client certificates (that is, API Management to backend), see [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md).
 
-For a conceptual overview of API authorization, see [Authentication and authorization in API Management](authentication-authorization-overview.md#gateway-data-plane). 
+For a conceptual overview of API authorization, see [Authentication and authorization to APIs in API Management](authentication-authorization-overview.md). 
 
 ## Certificate options
 

@@ -33,9 +33,9 @@ landingContent:
           - text: Configure Azure Active Directory for CMMC compliance
             url: configure-for-cmmc-compliance.md
           - text: Configure Azure Active Directory for HIPAA compliance
-            url: hipaa-configure-azure-active-directory-for-compliance.md
+            url: hipaa-configure-for-compliance.md
           - text: Configure Azure Active Directory for PCI-DSS compliance
-            url: azure-ad-pci-dss-guidance.md
+            url: pci-dss-guidance.md
 
   # Card 
   - title: Understand NIST AALs
@@ -137,4 +137,4 @@ landingContent:
           - text: Meet PCI-DSS Requirement 11
             url: pci-requirement-11.md
           - text: Meet Azure Active Directory PCI-DSS MFA supplemental requirements
-            url: azure-ad-pci-dss-mfa.md
+            url: pci-dss-mfa.md

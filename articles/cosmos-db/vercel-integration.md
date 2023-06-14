@@ -34,7 +34,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 - Vercel Account with Vercel Project – [Learn how to create a new Vercel Project](https://vercel.com/docs/concepts/projects/overview#creating-a-project)
 
-- Azure Cosmos DB - [Quickstart: Create an Azure Cosmos DB account](../cosmos-db/nosql/quickstart-portal.md)
+- Azure Cosmos DB - [Quickstart: Create an Azure Cosmos DB account](../cosmos-db/nosql/quickstart-portal.md) or Create a free [Try Cosmos DB Account](https://aka.ms/trycosmosdbvercel)
 
 - Some basic knowledge on Next.js, React and TypeScript
 
@@ -94,7 +94,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 ## Integrate Cosmos DB with Vercel using marketplace template
 
-You could use this [template](https://vercel.com/new/clone?demo-title=CosmosDB%20Starter&demo-description=Starter%20app%20built%20on%20Next.js%20and%20CosmosDB.&demo-url=https://cosmosdb-starter-test.vercel.app/&project-name=CosmosDB%20Starter&repository-name=cosmosdb-starter&repository-url=https%3A%2F%2Fgithub.com%2Fv1k1%2Fcosmosdb-starter&from=templates&integration-ids=oac_mPA9PZCLjkhQGhlA5zntNs0L&env=COSMOSDB_CONNECTION_STRING%2C%E2%80%A2%09COSMOSDB_CONTAINER_NAME) to deploy a starter web app on Vercel with Azure Cosmos DB integration.
+We have an [Azure Cosmos DB Next.js Starter](https://aka.ms/azurecosmosdb-vercel-template), which a great ready-to-use template with guided structure and configuration, saving you time and effort in setting up the initial project setup. Click on Deploy to Deploy on Vercel and View Repo to view the (source code)[https://github.com/Azure/azurecosmosdb-vercel-starter].
 
 1. Choose the GitHub repository, where you want to clone the starter repo.
    :::image type="content" source="./media/integrations/vercel/create-git-repository.png" alt-text="Screenshot to create the repository." lightbox="./media/integrations/vercel/create-git-repository.png":::
@@ -107,4 +107,10 @@ You could use this [template](https://vercel.com/new/clone?demo-title=CosmosDB%2
 
    :::image type="content" source="./media/integrations/vercel/configure-project.png" alt-text="Screenshot shows the required variables to establish the connection with Azure Cosmos DB." lightbox="./media/integrations/vercel/configure-project.png":::
 
-4. Upon successful completion, the completion page would contain the link to the deployed app, or you go to the Vercel project's dashboard to get the link of your app.
+4. Upon successful completion, the completion page would contain the link to the deployed app, or you go to the Vercel project's dashboard to get the link of your app. Now your app is successfully deployed to vercel.
+
+## Next steps
+
+- To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md).
+- Create a new [Vercel project](https://vercel.com/dashboard).
+- Learn about [Try Cosmos DB and limits](../cosmos-db/try-free.md).

@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-## Create virtual network and bastion host
+## Create a virtual network and bastion host
 
 The following procedure creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
 

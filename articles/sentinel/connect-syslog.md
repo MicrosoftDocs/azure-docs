@@ -99,7 +99,7 @@ For more information, see [Advanced Security Information Model (ASIM) parsers](n
 
 1. At the bottom of the Syslog connector blade, select the **Open your workspace agents configuration >** link.
 
-1. On the **Agents configuration** blade, select the **Syslog** tab. Then add the facilities for the connector to collect. Select **Add facility** and choose from the drop-down list of facilities.
+1. In the **Legacy agents management** page, add the facilities for the connector to collect. Select **Add facility** and choose from the drop-down list of facilities.
 
     - Add the facilities that your syslog appliance includes in its log headers.
 
