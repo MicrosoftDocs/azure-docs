@@ -28,6 +28,8 @@ By default, granting tenant-wide admin consent to an application will allow all 
 
 Granting tenant-wide admin consent may revoke any permissions that had previously been granted tenant-wide for that application. Permissions that have previously been granted by users on their own behalf won't be affected.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 Granting tenant-wide admin consent requires you to sign in as a user that is authorized to consent on behalf of the organization.
