@@ -58,7 +58,7 @@ The following table shows you which service to use in development, and which ser
 |---|---|---|
 | Cache | Open-source Redis | Azure Cache for Redis |
 | Database | N/A | Azure Cosmos DB |
-| Database | Open-source PostgreSQL | Azure DB for PostgreSQL Flexible Service |
+| Database | Open-source PostgreSQL | Azure Database for PostgreSQL Flexible Service |
 
 You're responsible for data continuity between development and production environments.
 
