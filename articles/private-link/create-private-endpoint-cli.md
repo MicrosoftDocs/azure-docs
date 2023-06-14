@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a private endpoint - Azure CLI'
-description: In this quickstart, you'll learn how to create a private endpoint using the Azure CLI.
+description: In this quickstart, you learn how to create a private endpoint using the Azure CLI.
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -47,7 +47,7 @@ az group create \
 
 ## Create a virtual network and bastion host
 
-A virtual network and subnet is required for to host the private IP address for the private endpoint. You'll create a bastion host to connect securely to the virtual machine to test the private endpoint. You'll create the virtual machine in a later section.
+A virtual network and subnet is required for to host the private IP address for the private endpoint. You create a bastion host to connect securely to the virtual machine to test the private endpoint. You create the virtual machine in a later section.
 
 Create a virtual network with **[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)**.
 
@@ -96,7 +96,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 ## Create a private endpoint
 
-An Azure service that supports private endpoints is required to set up the private endpoint and connection to the virtual network. For the examples in this article, you'll use the Azure WebApp from the prerequisites. For more information on the Azure services that support a private endpoint, see [Azure Private Link availability](availability.md).
+An Azure service that supports private endpoints is required to set up the private endpoint and connection to the virtual network. For the examples in this article, use the Azure WebApp from the prerequisites. For more information on the Azure services that support a private endpoint, see [Azure Private Link availability](availability.md).
 
 A private endpoint can have a static or dynamically assigned IP address.
 
