@@ -71,7 +71,6 @@ The following image shows the three types of repository authentication supported
    |------------|-----------|---------------------------------------------|
    | `CA certificate` | No       | Required only when a self-signed cert is used for the Git repo URL. |
 
-
 - Private repository with basic authentication.
 
    The following table shows the configurable properties you can use to set up a private Git repository with basic authentication.
