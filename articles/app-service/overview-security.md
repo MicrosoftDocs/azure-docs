@@ -13,6 +13,9 @@ This article shows you how [Azure App Service](overview.md) helps secure your we
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
+> [!NOTE]
+> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to employ [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
+
 The following sections show you how to further protect your App Service app from threats.
 
 ## HTTPS and Certificates
