@@ -128,14 +128,14 @@ To add SDK configuration, add each configuration option directly under `connecti
 
 ### 4. (Optional) Advanced SDK configuration
 
-If you want to use the extra features provided by plugins for specific frameworks, see:
+If you want to use the extra features provided by plugins for specific frameworks and optionally enable the Click Analytics plug-in, see:
 
 - [React plugin](javascript-framework-extensions.md?tabs=react)
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
 
 > [!TIP]
-> We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics plug-in](javascript-feature-extensions.md).
+> We collect page views by default. But if you want to also collect clicks by default, consider adding the Click Analytics Auto-Collection plug-in. If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
 
 ### 5. Confirm data is flowing
 
