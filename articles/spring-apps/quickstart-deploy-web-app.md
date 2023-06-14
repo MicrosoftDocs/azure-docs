@@ -174,6 +174,12 @@ az group delete --name ${RESOURCE_GROUP}
 > [Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
+> [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+
+> [!div class="nextstepaction"]
+> [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
+
+> [!div class="nextstepaction"]
 > [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
 
 > [!div class="nextstepaction"]
