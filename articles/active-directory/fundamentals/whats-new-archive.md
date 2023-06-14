@@ -7902,19 +7902,6 @@ This update sends an `invalid_grant` error: `AADSTS50196: The server terminated 
 
 ---
 
-### New Audit Logs user experience now available
-
-**Type:** Changed feature
-**Service category:** Reporting
-**Product capability:** Monitoring & Reporting
-
-We've created a new Azure AD **Audit logs** page to help improve both readability and how you search for your information. To see the new **Audit logs** page, select **Audit logs** in the **Activity** section of Azure AD.
-
-![New Audit logs page, with sample info](media/whats-new/audit-logs-page.png)
-
-For more information about the new **Audit logs** page, see [Audit activity reports in the Azure portal](../reports-monitoring/concept-audit-logs.md).
-
----
 
 
 
