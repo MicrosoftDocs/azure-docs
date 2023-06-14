@@ -91,7 +91,7 @@ public class SenderAAD {
     // Example: private static final String namespaceName = "contosons.servicebus.windows.net";
     private static final String namespaceName = "<NAMESPACE NAME>.servicebus.windows.net";
 
-    // Replace <EVENT HUB NAME> with the name of your event hug. 
+    // Replace <EVENT HUB NAME> with the name of your event hub. 
     // Example: private static final String eventHubName = "ordersehub";
     private static final String eventHubName = "<EVENT HUB NAME>";
 
