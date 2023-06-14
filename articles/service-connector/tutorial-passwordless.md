@@ -356,7 +356,7 @@ namespace NpgsqlConnectionExample
 }
 ```
 
-
+---
 
 For more information, see 
 * [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md)
@@ -430,7 +430,7 @@ namespace MysqlConnectionExample
 }
 ```
 
-
+---
 
 For more information, see 
 * [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md)
@@ -440,21 +440,6 @@ For more information, see
 
 
 :::zone pivot="sql"
-
-### [Dotnet](#tab/dotnet)
-For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
-
-```csharp
-// The connection string should have been set to environment variables by Service Connector
-// string ConnectionStringSystemMI = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; Database=testdb";
-// string ConnectionStringUserMI = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; User Id=ObjectIdOfManagedIdentity; Database=testdb";
-// string ConnectionStringServicePrincipal = @"Server=demo.database.windows.net; Authentication=Active Directory Service Principal; Encrypt=True; Database=testdb; User Id=AppId; Password=secret";
-string ConnectionString = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");  
-using (SqlConnection conn = new SqlConnection(ConnectionString)) {
-    conn.Open            ();
-}
-```
-
 
 ### [Java](#tab/java)
 For managed identity authentication, see [Connect using Azure Active Directory authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication)
@@ -484,7 +469,22 @@ public class Main {
 }
 ```
 
+### [Dotnet](#tab/dotnet)
+For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
 
+```csharp
+using Microsoft.Data.SqlClient
+// The connection string should have been set to environment variables by Service Connector
+// string ConnectionStringSystemMI = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; Database=testdb";
+// string ConnectionStringUserMI = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; User Id=ObjectIdOfManagedIdentity; Database=testdb";
+// string ConnectionStringServicePrincipal = @"Server=demo.database.windows.net; Authentication=Active Directory Service Principal; Encrypt=True; Database=testdb; User Id=AppId; Password=secret";
+string ConnectionString = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");  
+using (SqlConnection conn = new SqlConnection(ConnectionString)) {
+    conn.Open();
+}
+```
+
+---
 
 For more information, see this site [Homepage for client programming to Microsoft SQL Server](/sql/connect/homepage-sql-connection-programming)
 
