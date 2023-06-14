@@ -7926,14 +7926,5 @@ To help prevent administrators from accidentally locking themselves out of their
 
 ---
 
-### Improved end-user terms of use experiences on mobile devices
-
-**Type:** Changed feature
-**Service category:** Terms of use
-**Product capability:** Governance
-
-We've updated our existing terms of use experiences to help improve how you review and consent to terms of use on a mobile device. You can now zoom in and out, go back, download the information, and select hyperlinks. For more information about the updated terms of use, see [Azure Active Directory terms of use feature](../conditional-access/terms-of-use.md#what-terms-of-use-looks-like-for-users).
-
----
 
 
