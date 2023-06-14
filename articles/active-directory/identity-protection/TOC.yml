@@ -9,11 +9,11 @@
   items:
   - name: Security overview
     href: concept-identity-protection-security-overview.md
-  - name: What are risks?
+  - name: Risks detections
     href: concept-identity-protection-risks.md
-  - name: Risk-based access policies
+  - name: Risk-based access control policies
     href: concept-identity-protection-policies.md
-  - name: What is the sign-in experience?
+  - name: User sign-in experience
     href: concept-identity-protection-user-experience.md
   - name: Securing workload identities
     href: concept-workload-identity-risk.md
