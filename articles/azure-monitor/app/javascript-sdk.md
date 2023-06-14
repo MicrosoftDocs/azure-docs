@@ -37,7 +37,7 @@ Two methods are available to add the code to enable Application Insights via the
 | Javascript (Web) SDK Loader Script | For most customers, we recommend the Javascript (Web) SDK Loader Script because you never have to update the SDK and you get the latest updates automatically. Also, you have control over which pages you add the Application Insights JavaScript SDK to. |
 | npm package | You want to bring the SDK into your code and enable IntelliSense. This option is only needed for developers who require more custom events and configuration. |
 
-#### [Javascript (Web) SDK Loader Script](#tab/sdkloaderscript)
+#### [Javascript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
 1. Paste the Javascript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights. 
 
