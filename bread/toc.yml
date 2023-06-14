@@ -21,9 +21,6 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
-      - name: Cloud sync
-        tocHref: /azure/active-directory/cloud-sync/
-        topicHref: /azure/active-directory/cloud-sync/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
