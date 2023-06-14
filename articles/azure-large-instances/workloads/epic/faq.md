@@ -8,13 +8,13 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-# Frequently asked questions (FAQs) about Epic on Azure Large Instance (ALI) 
+# Frequently asked questions about Epic on Azure Large Instance
 
-This article provides answers to frequently asked questions (FAQ) about Azure Large Instance (ALI) for Epic workloads.
+This article provides answers to frequently asked questions about Azure Large Instances(ALI) for Epic workloads.
 
 ## In which regions is this service available?
 
-The Epic on Azure Large Instance (ALI) service is available in East US, US West2, US South Central  
+The Epic on Azure Large Instances(ALI) service is available in East US, US West2, US South Central  
 
  ## Do I need to give permissions to allow the deployment of a managed resource group in my subscription?
 
@@ -22,13 +22,13 @@ No, explicit permissions aren't required but register the resource provider with
 
 ## Why am I not able to see the ALI resources in Azure Portal?
 
-Check Azure Policy set up if ALI managed RGs are not reflected in portal. Azure subscription you use for Azure Large Instance deployments is already registered with the ALI infrastructure resource provider by Microsoft Operations team during provisioning process. If you don't see your deployed ALI instances under your subscription, register with the resource provider with your subscription. Please ensure that your VNET address space provided in the request is the same as what you. Configure [Link -Connect BareMetal Infrastructure instances in Azure - Azure Baremetal Infrastructure | Microsoft Learn]
+Check Azure Policy set up if ALI managed RGs are not reflected in portal. Azure subscription you use for Azure Large Instancesdeployments is already registered with the ALI infrastructure resource provider by Microsoft Operations team during provisioning process. If you don't see your deployed ALI instances under your subscription, register with the resource provider with your subscription. Please ensure that your VNET address space provided in the request is the same as what you. Configure [Link -Connect BareMetal Infrastructure instances in Azure - Azure Baremetal Infrastructure | Microsoft Learn]
 
-## Is it possible to have Azure ARC installed on Azure Large Instance resource?
+## Is it possible to have Azure ARC installed on Azure Large Instancesresource?
 
 It’s not mandatory but yes, it’s possible. You would have to create a support ticket with Azure Customer Support for Proxy set up and ARC and AMA installation.  
 
-## How do I monitor Azure Large Instance (ALI) for Epic?
+## How do I monitor Azure Large Instances(ALI) for Epic?
 
 ALI is an IaaS offering and Azure teams are actively monitoring ALI infrastructure (network devices, storage appliances, server hardware, etc.). Customer alerts related to infrastructure would be provided only via Azure Portal’s Service Health.  Customers are highly recommended to set up Service Health alerts to get notified via their preferred communication channels when service issues, planned maintenance, or other changes happen around ALI.
 

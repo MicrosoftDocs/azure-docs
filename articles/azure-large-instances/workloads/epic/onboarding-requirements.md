@@ -80,7 +80,7 @@ To see the learned routes from ALI, one of the options is looking at the Effecti
 5. Set up volume groups. (See [Create a volume group](create-a-volume-group.md))  
 6. Set up a storage snapshot, backup, and data offload. (For detailed steps, see [FAQ](faq.md)).  
 
-The Azure subscription you use for Azure Large Instance deployments is already registered with the ALI resource provider by the Microsoft Operations team during the provisioning process.
+The Azure subscription you use for Azure Large Instancesdeployments is already registered with the ALI resource provider by the Microsoft Operations team during the provisioning process.
 If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. For more information, see [Register the ALI resource provider](register-the-ali-resource-provider.md).
 
 ### Enable ExpressRoute Fast Path
