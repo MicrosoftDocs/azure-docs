@@ -18,6 +18,8 @@
   - name: Create a Traffic Manager profile - ARM Template
     displayName: Resource Manager
     href: quickstart-create-traffic-manager-profile-template.md
+  - name: Create a Traffic Manager profile - Terraform
+    href: quickstart-create-traffic-manager-profile-terraform.md
   expanded: true
 - name: Tutorials
   items:

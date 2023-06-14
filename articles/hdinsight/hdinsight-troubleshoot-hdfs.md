@@ -3,7 +3,7 @@ title: Troubleshoot HDFS in Azure HDInsight
 description: Get answers to common questions about working with HDFS and Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 04/27/2020 
+ms.date: 04/26/2023 
 ms.custom: seodec18
 ---
 

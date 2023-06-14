@@ -1,9 +1,8 @@
 ---
 title: Share Azure portal dashboards by using Azure role-based access control
 description: This article explains how to share a dashboard in the Azure portal by using Azure role-based access control.
-ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 03/16/2023
 ---
 
 # Share Azure dashboards by using Azure role-based access control
@@ -11,27 +10,23 @@ ms.date: 10/24/2022
 After configuring a dashboard, you can publish it and share it with other users in your organization. You allow others to view your dashboard by using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) to assign roles to either a single user or a group of users. You can select a role that allows them only to view the published dashboard, or a role that also allows them to modify it.
 
 > [!TIP]
-> Within a dashboard, individual tiles enforce their own access control requirements based on the resources they display. You can share any dashboard broadly, even though some data on specific tiles might not be visible to all users.
+> Within a dashboard, individual tiles enforce their own access control requirements based on the resources they display. You can share any dashboard broadly, even if some data on specific tiles might not be visible to all users.
 
 ## Understand access control for dashboards
 
 From an access control perspective, dashboards are no different from other resources, such as virtual machines or storage accounts. Published dashboards are implemented as Azure resources. Each dashboard exists as a manageable item contained in a resource group within your subscription.
 
-Azure RBAC lets you assign users to roles at three different levels of scope:
+Azure RBAC lets you assign users to roles at four different [levels of scope](/azure/role-based-access-control/scope-overview): management group, subscription, resource group, or resource. Azure RBAC permissions are inherited from higher levels down to the individual resource. In many cases, you may already have users assigned to roles for the subscription that will give them access to the published dashboard.
 
-* subscription
-* resource group
-* resource
+For example, any users who have the [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role for a subscription can list, view, create, modify, or delete dashboards within the subscription. Users with a [custom role](/azure/role-based-access-control/custom-roles) that  includes the `Microsoft.Portal/Dashboards/Write` permission can also perform these tasks.
 
-Azure RBAC permissions inherit from the subscription down to the resource. You may already have users assigned to roles for the subscription that apply for the published dashboard.
+Users with the [Reader](/azure/role-based-access-control/built-in-roles#reader) role for the subscription (or a custom role with `Microsoft.Portal/Dashboards/Read` permission) can list and view dashboards within that subscription, but they can't modify or delete them. These users are able to make private copies of dashboards for themselves. They can also make local edits to a published dashboard for their own use, such as when troubleshooting an issue, but they can't publish those changes back to the server.
 
-For example, say you have an Azure subscription and various members of your team have been assigned the roles of Owner, Contributor, or Reader for that subscription. This means that any users who have the Owner or Contributor role can list, view, create, modify, or delete dashboards within the subscription. Users with the Reader role can list and view dashboards, but can't modify or delete them. They can make local edits to a published dashboard for their own use, such as when troubleshooting an issue, but they can't publish those changes back to the server. They can also make a private copy of the dashboard for themselves.
-
-To expand access to a dashboard beyond what is granted at the subscription level, you can assign permissions to a resource group that contains several dashboards, or assign permissions to individual dashboards. For example, if a group of users should have limited permissions across the subscription, but they need to be able to edit one particular dashboard, you can assign those users a different role with more permissions (such as Contributor) for that dashboard only.
+To expand access to a dashboard beyond the access granted at the subscription level, assign permissions to an individual dashboard, or to a resource group that contains several dashboards. For example, if a user should have limited permissions across the subscription, but needs to be able to edit one particular dashboard, you can assign a different role with more permissions (such as [Contributor](/azure/role-based-access-control/built-in-roles#contributor)) for that dashboard only.
 
 ## Publish a dashboard
 
-To share access to a dashboard, you must first publish it. When you do so, other users in your organization will be access and modify the dashboard based on their Azure RBAC roles.
+To share access to a dashboard, you must first publish it. When you do so, other users in your organization will be able to access and modify the dashboard based on their Azure RBAC roles.
 
 1. In the dashboard, select **Share**.
 
@@ -47,7 +42,7 @@ To share access to a dashboard, you must first publish it. When you do so, other
 
 1. Select **Publish**.
 
-Your dashboard is now published. If the permissions inherited from the subscription are suitable, you don't need to do anything more. Otherwise, read on to see how to expand access to specific users or groups.
+Your dashboard is now published. If the permissions that users inherit from the subscription are sufficient, you don't need to do anything more. Otherwise, read on to learn how to expand access to specific users or groups.
 
 ## Assign access to a dashboard
 
@@ -61,7 +56,7 @@ For each dashboard that you have published, you can assign Azure RBAC built-in r
 
    :::image type="content" source="media/azure-portal-dashboard-share-access/manage-users-existing-users.png" alt-text="Screenshot showing how to add a role assignment for an Azure portal dashboard.":::
 
-1. Select the role that represents the permissions to grant, such as **Contributor**, and then select **Next**.
+1. Select the role you want to grant, such as [Contributor](/azure/role-based-access-control/built-in-roles#contributor) or [Reader](/azure/role-based-access-control/built-in-roles#reader), and then select **Next**.
 
 1. Select **Select members**, then select one or more Azure Active Directory (Azure AD) groups and/or users. If you don't see the user or group you're looking for in the list, use the search box. When you have finished, choose **Select**.
 

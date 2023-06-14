@@ -2,25 +2,20 @@
 title: "Known issues, limitations, and troubleshooting"
 titleSuffix: Azure Database Migration Service
 description: Known issues, limitations and troubleshooting guide for Azure SQL Migration extension for Azure Data Studio
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: 
-ms.reviewer: 
+ms.date: 04/21/2023
 ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
 ms.topic: troubleshooting
-ms.date: 01/05/2023
+ms.custom: seo-lt-2019
 ---
 
 # Known issues, limitations, and troubleshooting
 
 Known issues and troubleshooting steps associated with the Azure SQL Migration extension for Azure Data Studio.
 
-> [!NOTE]
-> When checking migration details using the Azure Portal, Azure Data Studio or PowerShell / Azure CLI you might see the following error: *Operation Id {your operation id} was not found*. This can either be because you provided an operationId as part of an api parameter in your get call that does not exist, or the migration details of your migration were deleted as part of a cleanup operation.
-
+> [!IMPORTANT]
+> The latest version of Integration Runtime (5.28.8488) prevents access to a network file share on a local host. This security measure will lead to failures when performing migrations to Azure SQL using DMS. Please ensure you run Integration Runtime on a different machine than the network share hosting.
 
 ## Error code: 2007 - CutoverFailedOrCancelled 
 
@@ -34,7 +29,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Message**: `Migration for Database 'DatabaseName' failed with error cannot find server certificate with thumbprint.`
 
-- **Cause**: The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) hasn't been migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data.
+- **Cause**: Before migrating data, you need to migrate the certificate of the source SQL Server instance from a database that is protected by Transparent Data Encryption (TDE) to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 
 - **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).  
 
@@ -86,15 +81,26 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Recommendation**: If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. For more information about LRS, see [Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)](/azure/azure-sql/managed-instance/log-replay-service-migrate#limitations).
 
+- **Message**: `Migration for Database <Database Name> failed with error 'Non retriable error occurred while restoring backup with index 1 - 12824 The sp_configure value 'contained database authentication' must be set to 1 in order to restore a contained database.  You may need to use RECONFIGURE to set the value_in_use.
+RESTORE DATABASE is terminating abnormally.`
 
-    > [!NOTE]
-    > For more information on general troubleshooting steps for Azure SQL Managed Instance errors, see [Known issues with Azure SQL Managed Instance](/azure/azure-sql/managed-instance/doc-changes-updates-known-issues)
+- **Cause**: The source database is a contained database. A specific configuration is needed to enable restoring a contained database. For more information about contained databases, see [Contained Database Users](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
+
+- **Recommendation**: Run the following query connected to the source SQL Server in the context of the specific database before starting the migration. Then, attempt the migration of the contained database again.
+```sql  
+-- Enable "contained database authentication"
+EXEC sp_configure 'contained', 1;
+RECONFIGURE;
+```
+
+> [!NOTE]
+> For more information on general troubleshooting steps for Azure SQL Managed Instance errors, see [Known issues with Azure SQL Managed Instance](/azure/azure-sql/managed-instance/doc-changes-updates-known-issues)
 
 ## Error code: 2012 - TestConnectionFailed
 
 - **Message**: `Failed to test connections using provided Integration Runtime. Error details: 'Remote name could not be resolved.'`
 
-- **Cause**: The Self-Hosted Integration Runtime can't connect to the service back end. This issue is caused by network settings in the firewall.
+- **Cause**: Your network settings in the firewall are causing the Self-Hosted Integration Runtime to be unable to connect to the service back end.
 
 - **Recommendation**: There's a Domain Name System (DNS) issue. Contact your network team to fix the issue. For more information, see [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md).
 
@@ -179,7 +185,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Recommendation**: If desired, the target database can be returned to its original state by running the first query and all of the returned queries, then running the second query and doing the same. 
 
-```
+```sql  
 SELECT [ROLLBACK] FROM [dbo].[__migration_status] 
 WHERE STEP in (3,4,6);
 
@@ -196,11 +202,10 @@ WHERE STEP in (5,7,8) ORDER BY STEP DESC;
 
 - **Recommendation**: If desired, target database can be returned to its original state by running the following query and all of the returned queries. 
 
-```
+```sql  
 SELECT [ROLLBACK] FROM [dbo].[__migration_status]  
 WHERE STEP in (3,4,6);
 ```
-  
 
 ## Error code: 2043 - CreateContainerFailed
 
@@ -209,6 +214,18 @@ WHERE STEP in (3,4,6);
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
 - **Recommendation**: For more troubleshooting steps, see [Troubleshoot Azure Data Factory and Synapse pipelines](../data-factory/data-factory-troubleshoot-guide.md#error-code-2108). 
+
+
+## Error code: 2049 - FileShareTestConnectionFailed
+
+- **Message**: `The value of the property '' is invalid: 'Access to <share path> is denied, resolved IP address is <IP address>, network type is OnPremise'.`
+
+- **Cause**: The network share where the database backups are stored is in the same machine as the self-hosted Integration Runtime (SHIR).
+
+- **Recommendation**: The latest version of Integration Runtime (**5.28.8488**) prevents access to a network file share on a local host. Ensure you run Integration Runtime on a different machine than the network share hosting. If hosting the self-hosted Integration Runtime and the network share on different machines isn't possible with your current migration setup, you can use the option to opt out using ```DisableLocalFolderPathValidation```. 
+    > [!NOTE]
+    > For more information, see [Set up an existing self-hosted IR via local PowerShell](../data-factory/create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell). Use the disabling option with discretion as this is less secure.
+
 
 ## Error code: 2056 - SqlInfoValidationFailed
 
@@ -251,6 +268,34 @@ WHERE STEP in (3,4,6);
 
 - **Recommendation**: Check if the selected tables exist in the target Azure SQL Database. If this migration is called from a PowerShell script, check if the table list parameter includes the correct table names and is passed into the migration.
 
+## Error code: Ext_RestoreSettingsError
+
+- **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.; The remote server returned an error: (403) Forbidden
+
+- **Cause**: The Azure SQL target is unable to connect to blob storage.
+
+- **Recommendation**: Confirm that target network settings allow access to blob storage.  For example, if you're migrating to a SQL Server on Azure VM target, ensure that outbound connections on the Virtual Machine aren't being blocked.
+
+
+- **Message**: Failed to create restore job. Unable to read blobs in storage container, exception: The remote name couldn't be resolved.
+
+- **Cause**: The Azure SQL target is unable to connect to blob storage.
+
+- **Recommendation**: Confirm that target network settings allow access to blob storage.  For example, if migrating to SQL VM, ensure that outbound connections on VM aren't being blocked.
+
+
+- **Message**: `Migration for Database <Database Name> failed with error 'Migration cannot be completed because provided backup file name <Backup File Name> should be the last restore backup file <Last Restore Backup File Name>'`.
+
+- **Cause**: The most recent backup wasn't specified in the backup settings.
+
+- **Recommendation**: Specify the most recent backup file name in backup settings and retry the operation.
+
+
+- **Message**: `Operation failed: errorCode: Ext_RestoreSettingsError, message: RestoreId: 1111111-aaaa-bbbb-cccc-dddddddd, OperationId: 2222222-aaaa-bbbb-cccc-dddddddd, Detail: Unable to read blobs in storage container, exception: Unable to connect to the remote server;Unable to connect to the remote server;A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 11.111.11.111:443.`
+
+- **Cause**: The error is possible to occur for both storage accounts with public network and private endpoint configuration. It's also possible that you have an on-premises DNS server that controls a hybrid network routing and DHCP. Unless you allow the Azure IP addresses configured in your DNS server, your SQL Server on Azure VM target has no chance to resolve the remote storage blob endpoint.
+
+- **Recommendation**: To debug this issue, you can try pinging your Azure Blob Storage URL from your SQL Server on Azure VM target and confirm if you have a connectivity problem. To solve this issue, you have to allow the Azure IP addresses configured in your DNS server. For more information, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity)
 
 ## Azure SQL Database limitations 
 
@@ -269,6 +314,14 @@ Migrating to Azure SQL Managed Instance by using the Azure SQL extension for Azu
 Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
 [!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
+
+## Azure Data Studio Limitations
+
+### Failed to start Sql Migration Service: Error: Request error: 
+
+- **Message**: `Error at ClientRequest.<anonymous> (c:\Users\MyUser\.azuredatastudio\extensions\microsoft.sql-migration-1.4.2\dist\main.js:2:7448) at ClientRequest.emit (node:events:538:35) at TLSSocket.socketOnEnd (node:_http_client:466:9) at TLSSocket.emit (node:events:538:35) at endReadableNT (node:internal/streams/readable:1345:12) at process.processTicksAndRejections (node:internal/process/task_queues:83:21)`
+- **Cause**: This issue occurs when Azure Data Studio isn't able to download the MigrationService package from https://github.com/microsoft/sqltoolsservice/releases. The download failure can be due to disconnected network work or unresolved proxy settings. 
+- **Recommendation**: The sure fire way of solving this issue is by downloading the package manually. Follow the mitigation steps outlined in this link: https://github.com/microsoft/azuredatastudio/issues/22558#issuecomment-1496307891
 
 ## Next steps
 

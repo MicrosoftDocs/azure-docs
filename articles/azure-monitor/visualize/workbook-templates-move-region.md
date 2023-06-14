@@ -2,15 +2,13 @@
 title: Move and Azure Workbook template to another region
 description: How to move a workbook template to a different region
 services: azure-monitor
-author: gardnerjr
 manager: acearun
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 07/05/2022
-ms.author: jgardner
+ms.reviewer: jgardner
 
 #Customer intent: As an Azure service administrator, I want to move my resources to another Azure region
 ---

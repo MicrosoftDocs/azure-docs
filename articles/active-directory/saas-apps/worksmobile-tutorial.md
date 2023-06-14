@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with LINE WORKS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with LINE WORKS'
 description: Learn how to configure single sign-on between Azure Active Directory and LINE WORKS.
 services: active-directory
 author: jeevansd

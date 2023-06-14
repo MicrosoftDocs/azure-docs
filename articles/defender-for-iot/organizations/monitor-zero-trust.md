@@ -38,7 +38,7 @@ To perform the tasks in this tutorial, you need:
 
 - The following permissions:
 
-    - Access to the Azure portal as a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) user. For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
+    - Access to the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 
     - Access to your sensors as an **Admin** or **Security Analyst** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 

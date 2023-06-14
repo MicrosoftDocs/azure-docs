@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.author: aawislan
-ms.custom: devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurecli, ignite-2022, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -40,11 +40,11 @@ The following architecture diagram illustrates the components that make up this 
 
 ---
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 Individual container apps are deployed to an Azure Container Apps environment. To create the environment, run the following command:
 
-```azurecli
+```azurecli-interactive
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
@@ -55,7 +55,7 @@ az containerapp env create \
 
 Individual container apps are deployed to an Azure Container Apps environment. A Log Analytics workspace is deployed as the logging backend before the environment is deployed. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
-```azurepowershell
+```azurepowershell-interactive
 $WorkspaceArgs = @{
     Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
@@ -70,7 +70,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```azurepowershell
+```azurepowershell-interactive
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
@@ -91,15 +91,15 @@ New-AzContainerAppManagedEnv @EnvArgs
 
 With the environment deployed, the next step is to deploy an Azure Blob Storage account that is used by one of the microservices to store data. Before deploying the service, you need to choose a name for the storage account. Storage account names must be _unique within Azure_, from 3 to 24 characters in length and must contain numbers and lowercase letters only.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```bash
+```azurecli-interactive
 STORAGE_ACCOUNT_NAME="<storage account name>"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $StorageAcctName = '<storage account name>'
 ```
 
@@ -107,9 +107,9 @@ $StorageAcctName = '<storage account name>'
 
 Use the following command to create the Azure Storage account.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az storage account create \
   --name $STORAGE_ACCOUNT_NAME \
   --resource-group $RESOURCE_GROUP \
@@ -120,7 +120,7 @@ az storage account create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 Install-Module Az.Storage
 
 $StorageAcctArgs = @{
@@ -141,15 +141,15 @@ While Container Apps supports both user-assigned and system-assigned managed ide
 
 1. Create a user-assigned identity.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az identity create --resource-group $RESOURCE_GROUP --name "nodeAppIdentity" --output json
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 Install-Module -Name AZ.ManagedServiceIdentity
 
 New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name 'nodeAppIdentity' -Location $Location
@@ -160,9 +160,9 @@ New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name 'nodeAppI
 
 Retrieve the `principalId` and `id` properties and store in variables.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 PRINCIPAL_ID=$(az identity show -n "nodeAppIdentity" --resource-group $RESOURCE_GROUP --query principalId | tr -d \")
 IDENTITY_ID=$(az identity show -n "nodeAppIdentity" --resource-group $RESOURCE_GROUP --query id | tr -d \")
 CLIENT_ID=$(az identity show -n "nodeAppIdentity" --resource-group $RESOURCE_GROUP --query clientId | tr -d \")
@@ -170,7 +170,7 @@ CLIENT_ID=$(az identity show -n "nodeAppIdentity" --resource-group $RESOURCE_GRO
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $PrincipalId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name 'nodeAppIdentity').PrincipalId
 $IdentityId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name 'nodeAppIdentity').Id
 $ClientId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name 'nodeAppIdentity').ClientId
@@ -182,23 +182,23 @@ $ClientId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -N
 
 Retrieve the subscription ID for your current subscription.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $SubscriptionId=$(Get-AzContext).Subscription.id
 ```
 
 ---
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az role assignment create --assignee $PRINCIPAL_ID  \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
@@ -206,7 +206,7 @@ az role assignment create --assignee $PRINCIPAL_ID  \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 Install-Module Az.Resources
 
 New-AzRoleAssignment -ObjectId $PrincipalId -RoleDefinitionName 'Storage Blob Data Contributor' -Scope "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Storage/storageAccounts/$StorageAcctName"
@@ -217,8 +217,6 @@ New-AzRoleAssignment -ObjectId $PrincipalId -RoleDefinitionName 'Storage Blob Da
 ### Configure the state store component
 
 There are multiple ways to authenticate to external resources via Dapr. This example doesn't use the Dapr Secrets API at runtime, but uses an Azure-based state store. Therefore, you can forgo creating a secret store component and instead provide direct access from the node app to the blob store using Managed Identity. If you want to use a non-Azure state store or the Dapr Secrets API at runtime, you could create a secret store component. This component would load runtime secrets so you can reference them at runtime.
-
-# [Bash](#tab/bash)
 
 Open a text editor and create a config file named *statestore.yaml* with the properties that you sourced from the previous steps. This file helps enable your Dapr app to access your state store. The following example shows how your *statestore.yaml* file should look when configured for your Azure Blob Storage account:
 
@@ -241,19 +239,20 @@ To use this file, update the placeholders:
 
 - Replace `<STORAGE_ACCOUNT_NAME>` with the value of the `STORAGE_ACCOUNT_NAME` variable you defined. To obtain its value, run the following command:
 
-```azurecli
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
 echo $STORAGE_ACCOUNT_NAME
 ```
-
 - Replace `<MANAGED_IDENTITY_CLIENT_ID>` with the value of the `CLIENT_ID` variable you defined. To obtain its value, run the following command:
 
-```azurecli
+```azurecli-interactive
 echo $CLIENT_ID
 ```
 
 Navigate to the directory in which you stored the component yaml file and run the following command to configure the Dapr component in the Container Apps environment. For more information about configuring Dapr components, see [Configure Dapr components](dapr-overview.md).
 
-```azurecli
+```azurecli-interactive
 az containerapp env dapr-component set \
     --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP \
     --dapr-component-name statestore \
@@ -262,7 +261,7 @@ az containerapp env dapr-component set \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 
 $AcctName = New-AzContainerAppDaprMetadataObject -Name "accountName" -Value $StorageAcctName
 
@@ -287,9 +286,9 @@ New-AzContainerAppManagedEnvDapr @DaprArgs
 
 ## Deploy the service application (HTTP web server)
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az containerapp create \
   --name nodeapp \
   --resource-group $RESOURCE_GROUP \
@@ -306,7 +305,7 @@ az containerapp create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $EnvVars = New-AzContainerAppEnvironmentVarObject -Name APP_PORT -Value 3000
@@ -330,7 +329,9 @@ $ServiceArgs = @{
     DaprAppId = 'nodeapp'
     DaprAppPort = 3000
     IdentityType = 'UserAssigned'
-    IdentityUserAssignedIdentity = $IdentityId
+    IdentityUserAssignedIdentity = @{
+        $IdentityId = @{}
+    }
 }
 New-AzContainerApp @ServiceArgs
 ```
@@ -343,9 +344,9 @@ By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapri
 
 Run the following command to deploy the client container app.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az containerapp create \
   --name pythonapp \
   --resource-group $RESOURCE_GROUP \
@@ -359,7 +360,7 @@ az containerapp create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 
 $TemplateArgs = @{
   Name = 'pythonapp'
@@ -385,7 +386,7 @@ New-AzContainerApp @ClientArgs
 
 ---
 
-## Verify the result
+## Verify the results
 
 ### Confirm successful state persistence
 
@@ -411,9 +412,9 @@ Logs from container apps are stored in the `ContainerAppConsoleLogs_CL` custom t
 
 Use the following CLI command to view logs using the command line.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
 
 az monitor log-analytics query \
@@ -424,7 +425,7 @@ az monitor log-analytics query \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5 "
 $queryResults.Results
@@ -452,15 +453,15 @@ Congratulations! You've completed this tutorial. If you'd like to delete the res
 > [!CAUTION]
 > This command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az group delete --resource-group $RESOURCE_GROUP
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

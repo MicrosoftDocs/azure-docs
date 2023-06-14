@@ -1,11 +1,9 @@
 ---
 title: Bring your own storage to create and publish an Azure Managed Application definition
 description: Describes how to bring your own storage to create and publish an Azure Managed Application definition in your service catalog.
-author: davidsmatlak
-ms.author: davidsmatlak
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 03/01/2023
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
+ms.date: 05/12/2023
 ---
 
 # Quickstart: Bring your own storage to create and publish an Azure Managed Application definition
@@ -20,12 +18,11 @@ To publish a managed application definition to your service catalog, do the foll
 - Create a storage account where you store the managed application definition.
 - Deploy the managed application definition to your own storage account so it's available in your service catalog.
 
-If you're managed application definition is less than 120 MB and you don't want to use your own storage account, go to [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
+If your managed application definition is less than 120 MB and you don't want to use your own storage account, go to [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
 
-> [!NOTE]
-> You can use Bicep to develop a managed application definition but it must be converted to ARM template JSON before you can publish the definition in Azure. To convert Bicep to JSON, use the Bicep [build](../bicep/bicep-cli.md#build) command. After the file is converted to JSON it's recommended to verify the code for accuracy.
->
-> Bicep files can be used to deploy an existing managed application definition.
+You can use Bicep to develop a managed application definition but it must be converted to ARM template JSON before you can publish the definition in Azure. For more information, go to [Quickstart: Use Bicep to create and publish an Azure Managed Application definition](publish-bicep-definition.md#convert-bicep-to-json).
+
+You can also use Bicep deploy a managed application definition from your service catalog. For more information, go to [Quickstart: Use Bicep to deploy an Azure Managed Application definition](deploy-bicep-definition.md).
 
 ## Prerequisites
 
@@ -33,7 +30,7 @@ To complete this quickstart, you need the following items:
 
 - An Azure account with an active subscription and permissions to Azure Active Directory resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For Bicep files, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
-- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create the ARM template
 
@@ -159,9 +156,11 @@ Add the following JSON and save the file. It defines the managed application's r
 
 As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal's user interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
-Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name prefix, App Service plan's name, storage account prefix, and storage account type. During deployment, the variables in _mainTemplate.json_ use the `uniqueString` function to append a 13-character string to the name prefixes so the names are globally unique across Azure.
+In this example, the user interface prompts you to input the App Service name prefix, App Service plan's name, storage account prefix, and storage account type. During deployment, the variables in _mainTemplate.json_ use the `uniqueString` function to append a 13-character string to the name prefixes so the names are globally unique across Azure.
 
-Add the following JSON to the file and save it.
+Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it.
+
+Add the following JSON code to the file and save it.
 
 ```json
 {
@@ -262,7 +261,7 @@ To learn more, go to [Get started with CreateUiDefinition](create-uidefinition-o
 
 Add the two files to a package file named _app.zip_. The two files must be at the root level of the _.zip_ file. If the files are in a folder, when you create the managed application definition, you receive an error that states the required files aren't present.
 
-Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
+Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<demostorageaccount>` including the angle brackets (`<>`), with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -271,7 +270,7 @@ New-AzResourceGroup -Name packageStorageGroup -Location westus3
 
 $storageAccount = New-AzStorageAccount `
   -ResourceGroupName packageStorageGroup `
-  -Name "demostorageaccount" `
+  -Name "<demostorageaccount>" `
   -Location westus3 `
   -SkuName Standard_LRS `
   -Kind StorageV2
@@ -299,7 +298,7 @@ $packageuri=(Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $c
 az group create --name packageStorageGroup --location westus3
 
 az storage account create \
-    --name demostorageaccount \
+    --name <demostorageaccount> \
     --resource-group packageStorageGroup \
     --location westus3 \
     --sku Standard_LRS \
@@ -312,13 +311,13 @@ After you add the role to the storage account, it takes a few minutes to become 
 
 ```azurecli
 az storage container create \
-    --account-name demostorageaccount \
+    --account-name <demostorageaccount> \
     --name appcontainer \
     --auth-mode login \
     --public-access blob
 
 az storage blob upload \
-    --account-name demostorageaccount \
+    --account-name <demostorageaccount> \
     --container-name appcontainer \
     --auth-mode login \
     --name "app.zip" \
@@ -331,7 +330,7 @@ Use the following command to store the package file's URI in a variable named `p
 
 ```azurecli
 packageuri=$(az storage blob url \
-  --account-name demostorageaccount \
+  --account-name <demostorageaccount> \
   --container-name appcontainer \
   --auth-mode login \
   --name app.zip --output tsv)
@@ -350,7 +349,7 @@ You store your managed application definition in your own storage account so tha
 
 Create the storage account for your managed application definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers.
 
-This example creates a new resource group named `byosDefinitionStorageGroup`. In the `Name` parameter, replace the placeholder `definitionstorage` with your unique storage account name.
+This example creates a new resource group named `byosDefinitionStorageGroup`. In the command, replace the placeholder `<definitionstorage>` including the angle brackets (`<>`), with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -359,7 +358,7 @@ New-AzResourceGroup -Name byosDefinitionStorageGroup -Location westus3
 
 New-AzStorageAccount `
   -ResourceGroupName byosDefinitionStorageGroup `
-  -Name "definitionstorage" `
+  -Name "<definitionstorage>" `
   -Location westus3 `
   -SkuName Standard_LRS `
   -Kind StorageV2
@@ -368,7 +367,7 @@ New-AzStorageAccount `
 Use the following command to store the storage account's resource ID in a variable named `storageid`. You use the variable's value when you deploy the managed application definition.
 
 ```azurepowershell
-$storageid = (Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup -Name definitionstorage).Id
+$storageid = (Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup -Name <definitionstorage>).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -377,7 +376,7 @@ $storageid = (Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup
 az group create --name byosDefinitionStorageGroup --location westus3
 
 az storage account create \
-    --name definitionstorage \
+    --name <definitionstorage> \
     --resource-group byosDefinitionStorageGroup \
     --location westus3 \
     --sku Standard_LRS \
@@ -387,7 +386,7 @@ az storage account create \
 Use the following command to store the storage account's resource ID in a variable named `storageid`. You use the variable's value to set up the storage account's role assignment and when you deploy the managed application definition.
 
 ```azurecli
-storageid=$(az storage account show --resource-group byosDefinitionStorageGroup --name definitionstorage --query id --output tsv)
+storageid=$(az storage account show --resource-group byosDefinitionStorageGroup --name <definitionstorage> --query id --output tsv)
 ```
 
 ---
@@ -430,20 +429,20 @@ The _Appliance Resource Provider_ is a service principal in your Azure Active Di
 
 The next step is to select a user, security group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor.
 
-This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You use the variable's value when you deploy the managed application definition.
+This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `<managedAppDemo>` including the angle brackets (`<>`), with your group's name. You use the variable's value when you deploy the managed application definition.
 
 To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$principalid=(Get-AzADGroup -DisplayName managedAppDemo).Id
+$principalid=(Get-AzADGroup -DisplayName <managedAppDemo>).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-principalid=$(az ad group show --group managedAppDemo --query id --output tsv)
+principalid=$(az ad group show --group <managedAppDemo> --query id --output tsv)
 ```
 
 ---
@@ -523,7 +522,7 @@ The managed application definition's deployment template needs input for several
 
 In Visual Studio Code, create a new file named _deployDefinition.parameters.json_ and save it.
 
-Add the following to your parameter file and save it. Then, replace the `{placeholder values}` including the curly braces, with your values.
+Add the following to your parameter file and save it. Then, replace the `<placeholder values>` including the angle brackets (`<>`), with your values.
 
 ```json
 {
@@ -531,19 +530,19 @@ Add the following to your parameter file and save it. Then, replace the `{placeh
   "contentVersion": "1.0.0.0",
   "parameters": {
     "managedApplicationDefinitionName": {
-      "value": "{placeholder for managed application name}"
+      "value": "<placeholder for managed application name>"
     },
     "definitionStorageResourceID": {
-      "value": "{placeholder for you storage account ID}"
+      "value": "<placeholder for you storage account ID>"
     },
     "packageFileUri": {
-      "value": "{placeholder for the packageFileUri}"
+      "value": "<placeholder for the packageFileUri>"
     },
     "principalId": {
-      "value": "{placeholder for principalid value}"
+      "value": "<placeholder for principalid value>"
     },
     "roleId": {
-      "value": "{placeholder for roleid value}"
+      "value": "<placeholder for roleid value>"
     }
   }
 }
@@ -559,9 +558,9 @@ The following table describes the parameter values for the managed application d
 | `principalId` | The publishers Principal ID that needs permissions to manage resources in the managed resource group. Use your `principalid` variable's value. |
 | `roleId` | Role ID for permissions to the managed resource group. For example Owner, Contributor, Reader. Use your `roleid` variable's value. |
 
-To get your variable values from the command prompt:
-- Azure PowerShell: type `$variableName` to display the value.
-- Azure CLI: type `echo $variableName` to display the value.
+To get your variable values:
+- Azure PowerShell: In PowerShell, type `$variableName` to display a variable's value.
+- Azure CLI: In Bash, type `echo $variableName` to display a variable's value.
 
 ## Deploy the definition
 
@@ -597,12 +596,12 @@ az deployment group create \
 
 During deployment, the template's `storageAccountId` property uses your storage account's resource ID and creates a new container with the case-sensitive name `applicationdefinitions`. The files from the _.zip_ package you specified during the deployment are stored in the new container.
 
-You can use the following commands to verify that the managed application definition files are saved in your storage account's container. In the `Name` parameter, replace the placeholder `definitionstorage` with your unique storage account name.
+You can use the following commands to verify that the managed application definition files are saved in your storage account's container. In the command, replace the placeholder `<definitionstorage>` including the angle brackets (`<>`), with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup -Name definitionstorage |
+Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup -Name <definitionstorage> |
 Get-AzStorageContainer -Name applicationdefinitions |
 Get-AzStorageBlob | Select-Object -Property Name | Format-List
 ```
@@ -612,7 +611,7 @@ Get-AzStorageBlob | Select-Object -Property Name | Format-List
 ```azurecli
 az storage blob list \
   --container-name applicationdefinitions \
-  --account-name definitionstorage \
+  --account-name <definitionstorage> \
   --query "[].{Name:name}"
 ```
 
@@ -626,6 +625,38 @@ When you run the Azure CLI command, a credentials warning message might be displ
 ## Make sure users can access your definition
 
 You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+## Clean up resources
+
+If you're going to deploy the definition, continue with the **Next steps** section that links to the article to deploy the definition.
+
+If you're finished with the managed application definition, you can delete the resource groups you created named _packageStorageGroup_, _byosDefinitionStorageGroup_, and _byosAppDefinitionGroup_.
+
+# [PowerShell](#tab/azure-powershell)
+
+The command prompts you to confirm that you want to remove the resource group.
+
+```azurepowershell
+Remove-AzResourceGroup -Name packageStorageGroup
+
+Remove-AzResourceGroup -Name byosAppDefinitionGroup
+
+Remove-AzResourceGroup -Name byosDefinitionStorageGroup
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+The command prompts for confirmation, and then returns you to command prompt while resources are being deleted.
+
+```azurecli
+az group delete --resource-group packageStorageGroup --no-wait
+
+az group delete --resource-group byosAppDefinitionGroup --no-wait
+
+az group delete --resource-group byosDefinitionStorageGroup --no-wait
+```
+
+---
 
 ## Next steps
 

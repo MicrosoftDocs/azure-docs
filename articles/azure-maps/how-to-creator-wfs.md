@@ -68,7 +68,7 @@ The response body is returned in GeoJSON format and contains all collections in 
 
 ## Query for unit feature collection
 
-In this section, you'll query [WFS API] for the `unit` feature collection.
+This section demonstrates querying [WFS API] for the `unit` feature collection.
 
 To query the unit collection in your dataset, create a new **HTTP GET Request**:
 
@@ -76,7 +76,7 @@ To query the unit collection in your dataset, create a new **HTTP GET Request**:
 https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
 ```
 
-After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". You'll use "UNIT26" as your feature `id` when you [Update a feature state].
+After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". Use "UNIT26" as your features `id` when you [Update a feature state].
 
 ```json
 {
@@ -108,12 +108,14 @@ After the response returns, copy the feature `id` for one of the `unit` features
 }
 ```
 
+## Next steps
+
 > [!div class="nextstepaction"]
 > [How to create a feature stateset]
 
 [datasets]: /rest/api/maps/v2/dataset
 [WFS API]: /rest/api/maps/v2/wfs
- [Web Feature Service (WFS)]: /rest/api/maps/v2/wfs
+[Web Feature Service (WFS)]: /rest/api/maps/v2/wfs
 [Tutorial: Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Check dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [Access to Creator Services]: how-to-manage-creator.md#access-to-creator-services

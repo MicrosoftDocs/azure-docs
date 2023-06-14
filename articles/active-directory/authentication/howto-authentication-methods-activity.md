@@ -1,12 +1,12 @@
 ---
-title: Authentication Methods Activity - Azure Active Directory
+title: Authentication Methods Activity
 description: Overview of the authentication methods that users register to sign in and reset passwords. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/12/2023
+ms.date: 05/25/2023
 
 ms.author: justinha
 author: sopand
@@ -53,7 +53,7 @@ To access authentication method usage and insights:
 
 ## Registration details
 
-You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passowordless authentication, and self-service password reset. 
+You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passwordless authentication, and self-service password reset. 
 
 Click any of the following options to pre-filter a list of user registration details:
 
@@ -103,6 +103,9 @@ The **Usage** report shows which authentication methods are used to sign-in and 
 
 Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
 
+>[!NOTE]
+>User accounts that were recently deleted, also known as [soft-deleted users](../fundamentals/active-directory-users-restore.md), are not listed in user registration details.  
+
 The registration details report shows the following information for each user:
 
 - User principal name
@@ -112,7 +115,7 @@ The registration details report shows the following information for each user:
 - SSPR Registered (Registered, Not Registered)
 - SSPR Enabled (Enabled, Not Enabled)
 - SSPR Capable (Capable, Not Capable) 
-- Methods registered (Alternate Mobile Phone, Email, FIDO2 Security Key, Hardware OATH token, Microsoft Authenticator app, Microsoft Passwordless phone sign-in, Mobile Phone, Office Phone, Security questions, Software OATH token, Temporary Access Pass, Windows Hello for Business)
+- Methods registered (Alternate Mobile Phone, Certificate-based authentication, Email, FIDO2 security key, Hardware OATH token, Microsoft Authenticator app, Microsoft Passwordless phone sign-in, Mobile phone, Office phone, Security questions, Software OATH token, Temporary Access Pass, Windows Hello for Business)
 
   ![Screenshot of user registration details](media/how-to-authentication-methods-usage-insights/registration-details.png)
 

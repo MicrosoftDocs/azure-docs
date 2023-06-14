@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Voyance | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Voyance'
 description: Learn how to configure single sign-on between Azure Active Directory and Voyance.
 services: active-directory
 author: jeevansd

@@ -1,13 +1,12 @@
 ---
-title: Understand Device Update for Azure IoT Hub resources | Microsoft Docs
+title: Understand Device Update for Azure IoT Hub resources
 description: Understand Device Update for Azure IoT Hub resources
 author: vimeht
 ms.author: vimeht
 ms.date: 11/02/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
-
 
 # Device update resources
 
@@ -36,7 +35,6 @@ The following Message Routes are automatically configured in your linked IoT hub
 |  DeviceUpdate.DeviceTwinChanges| TwinChangeEvents | (opType = 'updateTwin' OR opType = 'replaceTwin') AND IS_DEFINED($body.tags.ADUGroup) | events | Listens for new Device Update groups |
 |  DeviceUpdate.DigitalTwinChanges | DigitalTwinChangeEvents | true | events | Listens for Digital Twin change events  |
 |  DeviceUpdate.DeviceLifecycle | DeviceLifecycleEvents | opType = 'deleteDeviceIdentity' OR opType = 'deleteModuleIdentity'  | events | Listens for devices that have been deleted |
-| DeviceUpdate.DeviceConnectionState | DeviceConnectionStateEvents | true | events | Listens for changes to device connection states |
 
 > [!NOTE]
 > You can change the names of these routes if it makes sense for your solution. The rest of the route properties should stay configured as they are in the table for Device Update to work properly.

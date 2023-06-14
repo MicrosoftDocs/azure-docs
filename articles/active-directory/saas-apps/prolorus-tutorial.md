@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Prolorus | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Prolorus'
 description: Learn how to configure single sign-on between Azure Active Directory and Prolorus.
 services: active-directory
 author: jeevansd

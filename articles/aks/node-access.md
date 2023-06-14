@@ -2,7 +2,8 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: article
-ms.date: 11/3/2022
+ms.date: 04/26/2023
+ms.reviewer: mattmcinnes
 ms.custom: contperf-fy21q4
 
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -16,7 +17,7 @@ This article shows you how to create a connection to an AKS node and update the 
 
 ## Before you begin
 
-This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. Make sure you save the key pair in an OpenSSH format, other formats like .ppk are not supported.
+This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. Make sure you save the key pair in an OpenSSH format, other formats like .ppk aren't supported.
 
 You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -74,7 +75,7 @@ To create the SSH connection to the Windows Server node from another node, use t
 
 > [!IMPORTANT]
 >
-> The following steps for creating the SSH connection to the Windows Server node from another node can only be used if you created your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter. If you didn't use this method to create your cluster, you'll use a password instead of an SSH key. To do this, see [Create the SSH connection to a Windows node using a password](#create-the-ssh-connection-to-a-windows-node-using-a-password)
+> The following steps for creating the SSH connection to the Windows Server node from another node can only be used if you created your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter. If you didn't use this method to create your cluster, use a password instead of an SSH key. To do this, see [Create the SSH connection to a Windows node using a password](#create-the-ssh-connection-to-a-windows-node-using-a-password)
 
 Open a new terminal window and use the `kubectl get pods` command to get the name of the pod started by `kubectl debug`.
 
@@ -123,7 +124,7 @@ aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.
 
 In the above example, *10.240.0.67* is the internal IP address of the Windows Server node.
 
-Create an SSH connection to the Windows Server node using the internal IP address, and connect to port 22 through port 2022 on your development computer. The default username for AKS nodes is *azureuser*. Accept the prompt to continue with the connection. You are then provided with the bash prompt of your Windows Server node:
+Create an SSH connection to the Windows Server node using the internal IP address, and connect to port 22 through port 2022 on your development computer. The default username for AKS nodes is *azureuser*. Accept the prompt to continue with the connection. You're then provided with the bash prompt of your Windows Server node:
 
 ```bash
 ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@10.240.0.67
@@ -217,7 +218,7 @@ kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
 > [!NOTE]
 > Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
 
-Use the [az aks update][az-aks-update] command to update the SSH key on the cluster. This operation will update the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
+Use the [az aks update][az-aks-update] command to update the SSH key on the cluster. This operation updates the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
 
 ```azurecli
 az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value or SSH key file>

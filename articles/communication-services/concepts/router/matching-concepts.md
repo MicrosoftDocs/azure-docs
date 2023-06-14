@@ -10,6 +10,7 @@ ms.author: danielgerlag
 ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
 ---
 
@@ -33,21 +34,28 @@ In the following example we register a worker to
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var worker = await client.RegisterWorkerAsync(
-    id: "worker-1",
-    queueIds: new[] { "queue-1", "queue-2" },    
-    totalCapacity: 2,
-    channelConfigurations: new List<ChannelConfiguration>
+var worker = await client.CreateWorkerAsync(
+    new CreateWorkerOptions(
+            workerId: "worker-1",
+            totalCapacity: 2)
     {
-        new ChannelConfiguration(channelId: "voice", capacityCostPerJob: 2),
-        new ChannelConfiguration(channelId: "chat", capacityCostPerJob: 1)
-    },
-    labels: new LabelCollection()
-    {
-        ["Skill"] = 11,
-        ["English"] = true,
-        ["French"] = false,
-        ["Vendor"] = "Acme"
+        QueueIds = new Dictionary<string, QueueAssignment>()
+        {
+            ["queue-1"] = new QueueAssignment(),
+            ["queue-2"] = new QueueAssignment()
+        },
+        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>()
+        {
+            ["voice"] = new ChannelConfiguration(2),
+            ["chat"] = new ChannelConfiguration(1)
+        },
+        Labels = new Dictionary<string, LabelValue>()
+        {
+            ["Skill"] = new LabelValue(11),
+            ["English"] = new LabelValue(true),
+            ["French"] = new LabelValue(false),
+            ["Vendor"] = new LabelValue("Acme")
+        },
     }
 );
 ```
@@ -164,4 +172,3 @@ The [OfferIssued Event][offer_issued_event] includes details about the job, work
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
 [offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
-

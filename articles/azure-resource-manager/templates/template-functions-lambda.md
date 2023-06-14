@@ -1,10 +1,9 @@
 ---
 title: Template functions - lambda
 description: Describes the lambda functions to use in an Azure Resource Manager template (ARM template)
-author: mumian
 ms.topic: conceptual
-ms.author: jgao
-ms.date: 02/09/2023
+ms.custom: devx-track-arm-template
+ms.date: 05/22/2023
 ---
 
 # Lambda functions for ARM templates
@@ -41,7 +40,7 @@ In Bicep, use the [filter](../bicep/bicep-functions-lambda.md#filter) function.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to filter.|
-| lambda function |Yes |expression |The lambda function applied to each input array element. If false, the item will be filtered out of the output array.|
+| lambda function |Yes |expression |The lambda function applied to each input array element. If false, the item is filtered out of the output array.|
 
 ### Return value
 
@@ -415,7 +414,7 @@ The output from the preceding example sorts the dog objects from the youngest to
 
 `toObject(inputArray, lambda function, [lambda function])`
 
-Converts an array to an object with a custom key function and optional custom value function.
+Converts an array to an object with a custom key function and optional custom value function. See [items](template-functions-object.md#items) about converting an object to an array.
 
 In Bicep, use the [toObject](../templates/template-functions-lambda.md#toobject) function.
 
@@ -564,4 +563,4 @@ The preceding example generates an object based on an array.
 
 ## Next steps
 
-- See [Template functions - arrays](./template-functions-array.md) for additional array related template functions.
+- See [Template functions - arrays](./template-functions-array.md) for more array related template functions.

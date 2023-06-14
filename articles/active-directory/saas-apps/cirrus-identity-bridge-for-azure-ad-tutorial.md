@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cirrus Identity Bridge for Azure AD | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cirrus Identity Bridge for Azure AD'
 description: Learn how to configure single sign-on between Azure Active Directory and Cirrus Identity Bridge for Azure AD.
 services: active-directory
 author: jeevansd

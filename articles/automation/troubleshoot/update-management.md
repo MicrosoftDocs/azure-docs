@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 02/23/2023
+ms.date: 05/26/2023
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---

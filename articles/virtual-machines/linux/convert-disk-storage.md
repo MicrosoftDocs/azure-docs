@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 02/09/2023
 ms.author: albecker
 ms.subservice: disks
+ms.custom: devx-track-azurecli
 ---
 
 # Change the disk type of an Azure managed disk - CLI

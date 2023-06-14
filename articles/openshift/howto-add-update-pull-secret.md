@@ -141,7 +141,7 @@ oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson
 ### Verify that pull secret is in place
 
 ```
-oc exec $(oc get pod -n openshift-apiserver -o jsonpath="{.items[0].metadata.name}") -- cat /var/lib/kubelet/config.json
+oc exec -n openshift-apiserver $(oc get pod -n openshift-apiserver -o jsonpath="{.items[0].metadata.name}") -- cat /var/lib/kubelet/config.json
 ```
 
 After the secret is set, you're ready to enable Red Hat Certified Operators.

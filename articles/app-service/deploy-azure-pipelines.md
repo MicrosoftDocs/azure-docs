@@ -43,15 +43,15 @@ Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/eco
 
 1. Go to **Pipelines**, and then select **New Pipeline**.
 
-1. Walk through the steps of the wizard by first selecting **GitHub** as the location of your source code.
+1. When prompted, select the location of your source code: either **Azure Repos Git** or **GitHub**.
 
-1. You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
+   You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
 
 1. When the list of repositories appears, select your repository.
 
 1. You might be redirected to GitHub to install the Azure Pipelines app. If so, select **Approve & install**.
 
-1.  When the **Configure** tab appears, select **ASP.NET Core**.
+1. When the **Configure** tab appears, select **ASP.NET Core**.
 
 1. When your new pipeline appears, take a look at the YAML to see what it does. When you're ready, select **Save and run**.
 
@@ -61,9 +61,7 @@ Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/eco
 
     :::image type="content" source="media/deploy-azure-pipelines/azure-web-app-task.png" alt-text="Screenshot of Azure web app task.":::
 
-1. Select **Azure Resource Manager** for the **Connection type** and choose your **Azure subscription**. Make sure to **Authorize** your connection. 
-
-1. Select  **Web App on Linux** and enter your `azureSubscription`, `appName`, and `package`. Your complete YAML should look like this. 
+1. Select **Azure Resource Manager** for the **Connection type** and choose your **Azure subscription**. Make sure to **Authorize** your connection.  
 
 1. Select  **Web App on Linux** and enter your `azureSubscription`, `appName`, and `package`. Your complete YAML should look like this. 
 
@@ -237,6 +235,7 @@ The following example shows how to deploy to a staging slot, and then swap to a 
     deployToSlotOrASE: true
     resourceGroupName: '<name of resource group>'
     slotName: staging
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
 
 - task: AzureAppServiceManage@0
   inputs:
@@ -253,7 +252,8 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 * **appName**: the name of your existing app service.
 * **deployToSlotOrASE**: Boolean. Deploy to an existing deployment slot or Azure App Service Environment.
 * **resourceGroupName**: Name of the resource group. Required if `deployToSlotOrASE` is true. 
-* **slotName**: Name of the slot, defaults to `production`. Required if `deployToSlotOrASE` is true. 
+* **slotName**: Name of the slot, defaults to `production`. Required if `deployToSlotOrASE` is true.
+* **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
 * **SourceSlot**: Slot sent to production when `SwapWithProduction` is true. 
 * **SwapWithProduction**: Boolean. Swap the traffic of source slot with production. 
 

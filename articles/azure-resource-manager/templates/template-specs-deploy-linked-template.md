@@ -3,8 +3,6 @@ title: Deploy a template spec as a linked template
 description: Learn how to deploy an existing template spec in a linked deployment.
 ms.topic: conceptual
 ms.date: 05/04/2021 
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Tutorial: Deploy a template spec as a linked template
@@ -16,7 +14,7 @@ Learn how to deploy an existing [template spec](template-specs.md) by using a [l
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
+> To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-azure-powershell). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Create a template spec
 

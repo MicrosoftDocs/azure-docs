@@ -5,8 +5,8 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 03/22/2022
 ms.service: confidential-ledger
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
-
 ---
 
 # Quickstart: Create a confidential ledger using the Azure CLI

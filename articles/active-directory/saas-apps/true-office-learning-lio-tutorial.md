@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with True Office Learning - LIO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with True Office Learning - LIO'
 description: Learn how to configure single sign-on between Azure Active Directory and True Office Learning - LIO.
 services: active-directory
 author: jeevansd

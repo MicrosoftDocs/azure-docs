@@ -5,6 +5,7 @@ services: expressroute
 author:  charwen
 
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: duau
@@ -129,14 +130,22 @@ There are a two scenarios where you may find it helpful to reset your ExpressRou
    AllowClassicOperations           : False
    GatewayManagerEtag               :
    ```
-6. Run the following commands to change the state of the peering.
+6. Run the following commands to change the peering state to disabled.
 
    ```azurepowershell-interactive
    $ckt.Peerings[0].State = "Disabled"
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
-   The peering should be in a state you set. 
+   The peering should be in a disabled state you set. 
 
+7. Run the following commands to change the peering state back to enabled.
+
+   ```azurepowershell-interactive
+   $ckt.Peerings[0].State = "Enabled"
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
+   The peering should be in a enabled state you set.
+   
 ## Next steps
 If you need help with troubleshooting an ExpressRoute problem, see the following articles:
 * [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)

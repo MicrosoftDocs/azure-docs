@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 03/02/2023
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
@@ -372,6 +372,10 @@ After the log is uploaded, [review the endpoint](./luis-concept-review-endpoint-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+## Run the container disconnected from the internet
+
+[!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
 
 ## Stop the container
 

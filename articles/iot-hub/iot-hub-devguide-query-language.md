@@ -2,9 +2,9 @@
 title: Understand the Azure IoT Hub query language
 description: This article provides a description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
 author: kgremban
+
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/29/2022
 ms.author: kgremban
 ms.custom: devx-track-csharp
@@ -266,8 +266,8 @@ In routes conditions, the following string functions are supported:
 | UPPER(x) | Returns a string expression after converting lowercase character data to uppercase. |
 | SUBSTRING(string, start [, length]) | Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string. |
 | INDEX_OF(string, fragment) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string isn't found.|
-| STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
-| ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
+| STARTSWITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
+| ENDSWITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
 
 ## Query examples with the service SDKs

@@ -2,12 +2,12 @@
 title: Azure CLI - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks with the Azure CLI.
 author: roygara
-ms.date: 02/22/2023
+ms.date: 05/03/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-
+ms.custom: devx-track-azurecli
 ---
 
 # Use the Azure CLI to enable server-side encryption with customer-managed keys for managed disks
@@ -39,7 +39,7 @@ rgName=yourResourceGroupName
 vmName=yourVMName
 location=westcentralus
 vmSize=Standard_DS3_V2
-image=UbuntuLTS 
+image=LinuxImageURN 
 diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
@@ -66,11 +66,11 @@ rgName=yourResourceGroupName
 vmssName=yourVMSSName
 location=westcentralus
 vmSize=Standard_DS3_V2
-image=UbuntuLTS 
+image=LinuxImageURN 
 diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
-az vmss create -g $rgName -n $vmssName --image UbuntuLTS --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
+az vmss create -g $rgName -n $vmssName --image $image --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
 ### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
@@ -127,3 +127,4 @@ az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url 
 - [Replicate machines with customer-managed keys enabled disks](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Set up disaster recovery of VMware VMs to Azure with PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
+- See [Create a managed disk from a snapshot with CLI](../scripts/create-managed-disk-from-snapshot.md#disks-with-customer-managed-keys) for a code sample.

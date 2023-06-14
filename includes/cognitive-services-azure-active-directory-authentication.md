@@ -2,6 +2,7 @@
 author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 08/24/2022
 ---
@@ -46,7 +47,7 @@ Now that you have a custom subdomain associated with your resource, you're going
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
 
-   $app = New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $SecureStringPassword
+   $app = New-AzureADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -PasswordCredentials $SecureStringPassword
    ```
 
    You're going to need the **ApplicationId** in the next step.

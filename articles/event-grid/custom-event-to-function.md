@@ -49,7 +49,7 @@ Before subscribing to the custom topic, create a function to handle the events.
     1. Select **Azure Event Grid Trigger** in the **Select a template** section. Use the scroll bar right to the list to scroll down if needed.
     1. In the **Template details** section in the bottom pane, enter a name for the function. In this example, it's **HandleEventsFunc**. 
 
-        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" lightbox="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Select Event Grid trigger.":::
+        :::image type="content" source="./media/custom-event-to-function/function-trigger.png" lightbox="./media/custom-event-to-function/function-trigger.png" alt-text="Select Event Grid trigger.":::
 4. On the **Function** page for the **HandleEventsFunc**, select **Code + Test** on the left navigational menu. 
 
     :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image showing the selection Code + Test menu for an Azure function.":::
@@ -80,10 +80,10 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
 1. On a new tab of the web browser window, sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar at the topic, search for **Event Grid Topics**, and select **Event Grid Topics**. 
 
-    :::image type="content" source="./media/custom-event-to-function/select-event-grid-topics.png" alt-text="Image showing the selection of Event Grid topics.":::
+    :::image type="content" source="./media/custom-event-to-function/select-topics.png" alt-text="Image showing the selection of Event Grid topics.":::
 3. On the **Event Grid Topics** page, select **+ Create** on the command bar.
 
-    :::image type="content" source="./media/custom-event-to-function/add-event-grid-topic-button.png" alt-text="Screenshot showing the Create button to create an Event Grid topic.":::
+    :::image type="content" source="./media/custom-event-to-function/add-topic-button.png" alt-text="Screenshot showing the Create button to create an Event Grid topic.":::
 4. On the **Create Topic** page, follow these steps:
     1. Select your **Azure subscription**.
     2. Select the same **resource group** from the previous steps.
@@ -95,7 +95,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
     1. On the **Review + create** page, review settings and select **Create**. 
 5. After the custom topic has been created, select **Go to resource** link to see the following Event Grid topic page for the topic you created. 
 
-    :::image type="content" source="./media/custom-event-to-function/event-grid-topic-home-page.png" lightbox="./media/custom-event-to-function/event-grid-topic-home-page.png" alt-text="Image showing the home page for your Event Grid custom topic.":::
+    :::image type="content" source="./media/custom-event-to-function/topic-home-page.png" lightbox="./media/custom-event-to-function/topic-home-page.png" alt-text="Image showing the home page for your Event Grid custom topic.":::
 
 ## Subscribe to custom topic
 
@@ -172,11 +172,11 @@ The second example uses PowerShell to perform similar steps.
 2. Set the following variables. After you copy and paste each command, update the **topic name** and **resource group name** before you run the command:
 
     ```powershell
-    $resourceGroupName = <resource group name>
+    $resourceGroupName = "RESOURCEGROUPNAME"
     ```
 
     ```powershell
-    $topicName = <topic name>
+    $topicName = "TOPICNAME"
     ```
 3. Run the following commands to get the **endpoint** and the **keys** for the topic:
 
@@ -238,8 +238,8 @@ Now that you know how to create topics and event subscriptions, learn more about
 
 - [About Event Grid](overview.md)
 - [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
+- [Stream big data into a data warehouse](event-hubs-integration.md)
 
 See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
 

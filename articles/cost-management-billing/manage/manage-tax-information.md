@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 04/05/2023
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -100,7 +100,7 @@ Customers in the following countries or regions can add their Tax IDs.
 |Spain    |   Sweden   |
 |Switzerland    |   Taiwan  |
 |Tajikistan   |   Thailand  |
-|Turkey    |   Ukraine   |
+|Türkiye    |   Ukraine   |
 |United Arab Emirates    |   United Kingdom     |
 |Uzbekistan    |  Vietnam    |
 |Zimbabwe    |   |

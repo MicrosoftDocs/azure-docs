@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/19/2022
+ms.date: 03/28/2023
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -337,6 +337,91 @@ You must use the following version:
 
 For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
+### List all role definitions
+
+To list role definitions in a tenant, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
+
+- The following example lists all role definitions in a tenant:
+
+    **Request**
+    
+    ```http
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01
+    ```
+    
+    **Response**
+    
+    ```json
+    {
+        "value": [
+            {
+                "properties": {
+                    "roleName": "Billing Reader Plus",
+                    "type": "CustomRole",
+                    "description": "Read billing data and download invoices",
+                    "assignableScopes": [
+                        "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15"
+                    ],
+                    "permissions": [
+                        {
+                            "actions": [
+                                "Microsoft.Authorization/*/read",
+                                "Microsoft.Billing/*/read",
+                                "Microsoft.Commerce/*/read",
+                                "Microsoft.Consumption/*/read",
+                                "Microsoft.Management/managementGroups/read",
+                                "Microsoft.CostManagement/*/read",
+                                "Microsoft.Billing/invoices/download/action",
+                                "Microsoft.CostManagement/exports/*"
+                            ],
+                            "notActions": [
+                                "Microsoft.CostManagement/exports/delete"
+                            ],
+                            "dataActions": [],
+                            "notDataActions": []
+                        }
+                    ],
+                    "createdOn": "2021-05-22T21:57:23.5764138Z",
+                    "updatedOn": "2021-05-22T21:57:23.5764138Z",
+                    "createdBy": "68f66d4c-c0eb-4009-819b-e5315d677d70",
+                    "updatedBy": "68f66d4c-c0eb-4009-819b-e5315d677d70"
+                },
+                "id": "/providers/Microsoft.Authorization/roleDefinitions/17adabda-4bf1-4f4e-8c97-1f0cab6dea1c",
+                "type": "Microsoft.Authorization/roleDefinitions",
+                "name": "17adabda-4bf1-4f4e-8c97-1f0cab6dea1c"
+            },
+            {
+                "properties": {
+                    "roleName": "AcrPush",
+                    "type": "BuiltInRole",
+                    "description": "acr push",
+                    "assignableScopes": [
+                        "/"
+                    ],
+                    "permissions": [
+                        {
+                            "actions": [
+                                "Microsoft.ContainerRegistry/registries/pull/read",
+                                "Microsoft.ContainerRegistry/registries/push/write"
+                            ],
+                            "notActions": [],
+                            "dataActions": [],
+                            "notDataActions": []
+                        }
+                    ],
+                    "createdOn": "2018-10-29T17:52:32.5201177Z",
+                    "updatedOn": "2021-11-11T20:13:07.4993029Z",
+                    "createdBy": null,
+                    "updatedBy": null
+                },
+                "id": "/providers/Microsoft.Authorization/roleDefinitions/8311e382-0749-4cb8-b61a-304f252e45ec",
+                "type": "Microsoft.Authorization/roleDefinitions",
+                "name": "8311e382-0749-4cb8-b61a-304f252e45ec"
+            }
+        ]
+    }
+    ```
+
 ### List role definitions
 
 To list role definitions, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API. To refine your results, you specify a scope and an optional filter.
@@ -345,6 +430,12 @@ To list role definitions, use the [Role Definitions - List](/rest/api/authorizat
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2022-04-01
+    ```
+
+    For a tenant-level scope, you can use this request:
+
+    ```http
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?filter={$filter}&api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the role definitions.
@@ -364,59 +455,60 @@ To list role definitions, use the [Role Definitions - List](/rest/api/authorizat
     > [!div class="mx-tableFixed"]
     > | Filter | Description |
     > | --- | --- |
-    > | `$filter=atScopeAndBelow()` | Lists role definitions for the specified scope and any subscopes. |
     > | `$filter=type+eq+'{type}'` | Lists role definitions of the specified type. Type of role can be `CustomRole` or `BuiltInRole`. |
 
-The following request lists custom role definitions at subscription scope:
+    The following example lists all custom roles in a tenant:
 
-```http
-GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter=type+eq+'CustomRole'
-```
-
-The following shows an example of the output:
-
-```json
-{
-    "value": [
-        {
-            "properties": {
-                "roleName": "Billing Reader Plus",
-                "type": "CustomRole",
-                "description": "Read billing data and download invoices",
-                "assignableScopes": [
-                    "/subscriptions/{subscriptionId1}"
-                ],
-                "permissions": [
-                    {
-                        "actions": [
-                            "Microsoft.Authorization/*/read",
-                            "Microsoft.Billing/*/read",
-                            "Microsoft.Commerce/*/read",
-                            "Microsoft.Consumption/*/read",
-                            "Microsoft.Management/managementGroups/read",
-                            "Microsoft.CostManagement/*/read",
-                            "Microsoft.Billing/invoices/download/action",
-                            "Microsoft.CostManagement/exports/*"
-                        ],
-                        "notActions": [
-                            "Microsoft.CostManagement/exports/delete"
-                        ],
-                        "dataActions": [],
-                        "notDataActions": []
-                    }
-                ],
-                "createdOn": "2021-05-22T21:57:23.5764138Z",
-                "updatedOn": "2021-05-22T21:57:23.5764138Z",
-                "createdBy": "{createdByObjectId1}",
-                "updatedBy": "{updatedByObjectId1}"
-            },
-            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId1}",
-            "type": "Microsoft.Authorization/roleDefinitions",
-            "name": "{roleDefinitionId1}"
-        }
-    ]
-}
-```
+    **Request**
+    
+    ```http
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?$filter=type+eq+'CustomRole'&api-version=2022-04-01
+    ```
+    
+    **Response**
+    
+    ```json
+    {
+        "value": [
+            {
+                "properties": {
+                    "roleName": "Billing Reader Plus",
+                    "type": "CustomRole",
+                    "description": "Read billing data and download invoices",
+                    "assignableScopes": [
+                        "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15"
+                    ],
+                    "permissions": [
+                        {
+                            "actions": [
+                                "Microsoft.Authorization/*/read",
+                                "Microsoft.Billing/*/read",
+                                "Microsoft.Commerce/*/read",
+                                "Microsoft.Consumption/*/read",
+                                "Microsoft.Management/managementGroups/read",
+                                "Microsoft.CostManagement/*/read",
+                                "Microsoft.Billing/invoices/download/action",
+                                "Microsoft.CostManagement/exports/*"
+                            ],
+                            "notActions": [
+                                "Microsoft.CostManagement/exports/delete"
+                            ],
+                            "dataActions": [],
+                            "notDataActions": []
+                        }
+                    ],
+                    "createdOn": "2021-05-22T21:57:23.5764138Z",
+                    "updatedOn": "2021-05-22T21:57:23.5764138Z",
+                    "createdBy": "68f66d4c-c0eb-4009-819b-e5315d677d70",
+                    "updatedBy": "68f66d4c-c0eb-4009-819b-e5315d677d70"
+                },
+                "id": "/providers/Microsoft.Authorization/roleDefinitions/17adabda-4bf1-4f4e-8c97-1f0cab6dea1c",
+                "type": "Microsoft.Authorization/roleDefinitions",
+                "name": "17adabda-4bf1-4f4e-8c97-1f0cab6dea1c"
+            }
+        ]
+    }
+    ```
 
 ### List a role definition
 
@@ -428,7 +520,7 @@ To list the details of a specific role, use the [Role Definitions - Get](/rest/a
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
     ```
 
-    For a directory-level role definition, you can use this request:
+    For a tenant-level role definition, you can use this request:
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
@@ -446,43 +538,45 @@ To list the details of a specific role, use the [Role Definitions - Get](/rest/a
      
 1. Replace *{roleDefinitionId}* with the role definition identifier.
 
-The following request lists the [Reader](built-in-roles.md#reader) role definition:
-
-```http
-GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2022-04-01
-```
-
-The following shows an example of the output:
-
-```json
-{
-    "properties": {
-        "roleName": "Reader",
-        "type": "BuiltInRole",
-        "description": "View all resources, but does not allow you to make any changes.",
-        "assignableScopes": [
-            "/"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "*/read"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ],
-        "createdOn": "2015-02-02T21:55:09.8806423Z",
-        "updatedOn": "2021-11-11T20:13:47.8628684Z",
-        "createdBy": null,
-        "updatedBy": null
-    },
-    "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "type": "Microsoft.Authorization/roleDefinitions",
-    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
-}
-```
+    The following example lists the [Reader](built-in-roles.md#reader) role definition:
+    
+    **Request**
+    
+    ```http
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2022-04-01
+    ```
+    
+    **Response**
+    
+    ```json
+    {
+        "properties": {
+            "roleName": "Reader",
+            "type": "BuiltInRole",
+            "description": "View all resources, but does not allow you to make any changes.",
+            "assignableScopes": [
+                "/"
+            ],
+            "permissions": [
+                {
+                    "actions": [
+                        "*/read"
+                    ],
+                    "notActions": [],
+                    "dataActions": [],
+                    "notDataActions": []
+                }
+            ],
+            "createdOn": "2015-02-02T21:55:09.8806423Z",
+            "updatedOn": "2021-11-11T20:13:47.8628684Z",
+            "createdBy": null,
+            "updatedBy": null
+        },
+        "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+        "type": "Microsoft.Authorization/roleDefinitions",
+        "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
+    }
+    ```
 
 ## Next steps
 

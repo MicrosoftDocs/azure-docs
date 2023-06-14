@@ -9,7 +9,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a public IP address prefix using PowerShell
@@ -23,7 +23,7 @@ When you create a public IP address resource, you can assign a static public IP 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -109,6 +109,26 @@ The removal of the **`-Zone`** parameter in the command is valid in all regions.
 
 The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
+# [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref)
+
+To create a IPv4 public IP prefix with routing preference Internet, create an **IpTag** with an **ipTagType** 'Routing Preference' and **Tag** 'Internet'.
+
+```azurepowershell-interactive
+$tagproperty = @{
+IpTagType = 'RoutingPreference'
+Tag = 'Internet'
+}
+$routingprefinternettag = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSPublicIpPrefixTag -Property $tagproperty 
+$ipv4 =@{
+    Name = 'myPublicIpPrefix-routingprefinternet'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
+    Location = 'eastus2'
+    PrefixLength = '28'
+    IpAddressVersion = 'IPv4'
+    IpTag = $routingprefinternettag
+}
+New-AzPublicIpPrefix @ipv4
+```
 ---
 
 ## IPv6

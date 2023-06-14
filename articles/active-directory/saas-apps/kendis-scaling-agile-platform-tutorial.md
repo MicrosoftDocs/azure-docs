@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis - Azure AD Integration | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis'
 description: Learn how to configure single sign-on between Azure Active Directory and Kendis - Azure AD Integration.
 services: active-directory
 author: jeevansd
@@ -14,7 +14,7 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis - Azure AD Integration
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis
 
 In this tutorial, you'll learn how to integrate Kendis - Azure AD Integration with Azure Active Directory (Azure AD). When you integrate Kendis - Azure AD Integration with Azure AD, you can:
 
@@ -124,15 +124,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Kendis-Azure AD Integration SSO
 
-1. To automate the configuration within Kendis - Azure AD Integration, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up Kendis - Azure AD Integration** will direct you to the Kendis - Azure AD Integration application. From there, provide the admin credentials to sign into Kendis - Azure AD Integration. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Kendis - Azure AD Integration manually, in a different web browser window, sign in to your Kendis - Azure AD Integration company site as an administrator.
+1. In a different web browser window, sign in to your Kendis - Azure AD Integration company site as an administrator
 
 4. Go to the **Settings > SAML Configurations**.
 

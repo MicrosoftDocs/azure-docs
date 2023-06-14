@@ -4,6 +4,7 @@ description: A glossary defining the terminology used throughout the Microsoft P
 author: evangelinew
 ms.author: evwhite
 ms.service: purview
+ms.subservice: purview-data-catalog
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 06/17/2022

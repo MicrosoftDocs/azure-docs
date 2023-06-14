@@ -2,12 +2,12 @@
 title: "Quickstart: Use Azure App Configuration in Azure Container Apps"
 description: Learn how to connect a containerized application to Azure App Configuration, using Service Connector.
 services: azure-app-configuration
-author: maud-lv
+author: mcleanbyron
 ms.service: azure-app-configuration
 ms.custom: service-connector
 ms.topic: quickstart
 ms.date: 03/02/2023
-ms.author: malev
+ms.author: mcleans
 
 ---
 
@@ -21,7 +21,7 @@ In this quickstart, you will use Azure App Configuration in an app running in Az
 ## Prerequisites
 
 - An application using an App Configuration store. If you don't have one, create an instance using the [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
-- An Azure Container Apps instance. If you don't have one, create an instance using the [Azure portal](/azure/container-apps/quickstart-portal) or [the CLI](/azure/container-apps/get-started).
+- An Azure Container Apps instance. If you don't have one, create an instance using the [Azure portal](../container-apps/quickstart-portal.md) or [the CLI](../container-apps/get-started.md).
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - The [Azure CLI](/cli/azure/install-azure-cli)
 ---
@@ -72,14 +72,14 @@ Create an Azure Container Registry (ACR). ACR enables you to build, store, and m
 
 #### [Portal](#tab/azure-portal)
 
-1. To create the container registry, follow the [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-portal).
+1. To create the container registry, follow the [Azure Container Registry quickstart](../container-registry/container-registry-get-started-portal.md).
 1. Once the deployment is complete, open your ACR instance and from the left menu, select **Settings > Access keys**.
 1. Take note of the **Login server** value listed on this page. You'll use this information in a later step.
 1. Switch **Admin user** to *Enabled*. This option lets you connect the ACR to Azure Container Apps using admin user credentials. Alternatively, you can leave it disabled and configure the container app to [pull images from the registry with a managed identity](../container-apps/managed-identity-image-pull.md).
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Create an ACR instance using the following command. It creates a basic tier registry named *myregistry* with admin user enabled that allows the container app to connect to the registry using admin user credentials. For more information, see [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-azure-cli).
+1. Create an ACR instance using the following command. It creates a basic tier registry named *myregistry* with admin user enabled that allows the container app to connect to the registry using admin user credentials. For more information, see [Azure Container Registry quickstart](../container-registry/container-registry-get-started-azure-cli.md).
 
     ```azurecli
    az acr create 

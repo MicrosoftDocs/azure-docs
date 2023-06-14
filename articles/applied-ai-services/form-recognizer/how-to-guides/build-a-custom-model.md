@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 01/31/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 # Build and train a custom model

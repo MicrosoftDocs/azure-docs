@@ -11,6 +11,7 @@ author: ssalgadodev
 ms.reviewer: ssalgado
 ms.date: 03/11/2021
 ms.custom: deploy, sdkv1, event-tier1-build-2022
+monikerRange: 'azureml-api-1'
 ---
 
 
@@ -28,8 +29,6 @@ Azure Machine Learning can deploy a trained model as a web service. The web serv
 > The information in this article is specific to the deployment of the model. It provides information on the supported deployment configurations that allow the model to be used by Cognitive Search.
 >
 > For information on how to configure Cognitive Search to use the deployed model, see the [Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md) tutorial.
->
-> For the sample that the tutorial is based on, see [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 
 When deploying a model for use with Azure Cognitive Search, the deployment must meet the following requirements:
 
@@ -45,7 +44,7 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 * A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).  
 
-* A registered model. If you do not have a model, use the example notebook at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
+* A registered model.
 
 * A general understanding of [How and where to deploy models](v1/how-to-deploy-and-where.md).
 
@@ -56,7 +55,7 @@ An Azure Machine Learning workspace provides a centralized place to work with al
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](v1/how-to-configure-environment-v1.md).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](v1/how-to-configure-environment.md).
 
 ```python
 from azureml.core import Workspace
@@ -84,7 +83,7 @@ The following code demonstrates how to create a new Azure Kubernetes Service (AK
 > You can also attach an existing Azure Kubernetes Service to your Azure Machine Learning workspace. For more information, see [How to deploy models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
 
 > [!IMPORTANT]
-> Notice that the code uses the `enable_ssl()` method to enable transport layer security (TLS) for the cluster. This is required when you plan on using the deployed model from Cognitive Services.
+> Notice that the code uses the `enable_ssl()` method to enable transport layer security (TLS) for the cluster. This is required when you plan on using the deployed model from Cognitive Search.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -128,7 +127,7 @@ The entry script receives data submitted to the web service, passes it to the mo
 > The entry script is specific to your model. For example, the script must know the framework to use with your model, data formats, etc.
 
 > [!IMPORTANT]
-> When you plan on using the deployed model from Azure Cognitive Services, you must use the `inference_schema` package to enable schema generation for the deployment. This package provides decorators that allow you to define the input and output data format for the web service that performs inference using the model.
+> When you plan on using the deployed model from Azure Cognitive Search you must use the `inference_schema` package to enable schema generation for the deployment. This package provides decorators that allow you to define the input and output data format for the web service that performs inference using the model.
 
 ```python
 from azureml.core.model import Model

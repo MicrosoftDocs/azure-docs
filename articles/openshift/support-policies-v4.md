@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 03/28/2023
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -48,20 +48,56 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dsv3|Standard_D8s_v3|8|32|
 |Dsv3|Standard_D16s_v3|16|64|
 |Dsv3|Standard_D32s_v3|32|128|
-|Eiv3*|Standard_E64i_v3|64|432|
+|Dsv4|Standard_D8s_v4|8|32|
+|Dsv4|Standard_D16s_v4|16|64|
+|Dsv4|Standard_D32s_v4|32|128|
+|Dsv5|Standard_D8s_v5|8|32|
+|Dsv5|Standard_D16s_v5|16|64|
+|Dsv5|Standard_D32s_v5|32|128|
+|Dasv4|Standard_D8as_v4|8|32|
+|Dasv4|Standard_D16as_v4|16|64|
+|Dasv4|Standard_D32as_v4|32|128|
+|Dasv5|Standard_D8as_v5|8|32|
+|Dasv5|Standard_D16as_v5|16|64|
+|Dasv5|Standard_D32as_v5|32|128|
+|Easv4|Standard_E4as_v4|4|32|
+|Easv4|Standard_E8as_v4|8|64|
+|Easv4|Standard_E16as_v4|16|128|
+|Easv4|Standard_E20as_v4|20|160|
+|Easv4|Standard_E32as_v4|32|256|
+|Easv4|Standard_E48as_v4|48|384|
+|Easv4|Standard_E64as_v4|64|512|
+|Easv4|Standard_E96as_v4|96|672|
+|Easv5|Standard_E8as_v5|8|64|
+|Easv5|Standard_E16as_v5|16|128|
+|Easv5|Standard_E20as_v5|20|160|
+|Easv5|Standard_E32as_v5|32|256|
+|Easv5|Standard_E48as_v5|48|384|
+|Easv5|Standard_E64as_v5|64|512|
+|Easv5|Standard_E96as_v5|96|672|
 |Eisv3|Standard_E64is_v3|64|432|
 |Eis4|Standard_E80is_v4|80|504|
 |Eids4|Standard_E80ids_v4|80|504|
-|Eiv5*|Standard_E104i_v5|104|672|
 |Eisv5|Standard_E104is_v5|104|672|
-|Eidv5*|Standard_E104id_v5|104|672|
 |Eidsv5|Standard_E104ids_v5|104|672|
+|Esv4|Standard_E8s_v4|8|64|
+|Esv4|Standard_E16s_v4|16|128|
+|Esv4|Standard_E20s_v4|20|160|
+|Esv4|Standard_E32s_v4|32|256|
+|Esv4|Standard_E48s_v4|48|384|
+|Esv4|Standard_E64s_v4|64|504|
+|Esv5|Standard_E8s_v5|8|64|
+|Esv5|Standard_E16s_v5|16|128|
+|Esv5|Standard_E20s_v5|20|160|
+|Esv5|Standard_E32s_v5|32|256|
+|Esv5|Standard_E48s_v5|48|384|
+|Esv5|Standard_E64s_v5|64|512|
+|Esv5|Standard_E96s_v5|96|672|
 |Fsv2|Standard_F72s_v2|72|144|
-|G*|Standard_G5|32|448|
-|G|Standard_GS5|32|448|
-|Mms|Standard_M128ms|128|3892|
+|Mms*|Standard_M128ms|128|3892|
 
-\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
+\*Standard_M128ms' does not support encryption at host
+
 
 ### General purpose
 
@@ -71,29 +107,79 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dasv4|Standard_D8as_v4|8|32|
 |Dasv4|Standard_D16as_v4|16|64|
 |Dasv4|Standard_D32as_v4|32|128|
+|Dasv4|Standard_D64as_v4|64|256|
+|Dasv4|Standard_D96as_v4|96|384|
+|Dasv5|Standard_D4as_v5|4|16|
+|Dasv5|Standard_D8as_v5|8|32|
+|Dasv5|Standard_D16as_v5|16|64|
+|Dasv5|Standard_D32as_v5|32|128|
+|Dasv5|Standard_D64as_v5|64|256|
+|Dasv5|Standard_D96as_v5|96|384|
+|Dsv2|Standard_D2s_v3|2|8|
 |Dsv3|Standard_D4s_v3|4|16|
 |Dsv3|Standard_D8s_v3|8|32|
 |Dsv3|Standard_D16s_v3|16|64|
 |Dsv3|Standard_D32s_v3|32|128|
+|Dsv4|Standard_D4s_v4|4|16|
+|Dsv4|Standard_D8s_v4|8|32|
+|Dsv4|Standard_D16s_v4|16|64|
+|Dsv4|Standard_D32s_v4|32|128|
+|Dsv4|Standard_D64s_v4|64|256|
+|Dsv5|Standard_D4s_v5|4|16|
+|Dsv5|Standard_D8s_v5|8|32|
+|Dsv5|Standard_D16s_v5|16|64|
+|Dsv5|Standard_D32s_v5|32|128|
+|Dsv5|Standard_D64s_v5|64|256|
+|Dsv5|Standard_D96s_v5|96|384|
+
 
 ### Memory optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
+|Easv4|Standard_E4as_v4|4|32|
+|Easv4|Standard_E8as_v4|8|64|
+|Easv4|Standard_E16as_v4|16|128|
+|Easv4|Standard_E20as_v4|20|160|
+|Easv4|Standard_E32as_v4|32|256|
+|Easv4|Standard_E48as_v4|48|384|
+|Easv4|Standard_E64as_v4|64|512|
+|Easv4|Standard_E96as_v4|96|672|
+|Easv5|Standard_E8as_v5|8|64|
+|Easv5|Standard_E16as_v5|16|128|
+|Easv5|Standard_E20as_v5|20|160|
+|Easv5|Standard_E32as_v5|32|256|
+|Easv5|Standard_E48as_v5|48|384|
+|Easv5|Standard_E64as_v5|64|512|
+|Easv5|Standard_E96as_v5|96|672|
 |Esv3|Standard_E4s_v3|4|32|
 |Esv3|Standard_E8s_v3|8|64|
 |Esv3|Standard_E16s_v3|16|128|
 |Esv3|Standard_E32s_v3|32|256|
-|Eiv3*|Standard_E64i_v3|64|432|
+|Esv4|Standard_E2s_v4|2|16|
+|Esv4|Standard_E4s_v4|4|32|
+|Esv4|Standard_E8s_v4|8|64|
+|Esv4|Standard_E16s_v4|16|128|
+|Esv4|Standard_E20s_v4|20|160|
+|Esv4|Standard_E32s_v4|32|256|
+|Esv4|Standard_E48s_v4|48|384|
+|Esv4|Standard_E64s_v4|64|504|
+|Esv5|Standard_E2s_v5|2|16|
+|Esv5|Standard_E4s_v5|4|32|
+|Esv5|Standard_E8s_v5|8|64|
+|Esv5|Standard_E16s_v5|16|128|
+|Esv5|Standard_E20s_v5|20|160|
+|Esv5|Standard_E32s_v5|32|256|
+|Esv5|Standard_E48s_v5|48|384|
+|Esv5|Standard_E64s_v5|64|512|
+|Esv5|Standard_E96s_v5|96|672|
+|Edsv5|Standard_E96ds_v5|96|672|
 |Eisv3|Standard_E64is_v3|64|432|
 |Eis4|Standard_E80is_v4|80|504|
 |Eids4|Standard_E80ids_v4|80|504|
-|Eiv5*|Standard_E104i_v5|104|672|
 |Eisv5|Standard_E104is_v5|104|672|
-|Eidv5|Standard_E104id_v5|104|672|
 |Eidsv5|Standard_E104ids_v5|104|672|
 
-\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
 
 ### Compute optimized
 
@@ -105,11 +191,15 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Fsv2|Standard_F32s_v2|32|64|
 |Fsv2|Standard_F72s_v2|72|144|
 
+
 ### Memory and compute optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
-|Mms|Standard_M128ms|128|3892|
+|Mms*|Standard_M128ms|128|3892|
+
+\*Standard_M128ms' does not support encryption at host
+
 
 ### Storage optimized
 |Series|Size|vCPU|Memory: GiB|
@@ -121,8 +211,14 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |L8s_v2|Standard_L8s_v2|8|64|
 |L16s_v2|Standard_L16s_v2|16|128|
 |L32s_v2|Standard_L32s_v2|32|256|
-|L48s_v2|Standard_L48s_v2|32|384|
-|L64s_v2|Standard_L48s_v2|64|512|
+|L48s_v2|Standard_L48s_v2|48|384|
+|L64s_v2|Standard_L64s_v2|64|512|
+|L8s_v3|Standard_L8s_v3|8|64|
+|L16s_v3|Standard_L16s_v3|16|128|
+|L32s_v3|Standard_L32s_v3|32|256|
+|L48s_v3|Standard_L48s_v3|48|384|
+|L64s_v3|Standard_L64s_v3|64|512|
+
 
 ### GPU workload
 |Series|Size|vCPU|Memory: GiB|
@@ -136,6 +232,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |NC24rsV3|Standard_NC24rs_v3|24|448|
 |NC64asT4v3|Standard_NC64as_T4_v3|64|440|
 
+<!--
 ### Memory and storage optimized
 
 |Series|Size|vCPU|Memory: GiB|
@@ -143,4 +240,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |G*|Standard_G5|32|448|
 |G|Standard_GS5|32|448|
 
+
 \*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
+-->

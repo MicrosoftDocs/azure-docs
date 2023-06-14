@@ -69,7 +69,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 
 ### Additional information
 * Messages in Storage queues are typically first-in-first-out, but sometimes they can be out of order. For example, when the visibility-timeout duration of a message expires because a client application crashed while processing a message. When the visibility timeout expires, the message becomes visible again on the queue for another worker to dequeue it. At that point, the newly visible message might be placed in the queue to be dequeued again.
-* The guaranteed FIFO pattern in Service Bus queues requires the use of messaging sessions. If the application crashes while it's processing a message received in the **Peek & Lock** mode, the next time a queue receiver accepts a messaging session, it will start with the failed message after the message's time-to-live (TTL) period expires.
+* The guaranteed FIFO pattern in Service Bus queues requires the use of messaging sessions. If the application crashes while it's processing a message received in the **Peek & Lock** mode, the next time a queue receiver accepts a messaging session, it will start with the failed message after the session's lock duration expires.
 * Storage queues are designed to support standard queuing scenarios, such as the following ones:
     - Decoupling application components to increase scalability and tolerance for failures
     - Load leveling

@@ -4,6 +4,7 @@ description: Learn how to restore Azure PostgreSQL databases using Azure CLI.
 ms.topic: conceptual
 ms.date: 01/24/2022
 ms.service: backup
+ms.custom: devx-track-azurecli
 author: jyothisuri
 ms.author: jsuri
 ---

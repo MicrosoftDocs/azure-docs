@@ -2,7 +2,7 @@
 title: Microsoft Defender for Cloud's security recommendations for MFA
 description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 06/11/2023
 ---
 
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions
@@ -18,8 +18,9 @@ Defender for Cloud places a high value on MFA. The security control that contrib
 
 The recommendations in the Enable MFA control ensure you're meeting the recommended practices for users of your subscriptions:
 
-- MFA should be enabled on accounts with owner permissions on your subscription
-- MFA should be enabled on accounts with write permissions on your subscription
+- Accounts with owner permissions on Azure resources should be MFA enabled
+- Accounts with write permissions on Azure resources should be MFA enabled
+- Accounts with read permissions on Azure resources should be MFA enabled
 
 There are three ways to enable MFA and be compliant with the two recommendations in Defender for Cloud: security defaults, per-user assignment, conditional access (CA) policy.
 
@@ -102,7 +103,7 @@ To investigate why the recommendations are still being generated, verify the fol
 ### We're using a third-party MFA tool to enforce MFA. Why do we still get the Defender for Cloud recommendations?
 Defender for Cloud's MFA recommendations doesn't support third-party MFA tools (for example, DUO).
 
-If the recommendations are irrelevant for your organization, consider marking them as "mitigated" as described in [Exempting resources and recommendations from your secure score](exempt-resource.md). You can also [disable a recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
+If the recommendations are irrelevant for your organization, consider marking them as "mitigated" as described in [Exempting resources and recommendations from your secure score](exempt-resource.md). You can also [disable a recommendation](tutorial-security-policy.md#disable-a-security-recommendation).
 
 ### Why does Defender for Cloud show user accounts without permissions on the subscription as "requiring MFA"?
 Defender for Cloud's MFA recommendations refers to [Azure RBAC](../role-based-access-control/role-definitions-list.md) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.

@@ -48,7 +48,7 @@ Additionally, you will need to:
 - Install the Azure Machine Learning SDK for Python
     
     ```bash
-    pip install azure-ai-ml
+    pip install azure-ai-ml azure-identity
     ```
     
 # [Python (MLflow SDK)](#tab/mlflow)

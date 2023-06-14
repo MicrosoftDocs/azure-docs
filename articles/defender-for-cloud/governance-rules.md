@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/23/2023
 ---
 
-# Drive your organization to remediate security recommendations with governance
+# Drive remediation with security governance
 
 Security teams are responsible for improving the security posture of their organizations but they may not have the resources or authority to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#building-an-automated-process-for-improving-security-with-governance-rules) creates accountability and transparency so you can drive the process of improving the security posture in your organization.
 
@@ -26,7 +26,7 @@ You can then review the progress of the tasks by subscription, recommendation, o
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
+|Release state:|General availability (GA)|
 | Prerequisite: | Requires the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md) to be enabled.|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
@@ -143,7 +143,7 @@ The governance report lets you select subscriptions that have governance rules a
 
 **To review the status of the recommendations in a rule**:
 
-1. In **Recommendations**, select **Governance report (preview)**.
+1. In **Recommendations**, select **Governance report**.
 1. Select the subscriptions that you want to review.
 1. Select the rules that you want to see details about.
 
@@ -152,7 +152,7 @@ You can see the list of owners and recommendations for the selected rules, and t
 **To see the list of recommendations for each owner**:
 
 1. Select **Security posture**.
-1. Select the **Owner (preview)** tab to see the list of owners and the number of overdue recommendations for each owner.
+1. Select the **Owner** tab to see the list of owners and the number of overdue recommendations for each owner.
 
     - Hover over the (i) in the overdue recommendations to see the breakdown of overdue recommendations by severity.
 
@@ -165,3 +165,5 @@ You can see the list of owners and recommendations for the selected rules, and t
 In this article, you learned how to set up a process for assigning owners and due dates to tasks so that owners are accountable for taking steps to improve your security posture.
 
 Check out how owners can [set ETAs for tasks](review-security-recommendations.md#manage-the-owner-and-eta-of-recommendations-that-are-assigned-to-you) so that they can manage their progress.
+
+Learn how to [Implement security recommendations in Microsoft Defender for Cloud](implement-security-recommendations.md).

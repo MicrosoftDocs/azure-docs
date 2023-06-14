@@ -3,16 +3,16 @@ title: Azure Lab Services documentation # < 60 chars
 summary: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a lab for your team or students in the cloud. # < 160 chars
 
 metadata:
-  title: Azure Lab Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a lab for your team or students in the cloud. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Lab Services documentation
+  description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a lab for your team or students in the cloud.
   services: lab-services
-  ms.service: lab-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: lab-services
   ms.subservice: 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: ntrogh #Required; your GitHub user alias, with correct capitalization.
-  ms.author: nicktrog #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/15/2022 #Required; mm/dd/yyyy format.
+  author: ntrogh
+  ms.author: nicktrog
+  ms.date: 10/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Lab Services 
+          - text: What is Azure Lab Services? 
             url: lab-services-overview.md                       
           - text: What's new in Lab Services?
             url: lab-services-whats-new.md
@@ -35,8 +35,8 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Create a lab plan      
-          url: tutorial-setup-lab-plan.md
+        - text: Set up resources for creating labs
+          url: quick-create-resources.md
     - linkListType: how-to-guide
       links:
         - text: Add a Lab Creator
@@ -50,7 +50,9 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Create your lab
+        - text: Create and connect to a lab
+          url: quick-create-connect-lab.md
+        - text: Set up a lab for classroom training
           url: tutorial-setup-lab.md
     - linkListType: how-to-guide
       links:

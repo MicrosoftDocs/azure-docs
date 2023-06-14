@@ -2,9 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 01/10/2023
-author: bmansheim
-ms.author: benmansheim
+ms.date: 04/23/2023
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other, ignite-2022
 ---
@@ -95,7 +93,7 @@ Follow the steps below to create your GCP cloud connector.
 
     | CSPM | Defender for Containers|
     |--|--|
-    | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool <br>*Microsoft Defender for Servers* service account (when the servers plan is enabled) <br>*Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled) | Microsoft Defender Containers’ service account role <br> Microsoft Defender Data Collector service account role <br> Microsoft Defender for cloud identity pool |
+    | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool <br>*Microsoft Defender for Servers* service account (when the servers plan is enabled) <br>*Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled) | Microsoft Defender Containers’ service account role <br> Microsoft Defender Data Collector service account role <br> Microsoft Defender for Cloud identity pool |
 
 After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled auto-provisioning, Azure Arc and any enabled extensions will install automatically for each new resource detected.
 
@@ -128,7 +126,7 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 
 - Other extensions should be enabled on the Arc-connected machines.
     - Microsoft Defender for Endpoint
-    - VA solution (TVM/ Qualys)
+    - VA solution (Microsoft Defender Vulnerability Management/ Qualys)
     - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA). Ensure the selected workspace has security solution installed.
     
         The LA agent and AMA are currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings regarding the LA agent and AMA.
@@ -364,6 +362,9 @@ To view all the active recommendations for your resources by resource type, use 
 
 ### Is there an API for connecting my GCP resources to Defender for Cloud?
 Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/defenderforcloud/security-connectors).
+
+### What GCP regions are supported by Defender for Cloud?
+Defender for Cloud supports and scans all available regions on GCP public cloud.
 
 ## Next steps
 

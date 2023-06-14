@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 ## Speech synchronization 
 
-You might want to synchronize transcriptions with an audio track, whether it's done in real time or with a prerecording. 
+You might want to synchronize transcriptions with an audio track, whether it's done in real-time or with a prerecording. 
 
 The Speech service returns the offset and duration of the recognized speech. 
 

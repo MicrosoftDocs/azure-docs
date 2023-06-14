@@ -1,8 +1,9 @@
 ---
-title: Assign, update, list, or remove custom security attributes for a user (Preview) - Azure Active Directory
+title: Assign, update, list, or remove custom security attributes for a user (Preview)
 description: Assign, update, list, or remove custom security attributes for a user in Azure Active Directory. 
 services: active-directory 
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
 ms.date: 02/20/2023
 ms.topic: how-to
@@ -35,7 +36,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
     
 ## Assign custom security attributes to a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md).
 
@@ -63,7 +64,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 ## Update custom security attribute assignment values for a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Users**.
 
@@ -83,7 +84,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 You can filter the list of custom security attributes assigned to users on the All users page.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Users**.
 
@@ -103,7 +104,7 @@ You can filter the list of custom security attributes assigned to users on the A
 
 ## Remove custom security attribute assignments from a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Users**.
 

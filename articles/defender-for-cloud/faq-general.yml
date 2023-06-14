@@ -36,7 +36,7 @@ sections:
           
           * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
           * Virtual Machine Scale Sets
-          * [The many Azure PaaS services listed in the product overview](support-matrix-defender-for-cloud.md#features-supported-in-different-azure-cloud-environments)
+          * [The many Azure PaaS services listed in the product overview](support-matrix-defender-for-cloud.md#security-benefits-for-azure-services)
 
           Defender for Cloud also protects [on-premises resources](quickstart-onboard-machines.md) and [multicloud resources](multicloud.yml), including Amazon AWS and Google Cloud.
           

@@ -1,5 +1,5 @@
 ---
-title: Grant controls in Conditional Access policy - Azure Active Directory
+title: Grant controls in Conditional Access policy
 description: Grant controls in an Azure Active Directory Conditional Access policy.
 
 services: active-directory
@@ -31,7 +31,7 @@ The control for blocking access considers any assignments and prevents access ba
 Administrators can choose to enforce one or more controls when granting access. These controls include the following options: 
 
 - [Require multifactor authentication (Azure AD Multifactor Authentication)](../authentication/concept-mfa-howitworks.md)
-- [Require authentication strength (Preview)](#require-authentication-strength-preview)
+- [Require authentication strength](#require-authentication-strength)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
 - [Require approved client app](app-based-conditional-access.md)
@@ -51,12 +51,9 @@ Selecting this checkbox requires users to perform Azure Active Directory (Azure 
 
 [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multifactor authentication in Conditional Access policies.
 
-### Require authentication strength (preview)
+### Require authentication strength
 
-Administrators can choose to require [specific authentication strengths](../authentication/concept-authentication-strengths.md) in their Conditional Access policies. These authentication strengths are defined in the **Azure portal** > **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**. Administrators can choose to create their own or use the built-in versions.
-
-> [!NOTE]
-> Require authentication strength is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Administrators can choose to require [specific authentication strengths](../authentication/concept-authentication-strengths.md) in their Conditional Access policies. These authentication strengths are defined in the **Azure portal** > **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths**. Administrators can choose to create their own or use the built-in versions.
 
 ### Require device to be marked as compliant
 

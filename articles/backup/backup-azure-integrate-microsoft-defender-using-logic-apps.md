@@ -57,7 +57,7 @@ To deploy Azure Logic Apps, follow these steps:
      - Security Reader
 
      >[!Note]
-     >To further tighten the security, we recommend you create a custom role and assign that to the Managed Identity instead of the above built-in roles. This ensures that all the calls run with least privileges. For more information on custom role, see the [Github article](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Protect%20Azure%20VM%20Backup%20from%20Ransomware).
+     >To further tighten the security, we recommend you create a custom role and assign that to the Managed Identity instead of the above built-in roles. This ensures that all the calls run with least privileges. For more information on custom role, see the [GitHub article](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Protect%20Azure%20VM%20Backup%20from%20Ransomware).
 
    - **Managed Identity Subscription**: Enter the name of a Subscription that the Managed Identity should reside in.
    - **Managed Identity Resource Group**: Enter the name of a resource group that the Managed Identity should reside in.

@@ -11,6 +11,7 @@ ms.author: vijetaj
 ms.date: 02/14/2023
 ms.reviewer: franksolomon
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade compute management to v2

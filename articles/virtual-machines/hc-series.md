@@ -4,7 +4,7 @@ description: Specifications for the HC-series VMs.
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 12/19/2022
+ms.date: 03/04/2023
 ms.reviewer: jushiman
 ---
 
@@ -35,11 +35,11 @@ HC-series VMs feature 100 Gb/sec Mellanox EDR InfiniBand. These VMs are connecte
 
 
 Learn more about the:
-- [Architecture and VM topology](./workloads/hpc/hc-series-overview.md)
-- Supported [software stack](./workloads/hpc/hc-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hc-series-performance.md) of the HC-series VM
+- [Architecture and VM topology](hc-series-overview.md)
+- Supported [software stack](hc-series-overview.md#software-specifications) including supported OS
+- Expected [performance](hc-series-performance.md) of the HC-series VM
 
-[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+[!INCLUDE [hpc-include](./includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

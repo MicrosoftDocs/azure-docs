@@ -1,5 +1,5 @@
 ---
-title: Confidential containers with Intex SGX enclaves on Azure
+title: Confidential containers with Intel SGX enclaves on Azure
 description: Learn about unmodified container support with confidential containers on Intel SGX through OSS and partner solutions
 services: container-service
 author: agowdamsft

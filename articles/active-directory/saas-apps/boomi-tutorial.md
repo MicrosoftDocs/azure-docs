@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi'
 description: Learn how to configure single sign-on between Azure Active Directory and Boomi.
 services: active-directory
 author: jeevansd

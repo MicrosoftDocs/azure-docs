@@ -1,8 +1,8 @@
 ---
 title: Deploy the Azure Monitor Agent with Microsoft Defender for Cloud
 description: Learn how to deploy the Azure Monitor Agent on your Azure, multicloud, and on-premises servers to support Microsoft Defender for Cloud protections.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 03/01/2023
 ms.custom: template-how-to, ignite-2022
@@ -106,7 +106,7 @@ To configure a custom destination workspace for the Azure Monitor Agent:
 
 The Azure Monitor Agent requires Log analytics workspace solutions. These solutions are automatically installed when you auto-provision the Azure Monitor Agent with the default workspace. 
 
-The required [Log Analytics workspace solutions](../azure-monitor/insights/solutions.md) for the data that you're collecting are:
+The required [Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions) for the data that you're collecting are:
 
   - Security posture management (CSPM) – **SecurityCenterFree solution**
   - Defender for Servers Plan 2 – **Security solution**
@@ -119,7 +119,7 @@ The Azure Monitor Agent requires more extensions. The ASA extension, which suppo
 
 When you auto-provision the Log Analytics agent in Defender for Cloud, you can choose to collect additional security events to the workspace. When you auto-provision the Azure Monitor agent in Defender for Cloud, the option to collect additional security events to the workspace isn't available. Defender for Cloud doesn't rely on these security events, but they can be helpful for investigations through Microsoft Sentinel.
 
-If you want to collect security events when you auto-provision the Azure Monitor Agent, you can create a [Data Collection Rule](../azure-monitor/essentials/data-collection-rule-overview.md) to collect the required events.
+If you want to collect security events when you auto-provision the Azure Monitor Agent, you can create a [Data Collection Rule](../azure-monitor/essentials/data-collection-rule-overview.md) to collect the required events. Learn [how do it with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
 
 Like for Log Analytics workspaces, Defender for Cloud users are eligible for [500-MB of free data](plan-defender-for-servers-data-workspace.md#log-analytics-pricing-faq) daily on defined data types that include security events.
 

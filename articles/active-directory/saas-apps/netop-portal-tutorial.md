@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Netop Portal | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Netop Portal'
 description: Learn how to configure single sign-on between Azure Active Directory and Netop Portal.
 services: active-directory
 author: jeevansd

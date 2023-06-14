@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/21/2022
+ms.date: 4/28/2023
 ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -39,7 +39,7 @@ Both methods have drawbacks. For more information, see the following table.
 | Area of concern | Local credentials | Federation |
 |----|---|---|
 | Security | - Access continues after external user terminates<br> - UserType is Member by default, which grants too much default access | - No user-level visibility  <br> - Unknown partner security posture|
-| Expense | - Password and multi-factor authentication (MFA) management<br> - Onboarding process<br> - Identity cleanup<br> - Overhead of running a separate directory | Small partners can't afford the infrastructure, lack expertise, and might user consumer email|
+| Expense | - Password and multi-factor authentication (MFA) management<br> - Onboarding process<br> - Identity cleanup<br> - Overhead of running a separate directory | Small partners can't afford the infrastructure, lack expertise, and might use consumer email|
 | Complexity | Partner users manage more credentials | Complexity grows with each new partner, and increased for partners|
 
 Azure Active Directory (Azure AD) B2B integrates with other tools in Azure AD, and Microsoft 365 services. Azure AD B2B simplifies collaboration, reduces expense, and increases security. 
@@ -67,4 +67,6 @@ Azure Active Directory (Azure AD) B2B integrates with other tools in Azure AD, a
 * [Secure access with Conditional Access policies](7-secure-access-conditional-access.md)
 * [Control access with sensitivity labels](8-secure-access-sensitivity-labels.md)
 * [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
+* [Convert local guest accounts](10-secure-local-guest.md)
+* [Onboard external users to Line-of-business applications](11-onboard-external-user.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Customize compute instance with a script (preview)
+title: Customize compute instance with a script
 titleSuffix: Azure Machine Learning
 description: Create a customized compute instance, using a startup script. Use the compute instance as your development environment, or as compute target for dev/test purposes.
 services: machine-learning
@@ -30,8 +30,6 @@ Some examples of what you can do in a setup script:
 * Set network proxies
 * Set environment variables
 * Install JupyterLab extensions
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Create the setup script
 

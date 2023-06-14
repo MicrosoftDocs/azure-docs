@@ -1,18 +1,20 @@
 ---
-title: 'Virtual network enforcement with security admin rules in Azure Virtual Network Manager (Preview)'
+title: 'Virtual network enforcement with security admin rules in Azure Virtual Network Manager'
 description: This article covers using security admin rules Azure Virtual Network Manager to enforcement security policies across virtual networks.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual 
-ms.date: 09/15/2022
+ms.date: 3/22/2023
 ---
-# Virtual network enforcement with security admin rules in Azure Virtual Network Manager (Preview)
+# Virtual network enforcement with security admin rules in Azure Virtual Network Manager
 
-In this article, you'll learn how [security admins rules](concept-security-admins.md) provide flexible and scalable enforcement of security policies over tools like [network security groups](../virtual-network/network-security-groups-overview.md). First, you learn the different models of virtual network enforcement. Then, you'll learn the general steps for enforcing security with security admin rules.
+In this article, you'll learn how [security admins rules](concept-security-admins.md) provide flexible and scalable enforcement of security policies over tools like [network security groups](../virtual-network/network-security-groups-overview.md). First, you learn the different models of virtual network enforcement. Then, you learn the general steps for enforcing security with security admin rules.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -49,9 +51,9 @@ In this model, NSGs are still managed by individual teams. The difference is the
 
 ## Enforcement and flexibility in practice
 
-Let’s apply the concepts  discussed so far to an example scenario. A company network administrator wants to enforce a security rule to block inbound SSH traffic for the whole company. As mentioned above, having such enforcement was difficult without AVNM’s security admin rule. If the administrator manages all the NSGs, then management overhead is high, and the administrator can't rapidly respond to product teams’ needs to modify NSG rules. On the other hand, if the product teams manage their own NSGs without security admin rules, then the administrator can't enforce critical security rules, leaving potential security risks open. Using both security admin rules and NSGs can solve this dilemma. 
+Let’s apply the concepts  discussed so far to an example scenario. A company network administrator wants to enforce a security rule to block inbound SSH traffic for the whole company. Enforcement of this type of security rule was difficult without a security admin rule. If the administrator manages all the NSGs, then management overhead is high, and the administrator can't rapidly respond to product teams’ needs to modify NSG rules. On the other hand, if the product teams manage their own NSGs without security admin rules, then the administrator can't enforce critical security rules, leaving potential security risks open. Using both security admin rules and NSGs can solve this dilemma. 
 
-In this case, the administrator wants to make an exception to the application virtual networks as the application team needs management access to the application with SSH. The diagram below shows how the administrator can achieve the following goals:
+In this case, the administrator wants to make an exception to the application virtual networks as the application team needs management access to the application with SSH. The diagram shows how the administrator can achieve the following goals:
 - Enforcement with security admin rules across the organization.
 - Creating exceptions for the application team to handle SSH traffic through NSGs.
 
@@ -73,7 +75,7 @@ In this step, two security admin rules are defined with the following security a
 
 #### Step 4: Deploy the security admin configuration
  
-After the deployment of the security admin configuration, all VNets in the company will have the deny inbound SSH traffic rule enforced by the security admin rule. No individual team can modify this rule, only the defined company administrator. The App VNets will have both an allow inbound SSH traffic rule and a deny inbound SSH traffic rule (inherited from All network group rule). The priority number of the allow inbound SSH traffic rule for App network group should be smaller so that it's evaluated first. When inbound SSH traffic comes to an App VNet, it will be allowed by this higher priority security admin rule. Assuming there are NSGs on the subnets of the App VNets, this inbound SSH traffic will be further evaluated by NSGs set by the application team. The security admin rule methodology described here allows the company administrator to effectively enforce company policies and create flexible security guard rails across an organization that work with NSGs.
+After the deployment of the security admin configuration, all VNets in the company have the deny inbound SSH traffic rule enforced by the security admin rule. No individual team can modify this rule, only the defined company administrator. The App VNets have both an allow inbound SSH traffic rule and a deny inbound SSH traffic rule (inherited from All network group rule). The priority number of the allow inbound SSH traffic rule for App network group should be smaller so that it's evaluated first. When inbound SSH traffic comes to an App VNet, it is allowed by this higher priority security admin rule. Assuming there are NSGs on the subnets of the App VNets, this inbound SSH traffic is further evaluated by NSGs set by the application team. The security admin rule methodology described here allows the company administrator to effectively enforce company policies and create flexible security guard rails across an organization that work with NSGs.
 
 
 ## Next steps

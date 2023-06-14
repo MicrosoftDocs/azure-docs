@@ -4,8 +4,8 @@ description: Add parameters to your Azure Resource Manager template (ARM templat
 author: mumian
 ms.date: 06/15/2022
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Add parameters to your ARM template

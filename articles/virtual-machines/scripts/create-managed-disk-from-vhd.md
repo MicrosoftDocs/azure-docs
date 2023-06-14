@@ -11,7 +11,7 @@ ms.topic: sample
 ms.workload: infrastructure
 ms.date: 02/23/2022
 ms.author: ramankum
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create a managed disk from a VHD file in a storage account in the same subscription with CLI (Linux)

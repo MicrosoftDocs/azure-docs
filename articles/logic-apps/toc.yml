@@ -7,44 +7,54 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create logic apps - Portal
-    href: quickstart-create-first-logic-app-workflow.md
-  - name: Create logic apps - Visual Studio
-    href: quickstart-create-logic-apps-with-visual-studio.md
-  - name: Create logic apps - Visual Studio Code
-    href: quickstart-create-logic-apps-visual-studio-code.md
-  - name: Create logic apps - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: quickstart-create-deploy-bicep.md
-  - name: Create logic apps - ARM template
-    displayName: Resource Manager
-    href: quickstart-create-deploy-azure-resource-manager-template.md
-  - name: Create and manage logic apps - Azure CLI
-    href: quickstart-logic-apps-azure-cli.md
-  - name: Create and manage logic apps - Azure PowerShell
-    href: quickstart-logic-apps-azure-powershell.md
+  - name: Consumption logic app workflows
+    expanded: true
+    items:
+    - name: Portal
+      href: quickstart-create-example-consumption-workflow.md
+    - name: Visual Studio
+      href: quickstart-create-logic-apps-with-visual-studio.md
+    - name: Visual Studio Code
+      href: quickstart-create-logic-apps-visual-studio-code.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-create-deploy-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quickstart-create-deploy-azure-resource-manager-template.md
+    - name: Azure CLI
+      href: quickstart-logic-apps-azure-cli.md
+    - name: Azure PowerShell
+      href: quickstart-logic-apps-azure-powershell.md
+  - name: Standard logic app workflows
+    expanded: true
+    items:
+    - name: Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Visual Studio Code
+      href: create-single-tenant-workflows-visual-studio-code.md
 - name: Tutorials
   items:
-  - name: Create schedule-based workflows
+  - name: Create Consumption schedule-based workflows
     href: tutorial-build-schedule-recurring-logic-app-workflow.md
-  - name: Create approval-based workflows
+  - name: Create Consumption approval-based workflows
     href: tutorial-process-mailing-list-subscriptions-workflow.md
-  - name: Create Azure Storage and Azure Functions workflow
+  - name: Create Consumption workflow with Azure Storage and Azure Functions
     href: tutorial-process-email-attachments-workflow.md
 - name: Samples
   items:
-  - name: Create logic app - sample script
+  - name: Azure CLI - Consumption workflow sample script
     href: sample-logic-apps-cli-script.md
   - name: Azure code samples
     href: /samples/browse/?products=azure-logic-apps
-  - name: Resource Manager quickstart templates
+  - name: Resource Manager - Consumption workflow quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
 - name: Concepts
   items:
   - name: Connectors
     items:
-    - name: Connectors overview
-      href: ../connectors/apis-list.md
+    - name: About connectors
+      href: ../connectors/introduction.md
     - name: Built-in connectors
       href: ../connectors/built-in.md
     - name: Managed connectors
@@ -74,7 +84,7 @@
     items:
     - name: Single-tenant overview
       href: single-tenant-overview-compare.md
-    - name: About the workflow designer (single-tenant)
+    - name: About the Standard workflow designer
       href: designer-overview.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
@@ -262,6 +272,8 @@
       href: logic-apps-enterprise-integration-flatfile.md
     - name: XML and JSON transforms
       items:
+      - name: Create maps in Visual Studio Code
+        href: create-maps-data-transformation-visual-studio-code.md
       - name: Transform XML
         href: logic-apps-enterprise-integration-transform.md
       - name: Process XML
@@ -283,13 +295,17 @@
     - name: Azure Cosmos DB
       href: ../connectors/connectors-create-api-cosmos-db.md
     - name: Azure Event Grid
-      href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
+      href: ../event-grid/monitor-virtual-machine-changes-logic-app.md
     - name: Azure Event Hubs
       href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Azure Functions
       href: logic-apps-azure-functions.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
+    - name: Azure Monitor Application Insights
+      href: ../connectors/connectors-azure-application-insights.md
+    - name: Azure Monitor Logs
+      href: ../connectors/connectors-azure-monitor-logs.md
     - name: Azure Service Bus
       href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database
@@ -343,7 +359,13 @@
     - name: RosettaNet
       href: logic-apps-enterprise-integration-rosettanet.md
     - name: SAP
-      href: logic-apps-using-sap-connector.md
+      items:
+      - name: Prerequisites and setup
+        href: logic-apps-using-sap-connector.md
+      - name: Create common example workflows
+        href: sap-create-example-scenario-workflows.md
+      - name: Generate schemas for SAP artifacts
+        href: sap-generate-schemas-for-artifacts.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
     - name: Sliding Window

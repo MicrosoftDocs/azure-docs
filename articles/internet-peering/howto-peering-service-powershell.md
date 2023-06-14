@@ -7,7 +7,7 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 01/23/2023
 ms.author: halkazwini 
-ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Enable Azure Peering Service on a Direct peering using PowerShell

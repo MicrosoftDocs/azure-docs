@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure SECURE DELIVER for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SECURE DELIVER for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SECURE DELIVER.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 20bc4dc5-49b3-4f23-bd41-1a36815f9f49
 ms.service: active-directory

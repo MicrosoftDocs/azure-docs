@@ -54,7 +54,7 @@ This section will guide you on how to create an Azure Machine Learning linked se
 
 ### Create an Azure ML linked service
 
-1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Management** > **Linked service**, and create a new linked service with type "Azure Machine Learning".
+1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Manage** > **Linked services**, and create a new linked service with type "Azure Machine Learning".
 
    ![Create linked service](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
@@ -96,7 +96,7 @@ This step will create a new Service Principal. If you want to use an existing Se
 
 ### Create an Azure ML linked service
 
-1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Management** -> **Linked service**, create a new linked service with type "Azure Machine Learning".
+1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Manage** -> **Linked services**, create a new linked service with type "Azure Machine Learning".
 
    ![Create linked service](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 

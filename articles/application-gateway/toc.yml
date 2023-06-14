@@ -95,6 +95,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+    - name: Private Deployment
+      href: application-gateway-private-deployment.md
     - name: Private Link
       href: private-link.md
   - name: SSL
@@ -107,6 +109,8 @@
       href: mutual-authentication-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
+    - name: SSL certificate management (preview)
+      href: ssl-certificate-management.md
   - name: Ingress for AKS
     href: ingress-controller-overview.md
   - name: Health monitoring
@@ -297,8 +301,14 @@
     href: proxy-buffers.md
   - name: Custom error pages
     href: custom-error.md
-  - name: Migrate from v1 to v2
-    href: migrate-v1-v2.md
+  - name: Migrating to v2 SKU
+    items:
+      - name: About v1 retirement
+        href: v1-retirement.md
+      - name: Migrate from v1 to v2
+        href: migrate-v1-v2.md  
+      - name: FAQ
+        href: retirement-faq.md
   - name: Configure alerts
     href: configure-alerts-with-templates.md
   - name: Classic to Resource Manager

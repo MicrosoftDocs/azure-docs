@@ -1,7 +1,7 @@
 ---
 title: Manage your OT device inventory from a sensor console
 description: Learn how to view and manage OT devices (assets) from the Device inventory page on a sensor console.
-ms.date: 02/28/2023
+ms.date: 05/17/2023
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Use the **Device inventory** page from a sensor console to manage all OT and IT devices detected by that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 > [!TIP]
 > Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
@@ -98,7 +98,9 @@ For example, if you merge two devices, each with an IP address, both IP addresse
 
 **To merge devices from the device inventory:**
 
-In the device inventory grid, select the devices you want to merge, and then select **Merge** in the toolbar at the top of the page.
+1. In the **Device inventory** page, select the devices you want to merge, and then select **Merge** in the toolbar at the top of the page.
+
+1. At the prompt, select **Confirm** to confirm that you want to merge the devices.
 
 The devices are merged, and a confirmation message appears at the top right.
 
@@ -117,7 +119,7 @@ On the **Device inventory** page:
 1. Choose the time period in the **Filter** field. Filtering options include seven days or more, 14 days or more, 30 days or more, or 90 days or more.
 
 > [!TIP]
-> We recommend that you [delete](#delete-devices) inactive devices to display a more accurate representation of current network activity, better evaluate [committed devices](architecture.md#what-is-a-defender-for-iot-committed-device), and reduce clutter on your screen.
+> We recommend that you [delete](#delete-devices) inactive devices to display a more accurate representation of current network activity, better evaluate the number of [devices](architecture.md#devices-monitored-by-defender-for-iot) being monitored, and reduce clutter on your screen.
 
 ## Delete devices
 
@@ -131,9 +133,9 @@ You can delete a device when it's been inactive for more than 10 minutes.
 
 1. In the **Device inventory** page, select the device or devices you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
-1. At the prompt, select **Confirm** to confirm that you want to delete the device from Defender for IoT.
+1. At the prompt, select **Confirm** to confirm that you want to delete the device or devices from Defender for IoT.
 
-A confirmation message appears at the top right.
+The device or devices are deleted, and a confirmation message appears at the top right.
 
 **To delete all inactive devices**:
 
@@ -150,6 +152,7 @@ All devices detected within the range of the filter will be deleted. If you dele
 
 For more information, see:
 
+- [Defender for IoT device inventory](device-inventory.md)
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
 - [Device data retention periods](references-data-retention.md#device-data-retention-periods)

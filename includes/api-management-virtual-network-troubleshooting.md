@@ -42,3 +42,7 @@ ms.author: danlep
 
 * **Resource navigation links**  
   An APIM instance hosted on the [`stv1` compute platform](../articles/api-management/compute-infrastructure.md), when deployed into a Resource Manager VNET subnet, reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
+  
+ * **Challenges encountered in reassigning APIM instance to previous subnet**
+   * When moving an APIM instance back to its original subnet, immediate reassignment may not be possible due to the VNET lock, which takes up to six hours to be removed. If the original subnet has other APIM services (cloud service-based), deleting them and waiting for 6 hours is necessary for deploying a VMSS-based service in the same subnet. 
+   * Another scenario to consider is the presence of a scope lock at the resource group level or higher, hindering the Resource Navigation Link Deletion process. To resolve this, remove the scope lock and allow a delay of approximately 4-6 hours for the APIM service to unlink from the original subnet before the lock removal, enabling deployment to the desired subnet.

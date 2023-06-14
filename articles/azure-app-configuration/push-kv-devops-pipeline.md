@@ -2,11 +2,11 @@
 title: Push settings to App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to push key-values to an App Configuration Store
 services: azure-app-configuration
-author: maud-lv
+author: mcleanbyron
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.author: malev
+ms.author: mcleans
 ---
 
 # Push settings to App Configuration with Azure Pipelines
@@ -16,10 +16,10 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- App Configuration resource - create one for free in the [Azure portal](https://portal.azure.com).
+- App Configuration store - [create one for free](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store)
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - Azure App Configuration Push task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
-- [Node 16](https://nodejs.org/en/blog/release/v16.16.0/) - for users running the task on self-hosted agents.
+- [Azure Pipelines agent version 2.206.1](https://github.com/microsoft/azure-pipelines-agent/releases/tag/v2.206.1) or later and [Node version 16](https://nodejs.org/en/blog/release/v16.16.0/) or later for running the task on self-hosted agents.
 
 ## Create a service connection
 

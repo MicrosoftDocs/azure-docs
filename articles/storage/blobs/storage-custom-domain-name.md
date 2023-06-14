@@ -2,14 +2,14 @@
 title: Map a custom domain to an Azure Blob Storage endpoint
 titleSuffix: Azure Storage
 description: Map a custom domain to a Blob Storage or web endpoint in an Azure storage account.
-author: normesta
+author: jimmart-dev
+
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: normesta
+ms.author: jammart
 ms.reviewer: dineshm
 ms.subservice: blobs 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Map a custom domain to an Azure Blob Storage endpoint
@@ -189,9 +189,6 @@ The host name is the storage endpoint URL without the protocol identifier and th
 2. In the menu pane, under **Settings**, select **Endpoints**.
 
 3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file.
-
-   > [!NOTE]
-   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
 
 4. Remove the protocol identifier (For example: `HTTPS`) and the trailing slash from that string. The following table contains examples.
 

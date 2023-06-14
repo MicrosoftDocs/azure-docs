@@ -6,7 +6,7 @@ services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 03/08/2023
 ms.author: halkazwini
 ms.custom: template-concept, engagement-fy23
 ---
@@ -22,7 +22,7 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
 * MD5 isn't supported.
 * **ASN details:**
 
-    * Microsoft manages AS8075 along with the following ASNs: AS8068, AS8069, AS12076. For a complete list of ASNs with AS8075 peering, reference AS-SET MICROSOFT.
+    * Microsoft manages AS8075 and other ASNs as described in AS-SET RADb:AS-MICROSOFT.
     * All parties peering with Microsoft agree not to accept routes from AS12076 (ExpressRoute) under any circumstances and should filter out AS12076 on all peers.
 
 * **Routing policy:**
@@ -31,7 +31,8 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
     * Microsoft prefers to receive BGP community tags from peers to indicate route origination.
     * We recommend peers set a max-prefix of 2000 (IPv4) and 500 (IPv6) routes on peering sessions with Microsoft.
     * Unless specifically agreed upon beforehand, peers are expected to announce consistent routes in all locations where they peer with Microsoft.
-    * In general, peering sessions with AS8075 will advertise all AS-MICROSOFT routes. Microsoft may announce some regional specifics.
+    * In general, Microsoft advertises all Microsoft routes, with some regional specifics as appropriate.  All prefixes are properly registered within the RADb.
+    * Microsoft also announces 3rd party address space under “Bring Your Own IP” and “Bring Your Own ASN” products. BYOIP prefixes are all properly registered as AS8075, and BYOASN ASNs will be included in AS-SET AS-MICROSOFT.
     * Neither party will establish a static route, a route of last resort, or otherwise send traffic to the other party for a route not announced via BGP.
     * Peers are required to register their routes in a public Internet Routing Registry (IRR) database, for the purposes of filtering, and keep this information up to date.      
     * Peers adhere to MANRS industry standards for route security.  At its sole discretion, Microsoft may choose:

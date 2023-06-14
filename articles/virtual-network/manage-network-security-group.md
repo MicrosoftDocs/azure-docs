@@ -7,9 +7,9 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/14/2023
+ms.date: 04/24/2023
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create, change, or delete a network security group
@@ -24,13 +24,13 @@ If you don't have an Azure account with an active subscription, [create one for 
 
 - **PowerShell users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **PowerShell** if it isn't already selected.
 
-    If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). Run `Connect-AzAccount` to sign in to Azure.
+    If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). Run `Connect-AzAccount` to sign in to Azure.
 
 - **Azure CLI users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or run Azure CLI locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **Bash** if it isn't already selected.
 
     If you're running Azure CLI locally, use Azure CLI version 2.0.28 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure.
 
-The account you log into, or connect to Azure with must be assigned to the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or to a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that's assigned the appropriate actions listed in [Permissions](#permissions).
+Assign the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) with the appropriate [Permissions](#permissions).
 
 ## Work with network security groups
 
@@ -124,9 +124,13 @@ Under **Help**, you can view **Effective security rules**. For more information,
 To learn more about the common Azure settings listed, see the following articles:
 
 - [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+
 - [Access control (IAM)](../role-based-access-control/overview.md)
+
 - [Tags](../azure-resource-manager/management/tag-resources.md)
+
 - [Locks](../azure-resource-manager/management/lock-resources.md)
+
 - [Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 # [**PowerShell**](#tab/network-security-group-powershell)
@@ -140,8 +144,11 @@ Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
 To learn more about the common Azure settings listed, see the following articles:
 
 - [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+
 - [Access control (IAM)](../role-based-access-control/overview.md)
+
 - [Tags](../azure-resource-manager/management/tag-resources.md)
+
 - [Locks](../azure-resource-manager/management/lock-resources.md)
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -155,8 +162,11 @@ az network nsg show --resource-group myResourceGroup --name myNSG
 To learn more about the common Azure settings listed, see the following articles:
 
 - [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+
 - [Access control (IAM)](../role-based-access-control/overview.md)
+
 - [Tags](../azure-resource-manager/management/tag-resources.md)
+
 - [Locks](../azure-resource-manager/management/lock-resources.md)
 
 ---
@@ -164,13 +174,16 @@ To learn more about the common Azure settings listed, see the following articles
 
 The most common changes to a network security group are:
 - [Associate or dissociate a network security group to or from a network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
+
 - [Associate or dissociate a network security group to or from a subnet](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet)
+
 - [Create a security rule](#create-a-security-rule)
+
 - [Delete a security rule](#delete-a-security-rule)
 
 ### Associate or dissociate a network security group to or from a network interface
 
-To associate a network security group to, or dissociate a network security group from a network interface, see [Associate a network security group to, or dissociate a network security group from a network interface](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group).
+For more information about the association and dissociation of a network security group, see [Associate or dissociate a network security group](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group).
 
 ### Associate or dissociate a network security group to or from a subnet
 
@@ -650,7 +663,7 @@ az network asg delete --resource-group myResourceGroup --name myASG
 ---
 ## Permissions
 
-To do tasks on network security groups, security rules, and application security groups, your account must be assigned to the [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that's assigned the appropriate permissions as listed in the following tables:
+To manage network security groups, security rules, and application security groups, your account must be assigned to the [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role. A [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) can also be used that's assigned the appropriate permissions as listed in the following tables:
 
 ### Network security group
 
@@ -661,12 +674,8 @@ To do tasks on network security groups, security rules, and application security
 | Microsoft.Network/networkSecurityGroups/delete                |   Delete network security group                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   Associate a network security group to a subnet or network interface 
 
-
-
 >[!NOTE]
 > To perform `write` operations on a network security group, the subscription account must have at least `read` permissions for resource group along with `Microsoft.Network/networkSecurityGroups/write` permission.
-
-
 
 ### Network security group rule
 
@@ -689,5 +698,5 @@ To do tasks on network security groups, security rules, and application security
 ## Next steps
 
 - Add or remove [a network interface to or from an application security group](./virtual-network-network-interface.md?tabs=network-interface-portal#add-or-remove-from-application-security-groups).
-- Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks
 
+- Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks

@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 12/12/2022
 ms.author: allensu
-ms.custom: devx-track-azurepowershell, mode-arm, FY23 content-maintenance
+ms.custom: mode-arm, FY23 content-maintenance
 ---
 
 # Quickstart: Create a virtual network - Resource Manager template

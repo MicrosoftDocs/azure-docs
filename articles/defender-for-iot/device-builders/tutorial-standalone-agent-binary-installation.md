@@ -42,19 +42,19 @@ Depending on your setup, the appropriate Microsoft package will need to be insta
 
 1. Download the repository configuration that matches your device operating system.  
 
-    - For Ubuntu 18.04
+    - For Ubuntu 18.04:
 
         ```bash
         curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
         ```
 
-    - For Ubuntu 20.04
+    - For Ubuntu 20.04:
 
         ```bash
             curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
         ```
 
-    - For Debian 9 (both AMD64 and ARM64)
+    - For Debian 9 (both AMD64 and ARM64):
 
         ```bash
         curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -87,11 +87,11 @@ Depending on your setup, the appropriate Microsoft package will need to be insta
 
 ## Connect via a proxy
 
-This procedure describes how you can connect the Defender for IoT micro-agent to the IoT Hub via a proxy.
+This procedure describes how you can connect the Defender for IoT micro agent to the IoT Hub via a proxy.
 
 **To configure connections via a proxy**:
 
-1. On your micro-agent machine, create a `/etc/defender_iot_micro_agent/conf.json` file with the following content:
+1. On your micro agent machine, create a `/etc/defender_iot_micro_agent/conf.json` file with the following content:
 
     ```json
     {
@@ -110,7 +110,7 @@ This procedure describes how you can connect the Defender for IoT micro-agent to
 
 1. Delete any cached file at **/var/lib/defender_iot_micro_agent/cache.json**.
 
-1. Restart the micro-agent. Run:
+1. Restart the micro agent. Run:
 
     ```bash
     sudo systemctl restart defender-iot-micro-agent.service
@@ -122,7 +122,7 @@ This procedure describes additional steps required to support the AMQP protocol.
 
 **To add AMQP protocol support**:
 
-1. On your micro-agent machine, open the `/etc/defender_iot_micro_agent/conf.json` file and add the following content:
+1. On your micro agent machine, open the `/etc/defender_iot_micro_agent/conf.json` file and add the following content:
 
     ```json
     {
@@ -131,7 +131,7 @@ This procedure describes additional steps required to support the AMQP protocol.
     ```
 1. Delete any cached file at **/var/lib/defender_iot_micro_agent/cache.json**.
 
-1. Restart the micro-agent. Run
+1. Restart the micro agent. Run:
 
     ```bash
     sudo systemctl restart defender-iot-micro-agent.service
@@ -139,7 +139,7 @@ This procedure describes additional steps required to support the AMQP protocol.
 
 **To add AMQP over web socket protocol support**:
 
-1. On your micro-agent machine, open the `/etc/defender_iot_micro_agent/conf.json` file and add the following content:
+1. On your micro agent machine, open the `/etc/defender_iot_micro_agent/conf.json` file and add the following content:
 
     ```json
     {
@@ -148,7 +148,7 @@ This procedure describes additional steps required to support the AMQP protocol.
     ```
 1. Delete any cached file at **/var/lib/defender_iot_micro_agent/cache.json**.
 
-1. Restart the micro-agent. Run
+1. Restart the micro agent. Run:
 
     ```bash
     sudo systemctl restart defender-iot-micro-agent.service
@@ -161,7 +161,7 @@ Http Proxy configuration is supported for this protocol, in the case that proxy 
 
 There are two options that can be used to authenticate the Defender for IoT micro agent:
 
-- [Module identity connection string](#authenticate-using-a-module-identity-connection-string).
+- [Authenticate using a module identity connection string](#authenticate-using-a-module-identity-connection-string).
 
 - [Authenticate using a certificate](#authenticate-using-a-certificate).
 
@@ -171,7 +171,7 @@ You will need to copy the module identity connection string from the DefenderIoT
 
 **To copy the module identity's connection string**:
 
-1. Navigate to the **IoT Hub** > **`Your hub`** > **Device management** > **Devices** .
+1. Navigate to the **IoT Hub** > **`Your hub`** > **Device management** > **Devices**.
 
    :::image type="content" source="media/quickstart-standalone-agent-binary-installation/iot-devices.png" alt-text="Select IoT devices from the left-hand menu.":::
 
@@ -195,7 +195,8 @@ You will need to copy the module identity connection string from the DefenderIoT
 
     The `connection_string.txt` will now be located in the following path location `/etc/defender_iot_micro_agent/connection_string.txt`.
     
-    **Please note that the connection string includes a key that enables direct access to the module itself, therefore includes sensitive information that should only be used and readable by root users.**
+    > [!NOTE]
+    > The connection string includes a key that enables direct access to the module itself, therefore includes sensitive information that should only be used and readable by root users.
 
 1. Restart the service using this command:  
 

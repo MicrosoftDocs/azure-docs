@@ -11,7 +11,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 10/21/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Locate audio files for batch transcription
@@ -286,3 +286,4 @@ You could otherwise specify individual files in the container. You must generate
 - [Batch transcription overview](batch-transcription.md)
 - [Create a batch transcription](batch-transcription-create.md)
 - [Get batch transcription results](batch-transcription-get.md)
+- [See batch transcription code samples at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch/)

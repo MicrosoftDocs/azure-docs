@@ -3,10 +3,10 @@ title: Deploy serverless Java apps with Quarkus on Azure Functions
 description: Learn how to develop, build, and deploy a serverless Java app by using Quarkus on Azure Functions.
 ms.author: edburns
 ms.service: azure-functions
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-functions, devx-track-javaee-quarkus-functions
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-functions, devx-track-javaee-quarkus-functions, devx-track-extended-java
 ---
 
 # Deploy serverless Java apps with Quarkus on Azure Functions

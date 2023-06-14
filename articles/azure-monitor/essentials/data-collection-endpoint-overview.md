@@ -2,6 +2,8 @@
 title: Data collection endpoints in Azure Monitor 
 description: Overview of data collection endpoints (DCEs) in Azure Monitor, including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 03/16/2022
 ms.custom: references_region
 ms.reviwer: nikeist
@@ -14,23 +16,23 @@ Data collection endpoints (DCEs) provide a connection for certain data sources o
 ## Data sources that use DCEs
 The following data sources currently use DCEs:
 
-- [Azure Monitor Agent when network isolation is required](../agents/azure-monitor-agent-data-collection-endpoint.md)
-- [Custom logs](../logs/logs-ingestion-api-overview.md)
+- [Azure Monitor Agent when network isolation is required](../agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-azure-monitor-agent)
+- [Logs ingestion API](../logs/logs-ingestion-api-overview.md)
 
 ## Components of a data collection endpoint
 A DCE includes the following components:
 
 | Component | Description |
 |:---|:---|
-| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCRs) for Azure Monitor Agent.<br>Example: `<unique-dce-identifier>.<regionname>.handler.control`. |
-| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspaces.<br>Example: `<unique-dce-identifier>.<regionname>.ingest`. |
+| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCRs) for Azure Monitor Agent.<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`. |
+| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspaces.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`. |
 | Network access control lists | Network access control rules for the endpoints.
 
 ## Regionality
 Data collection endpoints are Azure Resource Manager resources created within specific regions. An endpoint in a given region *can only be associated with machines in the same region*. However, you can have more than one endpoint within the same region according to your needs.
 
 ## Limitations
-Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs. They also can't be configured over private links.
+Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs. Data collection endpoints also can't be configured over private links.
 
 ## Create a data collection endpoint
 

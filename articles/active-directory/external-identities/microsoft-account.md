@@ -1,6 +1,6 @@
 ---
 
-title: Add Microsoft account (MSA) as an identity provider - Azure AD
+title: Add Microsoft account (MSA) as an identity provider
 description: Use Azure AD to enable an external user (guest) to sign in to your Azure AD apps with their Microsoft account (MSA).
 
 services: active-directory
@@ -52,4 +52,4 @@ As of November 2020, new application registrations show up as unverified in the 
 ## Next steps
 
 - [Publisher verification overview](../develop/publisher-verification-overview.md)
-- [Add Azure Active Directory (Azure AD) as an identity provider for External Identities](azure-ad-account.md)
+- [Add Azure Active Directory (Azure AD) as an identity provider for External Identities](default-account.md)

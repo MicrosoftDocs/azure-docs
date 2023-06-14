@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 02/21/2023
+ms.date: 04/17/2023
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -110,13 +110,52 @@ For more information, see [Introduction to Kubernetes compute target in AzureML]
 
 ## Flux (GitOps)
 
-- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. Not currently supported for ARM 64.
+- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters.
 
 [GitOps on AKS and Azure Arc-enabled Kubernetes](conceptual-gitops-flux2.md) uses [Flux v2](https://fluxcd.io/docs/), a popular open-source tool set, to help manage cluster configuration and application deployment. GitOps is enabled in the cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` cluster extension resource.
 
 For more information, see [Tutorial: Deploy applications using GitOps with Flux v2](tutorial-use-gitops-flux2.md).
 
 The currently supported versions of the `microsoft.flux` extension are described below. The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
+
+### 1.7.3 (April 2023)
+
+Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
+
+- source-controller: v0.36.1
+- kustomize-controller: v0.35.1
+- helm-controller: v0.31.2
+- notification-controller: v0.33.0
+- image-automation-controller: v0.31.0
+- image-reflector-controller: v0.26.1
+
+Changes made for this version:
+
+- Upgrades Flux to [v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
+- Fixes issue causing resources that were deployed as part of Flux configuration to persist even when the configuration was deleted with prune flag set to `true`
+- Kubelet identity support for image-reflector-controller by [installing the microsoft.flux extension in a cluster with kubelet identity enabled](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-kubelet-identity-enabled) 
+
+### 1.7.0 (March 2023)
+
+Flux version: [Release v0.39.0](https://github.com/fluxcd/flux2/releases/tag/v0.39.0)
+
+- source-controller: v0.34.0
+- kustomize-controller: v0.33.0
+- helm-controller: v0.29.0
+- notification-controller: v0.31.0
+- image-automation-controller: v0.29.0
+- image-reflector-controller: v0.24.0
+
+Changes made for this version:
+
+- Upgrades Flux to [v0.39.0](https://github.com/fluxcd/flux2/releases/tag/v0.39.0)
+- Flux extension is now supported on ARM64-based clusters
+
+### 1.6.4 (February 2023)
+
+Changes made for this version:
+
+- Disabled extension reconciler (which attempts to restore the Flux extension if it fails). This resolves a potential bug where, if the reconciler is unable to recover a failed Flux extension and `prune` is set to `true`, the extension and deployed objects may be deleted.
 
 ### 1.6.3 (December 2022)
 
@@ -134,41 +173,6 @@ Changes made for this version:
 - Upgrades Flux to [v0.37.0](https://github.com/fluxcd/flux2/releases/tag/v0.37.0)
 - Adds exception for [aad-pod-identity in flux extension](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-azure-ad-pod-identity-enabled)
 - Enables reconciler for flux extension
-
-### 1.6.1 (October 2022)
-
-Flux version: [Release v0.35.0](https://github.com/fluxcd/flux2/releases/tag/v0.35.0)
-
-- source-controller: v0.30.1
-- kustomize-controller: v0.29.0
-- helm-controller: v0.25.0
-- notification-controller: v0.27.0
-- image-automation-controller: v0.26.0
-- image-reflector-controller: v0.22.0
-
-Changes made for this version:
-
-- Upgrades Flux to [v0.35.0](https://github.com/fluxcd/flux2/releases/tag/v0.35.0)
-- Implements fix for a security issue where some Flux controllers could be vulnerable to a denial of service attack. Users that have permissions to change Flux's objects, either through a Flux source or directly within a cluster, could provide invalid data to fields `spec.Interval` or `spec.Timeout` (and structured variations of these fields), causing the entire object type to stop being processed. This issue had two root causes: [Kubernetes type `metav1.Duration` not being fully compatible with the Go type `time.Duration`](https://github.com/kubernetes/apimachinery/issues/131), or a lack of validation within Flux to restrict allowed values.
-- Adds support for [installing the `microsoft.flux` extension in a cluster with kubelet identity enabled](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-kubelet-identity-enabled)
-- Fixes bug where [deleting the extension may fail on AKS with Windows node pool](https://github.com/Azure/AKS/issues/3191)
-- Adds support for sasToken for Azure blob storage at account level as well as container level
-
-### 1.6.0 (September 2022)
-
-Flux version: [Release v0.33.0](https://github.com/fluxcd/flux2/releases/tag/v0.33.0)
-
-- source-controller: v0.28.0
-- kustomize-controller: v0.27.1
-- helm-controller: v0.23.1
-- notification-controller: v0.25.2
-- image-automation-controller: v0.24.2
-- image-reflector-controller: v0.20.1
-
-Changes made for this version:
-
-- Upgrades Flux to [v0.33.0](https://github.com/fluxcd/flux2/releases/tag/v0.33.0)
-- Fixes Helm-related [security issue](https://github.com/fluxcd/flux2/security/advisories/GHSA-p2g7-xwvr-rrw3)
 
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 

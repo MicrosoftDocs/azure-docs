@@ -126,11 +126,14 @@ Before deploying a Managed VNet and Managed VNet Runtime for a Microsoft Purview
 > [!NOTE]
 > The following guide shows how to register and scan an Azure Data Lake Storage Gen 2 using Managed VNet Runtime. 
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_.
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-azure-portal.png" alt-text="Screenshot that shows the Microsoft Purview account":::
 
-2. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Integration runtimes**.
+2. Navigate to the **Data Map --> Integration runtimes**.
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-vnet.png" alt-text="Screenshot that shows Microsoft Purview Data Map menus":::
 

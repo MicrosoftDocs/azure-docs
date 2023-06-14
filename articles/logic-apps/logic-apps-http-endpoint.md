@@ -27,11 +27,11 @@ For more information about security, authorization, and encryption for inbound c
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The logic app where you want to use the trigger to create the callable endpoint. You can start with either a blank logic app or an existing logic app where you can replace the current trigger. This example starts with a blank logic app. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* The logic app where you want to use the trigger to create the callable endpoint. You can start with either a blank logic app workflow or an existing logic app workflow where you can replace the current trigger. This example starts with a blank workflow. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 ## Create a callable endpoint
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Create and open a blank logic app in the Logic App Designer.
+1. Sign in to the [Azure portal](https://portal.azure.com). Create and open a blank logic app workflow in the workflow designer.
 
 1. Under the search box, select **Built-in**. In the search box, enter `request` as your filter. From the triggers list, select **When a HTTP request is received**.
 
@@ -263,7 +263,7 @@ After you create the endpoint, you can trigger the logic app by sending an HTTPS
 
 ## Tokens generated from schema
 
-When you provide a JSON schema in the Request trigger, the Logic App Designer generates tokens for the properties in that schema. You can then use those tokens for passing data through your logic app workflow.
+When you provide a JSON schema in the Request trigger, the workflow designer generates tokens for the properties in that schema. You can then use those tokens for passing data through your logic app workflow.
 
 For example, if you add more properties, such as `"suite"`, to your JSON schema, tokens for those properties are available for you to use in the later steps for your logic app. Here is the complete JSON schema:
 

@@ -34,7 +34,7 @@ The skillset is attached to an [indexer](search-indexer-overview.md). It uses bu
 
 ## Prerequisites
 
-* [Postman desktop app](https://www.getpostman.com/)
+* [Postman app](https://www.postman.com/downloads/)
 * [Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 * [Sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media)

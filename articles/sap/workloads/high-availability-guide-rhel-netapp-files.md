@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 12/06/2022
+ms.date: 04/25/2023
 ms.author: radeltch
 ---
 
@@ -261,9 +261,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      # mount temporarily the volume
      sudo mkdir -p /saptmp
      # If using NFSv3
-     sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 192.168.24.5:/sapQAS /saptmp
+     sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,nfsvers=3,tcp 192.168.24.5:/sapQAS /saptmp
      # If using NFSv4.1
-     sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys,tcp 192.168.24.5:/sapQAS /saptmp
+     sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys,tcp 192.168.24.5:/sapQAS /saptmp
      # create the SAP directories
      sudo cd /saptmp
      sudo mkdir -p sapmntQAS
@@ -332,9 +332,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
-    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=3
-    192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,vers=3
-    192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
+    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,nfsvers=3
+    192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,nfsvers=3
+    192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,nfsvers=3
    ```
 
    If using NFSv4.1:
@@ -342,9 +342,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
-    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
-    192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
-    192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys
+    192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys
+    192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys
    ```
 
    > [!NOTE]
@@ -402,7 +402,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
-     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' \
      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
      --group g-QAS_ASCS
    
@@ -465,7 +465,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
-     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' \
      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
     --group g-QAS_AERS
    
@@ -784,8 +784,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
-   192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=3
-   192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,nfsvers=3
+   192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,nfsvers=3
    ```
 
    If using NFSv4.1:
@@ -793,8 +793,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
-   192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
-   192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys
+   192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys
    ```
 
    Mount the new shares
@@ -811,7 +811,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    sudo vi /etc/fstab
    # Add the following line to fstab
-   92.168.24.5:/sapQAS/usrsapQASpas /usr/sap/QAS/D02 nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   92.168.24.5:/sapQAS/usrsapQASpas /usr/sap/QAS/D02 nfs rw,hard,rsize=65536,wsize=65536,nfsvers=3
    
    # Mount
    sudo mount -a
@@ -824,7 +824,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    sudo vi /etc/fstab
    # Add the following line to fstab
-   92.168.24.5:/sapQAS/usrsapQASpas /usr/sap/QAS/D02 nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   92.168.24.5:/sapQAS/usrsapQASpas /usr/sap/QAS/D02 nfs rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys
    
    # Mount
    sudo mount -a
@@ -838,7 +838,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    sudo vi /etc/fstab
    # Add the following line to fstab
-   92.168.24.5:/sapQAS/usrsapQASaas /usr/sap/QAS/D03 nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   92.168.24.5:/sapQAS/usrsapQASaas /usr/sap/QAS/D03 nfs rw,hard,rsize=65536,wsize=65536,nfsvers=3
    
    # Mount
    sudo mount -a
@@ -851,7 +851,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    sudo vi /etc/fstab
    # Add the following line to fstab
-   92.168.24.5:/sapQAS/usrsapQASaas /usr/sap/QAS/D03 nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   92.168.24.5:/sapQAS/usrsapQASaas /usr/sap/QAS/D03 nfs rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys
    
    # Mount
    sudo mount -a
