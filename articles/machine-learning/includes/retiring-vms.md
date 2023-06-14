@@ -16,6 +16,6 @@ ms.author: sgilley
 > * [Azure ND-series](/azure/virtual-machines/nd-series-retirement)
 > * [Azure NV- and NV_Promo series](/azure/virtual-machines/nv-series-retirement)
 >
-> These series are retiring on August 31, 2024
+> These series are retiring on August 31, 2024:
 > * [Azure Av1-series](/azure/virtual-machines/av1-series-retirement)
 > * [Azure HB-series](/azure/virtual-machines/hb-series-retirement) 
