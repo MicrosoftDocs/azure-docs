@@ -89,8 +89,6 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
 1. Select **Save**.
 
-1. Select **Create**. The new user flow appears in the user flows list. (You might need to refresh the page.)
-
 ## Next steps
 
 - [Add your application to the user flow](how-to-user-flow-add-application.md)
