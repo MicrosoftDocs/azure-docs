@@ -153,7 +153,7 @@ To determine why the rules in steps 3-5 of **Use IP flow verify** allow or deny 
 
     You can see that address prefix **13.104.0.0/13** is among the address prefixes of **AllowInternetOutBound** rule. This prefix encompasses IP address **13.107.21.200** which you tested in step 4 of previous section.
 
-1. Similarly, you can check the other rules to see the allowed source and destination IP address prefixes under each rule. 
+1. Similarly, you can check the other rules to see the source and destination IP address prefixes under each rule. 
 
 IP flow verify checks Azure default and configured security rules. If the checks return the expected results and you still have network problems, ensure that you don't have a firewall between your virtual machine and the endpoint you're communicating with and that the operating system in your virtual machine doesn't have a firewall that is denying communication.
 
