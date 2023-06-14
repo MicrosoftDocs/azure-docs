@@ -19,6 +19,8 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Volume user and group quotas](default-individual-user-group-quotas-introduction.md) is now generally available (GA).
+
 ## June 2023
 
 * Availability zone volume placement enhancement - [Populate existing volumes](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) (preview)
