@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 06/14/2023
 tags: connectors
 ---
 
@@ -643,8 +643,8 @@ For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can e
    | **SNC My Name** | In most cases, you can omit this value. The installed SNC solution usually knows its own SNC name. In the case where your solution supports multiple identities, you might have to specify the identity to use for this particular destination or server. |
    | **SNC Partner Name** | Enter the name for the backend SNC, for example, **p:CN=DV3, OU=LA, O=MS, C=US**. |
    | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The default value is defined by the backend system. The maximum value is defined by the security product used for SNC. |
-   | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because your Enter your SNC Personal Security Environment (PSE) might contain multiple private certificates. However, this **SNC Certificate** parameter identifies the certificates that this connection must use. For more information, review the next parameter. |
-   | **PSE** | Optional: Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- The PSE must contain the private client certificate where the thumbprint matches the public client certificate that you provided in the previous step. <br><br>- Although the PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- If you're using more than one SNC client certificate for your Standard logic app resource, you must provide the same PSE for all connections. The PSE must contain the client private certificate for each and all the connections. You must set the client public certificate parameter to match the specific private certificate for each connection. |
+   | **SNC Certificate** | Enter the base64-encoded *public* key for the certificate to use for identifying your client to SAP. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private key for the client certificate here. Your Personal Security Environment (PSE) must contain the matching private key for this certificate and might contain other private certificates. For more information, review the next parameter. |
+   | **PSE** | Optional: Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the **SNC Certificate** parameter. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- If you're using more than one SNC client certificate for your Standard logic app resource, you must provide the same PSE for all connections. Your PSE must contain the matching private key for the client certificate for each and all the connections. You must set the **SNC Certificate** parameter to match the specific private certificate for each connection. |
 
 1. To finish creating your connection, select **Create**.
 
