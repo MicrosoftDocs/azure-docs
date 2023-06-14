@@ -38,11 +38,11 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 
 **Type:** New feature   
 **Service category:** Directory Management                       
-**Product capability:** AAD Connect Cloud Sync                
+**Product capability:** Azure Active Directory Connect Cloud Sync                
 
 
 
-Exchange hybrid capability allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Cloud Sync will synchronize a specific set of Exchange-related attributes from Azure AD back into your on-premises directory and to any forests that's disconnected (no network trust needed between them). With this capability, existing customers who have this feature enabled in Azure AD Connect sync can now migrate and leverage this feature with Azure AD cloud sync. For more information, see: ADD LINK
+Exchange hybrid capability allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Cloud Sync synchronizes a specific set of Exchange-related attributes from Azure AD back into your on-premises directory and to any forests that's disconnected (no network trust needed between them). With this capability, existing customers who have this feature enabled in Azure AD Connect sync can now migrate and leverage this feature with Azure AD cloud sync. For more information, see: ADD LINK
 
 ---
 
@@ -72,7 +72,7 @@ Lifecycle Workflows is now general available within Microsoft Entra ID Governanc
 **Service category:** MFA                       
 **Product capability:** Identity Security & Protection              
 
-As part of ongoing service improvements, we are making updates to the per-user MFA admin configuration experience to align with the look and feel of Azure. This change does not include any changes to the core functionality and will only include visual improvements. For more information, see: [Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events](../authentication/howto-mfa-userstates.md).
+As part of ongoing service improvements, we're making updates to the per-user MFA admin configuration experience to align with the look and feel of Azure. This change doesn't include any changes to the core functionality and will only include visual improvements. For more information, see: [Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events](../authentication/howto-mfa-userstates.md).
 
 ---
 
@@ -82,7 +82,7 @@ As part of ongoing service improvements, we are making updates to the per-user M
 **Service category:** MFA                      
 **Product capability:** User Authentication              
 
-The Converged Authentication Methods Policy enables you to manage all authentication methods used for MFA and SSPR in one policy, migrate off the legacy MFA and SSPR policies, and target authentication methods to groups of users instead of enabling them for all users in the tenant. Customers should migrate management of authentication methods off the legacy MFA and SSPR policies before September 30th, 2024. For more information, see: [Manage authentication methods for Azure AD](../authentication/concept-authentication-methods-manage.md).
+The Converged Authentication Methods Policy enables you to manage all authentication methods used for MFA and SSPR in one policy, migrate off the legacy MFA and SSPR policies, and target authentication methods to groups of users instead of enabling them for all users in the tenant. Customers should migrate management of authentication methods off the legacy MFA and SSPR policies before September 30, 2024. For more information, see: [Manage authentication methods for Azure AD](../authentication/concept-authentication-methods-manage.md).
 
 ---
 
@@ -90,7 +90,7 @@ The Converged Authentication Methods Policy enables you to manage all authentica
 
 **Type:** New feature   
 **Service category:** Provisioning                        
-**Product capability:** AAD Connect Cloud Sync                
+**Product capability:** Azure Active Directory Connect Cloud Sync                
 
 Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to simply map the needed attributes using Cloud Sync's attribute mapping experience. For more information, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md).
 
@@ -102,7 +102,7 @@ Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Exten
 **Service category:** Directory Management                        
 **Product capability:** Access Control               
 
-Restricted Management Administrative Units allow you to restrict modification of users, security groups, and device in Azure AD so that only designated administrators can make changes.  Global Administrators and other tenant-level administrators cannot modify the users, security groups, or devices that are added to a restricted management admin unit. For more information, see: [Restricted management administrative units in Azure Active Directory (Preview)](../roles/admin-units-restricted-management.md).
+Restricted Management Administrative Units allow you to restrict modification of users, security groups, and device in Azure AD so that only designated administrators can make changes.  Global Administrators and other tenant-level administrators can't modify the users, security groups, or devices that are added to a restricted management admin unit. For more information, see: [Restricted management administrative units in Azure Active Directory (Preview)](../roles/admin-units-restricted-management.md).
 
 ---
 
@@ -112,7 +112,7 @@ Restricted Management Administrative Units allow you to restrict modification of
 **Service category:** Identity Protection                        
 **Product capability:** Identity Security & Protection              
 
-To address emerging attacks, Identity Protection now includes Real-Time Threat Intelligence Detections, also referred to as Rapid Response Detections. When emerging attacks occur, Identity Protection will now dynamically issue new detections in response to these attacks. These detections will utilize Microsoft’s threat intelligence in real-time, meaning Identity Protection will detect emerging patterns of compromise during sign-in and challenge the user accordingly. For more information, see: ADD LINK
+To address emerging attacks, Identity Protection now includes Real-Time Threat Intelligence Detections, also referred to as Rapid Response Detections. When emerging attacks occur, Identity Protection will now dynamically issue new detections in response to these attacks. These detections utilize Microsoft’s threat intelligence in real-time, meaning Identity Protection detects emerging patterns of compromise during sign-in and challenge the user accordingly. For more information, see: ADD LINK
 
 ---
 
@@ -122,7 +122,7 @@ To address emerging attacks, Identity Protection now includes Real-Time Threat I
 **Service category:** Identity Protection                        
 **Product capability:** Identity Security & Protection              
 
-Report suspicious activity is an updated implementation of the MFA fraud alert, where users can report a voice or phone app MFA prompt as suspicious. If enabled, users reporting prompts will have their user risk set to high, enabling admins to use Identity Protection risk based policies or risk detection APIs to take remediation actions.  Report suspicious activity will operate in parallel with the legacy MFA fraud alert at this time. For more information, see: [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md).
+Report suspicious activity is an updated implementation of the MFA fraud alert, where users can report a voice or phone app MFA prompt as suspicious. If enabled, users reporting prompts have their user risk set to high, enabling admins to use Identity Protection risk based policies or risk detection APIs to take remediation actions.  Report suspicious activity operates in parallel with the legacy MFA fraud alert at this time. For more information, see: [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md).
 
 ---
 
@@ -183,7 +183,7 @@ Last year we announced the [public preview of custom extensions in Entitlement M
 
 The latest version of MSAL.NET graduates the Managed Identity APIs into the General Availability mode of support, which means that developers can integrate them safely in production workloads.
 
-Managed identities are a part of the Azure infrastructure, simplifying how developers handle credentials and secrets to access cloud resources. With Managed Identities, developers do not need to manually handle credential retrieval and security. Instead, they can rely on an automatically managed set of identities to connect to resources that support Azure Active Directory (AAD) authentication. You can learn more in [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
+Managed identities are a part of the Azure infrastructure, simplifying how developers handle credentials and secrets to access cloud resources. With Managed Identities, developers don't need to manually handle credential retrieval and security. Instead, they can rely on an automatically managed set of identities to connect to resources that support Azure Active Directory authentication. You can learn more in [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 
 With MSAL.NET 4.54.0, the Managed Identity APIs are now stable. There are a few changes that we added that make them easier to use and integrate that might require tweaking your code if you’ve used our [experimental implementation](https://den.dev/blog/managed-identity-msal-net/):
 
