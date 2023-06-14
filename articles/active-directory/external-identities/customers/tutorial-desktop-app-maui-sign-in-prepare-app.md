@@ -15,7 +15,7 @@ ms.date: 06/05/2023
 
 This tutorial demonstrates how to create a .NET Multi-platform App UI (.NET MAUI) shell app. You'll also add a custom Microsoft Authentication Library (MSAL) client helper to initialize the MSAL SDK, install required libraries and include an image resource.
 
-In this tutorial:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -42,7 +42,7 @@ Wait for the project to be created and its dependencies to be restored.
 
 ## Add MSALClient
 
-Microsoft Authentication Library (MSAL) client enables developers to acquire security tokens from Azure Active Directory (Azure AD) for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
+MSAL client enables developers to acquire security tokens from Azure Active Directory (Azure AD) for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
 
 Download the following files:
 
@@ -95,7 +95,7 @@ In this section, you download an image that you use in your app to enhance how u
 
 Download the following image:
 
-- [Icon: Azure AD](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/Resources/Images/azure_active_directory.png) - This image is used as icon in the main page you created earlier.
+- [Icon: Azure AD](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/Resources/Images/azure_active_directory.png) - This image is used as icon in the main page.
 
 ### Move the image with Visual Studio
 

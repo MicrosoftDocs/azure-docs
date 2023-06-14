@@ -13,23 +13,23 @@ ms.date: 06/05/2023
 
 # Tutorial: Register and configure .NET MAUI app in a customer tenant
 
-This three-part tutorial series demonstrates how to build a .NET Multi-platform App UI (MAUI) desktop application that authenticates using Azure Active Directory (Azure AD) for customers tenant.
+This three-part tutorial series demonstrates how to build a .NET Multi-platform App UI (MAUI) desktop app that authenticates using Azure Active Directory (Azure AD) for customers tenant.
 
-Part one involves the registration of the .NET MAUI desktop application within the customer's tenant. In part two, you create the .NET MAUI desktop application, while in part three, you implement the sign-in and sign-out code to enable secure authentication.
+Part one involves the registration of the .NET MAUI desktop app within the customer's tenant. In part two, you create the .NET MAUI desktop app, while in part three, you implement the sign-in and sign-out code to enable secure authentication.
 
-In this tutorial:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Register a .NET MAUI desktop application in customers tenant.
+> - Register a .NET MAUI desktop app in customers tenant.
 > - Create a sign-in and sign-out user flow in customers tenant.
-> - Associate your .NET MAUI desktop application with the user flow.
+> - Associate your .NET MAUI desktop app with the user flow.
 
 ## Prerequisites
 
 - Azure Active Directory (Azure AD) for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
-## Register .NET MAUI desktop application
+## Register .NET MAUI desktop app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-platform](./includes/register-app/add-platform-redirect-url-dotnet-maui.md)]
@@ -42,7 +42,7 @@ In this tutorial:
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
 
-## Associate the .NET MAUI desktop application with the user flow
+## Associate the .NET MAUI desktop app with the user flow
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 

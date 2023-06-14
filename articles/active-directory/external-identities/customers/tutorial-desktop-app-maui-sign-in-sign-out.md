@@ -15,7 +15,7 @@ ms.date: 06/05/2023
 
 This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) shell and run the app on the Windows platform.
 
-In this tutorial:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -44,7 +44,7 @@ The next steps will organize our code so that the `main view` is defined.
 1. Select **.NET MAUI** in the template list.
 1. Select the **.NET MAUI ContentPage (XAML)** template. Name the file **MainView.xaml**.
 1. Select **Add**.
-1. The _MainView.xaml_ file will opens a new document tab, displaying all of the XAML markup that represents the UI of the page. Replace the XAML markup with the following markup:
+1. The _MainView.xaml_ file will open in a new document tab, displaying all of the XAML markup that represents the UI of the page. Replace the XAML markup with the following markup:
 
    ```xaml
    <?xml version="1.0" encoding="utf-8" ?>
@@ -154,7 +154,7 @@ The next step is to add the code for the button's `Clicked` event.
 
    ```
 
-The `MainView` class is a content page responsible for displaying the main view of the application. In the constructor, it retrieves the cached user account using the `MSALClientHelper` from the `PublicClientSingleton` instance and enables the sign-in button, if no cached user account is found. 
+The `MainView` class is a content page responsible for displaying the main view of the app. In the constructor, it retrieves the cached user account using the `MSALClientHelper` from the `PublicClientSingleton` instance and enables the sign-in button, if no cached user account is found. 
 
 When the sign-in button is clicked, it calls the `AcquireTokenSilentAsync` method to acquire a token silently and navigates to the `claimsview` page using the `Shell.Current.GoToAsync` method. Additionally, the `OnBackButtonPressed` method is overridden to return true, indicating that the back button is disabled for this view.
 
@@ -219,7 +219,11 @@ The next steps will organize the code so that `claims view` is defined.
     </ContentPage>
    ```
 
-This XAML markup code represents the UI layout for a claim view in a .NET MAUI app. It starts by defining the `ContentPage` with a title and disabling the back button behavior. Inside a `VerticalStackLayout`, there are several `Label` elements displaying static text, followed by a `ListView` named `Claims` that binds to a collection called `IdTokenClaims` to display the claims found in the ID token. Each claim is rendered within a `ViewCell` using a `DataTemplate` and displayed as a centered `Label` within a Grid. Lastly, there's a `Sign Out` button centered at the bottom of the layout, which triggers the `SignOutButton_Clicked` event handler when clicked.
+    This XAML markup code represents the UI layout for a claim view in a .NET MAUI app. It starts by defining the `ContentPage` with a title and disabling the back button behavior. 
+    
+    Inside a `VerticalStackLayout`, there are several `Label` elements displaying static text, followed by a `ListView` named `Claims` that binds to a collection called `IdTokenClaims` to display the claims found in the ID token. Each claim is rendered within a `ViewCell` using a `DataTemplate` and displayed as a centered `Label` within a Grid. 
+    
+    Lastly, there's a `Sign Out` button centered at the bottom of the layout, which triggers the `SignOutButton_Clicked` event handler when clicked.
 
 #### Handle the ClaimsView data
 
