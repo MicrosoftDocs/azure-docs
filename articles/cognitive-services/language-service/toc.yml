@@ -1139,14 +1139,16 @@ items:
           href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
 - name: Summarization (preview)
   items:
+  - name: Summarization overview
+    href: summarization/overview.md
+  - name: Summarization region support
+    href: summarization/region-support.md
+  - name: Summarization language support
+    href: summarization/language-support.md
   - name: Prebuilt (preview)
     items:
-    - name: Summarization overview
-      href: summarization/overview.md
     - name: Summarization quickstart
       href: summarization/quickstart.md
-    - name: Summarization language support
-      href: summarization/language-support.md
     - name: How-to guides
       items:
       - name: Call the document summarization API
