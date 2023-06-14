@@ -42,7 +42,7 @@ Wait for the project to be created and its dependencies to be restored.
 
 ## Add MSALClient
 
-Microsoft Authentication Library (MSAL) client enables developers to acquire security tokens from Azure Active Directory (Azure AD) for customers tenant to authenticate and access secured web APIs. In this section you download files that makes up MSALClient.
+Microsoft Authentication Library (MSAL) client enables developers to acquire security tokens from Azure Active Directory (Azure AD) for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
 
 Download the following files:
 
@@ -91,7 +91,7 @@ Repeat the process to install the remaining required packages.
 
 ## Add image resource
 
-In this section, you download an image that you'll use in your app to enhance how users interact with it.
+In this section, you download an image that you use in your app to enhance how users interact with it.
 
 Download the following image:
 
