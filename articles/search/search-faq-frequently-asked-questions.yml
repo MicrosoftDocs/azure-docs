@@ -102,7 +102,7 @@ sections:
       - question: |
           Does Azure Cognitive Search support vector search?
         answer: |
-          Support for vector search is in public preview and available through the 2023-07-01-prevew REST APIs. Support consists of search fields that contain embeddeding that you provide.
+          Support for vector search is in public preview and available through the 2023-07-01-preview REST APIs. Support consists of search fields that contain embeddings that you provide.
 
       - question: |
           How does vector search work in Azure Cognitive Search?
@@ -135,13 +135,13 @@ sections:
       - question: |
           How do I enable vector search on a search index?
         answer: |
-          To enable vector search in an index you will need to:
+          To enable vector search in an index, you should:
 
           * Add one or more fields of type Collection(Edm.Single), with a "dimensions" property and an "vectorSearchConfiguration" property.
           
-          * Add vectorSearch section to the index definition specifying the configuraiton used by vector search fields, including the parameters of the Approximate Nearest Neighbor algorithm used, like HNSW.
+          * Add vectorSearch section to the index definition specifying the configuration used by vector search fields, including the parameters of the Approximate Nearest Neighbor algorithm used, like HNSW.
           
-          * Use the 2023-07-01-Preview API verison to create or update the index.
+          * Use the 2023-07-01-Preview API version to create or update the index.
 
           * Use the 2023-07-01-Preview API to index documents with vector content using an Indexer or the Push API.
 
