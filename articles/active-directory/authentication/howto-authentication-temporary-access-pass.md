@@ -1,6 +1,6 @@
 ---
-title: Configure a Temporary Access Pass in Azure AD to register Passwordless authentication methods
-description: Learn how to configure and enable users to register Passwordless authentication methods by using a Temporary Access Pass 
+title: Configure a Temporary Access Pass in Azure AD to register passwordless authentication methods
+description: Learn how to configure and enable users to register passwordless authentication methods by using a Temporary Access Pass 
 
 services: active-directory
 ms.service: active-directory
