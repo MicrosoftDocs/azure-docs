@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Creator
 description: How to view and edit indoor map data using the Azure Maps QGIS plugin
 author: brendansco
 ms.author: Brendanc
-ms.date: 05/31/2023
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -14,7 +14,7 @@ services: azure-maps
 
 [QGIS] is an open-source [geographic information system (GIS)] application that supports viewing, editing, and analysis of geospatial data.
 
-The [Azure Maps QGIS Plugin] is used to view and edit [datasets] in [QGIS]. It enables you to navigate floors using a custom floor-picker and perform CRUD operations for multiple features simultaneously. All QGIS functionalities, such as copying features, rotating, resizing, flipping, can be used to for advanced editing. The plugin also supports error handling for data editing. Logs created by the plugin are useful to understand the APIs and debug errors.
+The [Azure Maps QGIS plugin] is used to view and edit [datasets] in [QGIS]. It enables you to navigate floors using a custom floor-picker and perform CRUD operations for multiple features simultaneously. All QGIS functionalities, such as copying features, rotating, resizing, flipping, can be used to for advanced editing. The plugin also supports error handling for data editing. Logs created by the plugin are useful to understand the APIs and debug errors.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ The [Azure Maps QGIS Plugin] is used to view and edit [datasets] in [QGIS]. It e
 
 ## Get started
 
-This section provides information on how to install QGIS and the [Azure Maps QGIS Plugin], then how to open and view a dataset.
+This section provides information on how to install QGIS and the [Azure Maps QGIS plugin], then how to open and view a dataset.
 
 ### Install QGIS
 
@@ -32,9 +32,9 @@ If you don't already have QGIS installed, see [Download QGIS]. You can use the l
 
 ![A screenshot showing the QGIS download page with the Looking for the most stable version link outlined in red.](./media/creator-indoor-maps/qgis/stable-version.png)
 
-### Install the Azure Maps QGIS Plugin
+### Install the Azure Maps QGIS plugin
 
-To install the Azure Maps QGIS Plugin:
+To install the Azure Maps QGIS plugin:
 
 1. Select **Manage and Install Plugins** from the **Plugins** menu to open the **Plugin Manager**.
 
@@ -56,7 +56,7 @@ A `featureClass` is a collection of similar features. A building has facility an
 
 ### Open dataset
 
-The following steps describe how to open your dataset in QGIS using the Azure Maps QGIS Plugin.
+The following steps describe how to open your dataset in QGIS using the Azure Maps QGIS plugin.
 
 1. Select the **Azure Maps symbol** on the QGIS toolbar to open the **Azure Maps plugin dialog box**.
 
@@ -87,7 +87,7 @@ This happens in the case when the [layer definition] shows that the layer can ho
 > [!NOTE]
 > The geometry geometryCollection is not supported by QGIS.
 
-You can navigate to different floor by using the **Level** drop-down list in the Plugins toolbar, located next to the Azure Maps plugin symbol as sown in the following image:
+You can navigate to different floor by using the **Level** drop-down list in the plugins toolbar, located next to the Azure Maps plugin symbol as sown in the following image:
 
 ![A screenshot showing the level selection drop-down as it appears on the plugin toolbar.](./media/creator-indoor-maps/qgis/level-dropdown-closed.png)
 
@@ -163,9 +163,9 @@ To learn more about advance editing features offered in QGIS, such as moving, sc
 
 ## Logs
 
-Azure Maps QGIS Plugin logs information related to the requests made to Azure Maps. You can set the location of log file in the Azure Maps Plugin Dialog box. By default, log files are stored in the folder containing your downloaded plugin.
+Azure Maps QGIS plugin logs information related to the requests made to Azure Maps. You can set the location of log file in the Azure Maps plugin Dialog box. By default, log files are stored in the folder containing your downloaded plugin.
 
-![A screenshot of the Azure Maps QGIS Plugin dialog box with the logs section highlighted.](./media/creator-indoor-maps/qgis/plugin-dialog-logs.png)
+![A screenshot of the Azure Maps QGIS plugin dialog box with the logs section highlighted.](./media/creator-indoor-maps/qgis/plugin-dialog-logs.png)
 
 You can view your log files in two ways:
 
