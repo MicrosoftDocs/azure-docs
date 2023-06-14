@@ -66,7 +66,7 @@ To ensure that the security token size doesn’t exceed the HTTP header size lim
 
 ### Detect group overage in your source code 
 
-If you can't avoid groups overages, then you need to handle it in your code. When you exceed the overage limit, the token won't contain the *groups* claim. Instead, the token contains a *_claim_names* claim that contains a *groups* member of the array. So, you need to check the existence of *_claim_names* claim to tell that an overage has occurred as shown in the following code snippet: 
+If you can't avoid groups overages, then you need to handle it in your code. When you exceed the overage limit, the token doesn't contain the *groups* claim. Instead, the token contains a *_claim_names* claim that contains a *groups* member of the array. So, you need to check the existence of *_claim_names* claim to tell that an overage has occurred. The following code snippet shows you how to detect a groups overage: 
 
 ```javascript
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
