@@ -12,18 +12,22 @@ Container Insights now defaults to managed identity authentication. This secure 
 
 ## How to enable
 
-Container insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes.
-
-If the agent upgrade fails for a cluster hosted on AKS, this article also describes the process to manually upgrade the agent. To follow the versions released, see [Agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
-
+See relevant tab below for instructions to enable Managed identity authentication on existing clusters.  
 
 ## [Azure portal](#tab/portal-azure-monitor)
 
-<To be added>
+No action is needed when creating a cluster from the Portal. However, it is not not possible to switch to Managed Identity authentication from the Azure Portal. Customers will have to use command line to migrate. See other tabs for migration instructions and templates. 
+
+## [Azure CLI](#tab/cli)
+
+See [Migrate to managed identity authentication](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-aks?tabs=azure-cli#migrate-to-managed-identity-authentication)
 
 ## [Resource Manager template](#tab/arm)
 
-<To be added>
+See instructions for migrating 
+
+* [AKS clusters](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-aks?tabs=arm#existing-aks-cluster)
+* [Arc-enabled clusters](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?tabs=create-cli%2Cverify-portal%2Cmigrate-arm)
 
 ## [Bicep](#tab/bicep)
 
