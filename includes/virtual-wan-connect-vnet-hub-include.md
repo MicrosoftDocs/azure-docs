@@ -14,8 +14,6 @@ ms.topic: include
 
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/connection.png" alt-text="Screenshot of the Add connection page." lightbox="./media/virtual-wan-connect-vnet-hub/connection.png":::
 
-   :::image type="content" source="./media/virtual-wan-connect-vnet-hub/connection2.png" alt-text="Screenshot of the Add connection page." lightbox="./media/virtual-wan-connect-vnet-hub/connection2.png":::
-
    * **Connection name**: Name your connection.
    * **Hubs**: Select the hub you want to associate with this connection.
    * **Subscription**: Verify the subscription.

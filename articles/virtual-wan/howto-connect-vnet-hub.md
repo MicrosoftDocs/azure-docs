@@ -11,7 +11,7 @@ ms.author: cherylmc
 ---
 # Connect a virtual network to a Virtual WAN hub - portal
 
-This article helps you connect your virtual network to your virtual hub using the Azure portal. You can also use [PowerShell](howto-connect-vnet-hub-powershell.md) to complete this task. Repeat these steps for each VNet that you want to connect. 
+This article helps you connect your virtual network to your virtual hub using the Azure portal. You can also use [PowerShell](howto-connect-vnet-hub-powershell.md) to complete this task. Repeat these steps for each VNet that you want to connect.
 
 Before you create a connection, be aware of the following:
 
