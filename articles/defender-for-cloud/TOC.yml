@@ -23,7 +23,8 @@
       href: faq-data-collection-agents.yml
     - name: Azure Virtual Machines questions
       href: faq-vms.yml
-
+    - name: Common questions about Defender for APIs
+      href: faq-defender-for-apis.yml
 - name: Quickstarts
   items:
   - name: 1. Enable Defender for Cloud on your subscriptions
@@ -762,7 +763,9 @@
     - name: Understanding data aware security posture capability
       href: episode-thirty-one.md
     - name: API Security with Defender for APIs
-      href: episode-thirty-two.md    
+      href: episode-thirty-two.md
+    - name: Agentless Container Posture Management
+      href: episode-thirty-three.md        
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
