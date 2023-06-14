@@ -579,7 +579,10 @@
         href: concept-defender-for-cosmos.md
       - name: Enable Microsoft Defender for Azure Cosmos DB
         displayName: Cosmos, DB, Cosmos db
-        href: defender-for-databases-enable-cosmos-protections.md 
+        href: defender-for-databases-enable-cosmos-protections.md
+    - name: Common questions
+      displayName: database, common questions, databases, sql, express configuration
+      href: faq-defender-for-databases.yml
   - name: Defender for App Service
     items:
     - name: Overview
