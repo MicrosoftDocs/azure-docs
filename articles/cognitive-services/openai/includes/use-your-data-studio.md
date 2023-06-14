@@ -28,7 +28,7 @@ Navigate to [Azure AI studio](https://oai.azure.com/) and sign-in with credentia
 1. In the pane that appears, select **Upload files** under **Select data source**. Select **Upload files**. Azure OpenAI needs both a storage resource and a search resource to access and index your data.
 
     > [!TIP]
-    > For a list of supported data sources, see [Data storage options](../concepts/using-your-data.md#data-storage-options)
+    > For a list of supported data sources, see [Data source options](../concepts/using-your-data.md#data-source-options)
 
     1. For Azure OpenAI to access your storage account, you will need to turn on [Cross-origin resource sharing (CORS)](https://go.microsoft.com/fwlink/?linkid=2237228). If CORS isn't already turned on for the Azure Blob storage resource, select **Turn on CORS**. 
 
