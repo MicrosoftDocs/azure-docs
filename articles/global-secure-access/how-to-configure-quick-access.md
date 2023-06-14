@@ -118,7 +118,7 @@ If you're viewing the Quick Access app properties, select **Users and groups** f
 
 Add users and groups following the instructions in the [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) article.
 
-Alternatively, you can assign users and groups when you create the Conditional Access policy for Quick Access. For more information, see [Manage the Private access traffic forwarding profile](how-to-manage-private-access-profile.md#linked-conditional-access-policies).
+Alternatively, you can assign users and groups when you create the Conditional Access policy for Quick Access. For more information, see [Quick access Conditional Access policies](how-to-configure-quick-access.md#linked-conditional-access-policies).
 
 ### Update Quick access ranges
 
