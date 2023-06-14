@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 06/14/2023
 
 ms.author: justinha
 author: tilarso 
@@ -44,20 +44,19 @@ To configure the Temporary Access Pass authentication method policy:
 1. Under the **Manage** menu header, select **Authentication methods** >  **Policies**.
 1. From the list of available authentication methods, select **Temporary Access Pass**.
 
-    ![Screenshot of how to manage Temporary Access Pass within the authentication method policy experience.](./media/how-to-authentication-temporary-access-pass/select-temporary-access-pass-policy.png)
+   :::image type="content" border="true" source="./media/how-to-authentication-temporary-access-pass/select-temporary-access-pass-policy.png" alt-text="Screenshot of how to manage Temporary Access Pass within the authentication method policy experience.":::
 
-1. Set the **Enable** to **Yes** to enable the policy. Then select the **Target** users. 
+1. Click **Enable** and then select users to include or exclude from the policy. 
    
-   ![Screenshot of how to enable the Temporary Access Pass authentication method policy.](./media/how-to-authentication-temporary-access-pass/enable-temporary-access-pass.png)
+   :::image type="content" border="true" source="./media/how-to-authentication-temporary-access-pass/enable-temporary-access-pass.png" alt-text="Screenshot of how to enable the Temporary Access Pass authentication method policy.":::
 
-1. (Optional) Select **Configure** and modify the default Temporary Access Pass settings, such as setting maximum lifetime, or length. 
-![Screenshot of how to customize the settings for Temporary Access Pass.](./media/how-to-authentication-temporary-access-pass/configure-temporary-access-pass.png)
+1. (Optional) Select **Configure** to modify the default Temporary Access Pass settings, such as setting maximum lifetime, or length, and click **Update**. 
+
+   :::image type="content" border="true" source="./media/how-to-authentication-temporary-access-pass/configure-temporary-access-pass.png" alt-text="Screenshot of how to customize the settings for Temporary Access Pass.":::
+
 1. Select **Save** to apply the policy. 
 
-
-
    The default value and the range of allowed values are described in the following table.
-
 
    | Setting | Default values | Allowed values | Comments |
    |---|---|---|---|
@@ -125,7 +124,7 @@ The most common use for a Temporary Access Pass is for a user to register authen
 1. If the user is included in the Temporary Access Pass policy, they'll see a screen to enter their Temporary Access Pass.
 1. Enter the Temporary Access Pass that was displayed in the Azure portal.
 
-   ![Screenshot of how to enter a Temporary Access Pass.](./media/how-to-authentication-temporary-access-pass/enter.png)
+   :::image type="content" border="true" source="./media/how-to-authentication-temporary-access-pass/enter.png" alt-text="Screenshot of how to enter a Temporary Access Pass.":::
 
 >[!NOTE]
 >For federated domains, a Temporary Access Pass is preferred over federation. A user with a Temporary Access Pass will complete the authentication in Azure AD and will not get redirected to the federated Identity Provider (IdP).
@@ -133,7 +132,6 @@ The most common use for a Temporary Access Pass is for a user to register authen
 The user is now signed in and can update or register a method such as FIDO2 security key. 
 Users who update their authentication methods due to losing their credentials or device should make sure they remove the old authentication methods.
 Users can also continue to sign-in by using their password; a TAP doesn’t replace a user’s password.
-
 
 ### User management of Temporary Access Pass
 
@@ -144,13 +142,12 @@ Users managing their security information at [https://aka.ms/mysecurityinfo](htt
 ### Windows device setup
 Users with a Temporary Access Pass can navigate the setup process on Windows 10 and 11 to perform device join operations and configure Windows Hello for Business. Temporary Access Pass usage for setting up Windows Hello for Business varies based on the devices joined state. 
 
-For Azure AD Joined devices: 
-- During the Azure AD Join setup process, users can authenticate with a TAP (no password required) to join the device and register Windows Hello for Business.
-- On already joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
-- If the [Web sign-in](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin) feature on Windows is also enabled, the user can use TAP to sign into the device. This is intended only for completing initial device setup, or recovery when the user does not know or have a password. 
+For joined devices to Azure AD: 
+- During the domain-join setup process, users can authenticate with a TAP (no password required) to join the device and register Windows Hello for Business.
+- On already-joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
+- If the [Web sign-in](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin) feature on Windows is also enabled, the user can use TAP to sign into the device. This is intended only for completing initial device setup, or recovery when the user doesn't know or have a password. 
 
-For Hybrid Azure AD Joined devices: 
-- Users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
+For hybrid-joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
 
 ![Screenshot of how to enter Temporary Access Pass when setting up Windows 10.](./media/how-to-authentication-temporary-access-pass/windows-10-tap.png)
 
