@@ -116,7 +116,7 @@ IDPS signature rules have the following properties:
 |Source/Destination Ports     |The ports associated with this signature.|
 |Last updated     |The last date that this signature was introduced or modified.|
 
-:::image type="content" source="media/idps-signature-categories/firewall-idps-signature.png" alt-text="Image showing the IDPS signature rule columns" lightbox="media/idps-signature-categories/firewall-idps-signature.png":::
+:::image type="content" source="media/idps-signature-categories/firewall-idps-signature.png" alt-text="Screenshot showing the IDPS signature rule columns." lightbox="media/idps-signature-categories/firewall-idps-signature.png":::
 
 
 ## URL filtering
