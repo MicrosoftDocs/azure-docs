@@ -44,10 +44,10 @@ az provider register --name Microsoft.Peering
 
 ## List Peering Service locations and service providers 
 
-Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country where you can get the Peering Service:
+Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries/regions where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country where you can get the Peering Service:
 
 ```azurecli-interactive
-# List the countries available for Peering Service.
+# List the countries/regions available for Peering Service.
 az peering service country list --out table
 # List metro locations serviced in a country
 az peering service location list --country "united states" --output table

@@ -78,6 +78,10 @@ Azure China 21Vianet:
 - `https://login.chinacloudapi.cn`: For authentication flows.
 - `https://pas.chinacloudapi.cn`: For Azure RBAC flows.
 
+### Authentication requirements
+
+[Azure AD Guest accounts](https://learn.microsoft.com/azure/active-directory/external-identities/what-is-b2b) cannot connect to Azure Bastion via Azure AD authentication.
+
 ## Enable Azure AD login for a Windows VM in Azure
 
 To use Azure AD login for a Windows VM in Azure, you must: 
