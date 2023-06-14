@@ -1,7 +1,19 @@
-[existing metadata goes here]
+---
+title: Using RedisPubSubTrigger Azure Function
+description: Learn how to use RedisPubSubTrigger Azure Function
+author: flang-msft
+zone_pivot_groups: cache-redis-zone-pivot-group
+
+ms.author: franlanglois
+ms.service: cache
+ms.topic: conceptual
+ms.date: 05/22/2023
+
+---
 
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-[H1 title goes here]
+
+# RedisPubSubTrigger Azure Function
 <!--Intro info goes here-->
 Example
 ::: zone pivot="programming-language-csharp"

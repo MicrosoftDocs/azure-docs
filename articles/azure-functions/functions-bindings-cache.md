@@ -1,8 +1,22 @@
-[Metadata goes here]
+---
+title: Using Azure Functions for Azure Cache for Redis
+description: Learn how to use Azure Functions Azure Cache for Redis
+author: flang-msft
+zone_pivot_groups: cache-redis-zone-pivot-group
+
+ms.author: franlanglois
+ms.service: cache
+ms.topic: conceptual
+ms.date: 06/14/2023
+
+---
 
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-[H1 title goes here]
+
+# Overview of Azure functions for Azure Cache for Redis
+
 <!--Intro info goes here. -->
+
 ::: zone pivot="programming-language-csharp"
 
 Install extension
