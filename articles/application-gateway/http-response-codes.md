@@ -124,6 +124,15 @@ For information about scenarios where 502 errors occur, and how to troubleshoot 
 
 Azure application Gateway V2 SKU sent HTTP 504 errors if the backend response time exceeds the time-out value which is configured in the Backend Setting.
 
+IIS
+If your backend server is IIS please refer to the below link for setting the timeout value. Please check under the COnfiguration section and refer to Attribute Connection Timeout for more details. Please ensure the connection timeout in IIS matche or does not exceed the timeout set in the Backend setting.
+https://learn.microsoft.com/en-us/iis/configuration/system.applicationhost/sites/sitedefaults/limits
+
+nginx
+If the backend server is nginx or nginx ingress controller and if it has upstream servers then the please ensure the value of nginx:proxy_read_timeout matches or does not exceed with the timeout set in the backend setting. 
+
+
+
 ## Next steps
 
 If the information in this article doesn't help to resolve the issue, [submit a support ticket](https://azure.microsoft.com/support/options/).
