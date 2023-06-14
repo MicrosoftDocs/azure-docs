@@ -52,7 +52,7 @@ The following limit specifies the maximum number of characters that can be in a 
 If a document exceeds the character limit, the API behaves differently depending on how you're sending requests.
 
 If you're sending requests synchronously:
-* The API doesn't process a documents that exceed the maximum size, and returns an invalid document error for it. If an API request has multiple documents, the API continues processing them if they are within the character limit.
+* The API doesn't process documents that exceed the maximum size, and returns an invalid document error for it. If an API request has multiple documents, the API continues processing them if they are within the character limit.
 
 If you're sending requests [asynchronously](use-asynchronously.md):
 * The API rejects the entire request and returns a `400 bad request` error if any document within it exceeds the maximum size.
