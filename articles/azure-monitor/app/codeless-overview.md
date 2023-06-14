@@ -55,6 +55,8 @@ If you’re using the following supported SDKs, you can configure the SDK Loader
    | ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
    | Node.js | [Automatic web Instrumentation](./nodejs.md#automatic-web-instrumentationpreview) |
 
+For other onboarding methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
+
 ## Next steps
 
 * [Application Insights overview](app-insights-overview.md)
