@@ -39,7 +39,7 @@ as per their needs. All background maintenance operations will be allowed to exe
 
 ## Example deployment
 The following is a step by step process to setup a cluster with maintenance control.
-Download this sample, which contains all the required resources. [Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-mrp/sfmc-deploy-mrp.json)
+Download this sample, which contains all the required resources. [Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MRP)
 
 1) Create resource group in a region
 
@@ -129,7 +129,7 @@ After the maintenance configuration is created, it has to be attached to the SFM
 ```
 
 >[!NOTE]
->* To disable the maintenance control on this cluster, delete the assignment for the cluster.
+>* To disable the maintenance control on the cluster, delete the assignment for the cluster.
 >* The maintenance resources and the SFMC cluster resource should be created in the same region.
 
 >[!NOTE]
