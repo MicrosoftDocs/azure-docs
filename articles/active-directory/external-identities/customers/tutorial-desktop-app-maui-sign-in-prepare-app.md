@@ -64,7 +64,7 @@ Download the following files:
 1. In the **Solution Explorer** pane, right-click on the **SignInMaui** project and select **Add** > **New Folder**. Name the folder _MSALClient_.
 1. Right-click on **MSALClient** folder, select **Add** > **Existing Item...**.
 1. Navigate to the folder that contains the downloaded MSALClient files.
-1. Hold down _CTRL_ and select on each of the MSALClient files you downloaded, then select **Add**
+1. Select all of the MSALClient files you downloaded, then select **Add**
 
 ## Install required packages
 
