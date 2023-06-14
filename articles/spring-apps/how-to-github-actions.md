@@ -385,7 +385,7 @@ jobs:
           container-image: <your image tag>
 ```
 
-During deployment, you can achieve more functionality by using additional arguments. For more information, please refer to [Azure Spring Apps GitHub Action Arguments](https://github.com/Azure/spring-apps-deploy#arguments).
+During deployment, you can achieve more functionality by using more arguments. For more information, see the [Arguments](https://github.com/Azure/spring-apps-deploy#arguments) section of [GitHub Action for deploying to Azure Spring Apps](https://github.com/Azure/spring-apps-deploy).
 
 #### Blue-green
 
