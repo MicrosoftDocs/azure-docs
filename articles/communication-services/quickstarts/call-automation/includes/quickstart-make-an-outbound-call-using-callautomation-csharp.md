@@ -22,11 +22,11 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
-- Create and host an Azure Dev Tunnel. Instructions [here](https://learn.microsoft.com/azure/developer/dev-tunnels/get-started)
+- Create and host an Azure Dev Tunnel. Instructions [here](../../dev-tunnels/get-started.md)
 
 ## Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the commands to connect your local development environment to the public internet. DevTunnels creates a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](../../dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the commands to connect your local development environment to the public internet. DevTunnels creates a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the ACS Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -94,7 +94,7 @@ app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, ILogger<Program> 
 
 ## Start recording a call
 
-The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](../voice-video-calling/get-started-call-recording.md).
+The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](../../voice-video-calling/get-started-call-recording.md).
 
 ```csharp
 CallLocator callLocator = new ServerCallLocator(parsedEvent.ServerCallId);
