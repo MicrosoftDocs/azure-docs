@@ -20,14 +20,14 @@ Azure Data Manager for Agriculture supports a range of data ingress connectors t
 
 ## Overview
 
-In BYOL model, you're  responsible for providing your own licenses for satellite imagery and weather connector. In the vault reference model, you'll store credentials as secret in a customer managed Azure Key Vault. The URI of the secret must be shared and read permissions granted to Azure Data Manager for Agriculture so that the APIs can work seamlessly. This is a one-time setup for each connector. Our Data Manager then refers to and reads the secret from the customers’ key vault as part of the API call with no exposure of the secret. There is no impact for ISVs as there is no change to the data pull API request model, as the secrets are'nt provided by the ISV service. The steps to use Azure Key Vault in Data Manager for Agriculture are as follows: 
+In BYOL model, you're  responsible for providing your own licenses for satellite imagery and weather connector. In the vault reference model, you store credentials as secret in a customer managed Azure Key Vault. The URI of the secret must be shared and read permissions granted to Azure Data Manager for Agriculture so that the APIs can work seamlessly. This process is a one-time setup for each connector. Our Data Manager then refers to and reads the secret from the customers’ key vault as part of the API call with no exposure of the secret. There's no change for ISVs as there's no change to the data pull API request model, as the secrets aren't provided by the ISV service. The steps to use Azure Key Vault in Data Manager for Agriculture are as follows: 
 
 ### Create Key Vault 
 Customers are required to create a key vault to share license credentials for satellite (Sentinel Hub) and weather (IBM Weather). Customer creates (or reuse existing one) Azure Key Vault with following properties:
 
 :::image type="content" source="./media/concepts-byol-and-credentials/create-key-vault.png" alt-text="Screenshot showing key vault properties.":::
 
-It's recommended that customer keeps key vault accessible over internet so that Data Manager for Agriculture can access the key vault. In next Data Manager for Agriculture release, we will support private networked key vaults in addition to publicly available key vault.
+It's recommended that customer keeps key vault accessible over internet so that Data Manager for Agriculture can access the key vault. In next Data Manager for Agriculture release, we'll support private networked key vaults in addition to publicly available key vault.
 
 :::image type="content" source="./media/concepts-byol-and-credentials/provide-access-to-keys.png" alt-text="Screenshot showing key vault access.":::
 
@@ -35,7 +35,7 @@ It's recommended that customer keeps key vault accessible over internet so that 
 For sharing your satellite or weather service credentials, customer stores client secrets in a key vault. Customers are in control of secret name and rotation. 
 :::image type="content" source="./media/concepts-byol-and-credentials/store-credential-keys.png" alt-text="Screenshot showing storage of key values.":::
 
-### Enable System Identity 
+### Enable system identity 
 you have to enable system identity for your Data Manager for Agriculture instance. There are two options:
     
 1. Via UI
@@ -57,7 +57,7 @@ Add an access policy in key vault for your Data Manager for Agriculture instance
 3. Select the next tab, and then select Data Manager for Agriculture instance name and then select the review + create tab to create the access policy.
 :::image type="content" source="./media/concepts-byol-and-credentials/selecting-tabs.png" alt-text="Screenshot showing selection create and review tab.":::
 
-### Provide your Secret URL Data Manager for Agriculture.
+### Provide your secret URL to Data Manager for Agriculture.
 You can use Data Manager for Agriculture control-plane API  to communicate credentials of Sentinel hub or IBM weather service.
 
 POST/<ADMA_resourceurl>/provider-credentials/sentinelhub
@@ -87,12 +87,11 @@ Control Plane APIs
     * Add access policy for Data Manager for Agriculture in key vault of secret.
 
 ## Data Plane APIs
-* Error code: ConnectorConfigurationMissing: This error appears when data plane API call is invoked with no credentials in the API call and connector credentials re not provided via control plane API call 
-* Error code: ConnectorConfigurationInvalid: This error appears when data plane API call is invoked with an invalid credentials model.
-* Error code: SecretAccessFailure: This error appears when Data Manager for Agriculture isn't able to access secret
+* Error code: ConnectorConfigurationMissing: This error appears when data plane API call is invoked with no credentials in the API call and connector credentials aren't provided via control plane API call. 
+* Error code: ConnectorConfigurationInvalid: This error appears when data plane API call is invoked with  invalid credentials model.
+* Error code: SecretAccessFailure: This error appears when Data Manager for Agriculture isn't able to access secret.
 
-## Conclusion:
-By using key vault and setting up access to Data Manager for Agriculture customers are in control of their own license keys and don't need to send credentials as part of every API call for satellite job or weather jobs.
+You can use key vault and set-up access for Data Manager for Agriculture and be control of your own license keys. You don't need to send credentials as part of every API call for satellite job or weather jobs.
 
 ## Next steps
 
