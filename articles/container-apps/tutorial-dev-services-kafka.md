@@ -155,7 +155,7 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     azd up
     ```
 
-    That should create an empty resource group.
+    That command should create an empty resource group.
 
     ----
 
@@ -601,7 +601,7 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
 
     ----
 
-    Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you exec into the test container you can inspect the values using 
+    Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you connect test container you can inspect the values using 
 
     ```bash
     env | grep "^KAFKA_"

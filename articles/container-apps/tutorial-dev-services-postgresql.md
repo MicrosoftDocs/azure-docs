@@ -153,7 +153,7 @@ In this tutorial, you learn how to create and use a development PostgreSQL servi
     azd up
     ```
 
-    That should create an empty resource group.
+    That command should create an empty resource group.
 
     ---
 
@@ -588,7 +588,7 @@ We start by creating a debug app to use `psql` CLI to connect to the PostgreSQL 
 
     ---
 
-    Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you exec into the test container you can inspect the values using 
+    Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you connect to the test container you can inspect the values using 
 
     ```bash
     env | grep "^POSTGRES_"
