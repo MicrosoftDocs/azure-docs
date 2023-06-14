@@ -26,7 +26,7 @@ Follow the steps in this section to instrument your application with the Applica
 > Good news! We're making it even easier to enable JavaScript. Check out where [SDK Loader Script injection by configuration is available](./codeless-overview.md#sdk-loader-script-injection-by-configuration)!
 
 > [!NOTE]
-> If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#5-optional-advanced-sdk-configuration).
+> If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#4-optional-advanced-sdk-configuration).
 
 ### 1. Add the JavaScript code
 
@@ -126,7 +126,18 @@ To add SDK configuration, add each configuration option directly under `connecti
 
 :::image type="content" source="media/javascript-sdk/example-sdk-configuration.png" alt-text="Screenshot of JavaScript code with SDK configuration options added and highlighted." lightbox="media/javascript-sdk/example-sdk-configuration.png":::
 
-### 4. Confirm data is flowing
+### 4. (Optional) Advanced SDK configuration
+
+If you want to use the extra features provided by plugins for specific frameworks, see:
+
+- [React plugin](javascript-framework-extensions.md?tabs=react)
+- [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
+- [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
+
+> [!TIP]
+> We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics plug-in](javascript-feature-extensions.md).
+
+### 5. Confirm data is flowing
 
 1. Go to your Application Insights resource that you've enabled the SDK for. 
 1. In the Application Insights resource menu on the left, under **Investigate**, select the **Transaction search** pane.
@@ -138,17 +149,6 @@ To add SDK configuration, add each configuration option directly under `connecti
    :::image type="content" source="media/javascript-sdk/confirm-data-flowing.png" alt-text="Screenshot of the Application Insights Transaction search pane in the Azure portal with the Page View option selected. The page views are highlighted." lightbox="media/javascript-sdk/confirm-data-flowing.png":::
 
 If you can't run the application or you aren't getting data as expected, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
-
-### 5. (Optional) Advanced SDK configuration
-
-If you want to use the extra features provided by plugins for specific frameworks, see:
-
-- [React plugin](javascript-framework-extensions.md?tabs=react)
-- [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
-- [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
-
-> [!TIP]
-> We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics plug-in](javascript-feature-extensions.md).
 
 ## Support
 
