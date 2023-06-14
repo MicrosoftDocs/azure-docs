@@ -84,6 +84,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | App registrations | Yes | Yes |  |  |
 | Microsoft Dev Box | Yes | No | | You cannot transfer a dev box and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your dev box |
 | Azure Deployment Environments | Yes | No | | You cannot transfer an environment and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your environment |
+| Azure Synapse Analytics Workspace | Yes | Yes | | You must update the tenant ID and Git associated with the Synapse Analytics Workspace, see [Recovering Synapse Analytics workspace after transferring a subscription to a different Azure AD directory (tenant)](/azure/synapse-analytics/how-to-recover-workspace-after-tenant-move) |
 
 > [!WARNING]
 > If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
