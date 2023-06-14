@@ -7936,23 +7936,4 @@ We've updated our existing terms of use experiences to help improve how you revi
 
 ---
 
-### New Azure AD Activity logs download experience available
-
-**Type:** Changed feature
-**Service category:** Reporting
-**Product capability:** Monitoring & Reporting
-
-You can now download large amounts of activity logs directly from the Azure portal. This update lets you:
-
-- Download up to 250,000 rows.
-
-- Get notified after the download completes.
-
-- Customize your file name.
-
-- Determine your output format, either JSON or CSV.
-
-For more information about this feature, see [Quickstart: Download an audit report using the Azure portal](../reports-monitoring/howto-download-logs.md)
-
----
 
