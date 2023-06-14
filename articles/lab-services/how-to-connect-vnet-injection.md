@@ -68,6 +68,9 @@ Follow these steps to delegate your subnet for use with a lab plan:
 
 When you connect your lab plan to a virtual network, you need to configure a network security group (NSG) to allow inbound RDP/SSH traffic from the user's computer to the template virtual machine and the lab virtual machines.
 
+> [!IMPORTANT]
+> If you don't configure a network security group, you won't be able to access the lab template VM and lab VMs via RDP or SSH.
+
 The network security group configuration for advanced networking consists of two steps:
 
 1. Create a network security group that allows RDP/SSH traffic
