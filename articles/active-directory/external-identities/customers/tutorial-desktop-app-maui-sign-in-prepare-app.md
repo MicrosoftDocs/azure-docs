@@ -91,7 +91,7 @@ Repeat the process to install the remaining required packages.
 
 ## Add image resource
 
-In this section, you download an image that you use in your app to enhance how users interact with it.
+In this section, you download an image that you'll use in your app to enhance how users interact with it.
 
 Download the following image:
 
