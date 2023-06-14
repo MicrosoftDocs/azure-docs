@@ -25,7 +25,7 @@ The structure of how to do this consists of the following steps.  They are:
   - [Create sync job](#create-sync-job)
   - [Update targeted domain](#update-targeted-domain)
   - [Enable Sync password hashes on configuration blade](#enable-sync-password-hashes-on-configuration-blade)
-  - [Exchange hybrid writeback](#exchange-hybrid-writeback)
+  - [Exchange hybrid writeback](#exchange-hybrid-writeback-public-preview)
   - [Accidental deletes](#accidental-deletes)
     - [Enabling and setting the threshold](#enabling-and-setting-the-threshold)
     - [Allowing deletes](#allowing-deletes)

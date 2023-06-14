@@ -96,7 +96,7 @@ Provisioning on-demand with Exchange hybrid use the following steps
     >This final step may take up to 2 minutes to complete.
 
 ## Exchange hybrid writeback using MS Graph	
-You can use MS Graph API to enable Exchange hybrid writeback.  For more information, see [Exchange hybrid writeback with MS Graph](how-to-inbound-synch-ms-graph.md#exchange-hybrid-writeback)
+You can use MS Graph API to enable Exchange hybrid writeback.  For more information, see [Exchange hybrid writeback with MS Graph](how-to-inbound-synch-ms-graph.md#exchange-hybrid-writeback-public-preview)
 
 ## Next steps
 
