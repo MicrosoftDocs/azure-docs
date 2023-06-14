@@ -13,7 +13,6 @@ Every security program includes multiple workflows for incident response. These 
 
 This article describes the workflow automation feature of Microsoft Defender for Cloud. This feature can trigger consumption logic apps on security alerts, recommendations, and changes to regulatory compliance. For example, you might want Defender for Cloud to email a specific user when an alert occurs. You'll also learn how to create logic apps using [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-
 ## Availability
 
 |Aspect|Details|
@@ -23,7 +22,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 |Required roles and permissions:|**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) permissions are required for logic app creation and modification<br>If you want to use Logic Apps connectors, you may need other credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
-## Create a logic app and define when it should automatically run 
+## Create a logic app and define when it should automatically run
 
 1. From Defender for Cloud's sidebar, select **Workflow automation**.
 
@@ -42,7 +41,7 @@ This article describes the workflow automation feature of Microsoft Defender for
         > [!NOTE]
         > If your trigger is a recommendation that has "sub-recommendations", for example **Vulnerability assessment findings on your SQL databases should be remediated**, the logic app will not trigger for every new security finding; only when the status of the parent recommendation changes.
 
-    1. The consumption logic app that will run when your trigger conditions are met. 
+    1. The consumption logic app that will run when your trigger conditions are met.
 
 1. From the Actions section, select **visit the Logic Apps page** to begin the logic app creation process.
 
@@ -70,11 +69,11 @@ This article describes the workflow automation feature of Microsoft Defender for
     - **When a Microsoft Defender for Cloud Recommendation is created or triggered** - If your logic app relies on a recommendation that gets deprecated or replaced, your automation will stop working and you'll need to update the trigger. To track changes to recommendations, use the [release notes](release-notes.md).
 
     - **When a Defender for Cloud Alert is created or triggered** - You can customize the trigger so that it relates only to alerts with the severity levels that interest you.
-    
+
     - **When a Defender for Cloud regulatory compliance assessment is created or triggered** - Trigger automations based on updates to regulatory compliance assessments.
 
     > [!NOTE]
-    > If you are using the legacy trigger "When a response to a Microsoft Defender for Cloud alert is triggered", your logic apps will not be launched by the Workflow Automation feature. Instead, use either of the triggers mentioned above. 
+    > If you are using the legacy trigger "When a response to a Microsoft Defender for Cloud alert is triggered", your logic apps will not be launched by the Workflow Automation feature. Instead, use either of the triggers mentioned above.
 
     [![Sample logic app.](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
@@ -84,7 +83,6 @@ This article describes the workflow automation feature of Microsoft Defender for
 
 1. Select your logic app and save the automation. The logic app dropdown only shows those with supporting Defender for Cloud connectors mentioned above.
 
-
 ## Manually trigger a logic app
 
 You can also run logic apps manually when viewing any security alert or recommendation.
@@ -92,7 +90,6 @@ You can also run logic apps manually when viewing any security alert or recommen
 To manually run a logic app, open an alert, or a recommendation and select **Trigger logic app**:
 
 [![Manually trigger a logic app.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
-
 
 ## Configure workflow automation at scale using the supplied policies
 
@@ -114,16 +111,17 @@ To implement these policies:
 
     > [!TIP]
     > You can also find these by searching Azure Policy:
+    >
     > 1. Open Azure Policy.
     > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy.":::
-    > 2. From the Azure Policy menu, select **Definitions** and search for them by name. 
+    > 2. From the Azure Policy menu, select **Definitions** and search for them by name.
 
 1. From the relevant Azure Policy page, select **Assign**.
     :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Assigning the Azure Policy.":::
 
 1. Open each tab and set the parameters as desired:
-    1. In the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the Management Group containing the subscriptions that will use the workflow automation configuration. 
-    1. In the Parameters tab, enter the required information. 
+    1. In the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the Management Group containing the subscriptions that will use the workflow automation configuration.
+    1. In the Parameters tab, enter the required information.
 
     :::image type="content" source="media/workflow-automation/parameters-tab.png" alt-text="Screenshot of the parameters tab.":::
 
@@ -135,7 +133,6 @@ To implement these policies:
 
 To view the raw event schemas of the security alerts or recommendations events passed to the logic app, visit the [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas). This can be useful in cases where you aren't using Defender for Cloud's built-in Logic Apps connectors mentioned above, but instead are using the generic HTTP connector - you could use the event JSON schema to manually parse it as you see fit.
 
-
 ## FAQ - Workflow automation
 
 ### Does workflow automation support any business continuity or disaster recovery (BCDR) scenarios?
@@ -145,7 +142,6 @@ When preparing your environment for BCDR scenarios, where the target resource is
 For every active automation, we recommend you create an identical (disabled) automation and store it in a different location. When there's an outage, you can enable these backup automations and maintain normal operations.
 
 Learn more about [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md).
-
 
 ## Next steps
 

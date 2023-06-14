@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.author: buhollan
-ms.custom: devx-track-js, engagement-fy23
+ms.custom: engagement-fy23
 ---
 
 # Configure application settings for Azure Static Web Apps

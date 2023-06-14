@@ -81,7 +81,6 @@ class Authorization
     authorization-id="auth-01" 
     context-variable-name="auth-context" 
     identity-type="managed" 
-    identity="@(context.Request.Headers["Authorization"][0].Replace("Bearer ", ""))"
     ignore-error="false" />
 <!-- Return the token -->
 <return-response>

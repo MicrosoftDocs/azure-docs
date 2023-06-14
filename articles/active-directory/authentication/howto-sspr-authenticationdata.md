@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 # Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 

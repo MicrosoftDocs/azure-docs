@@ -21,8 +21,7 @@ Microsoft Entra External ID for customers, also known as Azure Active Directory 
 
 :::image type="content" source="media/overview-customers-ciam/overview-ciam.png" alt-text="Diagram showing an overview customer identity and access management." border="false":::
 
-> [!IMPORTANT]
-> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)] 
 
 ## Add customized sign-in to your customer-facing apps
 
