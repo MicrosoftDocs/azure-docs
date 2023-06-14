@@ -90,15 +90,17 @@ az spring app create \
     --max-replicas 5
 ```
 
-The replicas count is adjusted automatically according to the count of messages in Azure Service Bus Queue. When there's no messages in the queue, your application will be scaled to 0 replica. When there's messages in the queue, the application will be scaled out according to the message count.
+The replicas count is adjusted automatically according to the count of messages in Azure Service Bus Queue. When there are no messages in the queue, your application is scaled to 0 replica. When there are messages in the queue, the application is scaled out according to the message count.
 
 ---
 
 ## Custom scaling rules
-To define your custom rules, you can refer to [Keda scalers](https://keda.sh/docs/2.9/scalers/). The following CLI commands give your two examples of setting scale rules on MySQL and Cron.
+
+For information on defining custom rules, see [Keda scalers](https://keda.sh/docs/2.9/scalers/). The following sections show two examples of setting scale rules on MySQL and Cron.
 
 ### Set up auto scaling rules on MySQL database
-The following CLI commands show you how to auto scale your spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/).  Firstly create a secret to store your sql connection string, it's used for your scale rule auth. And then, set up a rule which scales the app based on the rows count of a table.
+
+The following CLI commands show you how to autoscale your Spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/). First, create a secret to store your SQL connection string. This secret is used for your scale rule authentication. Then, set up a rule which scales the app based on the rows count of a table.
 
 ```azurecli-interactive
 az spring app update \
@@ -119,8 +121,9 @@ az spring app scale \
     --max-replicas 3
 ```
 
-### Create a rule based on linux cron
-The following commands show you how to set up a rule based on [Keda Cron Scaler](https://keda.sh/docs/2.8/scalers/cron/). The replicas will be scaled to the desired number during the cron time interval.
+### Create a rule based on Linux cron
+
+The following commands show you how to set up a rule based on [Keda Cron Scaler](https://keda.sh/docs/2.8/scalers/cron/). The replicas are scaled to the desired number during the cron time interval.
 
 ```azurecli-interactive
 az spring app scale \
@@ -138,7 +141,8 @@ az spring app scale \
 ```
 
 ## Scaling events
-You can find the scaling events from the system logs of your underlying container app, and filter the EventSource by 'KEDA'.
+
+You can find the scaling events from the system logs of your underlying container app, and filter the EventSource by using `KEDA`, as shown in the following example:
 
 ```sql
 ContainerAppSystemLogs_CL 
@@ -146,6 +150,7 @@ ContainerAppSystemLogs_CL
 ```
 
 ## Clean up resources
+
 Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternately, to delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
