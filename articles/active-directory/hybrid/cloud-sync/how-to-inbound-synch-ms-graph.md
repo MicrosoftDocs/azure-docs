@@ -230,7 +230,7 @@ Here, the highlighted "Domain" value is the name of the on-premises Active Direc
 
 Add the Schema in the request body.
 
-## Exchange hybrid writeback
+## Exchange hybrid writeback (Public Preview)
 
 This section covers how to enable/disable and use [Exchange hybrid writeback](exchange-hybrid.md) programmatically.
 
@@ -272,7 +272,7 @@ Content-type: application/json
 }
 ```
 
-Now check to see if the **mailNickName** attribute is present.  If it is, then your schema is verified and contains the Exchange attributes. If not, review the [prerequisties](/azure/active-directory/hybrid/cloud-sync/exchange-hybrid#prerequisites) for Exchange hybrid writeback.
+Now check to see if the **mailNickName** attribute is present.  If it is, then your schema is verified and contains the Exchange attributes. If not, review the [prerequisties](exchange-hybrid.md#prerequisites) for Exchange hybrid writeback.
 
 
 
