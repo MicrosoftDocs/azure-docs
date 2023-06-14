@@ -1,6 +1,6 @@
 ---
 title: Use role-based access control in your Node.js web application
-description: Learn how to configure groups and user roles in your customers tenant, so you can receive them as claims in a security token for your Node.js application
+description: Learn how to configure groups and user roles in your customer's tenant, so you can receive them as claims in a security token for your Node.js application
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -43,7 +43,7 @@ let roles = tokenResponse.idTokenClaims.roles;
 
 ```
 
-If you assign a user to multiple roles, the `roles` string contains all roles separated by a comma, such as *Orders.Manager,Store.Manager,...*. Make sure you build your application to handle the following conditions:
+If you assign a user to multiple roles, the `roles` string contains all roles separated by a comma, such as `Orders.Manager,Store.Manager,...`. Make sure you build your application to handle the following conditions:
 
 - absence of `roles` claim in the token
 - user hasn't been assigned to any role
@@ -55,14 +55,14 @@ You can also check your *groups* claim value as shown in the following code snip
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
 let groups = tokenResponse.idTokenClaims.groups;
 ```
-The groups claim value is the group's *objectId*. If a user is a member of multiple groups, the `groups` string contain all groups separated by a comma, such as *7f0621bc-b758-44fa-a2c6-...,6b35e65d-f3c8-4c6e-9538-...*.
+The groups claim value is the group's *objectId*. If a user is a member of multiple groups, the `groups` string contains all groups separated by a comma, such as `7f0621bc-b758-44fa-a2c6-...,6b35e65d-f3c8-4c6e-9538-...`.
 
 > [!NOTE] 
 > If you assign a user [Azure AD in-built roles](../../roles/permissions-reference.md) or commonly known as directory roles, those roles appear in the *groups* claim of the security token. 
 
 ## Handle groups overage
 
-To ensure that the security token size doesn’t exceed the HTTP header size limits, Azure AD for customers limits the number of object IDs that it includes in the *groups* claim. The overage limit is **150 for SAML tokens and 200 for JWT tokens**. It's possible to exceed this limit if a user belongs to many groups, and you request for all the groups. 
+To ensure that the the size of the security token doesn’t exceed the HTTP header size limit, Azure AD for customers limits the number of object IDs that it includes in the *groups* claim. The overage limit is **150 for SAML tokens and 200 for JWT tokens**. It's possible to exceed this limit if a user belongs to many groups, and you request for all the groups. 
 
 ### Detect group overage in your source code 
 
