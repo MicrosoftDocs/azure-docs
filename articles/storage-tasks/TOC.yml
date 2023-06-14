@@ -13,8 +13,8 @@ items:
   expanded: true
 - name: Concepts
   items: 
-  - name: Storage Task conditions
-    href: storage-task-conditions.md
+  - name: Storage Task conditions & operations
+    href: storage-task-conditions-operations.md
   - name: Storage Task assignments
     href: storage-task-assignment.md
   - name: Monitor Storage Tasks
@@ -24,8 +24,8 @@ items:
   items: 
   - name: Create a Storage Task
     href: storage-task-create.md
-  - name: Define conditions
-    href: storage-task-condition-edit.md
+  - name: Define conditions & operations
+    href: storage-task-conditions-operations-edit.md
   - name: Create and manage an assignment
     href: storage-task-assignment-create.md
   - name: Review results

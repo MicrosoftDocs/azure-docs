@@ -31,4 +31,3 @@ Put something here.
 ## Next steps
 
 - [Storage Tasks Overview](overview.md)
-- [Do something cool with Storage Tasks](storage-task-how-to.md)

@@ -1,5 +1,5 @@
 ---
-title: Storage Task conditions
+title: Storage Task conditions & operations
 titleSuffix: Azure Storage
 description: Description of Azure Storage Tasks conditions goes here.
 services: storage
@@ -12,7 +12,7 @@ ms.author: normesta
 
 ---
 
-# Storage Task conditions
+# Storage Task conditions and operations
 
 Put something here.
 
@@ -53,5 +53,5 @@ These perms will need to be applied to the task for any other collaborators to e
 
 ## See also
 
-- [Define conditions](storage-task-condition-edit.md)
+- [Define conditions and operations](storage-task-conditions-operations-edit.md)
 - [Storage Task assignments](storage-task-assignment.md)

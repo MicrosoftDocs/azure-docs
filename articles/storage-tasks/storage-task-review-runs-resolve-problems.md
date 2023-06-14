@@ -69,5 +69,5 @@ Put something here.
 ## See also
 
 - [Storage Tasks Overview](overview.md)
-- [Define conditions](storage-task-condition-edit.md)
+- [Define conditions and operations](storage-task-conditions-operations-edit.md)
 - [Create and manage an assignment](storage-task-assignment-create.md)

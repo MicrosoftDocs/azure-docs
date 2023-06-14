@@ -38,4 +38,4 @@ You can create a Storage Task by using the Azure portal, PowerShell, or the Azur
 
 - [Storage Tasks Overview](overview.md)
 - [Create, assign, and run a Storage Task](storage-task-quickstart-portal.md)
-- [Define conditions](storage-task-condition-edit.md)
+- [Define conditions and operations](storage-task-conditions-operations-edit.md)

@@ -1,5 +1,5 @@
 ---
-title: Define Storage Task conditions
+title: Define Storage Task conditions & operations
 description: Description of how to article
 author: normesta
 ms.service: storage-tasks
@@ -8,11 +8,11 @@ ms.author: normesta
 ms.date: 05/10/2023
 ---
 
-# Define Storage Task Conditions
+# Define Storage Task Conditions and operations
 
 Description goes here.
 
-To learn more about Storage Task conditions, see [Storage Task conditions](storage-task-conditions.md)
+To learn more about Storage Task conditions, see [Storage Task conditions and operations](storage-task-conditions-operations.md)
 
 ## Add or edit conditions
 

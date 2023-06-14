@@ -35,5 +35,5 @@ The following table lists supported properties, operands, actions, and values.
 
 ## See also
 
-- [Define conditions](storage-task-condition-edit.md)
+- [Define conditions and operations](storage-task-conditions-operations-edit.md)
 - [Storage Task assignments](storage-task-assignment.md)
