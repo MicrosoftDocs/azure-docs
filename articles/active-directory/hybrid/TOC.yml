@@ -21,8 +21,8 @@
       href:  common-scenarios.md
     - name:  Tools for synchronization
       href:  sync-tools.md
-    - name:  Choosing the right sync tool
-      href:  https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad
+    - name:  Choosing the right sync client
+      href:  https://aka.ms/EvaluateSyncOptions
     - name:  Steps to start
       href:  get-started.md
     - name:  Prerequisites
@@ -515,8 +515,6 @@
       href: connect/reference-connect-user-privacy.md
     - name: Azure AD Connect Health user privacy
       href: connect/reference-connect-health-user-privacy.md
-    - name: Azure AD Connect in Germany
-      href: connect/reference-connect-germany.md
     - name: DirSync Deprecation
       href: connect/reference-connect-dirsync-deprecated.md
     - name: Attributes synchronized
