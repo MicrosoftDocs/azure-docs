@@ -23,7 +23,7 @@ Microsoft Entra ID Governance dashboard discovers usage information about variou
 ## Using the dashboard
 
 We understand that implementing Identity Governance is a journey, and you may be in different stages of this journey. 
-* If you are just getting started, use the dashboard to assess the complexity of your IT landscape. Identify the number of users and guests in your tenant. Discover business apps and privileged roles in your tenant and review capabilities provided by Entra ID Governance to put together an implementation plan that addresses your security & compliance needs.
+* If you are just getting started, use the dashboard to assess the complexity of your IT landscape. Identify the number of users and guests in your tenant. Discover business apps and privileged roles in your tenant and review capabilities provided by Microsoft Entra ID Governance to put together an implementation plan that addresses your security & compliance needs.
 * If you have already deployed certain governance capabilities, use the dashboard to understand the coverage of your governance automations and find implementation gaps. For example, maybe you have automated birthright access using [entitlement management](https://go.microsoft.com/fwlink/?linkid=2210375), but you have not set up periodic [access reviews](https://go.microsoft.com/fwlink/?linkid=2211313). Use the call-to-action links in the dashboard to further improve your identity governance posture.  
 
 ## Data displayed on the dashboard 
