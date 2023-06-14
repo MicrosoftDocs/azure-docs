@@ -90,17 +90,17 @@ The output should be the target cluster's information and the cluster's detailed
 
 ### Identifying Cluster Upgrade Stalled/Stuck
 
-During a runtime upgrade it's possible that the upgrade fails to move forward but the detail status reflects that the upgrade is still ongoing. **Because the runtime upgrade may take a very large time to successfully finish, there is no set timeout length currently specified**.
+During a runtime upgrade it's possible that the upgrade fails to move forward but the detail status reflects that the upgrade is still ongoing. **Because the runtime upgrade may take a very long time to successfully finish, there is no set timeout length currently specified**.
 Hence, it's advisable to also check periodically on your cluster's detail status and logs to determine if your upgrade is indefinitely attempting to upgrade.
 
 We can identify when this is the case by looking at the Cluster's logs, detailed message, and detailed status message. If a timeout has occurred, we would observe that the Cluster is continuously reconciling over the same indefinitely and not moving forward. The Cluster's detailed status message would reflect, `"Cluster is in the process of being updated."`.
-From here, we recommend checking Cluster logs or configured LAW, to see if there's failure, or a specific upgrade that is causing the lack of progress.
+From here, we recommend checking Cluster logs or configured LAW, to see if there is a failure, or a specific upgrade that is causing the lack of progress.
 
 ### Hardware Failure doesn't require Upgrade re-execution
 
-If hardware failure during an upgrade has occurred, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the newer version of the runtime.
+If a hardware failure during an upgrade has occurred, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the targeted version of the runtime.
 
-If a hardware failure occurs, and the runtime upgrade has failed because thresholds weren't met for compute and control nodes, re-execution of the runtime upgrade may be needed depending on when the failure occurred and the state of the individual servers in a rack. If a rack was updated before a failure, then the upgraded OS would be used when the nodes are reprovisioned.
-If the rack's spec wasn't updated to the upgraded OS before the hardware failure, the machine would be provisioned with the previous OS version. To upgrade to the new runtime version, submit a new cluster upgrade request and only the nodes with the previous OS version will upgrade. Hosts that were successful in the previous upgrade action won't.
+If a hardware failure occurs, and the runtime upgrade has failed because thresholds weren't met for compute and control nodes, re-execution of the runtime upgrade may be needed depending on when the failure occurred and the state of the individual servers in a rack. If a rack was updated before a failure, then the upgraded runtime version would be used when the nodes are reprovisioned.
+If the rack's spec wasn't updated to the upgraded runtime version before the hardware failure, the machine would be provisioned with the previous runtime version. To upgrade to the new runtime version, submit a new cluster upgrade request and only the nodes with the previous runtime version will upgrade. Hosts that were successful in the previous upgrade action won't.
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli
