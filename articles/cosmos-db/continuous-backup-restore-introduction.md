@@ -136,8 +136,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 
-* The restore window is only 30-day for continuous 30-day tier and it can't be changed. Similarly it's only 7-day for continuous 7-day tier and that also can't be changed.
-
+* The restore window is only 30-day for continuous 30-day tier and it can't be changed. You have to change the continuous mode tier to 7-days. Similarly, restore window is only 7-day for continuous 7-day tier and that also can't be changed to anything else. You have to change the tier to 30-days to get 30 day window. 
 * The backups aren't automatically geo-disaster resistant. You've to explicitly add another region to have resiliency for the account and the backup.
 
 * While a restore is in progress, don't modify or delete the Identity and Access Management (IAM) policies. These policies grant the permissions for the account to change any VNET, firewall configuration.
@@ -162,5 +161,6 @@ Currently the point in time restore functionality has the following limitations:
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
+
 
 
