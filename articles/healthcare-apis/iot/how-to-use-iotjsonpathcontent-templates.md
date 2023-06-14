@@ -79,10 +79,10 @@ The IoT hub enriches and routes the device message to the event hub before the M
     "heartRate": "78"
   },
   "Properties": {
-    "iothub-creation-time-utc": "2021-02-01T22:46:01.8750000Z"
+    "iothub-creation-time-utc": "2023-03-13T22:46:01.875Z"
   },
   "SystemProperties": {
-    "iothub-connection-device-id": "device123"
+    "iothub-connection-device-id": "device01"
   }
 }    
 ```
@@ -126,12 +126,12 @@ We're using this device mapping for the normalization stage:
 {
   "Body": {
     "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.8750000",
+    "endDate": "2023-03-13T22:46:01.875",
     "deviceId": "device01"
   },
   "matchedToken": {
     "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.8750000",
+    "endDate": "2023-03-13T22:46:01.875",
     "deviceId": "device01"
   }
 }
@@ -142,8 +142,8 @@ The resulting normalized message will look like this after the normalization sta
 ```json
 {
   "type": "heartRate",
-  "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
-  "deviceId": "device123",
+  "occurrenceTimeUtc": "2023-03-13T22:46:01.875Z",
+  "deviceId": "device01",
   "properties": [
     {
       "name": "hr",
