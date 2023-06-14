@@ -76,7 +76,7 @@ To troubleshoot connectivity issues to the Azure Storage account:
 
 - Check for added network security groups (NSGs). If a subscription policy was added to automatically configure NSGs in all virtual networks, it would affect the virtual network used for creating lab VMs.
 
-- Verify NSG rules. Use [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) to determine whether an NSG rule is blocking traffic to or from a VM. You can also review effective security group rules to ensure that an inbound **Allow** NSG rule exists. For more information, see [Using effective security rules to troubleshoot VM traffic flow](../virtual-network/diagnose-network-traffic-filter-problem.md).
+- Verify NSG rules. Use [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) to determine whether an NSG rule is blocking traffic to or from a VM. You can also review effective security group rules to ensure that an inbound **Allow** NSG rule exists. For more information, see [Using effective security rules to troubleshoot VM traffic flow](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 - Check the lab's default storage account. The default storage account is the first storage account created when the lab was created. The name usually starts with the letter "a" and ends with a multi-digit number, such as a\<labname>#.
 
