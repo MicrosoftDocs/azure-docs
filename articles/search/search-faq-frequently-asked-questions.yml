@@ -9,7 +9,7 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: faq
-  ms.date: 05/05/2023
+  ms.date: 06/29/2023
 title: Cognitive Search Frequently Asked Questions
 summary:  Find answers to commonly asked questions about Azure Cognitive Search.
 
@@ -86,6 +86,64 @@ sections:
           Can I index from SQL Database replicas?
         answer: |
           If you're using the search indexer for Azure SQL Database, there are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there's no guarantee you get all of the data.
+
+  - name: Vectors
+    questions:
+      - question: |
+          What is vector search?
+        answer: |
+          Vector search is a technique used in information retrieval to find similar items in a dataset based on their vector representations.
+
+      - question: |
+          How does vector search work?
+        answer: |
+          Vector search works by accepting a query input represented as a vector. The search engine then calculates the similarity of vector fields in the search index, finding items that are similar to the given vector query. Because it's too expensive to compare the query vector to all vectors in the index, vector search uses Approximate Nearest Neighbor (ANN) algorithms to find the nearest match. This improves query speed, at the cost of recall.
+
+      - question: |
+          Does Azure Cognitive Search support vector search?
+        answer: |
+          Support for vector search is in public preview and available through the 2023-07-01-preview REST APIs. Support consists of search fields that contain embeddings that you provide.
+
+      - question: |
+          How does vector search work in Azure Cognitive Search?
+        answer: |
+          In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is "Collection(Edm.Single)", but other types of vector fields will be supported in the future, like Collection(Edm.Double) and Collection(Edm.Int32). Vector fields can be populated using an Indexer or by the Push API. 
+          
+          Vector queries can be issued standalone or in combination with other query types, including term queries and filters in the same search request.
+
+      - question: |
+          Can Cognitive Search vectorize my content or queries?
+        answer: |
+          Today Cognitive Search doesn't perform vectorization. It's up to the application layer to pick the best model for the data and generate embeddings for the content that it indexes and for the queries.
+
+      - question: |
+          Cognitive Search has features that are named "vector search" and "semantic search". How is vector search related to semantic search?
+        answer: |
+          The features aren't related, in the sense that you can use them independently.
+
+          * Vector search adds vectors as a new type of data and allows you to store and retrieve them efficiently. This opens a whole new set of scenarios that Cognitive Search can enable including multi-modal content retrieval, vector store for applications using Large Language Models (LLMs), recommendation systems, hybrid search scenarios, and more.
+
+          * Semantic search works on the results retrieved by the search engine. Cognitive Search uses deep neural network models from Bing to re-rank to results retrieved by the search engine, increasing the relevance of results that are a closer semantic match to the query. Additionally, Semantic search has features such as answers, captions, and highlights.
+
+          You can use vector search and semantic search together if the search request contains a text query - hybrid search. The search engine uses Reciprocal Rank Fusion to merge results from both vector and term queries before semantic search reranking is applied.
+
+      - question: |
+          Can I add vector search to an existing index?
+        answer: |
+          No. You must create a new index using the 2023-07-01-preview REST API. Your queries must also specify the preview REST API. 
+
+      - question: |
+          How do I enable vector search on a search index?
+        answer: |
+          To enable vector search in an index, you should:
+
+          * Add one or more fields of type Collection(Edm.Single), with a "dimensions" property and an "vectorSearchConfiguration" property.
+          
+          * Add vectorSearch section to the index definition specifying the configuration used by vector search fields, including the parameters of the Approximate Nearest Neighbor algorithm used, like HNSW.
+          
+          * Use the 2023-07-01-Preview API version to create or update the index.
+
+          * Use the 2023-07-01-Preview API to index documents with vector content using an Indexer or the Push API.
 
   - name: Queries
     questions:
