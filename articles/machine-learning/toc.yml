@@ -800,7 +800,7 @@
               href: how-to-use-secrets-in-runs.md
             # v1
             - name: Train with SDK v1
-              href: ./v1/how-to-attach-compute-targets.md
+              href: ./v1/how-to-train-model.md
             - name: Distributed GPU guide
               displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
               href: ./v1/how-to-train-distributed-gpu.md

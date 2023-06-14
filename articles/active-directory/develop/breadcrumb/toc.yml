@@ -12,3 +12,6 @@
     - name: Develop
       tocHref: /azure/developer/java/spring-framework/
       topicHref: /azure/active-directory/develop/index
+    - name: Develop
+      tocHref: /azure/active-directory/fundamentals/
+      topicHref: /azure/active-directory/develop/index

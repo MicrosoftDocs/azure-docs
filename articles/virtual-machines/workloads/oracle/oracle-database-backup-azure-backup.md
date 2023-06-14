@@ -16,7 +16,9 @@ ms.reviewer: dbakevlar
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-This article demonstrates the use of Azure Backup to take disk snapshots of the VM disks, which include the Oracle database files and the Oracle fast recovery area (FRA). Using Azure Backup you can take full disk snapshots suitable as backups, which are stored in [Recovery Services Vault](../../../backup/backup-azure-recovery-services-vault-overview.md).  Azure Backup also provides application-consistent backups, which ensure additional fixes aren't required to restore the data. Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.  Oracle database recovery is still necessary after restore, and this is facilitated using Oracle archived redo log files captured and stored in a separate Azure fileshare, as described below.
+This article demonstrates the use of Azure Backup to take disk snapshots of the VM disks, which include the Oracle database files and the Oracle fast recovery area (FRA). Using Azure Backup you can take full disk snapshots suitable as backups, which are stored in [Recovery Services Vault](../../../backup/backup-azure-recovery-services-vault-overview.md).  Azure Backup also provides application-consistent backups, which ensure additional fixes aren't required to restore the data. Application-consistent backups work with both file system and Oracle ASM based databases. 
+
+Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.  Oracle database recovery is still necessary after restore, and this is facilitated using Oracle archived redo log files captured and stored in a separate Azure fileshare, as described below.
 
 > [!div class="checklist"]
 >
@@ -63,7 +65,7 @@ To prepare the environment, complete these steps:
 
 The Oracle database's archived redo logfiles play a crucial role in database recovery as they store the committed transactions needed to roll forward from a database snapshot taken in the past. When in archivelog mode, the database archives the contents of online redo logfiles when they become full and switch. Together with a backup, they are required to achieve point-in-time recovery when the database has been lost.  
    
-Oracle provides the capability to archive redo logfiles to different locations, with industry best practice recommending that at least one of those destinations be on remote storage, so it is separate from the host storage and protected with independent snapshots. Azure Files is a great fit for those requirements.
+Oracle provides the capability to archive redo logfiles to different locations. The industry best practice is that at least one of those destinations should be on remote storage, so it's separate from the host storage and protected with independent snapshots. Azure Files is a great fit for those requirements.
 
 An Azure Files fileshare is storage which can be attached to a Linux or Windows VM as a regular filesystem component, using SMB or NFS protocols. 
    
@@ -124,7 +126,7 @@ Perform the following steps for each database on the VM:
 	- The size of the online redo logfiles. As an online logfile becomes full it is switched and archived. The larger the online logfile the longer it takes to fill up which decreases the frequency of archive generation.
 	- The setting of the ARCHIVE_LAG_TARGET parameter controls the maximum number of seconds permitted before the current online logfile must be switched and archived. 
 
-    To minimize the frequency of switching and archiving, along with the accompanying checkpoint operation, Oracle online redo logfiles generally get sized quite large (1024M, 4096M, 8192M, and so on). In a busy database environment logs are still likely to switch and archive every few seconds or minutes, but in a less active database they might go hours or days before the most recent transactions are archived, which would dramatically decrease archival frequency. Setting ARCHIVE_LAG_TARGET is therefore recommended to ensure a consistent RPO is achieved. A setting of 5 minutes (300 seconds) is a prudent value for ARCHIVE_LAG_TARGET, ensuring that any database recovery operation can recover to within 5 minutes or less of the time of failure.
+    To minimize the frequency of switching and archiving, along with the accompanying checkpoint operation, Oracle online redo logfiles generally get sized quite large (1024M, 4096M, 8192M, and so on). In a busy database environment, logs are still likely to switch and archive every few seconds or minutes. In a less active database, they might go hours or days before the most recent transactions are archived, which would dramatically decrease archival frequency. Setting ARCHIVE_LAG_TARGET is therefore recommended to ensure a consistent RPO is achieved. A setting of 5 minutes (300 seconds) is a prudent value for ARCHIVE_LAG_TARGET, ensuring that any database recovery operation can recover to within 5 minutes or less of the time of failure.
 
     To set ARCHIVE_LAG_TARGET:
 
@@ -132,7 +134,7 @@ Perform the following steps for each database on the VM:
     SQL> alter system set archive_lag_target=300 scope=both;
     ```
 
-    To better understand how to deploy highly available Oracle databases in Azure with zero RPO, please see [Reference Architectures for Oracle Database](./oracle-reference-architecture.md).
+    To better understand how to deploy highly available Oracle databases in Azure with zero RPO, see [Reference Architectures for Oracle Database](./oracle-reference-architecture.md).
 
 1.  Make sure the database is in archive log mode to enable online backups.
 
@@ -245,10 +247,10 @@ To use Azure Backup to back up the database, complete these steps:
    >   sudo groupadd <group name>
    >   ```
 
-1. Create a new backup user `azbackup` which belongs to the operating system group you have verified or created in the previous steps. Please substitute \<group name\> for the name of the group verified:
+1. Create a new backup user `azbackup` which belongs to the operating system group you have verified or created in the previous steps. Please substitute \<group name\> for the name of the group verified. The user is also added to the oinstall group to enable it to open ASM disks:
 
    ```bash
-   sudo useradd -g <group name> azbackup
+   sudo useradd -g <group name> -G oinstall azbackup 
    ```
 
 1. Set up external authentication for the new backup user. 
@@ -741,7 +743,7 @@ After the VM is restored, you should reassign the original IP address to the new
    
 1. Perform database recovery
    > [!IMPORTANT]
-   > Please note that it is important to specify the USING BACKUP CONTROLFILE syntax to inform the RECOVER AUTOMATIC DATABASE command that recovery should not stop at the Oracle system change number (SCN) recorded in the restored database control file. The restored database control file was a snapshot, along with the rest of the database, and the SCN stored within it is from the point-in-time of the snapshot. There may be transactions recorded after this point and we want to recover to the point-in-time of the last transaction committed to the database.
+   > It's important to specify the USING BACKUP CONTROLFILE syntax to inform the RECOVER AUTOMATIC DATABASE command that recovery should not stop at the Oracle system change number (SCN) recorded in the restored database control file. The restored database control file was a snapshot, along with the rest of the database, and the SCN stored within it is from the point-in-time of the snapshot. There may be transactions recorded after this point and we want to recover to the point-in-time of the last transaction committed to the database.
     
     ```bash
     SQL> recover automatic database using backup controlfile until cancel;
@@ -771,7 +773,7 @@ After the VM is restored, you should reassign the original IP address to the new
    > [!IMPORTANT]
    > Note that if the current online redo log has been lost or corrupted and cannot be used, you may cancel recovery at this point. 
 
-   To correct this you can identify which is the current online log that has not been archived, and supply the fully qualified filename to the prompt.
+   To correct this, you can identify which is the current online log that has not been archived, and supply the fully qualified filename to the prompt.
 
 
 1. Open the database
