@@ -54,7 +54,8 @@ With the new geo-replication feature, Contoso can now establish a replica in Can
 
 To create a replica, Navigate to the SignalR **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 
-![Screenshot of creating replica for Azure SignalR on Portal. ](./media/howto-enable-geo-replication/replica-overview.png  "Replica create")
+![Screenshot of creating replica for Azure SignalR on Portal. ](./media/howto-enable-geo-replication/signalr-replica-create.png  "Replica create")
+
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
 > * A replica is considered a separate resource when it comes to billing. See [Pricing](#pricing) for more details. 
