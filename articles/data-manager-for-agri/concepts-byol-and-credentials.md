@@ -79,14 +79,14 @@ Flow diagram showing creation and sharing of credentials.
 Flow showing how Azure Data Manager for Agriculture accesses secret.
 :::image type="content" source="./media/concepts-byol-and-credentials/access-to-keys.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
 
-## Error codes from and mitigation steps
-Control Plane APIs
+## Error codes and mitigation steps
+### Control Plane APIs
 * Error code: ConnectorConfigurationInvalid: This error appears when control plane API is invoked with invalid model or body. 
 * Error code: SecretAccessFailure: This error appears when control plane API is invoked without prerequisite steps like:
     * Enabling System managed identity for Data Manager for Agriculture.
     * Add access policy for Data Manager for Agriculture in key vault of secret.
 
-## Data Plane APIs
+### Data Plane APIs
 * Error code: ConnectorConfigurationMissing: This error appears when data plane API call is invoked with no credentials in the API call and connector credentials aren't provided via control plane API call. 
 * Error code: ConnectorConfigurationInvalid: This error appears when data plane API call is invoked with  invalid credentials model.
 * Error code: SecretAccessFailure: This error appears when Data Manager for Agriculture isn't able to access secret.
