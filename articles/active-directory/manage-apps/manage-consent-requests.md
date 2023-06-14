@@ -27,7 +27,7 @@ This article provides guidance on managing consent to applications and evaluatin
  - Consider enabling the [admin consent workflow](configure-admin-consent-workflow.md) to allow users to request administrator approval directly from the consent screen.
 
  - Ensure that all administrators understand the:
-   - [Permissions and consent framework](../develop/consent-framework.md)
+   - [Permissions and consent framework](../develop/permissions-consent-overview.md)
    - How the [consent consent experience and prompts](../develop/application-consent-experience.md) work.
    - How to [evaluate a request for tenant-wide admin consent](#evaluate-a-request-for-tenant-wide-admin-consent).
 
