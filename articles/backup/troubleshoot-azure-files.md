@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure file share backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
-ms.date: 02/10/2020
+ms.date: 06/14/2023
 ms.topic: troubleshooting
 author: jyothisuri
 ms.author: jsuri
@@ -270,6 +270,24 @@ Error Code: UserErrorAnotherRestoreInProgressOnSameTarget
 Error Message: Another restore job is in progress on the same target file share
 
 Use a different target file share. Alternatively, you can cancel or wait for the other restore to complete.
+
+### UserErrorSourceOrTargetAccountNotAccessible
+
+Error Code: UserErrorSourceOrTargetAccountNotAccessible
+
+Error Message: Source or Target storage account is not accessible from the Azure Files restore service.
+
+Recommended Actions: Ensure that the following configurations in the storage account are correctly set for performing a successful restore:
+
+- Ensure that the storage keys aren't rotated during the restore.
+- Check the network configuration on the storage account(s) and ensure that it allows the Microsoft first party services.
+
+
+
+- Ensure that the target storage account has the following configuration: *Permitted scope for copy operations* are set to *From storage accounts in the same Azure AD tenant*.
+
+
+
 
 ## Common modify policy errors
 
