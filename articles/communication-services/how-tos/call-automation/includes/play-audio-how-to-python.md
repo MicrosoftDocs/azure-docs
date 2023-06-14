@@ -20,7 +20,7 @@ ms.author: kpunjabi
 
 ## Create a new Python application
 
-### Setup a Python virtual environment for your project
+### Set up a Python virtual environment for your project
 ``` console
 python -m venv play-audio-app
 ```
@@ -40,9 +40,9 @@ source play-audio-quickstart /bin/activate
 ``` console
 pip install azure-communication-callautomation
 ```
-Create your application file in your project directory, for example, name it app.py. You will write your Python code in this file.  
+Create your application file in your project directory, for example, name it app.py. You write your Python code in this file.  
 
-Run your application using Python with the following command. This will execute the Python code you have written.  
+Run your application using Python with the following command to execute code. 
 
 ``` console
 python app.py
@@ -56,15 +56,15 @@ You can test creating your own audio file using our [Speech synthesis with Audio
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we answer an incoming call.
 
 ## Play audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
+Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has joined the call or play audio to all the participants in the call.
 
 ## Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. You need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ```python
 file_source = FileSource(url= "https://example.com/audio/test.wav")
@@ -72,7 +72,7 @@ file_source = FileSource(url= "https://example.com/audio/test.wav")
 
 ## Play audio - All participants
 
-In this scenario audio will be played to all participants on the call. 
+Play a pre-recorded audio file to all participants in the call.
 
 ``` python 
 call_connection.play_media_to_all(file_source)
@@ -80,7 +80,7 @@ call_connection.play_media_to_all(file_source)
 
 ## Play audio - Specific participant
 
-In this scenario audio is played to a specific participant.
+Play a pre-recorded audio file to a specific participant in the call.
 
 ``` python 
 call_connection.play_media(
@@ -103,7 +103,7 @@ call_connection.play_media(
 
 ## Enhance play with audio file caching
 
-If you are playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files is not suitable for dynamic prompts. If you change the URL provided to ACS, it will not update the cached URL straight away. The update will occur after the existing cache expires.
+If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it will not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` python
 call_connection.play_media(
@@ -117,7 +117,7 @@ call_connection.play_media(
 
 ## Handle play action event updates 
 
-Your application will receive action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. 
+Your application receives action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. 
 
 ### Example of how you can deserialize the *PlayCompleted* event:
 

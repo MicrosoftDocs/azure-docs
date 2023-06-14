@@ -29,7 +29,7 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 
 ## Set up the environment
 
-Download the sample code and navigate to the project directory and run the `npm` command which installs the necessary dependencies and setup your developer environment.
+Download the sample code and navigate to the project directory and run the `npm` command that installs the necessary dependencies and setup your developer environment.
 
 ```bash
 npm install
@@ -65,7 +65,7 @@ CALLBACK_URI="<VS_TUNNEL_URL>"
 
 ## Make an outbound call and play media
 
-To make the outbound call from ACS, you leverage the phone number you provided to the environment. Ensure that the phone number is in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+To make the outbound call from ACS, you use the phone number you provided to the environment. Ensure that the phone number is in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
 The code makes an outbound call using the target_phone_number you've provided and place an outbound call to that number: 
 
@@ -103,7 +103,7 @@ recordingId = response.recordingId;
 
 ## Respond to calling events
 
-Earlier in our application, we registered the `CALLBACK_URI` to the Call Automation Service. The URI indicates the endpoint the service will use to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. In the code we respond to the `CallConnected` event to get notified and initiate downstream operations.
+Earlier in our application, we registered the `CALLBACK_URI` to the Call Automation Service. The URI indicates the endpoint the service uses to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. We respond to the `CallConnected` event to get notified and initiate downstream operations.
 
 
 ```typescript
@@ -142,7 +142,7 @@ await callConnection.getCallMedia().startRecognizing(callee, 1, recognizeOptions
 
 ## Recognize DTMF Events
 
-When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the webhook we have set up and notify us with the `Microsoft.Communication.RecognizeCompleted` event. This gives us the ability to respond to a specific DTMF tone and trigger an action. 
+When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the webhook we have set up and notify us with the `Microsoft.Communication.RecognizeCompleted` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
 
 ```typescript
 else if (event.type === "Microsoft.Communication.RecognizeCompleted") {
