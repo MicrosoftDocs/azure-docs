@@ -20,7 +20,7 @@ This article describes reliability support in Azure Data Manager for Energy, and
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability if a local zone failure.  When one zone experiences a failure, the remaining two zones support all regional services, capacity, and high availability. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](availability-zones-overview.md).
+Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability if a local zone failure.  When one zone experiences a failure, the remaining two zones support all regional services, capacity, and high availability. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](../reliability/availability-zones-overview.md).
 
 Azure Data Manager for Energy Preview supports zone-redundant instance by default and there's no setup required.
 
@@ -55,7 +55,7 @@ Azure Data Manager for Energy Preview service continuously monitors service heal
 
 You must handle the failover of your business apps connecting to Azure Data Manager for Energy Preview resource and hosted in the same primary region. Additionally, you're responsible for recovering any diagnostic logs stored in your Log Analytics Workspace. 
 
-If you [set up private links](../energy-data-services/how-to-set-up-private-links.md) to your Azure Data Manager for Energy Preview resource in the primary region, then you must create a secondary private endpoint to the same resource in the [paired region](cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).  
+If you [set up private links](how-to-set-up-private-links.md) to your Azure Data Manager for Energy Preview resource in the primary region, then you must create a secondary private endpoint to the same resource in the [paired region](../reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).  
     
 > [!CAUTION]
 > If you don't enable public access networks or created a secondary private endpoint before an outage, you'll lose access to the Azure Data Manager for Energy Preview resource.
@@ -67,4 +67,4 @@ If you [set up private links](../energy-data-services/how-to-set-up-private-link
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Reliability in Azure](availability-zones-overview.md)
+> [Reliability in Azure](../reliability/availability-zones-overview.md)
