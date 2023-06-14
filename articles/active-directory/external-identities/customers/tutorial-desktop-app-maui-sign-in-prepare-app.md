@@ -33,7 +33,7 @@ In this tutorial:
 
 ## Create .NET MAUI shell app
 
-1. Launch Visual Studio 2022. In the start window, select **Create a new project**.
+1. In the start window of Visual Studio 2022, select **Create a new project**.
 1. In the **Create a new project** window, select **MAUI** in the All project types drop-down, select the **.NET MAUI App** template, and select **Next**.
 1. In the **Configure your new project** window, **Project name** must be set to _SignInMaui_, choose a suitable location for it, **Solution name** must be set to _sign-in-maui_ and select **Next**.
 1. In the **Additional information** window, choose the version of .NET 7.0 and select **Create**.
