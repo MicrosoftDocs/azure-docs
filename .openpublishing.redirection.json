@@ -17569,6 +17569,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-vnet-vnet-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-how-to-radius-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-download-vpndevicescript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/create-routebased-vpn-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/powershell-samples.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpngateways",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security/fundamentals/ddos-best-practices.md",
             "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
             "redirect_document_id": false
