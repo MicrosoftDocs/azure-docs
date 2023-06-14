@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Notion](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Notion to support provisioning with Azure AD
-1. Login to your Notion Workspace, open the **Settings and Members → Identity & Provisioning** tab and scroll down to the **SCIM provisioning** section.
+1. Log in to your Notion Workspace, open the **Settings and Members → Identity & Provisioning** tab and scroll down to the **SCIM provisioning** section.
 1. If a token hasn’t already been generated, click **+ Add token** and copy the token. You’ll enter this token as your Secret Token in step 5.5.
 1. Notion’s SCIM tenant URL is `https://www.notion.so/scim/v2`, which you’ll use in step 5.5.
 
