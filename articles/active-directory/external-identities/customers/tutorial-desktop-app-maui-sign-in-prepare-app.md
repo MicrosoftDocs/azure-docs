@@ -13,9 +13,9 @@ ms.date: 06/05/2023
 
 # Tutorial: Create a .NET MAUI shell app
 
-This tutorial demonstrates how to create a .NET Multi-platform App UI (.NET MAUI) shell app, add a custom Microsoft Authentication Library (MSAL) client helper to initialize MSAL SDK, install required libraries and include an image resource.
+This tutorial demonstrates how to create a .NET Multi-platform App UI (.NET MAUI) shell app. You'll also add a custom Microsoft Authentication Library (MSAL) client helper to initialize the MSAL SDK, install required libraries and include an image resource.
 
-In this tutorial, you learn how to:
+In this tutorial:
 
 > [!div class="checklist"]
 >
@@ -33,10 +33,10 @@ In this tutorial, you learn how to:
 
 ## Create .NET MAUI shell app
 
-1. Launch Visual Studio 2022. In the start window, select **Create a new project**.
+1. In the start window of Visual Studio 2022, select **Create a new project**.
 1. In the **Create a new project** window, select **MAUI** in the All project types drop-down, select the **.NET MAUI App** template, and select **Next**.
-1. In the **Configure your new project** window, **Project name** must be set to _SignInMaui_, choose a suitable location for it, **Solution name** must be set to _sign-in-maui_ and select **Next**.
-1. In the **Additional information** window, choose the version of .NET 7.0 and select **Create**.
+1. In the **Configure your new project** window, **Project name** must be set to _SignInMaui_. Update the **Solution name**  to _sign-in-maui_ and select **Next**.
+1. In the **Additional information** window, choose .NET 7.0 and select **Create**.
 
 Wait for the project to be created and its dependencies to be restored.
 
@@ -64,7 +64,7 @@ Download the following files:
 1. In the **Solution Explorer** pane, right-click on the **SignInMaui** project and select **Add** > **New Folder**. Name the folder _MSALClient_.
 1. Right-click on **MSALClient** folder, select **Add** > **Existing Item...**.
 1. Navigate to the folder that contains the downloaded MSALClient files.
-1. Hold down _CTRL_ and select on each of the MSALClient files you downloaded, then select **Add**
+1. Select all of the MSALClient files you downloaded, then select **Add**
 
 ## Install required packages
 

@@ -15,7 +15,7 @@ ms.date: 06/05/2023
 
 This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) shell and run the app on the Windows platform.
 
-In this tutorial, you learn how to:
+In this tutorial:
 
 > [!div class="checklist"]
 >
@@ -95,7 +95,7 @@ The next steps will organize our code so that the `main view` is defined.
     </ContentPage>
    ```
 
-1. Save the file by pressing _CTRL+S_.
+1. Save the file.
 
    Let's break down the key parts of the XAML controls placed on the page:
 
@@ -158,7 +158,7 @@ The next step is to add the code for the button's `Clicked` event.
 
 ### Add claims view page
 
-The next steps will organize our code so that the `claims view` is defined.
+The next steps will organize the code so that `claims view` is defined.
 
 1. In the **Solution Explorer** pane of Visual Studio, right-click on the **Views**.
 1. Select **Add** > **New Item...**.
@@ -325,7 +325,9 @@ The `AppShell` class defines an app's visual hierarchy, the XAML markup used in 
 
 ## Add platform-specific code
 
-A .NET MAUI app project contains a Platforms folder, with each child folder representing a platform that .NET MAUI can target. To provide application-specific behavior to supplement the default application class, you modify `Platforms/Windows/App.xaml.cs`. Replace the content of the file with following code:
+A .NET MAUI app project contains a Platforms folder, with each child folder representing a platform that .NET MAUI can target. To provide application-specific behavior to supplement the default application class, you modify `Platforms/Windows/App.xaml.cs`.
+
+Replace the content of the file with following code:
 
 ```csharp
 using SignInMaui.MSALClient;
