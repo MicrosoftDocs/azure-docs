@@ -63,6 +63,19 @@ Use the following steps to assign the required permissions:
 
 2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Azure Active Directory App.
 
+## Grant required permissions to the vault
+
+You will also need to grant the managed identity permissions to the cache storage accounts. You can create the storage account in advance and use the same for enabling replication. 
+
+Ensure that the following role permissions are present depending on the type of storage account:
+
+- Resource Manager based storage accounts (Standard Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Resource Manager based storage accounts (Premium Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+
 ## Prepare an account for automatic discovery
 
 Site Recovery needs access to VMware servers to:
