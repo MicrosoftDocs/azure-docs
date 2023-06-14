@@ -31,7 +31,7 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 - Avoid overlapping app segments between Quick Access and per-app access.
 - Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
 
-## How it works
+## How it works <!---Remove how it works and setup overview and put in own article at some point--->
 
 Quick Access for Microsoft Entra Private Access unlocks the ability to specify the FQDNs and IP addresses that you consider private or internal, so you can manage how your organization accesses them.
 
@@ -43,15 +43,14 @@ Quick Access can be a quick and easy way to replace your VPN to allow secure acc
 
 Configuring your Quick Access settings is a major component to utilizing Microsoft Entra Private Access. When you configure Quick Access for the first time, Microsoft Entra Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Microsoft Entra Private Access. 
 
-To configure Quick Access, you also need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
-
-Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick Access app are automatically configured. One of those properties requires that you assign users and groups through Enterprise Applications. For more information, see [Properties of an enterprise application](../active-directory/manage-apps/application-properties.md).
+To configure Quick Access, you also need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector. Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick Access app are automatically configured.
 
 To summarize, the overall process is as follows:
 
 1. Create a connector group with at least one active App Proxy connector, if you don't already have one.
 1. Configure Quick Access, which creates a new enterprise app.
 1. Assign users and groups to the app.
+1. Configure Conditional Access policies.
 1. Enable the Private access traffic forwarding profile.
 
 Let's look at each of these steps in more detail.
@@ -129,6 +128,30 @@ You can add or update the sites and apps included in your Quick Access app at an
 1. Go to **Global Secure Access** > **Applications** > **Quick Access**.
     - To add an FQDN or IP address, select **Add quick access range**.
     - To edit an FQDN or IP address, select it from the **Destination type** column.
+
+## Linked Conditional Access policies
+
+Conditional Access policies can be applied to your Quick Access and Global Secure Access applications. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
+
+Conditional Access policies are created and applied to the Quick Access application in the **Protection** area of Microsoft Entra ID. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
+
+The following example creates a Conditional Access policy requiring multifactor authentication for your quick access applications.
+
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
+1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users or workload identities**.
+   1. Under **Include**, select **All users**.
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+1. Under **Target resources** > **Include**, and select **Select apps**.
+   1. Choose your configured quick access application.
+1. Under **Access controls** > **Grant**
+   1. Select **Grant access**, **Require multifactor authentication**, and select **Select**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
+1. Select **Create** to create to enable your policy.
+
+After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Enable Microsoft Entra Private Access
 
