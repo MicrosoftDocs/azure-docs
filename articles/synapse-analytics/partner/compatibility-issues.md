@@ -1,14 +1,13 @@
 ---
-title: Compatibility issues with third-party applications and Azure Synapse Analytics 
+title: Compatibility issues with third-party applications and Azure Synapse Analytics
 description: Describes known issues that third-party applications may find with Azure Synapse
-services: synapse-analytics 
 author: gillharmeet
-ms.service: synapse-analytics 
-ms.topic: troubleshooting
-ms.subservice: sql
-ms.date: 11/18/2020 
-ms.author: harmeetgill 
+ms.author: harmeetgill
 ms.reviewer: sngun
+ms.date: 06/14/2023
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: troubleshooting
 ---
 
 # Compatibility issues with third-party applications and Azure Synapse Analytics
@@ -17,7 +16,7 @@ Applications built for SQL Server will seamlessly work with Azure Synapse dedica
 
 This article lists known issues you may come across when using third-party applications with Azure Synapse Analytics. 
 
-## Tableau error: “An attempt to complete a transaction has failed. No corresponding transaction found”
+## Tableau error: "An attempt to complete a transaction has failed. No corresponding transaction found"
 
 Starting from Azure Synapse dedicated SQL pool version 10.0.11038.0, some Tableau queries making stored procedure calls may fail with the following error message: "**[Microsoft][ODBC Driver 17 for SQL Server][SQL Server]111214; An attempt to complete a transaction has failed. No corresponding transaction found.**"
 
@@ -32,23 +31,24 @@ Customers seeing this particular issue when using Tableau connected to Azure Syn
 > Microsoft does not provide support for third-party tools. While we have tested that this solution works with Tableau Desktop 2020.3.2, you should use this workaround on your own capacity.
 >
 
-* [To learn how to make global customizations with a TDC file on Tableau Desktop, refer to Tableau Desktop documentation.](https://help.tableau.com/current/pro/desktop/en-us/odbc_customize.htm)
-* [To learn how to make global customizations with a TDC file on Tableau Server, refer to Using a .TDC File with Tableau Server.](https://kb.tableau.com/articles/howto/using-a-tdc-file-with-tableau-server)
+- [To learn how to make global customizations with a TDC file on Tableau Desktop, refer to Tableau Desktop documentation.](https://help.tableau.com/current/pro/desktop/en-us/odbc_customize.htm)
+- [To learn how to make global customizations with a TDC file on Tableau Server, refer to Using a .TDC File with Tableau Server.](https://kb.tableau.com/articles/howto/using-a-tdc-file-with-tableau-server)
 
 The example below shows a Tableau TDC file that passes the FMTONLY=YES parameter to the SQL connection string:
 
 ```json
 <connection-customization class='azure_sql_dw' enabled='true' version='18.1'>
-	<vendor name='azure_sql_dw' />
-	<driver name='azure_sql_dw' />
-	<customizations>		
+    <vendor name='azure_sql_dw' />
+    <driver name='azure_sql_dw' />
+    <customizations>        
         <customization name='odbc-connect-string-extras' value='UseFMTONLY=yes' />
-	</customizations>
+    </customizations>
 </connection-customization>
 ```
+
 For more details about using TDC files, contact Tableau support. 
 
-## See also
+## Next steps
 
-* [T-SQL language elements for dedicated SQL pool in Azure Synapse Analytics.](../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md)
-* [T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics.](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md)
+- [T-SQL language elements for dedicated SQL pool in Azure Synapse Analytics.](../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md)
+- [T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics.](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md)
