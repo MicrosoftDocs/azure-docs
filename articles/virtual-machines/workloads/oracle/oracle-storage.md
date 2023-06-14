@@ -42,11 +42,7 @@ The [Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/pe
 The [Lightbits](https://www.lightbitslabs.com/azure/) Cloud Data Platform provides scalable and cost-efficient high-performance storage that is easy to consume on Azure. It removes the bottlenecks associated with native storage on the public cloud, such as scalable performance and consistently low latency. Removing these bottlenecks offers rich data services and resiliency that enterprises have come to rely on. It can deliver Up to 160 K IOPS/volume and up to 120 K IOPs per VM using top tier storage. Lightbits cluster can scale vertically and horizontally. Lightbits support different sizes of Lsv3 VMs for their clusters. For throughput options, see [L32sv3:](https://learn.microsoft.com/azure/virtual-machines/lsv3-series) 7.68 TB, L48sv3: 11.52 TB, L64sv3: 15.36 TB, L80sv3: 19.20 TB. 
 
 ## Next steps
-
 - [Deploy premium SSD to Azure Virtual Machine](https://learn.microsoft.com/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli)
-
 - [Deploy an Elastic SAN](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)
-
 - [Setup Azure NetApp Files & create NFS Volume](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal)
-
 - [Create Lightbits solution on Azure VM](https://www.lightbitslabs.com/resources/lightbits-on-azure-solution-brief/)
