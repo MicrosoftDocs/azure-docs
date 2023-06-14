@@ -65,7 +65,7 @@ The following table lists partners who are Microsoft-compatible FIDO2 security k
 | [Thetis](https://thetis.io/collections/fido2) | ![y] | ![y]| ![y]| ![y]| ![n] |
 | [Token2 Switzerland](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) | ![y] | ![y]| ![y]| ![n]| ![n] |
 | [Token Ring](https://www.tokenring.com/) | ![y] | ![n]| ![y]| ![n]| ![n] |
-| [TrustKey Solutions](https://www.trustkeysolutions.com/security-keys/) | ![y] | ![y]| ![n]| ![n]| ![n] |
+| [TrustKey Solutions](https://www.trustkeysolutions.com/) | ![y] | ![y]| ![n]| ![n]| ![n] |
 | [VinCSS](https://passwordless.vincss.net) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [WiSECURE Technologies](https://wisecure-tech.com/en-us/zero-trust/fido/authtron) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [Yubico](https://www.yubico.com/solutions/passwordless/) | ![y] | ![y]| ![y]| ![n]| ![y] |
