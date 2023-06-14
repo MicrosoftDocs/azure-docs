@@ -47,7 +47,7 @@ If the above points are met, continue with the following steps:
 
     **Option 1 (Recommended): Automatically manage** – this option allows subscriptions to be automatically detected and monitored without additional configuration.
 
-    **Option 2**: **Enter authorization systems** - you have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector).
+    **Option 2**: **Enter authorization systems** - you have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 100 per collector).
 
     **Option 3**: **Select authorization systems** - this option detects all subscriptions that are accessible by the Cloud Infrastructure Entitlement Management application.
 
