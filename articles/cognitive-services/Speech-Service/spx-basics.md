@@ -82,8 +82,8 @@ spx --% config @region --clear
 
 ## Basic usage
 
-> [!NOTE]
-> When you use the Speech CLI in a container, include the `--host` option. For example, run `spx recognize --host wss://localhost:5000/ --file myaudio.wav` to recognize speech from an audio file in a [speech to text container](speech-container-stt.md).
+> [!IMPORTANT]
+> When you use the Speech CLI in a container, include the `--host` option. You must also specify `--key none` to ensure that the CLI doesn't try to use a Speech key for authentication. For example, run `spx recognize --key none --host wss://localhost:5000/ --file myaudio.wav` to recognize speech from an audio file in a [speech to text container](speech-container-stt.md).
 
 This section shows a few basic SPX commands that are often useful for first-time testing and experimentation. Start by viewing the help that's built into the tool by running the following command:
 
