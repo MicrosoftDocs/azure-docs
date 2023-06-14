@@ -32,8 +32,8 @@ The following table lists the Apache JMeter features and their support in Azure 
 | Scripting | - BeanShell<br/>- JSR223 script | |
 | Configuration elements | All configuration elements are supported.  | Example: [Read data from a CSV file](./how-to-read-csv-data.md) |
 | JMeter properties | Azure Load Testing supports uploading a single user properties file per load test to override JMeter configuration settings or add custom properties. | [Configure JMeter user properties](./how-to-configure-user-properties.md) |
-| Plugins | Azure Load Testing lets you use plugins from https://jmeter-plugins.org, or upload a Java archive (JAR) file with your own plugin code.<br/>The [Web Driver sampler](https://jmeter-plugins.org/wiki/WebDriverSampler/) and any plugins that use backend listeners are not supported. | [Customize a load test with plugins](./how-to-use-jmeter-plugins.md) |
-| Listeners | Azure Load Testing ignores all listeners.<br/>[Backend listeners](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener) are not supported. | |
+| Plugins | Azure Load Testing lets you use plugins from https://jmeter-plugins.org, or upload a Java archive (JAR) file with your own plugin code.<br/>The [Web Driver sampler](https://jmeter-plugins.org/wiki/WebDriverSampler/) and any plugins that use backend listeners aren't supported. | [Customize a load test with plugins](./how-to-use-jmeter-plugins.md) |
+| Listeners | Azure Load Testing ignores all listeners.<br/>[Backend listeners](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener) aren't supported. | |
 | Dashboard report | The Azure Load Testing dashboard shows the client metrics, and optionally the server-side metrics. <br/>You can export the load test results to use them in a reporting tool or [generate the JMeter dashboard](https://jmeter.apache.org/usermanual/generating-dashboard.html#report) on your local machine.| [Export test results](./how-to-export-test-results.md) | 
 | Test fragments| Not supported. | |
 
