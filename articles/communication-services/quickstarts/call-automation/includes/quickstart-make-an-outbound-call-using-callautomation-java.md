@@ -21,15 +21,15 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
-- Create and host an Azure Dev Tunnel. Instructions [here](https://learn.microsoft.com/azure/developer/dev-tunnels/get-started)
-- [Java Development Kit (JDK) version 11 or above](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+- A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
+- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
+- [Java Development Kit (JDK) version 11 or above](/azure/developer/java/fundamentals/java-jdk-install)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 
 ## Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the DevTunnel commands to connect your local development environment to the public internet. DevTunnels then creates a tunnel with a persistent endpoint URL and which allows anonymous access. ACS uses this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the DevTunnel commands to connect your local development environment to the public internet. DevTunnels then creates a tunnel with a persistent endpoint URL and which allows anonymous access. ACS uses this endpoint to notify your application of calling events from the ACS Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -41,7 +41,7 @@ devtunnel host
 
 Then open the `application.yml` file in the `/resources` folder to configure the following values:
 
-- `connectionstring`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp#access-your-connection-strings-and-service-endpoints). 
+- `connectionstring`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](../../create-communication-resource.md). 
 - `basecallbackuri`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `callerphonenumber`: update this field with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetphonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
@@ -69,7 +69,7 @@ Response<CreateCallResult> result = client.createCallWithResponse(createCallOpti
 
 ## Start Recording a Call
 
-The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording).
+The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](../../voice-video-calling/get-started-call-recording.md).
 
 
 ```java
