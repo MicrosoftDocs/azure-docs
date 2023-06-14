@@ -19,6 +19,8 @@ This logic works well when you route traffic directly to the Internet. However, 
 - If you've enabled [forced tunneling](forced-tunneling.md), Internet-bound traffic is SNATed to one of the firewall private IP addresses in AzureFirewallSubnet, hiding the source from your on-premises firewall.
 - If your organization uses registered IP address ranges outside of IANA RFC 1918 or IANA RFC 6598 for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. However, you can configure Azure Firewall to **not** SNAT your public IP address range. For example, to specify an individual IP address you can specify it like this: `192.168.1.10`. To specify a range of IP addresses, you can specify it like this: `192.168.1.0/24`.
 
+Azure Firewall SNAT behavior can be changed in the following ways:
+
 - To configure Azure Firewall to **never** SNAT traffic processed by network rules regardless of the destination IP address, use **0.0.0.0/0** as your private IP address range. With this configuration, Azure Firewall can never route traffic directly to the Internet. 
 
 - To configure the firewall to **always** SNAT processed by network rules regardless of the destination address, use **255.255.255.255/32** as your private IP address range.
@@ -168,7 +170,7 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 1.	Select your resource group, and then select your firewall policy.
 2.	Select **Private IP ranges (SNAT)** in the **Settings** column.
 3. Select the conditions to perform SNAT for your environment under **Perform SNAT** to customize the SNAT configuration.
-      :::image type="content" source="media/snat-private-range/private-ip-ranges-snat.png" alt-text="Screenshot of Private IP ranges (SNAT)." lightbox="media/snat-private-range/private-ip-ranges-snat.png":::
+      :::image type="content" source="media/snat-private-range/firewall-default-snat-behavior.png" alt-text="Screenshot of Private IP ranges (SNAT)." lightbox="media/snat-private-range/firewall-default-snat-behavior.png":::
 
 
 4.	 Select **Apply**.
@@ -177,7 +179,7 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 
 You can configure Azure Firewall to auto-learn registered and private ranges every hour and use the learned routes for SNAT. You must have Azure Route Server deployed in the same VNet as Azure Firewall for this feature. You can currently use JSON, Azure PowerShell, or the Azure portal to configure auto-learn SNAT routes.
 
-### JSON
+### Configure using JSON
 
 You can use the following JSON to configure auto-learn. Azure Firewall must be associated with an Azure Route Server.
 
@@ -215,7 +217,7 @@ Use the following JSON to associate an Azure Route Server:
         
 ``` 
 
-### Azure PowerShell
+### Configure using Azure PowerShell
 
 - Create a new firewall with a RouteServerId.
 
@@ -278,7 +280,7 @@ Use the following JSON to associate an Azure Route Server:
    ```azurepowershell
 	Get-AzFirewallLearnedIpPrefix -Name $azureFirewallName -ResourceGroupName $rgname 
    ```
-### Azure portal
+### Configure using the Azure portal
 
 You can use the portal to associate a Route Server with Azure Firewall to configure auto-learn SNAT routes (preview).
 
