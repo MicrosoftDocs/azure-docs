@@ -1,5 +1,5 @@
 ---
-title: Peering Services customer walkthrough
+title: Peering Service customer walkthrough
 description: Peering Services customer walkthrough.
 services: internet-peering
 author: jsaraco
@@ -10,7 +10,7 @@ ms.author: jsaraco
 ms.custom: template-how-to
 ---
 
-# Peering Services customer walkthrough
+# Peering Service customer walkthrough
 
 This section explains the steps to optimize your prefixes with an Internet Service Provider (ISP) or Internet Exchange Provider (IXP) who is a Peering Service partner.
 

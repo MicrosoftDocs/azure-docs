@@ -102,6 +102,8 @@ If the same prefix is announced in multiple peering locations, it is sufficient 
 
    :::image type="content" source="media/prefix-after-registration.png" alt-text="Screenshot of registered prefixes blade showing a new prefix added." :::
 
+Confirm that your registered prefix passes validation before activating the prefix. 
+
 **Prefix Activation**
 
 In the previous steps, you registered the prefix and generated the prefix key. The prefix registration DOES NOT activate the prefix for optimized routing (and will not even accept <\/24 prefixes) and it requires prefix activation and alignment to the right partner (In this case the OC partner) and the appropriate interconnect location (to ensure cold potato routing).

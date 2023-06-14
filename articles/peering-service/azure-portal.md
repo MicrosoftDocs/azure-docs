@@ -91,6 +91,8 @@ If the validation fails, one of the following error messages is displayed:
    - Prefix received with longer AS path(>3), contact Peering Service provider.
    - Prefix received with private AS in the path, contact Peering Service provider.
 
+1. Review the [Technical Requirements for Peering Service prefixes](../internet-peering/peering-registered-prefix-requirements.md) 
+
 ## Add or remove a prefix
 
 1. In the search box at the top of the portal, enter *Peering Service*. Select **Peering Services** in the search results.
