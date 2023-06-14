@@ -67,7 +67,7 @@ As we support polyglot applications in enterprise tier, please refer the table f
 |Tomcat| [Tomcat Versions](https://tomcat.apache.org/whichversion.html)
 
 ### Stack Image Support
-Please refer to The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu) for stack image support
+Please refer to [The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu) for stack image support
 
 ### Default version
 There default LTS version of SDK will be possible changes during Build Package upgrade, if you are running a product workload, please assign the SDK LTS version during deployment. Check [How to deploy polyglot application](https://learn.microsoft.com/azure/spring-apps/how-to-enterprise-deploy-polyglot-apps) to assign SDK LTS version
