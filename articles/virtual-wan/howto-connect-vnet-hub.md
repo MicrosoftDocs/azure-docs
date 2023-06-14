@@ -11,12 +11,12 @@ ms.author: cherylmc
 ---
 # Connect a virtual network to a Virtual WAN hub - portal
 
-This article helps you connect your virtual network to your virtual hub using the Azure portal. You can also use [PowerShell](howto-connect-vnet-hub-powershell.md) to complete this task. Repeat these steps for each VNet that you want to connect.
+This article helps you connect your virtual network to your virtual hub using the Azure portal. You can also use [PowerShell](howto-connect-vnet-hub-powershell.md) to complete this task. Repeat these steps for each VNet that you want to connect. 
 
-> [!NOTE]
->
-> * A virtual network can only be connected to one virtual hub at a time.
-> * In order to connect it to a virtual hub, the remote virtual network can't have a gateway.
+Before you create a connection, be aware of the following:
+
+* A virtual network can only be connected to one virtual hub at a time.
+* In order to connect it to a virtual hub, the remote virtual network can't have a gateway.
 
 > [!IMPORTANT]
 > If VPN gateways are present in the virtual hub, this operation as well as any other write operation on the connected VNet can cause disconnection to Point-to-site clients as well as reconnection of site-to-site tunnels and BGP sessions.
