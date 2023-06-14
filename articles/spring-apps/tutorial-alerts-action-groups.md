@@ -25,7 +25,7 @@ Azure Spring Apps alerts support monitoring resources based on conditions such a
 There are two steps to set up an alert pipeline:
 
 1. Set up an Action Group with the actions to be taken when an alert is triggered, such as email, SMS, Runbook, or Webhook. Action Groups can be reused among different alerts.
-2. Set up Alert rules. The rules bind metric patterns with the action groups based on target resource, metric, condition, time aggregation, etc.
+1. Set up Alert rules. The rules bind metric patterns with the action groups based on target resource, metric, condition, time aggregation, etc.
 
 ## Prerequisites
 
@@ -45,13 +45,9 @@ In the Azure portal, do the following steps:
 
    :::image type="content" source="media/alerts-action-groups/alerts-action-groups.png" alt-text="Screenshot of the Azure portal showing the Action groups page with the Create button highlighted." lightbox="media/alerts-action-groups/alerts-action-groups.png":::
 
-1. On the **Create action group** page, select the **Basics** tab.
+1. On the **Create action group** page and on the **Basics** tab, make any needed changes to **Project details**. In **Instance details**, specify the **Action group name** and **Display name**.
 
    :::image type="content" source="media/alerts-action-groups/alerts-create-action-group.png" alt-text="Screenshot of the Azure portal showing the Create action group page with the Basics tab selected." lightbox="media/alerts-action-groups/alerts-create-action-group.png":::
-
-1. In **Project details**, specify your **Subscription**, **Resource group**, and **Region**.
-
-1. In **Instance details**, specify the **Action group name** and **Display name**.
 
 1. Select the **Notifications** tab.
 
@@ -83,9 +79,6 @@ The previous steps created an **Action group** that uses email. You could also u
 
    :::image type="content" source="media/alerts-action-groups/rule-value.png" alt-text="Screenshot of the Azure portal showing the Create an Alert rule page with the alert logic setting for Threshold value highlighted." lightbox="media/alerts-action-groups/rule-value.png":::
 
-   > [!TIP]
-   > Select the **Scope** tab to change the resource for the scope of the rule. By default the scope is current Azure Spring Apps instance.
-
    For details of the conditions available to monitor, see the [User portal metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 1. Select the **Actions** tab and then select **Select action group**.
@@ -98,6 +91,9 @@ The previous steps created an **Action group** that uses email. You could also u
    :::image type="content" source="media/alerts-action-groups/create-rule-details.png" alt-text="Screenshot of the Azure portal showing the Create rule page with Severity in Alert Details highlighted." lightbox="media/alerts-action-groups/create-rule-details.png":::
 
 1. Set the **Severity** and make any other needed changes.
+
+   > [!TIP]
+   > Select the **Scope** tab to change the resource for the scope of the rule. By default the scope is current Azure Spring Apps instance.
 
 1. Select **Review + create** to finish creating the alert rule.
 
