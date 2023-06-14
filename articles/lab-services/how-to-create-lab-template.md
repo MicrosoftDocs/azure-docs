@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to create an Azure Lab Services lab by using Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 ms.topic: how-to
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template
 ms.date: 05/10/2022
 ---
 

@@ -152,6 +152,8 @@
     - name: Extra deployment steps and samples
       href: extra-deploy-enterprise-iot.md
       displayName: Enterprise IoT sensor
+    - name: Enterprise IoT networks FAQ
+      href: faqs-eiot.md
 - name: Tutorials
   expanded: false
   items:
@@ -347,6 +349,14 @@
           href: how-to-manage-the-on-premises-management-console.md
         - name: Troubleshoot on-premises management consoles
           href: how-to-troubleshoot-on-premises-management-console.md
+    - name: Maintain IoT on-premises resources
+      items:
+      - name: Discover Enterprise IoT devices
+        href: eiot-sensor.md
+        displayName: Enterprise IoT sensor
+      - name: Extra deployment steps and samples
+        href: extra-deploy-enterprise-iot.md
+        displayName: Enterprise IoT sensor
 - name: Reference
   items:
   - name: Supported protocols
@@ -452,13 +462,7 @@
 - name: Resources
   items:
   - name: Frequently asked questions
-    items:
-    - name: General FAQ
-      href: faqs-general.md
-    - name: OT networks FAQ
-      href: faqs-ot.md
-    - name: Enterprise IoT networks FAQ
-      href: faqs-eiot.md
+    href: faqs-general.md
   - name: Architecture icons
     href: /azure/architecture/icons/
   - name: Compliance resources

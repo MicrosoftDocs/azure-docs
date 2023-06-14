@@ -19,17 +19,17 @@ Use this article to get started with creating a custom Summarization project whe
 
 In this article, we use Language Studio to demonstrate key concepts of custom summarization. As an example we’ll build a custom summarization model to extract the Facility or treatment location from short discharge notes.
 
-::: zone pivot="language-studio"
+<!--- >::: zone pivot="language-studio" --->
 
 [!INCLUDE [Language Studio quickstart](../includes/quickstarts/custom-language-studio.md)]
 
-::: zone-end
+<!---::: zone-end
 
 ::: zone pivot="rest-api"
 
-<!--- [!INCLUDE [REST API quickstart](../includes/quickstarts/custom-rest-api.md)] --->
+[!INCLUDE [REST API quickstart](../includes/quickstarts/custom-rest-api.md)] 
 
-::: zone-end
+::: zone-end --->
 
 ## Next steps
 

@@ -1,6 +1,16 @@
 {
 	"redirections": [
         {
+            "source_path_from_root": "/articles/cognitive-services/language-service/custom-named-entity-recognition/tutorials/cognitive-search.md",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-classification/tutorials/cognitive-search.md",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/conversational-language-understanding/fail-over.md",
             "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/fail-over",
             "redirect_document_id": true
