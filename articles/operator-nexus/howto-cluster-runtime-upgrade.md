@@ -28,11 +28,11 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 
 To find available upgradeable runtime versions, navigate to the target cluster in the Azure portal. In the cluster's overview pane, navigate to the ***Available upgrade versions*** tab.
 
-![Runtime Upgrade - View Available Upgradeable Cluster Version](./media/RuntimeUpgrade-UpgradeableRuntimeVersions.png)
+![Screenshot of Azure Portal showing correct tab to identify available cluster upgrades](./media/RuntimeUpgrade-UpgradeableRuntimeVersions.png)
 
 From the **available upgrade versions** tab, we're able to see the different cluster versions that are currently available to upgrade. The operator can select from the listed the target runtime versions. Once selected, proceed to upgrade the cluster.
 
-![Runtime Upgrade - Choose Runtime Version](./media/RuntimeUpgrade-RuntimeVersion.png)
+![Screenshot of Azure portal showing available cluster upgrades](./media/RuntimeUpgrade-RuntimeVersion.png)
 
 ### Via Azure CLI
 
@@ -76,7 +76,7 @@ To check on the status of the upgrade observe the detailed status of the cluster
 
 To view the upgrade status through the Azure portal, navigate to the targeted cluster resource. In the cluster's *Overview* screen, the detailed status is provided along with a detailed status message.
 
-![Runtime Upgrade - PortalClusterDetailStatus](./media/RuntimeUpgrade-ClusterDetailStatus.png)
+![Screenshot of Azure portal showing in progress cluster upgrade](./media/RuntimeUpgrade-ClusterDetailStatus.png)
 
 To view the upgrade status through the Azure CLI, use `az networkcloud cluster show`.
 
@@ -100,7 +100,7 @@ From here, we recommend checking Cluster logs or configured LAW, to see if there
 
 If hardware failure during an upgrade has occurred, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the newer version of the runtime.
 
-If a hardware failure occurs, and the runtime upgrade has failed because thresholds weren't met for compute and control nodes, re-execution of the runtime upgrade may be needed depending on when the failure occurred and the state of the node pool. If the node pool spec was updated before a failure, then the upgraded OS would be used when the nodes are reprovisioned.
-If the node pool's spec wasn't updated to the upgraded OS before the hardware failure, the machine would be provisioned with the previous OS version. To upgrade to the new runtime version, submit a new cluster upgrade request and only the nodes with the previous OS version will upgrade Hosts that were successful in the previous upgrade action won't.
+If a hardware failure occurs, and the runtime upgrade has failed because thresholds weren't met for compute and control nodes, re-execution of the runtime upgrade may be needed depending on when the failure occurred and the state of the individual servers in a rack. If a rack was updated before a failure, then the upgraded OS would be used when the nodes are reprovisioned.
+If the rack's spec wasn't updated to the upgraded OS before the hardware failure, the machine would be provisioned with the previous OS version. To upgrade to the new runtime version, submit a new cluster upgrade request and only the nodes with the previous OS version will upgrade. Hosts that were successful in the previous upgrade action won't.
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli
