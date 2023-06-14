@@ -1,4 +1,4 @@
-- name: Microsoft Entra Identity Governance documentation
+- name: Microsoft Entra ID Governance documentation
   href: index.yml
 - name: Overview
   expanded: true
