@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 6/12/2023
-ms.author: markwahl-msft
-ms.reviewer: markwahl-msft
+ms.author: mwahl
+ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
