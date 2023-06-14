@@ -179,7 +179,7 @@ You can configure Azure Firewall to auto-learn registered and private ranges eve
 
 ### JSON
 
-You can use the following JSON to configure auto-learn (preview). Azure Firewall must be associated with Azure Route Server.
+You can use the following JSON to configure auto-learn (preview). Azure Firewall must be associated with an Azure Route Server.
 
 ```json
 	  "type": "Microsoft.Network/firewallPolicies",
@@ -217,7 +217,7 @@ Use the following JSON to associate an Azure Route Server:
 
 ### Azure PowerShell
 
-1. Create a new firewall with a RouteServerId.
+- Create a new firewall with a RouteServerId.
 
    ```azurepowershell
    # specify RouteServerId Uri
@@ -230,7 +230,7 @@ Use the following JSON to associate an Azure Route Server:
    # Get firewall and confirm if RouteServerId is included on the response under additional properties (Network.RouteServerInfo.RouteServerID) 
    Get-AzFirewall -Name $azureFirewallName -ResourceGroupName $rgname 
    ```
-2. Update an existing firewall with RouteServerId
+- Update an existing firewall with RouteServerId
 
    ```azurepowershell
    # specify RouteServerId Uri 
@@ -247,7 +247,7 @@ Use the following JSON to associate an Azure Route Server:
    Get-AzFirewall -Name $azureFirewallName -ResourceGroupName $rgname
 
    ```
-3. Create new firewall policy with SNAT parameter provided
+- Create new firewall policy with SNAT parameter provided
 
    ```azurepowershell
    # If AutoLearnPrivateRange parameter is provided, auto learn will be enabled, if not it will be disabled 
@@ -261,7 +261,7 @@ Use the following JSON to associate an Azure Route Server:
    Get-AzFirewallPolicy -Name $azureFirewallPolicyName -ResourceGroupName $rgname 
 
    ```
-4. Update an existing firewall policy with SNAT
+- Update an existing firewall policy with SNAT
 
    ```azurepowershell
    $snat = New-AzFirewallPolicySnat -PrivateRange $privateRange2 
@@ -273,7 +273,7 @@ Use the following JSON to associate an Azure Route Server:
    # Do Get and Verify 
    Get-AzFirewallPolicy -Name $azureFirewallPolicyName -ResourceGroupName $rgname 
    ```
-5. Get Firewall Learned Prefixes
+- Get Firewall Learned Prefixes
 
    ```azurepowershell
 	Get-AzFirewallLearnedIpPrefix -Name $azureFirewallName -ResourceGroupName $rgname 
