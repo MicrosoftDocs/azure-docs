@@ -19,7 +19,7 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                    | Version number | Release date       | Status                                                            |
 |------------------------------|----------------|--------------------|-------------------------------------------------------------------|
-| General availability release | 1.1.256        | June 14, 2023      | Supported                                                         |
+| Refresh release              | 1.1.256        | June 14, 2023      | Supported                                                         |
 | General availability release | 1.0.229        | April 17, 2023     | Supported                                                         |
 | Public preview release       | 0.1.116        | September 15, 2022 | Functioning. No longer supported by Microsoft Azure Support teams.|
 
@@ -68,7 +68,7 @@ Existing migration scenarios from the GA release remain unchanged. This release 
 ## Agent
 
 - Fixed an issue with registration failing sometimes when a proxy server connection and a private link scope were configured at the same time.
-- Improved the security stance by no longer transmitting a specific user input that is no longer necessary.
+- Improved the security stance by omitting to transmit a specific user input to the service that is no longer necessary.
 
 ## 2023 April 17
 
