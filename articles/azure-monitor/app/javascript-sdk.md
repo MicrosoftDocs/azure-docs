@@ -162,11 +162,10 @@ If you can't run the application or you aren't getting data as expected, see the
 
 ## Next steps
 
-* [Track usage](usage-overview.md)
+* [Explore Application Insights usage experiences](usage-overview.md)
 * [Track page views](api-custom-events-metrics.md#page-views)
 * [Custom events and metrics](api-custom-events-metrics.md)
 * [JavaScript telemetry initializers](api-filtering-sampling.md#javascript-telemetry-initializers)
-* [Build-measure-learn](usage-overview.md)
 * [JavaScript SDK advanced topics](javascript-sdk-advanced.md)
 * See the detailed [release notes](https://github.com/microsoft/ApplicationInsights-JS/releases) on GitHub for updates and bug fixes.
-- To learn about the Kusto Query Language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/logs/log-query-overview.md).
+* [querying data in Log Analytics](../../azure-monitor/logs/log-query-overview.md).
