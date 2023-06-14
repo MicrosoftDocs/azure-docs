@@ -505,6 +505,9 @@
     - name: Defender for container registries (deprecated)
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
+    - name: Common questions
+      displayName: containers, common questions
+      href: faq-defender-for-containers.yml
   - name: Database protection
     items:
     - name: Enable database protection
