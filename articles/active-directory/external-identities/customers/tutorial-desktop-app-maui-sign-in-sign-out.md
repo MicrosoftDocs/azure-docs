@@ -95,7 +95,7 @@ The next steps will organize our code so that the `main view` is defined.
     </ContentPage>
    ```
 
-1. Save the file by pressing _CTRL+S_.
+1. Save the file.
 
    Let's break down the key parts of the XAML controls placed on the page:
 
