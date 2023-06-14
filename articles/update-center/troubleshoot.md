@@ -36,7 +36,7 @@ To review the logs related to all actions performed by the extension, check for 
 * `WindowsUpdateExtension.log`: Contains details related to the patch actions, such as the patches assessed and installed on the machine, and any issues encountered in the process.
 * `CommandExecution.log`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains details about the wrapper. For Auto-Patching, the log has details on whether the specific patch operation was invoked.
 
-## Scenario: Machine shows as "Not assessed" and shows an HRESULT exception
+## Machine shows as "Not assessed" and shows an HRESULT exception
 
 ### Issue
 
