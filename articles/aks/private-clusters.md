@@ -2,7 +2,7 @@
 title: Create a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 01/25/2023
+ms.date: 06/13/2023
 ms.custom: references_regions
 ---
 
@@ -136,6 +136,14 @@ Create a private AKS cluster with a custom private DNS zone and subdomain using 
 # The custom private DNS zone name should be in one of the following formats: "privatelink.<region>.azmk8s.io" or "<subzone>.privatelink.<region>.azmk8s.io"
 
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone <custom private dns zone resourceID> --fqdn-subdomain <subdomain>
+```
+
+### Update a private cluster from a private DNS zone to public
+
+Update a private cluster from a private DNS zone to public using the [`az aks update`][az-aks-update] command with the following flags:
+
+```azurecli-interactive
+az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --private-dns-zone none
 ```
 
 ## Options for connecting to the private cluster
