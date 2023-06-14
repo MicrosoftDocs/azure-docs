@@ -72,7 +72,7 @@ In order to upload files with sizes >= 5000 MiB we would need [azcopy](https://l
 
 3. Sample response 
 
-![azcopy response](./media/how-to-upload-large-files-in-ADME-via-file-service/1-azcopy-sample-response.png)
+:::image type="content" source="media/how-to-upload-large-files-in-ADME-via-file-service/1-azcopy-sample-response.png" alt-text="Screenshot of azcopy copy command response":::
 
 ## Next steps
 Begin your journey by ingesting data into your Azure Data Manager for Energy Preview instance.
