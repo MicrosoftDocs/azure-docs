@@ -15,7 +15,7 @@ ms.date: 06/05/2023
 
 This tutorial demonstrates how to register and configure a .NET Multi-platform App UI (.NET MAUI) in customer's tenant.
 
-In this tutorial, you learn how to:
+In this tutorial:
 
 > [!div class="checklist"]
 >
