@@ -63,7 +63,7 @@ If you're setting up a continuous export to Log Analytics or Azure Event Hubs:
 
     :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Microsoft Defender for Cloud." lightbox="./media/continuous-export/continuous-export-options-page.png":::
 
-    Here you see the export options. There's a tab for each available export target, either Event hub or Log Analytics workspace.
+    Here you see the export options. There's a tab for each available export target, either event hub or Log Analytics workspace.
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
 
@@ -171,21 +171,21 @@ The name of the Log Analytics solution containing these tables depends on whethe
 
 To view the event schemas of the exported data types, visit the [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
 
-## Export data to an Azure Event hub or Log Analytics workspace in another tenant
+## Export data to an Azure Event Hubs or Log Analytics workspace in another tenant
 
-You can export data to an Azure Event hub or Log Analytics workspace in a different tenant, without using [Azure Lighthouse](../lighthouse/overview.md). When collecting data into a tenant, you can analyze the data from one central location.
+You can export data to an Azure Event Hubs or Log Analytics workspace in a different tenant, without using [Azure Lighthouse](../lighthouse/overview.md). When collecting data into a tenant, you can analyze the data from one central location.
 
-To export data to an Azure Event hub or Log Analytics workspace in a different tenant:
+To export data to an Azure Event Hubs or Log Analytics workspace in a different tenant:
 
-1. In the tenant that has the Azure Event hub or Log Analytics workspace, [invite a user](../active-directory/external-identities/what-is-b2b.md#easily-invite-guest-users-from-the-azure-portal) from the tenant that hosts the continuous export configuration.
+1. In the tenant that has the Azure Event Hubs or Log Analytics workspace, [invite a user](../active-directory/external-identities/what-is-b2b.md#easily-invite-guest-users-from-the-azure-portal) from the tenant that hosts the continuous export configuration.
 1. For a Log Analytics workspace: After the user accepts the invitation to join the tenant, assign the user in the workspace tenant one of these roles: Owner, Contributor, Log Analytics Contributor, Sentinel Contributor, Monitoring Contributor
-1. Configure the continuous export configuration and select the Event hub or Analytics workspace to send the data to.
+1. Configure the continuous export configuration and select the event hub or Analytics workspace to send the data to.
 
 You can also configure export to another tenant through the REST API. For more information, see the automations [REST API](/rest/api/defenderforcloud/automations/create-or-update?tabs=HTTP).
 
-## Continuously export to an Event Hub behind a firewall
+## Continuously export to an event hub behind a firewall
 
-You can enable continuous export as a trusted service, so that you can send data to an Event Hub that has an Azure Firewall enabled.
+You can enable continuous export as a trusted service, so that you can send data to an event hub that has an Azure Firewall enabled.
 
 **To grant access to continuous export as a trusted service**:
 
