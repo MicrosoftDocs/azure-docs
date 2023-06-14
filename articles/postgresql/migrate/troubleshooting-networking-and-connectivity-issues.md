@@ -14,10 +14,10 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
-In this document, we will focus on how to troubleshoot migrations that failed due to networking or connectivity issues between Single and Flexible server. Refer [this link](concepts-single-to-flexible.md) to know the list of supported networking configurations by the Single to Flex migration tool.
+In this document, we focus on how to troubleshoot migrations that failed due to networking or connectivity issues between Single and Flexible server. Refer [this link](concepts-single-to-flexible.md) to know the list of supported networking configurations by the Single to Flex migration tool.
 
-In a particular single to flexible server migration, if the flexible server is not able to connect to single server, the migration will fail with the following error message:
-**ST008: Connectivity attempt to source single server from target flexible server failed. Please revisit the networking related prerequisites required for migration and make sure the source server is reachable from target server. Refer to https://learn.microsoft.com/en-us/azure/postgresql/migrate/concepts-single-to-flexible#migration-prerequisites for more details**
+In a particular single to flexible server migration, if the flexible server isn't able to connect to single server, the migration fails with the following error message:
+**ST008: Connectivity attempt to source single server from target flexible server failed. Please revisit the networking related prerequisites required for migration and make sure the source server is reachable from target server.**
 
 The first step in troubleshooting these migration failures would be to inspect the network settings on your single and flexible server.
 
@@ -35,7 +35,7 @@ The first step in troubleshooting these migration failures would be to inspect t
 
     Check the **Connectivity method** parameter to see if flexible server is in public access or private access.
 
-If both Single and Flexible server are in public access, you will not hit the above error message since the single to flex migration tool automatically establishes connectivity between flexible server and single server. This leaves us with 3 scenarios below which can throw error messages related to connectivity:
+If both Single and Flexible server are in public access, you are unlikely to hit the above error message since the single to flex migration tool automatically establishes connectivity between flexible server and single server. So we have three scenarios which can throw error messages related to connectivity:
 
  - Private Access in Source and Public Access in Target 
  - Public Access in Source and Private Access in Target
@@ -44,7 +44,7 @@ If both Single and Flexible server are in public access, you will not hit the ab
 Let us look at these scenarios in detail.
 
 ## Private Access in Source and Public Access in Target
-This is a non-supported networking scenario for Single to Flex migration tooling. In this case, you can opt for other migration tools to perform migration from Single Server to Flexible server.
+This network configuration is not supported by Single to Flex migration tooling. In this case, you can opt for other migration tools to perform migration from Single Server to Flexible server.
 
 ## Public Access in Source and Private Access in Target
 In this case, single server needs to allowlist connections from the subnet in which flexible server is deployed. You can perform the following steps to set up connectivity between single and flexible server.
@@ -57,7 +57,7 @@ In this case, single server needs to allowlist connections from the subnet in wh
 
     :::image type="content" source="media/troubleshooting-networking-and-connectivity-issues/allow-flexible-server-subnet.png" alt-text="Screenshot of creating vnet rule to allow list subnet of flexible server" lightbox="media/troubleshooting-networking-and-connectivity-issues/allow-flexible-server-subnet.png":::
 
-* Once the settings are applied, the connection from flexible server to single server will be established and you will no longer hit this issue.
+* Once the settings are applied, the connection from flexible server to single server will be established and you'll no longer hit this issue.
 
 ## Private Access in Source and Private Access in Target
 
@@ -69,7 +69,7 @@ In this case, single server needs to allowlist connections from the subnet in wh
 
 * Get the Vnet and subnet details from the **Networking** blade of your flexible server.
 
-* If both are in different VNets, you need to [enable VNet peering to establish connection from one Vnet to another](../../virtual-network/tutorial-connect-virtual-networks-portal.md). If they are in the same VNet but in different subnets, peering is not required. Make sure that there are [no network security groups(NSG) blocking the traffic from flexible server to single server](../../virtual-network/network-security-group-how-it-works.md).
+* If both are in different VNets, you need to [enable VNet peering to establish connection from one Vnet to another](../../virtual-network/tutorial-connect-virtual-networks-portal.md). If they are in the same VNet but in different subnets, peering isn't required. Make sure that there are [no network security groups(NSG) blocking the traffic from flexible server to single server](../../virtual-network/network-security-group-how-it-works.md).
 
 * Go to the **Networking** blade on the flexible server and check if a private DNS zone is being used. If used, open this private DNS zone in portal. In the left pane, click on the **Virtual network links** and check if the Vnet of single server and flexible server is added to this list.
 
@@ -77,17 +77,17 @@ In this case, single server needs to allowlist connections from the subnet in wh
 
     If not, click on the **Add** button and create a link for the VNets of single and flexible server to this private DNS zone.
 
-* Go to the private endpoint on your single server and click on the **DNS configuration** blade. Check if a private DNS zone is attached with this end point. If not, please attach a private DNS zone by clicking on the **Add Configuration** button.
+* Go to the private endpoint on your single server and click on the **DNS configuration** blade. Check if a private DNS zone is attached with this end point. If not, attach a private DNS zone by clicking on the **Add Configuration** button.
 
     :::image type="content" source="media/troubleshooting-networking-and-connectivity-issues/private-dns-zone-private-end-point.png" alt-text="Screenshot showing a private DNS Zone used in private end point" lightbox="media/troubleshooting-networking-and-connectivity-issues/private-dns-zone-private-end-point.png":::
 
-* Click on the Private DNS zone on your single server private end point and check if the Vnets of single server and flexible server are added to the Virtual network links. If not follow the steps mentioned in the above step to add the links to the Vnets of single and flexible server to this private DNS zone.
+* Click on the Private DNS zone on your single server private end point and check if the Vnets of single server and flexible server are added to the Virtual network links. If not, follow the steps mentioned in the above step to add the links to the Vnets of single and flexible server to this private DNS zone.
 
-* The final check would be to go the private DNS zone of the private end point on your single server and check if there exists an **A record** for your single server which points a private IP address.
+* The final check would be to go the private DNS zone of the private end point on your single server and check if there exists an **A record** for your single server that points a private IP address.
 
     :::image type="content" source="media/troubleshooting-networking-and-connectivity-issues/private-dns-zone-arecord.png" alt-text="Screenshot showing a private IP address assigned to private end point" lightbox="media/troubleshooting-networking-and-connectivity-issues/private-dns-zone-arecord.png":::
 
-If all the above steps are performed, the connection from flexible server to single server will be established and you will no longer hit this issue.
+If all the above steps are performed, the connection from flexible server to single server will be established and you'll no longer hit this issue.
 
 ## Next steps
 
