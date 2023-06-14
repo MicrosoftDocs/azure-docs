@@ -47,7 +47,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Instance details section of the Basics tab.](./media/storage-task-quickstart-portal/instance-details-section.png)
 
-6. Select the **Next** button to open the **Conditions** page.
+6. Select **Next** to open the **Conditions** page.
 
 ## Add conditions
 
@@ -91,17 +91,50 @@ You can specify the operations that a Storage Task performs by making selections
 
    This operation adds a blob index tag to each Word document in that container.
 
+4. Select **Next** to open the **Assignments** page.
+
 ## Add an assignment
 
-Put something here.
+A Storage Task _assignment_ specifies a storage account. After you enable the Storage task, the conditions and operations of your task will be applied to that storage account. The assignment also contains configuration properties which help you target specific blobs, or specify when and how often the task runs. You can add an assignment for each account you want to target.
 
-## Deploy the task
+1. Select **Add assignment**.
 
-Put something here.
+   The **Add assignment** pane appears.
+
+2. In the **Select scope** section, select your subscription and storage account and name the assignment _mystoragetaskassignment_.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the Select scope section of the assignment pane.](./media/storage-task-quickstart-portal/assignment-pane-select-scope.png)
+
+3. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you are using to complete this quickstart followed by the `\` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the Filter objects section of the Add assignment pane.](./media/storage-task-quickstart-portal/assignment-pane-filter-prefix.png)
+
+   Filters help you narrow the scope of execution. If your want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option instead.
+
+4. In the **Trigger details** section, select **Single run (only once)** and then select the container where you'd like to store the execution reports.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the Trigger details section of the Add assignment pane.](./media/storage-task-quickstart-portal/assignment-pane-trigger-details.png)
+
+5. Select **Add**.
+
+6. In the **Tags** tab, select **Next**.
+
+7. In the **Review + Create** tab, select **Review + create**.
+
+   When the task is deployed, the **Your deployment is complete** page appears.
+
+8. Select **Go to resource** to open the **Overview** page of the Storage Task.
 
 ## Enable the task assignment
 
-Put something here
+Storage Task assignments are disabled by default. Enable assignments from the **Assignments** page.
+
+1. Select **Assignments**, and in the **Assignments** page, select the assignment that you want to enable.
+
+
 
 ## View results of the task run
 
