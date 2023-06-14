@@ -20,6 +20,8 @@ ms.custom: enterprise-apps
 
 In this article, you learn how to review and take action on admin consent requests. To review and act on consent requests, you must be designated as a reviewer. For more information, check out the [Configure the admin consent workflow](configure-admin-consent-workflow.md) article. As a reviewer, you can view all admin consent requests but you can only act on those requests that were created after you were designated as a reviewer.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To review and take action on admin consent requests, you need:

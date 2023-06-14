@@ -62,8 +62,8 @@ To provision CMK, follow these steps: 
 1.  Enable CMK on your Log Analytics workspace.
 1.  Register to the Azure Cosmos DB Resource Provider.
 1.  Add an access policy to your Azure Key Vault instance.
-1.  Contact the Microsoft Sentinel Product group to confirm onboarding 
-1.  Onboard the workspace to Microsoft Sentinel via the [Onboarding API](https://github.com/Azure/Azure-Sentinel/raw/master/docs/Azure%20Sentinel%20management.docx).
+1.  Onboard the workspace to Microsoft Sentinel via the [Onboarding API](/rest/api/securityinsights/preview/sentinel-onboarding-states/create).
+1.  Contact the Microsoft Sentinel Product group to confirm onboarding.
 
 ### STEP 1: Create an Azure Key Vault and generate or import a key
 
