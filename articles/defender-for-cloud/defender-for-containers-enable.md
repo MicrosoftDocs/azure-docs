@@ -101,7 +101,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [FAQ](./includes/defender-for-containers-override-faq.md)]
 ::: zone-end
 
-## Learn More
+## Learn more
 
 You can check out the following blogs:
 

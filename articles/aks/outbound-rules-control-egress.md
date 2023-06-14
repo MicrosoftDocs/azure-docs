@@ -143,11 +143,11 @@ If you choose to block/not allow these FQDNs, the nodes will only receive OS upd
 
 #### Required FQDN / application rules
 
-| FQDN                                          | Port      | Use      |
+| FQDN                                                       | Port      | Use      |
 |------------------------------------------------------------|-----------|----------|
-| **`login.microsoftonline.com`** <br/> **`login.microsoftonline.us`** (Fairfax) <br/> **`login.microsoftonline.cn`** (Mooncake) | **`HTTPS:443`** | Required for Active Directory Authentication. |
-| **`*.ods.opinsights.azure.com`** <br/> **`*.ods.opinsights.azure.us`** (Fairfax) <br/> **`*.ods.opinsights.azure.cn`** (Mooncake)| **`HTTPS:443`** | Required for Microsoft Defender to upload security events to the cloud.|
-| **`*.oms.opinsights.azure.com`** <br/> **`*.oms.opinsights.azure.us`** (Fairfax) <br/> **`*.oms.opinsights.azure.cn`** (Mooncake)| **`HTTPS:443`** | Required to Authenticate with LogAnalytics workspaces.|
+| **`login.microsoftonline.com`** <br/> **`login.microsoftonline.us`** (Azure Government) <br/> **`login.microsoftonline.cn`** (Azure China 21Vianet) | **`HTTPS:443`** | Required for Active Directory Authentication. |
+| **`*.ods.opinsights.azure.com`** <br/> **`*.ods.opinsights.azure.us`** (Azure Government) <br/> **`*.ods.opinsights.azure.cn`** (Azure China 21Vianet)| **`HTTPS:443`** | Required for Microsoft Defender to upload security events to the cloud.|
+| **`*.oms.opinsights.azure.com`** <br/> **`*.oms.opinsights.azure.us`** (Azure Government) <br/> **`*.oms.opinsights.azure.cn`** (Azure China 21Vianet)| **`HTTPS:443`** | Required to Authenticate with LogAnalytics workspaces.|
 
 ### CSI Secret Store
 
