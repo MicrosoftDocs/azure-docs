@@ -47,11 +47,19 @@ Optionally:
 
 Microsoft Entra Private Access provides a secure, zero-trust access solution for accessing internal resources without requiring a VPN. Configure Quick Access and enable the Private access traffic forwarding profile to specify the sites and apps you want routed through Microsoft Entra Private Access. At this time, the Global Secure Access Client must be installed on end-user devices to use Microsoft Entra Private Access.
 
-To set up Microsoft Entra Private Access, complete the following steps:
+To set up Quick Access for broader access tor you network using Microsoft Entra Private Access, complete the following steps:
 
+1. [Configure App Proxy connector and connector group.](how-to-configure-connectors.md).
+1. [Configure quick access to your private resources](how-to-configure-quick-access.md).
 1. [Enable the Private access traffic forwarding profile](how-to-manage-private-access-profile.md).
 1. [Install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
-1. [Configure quick access to your private resources](how-to-configure-quick-access.md).
+
+To create specific private apps for granular segmented access to private access resources using Microsoft Entra Private Access, complete the following steps:
+
+1. [Configure App Proxy connector and connector group](how-to-configure-connectors.md).
+1. [Create a private Global Secure Access application](how-to-configure-per-app-access.md).
+1. [Enable the Private access traffic forwarding profile](how-to-manage-private-access-profile.md).
+1. [Install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
 
 Optionally:
 
