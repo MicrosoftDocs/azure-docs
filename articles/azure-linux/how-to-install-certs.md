@@ -6,7 +6,7 @@ ms.author: htaubenfeld
 ms.editor: schaffererin
 ms.service: microsoft-linux
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 06/14/2023
 ms.custom: template-how-to-pattern
 ---
 
@@ -16,7 +16,7 @@ By default, the Azure Linux Container Host for AKS image has a minimal set of ro
 
 The `ca-certificates-base` is preinstalled in the container host image and contains no root CA certificates. Instead, it consists of certificates for Microsoft's intermediate CAs. This package allows your container host to trust a minimal set of servers, all of which were verified and had their certificates issued by Microsoft.
 
-The `ca-certificates` cover the root CAs trust by Microsoft through the [Microsoft Trusted Root Program](../../security/trusted-root/participants-list).
+The `ca-certificates` cover the root CAs trust by Microsoft through the [Microsoft Trusted Root Program](/security/trusted-root/participants-list).
 
 The directory `/etc/pki/ca-trust/source/` contains the CA certificates and trust settings in the PEM file format. The trust settings found here are interpreted with a high priority, higher than the ones found in `/usr/share/pki/ca-trust-source/`.
 
@@ -31,10 +31,10 @@ By using a package manager, you can add individual or multiple certificates to y
 
 ## Add a certificate in the extended BEGIN TRUSTED file format
 
-If your certificate is in the extended BEGIN TRUSTED file format (which may contain distrust/blacklist trust flags or trust flags for usages other than TLS), then follow these steps:
+If your certificate is in the extended BEGIN TRUSTED file format (which may contain distrust trust flags or trust flags for usages other than TLS), then follow these steps:
 
 1. Save your certificate under `etc/pki/ca-trust/source/`.
-1. Run `update-ca-trust` to consolidate CA certificates and associated trust.
+2. Run `update-ca-trust` to consolidate CA certificates and associated trust.
 
 ## Next steps
 
