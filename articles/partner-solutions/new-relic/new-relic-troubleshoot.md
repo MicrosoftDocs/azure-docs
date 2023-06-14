@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Native New Relic Service Preview
+title: Troubleshoot Azure Native New Relic Service
 description: Learn about troubleshooting Azure Native New Relic Service.
 ms.topic: conceptual
 
@@ -9,7 +9,7 @@ ms.date: 01/16/2023
 
 # Troubleshoot Azure Native New Relic Service
 
-This article describes how to fix common problems when you're working with Azure Native New Relic Service Preview resources.
+This article describes how to fix common problems when you're working with Azure Native New Relic Service resources.
 
 Try the troubleshooting information in this article first. If that doesn't work, contact New Relic support:
 

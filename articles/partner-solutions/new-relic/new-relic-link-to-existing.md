@@ -1,5 +1,5 @@
 ---
-title: Link Azure Native New Relic Service Preview to an existing account
+title: Link Azure Native New Relic Service to an existing account
 description: Learn how to link to an existing New Relic account.
 
 ms.topic: quickstart
@@ -13,9 +13,9 @@ ms.date: 02/16/2023
 In this quickstart, you link an Azure subscription to an existing New Relic account. You can then monitor the linked Azure subscription and the resources in that subscription by using the New Relic account.
 
 > [!NOTE]
-> You can link New Relic accounts that you previously created by using Azure Native New Relic Service Preview.
+> You can link New Relic accounts that you previously created by using Azure Native New Relic Service.
 
-When you use Azure Native New Relic Service Preview in the Azure portal for linking, and both the organization and the account at New Relic were created through the Azure Native New Relic Service, your billing and monitoring for the following entities are tracked in the portal.
+When you use Azure Native New Relic Service in the Azure portal for linking, and both the organization and the account at New Relic were created through the Azure Native New Relic Service, your billing and monitoring for the following entities are tracked in the portal.
 
 :::image type="content" source="media/new-relic-link-to-existing/new-relic-subscription.png" alt-text="Diagram that shows Azure subscriptions related to an Azure account.":::
 
