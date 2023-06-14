@@ -12,11 +12,11 @@ Container Insights now defaults to managed identity authentication. This secure 
 
 ## How to enable
 
-See relevant tab below for instructions to enable Managed identity authentication on existing clusters.  
+Click on the relevant tab for instructions to enable Managed identity authentication on existing clusters.  
 
 ## [Azure portal](#tab/portal-azure-monitor)
 
-No action is needed when creating a cluster from the Portal. However, it is not not possible to switch to Managed Identity authentication from the Azure Portal. Customers will have to use command line to migrate. See other tabs for migration instructions and templates. 
+No action is needed when creating a cluster from the Portal. However, it is not possible to switch to Managed Identity authentication from the Azure portal. Customers must use command line tools to migrate. See other tabs for migration instructions and templates. 
 
 ## [Azure CLI](#tab/cli)
 
@@ -46,10 +46,10 @@ curl  -L https://aka.ms/enable-monitoring-msi-bicep-parameters -o existingCluste
 - **aksResourceLocation**: Use the values on the AKS Overview page for the AKS cluster.
 - **workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
 - **workspaceRegion**: Use the location of your Log Analytics workspace.
-- **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
-- Other parameters are for cost optimization, please refer to this guide https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
+- **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
+- Other parameters are for cost optimization, refer to [this guide](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters)
 
-3.	Onboarding with the commands below:
+3.	Onboard with the following commands:
 
 ```
 az login
@@ -72,9 +72,9 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 - **aksResourceLocation**: Use the values on the AKS Overview page for the AKS cluster.
 - **workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
 - **workspaceRegion**: Use the location of your Log Analytics workspace.
-- **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
+- **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
 
-3.	Onboarding with the commands below:
+3.	Onboarding with the following commands:
 
 ```
 az login
@@ -99,10 +99,8 @@ https://aka.ms/enable-monitoring-msi-terraform
 - **cluster_name**: Define the cluster name that you would like to create
 - **workspace_resource_id**: Use the resource ID of your Log Analytics workspace.
 - **workspace_region**: Use the location of your Log Analytics workspace.
-- **resource_tag_values**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
-- Other parameters are for cluster settings or cost optimization, please refer to those guides:
-o	azurerm_kubernetes_cluster | Resources | hashicorp/azurerm | Terraform Registry
-o	https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters
+- **resource_tag_values**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
+- Other parameters are for cluster settings or cost optimization, refer to [this guide](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters)
 4.	Run `terraform init -upgrade` to initialize the Terraform deployment.
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
@@ -117,9 +115,8 @@ https://aka.ms/enable-monitoring-msi-syslog-terraform
 - **cluster_name**: Define the cluster name that you would like to create
 - **workspace_resource_id**: Use the resource ID of your Log Analytics workspace.
 - **workspace_region**: Use the location of your Log Analytics workspace.
-- **resource_tag_values**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
-- Other parameters are for cluster settings, please refer to guide:
-o	azurerm_kubernetes_cluster | Resources | hashicorp/azurerm | Terraform Registry
+- **resource_tag_values**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
+- Other parameters are for cluster settings, refer [to guide](http://LinkTobeAdded.com)
 4.	Run `terraform init -upgrade` to initialize the Terraform deployment.
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
@@ -138,10 +135,10 @@ oms_agent {
 5.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
 
 **NOTE**
-- Please edit the main.tf file appropriately before running the terraform template
+- Edit the main.tf file appropriately before running the terraform template
 - Data will start flowing after 10 minutes since the cluster needs to be ready first
 - Workspace ID needs to match format '/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.OperationalInsights/workspaces/workspaceValue'
-- If resource group already exists, please run `terraform import azurerm_resource_group.rg /subscriptions/<Subscription_ID>/resourceGroups/<Resource_Group_Name>` before terraform plan
+- If resource group already exists, run `terraform import azurerm_resource_group.rg /subscriptions/<Subscription_ID>/resourceGroups/<Resource_Group_Name>` before terraform plan
 
 
 ## [Azure Policy](#tab/policy)
@@ -155,18 +152,18 @@ You can create the policy definition using a command:
 ```
 az policy definition create --name "AKS-Monitoring-Addon-MSI" --display-name "AKS-Monitoring-Addon-MSI" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules azure-policy.rules.json --params azure-policy.parameters.json
 ```
-You can create the policy assignment with the following command like :
+You can create the policy assignment with the following command like:
 ```
 az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring-Addon-MSI" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <location> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
 ```
 
 **NOTE**
-- Please make sure when performing remediation task, the policy assignment has access to workspace you specified.
-- Please download all files under AddonPolicyTemplate folder before running the policy template.
-- For assign policy, parameters and remediation task from portal, please follow the guides below:
+- Make sure when performing remediation task, the policy assignment has access to workspace you specified.
+- Download all files under AddonPolicyTemplate folder before running the policy template.
+- For assign policy, parameters and remediation task from portal, follow the guides below:
 o	After creating the policy definition through the above command, go to Azure portal -> Policy -> Definitions and select the definition you just created.
 o	Click on 'Assign' and then go to the 'Parameters' tab and fill in the details. Then click 'Review + Create'.
-o	Now that the policy is assigned to the subscription, whenever you create a new cluster which does not have container insights enabled, the policy will run and deploy the resources. If you want to apply the policy to existing AKS cluster, create a 'Remediation task' for that resource after going to the 'Policy Assignment'.
+o	Now that the policy is assigned to the subscription, whenever you create a new cluster, which does not have container insights enabled, the policy will run and deploy the resources. If you want to apply the policy to existing AKS cluster, create a 'Remediation task' for that resource after going to the 'Policy Assignment'.
 
 
 
@@ -176,7 +173,7 @@ o	Now that the policy is assigned to the subscription, whenever you create a new
 2.	Dependency on DCR/DCRA for region availability - For new AKS region, there might be chances that DCR is still not supported in the new region. In that case, onboarding Container Insights with MSI will fail. One workaround is to onboard to Container Insights through CLI with the old way (with the use of Container Insights solution)
 
 ## Timeline  
-Any new clusters being created or being onboarded will default to Managed Identity authentication. However, existing clusters with legacy solution-based authentication are still supported. Deprecation of legacy authentication is planned but customers will have until August 2026 at the earliest. More details about the deprecation timeline will be shared by August 2023.  
+Any new clusters being created or being onboarded will default to Managed Identity authentication. However, existing clusters with legacy solution-based authentication are still supported.  
 
 ## Next steps
 If you experience issues when you upgrade the agent, review the [troubleshooting guide](container-insights-troubleshoot.md) for support.
