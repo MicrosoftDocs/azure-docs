@@ -103,6 +103,22 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. Ensure **Entry for RFC activated** and **Entry for certificate activated** checkboxes are marked, then select **Save**.
 
+### Map users of the ABAP service provider to external user IDs
+
+1. Run the **SM30** transaction.
+
+1. In the **Table/View** field, type **VUSREXTID**, then select **Maintain**. 
+
+1. Type these details:
+
+    - **External ID**: *CN=Sentinel*, *C=US*
+    - **Seq. No**: *000*
+    - **User**: *SENTINEL*
+
+1. Select **Activated**. 
+
+    :::image type="content" source="media/configure-snc/VUSREXTID-table-configuration.png" alt-text="Screenshot of configuring the SAP VUSREXTID table.":::
+
 ### Set up the container
 
 1. Transfer the **libsapcrypto.so** and **sapgenpse** files to the target system where the container will be created.
