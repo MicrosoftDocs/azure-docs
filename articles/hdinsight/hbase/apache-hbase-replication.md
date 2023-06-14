@@ -4,7 +4,7 @@ description: Learn how to set up HBase replication from one HDInsight version to
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 06/11/2023
+ms.date: 06/14/2023
 ---
 
 # Set up Apache HBase cluster replication in Azure virtual networks
@@ -360,8 +360,6 @@ The following list shows you some general usage cases and their parameter settin
  
 **Steps to Execute Replication script**
 
-For ESP clusters replication setup, we can’t run the hdi_enable_replication.sh script using script action, we need to ssh and run the script on the source cluster.
- 
 > [!NOTE]
 > Perform the following steps only if DNS is unable to resolve hostname correctly of destination cluster. 
 > 1. Copy sink cluster hosts IP & hostname mapping in source cluster nodes /etc/hosts file. 
