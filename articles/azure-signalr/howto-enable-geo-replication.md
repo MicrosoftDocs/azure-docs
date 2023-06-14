@@ -36,6 +36,8 @@ Contoso is a social media company with its customer base spread across the US an
 
 <img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/a353337f-9fd7-4be2-9b0f-1bf961f7eb1a">
 
+![Screenshot of using one Azure SignalR instance to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-single.png  "Single SignalR Example")
+
 Before the advent of the geo-replication feature, Contoso could setup another Azure SignalR Service in Canada Central to serve its Canadian users. By setting up a geographically closer Azure SignalR Service, end users now have better network quality and lower latency. 
 
 However, managing multiple Azure SignalR Services brings some challenges:
@@ -45,15 +47,21 @@ However, managing multiple Azure SignalR Services brings some challenges:
 
 <img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/04c288f4-5868-42de-be20-807bbc016773">
 
+![Screenshot of using two Azure SignalR instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-multiple.png  "Mutiple SignalR Example")
+
 ## Harnessing Geo-replication
 With the new geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned hurdles.
 
 <img width="762" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/b2d7f946-bd5d-4c5d-b17f-3a1051a2f347">
 
+![Screenshot of using one Azure SignalR instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/signalr-replica.png  "Replica Example")
+
 ## Create a SignalR Replica
 
 To create a replica, Navigate to the SignalR **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 ![SignalR Replica Creation](https://github.com/bjqian/azure-docs/assets/16233725/9e314ee1-d164-4530-9b70-25540f401d5d)
+
+![Screenshot of creating replica for Azure SignalR on Portal. ](./media/howto-enable-geo-replication/replica-overview.png  "Replica create")
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
 > * A replica is considered a separate resource when it comes to billing. See [Pricing](#pricing) for more details. 
@@ -61,7 +69,9 @@ To create a replica, Navigate to the SignalR **Replicas** blade on the Azure por
 After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
 
 <img src="https://github.com/bjqian/azure-docs/assets/16233725/6ba77af6-35b9-483f-97f4-1957a1b38eb7" width="750">
+![Screenshot of the Server Load metric of Azure SignalR on Portal. The metrics shows Server Load is at about 8 percent usage. ](./media/howto-enable-geo-replication/signalr-replica-create.png  "Server Load")
 
+![Screenshot of overview blade of Azure SignalR replica resource. ](./media/howto-enable-geo-replication/signalr-replica-overview.png  "Replica Overview")
 
 ## Pricing
 Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/signalr-service/) of Azure SignalR Service. Each replica is billed **separately** accorrding to its own units and outbound traffic. Free message quota is also calculated separately.
@@ -81,6 +91,7 @@ To delete a replica in the Azure portal:
 The diagram below provides a brief illustration of the SignalR Replicas' functionality:
 
 ![replica_overview-Copy of Page-1 drawio](https://github.com/bjqian/azure-docs/assets/16233725/657a3daa-cc2f-4868-88d0-c2f228223790)
+![Screenshot of the arch of Azure SignalR replica. ](./media/howto-enable-geo-replication/signalr-replica-arch.png  "Replica Arch")
 
 1. The client resolves the Fully Qualified Domain Name (FQDN) `contoso.service.signalr.net` of the SignalR service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional SignalR instance.
 2. With this CNAME, the client establishes a connection to the regional instance.
