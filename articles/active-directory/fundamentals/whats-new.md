@@ -32,6 +32,100 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## June 2023
+
+### Public Preview - Availability of Exchange Hybrid in Azure AD Connect cloud sync
+
+**Type:** New feature   
+**Service category:** Directory Management                       
+**Product capability:** AAD Connect Cloud Sync                
+
+
+
+Exchange hybrid capability allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Cloud Sync will synchronize a specific set of Exchange-related attributes from Azure AD back into your on-premises directory and to any forests that's disconnected (no network trust needed between them). With this capability, existing customers who have this feature enabled in Azure AD Connect sync can now migrate and leverage this feature with Azure AD cloud sync. For more information, see: ADD LINK
+
+---
+
+### General Availability - Custom Extensions in Entitlement Management 
+
+**Type:** New feature   
+**Service category:** Entitlement Management                       
+**Product capability:** Entitlement Management                
+
+Custom Extensions in Entitlement Management are now general available. For more information, see: ADD LINK
+
+---
+
+### General Availability - Lifecycle Workflows
+
+**Type:** New feature   
+**Service category:** Lifecycle Workflows                        
+**Product capability:** Identity Governance               
+
+Lifecycle Workflows is now general available within Microsoft Entra ID Governance. For more information, see: ADD LINK
+
+---
+
+### General Availability - Updated look and feel for Per-user MFA
+
+**Type:** Plan for change    
+**Service category:** MFA                       
+**Product capability:** Identity Security & Protection              
+
+As part of ongoing service improvements, we are making updates to the per-user MFA admin configuration experience to align with the look and feel of Azure. This change does not include any changes to the core functionality and will only include visual improvements. For more information, see: [Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events](../authentication/howto-mfa-userstates.md).
+
+---
+
+### General Availability - Converged Authentication Methods in US Gov cloud
+
+**Type:** New feature   
+**Service category:** MFA                      
+**Product capability:** User Authentication              
+
+The Converged Authentication Methods Policy enables you to manage all authentication methods used for MFA and SSPR in one policy, migrate off the legacy MFA and SSPR policies, and target authentication methods to groups of users instead of enabling them for all users in the tenant. Customers should migrate management of authentication methods off the legacy MFA and SSPR policies before September 30th, 2024. For more information, see: [Manage authentication methods for Azure AD](../authentication/concept-authentication-methods-manage.md).
+
+---
+
+### General Availability - Support for Directory Extensions using Azure AD Cloud Sync
+
+**Type:** New feature   
+**Service category:** Provisioning                        
+**Product capability:** AAD Connect Cloud Sync                
+
+Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to simply map the needed attributes using Cloud Sync's attribute mapping experience. For more information, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md).
+
+---
+
+### Public Preview - Restricted Management Administrative Units
+
+**Type:** New feature   
+**Service category:** Directory Management                        
+**Product capability:** Access Control               
+
+Restricted Management Administrative Units allow you to restrict modification of users, security groups, and device in Azure AD so that only designated administrators can make changes.  Global Administrators and other tenant-level administrators cannot modify the users, security groups, or devices that are added to a restricted management admin unit. For more information, see: [Restricted management administrative units in Azure Active Directory (Preview)](../roles/admin-units-restricted-management.md).
+
+---
+
+### Public Preview - Real-Time Threat Intelligence Detections
+
+**Type:** New feature   
+**Service category:** Identity Protection                        
+**Product capability:** Identity Security & Protection              
+
+To address emerging attacks, Identity Protection now includes Real-Time Threat Intelligence Detections, also referred to as Rapid Response Detections. When emerging attacks occur, Identity Protection will now dynamically issue new detections in response to these attacks. These detections will utilize Microsoft’s threat intelligence in real-time, meaning Identity Protection will detect emerging patterns of compromise during sign-in and challenge the user accordingly. For more information, see: ADD LINK
+
+---
+
+### General Availability - Report suspicious activity integrated with Identity Protection
+
+**Type:** Changed feature   
+**Service category:** Identity Protection                        
+**Product capability:** Identity Security & Protection              
+
+Report suspicious activity is an updated implementation of the MFA fraud alert, where users can report a voice or phone app MFA prompt as suspicious. If enabled, users reporting prompts will have their user risk set to high, enabling admins to use Identity Protection risk based policies or risk detection APIs to take remediation actions.  Report suspicious activity will operate in parallel with the legacy MFA fraud alert at this time. For more information, see: [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md).
+
+---
+
 ## May 2023
 
 ### General Availability - Conditional Access authentication strength for members, external users and FIDO2 restrictions
