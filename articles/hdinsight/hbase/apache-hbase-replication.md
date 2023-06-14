@@ -362,15 +362,13 @@ The following list shows you some general usage cases and their parameter settin
 
 For ESP clusters replication setup, we can’t run the hdi_enable_replication.sh script using script action, we need to ssh and run the script on the source cluster.
  
-**Step: 1** 
-1. Copy sink cluster hosts IP & hostname mapping in source cluster nodes /etc/hosts file. 
-1. Copy head node, worker node and ZooKeeper nodes host and IP mapping from /etc/hosts file of destination(sink) cluster.
-1. Add copied entries source cluster /etc/hosts file. These entries should be added to head nodes, worker nodes and ZooKeeper nodes.
+> [!NOTE]
+> Perform the following steps only if DNS is unable to resolve hostname correctly of destination cluster. 
+> 1. Copy sink cluster hosts IP & hostname mapping in source cluster nodes /etc/hosts file. 
+> 1. Copy head node, worker node and ZooKeeper nodes host and IP mapping from /etc/hosts file of destination(sink) cluster.
+> 1. Add copied entries source cluster /etc/hosts file. These entries should be added to head nodes, worker nodes and ZooKeeper nodes.
 
-> [!NOTE] 
-> Ignore this step, if DNS is able to resolve hostname correctly. 
-
-**Step: 2**
+**Step: 1**
 Create keytab file for the user using `ktutil`.
 `$ ktutil`
 1. `addent -password -p admin@ABC.EXAMPLE.COM -k 1 -e RC4-HMAC`
@@ -380,7 +378,7 @@ Create keytab file for the user using `ktutil`.
 > [!NOTE] 
 > Make sure the keytab file store is `/etc/security/keytabs/` folder in `<username>.keytab` format.
 
-**Step 3** 
+**Step 2** 
 Run script action with `-ku` option 
 1. Provide `-ku <username>` on ESP clusters.
 	
