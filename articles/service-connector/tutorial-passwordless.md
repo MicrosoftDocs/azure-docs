@@ -309,7 +309,6 @@ After creating the connection, you can use the connection string in your applica
     ```
 
 ### [Dotnet](#tab/dotnet)
-
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
 
 ```csharp
@@ -356,6 +355,7 @@ namespace NpgsqlConnectionExample
     }
 }
 ```
+
 
 
 For more information, see 
@@ -430,6 +430,8 @@ namespace MysqlConnectionExample
 }
 ```
 
+
+
 For more information, see 
 * [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md)
 * [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../mysql/flexible-server/connect-java.md?tabs=passwordless)
@@ -481,6 +483,7 @@ public class Main {
     }
 }
 ```
+
 
 
 For more information, see this site [Homepage for client programming to Microsoft SQL Server](/sql/connect/homepage-sql-connection-programming)
