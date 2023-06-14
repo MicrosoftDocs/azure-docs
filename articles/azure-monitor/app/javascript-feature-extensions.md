@@ -487,8 +487,8 @@ export const clickPluginConfigWithParentDataTag = {
 For example 2, for clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence.
 > [!NOTE] 
 > If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
-       
-## Example 3 
+
+### Example 3 
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -527,3 +527,5 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 - See a [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for how to implement custom event properties such as Name and parentid and custom behavior and content.
 - See the [sample app readme](https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo/blob/main/README.md) for where to find click data and [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
 - Build a [workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.
+
+
