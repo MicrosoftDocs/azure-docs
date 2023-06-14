@@ -107,10 +107,12 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
-    - name: Scale
+    - name: Scale and Geo-Replicate
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
+        - name: Geo-Replication
+          href: howto-enable-geo-replication.md
 - name: Concepts
   expanded: false
   items:
