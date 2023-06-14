@@ -123,7 +123,7 @@ export SearchIndex=REPLACE_WITH_YOUR_INDEX_NAME_HERE
 
 ## Example cURL commands
 
-The ChatGPT models are optimized to work with inputs formatted as a conversation. The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, tool, and assistant. The `dataSources` variable connects to your Azure Cognitive Search index, and enables Azure OpenAI models to respond using your data.
+The Azure OpenAI chat models are optimized to work with inputs formatted as a conversation. The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, tool, and assistant. The `dataSources` variable connects to your Azure Cognitive Search index, and enables Azure OpenAI models to respond using your data.
 
 To trigger a response from the model, you should end with a user message indicating that it's the assistant's turn to respond.
 
@@ -170,12 +170,12 @@ curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/ch
             "messages": [
                 {
                     "role": "tool",
-                    "content": "{\"citations\": [{\"content\": \"\\nWe have already setup a user managed identity (UMI) called tprompt-umi-kv which has access to the keyvault. Hence any compute which is assigned this UMI can access the secrets. This steps will work for you if you have access the UMI - tprompt-umi-kv.\\nYou just need to add the UMI to your compute cluster.\\n1. If you don't have access to the UMI, please a raise a request with the TPrompt team.\\n2. Open the CPU cluster named cpu-cluster-d12v2 and click edit button for \\\"Managed identity\\\" and assign the tprompt-umi-kv UMI to the cluster.\\nIf this does not work for you, you can follow the steps below to create your own keyvault with the required secrets. \\n(Optional) Setup keyvault access for OpenAI embeddings\\nThe OpenAI embeddings are queried from an internal endpoint hosted at\\nada-002 internal endpoint used in the steps below.\\nWe need to setup a keyvault in our resource group to store the secret for this endpoint and assign a UMI to have\", \"id\": null, \"title\": \"Set Up Compute for Endpoint Deployment\", \"filepath\": null, \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=250. Scores=0.4314117431640625 and 1.72564697265625.Org Highlight count=4.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"how to deploy Tprompt?\\\"]\"}",
+                    "content": "{\"citations\": [{\"content\": \"\\nCognitive Services are cloud-based artificial intelligence (AI) services...\", \"id\": null, \"title\": \"What is Cognitive Services\", \"filepath\": null, \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=250. Scores=0.4314117431640625 and 1.72564697265625.Org Highlight count=4.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"Learn about Azure Cognitive Services.\\\"]\"}",
                     "end_turn": false
                 },
                 {
                     "role": "assistant",
-                    "content": " \nTo deploy, you need to add the user managed identity (UMI) called tprompt-umi-kv to your compute cluster [doc1]. If you don't have access to the UMI, you can raise a request with the TPrompt team [doc1].",
+                    "content": " \nAzure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. [doc1]. Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. [doc1].",
                     "end_turn": true
                 }
             ]
