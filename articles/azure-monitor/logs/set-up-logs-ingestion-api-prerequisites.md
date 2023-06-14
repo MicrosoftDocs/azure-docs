@@ -13,6 +13,9 @@ ms.date: 06/12/2023
 
 This article provides a PowerShell script that sets up all of the resources you need before you can send data to Azure Monitor Logs using the [Logs ingestion API](logs-ingestion-api-overview.md). 
 
+> [!NOTE]
+> As a Microsoft MVP, [Morten Waltorp Knudsen](https://mortenknudsen.net/) contributed to and provided material feedback for this article. For an example of how you can automate the setup and ongoing use of the Log Ingestion API, see Morten's [AzLogDcrIngestPS PowerShell module](https://github.com/KnudsenMorten/AzLogDcrIngestPS).
+
 ## Create resources and permissions 
 The script creates these resources, if they don't already exist:
 
@@ -31,9 +34,6 @@ The script also grants the app `Contributor` permissions to:
 - The Log Analytics workspace  
 - The resource group for data collection rules 
 - The resource group for data collection endpoints
-
-> [!NOTE]
-> As a Microsoft MVP, [Morten Waltorp Knudsen](https://mortenknudsen.net/) contributed to and provided material feedback for this article. For an example of how you can automate the setup and ongoing use of the Log Ingestion API, see Morten's [AzLogDcrIngestPS PowerShell module](https://github.com/KnudsenMorten/AzLogDcrIngestPS).
 
 ## PowerShell script
 
