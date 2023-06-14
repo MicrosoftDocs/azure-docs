@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam;b2b
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 06/13/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -40,9 +40,8 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 1. At the bottom of the page, select **Add platform**, select **Website**, and then select **Next**.
 1. In **Site URL**, enter the address of your website, for example `https://contoso.com`. 
 1. Select **Save changes**.
-1. From the menu, select **Products**.  the **plus** sign or **Add Product** link next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
-1. From the menu, select **Facebook Login**, select **Settings**.
-1. In **Valid OAuth redirect URIs**, enter the following URIs, replacing `<tenant-ID>` with your customer tenant ID and `<tenant-name>` with your customer tenant name:
+1. From the menu, select **Products**. Next to **Facebook Login**, select **Configure** > **Settings**.
+1. In **Valid OAuth Redirect URIs**, enter the following URIs, replacing `<tenant-ID>` with your customer tenant ID and `<tenant-name>` with your customer tenant name:
    - `https://login.microsoftonline.com/te/<tenant-ID>/oauth2/authresp`
    - `https://<tenant-name>.ciamlogin.com/<tenant-ID>/federation/oidc/www.facebook.com`
    - `https://<tenant-name>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/www.facebook.com`
@@ -50,8 +49,8 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
    - `https://<tenant-name>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
    > [!NOTE]
    > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
-1. Select **Save Changes** at the bottom of the page.
-1. To make your Facebook application available to Azure AD, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point, the Status should change from **Development** to **Live**. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).
+1. Select **Save changes** at the bottom of the page.
+1. To make your Facebook application available to Azure AD, from the menu, select **Go live**. Follow all of the steps listed to complete all of the requirements. You'll likely need to complete your business verification to verify your identity as a business entity or organization, or as a person. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).
 
 ## Configure Facebook federation in Azure AD for customers
 
