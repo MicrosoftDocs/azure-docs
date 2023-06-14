@@ -1,5 +1,5 @@
 ---
-title: Create a Custom Image for Confidential VMs
+title: Create a custom image for Azure confidential VMs
 description: Learn how to use the Azure CLI to create a Confidential VM custom image from a vhd.
 author: simranparkhe
 ms.service: virtual-machines
@@ -11,7 +11,7 @@ ms.author: corsini
 ms.custom: devx-track-azurecli
 ---
 
-# How to create a Custom Image for Confidential VMs
+# How to create a custom image for Azure confidential VMs
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -37,7 +37,7 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 ```azurecli - interactive
 az group create --name $resourceGroupName --location eastus
 ```
-## Create custom image for confidential VMs
+## Create custom image for Azure confidential VMs
 
 1. [Create a virtual machine](/azure/virtual-machines/linux/quick-create-cli) with an Ubuntu image of choice from the list of [Azure supported images.](/azure/virtual-machines/linux/cli-ps-findimage)
 
@@ -47,7 +47,7 @@ az group create --name $resourceGroupName --location eastus
     ```azurecli
     az vm deallocate --name $vmname --resource-group $resourceGroupName
     ```
-3. Create a shared access token (SAS token) for the OS disk and store it in a variable.
+3. Create a shared access token (SAS token) for the OS disk and store it in a variable. Note this OS disk doesn't have to be in the same resource group as the confidential VM.
     ```azurecli
     disk_name=$(az vm show --name $vmname --resource-group $resourceGroupName | jq -r .storageProfile.osDisk.name)
     disk_url=$(az disk grant-access --duration-in-seconds 3600 --name $disk_name --resource-group $resourceGroupName | jq -r .accessSas)

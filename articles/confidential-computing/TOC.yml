@@ -135,7 +135,7 @@
     - name: Use sample app with guest attestation
       href: guest-attestation-example.md
     - name: Create a Custom Image for a Confidential VM
-      href: how-to-create-custom-image-cvm.md
+      href: how-to-create-custom-image-confidential-vm.md
     - name: Secure Key Release (SKR) with Azure Key Vault
       items:
       - name: SKR with Azure Confidential Computing Concept
