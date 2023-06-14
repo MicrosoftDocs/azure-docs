@@ -18,9 +18,6 @@ This article provides an overview of how to use IotJsonPathContent templates wit
 
 ## IotJsonPathContent template basics
 
-> [!IMPORTANT]
-> JMESPath not supported by IotJsonPathContent templates
-
 IotJsonPathContent templates are similar to the JsonPathContent templates except the `DeviceIdExpression` and `TimestampExpression` aren't required.
 
 The assumption, when using IotJsonPathContent templates, is the device messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or  [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
@@ -31,6 +28,9 @@ When you're using these SDKs, the device identity and the timestamp of the messa
 > Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination FHIR service.
 
 If you're using Azure IoT Hub Device SDKs, you can still use JsonPathContent templates, assuming that you're using custom properties in the device message body for the device identity or measurement timestamp.
+
+> [!IMPORTANT]
+> JMESPath not supported by IotJsonPathContent templates.
 
 The IotJsonPathContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
