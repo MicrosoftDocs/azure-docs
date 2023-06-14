@@ -101,7 +101,7 @@ Azure Monitor was designed to monitor the availability and performance of cloud 
 | Log Analytics workspace | You require at least one [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) if you enable Container insights or if you collect resource logs.There's no cost for the workspaces, but you do incur ingestion costs when you collect data. See [Azure Monitor pricing](https://aka.ms/azmonpricing) for details. For information on design considerations for a workspace configuration, see [Designing your Azure Monitor Logs deployment](../logs/workspace-design.md). |
 
 ### Send Activity log to Log Analytics workspace
-Configuration changes to your AKS cluster are stored in the [Activity log](../essentials/activity-log-overview.md). [Send this data to your Log Analytics workspace](../essentials/activity-log.md) to analyze it with other monitoring data.  There is no cost for this data collection.
+Configuration changes to your AKS cluster are stored in the [Activity log](../essentials/activity-log.md). [Send this data to your Log Analytics workspace](../essentials/activity-log.md#send-to-log-analytics-workspace) to analyze it with other monitoring data.  There is no cost for this data collection.
 
 
 ### Prometheus

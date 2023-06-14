@@ -32,19 +32,19 @@ The cluster administrator, also known as the platform engineer, is responsible f
 - Use [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) to remove collection of metrics since these are the same metrics being collection in Prometheus. In this case, you would use Grafana for visualization since the Container insights workbooks use data from the Log Analytics workspace. Container insights in this case would only be used for log collection.
 - Consider configuring ContainerLogV2 as [basic logs](../logs/basic-logs-configure.md).
 
-**How do I keep costs to a minimum when using AKS and its larger ecosystem?**
+**How do I keep costs to a minimum when using AKS and its larger ecosystem?**<br>
 The cluster administrator needs to ensure that the cluster is being run efficiently and using the full capacity of the nodes. They want to ensure that they're densely packing workloads, using fewer large nodes as opposed to many smaller nodes. [OpenCost](https://www.opencost.io/docs/azure-opencost) is an open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility. It exports detailed costing data to Azure storage that the administrator can use for these decisions.
 
 
-**How do I do charge back to different lines of business for their relative usage?**
+**How do I do charge back to different lines of business for their relative usage?**<br>
 The cluster administrator may be tasked with allocating the cost of the cluster to different teams based on their relative usage, and the need appropriate breakdowns of relative usage in order to perform this chargeback. [OpenCost](https://www.opencost.io/docs/azure-opencost) is an open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility. It exports detailed costing data in addition to [customer-specific Azure pricing](https://www.opencost.io/docs/azure-prices) to Azure storage that the administrator can use for this requirement.
 
-**Do I have to use Azure's monitoring and logging or can I bring my own?**
+**Do I have to use Azure's monitoring and logging or can I bring my own?**<br>
 Azure provides a complete set of services for collecting and analysing your Kubernetes logs. Container insights collects container stdout, stderr, and infrastructure logs, while you can create diagnostic settings to collect control plan logs for AKS. All logs are stored in a Log Analytics workspace where they can be analyzed using Kusto Query Language (KQL) or visualized in managed Grafana. 
 
 If you have an existing investment in another tool to collect and analyze Kubernetes logs, then use the Data Export feature of Log Analytics workspace to send AKS logs to Event Hub and forward to alternate system. 
 
-**How can I monitor that my upgrade was successful?**
+**How can I monitor that my upgrade was successful?**<br>
 Any configuration activities for AKS are logged in the Activity log. When you send the Activity log to a Log Analytics workspace you can analyze it with KQL. The following sample query can be used to return records identifying a successful upgrade. 
 
 ``` kql
@@ -58,7 +58,7 @@ AzureActivity
 
 **How do I monitor attached storage?**
 
-**How do I monitor and observe access between services in the cluster (east-west traffic)?**
+**How do I monitor and observe access between services in the cluster (east-west traffic)?**<br>
 For AKS clusters, see the new [Network Observability add-on for AKS](https://techcommunity.microsoft.com/t5/azure-observability-blog/comprehensive-network-observability-for-aks-through-azure/ba-p/3825852) which provides observability across the multiple layers in the Kubernetes networking stack.
 
 **How to monitor relevant infrastructure (load balancer SNAT, OS disk queue, host memory)?**
@@ -75,7 +75,7 @@ The Fleet Architect is similar to the cluster administrator but is responsible f
 
 **How do I manage clusters at scale?**
 
-**How can I monitor overall patch status of the clusters?**
+**How can I monitor overall patch status of the clusters?**<br>
 This information is available in the Activity log. 
 
 ``` kql
@@ -87,7 +87,7 @@ AzureActivity
 | order by TimeGenerated desc
 ```
 
-**How can I monitor the health of multiple clusters?**
+**How can I monitor the health of multiple clusters?**<br>
 Use either workbooks in Container insights or dashboards in Grafana.
 
 
