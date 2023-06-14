@@ -528,7 +528,7 @@
       href: how-to-responsible-ai-insights-ui.md
     - name: Generate responsible AI insights (SDK, CLI)
       href: how-to-responsible-ai-insights-sdk-cli.md
-    - name: Responsible AI vision insights
+    - name: Responsible AI image insights
       href: how-to-responsible-ai-vision-insights.md
     - name: Responsible AI text insights
       href: how-to-responsible-ai-text-insights.md
@@ -600,8 +600,6 @@
       href: how-to-use-sweep-in-pipeline.md
   - name: How to use pipeline components in pipeline 
     href: how-to-use-pipeline-component.md
-  - name: Build and debug pipelines (UI)
-    href: how-to-use-pipeline-ui.md
   - name: Schedule a pipeline job
     href: how-to-schedule-pipeline-job.md
   - name: Deploy pipeline component as a batch endpoint
