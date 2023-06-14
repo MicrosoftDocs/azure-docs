@@ -12,6 +12,8 @@ items:
   items: 
     - name: Create & run a load test
       href: quickstart-create-and-run-load-test.md
+    - name: Automate load tests with CI/CD
+      href: quickstart-add-load-test-cicd.md
 - name: Tutorials
   items: 
     - name: Identify performance bottlenecks

@@ -105,6 +105,8 @@ Application access can be blocked due to a problem with a user that is assigned 
 
 - [Assign a user a license](#assign-a-user-a-license)
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ### Check if a user account exists in Azure Active Directory
 
 To check if a user’s account is present, follow these steps:
