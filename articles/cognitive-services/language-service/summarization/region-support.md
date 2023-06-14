@@ -8,6 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 06/11/2023
 ms.author: jboback
 ---
