@@ -156,7 +156,7 @@ Properties
 | Property | Description |
 | -------- | ---------------|
 |` timeGenerated`| Represents the timestamp (UTC) of when the log was generated. |
-|` callConnectionId`| Represents the IDd of the call connection/leg, if available. |
+|` callConnectionId`| Represents the ID of the call connection/leg, if available. |
 |` callerIpAddress`| Represents the caller IP address, if the operation corresponds to an API call that would come from an entity with a publicly available IP address. |
 |` correlationId`| Represents the ID for correlated events. Can be used to identify correlated events between multiple tables. |
 |` durationMs`|Represents the duration of the operation in milliseconds. |
