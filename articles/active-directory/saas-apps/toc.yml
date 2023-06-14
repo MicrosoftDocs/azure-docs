@@ -3493,7 +3493,9 @@
       - name: Zip
         href: zip-provisioning-tutorial.md
       - name: Zoom
-        href: zoom-provisioning-tutorial.md              
+        href: zoom-provisioning-tutorial.md
+      - name: Zoho One
+        href: zoho-one-provisioning-tutorial.md
       - name: Zscaler
         href: zscaler-provisioning-tutorial.md
       - name: Zscaler Beta
