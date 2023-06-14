@@ -80,7 +80,7 @@ Once the dataset has been loaded, you can view the different feature classes it 
 
 Some layers have a drop-down containing multiple layers within it, followed by the geometry of the layer, as the following image shows:
 
-:::image type="content" source="./media/creator-indoor-maps/qgis/layers_example.png"alt-text="A screenshot showing a data set in the QGIS layers section.":::
+:::image type="content" source="./media/creator-indoor-maps/qgis/layers-example.png"alt-text="A screenshot showing a data set in the QGIS layers section.":::
 
 This happens in the case when the [layer definition] shows that the layer can hold features of different geometries. since QGIS only supports one geometry per layer, the plugin splits these layers by their possible geometries.
 
