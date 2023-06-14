@@ -60,7 +60,7 @@ Examples: "30 Egyptian pounds", "77 USD"
 Possible values for "unit" and "ISO4217":
 - [ISO 4217 reference](https://docs.1010data.com/1010dataReferenceManual/DataTypesAndFormats/currencyUnitCodes.html).
 
-## Datetime/Temporal Entities
+## Datetime/Temporal entities
 
 Datetime includes several different subtypes that return different response objects.
 
