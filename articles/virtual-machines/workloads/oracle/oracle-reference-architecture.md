@@ -7,7 +7,7 @@ ms.subservice: oracle-on-azure-vms
 ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
-ms.author: kegorman
+ms.author: jacobjaygbay
  
 ---
 # Reference architectures for Oracle Database Enterprise Edition on Azure

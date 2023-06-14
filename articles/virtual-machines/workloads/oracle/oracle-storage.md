@@ -4,7 +4,7 @@ description: Storage options for Oracle on Azure VMs.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: virtual-machines
-ms.subservice: oracle-on-azure-vms
+ms.subservice: oracle
 ms.collection: oracle
 ms.topic: article
 ms.date: 06/5/2023
