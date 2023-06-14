@@ -44,10 +44,11 @@ Each plan has different behaviors. Not all deployment technologies are available
 | Local Git<sup>1</sup> |✔|✔|✔| |✔|✔|
 | Cloud sync<sup>1</sup> |✔|✔|✔| |✔|✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
-| Portal editing |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
+| Portal editing<sup>2</sup> |✔|✔|✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|
 
-<sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).
-<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
+<sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  
+<sup>2</sup> Portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).  
+<sup>3</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.  
 
 ## Key concepts
 
