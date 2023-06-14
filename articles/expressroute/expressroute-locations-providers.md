@@ -102,7 +102,7 @@ The following table shows connectivity locations and the service providers for e
 | **Paris** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | France Central | Supported | British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Jaguar Network, Megaport, Orange, Telia Carrier, Zayo, Verizon|
 | **Paris2** | [Equinix](https://www.equinix.com/data-centers/europe-colocation/france-colocation/paris-data-centers/pa4) | 1 | France Central | Supported | Equinix |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | n/a | Supported | Equinix, Megaport, NextDC |
-| **Phoenix** | [EdgeConneX PHX01](https://www.edgeconnex.com/locations/north-america/phoenix-az/) | 1 | West US 3 | Supported | Cox Business Cloud Port, CenturyLink Cloud Connect, DE-CIX, Megaport, Zayo |
+| **Phoenix** | [EdgeConneX PHX01](https://www.cyrusone.com/data-centers/north-america/arizona/phx1-phx8-phoenix) | 1 | West US 3 | Supported | Cox Business Cloud Port, CenturyLink Cloud Connect, DE-CIX, Megaport, Zayo |
 | **Portland** | [EdgeConnex POR01](https://www.edgeconnex.com/locations/north-america/portland-or/) | 1 | West US 2 | Supported | |
 | **Pune** | [STT GDC Pune DC1](https://www.sttelemediagdc.in/our-data-centres-in-india) | 2 | Central India| Supported | Lightstorm, Tata Communications |
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada East | Supported | Bell Canada, Equinix, Megaport, Telus |
@@ -132,7 +132,7 @@ The following table shows connectivity locations and the service providers for e
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | Supported | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Orange, Telus, Verizon, Zayo |
 | **Toronto2** | [Allied REIT](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Canada Central | Supported | Fibrenoire |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | n/a | Supported | Bell Canada, Cologix, Megaport, Telus, Zayo |
-| **Warsaw** | [Equinix WA1](https://www.equinix.com/data-centers/europe-colocation/poland-colocation/warsaw-data-centers/wa1) | 1 | n/a | Supported | Equinix |
+| **Warsaw** | [Equinix WA1](https://www.equinix.com/data-centers/europe-colocation/poland-colocation/warsaw-data-centers/wa1) | 1 | Poland Central | Supported | Equinix |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/), [Equinix DC6](https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc6) | 1 | East US, East US 2 | Supported | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Cox Business Cloud Port, Crown Castle, Equinix, Internet2, InterCloud, Iron Mountain, IX Reach, Level 3 Communications, Lightpath, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, SES, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | [Coresite VA2](https://www.coresite.com/data-center/va2-reston-va) | 1 | East US, East US 2 | n/a | CenturyLink Cloud Connect, Coresite, Intelsat, Megaport, Viasat, Zayo | 
 | **Zurich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Switzerland North | Supported | Colt, Equinix, Intercloud, Interxion, Megaport, Swisscom, Zayo |
