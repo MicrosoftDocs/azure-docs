@@ -601,7 +601,7 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
 
     ----
 
-    Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you connect test container you can inspect the values using 
+    Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you connect to the test container, you can inspect the values using 
 
     ```bash
     env | grep "^KAFKA_"
@@ -938,7 +938,7 @@ az deployment group create -g $RESOURCE_GROUP \
 
 ## Final `azd` template for all resource
 
-A final template can be found [here](https://github.com/ahmelsayed/aca-dev-service-kafka-azd). To deploy it run the following commands
+A final template can be found [here](https://github.com/ahmelsayed/aca-dev-service-kafka-azd). To deploy it, run the following commands
 
 ```bash
 git clone https://github.com/Azure-Samples/aca-dev-service-kafka-azd

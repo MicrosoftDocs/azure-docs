@@ -588,7 +588,7 @@ We start by creating a debug app to use `psql` CLI to connect to the PostgreSQL 
 
     ---
 
-    Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you connect to the test container you can inspect the values using 
+    Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you connect to the test container, you can inspect the values using 
 
     ```bash
     env | grep "^POSTGRES_"
