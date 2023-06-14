@@ -2,16 +2,14 @@
 title: Using RedisListTrigger Azure Function
 description: Learn how to use RedisListTrigger Azure Functions
 author: flang-msft
-zone_pivot_groups: 
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 06/14/2023
 
 ---
-
-zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # RedisListTrigger Azure Function
 

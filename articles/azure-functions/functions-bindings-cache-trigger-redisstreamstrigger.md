@@ -2,7 +2,7 @@
 title: Using RedisStreamTrigger Azure Function
 description: Learn how to use RedisStreamTrigger Azure Function
 author: flang-msft
-zone_pivot_groups: cache-redis-zone-pivot-group
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: cache
@@ -11,7 +11,6 @@ ms.date: 06/14/2023
 
 ---
 
-zone_pivot_groups: programming-languages-set-functions-lang-workers
 # RedisStreamTrigger Azure Function
 <!--Intro info goes here-->
 Example
