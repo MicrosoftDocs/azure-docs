@@ -10,7 +10,7 @@ ms.author: jolov
 
 There are two modes of authenticating using the Event Grid output binding:
 
-- The `Connection` property can be set a reference to environment configuration which specifies how the app should connect to Event Grid. If set, it must specify:
+- The `Connection` is a reference to environment configuration which specifies how the app should connect to Event Grid. If set, it must specify:
 
   - The name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections).
 
