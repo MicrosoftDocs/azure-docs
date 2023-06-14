@@ -11,12 +11,12 @@ ms.custom: devx-track-terraform, ai-gen-docs
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
 
-* Deploy an AKS cluster using Terraform. The sample code is fully encapsulated such that it automatically creates a service principal and SSH key pair (using the [AzAPI provider](overview-azapi-provider.md)).
+* Deploy an AKS cluster using Terraform. The sample code is fully encapsulated such that it automatically creates a service principal and SSH key pair (using the [AzAPI provider](/azure/developer/terraform/overview-azapi-provider)).
 * Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
 
 :::image type="content" source="media/quick-kubernetes-deploy-terraform/azure-voting-application.png" alt-text="Preview of Azure Vote sample application.":::
 
-[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+[!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 In this article, you learn how to:
 
@@ -28,11 +28,11 @@ In this article, you learn how to:
 > * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
 > * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
-[!INCLUDE [AI attribution](~/../azure-docs-pr/includes/ai-generated-attribution.md)]
+[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
-[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 - **Kubernetes command-line tool (kubectl):** [Download kubectl](https://kubernetes.io/releases/download/).
 
@@ -47,35 +47,35 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/providers.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/providers.tf)]
 
 1. Create a file named `ssh.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/ssh.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/ssh.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/main.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/variables.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/outputs.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/outputs.tf)]
 
 ## Initialize Terraform
 
-[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
 
 ## Create a Terraform execution plan
 
-[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
+[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
 
 ## Apply a Terraform execution plan
 
-[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
+[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 
 ## Verify the results
 
@@ -147,7 +147,7 @@ Two [Kubernetes Services](/azure/aks/concepts-network#services) are created:
 
 1. Create a file named `azure-vote.yaml` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/azure-vote.yaml)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/azure-vote.yaml)]
 
     **Key points:**
 
@@ -177,7 +177,7 @@ Two [Kubernetes Services](/azure/aks/concepts-network#services) are created:
 
 ### Delete AKS resources
 
-[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
+[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
 
 ### Delete service principal
 
@@ -195,7 +195,7 @@ Two [Kubernetes Services](/azure/aks/concepts-network#services) are created:
     
 ## Troubleshoot Terraform on Azure
 
-[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
+[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot)
 
 ## Next steps
 
