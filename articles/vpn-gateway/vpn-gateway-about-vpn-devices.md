@@ -5,7 +5,7 @@ description: Learn about VPN devices and IPsec parameters for Site-to-Site cross
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/18/2023
+ms.date: 06/14/2023
 ms.author: cherylmc
 
 ---
@@ -49,6 +49,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Fortinet |FortiGate |FortiOS 5.6 | Not tested |[Configuration guide](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
 | Fujitsu | Si-R G series | V04: V04.12<br>V20: V20.14 | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) |
 | Hillstone Networks | Next-Gen Firewalls (NGFW) | 5.5R7  | Not tested | [Configuration guide](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
+| HPE Aruba | EdgeConnect SDWAN Gateway | ECOS Release v9.2<br>Orchestrator OS v9.2 | [Configuration guide](https://www.arubanetworks.com/website/techdocs/sdwan-PDFs/integrations/int_Azure-EC-IPSec_latest.pdf) | [Configuration guide](https://www.arubanetworks.com/website/techdocs/sdwan-PDFs/integrations/int_Azure-EC-IPSec_latest.pdf)|
 | Internet Initiative Japan (IIJ) |SEIL Series |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Configuration guide](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Not compatible |
 | Juniper |SRX |PolicyBased: JunOS 10.2<br>Routebased: JunOS 11.4 |Supported |[Configuration script](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |J-Series |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |Supported |[Configuration script](vpn-gateway-download-vpndevicescript.md) |
@@ -202,3 +203,4 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 1. Check the firmware version of your Palo Alto Networks device. If your PAN-OS version is older than 7.1.4, upgrade to 7.1.4.
 2. On the Palo Alto Networks device, change the Phase 2 SA (or Quick Mode SA) lifetime to 28,800 seconds (8 hours) when connecting to the Azure VPN gateway.
 3. If you're still experiencing connectivity issues, open a support request from the Azure portal.
+
