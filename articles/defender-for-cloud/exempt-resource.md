@@ -56,7 +56,7 @@ To create an exemption rule:
 1. In the **Exempt** pane:
     1. Select the scope for this exemption rule:
         - If you select a management group, the recommendation will be exempted from all subscriptions within that group
-        - If you're creating this rule to exempt one or more resources from the recommendation, choose "Selected resources"" and select the relevant ones from the list
+        - If you're creating this rule to exempt one or more resources from the recommendation, choose "Selected resources" and select the relevant ones from the list
 
     1. Enter a name for this exemption rule.
     1. Optionally, set an expiration date.
