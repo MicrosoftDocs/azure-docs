@@ -282,11 +282,11 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 - Ensure that the storage keys aren't rotated during the restore.
 - Check the network configuration on the storage account(s) and ensure that it allows the Microsoft first party services.
 
-
+  :::image type="content" source="./troubleshoot-azure-files/storage-account-network-configuration.png" alt-text="Screenshot shows the required networking details in a storage account." lightbox="./troubleshoot-azure-files/storage-account-network-configuration.png":::
 
 - Ensure that the target storage account has the following configuration: *Permitted scope for copy operations* are set to *From storage accounts in the same Azure AD tenant*.
 
-
+  :::image type="content" source="./troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the the target storage account configuration." lightbox="./troubleshoot-azure-files/target-storage-account-configuration.png":::
 
 
 ## Common modify policy errors
