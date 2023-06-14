@@ -23,7 +23,7 @@ Follow these steps to configure advanced networking for your lab plan:
 1. Delegate the virtual network subnet to Azure Lab Services lab plans. Delegation allows Azure Lab Services to create the lab template and lab virtual machines in the virtual network.
 1. Configure the network security group to allow inbound RDP or SSH traffic to the lab template virtual machine and lab virtual machines.
 1. Create a lab plan with advance networking and associate it with the virtual network subnet.
-1. (Optional) Configure your virtual network.
+1. (Optional) Configure your virtual network. 
 
 The following diagram shows an overview of the Azure Lab Services advanced networking configuration.
 
@@ -153,13 +153,20 @@ To create a lab plan with advanced networking in the Azure portal:
 
     When you create a new lab, all virtual machines are created in the virtual network and assigned an IP address within the subnet range.
 
-## (Optional) Configure your virtual network
+## (Optional) Update the networking configuration settings
 
-## Known issues
+It's recommended that you use the default configuration settings for the virtual network and subnet when you use advanced networking in Azure Lab Services.
 
-- Deleting your virtual network or subnet causes the lab to stop working
-- Changing the DNS label on the public IP causes the **Connect** button for lab VMs to stop working.
-- Azure Firewall isn't currently supported.
+For specific networking scenarios, you might need to update the networking configuration. Learn more about the [supported networking architectures and topologies in Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services-blog/network-architectures-and-topologies-with-lab-plans/ba-p/3781597#M130) and the corresponding network configuration.
+
+You can modify the networking configuration settings after you create the lab plan with advanced networking. However, there are some considerations when making networking configurations:
+
+- If you delete the virtual network or subnet that is associated with the lab plan, the labs stop working.
+- You can change the subnet range, as long as there are no virtual machines (lab template VM or lab VMs) created for the lab.
+- When you change the DNS label on the public IP address, the **Connect** button for lab VMs stops working.
+
+> [!NOTE]
+> Azure Firewall is currently not supported.
 
 ## Next steps
 
