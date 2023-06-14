@@ -6,7 +6,7 @@ author: dbakevlar
 tags: azure-resource-management
 ms.assetid: 
 ms.service: virtual-machines
-ms.subservice: oracle
+ms.subservice: oracle-on-azure-vms
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
