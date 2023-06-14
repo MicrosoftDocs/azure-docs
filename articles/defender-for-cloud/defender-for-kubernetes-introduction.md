@@ -30,7 +30,6 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 |Aspect|Details|
 |----|:----|
 |Release state:|Deprecated (Use [**Microsoft Defender for Containers**](defender-for-containers-introduction.md))|
-|Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
@@ -52,7 +51,6 @@ For a full list of the cluster level alerts, see alerts with "K8S_" prefix in th
 
 - [What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?](#what-happens-to-subscriptions-with-microsoft-defender-for-kubernetes-or-microsoft-defender-for-containers-enabled)
 - [Is Defender for Containers a mandatory upgrade?](#is-defender-for-containers-a-mandatory-upgrade)
-- [Does the new plan reflect a price increase?](#does-the-new-plan-reflect-a-price-increase)
 - [How can I calculate my potential price change?](#how-can-i-calculate-my-potential-price-change)
 
 ### What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?
@@ -64,10 +62,6 @@ If you haven't enabled them yet, or create a new subscription, these plans can n
 ### Is Defender for Containers a mandatory upgrade?
 
 No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsoft Defender for Containers Registries enabled doesn't need to be upgraded to the new Microsoft Defender for Containers plan. However, they won't benefit from the new and improved capabilities and they’ll have an upgrade icon shown alongside them in the Azure portal.
-
-### Does the new plan reflect a price increase?
-
-The new comprehensive Container security plan combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. The price for the service may change and is dependent on your container architecture and coverage. The cost may increase or decrease, depending on the number of images in your Container Registry, or the number of Kubernetes nodes among other reasons.
 
 ### How can I calculate my potential price change?
 

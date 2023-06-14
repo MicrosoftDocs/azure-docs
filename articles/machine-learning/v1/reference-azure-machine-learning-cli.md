@@ -16,9 +16,6 @@ ms.custom: UpdateFrequency5, seodec18, devx-track-azurecli, cliv1
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](reference-azure-machine-learning-cli.md)
-> * [v2 (current version)](../how-to-configure-cli.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 

@@ -16,6 +16,9 @@ Microsoft Defender for Cloud is a cloud-native application protection platform (
 
 ![Diagram that shows the core functionality of Microsoft Defender for Cloud.](media/defender-for-cloud-introduction/defender-for-cloud-pillars.png)
 
+> [!NOTE]
+> For pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
 ## Secure cloud applications
 
 Defender for Cloud helps you to incorporate good security practices early during the software development process, or DevSecOps. You can protect your code management environments and your code pipelines, and get insights into your development environment security posture from a single location. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments.
@@ -31,6 +34,8 @@ Today’s applications require security awareness at the code, infrastructure, a
 The security of your cloud and on-premises resources depends on proper configuration and deployment. Defender for Cloud recommendations identify the steps that you can take to secure your environment.
 
 Defender for Cloud includes Foundational CSPM capabilities for free. You can also enable advanced CSPM capabilities by enabling the Defender CSPM plan.
+
+
 
 | Capability | What problem does it solve? | Get started | Defender plan and pricing |
 |--|--|--|--|

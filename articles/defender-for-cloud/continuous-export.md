@@ -27,7 +27,7 @@ This article describes how to configure continuous export to Log Analytics works
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).|
+|Pricing:|Free|
 |Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource.</li><li>If you're using the [Azure Policy 'DeployIfNotExist' policies](#configure-continuous-export-at-scale-using-the-supplied-policies), you'll also need permissions for assigning policies</li><li>To export data to Event Hubs, you'll need Write permission on the Event Hubs Policy.</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions)</li></ul></li></ul>|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
@@ -261,6 +261,8 @@ To download a CSV report for alerts or recommendations, open the **Security aler
 ## FAQ - Continuous export
 
 ### What are the costs involved in exporting data?
+
+There's no cost for enabling a continuous export. Costs might be incurred for ingestion and retention of data in your Log Analytics workspace, depending on your configuration there.
 
 Many alerts are only provided when you've enabled Defender plans for your resources. A good way to preview the alerts you'll get in your exported data is to see the alerts shown in Defender for Cloud's pages in the Azure portal.
 

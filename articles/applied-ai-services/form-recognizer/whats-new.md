@@ -377,7 +377,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields now resolves to the existing fields TotalTax and Line/Tax respectively.
   * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
-  * [**prebuilt-businessCard**](concept-business-card.md). Address parse support to extract subfields for address components like address, city, state, country, and zip code.
+  * [**prebuilt-businessCard**](concept-business-card.md). Address parse support to extract subfields for address components like address, city, state, country/region, and zip code.
 
 * **AI quality improvements**
 

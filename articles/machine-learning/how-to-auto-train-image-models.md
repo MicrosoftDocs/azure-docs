@@ -17,9 +17,6 @@ ms.date: 07/13/2022
 # Set up AutoML to train computer vision models
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/how-to-auto-train-image-models.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-auto-train-image-models.md)
 
 
 In this article, you learn how to train computer vision models on image data with automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2.

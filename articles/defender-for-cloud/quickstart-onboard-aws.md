@@ -45,7 +45,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 |Aspect|Details|
 |----|:----|
 |Release state:|General Availability (GA)|
-|Pricing:|For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).|
+|Pricing:|The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.<br>For every AWS machine connected to Azure, the **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines.<br>Learn more about [Defender plan pricing and billing](enhanced-security-features-overview.md#faq---pricing-and-billing)|
 |Required roles and permissions:|**Contributor** permission for the relevant Azure subscription. <br> **Administrator** on the AWS account.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 

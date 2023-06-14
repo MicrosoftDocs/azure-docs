@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 04/02/2023
+ms.date: 06/08/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -292,11 +292,11 @@ For more information, see [Connect Operations Manager to Azure Monitor](../azure
 
 Application Insights (part of Azure Monitor) enables the same features in both Azure and Azure Government. This section describes the supplemental configuration that is required to use Application Insights in Azure Government.
 
-**Visual Studio** - In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
+**Visual Studio** – In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
 
-**SDK endpoint modifications** - In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](/previous-versions/azure/azure-monitor/app/create-new-resource#override-default-endpoints).
+**SDK endpoint modifications** – In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](/previous-versions/azure/azure-monitor/app/create-new-resource#override-default-endpoints).
 
-**Firewall exceptions** - Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md) from where you can download Azure Government IP addresses.
+**Firewall exceptions** – Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md) from where you can download Azure Government IP addresses.
 
 >[!NOTE]
 >Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
@@ -344,6 +344,16 @@ This section outlines variations and considerations when using Networking servic
 ### [Azure ExpressRoute](../expressroute/index.yml)
 
 For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md). For an overview of how **BGP communities** are used with ExpressRoute in Azure Government, see [BGP community support in National Clouds](../expressroute/expressroute-routing.md#bgp-community-support-in-national-clouds).
+
+### [Azure Front Door](../frontdoor/index.yml)
+
+Azure Front Door Standard and Premium tiers are available in public preview in Azure Government regions US Gov Arizona and US Gov Texas. During public preview, the following Azure Front Door **features aren't supported** in Azure Government:
+
+- Managed certificate for enabling HTTPS; instead, you need to use your own certificate.
+- [Migration](../frontdoor/tier-migration.md) from classic to Standard/Premium tier.
+- [Managed identity integration](../frontdoor/managed-identity.md) for Azure Front Door Standard/Premium access to Azure Key Vault for your own certificate.
+- [Tier upgrade](../frontdoor/tier-upgrade.md) from Standard to Premium.
+- Web Application Firewall (WAF) policies creation via WAF portal extension; instead, WAF policies can be created via Azure Front Door Standard/Premium portal extension. Updates and deletions to WAF policies and rules are supported on WAF portal extension.
 
 ### [Private Link](../private-link/index.yml)
 
