@@ -46,22 +46,11 @@ A user becomes a risky user when:
 
 ### How to investigate risky users? 
 
-To view and investigate a user’s risky sign-ins, click on the “Recent risky sign-ins” tab or the “Users risky sign-ins” link. 
+To view and investigate a user’s risky sign-ins, select the “Recent risky sign-ins” tab or the “Users risky sign-ins” link. 
 
-To view and investigate risks on a user’s account, click on the “Detections not linked to a sign-in” tab or the “User’s risk detections” link. 
+To view and investigate risks on a user’s account, select the “Detections not linked to a sign-in” tab or the “User’s risk detections” link. 
 
 The Risk history tab also shows all the events that have led to a user risk change in the last 90 days, including risk detections that increased the user’s risk and admin remediation actions that lowered the user’s risk. View it to understand how the user’s risk has changed. 
-
-| Column name | Description |
-| --- | --- |
-| User |  |
-| Username |  |
-| Risk state |  |
-| Risk level |  |
-| Risk detail |  |
-| Risk last updates |  |
-| Status |  |
-| Risk processing state |  |
 
 :::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Risky users report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
 
@@ -78,7 +67,7 @@ Administrators can then choose to take action on these events. Administrators ca
 - Confirm user compromise
 - Dismiss user risk
 - Block user from signing in
-- Investigate further using Microsoft Defender for Identity
+- [Investigate further using Microsoft Defender for Identity](#investigate-risk-with-microsoft-365-defender)
 
 ## Risky sign-ins
 
@@ -137,7 +126,7 @@ Organizations may use the following frameworks to begin their investigation into
    1. If you have access to other security tools like [Microsoft Sentinel](../../sentinel/overview.md), check for corresponding alerts that might indicate a larger issue.
    1. Organizations with access to [Microsoft 365 Defender](/defender-for-identity/understanding-security-alerts) can follow a user risk event through other related alerts and incidents and the MITRE ATT&CK chain. 
        1. Select the user in the Risky users report.
-       1. Select the **elipsis (...)** in the toolbar then choose **Investigate with Microsoft 365 Defender**.
+       1. Select the **ellipsis (...)** in the toolbar then choose **Investigate with Microsoft 365 Defender**.
 1. Reach out to the user to confirm if they recognize the sign-in. Methods such as email or Teams may be compromised.
    1. Confirm the information you have such as:
       1. Application
@@ -164,6 +153,21 @@ If more information is shown for the detection:
       1. Protocol
       1. Ranges of IPs/ASNs
       1. Time and frequency of sign-ins
+
+## Investigate risk with Microsoft 365 Defender
+
+Organizations who have deployed [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) and [Microsoft Defender for Identity](/defender-for-identity/what-is) gain extra value from Identity Protection signals. This value comes in the form of enhanced correlation with other data from other parts of the organization and extra [automated investigation and response](/microsoft-365/security/defender/m365d-autoir).
+
+In Microsoft 365 Defender Security Professionals and Administrators can make connections to suspicious activity from areas like: 
+
+- Alerts in Defender for Identity 
+- Microsoft Defender for Endpoint
+- Microsoft Defender for Cloud
+- Microsoft Defender for Cloud Apps
+ 
+For more information about how to investigate suspicious activity using Microsoft 365 Defender, see the articles [Investigate assets in Microsoft Defender for Identity](/defender-for-identity/investigate-assets#investigation-steps-for-suspicious-users) and [Investigate incidents in Microsoft 365 Defender](/microsoft-365/security/defender/investigate-incidents).
+
+For more information about these alerts and their structure, see the article [Understanding security alerts](/defender-for-identity/understanding-security-alerts).
 
 ## Next steps
 

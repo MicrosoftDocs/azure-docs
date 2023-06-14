@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 05/19/2023
+ms.date: 06/14/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: sahandle
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
@@ -19,11 +19,9 @@ ms.collection: M365-identity-device-management
 
 Azure AD Identity Protection helps organizations detect, investigate, and remediate identity-based risks. These identity-based risks can be further fed into tools like Conditional Access to make access decisions or fed back to a security information and event management (SIEM) tool for further investigation and correlation. 
 
-Identity Protection is unique in the fact that Microsoft analyses trillions of signals per day to identify and protect our customers from threats. We use the learnings acquired from Azure Active Directory, Microsoft Accounts, and in gaming with Xbox to protect your users. 
+## Detect risks
 
-## Detect 
-
-Microsoft is continually adding new detections to our catalog. Identity Protection detects risky behavior like: 
+Microsoft continually adds and updates detections in our catalog to protect organizations. These detections come from our learnings based on the analysis of trillions of signals each day from Active Directory, Microsoft Accounts, and in gaming with Xbox. This broad range of signals helps Identity Protection detect risky behaviors like: 
 
 - Anonymous IP address usage
 - Password spray attacks
@@ -46,7 +44,7 @@ Any risks detected on an identity are tracked with reporting. Identity Protectio
 
 For more information about how to use the reports, see the article [How To: Investigate risk](howto-identity-protection-investigate-risk.md).
 
-## Remediate 
+## Remediate risks 
 
 Why automation is critical in security? 
 
@@ -58,9 +56,9 @@ In the blog post *[Cyber Signals: Defending against cyber threats with the lat
 
 The sheer scale of signals and attacks requires some level of automation just to keep up. 
 
-### User remediation
+### Automatic remediation
 
-Risk-based Conditional Access policies can be enabled to require access controls such as providing a strong authentication method, performing multifactor authentication, or performing a secure password reset based on the detected risk level. If the user successfully completes the access control, the risk is automatically remediated. 
+[Risk-based Conditional Access policies](howto-identity-protection-configure-risk-policies.md) can be enabled to require access controls such as providing a strong authentication method, performing multifactor authentication, or performing a secure password reset based on the detected risk level. If the user successfully completes the access control, the risk is automatically remediated. 
 
 ### Manual remediation 
 
@@ -68,11 +66,11 @@ When user remediation isn't enabled, an administrator must manually review them 
 
 ## Making use of the data
 
-Data from Identity Protection can be exported to other tools for archive, further investigation, and correlation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, Get started with Azure Active Directory Identity Protection and Microsoft Graph 
+Data from Identity Protection can be exported to other tools for archive, further investigation, and correlation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Azure Active Directory Identity Protection and Microsoft Graph](howto-identity-protection-graph-api.md) 
 
-Information about integrating Identity Protection information with Microsoft Sentinel can be found in the article, Connect data from Azure AD Identity Protection. 
+Information about integrating Identity Protection information with Microsoft Sentinel can be found in the article, [Connect data from Azure AD Identity Protection](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection). 
 
-Organizations may store data for longer periods by changing the diagnostic settings in Azure AD. They can choose to send data to a Log Analytics workspace, archive data to a storage account, stream data to Event Hubs, or send data to another solution. Detailed information about how to do so can be found in the article, How To: Export risk data. 
+Organizations may store data for longer periods by changing the diagnostic settings in Azure AD. They can choose to send data to a Log Analytics workspace, archive data to a storage account, stream data to Event Hubs, or send data to another solution. Detailed information about how to do so can be found in the article, [How To: Export risk data](howto-export-risk-data.md). 
 
 ## Required roles
 
@@ -80,11 +78,11 @@ Identity Protection requires users be a Security Reader, Security Operator, Secu
 
 | Role | Can do | Can't do |
 | --- | --- | --- |
-| Security Administrator | Full access to Identity Protection | Reset password for a user |
-| Security Operator | View all Identity Protection reports and Overview <br><br> Dismiss user risk, confirm safe sign-in, confirm compromise | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts |
-| Security Reader | View all Identity Protection reports and Overview | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts <br><br> Give feedback on detections |
-| Global Reader | Read-only access to Identity Protection |   |
-| Global Administrator | Full access to Identity Protection |   |
+| [Security Administrator](../roles/permissions-reference.md#security-administrator) | Full access to Identity Protection | Reset password for a user |
+| [Security Operator](../roles/permissions-reference.md#security-operator) | View all Identity Protection reports and Overview <br><br> Dismiss user risk, confirm safe sign-in, confirm compromise | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts |
+| [Security Reader](../roles/permissions-reference.md#security-reader) | View all Identity Protection reports and Overview | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts <br><br> Give feedback on detections |
+| [Global Reader](../roles/permissions-reference.md#global-reader) | Read-only access to Identity Protection |   |
+| [Global Administrator](../roles/permissions-reference.md#global-administrator) | Full access to Identity Protection |   |
 
 Currently, the Security Operator role can't access the Risky sign-ins report.
 

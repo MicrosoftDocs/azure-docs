@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 06/14/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -82,6 +82,10 @@ The algorithm ignores obvious "false positives" contributing to the impossible t
 We also run this detection for basic authentication (or legacy protocols). Because these protocols don't have modern properties such as client ID, there's limited telemetry to reduce false positives. We recommend our customers to move to modern authentication. 
 
 Unfamiliar sign-in properties can be detected on both interactive and non-interactive sign-ins. When this detection is detected on non-interactive sign-ins, it deserves increased scrutiny due to the risk of token replay attacks. 
+
+Selecting an unfamiliar sign-in properties risk allows you to see **Additional Info** showing you more detail about why this risk triggered. The following screenshot shows an example of these details.
+
+:::image type="content" source="media/concept-identity-protection-risks/unfamiliar-sign-in-properties-example.png" alt-text="Screenshot showing an example of unfamiliar sign-in properties risk detection." lightbox="media/concept-identity-protection-risks/unfamiliar-sign-in-properties-example.png":::
 
 #### Malicious IP address 
 
