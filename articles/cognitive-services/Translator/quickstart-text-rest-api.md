@@ -127,7 +127,7 @@ For detailed information regarding Azure Translator Service request limits, *see
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. Copy and paste the code sample into your application's Program.cs file. Make sure you update the key variable with the value from your Azure portal Translator instance:
+1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`. Copy and paste the code sample into your application's Program.cs file. Make sure you update the key variable with the value from your Azure portal Translator instance:
 
 ```csharp
 using System.Text;
