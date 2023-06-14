@@ -13,7 +13,9 @@ ms.date: 06/05/2023
 
 # Tutorial: Register and configure .NET MAUI app in a customer tenant
 
-This tutorial demonstrates how to register and configure a .NET Multi-platform App UI (.NET MAUI) in customer's tenant.
+This three-part tutorial series demonstrates how to build a .NET Multi-platform App UI (MAUI) desktop application that authenticates using Azure Active Directory (Azure AD) for customers tenant.
+
+Part one involves the registration of the .NET MAUI desktop application within the customer's tenant. In part two, you create the .NET MAUI desktop application, while in part three, you implement the sign-in and sign-out code to enable secure authentication.
 
 In this tutorial:
 
@@ -46,5 +48,5 @@ In this tutorial:
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Tutorial: Create a .NET MAUI shell app](tutorial-desktop-app-maui-sign-in-prepare-app.md)
