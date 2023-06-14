@@ -60,13 +60,13 @@ We suggest that you unlock the locked resource group/subscription/cluster, make 
 1. Enable the feature flag manually via CLI: 
 
 
-``` CLI 
+    ``` CLI 
 
     “az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview” 
 
-```
+    ``` 
 
-Learn more about [Trusted Access](/azure/aks/trusted-access-feature).
+    Learn more about [Trusted Access](/azure/aks/trusted-access-feature).
 
 1. Perform the bind operation in the CLI: 
 
