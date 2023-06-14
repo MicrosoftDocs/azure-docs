@@ -1,6 +1,6 @@
 ---
 title: Manage consent to applications and evaluate consent requests
-description: Learn how to manage consent requests when user consent is disabled or restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
+description: Learn how to manage consent requests when user consent is restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -16,17 +16,20 @@ ms.custom: enterprise-apps
 
 # Manage consent to applications and evaluate consent requests
 
-Microsoft recommends that you [restrict user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent only for apps from verified publishers, and only for permissions that you select. For apps that don't meet these criteria, the decision-making process will be centralized with your organization's security and identity administrator team.
+Microsoft recommends that you [restrict user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent only for apps from verified publishers, and only for permissions that you select. For apps that don't meet these criteria, the decision-making process is centralized with your organization's security and identity administrator team.
 
-After you've disabled or restricted user consent, you have several important steps to take to help keep your organization secure as you continue to allow business-critical applications to be used. These steps are crucial to minimize impact on your organization's support team and IT administrators, and to help prevent the use of un-managed accounts in third-party applications.
+After you've disabled or restricted user consent, you have several important steps to take to help keep your organization secure as you continue to allow business-critical applications to be used. These steps are crucial to minimize impact on your organization's support team and IT administrators, and to help prevent the use of unmanaged accounts in third-party applications.
 
-This article provides guidance on managing consent to applications and evaluating consent requests in Microsoft's recommendations, including restricting user consent to verified publishers and selected permissions. It covers concepts such as process changes, education for administrators, auditing and monitoring, and granting or revoking tenant-wide admin consent.
+This article provides guidance on managing consent to applications and evaluating consent requests in Microsoft's recommendations, including restricting user consent to verified publishers and selected permissions. It covers concepts such as process changes, education for administrators, auditing and monitoring, and managing tenant-wide admin consent.
 
 ## Process changes and education
 
  - Consider enabling the [admin consent workflow](configure-admin-consent-workflow.md) to allow users to request administrator approval directly from the consent screen.
 
- - Ensure that all administrators understand the [permissions and consent framework](../develop/consent-framework.md), how the [consent prompt](../develop/application-consent-experience.md) works, and how to [evaluate a request for tenant-wide admin consent](#evaluate-a-request-for-tenant-wide-admin-consent).
+ - Ensure that all administrators understand the:
+   - [Permissions and consent framework](../develop/consent-framework.md)
+   - How the [consent consent experience and prompts](../develop/application-consent-experience.md) work.
+   - How to [evaluate a request for tenant-wide admin consent](#evaluate-a-request-for-tenant-wide-admin-consent).
 
  - Review your organization's existing processes for users to request administrator approval for an application, and update them if necessary. If processes are changed:
     - Update the relevant documentation, monitoring, automation, and so on.
@@ -38,7 +41,7 @@ This article provides guidance on managing consent to applications and evaluatin
 
 - Review the [Detect and Remediate Illicit Consent Grants in Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) article for more best practices and safeguards against suspicious applications that request OAuth consent.
 
-- If your organization has the appropriate license, do the following:
+- If your organization has the appropriate license:
 
     - Use other [OAuth application auditing features in Microsoft Defender for Cloud Apps](/cloud-app-security/investigate-risky-oauth).
     - Use [Azure Monitor Workbooks](../reports-monitoring/howto-use-azure-monitor-workbooks.md)  to monitor permissions and consent-related activity. The *Consent Insights* workbook provides a view of apps by number of failed consent requests. This information can help you prioritize applications for administrators to review and decide whether to grant them admin consent.
@@ -57,7 +60,7 @@ To minimize impact on trusted, business-critical applications that are already i
 
 ## Evaluate a request for tenant-wide admin consent
 
-Granting tenant-wide admin consent is a sensitive operation.  Permissions will be granted on behalf of the entire organization, and they can include permissions to attempt highly privileged operations. Examples of such operations are role management, full access to all mailboxes or all sites, and full user impersonation.
+Granting tenant-wide admin consent is a sensitive operation.  Permissions are granted on behalf of the entire organization, and they can include permissions to attempt highly privileged operations. Examples of such operations are role management, full access to all mailboxes or all sites, and full user impersonation.
 
 Before you grant tenant-wide admin consent, it's important to ensure that you trust the application, and the application publisher for the level of access you're granting. If you aren't confident that you understand who controls the application and why the application is requesting the permissions, do *not* grant consent.
 
