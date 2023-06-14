@@ -25,11 +25,11 @@ Foundation models are machine learning models that have been pre-trained on vast
 
 ## How to access foundation models in Azure Machine Learning
 
-The 'Model catalog' (preview) in Azure Machine Learning Studio is a hub for discovering foundation models. The Open Source Models collection is a repository of the most popular open source foundation models curated by Azure Machine Learning. These models are packaged for out of the box usage and are optimized for use in Azure Machine Learning. Currently, it includes the top open source large language models, with support for other tasks coming soon. You can view the complete list of supported open source foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the `Open Source Models` collection.
+The 'Model catalog' (preview) in Azure Machine Learning Studio is a hub for discovering foundation models. The Open Source Models collection is a repository of the most popular open source foundation models curated by Azure Machine Learning. These models are packaged for out of the box usage and are optimized for use in Azure Machine Learning. Currently, it includes the top open source large language models, with support for other tasks coming soon. You can view the complete list of supported open source foundation models in the [model catalog](https://ml.azure.com/model/catalog), under the `Open Source Models` collection.
 
 :::image type="content" source="./media/how-to-use-foundation-models/model-catalog.png" lightbox="./media/how-to-use-foundation-models/model-catalog.png" alt-text="Screenshot showing the model catalog section in Azure Machine Learning studio." :::
 
-You can filter the list of models in the Model catalog by Task, or by license. Select a specific model name and the see a model card for the selected model, which lists detailed information about the model. For example:
+You can filter the list of models in the model catalog by Task, or by license. Select a specific model name and the see a model card for the selected model, which lists detailed information about the model. For example:
 
 :::image type="content" source="./media/how-to-use-foundation-models\model-card.png" lightbox="./media/how-to-use-foundation-models\model-card.png" alt-text="Screenshot showing the model card for gpt2 in Azure Machine Learning studio. The model card shows a description of the model and samples of what the model outputs. ":::
 
@@ -147,7 +147,7 @@ To enable users to quickly get started with deployment and inferencing, we have 
 
 ## Import foundation models
 
-If you're looking to use an open source model that isn't included in the Model Catalog, you can import the model from Hugging Face into your Azure Machine Learning workspace. Hugging Face is an open-source library for natural language processing (NLP) that provides pre-trained models for popular NLP tasks. Currently, model import supports importing models for the following tasks, as long as the model meets the requirements listed in the Model Import Notebook:
+If you're looking to use an open source model that isn't included in the model catalog, you can import the model from Hugging Face into your Azure Machine Learning workspace. Hugging Face is an open-source library for natural language processing (NLP) that provides pre-trained models for popular NLP tasks. Currently, model import supports importing models for the following tasks, as long as the model meets the requirements listed in the Model Import Notebook:
 
 * fill-mask
 * token-classification
@@ -162,7 +162,7 @@ If you're looking to use an open source model that isn't included in the Model C
 > [!NOTE] 
 >Models from Hugging Face are subject to third-party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
 
-You can select the "Import" button on the top-right of the Model Catalog to use the Model Import Notebook.
+You can select the "Import" button on the top-right of the model catalog to use the Model Import Notebook.
 
 :::image type="content" source="./media/how-to-use-foundation-models/model-import.png" alt-text="Screenshot showing the model import button as it's displayed in the top right corner on the foundation model catalog.":::
 
