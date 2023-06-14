@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create, assign, and run a Storage Task'
 titleSuffix: Azure Storage
-description: Description goes here
+description: Learn how to create your first Storage Task. You'll also assign that task to a storage account, queue the task to run, and then view the results of the run.
 services: storage
 author: normesta
 ms.service: storage-tasks
@@ -106,7 +106,7 @@ A Storage Task _assignment_ specifies a storage account. After you enable the St
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Select scope section of the assignment pane.](./media/storage-task-quickstart-portal/assignment-pane-select-scope.png)
 
-3. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you are using to complete this quickstart followed by the `\` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
+3. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you are using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Filter objects section of the Add assignment pane.](./media/storage-task-quickstart-portal/assignment-pane-filter-prefix.png)
@@ -132,13 +132,34 @@ A Storage Task _assignment_ specifies a storage account. After you enable the St
 
 Storage Task assignments are disabled by default. Enable assignments from the **Assignments** page.
 
-1. Select **Assignments**, and in the **Assignments** page, select the assignment that you want to enable.
+1. Select **Assignments**, select the **mystoragetaskassignment** assignment, and then selet **Enable**.
 
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the Assignments option and the Storage Task assignment link.](./media/storage-task-quickstart-portal/open-task-assignment.png)
 
+   The task assignment is queued to run.
+
+2. Periodically select **Refresh** to view an updated status.
+
+   Until the task runs and then completes, the string **In progress** appears beneath the **Last run status** column. When the task completes, the string **Completed** appears in that column.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the completed status appearing next to the task assignment.](./media/storage-task-quickstart-portal/completed-status.png)
 
 ## View results of the task run
 
-Put something here.
+After the task completes running, you can view the results of the run.
+
+1. With the **Assignments** page still open, select **View task runs**.
+
+   The **Execution tasks** pane appears, and in that pane, a line item which describes the report appears.
+
+2. Select the **View report** link to download a report.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the Execution tasks pane.](./media/storage-task-quickstart-portal/run-report.png)
+
+   The report appears as a comma-separated list of the container, the blob, and the operation performed along with a status.  You can also view these comma-separated reports in the container that you specified when you configured the assignment.
 
 ## Next steps
 
