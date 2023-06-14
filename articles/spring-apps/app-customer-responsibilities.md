@@ -53,8 +53,10 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 ## Enterprise Tier
 ### SDK Policy
+
 As we support polyglot applications in enterprise tier, please refer the table for the support policy of each SDK, upgrade your code to latest version before it is out of support
-| Type | Support Policy |
+
+| Type                 | Support Policy            |
 |---------------------|----------------------------|
 | Java|[Java Support On Azure](/azure/developer/java/fundamentals/java-support-on-azure)
 | Maven |[Tomcat Versions](https://tomcat.apache.org/whichversion.html)
@@ -68,7 +70,7 @@ As we support polyglot applications in enterprise tier, please refer the table f
 Please refer to The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu) for stack image support
 
 ### Default version
-There default LTS version of SDK will be possible changes during Build Package upgrade, if you are running a product workload, please assign the SDK LTS version during deployment. Check [How to deploy polyglot application](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enterprise-deploy-polyglot-apps) to assign SDK LTS version
+There default LTS version of SDK will be possible changes during Build Package upgrade, if you are running a product workload, please assign the SDK LTS version during deployment. Check [How to deploy polyglot application](https://learn.microsoft.com/azure/spring-apps/how-to-enterprise-deploy-polyglot-apps) to assign SDK LTS version
 
 ## Upgrade Process
 - Before a new LTS version is out of support, you need upgrade it to support version. Check above table for support policy for different SDK and stack image
