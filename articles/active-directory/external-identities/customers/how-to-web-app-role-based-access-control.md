@@ -32,9 +32,9 @@ In this article, you learn how to receive user roles or group membership or both
 
 ## Receive groups and roles claims in your Node.js web app 
 
-One you've configured your customer's tenant, you can retrieve your *roles* and *groups* claims in your client app. The *roles* and *groups* claims both present in an ID token and an access token, but your client app only needs to check for these claims in the ID token to implement authorization in the client side. The API app can also retrieve these claims when it receives the access token.
+Once you've configured your customer's tenant, you can retrieve your *roles* and *groups* claims in your client app. The *roles* and *groups* claims are both present in the ID token and the access token, but your client app only needs to check for these claims in the ID token to implement authorization in the client side. The API app can also retrieve these claims when it receives the access token.
 
-You can check your *roles* claim value as shown in the following code snippet:
+You check your *roles* claim value as shown in the following code snippet:
 
 ```javascript
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
@@ -54,7 +54,6 @@ You can also check your *groups* claim value as shown in the following code snip
 ```javascript
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
 let groups = tokenResponse.idTokenClaims.groups;
-//console.log("\ngroups: \n" + tokenResponse.idTokenClaims.groups);
 ```
 The groups claim value is the group's *objectId*. If a user is a member of multiple groups, the `groups` string contain all groups separated by a comma, such as *7f0621bc-b758-44fa-a2c6-...,6b35e65d-f3c8-4c6e-9538-...*.
 
@@ -63,7 +62,7 @@ The groups claim value is the group's *objectId*. If a user is a member of multi
 
 ## Handle groups overage
 
-To ensure that the security token size doesn’t exceed the HTTP header size limits, Azure AD for customers limits the number of object IDs that it includes in the *groups* claim. The overage limit **150 for SAML tokens, 200 for JWT tokens, six for SPA using implicit flow**. It's possible to exceed this limit if a user belongs to many groups, and you request for all the groups. 
+To ensure that the security token size doesn’t exceed the HTTP header size limits, Azure AD for customers limits the number of object IDs that it includes in the *groups* claim. The overage limit is **150 for SAML tokens and 200 for JWT tokens**. It's possible to exceed this limit if a user belongs to many groups, and you request for all the groups. 
 
 ### Detect group overage in your source code 
 
@@ -81,11 +80,9 @@ Use the instructions in [Configuring group claims and app roles in tokens](/secu
 
 ## How to use groups and roles values in your Node.js web app 
 
-In the client app (one that signs in the user), you can check whether a signed in user belongs to the required role(s) to access a protected route. You can do this action by checking for the `roles` claim in the ID token. By doing this, you can make sure that only authorized users can view certain pages of your application. 
+In the client app (one that signs in the user), you can check whether a signed in user belongs to the required role(s) to access a protected route. You can do this action by checking for the `roles` claim in the ID token. By doing this, you can make sure that only authorized users can view certain pages of your application. You can also enforce that a user belongs to the required role(s) to make a call to an API on an endpoint. You can build these guards by using a custom middleware, which checks for the required roles or groups. 
 
-Still in the client app, you can also enforce that a user belongs to the required role(s) to make a call to an API on an endpoint. You can build these guards by using custom middleware, which checks for the required roles or groups. 
-
-If your client app calls an API, then you need to also protect the API endpoints in the API app. In this case, you check for the *roles* or *groups* claim in the access token that the client app sends to the API.      
+In your service app (API app), you can also protect the API endpoints. After you [validate the access token](../../develop/access-tokens.md#validate-tokens) sent by the client app, you can check for the *roles* or *groups* claims in the payload claims of the access token. 
 
 ## Do I use App Roles or Groups?
 
