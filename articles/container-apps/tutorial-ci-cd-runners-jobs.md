@@ -339,7 +339,8 @@ To verify the job was configured correctly, you modify the workflow to use a sel
     az containerapp job execution list \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
-        --output json
+        --output table \
+        --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
 ::: zone-end
@@ -521,7 +522,8 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
     az containerapp job execution list \
         --name "$PLACEHOLDER_JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
-        --output json
+        --output table \
+        --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
 1. Verify the placeholder agent was created in Azure DevOps.
@@ -603,7 +605,8 @@ Now that you've configured a self-hosted agent job, you can run a pipeline and v
     az containerapp job execution list \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
-        --output json
+        --output table \
+        --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
 ::: zone-end
