@@ -17,9 +17,9 @@ ms.date: 06/14/2023
 
 This article includes specifications for the development of Azure Spring Apps.
 
-When your Apps is deployed to Azure Spring Apps, Azure Spring Apps will provide the SDK and base image to run your apps. Azure Spring Apps will keep the SDK and image upgraded
+When your Apps is deployed to Azure Spring Apps, Azure Spring Apps will provide the SDK and stack image to run your apps. Azure Spring Apps will keep the SDK and image upgraded
 
-By default, Azure Spring Apps will only integrate the LTS version for the SDKs and base images in support. Each LTS version have its own end of support timeline, you need to make sure your code upgrade to the new supported LTS version before the old LTS version is out of supported
+By default, Azure Spring Apps will only integrate the LTS version for the SDKs and stack images in support. Each LTS version have its own end of support timeline, you need to make sure your code upgrade to the new supported LTS version before the old LTS version is out of supported
 
 ## Java Runtime version
 
@@ -53,7 +53,26 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 ## Enterprise Tier
 ### SDK Policy
-As we support polyglot applications in enterprise tier, please refer the table for the support policy of each SDK and base image, upgrade your code to latest version before it is out of support
+As we support polyglot applications in enterprise tier, please refer the table for the support policy of each SDK, upgrade your code to latest version before it is out of support
 | Type | Support Policy |
 |---------------------|----------------------------|
-|
+| Java|[Java Support On Azure](/azure/developer/java/fundamentals/java-support-on-azure)
+| Maven |[Tomcat Versions](https://tomcat.apache.org/whichversion.html)
+|.Net|[.NET and .NET Core Support Policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core)
+|Python|[Status of Python versions](https://devguide.python.org/versions/)
+|Go|[Go Release History](https://go.dev/doc/devel/release)
+|NodeJS|[Nodejs releases](https://nodejs.dev/en/about/releases/)
+|Tomcat| [Tomcat Versions](https://tomcat.apache.org/whichversion.html)
+
+### Stack Image Support
+Please refer to The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu) for stack image support
+
+### Default version
+There default LTS version of SDK will be possible changes during Build Package upgrade, if you are running a product workload, please assign the SDK LTS version during deployment. Check [How to deploy polyglot application](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enterprise-deploy-polyglot-apps) to assign SDK LTS version
+
+## Upgrade Process
+- Before a new LTS version is out of support, you need upgrade it to support version. Check above table for support policy for different SDK and stack image
+
+- A notification will be sent from Microsoft one month before an LTS version will be removed from Azure Spring Apps.
+
+- You can get the version upgrade after it is finished.
