@@ -325,7 +325,9 @@ The `AppShell` class defines an app's visual hierarchy, the XAML markup used in 
 
 ## Add platform-specific code
 
-A .NET MAUI app project contains a Platforms folder, with each child folder representing a platform that .NET MAUI can target. To provide application-specific behavior to supplement the default application class, you modify `Platforms/Windows/App.xaml.cs`. Replace the content of the file with following code:
+A .NET MAUI app project contains a Platforms folder, with each child folder representing a platform that .NET MAUI can target. To provide application-specific behavior to supplement the default application class, you modify `Platforms/Windows/App.xaml.cs`.
+
+Replace the content of the file with following code:
 
 ```csharp
 using SignInMaui.MSALClient;
