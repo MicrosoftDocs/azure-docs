@@ -9,11 +9,6 @@
     href: https://azure.microsoft.com/blog/tag/cost-management/
 - name: General
   items:
-  - name: Quickstarts
-    items:
-    - name: Start analyzing costs
-      displayName: Azure CLI, az costmanagement query, az costmanagement export, azure amortized cost, azure cost dashboard, azure forecast cost
-      href: quick-acm-cost-analysis.md
   - name: Tutorials
     items:
     - name: Enable preview features
@@ -260,7 +255,7 @@
       href: https://github.com/Azure-Samples/Cost-Management-Samples
     - name: Azure PowerShell cmdlets for Cost Management
       href: /powershell/module/Az.CostManagement
-    - name: Resources
-      items:
-      - name: FAQ
-        href: ../automate/automation-faq.md
+  - name: Resources
+    items:
+    - name: FAQ
+      href: ../automate/automation-faq.md
