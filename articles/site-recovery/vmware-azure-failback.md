@@ -39,7 +39,7 @@ This article describes how to fail back Azure VMs to an on-premises site, follow
 
 > [!NOTE]
 > For Windows VMs, Site Recovery disables the VMware tools during failover. During failback of the Windows VM, the VMware tools are enable again. 
-
+> If you disable replication after failback from Azure to on-premises, the seed disks will still be present in Azure. Ensure that they have been deleted to not incur any storage costs. 
 
 
 

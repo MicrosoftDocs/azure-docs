@@ -70,6 +70,12 @@ To manually change the startup type of drivers for **Windows Guest OS**, follow 
     This system is now no-hydration compatible.
     ```
 
+## Failover failed with an error stating replica IP addresses for the network adapter of virtual machine is invalid 
+
+Test failover or failover operation can fail for a machine with the error "One or more replica IP addresses for the network adapter of virtual machine is invalid", if proper cleanup of a previous test failover operation didn't happen. Due to this, the test machine might still be present in Azure environment and it might be using the same IP address. It will cause the target configuration of virtual machine to become critical. 
+
+To resolve this issue, ensure that a complete test failover cleanup has been performed, so that the failover or test failover operation can succeed. 
+
 ## Unable to connect/RDP/SSH to the failed over virtual machine due to grayed out Connect button on the virtual machine
 
 For detailed troubleshooting instructions on RDP issues, please see our documentation [here](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
