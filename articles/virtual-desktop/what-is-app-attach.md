@@ -16,12 +16,6 @@ MSIX is a packaging format that offers many features aimed to improve packaging 
 
 MSIX app attach is a way to deliver MSIX applications to both physical and virtual machines. However, MSIX app attach is different from regular MSIX because it's made especially for supported products, such as Azure Virtual Desktop. This article will describe what MSIX app attach is and what it can do for you.
 
-## What does MSIX app attach do?
-
-In an Azure Virtual Desktop deployment, MSIX app attach delivers apps to session hosts within [MSIX containers](/windows/msix/msix-container). These containers separate user data, the OS, and apps, increasing security and ensuring easier troubleshooting if something goes wrong. App attach removes the need for repackaging apps when delivering applications dynamically, which increases the speed of deployments and reduces the time it takes for users to sign in to their remote sessions. This rapid delivery reduces operational overhead and costs for your organization.
-
-MSIX app attach allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the custom image and make them available them to users later.
-
 ## Terminology
 
 There are certain terms you should familiarize yourself with as you read about MSIX app attach. We've listed them in the following table.
@@ -34,15 +28,29 @@ There are certain terms you should familiarize yourself with as you read about M
 | MSIX share | A network share that holds expanded MSIX packages. MSIX shares must support SMB 3 or later, and be accessible to VMs in the host pool system account. MSIX packages get staged from the share without having to move application files ot the system drive. |
 | MSIX image | A VHD, VHDx, or CIM file that contains one or more MSIX packaged applications. Each application is delivered in the MSIX image using the MSIXMGR tool. |
 
+## What does MSIX app attach do?
+
+In an Azure Virtual Desktop deployment, MSIX app attach delivers apps to session hosts within [MSIX containers](/windows/msix/msix-container). These containers separate user data, the OS, and apps, increasing security and ensuring easier troubleshooting if something goes wrong. App attach removes the need for repackaging apps when delivering applications dynamically, which increases the speed of deployments and reduces the time it takes for users to sign in to their remote sessions. This rapid delivery reduces operational overhead and costs for your organization.
+
+MSIX app attach allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the custom image and make them available them to users later.
+
 ## Phases of MSIX app attach
 
-In order to use MSIX packages, you must stage and register them. After you're finished using the packages, you destage and deregister them.
+To use MSIX packages outside of Azure Virtual Desktop, there are four distinct phases that you must perform in the following order:
 
-When you stage a package, you mount the VHD(x) or [CIM](#cim) to the VM, then notify the OS that the MSIX package is available for registration.
+1. Stage
+1. Register
+1. Deregister
+1. Destage
 
-Next, you register the package to make it available for your users on a per-user basis. There are two types of registration:
+Staging and destaging are machine-level operations, while registering and deregistering are user-level operations.
+
+When you stage a package, you mount the VHD(x) or [CIM](#cim) to the VM, which notifies the OS that the MSIX package is available for registration.
+
+The next step is registration, which makes packages available for your users on a per-user basis. There are two types of registration:
 
 - Regular registration, in which each application you assign to a user is fully registered. Registration happens while the user is signing in to their session, which may impact the startup time for Azure Virtual Desktop.
+
 - Delayed registration, where the applications are only partially registered and complete registration when the user runs the application in their remote session. This method doesn't affect the time it takes to start up Azure Virtual Desktop, and is therefore the default registration method for MSIX app attach.
 
 When you're finished using the package, you then deregister the package to make it unavailable to users. Finally, you destage the package to unmount and remove it from the VM.
