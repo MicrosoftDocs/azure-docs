@@ -348,7 +348,7 @@ To enable and configure Microsoft Defender for Storage at the storage account le
 
 ```http
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/defenderForStorageSettings/current?api-version=2022-12-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/defenderForStorageSettings/current?api-version=2022-12-01-preview
 ```
 
 And add the following request body:

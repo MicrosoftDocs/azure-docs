@@ -337,7 +337,7 @@ az group delete -g <resource-group-name>
 
 For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az-ml-workspace-delete) documentation.
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](./how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
+If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](./v1/how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
 
 ## Troubleshooting
 

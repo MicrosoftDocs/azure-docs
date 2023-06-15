@@ -83,7 +83,7 @@ Because most Azure Cache for Redis clients assume that a password/access key is 
 
 ### Azure AD Client Workflow
 
-1. Configure your client application to acquire an Azure AD token for your application using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
+1. Configure your client application to acquire an Azure AD token for scope `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default` using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview). 
 
    <!-- (ADD code snippet) -->
 

@@ -106,8 +106,8 @@ If you choose to train on your local machine ("configure as local run"), you do 
 
 The designer lets you train models using a drag and drop interface in your web browser.
 
-+ [What is the designer?](../concept-designer.md)
-+ [Tutorial: Predict automobile price](../tutorial-designer-automobile-price-train-score.md)
++ [What is the designer?](concept-designer.md)
++ [Tutorial: Predict automobile price](tutorial-designer-automobile-price-train-score.md)
 
 ## Azure CLI
 

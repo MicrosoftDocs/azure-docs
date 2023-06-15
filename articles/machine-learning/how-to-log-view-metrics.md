@@ -37,7 +37,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 > This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 
 > [!TIP]
-> For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](how-to-track-designer-experiments.md).
+> For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](./v1/how-to-track-designer-experiments.md).
 
 ## Prerequisites
 

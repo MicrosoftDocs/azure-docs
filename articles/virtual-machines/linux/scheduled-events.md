@@ -7,10 +7,10 @@ ms.subservice: scheduled-events
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-python
 ms.date: 01/25/2023
 ms.author: ericrad
 ms.reviewer: mimckitt
-
 ---
 
 # Azure Metadata Service: Scheduled Events for Linux VMs

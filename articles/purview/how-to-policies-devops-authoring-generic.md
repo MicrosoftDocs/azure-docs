@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 05/30/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
@@ -160,9 +160,10 @@ This section contains a reference of how relevant Microsoft Purview data policy 
 
 ## Next steps
 Check the blogs, videos and related documents
+* Blog: [Microsoft Purview DevOps policies for Azure SQL Database is now generally available](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-for-azure-sql-database-is-now/ba-p/3775885)
 * Blog: [Inexpensive solution for managing access to SQL health, performance and security information](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/inexpensive-solution-for-managing-access-to-sql-health/ba-p/3750512)
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
-* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
+* Blog: [Microsoft Purview DevOps policies API is now public](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-api-is-now-public/ba-p/3818931)
 * Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
 * Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
 * Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)

@@ -45,7 +45,6 @@ dotnet build
 Install the Azure Communication Rooms client library for .NET with [NuGet][https://www.nuget.org/]:
 
 ```console
-dotnet add package Azure.Communication.Identity
 dotnet add package Azure.Communication.Rooms
 ```
 You'll need to use the Azure Communication Rooms client library for .NET [version 1.0.0-beta.2](https://www.nuget.org/packages/Azure.Communication.Rooms/1.0.0-beta.2) or above.
@@ -59,7 +58,7 @@ In the `Program.cs` file, add the following code to import the required namespac
 using System;
 using Azure;
 using Azure.Core;
-using Azure.Communication.Identity;
+using Azure.Communication.Rooms;
 
 namespace RoomsQuickstart
 {
@@ -86,37 +85,55 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 var connectionString = "<connection_string>";
 RoomsClient roomsClient = new RoomsClient(connectionString);
 
-// Create identities for users
-CommunicationIdentityClient identityClient = new CommunicationIdentityClient(connectionString);
-CommunicationUserIdentifier user1 = await identityClient.CreateUser();
-CommunicationUserIdentifier user2 = await identityClient.CreateUser();
-
 ```
 
 ## Create a room
 
-Create a new `room` with default properties using the code snippet below:
+### Set up room participants
+
+In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-csharp) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+
+To use the `CommunicationIdentityClient`, install the following package:
+
+```console
+dotnet add package Azure.Communication.Identity
+```
+
+Also, import the namespace of the package at the top of your `Program.cs` file:
+
+``` csharp
+using Azure.Communication.Identity;
+```
+
+Now, the `CommunicationIdentityClient` can be initialized and used to create users:
 
 ```csharp
+// Create identities for users who will join the room
+CommunicationIdentityClient identityClient = new CommunicationIdentityClient(connectionString);
+CommunicationUserIdentifier user1 = await identityClient.CreateUser();
+CommunicationUserIdentifier user2 = await identityClient.CreateUser();
+```
 
+Then, create the list of room participants by referencing those users:
+
+```csharp
+List<RoomParticipant> participants = new List<RoomParticipant>()
+{
+    new RoomParticipant(user1) { Role = ParticipantRole.Presenter },
+    new RoomParticipant(user2) // The default participant role is ParticipantRole.Attendee
+}
+```
+
+### Initialize the room
+Create a new `room` using the `participants` defined in the code snippet above:
+
+```csharp
 // Create a room
-List roomParticipants = new List<RoomParticipant>();
-roomParticipants.Add(new RoomParticipant(new CommunicationUserIdentifier(user1.Value.User.Id), RoleType.Presenter));
-
-
-RoomParticipant participant1 = new RoomParticipant(user1) { Role = ParticipantRole.Presenter };
-RoomParticipant participant2 = new RoomParticipant(user2) { Role = ParticipantRole.Attendee };
-
-List<RoomParticipant> participants = new List<RoomParticipant>();
-
-participants.Add(participant1);
-participants.Add(participant2);
-
 DateTimeOffset validFrom = DateTimeOffset.UtcNow;
 DateTimeOffset validUntil = validFrom.AddDays(1);
 CancellationToken cancellationToken = new CancellationTokenSource().Token;
 
-CommunicationRoom createdRoom = await roomsClient.CreateRoomAsync(validFrom, validUntil, roomParticipants, cancellationToken);
+CommunicationRoom createdRoom = await roomsClient.CreateRoomAsync(validFrom, validUntil, participants, cancellationToken);
 string roomId = createdRoom.Id;
 Console.WriteLine("\nCreated room with id: " + roomId);
 
@@ -156,14 +173,11 @@ To retrieve all active rooms, use the `GetRoomsAsync` method exposed on the clie
 ```csharp
 
 // List all active rooms
-AsyncPageable<CommunicationRoom> allRooms = await roomsClient.GetRoomsAsync();
+AsyncPageable<CommunicationRoom> allRooms = roomsClient.GetRoomsAsync();
 await foreach (CommunicationRoom room in allRooms)
 {
-    if (room is not null)
-    {
-        Console.WriteLine("\nFirst room id in all active rooms: " + room.Id);
-        break;
-    }
+    Console.WriteLine("\nFirst room id in all active rooms: " + room.Id);
+    break;
 }
 
 ```

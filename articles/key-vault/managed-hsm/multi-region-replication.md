@@ -1,6 +1,6 @@
 ---
-title: Enable multi-region replication on Azure Managed HSM (Preview)
-description: Enable Multi-Region Replication on Azure Managed HSM (Preview)
+title: Enable multi-region replication on Azure Managed HSM
+description: Enable Multi-Region Replication on Azure Managed HSM
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault

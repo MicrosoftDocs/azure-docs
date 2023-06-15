@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 05/15/2023
+ms.date: 05/31/2023
 ---
 
 # Security alerts - a reference guide
@@ -586,11 +586,11 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 > [!NOTE]
 > For alerts that are in preview: [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
-## Defender for Servers alerts to be deprecated
+## Deprecated Defender for Servers alerts
 
-The following tables include the Defender for Servers security alerts [to be deprecated in April, 2023](release-notes.md#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers).
+The following tables include the Defender for Servers security alerts [which have been deprecated in April, 2023  due to an improvment proccess](release-notes.md#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers).
 
-### Linux alerts to be deprecated
+### Deprecated Linux alerts
 
 | **Alert Type** | **Alert Display Name** | **Severity**
 |---|---|---|
@@ -659,7 +659,7 @@ VM_TimerServiceDisabled | Attempt to stop apt-daily-upgrade.timer service detect
 VM_TimestampTampering | Suspicious file timestamp modification | Low
 VM_Webshell | Possible malicious web shell detected | Medium
 
-### Windows alerts to be deprecated
+### Deprecated Windows alerts
 
 | **Alert Type** | **Alert Display Name** | **Severity**
 |---|---|---|

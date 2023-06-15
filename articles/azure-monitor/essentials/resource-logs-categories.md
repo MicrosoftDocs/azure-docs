@@ -3,7 +3,7 @@ title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 author: EdB-MSFT
 ms.topic: reference
-ms.date: 05/07/2023
+ms.date: 05/28/2023
 ms.author: edbaynash
 ms.reviewer: lualderm
 
@@ -43,6 +43,8 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |AccountManagement |AccountManagement |No |
 |DetailTracking |DetailTracking |No |
 |DirectoryServiceAccess |DirectoryServiceAccess |No |
+|DNSServerAuditsDynamicUpdates |DNSServerAuditsDynamicUpdates - Preview |Yes |
+|DNSServerAuditsGeneral |DNSServerAuditsGeneral - Preview |Yes |
 |LogonLogoff |LogonLogoff |No |
 |ObjectAccess |ObjectAccess |No |
 |PolicyChange |PolicyChange |No |
@@ -160,6 +162,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |vmwaresyslog |VMware Syslog |Yes |
 
+## Microsoft.AzureDataTransfer/connections/flows  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|OperationalLogs |Operational Logs |Yes |
+
 ## microsoft.azuresphere/catalogs  
 <!-- Data source : naam-->
 
@@ -258,10 +267,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuthOperational |Operational Authentication Logs |Yes |
+|CallAutomationMediaSummary |Call Automation Events Summary Logs |Yes |
 |CallAutomationOperational |Operational Call Automation Logs |Yes |
 |CallDiagnostics |Call Diagnostics Logs |Yes |
+|CallRecordingOperational |Operational Call Recording Logs |Yes |
 |CallRecordingSummary |Call Recording Summary Logs |Yes |
 |CallSummary |Call Summary Logs |Yes |
+|CallSurvey |Call Survey Logs |Yes |
 |ChatOperational |Operational Chat Logs |No |
 |EmailSendMailOperational |Email Service Send Mail Logs |Yes |
 |EmailStatusUpdateOperational |Email Service Delivery Status Update Logs |Yes |
@@ -331,10 +343,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |cloud-controller-manager |Kubernetes Cloud Controller Manager |Yes |
-|cluster-autoscaler |Kubernetes Cluster Autoscaler |Yes |
-|csi-azuredisk-controller |csi-azuredisk-controller |Yes |
-|csi-azurefile-controller |csi-azurefile-controller |Yes |
-|csi-snapshot-controller |csi-snapshot-controller |Yes |
 |guard |guard |Yes |
 |kube-apiserver |Kubernetes API Server |Yes |
 |kube-audit |Kubernetes Audit |Yes |
@@ -598,6 +606,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |DataplaneAuditEvent |Dataplane audit logs |Yes |
+|ResourceLifecycle |Resource lifecycle |Yes |
 
 ## Microsoft.Devices/IotHubs  
 <!-- Data source : naam-->
@@ -891,8 +900,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AppAvailabilityResults |Availability results |Yes |
-|AppBrowserTimings |Browser timings |Yes |
+|BfdStateUpdates |Bi-Directional Forwarding Detection Updates |Yes |
+|ComponentStateUpdates |Component State Updates |Yes |
+|InterfaceStateUpdates |Interface State Updates |Yes |
+|InterfaceVxlanUpdates |Interface Vxlan Updates |Yes |
+|NetworkInstanceBgpNeighborUpdates |BGP Neighbor Updates |Yes |
+|NetworkInstanceUpdates |Network Instance Updates |Yes |
+|SystemStateMessageUpdates |System State Message Updates |Yes |
 
 ## Microsoft.Media/mediaservices  
 <!-- Data source : naam-->
@@ -1098,6 +1112,40 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |RouteDiagnosticLog |Route Diagnostic Logs |No |
 |TunnelDiagnosticLog |Tunnel Diagnostic Logs |No |
 
+## Microsoft.NetworkCloud/bareMetalMachines  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|SecurityCritical |Security - Critical |Yes |
+|SecurityDebug |Security - Debug |Yes |
+|SecurityError |Security - Error |Yes |
+|SecurityInfo |Security - Info |Yes |
+|SecurityNotice |Security - Notice |Yes |
+|SecurityWarning |Security - Warning |Yes |
+|SyslogCritical |System - Critical |Yes |
+|SyslogDebug |System - Debug |Yes |
+|SyslogError |System - Error |Yes |
+|SyslogInfo |System - Info |Yes |
+|SyslogNotice |System - Notice |Yes |
+|SyslogWarning |System - Warning |Yes |
+
+## Microsoft.NetworkCloud/clusters  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|CustomerContainerLogs |Kubernetes Logs |Yes |
+|VMOrchestrationLogs |VM Orchestration Logs |Yes |
+
+## Microsoft.NetworkCloud/storageAppliances  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|StorageApplianceAlert |Storage Appliance alerts |Yes |
+|StorageApplianceAudit |Storage Appliance logs |Yes |
+
 ## Microsoft.NetworkFunction/azureTrafficCollectors  
 <!-- Data source : naam-->
 
@@ -1118,8 +1166,27 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AirFlowTaskLogs |Air Flow Task Logs |Yes |
+|AuditEvent |Audit Event |Yes |
+|CRSCatalogLogs |CRS Catalog Service Logs |Yes |
+|CRSConversionLogs |CRS Conversion Service Logs |Yes |
+|DatasetLogs |Dataset Service Logs |Yes |
 |ElasticOperatorLogs |Elastic Operator Logs |Yes |
 |ElasticsearchLogs |Elasticsearch Logs |Yes |
+|EntitlementsLogs |Entitlements Service Logs |Yes |
+|FileLogs |File Service Logs |Yes |
+|IndexerLogs |Indexer Service Logs |Yes |
+|LegalLogs |Legal Service Logs |Yes |
+|NotificationLogs |Notification Service Logs |Yes |
+|PartitionLogs |Partition Service Logs |Yes |
+|PDSBackendLogs |PDSBackend Service Logs |Yes |
+|PDSFrontendLogs |PDSFrontend Service Logs |Yes |
+|RegisterLogs |Register Service Logs |Yes |
+|SchemaLogs |Schema Service Logs |Yes |
+|SearchLogs |Search Service Logs |Yes |
+|StorageLogs |Storage Service Logs |Yes |
+|UnitLogs |Unit Service Logs |Yes |
+|WellDeliveryLogs |WellDelivery Service Logs |Yes |
+|WorkflowLogs |Workflow Service Logs |Yes |
 
 ## Microsoft.OpenLogisticsPlatform/Workspaces  
 <!-- Data source : naam-->
@@ -1249,7 +1316,23 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |AllLogs |Azure SignalR Service Logs. |No |
 
+## Microsoft.SignalRService/SignalR/replicas  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AllLogs |Azure SignalR Service Logs. |Yes |
+
 ## Microsoft.SignalRService/WebPubSub  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ConnectivityLogs |Connectivity logs for Azure Web PubSub Service. |Yes |
+|HttpRequestLogs |Http Request logs for Azure Web PubSub Service. |Yes |
+|MessagingLogs |Messaging logs for Azure Web PubSub Service. |Yes |
+
+## Microsoft.SignalRService/WebPubSub/replicas  
 <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
@@ -1510,4 +1593,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Sun May 07 2023 12:43:57 GMT+0300 (Israel Daylight Time)-->
+<!--Gen Date:  Sun May 28 2023 17:43:46 GMT+0300 (Israel Daylight Time)-->

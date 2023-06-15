@@ -7,6 +7,7 @@ ms.subservice: scheduled-events
 ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-python
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt 

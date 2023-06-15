@@ -232,4 +232,4 @@ To avoid double-prompting between Azure AD MFA and Okta MFA, opt out from Okta M
 
 - [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
 - [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
-- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning.md)

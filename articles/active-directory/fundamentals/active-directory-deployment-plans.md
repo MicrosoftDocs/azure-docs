@@ -56,7 +56,7 @@ Use the following list to plan for authentication deployment.
 * **Azure AD self-service password reset (SSPR)** - Help users reset a password without administrator intervention:
   * See, [Passwordless authentication options for Azure AD](../authentication/concept-authentication-passwordless.md)
   * See, [Plan an Azure Active Directory self-service password reset deployment](../authentication/howto-sspr-deployment.md) 
-* **Passordless authentication** - Implement passwordless authentication using the Microsoft Authenticator app or FIDO2 Security keys:
+* **Passwordless authentication** - Implement passwordless authentication using the Microsoft Authenticator app or FIDO2 Security keys:
   * See, [Enable passwordless sign-in with Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md)
   * See, [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md)
 

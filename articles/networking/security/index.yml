@@ -50,6 +50,8 @@ additionalContent:
               url: ../../firewall-manager/overview.md
             - text: What is Web Application Firewall?
               url: ../../web-application-firewall/overview.md
+            - text: See more
+              url: ../../firewall/index.yml
         - title: Concepts
           links:
             - text: Azure Firewall Standard features
@@ -76,6 +78,8 @@ additionalContent:
               url: ../../virtual-network/network-security-groups-overview.md
             - text: Virtual Network service endpoints
               url: ../../virtual-network/virtual-network-service-endpoints-overview.md
+            - text: See more
+              url: ../../virtual-network/index.yml
         - title: Concepts
           links:
             - text: How network security groups filter network traffic
@@ -101,6 +105,8 @@ additionalContent:
               url: ../../private-link/private-endpoint-overview.md
             - text: What is Private Link service?
               url: ../../private-link/private-link-service-overview.md
+            - text: See more
+              url: ../..//ddos-protection/index.yml
         - title: Concepts
           links:
             - text: Types of DDoS attacks
@@ -120,6 +126,8 @@ additionalContent:
           links:
             - text: What is Azure Bastion?
               url: ../../bastion/bastion-overview.md
+            - text: See more
+              url: ../../bastion/index.yml
         - title: Concepts
           links:
             - text: VNet peering and Azure Bastion
