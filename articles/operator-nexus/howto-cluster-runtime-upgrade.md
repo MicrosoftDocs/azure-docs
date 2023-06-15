@@ -28,11 +28,11 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 
 To find available upgradeable runtime versions, navigate to the target cluster in the Azure portal. In the cluster's overview pane, navigate to the ***Available upgrade versions*** tab.
 
-:::image type="content" source="./media/runtimeupgrade-upgradeableruntimeversions.png" alt-text="Screenshot of Azure Portal showing correct tab to identify available cluster upgrades." lightbox="./media/runtimeupgrade-upgradeableruntimeversions.png":::
+:::image type="content" source="./media/runtime-upgrade-upgradeable-runtime-versions.png" alt-text="Screenshot of Azure Portal showing correct tab to identify available cluster upgrades." lightbox="./media/runtime-upgrade-upgradeable-runtime-versions.png":::
 
 From the **available upgrade versions** tab, we're able to see the different cluster versions that are currently available to upgrade. The operator can select from the listed the target runtime versions. Once selected, proceed to upgrade the cluster.
 
-:::image type="content" source="./media/runtimeupgrade-runtimeversion.png" lightbox="./media/runtimeupgrade-runtimeversion.png" alt-text="Screenshot of Azure portal showing available cluster upgrades.":::
+:::image type="content" source="./media/runtime-upgrade-runtime-version.png" lightbox="./media/runtime-upgrade-runtime-version.png" alt-text="Screenshot of Azure portal showing available cluster upgrades.":::
 
 ### Via Azure CLI
 
@@ -76,7 +76,7 @@ To check on the status of the upgrade observe the detailed status of the cluster
 
 To view the upgrade status through the Azure portal, navigate to the targeted cluster resource. In the cluster's *Overview* screen, the detailed status is provided along with a detailed status message.
 
-:::image type="content" source="./media/runtimeupgrade-clusterdetailstatus.png" lightbox="./media/runtimeupgrade-clusterdetailstatus.png" alt-text="Screenshot of Azure portal showing in progress cluster upgrade.":::
+:::image type="content" source="./media/runtime-upgrade-cluster-detail-status.png" lightbox="./media/runtime-upgrade-cluster-detail-status.png" alt-text="Screenshot of Azure portal showing in progress cluster upgrade.":::
 
 To view the upgrade status through the Azure CLI, use `az networkcloud cluster show`.
 
