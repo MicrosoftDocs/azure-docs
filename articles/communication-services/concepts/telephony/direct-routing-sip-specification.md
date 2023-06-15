@@ -4,7 +4,7 @@ description: SIP protocol details for Azure Communication Services direct routin
 author: boris-bazilevskiy
 ms.author: bobazile
 manager: rcole
-ms.date: 05/30/2023
+ms.date: 06/15/2023
 ms.topic: article
 ms.service: azure-communication-services
 audience: admin
