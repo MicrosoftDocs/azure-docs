@@ -65,7 +65,7 @@ Content-Type: application/json
 ```
 
 #### Response
-```json
+```jsonc
 [
     {
         "Sequence": 1,
