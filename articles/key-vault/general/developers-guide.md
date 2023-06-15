@@ -124,7 +124,7 @@ For basic scenarios, there are other libraries and integration solutions for sim
 
 For certificates, you can use:
 
-- The Key Vault virtual machine (VM) extension, which provides automatic refresh of certificates stored in an Azure key vault. For more information, see: 
+- The Key Vault virtual machine (VM) extension, which provides automatic refresh of certificates stored in an Azure Key Vault. For more information, see: 
   - [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md)
   - [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md)
   - [Key Vault virtual machine extension for Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md#azure-key-vault-vm-extension)
