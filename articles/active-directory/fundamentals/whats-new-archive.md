@@ -7695,24 +7695,6 @@ Azure AD entitlement management, now in public preview, helps customers to deleg
 
 ---
 
-### Configure a naming policy for Office 365 groups in Azure portal (Public preview)
-
-**Type:** New feature
-**Service category:** Group Management
-**Product capability:** Collaboration
-
-Administrators can now configure a naming policy for Office 365 groups, using the Azure portal. This change helps to enforce consistent naming conventions for Office 365 groups created or edited by users in your organization.
-
-You can configure naming policy for Office 365 groups in two different ways:
-
-- Define prefixes or suffixes, which are automatically added to a group name.
-
-- Upload a customized set of blocked words for your organization, which are not allowed in group names (for example, "CEO, Payroll, HR").
-
-For more information, see [Enforce a Naming Policy for Office 365 groups](../enterprise-users/groups-naming-policy.md).
-
----
-
 
 
 
