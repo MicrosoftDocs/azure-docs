@@ -7763,16 +7763,5 @@ For more information about how to create an access review, see [Create an access
 
 ---
 
-### Azure AD Connect email alert system(s) are transitioning, sending new email sender information for some customers
-
-**Type:** Changed feature
-**Service category:** AD Sync
-**Product capability:** Platform
-
-Azure AD Connect is in the process of transitioning our email alert system(s), potentially showing some customers a new email sender. To address this, you must add `azure-noreply@microsoft.com` to your organization's allowlist or you won't be able to continue receiving important alerts from your Office 365, Azure, or your Sync services.
-
----
-
-
 
 
