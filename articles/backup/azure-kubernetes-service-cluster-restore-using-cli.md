@@ -142,7 +142,7 @@ az dataprotection backup-instance validate-for-restore --backup-instance-name $b
 
 ```
 
-This command checks if the AKS Cluster and Backup Vault has required permissions on each other and the Snapshot resource group to perform restore. If the validation fails due to missing permissions, you can assign them by running the following command:
+This command checks if the AKS Cluster and Backup vault have required permissions on each other and the Snapshot resource group to perform restore. If the validation fails due to missing permissions, you can assign them by running the following command:
 
 ```azurecli
 az dataprotection backup-instance update-msi-permissions --datasource-type AzureKubernetesService --operation Restore --permissions-scope Resource --resource-group  $backupvaultresourcegroup --vault-name $backupvault --restore-request-object restorerequestobject.json --snapshot-resource-group-id /subscriptions/$subscriptionId/resourceGroups/$snapshotresourcegroup
@@ -166,7 +166,7 @@ az dataprotection backup-instance restore trigger --restore-request-object resto
 
 ## Tracking job
 
-Track restore jobs using the `az dataprotection job` command. You can list all jobs and fetch a particular job detail.
+You can track the restore jobs using the `az dataprotection job` command. You can list all jobs and fetch a particular job detail.
 
 You can also use Resource Graph to track all jobs across all subscriptions, resource groups, and Backup vaults. Use the `az dataprotection job list-from-resourcegraph` command to get the relevant job.
 
