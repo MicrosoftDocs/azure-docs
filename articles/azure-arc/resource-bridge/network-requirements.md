@@ -26,8 +26,7 @@ DNS Server must have internal and external endpoint resolution. The appliance VM
 
 ### Gateway IP
 
-DNS Server must have internal and external endpoint resolution. The appliance VM and control plane need to resolve the management machine and vice versa. All three must be able to reach the required URLs for deployment.
-
+The gateway IP should be an IP from within the subnet designated in the IP address prefix.
 
 ### Example minimum configuration for static IP deployment
 
@@ -86,5 +85,6 @@ The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0
 
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
 
 
