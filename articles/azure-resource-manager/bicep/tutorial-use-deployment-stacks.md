@@ -20,7 +20,7 @@ jgao: specify the versions here.
 
 ## Create a Bicep file
 
-Create a Bicep file in Visual Studio Code to create a storage account and a virtual network.
+Create a Bicep file in Visual Studio Code to create a storage account and a virtual network. This file is used to create your deployment stack.
 
 ```bicep
 param resourceGroupLocation string = resourceGroup().location
@@ -299,6 +299,8 @@ In this tutorial, you will perform the following activities:
 
 ### Update a managed resource
 
+At the end of the previous step, you have one stack with two managed resources. You will update a property of the storage account resource.
+
 Edit the **main.bicep** file to change the sku name from `Standard_LRS` to `Standard_GRS`:
 
 ```bicep
@@ -338,9 +340,21 @@ Set-AzResourceGroupDeploymentStack `
 
 ---
 
-From the Azure portal, check the properties of the storage account to confirm the change.
+You can verify the SKU property by running the following command:
+
+# [CLI](#tab/azure-cli)
+
+az resource list --resource-group demoRg
+
+# [PowerShell](#tab/azure-powershell)
+
+Get-azStorageAccount -ResourceGroupName demoRg
+
+---
 
 ### Add a managed resource
+
+At the end of the previous step, you have one stack with two managed resources. You will add one more storage account resource to the stack.
 
 Edit the **main.bicep** file to include another storage account definition:
 
@@ -399,7 +413,7 @@ You shall see the new storage account in addition to the two existing resources.
 
 ### Detach a managed resource
 
-A detached resource will be removed from the stack, but remains in the resource group.
+At the end of the previous step, you have one stack with three managed resources. You will detach one of the managed resources. After the resource is detached, it will remain in the resource group.
 
 Edit the **main.bicep** file to remove the following storage account definition from the previous step:
 
@@ -414,7 +428,7 @@ resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 }
 ```
 
-Run the following command:
+Update the deployment stack by running the following command:
 
 # [CLI](#tab/azure-cli)
 
@@ -468,11 +482,12 @@ az resource list --resource-group demoRg
 Get-azResource -ResourceGroupName demoRg
 ```
 
+There are three resources in the resource group, even though the stack only contains two resources.
 ---
 
 ### Attach an existing resource to the stack
 
-In the previous step, you have two managed resource and one unmanaged resource in the resource group. In this step, you will attach the unmanged resource back to the stack.
+At the end of the previous step, you have one stack with two managed resources. There is an unmanaged resource in the same resource group as the managed resources. You will attach this unmanaged resource to the stack.
 
 Edit the **main.bicep** file to include the storage account definition of the unmanaged resource:
 
@@ -531,7 +546,7 @@ You shall see three managed resources.
 
 ### Delete a managed resource
 
-In one of the previous steps, you detached a managed resource. Sometime, you might want to delete a resource instead detach a resource. To delete a resource, you use a delete-resources switch with the create/set command.
+At the end of the previous step, you have one stack with three managed resources. In one of the previous steps, you detached a managed resource. Sometimes, you might want to delete a resource instead of detaching one. To delete a resource, you use a delete-resources switch with the create/set command.
 
 Edit the **main.bicep** file to remove the following storage account definition:
 
