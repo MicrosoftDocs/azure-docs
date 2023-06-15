@@ -10,9 +10,9 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 05/26/2023
 ms.author: jboback
-zone_pivot_groups: usage-custom-language-features
 ---
 
+<!--- zone_pivot_groups: usage-custom-language-features --->
 # Quickstart: custom summarization (preview)
 
 Use this article to get started with creating a custom Summarization project where you can train custom models on top of Summarization. A model is artificial intelligence software that's trained to do a certain task. For this system, the models summarize text and are trained by learning from imported data.

@@ -18,6 +18,8 @@ ms.custom: not-enterprise-apps
 
 In this tutorial, learn to integrate Azure Active Directory (Azure AD) with Cloudflare Zero Trust. Build rules based on user identity and group membership. Users authenticate with Azure AD credentials and connect to Zero Trust protected applications.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 * An Azure AD subscription
