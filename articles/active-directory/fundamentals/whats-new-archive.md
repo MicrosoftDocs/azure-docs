@@ -7639,17 +7639,7 @@ For more information, see [Enforce a Naming Policy for Office 365 groups](../ent
 
 ---
 
-### Microsoft Graph API endpoints are now available for Azure AD activity logs (General availability)
 
-**Type:** Changed feature
-**Service category:** Reporting
-**Product capability:** Monitoring & Reporting
-
-We're happy to announce general availability of Microsoft Graph API endpoints support for Azure AD activity logs. With this release, you can now use Version 1.0 of both the Azure AD audit logs, as well as the sign-in logs APIs.
-
-For more information, see [Azure AD audit log API overview](/graph/api/resources/azure-ad-auditlog-overview).
-
----
 
 
 
