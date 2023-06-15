@@ -92,6 +92,12 @@ Setting the access tier is only allowed for block blobs. You can set the access 
 
 To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
 
+## Upload a block blob by staging blocks and committing
+
+You can have greater control over how to divide uploads into blocks by manually staging individual blocks of data. When all of the blocks that make up a blob are staged, you can commit them to Blob Storage. You can use this approach to enhance performance by uploading blocks in parallel. 
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobUpload.java" id="Snippet_UploadBlocks":::
+
 ## Resources
 
 To learn more about uploading blobs using the Azure Blob Storage client library for Java, see the following resources.
