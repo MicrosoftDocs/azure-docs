@@ -678,9 +678,9 @@
     - name: Enable pull request annotations in GitHub or in Azure DevOps
       displayName: PR annotations, annotations, DevOps, GitHub, pull request
       href: enable-pull-request-annotations.md
-    - name: Defender for DevOps FAQ
+    - name: Common questions
       displayName: DevOps, FAQ
-      href: devops-faq.md
+      href: faq-defener-for-devops.yml
     - name: Credential scanner rules
       displayName: credential, scanner, rules, DevOps
       href: concept-credential-scanner-rules.md
