@@ -37,7 +37,7 @@ sections:
       - question: |
           How can I use my existing Log Analytics workspace?
         answer: |
-          You can use your existing Log Analytics workspace by following the steps in the [Assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) workspace section of this article.
+          You can use your existing Log Analytics workspace by following the steps in the [Assign a custom workspace](defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) workspace section of this article.
 
       - question: |
           Can I delete the default workspaces created by Defender for Cloud? 
@@ -52,7 +52,7 @@ sections:
       - question: |
           Where is the default Log Analytics workspace located?
         answer: |
-          Depending on your region, the default Log Analytics workspace located will be located in various locations. To check your region see [Where is the default Log Analytics workspace created?](../faq-data-collection-agents.yml)
+          Depending on your region, the default Log Analytics workspace located will be located in various locations. To check your region see [Where is the default Log Analytics workspace created?](faq-data-collection-agents.yml)
 
       - question: |
           My organization requires me to tag my resources, and required extension didn't get installed, what went wrong?
@@ -61,7 +61,7 @@ sections:
 
           However, if your organization has a policy that requires a specific tag on your resources, it may cause the extension installation to fail during the resource group or the default workspace creation stage. If it fails, you can either:
 
-          - [Assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) and add any tag your organization requires.
+          - [Assign a custom workspace](defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) and add any tag your organization requires.
 
               or 
 
@@ -125,4 +125,3 @@ additionalContent: |
   ## Next steps
   
   [Learn about Defender for Containers](defender-for-containers-introduction.md)
-  
