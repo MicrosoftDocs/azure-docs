@@ -19,7 +19,7 @@ ms.author: jacobjaygbay
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-In this article you learn about running Oracle solutions using the Azure infrastructure. 
+In this article, you learn about running Oracle solutions using the Azure infrastructure. 
 
 ## Oracle databases on Azure infrastructure
 Oracle supports running Oracle Database 12.1 and higher Standard and Enterprise editions in Azure on VM images based on Oracle Linux. Run Oracle databases on Azure infrastructure using Oracle Database on Oracle Linux images available in the Azure Marketplace 
@@ -42,15 +42,15 @@ Azure CLI or Azure Cloudshell
 
 The images are bring-your-own-license. You're charged only for the costs of compute, storage, and networking incurred running a VM. You must have a proper license to use Oracle software and have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. For more information about license mobility, see the [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure/interconnect/faq/).
 You can also choose to base your solutions on a custom image that you create from scratch in Azure or upload a custom image from your on-premises environment.
-## Applications on Oracle Linux and WebLogic Server
-Run enterprise applications on WebLogic Server in Azure on supported Oracle Linux images. For more details see the WebLogic documentation,[Oracle WebLogic Server on Azure Solution Overview](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster). 
+## Applications on Oracle Linux and WebLogic server
+Run enterprise applications on WebLogic server in Azure on supported Oracle Linux images. For more information, see the WebLogic documentation,[Oracle WebLogic Server on Azure Solution Overview](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster). 
 
 ## WebLogic Server with Azure service integrations
 Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Marketplace in the form of Azure Application offering. For more information about these offers, see [What are solutions for running Oracle WebLogic Server](oracle-weblogic.md).
 
 ### Oracle WebLogic Server VM images
 - Clustering is supported on Enterprise Edition only. You're licensed to use WebLogic clustering only when you use the Enterprise Edition of Oracle WebLogic Server. Don't use clustering with Oracle WebLogic Server Standard Edition.
-- UDP multicast is not supported. Azure supports UDP unicasting, but not multicasting or broadcasting. Oracle WebLogic Server is able to rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size is kept static, or kept with no more than 10 managed servers.
+- UDP multicast isn't supported. Azure supports UDP unicasting, but not multicasting or broadcasting. Oracle WebLogic Server is able to rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size is kept static, or kept with no more than 10 managed servers.
 - Oracle WebLogic Server expects public and private ports to be the same for T3 access, for example, when using Enterprise JavaBeans. Consider a multi-tier scenario where a service layer (EJB) application is running on an Oracle WebLogic Server cluster consisting of two or more VMs, in a virtual network named SLWLS. The client tier is in a different subnet in the same virtual network, running a simple Java program trying to call EJB in the service layer. Because you must load balance the service layer, a public load-balanced endpoint needs to be created for the VMs in the Oracle WebLogic Server cluster. If the private port that you specify is different from the public port, for example, 7006:7008, an error such as the following occurs:
 OutputCopy
 ``[java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:``
@@ -83,7 +83,7 @@ To walk through the basic setup procedure on Azure, see [Implement Oracle Golden
 
 In addition to having a high availability and disaster recovery solution architected in Azure, you should have a backup strategy in place to restore your database. 
 ## Backup Oracle workloads
-Different [backup strategies](oracle-database-backup-strategies.md) are available for oracle on Azure VM, below are the additional  list:
+Different [backup strategies](oracle-database-backup-strategies.md) are available for Oracle on Azure VMs, the following backups are other options:
 - Using [Azure files]()
 - Using [Azure backup](oracle-database-backup-azure-backup.md) 
 - Using [Oracle RMAN Streaming data](oracle-rman-streaming-backup.md) backup
