@@ -29,7 +29,7 @@ Blue/green deployment is a software release strategy that aims to minimize downt
 
 In the context of Azure Container Apps the blue/green deployment release approach is enabled by using [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md) and [revision labels](revisions.md#revision-labels). 
 
-This article shows you how to configure traffic splitting rules for your container app. To run the following examples, you need a container app environment in which you can create a new app.
+This article shows you how to implement blue/green deployment a container app. To run the following examples, you need a container app environment in which you can create a new app.
 
 ## Create a container app with multiple active revisions enabled
 
