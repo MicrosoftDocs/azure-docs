@@ -126,7 +126,7 @@ To add SDK configuration, add each configuration option directly under `connecti
 
 :::image type="content" source="media/javascript-sdk/example-sdk-configuration.png" alt-text="Screenshot of JavaScript code with SDK configuration options added and highlighted." lightbox="media/javascript-sdk/example-sdk-configuration.png":::
 
-### 4. (Optional) Advanced SDK configuration
+### 4. (Optional) Add advanced SDK configuration
 
 If you want to use the extra features provided by plugins for specific frameworks and optionally enable the Click Analytics plug-in, see:
 
