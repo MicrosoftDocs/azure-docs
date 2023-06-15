@@ -65,7 +65,7 @@ Content-Type: application/json
 ```
 
 #### Response
-```jsonc
+```json
 [
     {
         "Sequence": 1,
@@ -114,7 +114,7 @@ Content-Type: application/json
 ```
 
 #### Response
-```jsonc
+```json
 [
     {
         "Sequence": 1,
@@ -162,7 +162,7 @@ Content-Type: application/json
 ```
 
 ### Response
-```jsonc
+```json
 {
     "Sequence": 2,
     "StudyInstanceUid": "{uid}",
