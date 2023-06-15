@@ -95,6 +95,6 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 
 Post replica addition, your clients will be distributed across different locations based on their geographical locations. SignalR must synchronize data across these replicas. The cost for synchronization is negligible if your use case primarily involves sending to large groups (size >100) or broadcasting. However, the cost becomes more apparent when sending to smaller groups (size < 10) or a single user.
 
-To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](signalr-scale-autoscale.md) to manage this.
+To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](signalr-howto-scale-autoscale.md) to manage this.
 
 For more performance evaluation, refer to [Performance](signalr-concept-performance.md).
