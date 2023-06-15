@@ -50,7 +50,7 @@ Exchange Hybrid Writeback is disabled by default.
    :::image type="content" source="media/exchange-hybrid/exchange-hybrid-1.png" alt-text="Screenshot of the basic properties." lightbox="media/exchange-hybrid/exchange-hybrid-1.png":::
  
  7. On the right, place a check in **Exchange hybrid writeback** and click **Apply**. 
-   :::image type="content" source="media/exchange-hybrid/exchange-hybrid-2.png" alt-text="Screen shot of enabling Exchange writeback." lightbox="media/exchange-hybrid/exchange-hybrid-2.png":::
+   :::image type="content" source="media/exchange-hybrid/exchange-hybrid-2.png" alt-text="Screenshot of enabling Exchange writeback." lightbox="media/exchange-hybrid/exchange-hybrid-2.png":::
  
  >[!NOTE]
  >If the checkbox for **Exchange hybrid writeback** is disabled, it means that the schema has not been detected.  Verify that the prerequisites are met and that you have re-started the provisioning agent.
@@ -86,7 +86,7 @@ Provisioning on-demand with Exchange hybrid use the following steps
  5. On the left, select **Provision on demand**.
  6. Enter the distinguished name of a user and select the **Provision** button.
  7. A success screen appears with four green check marks. 
-    :::image type="content" source="media/exchange-hybrid/exchange-hybrid-3.png" alt-text="Screenshot of the intital Exchange writeback." lightbox="media/exchange-hybrid/exchange-hybrid-3.png":::
+    :::image type="content" source="media/exchange-hybrid/exchange-hybrid-3.png" alt-text="Screenshot of the initial Exchange writeback." lightbox="media/exchange-hybrid/exchange-hybrid-3.png":::
  
  8. Click **Next**.  On the **Writeback exchange attributes to Active Directory** tab, the synchronization starts.  
  9. You should see the success details.

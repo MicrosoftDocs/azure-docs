@@ -272,7 +272,7 @@ Content-type: application/json
 }
 ```
 
-Now check to see if the **mailNickName** attribute is present.  If it is, then your schema is verified and contains the Exchange attributes. If not, review the [prerequisties](exchange-hybrid.md#prerequisites) for Exchange hybrid writeback.
+Now check to see if the **mailNickName** attribute is present.  If it is, then your schema is verified and contains the Exchange attributes. If not, review the [prerequisites](exchange-hybrid.md#prerequisites) for Exchange hybrid writeback.
 
 
 
