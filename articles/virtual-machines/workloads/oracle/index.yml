@@ -23,9 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Oracle solutions
-            url: oracle-overview.md
-          - text: Oracle solutions on Azure VMs
-            url: oracle-vm-solutions.md          
+            url: oracle-overview.md          
 
   #card 2  
   - title: Getting started

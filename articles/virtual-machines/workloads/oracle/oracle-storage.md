@@ -42,7 +42,8 @@ The [Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/pe
 The [Lightbits](https://www.lightbitslabs.com/azure/) Cloud Data Platform provides scalable and cost-efficient high-performance storage that is easy to consume on Azure. It removes the bottlenecks associated with native storage on the public cloud, such as scalable performance and consistently low latency. Removing these bottlenecks offers rich data services and resiliency that enterprises have come to rely on. It can deliver up to 1 million IOPS/volume and up to 3 million IOPs per VM. Lightbits cluster can scale vertically and horizontally. Lightbits support different sizes of [Lsv3](https://learn.microsoft.com/azure/virtual-machines/lsv3-series) and [Lasv3](https://learn.microsoft.com/azure/virtual-machines/lasv3-series) VMs for their clusters. For options, see L32sv3/L32asv3: 7.68 TB, L48sv3/L48asv3: 11.52 TB, L64sv3/L64asv3: 15.36 TB, L80sv3/L80asv3: 19.20 TB. 
 
 ## Next steps
-- [Deploy premium SSD to Azure Virtual Machine](https://learn.microsoft.com/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli)
-- [Deploy an Elastic SAN](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)
-- [Setup Azure NetApp Files & create NFS Volume](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal)
-- [Create Lightbits solution on Azure VM](https://www.lightbitslabs.com/resources/lightbits-on-azure-solution-brief/)
+> [!div class="nextstepaction"]
+> [Deploy premium SSD to Azure Virtual Machine](https://learn.microsoft.com/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli)  
+> [Deploy an Elastic SAN](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)  
+> [Setup Azure NetApp Files & create NFS Volume](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal)  
+> [Create Lightbits solution on Azure VM](https://www.lightbitslabs.com/resources/lightbits-on-azure-solution-brief/)
