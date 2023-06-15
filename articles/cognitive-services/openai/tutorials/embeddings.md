@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
-ms.date: 04/25/2023
+ms.date: 06/14/2023
 author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
 recommendations: false
@@ -71,7 +71,7 @@ To successfully make a call against Azure OpenAI, you'll need an **endpoint** an
 
 |Variable name | Value |
 |--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Azure AI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com`.|
+| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com`.|
 | `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
@@ -138,9 +138,9 @@ RESOURCE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_type = "azure"
 openai.api_key = API_KEY
 openai.api_base = RESOURCE_ENDPOINT
-openai.api_version = "2023-05-15"
+openai.api_version = "2022-12-01"
 
-url = openai.api_base + "/openai/deployments?api-version=2023-05-15" 
+url = openai.api_base + "/openai/deployments?api-version=2022-12-01" 
 
 r = requests.get(url, headers={"api-key": API_KEY})
 

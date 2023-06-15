@@ -5,12 +5,12 @@ description: Learn how to configure Bastion to use Kerberos authentication via t
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 06/12/2023
 ms.author: cherylmc
 
 ---
 
-# How to configure Bastion for Kerberos authentication using the Azure portal (Preview)
+# Configure Bastion for Kerberos authentication using the Azure portal (Preview)
 
 This article shows you how to configure Azure Bastion to use Kerberos authentication. Kerberos authentication can be used with both the Basic and the Standard Bastion SKUs. For more information about Kerberos authentication, see the [Kerberos authentication overview](/windows-server/security/kerberos/kerberos-authentication-overview). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 

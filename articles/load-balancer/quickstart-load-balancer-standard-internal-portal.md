@@ -79,9 +79,16 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
+    > [!IMPORTANT]
+
+    > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+    >
+
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+
 
     > [!NOTE]
     > The virtual network and subnet are created immediately. The Bastion host creation is submitted as a job and will complete within 10 minutes. You can proceed to the next steps while the Bastion host is created.
