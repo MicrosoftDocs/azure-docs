@@ -6,91 +6,130 @@ services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 06/15/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Azure Peering maintenance notification
+# Azure Peering maintenance notification walkthrough
 
-This article explains the maintenance notifications that are sent to Azure Peering partners and Peering Service customers.
+In this article, you learn how to see active maintenance events and how to create alerts for future ones. Internet Peering partners and Peering Service customers can create alerts to receive notifications by email, voice, SMS, or the Azure mobile app.
 
-## Service Health
+## View maintenance events
 
-Partners who have peering and/or Peering Service resources in Azure receives notifications through the Azure Service Health page. You can get to this page by searching for it in the Azure Portal.
+If you're a partner who have Internet Peering or Peering Service resources in Azure, you receive notifications through the Azure Service Health page. In this section, you learn how to view active maintenance events in the Service Health page.
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/service-health-portal-search.png" alt-text="Screenshot shows how to search for Service Health in the Azure portal":::
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-### Seeing maintenances
+1. In the search box at the top of the portal, enter *service health*. Select **Service Health** in the search results.
 
-Notifications for active maintenance will appear in the Planned Maintenance section of Service Health, and will be listed under Azure Peering Service. The highlighted entry in the image below is an example of a maintenance notification.
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/service-health-portal-search.png" alt-text="Screenshot shows how to search for Service Health in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/service-health-portal-search.png":::
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-serviceHealthPage.png" alt-text="Service Health page" :::
+1. Select **Planned maintenance** to see active maintenance events. Select **Azure Service Peering** for **Service** filter to only list maintenance events for Azure Peering Service.
 
-The summary page gives you information about your resource that is affected by maintenance, such as its region, and its peering location.
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/planned-maintenance.png" alt-text="Screenshot shows planned maintenance events for Azure Peering Service in the Service Health page in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/service-health-portal-search.png":::
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-maintenanceSummary.png" alt-text="Maintenance summary" :::
+    The summary tab gives you information about the affected resource by maintenance, such as the Azure subscription, region, and peering location.
 
-When maintenance has completed, a status update will be sent. At this time, the maintenance event will no longer be active, so it will no longer appear in the Planned Maintenances section of Service Health. Instead, it will appear in the Health History page.
+Once maintenance is completed, a status update will be sent. You'll be able to view and review the maintenance event in the **Health history** page after it's completed.
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-serviceHealthHistory.png" alt-text="Service Health history" :::
+:::image type="content" source="./media/walkthrough-device-maintenance-notification/health-history.png" alt-text="Screenshot shows how to view past maintenance events in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/health-history.png":::
 
-Clicking on an entry in the Health History page summarizes the maintenance, displaying the exact start and an estimated end time.
+> [!NOTE]
+> The end time listed for the maintenance is an estimate. Many maintenance events will complete before the end time that is shown in Service Health, but this is not guaranteed. Future developments to our maintenance notification service will allow for more accurate maintenance end times.
 
-**NOTE:** At this time, the end time listed for the maintenance is an estimate. Many maintenances will complete before the end time that is shown in Service Health, but this is not guaranteed. Future developments to our maintenance notification service will allow for more accurate maintenance end times.
+## Create alerts
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-healthHistorySummary.png" alt-text="Service Health history summary" :::
+Service Health supports forwarding rules, so you can set up your own alerts when maintenance events occur.
 
-### Notification forwarding
+1. To set up a forwarding rule, go to the **Planned maintenance** page, and then select **+ Add service health alert**.
 
-Service Health has support for forwarding rules, so you can set up your own alerts when maintenances occur. To set up a forwarding rule, go to the Planned Maintenance section of Service Health, and click on Add service health alert.
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/add-service-health-alert.png" alt-text="Screenshot shows how to add an alert.":::
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-addServiceHealthAlert.png" alt-text="Add Service Health alert" :::
+1. In the **Scope** tab, select the Azure subscription your Internet Peering or Peering Service is associated with. When a resource is affected by maintenance, the alert in Service Health is associated with the subscription ID that the resource is part of.
 
-Then, choose the Azure subscription your peering and/or peering services are associated with. When a resource is affected by maintenance, the alert in Service Health is associated with the subscription ID that the resource is part of.
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-alert-rule-scope.png" alt-text="Screenshot shows how to choose the Azure subscription of the resource.":::
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-createAlertRule1.png" alt-text="Choose Azure subscription" :::
+1. Select the **Condition** tab, or select the **Next: Condition** button at the bottom of the page.
 
-In the Condition section, choose Azure Peering Service as the Service, the Regions you'd like to receive notifications for (selecting all is recommended), and Planned maintenance as the Event type.
+1. In the **Condition** tab, Select the following information:
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-createAlertRule2.png" alt-text="Alert condition" :::
+    | Setting | Value |
+    | --- | --- |
+    | Services | Select **Azure Peering Service**. |
+    | Regions | Select the Azure region(s) of the resources that you want to get notified whenever they have planned maintenance events. |
+    | Event types | Select **Planned maintenance**. |
 
-In the Actions section, create a new action group. In the Basics section, choose your Azure subscription and resource group, choose Global as the region, and choose an action group name and display name.
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-alert-rule-condition.png" alt-text="Screenshot shows the Condition tab of creating an alert rule in the Azure portal.":::
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-createActionGroup1.png" alt-text="Action group actions" :::
+1. Select the **Actions** tab, or select the **Next: Actions** button.
 
-In the notifications section, choose Email/SMS Message/Push/Voice as the Notification type, and choose a name for this notification. Click the pencil to edit the notification action, and choose the email you'd like notifications to be forwarded to, and/or any other forwarding methods you'd like to receive, such as SMS or Azure mobile app notifications.
+1. Select **Create action group** to create a new action group. If you previously created an action group, you can use it by selecting **Select action groups**.
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-createActionGroup2.png" alt-text="Action group notifications" :::
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-alert-rule-actions.png" alt-text="Screenshot shows the Actions tab before creating a new action group.":::
 
-Go to Review + create, and finish your action group.
+1. In the **Basics** tab of **Create action group**, enter or select the following information:
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-createActionGroup3.png" alt-text="Create action group" :::
+    | Setting | Value |
+    | --- | --- |
+    | **Project Details** |  |
+    | Subscription | Select the Azure subscription that you want to use for the action group. |
+    | Resource group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. </br> If you have an existing resource group that you want to use, select it instead of creating a new one. |
+    | Regions | Select **Global**. |
+    | **Instance details** |  |
+    | Action group name | Enter a name for the action group. |
+    | Display name | Enter a short display name (up to 12 characters). |
 
-After creating an action group, you should return to the Create an alert rule page, and your action group will appear in the list.
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-action-group-basics.png" alt-text="Screenshot shows the Basics tab of creating an action group.":::
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-createAlertRule3.png" alt-text="Alert rule with action group" :::
+1. Select the **Notifications** tab, or select the **Next: Notifications** button. Then, select **Email/SMS message/Push/Voice** for the **Notification type**, and enter a name for this notification. Enter the contact information for the type of notification that you want.
 
-If you click on the Action group name of your newly created action group, you can edit it or send test notifications.
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-action-group-notifications-email-sms.png" alt-text="Screenshot shows how to add the required contact information for the notifications.":::
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-testActionGroup.png" alt-text="Test action group notifications" :::
+1. Select **Review + create**.
 
-In the Details section, choose the resource group name to save the alert rule in, and choose an alert rule name and description. Open Advanced options and enable the alert rule upon creation.
+1. Review the settings, and then select **Create**. 
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-createAlertRule4.png" alt-text="Create alert rule details" :::
+1. After creating the action group, you return to the **Actions** tab of **Create an alert rule**. Select **PeeringMaintenance** action group to edit it or send test notifications.
 
-Go to Review + create, and finish your alert rule.
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-alert-rule-actions-group.png" alt-text="Screenshot shows the Actions tab after creating a new action group.":::
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-createAlertRule5.png" alt-text="Create alert rule" :::
+1. Select **Test action group** to send test notification(s) to the contact information you previously entered in the action group (to change the contact information, select the pencil icon next to the notification).
 
-Azure Peering Service notifications will now be forwarded to you based on your alert rule whenever maintenances start, and whenever they are resolved.
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/edit-action-group.png" alt-text="Screenshot shows how to edit an action group in the Azure portal.":::
 
-#### More information
+1. In **Test PeeringMaintenance**, select **Resource health alert** for **Select sample type**, and then select **Test**. Select **Done** after you successfully test the notifications. 
 
-For more information on the notification platform Service Health and forwarding notifications, more information can be found at: [Create activity log alerts on service notifications using the Azure portal](../../articles/service-health/alerts-activity-log-service-notifications-portal.md).
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/test-notifications.png" alt-text="Screenshot shows how to send test notifications.":::
+
+1. Select the **Details** tab, or select the **Next: Details** button. Enter or select the following information: your the subscription and resource group that you want to use for alert rule. and choose an alert rule name and description. Open Advanced options and enable the alert rule upon creation.
+
+    | Setting | Value |
+    | --- | --- |
+    | **Project Details** |  |
+    | Subscription | Select the Azure subscription that you want to use for the alert rule. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Alert rule details** |  |
+    | Alert rule name | Enter a name for the rule. |
+    | Alert rule description | Enter an optional description. |
+    | **Advanced options** | Select **Enable alert rule upon creation**.  |
+
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-alert-rule-details.png" alt-text="Screenshot shows the Details tab of creating an alert rule.":::
+
+1. Select **Review + create**, and finish your alert rule.
+
+1. Review the settings, and then select **Create**. 
+
+Azure Peering Service notifications will be forwarded to you based on your alert rule whenever maintenance events start, and whenever they are resolved.
+
+For more information on the notification platform of Service Health, see [Create activity log alerts on service notifications using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## Legacy peerings
 
-Peering partners who have not onboarded their peerings as Azure resources, as a result, do not have subscriptions associated with their peerings. This means they cannot receive notifications in Service Health. Instead, these partners will receive maintenance notifications via your NOC contact email. Partners with legacy peerings do not have to opt-in to receive these email notifications, they are sent automatically. Below is an example of an maintenance notification email.
+Peering partners who have not onboarded their peerings as Azure resources don't have subscriptions associated with their peerings. This means they cannot receive notifications in Service Health. Instead, these partners will receive maintenance notifications via their NOC contact email. Partners with legacy peerings do not have to opt-in to receive these email notifications, they are sent automatically. Below is an example of a maintenance notification email.
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-legacyPeeringMaintenanceEmail.png" alt-text="Legacy peering maintenance email" :::
+:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-legacyPeeringMaintenanceEmail.png" alt-text="Screenshot shows an example of a legacy peering maintenance email.":::
+
+## Next steps
+
+- Learn about the [Prerequisites to set up peering with Microsoft](prerequisites.md).
