@@ -114,6 +114,5 @@ Now that you've enabled the Azure Activity data connector and generated some act
 
 In this quickstart, you enabled Microsoft Sentinel and installed a solution from the content hub. Then, you set up a data connector to start ingesting data into Microsoft Sentinel. You also verified that data is being ingested by viewing the data in the workspace.
 
-Go to the next article to learn how to visualize the data you've collected by using the dashboards and workbooks.
-> [!div class="nextstepaction"]
-> [Next steps button](get-visibility.md)    
+- To visualize the data you've collected by using the dashboards and workbooks, see [Visualize collected data](get-visibility.md).
+- To detect threats by using analytics rules, see [Tutorial: Detect threats by using analytics rules in Microsoft Sentinel](tutorial-log4j-detection.md).
