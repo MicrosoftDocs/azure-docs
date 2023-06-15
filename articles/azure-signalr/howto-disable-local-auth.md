@@ -6,6 +6,7 @@ author: terencefan
 ms.author: tefa
 ms.date: 03/31/2023
 ms.service: signalr
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ---
 

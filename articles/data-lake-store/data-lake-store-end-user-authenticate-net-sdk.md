@@ -7,8 +7,7 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 09/22/2022
 ms.author: normesta
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # End-user authentication with Azure Data Lake Storage Gen1 using .NET SDK
 > [!div class="op_single_selector"]
@@ -98,4 +97,3 @@ In this article, you learned how to use end-user authentication to authenticate 
 
 * [Account management operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Data operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md)
-

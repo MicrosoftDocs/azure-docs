@@ -49,7 +49,7 @@ Microsoft Sentinel has built-in connectors to the broader security and applicati
 
 For more information, see [Find your data connector](data-connectors-reference.md).
 
-:::image type="content" source="media/collect-data/collect-data-page.png" alt-text="Screenshot of the data connectors page in Microsoft Sentinel that shows a list of available connectors.":::
+:::image type="content" source="media/connect-data-sources/open-data-connector-page.png" alt-text="Screenshot of the data connectors page in Microsoft Sentinel that shows a list of available connectors.":::
 
 ## Create interactive reports by using workbooks
 

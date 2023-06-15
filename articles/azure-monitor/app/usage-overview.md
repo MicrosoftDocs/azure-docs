@@ -18,7 +18,7 @@ The best experience is obtained by installing Application Insights both in your 
 
     * If you don't want to install server code, [create an Application Insights resource](./create-new-resource.md).
 
-1. **Webpage code:** Add the [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights) to your webpage before the closing ``</head>``. Replace the connection string with the appropriate value for your Application Insights resource.
+1. **Webpage code:** Use the JavaScript SDK to collect data from webpages. See [Get started with the JavaScript SDK](./javascript-sdk.md).
     
    [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -95,6 +95,29 @@ Learn more about [custom events](./api-custom-events-metrics.md#trackevent) and 
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
 
 :::image type="content" source="./media/usage-overview/events.png" alt-text="Screenshot that shows the Events tab filtered by AnalyticsItemsOperation and split by AppID." lightbox="./media/usage-overview/events.png":::
+
+Whenever you’re in any usage experience, click the **Open the last run query** icon to take you back to the underlying query.
+
+:::image type="content" source="./media/usage-overview/open-last-run-query-icon.png" alt-text="Screenshot of the Application Insights Session pane in the Azure portal. The Open the last run query icon is highlighted." lightbox="./media/usage-overview/open-last-run-query-icon.png":::
+
+You can then modify the underlying query to get the kind of information you’re looking for. 
+
+Here’s an example of an underlying query about page views. Go ahead and paste it directly into the query editor to test it out.
+
+```kusto
+// average pageView duration by name
+let timeGrain=5m;
+let dataset=pageViews
+// additional filters can be applied here
+| where timestamp > ago(1d)
+| where client_Type == "Browser" ;
+// calculate average pageView duration for all pageViews
+dataset
+| summarize avg(duration) by bin(timestamp, timeGrain)
+| extend pageView='Overall'
+// render result in a chart
+| render timechart
+```
   
 ## Design the telemetry with the app
 

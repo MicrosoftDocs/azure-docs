@@ -29,7 +29,7 @@ The following table outlines the most common and supported sync scenarios.
 |High availability - latency (I need high availability)|●|N/A|●|N/A|
 |Migration from connect sync to cloud sync|●|●|N/A|N/A|
 |Hybrid Azure AD Join|N/A|●|N/A|N/A|
-|Exchange hybrid|N/A|●|N/A|N/A|
+|Exchange hybrid|●|●|N/A|N/A|
 |User accounts in one forest / mailboxes in resource forest|N/A|●|N/A|N/A|
 |Sync large domains with more than 250K objects|N/A|●|●|N/A|
 |Filter directory objects based on attribute values|N/A|●|●|N/A|

@@ -4,7 +4,7 @@ description: Learn how to run an Azure Function as Azure Blob storage data chang
 ms.topic: reference
 ms.date: 04/16/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

@@ -9,9 +9,7 @@ ms.date: 05/19/2023
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.custom:
-  - has-adal-ref
-  - synapse
+ms.custom: has-adal-ref, synapse, devx-track-extended-java
 ---
 
 # Troubleshoot the Azure Synapse Analytics, Azure SQL Database, SQL Server, Azure SQL Managed Instance, and Amazon RDS for SQL Server connectors in Azure Data Factory and Azure Synapse
