@@ -7599,45 +7599,6 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Improved groups creation and management experiences in the Azure portal
-
-**Type:** New feature
-**Service category:** Group Management
-**Product capability:** Collaboration
-
-We've made improvements to the groups-related experiences in the Azure portal. These improvements allow administrators to better manage groups lists, members lists, and to provide additional creation options.
-
-Improvements include:
-
-- Basic filtering by membership type and group type.
-
-- Addition of new columns, such as Source and Email address.
-
-- Ability to multi-select groups, members, and owner lists for easy deletion.
-
-- Ability to choose an email address and add owners during group creation.
-
-For more information, see [Create a basic group and add members using Azure Active Directory](./active-directory-groups-create-azure-portal.md).
-
----
-
-### Configure a naming policy for Office 365 groups in Azure portal (General availability)
-
-**Type:** Changed feature
-**Service category:** Group Management
-**Product capability:** Collaboration
-
-Administrators can now configure a naming policy for Office 365 groups, using the Azure portal. This change helps to enforce consistent naming conventions for Office 365 groups created or edited by users in your organization.
-
-You can configure naming policy for Office 365 groups in two different ways:
-
-- Define prefixes or suffixes, which are automatically added to a group name.
-
-- Upload a customized set of blocked words for your organization, which aren't allowed in group names (for example, "CEO, Payroll, HR").
-
-For more information, see [Enforce a Naming Policy for Office 365 groups](../enterprise-users/groups-naming-policy.md).
-
----
 
 
 
