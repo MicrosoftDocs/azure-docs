@@ -134,7 +134,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over s
     New-AzBastion @bastion
     ```
 
-It takes about 10 minutes for the Bastion resources to deploy.
+It takes several minutes for the Bastion resources to deploy.
 
 ## Create a private endpoint
 
