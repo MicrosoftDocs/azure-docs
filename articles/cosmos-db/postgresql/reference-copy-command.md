@@ -15,7 +15,7 @@ The [COPY](https://www.postgresql.org/docs/current/sql-copy.html) command in Pos
 
 Alternatively, `\COPY` is a command available in psql and other client interfaces that facilitates direct interaction with the local file system of the machine where it is executed.
 
-# pg_azure_storage extension
+## Capabilities extended by pg_azure_storage extension
 
 The `azure_storage` extension overcomes the disk access limitation by integrating `Azure Blob Storage` to store data files, which can then be directly imported into the database tables. When enabled the extension enhances the built in `COPY` command to directly interface to Azure Blob Storage.
 Loading data into the tables could be done by calling the `COPY` command.
