@@ -195,6 +195,8 @@ items:
       href: how-to-enterprise-deploy-static-file.md
     - name: Deploy large CPU and memory applications for Enterprise plan
       href: how-to-enterprise-large-cpu-memory-applications.md
+    - name: Deploy large number of applications for Enterprise plan
+      href: how-to-enterprise-large-app-number.md
   - name: Manage
     items:
     - name: Start or stop a service
