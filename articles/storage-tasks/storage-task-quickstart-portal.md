@@ -35,7 +35,13 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 2. Under **Services**, select **Storage Tasks**.
 
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the search result of the string Storage Tasks.](./media/storage-task-create/storage-task-search.png)
+
 3. On the **Storage tasks** page, select **Create**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the storage task create button.](./media/storage-task-create/storage-task-create-button.png)
 
 4. In the **Basics** page, under **Project details**, make sure that the correct subscription is selected. Then, create a new resource group by selecting the **Create new** link. Name that group _mystoragetaskresourcegroup_.
 
