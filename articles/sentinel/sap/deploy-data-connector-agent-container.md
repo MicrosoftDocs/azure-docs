@@ -80,7 +80,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
 - If you plan to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), [deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md).
 - Set up a [managed identity](#managed-identity) or a [registered application](#registered-application). For more information on these options, see the [overview section](#data-connector-agent-deployment-overview).
 
-### Managed identity
+#### Managed identity
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
@@ -137,7 +137,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
     This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
-### Registered application
+#### Registered application
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
