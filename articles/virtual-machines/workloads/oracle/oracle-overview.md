@@ -107,5 +107,4 @@ Oracle databases generally require higher memory and I/O. For this reason, we re
 When you migrate Oracle software and workloads from on-premises to Microsoft Azure, Oracle provides license mobility as stated in [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure/interconnect/faq/). 
 ## Next steps
 You now have an overview of current Oracle databases and solutions based on VM images in Microsoft Azure. Your next step is to deploy your first Oracle database on Azure.
-> [!div class="nextstepaction"]
-> [Create an Oracle database on Azure](oracle-database-quick-create.md)
+- [Create an Oracle database on Azure](oracle-database-quick-create.md)
