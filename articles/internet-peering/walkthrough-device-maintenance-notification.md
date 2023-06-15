@@ -29,11 +29,13 @@ If you're a partner who has Internet Peering or Peering Service resources in Azu
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/planned-maintenance.png" alt-text="Screenshot shows planned maintenance events for Azure Peering Service in the Service Health page in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/service-health-portal-search.png":::
 
-    The summary tab gives you information about the affected resource by maintenance, such as the Azure subscription, region, and peering location.
+    The summary tab gives you information about the affected resource by a maintenance event, such as the Azure subscription, region, and peering location.
 
-Once maintenance is completed, a status update is sent. You'll be able to view and review the maintenance event in the **Health history** page after it's completed.
+    Once maintenance is completed, a status update is sent. You'll be able to view and review the maintenance event in the **Health history** page after it's completed.
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/health-history.png" alt-text="Screenshot shows how to view past maintenance events in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/health-history.png":::
+1. Select **Health history** to see past maintenance events.
+
+    :::image type="content" source="./media/walkthrough-device-maintenance-notification/health-history.png" alt-text="Screenshot shows how to view past maintenance events in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/health-history.png":::
 
 > [!NOTE]
 > The end time listed for the maintenance is an estimate. Many maintenance events will complete before the end time that is shown in Service Health, but this is not guaranteed. Future developments to our maintenance notification service will allow for more accurate maintenance end times.
