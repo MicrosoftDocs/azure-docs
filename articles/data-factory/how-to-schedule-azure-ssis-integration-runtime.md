@@ -1,6 +1,6 @@
 ---
 title: Schedule an Azure-SSIS integration runtime 
-description: This article describes how to schedule the starting and stopping of an Azure-SSIS integration runtime by using Azure Data Factory.
+description: This article describes how to schedule starting and stopping an Azure-SSIS integration runtime by using Azure Data Factory.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
@@ -14,11 +14,11 @@ ms.custom: subject-rbac-steps, devx-track-azurepowershell
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how to schedule the starting and stopping of an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) by using Azure Data Factory and Azure Synapse Analytics. An Azure-SSIS IR is compute resource that's dedicated for running SSIS packages.
+This article describes how to schedule the starting and stopping of an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) by using Azure Data Factory and Azure Synapse Analytics. An Azure-SSIS IR is a compute resource that's dedicated for running SSIS packages.
 
 A cost is associated with running an Azure-SSIS IR. You typically want to run your IR only when you need to run SSIS packages in Azure and stop your IR when you don't need it anymore. You can use Data Factory, the Azure portal page for Azure Synapse Analytics pipelines, or Azure PowerShell to [manually start or stop your IR](manage-azure-ssis-integration-runtime.md).
 
-Alternatively, you can create web activities in Data Factory or Azure Synapse Analytics pipelines to start and stop your IR on schedule. For example, you can start it in the morning before running your daily ETL workloads and stop it in the afternoon after the workloads are done.
+Alternatively, you can create web activities in Data Factory or Azure Synapse Analytics pipelines to start and stop your IR on a schedule. For example, you can start it in the morning before running your daily ETL workloads and stop it in the afternoon after the workloads are done.
 
 You can also chain an Execute SSIS Package activity between two web activities that start and stop your IR. Your IR will then start and stop on demand, before or after your package execution. For more information about the Execute SSIS Package activity, see [Run an SSIS package with the Execute SSIS Package activity in the Azure portal](how-to-invoke-ssis-package-ssis-activity.md).
 
