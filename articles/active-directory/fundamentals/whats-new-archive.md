@@ -7671,29 +7671,8 @@ For more information about Conditional Access and password reset, you can see th
 
 ---
 
-## April 2019
 
-### New Azure AD threat intelligence detection is now available as part of Azure AD Identity Protection
 
-**Type:** New feature
-**Service category:** Azure AD Identity Protection
-**Product capability:** Identity Security & Protection
-
-Azure AD threat intelligence detection is now available as part of the updated Azure AD Identity Protection feature. This new functionality helps to indicate unusual user activity for a specific user or activity that's consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources.
-
-For more information about the refreshed version of Azure AD Identity Protection, see the [Four major Azure AD Identity Protection enhancements are now in public preview](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) blog and the [What is Azure Active Directory Identity Protection (refreshed)?](../identity-protection/overview-identity-protection.md) article. For more information about Azure AD threat intelligence detection, see the [Azure Active Directory Identity Protection risk detections](../identity-protection/concept-identity-protection-risks.md) article.
-
----
-
-### Azure AD entitlement management is now available (Public preview)
-
-**Type:** New feature
-**Service category:** Identity Governance
-**Product capability:** Identity Governance
-
-Azure AD entitlement management, now in public preview, helps customers to delegate management of access packages, which defines how employees and business partners can request access, who must approve, and how long they have access. Access packages can manage membership in Azure AD and Office 365 groups, role assignments in enterprise applications, and role assignments for SharePoint Online sites. Read more about entitlement management at the [overview of Azure AD entitlement management](../governance/entitlement-management-overview.md). To learn more about the breadth of Azure AD Identity Governance features, including Privileged Identity Management, access reviews and terms of use, see [What is Azure AD Identity Governance?](../governance/identity-governance-overview.md).
-
----
 
 
 
