@@ -170,7 +170,7 @@ To control public traffic:
     - If you don't select the check box, Azure Virtual Desktop session hosts can only talk to the Azure Virtual Desktop service over private endpoint connections.
 
 >[!IMPORTANT]
->Disabling the **Allow session host access from public network** setting won't affect existing sessions. You must reboot the session host VM for the change to take effect on the session host network settings.
+>Disabling the **Allow session host access from public network** setting won't affect existing sessions. You must restart the session host VM for the change to take effect on the session host network settings.
 
 ## Network security groups
 
