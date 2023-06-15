@@ -7473,17 +7473,7 @@ For more information about setting up your company branding, see [Add branding t
 
 ---
 
-### Azure Active Directory Multi-Factor Authentication (MFA) Server is no longer available for new deployments
 
-**Type:** Deprecated
-**Service category:** MFA
-**Product capability:** Identity Security & Protection
-
-As of July 1, 2019, Microsoft will no longer offer multifactor authentication (MFA) Server for new deployments. New customers who want to require multifactor authentication in their organization must now use cloud-based Azure AD Multi-Factor Authentication. Customers who activated multifactor authentication (MFA) Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
-
-For more information, see [Getting started with the Azure Active Directory Multi-Factor Authentication Server](../authentication/howto-mfaserver-deploy.md). For more information about cloud-based Azure AD Multi-Factor Authentication, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
-
----
 
 
 
