@@ -7868,17 +7868,6 @@ For more information about how to better secure your organization through automa
 
 ---
 
-### Restore and manage your deleted Office 365 groups in the Azure portal
-
-**Type:** New feature
-**Service category:** Group Management
-**Product capability:** Collaboration
-
-You can now view and manage your deleted Office 365 groups from the Azure portal. This change helps you to see which groups are available to restore, along with letting you permanently delete any groups that aren't needed by your organization.
-
-For more information, see [Restore expired or deleted groups](../enterprise-users/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
-
----
 
 
 
