@@ -6,20 +6,11 @@ ms.author: dobett
 ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: iot-develop
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: iot-develop
 zone_pivot_groups: programming-languages-set-ten
 
 # - id: programming-languages-set-ten
-#   title: Programming languages
-#   prompt: Choose a programming language
-#   pivots:
-#   - id: programming-language-csharp
-#     title: C#
-#   - id: programming-language-java
-#     title: Java
-#   - id: programming-language-javascript
-#     title: JavaScript
-#   - id: programming-language-python
 #     title: Python
 ---
 
@@ -28,6 +19,8 @@ zone_pivot_groups: programming-languages-set-ten
 IoT Plug and Play lets you build IoT devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
 IoT Plug and Play lets you use devices that have announced their model ID with your IoT hub. For example, you can access the properties and commands of a device directly.
+
+If you're using IoT Central, you can use the IoT Central UI and REST API to interact with IoT Plug and Play devices connected to your application.
 
 ## Service SDKs
 

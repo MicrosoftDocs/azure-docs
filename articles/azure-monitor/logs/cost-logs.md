@@ -185,7 +185,7 @@ On your bill, the service will be **Insight and Analytics** for Log Analytics us
 
 ### Standard and Premium pricing tiers
 
-Workspaces created before April 2016 can continue to use the **Standard** and **Premium** pricing tiers that have fixed data retention of 30 days and 365 days, respectively. New workspaces can't be created in the **Standard** or **Premium** pricing tiers. If a workspace is moved out of these tiers, it can't be moved back. Workspaces in these pricing tiers don't support the use of [Basic Logs](basic-logs-configure.md). Data ingestion meters on your Azure bill for these legacy tiers are called "Data Analyzed."
+Workspaces cannot be created in or moved to the **Standard** or **Premium** pricing tiers since October 1, 2016. Workspaces already in these pricing tiers can continue to use them, but if a workspace is moved out of these tiers, it can't be moved back. The Standard and Preium pricing tiers have fixed data retention of 30 days and 365 days, respectively. Workspaces in these pricing tiers don't support the use of [Basic Logs](basic-logs-configure.md) and Data Archive. Data ingestion meters on your Azure bill for these legacy tiers are called "Data Analyzed."
 
 ### Microsoft Defender for Cloud with legacy pricing tiers
 

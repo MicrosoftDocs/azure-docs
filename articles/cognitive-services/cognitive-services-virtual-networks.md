@@ -55,7 +55,7 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 
 > [!NOTE]
 > If you're using, Azure OpenAI, LUIS, Speech Services, or Language services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use Azure OpenAI Studio, LUIS portal , Speech Studio or Language Studio from a virtual network, you will need to use the following tags:
-
+>
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
