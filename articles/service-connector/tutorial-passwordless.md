@@ -16,7 +16,7 @@ zone_pivot_groups: passwordless
 
 Passwordless connection use managed identities to access Azure Service. With this approach, you don't have to manually track and manage many different secrets for managed identities because these tasks are securely handled internally by Azure. Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures database service, including Azure Database for PostgreSQL, Azure Database for MySQL, Azure SQL database to accept managed identities.
 
-In this tutorial, you'll use the Azure CLI to complete the following tasks:
+In this tutorial, you use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
 > * Check your initial environment with the Azure CLI
@@ -32,18 +32,18 @@ In this tutorial, you'll use the Azure CLI to complete the following tasks:
 ### Setup environment
 
 #### Account
-Login to Azure CLI with `az login`.
-If you are using Cloud Shell or already logged in, check and confirm your account with `az account show`.
+Sign in with Azure CLI by `az login`.
+If you're using Cloud Shell or already logged in, check and confirm your account with `az account show`.
 
 #### Azure Active Directory
 
-Service Connector will need to access Azure Active Directory to get information of your account and managed identity of hosting service. You can use the following command to check if your device can access Azure Active Directory.
+Service Connector needs to access Azure Active Directory to get information of your account and managed identity of hosting service. You can use the following command to check if your device can access Azure Active Directory.
 
 ```azurecli
 az ad signed-in-user show
 ```
 
-If you get a error code `AADSTS530003`, please ask your IT department for help to join this device to Azure Active Directory. For more information, please refer to [Azure AD joined devices](../active-directory/devices/concept-azure-ad-join.md).
+If you get an error code `AADSTS530003`, please ask your IT department for help with joining this device to Azure Active Directory. For more information, please refer to [Azure AD joined devices](../active-directory/devices/concept-azure-ad-join.md).
 
 
 #### Network connectivity
@@ -115,7 +115,7 @@ az webapp connection create postgres-flexible \
     --client-type java
 ```
 
-As for `--client-type`, you can use `az webapp connection create postgres-flexible -h` to get the supported client types and choose the one which matches your application.
+As for `--client-type`, you can use `az webapp connection create postgres-flexible -h` to get the supported client types and choose the one that matches your application.
 
 
 ::: zone-end
@@ -135,7 +135,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 ```
 
 > [!IMPORTANT]
-> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../mysql/flexible-server/concepts-azure-ad-authentication.md).
+> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see [Permissions](../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../mysql/flexible-server/concepts-azure-ad-authentication.md).
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
@@ -231,7 +231,7 @@ This Service Connector command will do the following tasks in the background:
 
 - Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
 - Set the Azure Active Directory admin to the current signed-in user.
-- Add a database user for the system-assigned managed identity or user-assigned identity or service principal and grant all privileges of the database `$DATABASE_NAME` to this user. The user name can be get from the connection string in above command output
+- Add a database user for the system-assigned managed identity or user-assigned identity or service principal and grant all privileges of the database `$DATABASE_NAME` to this user. The user name can be got from the connection string in above command output
 - Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING` or `AZURE_POSTGRESQL_CONNECTIONSTRING` or `AZURE_SQL_CONNECTIONSTRING` based on the database type.
 
 For Azure Spring Apps and Azure Container Apps, the operations are similar.
@@ -243,11 +243,11 @@ For above tasks, the following permissions may be required to create passwordles
 | Permission | Operation |
 | --- | --- |
 | Microsoft.DBforPostgreSQL/flexibleServers/read | Required to get information of database server |
-| Microsoft.DBforPostgreSQL/flexibleServers/write | Required to enable AAD authentication for database server |
+| Microsoft.DBforPostgreSQL/flexibleServers/write | Required to enable Azure AD authentication for database server |
 | Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
 | Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
-| Microsoft.DBforPostgreSQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
+| Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server Azure AD administrator |
+| Microsoft.DBforPostgreSQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server Azure AD administrator |
 
 ::: zone-end
 
@@ -259,8 +259,8 @@ For above tasks, the following permissions may be required to create passwordles
 | Microsoft.DBforMySQL/flexibleServers/write | Required to add the provided user managed identity to database server |
 | Microsoft.DBforMySQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
 | Microsoft.DBforMySQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.DBforMySQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
-| Microsoft.DBforMySQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
+| Microsoft.DBforMySQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server Azure AD administrator |
+| Microsoft.DBforMySQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server Azure AD administrator |
 
 ::: zone-end
 
@@ -272,12 +272,12 @@ For above tasks, the following permissions may be required to create passwordles
 | Microsoft.Sql/servers/read | Required to get information of database server |
 | Microsoft.Sql/servers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
 | Microsoft.Sql/servers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.Sql/servers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
-| Microsoft.Sql/servers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
+| Microsoft.Sql/servers/administrators/read | Required to check if Azure CLI login user is a database server Azure AD administrator |
+| Microsoft.Sql/servers/administrators/write | Required to add Azure CLI login user as database server Azure AD administrator |
 
 ::: zone-end
 
-In some cases, the permission is not required. For example, if the CLI login user is already an Active Directory Administrator on SQL server, then you don't need to have `Microsoft.Sql/servers/administrators/write` permission.
+In some cases, the permissions aren't required. For example, if the CLI login user is already an Active Directory Administrator on SQL server, then you don't need to have `Microsoft.Sql/servers/administrators/write` permission.
 
 
 ## Connect to database with Azure Active Directory authentication
@@ -490,14 +490,14 @@ using (SqlConnection conn = new SqlConnection(ConnectionString)) {
 
 ---
 
-For more information, see this site [Homepage for client programming to Microsoft SQL Server](/sql/connect/homepage-sql-connection-programming)
+For more information, see [Homepage for client programming to Microsoft SQL Server](/sql/connect/homepage-sql-connection-programming)
 
 
 :::zone-end
 
 
 ## Deploy the application code to Azure hosting services
-Last, you should deploy your application to Azure hosting service, which can leverage its managed identity to connect the database on Azure.
+Last, you should deploy your application to Azure hosting service, which can use managed identity to connect the database on Azure.
 
 ### [App Service](#tab/appservice)
 
