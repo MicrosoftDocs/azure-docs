@@ -25,9 +25,9 @@ function getDrawnShapes() {
 }
 ```
 
-The [Get drawn shapes from drawing manager] code sample allows you to draw a shape on a map then get the code used to create those drawings using the drawing managers `drawingManager.getSource()` function.
+The [Get drawn shapes from drawing manager] code sample allows you to draw a shape on a map and then get the code used to create those drawings by using the drawing managers `drawingManager.getSource()` function.
 
-:::image type="content" source="./media/map-get-shape-data/get-data-from-drawn-shape.png"alt-text="A screenshot of a map with a circle drawn around Seattle and next to the map the code used to create the circle.":::
+:::image type="content" source="./media/map-get-shape-data/get-data-from-drawn-shape.png" alt-text="A screenshot of a map with a circle drawn around Seattle. Next to the map is the code used to create the circle.":::
 
 <!-----------------------------------------
 <iframe height="686" title="Get shape data" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>Get shape data</a> by Azure Maps
