@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/13/2023
+ms.date: 06/15/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
@@ -21,8 +21,6 @@ ms.custom: enterprise-apps
 > Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 SAML token encryption enables the use of encrypted SAML assertions with an application that supports it. When configured for an application, Azure AD will encrypt the SAML assertions it emits for that application using the public key obtained from a certificate stored in Azure AD. The application must use the matching private key to decrypt the token before it can be used as evidence of authentication for the signed in user.
-
-This article provides instructions on how to configure token encryption for enterprise applications. It also provides instructions on how to configure SAML token encryption registered applications.
 
 Encrypting the SAML assertions between Azure AD and the application provides additional assurance that the content of the token can't be intercepted, and personal or corporate data compromised.
 
@@ -42,8 +40,8 @@ To configure enterprise application's SAML token encryption, follow these steps:
 
     Create an asymmetric key pair to use for encryption. Or, if the application supplies a public key to use for encryption, follow the application's instructions to download the X.509 certificate.
 
-    The public key should be stored in an X.509 certificate file in .cer format.
-
+    The public key should be stored in an X.509 certificate file in .cer format. You can copy the contents of the certificate file to a text editor and save it as a .cer file. The certificate file should contain only the public key and not the private key.
+    
     If the application uses a key that you create for your instance, follow the instructions provided by your application for installing the private key that the application will use to decrypt tokens from your Azure AD tenant.
 
 1. Add the certificate to the application configuration in Azure AD.
@@ -54,7 +52,9 @@ You can add the public cert to your application configuration within the Azure p
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-1. Go to the **Azure Active Directory > Enterprise applications** blade and then select the application that you wish to configure token encryption for.
+1. Search for and select the **Azure Active Directory**.
+
+1. Select **Enterprise applications** blade and then select the application that you wish to configure token encryption for.
 
 1. On the application's page, select **Token encryption**.
 
@@ -170,7 +170,7 @@ To configure token encryption, follow these steps:
     }  
     ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure AD PowerShell](#tab/azuread-powershell)
 
 1. Use the latest Azure AD PowerShell module to connect to your tenant.
 
@@ -188,7 +188,29 @@ To configure token encryption, follow these steps:
     $app.TokenEncryptionKeyId
     ```
 
+# [Microsoft Graph PowerShell](#tab/msgraph-powershell)
 
+1. Use the Microsoft Graph PowerShell module to connect to your tenant.
+
+1. Set the token encryption settings using the **[Update-MgApplication](/powershell/module/microsoft.graph.applications/update-mgapplication?view=graph-powershell-1.0&preserve-view=true)** command.
+
+    ```powershell
+
+    Update-MgApplication -ApplicationId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
+
+    ```
+
+1. Read the token encryption settings using the following commands.
+
+    ```powershell
+
+    $app=Get-MgApplication -ApplicationId <ApplicationObjectId>
+
+    $app.KeyCredentials
+
+    $app.TokenEncryptionKeyId
+
+    ```
 # [Microsoft Graph](#tab/microsoft-graph)
 
 1. Update the application's `keyCredentials` with an X.509 certificate for encryption. The following example shows a Microsoft Graph JSON payload with a collection of key credentials associated with the application.
