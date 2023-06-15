@@ -111,6 +111,9 @@ npm install @microsoft/applicationinsights-angularplugin-js
 
 Initialize a connection to Application Insights:
 
+> [!TIP]
+> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [reactPlugin],`.
+
 ```javascript
 import React from 'react';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -118,12 +121,22 @@ import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-reac
 import { createBrowserHistory } from "history";
 const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
+// Add the Click Analytics plug-in.
+/* var clickPluginInstance = new ClickAnalyticsPlugin();
+   var clickPluginConfig = {
+     autoCapture: true
+}; */
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        // If you're adding the Click Analytics plug-in, delete the next line.
         extensions: [reactPlugin],
+     // Add the Click Analytics plug-in.
+     // extensions: [reactPlugin, clickPluginInstance],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
+       // Add the Click Analytics plug-in.
+       // [clickPluginInstance.identifier]: clickPluginConfig
         }
     }
 });
@@ -164,19 +177,36 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+
 #### [React Native](#tab/reactnative)
 
 To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
+
+> [!TIP]
+> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [RNPlugin]`.
 
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
 
 var RNPlugin = new ReactNativePlugin();
+// Add the Click Analytics plug-in.
+/* var clickPluginInstance = new ClickAnalyticsPlugin();
+var clickPluginConfig = {
+  autoCapture: true
+}; */
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        // If you're adding the Click Analytics plug-in, delete the next line.
         extensions: [RNPlugin]
+     // Add the Click Analytics plug-in.
+     /* extensions: [RNPlugin, clickPluginInstance],
+             extensionConfig: {
+                 [clickPluginInstance.identifier]: clickPluginConfig
+          } */
     }
 });
 appInsights.loadAppInsights();
@@ -225,12 +255,18 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+
 #### [Angular](#tab/angular)
 
 Set up an instance of Application Insights in the entry component in your app:
 
 > [!IMPORTANT]
 > When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
+
+> [!TIP]
+> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [angularPlugin],`.
 
 ```js
 import { Component } from '@angular/core';
@@ -248,13 +284,25 @@ export class AppComponent {
         private router: Router
     ){
         var angularPlugin = new AngularPlugin();
-        const appInsights = new ApplicationInsights({ config: {
-        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        extensions: [angularPlugin],
-        extensionConfig: {
-            [angularPlugin.identifier]: { router: this.router }
-        }
-        } });
+     // Add the Click Analytics plug-in.
+     /* var clickPluginInstance = new ClickAnalyticsPlugin();
+        var clickPluginConfig = {
+          autoCapture: true
+        }; */
+        const appInsights = new ApplicationInsights({
+            config: {
+                connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+                // If you're adding the Click Analytics plug-in, delete the next line.        
+                extensions: [angularPlugin],
+             // Add the Click Analytics plug-in.
+             // extensions: [angularPlugin, clickPluginInstance],
+                extensionConfig: {
+                    [angularPlugin.identifier]: { router: this.router }
+                 // Add the Click Analytics plug-in.
+                 // [clickPluginInstance.identifier]: clickPluginConfig
+                }
+            } 
+         });
         appInsights.loadAppInsights();
     }
 }
@@ -303,6 +351,9 @@ extensionConfig: {
         }
       }
 ```
+
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
 ---
 
