@@ -5,7 +5,7 @@ ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 01/27/2023
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Manage Azure Data Lake Analytics using a Java app

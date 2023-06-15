@@ -3,7 +3,7 @@ title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 author: vhorne
 ms.service: firewall
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2023
 services: firewall
 ms.topic: how-to
 ms.date: 10/27/2022
@@ -20,7 +20,7 @@ Azure Kubernetes Service (AKS) offers a managed Kubernetes cluster on Azure. For
 
 Despite AKS being a fully managed solution, it does not offer a built-in solution to secure ingress and egress traffic between the cluster and external networks. Azure Firewall offers a solution to this.
 
-AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (pre-configured by the user beforehand). In either case, the cluster has outbound dependencies on services outside of that virtual network (the service has no inbound dependencies). For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs) describing these outbound dependencies. This is required for various functions including, but not limited to, the nodes that communicate with the Kubernetes API server.  They download and install core Kubernetes cluster components and node security updates, or pull base system container images from Microsoft Container Registry (MCR), and so on. These outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down outbound traffic from an AKS cluster. For this reason, by default, AKS clusters have unrestricted outbound (egress) Internet access. This level of network access allows nodes and services you run to access external resources as needed.
+AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (pre-configured by the user beforehand). In either case, the cluster has outbound dependencies on services outside of that virtual network (the service has no inbound dependencies). For management and operational purposes, nodes in an AKS cluster need to access [certain ports and fully qualified domain names (FQDNs)](../aks/outbound-rules-control-egress.md) describing these outbound dependencies. This is required for various functions including, but not limited to, the nodes that communicate with the Kubernetes API server.  They download and install core Kubernetes cluster components and node security updates, or pull base system container images from Microsoft Container Registry (MCR), and so on. These outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down outbound traffic from an AKS cluster. For this reason, by default, AKS clusters have unrestricted outbound (egress) Internet access. This level of network access allows nodes and services you run to access external resources as needed.
  
 However, in a production environment, communications with a Kubernetes cluster should be protected to prevent against data exfiltration along with other vulnerabilities. All incoming and outgoing network traffic must be monitored and controlled based on a set of security rules. If you want to do this, you will have to restrict egress traffic, but a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks and satisfy those outbound dependencies previously mentioned.
  
@@ -144,7 +144,7 @@ When the previous command has succeeded, save the firewall frontend IP address f
 # Capture Firewall IP Address for Later Use
 
 FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
-FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
+FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIPAddress" -o tsv)
 ```
 
 > [!NOTE]
@@ -220,7 +220,7 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 > For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](../aks/egress-outboundtype.md#limitations).
 
 > [!TIP]
-> Additional features can be added to the cluster deployment such as [**Private Cluster**](../aks/private-clusters.md) or changing the [**OS SKU**](../aks/cluster-configuration.md#mariner-os).
+> Additional features can be added to the cluster deployment such as [**Private Cluster**](../aks/private-clusters.md) or changing the [**OS SKU**](../aks/cluster-configuration.md#azure-linux-container-host-for-aks).
 >
 > The AKS feature for [**API server authorized IP ranges**](../aks/api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
@@ -252,7 +252,7 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
 
-Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster.
+Use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command to configure `kubectl` to connect to your newly created Kubernetes cluster.
 
 ```azurecli
 az aks get-credentials -g $RG -n $AKSNAME

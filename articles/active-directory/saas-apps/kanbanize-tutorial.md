@@ -129,15 +129,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Kanbanize SSO
 
-1. To automate the configuration within Kanbanize, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up Kanbanize** will direct you to the Kanbanize application. From there, provide the admin credentials to sign into Kanbanize. The browser extension will automatically configure the application for you and automate steps 3-7.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Kanbanize manually, open a new web browser window and sign into your Kanbanize company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Kanbanize company site as an administrator
 
 4. Go to top  right of the page, click on **Settings** logo.
 

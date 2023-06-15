@@ -42,13 +42,13 @@ To get the key or token, use [az ml online-endpoint get-credentials](/cli/azure/
 __Keys__ will be returned in the `primaryKey` and `secondaryKey` fields. The following example shows how to use the `--query` parameter to return only the primary key:
 
 ```azurecli
-ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query primaryKey)
+ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query primaryKey)
 ```
 
 __Tokens__ will be returned in the `accessToken` field:
 
 ```azurecli
-ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query accessToken)
+ENDPOINT_CRED=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query accessToken)
 ```
 
 Additionally, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times. 

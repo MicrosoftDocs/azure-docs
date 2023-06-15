@@ -18,6 +18,8 @@
           href: tutorial-nodejs-web-app.md
 - name: Concepts
   items:
+    - name: Vector search
+      href: vector-search.md
     - name: MongoDB feature support
       href: compatibility.md
     - name: High availability

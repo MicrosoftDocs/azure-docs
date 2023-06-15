@@ -6,9 +6,8 @@ ms.subservice: single-server
 author: savjani
 ms.author: pariks
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-j
+ms.custom: devx-track-python, devx-track-j, devx-track-js
 ms.date: 06/20/2022
-
 ---
 
 # How to connect applications to Azure Database for MySQL

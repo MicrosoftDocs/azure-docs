@@ -21,7 +21,7 @@ Standalone managed service accounts (sMSAs) are managed domain accounts that hel
 
 In Active Directory (AD), sMSAs are tied to a server that runs a service. You can find accounts in the Active Directory Users and Computers snap-in in Microsoft Management Console.
 
-   ![Screenshot of a service name and type under Active Directory Users and Computers.](./media/securing-service-accounts/secure-standalone-msa-image-1.png)
+   ![Screenshot of a service name and type under Active Directory Users and Computers.](./media/govern-service-accounts/secure-standalone-msa-image-1.png)
 
 > [!NOTE]
 > Managed service accounts were introduced in Windows Server 2008 R2 Active Directory Schema, and they require Windows Server 2008 R2, or a later version. 

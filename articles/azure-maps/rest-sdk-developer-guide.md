@@ -7,6 +7,7 @@ ms.author: yuchungchen
 ms.date: 10/31/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: azure-maps
 ---
 

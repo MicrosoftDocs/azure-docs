@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 05/25/2023
 ms.author: greglin
 ---
 
@@ -23,7 +23,7 @@ resources, and creates and applies Application Gateway config based on the statu
     - Option 2: [Using a Service Principal](#using-a-service-principal)
 - [Install Ingress Controller using Helm](#install-ingress-controller-as-a-helm-chart)
 - [Shared Application Gateway](#shared-application-gateway): Install AGIC in an environment, where Application Gateway is
-shared between one or more AKS clusters and/or other Azure components.
+shared between one AKS clusters and/or other Azure components.
 
 ## Prerequisites
 This document assumes you already have the following tools and infrastructure installed:
@@ -118,6 +118,9 @@ looks something like this: `/subscriptions/A/resourceGroups/B/providers/Microsof
         --assignee <principalId> \
         --scope <App-Gateway-Resource-Group-ID>
     ```
+
+>[!Note]
+>If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has _Network Contributor_ role assigned to the subnet the Application Gateway is deployed into.
 
 ## Using a Service Principal
 It's also possible to provide AGIC access to ARM via a Kubernetes secret.
