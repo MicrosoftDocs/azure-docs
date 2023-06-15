@@ -46,7 +46,7 @@ Nconnect is a client-side Linux mount option that increases performance at scale
 
 #### Improved Azure File Sync service availability
 
-Azure File Sync is now a zone-redundant service, which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Storage redundancy](../common/storage-redundancy.md).
+Azure File Sync is now a zone-redundant service, which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Files redundancy](files-redundancy.md).
 
 Note: Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia.
 

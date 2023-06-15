@@ -172,7 +172,7 @@ A data export rule defines the destination and tables for which data is exported
 
 1. Follow the steps, and then select **Create**.
 
-   <img src="media/logs-data-export/export-create-2.png" alt="Screenshot of data export rule configuration." title="Export rule configuration" width="80%"/>
+   [<img src="media/logs-data-export/export-create-2.png" alt="Screenshot of export rule configuration." title="Export rule configuration" width="80%"/>](media/logs-data-export/export-create-2.png#lightbox)
 
 # [PowerShell](#tab/powershell)
 
@@ -791,7 +791,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | ASCDeviceEvents |  |
 | ASimDnsActivityLogs |  |
 | ASimNetworkSessionLogs |  |
-| ASimNetworkSessionLogs,ASimWebSessionLogs |  |
+| ASimNetworkSessionLogs, ASimWebSessionLogs |  |
 | ASimWebSessionLogs |  |
 | ATCExpressRouteCircuitIpfix |  |
 | AuditLogs |  |
@@ -1066,7 +1066,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | UserPeerAnalytics |  |
 | VIAudit |  |
 | VIIndexing |  |
-| W3CIISLog | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| W3CIISLog | Partial support. Data arriving from the Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | WaaSDeploymentStatus |  |
 | WaaSInsiderStatus |  |
 | WaaSUpdateStatus |  |

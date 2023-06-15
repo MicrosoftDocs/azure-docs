@@ -4,6 +4,7 @@ description: This article describes limits in Azure Database for PostgreSQL - Fl
 ms.author: sunila
 author: sunilagarwal
 ms.service: postgresql
+ms.reviewer: kabharati
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 5/31/2023
@@ -19,28 +20,36 @@ The following sections describe capacity and functional limits in the database s
 
 The _default_ maximum number of connections per pricing tier and vCores are shown below. The Azure system requires three connections to monitor the Azure Database for PostgreSQL - Flexible Server.
 
-| SKU Name             | vCores | Memory Size | Max Connections | Max User Connections |
-|----------------------|--------|-------------|-----------------|----------------------|
-| **Burstable**        |        |             |                 |                      |
-| B1ms                 | 1      | 2 GiB       | 50              | 47                   |
-| B2s                  | 2      | 4 GiB       | 100             | 97                   |
-| **General Purpose**  |        |             |                 |                      |
-| D2s_v3  / D2ds_v4    | 2      | 8 GiB       | 859             | 856                  |
-| D4s_v3  / D4ds_v4    | 4      | 16 GiB      | 1719            | 1716                 |
-| D8s_v3  / D8ds_V4    | 8      | 32 GiB      | 3438            | 3435                 |
-| D16s_v3 / D16ds_v4   | 16     | 64 GiB      | 5000            | 4997                 |
-| D32s_v3 / D32ds_v4   | 32     | 128 GiB     | 5000            | 4997                 |
-| D48s_v3 / D48ds_v4   | 48     | 192 GiB     | 5000            | 4997                 |
-| D64s_v3 / D64ds_v4   | 64     | 256 GiB     | 5000            | 4997                 |
-| **Memory Optimized** |        |             |                 |                      |
-| E2s_v3  / E2ds_v4    | 2      | 16 GiB      | 1719            | 1716                 |
-| E4s_v3  / E4ds_v4    | 4      | 32 GiB      | 3438            | 3433                 |
-| E8s_v3  / E8ds_v4    | 8      | 64 GiB      | 5000            | 4997                 |
-| E16s_v3 / E16ds_v4   | 16     | 128 GiB     | 5000            | 4997                 |
-| E20ds_v4             | 20     | 160 GiB     | 5000            | 4997                 |
-| E32s_v3 / E32ds_v4   | 32     | 256 GiB     | 5000            | 4997                 |
-| E48s_v3 / E48ds_v4   | 48     | 384 GiB     | 5000            | 4997                 |
-| E64s_v3 / E64ds_v4   | 64     | 432 GiB     | 5000            | 4997                 |
+| SKU Name                        | vCores | Memory Size | Max Connections | Max User Connections |
+|---------------------------------|--------|-------------|-----------------|----------------------|
+| **Burstable**                   |        |             |                 |                      |
+| B1ms                            | 1      | 2 GiB       | 50              | 47                   |
+| B2s                             | 2      | 4 GiB       | 100             | 97                   |
+| B2ms                            | 2      | 4 GiB       | 100             | 97                   |
+| B4ms                            | 4      | 8 GiB       | 859             | 856                  |
+| B8ms                            | 8      | 16 GiB      | 1719            | 1716                 |
+| B12ms                           | 12     | 24 GiB      | 2578            | 2575                 |
+| B16ms                           | 16     | 32 GiB      | 3438            | 3435                 |
+| B20ms                           | 20     | 40 GiB      | 4297            | 4294                 |
+| **General Purpose**             |        |             |                 |                      |
+| D2s_v3  / D2ds_v4 / D2ds_v5     | 2      | 8 GiB       | 859             | 856                  |
+| D4s_v3  / D4ds_v4 / D4ds_v5     | 4      | 16 GiB      | 1719            | 1716                 |
+| D8s_v3  / D8ds_V4 / D8ds_v5     | 8      | 32 GiB      | 3438            | 3435                 |
+| D16s_v3 / D16ds_v4 / D16ds_v5   | 16     | 64 GiB      | 5000            | 4997                 |
+| D32s_v3 / D32ds_v4 / D32ds_v5   | 32     | 128 GiB     | 5000            | 4997                 |
+| D48s_v3 / D48ds_v4 / D48ds_v5   | 48     | 192 GiB     | 5000            | 4997                 |
+| D64s_v3 / D64ds_v4 / D64ds_v5   | 64     | 256 GiB     | 5000            | 4997                 |
+| D96ds_v5                        | 96     | 384 GiB     | 5000            | 4997                 |
+| **Memory Optimized**            |        |             |                 |                      |
+| E2s_v3  / E2ds_v4  / E2ds_v5    | 2      | 16 GiB      | 1719            | 1716                 |
+| E4s_v3  / E4ds_v4   / E4ds_v5   | 4      | 32 GiB      | 3438            | 3433                 |
+| E8s_v3  / E8ds_v4   / E8ds_v5   | 8      | 64 GiB      | 5000            | 4997                 |
+| E16s_v3 / E16ds_v4  / E16ds_v5  | 16     | 128 GiB     | 5000            | 4997                 |
+| E20ds_v4 / E20ds_v5             | 20     | 160 GiB     | 5000            | 4997                 |
+| E32s_v3 / E32ds_v4  / E32ds_v5  | 32     | 256 GiB     | 5000            | 4997                 |
+| E48s_v3 / E48ds_v4  / E48ds_v5  | 48     | 384 GiB     | 5000            | 4997                 |
+| E64s_v3 / E64ds_v4  / E64ds_v5  | 64     | 432 GiB     | 5000            | 4997                 |
+| E96ds_v5                        | 96     | 672 GiB     | 5000            | 4997                 |
 
 ### Changing the max_connections value
 

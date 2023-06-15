@@ -45,10 +45,10 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 1. From the menu, select **Facebook Login**, select **Settings**.
 1. In **Valid OAuth redirect URIs**, enter the following URIs, replacing `<tenant-ID>` with your customer tenant ID and `<tenant-name>` with your customer tenant name:
    - `https://login.microsoftonline.com/te/<tenant-ID>/oauth2/authresp`
-   - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oidc/www.facebook.com`
-    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/www.facebook.com`
-    - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2`
-    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
+   - `https://<tenant-name>.ciamlogin.com/<tenant-ID>/federation/oidc/www.facebook.com`
+    - `https://<tenant-name>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/www.facebook.com`
+    - `https://<tenant-name>.ciamlogin.com/<tenant-ID>/federation/oauth2`
+    - `https://<tenant-name>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
    > [!NOTE]
    > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
 1. Select **Save Changes** at the bottom of the page.
@@ -65,8 +65,8 @@ After you create the Facebook application, in this step you set the Facebook cli
    <!-- ![Screenshot that shows how to add Facebook identity provider in Azure AD.](./media/sign-in-with-facebook/configure-facebook-idp.png)-->
 
 1. Enter a **Name**. For example, *Facebook*.
-1. For the **Client ID**, enter the Client ID of the Facebook application that you created earlier.
-1. For the **Client secret**, enter the Client Secret that you recorded.
+1. For the **Client ID**, enter the App ID of the Facebook application that you created earlier.
+1. For the **Client secret**, enter the App Secret that you recorded.
 1. Select **Save**.
 
 To configure Facebook federation by using PowerShell, follow these steps:

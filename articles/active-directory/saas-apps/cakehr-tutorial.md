@@ -122,15 +122,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure CakeHR SSO
 
-1. To automate the configuration within CakeHR, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up CakeHR** will direct you to the CakeHR application. From there, provide the admin credentials to sign into CakeHR. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup CakeHR manually, open a new web browser window and sign into your CakeHR company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your CakeHR company site as an administrator
 
 1. On the top-right corner of the page, click on **Profile** and then navigate to **Settings**.
 

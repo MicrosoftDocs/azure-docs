@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
@@ -20,7 +20,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pretrained model.
 
 ## Prerequisites
 
@@ -48,8 +48,8 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
 
 ## Set up
 
@@ -75,8 +75,8 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 1. Accept the default project name (form-recognizer-app) by selecting **Return** or **Enter**.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=create-gradle-project)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=create-gradle-project) -->
 
 ### Install the client library
 
@@ -100,7 +100,8 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
     }
     ```
 
-[I ran into an issue with installing the client library.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=install-library)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with installing the client library.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=install-library) -->
 
 ## Create a Java application
 
@@ -253,8 +254,8 @@ Once you've added a code sample to your application, navigate back to your main 
     gradle run
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-general-document)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-general-document) -->
 
 ### General document model output
 
@@ -396,8 +397,8 @@ Once you've added a code sample to your application, navigate back to your main 
     gradle run
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-layout)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-layout) -->
 
 ### Layout model output
 
@@ -610,8 +611,8 @@ Once you've added a code sample to your application, navigate back to your main 
     gradle run
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-prebuilt)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-prebuilt) -->
 
 ### Prebuilt model output
 

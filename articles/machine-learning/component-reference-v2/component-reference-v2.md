@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: shoja
-author: shouryaj
+ms.author: rasavage
+author: rsavage2
 ms.reviewer: ssalgadodev
 ms.date: 01/17/2023
 ---

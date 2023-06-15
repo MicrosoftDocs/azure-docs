@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 09/16/2022
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-speech-services
 keywords: text to speech
 ---
@@ -62,4 +62,3 @@ keywords: text to speech
 
 > [!div class="nextstepaction"]
 > [Learn more about speech synthesis](how-to-speech-synthesis.md)
-
