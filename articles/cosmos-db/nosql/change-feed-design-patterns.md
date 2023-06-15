@@ -1,6 +1,6 @@
 ---
 title: Change feed design patterns in Azure Cosmos DB 
-description: Overview of common change feed design patterns
+description: Overview of common change feed design patterns.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
@@ -11,6 +11,7 @@ ms.date: 05/10/2023
 ms.custom: cosmos-db-video, build-2023
 ---
 # Change feed design patterns in Azure Cosmos DB
+
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 The Azure Cosmos DB change feed enables efficient processing of large datasets with a high volume of writes. Change feed also offers an alternative to querying an entire dataset to identify what has changed. This document focuses on common change feed design patterns, design tradeoffs, and change feed limitations.
@@ -20,13 +21,13 @@ The Azure Cosmos DB change feed enables efficient processing of large datasets w
 
 Azure Cosmos DB is well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to use changes to the data to trigger other actions. Examples of these actions include:
 
-* Triggering a notification or a call to an API when an item is inserted, updated or deleted.
-* Real-time stream processing for IoT or real-time analytics processing on operational data.
-* Data movement such as synchronizing with a cache, a search engine, a data warehouse, or cold storage.
+- Triggering a notification or a call to an API when an item is inserted, updated or deleted.
+- Real-time stream processing for IoT or real-time analytics processing on operational data.
+- Data movement such as synchronizing with a cache, a search engine, a data warehouse, or cold storage.
 
 The change feed in Azure Cosmos DB enables you to build efficient and scalable solutions for each of these patterns, as shown in the following image:
 
-:::image type="content" source="../media/change-feed/changefeedoverview.png" alt-text="Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios" border="false":::
+:::image type="content" source="../media/change-feed/changefeedoverview.png" alt-text="Diagram that shows using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios." border="false":::
 
 ## Event computing and notifications
 
@@ -39,7 +40,7 @@ You can also selectively trigger a notification or send a call to an API based o
 The Azure Cosmos DB change feed can be used for real-time stream processing for IoT or real-time analytics processing on operational data.
 For example, you might receive and store event data from devices, sensors, infrastructure and applications, and process these events in real time, using [Spark](../../hdinsight/spark/apache-spark-overview.md). The following image shows how you can implement a lambda architecture using the Azure Cosmos DB change feed:
 
-:::image type="content" source="../media/change-feed/lambda.png" alt-text="Azure Cosmos DB-based lambda pipeline for ingestion and query" border="false":::
+:::image type="content" source="../media/change-feed/lambda.png" alt-text="Diagram that shows an Azure Cosmos DB-based lambda pipeline for ingestion and query." border="false":::
 
 In many cases, stream processing implementations first receive a high volume of incoming data into a temporary message queue such as Azure Event Hubs or Apache Kafka. The change feed is a great alternative due to Azure Cosmos DB's ability to support a sustained high rate of data ingestion with guaranteed low read and write latency. The advantages of the Azure Cosmos DB change feed over a message queue include:
 
@@ -63,18 +64,18 @@ You can also read from the change feed for real-time data movement.
 
 For example, the change feed helps you perform the following tasks efficiently:
 
-* Update a cache, search index, or data warehouse with data stored in Azure Cosmos DB.
+- Update a cache, search index, or data warehouse with data stored in Azure Cosmos DB.
 
-* Perform zero down-time migrations to another Azure Cosmos DB account or another Azure Cosmos DB container with a different logical partition key.
+- Perform zero down-time migrations to another Azure Cosmos DB account or another Azure Cosmos DB container with a different logical partition key.
 
-* Implement an application-level data tiering and archival. For example, you can store "hot data" in Azure Cosmos DB and age out "cold data" to other storage systems such as [Azure Blob Storage](../../storage/common/storage-introduction.md).
+- Implement an application-level data tiering and archival. For example, you can store "hot data" in Azure Cosmos DB and age out "cold data" to other storage systems such as [Azure Blob Storage](../../storage/common/storage-introduction.md).
 
 When you have to [denormalize data across partitions and containers](model-partition-example.md#v2-introducing-denormalization-to-optimize-read-queries
 ), you can read from your container's change feed as a source for this data replication. Real-time data replication with the change feed can only guarantee eventual consistency. You can [monitor how far the Change Feed Processor lags behind](how-to-use-change-feed-estimator.md) in processing changes in your Azure Cosmos DB container.
 
 ## Event sourcing
 
-The [event sourcing pattern](/azure/architecture/patterns/event-sourcing) involves using an append-only store to record the full series of actions on that data. Azure Cosmos DB's change feed is a great choice as a central data store in event sourcing architectures where all data ingestion is modeled as writes (no updates or deletes). In this case, each write to Azure Cosmos DB is an "event" meaning there's a full record of past events in the change feed. Typical uses of the events published by the central event store are for maintaining materialized views or for integration with external systems. Because there's no time limit for retention in the [change feed latest version mode](change-feed-modes.md#latest-version-change-feed-mode), you can replay all past events by reading from the beginning of your Azure Cosmos DB container's change feed. You can even have [multiple change feed consumers subscribe to the same container's change feed](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). 
+The [event sourcing pattern](/azure/architecture/patterns/event-sourcing) involves using an append-only store to record the full series of actions on that data. Azure Cosmos DB's change feed is a great choice as a central data store in event sourcing architectures where all data ingestion is modeled as writes (no updates or deletes). In this case, each write to Azure Cosmos DB is an "event" meaning there's a full record of past events in the change feed. Typical uses of the events published by the central event store are for maintaining materialized views or for integration with external systems. Because there's no time limit for retention in the [change feed latest version mode](change-feed-modes.md#latest-version-change-feed-mode), you can replay all past events by reading from the beginning of your Azure Cosmos DB container's change feed. You can even have [multiple change feed consumers subscribe to the same container's change feed](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers).
 
 Azure Cosmos DB is a great central append-only persistent data store in the event sourcing pattern because of its strengths in horizontal scalability and high availability. In addition, the change Feed Processor library offers an ["at least once"](change-feed-processor.md#error-handling) guarantee, ensuring that you don't miss processing any events.
 
@@ -125,9 +126,9 @@ All change feed modes have a guaranteed order within a partition key value but n
 For example, consider a retail application using the event sourcing design pattern. In this application, different user actions are each "events", which are modeled as writes to Azure Cosmos DB. Imagine if some example events occurred in the following sequence:
 
 1. Customer adds Item A to their shopping cart
-2. Customer adds Item B to their shopping cart
-3. Customer removes Item A from their shopping cart
-4. Customer checks out and shopping cart contents are shipped
+1. Customer adds Item B to their shopping cart
+1. Customer removes Item A from their shopping cart
+1. Customer checks out and shopping cart contents are shipped
 
 A materialized view of current shopping cart contents is maintained for each customer. This application must ensure that these events are processed in the order in which they occur. If for example, the cart checkout were to be processed before Item A's removal, it's likely that the customer would have had Item A shipped, as opposed to the desired Item B. In order to guarantee that these four events are processed in order of their occurrence, they should fall within the same partition key value. If you select **username** (each customer has a unique username) as the partition key, you can guarantee that these events show up in the change feed in the same order in which they're written to Azure Cosmos DB.
 
@@ -141,9 +142,9 @@ Here are some real-world change feed code examples for latest version mode that 
 
 ## Next steps
 
-* [Change feed overview](../change-feed.md)
-* [Change feed modes](change-feed-modes.md)
-* [Options to read change feed](read-change-feed.md)
-* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+- [Change feed overview](../change-feed.md)
+- [Change feed modes](change-feed-modes.md)
+- [Options to read change feed](read-change-feed.md)
+- Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+  - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+  - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
