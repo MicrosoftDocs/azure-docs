@@ -49,7 +49,7 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    |----------|-------------|
    
 
-## Author the code to run
+## Write your code
 
 Within the Functions project, we will find a .cs file that contains the function that we created in the previous step. This function will include a default Run method that you can use to get started.  This sample method demonstrates some of the capabilities found in calling in our custom code feature including passing different inputs and outputs including complex .NET types.
 Note: You can modify the existing Run method to meet your needs, or you can copy and paste the function, including the [FunctionName(“function-name”)] declaration, and rename it to ensure there is a unique name associated with it. Modify this new function as you see fit.
