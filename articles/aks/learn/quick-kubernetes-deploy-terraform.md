@@ -124,7 +124,7 @@ In this article, you learn how to:
     kubectl get nodes
     ```
 
-    ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/quick-kubernetes-deploy-terraform/kubectl-get-nodes.png)
+    ![Screenshot showing how the kubectl tool allows you to verify the health of your Kubernetes cluster.](./media/quick-kubernetes-deploy-terraform/kubectl-get-nodes.png)
 
 **Key points:**
 
