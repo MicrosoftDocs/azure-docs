@@ -352,6 +352,8 @@ If you run the delete commands without the delete parameters, the unmanaged reso
 
 ---
 
+Even if you specify the delete all switch, if there are unmanaged resources within the resource group where the deployment stack is located, both the unmanaged resource and the resource group itself will not be deleted.
+
 Delete deployment stack resources at the resource group scope:
 
 # [PowerShell](#tab/azure-powershell)
@@ -541,7 +543,7 @@ By default, deployment stacks detach and don't delete unmanaged resources when t
 
 ## Export templates from deployment stacks
 
-You can export the resources from a deployment stack to a Bicep template file.
+You can export the resources from a deployment stack to a JSON output. You can pipe the output to a file. 
 
 To export a deployment stack at the resource group scope:
 

@@ -1,14 +1,14 @@
 ---
 title: Use deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack.
-ms.date: 06/12/2023
-ms.topic: quickstart
+ms.date: 06/15/2023
+ms.topic: tutorial
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ---
 
 # Tutorial: use deployment stack with Bicep
 
-This tutorial describes how to create a [deployment stack](deployment-stacks.md).
+In this tutorial, you will learn the process of creating and managing a deployment stack. The tutorial focuses on creating the deployment stack at the resource group scope. However, you also have the option to create the deployment stack at either the subscription scope or the management group scope. To gain further insights into creating deployment stacks, see [Create deployment stacks](./deployment-stacks.md).
 
 ## Prerequisites
 
@@ -16,13 +16,11 @@ This tutorial describes how to create a [deployment stack](deployment-stacks.md)
 - Azure PowerShell [version xxx or later](/powershell/azure/install-az-ps) or Azure CLI [version xxx or later](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
-
-
-
+jgao: specify the versions here.
 
 ## Create a Bicep file
 
-Create a Bicep file to create a storage account and a virtual network.
+Create a Bicep file in Visual Studio Code to create a storage account and a virtual network.
 
 ```bicep
 param resourceGroupLocation string = resourceGroup().location
@@ -69,7 +67,7 @@ Save the Bicep file as _main.bicep_.
 
 ## Create a deployment stack
 
-In this quickstart, you'll create the deployment stack at the resource group scope.  You can also create the deployment stack at the subscription scope or the management group scope.  For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stacks).
+To create a resource group and a deployment stack, execute the following commands, ensuring you provide the appropriate Bicep file path based on your execution location.
 
 # [CLI](#tab/azure-cli)
 
@@ -85,6 +83,8 @@ az stack group create \
   --deny-settings-mode none
 ```
 
+The `deny-settings-mode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -99,11 +99,15 @@ New-AzResourceGroupDeploymentStack `
   -DenySettingsMode none
 ```
 
+The `DenySettingsMode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
+
 ---
 
 ## List the deployment stack and the managed resources
 
-To list the deployed deployment stacks at the resource group level:
+To verify the deployment, you can list the deployment stack and list the managed resources of the deployment stack.
+
+To list the deployed deployment stack:
 
 # [CLI](#tab/azure-cli)
 
@@ -195,7 +199,7 @@ Resources                   : /subscriptions/00000000-0000-0000-0000-00000000000
 
 ---
 
-You can also verify the deployment by list the managed resources in the deployment stack:
+You can also verify the deployment by listing the managed resources in the deployment stack:
 
 # [CLI](#tab/azure-cli)
 
@@ -283,11 +287,19 @@ managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceG
 
 ## Update the deployment stack
 
-To update a deployment stack, you can modify the underlying Bicep file and re-running the create deployment stack command.
+To update a deployment stack, make the necessary modifications to the underlying Bicep file, and then rerun the command for creating the deployment stack or use the set command in Azure PowerShell.
+
+In this tutorial, you will perform the following activities:
+
+- Update a property of a managed resource.
+- Add a resource to the stack.
+- Detach a managed resource.
+- Attach an existing resource to the stack.
+- Delete a managed resoruce.
 
 ### Update a managed resource
 
-Edit the **main.bicep** file to set the sku name to `Standard_GRS` from `Standard_LRS`:
+Edit the **main.bicep** file to change the sku name from `Standard_LRS` to `Standard_GRS`:
 
 ```bicep
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
@@ -300,7 +312,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 }
 ```
 
-Run the following command:
+Update the managed resource by running the following command:
 
 # [CLI](#tab/azure-cli)
 
@@ -314,10 +326,12 @@ az stack group create \
 
 # [PowerShell](#tab/azure-powershell)
 
+The following sample shows the set command. You can also use the `Create-AzResourceGroupDeploymentStack` commandlet.
+
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
   -Name 'demoStack' `
-  -ResourceGroupname 'demoRg' `
+  -ResourceGroupName 'demoRg' `
   -TemplateFile './main.bicep' `
   -DenySettingsMode none
 ```
@@ -341,7 +355,7 @@ resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 }
 ```
 
-Run the following command:
+Update the deployment stack by running the following command:
 
 # [CLI](#tab/azure-cli)
 
@@ -383,9 +397,11 @@ az stack group show --name demoStack --resource-group demoRg --output json
 
 You shall see the new storage account in addition to the two existing resources.
 
-## detach a managed resource
+### Detach a managed resource
 
-Edit the **main.bicep** file to remove the storage account definition you added in the lst step:
+A detached resource will be removed from the stack, but remains in the resource group.
+
+Edit the **main.bicep** file to remove the following storage account definition from the previous step:
 
 ```bicep
 resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
@@ -438,27 +454,191 @@ az stack group show --name demoStack --resource-group demoRg --output json
 
 ---
 
-You shall see two managed resources in the stack. However, the detached the resource is still listed in the resource gorup.
-
+You shall see two managed resources in the stack. However, the detached the resource is still listed in the resource group. You can list the resources in the resource group by running the following command:
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az resource list --resource-group demorg
+az resource list --resource-group demoRg
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-get-azresource -resourcegroupname demorg
+Get-azResource -ResourceGroupName demoRg
 ```
 
 ---
 
+### Attach an existing resource to the stack
+
+In the previous step, you have two managed resource and one unmanaged resource in the resource group. In this step, you will attach the unmanged resource back to the stack.
+
+Edit the **main.bicep** file to include the storage account definition of the unmanaged resource:
+
+```bicep
+resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+  name: '1${storageAccountName}'
+  location: location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+```
+
+Update the deployment stack by running the following command:
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack group create \
+  --name demoStack \
+  --resource-group demoRg \
+  --template-file ./main.bicep \
+  --deny-settings-mode none
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzResourceGroupDeploymentStack `
+  -Name 'demoStack' `
+  -ResourceGroupname 'demoRg' `
+  -TemplateFile './main.bicep' `
+  -DenySettingsMode none
+```
+
+---
+
+You can verify the deployment by listing the managed resources in the deployment stack:
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack group show --name demoStack --resource-group demoRg --output json
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
+```
+
+---
+
+You shall see three managed resources.
+
+### Delete a managed resource
+
+In one of the previous steps, you detached a managed resource. Sometime, you might want to delete a resource instead detach a resource. To delete a resource, you use a delete-resources switch with the create/set command.
+
+Edit the **main.bicep** file to remove the following storage account definition:
+
+```bicep
+resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+  name: '1${storageAccountName}'
+  location: location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+```
+
+Run the following command with the delete-resources switch:
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack group create \
+  --name demoStack \
+  --resource-group demoRg \
+  --template-file ./main.bicep \
+  --deny-settings-mode none \
+  --delete-resources
+```
+
+In addition to the `delete-resources` switch, there are two other switches available: `delete-all` and `delete-resource-groups`. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion).
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzResourceGroupDeploymentStack `
+  -Name 'demoStack' `
+  -ResourceGroupname 'demoRg' `
+  -TemplateFile './main.bicep' `
+  -DenySettingsMode none `
+  -DeleteResources
+```
+
+In addition to the `DeleteResources` switch, there are two other switches available: `DeleteAll` and `DeleteResourceGroups`. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion).
+
+---
+
+You can verify the deployment by listing the managed resources in the deployment stack:
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack group show --name demoStack --resource-group demoRg --output json
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
+```
+
+---
+
+You shall see two managed resources in the stack. The resource is also removed from the resource group. You can verify the resource group by running the following command:
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az resource list --resource-group demoRg
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-azResource -ResourceGroupName demoRg
+```
+
+---
+
+## Deny assignment
+
+bla, bla, bla ...
+
+## Export template from the stack
+
+By exporting a deployment stack, you can generate a Bicep file. This Bicep file serves as a resource for future development and subsequent deployments.
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack group export \
+  --name demoStack \
+  --resource-group demoRg
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Export-AzResourceGroupDeploymentStack `
+   -Name demoStack `
+   -ResourceGroupName demoRg `
+```
+
+---
+
+You can pipe the output to a file.
 
 ## Delete the deployment stack
 
-To delete the deployment stack, and the managed resources:
+To delete the deployment stack, and the managed resources, run the following command:
 
 # [CLI](#tab/azure-cli)
 
