@@ -13,7 +13,7 @@ ms.custom: references_regions, engagement-fy23
 
 # Traffic analytics supported regions
 
-In this article, you learn about Azure regions that support [traffic analytics](traffic-analytics.md) on NSG flow logs.
+In this article, you learn about Azure regions that support enabling [traffic analytics](traffic-analytics.md) for NSG flow logs.
 
 ## Supported regions: network security groups 
 
