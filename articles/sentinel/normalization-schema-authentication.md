@@ -115,11 +115,6 @@ The following list mentions fields that have specific guidelines for authenticat
 | **EventSchema** | Optional | String | The name of the schema documented here is **Authentication**. |
 | **Dvc** fields| -      | -    | For authentication events, device fields refer to the system reporting the event. |
 
-
-> [!IMPORTANT]
-> The `EventSchema` field is currently optional but will become Mandatory on July 1st 2022.
->
-
 #### All common fields
 
 Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
