@@ -285,7 +285,7 @@ In this article, you'll learn about the Events message structure, required and n
   "specVersion": "1.0"
 }
 ```
-
+---
 ### DicomImageUpdated
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
@@ -310,6 +310,7 @@ In this article, you'll learn about the Events message structure, required and n
 }
 ```
 # [CloudEvent schema](#tab/cloud-event-schema)
+```json
 {
   "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
   "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/partitions/Microsoft.Default/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
@@ -326,6 +327,7 @@ In this article, you'll learn about the Events message structure, required and n
   },
   "specversion": "1.0"
 }
+```
 ---
 
 ## Next steps
