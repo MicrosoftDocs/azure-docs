@@ -74,138 +74,124 @@ ok0608-vkxvw-worker-westus22    1           1        1       1           4H24M
 ok0608-vkxvw-worker-westus23    1           1        1       1           4H24M
 ```
 
+### Manifest definition template
 
-
-
-
-
-
-
-
-## Add Spot VMs
-
-Machine management in Azure Red Hat Openshift is accomplished by using MachineSet. MachineSet resources are groups of machines. MachineSets are to machines as ReplicaSets are to pods. If you need more machines or must scale them down, you change the *Replicas* field on the machine set to meet your compute need. To learn more, check out our OpenShift [MachineSet documentation](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)
-
-The use of Spot VMs is specified by adding the `spotVMOptions` field within the template spec of a MachineSet.
-To get this MachineSet created, we will:
-
-1. Get a copy of a MachineSet running on your cluster.
-2. Create a modified MachineSet configuration.
-3. Deploy this MachineSet to your cluster
-
-First, [connect to your OpenShift cluster using the CLI](tutorial-connect-cluster.md).
-
-```azurecli-interactive
-oc login $apiServer -u kubeadmin -p <kubeadmin password>
-```
-
-Next, you'll list the MachineSets on your cluster. A default cluster will have 3 MachineSets deployed: 
-```azurecli-interactive
-oc get machinesets -n openshift-machine-api
-```
-
-The following shows a sample output from this command: 
-```
-NAME                                    DESIRED   CURRENT   READY   AVAILABLE   AGE
-aro-cluster-5t2dj-worker-eastus1   1         1         1       1           2d22h
-aro-cluster-5t2dj-worker-eastus2   1         1         1       1           2d22h
-aro-cluster-5t2dj-worker-eastus3   1         1         1       1           2d22h
-```
-
-Next, you'll describe the MachineSet deployed. Replace \<machineset\> with one of the MachineSets listed above and output it to a file.
-
-```azurecli-interactive
-oc get machineset <machineset> -n openshift-machine-api -o yaml > spotmachineset.yaml
-```
-
-You'll need to change the following parameters in the MachineSet:
-- `metadata.name`
-- `spec.selector.matchLabels.machine.openshift.io/cluster-api-machineset`
-- `spec.template.metadata.labels.machine.openshift.io/cluster-api-machineset`
-- `spec.template.spec.providerSpec.value.spotVMOptions` (Add this field, and set it to `{}`.)
-
-
-Below is an abridged example of Spot MachineSet YAML that highlights the key changes you need to make when basing a new Spot MachineSet on an existing worker MachineSet, including some additional information for context. (The example doesn't represent an entire, functional MachineSet; many fields have been omitted below.)
+Use the following template in the procedure above to create the manifest definition for your infrastructure machine set:
 
 ```
 apiVersion: machine.openshift.io/v1beta1
 kind: MachineSet
 metadata:
-  name: aro-cluster-abcd1-spot-eastus
+  labels:
+    machine.openshift.io/cluster-api-cluster: <INFRASTRUCTURE_ID> 
+    machine.openshift.io/cluster-api-machine-role: infra 
+    machine.openshift.io/cluster-api-machine-type: infra 
+  name: <INFRASTRUCTURE_ID>-infra-<REGION><ZONE>
+  namespace: openshift-machine-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      machine.openshift.io/cluster-api-cluster: aro-cluster-abcd1
-      machine.openshift.io/cluster-api-machineset: aro-cluster-abcd1-spot-eastus
+      machine.openshift.io/cluster-api-cluster: <INFRASTRUCTURE_ID>
+      machine.openshift.io/cluster-api-machineset: <INFRASTRUCTURE_ID>-infra-<REGION><ZONE>
   template:
     metadata:
-        machine.openshift.io/cluster-api-machineset: aro-cluster-abcd1-spot-eastus
+      creationTimestamp: null
+      labels:
+        machine.openshift.io/cluster-api-cluster: <INFRASTRUCTURE_ID>
+        machine.openshift.io/cluster-api-machine-role: infra 
+        machine.openshift.io/cluster-api-machine-type: infra 
+        machine.openshift.io/cluster-api-machineset: <INFRASTRUCTURE_ID>-infra-<REGION><ZONE>
     spec:
+      metadata:
+        creationTimestamp: null
+        labels:
+          machine.openshift.io/cluster-api-machineset: <OPTIONAL: Specify the machine set name to enable the use of availability sets. This setting only applies to new compute machines.> 
+          node-role.kubernetes.io/infra: ''
       providerSpec:
         value:
-          spotVMOptions: {}
-      taints:
-        - effect: NoExecute
-          key: spot
-          value: 'true'
+          apiVersion: azureproviderconfig.openshift.io/v1beta1
+          credentialsSecret:
+            name: azure-cloud-credentials
+            namespace: openshift-machine-api
+          image: 
+            offer: aro4
+            publisher: azureopenshift
+            sku: <SKU>
+            version: <VERSION>
+          kind: AzureMachineProviderSpec
+          location: <REGION>
+          metadata:
+            creationTimestamp: null
+          natRule: null
+          networkResourceGroup: <NETWORK_RESOURCE_GROUP>
+          osDisk:
+            diskSizeGB: 128
+            managedDisk:
+              storageAccountType: Premium_LRS
+            osType: Linux
+          publicIP: false
+          resourceGroup: <CLUSTER_RESOURCE_GROUP>
+          tags:
+            node_role: infra
+          subnet: <SUBNET_NAME>   
+          userDataSecret:
+            name: worker-user-data 
+          vmSize: <Standard_E4s_v5, Standard_E8s_v5, Standard_E16s_v5>
+          vnet: aro-vnet 
+          zone: <ZONE>
+      taints: 
+      - key: node-role.kubernetes.io/infra
+        effect: NoSchedule
 ```
 
-Once the file is updated, apply it.
+### Commands and values
 
-```azurecli-interactive
-oc create -f spotmachineset.yaml
-```
+Below are some common commands/values that you may need when creating and executing the template.
 
-To validate that your MachineSet has been successfully created, run the following command:
-```azurecli-interactive
-oc get machinesets -n openshift-machine-api
-```
+List all machinesets:
 
-Here's a sample output. Your Machineset is ready once you have machines in the "Ready" state.
-```
-  NAME                                    DESIRED   CURRENT   READY   AVAILABLE   AGE
-aro-cluster-5t2dj-worker-eastus1           1         1         1       1           3d1h
-aro-cluster-5t2dj-worker-eastus2           1         1         1       1           3d1h
-aro-cluster-5t2dj-worker-eastus3           1         1         1       1           3d1h
-spot                                       1         1         1       1           2m47s
-```
+`oc get machineset -n openshift-machine-api`
 
-## Schedule interruptible workloads
+Get details for a specific machineset:
 
-It's recommended to add a taint to the Spot nodes to prevent non-interruptible nodes from being scheduled on them, and to add tolerations of this taint to any pods you want scheduled on them. You can taint the nodes via the MachineSet spec.
+`oc get machineset <machineset_name> -n openshift-machine-api -o yaml`
 
-For example, you can add the following YAML to `spec.template.spec`:
+Cluster resource group:
 
-```
-     taints:
-        - effect: NoExecute
-          key: spot
-          value: 'true'
-```
+`oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.resourceGroupName}'`
 
-This prevents pods from being scheduled on the resultant node unless they had a toleration for `spot='true'` taint, and it would evict any pods lacking that toleration.
+Network resource group:
 
-To learn more about applying taints and tolerations, read [Controlling pod placement using node taints](https://docs.openshift.com/container-platform/4.7/nodes/scheduling/nodes-scheduler-taints-tolerations.html).
+`oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.networkResourceGroupName}'`
 
-## Quota
+Infrastructure ID:
 
-Machines may go into a failed state due to quota issues if the quota for the machine type you're using is too low for a brief moment, even if it should eventually be enough (for example, one node is still deleting when another is being created). Because of this, it's recommended to set quota for the machine type you'll be using for Spot instances to be slightly higher than should be needed (maybe by 2*n, where n is the number of cores used by a machine). This overhead would avoid having to remedy failed machines, which, though relatively simple, is still manual intervention.
+`oc get infrastructure cluster -o jsonpath='{.status.infrastructureName}'`
 
-## Node readiness
+Region:
 
-As is explained in the Spot VM documentation linked above, VMs go into Deallocated provisioning state when they're no longer available, or no longer available at the maximum price specified.
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.location}'`
 
-This will manifest itself in OpenShift as **Not Ready** nodes. The machines will remain healthy, in phase **Provisioned as node**.
+SKU:
 
-They'll return to being **Ready** once the VMs are available again
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.sku}'`
 
-## Troubleshooting
+Subnet:
 
-### Node stuck in Not Ready state, underlying VM deallocated
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.subnet}'`
 
-If a node is stuck for a long period of time in Not Ready state after its VM was deallocated, you can try deleting it, or deleting its corresponding OpenShift machine object.
 
-### Spot Machine stuck in Failed state
+Version:
 
-If a machine (OpenShift object) that uses a Spot VM is stuck in a Failed state, try deleting it manually. If it can't be deleted due to a 403 because the VM no longer exists, then edit the machine and remove the finalizers.
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'`
+
+
+Vnet:
+
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'`
+
+## Moving infrastructure workloads to the new infra nodes
+
+
+
