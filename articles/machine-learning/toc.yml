@@ -1055,7 +1055,7 @@
             - name: GPU inference
               href: ./v1/how-to-deploy-inferencing-gpus.md
             - name: Azure Cognitive Search
-              href: how-to-deploy-model-cognitive-search.md
+              href: ./v1/how-to-deploy-model-cognitive-search.md
             - name: FPGA inference
               href: ./v1/how-to-deploy-fpga-web-service.md
         - name: Profile models
