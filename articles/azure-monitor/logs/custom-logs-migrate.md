@@ -54,9 +54,14 @@ This call is idempotent, so it has no effect if the table has already been conve
 > - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
 > - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
 > - Custom columns you add to an Azure table must have the suffix `_CF`.
-> - If you update the table schema in your Log Analytics workspace, you must also update the table schema you define in the data collection rule to ingest data into new or modified columns.
+> - If you update the table schema in your Log Analytics workspace, you must also update the you must also update the input stream definition in the data collection rule to ingest data into new or modified columns.
 
-### Migrate existing custom tables but continue using the Data Collector API
+## Migrate existing custom tables but continue using the Data Collector API
+
+## Side-by-side implementation
+
+> [!NOTE]
+> When you first set up a pipeline or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.
 
 
 ## Create new resources required for the Log ingestion API
@@ -68,12 +73,9 @@ The Log Ingestion API requires you to create two new types of resources, which t
     
 ## Call the Log Ingestion API
 
-The Log Ingestion API lets you send up to 1 MB of data per call. If you need to send more than 1 MB of data, you can send multiple calls in parallel. This is a change from the Data Collector API, which lets you send up to 32 MB of data per call.
+The Log Ingestion API lets you send up to 1 MB of compressed or uncompressed data per call. If you need to send more than 1 MB of data, you can send multiple calls in parallel. This is a change from the Data Collector API, which lets you send up to 32 MB of data per call.
 
 For information about how to call the Log Ingestion API, see [Log Ingestion REST API call](../logs/logs-ingestion-api-overview.md#rest-api-call).
-
-> [!NOTE]
-> When you first set up a pipeline or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.
 
 ## Modify table schemas and data collection rules based on changes to source data object
 
