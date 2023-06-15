@@ -501,7 +501,7 @@ location="<location where the image is replicated>"
 user='<username for the VM>'
 name='<name for the VM>'
 
-az group create --location --resource-group $resourcegroup
+az group create --location $location --resource-group $resourcegroup
 az vm create \
   --resource-group $resourcegroup \
   --name $name \
