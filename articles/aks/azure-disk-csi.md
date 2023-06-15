@@ -308,6 +308,10 @@ Expand the PVC by increasing the `spec.resources.requests.storage` field running
 kubectl patch pvc pvc-azuredisk --type merge --patch '{"spec": {"resources": {"requests": {"storage": "15Gi"}}}}'
 ```
 
+> [!NOTE]
+> Shrinking of persistent volumes is currently not supported. Trying to patch an existing PVC with a smaller size then the current one will lead to the following error message:
+> The persistentVolumeClaim "pvc-azuredisk" is invalid: spec.resources.requests.storage: Forbidden: field can not be less than previous value.
+
 The output of the command resembles the following example:
 
 ```bash
