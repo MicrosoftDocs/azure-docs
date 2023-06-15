@@ -4,7 +4,7 @@ description: This article tells how to use update management center (preview) in
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/31/2023
+ms.date: 06/15/2023
 ms.topic: conceptual
 ---
 
@@ -209,88 +209,42 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 
 To specify the PUT request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
-```azurecli
-az rest --method put --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Maintenance/maintenanceConfigurations/<maintenanceConfigurationsName>?api-version=2021-09-01-preview @body.json
-```
-
-The format of the request body is as follows:
-
-```json
-{
-  "location": "eastus2euap",
-  "properties": {
-    "namespace": null,
-    "extensionProperties": {
-      "InGuestPatchMode": "User"
-    },
-    "maintenanceScope": "InGuestPatch",
-    "maintenanceWindow": {
-      "startDateTime": "2021-08-21 01:18",
-      "expirationDateTime": "2221-05-19 03:30",
-      "duration": "01:30",
-      "timeZone": "India Standard Time",
-      "recurEvery": "Day"
-    },
-    "visibility": "Custom",
-    "installPatches": {
-      "rebootSetting": "IfRequired",
-      "windowsParameters": {
-        "classificationsToInclude": [
-          "Security",
-          "Critical",
-          "UpdateRollup"
-        ]
-      },
-      "linuxParameters": {
-        "classificationsToInclude": [
-          "Other"
-        ]
-      }
-    }
-  }
-}
+```azurecli-interactive
+az maintenance configuration create \
+   --resource-group myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope InGuestPatch \
+   --location eastus \
+   --maintenance-window-duration "02:00" \
+   --maintenance-window-recur-every "20days" \
+   --maintenance-window-start-date-time "2022-12-30 07:00" \
+   --maintenance-window-time-zone "Pacific Standard Time" \
+   --install-patches-linux-parameters package-name-masks-to-exclude="ppt" package-name-masks-to-include="apt" classifications-to-include="Other" \
+   --install-patches-windows-parameters kb-numbers-to-exclude="KB123456" kb-numbers-to-include="KB123456" classifications-to-include="FeaturePack" \
+   --reboot-setting "IfRequired" \
+   --extension-properties InGuestPatchMode="User"
 ```
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
-```azurepowershell
-Invoke-AzRestMethod -Path "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Maintenance/maintenanceConfigurations/<maintenanceConfigurationsName>?api-version=2021-09-01-preview"
--Method PUT `
--Payload '{
-  "location": "eastus2euap",
-  "properties": {
-    "namespace": null,
-    "extensionProperties": {
-      "InGuestPatchMode" : "User"
-    },
-    "maintenanceScope": "InGuestPatch",
-    "maintenanceWindow": {
-      "startDateTime": "2021-12-21 01:18",
-      "expirationDateTime": "2221-05-19 03:30",
-      "duration": "01:30",
-      "timeZone": "India Standard Time",
-      "recurEvery": "Day"
-    },
-    "visibility": "Custom",
-    "installPatches": {
-      "rebootSetting": "IfRequired",
-      "windowsParameters": {
-        "classificationsToInclude": [
-          "Security",
-          "Critical",
-          "UpdateRollup"
-        ]
-      },
-      "linuxParameters": {
-        "classificationsToInclude": [
-          "Other"
-        ]
-      }
-    }
-  }
-}' 
+```azurepowershell-interactive
+$RGName = "myMaintenanceRG"
+$configName = "myConfig"
+$scope = "InGuestPatch"
+$location = "eastus"
+$timeZone = "Pacific Standard Time" 
+$duration = "04:00"
+$startDateTime = "2022-11-01 00:00"
+$recurEvery = "Week Saturday, Sunday"
+$WindowsParameterClassificationToInclude = "FeaturePack","ServicePack";
+$WindowParameterKbNumberToInclude = "KB123456","KB123466";
+$WindowParameterKbNumberToExclude = "KB123456","KB123466";
+$RebootOption = "IfRequired";
+$LinuxParameterClassificationToInclude = "Other";
+$LinuxParameterPackageNameMaskToInclude = "apt","httpd";
+$LinuxParameterPackageNameMaskToExclude = "ppt","userpk";
 ```
 ---
 
@@ -321,34 +275,30 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 
 To specify the PUT request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
-```azurecli
-az rest --method put --url https://management.azure.com/<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview @body.json
-```
-
-The format of the request body is as follows:
-
-```json
-{
-  "properties": {
-    "maintenanceConfigurationId": "/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourcegroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestIntermediate2"
-  },
-  "location": "eastus2euap"
-}
+```azurecli-interactive
+az maintenance assignment create \
+   --resource-group myMaintenanceRG \
+   --location eastus \
+   --resource-name myVM \
+   --resource-type virtualMachines \
+   --provider-name Microsoft.Compute \
+   --configuration-assignment-name myConfig \
+   --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
 ```
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
-```azurepowershell
-Invoke-AzRestMethod -Path "<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview"
--Method PUT `
--Payload '{
-  "properties": {
-    "maintenanceConfigurationId": "/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourcegroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestIntermediate2"
-  },
-  "location": "eastus2euap"
-}'
+```azurepowershell-interactive
+New-AzConfigurationAssignment `
+   -ResourceGroupName "myResourceGroup" `
+   -Location "eastus" `
+   -ResourceName "myGuest" `
+   -ResourceType "VirtualMachines" `
+   -ProviderName "Microsoft.Compute" `
+   -ConfigurationAssignmentName "configName" `
+   -MaintenanceConfigurationId "configID"
 ```
 ---
 ## Remove machine from the schedule
