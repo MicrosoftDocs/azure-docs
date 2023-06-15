@@ -7449,17 +7449,6 @@ For more information about how to better secure your organization by using autom
 
 ---
 
-### View the real-time progress of the Azure AD provisioning service
-
-**Type:** Changed feature
-**Service category:** App Provisioning
-**Product capability:** Identity Lifecycle Management
-
-We've updated the Azure AD provisioning experience to include a new progress bar that shows you how far you are in the user provisioning process. This updated experience also provides information about the number of users provisioned during the current cycle, as well as how many users have been provisioned to date.
-
-For more information, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md).
-
----
 
 
 
