@@ -13,7 +13,7 @@ There are two modes of authenticating using the Event Grid output binding:
 - Authenticating with an identity
   - The `Connection` property must be set to the name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections).
 
-- Authenticatng with the Event Grid topic key
+- Authenticating with the Event Grid topic key
   - The `TopicEndpointUri` and `TopicKeySetting` properties must be set, as described in [Using the topic key](#using-the-topic-key).
 
 ### Identity-based connections
