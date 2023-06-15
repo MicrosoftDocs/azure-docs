@@ -18,11 +18,11 @@ metadata:
 
 landingContent:
   #card 1
-  - title: Oracle workloads on Azure VMs
+  - title: Overview
     linkLists:
       - linkListType: overview
         links:
-          - text: Oracle applications and solutions on Azure
+          - text: Oracle Applications and solutions on Azure
             url: oracle-overview.md          
           - text: Oracle on Azure VMs
             url: index.yml
