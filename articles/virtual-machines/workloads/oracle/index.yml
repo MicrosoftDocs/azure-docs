@@ -22,7 +22,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Oracle solutions
+          - text: Oracle applications and solutions on Azure
             url: oracle-overview.md          
 
   #card 2  
