@@ -183,6 +183,16 @@ items:
                     href: how-to-daemon-node-call-api-prepare-app.md 
                   - name: Acquire access token and call API
                     href: how-to-daemon-node-call-api-call-api.md 
+      - name: Mobile
+        items: 
+        - name: .NET MAUI
+          items:
+          - name: Prepare tenant
+            href: tutorial-mobile-app-maui-sign-in-prepare-tenant.md
+          - name: Prepare app
+            href: tutorial-mobile-app-maui-sign-in-prepare-app.md
+          - name: Sign in and sign out
+            href: tutorial-mobile-app-maui-sign-in-sign-out.md
 - name: Concepts
   items: 
     - name: Planning for customer identity and access
