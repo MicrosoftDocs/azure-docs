@@ -1,7 +1,7 @@
 ---
 title: Device maintenance notification walkthrough
 titleSuffix: Internet Peering
-description: Get started with device maintenance notification
+description: Learn how to view current and past peering device maintenance events, and how to create alerts to receive notifications for the future events.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
