@@ -161,7 +161,7 @@ Reference the MSAL package in your application code.
 # [.NET](#tab/idweb)
 
 Add the [Microsoft.Identity.Web.TokenAcquisition](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenAcquisition) NuGet package to your application. 
-Alternatively, if you want to call Microsoft Graph, add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) package.
+Alternatively, if you want to call Microsoft Graph, add the [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) package.
 Your project could be as follows. The *appsettings.json* file needs to be copied to the output directory.
 
 ```xml
@@ -174,7 +174,7 @@ Your project could be as follows. The *appsettings.json* file needs to be copied
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="2.6.1" />
+    <PackageReference Include="Microsoft.Identity.Web.GraphServiceClient" Version="2.12.2" />
   </ItemGroup>
 
   <ItemGroup>

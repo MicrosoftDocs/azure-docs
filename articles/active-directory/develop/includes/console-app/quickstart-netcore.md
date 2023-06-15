@@ -128,14 +128,14 @@ This quickstart application uses a client secret to identify itself as a confide
 
 This section provides an overview of the code required to sign in users. The overview can be useful to understand how the code works, what the main arguments are, and how to add sign-in to an existing .NET Core console application.
 
-### Microsoft.Identity.Web.MicrosoftGraph
+### Microsoft.Identity.Web.GraphServiceClient
 
-Microsoft Identity Web (in the [Microsoft.Identity.Web.TokenAcquisition](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenAcquisition) package) is the library that's used to request tokens for accessing an API protected by the Microsoft identity platform. This quickstart requests tokens by using the application's own identity instead of delegated permissions. The authentication flow in this case is known as a [client credentials OAuth flow](../../v2-oauth2-client-creds-grant-flow.md). For more information on how to use MSAL.NET with a client credentials flow, see [this article](https://aka.ms/msal-net-client-credentials). Given the daemon app in this quickstart calls Microsoft Graph, you install the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) package, which handles automatically authenticated requests to Microsoft Graph (and references itself Microsoft.Identity.Web.TokenAcquisition)
+Microsoft Identity Web (in the [Microsoft.Identity.Web.TokenAcquisition](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenAcquisition) package) is the library that's used to request tokens for accessing an API protected by the Microsoft identity platform. This quickstart requests tokens by using the application's own identity instead of delegated permissions. The authentication flow in this case is known as a [client credentials OAuth flow](../../v2-oauth2-client-creds-grant-flow.md). For more information on how to use MSAL.NET with a client credentials flow, see [this article](https://aka.ms/msal-net-client-credentials). Given the daemon app in this quickstart calls Microsoft Graph, you install the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) package, which handles automatically authenticated requests to Microsoft Graph (and references itself Microsoft.Identity.Web.TokenAcquisition)
 
-Microsoft.Identity.Web.MicrosoftGraph can be installed by running the following command in the Visual Studio Package Manager Console:
+Microsoft.Identity.Web.GraphServiceClient can be installed by running the following command in the Visual Studio Package Manager Console:
 
 ```dotnetcli
-dotnet add package Microsoft.Identity.Web.MicrosoftGraph
+dotnet add package Microsoft.Identity.Web.GraphServiceClient
 ```
 
 ### Application initialization
@@ -203,9 +203,7 @@ To request a token by using the app's identity, use the `AcquireTokenForClient` 
 ```csharp
 GraphServiceClient graphServiceClient = serviceProvider.GetRequiredService<GraphServiceClient>();
 var users = await graphServiceClient.Users
-              .Request()
-              .WithAppOnly()
-              .GetAsync();
+              .GetAsync(r => r.Options.WithAppOnly());
 ```
 
 [!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
