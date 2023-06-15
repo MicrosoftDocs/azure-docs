@@ -1,11 +1,10 @@
 ---
-title: Connect Syslog data to Microsoft Sentinel | Microsoft Docs
+title: Connect Syslog data to Microsoft Sentinel
 description: Connect any machine or appliance that supports Syslog to Microsoft Sentinel by using an agent on a Linux machine between the appliance and Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 06/14/2023
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Collect data from Linux-based sources using Syslog
@@ -20,6 +19,8 @@ Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agen
 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+>
+> For information about deploying Syslog logs with the Azure Monitor Agent, review the [options for streaming logs in the CEF and Syslog format to Microsoft Sentinel](connect-cef-syslog-options.md).
 
 ## Architecture
 
@@ -99,7 +100,7 @@ For more information, see [Advanced Security Information Model (ASIM) parsers](n
 
 1. At the bottom of the Syslog connector blade, select the **Open your workspace agents configuration >** link.
 
-1. On the **Agents configuration** blade, select the **Syslog** tab. Then add the facilities for the connector to collect. Select **Add facility** and choose from the drop-down list of facilities.
+1. In the **Legacy agents management** page, add the facilities for the connector to collect. Select **Add facility** and choose from the drop-down list of facilities.
 
     - Add the facilities that your syslog appliance includes in its log headers.
 

@@ -118,15 +118,13 @@ To configure BYOS for code-level diagnostics (Profiler/Snapshot Debugger), there
     Pattern:
 
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
-    Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
+    Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}" | Remove-AzApplicationInsightsLinkedStorageAccount
     ```
 
     Example:
 
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
-    Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
+    Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai" | Remove-AzApplicationInsightsLinkedStorageAccount
     ```
 
 1. Connect your storage account with your Application Insights resource.
@@ -135,16 +133,14 @@ To configure BYOS for code-level diagnostics (Profiler/Snapshot Debugger), there
 
     ```powershell
     $storageAccount = Get-AzStorageAccount -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
-    New-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id -LinkedStorageAccountResourceId $storageAccount.Id
+    Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}" | New-AzApplicationInsightsLinkedStorageAccount -LinkedStorageAccountResourceId $storageAccount.Id
     ```
 
     Example:
 
     ```powershell
     $storageAccount = Get-AzStorageAccount -ResourceGroupName "byos-test" -Name "byosteststoragewestus2"
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
-    New-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id -LinkedStorageAccountResourceId $storageAccount.Id
+    Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai" | New-AzApplicationInsightsLinkedStorageAccount -LinkedStorageAccountResourceId $storageAccount.Id
     ```
 
 #### [Azure CLI](#tab/azure-cli)

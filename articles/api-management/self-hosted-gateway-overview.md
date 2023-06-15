@@ -100,7 +100,7 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 
 | Description | Required for v1 | Required for v2 | Notes |
 |:------------|:---------------------|:---------------------|:------|
-| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | Connectivity to v2 endpoint requires DNS resolution of the default hostname.<br/><br/>Currently, API Management doesn't enable configuring a custom domain name for the v2 endpoint<sup>1</sup>. |
+| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | Connectivity to v2 endpoint requires DNS resolution of the default hostname. |
 | Public IP address of the API Management instance | ✔️ | ✔️ | IP addresses of primary location is sufficient. |
 | Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | ✔️ | Optional<sup>2</sup> | IP addresses must correspond to primary location of API Management instance. |
 | Hostname of Azure Blob Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |

@@ -5,7 +5,7 @@ ms.service: update-management-center
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/05/2023
+ms.date: 06/12/2023
 ---
 
 # What's new in Update management center (Preview)
@@ -17,6 +17,10 @@ ms.date: 05/05/2023
 ### Customized image support
 
 Update management center (preview) now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+
+### Multi-subscription support
+
+The limit on the number of subscriptions that you can manage using the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
 
 ## April 2023
 
