@@ -1,5 +1,5 @@
 ---
-title: 'Azure OpenAI on your data - Using your data with Azure OpenAI Service'
+title: 'Using your data with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Use this article to learn about using your data for better text generation in Azure OpenAI.
 services: cognitive-services
@@ -17,7 +17,7 @@ recommendations: false
 
 Azure OpenAI on your data enables you to run supported chat models such as ChatGPT and GPT-4 on your data without needing to train or fine-tune models. Running models on your data enables you to chat on top of, and analyze your data with greater accuracy and speed. By doing so, you can unlock valuable insights that can help you make better business decisions, identify trends and patterns, and optimize your operations. One of the key benefits of Azure OpenAI on your data is its ability to tailor the content of conversational AI. 
 
-To get started, [connect your data source](../use-your-data-quickstart.md) using [Azure AI studio](https://oai.azure.com/) and start asking questions and chatting on your data.
+To get started, [connect your data source](../use-your-data-quickstart.md) using [Azure OpenAI Studio](https://oai.azure.com/) and start asking questions and chatting on your data.
 
 Because the model has access to, and can reference specific sources to support its responses, answers are not only based on its pretrained knowledge but also on the latest information available in the designated data source. This grounding data also helps the model avoid generating responses based on outdated or incorrect information.
 
@@ -26,13 +26,13 @@ Because the model has access to, and can reference specific sources to support i
 
 ## What is Azure OpenAI on your data
 
-Azure OpenAI on your data works with OpenAI's powerful ChatGPT (gpt-35-turbo) and GPT-4 language models, enabling them to provide responses based on your data. You can access Azure OpenAI on your data using REST APIs, Python SDK, or the web-based interface in the [Azure AI studio](https://oai.azure.com/) to create a solution that connects to your data to enable an enhanced chat experience. 
+Azure OpenAI on your data works with OpenAI's powerful ChatGPT (gpt-35-turbo) and GPT-4 language models, enabling them to provide responses based on your data. You can access Azure OpenAI on your data using a REST API or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/) to create a solution that connects to your data to enable an enhanced chat experience. 
 
 One of the key features of Azure OpenAI on your data is its ability to retrieve and utilize data in a way that enhances the model's output.  Azure OpenAI on your data, together with Azure Cognitive Search, determines what data to retrieve from the designated data source based on the user input and provided conversation history. This data is then augmented and resubmitted as a prompt to the OpenAI model, with retrieved  information being appended to the original prompt. Although retrieved data is being appended to the prompt, the resulting input is still processed by the model like any other prompt. Once the data has been retrieved and the prompt has been submitted to the model, the model uses this information to provide a completion. See the [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext) article for more information. 
 
 ## Data source options
 
-Azure OpenAI on your data uses an [Azure Cognitive Services](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure AI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information. 
+Azure OpenAI on your data uses an [Azure Cognitive Services](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information. 
 
 You can optionally use an existing Azure Cognitive Search index as a data source. If you use an existing service, you’ll get better quality if your data is broken down into smaller chunks so that the model can use only the most relevant portions when composing a response. You can also use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) to create an index you can use Azure OpenAI, and with your documents broken down into manageable chunks.
 
@@ -95,9 +95,9 @@ If [semantic search](/azure/search/semantic-search-overview) is enabled for your
 
 ### Index Field Mapping 
 
-If you're using your own index, you will be prompted in the Azure AI Studio to define which fields you want to map for answering questions when you add your data source. You can provide multiple fields for *Content data*, and should include all fields that have text pertaining to your use case. 
+If you're using your own index, you will be prompted in the Azure OpenAI Studio to define which fields you want to map for answering questions when you add your data source. You can provide multiple fields for *Content data*, and should include all fields that have text pertaining to your use case. 
 
-:::image type="content" source="../media/use-your-data/index-data-mapping.png" alt-text="A screenshot showing the index field mapping options in Azure AI studio." lightbox="../media/use-your-data/index-data-mapping.png":::
+:::image type="content" source="../media/use-your-data/index-data-mapping.png" alt-text="A screenshot showing the index field mapping options in Azure OpenAI Studio." lightbox="../media/use-your-data/index-data-mapping.png":::
 
 In this example, the fields mapped to **Content data** and **Title** provide information to the model to answer questions. **Title** is also used to title citation text. The field mapped to **File name** generates the citation names in the response. 
 
@@ -142,7 +142,7 @@ Consider setting the following parameters even if they are optional for using th
 |Parameter  |Recommendation  |
 |---------|---------|
 |`fieldsMapping`    | Explicitly set the title and content fields of your index. This impacts the search retrieval quality of Azure Cognitive Search, which impacts the overall response and citation quality.         |
-|`roleInformation`     | Corresponds to the “System Message” in the Azure AI Studio. See the [System message](#system-message) section above for recommendations. |
+|`roleInformation`     | Corresponds to the “System Message” in the Azure OpenAI Studio. See the [System message](#system-message) section above for recommendations. |
 
 #### Streaming data
 

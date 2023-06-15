@@ -13,17 +13,17 @@ ms.date: 05/04/2023
 recommendations: false
 ---
 
-## Add your data using Azure AI studio
+## Add your data using Azure OpenAI Studio
 
-Navigate to [Azure AI studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
+Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
 1. Select the **Chat playground** tile.
 
-    :::image type="content" source="../media/quickstarts/chat-playground-card.png" alt-text="A screenshot of the Azure AI studio landing page." lightbox="../media/quickstarts/chat-playground-card.png":::
+    :::image type="content" source="../media/quickstarts/chat-playground-card.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../media/quickstarts/chat-playground-card.png":::
 
 1. On the **Assistant setup** tile, select **Add your data (preview)** > **+ Add a data source**.
 
-    :::image type="content" source="../media/quickstarts/chatgpt-playground-add-your-data.png" alt-text="A screenshot showing the button for adding your data in Azure AI studio." lightbox="../media/quickstarts/chatgpt-playground-add-your-data.png":::
+    :::image type="content" source="../media/quickstarts/chatgpt-playground-add-your-data.png" alt-text="A screenshot showing the button for adding your data in Azure OpenAI Studio." lightbox="../media/quickstarts/chatgpt-playground-add-your-data.png":::
 
 1. In the pane that appears, select **Upload files** under **Select data source**. Select **Upload files**. Azure OpenAI needs both a storage resource and a search resource to access and index your data.
 
@@ -34,7 +34,7 @@ Navigate to [Azure AI studio](https://oai.azure.com/) and sign-in with credentia
 
     1. Select your Azure Cognitive Search resource, and select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
 
-    :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure AI studio." lightbox="../media/quickstarts/add-your-data-source.png":::
+    :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
 
 1. On the **Upload files** pane, select **Browse for a file** and select the files you want to upload. Then select **Upload files**. Then select **Next**.
@@ -52,15 +52,13 @@ Navigate to [Azure AI studio](https://oai.azure.com/) and sign-in with credentia
 
 Start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. 
 
-:::image type="content" source="../media/quickstarts/chat-playground.png" alt-text="Screenshot of the playground page of the Azure AI studio with sections highlighted." lightbox="../media/quickstarts/chat-playground.png":::
+:::image type="content" source="../media/quickstarts/chat-playground.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/chat-playground.png":::
 
 You can experiment with the configuration settings such as temperature and pre-response text to improve the performance of your task. You can read more about each parameter in the [REST API](../reference.md).
 
 - Selecting the **Generate** button will send the entered text to the completions API and stream the results back to the text box.
 - Select the **Undo** button to undo the prior generation call.
 - Select the **Regenerate** button to complete an undo and generation call together.
-
-Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 In the chat playground you can also view Python and curl code samples prefilled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
 
