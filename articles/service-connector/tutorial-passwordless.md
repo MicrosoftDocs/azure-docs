@@ -509,7 +509,7 @@ For Azure Spring Apps, you can deploy the application code by `az spring app dep
 
 ### [Container Apps](#tab/containerapp)
 
-For Azure Container Apps, you can deploy the application code by `az containerapp create` command, see more [Quickstart: Deploy your first container app with containerapp up](../container-apps/get-started.md)
+For Azure Container Apps, you can deploy the application code by `az containerapp create` command, see more [Quickstart: Deploy your first container app](../container-apps/get-started.md)
 
 ---
 
