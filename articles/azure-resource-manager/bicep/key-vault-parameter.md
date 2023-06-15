@@ -3,7 +3,7 @@ title: Key Vault secret with Bicep
 description: Shows how to pass a secret from a key vault as a parameter during Bicep deployment.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
-ms.date: 06/05/2023
+ms.date: 06/15/2023
 ---
 
 # Use Azure Key Vault to pass secure parameter value during Bicep deployment
@@ -207,6 +207,9 @@ module sql './sql.bicep' = {
 If you don't want to use a module, you can reference the key vault directly in the parameters file. The following image shows how the parameters file references the secret and passes that value to the Bicep file.
 
 ![Resource Manager key vault integration diagram](./media/key-vault-parameter/statickeyvault.png)
+
+> [!NOTE]
+> Currently you can only reference the key vault in JSON parameters files. You can't reference key vault in Bicep parameters file.
 
 The following Bicep file deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But the Bicep doesn't specify where that value comes from.
 

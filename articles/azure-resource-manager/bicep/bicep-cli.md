@@ -3,14 +3,17 @@ title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 06/13/2023
+ms.date: 06/15/2023
 ---
 
 # Bicep CLI commands
 
-This article describes the commands you can use in the Bicep CLI. You must have the [Bicep CLI installed](./install.md) to run the commands.
+This article describes the commands you can use in the Bicep CLI. You have two options for executing these commands: either by utilizing Azure CLI or by directly invoking Bicep CLI commands. Each method requires a distinct installation process. For more information, see [Install Azure CLI](./install.md/azure-cli) and [Install Azure PowerShell](./install.md#azure-powershell).
 
-You can either run the Bicep CLI commands through Azure CLI or by calling Bicep directly. This article shows how to run the commands in Azure CLI. When running through Azure CLI, you start the commands with `az`. If you're not using Azure CLI, run the commands without `az` at the start of the command. For example, `az bicep build` becomes `bicep build`.
+This article shows how to run the commands in Azure CLI. When running through Azure CLI, you start the commands with `az`. If you're not using Azure CLI, run the commands without `az` at the start of the command. For example, `az bicep build` becomes `bicep build`, and `az bicep version` becomes `bicep --version`.
+
+> [!NOTE]
+> The commands related to the Bicep parameters files are exclusively supported within the Bicep CLI and are not currently available in Azure CLI. These commands include: `build-params`, `decompile-params`, and `generate-params`.
 
 ## build
 
@@ -190,8 +193,8 @@ To use the restore command, you must have Bicep CLI version **0.4.1008 or later*
 
 To manually restore the external modules for a file, use:
 
-```powershell
-bicep restore <bicep-file> [--force]
+```azurecli
+az bicep restore <bicep-file> [--force]
 ```
 
 The Bicep file you provide is the file you wish to deploy. It must contain a module that links to a registry. For example, you can restore the following file:
@@ -251,7 +254,7 @@ Bicep CLI version 0.4.1008 (223b8d227a)
 
 To call this command directly through the Bicep CLI, use:
 
-```powershell
+```Bicep CLI
 bicep --version
 ```
 
