@@ -72,10 +72,17 @@ The `%HOME%` directory in an app maps to a content share in Azure Storage dedica
 
 On the system drive, App Service reserves `%SystemDrive%\local` for app-specific temporary local storage. Changes to files in this directory are *not* persistent across app restarts. Although an app has full read/write access to its own temporary local storage, that storage really isn't intended to be used directly by the application code. Rather, the intent is to provide temporary file storage for IIS and web application frameworks. App Service also limits the amount of storage in `%SystemDrive%\local` for each app to prevent individual apps from consuming excessive amounts of local file storage. For **Free**, **Shared**, and **Consumption** (Azure Functions) tiers, the limit is 500 MB. See the following table for other tiers:
 
-| SKU Family | B1/S1/etc. | B2/S2/etc. | B3/S3/etc. |
-| - | - | - | - |
-|Basic, Standard, Premium | 11 GB | 15 GB | 58 GB |
-| PremiumV2, PremiumV3, Isolated | 21 GB | 61 GB | 140 GB |
+| SKU | Local file storage |
+| - | - |
+| B1/S1/P1 | 11GB |
+| B2/S2/P2 | 15GB |
+| B3/S3/P3 | 58GB |
+| P0v3 | 11GB |
+| P1v2/P1v3/P1mv3/Isolated1/Isolated1v2 | 21GB |
+| P2v2/P2v3/P2mv3/Isolated2/Isolated2v2 | 61GB |
+| P3v2/P3v3/P3mv3/Isolated3/Isolated3v2 | 140GB |
+| P4mv3 | 280GB |
+| P5mv3 | 560GB |
 
 Two examples of how App Service uses temporary local storage are the directory for temporary ASP.NET files and the directory for IIS compressed files. The ASP.NET compilation system uses the `%SystemDrive%\local\Temporary ASP.NET Files` directory as a temporary compilation cache location. IIS uses the `%SystemDrive%\local\IIS Temporary Compressed Files` directory to store compressed response output. Both of these types of file usage (as well as others) are remapped in App Service to per-app temporary local storage. This remapping ensures that functionality continues as expected.
 
