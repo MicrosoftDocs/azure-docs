@@ -7880,15 +7880,6 @@ For more information, see [Restore expired or deleted groups](../enterprise-user
 
 ---
 
-### Single sign-on is now available for Azure AD SAML-secured on-premises apps through Application Proxy (public preview)
-
-**Type:** New feature
-**Service category:** App Proxy
-**Product capability:** Access Control
-
-You can now provide a single sign-on (SSO) experience for on-premises, SAML-authenticated apps, along with remote access to these apps through Application Proxy. For more information about how to set up SAML SSO with your on-premises apps, see [SAML single sign-on for on-premises applications with Application Proxy (Preview)](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md).
-
----
 
 
 
