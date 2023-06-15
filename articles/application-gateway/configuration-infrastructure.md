@@ -56,6 +56,7 @@ Subnet Size /24 = 256 IP addresses - 5 reserved from the platform = 251 availabl
 
 ### DNS Servers for name resolution
 The virtual network resource supports [DNS server](../virtual-network/manage-virtual-network.md#view-virtual-networks-and-settings-using-the-azure-portal) configuration, allowing you to choose between Azure-provided default or Custom DNS servers. The instances of your application gateway also honor this DNS configuration for any name resolution. Thus, after you change this setting, you must restart ([Stop](/powershell/module/az.network/Stop-AzApplicationGateway) and [Start](/powershell/module/az.network/start-azapplicationgateway)) your application gateway for these changes to take effect on the instances.
+If you are using custom DNS servers in VNET, the custom DNS server needs to be configured to resolve internet names. This is necessary to run Application Gateway successfully, and failure to do so may result in issues such as failure to start.
 
 ### Virtual network permission 
 Since the application gateway resource is deployed inside a virtual network, we also perform a check to verify the permission on the provided virtual network resource. This validation is performed during both creation and management operations. You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify the users or service principals that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the Virtual Network or Subnet.
