@@ -29,7 +29,7 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 1. Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
 
    ```azurecli-interactive
-   ./mvnw clean package -DskipTests
+   ./mvnw clean package
    ```
 
 1. Run the sample project locally by using the following command:
