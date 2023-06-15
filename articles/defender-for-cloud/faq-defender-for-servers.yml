@@ -191,7 +191,7 @@ sections:
       - question: |
           Why do I see a Qualys app in my recommended applications?
         answer: |
-          [Microsoft Defender for Servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. For details of this scanner and instructions for how to deploy it, see [Defender for Cloud's integrated Qualys vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
+          [Microsoft Defender for Servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. For details of this scanner and instructions for how to deploy it, see [Defender for Cloud's integrated Qualys vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
 
           To ensure no alerts are generated when Defender for Cloud deploys the scanner, the adaptive application controls recommended allowlist includes the scanner for all machines.
 
