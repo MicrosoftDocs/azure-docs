@@ -23,7 +23,7 @@ The following table lists partner solutions that are currently supported. Make s
 | ------- | ------------- |
 | :::image type="content" source="./media/data-integration/incorta-logo.png" alt-text="The corporate logo of Incorta."::: | Incorta Intelligent Ingest for Azure Synapse |
 | :::image type="content" source="./media/data-integration/informatica_logo.png" alt-text="The corporate logo of Informatica."::: | Informatica Intelligent Data Management Cloud |
-| :::image type="content" source="formerly Attunity" alt-text="The corporate logo of Qlik Data Integration (formerly Attunity)."::: ](./media/business-intelligence/qlik_logo.png) | Qlik Data Integration (formerly Attunity) |
+| :::image type="content" source="./media/business-intelligence/qlik_logo.png" alt-text="The corporate logo of Qlik Data Integration (formerly Attunity)."::: | Qlik Data Integration (formerly Attunity) |
 
 ## Requirements
 When you chose a partner application, Azure Synapse Studio provisions a sandbox environment you can use for this trial, ensuring you can experiment with partner solutions quickly before you decide to use it with your production data. The following objects are created: 
