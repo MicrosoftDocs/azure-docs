@@ -680,7 +680,7 @@
       href: enable-pull-request-annotations.md
     - name: Common questions
       displayName: DevOps, FAQ
-      href: faq-defener-for-devops.yml
+      href: faq-defender-for-devops.yml
     - name: Credential scanner rules
       displayName: credential, scanner, rules, DevOps
       href: concept-credential-scanner-rules.md

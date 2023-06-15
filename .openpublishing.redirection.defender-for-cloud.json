@@ -742,7 +742,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/devops-faq.md",
-            "redirect_url": "/azure/defender-for-cloud/faq-defender-for-devops.yml",
+            "redirect_url": "/azure/defender-for-cloud/faq-defender-for-devops",
             "redirect_document_id": true
         },
         {
