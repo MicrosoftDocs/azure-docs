@@ -16,7 +16,7 @@ monikerRange: 'azureml-api-1'
 
 # Interactive debugging with Visual Studio Code
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 Learn how to interactively debug Azure Machine Learning experiments, pipelines, and deployments using Visual Studio Code (VS Code) and [debugpy](https://github.com/microsoft/debugpy/).
 
@@ -471,7 +471,7 @@ Local web service deployments require a working Docker installation on your loca
 
     myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
     myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1"
+    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest"
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     package = Model.package(ws, [model], inference_config)
     package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
@@ -509,7 +509,7 @@ Local web service deployments require a working Docker installation on your loca
 
 2. For a better experience, you can go into the container with a new VS code interface. Select the `Docker` extention from the VS Code side bar, find your local container created, in this documentation its `debug:1`. Right-click this container and select `"Attach Visual Studio Code"`, then a new VS Code interface will be opened automatically, and this interface shows the inside of your created container.
 
-    ![The container VS Code interface](./media/how-to-troubleshoot-deployment/container-interface.png)
+    ![The container VS Code interface](../media/how-to-troubleshoot-deployment/container-interface.png)
 
 3. Inside the container, run the following command in the shell
 
@@ -518,19 +518,19 @@ Local web service deployments require a working Docker installation on your loca
     ```
     Then you can see the following output in the shell inside your container:
 
-    ![The container run console output](./media/how-to-troubleshoot-deployment/container-run.png)
+    ![The container run console output](../media/how-to-troubleshoot-deployment/container-run.png)
 
 4. To attach VS Code to debugpy inside the container, open VS Code, and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning Deployment: Docker Debug__ configuration. You can also select the __Run__ extention icon from the side bar, the __Azure Machine Learning Deployment: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
-    ![The debug icon, start debugging button, and configuration selector](./media/how-to-troubleshoot-deployment/start-debugging.png)
+    ![The debug icon, start debugging button, and configuration selector](../media/how-to-troubleshoot-deployment/start-debugging.png)
     
     After you select the green arrow and attach the debugger, in the container VS Code interface you can see some new information:
     
-    ![The container debugger attached information](./media/how-to-troubleshoot-deployment/debugger-attached.png)
+    ![The container debugger attached information](../media/how-to-troubleshoot-deployment/debugger-attached.png)
     
     Also, in your main VS Code interface, what you can see is following:
 
-    ![The VS Code breakpoint in score.py](./media/how-to-troubleshoot-deployment/local-debugger.png)
+    ![The VS Code breakpoint in score.py](../media/how-to-troubleshoot-deployment/local-debugger.png)
 
 And now, the local `score.py` which is attached to the container has already stopped at the breakpoints where you set. At this point, VS Code connects to debugpy inside the Docker container and stops the Docker container at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
@@ -550,7 +550,7 @@ Now that you've set up VS Code Remote, you can use a compute instance as remote 
 
 Learn more about troubleshooting:
 
-* [Local model deployment](./v1/how-to-troubleshoot-deployment-local.md)
-* [Remote model deployment](./v1/how-to-troubleshoot-deployment.md)
-* [Machine learning pipelines](v1/how-to-debug-pipelines.md)
-* [ParallelRunStep](v1/how-to-debug-parallel-run-step.md)
+* [Local model deployment](how-to-troubleshoot-deployment-local.md)
+* [Remote model deployment](how-to-troubleshoot-deployment.md)
+* [Machine learning pipelines](how-to-debug-pipelines.md)
+* [ParallelRunStep](how-to-debug-parallel-run-step.md)
