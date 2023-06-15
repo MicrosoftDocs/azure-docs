@@ -149,7 +149,7 @@ Here's how to create session hosts and register them to a host pool using the Az
    | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
-   | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**. |
+   | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**. If you're using confidential VMs, you must also select the **Integrity Monitoring** check box to enable OS disk encryption. |
    | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.md). |
    | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
    | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session host VMs at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
@@ -172,30 +172,14 @@ Here's how to create session hosts and register them to a host pool using the Az
 
    Once you've completed this tab, select **Next: Tags**.
 
-1. On the **Tags** tab, you can optionally enter any name/value pairs you need, then select **Next: Review + create**.
+2. On the **Tags** tab, you can optionally enter any name/value pairs you need, then select **Next: Review + create**.
 
-1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment. If validation doesn't pass, review the error message and check what you entered in each tab.
+3. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment. If validation doesn't pass, review the error message and check what you entered in each tab.
 
-1. Select **Create**. Once your deployment is complete, the session hosts should appear in the host pool.
+4. Select **Create**. Once your deployment is complete, the session hosts should appear in the host pool.
 
 > [!IMPORTANT]
 > Once you've added session hosts with the Azure Virtual Desktop service, skip to the section [Post deployment](#post-deployment) for some extra configuration you may need to do.
-
-### Create an Azure Confidential Computing VM
-
-You also have the option to create an Azure Confidential Computing VM, which lets you secure and encrypt information on the VM while it's in use. 
-
-You can create Confidential Computing VMs in the Azure portal by selecting **Confidential virtual machines** as your security type during step 6 of [the VM creation process](#create-and-register-session-hosts-with-the-azure-virtual-desktop-service). You must also select the **Integrity Monitoring** check box under Security Type to enable OS disk encryption.
-
-When you select which image to use, you must select an image that's compatible with Confidential Computing VMs.
-
-Azure Confidential Computing VMs currently support the following images:
-
-- Windows 11
-- Windows Server 2022
-- Windows Server 2019
-
-To learn more about Confidential Computing, see [Azure Confidential Computing virtual machines](security-guide.md#azure-confidential-computing-virtual-machines).
 
 ## Register session hosts to a host pool
 
