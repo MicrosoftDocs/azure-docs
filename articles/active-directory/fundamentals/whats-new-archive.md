@@ -7651,25 +7651,6 @@ For more information, see [Azure AD audit log API overview](/graph/api/resources
 
 ---
 
-### Administrators can now use Conditional Access for the combined registration process (Public preview)
-
-**Type:** New feature
-**Service category:** Conditional Access
-**Product capability:** Identity Security & Protection
-
-Administrators can now create Conditional Access policies for use by the combined registration page. This includes applying policies to allow registration if:
-
-- Users are on a trusted network.
-
-- Users are a low sign-in risk.
-
-- Users are on a managed device.
-
-- Users agree to the organization's terms of use (TOU).
-
-For more information about Conditional Access and password reset, you can see the [Conditional Access for the Azure AD combined MFA and password reset registration experience blog post](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348). For more information about Conditional Access policies for the combined registration process, see [Conditional Access policies for combined registration](../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration). For more information about the Azure AD terms of use feature, see [Azure Active Directory terms of use feature](../conditional-access/terms-of-use.md).
-
----
 
 
 
