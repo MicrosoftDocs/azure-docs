@@ -195,5 +195,5 @@ You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desk
 
 Here are some other articles you might find helpful:
 
-- [MSIX app attach glossary](app-attach-glossary.md)
+- [What is MSIX app attach?](what-is-app-attach.md)
 - [MSIX app attach FAQ](app-attach-faq.yml)
