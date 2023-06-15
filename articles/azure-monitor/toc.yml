@@ -203,6 +203,35 @@ items:
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
           - name: FAQ
             href: /azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-
+        - name: Advanced SDK topics
+          items:
+          - name: Application Insights API summary
+            displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
+            href: app/api-custom-events-metrics.md
+          - name: Application Insights data model
+            href: app/data-model-complete.md
+          - name: Connection strings
+            href: app/sdk-connection-string.md
+            displayName: connection string, instrumentation key
+          - name: Distributed tracing and telemetry correlation
+            href: app/distributed-tracing-telemetry-correlation.md
+            displayName: correlation headers, w3c, distributed tracing, tracing
+          - name: Exceptions
+            href: app/asp-net-exceptions.md        
+          - name: Log traces
+            href: app/asp-net-trace-logs.md
+          - name: Remove Application Insights
+            href: app/remove-application-insights.md
+          - name: Sampling
+            displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+            href: app/sampling.md
+          - name: SDK support policy
+            href: app/sdk-support-guidance.md
+          - name: Statsbeat
+            href: app/statsbeat.md
+          - name: TelemetryProcessors
+            displayName: processors, filtering, telemetry filtering, telemetry processor
+            href: app/api-filtering-sampling.md
         - name: SDK support policy
           href: app/sdk-support-guidance.md
       - name: OpenTelemetry Distro
@@ -249,35 +278,6 @@ items:
           href: app/convert-classic-resource.md
         - name: Migrate to connection strings
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
-      - name: Advanced SDK topics
-        items:
-        - name: Application Insights API summary
-          displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
-          href: app/api-custom-events-metrics.md
-        - name: Application Insights data model
-          href: app/data-model-complete.md
-        - name: Connection strings
-          href: app/sdk-connection-string.md
-          displayName: connection string, instrumentation key
-        - name: Distributed tracing and telemetry correlation
-          href: app/distributed-tracing-telemetry-correlation.md
-          displayName: correlation headers, w3c, distributed tracing, tracing
-        - name: Exceptions
-          href: app/asp-net-exceptions.md        
-        - name: Log traces
-          href: app/asp-net-trace-logs.md
-        - name: Remove Application Insights
-          href: app/remove-application-insights.md
-        - name: Sampling
-          displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-          href: app/sampling.md
-        - name: SDK support policy
-          href: app/sdk-support-guidance.md
-        - name: Statsbeat
-          href: app/statsbeat.md
-        - name: TelemetryProcessors
-          displayName: processors, filtering, telemetry filtering, telemetry processor
-          href: app/api-filtering-sampling.md
     - name: Features
       items:
       - name: Application dashboard

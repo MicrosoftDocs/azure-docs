@@ -128,9 +128,9 @@
     - name: Use Azure Files with multiple AD DS forests
       href: storage-files-identity-multiple-forests.md
     - name: Enable Azure AD DS authentication and authorization
-      href: storage-files-identity-auth-active-directory-domain-service-enable.md
-    - name: Enable Azure AD Kerberos authentication for hybrid accounts
-      href: storage-files-identity-auth-azure-active-directory-enable.md
+      href: storage-files-identity-auth-domain-services-enable.md
+    - name: Enable Azure AD Kerberos authentication for hybrid identities
+      href: storage-files-identity-auth-hybrid-identities-enable.md
     - name: Enable AD Kerberos authentication for Linux clients (SMB)
       href: storage-files-identity-auth-linux-kerberos-enable.md
   - name: Authorize
