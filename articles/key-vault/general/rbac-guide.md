@@ -79,11 +79,11 @@ To add role assignments, you must have `Microsoft.Authorization/roleAssignments/
 
 1.  Enable Azure RBAC permissions on new key vault:
 
-    ![Enable Azure RBAC permissions - new vault](../media/rbac/image-1.png)
+    ![Enable Azure RBAC permissions - new vault](../media/rbac/new-vault.png)
 
 2.  Enable Azure RBAC permissions on existing key vault:
 
-    ![Enable Azure RBAC permissions - existing vault](../media/rbac/image-2.png)
+    ![Enable Azure RBAC permissions - existing vault](../media/rbac/existing-vault.png)
 
 > [!IMPORTANT]
 > Setting Azure RBAC permission model invalidates all access policies permissions. It can cause outages when equivalent Azure roles aren't assigned.
