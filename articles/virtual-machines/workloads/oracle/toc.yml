@@ -4,8 +4,6 @@
   items:
   - name: Oracle applications and solutions on Azure
     href: oracle-overview.md
-  - name: Oracle on Azure VMs
-    href: oracle-azure-vms.md
 - name: Getting started
   items:
   - name: Create an Oracle DB in an Azure VM 
