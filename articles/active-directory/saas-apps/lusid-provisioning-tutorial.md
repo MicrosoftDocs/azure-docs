@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A LUSID licence for SCIM (contact LUSID support)
+* A LUSID license for SCIM (contact LUSID support).
 * A user account in your LUSID domain with the **lusid-administrator** role
 
 ## Step 1. Plan your provisioning deployment
@@ -109,7 +109,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.familyName|String||&check;
    |externalId|String||&check;
 
-1. If you'd like to synchronise Azure AD groups to LUSID then under the **Mappings** section, select **Synchronize Azure Active Directory Groups to LUSID**.
+1. If you'd like to synchronize Azure AD groups to LUSID then under the **Mappings** section, select **Synchronize Azure Active Directory Groups to LUSID**.
 
 1. Review the group attributes that are synchronized from Azure AD to LUSID in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in LUSID for update operations. Select the **Save** button to commit any changes.
 
