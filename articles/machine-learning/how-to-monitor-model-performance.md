@@ -234,6 +234,7 @@ create_monitor:
           path: azureml:my_model_training_data:1 # use training data as comparison baseline
           type: mltable
         dataset_context: training
+        target_column_name: fraud_detected
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
       metric_thresholds:
@@ -556,6 +557,7 @@ create_monitor:
           path: azureml:my_model_training_data:1 # use training data as comparison baseline
           type: mltable
         dataset_context: training
+        target_column_name: fraud_detected
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
       metric_thresholds:

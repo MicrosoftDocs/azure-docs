@@ -17,9 +17,6 @@ ms.date: 05/02/2022
 
 [!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [v1](how-to-create-manage-compute-instance.md)
-> * [v2 (current version)](../how-to-create-manage-compute-instance.md?view=azureml-api-2&preserve-view=true)
 
 Learn how to create and manage a [compute instance](../concept-compute-instance.md) in your Azure Machine Learning workspace with CLI v1.
 
