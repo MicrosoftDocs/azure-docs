@@ -9,7 +9,7 @@ ms.date: 09/16/2022
 ms.author: kpunjabi
 ms.custom: public_preview, devx-track-extended-java
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Gather user input with Recognize action
@@ -26,6 +26,14 @@ This guide will help you get started with recognizing DTMF input provided by par
 [!INCLUDE [Recognize action with Java](./includes/recognize-action-quickstart-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Recognize action with Java](./includes/recognize-how-to-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Recognize action with Java](./includes/recognize-how-to-python.md)]
+::: zone-end
+
 ## Event codes
 
 |Status|Code|Subcode|Message|
@@ -37,6 +45,8 @@ This guide will help you get started with recognizing DTMF input provided by par
 |RecognizeFailed|400|8532|Action failed, inter-digit silence timeout reached.|
 |RecognizeFailed|500|8511|Action failed, encountered failure while trying to play the prompt.|
 |RecognizeFailed|500|8512|Unknown internal server error.|
+|RecognizeCanceled|400|8508|Action failed, the operation was canceled.|
+
 
 
 ## Clean up resources
