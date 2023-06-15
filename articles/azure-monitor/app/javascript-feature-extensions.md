@@ -596,7 +596,7 @@ For example 2, for clicked element `<Button>`, the value of `parentId` is `paren
 > [!NOTE] 
 > If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
        
-## Example 3 
+### Example 3 
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
