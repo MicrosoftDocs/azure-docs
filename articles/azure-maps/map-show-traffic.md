@@ -45,7 +45,7 @@ The [Traffic Overlay] sample demonstrates how to display the traffic overlay on 
 
 The [Traffic Overlay Options] tool lets you switch between the different traffic overlay settings to see how the rendering changes.
 
-:::image type="content" source="./media/map-show-traffic/traffic-overlay-options.png"alt-text="A screenshot of map with the traffic display button, showing current traffic.":::
+:::image type="content" source="./media/map-show-traffic/traffic-overlay-options.png"alt-text="A screenshot of map showing the traffic overlay options.":::
 
 <!--------------------------------------------------
 <iframe height="700" scrolling="no" title="Traffic overlay options" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
