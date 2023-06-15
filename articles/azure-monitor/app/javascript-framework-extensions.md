@@ -341,8 +341,8 @@ var appInsights = new ApplicationInsights({
         extensions: [RNPlugin]
      // Add the Click Analytics plug-in.
      /* extensions: [RNPlugin, clickPluginInstance],
-        extensionConfig: {
-        [clickPluginInstance.identifier]: clickPluginConfig
+             extensionConfig: {
+                 [clickPluginInstance.identifier]: clickPluginConfig
           } */
     }
 });
@@ -494,18 +494,20 @@ export class AppComponent {
         var clickPluginConfig = {
           autoCapture: true
         }; */
-        const appInsights = new ApplicationInsights({ config: {
-        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        // If you're adding the Click Analytics plug-in, delete the next line.        
-        extensions: [angularPlugin],
-     // Add the Click Analytics plug-in.
-     // extensions: [angularPlugin, clickPluginInstance],
-        extensionConfig: {
-            [angularPlugin.identifier]: { router: this.router }
-         // Add the Click Analytics plug-in.
-         // [clickPluginInstance.identifier]: clickPluginConfig
-        }
-        } });
+        const appInsights = new ApplicationInsights({
+            config: {
+                connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+                // If you're adding the Click Analytics plug-in, delete the next line.        
+                extensions: [angularPlugin],
+             // Add the Click Analytics plug-in.
+             // extensions: [angularPlugin, clickPluginInstance],
+                extensionConfig: {
+                    [angularPlugin.identifier]: { router: this.router }
+                 // Add the Click Analytics plug-in.
+                 // [clickPluginInstance.identifier]: clickPluginConfig
+                }
+            } 
+         });
         appInsights.loadAppInsights();
     }
 }
