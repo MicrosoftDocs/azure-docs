@@ -117,11 +117,11 @@ sections:
           Today Cognitive Search doesn't perform vectorization. It's up to the application layer to pick the best model for the data and generate embeddings for the content that it indexes and for the queries.
 
       - question: |
-          Cognitive Search has features that are named "vector search" and "semantic search". How is vector search related to semantic search?
+          Cognitive Search has features that are named "vector search" and "semantic search". Is vector search related to semantic search?
         answer: |
-          The features aren't related, in the sense that you can use them independently.
+          Both "vector search" and "semantic search" are features to improve the relevance of your search results. They are orthogonal concepts, meaning you can use either one independently or both of them together. They both leverage deep neural networks (DNNs) to achieve this, although for vector search, we only handle the vector indexing and retrieval currently.
 
-          * Vector search adds vectors as a new type of data and allows you to store and retrieve them efficiently. This opens a whole new set of scenarios that Cognitive Search can enable including multi-modal content retrieval, vector store for applications using Large Language Models (LLMs), recommendation systems, hybrid search scenarios, and more.
+          * Vector search adds vectors as a new type of data and allows you to store and retrieve them efficiently. With standalone vector search, you first use a DNN, such as a large language model (LLM), to transform content into a vector representation in an embedding space. These vectors are then indexed into your vector index. To serve search requests, you use the same DNN from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents. This opens a whole new set of scenarios that Cognitive Search can enable including multi-modal content retrieval, vector store for applications using Large Language Models (LLMs), recommendation systems, hybrid search scenarios, and more.
 
           * Semantic search works on the results retrieved by the search engine. Cognitive Search uses deep neural network models from Bing to re-rank to results retrieved by the search engine, increasing the relevance of results that are a closer semantic match to the query. Additionally, Semantic search has features such as answers, captions, and highlights.
 
@@ -130,7 +130,7 @@ sections:
       - question: |
           Can I add vector search to an existing index?
         answer: |
-          No. You must create a new index using the 2023-07-01-preview REST API. Your queries must also specify the preview REST API. 
+          Certain existing services will support vector search both on new and existing indexes. If an index containing vector fields fails to be created, the underlying search service does not support vector search and a new service must be created. This may occur for a subset of services created prior to 2019/01/01. **Please note that the increased vector index size limits are only supported on new services created in supported regions. You must create or update indexes with vector fields using the 2023-07-01-Preview REST API. Your queries must also specify the preview REST API.**
 
       - question: |
           How do I enable vector search on a search index?
