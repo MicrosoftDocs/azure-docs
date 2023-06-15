@@ -192,4 +192,4 @@ See the following articles for more code samples to add to your maps:
 
 [Line with Stroke Gradient]: https://samples.azuremaps.com/line-layer/line-with-stroke-gradient
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Line Layer Options]: hhttps://samples.azuremaps.com/line-layer/line-layer-options
+[Line Layer Options]: https://samples.azuremaps.com/line-layer/line-layer-options
