@@ -25,7 +25,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure web app with a *PremiumV2-tier* or higher app service plan, deployed in your Azure subscription.  
+- An Azure web app with a **PremiumV2-tier** or higher app service plan, deployed in your Azure subscription.  
 
     - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
     
@@ -53,7 +53,7 @@ $rg = @{
 New-AzResourceGroup @rg
 ```
 
-1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named **vnet-1** with IP address prefix **10.0.0.0/16** in the **test-rg** resource group and **eastus22** location.
+1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named **vnet-1** with IP address prefix **10.0.0.0/16** in the **test-rg** resource group and **eastus2** location.
 
     ```azurepowershell-interactive
     $vnet = @{
@@ -325,6 +325,9 @@ New-AzVMConfig @vm1 | Set-AzVMOperatingSystem -Windows @vm2 | Set-AzVMSourceImag
 New-AzVM -ResourceGroupName 'test-rg' -Location 'eastus2' -VM $vmConfig
 
 ```
+
+>[!NOTE]
+>Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
