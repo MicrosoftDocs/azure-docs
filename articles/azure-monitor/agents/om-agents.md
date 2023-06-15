@@ -111,6 +111,7 @@ Perform the following series of steps to configure your Operations Manager manag
 
 Newer integrations and reconfiguration of existing integration between Operations Manager management server and Log Analytics will no longer workas this connection will be retired soon. However, you can still connect your monitored System Center Operations Manager agents to Log Analytics using the following methods, based on your scenario.
 
+
 1.	Use a Log Analytics Gateway and point the agent to that server. Learn more about Connect computers without internet access by using the Log Analytics gateway in Azure Monitor.
 2.	Use the AMA (Azure Monitoring Agent) agent side-by-side to connect the agent to Log Analytics. Learn more about Migrate to Azure Monitor Agent from Log Analytics agent. 
 3.	Configure a direct connection to Log Analytics in the Microsoft Monitoring Agent. (Dual-Home with System Center Operations Manager).
