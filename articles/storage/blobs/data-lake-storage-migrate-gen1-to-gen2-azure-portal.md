@@ -47,8 +47,6 @@ Here's a video that tells you more about it.
    :::column-end:::
 :::row-end:::
 
-
-
 Before you start, be sure to read the general guidance on how to migrate from Gen1 to Gen2 in [Azure Data Lake Storage migration guidelines and patterns](data-lake-storage-migrate-gen1-to-gen2.md).
 
 Your account might not qualify for portal-based migration based on certain constraints. When the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, if you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also get answers from community experts in [Microsoft Q&A](/answers/topics/azure-data-lake-storage.html).
@@ -177,15 +175,9 @@ Whichever option you choose, after you've migrated and verified that all your wo
 
 ## Step 6: Verify that the migration completed
 
-If the migration completes successfully, then blah. 
+If the migration completes successfully, then a container named **gen1** will be created in the Gen2-enabled account, and all data from the Gen1 account will be copied to this new **gen1** container. In order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
 
-A container named **gen1** will be created in the Gen2-enabled account, and all data from the Gen1 account will be copied to this new **gen1** container. In order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
-
-### Handling stalled migrations
-
-Migrations can stall in cases where the Gen2-enabled account was previously used or when files and directories in the Gen1 account use incompatible naming conventions. 
-
-If a message appears which states that the migration is stalled due to incompatibilities, then ensure that you're using a fresh, newly created storage account that has no history of use. Avoid migrating to a previously used account or an account in which containers have been deleted to make the account empty. In your Gen1 account, ensure that you rename any file or directory names that contain only spaces or tabs, end with a `.`, contain a `:`, or contiain multiple forward slashes (`//`).
+If the migration doesn't complete successfully, a message appears which states that the migration is stalled due to incompatibilities.  This message can appear if the Gen2-enabled account was previously used or when files and directories in the Gen1 account use incompatible naming conventions. Make sure that you're using a fresh, newly created storage account that has no history of use. Avoid migrating to a previously used account or an account in which containers have been deleted to make the account empty. In your Gen1 account, ensure that you rename any file or directory names that contain only spaces or tabs, end with a `.`, contain a `:`, or contain multiple forward slashes (`//`).
 
 ## Step 7: Migrate workloads and applications
 
