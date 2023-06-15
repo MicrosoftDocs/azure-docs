@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview 
   items:
-  - name: Oracle applications and solutions on Azure
+  - name: Oracle applications and solutions on Azure VMs
     href: oracle-overview.md
 - name: Getting started
   items:

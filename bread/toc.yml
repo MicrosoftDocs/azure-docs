@@ -1059,7 +1059,7 @@
     items:
       - name: Workloads
         tocHref: /azure/virtual-machines/workloads/
-        topicHref: /azure/virtual-machines/workloads/
+        topicHref: /azure/virtual-machines/workloads/workloads/
         items:
           - name: Azure VMs for SAP workloads
             tocHref: /azure/virtual-machines/workloads/sap/
