@@ -1,6 +1,6 @@
 ---
 title: Internet peering for Communications Services walkthrough
-description: Azure Internet peering for Communications Services walkthrough.
+description: Learn about Internet peering for Communications Services, its requirements, the steps to establish direct interconnect, and how to register and activate a prefix.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
@@ -71,15 +71,15 @@ To establish a direct interconnect with Microsoft using Internet peering, follow
 
 1. If you're an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
 
-   :::image type="content" source="media/registered-prefixes-under-direct-peering.png" alt-text="Screenshot of registered prefixes tab under a peering enabled for Peering Service." :::
+   :::image type="content" source="./media/walkthrough-communications-services-partner/registered-prefixes-under-direct-peering.png" alt-text="Screenshot of registered prefixes tab under a peering enabled for Peering Service." :::
 
 2. Register prefixes to access the activation keys.
 
-   :::image type="content" source="media/registered-prefixes-blade.png" alt-text="Screenshot of registered prefixes blade with a list of prefixes and keys." :::
+   :::image type="content" source="./media/walkthrough-communications-services-partner/registered-prefixes-blade.png" alt-text="Screenshot of registered prefixes blade with a list of prefixes and keys." :::
 
-   :::image type="content" source="media/registered-prefix-example.png" alt-text="Screenshot showing a sample prefix being registered." :::
+   :::image type="content" source="./media/walkthrough-communications-services-partner/registered-prefix-example.png" alt-text="Screenshot showing a sample prefix being registered." :::
 
-   :::image type="content" source="media/prefix-after-registration.png" alt-text="Screenshot of registered prefixes blade showing a new prefix added." :::
+   :::image type="content" source="./media/walkthrough-communications-services-partner/prefix-after-registration.png" alt-text="Screenshot of registered prefixes blade showing a new prefix added." :::
 
 ## Activate the prefix
 
