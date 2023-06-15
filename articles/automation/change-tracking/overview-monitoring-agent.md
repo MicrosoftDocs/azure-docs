@@ -170,7 +170,7 @@ To enable tracking of Windows Services data, you must upgrade CT extension and u
 
 #### Configure frequency
 
-The default collection frequency for Windows services is 30 minutes. To configure the frequency:
+The default collection frequency for Windows services is 30 minutes. To configure the frequency,
 - under **Edit** Settings, use a slider on the **Windows services** tab.
 
 :::image type="content" source="media/overview-monitoring-agent/frequency-slider-inline.png" alt-text="Screenshot of frequency slider." lightbox="media/overview-monitoring-agent/frequency-slider-expanded.png":::
