@@ -104,7 +104,10 @@ Where the file *create-instance.yml* is:
 1. If you see a list of compute resources, select **+New** above the list.
 
     :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Select new":::
+
 1. Fill out the form:
+
+  :::image type="content" source="media/how-to-create-studio/required.png" alt-text="Select new":::
 
     |Field  |Description  |
     |---------|---------|
@@ -134,7 +137,10 @@ Where the file *create-instance.yml* is:
 1. If you see a list of compute resources, select **+New** above the list.
 
     :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Select new":::
+
 1. Fill out the form:
+
+  :::image type="content" source="media/how-to-create-studio/required-preview.png" alt-text="Select new":::
 
     |Field  |Description  |
     |---------|---------|
