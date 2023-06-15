@@ -7747,21 +7747,6 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### New access reviews frequency option and multiple role selection
-
-**Type:** New feature
-**Service category:** Access Reviews
-**Product capability:** Identity Governance
-
-New updates in Azure AD access reviews allow you to:
-
-- Change the frequency of your access reviews to **semi-annually**, in addition to the previously existing options of weekly, monthly, quarterly, and annually.
-
-- Select multiple Azure AD and Azure resource roles when creating a single access review. In this situation, all roles are set up with the same settings and all reviewers are notified at the same time.
-
-For more information about how to create an access review, see [Create an access review of groups or applications in Azure AD access reviews](../governance/create-access-review.md).
-
----
 
 
 
