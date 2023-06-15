@@ -48,11 +48,11 @@ The $convert-data endpoint outputs a FHIR bundle as a batch transaction per the 
 
 ## Can I customize a default Liquid template? 
 
-Yes, you may customize templates according to your specific requirements. See [Configure convert-data](configure-convert-data.md) for instructions to set up custom templates.
+Yes. You may customize templates according to your specific requirements. See [Configure convert-data](configure-convert-data.md) for instructions to set up custom templates.
 
 ## Once I customize a template, is it possible to reference and store various versions of the template?
 
-Yes, it’s possible to store and reference custom templates. See [Configure convert-data](configure-convert-data.md) for instructions to reference and store various versions of custom templates.
+Yes. It’s possible to store and reference custom templates. See [Configure convert-data](configure-convert-data.md) for instructions to reference and store various versions of custom templates.
 
 ## If I need support in troubleshooting issues, where can I go?
 
