@@ -27,7 +27,7 @@ All VNet and branch connections are associated and propagating to the default ro
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1.png" alt-text="Diagram that shows a Virtual WAN design with two ExpressRoute circuits and two V P N branches." :::
 
 > [!IMPORTANT]
-> The previous diagram shows two secured virtual hubs, but this topology is not supported yet. For more information see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].
+> The previous diagram shows two secured virtual hubs, this topology is supported with Routing Intent. For more information see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].
 
 Out of the box the Virtual WAN hubs will exchange information between each other so that communication across regions is enabled. You can inspect the effective routes in Virtual WAN route tables: for example, the following picture shows  the effective routes in hub 1:
 
@@ -56,7 +56,7 @@ Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.5.2.0/24`) and h
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2.png" alt-text="Diagram showing a Virtual WAN design with two ExpressRoute circuits with Global Reach and two V P N branches.":::
 
 > [!IMPORTANT]
-> The previous diagram shows two secured virtual hubs, but this topology is not supported yet. For more information see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].
+> The previous diagram shows two secured virtual hubs, this topology is supported with Routing Intent. For more information see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].
 
 As explained in [Virtual hub routing preference (Preview)][virtual-wan-hrp] per default Virtual WAN will favor routes coming from ExpressRoute. Since routes are advertised from hub 1 to the ExpressRoute circuit 1, from the ExpressRoute circuit 1 to the circuit 2, and from the ExpressRoute circuit 2 to hub 2 (and vice versa), virtual hubs will prefer this path over the more direct inter hub link now, as the effective routes in hub 1 show:
 
@@ -105,7 +105,7 @@ In order to add direct links between the Azure regions and the on-premises locat
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3.png" alt-text="Diagram that shows a Virtual WAN design with two ExpressRoute circuits in bow tie with Global Reach and two V P N branches." :::
 
 > [!IMPORTANT]
-> The previous diagram shows two secured virtual hubs, but this topology is not supported yet. For more information see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].
+> The previous diagram shows two secured virtual hubs, this topology is supported with Routing Intent. For more information see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].
 
 Virtual WAN will display that both circuits are connected to both hubs:
 
@@ -126,10 +126,19 @@ For more information about Virtual WAN see:
 * The Virtual WAN [FAQ](virtual-wan-faq.md)
 
 [virtual-wan-overview]: ./virtual-wan-about.md
+
 [virtual-wan-secured-hub]: ../firewall-manager/secured-virtual-hub.md
+
 [virtual-wan-hrp]: ./about-virtual-hub-routing-preference.md
+
 [virtual-wan-nva]: ./about-nva-hub.md
+
 [virtual-wan-bgp]: ./scenario-bgp-peering-hub.md
+
 [virtual-wan-intent]: ./how-to-routing-policies.md
+
 [er]: ../expressroute/expressroute-introduction.md
+
 [er-gr]: ../expressroute/expressroute-global-reach.md
+
+
