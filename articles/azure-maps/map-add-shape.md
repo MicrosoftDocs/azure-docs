@@ -150,7 +150,7 @@ For a fully functional sample that shows how to use an image template as a fill 
 
 ## Customize a polygon layer
 
-The Polygon layer only has a few styling options, see the [Polygon Layer Options] sample map in the [Azure Maps Samples] to try them out.
+The Polygon layer only has a few styling options. See the [Polygon Layer Options] sample map in the [Azure Maps Samples] to try them out.
 
 :::image type="content" source="./media/map-add-shape/polygon-layer-options.png" alt-text="A screenshot of the Polygon Layer Options tool.":::
 
