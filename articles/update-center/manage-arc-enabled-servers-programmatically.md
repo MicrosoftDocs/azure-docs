@@ -245,8 +245,6 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 
 # [Azure CLI](#tab/azurecli)
 
-This example creates a maintenance configuration named *myConfig* scoped to guest machines (VMs and Arc enabled servers) with a scheduled window of 2 hours every 20 days. To learn more about this maintenance configurations on guest VMs see [Guest](../virtual-machines/maintenance-configurations.md#guest).
- 
 ```azurecli-interactive
 az maintenance configuration create \
    --resource-group myMaintenanceRG \
@@ -265,23 +263,27 @@ az maintenance configuration create \
 
 # [Azure PowerShell](#tab/azurepowershell)
 
+you can now use the `New-AzMaintenanceConfiguration` cmdlet to create your configuration.
+
 ```azurepowershell-interactive
-$RGName = "myMaintenanceRG"
-$configName = "myConfig"
-$scope = "InGuestPatch"
-$location = "eastus"
-$timeZone = "Pacific Standard Time" 
-$duration = "04:00"
-$startDateTime = "2022-11-01 00:00"
-$recurEvery = "Week Saturday, Sunday"
-$WindowsParameterClassificationToInclude = "FeaturePack","ServicePack";
-$WindowParameterKbNumberToInclude = "KB123456","KB123466";
-$WindowParameterKbNumberToExclude = "KB123456","KB123466";
-$RebootOption = "IfRequired";
-$LinuxParameterClassificationToInclude = "Other";
-$LinuxParameterPackageNameMaskToInclude = "apt","httpd";
-$LinuxParameterPackageNameMaskToExclude = "ppt","userpk";
-```
+New-AzMaintenanceConfiguration
+   -ResourceGroup $RGName `
+   -Name $configName `
+   -MaintenanceScope $scope `
+   -Location $location `
+   -StartDateTime $startDateTime `
+   -TimeZone $timeZone `
+   -Duration $duration `
+   -RecurEvery $recurEvery `
+   -WindowParameterClassificationToInclude $WindowsParameterClassificationToInclude `
+   -WindowParameterKbNumberToInclude $WindowParameterKbNumberToInclude `
+   -WindowParameterKbNumberToExclude $WindowParameterKbNumberToExclude `
+   -InstallPatchRebootSetting $RebootOption `
+   -LinuxParameterPackageNameMaskToInclude $LinuxParameterPackageNameMaskToInclude `
+   -LinuxParameterClassificationToInclude $LinuxParameterClassificationToInclude `
+   -LinuxParameterPackageNameMaskToExclude $LinuxParameterPackageNameMaskToExclude `
+   -ExtensionProperty @{"InGuestPatchMode"="User"}
+```  
 ---
 
 ## Associate a VM with a schedule
