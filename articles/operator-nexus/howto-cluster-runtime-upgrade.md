@@ -5,7 +5,7 @@ author: gedrivera
 ms.author: eduardori
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus
-ms.topic: include
+ms.topic: how-to
 ms.date: 06/06/2023
 # ms.custom: template-include
 ---
@@ -28,11 +28,11 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 
 To find available upgradeable runtime versions, navigate to the target cluster in the Azure portal. In the cluster's overview pane, navigate to the ***Available upgrade versions*** tab.
 
-![Screenshot of Azure Portal showing correct tab to identify available cluster upgrades](./media/RuntimeUpgrade-UpgradeableRuntimeVersions.png)
+:::image type="content" source="./media/runtimeupgrade-upgradeableruntimeversions.png" alt-text="Screenshot of Azure Portal showing correct tab to identify available cluster upgrades.":::
 
 From the **available upgrade versions** tab, we're able to see the different cluster versions that are currently available to upgrade. The operator can select from the listed the target runtime versions. Once selected, proceed to upgrade the cluster.
 
-![Screenshot of Azure portal showing available cluster upgrades](./media/RuntimeUpgrade-RuntimeVersion.png)
+:::image type="content" source="./media/runtimeupgrade-runtimeversion.png" alt-text="Screenshot of Azure portal showing available cluster upgrades.":::
 
 ### Via Azure CLI
 
@@ -76,7 +76,7 @@ To check on the status of the upgrade observe the detailed status of the cluster
 
 To view the upgrade status through the Azure portal, navigate to the targeted cluster resource. In the cluster's *Overview* screen, the detailed status is provided along with a detailed status message.
 
-![Screenshot of Azure portal showing in progress cluster upgrade](./media/RuntimeUpgrade-ClusterDetailStatus.png)
+:::image type="content" source="./media/runtimeupgrade-clusterdetailstatus.png" alt-text="Screenshot of Azure portal showing in progress cluster upgrade.":::
 
 To view the upgrade status through the Azure CLI, use `az networkcloud cluster show`.
 
