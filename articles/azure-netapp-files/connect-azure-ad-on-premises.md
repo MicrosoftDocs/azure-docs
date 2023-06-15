@@ -1,3 +1,4 @@
+---
 title: Connect to on-premises environment with Azure Active Directory | Microsoft Learn
 description: Explains how to connect Azure NetApp Files volumes from on-premises environment using Azure Active Directory (AD).
 ms.service: azure-netapp-files
@@ -5,13 +6,13 @@ ms.workload: storage
 ms.topic: how-to
 author: b-ahibbard
 ms.author: anfdocs
-ms.date: 06/12/2023
+ms.date: 06/15/2023
 ---
 # Connect to on-premises environment with Azure Active Directory
 
 [Azure AD Connect](../active-directory/hybrid/connect/whatis-azure-ad-connect-v2.md)
 
-You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Management module to authenticate credentials in your hybrid cloud. This solution enables Azure AD to become the trusted source for both cloud and on-premises authentication, circumventing the need for clients connecting to an Azure NetApp Files to join the on-premises AD domain. 
+You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Management module to authenticate credentials in your hybrid cloud. This solution enables Azure AD to become the trusted source for both cloud and on-premises authentication, circumventing the need for clients connecting to Azure NetApp Files to join the on-premises AD domain. 
 
 ## Steps
 
@@ -26,7 +27,7 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 1. In the Azure portal, navigate to Azure AD then **App Registrations**.
 1. Assign a **Name** and select the **Supported account type**. Select **Register**.
 1. Configure the permissions for the application. Under **App Registrations**, select **API Permissions** then **Add a Permission**. 
-1. Select **Microsoft Graph** then **Delegated Permissions**. Under **Select Permissions**, search for "open id" and select it. Then search for "profile" and add it. 
+1. Select **Microsoft Graph** then **Delegated Permissions**. Under **Select Permissions**, search for "open ID" and select it. Then search for "profile" and add it. 
 1. Grant **Admin Consent** on your application. 
 
 ### Install Azure AD Connect in your on-premises environment 
@@ -41,7 +42,7 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     >[!NOTE]
     >After the initial configuration, when you add a new local user, you must run the `Start-ADSyncSyncCycle` command in the Administrator PowerShell to synchronize the new user to Azure AD.
     
-### Sync CIFS password from on-premiszes AD to Azure AD Kerberos Application 
+### Sync CIFS password from on-premises AD to Azure AD Kerberos Application 
 
 1. Sign on to Active Directory in your on-premises environment.
 2. Open PowerShell. 
@@ -71,7 +72,7 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     Import-AzureADKerberosOnPremServicePrincipal -Domain $domain -DomainCredential $domainCred -CloudCredential $cloudCred -ServicePrincipalName $servicePrincipalName -ApplicationId $targetApplicationId 
     ```
 
-### AAD Joined machine creation and mount to ANF Volume 
+### Azure AD joined machine creation and mount to ANF Volume 
 
 1. Create two VMs in Azure NetApp Files: one registered to Azure AD and the other Azure AD-joined. 
     1. The **Azure AD-registered VM** facilitates access to the Azure AD-joined machine. Sign into the AD-registered VM using the credentials created during machine creation in the Azure portal:
@@ -84,7 +85,7 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 1. Sign into the Azure AD-joined VM again using your hybrid credentials (for example: AZUREAD\user@anfdev.onmicrosoft.com).
 
     >[!NOTE]
-    > If you run into issues signing on, select more choices then provide credentials. 
+    > If you run into issues signing on, select more choices, then provide credentials. 
 
 1. Manually add DNS mapping in the hosts. 
     Open `C:\Windows\System32\drivers\etc\hosts` and add an entry based on the mount point and LIF, for example `10.5.1.4 NETBIOS-1234.contoso.com`. Use the credentials retrieved during the machine creation. Cloud user credentials do not have the correct permission to modify the `/etc/hosts/` file. 
