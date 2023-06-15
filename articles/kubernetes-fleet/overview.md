@@ -25,8 +25,6 @@ Fleet supports the following scenarios:
 
 * Orchestrate Kubernetes version and node image upgrades across multiple clusters by using update runs, stages, and groups.
 
-* Balance incoming application traffic across multiple clusters using a layer 4 load balancer.
-
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Next steps
