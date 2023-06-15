@@ -29,7 +29,11 @@ In this tutorial, you'll use the Azure CLI to complete the following tasks:
 * An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 * An app deployed to [Azure Web App](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
 
-### Check the environment
+### Setup environment
+
+#### Account
+Login to Azure CLI with `az login`.
+If you are using Cloud Shell or already logged in, check and confirm your account with `az account show`.
 
 #### Azure Active Directory
 
@@ -68,7 +72,7 @@ If your database server disallows public access, please make sure your environme
 
 ## Create passwordless connection
 
-Next, we would take Azure App Service as an example. If you use Azure Spring Apps or Azure Container Apps, please replace `webapp` with `spring` or `container` in the following command.
+Next, we would take Azure App Service as an example to create a connection of managed identity. If you use Azure Spring Apps or Azure Container Apps, please replace `webapp` with `spring` or `container` in the following command.
 
 ::: zone pivot="postgresql"
 
@@ -493,12 +497,21 @@ For more information, see this site [Homepage for client programming to Microsof
 
 
 ## Deploy the application code to Azure hosting services
+Last, you should deploy your application to Azure hosting service, which can leverage its managed identity to connect the database on Azure.
+
+### [App Service](#tab/appservice)
 
 For Azure App Service, you can deploy the application code by `az webapp deploy` command, see more [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md)
 
+### [Spring Apps](#tab/springapp)
+
 For Azure Spring Apps, you can deploy the application code by `az spring app deploy` command, see more [Quickstart: Deploy your first application to Azure Spring Apps](../spring-apps/quickstart.md)
 
+### [Container Apps](#tab/containerapp)
+
 For Azure Container Apps, you can deploy the application code by `az containerapp create` command, see more [Quickstart: Deploy your first container app with containerapp up](../container-apps/get-started.md)
+
+---
 
 Then you can check the log or call the application to see if it can connect to database on Azure successfully.
 
