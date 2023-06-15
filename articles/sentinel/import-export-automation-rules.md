@@ -53,24 +53,25 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
 ## Troubleshooting
 
-- **Analytics rule doesn't exist:** If you export an automation rule [based on a particular analytics rule](create-manage-use-automation-rules.md#add-conditions-incidents-only), and then import it to another workspace that doesn't have the same analytics rule in it, the following things will happen:
+- **Analytics rule doesn't exist:** If you export an automation rule [based on a particular analytics rule](create-manage-use-automation-rules.md#define-conditions), and then import it to another workspace that doesn't have that same analytics rule in it, the following things will happen:
     - The automation rule will successfully deploy in the second workspace.
     - The automation rule will be automatically disabled.
     - In the automation rule conditions, the analytics rule drop-down will display as "Unknown rule".
 
-    To allow this automation rule to run in the new workspace:
+    To allow this automation rule to run in the second workspace:
     1. Export the referenced analytics rule from the original workspace and import it to the second one.
     1. Edit the automation rule in the second workspace, choosing the now-present analytics rule from the drop-down.
     1. Enable the automation rule.
 
-- **Custom details key doesn't exist:** If you export an automation rule with conditions that reference [custom details keys](create-manage-use-automation-rules.md#conditions-based-on-custom-details-preview), and then import it to another workspace where no analytics rules surface those custom details, the following things will happen:
+- **Custom details key doesn't exist:** If you export an automation rule with conditions that reference [custom details keys](create-manage-use-automation-rules.md#conditions-based-on-custom-details), and then import it to another workspace where no analytics rules [surface those custom details](surface-custom-details-in-alerts.md), the following things will happen:
     - The automation rule will successfully deploy in the second workspace.
-    - The automation rule will *not* be automatically disabled.
-    - In the automation rule conditions, the custom details key drop-down will display as "Unknown".  
-      (These conditions may change... -YL)
+    - The automation rule will be automatically disabled.
+    - In the automation rule conditions, the custom details key drop-down will display as "Zero selected".
 
-    To allow this automation rule to run in the new workspace:
-    - ???
+    To allow this automation rule to run in the second workspace:
+    1. Import or create an analytics rule that will [surface the relevant custom details](surface-custom-details-in-alerts.md) in the second workspace.
+    1. Edit the automation rule in the second workspace, choosing the now-present custom details from the drop-down.
+    1. Enable the automation rule.
 
 - **Playbook doesn't exist:** If you export an automation rule that calls a playbook, and then import it to another workspace that doesn't have access to the playbook, or if the playbook was moved or deleted, the following things will happen:
     - The automation rule deployment will fail.
