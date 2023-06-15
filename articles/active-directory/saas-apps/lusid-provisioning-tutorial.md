@@ -33,7 +33,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in LUSID with Admin permissions.
+* A LUSID licence for SCIM (contact LUSID support)
+* A user account in your LUSID domain with the **lusid-administrator** role
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -41,7 +42,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and LUSID](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure LUSID to support provisioning with Azure AD
-Contact LUSID support to configure LUSID to support provisioning with Azure AD.
+After generating [an access token](https://support.lusid.com/knowledgebase/article/KA-01654/), make a request to LUSID's [AddScim](https://www.lusid.com/identity/swagger/index.html) endpoint:
+
+```
+curl --request PUT 'https://<your-lusid-domain>.lusid.com/identity/api/identityprovider/scim' \
+--header 'Authorization: Bearer <your-API-access-token>'
+```
+
+The response will include the `baseUrl` (**Tenant URL** in Azure AD) and `apiToken` (**Secret Token** in Azure AD) to be entered into the LUSID Azure AD app later.
 
 ## Step 3. Add LUSID from the Azure AD application gallery
 
@@ -78,7 +86,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your LUSID Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to LUSID. If the connection fails, ensure your LUSID account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your LUSID Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to LUSID.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -101,7 +109,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.familyName|String||&check;
    |externalId|String||&check;
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to LUSID**.
+1. If you'd like to synchronise Azure AD groups to LUSID then under the **Mappings** section, select **Synchronize Azure Active Directory Groups to LUSID**.
 
 1. Review the group attributes that are synchronized from Azure AD to LUSID in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in LUSID for update operations. Select the **Save** button to commit any changes.
 
