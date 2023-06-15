@@ -259,8 +259,6 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
     At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
 
-    [TBD - screenshot]
-
     Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
 ## Next steps

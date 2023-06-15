@@ -1,4 +1,3 @@
-
 ---
 title: Monitor the health and role of your Microsoft Sentinel SAP systems
 description: Use the SAP connector page and a dedicated alert rule template to keep track of your SAP systems' connectivity and performance.
