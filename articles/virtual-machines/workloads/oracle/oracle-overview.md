@@ -22,7 +22,7 @@ ms.author: jacobjaygbay
 In this article, you learn about running Oracle solutions using the Azure infrastructure. 
 
 ## Oracle databases on Azure infrastructure
-Oracle supports running Oracle Database 12.1 and higher Standard and Enterprise editions in Azure on VM images based on Oracle Linux. Run Oracle databases on Azure infrastructure using Oracle Database on Oracle Linux images available in the Azure Marketplace 
+Oracle supports running its Database 12.1 and higher Standard and Enterprise editions in Azure on VM images based on Oracle Linux. You can run Oracle databases on Azure infrastructure using Oracle Database on Oracle Linux images available in the Azure Marketplace. 
 - Oracle Database 12.2, and 18.3 Enterprise Edition
 - Oracle Database 12.2, and 18.3 Standard Edition
 - Oracle Database 19.3
