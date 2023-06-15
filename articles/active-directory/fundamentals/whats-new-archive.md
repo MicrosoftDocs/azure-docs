@@ -7573,17 +7573,6 @@ For more information, see [Microsoft identity platform](../develop/index.yml) an
 
 ---
 
-### New capabilities available in the Risky Users API for Identity Protection
-
-**Type:** New feature
-**Service category:** Identity Protection
-**Product capability:** Identity Security & Protection
-
-We're pleased to announce that you can now use the Risky Users API to retrieve users' risk history, dismiss risky users, and to confirm users as compromised. This change helps you to more efficiently update the risk status of your users and understand their risk history.
-
-For more information, see the [Risky Users API reference documentation](/graph/api/resources/riskyuser).
-
----
 
 
 
