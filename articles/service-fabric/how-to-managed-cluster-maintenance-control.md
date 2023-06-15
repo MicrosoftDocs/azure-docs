@@ -64,7 +64,7 @@ Download this sample, which contains all the required resources. [Standard SKU S
 
 3) Configure maintenance control on the cluster using the following maintenance configuration:
 
-This maintenance configuration defines a schedule for updates to happen everyday from 10PM PST for 5hours, starting 30-05-2023. [More details about maintenance configuration](https://learn.microsoft.com/azure/templates/microsoft.maintenance/maintenanceconfigurations?pivots=deployment-language-arm-template)
+This maintenance configuration defines a schedule for updates to happen everyday from 10PM PST for 5hours, starting 30-05-2023. [More details about maintenance configuration](/azure/templates/microsoft.maintenance/maintenanceconfigurations)
 
 ```JSON
     "resources": [
@@ -92,7 +92,7 @@ This maintenance configuration defines a schedule for updates to happen everyday
 >[!NOTE]
 > As described in the config, the maintenance configuration for SFMC cluster resource should have maintenanceScope: 'Resource' and maintenanceSubScope: 'SFMC'.
 
-After the maintenance configuration is created, it has to be attached to the SFMC cluster, using the assignment resource. [More details about assignment](https://learn.microsoft.com/azure/templates/microsoft.maintenance/configurationassignments?pivots=deployment-language-arm-template)
+After the maintenance configuration is created, it has to be attached to the SFMC cluster, using the assignment resource. [More details about assignment](/azure/templates/microsoft.maintenance/configurationassignments)
 
 ```JSON
     "resources": [
