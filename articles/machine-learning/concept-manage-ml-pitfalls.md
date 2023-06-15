@@ -1,7 +1,7 @@
 ---
-title: Avoid overfitting & imbalanced data with automated machine learning
+title: Avoid overfitting & imbalanced data with Automated machine learning
 titleSuffix: Azure Machine Learning
-description: Identify and manage common pitfalls of ML models with Azure Machine Learning's automated machine learning solutions. 
+description: Identify and manage common pitfalls of ML models with Azure Machine Learning's Automated ML solutions. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -13,9 +13,9 @@ ms.reviewer: ssalgado
 ms.date: 06/15/2023
 ---
 
-# Prevent overfitting and imbalanced data with automated machine learning
+# Prevent overfitting and imbalanced data with Automated ML
 
-Overfitting and imbalanced data are common pitfalls when you build machine learning models. By default, Azure Machine Learning's automated machine learning provides charts and metrics to help you identify these risks, and implements best practices to help mitigate them. 
+Overfitting and imbalanced data are common pitfalls when you build machine learning models. By default, Azure Machine Learning's Automated ML provides charts and metrics to help you identify these risks, and implements best practices to help mitigate them. 
 
 ## Identify overfitting
 
@@ -48,7 +48,7 @@ The best way to prevent overfitting is to follow ML best-practices including:
 * **Model complexity limitations**
 * **Cross-validation**
 
-In the context of automated ML, the first three ways lists best-practices you implement. The last three bolded items are **best-practices automated ML implements** by default to protect against overfitting. In settings other than automated ML, all six best-practices are worth following to avoid overfitting models.
+In the context of Automated ML, the first three ways lists best-practices you implement. The last three bolded items are **best-practices Automated ML implements** by default to protect against overfitting. In settings other than Automated ML, all six best-practices are worth following to avoid overfitting models.
 
 ## Best practices you implement
 
@@ -64,11 +64,11 @@ Target leakage is a similar issue, where you may not see overfitting between tra
 
 Removing features can also help with overfitting by preventing the model from having too many fields to use to memorize specific patterns, thus causing it to be more flexible. It can be difficult to measure quantitatively, but if you can remove features and retain the same accuracy, you have likely made the model more flexible and have reduced the risk of overfitting.
 
-## Best practices automated ML implements
+## Best practices Automated ML implements
 
 ### Regularization and hyperparameter tuning
 
-**Regularization** is the process of minimizing a cost function to penalize complex and overfitted models. There's different types of regularization functions, but in general they all penalize model coefficient size, variance, and complexity. Automated ML uses L1 (Lasso), L2 (Ridge), and ElasticNet (L1 and L2 simultaneously) in different combinations with different model hyperparameter settings that control overfitting. In simple terms, automated ML varies how much a model is regulated and choose the best result.
+**Regularization** is the process of minimizing a cost function to penalize complex and overfitted models. There's different types of regularization functions, but in general they all penalize model coefficient size, variance, and complexity. Automated ML uses L1 (Lasso), L2 (Ridge), and ElasticNet (L1 and L2 simultaneously) in different combinations with different model hyperparameter settings that control overfitting. Automated ML varies how much a model is regulated and choose the best result.
 
 ### Model complexity limitations
 
@@ -76,7 +76,7 @@ Automated ML also implements explicit model complexity limitations to prevent ov
 
 ### Cross-validation
 
-Cross-validation (CV) is the process of taking many subsets of your full training data and training a model on each subset. The idea is that a model could get "lucky" and have great accuracy with one subset, but by using many subsets the model won't achieve this high accuracy every time. When doing CV, you provide a validation holdout dataset, specify your CV folds (number of subsets) and automated ML trains your model and tune hyperparameters to minimize error on your validation set. One CV fold could be overfitted, but by using many of them it reduces the probability that your final model is overfitted. The tradeoff is that CV results in longer training times and greater cost, because you train a model once for each *n* in the CV subsets. 
+Cross-validation (CV) is the process of taking many subsets of your full training data and training a model on each subset. The idea is that a model could get "lucky" and have great accuracy with one subset, but by using many subsets the model won't achieve this high accuracy every time. When doing CV, you provide a validation holdout dataset, specify your CV folds (number of subsets) and Automated ML trains your model and tune hyperparameters to minimize error on your validation set. One CV fold could be overfitted, but by using many of them it reduces the probability that your final model is overfitted. The tradeoff is that CV results in longer training times and greater cost, because you train a model once for each *n* in the CV subsets. 
 
 > [!NOTE]
 > Cross-validation isn't enabled by default; it must be configured in Automated machine learning settings. However, after cross-validation is configured and a validation data set has been provided, the process is automated for you. 
@@ -87,7 +87,7 @@ Cross-validation (CV) is the process of taking many subsets of your full trainin
 
 Imbalanced data is commonly found in data for machine learning classification scenarios, and refers to data that contains a disproportionate ratio of observations in each class. This imbalance can lead to a falsely perceived positive effect of a model's accuracy, because the input data has bias towards one class, which results in the trained model to mimic that bias. 
 
-In addition, automated ML jobs generate the following charts automatically. These charts help you understand the correctness of the classifications of your model, and identify models potentially impacted by imbalanced data.
+In addition, Automated ML jobs generate the following charts automatically. These charts help you understand the correctness of the classifications of your model, and identify models potentially impacted by imbalanced data.
 
 Chart| Description
 ---|---
@@ -97,15 +97,15 @@ Chart| Description
 
 ## Handle imbalanced data 
 
-As part of its goal of simplifying the machine learning workflow, automated ML has built in capabilities to help deal with imbalanced data such as, 
+As part of its goal of simplifying the machine learning workflow, Automated ML has built in capabilities to help deal with imbalanced data such as, 
 
-- A weight column: automated ML creates a column of weights as input to cause rows in the data to be weighted up or down, which can be used to make a class more or less "important."
+- A weight column: Automated ML creates a column of weights as input to cause rows in the data to be weighted up or down, which can be used to make a class more or less "important."
 
-- The algorithms used by automated ML detect imbalance when the number of samples in the minority class is equal to or fewer than 20% of the number of samples in the majority class, where minority class refers to the one with fewest samples and majority class refers to the one with most samples. Subsequently, automated machine learning will run an experiment with subsampled data to check if using class weights would remedy this problem and improve performance. If it ascertains a better performance through this experiment, then this remedy is applied.
+- The algorithms used by Automated ML detect imbalance when the number of samples in the minority class is equal to or fewer than 20% of the number of samples in the majority class, where minority class refers to the one with fewest samples and majority class refers to the one with most samples. Subsequently, automated machine learning will run an experiment with subsampled data to check if using class weights would remedy this problem and improve performance. If it ascertains a better performance through this experiment, then this remedy is applied.
 
 - Use a performance metric that deals better with imbalanced data. For example, the AUC_weighted is a primary metric that calculates the contribution of every class based on the relative number of samples representing that class, hence is more robust against imbalance.
 
-The following techniques are additional options to handle imbalanced data outside of automated ML. 
+The following techniques are additional options to handle imbalanced data outside of Automated ML. 
 
 - Resampling to even the class imbalance, either by up-sampling the smaller classes or down-sampling the larger classes. These methods require expertise to process and analyze.
 
@@ -113,7 +113,7 @@ The following techniques are additional options to handle imbalanced data outsid
 
 ## Next steps
 
-See examples and learn how to build models using automated machine learning:
+See examples and learn how to build models using Automated ML:
 
 + Follow the [Tutorial: Train an object detection model with automated machine learning and Python](tutorial-auto-train-image-models.md).
 
