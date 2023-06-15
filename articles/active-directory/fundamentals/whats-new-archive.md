@@ -7802,17 +7802,5 @@ For more information, see [How to Require app protection policy for cloud app ac
 
 ---
 
-### New support for Azure AD single sign-on and Conditional Access in Microsoft Edge (Public preview)
-
-**Type:** New feature
-**Service category:** Conditional Access
-**Product capability:** Identity Security & Protection
-
-We've enhanced our Azure AD support for Microsoft Edge, including providing new support for Azure AD single sign-on and Conditional Access. If you've previously used Microsoft Intune Managed Browser, you can now use Microsoft Edge instead.
-
-For more information about setting up and managing your devices and apps using Conditional Access, see [Require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md) and [Require approved client apps for cloud app access with Conditional Access](../conditional-access/app-based-conditional-access.md). For more information about how to manage access using Microsoft Edge with Microsoft Intune policies, see [Manage Internet access using a Microsoft Intune policy-protected browser](/intune/app-configuration-managed-browser).
-
----
-
 
 
