@@ -7773,17 +7773,6 @@ Azure AD Connect is in the process of transitioning our email alert system(s), p
 
 ---
 
-### UPN suffix changes are now successful between Federated domains in Azure AD Connect
-
-**Type:** Fixed
-**Service category:** AD Sync
-**Product capability:** Platform
-
-You can now successfully change a user's UPN suffix from one Federated domain to another Federated domain in Azure AD Connect. This fix means you should no longer experience the FederatedDomainChangeError error message during the synchronization cycle or receive a notification email stating, "Unable to update this object in Azure Active Directory, because the attribute [FederatedUser.UserPrincipalName], is not valid. Update the value in your local directory services".
-
-
----
-
 
 
 
