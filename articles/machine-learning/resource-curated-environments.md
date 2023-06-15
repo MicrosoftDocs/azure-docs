@@ -10,6 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.date: 10/21/2021
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Azure Machine Learning Curated Environments

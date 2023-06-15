@@ -11,6 +11,7 @@ ms.author: lebaro
 author: lebaro-msft
 ms.reviewer: sgilley 
 ms.date: 04/10/2023
+monikerRange: 'azureml-api-1 || azureml-api-2'
 #Customer intent: As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
 ---
 

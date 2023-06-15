@@ -25,7 +25,7 @@ For general tips on troubleshooting a pipeline, see [Troubleshooting machine lea
 
 ## Testing scripts locally
 
- Your ParallelRunStep runs as a step in ML pipelines. You may want to [test your scripts locally](../how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) as a first step.
+ Your ParallelRunStep runs as a step in ML pipelines. You may want to [test your scripts locally](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) as a first step.
 
 ## Entry script requirements
 

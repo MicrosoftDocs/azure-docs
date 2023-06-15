@@ -235,7 +235,7 @@ Take these actions for the following errors:
 
 You may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason can't be determined by extra logging. By using Visual Studio Code and the debugpy, you can attach to the code running inside the Docker container.
 
-For more information, visit the [interactive debugging in VS Code guide](../how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
+For more information, visit the [interactive debugging in VS Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
 ## [Model deployment user forum](/answers/topics/azure-machine-learning-inference.html)
 
@@ -243,5 +243,5 @@ For more information, visit the [interactive debugging in VS Code guide](../how-
 
 Learn more about deployment:
 
-* [How to deploy and where](how-to-deploy-and-where.md)zzs
-* [How to run and debug experiments locally](../how-to-debug-visual-studio-code.md)
+* [How to deploy and where](how-to-deploy-and-where.md)
+* [How to run and debug experiments locally](how-to-debug-visual-studio-code.md)
