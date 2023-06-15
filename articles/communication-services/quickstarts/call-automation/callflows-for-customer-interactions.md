@@ -10,7 +10,7 @@ ms.date: 09/06/2022
 ms.author: askaur
 ms.custom: public_preview, devx-track-extended-java
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Build a customer interaction workflow using Call Automation
@@ -29,6 +29,14 @@ In this quickstart, you'll learn how to build an application that uses the Azure
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Call flows for customer interactions with Java](./includes/callflow-for-customer-interactions-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Call flows for customer interactions with JavaScript](./includes/callflow-for-customer-interactions-javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Call flows for customer interactions with Python](./includes/callflow-for-customer-interactions-python.md)]
 ::: zone-end
 
 ## Subscribe to IncomingCall event
@@ -65,3 +73,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 - Learn how to [redirect inbound telephony calls](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md) with Call Automation.
 - Learn more about [Play action](../../concepts/call-automation/play-action.md).
 - Learn more about [Recognize action](../../concepts/call-automation/recognize-action.md).
+- Learn more about [Handle Call Automation Events with EventProcessor](../../how-tos/call-automation/handle-events-with-event-processor.md).
