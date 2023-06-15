@@ -374,9 +374,10 @@ Because the app generates the video frames, the app must inform the Azure Commun
     ```swift
     var videoStreamFormat = VideoStreamFormat()
     videoStreamFormat.resolution = VideoStreamResolution.p360
-    videoStreamFormat.pixelFormat = VideoStreamPixelFormat.rgba
+    videoStreamFormat.pixelFormat = VideoStreamPixelFormat.nv12
     videoStreamFormat.framesPerSecond = framerate
-    videoStreamFormat.stride1 = w * 4 /* It is times 4 because RGBA is a 32-bit format */
+    videoStreamFormat.stride1 = w // w is the resolution width
+    videoStreamFormat.stride2 = w / 2 // w is the resolution width
 
     var videoStreamFormats: [VideoStreamFormat] = [VideoStreamFormat]()
     videoStreamFormats.append(videoStreamFormat)
@@ -391,7 +392,7 @@ Because the app generates the video frames, the app must inform the Azure Commun
 
 3. Create an instance of `VirtualOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
     ```swift
-    var rawOutgoingVideoStream = VirtualOutgoingVideoStream(rawOutgoingVideoStreamOptions)
+    var rawOutgoingVideoStream = VirtualOutgoingVideoStream(videoStreamOptions: rawOutgoingVideoStreamOptions)
     ```
 
 4. Implement to the `VirtualOutgoingVideoStreamDelegate` delegate. The `didChangeFormat` event informs whenever the `VideoStreamFormat` has been changed from one of the video formats provided on the list.
