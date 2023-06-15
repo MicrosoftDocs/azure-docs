@@ -34,7 +34,7 @@ GET  | /changefeed/latest | JSON Object | [Read the latest entry in the Change F
 
 Field               | Type      | Description
 :------------------ | :-------- | :---
-Sequence            | long      | The unique ID per change events
+Sequence            | long      | The unique ID per change event
 StudyInstanceUid    | string    | The study instance UID
 SeriesInstanceUid   | string    | The series instance UID
 SopInstanceUid      | string    | The sop instance UID
