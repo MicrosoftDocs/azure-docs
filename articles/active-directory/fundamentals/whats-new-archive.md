@@ -7461,17 +7461,6 @@ For more information, see [Check the status of user provisioning](../app-provisi
 
 ---
 
-### Company branding now appears on sign out and error screens
-
-**Type:** Changed feature
-**Service category:** Authentications (Logins)
-**Product capability:** User Authentication
-
-We've updated Azure AD so that your company branding now appears on the sign out and error screens, as well as the sign-in page. You don't have to do anything to turn on this feature, Azure AD simply uses the assets you've already set up in the **Company branding** area of the Azure portal.
-
-For more information about setting up your company branding, see [Add branding to your organization's Azure Active Directory pages](./customize-branding.md).
-
----
 
 
 
