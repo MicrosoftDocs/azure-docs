@@ -76,7 +76,7 @@ There are two different sets of procedures to choose from. The configuration pro
 [!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 
-#### [New virtual network and coexisting connections](tab/new-virtual-network)
+#### [New virtual network and coexisting connections](#tab/new-virtual-network)
 
 This procedure walks you through creating a VNet and site-to-site and ExpressRoute connections that coexist. The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
 
