@@ -27,7 +27,7 @@ Defender for Storage (classic) doesn't access the Storage account data and has n
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
 - [Defender for Storage (classic) in the field](episode-thirteen.md)
 
-For more clarification about Defender for Storage (classic), see the [commonly asked questions](#common-questions---microsoft-defender-for-storage-classic).
+For more clarification about Defender for Storage (classic), see the [commonly asked questions](faq-defender-fore-storage-classic.yml).
 
 ## Availability
 
