@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.date: 10/21/2021
+ms.date: 06/15/2023
 ---
 
 # Prevent overfitting and imbalanced data with automated machine learning
