@@ -1,5 +1,5 @@
 ---
-title: Avoid overfitting & imbalanced data with AutoML
+title: Avoid overfitting & imbalanced data with automated machine learning
 titleSuffix: Azure Machine Learning
 description: Identify and manage common pitfalls of ML models with Azure Machine Learning's automated machine learning solutions. 
 services: machine-learning
@@ -101,7 +101,7 @@ As part of its goal of simplifying the machine learning workflow, automated ML h
 
 - A weight column: automated ML will create a column of weights as input to cause rows in the data to be weighted up or down, which can be used to make a class more or less "important".
 
-- The algorithms used by automated ML detect imbalance when the number of samples in the minority class is equal to or fewer than 20% of the number of samples in the majority class, where minority class refers to the one with fewest samples and majority class refers to the one with most samples. Subsequently, AutoML will run an experiment with sub-sampled data to check if using class weights would remedy this problem and improve performance. If it ascertains a better performance through this experiment, then this remedy is applied.
+- The algorithms used by automated ML detect imbalance when the number of samples in the minority class is equal to or fewer than 20% of the number of samples in the majority class, where minority class refers to the one with fewest samples and majority class refers to the one with most samples. Subsequently, automated machine learning will run an experiment with sub-sampled data to check if using class weights would remedy this problem and improve performance. If it ascertains a better performance through this experiment, then this remedy is applied.
 
 - Use a performance metric that deals better with imbalanced data. For example, the AUC_weighted is a primary metric that calculates the contribution of every class based on the relative number of samples representing that class, hence is more robust against imbalance.
 
@@ -115,7 +115,7 @@ The following techniques are additional options to handle imbalanced data outsid
 
 See examples and learn how to build models using automated machine learning:
 
-+ Follow the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
++ Follow the [Tutorial: Train an object detection model with automated machine learning and Python](tutorial-auto-train-image-models.md).
 
 + Configure the settings for automatic training experiment:
   + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).
