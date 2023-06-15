@@ -121,7 +121,7 @@ sections:
       - question: |
             How can I customize my published web app?
         answer:
-          You can customize your published web app in the Azure Portal. The source code for the published web app is [available on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main), where you can find information on changing the app frontend, as well as instructions for building and deploying the app.
+          You can customize your published web app in the Azure portal. The source code for the published web app is [available on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main), where you can find information on changing the app frontend, as well as instructions for building and deploying the app.
       - question: |
           Will my web app be overwritten when I deploy the app again from the Azure AI Studio?
         answer:
@@ -139,7 +139,7 @@ sections:
       - question: |
           What data sources does Azure OpenAI on your data support?
         answer:
-          Azure OpenAI on your data supports ingestion from Azure Cognitive Search, Azure Blob Storage, and uploading local files. You can learn more about Azure OpenAI on your data from the [conceptual article](./concepts/using-your-data.md) and [quickstart](./use-your-data-quickstart.md).
+          Azure OpenAI on your data supports ingestion from Azure Cognitive Search, Azure Blob Storage, and uploading local files. You can learn more about Azure OpenAI on your data from the [conceptual article](./concepts/use-your-data.md) and [quickstart](./use-your-data-quickstart.md).
       - question: |
           How much does it cost to use Azure OpenAI on your data?
         answer:
@@ -155,11 +155,11 @@ sections:
       - question: | 
           What file types does Azure OpenAI on your data support?
         answer:
-          See [Using your data](./concepts/using-your-data.md#data-formats-and-file-types) for more information on supported file types. 
+          See [Using your data](./concepts/use-your-data.md#data-formats-and-file-types) for more information on supported file types. 
       - question: |
           Is responsible AI supported by Azure OpenAI on your data?
         answer:
-          Yes, [Azure OpenAI on your data](./concepts/using-your-data.md) is part of the Azure OpenAI service and works with the [models]./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
+          Yes, [Azure OpenAI on your data](./concepts/use-your-data.md) is part of the Azure OpenAI service and works with the [models](./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
       - question: |
           Is there a token limit on the system message?
         answer: 

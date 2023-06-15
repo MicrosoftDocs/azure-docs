@@ -42,7 +42,7 @@ items:
     - name: System message templates
       href: ./concepts/system-message.md
     - name: Using your data (preview)
-      href: ./concepts/using-your-data.md
+      href: ./concepts/use-your-data.md
 - name: How-to 
   items:
     - name: Resource creation & model deployment

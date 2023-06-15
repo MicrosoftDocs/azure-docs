@@ -28,7 +28,7 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 1. In the pane that appears, select **Upload files** under **Select data source**. Select **Upload files**. Azure OpenAI needs both a storage resource and a search resource to access and index your data.
 
     > [!TIP]
-    > For a list of supported data sources, see [Data source options](../concepts/using-your-data.md#data-source-options)
+    > For a list of supported data sources, see [Data source options](../concepts/use-your-data.md#data-source-options)
 
     1. For Azure OpenAI to access your storage account, you will need to turn on [Cross-origin resource sharing (CORS)](https://go.microsoft.com/fwlink/?linkid=2237228). If CORS isn't already turned on for the Azure Blob storage resource, select **Turn on CORS**. 
 
@@ -59,8 +59,6 @@ You can experiment with the configuration settings such as temperature and pre-r
 - Selecting the **Generate** button will send the entered text to the completions API and stream the results back to the text box.
 - Select the **Undo** button to undo the prior generation call.
 - Select the **Regenerate** button to complete an undo and generation call together.
-
-In the chat playground you can also view Python and curl code samples prefilled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
 
 
 [!INCLUDE [deploy-web-app](deploy-web-app.md)]

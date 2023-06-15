@@ -13,7 +13,7 @@ ms.date: 06/01/2023
 recommendations: false
 ---
 
-# Azure OpenAI on your data (Preview)
+# Azure OpenAI on your data (preview)
 
 Azure OpenAI on your data enables you to run supported chat models such as ChatGPT and GPT-4 on your data without needing to train or fine-tune models. Running models on your data enables you to chat on top of, and analyze your data with greater accuracy and speed. By doing so, you can unlock valuable insights that can help you make better business decisions, identify trends and patterns, and optimize your operations. One of the key benefits of Azure OpenAI on your data is its ability to tailor the content of conversational AI. 
 
@@ -85,7 +85,7 @@ Set a limit on the number of tokens per model response. The upper limit for Azur
 
 This option encourages the model to respond using your data only, and is selected by default. If you unselect this option, the model may more readily apply its internal knowledge to respond. Determine the correct selection based on your use case and scenario. 
 
-### Semantic Search 
+### Semantic search 
 
 > [!IMPORTANT]
 > * Semantic search is subject to [additional pricing](/azure/search/semantic-search-overview#availability-and-pricing)
@@ -93,7 +93,7 @@ This option encourages the model to respond using your data only, and is selecte
 
 If [semantic search](/azure/search/semantic-search-overview) is enabled for your Azure Cognitive Search service, you are more likely to produce better retrieval of your data, which can improve response and citation quality.
 
-### Index Field Mapping 
+### Index field mapping 
 
 If you're using your own index, you will be prompted in the Azure OpenAI Studio to define which fields you want to map for answering questions when you add your data source. You can provide multiple fields for *Content data*, and should include all fields that have text pertaining to your use case. 
 
@@ -112,7 +112,7 @@ Use the following practices for best results when chatting with the model.
 * Before starting a new conversation (or asking a question that is not related to the previous ones), clear the chat history. 
 * Getting different responses for the same question between the first conversational turn and subsequent turns can be expected because the conversation history changes the current state of the model. If you receive incorrect answers, report it as a quality bug. 
 
-**Model Response**
+**Model response**
 
 * If you are not satisfied with the model response for a specific question, try either making the question more specific or more generic to see how the model responds, and reframe your question accordingly. 
 
@@ -132,7 +132,7 @@ Avoid asking long questions and break them down into multiple questions if possi
     
     *“You are an AI assistant that helps people find information. You retrieve Japanese documents, and you should read them carefully in Japanese and answer in Japanese.”* 
 
-* if you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
+* If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
 
 ### Using the API
 
