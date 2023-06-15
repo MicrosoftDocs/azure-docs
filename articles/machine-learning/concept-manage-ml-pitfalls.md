@@ -39,7 +39,7 @@ Model **C** represents a clear case of overfitting; the training accuracy is hig
 
 In the most egregious cases, an overfitted model assumes that the feature value combinations seen during training always results in the exact same output for the target.
 
-The best way to prevent overfitting is to follow ML best-practices including:
+The best way to prevent overfitting is to follow ML best practices including:
 
 * Using more training data, and eliminating statistical bias
 * Preventing target leakage
@@ -48,7 +48,7 @@ The best way to prevent overfitting is to follow ML best-practices including:
 * **Model complexity limitations**
 * **Cross-validation**
 
-In the context of Automated ML, the first three ways lists best-practices you implement. The last three bolded items are **best-practices Automated ML implements** by default to protect against overfitting. In settings other than Automated ML, all six best-practices are worth following to avoid overfitting models.
+In the context of Automated ML, the first three ways lists best practices you implement. The last three bolded items are **best practices Automated ML implements** by default to protect against overfitting. In settings other than Automated ML, all six best practices are worth following to avoid overfitting models.
 
 ## Best practices you implement
 
