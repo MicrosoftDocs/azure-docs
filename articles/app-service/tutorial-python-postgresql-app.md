@@ -4,7 +4,7 @@ description: Create a Python Django or Flask web app with a PostgreSQL database 
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/28/2023
-ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
+ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
 zone_pivot_groups: deploy-python-web-app-postgressql
 ---
 

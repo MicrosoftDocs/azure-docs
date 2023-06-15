@@ -54,7 +54,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 This article uses the Python SDK for Azure Machine Learning to create and control an Azure Machine Learning pipeline. The article assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook.
 
-This article is based on the [image_classification_keras_minist_convnet.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb) notebook found in the `sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet` directory of the [Azure Machine Learning Examples](https://github.com/azure/azureml-examples) repository.
+This article is based on the [image_classification_keras_minist_convnet.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb) notebook found in the `sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet` directory of the [Azure Machine Learning Examples](https://github.com/azure/azureml-examples) repository.
 
 ## Import required libraries
 
@@ -81,10 +81,10 @@ The image classification task can be split into three steps: prepare data, train
 [Azure Machine Learning component](concept-component.md) is a self-contained piece of code that does one step in a machine learning pipeline. In this article, you'll create three components for the image classification task:
 
 - Prepare data for training and test
-- Train a neural networking for image classification using training data
+- Train a neural network for image classification using training data
 - Score the model using test data
 
-For each component, you need to prepare the following staff:
+For each component, you need to prepare the following:
 
 1. Prepare the Python script containing the execution logic
 
@@ -102,7 +102,7 @@ If you're following along with the example in the [Azure Machine Learning Exampl
 
 #### Define component using Python function
 
-By using command_component() function as a decorator, you can easily define the component's interface, metadata and code to execute from a Python function. Each decorated Python function will be transformed into a single static specification (YAML) that the pipeline service can process.
+By using `command_component()` function as a decorator, you can easily define the component's interface, metadata and code to execute from a Python function. Each decorated Python function will be transformed into a single static specification (YAML) that the pipeline service can process.
 
 :::code language="python" source="~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_component.py":::
 
@@ -150,7 +150,7 @@ The `train.py` file contains a normal Python function, which performs the traini
 
 #### Define component using Python function
 
-After defining the training function successfully, you can use @command_component in Azure Machine Learning SDK v2 to wrap your function as a component, which can be used in Azure Machine Learning pipelines.
+After defining the training function successfully, you can use `@command_component` in Azure Machine Learning SDK v2 to wrap your function as a component, which can be used in Azure Machine Learning pipelines.
 
 :::code language="python" source="~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_component.py":::
 
@@ -293,7 +293,7 @@ You can open the `Link to Azure Machine Learning studio`, which is the job detai
 
 :::image type="content" source="./media/how-to-create-component-pipeline-python/pipeline-ui.png" alt-text="Screenshot of the pipeline job detail page." lightbox ="./media/how-to-create-component-pipeline-python/pipeline-ui.png":::
 
-You can check the logs and outputs of each component by right clicking the component, or select the component to open its detail pane. To learn more about how to debug your pipeline in UI, see [How to use studio UI to build and debug Azure Machine Learning pipelines](how-to-use-pipeline-ui.md).
+You can check the logs and outputs of each component by right clicking the component, or select the component to open its detail pane. To learn more about how to debug your pipeline in UI, see [How to use debug pipeline failure](how-to-debug-pipeline-failure.md).
 
 ## (Optional) Register components to workspace
 

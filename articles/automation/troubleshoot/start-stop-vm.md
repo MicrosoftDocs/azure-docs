@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2023
 ms.topic: troubleshooting
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Start/Stop VMs during off-hours issues

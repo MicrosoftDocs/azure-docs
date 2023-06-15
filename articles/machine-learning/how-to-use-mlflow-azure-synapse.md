@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: mopeakande
 ms.date: 07/06/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Track Azure Synapse Analytics ML experiments with MLflow and Azure Machine Learning

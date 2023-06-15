@@ -13,49 +13,17 @@ ms.reviewer: mmcc
 The Azure Application Insights JavaScript SDK provides advanced features for tracking, monitoring, and debugging your web applications.
 
 > [!div class="checklist"]
-> - [npm setup](#npm-setup)
+> - [SDK configuration](#sdk-configuration)
 > - [Cookie configuration and management](#cookies)
 > - [Source map un-minify support](#source-map)
 > - [Tree shaking optimized code](#tree-shaking)
 
-## npm setup
+## SDK configuration
 
-The npm setup installs the JavaScript SDK as a dependency to your project and enables IntelliSense.
+These configuration fields are optional and default to false unless otherwise stated. Depending on how you're enabling Application Insights, add these configuration fields as follows: 
 
-This option is only needed for developers who require more custom events and configuration.
-
-### Getting started with npm
-
-Install via npm.
-
-```sh
-npm i --save @microsoft/applicationinsights-web
-```
-
-> [!Note]
-> *Typings are included with this package*, so you do *not* need to install a separate typings package.
-    
-```js
-import { ApplicationInsights } from '@microsoft/applicationinsights-web'
-
-const appInsights = new ApplicationInsights({ config: {
-  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
-  /* ...Other Configuration Options... */
-} });
-appInsights.loadAppInsights();
-appInsights.trackPageView();
-```
-Replace the placeholder 'YOUR_CONNECTION_STRING_GOES_HERE' with your actual connection string found in the Azure portal.
-
-1. Navigate to the **Overview** pane of your Application Insights resource.
-1. Locate the **Connection String**.
-1. Select the button to copy the connection string to the clipboard.
-
-:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
-
-### Configuration
-
-These configuration fields are optional and default to false unless otherwise stated.
+- If you're using the SDK Loader Script to enable Application Insights, add these configuration fields within the `cfg` object.
+-  If you're using the npm package to enable Application Insights, add these configuration fields within the `config` object.
 
 | Name | Type | Default | Description |
 |------|------|---------|-------------|

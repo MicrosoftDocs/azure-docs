@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/26/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.author: kendownie
 ms.subservice: files
 ---

@@ -6,7 +6,7 @@ ms.author: mcleans
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 11/02/2022
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-extended-java
 ms.devlang: azurecli
 ---
 

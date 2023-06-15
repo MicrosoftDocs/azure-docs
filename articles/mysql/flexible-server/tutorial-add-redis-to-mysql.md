@@ -3,6 +3,7 @@ title: 'Quickstart: Boost performance for Azure Database for MySQL - Flexible Se
 description: "This tutorial shows how to add Azure Cache for Redis to boost performance for your Azure Database for MySQL - Flexible Server."
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-python
 ms.topic: quickstart
 author: mksuni
 ms.author: sumuth 

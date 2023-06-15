@@ -5,7 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.topic: article
 ms.custom: build-2023
-ms.date: 01/09/2023
+ms.date: 06/08/2023
 ---
 
 # Configure the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
@@ -52,7 +52,7 @@ If no configuration-settings are passed, the Dapr configuration defaults to:
 
 For a list of available options, see [Dapr configuration][dapr-configuration-options].
 
-## Limiting the extension to certain nodes
+## Limit the extension to certain nodes
 
 In some configurations, you may only want to run Dapr on certain nodes. You can limit the extension by passing a `nodeSelector` in the extension configuration. If the desired `nodeSelector` contains `.`, you must escape them from the shell and the extension. For example, the following configuration will install Dapr to only nodes with `topology.kubernetes.io/zone: "us-east-1c"`:
 
@@ -82,6 +82,37 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings "global.daprControlPlaneOs=linux” \
 --configuration-settings "global.daprControlPlaneArch=amd64”
 ```
+
+## Install Dapr in multiple availability zones while in HA mode
+
+By default, the placement service uses a storage class of type `standard_LRS`. It is recommended to create a `zone redundant storage class` while installing Dapr in HA mode across multiple availability zones. For example, to create a `zrs` type storage class: 
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: custom-zone-redundant-storage
+provisioner: disk.csi.azure.com
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  storageaccounttype: Premium_ZRS
+```
+
+When installing Dapr, use the above storage class: 
+
+```azurecli
+az k8s-extension create --cluster-type managedClusters  
+--cluster-name XXX  
+--resource-group XXX  
+--name XXX  
+--extension-type Microsoft.Dapr  
+--auto-upgrade-minor-version XXX  
+--version XXX  
+--configuration-settings "dapr_placement.volumeclaims.storageClassName=custom-zone-redundant-storage"
+```
+
 ## Configure the Dapr release namespace
 
 You can configure the release namespace. The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. Include the cluster `--scope` to redefine the namespace.

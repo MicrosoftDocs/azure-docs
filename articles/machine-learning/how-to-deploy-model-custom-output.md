@@ -59,11 +59,11 @@ Batch Endpoint can only deploy registered models. In this case, we already have 
    
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="register_model" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="register_model" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=register_model)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=register_model)]
 ---
 
 ### Creating a scoring script
@@ -77,7 +77,7 @@ We need to create a scoring script that can read the input data provided by the 
 
 __code/batch_driver.py__
 
-:::code language="python" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/code/batch_driver.py" highlight="16,31-33" :::
+:::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/code/batch_driver.py" highlight="16,31-33" :::
 
 __Remarks:__
 * Notice how the environment variable `AZUREML_BI_OUTPUT_PATH` is used to get access to the output path of the deployment job. 
@@ -97,13 +97,13 @@ We are going to create a batch endpoint named `heart-classifier-batch` where to 
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="name_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="name_endpoint" :::
     
     # [Python](#tab/python)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=name_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=name_endpoint)]
 
 1. Configure your batch endpoint
 
@@ -113,21 +113,21 @@ We are going to create a batch endpoint named `heart-classifier-batch` where to 
     
     __endpoint.yml__
 
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/endpoint.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/endpoint.yml":::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_endpoint)]
     
 1. Create the endpoint:
 
    # [Azure CLI](#tab/cli)
 
-   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_endpoint" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_endpoint" :::
 
    # [Python](#tab/python)
 
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_endpoint)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_endpoint)]
 
 ### Creating the deployment
 
@@ -139,13 +139,13 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
-   :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="7-10":::
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="7-10":::
    
    # [Python](#tab/python)
    
    Let's get a reference to the environment:
    
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_environment)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_environment)]
 
 2. Create the deployment. Notice that now `output_action` is set to `SUMMARY_ONLY`.
 
@@ -154,23 +154,23 @@ Follow the next steps to create a deployment using the previous scoring script:
 
    # [Azure CLI](#tab/cli)
    
-   To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
+   To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
    
-   :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml":::
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml":::
    
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_deployment" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_deployment" :::
    
    # [Python](#tab/python)
    
    To create a new deployment under the created endpoint, use the following script:
    
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_deployment)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_deployment)]
    
    Then, create the deployment with the following command:
    
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_deployment)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_deployment)]
    
 3. At this point, our batch endpoint is ready to be used. 
 
@@ -182,7 +182,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure CLI](#tab/cli)
    
-   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="start_batch_scoring_job" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="start_batch_scoring_job" :::
    
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
@@ -191,21 +191,21 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    Configure the inputs:
 
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_inputs)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_inputs)]
 
    Create a job:
    
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=start_batch_scoring_job)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=start_batch_scoring_job)]
    
 1. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
 
    # [Azure CLI](#tab/cli)
    
-   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="show_job_in_studio" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="show_job_in_studio" :::
    
    # [Python](#tab/python)
    
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=get_job)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=get_job)]
    
 ## Analyzing the outputs
 
@@ -220,25 +220,25 @@ You can download the results of the job by using the job name:
 
 To download the predictions, use the following command:
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="download_outputs" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="download_outputs" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=download_outputs)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=download_outputs)]
 ---
 
 Once the file is downloaded, you can open it using your favorite tool. The following example loads the predictions using `Pandas` dataframe.
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=read_outputs)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=read_outputs)]
 
 The output looks as follows:
 
-| age |	sex |	... |	thal       |	prediction |
+| age |    sex |    ... |    thal       |    prediction |
 |-----|------|-----|------------|--------------|
-| 63  |	1   |	... |	fixed      |	0          |
-| 67  |	1   |	... |	normal     |	1          |
-| 67  |	1   |	... |	reversible |	0          |
-| 37  |	1   |	... |	normal     |	0          |
+| 63  |    1   |    ... |    fixed      |    0          |
+| 67  |    1   |    ... |    normal     |    1          |
+| 67  |    1   |    ... |    reversible |    0          |
+| 37  |    1   |    ... |    normal     |    0          |
 
 ## Clean up resources
 
@@ -246,13 +246,13 @@ The output looks as follows:
 
 Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
 
-::: code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 
 Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=delete_endpoint)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=delete_endpoint)]
 
 ---
 

@@ -85,11 +85,9 @@ You'll need to upload a new activation file to your sensor if you want to switch
 
 1. In [Defender for IoT on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) > **Sites and sensors**, locate and [delete](how-to-manage-sensors-on-the-cloud.md#sensor-maintenance-and-troubleshooting) your OT sensor.
 
-1. Select **Onboard OT sensor > OT** to onboard the sensor again from scratch. For more information, see [Onboard OT sensors](onboard-sensors.md).
+1. Select **Onboard OT sensor > OT** to onboard the sensor again from scratch and download the new activation file. For more information, see [Onboard OT sensors](onboard-sensors.md).
 
-1. On the **Sites and sensors** page, locate the sensor you just added.
-
-1. Select the three dots (...) on the sensor's row and select **Download activation file**. Save the file in a location accessible to your sensor.
+    Alternately, on the **Sites and sensors** page, locate the sensor you just added. Select the three dots (...) on the sensor's row and select **Download activation file**. Save the file in a location accessible to your sensor.
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 

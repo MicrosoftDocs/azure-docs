@@ -43,7 +43,7 @@ ms.custom: H1Hack27Feb2017
 [getting-started]:get-started.md
 
 [sap-higher-availability]:sap-higher-availability-architecture-scenarios.md
-[sap-high-availability-architecture-scenarios-sap-app-ha]:sap-high-availability-architecture-scenarios.md#baed0eb3-c662-4405-b114-24c10a62954e
+[sap-high-availability-architecture-scenarios-sap-app-ha]:sap-high-availability-architecture-scenarios.md
 
 [planning-guide]:planning-guide.md  
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff

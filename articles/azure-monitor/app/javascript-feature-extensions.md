@@ -6,6 +6,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/13/2023
 ms.devlang: javascript
+ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
@@ -18,11 +19,11 @@ In this article, we cover the Click Analytics plug-in, which automatically track
 
 ## Get started
 
-Users can set up the Click Analytics Auto-Collection plug-in via snippet or NPM.
+Users can set up the Click Analytics Auto-Collection plug-in via SDK Loader Script or NPM.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-### Snippet setup
+### SDK Loader Script setup
 
 Ignore this setup if you use the npm setup.
 
@@ -50,14 +51,17 @@ Ignore this setup if you use the npm setup.
       [clickPluginInstance.identifier] : clickPluginConfig
     },
   };
-  // Application Insights Snippet code
-  !function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+  // Application Insights SDK Loader Script code
+  !function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
     src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
     crossOrigin: "anonymous",
-    cfg: configObj
+    cfg: configObj // configObj is defined above.
   });
 </script>
 ```
+
+> [!NOTE]
+> To add or update SDK Loader Script configuration, see [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration).
 
 ### npm setup
 
@@ -137,7 +141,10 @@ If you declare `parentDataTag` and define the `data-parentid` or `data-*-parenti
 > For examples showing which value is fetched as the `parentId` for different configurations, see [Examples of `parentid` key](#examples-of-parentid-key).
 
 > [!CAUTION]
-> After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it.
+> Once `parentDataTag` is included in *any* HTML element across your application *the SDK begins looking for parents tags across your entire application* and not just the HTML element where you used it.
+
+> [!CAUTION]
+> If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 
 ### `customDataPrefix`
 
@@ -480,8 +487,8 @@ export const clickPluginConfigWithParentDataTag = {
 For example 2, for clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence.
 > [!NOTE] 
 > If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
-       
-## Example 3 
+
+### Example 3 
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -520,3 +527,5 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 - See a [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for how to implement custom event properties such as Name and parentid and custom behavior and content.
 - See the [sample app readme](https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo/blob/main/README.md) for where to find click data and [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
 - Build a [workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.
+
+

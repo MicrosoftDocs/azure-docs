@@ -70,7 +70,9 @@ items:
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Get support for Microsoft Dev Box
-      href: how-to-get-help.md  
+      href: how-to-get-help.md
+    - name: FAQ
+      href: dev-box-faq.yml
     - name: Report a problem
       href: https://aka.ms/devbox/report
     - name: Suggest a feature

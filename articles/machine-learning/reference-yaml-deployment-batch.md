@@ -30,8 +30,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `description` | string | Description of the deployment. | | |
 | `tags` | object | Dictionary of tags for the deployment. | | |
 | `endpoint_name` | string | **Required.** Name of the endpoint to create the deployment under. | | |
-| `type` | string | **Required.** Type of the bath deployment. Use `model` for [model deployments](concept-endpoints-batch.md#model-deployments) and `pipeline` for [pipeline component deployments](concept-endpoints-batch.md#pipeline-component-deployment-preview). Introduced since version 1.7. | `model`, `pipeline` | `model` |
-| `settings` | object | **Required if type is indicated.** Specific configuration of the deployment. See specific YAML reference for model and pipeline component for allowed values. Introduced since version 1.7. | | |
+| `type` | string | **Required.** Type of the bath deployment. Use `model` for [model deployments](concept-endpoints-batch.md#model-deployments) and `pipeline` for [pipeline component deployments](concept-endpoints-batch.md#pipeline-component-deployment-preview). <br><br>**New in version 1.7**. | `model`, `pipeline` | `model` |
+| `settings` | object | Configuration of the deployment. See specific YAML reference for model and pipeline component for allowed values. <br><br>**New in version 1.7**. | | |
 
 > [!TIP]
 > The key `type` has been introduced in version 1.7 of the CLI extension and above. To fully support backward compatibility, this property defaults to `model`. However, if not explicitly indicated, the key `settings` is not enforced and all the properties for the model deployment settings should be indicated in to root of the YAML specification.
@@ -49,6 +49,7 @@ When `type: model`, the following syntax is enforced:
 | `environment` | string or object | The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> This property is not required if your model is in MLflow format. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
 | `compute` | string | **Required.** Name of the compute target to execute the batch scoring jobs on. This value should be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. | | |
 | `resources.instance_count` | integer | The number of nodes to use for each batch scoring job. | | `1` |
+| `settings` | object | Specific configuration of the model deployment. <br><br>**Changed in version 1.7**. | | |
 | `settings.max_concurrency_per_instance` | integer | The maximum number of parallel `scoring_script` runs per instance. | | `1` |
 | `settings.error_threshold` | integer | The number of file failures that should be ignored. If the error count for the entire input goes above this value, the batch scoring job is terminated. `error_threshold` is for the entire input and not for individual mini batches. If omitted, any number of file failures is allowed without terminating the job.  | | `-1` |
 | `settings.logging_level` | string | The log verbosity level. | `warning`, `info`, `debug` | `info` |
@@ -66,9 +67,8 @@ When `type: pipeline`, the following syntax is enforced:
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `component` | string or object | **Required.** The pipeline component used for the deployment. This value can be either a reference to an existing versioned pipeline component in the workspace or in a registry, or an inline pipeline specification. <br><br> To reference an existing component, use the `azureml:<component-name>:<version>` syntax. <br><br> To define a pipeline component inline, follow the [Pipeline component schema](reference-yaml-component-pipeline.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the component separately and reference it here. | | |
-| `settings.default_storage_account` | string | Name of the default storage account for intermediate inputs and outputs in the pipeline. | | |
-| `settings.default_compute` | string | Name of the default compute to use for the pipeline. | | |
+| `component` | string or object | **Required.** The pipeline component used for the deployment. This value can be either a reference to an existing versioned pipeline component in the workspace or in a registry, or an inline pipeline specification. <br><br> To reference an existing component, use the `azureml:<component-name>:<version>` syntax. <br><br> To define a pipeline component inline, follow the [Pipeline component schema](reference-yaml-component-pipeline.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the component separately and reference it here. <br><br>**New in version 1.7**. | | |
+| `settings` | object | Default settings for the pipeline job. See [Attributes of the settings key](reference-yaml-job-pipeline.md#attributes-of-the-settings-key) for the set of configurable properties. <br><br>**New in version 1.7**. | | |
 
 ## Remarks
 
@@ -76,17 +76,47 @@ The `az ml batch-deployment` commands can be used for managing Azure Machine Lea
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch).
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch). Some of them are referenced below:
 
 ## YAML: MLflow model deployment
+
+A model deployment containing an MLflow model, which doesn't require to indicate `code_configuration` or `environment`:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-simple/deployment.yml":::
 
 ## YAML: Custom model deployment with scoring script
 
+A model deployment indicating the scoring script to use and the environment:
+
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml":::
 
-## YAML: Pipeline component deployment
+## YAML: Legacy model deployments
+
+If the attribute `type` is not indicated in the YAML, then a model deployment is inferred. However, the key `settings` will not be available and the properties should be placed in the root of the YAML as indicated in this example. It's **strongly advisable to always specify the property `type`**.
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
+endpoint_name: heart-classifier-batch
+name: classifier-xgboost-mlflow
+description: A heart condition classifier based on XGBoost
+model: azureml:heart-classifier-mlflow@latest
+compute: azureml:batch-cluster
+resources:
+  instance_count: 2
+max_concurrency_per_instance: 2
+mini_batch_size: 2
+output_action: append_row
+output_file_name: predictions.csv
+retry_settings:
+  max_retries: 3
+  timeout: 300
+error_threshold: -1
+logging_level: info
+```
+
+## YAML: Pipeline component deployment (preview)
+
+A simple pipeline component deployment:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deployment.yml":::
 
