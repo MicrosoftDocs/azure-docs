@@ -343,6 +343,8 @@ items:
       - name: Query call logs
         href: concepts/analytics/query-call-logs.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Rooms Insights
+        href: concepts/analytics/insights/rooms-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
   - name: Chat
@@ -403,6 +405,8 @@ items:
         href: how-tos/call-automation/recognize-action.md
       - name: How to secure webhook endpoint
         href: how-tos/call-automation/secure-webhook-endpoint.md
+      - name: Handling Call Automation Events with EventProcessor
+        href: how-tos/call-automation/handle-events-with-event-processor.md
     - name: Call recording
       items:
       - name: Record a call
@@ -643,6 +647,8 @@ items:
         href: concepts/analytics/recording-logs.md
       - name: End of call survey logs
         href: concepts/analytics/logs/end-of-call-survey-logs.md
+      - name: Rooms logs
+        href: concepts/analytics/logs/rooms-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
     - name: UI Library
@@ -707,6 +713,8 @@ items:
         href: concepts/telephony/outbound-calling.md
       - name: Known limitations
         href: concepts/telephony/known-limitations-acs-telephony.md
+      - name: SIP protocol details for direct routing
+        href: concepts/telephony/direct-routing-sip-specification.md
     - name: Call Automation
       items:
       - name: Overview
@@ -745,6 +753,8 @@ items:
       href: concepts/email/email-overview.md
     - name: SDK features
       href: concepts/email/sdk-features.md
+    - name: Allowed attachment types
+      href: /concepts/email/email-attachment-allowed-mime-types.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains

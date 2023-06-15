@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022, build-2023
+ms.custom: devx-track-azurecli, cliv2, sdkv2, event-tier1-build-2022, build-2023
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
@@ -210,6 +210,8 @@ For information on how to configure a managed identity with your compute cluster
 ## Troubleshooting
 
 There's a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
 ### Stuck at resizing
 

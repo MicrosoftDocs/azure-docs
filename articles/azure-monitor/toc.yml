@@ -577,6 +577,8 @@ items:
           href: containers/container-insights-logging-v2.md
         - name: Enable cost optimization settings (preview)
           href: containers/container-insights-cost-config.md
+        - name: Authentication
+          href: containers/container-insights-authentication.md
       - name: Monitor
         items:
         - name: Monitor performance
@@ -1497,7 +1499,17 @@ items:
       - name: Autoscale diagnostics
         href: autoscale/autoscale-diagnostics.md  
       - name: Troubleshooting
-        href: autoscale/autoscale-troubleshoot.md    
+        href: autoscale/autoscale-troubleshoot.md
+  - name: AIOps and machine learning
+    items:
+      - name: AIOps and machine learning in Azure Monitor
+        href: logs/aiops-machine-learning.md
+      - name: Machine learning in Azure Monitor Logs
+        items:
+        - name: Detect and analyze anomalies in log data with KQL
+          href: logs/kql-machine-learning-azure-monitor.md
+        - name: Analyze data in Azure Monitor Logs using a notebook
+          href: logs/notebooks-azure-monitor-logs.md      
 - name: Reference
   items:
   - name: Service limits

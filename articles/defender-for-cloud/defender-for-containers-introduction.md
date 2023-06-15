@@ -59,6 +59,7 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 Defender for Containers scans the containers in Azure Container Registry (ACR) and Amazon AWS Elastic Container Registry (ECR) to notify you if there are known vulnerabilities in your images. When the scan completes, Defender for Containers provides details for each vulnerability detected, a security classification for each vulnerability detected, and guidance on how to remediate issues and protect vulnerable attack surfaces.
 
 Learn more about:
+
 - [Vulnerability assessment for Azure Container Registry (ACR)](defender-for-containers-vulnerability-assessment-azure.md)
 - [Vulnerability assessment for Amazon AWS Elastic Container Registry (ECR)](defender-for-containers-vulnerability-assessment-elastic.md)
 
@@ -119,8 +120,9 @@ Learn more about Defender for Containers in the following blogs:
 - [Demonstrating Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-demonstrate-the-new-containers-features-in-microsoft/ba-p/3281172)
 
 The release state of Defender for Containers is broken down by two dimensions: environment and feature. So, for example:
-  - **Kubernetes data plane recommendations** for AKS clusters are GA
-  - **Kubernetes data plane recommendations** for EKS clusters are preview
+
+- **Kubernetes data plane recommendations** for AKS clusters are GA
+- **Kubernetes data plane recommendations** for EKS clusters are preview
 
   To view the status of the full matrix of features and environments, see [Microsoft Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
