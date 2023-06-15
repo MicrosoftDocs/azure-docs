@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: disks
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 06/15/2023
 ms.author: rogarana
 ---
 
@@ -215,6 +215,9 @@ $diskName = "yourDiskNameHere"
 $resourceGroupName = "yourResourceGroupNameHere"
 $snapshotName = "yourDesiredSnapshotNameHere"
 
+# Valid values are 1, 2, or 3
+$zone = "yourZoneNumber"
+
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
 $diskSize = '128'
 
@@ -230,6 +233,7 @@ $storageType = 'PremiumV2_LRS'
 #Note that Premium SSD v2 and Ultra Disks are only supported in a select number of regions
 $location = 'eastus'
 
+#When migrating a Standard HDD, Standard SSD, or Premium SSD to either an Ultra Disk or Premium SSD v2, the logical sector size must be 512
 $logicalSectorSize=512
 
 # Get the disk that you need to backup by creating an incremental snapshot
@@ -239,7 +243,7 @@ $yourDisk = Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroupName
 $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk.Location -CreateOption Copy -Incremental 
 $snapshot = New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName -Snapshot $snapshotConfig
 
-$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id -DiskSizeGB $diskSize -LogicalSectorSize $logicalSectorSize
+$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id -DiskSizeGB $diskSize -LogicalSectorSize $logicalSectorSize -Zone $zone
  
 New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
 ```
@@ -260,7 +264,10 @@ storageType=PremiumV2_LRS
 #Select the same location as the current disk
 #Note that Premium SSD v2 and Ultra Disks are only supported in a select number of regions
 location=eastus
+#When migrating a Standard HDD, Standard SSD, or Premium SSD to either an Ultra Disk or Premium SSD v2, the logical sector size must be 512
 logicalSectorSize=512
+#Select an Availability Zone, acceptable values are 1,2, or 3
+zone=1
 
 # Get the disk you need to backup
 yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --output tsv)
@@ -268,7 +275,7 @@ yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --outp
 # Create the snapshot
 snapshot=$(az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true)
 
-az disk create -g resourceGroupName -n newDiskName --source $snapshot --logical-sector-size $logicalSectorSize --location $location
+az disk create -g resourceGroupName -n newDiskName --source $snapshot --logical-sector-size $logicalSectorSize --location $location --zone $zone
 
 ```
 
