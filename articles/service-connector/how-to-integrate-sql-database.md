@@ -61,8 +61,7 @@ Use the environment variable names and application properties listed below to co
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
-> | AZURE_SQL_CLIENTID                | Your client ID                  | `<client-ID>` |
-> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;Authentication=ActiveDirectoryManagedIdentity` |
+> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=a30eeedc-e75f-4301-b1a9-56e81e0ce99c;Authentication=ActiveDirectoryManagedIdentity` |
 
 #### .NET Service principal
 
@@ -72,7 +71,7 @@ Use the environment variable names and application properties listed below to co
 >| AZURE_SQL_CLIENTID                | Your client ID                    | `<client-ID>`                                           |
 >| AZURE_SQL_CLIENTSECRET            | Your client secret                | `<client-secret>`                                       |
 >| AZURE_SQL_TENANTID                | Your tenant ID                    | `<tenant-ID>`                                           |
->| AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;Authentication=ActiveDirectoryManagedIdentity` |
+>| AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=a30eeedc-e75f-4301-b1a9-56e81e0ce99c;Password=asdfghwerty;Authentication=ActiveDirectoryServicePrincipal` |
 
 
 ### Go (go-mssqldb)
@@ -83,24 +82,6 @@ Use the environment variable names and application properties listed below to co
 > | Default environment variable name | Description                          | Sample value                                                                                                                 |
 > |-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 > | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-database>;user id=<sql-username>;password=<sql-password>;` |
-
-#### Go (go-mssqldb) system-assigned managed identity
-
-> [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                          | Sample value                                                                                                                 |
-> |-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-database>;user id=<sql-username>;password=<sql-password>;` |
-
-#### Go (go-mssqldb) User-assigned managed identity
-
-> [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                          | Sample value                                                                                                                 |
-> |-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-database>;user id=<sql-username>;password=<sql-password>;` |
-
-#### Go (go-mssqldb) Service principal
-
-
 
 
 ### Java Database Connectivity (JDBC)
@@ -119,6 +100,21 @@ Use the environment variable names and application properties listed below to co
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;authentication=ActiveDirectoryMSI;` |
 
+#### Java Database Java Database Connectivity (JDBC) User-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                          | Sample value                                                                                                             |
+> |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;msiClientId=<xxxxxxxxxxxx>;authentication=ActiveDirectoryMSI;` |
+
+#### Java Database Java Database Connectivity (JDBC) Service principal
+ 
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                          | Sample value                                                                                                             |
+> |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<xxxxxxx>;password=<xxxxxxxx>;authentication=ActiveDirectoryServicePrincipal;` |
+
+
 ### Java Spring Boot (spring-boot-starter-jdbc)
 
 #### Java Spring Boot secret / connection string
@@ -136,6 +132,22 @@ Use the environment variable names and application properties listed below to co
 > | Default environment variable name | Description                            | Sample value                                                                                                       |
 > |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 > | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` |
+
+#### Java Spring Boot User-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                            | Sample value                                                                                                       |
+> |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;msiClientId=<xxxxxxxxxxxx>;authentication=ActiveDirectoryMSI;` |
+
+#### Java Spring Boot Service principal
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                            | Sample value                                                                     |
+> |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------|
+> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryServicePrincipal;` |
+> | spring.datasource.username        | Azure SQL Database datasource username | `<xxxxxx>`                                                                                                                      |
+> | spring.datasource.password        | Azure SQL Database datasource password | `<xxxxxx>`                                                                                                                      |
 
 ### Node.js
 
@@ -159,6 +171,30 @@ Use the environment variable names and application properties listed below to co
 > | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
 > | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-database>`                    |
 > | AZURE_SQL_AUTHENTICATIONTYPE      | Azure SQL Database authentication type | `azure-active-directory-default` |
+
+#### Node.js User-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                            | Sample value                        |
+> |-----------------------------------|----------------------------------------|-------------------------------------|
+> | AZURE_SQL_SERVER                  | Azure SQL Database server              | `<sql-server>.database.windows.net` |
+> | AZURE_SQL_PORT                    | Azure SQL Database port                | `1433`                              |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database            | `<sql-database>`                    |
+> | AZURE_SQL_AUTHENTICATIONTYPE      | Azure SQL Database authentication type | `azure-active-directory-default`    |
+> | AZURE_SQL_CLIENTID                | Azure SQL Database client ID           | `<your Client ID>`                  |
+ 
+#### Node.js Service principal
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                            | Sample value                        |
+> |-----------------------------------|----------------------------------------|-------------------------------------|
+> | AZURE_SQL_SERVER                  | Azure SQL Database server              | `<sql-server>.database.windows.net` |
+> | AZURE_SQL_PORT                    | Azure SQL Database port                | `1433`                              |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database            | `<sql-database>`                    |
+> | AZURE_SQL_AUTHENTICATIONTYPE      | Azure SQL Database authentication type | `azure-active-directory-default`    |
+> | AZURE_SQL_CLIENTID                | Azure SQL Database client ID           | `<your Client ID>`                  |
+> | AZURE_SQL_CLIENTSECRET            | Azure SQL Database xxxxxxxxx           | `<xxxxxxxxxxxxxx>`                  |
+> | AZURE_SQL_TENANTID                | Azure SQL Database Tenant ID           | `<your Tenant ID>`                  |
 
 ### PHP
 
@@ -192,6 +228,30 @@ Use the environment variable names and application properties listed below to co
 > | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
 > | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-database>`                    |
 > | AZURE_SQL_AUTHENTICATION          | Azure SQL authentication    | `ActiveDirectoryMsi`                |
+
+#### Python (pyobdc) User-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                 | Sample value                        |
+> |-----------------------------------|-----------------------------|-------------------------------------|
+> | AZURE_SQL_SERVER                  | Azure SQL Database server   | `<sql-server>.database.windows.net` |
+> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-database>`                    |
+> | AZURE_SQL_USER                    | Azure SQL xxxxxxxxxxxxx     | `xxxxxxxxxxxxxx`                    |
+> | AZURE_SQL_AUTHENTICATION          | Azure SQL authentication    | `ActiveDirectoryServerPrincipal`    |
+
+#### Python (pyobdc) Service principal
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                 | Sample value                        |
+> |-----------------------------------|-----------------------------|-------------------------------------|
+> | AZURE_SQL_SERVER                  | Azure SQL Database server   | `<sql-server>.database.windows.net` |
+> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-database>`                    |
+> | AZURE_SQL_USER                    | Azure SQL xxxxxxxxxxxxx     | `xxxxxxxxxxxxxx`                    |
+> | AZURE_SQL_AUTHENTICATION          | Azure SQL authentication    | `ActiveDirectoryMsi`                |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-password>`                    |
+
 
 ### Python-Django (mssql-django)
 
