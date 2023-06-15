@@ -77,10 +77,6 @@ To export device inventory data, select the **Import/Export file** :::image type
 
 Save the exported file locally.
 
-> [!NOTE]
-> In the exported file, date values are based on the region settings for the machine you're using to access the on-premises management console. We recommend exporting data only from a machine with the same region settings as your on-premises management console.
-> 
-
 ## Add to and enhance device inventory data
 
 Use information from other sources, such as CMDBs, DNS, firewalls, and Web APIs, to enhance the data shown in your device inventory. For example, use enhanced data to present information about the following items:
