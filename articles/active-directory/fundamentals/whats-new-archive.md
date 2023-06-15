@@ -7485,37 +7485,6 @@ For more information, see [Getting started with the Azure Active Directory Multi
 
 ---
 
-## May 2019
-
-### Service change: Future support for only TLS 1.2 protocols on the Application Proxy service
-
-**Type:** Plan for change
-**Service category:** App Proxy
-**Product capability:** Access Control
-
-To help provide best-in-class encryption for our customers, we're limiting access to only TLS 1.2 protocols on the Application Proxy service. This change is gradually being rolled out to customers who are already only using TLS 1.2 protocols, so you shouldn't see any changes.
-
-Deprecation of TLS 1.0 and TLS 1.1 happens on August 31, 2019, but we'll provide additional advanced notice, so you'll have time to prepare for this change. To prepare for this change make sure your client-server and browser-server combinations, including any clients your users use to access apps published through Application Proxy, are updated to use the TLS 1.2 protocol to maintain the connection to the Application Proxy service. For more information, see [Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md#prerequisites).
-
----
-
-### Use the usage and insights report to view your app-related sign-in data
-
-**Type:** New feature
-**Service category:** Enterprise Apps
-**Product capability:** Monitoring & Reporting
-
-You can now use the usage and insights report, located in the **Enterprise applications** area of the Azure portal, to get an application-centric view of your sign-in data, including info about:
-
-- Top used apps for your organization
-
-- Apps with the most failed sign-ins
-
-- Top sign-in errors for each app
-
-For more information about this feature, see [Usage and insights report in the Azure portal](../reports-monitoring/concept-usage-insights-report.md)
-
----
 
 
 
