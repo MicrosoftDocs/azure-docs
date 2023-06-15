@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.reviewer: ssalgado
 author: swatig007
 ms.author: swatig
-ms.date: 04/25/2023
+ms.date: 06/15/2023
 ---
 
 # How to use Open Source foundation models curated by Azure Machine Learning (preview)
