@@ -20,7 +20,7 @@ Azure DDoS Protection is designed [for services that are deployed in a virtual n
 
 > [!NOTE]
 > * Protected resources that include public IPs created from public IP address prefix are not supported at present.
-> * For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to employ [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
+> * For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
 
 ## Virtual machine (Windows/Linux) workloads
 
