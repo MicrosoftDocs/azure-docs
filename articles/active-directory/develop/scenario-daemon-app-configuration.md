@@ -70,7 +70,7 @@ Here's an example of defining the configuration in an [*appsettings.json*](https
 
 ```
 
-You provide a certificate instead of the client secret, or [workload identity federation](/azure/active-directory/workload-identities/workload-identity-federation.md) credentials.
+You provide a certificate instead of the client secret, or [workload identity federation](../workload-identities/workload-identity-federation.md) credentials.
 
 # [Java](#tab/java)
 
@@ -452,7 +452,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 # [.NET](#tab/idweb)
 
 Instead of a client secret or a certificate, the confidential client application can also prove its identity by using client assertions. See
-[CredentialDescription](/dotnet/api/microsoft.identity.abstractions.credentialdescription?view=msal-model-dotnet-latest) for details.
+[CredentialDescription](/dotnet/api/microsoft.identity.abstractions.credentialdescription?view=msal-model-dotnet-latest&preserve-view=true) for details.
 
 # [Java](#tab/java)
 
