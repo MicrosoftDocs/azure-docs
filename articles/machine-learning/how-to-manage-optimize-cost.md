@@ -99,7 +99,7 @@ Azure Machine Learning Compute supports reserved instances inherently. If you pu
 
 ## Parallelize training
 
-One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel component in Azure Machine Learning. A parallel component allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelComponent](xref:azure.ai.ml.entities.parallelcomponent) documentation.
+One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel component in Azure Machine Learning. A parallel component allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelComponent](/python/api/azure-ai-ml/azure.ai.ml.entities.parallelcomponent) documentation.
 
 ## Set data retention & deletion policies
 
