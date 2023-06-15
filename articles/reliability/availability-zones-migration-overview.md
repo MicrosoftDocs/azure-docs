@@ -26,6 +26,8 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) |
 | [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)  | 
+| [Azure Functions](migrate-functions.md)|
+| [Azure Load Balancer](migrate-load-balancer.md)|
 | [Azure Service Fabric](migrate-service-fabric.md)  | 
 | [Azure Storage account: Blob Storage, Azure Data Lake Storage, Files Storage](migrate-storage.md) |
 | [Azure Storage: Managed Disks](migrate-vm.md)|
@@ -58,6 +60,8 @@ The table below lists each product that offers migration guidance and/or informa
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Azure availability zone migration baseline](availability-zones-baseline.md)
 
 > [!div class="nextstepaction"]
 > [Azure services and regions with availability zones](availability-zones-service-support.md)

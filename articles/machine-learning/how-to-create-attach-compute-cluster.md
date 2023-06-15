@@ -211,6 +211,8 @@ For information on how to configure a managed identity with your compute cluster
 
 There's a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
 
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
+
 ### Stuck at resizing
 
 If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
