@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: how-to
 author: b-ahibbard
 ms.author: anfdocs
-ms.date: 06/15/2023
+ms.date: 06/16/2023
 ---
 # Connect to on-premises environment with Azure Active Directory
 
