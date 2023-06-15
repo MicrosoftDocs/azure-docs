@@ -909,7 +909,6 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 ```powershell
-
 az group delete `
     --resource-group $RESOURCE_GROUP
 ```
