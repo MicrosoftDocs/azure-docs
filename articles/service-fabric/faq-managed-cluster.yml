@@ -98,7 +98,7 @@ sections:
           Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./how-to-managed-cluster-upgrades.md).
 
       - question: |
-          Can I setup maintenance control for my cluster?
+          Can I set up maintenance control for my cluster?
         answer: |
           Yes, you can enable [maintenance control](./how-to-managed-cluster-maintenance-control.md)
 
