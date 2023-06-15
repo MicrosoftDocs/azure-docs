@@ -7517,25 +7517,6 @@ For more information about this feature, see [Usage and insights report in the A
 
 ---
 
-### Automate your user provisioning to cloud apps using Azure AD
-
-**Type:** New feature
-**Service category:** Enterprise Apps
-**Product capability:** Monitoring & Reporting
-
-Follow these new tutorials to use the Azure AD Provisioning Service to automate the creation, deletion, and updating of user accounts for the following cloud-based apps:
-
-- [Comeet](../saas-apps/comeet-recruiting-software-provisioning-tutorial.md)
-
-- [DynamicSignal](../saas-apps/dynamic-signal-provisioning-tutorial.md)
-
-- [KeeperSecurity](../saas-apps/keeper-password-manager-digitalvault-provisioning-tutorial.md)
-
-You can also follow this new [Dropbox tutorial](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), which provides info about how to provision group objects.
-
-For more information about how to better secure your organization through automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
-
----
 
 
 
