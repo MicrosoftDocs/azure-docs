@@ -121,10 +121,10 @@ See the following articles for more code samples to add to your maps:
 > [Add an image layer](./map-add-image-layer.md)
 
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Tile Layer using X, Y, and Z]: https://samples.azuremaps.com/?search=tile%20layer&sample=tile-layer-using-x%2C-y%2C-and-z
+[Tile Layer using X, Y, and Z]: https://samples.azuremaps.com/tile-layers/tile-layer-using-x,-y-and-z
 [OpenSeaMap project]: https://openseamap.org/index.php
-[WMS Tile Layer]: https://samples.azuremaps.com/?search=tile%20layer&sample=wms-tile-layer
+[WMS Tile Layer]: https://samples.azuremaps.com/tile-layers/wms-tile-layer
 [U.S. Geological Survey (USGS)]: https://mrdata.usgs.gov/
-[WMTS Tile Layer]: https://samples.azuremaps.com/?search=tile%20layer&sample=wmts-tile-layer
+[WMTS Tile Layer]: https://samples.azuremaps.com/tile-layers/wmts-tile-layer
 [U.S. Geological Survey (USGS) National Map]:https://viewer.nationalmap.gov/services
-[Tile Layer Options]: https://samples.azuremaps.com/?search=tile%20layer&sample=tile-layer-options
+[Tile Layer Options]: https://samples.azuremaps.com/tile-layers/tile-layer-options
