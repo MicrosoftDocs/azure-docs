@@ -405,6 +405,8 @@ items:
         href: how-tos/call-automation/recognize-action.md
       - name: How to secure webhook endpoint
         href: how-tos/call-automation/secure-webhook-endpoint.md
+      - name: Handling Call Automation Events with EventProcessor
+        href: how-tos/call-automation/handle-events-with-event-processor.md
     - name: Call recording
       items:
       - name: Record a call
