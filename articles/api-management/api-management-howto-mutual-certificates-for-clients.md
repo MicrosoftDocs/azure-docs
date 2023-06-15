@@ -46,6 +46,9 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
 
+   > [!NOTE]
+   > If you only wish to use the certificate to authenticate the client with API Management, you can upload a CER file.
+
 ## Enable API Management instance to receive and verify client certificates
 
 ### Developer, Basic, Standard, or Premium tier
