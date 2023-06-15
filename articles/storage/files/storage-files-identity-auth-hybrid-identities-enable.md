@@ -20,7 +20,7 @@ This configuration allows hybrid users to access Azure file shares using Kerbero
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md). For more information about Azure AD Kerberos, see [Deep dive: How Azure AD Kerberos works](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
 > [!IMPORTANT]
-> You can only use one AD source for identity-based authentication with Azure Files. If Azure AD Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-auth-active-directory-enable.md) or [Azure Active Directory Domain Services (Azure AD DS)](storage-files-identity-auth-active-directory-domain-service-enable.md) instead. The configuration steps and supported scenarios are different for each method.
+> You can only use one AD source for identity-based authentication with Azure Files. If Azure AD Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-auth-active-directory-enable.md) or [Azure Active Directory Domain Services (Azure AD DS)](storage-files-identity-auth-domain-services-enable.md) instead. The configuration steps and supported scenarios are different for each method.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -68,12 +68,12 @@ To enable Azure AD Kerberos authentication using the [Azure portal](https://port
 1. Under **Data storage**, select **File shares**.
 1. Next to **Active Directory**, select the configuration status (for example, **Not configured**).
  
-   :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/configure-active-directory.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account. Active Directory configuration settings are selected." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/configure-active-directory.png" border="true":::
+   :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/configure-active-directory.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account. Active Directory configuration settings are selected." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/configure-active-directory.png" border="true":::
 
 1. Under **Azure AD Kerberos**, select **Set up**.
 1. Select the **Azure AD Kerberos** checkbox.
 
-   :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/enable-azure-ad-kerberos.png" alt-text="Screenshot of the Azure portal showing Active Directory configuration settings for a storage account. Azure AD Kerberos is selected." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/enable-azure-ad-kerberos.png" border="true":::
+   :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/enable-azure-ad-kerberos.png" alt-text="Screenshot of the Azure portal showing Active Directory configuration settings for a storage account. Azure AD Kerberos is selected." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/enable-azure-ad-kerberos.png" border="true":::
 
 1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you need to specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name should be listed in the output under `DNSRoot` and your domain GUID should be listed under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
 
@@ -140,7 +140,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 2. Select **App registrations** on the left pane.
 3. Select **All Applications**.
 
-   :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/azure-portal-azuread-app-registrations.png":::
+   :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/azure-portal-azuread-app-registrations.png":::
 
 4. Select the application with the name matching **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
