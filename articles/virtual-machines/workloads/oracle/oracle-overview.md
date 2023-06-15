@@ -84,11 +84,11 @@ To walk through the basic setup procedure on Azure, see [Implement Oracle Golden
 In addition to having a high availability and disaster recovery solution architected in Azure, you should have a backup strategy in place to restore your database. 
 ## Backup Oracle workloads
 Different [backup strategies](oracle-database-backup-strategies.md) are available for Oracle on Azure VMs, the following backups are other options:
-- Using [Azure files]()
+- Using [Azure files](oracle-database-backup-azure-storage.md)
 - Using [Azure backup](oracle-database-backup-azure-backup.md) 
 - Using [Oracle RMAN Streaming data](oracle-rman-streaming-backup.md) backup
 ## Deploy Oracle applications on Azure
-Use Terraform templates to set up Azure infrastructure and install Oracle applications. For more information, see [Terraform on Azure](https://review.learn.microsoft.com/azure/developer/terraform/?branch=main&branchFallbackFrom=pr-en-us-234143).
+Use Terraform templates to set up Azure infrastructure and install Oracle applications. For more information, see [Terraform on Azure](https://learn.microsoft.com/azure/developer/terraform/?branch=main&branchFallbackFrom=pr-en-us-234143).
 
 Oracle has certified the following applications to run in Azure when connecting to an Oracle database by using the Azure with Oracle Cloud interconnect solution:
 - E-Business Suite

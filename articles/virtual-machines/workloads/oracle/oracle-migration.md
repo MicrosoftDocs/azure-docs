@@ -24,7 +24,7 @@ Take AWR reports from heavy usage time periods of the databases (such as peak ho
 
 **4. Optimize Azure compute and choose deployment** **architecture:** Finalize the VM configuration that meets the requirements by optimizing compute and licenses, choose the right [deployment architecture](https://learn.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) (HA, Backup, etc.).
 
-**5. Tuning parameters of Oracle on Azure:** Ensure the VM selected, and deployment architecture meet the performance requirements. Two major factors are throughput & read/write IOPS– meet the requirements by choosing right [storage](https://microsofteur.sharepoint.com/teams/DataMod/Shared%20Documents/Forms/AllItems.aspx?ga=1&OR=Teams%2DHL&CT=1683912445680&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzA0MTYwMTQwMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D&id=%2Fteams%2FDataMod%2FShared%20Documents%2FGeneral%2FOracle%20Migrations%20Accelerator%2FTeam%20Documents%2FTechnical%5FDocuments%2FMSFT%5Fdocs&viewid=ab53a54f%2Ddc89%2D40f5%2Db251%2D82e13bf99662) and [backup options](https://microsoft-my.sharepoint.com/personal/jacobjaygbay_microsoft_com/Documents/Downloads/4.%20Optimize%20Azure%20compute%20and%20choose%20deployment%20archiecture:).
+**5. Tuning parameters of Oracle on Azure:** Ensure the VM selected, and deployment architecture meet the performance requirements. Two major factors are throughput & read/write IOPS– meet the requirements by choosing right [storage](oracle-storage.md) and [backup options](oracle-database-backup-strategies.md).
 
 **6. Move your** **on-premises Oracle data to the Oracle on Azure VM:** Now that your required Oracle setup is done, pending task is to move data from on premise to cloud. There are many approaches. Best approaches are:
 
@@ -54,18 +54,15 @@ Now that data is moved into data box, or data factory is pumping it to file syst
 - Goldengate with Data Guard
 - Oracle Data Pump
 
-**8. Measure performance of your Oracle on Azure VM:** Demonstrate the performance of the Oracle on Azure VM using
+**8. Measure performance of your Oracle on Azure VM:** Demonstrate the performance of the Oracle on Azure VM using:
 
 - IO Benchmarking – VM tooling (Monitoring – CPU cycles etc.)
 
 Use the following handy tools and approaches.
 
 - FIO – CPU Utilization/OS
-
 - SLOB – Oracle specific
-
 - Oracle Swingbench
-
 - AWR/statspack report (CPU, IO)
 
 **9. Move your on-premises Oracle data to the Oracle on Azure VM**: Finally switch off your on-premises Oracle and switchover to Azure VM. Some checks to be in place are as follows:
@@ -75,3 +72,4 @@ Use the following handy tools and approaches.
 - Use a change control management tool and consider checking in data changes, not just code changes, into the system. 
 
 ## Next steps
+- [Storage options for Oracle on Azure VMs](oracle-storage.md)
