@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Microsoft Entra ID Protection
-summary: Learn how to use Microsoft Entra ID Protection to identify and address identity risks in your organization
+title: Azure AD Identity Protection documentation
+summary: Learn how to use Identity Protection to identify and address identity risks in your organization
 
 metadata:
-  title: Microsoft Entra ID Protection documentation
-  description: Learn how to use Microsoft Entra ID Protection to identify and address identity risks in your organization
+  title: Azure AD Identity Protection documentation
+  description: Learn how to use Identity Protection to identify and address identity risks in your organization
   services: active-directory
   ms.service: active-directory
   ms.subservice: identity-protection
@@ -21,13 +21,13 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Microsoft Entra ID Protection
+  - title: About Identity Protection
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Entra ID Protection?
+          - text: What is Identity Protection?
             url: overview-identity-protection.md
-          - text: Plan a Microsoft Entra ID Protection deployment
+          - text: Plan a Identity Protection deployment
             url: how-to-deploy-identity-protection.md
 
   # Card
@@ -45,7 +45,7 @@ landingContent:
             url: concept-identity-protection-risks.md
 
   # Card
-  - title: Microsoft Entra ID Protection experience
+  - title: Identity Protection experience
     linkLists:
       - linkListType: concept
         links:
