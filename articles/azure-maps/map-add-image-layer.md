@@ -98,7 +98,7 @@ See the following articles for more code samples to add to your maps:
 > [!div class="nextstepaction"]
 > [Add a tile layer](./map-add-tile-layer.md)
 
-[Simple Image Layer]: https://samples.azuremaps.com/?search=image%20layer&sample=simple-image-layer
+[Simple Image Layer]: https://samples.azuremaps.com/image-layer/simple-image-layer
 [Azure Maps Samples]: https://samples.azuremaps.com
-[KML Ground Overlay as Image Layer]: https://samples.azuremaps.com/?search=KML&sample=kml-ground-overlay-as-image-layer
-[Image Layer Options]: https://samples.azuremaps.com/?search=image%20layer&sample=image-layer-options
+[KML Ground Overlay as Image Layer]: https://samples.azuremaps.com/image-layer/kml-ground-overlay-as-image-layer
+[Image Layer Options]: https://samples.azuremaps.com/image-layer/image-layer-options
