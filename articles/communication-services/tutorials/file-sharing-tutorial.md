@@ -85,11 +85,11 @@ For this quickstart, we'll be modifying files inside of the `src` folder.
 
 ### Install the Package
 
-Use the `npm install` command to install the Azure Communication Services UI Library for JavaScript.
+Use the `npm install` command to install the beta Azure Communication Services UI Library for JavaScript.
 
 ```bash
 
-npm install @azure/communication-react
+npm install @azure/communication-react@1.5.1-beta.5
 
 ```
 
