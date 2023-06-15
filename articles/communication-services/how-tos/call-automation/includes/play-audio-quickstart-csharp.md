@@ -45,26 +45,32 @@ By this point you should be familiar with starting calls, if you need to learn m
 
 Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
 
-## Play audio - Specific participant
+### Play source - Audio file
 
-In this scenario audio will be played to a specific participant that is specified in the request.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
-``` csharp 
-var targetUser = new PhoneNumberIdentifier(<target>);
+``` csharp
+FileSource playSource = new FileSource (new Uri(<audioUri>));
+```
+
+## Play audio to all participants
+
+In this scenario audio is played to all participants on the call.
+
+``` csharp
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
-var fileSource = new FileSource(new Uri(<audioUri>));
-var playResponse = await callMedia.PlayAsync(fileSource, new PhoneNumberIdentifier[] { targetUser });
+var playResponse = await callMedia.PlayToAllAsync(playSource);
 Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 ```
 
-## Play audio - All participants
+## Play audio to a specific participant
 
-In this scenario audio will be played to all participants on the call. 
+In this scenario audio is played to a specific participant. 
 
-``` csharp 
+``` csharp
+var targetUser = new PhoneNumberIdentifier(<target>);
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
-var fileSource = new FileSource(new Uri(<audioUri>));
-var playResponse = await callMedia.PlayToAllAsync(fileSource);
+var playResponse = await callMedia.PlayAsync(playSource, new PhoneNumberIdentifier[] { targetUser });
 Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 ```
 
@@ -74,24 +80,23 @@ You can use the loop option to play hold music that loops until your application
 
 ``` csharp
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
-var fileSource = new FileSource(new Uri(<audioUri>));
 var playOptions = new PlayOptions()
 {
     Loop = true
 };
-var playResponse = await callMedia.PlayToAllAsync(fileSource, playOptions);
+var playResponse = await callMedia.PlayToAllAsync(playSource, playOptions);
 Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 ```
 
 ## Enhance play with audio file caching
 
-If you'll be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
+If you are playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files is not suitable for dynamic prompts. If you change the URL provided to ACS, it will not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` csharp
 var targetUser = new PhoneNumberIdentifier(<target>);
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var fileSource = new FileSource(new Uri(<audioUri>)) {
-    PlaySourceId = "<playSourceId>"
+    PlaySourceCacheId = "<playSourceId>"
 };
 var playResponse = await callMedia.PlayAsync(fileSource, new PhoneNumberIdentifier[] { targetUser });
 Assert.AreEqual(202, playResponse.Status) // The request was accepted.
@@ -101,37 +106,59 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 Your application will receive action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. Below is an example of a successful play event update.
 
-```json 
-[{
-    "id": "704a7a96-4d74-4ebe-9cd0-b7cc39c3d7b1",
-    "source": "calling/callConnections/<callConnectionId>/PlayCompleted",
-    "type": "Microsoft.Communication.PlayCompleted",
-    "data": {
-        "resultInfo": {
-            "code": 200,
-            "subCode": 0,
-            "message": "Action completed successfully."
-        },
-        "type": "playCompleted",
-        "callConnectionId": "<callConnectionId>",
-        "serverCallId": "<serverCallId>",
-        "correlationId": "<correlationId>"
-        },
-    "time": "2022-08-12T03:13:25.0252763+00:00",
-    "specversion": "1.0",
-    "datacontenttype": "application/json",
-    "subject": "calling/callConnections/<callConnectionId>/PlayCompleted"
-}]
+### Example of how you can deserialize the *PlayCompleted* event:
+
+``` csharp
+ if (@event is PlayCompleted { OperationContext: "PlayAudio" })
+        {
+            var playCompletedEvent = (PlayCompleted)@event;
+
+            if (ReasonCode.CompletedSuccessfully.Equals(playCompletedEvent.ReasonCode))
+            {
+                //Play audio succeeded, take action on success.
+                await callConnection.HangUpAsync(forEveryone: true);
+            }
+        }
+```
+
+### Example of how you can deserialize the *PlayFailed* event:
+
+``` csharp
+if (@event is PlayFailed { OperationContext: "PlayAudio" })
+        {
+            var playFailedEvent = (PlayFailed)@event;
+
+            if (ReasonCode.PlayDownloadFailed.Equals(playFailedEvent.ReasonCode) ||
+            ReasonCode.PlayInvalidFileFormat.Equals(playFailedEvent.ReasonCode))
+            {
+                //Play audio failed, Take some action on failed event.
+                logger.LogInformation($"PlayFailed event received for call connection id: {@event.CallConnectionId}");
+                await callConnection.HangUpAsync(forEveryone: true);
+            }
+        }
 ```
 
 To learn more about other supported events, visit the [Call Automation overview document](../../../concepts/call-automation/call-automation.md#call-automation-webhook-events).
 
 ## Cancel play action
 
-Cancel all media operations, all pending media operations will be canceled. This action will also cancel other queued play actions.
+Cancel all media operations, all pending media operations are canceled. This action also cancels other queued play actions.
 
 ```csharp
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var cancelResponse = await callMedia.CancelAllMediaOperations();
 Assert.AreEqual(202, cancelResponse.Status) // The request was accepted.
+```
+
+### Example of how you can deserialize the *PlayCanceled* event:
+
+``` csharp
+if (@event is PlayCanceled { OperationContext: "PlayAudio" })
+        {
+            var playFailedEvent = (PlayCanceled)@event;
+
+            logger.LogInformation($"PlayCanceled event received for call connection id: {@event.CallConnectionId}");
+            //Take action on recognize canceled operation
+            await callConnection.HangUpAsync(forEveryone: true);
+        }
 ```
