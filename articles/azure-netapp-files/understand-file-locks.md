@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.date: 06/12/2023
 ms.author: anfdocs
 ---
-# File locking 
+# Understand file locking and lock types in Azure NetApp Files
 
 In NAS environments, multiple clients access files in the same volume. The NAS volume isn't application aware, so to protect data against potential corruption when more than one client attempts to write to the same file at the same time, applications send lock requests to the NAS server to prevent other clients from making changes while the file is in use. With NFS, file locking mechanisms depend on the NFS version being used.  
 
