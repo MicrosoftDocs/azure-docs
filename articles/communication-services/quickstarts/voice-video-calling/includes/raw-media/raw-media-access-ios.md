@@ -376,7 +376,8 @@ Because the app generates the video frames, the app must inform the Azure Commun
     videoStreamFormat.resolution = VideoStreamResolution.p360
     videoStreamFormat.pixelFormat = VideoStreamPixelFormat.nv12
     videoStreamFormat.framesPerSecond = framerate
-    videoStreamFormat.stride1 = w * 4 /* It is times 4 because RGBA is a 32-bit format */
+    videoStreamFormat.stride1 = w // w is the resolution width
+    videoStreamFormat.stride2 = w / 2 // w is the resolution width
 
     var videoStreamFormats: [VideoStreamFormat] = [VideoStreamFormat]()
     videoStreamFormats.append(videoStreamFormat)
