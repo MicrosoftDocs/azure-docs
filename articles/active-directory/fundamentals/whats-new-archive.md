@@ -7713,25 +7713,6 @@ For more information, see [Enforce a Naming Policy for Office 365 groups](../ent
 
 ---
 
-### Azure AD Activity logs are now available in Azure Monitor (General availability)
-
-**Type:** New feature
-**Service category:** Reporting
-**Product capability:** Monitoring & Reporting
-
-To help address your feedback about visualizations with the Azure AD Activity logs, we're introducing a new Insights feature in Log Analytics. This feature helps you gain insights about your Azure AD resources by using our interactive templates, called Workbooks. These pre-built Workbooks can provide details for apps or users, and include:
-
-- **Sign-ins.** Provides details for apps and users, including sign-in location, the in-use operating system or browser client and version, and the number of successful or failed sign-ins.
-
-- **Legacy authentication and Conditional Access.** Provides details for apps and users using legacy authentication, including multifactor authentication usage triggered by Conditional Access policies, apps using Conditional Access policies, and so on.
-
-- **Sign-in failure analysis.** Helps you to determine if your sign-in errors are occurring due to a user action, policy issues, or your infrastructure.
-
-- **Custom reports.** You can create new, or edit existing Workbooks to help customize the Insights feature for your organization.
-
-For more information, see [How to use Azure Monitor workbooks for Azure Active Directory reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
-
----
 
 
 
