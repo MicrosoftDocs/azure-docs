@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Storage (classic) - Microsoft Defender for Cloud
 description: Learn about the benefits and features of Microsoft Defender for Storage (classic).
-ms.date: 03/16/2023
+ms.date: 06/15/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
@@ -85,37 +85,10 @@ Alerts include details of the incident that triggered them, and recommendations 
 
 - **Hash reputation analysis isn't supported for all files protocols and operation types** - Some, but not all, of the telemetry logs contain the hash value of the related blob or file. In some cases, the telemetry doesn't contain a hash value. As a result, some operations can't be monitored for known malware uploads. Examples of such unsupported use cases include SMB file-shares and when a blob is created using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list).
 
-## Common questions - Microsoft Defender for Storage (classic)
-
-- [Are there differences in features between the new Defender for Storage plan and the legacy Defender for Storage Classic plan?](#are-there-differences-in-features-between-the-new-defender-for-storage-plan-and-the-legacy-defender-for-storage-classic-plan)
-- [How do I estimate charges at the account level?](#how-do-i-estimate-charges-at-the-account-level)
-- [Can I exclude a specific Azure storage account from a protected subscription?](#can-i-exclude-a-specific-azure-storage-account-from-a-protected-subscription)
-- [Can I switch from the per-transaction pricing in Defender for Storage (classic) to the new Defender for Storage plan?](#can-i-switch-from-the-per-transaction-pricing-in-defender-for-storage-classic-to-the-new-defender-for-storage-plan)
-- [Can I exclude specific storage accounts from protection in the new Defender for Storage plan?](#can-i-exclude-specific-storage-accounts-from-protection-in-the-new-defender-for-storage-plan)
-
-### Are there differences in features between the new Defender for Storage plan and the legacy Defender for Storage Classic plan?
-
-Yes. The new Defender for Storage plan offers additional security capabilities, such as near real-time malware scanning and sensitive data threat detection. This plan also provides a more predictable pricing structure for better control over coverage and costs. Learn more about the [benefits of migrating to the new plan](defender-for-storage-classic-migrate.md).
-
-### How do I estimate charges at the account level? 
-
-To get an estimate of Defender for Storage classic costs, use the [Price Estimation Workbook](https://portal.azure.com/#blade/AppInsightsExtension/UsageNotebookBlade/ComponentId/Azure%20Security%20Center/ConfigurationId/community-Workbooks%2FAzure%20Security%20Center%2FPrice%20Estimation/Type/workbook/WorkbookTemplateName/Price%20Estimation) in the Azure portal. 
-
-### Can I exclude a specific Azure Storage account from a protected subscription? 
-
-Yes, you can [exclude specific storage accounts](defender-for-storage-classic-enable.md#exclude-a-storage-account-from-a-protected-subscription-in-the-per-transaction-plan) from protected subscriptions in Defender for Storage (classic).
-
-### Can I switch from the per-transaction pricing in Defender for Storage (classic) to the new Defender for Storage plan?
-
-Yes, you can move to the new Defender for Storage plan with per-storage account pricing through the Azure portal or other supported methods. This change isn't automatic, you'll need to actively make the switch. Learn about how to [migrate to the new Defender for Storage](defender-for-storage-classic-migrate.md).
-
-### Can I exclude specific storage accounts from protection in the new Defender for Storage plan?
-
-Yes, the new Defender for Storage plan with per-storage account pricing allows you to exclude and configure specific storage accounts within protected subscriptions. However, you'll need to set up the exclusion again after you migrate to the new plan. Learn about how to [migrate to the new Defender for Storage](defender-for-storage-classic-migrate.md).
-
 ## Next steps
 
 In this article, you learned about Microsoft Defender for Storage (classic).
 
-> [!div class="nextstepaction"]
-> [Enable Defender for Storage (classic)](defender-for-storage-classic-enable.md)
+
+- [Enable Defender for Storage (classic)](defender-for-storage-classic-enable.md)
+- Check out [common questions](faq-defender-for-storage-classic.yml) about Defender for Storage classic.

@@ -2,7 +2,7 @@
 title: Microsoft Defender for Storage - the benefits and features
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the benefits and features of Microsoft Defender for Storage.
-ms.date: 03/23/2023
+ms.date: 06/15/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
@@ -117,41 +117,9 @@ Defender for Storage offers two capabilities to detect malicious content uploade
 
 In summary, Malware Scanning, which is only available on the new plan for Blob storage, offers a more comprehensive approach to malware detection by analyzing the full content of files and incorporating hash reputation analysis in its scanning methodology.
 
-## Common questions
-
-### Is it possible to enable Defender for Storage on a resource level?
-
-Yes, it's possible to enable Defender for Storage at the resource level and set up Malware Scanning and Sensitivity Scanning accordingly. Keep in mind that enabling it at the subscription level is the recommended approach, as it will automatically protect all new storage accounts.
-
-### Can I exclude certain storage accounts from protection?
-
-Yes, you can exclude storage accounts from protection.
-
-### How long does it take for subscription-level enablement to take effect?
-
-Enabling Defender for Storage at the subscription level may take up to 24 hours to be fully enabled across all storage accounts.
-
-### Is there a difference in features between the new and Defender for Storage (classic)?
-
-Yes, there is a difference in the capabilities of the two plans. New and future security capabilities will only be available in the new Defender for Storage plan. If you want to access these new capabilities, you'll need to enable the new plan.
-
-### Will the Defender for Storage (classic) continue to be supported?
-
-The Defender for Storage (classic) will still continue to be supported for three years after the release of the new Defender for Storage to general availability (GA).
-
-### Can I switch back to the Defender for Storage (classic)?
-
-Yes, you can use the REST API to return to the Defender for Storage (classic) plan.
-
-If you want to switch back to the Defender for Storage (classic) plan, you need to do two things. First, disable the new Defender for Storage plan that is enabled now. Second, check if there are any policies that can re-enable the new plan and turn them off too. The two Azure built-in policies enabling the new plan are **Configure Microsoft Defender for Storage to be enabled** and **Configure basic Microsoft Defender for Storage to be enabled (Activity Monitoring only).**
-
-### How can I calculate the cost of each plan?
-
-To estimate the cost of Defender for Storage, we've provided a pricing estimation workbook and a PowerShell script that you can run in your environment.
-
 ## Next steps
 
 In this article, you learned about Microsoft Defender for Storage.
 
-> [!div class="nextstepaction"]
-> [Enable Defender for Storage](enable-enhanced-security.md)
+- [Enable Defender for Storage](enable-enhanced-security.md)
+- Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.
