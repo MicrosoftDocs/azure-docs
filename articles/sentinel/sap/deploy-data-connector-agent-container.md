@@ -11,7 +11,10 @@ ms.date: 01/18/2023
 
 This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel solution for SAP® applications.
 
-This article shows you how to deploy the container and create SAP systems via the UI. Alternatively, you can [deploy the data connector agent using other methods](deploy-data-connector-agent-container-other-methods.md): Managed identity, a registered application, a configuration file, or directly on the VM. 
+This article shows you how to deploy the container and create SAP systems via the UI. Alternatively, you can [deploy the data connector agent using other methods](deploy-data-connector-agent-container-other-methods.md): Managed identity, a registered application, a configuration file, or directly on the VM.
+
+> [!IMPORTANT]
+> Deploying the container and creating SAP systems via the UI is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 ## Deployment milestones
 
@@ -39,6 +42,10 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
    - [Configure audit log monitoring rules](configure-audit-log-rules.md)
    - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
    - [Select SAP ingestion profiles](select-ingestion-profiles.md)
+
+## Prerequisites
+
+To get started, **first [complete the sign-up form](https://aka.ms/SentinelSAPMultiSIDUX)** so that we can provision your subscription with access to the preview. We’ll send a confirmation email once your subscription is active.
 
 ## Data connector agent deployment overview
 
@@ -115,6 +122,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
     - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**.
         - If you select **Application Identity**, provide the [application ID and secret](../../active-directory/develop/howto-create-service-principal-portal.md).
+        - Learn more about [how to access the Key Vault](#data-connector-agent-deployment-overview).
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
