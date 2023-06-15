@@ -555,7 +555,7 @@
         - name: Akamai
           href: partner-akamai.md
         - name: Azure WAF
-          href: partner-azure-web-application-firewall.md
+          href: partner-web-application-firewall.md
         - name: Cloudflare
           href: partner-cloudflare.md
       - name: Fraud protection partners
@@ -640,7 +640,7 @@
       - name: Azure Monitor
         href: azure-monitor.md
       - name: Microsoft Sentinel
-        href: azure-sentinel.md
+        href: configure-security-analytics-sentinel.md
         displayName: log, logs, logging, events, Azure Monitor, Microsoft Sentinel, SIEM, threat hunting, Security, Security Orchestration
     - name: Troubleshooting
       items:
