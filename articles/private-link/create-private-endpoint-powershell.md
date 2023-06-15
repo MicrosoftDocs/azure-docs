@@ -53,6 +53,8 @@ $rg = @{
 New-AzResourceGroup @rg
 ```
 
+## Create a virtual network
+
 1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named **vnet-1** with IP address prefix **10.0.0.0/16** in the **test-rg** resource group and **eastus2** location.
 
     ```azurepowershell-interactive
