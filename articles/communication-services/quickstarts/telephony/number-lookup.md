@@ -50,6 +50,9 @@ cd NumberLookupQuickstart
 dotnet build
 ```
 
+### Connect to dev package feed
+The private preview version of the SDK is published to the dev nuget package feed. Directions for connecting to the dev feed can be found in the [contributing](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) guide.
+
 ### Install the package
 
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for .NET package by using the following command.
