@@ -161,7 +161,7 @@ Where the file *create-instance.yml* is:
 
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
-## Enable idle shutdown
+## Configure idle shutdown
 
 To avoid getting charged for a compute instance that is switched on but inactive, you can configure when to shut down your compute instance due to inactivity.
 
@@ -211,11 +211,11 @@ You cannot change the idle time of an existing compute instance with the CLI.
 * When creating a new compute instance:
 
     1. Select **Advanced** after completing required settings.  
-    1. Select **Enable idle shutdown**
+    1.  Select **Enable idle shutdown** to enable or disable.
 
         :::image type="content" source="media/how-to-create-compute-instance/enable-idle-shutdown.png" alt-text="Screenshot: Enable compute instance idle shutdown." lightbox="media/how-to-create-compute-instance/enable-idle-shutdown.png":::
-
-    1. Specify the shutdown period.
+ 
+    1. Specify the shutdown period when enabled.   
 
 * For an existing compute instance:
 
@@ -230,11 +230,11 @@ You cannot change the idle time of an existing compute instance with the CLI.
 * When creating a new compute instance:
 
     1. Select **Next** to advance to **Scheduling** after completing required settings.  
-    1. Select **Enable idle shutdown**
+    1. Select **Enable idle shutdown** to enable or disable.
 
         :::image type="content" source="media/how-to-create-compute-instance/enable-idle-shutdown-preview.png" alt-text="Screenshot: Enable compute instance idle shutdown." lightbox="media/how-to-create-compute-instance/enable-idle-shutdown-preview.png":::
 
-    1. Specify the shutdown period.
+    1. Specify the shutdown period when enabled.
 
 * For an existing compute instance:
 
