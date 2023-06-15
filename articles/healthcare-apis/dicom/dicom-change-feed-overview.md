@@ -23,12 +23,12 @@ Make sure to specify the version as part of the URL when making requests. More i
 
 ## API Design
 
-The API exposes two `GET` endpoints for interacting with the Change Feed. A typical flow for consuming the Change Feed is [provided below](#example-usage-flow).
+The API exposes two `GET` endpoints for interacting with the Change Feed. A typical flow for consuming the Change Feed is [provided below](#usage).
 
 Verb | Route              | Returns     | Description
 :--- | :----------------- | :---------- | :---
-GET  | /changefeed        | JSON Array  | [Read the Change Feed](#read-change-feed)
-GET  | /changefeed/latest | JSON Object | [Read the latest entry in the Change Feed](#get-latest-change-feed-item)
+GET  | /changefeed        | JSON Array  | [Read the Change Feed](#change-feed)
+GET  | /changefeed/latest | JSON Object | [Read the latest entry in the Change Feed](#latest-change-feed)
 
 ### Object model
 
