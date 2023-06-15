@@ -17,7 +17,7 @@ In this article, you learn how to see active maintenance events and how to creat
 
 ## View maintenance events
 
-If you're a partner who have Internet Peering or Peering Service resources in Azure, you receive notifications through the Azure Service Health page. In this section, you learn how to view active maintenance events in the Service Health page.
+If you're a partner who has Internet Peering or Peering Service resources in Azure, you receive notifications through the Azure Service Health page. In this section, you learn how to view active maintenance events in the Service Health page.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -31,7 +31,7 @@ If you're a partner who have Internet Peering or Peering Service resources in Az
 
     The summary tab gives you information about the affected resource by maintenance, such as the Azure subscription, region, and peering location.
 
-Once maintenance is completed, a status update will be sent. You'll be able to view and review the maintenance event in the **Health history** page after it's completed.
+Once maintenance is completed, a status update is sent. You'll be able to view and review the maintenance event in the **Health history** page after it's completed.
 
 :::image type="content" source="./media/walkthrough-device-maintenance-notification/health-history.png" alt-text="Screenshot shows how to view past maintenance events in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/health-history.png":::
 
@@ -46,7 +46,7 @@ Service Health supports forwarding rules, so you can set up your own alerts when
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/add-service-health-alert.png" alt-text="Screenshot shows how to add an alert.":::
 
-1. In the **Scope** tab, select the Azure subscription your Internet Peering or Peering Service is associated with. When a resource is affected by maintenance, the alert in Service Health is associated with the subscription ID that the resource is part of.
+1. In the **Scope** tab, select the Azure subscription your Internet Peering or Peering Service is associated with. When a maintenance event affects a resource, the alert in Service Health is associated with the Azure subscription ID of the resource.
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-alert-rule-scope.png" alt-text="Screenshot shows how to choose the Azure subscription of the resource.":::
 
@@ -102,7 +102,7 @@ Service Health supports forwarding rules, so you can set up your own alerts when
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/test-notifications.png" alt-text="Screenshot shows how to send test notifications.":::
 
-1. Select the **Details** tab, or select the **Next: Details** button. Enter or select the following information: your the subscription and resource group that you want to use for alert rule. and choose an alert rule name and description. Open Advanced options and enable the alert rule upon creation.
+1. Select the **Details** tab, or select the **Next: Details** button. Enter or select the following information:
 
     | Setting | Value |
     | --- | --- |
@@ -120,15 +120,15 @@ Service Health supports forwarding rules, so you can set up your own alerts when
 
 1. Review the settings, and then select **Create**. 
 
-Azure Peering Service notifications will be forwarded to you based on your alert rule whenever maintenance events start, and whenever they are resolved.
+Azure Peering Service notifications are forwarded to you based on your alert rule whenever maintenance events start, and whenever they're resolved.
 
 For more information on the notification platform of Service Health, see [Create activity log alerts on service notifications using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-## Legacy peerings
+## Receive notifications for legacy peerings
 
-Peering partners who have not onboarded their peerings as Azure resources don't have subscriptions associated with their peerings. This means they cannot receive notifications in Service Health. Instead, these partners will receive maintenance notifications via their NOC contact email. Partners with legacy peerings do not have to opt-in to receive these email notifications, they are sent automatically. Below is an example of a maintenance notification email.
+Peering partners who haven't onboarded their peerings as Azure resources can't receive notifications in Service Health as they don't have subscriptions associated with their peerings. Instead, these partners receive maintenance notifications via their NOC contact email. Partners with legacy peerings don't have to opt in to receive these email notifications, they're sent automatically. This is an example of a maintenance notification email:
 
-:::image type="content" source="./media/walkthrough-device-maintenance-notification/azure-peering-service-legacyPeeringMaintenanceEmail.png" alt-text="Screenshot shows an example of a legacy peering maintenance email.":::
+:::image type="content" source="./media/walkthrough-device-maintenance-notification/legacy-peering-maintenance-email.png" alt-text="Screenshot shows an example of a legacy peering maintenance email.":::
 
 ## Next steps
 
