@@ -7401,19 +7401,6 @@ For more information about these updates, see [Filter audit logs](../reports-mon
 
 ---
 
-## June 2019
-
-### New riskDetections API for Microsoft Graph (Public preview)
-
-**Type:** New feature
-**Service category:** Identity Protection
-**Product capability:** Identity Security & Protection
-
-We're pleased to announce the new riskDetections API for Microsoft Graph is now in public preview. You can use this new API to view a list of your organization's Identity Protection-related user and sign-in risk detections. You can also use this API to more efficiently query your risk detections, including details about the detection type, status, level, and more.
-
-For more information, see the [Risk detection API reference documentation](/graph/api/resources/riskdetection).
-
----
 
 
 
