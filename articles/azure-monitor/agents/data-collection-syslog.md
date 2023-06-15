@@ -1,6 +1,6 @@
 ---
-title: Collect Syslog with Azure Monitor Agent 
-description: Configure collection of Syslog logs by using a data collection rule on virtual machines with Azure Monitor Agent.
+title: Collect Syslog events with Azure Monitor Agent 
+description: Configure collection of Syslog events by using a data collection rule on virtual machines with Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 05/10/2023
 author: narinem
@@ -8,7 +8,7 @@ ms.author: narinem
 ms.reviewer: glinuxagent
 ---
 
-# Collect Syslog with Azure Monitor Agent overview
+# Collect Syslog events with Azure Monitor Agent
 
 Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon that's built in to Linux devices and appliances to collect local events of the types you specify. Then you can have it send those events to a Log Analytics workspace. Applications send messages that might be stored on the local machine or delivered to a Syslog collector.
 
@@ -70,7 +70,7 @@ Create a *data collection rule* in the same region as your Log Analytics workspa
 1. Select **Apply**.
 1. Select **Next: Collect and deliver**.
 
-#### Add data source
+#### Add a data source
 
 1. Select **Add data source**.
 1. For **Data source type**, select **Linux syslog**.
@@ -79,7 +79,7 @@ Create a *data collection rule* in the same region as your Log Analytics workspa
 1. For **Minimum log level**, leave the default values **LOG_DEBUG**.
 1. Select **Next: Destination**.
 
-#### Add destination
+#### Add a destination
 
 1. Select **Add destination**.
 
