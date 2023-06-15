@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 04/28/2023
+ms.date: 06/15/2023
 ms.author: jasteppe
 ---
 
@@ -14,13 +14,13 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, we explore using the MedTech service and Microsoft Power Business Intelligence (BI).
+In this article, we explore using the MedTech service and Microsoft Power Business Intelligence (Power BI).
 
 ## The MedTech service and Power BI reference architecture
 
 This reference architecture shows the basic components of using the Microsoft cloud services to enable Power BI on top of Internet of Things (IoT) and FHIR data.
 
-You can even embed Power BI dashboards inside the Microsoft Teams client to further enhance care team coordination. For more information on embedding Power BI in Teams, visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
+You can even embed Power BI dashboards inside the Microsoft Teams client to further enhance care team coordination. For more information on embedding Power BI in Teams, see [Embed Power BI content in Microsoft Teams](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
 :::image type="content" source="media/concepts-power-bi/iot-connector-power-bi.png" alt-text="Screenshot of the MedTech service and Power BI." lightbox="media/concepts-power-bi/iot-connector-power-bi.png":::
 
