@@ -21,8 +21,6 @@ as per their needs. All background maintenance operations will be allowed to exe
 >[!NOTE]
 >This feature is in Preview right now and should not be used in Production deployments
 
-![Overview of MaintenanceControl in SFMC][overviewimage]
-
 **Requirements:**
 * Maintenance window configuration needs to be defined only for the Service Fabric managed cluster resource
 * The minimum supported window size is 5 hours
@@ -136,5 +134,3 @@ After the maintenance configuration is created, it has to be attached to the SFM
 >Known Issues:
 >* There should be atmost one maintenance config resource assigned to a Service Fabric managed cluster. There is work underway to prevent assignment of more than one maintenance config. Until then, users are expected to not do multiple config assignments for the same cluster.
 >* Deleting just the maintenance config resource will not disable MaintenanceControl. To disable MaintenanceControl, you have to specifically delete the configAssignment for the cluster first, before deleting the maintenance config resource.
-
-[overviewimage]: ./media/maintenance-control-sfmc/overview.png
