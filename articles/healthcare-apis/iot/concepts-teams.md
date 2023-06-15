@@ -47,4 +47,14 @@ For an overview of the MedTech service, see
 > [!div class="nextstepaction"]
 > [What is the MedTech service?](overview.md)
 
+To learn about the MedTech service device message data transformation, see
+
+> [!div class="nextstepaction"]
+> [Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+To learn about methods for deploying the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -29,7 +29,7 @@ The four line colors show the different parts of the data journey.
 
 :::image type="content" source="media/concepts-machine-learning/iot-connector-machine-learning.png" alt-text="Screenshot of the MedTech service and Machine Learning Service reference architecture." lightbox="media/concepts-machine-learning/iot-connector-machine-learning.png":::
 
-**Data ingest – Steps 1 through 5**
+## Data ingest – Steps one through five
 
 1. Data from IoT device or via device gateway sent to Azure IoT Hub/Azure IoT Edge.
 2. Data from Azure IoT Edge sent to Azure IoT Hub.
@@ -40,7 +40,7 @@ The four line colors show the different parts of the data journey.
    2. The FHIR service sends Patient resource back to the MedTech service. 
    3. IoT Patient Observation is record in the FHIR service.
 
-**Machine Learning and AI Data Route – Steps 6 through 11**
+## Machine Learning and AI Data Route – Steps six through 11
 
 6. Normalized ungrouped data stream sent to an Azure Function (ML Input).
 7. Azure Function (ML Input) requests Patient resource to merge with IoT payload.
@@ -50,7 +50,7 @@ The four line colors show the different parts of the data journey.
 11. The Azure Databricks requests more patient data from data lake as needed.
     1. Azure Databricks also sends a copy of the scored data to the data lake.
 
-**Notification and Care Coordination – Steps 12 - 18**
+## Notification and Care Coordination – Steps 12 - 18
 
 **Hot path**
 
@@ -73,5 +73,15 @@ For an overview of the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [What is the MedTech service?](overview.md)
+
+To learn about the MedTech service device message data transformation, see
+
+> [!div class="nextstepaction"]
+> [Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+To learn about methods for deploying the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
