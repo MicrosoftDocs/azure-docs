@@ -57,7 +57,7 @@ We do not support or charge stopped clusters. To get the value of agentless capa
 
 We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then re-lock the resource group/subscription/cluster by doing the following: 
 
-1. Enable the feature flag manually via CLI: 
+1.  Enable the feature flag manually via CLI by using [Trusted Access](https://learn.microsoft.com/azure/aks/trusted-access-feature).
 
 
     ``` CLI 
@@ -66,9 +66,7 @@ We suggest that you unlock the locked resource group/subscription/cluster, make 
 
     ``` 
 
-    Learn more about [Trusted Access](/azure/aks/trusted-access-feature).
-
-1. Perform the bind operation in the CLI: 
+2. Perform the bind operation in the CLI: 
 
     ``` CLI 
 
