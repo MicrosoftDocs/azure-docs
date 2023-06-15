@@ -17,7 +17,8 @@ In this article, you learn about Azure regions that support enabling [traffic an
 
 ## Supported regions: network security groups 
 
-You can use traffic analytics for network security groups in any of the following supported regions:
+You can enable traffic analytics for NSG flow logs for network security groups that exist in any of the following Azure regions:
+
 :::row:::
    :::column span="":::
       Australia Central  
@@ -78,7 +79,8 @@ You can use traffic analytics for network security groups in any of the followin
 
 ## Supported regions: Log Analytics workspaces
 
-The Log Analytics workspace must exist in any of the following regions:
+The Log Analytics workspace that you use for traffic analytics must exist in one of the following Azure regions:
+
 :::row:::
    :::column span="":::
       Australia Central  
@@ -138,7 +140,7 @@ The Log Analytics workspace must exist in any of the following regions:
 :::row-end:::
 
 > [!NOTE]
-> If a network security group is supported for flow logging in a region, but the Log Analytics workspace does not support that region for traffic analytics, then you can use a Log Analytics workspace from any other supported region as a workaround.
+> If a network security group is supported for flow logging in a region, but Log Analytics workspace isn't supported in that region for traffic analytics, you can use a Log Analytics workspace from any other supported region as a workaround.
 
 ## Next steps
 
