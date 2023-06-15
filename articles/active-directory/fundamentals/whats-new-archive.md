@@ -7537,25 +7537,6 @@ For more information about how to better secure your organization through automa
 
 ---
 
-### Identity secure score is now available in Azure AD (General availability)
-
-**Type:** New feature
-**Service category:** N/A
-**Product capability:** Identity Security & Protection
-
-You can now monitor and improve your identity security posture by using the identity secure score feature in Azure AD. The identity secure score feature uses a single dashboard to help you:
-
-- Objectively measure your identity security posture, based on a score between 1 and 223.
-
-- Plan for your identity security improvements
-
-- Review the success of your security improvements
-
-For more information about the identity security score feature, see [What is the identity secure score in Azure Active Directory?](./identity-secure-score.md).
-
----
-
-
 
 
 
