@@ -27,9 +27,9 @@ Blue/green deployment is a software release strategy that aims to minimize downt
 
 1. Rollback or Cleanup: If problems occur in the green environment, you can revert the traffic switch, routing traffic back to the stable blue environment. This rollback ensures minimal impact on users in case of issues. After resolving any issues in the green environment, it can be cleaned up, ready for future deployments.
 
-In the context of Azure Container Apps the blue/green deployment release approach is enabled via [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md) and [revision labels](revisions.md#revision-labels). 
+In the context of Azure Container Apps the blue/green deployment release approach is enabled by using [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md) and [revision labels](revisions.md#revision-labels). 
 
-This article shows you how to configure traffic splitting rules for your container app. To run the following examples, you need a container app environment.
+This article shows you how to configure traffic splitting rules for your container app. To run the following examples, you need a container app environment in which you can create a new app.
 
 ## Create a container app with multiple active revisions enabled
 
@@ -42,9 +42,11 @@ export APP_NAME=<APP_NAME>
 export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
 export RESOURCE_GROUP=<RESOURCE_GROUP>
 
-# add 'sha1' prefix to the commit as the revision suffix cannot start with number
-export BLUE_COMMIT_ID=sha10b699ef # this is the commitId that corresponds to the app code currently in production.
-export GREEN_COMMIT_ID=sha1c6f1515 # this the commitId that corresponds to the new version of the app code to be deployed
+# A random commitId that is assumed to belong to the app code currently in production
+export BLUE_COMMIT_ID=sha10b699ef
+# A random commitId that is assumed to belong to the new version of the code to be deployed
+export GREEN_COMMIT_ID=sha1c6f1515
+# Note: 'sha1' prefix added to the commit hash as the revision suffix cannot start with number
 
 # create a new app with a new revision
 az containerapp create --name $APP_NAME \
@@ -92,12 +94,15 @@ param appName string
 param containerAppsEnvironmentName string
 
 @minLength(1)
-@maxLength(7)
-@description('Short commitId of a version to deploy')
+@maxLength(64)
+@description('CommitId of a version to deploy')
 param commitId string
 
 @description('Name of the blue revision that takes production traffic')
 param blueRevisonName string = ''
+
+@description('Name of the green revision that that is used for testing new versions')
+param greenRevisonName string = ''
 
 @minValue(0)
 @maxValue(100)
@@ -113,7 +118,6 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
   location: location  
   properties: {
     environmentId: containerAppsEnvironment.id
-    workloadProfileName: 'Consumption'
     configuration: {
       activeRevisionsMode: 'multiple' // Multiple active revisions mode is required when using traffic weights
       ingress: {
@@ -125,11 +129,15 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
             label: 'blue'
             weight: 100 - greenRevisionWeight
           }
-          {
+          !empty(greenRevisonName) ? {
+            revisionName: greenRevisonName
+            label: 'green'
+            weight: greenRevisionWeight
+          } : {
             revisionName: '${appName}--${commitId}'
             label: 'green'
             weight: greenRevisionWeight
-          }          
+          }
         ] : [
           {
             latestRevision: true // This block is used when an app is created for the first time
@@ -150,7 +158,7 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
           }
           env: [
             {
-              name: 'REVISION_COMMIT_ID'
+              name: 'BuildVersion'
               value: commitId
             }
           ]
@@ -171,9 +179,11 @@ export APP_NAME=<APP_NAME>
 export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
 export RESOURCE_GROUP=<RESOURCE_GROUP>
 
-# add 'sha1' prefix to the commit as the revision suffix cannot start with number
-export BLUE_COMMIT_ID=sha10b699ef # this is the commitId that corresponds to the app code currently in production.
-export GREEN_COMMIT_ID=sha1c6f1515 # this the commitId that corresponds to the new version of the app code to be deployed
+# A random commitId that is assumed to belong to the app code currently in production
+export BLUE_COMMIT_ID=sha10b699ef
+# A random commitId that is assumed to belong to the new version of the code to be deployed
+export GREEN_COMMIT_ID=sha1c6f1515
+# Note: 'sha1' prefix added to the commit hash as the revision suffix cannot start with number
 
 az deployment group create \
     --name create-app-$BLUE_COMMIT_ID \
@@ -242,8 +252,18 @@ After running those commands the traffic section of the app will look as below. 
 
 The newly deployed revision can be tested by using the label-specific FQND:
 
-```bash
-curl https://$APP_NAME---green.thankfulstone-f55032c7.westus.azurecontainerapps.io/api/env
+```azurecli
+# get the containerapp environment default domain
+export APP_DOMAIN=$(az containerapp env show -g $RESOURCE_GROUP -n $APP_ENVIRONMENT_NAME --query properties.defaultDomain -o tsv | tr -d '\r\n')
+
+# Test the production FQDN
+curl https://$APP_NAME.$APP_DOMAIN/api/env | jq
+
+# Test the blue lable FQDN
+curl https://$APP_NAME---blue.$APP_DOMAIN/api/env | jq
+
+# Test the green lable FQDN
+curl https://$APP_NAME---green.$APP_DOMAIN/api/env | jq
 ```
 
 # Send a percentage of production traffic to the green revision
@@ -347,7 +367,7 @@ After running that command the traffic section of the app will look as below. Th
 }
 ```
 
-# Roooback the deployment in case of problems
+# Rollback the deployment in case of problems
 
 If after the swap and running in production the new revision found to have bugs then the app can be rolled back to the previous good state by swapping the labels again:
 
@@ -374,3 +394,8 @@ az deployment group create \
 ```
 
 ::: zone end
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [GitHub Actions](github-actions.md)
