@@ -81,7 +81,7 @@ In this step, you'll create the Mobile Network resource representing your privat
 
 ## Modify a private mobile network
 
-You can change the public land mobile network (PLMN), comprising a Mobile Country Code (MCC) and Mobile Network Code (MNC), using the **Modify mobile network** button on the **Mobile Network** resource.
+You can change the public land mobile network (PLMN) identifier, comprising a Mobile Country Code (MCC) and Mobile Network Code (MNC), using the **Modify mobile network** button on the **Mobile Network** resource.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network.
