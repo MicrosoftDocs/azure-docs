@@ -138,7 +138,6 @@ sections:
           Currently, scanning occurs at build time.  
 
 
-
       - question: |
           Is it possible to block the developers committing code with exposed secrets? 
         answer: |
@@ -159,7 +158,6 @@ sections:
           - Python
           - JavaScript
           - TypeScript
-
 
 
       - question: |
@@ -187,6 +185,36 @@ sections:
           We don’t support automatic migration for the Defender for DevOps connectors from one region to another at this time.
 
           If you want to move a connector’s location, for example a GitHub or Azure DevOps connector, to be stored in a different region than the original one where the connector was created, the recommendation is to delete the existing connector and then to create another connector in the new region.
+
+     
+      - question: |
+          Do API calls made by Defender for Cloud count against my consumption limit?
+        answer: |
+          Yes, API calls made by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits). Defender for Cloud makes calls on-behalf of the user who onboards the connector.
+
+        
+      - question: |
+          Why is my organization list empty in the UI?
+        answer: |
+          If your organization list is empty in the UI after you onboarded an Azure DevOps connector, you need to ensure that the organization in Azure DevOps is connected to the Azure tenant that has the user who authenticated the connector.
+
+          For information on how to correct this issue, check out the [DevOps trouble shooting guide](troubleshooting-guide.md#troubleshoot-azure-devops-organization-connector-issues).
+
+
+      - question: |
+          I have a large Azure DevOps organization with many repositories. Can I still onboard?
+        answer: |
+          Yes, there is no limit to how many Azure DevOps repositories you can onboard to Defender for DevOps.  
+
+          However, there are two main implications when onboarding large organizations – speed and throttling. The speed of discovery for your DevOps repositories is determined by the number of projects for each connector (approximately 100 projects per hour). Throttling can happen because Azure DevOps API calls have a [global rate limit](/azure/devops/integrate/concepts/rate-limits) and we limit the calls for project discovery to use a small portion of overall quota limits.
+
+          Consider using an alternative Azure DevOps identity (i.e., an Organization Administrator account used as a service account) to avoid individual accounts from being throttled when onboarding large organizations. Below are some scenarios of when to use an alternate identity to onboard a Defender for DevOps connector:
+
+          - Large number of Azure DevOps Organizations and Projects (~500 Projects or more).
+          - Large number of concurrent builds which peak during work hours.
+          - Authorized user is a [Power Platform](/power-platform/) user making additional Azure DevOps API calls, using up the global rate limit quotas.
+
+          Once you have onboarded the Azure DevOps repositories using this account and [configured and ran the Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension) in your CI/CD pipeline, then the scanning results will appear near instantaneously in Microsoft Defender for Cloud.
 
 
 additionalContent: |

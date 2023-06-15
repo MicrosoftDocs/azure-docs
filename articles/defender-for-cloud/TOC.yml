@@ -25,6 +25,13 @@
       href: faq-vms.yml
     - name: Common questions about Defender for APIs
       href: faq-defender-for-apis.yml
+    - name: Common questions about regulatory compliance
+      displayName: regulatory, compliance, regulatory compliance, common questions
+      href: faq-regulatory-compliance.yml
+    - name: Common questions how to
+      href: faq-how-to.yml
+    - name: Common questions concepts
+      href: faq-concepts.yml
 - name: Quickstarts
   items:
   - name: 1. Enable Defender for Cloud on your subscriptions

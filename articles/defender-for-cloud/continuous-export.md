@@ -258,43 +258,6 @@ To download a CSV report for alerts or recommendations, open the **Security aler
 > [!NOTE]
 > These reports contain alerts and recommendations for resources from the currently selected subscriptions.
 
-## FAQ - Continuous export
-
-### What are the costs involved in exporting data?
-
-There's no cost for enabling a continuous export. Costs might be incurred for ingestion and retention of data in your Log Analytics workspace, depending on your configuration there.
-
-Many alerts are only provided when you've enabled Defender plans for your resources. A good way to preview the alerts you'll get in your exported data is to see the alerts shown in Defender for Cloud's pages in the Azure portal.
-
-Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
-Learn more about [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
-
-For general information about Defender for Cloud pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
-
-### Does the export include data about the current state of all resources?
-
-No. Continuous export is built for streaming of **events**:
-
-- **Alerts** received before you enabled export won't be exported.
-- **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
-- **Secure score** per security control or subscription is sent when a security control's score changes by 0.01 or more.
-- **Regulatory compliance status** is sent when the status of the resource's compliance changes.
-
-### Why are recommendations sent at different intervals?
-
-Different recommendations have different compliance evaluation intervals, which can range from every few minutes to every few days. So, the amount of time that it takes for recommendations to appear in your exports varies.
-
-### Does continuous export support any business continuity or disaster recovery (BCDR) scenarios?
-
-Continuous export can be helpful in to prepare for BCDR scenarios where the target resource is experiencing an outage or other disaster. However, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic App.
-
-Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
-
-### What is the minimum SAS policy permissions required when exporting data to Azure Event Hubs?
-
-**Send** is the minimum SAS policy permissions required. For step-by-step instructions, see **Step 1. Create an Event Hubs namespace and event hub with send permissions** in [this article](./export-to-splunk-or-qradar.md#step-1-create-an-event-hubs-namespace-and-event-hub-with-send-permissions).
-
 ## Next steps
 
 In this article, you learned how to configure continuous exports of your recommendations and alerts. You also learned how to download your alerts data as a CSV file.
@@ -306,3 +269,4 @@ For related material, see the following documentation:
 - [Microsoft Sentinel documentation](../sentinel/index.yml)
 - [Azure Monitor documentation](../azure-monitor/index.yml)
 - [Export data types schemas](https://aka.ms/ASCAutomationSchemas)
+- Check out [common questions](faq-how-to.yml) about continuous export.
