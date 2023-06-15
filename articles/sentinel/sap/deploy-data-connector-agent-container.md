@@ -45,7 +45,117 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 ## Prerequisites
 
+### Fill in the sign-up form
+
 To get started, **first [complete the sign-up form](https://aka.ms/SentinelSAPMultiSIDUX)** so that we can provision your subscription with access to the preview. We’ll send a confirmation email once your subscription is active.
+
+### Set up managed identity or registered application
+
+Set up a [managed identity](#managed-identity) or a [registered application](#registered-application). For more information on these options, see the [overview section](#data-connector-agent-deployment-overview).
+
+#### Managed identity
+
+1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
+
+1. Run the following command to **Create a VM** in Azure (substitute actual names for the `<placeholders>`):
+
+    ```azurecli
+    az vm create --resource-group <resource group name> --name <VM Name> --image Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest --admin-username <azureuser> --public-ip-address "" --size  Standard_D2as_v5 --generate-ssh-keys --assign-identity --role <role name> --scope <subscription Id>
+
+    ```
+
+    For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](../../virtual-machines/linux/quick-create-cli.md).
+
+    > [!IMPORTANT]
+    > After the VM is created, be sure to apply any security requirements and hardening procedures applicable in your organization.
+    >
+
+    The command above will create the VM resource, producing output that looks like this:
+
+    ```json
+    {
+      "fqdns": "",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.Compute/virtualMachines/vmname",
+      "identity": {
+        "systemAssignedIdentity": "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+        "userAssignedIdentities": {}
+      },
+      "location": "westeurope",
+      "macAddress": "00-11-22-33-44-55",
+      "powerState": "VM running",
+      "privateIpAddress": "192.168.136.5",
+      "publicIpAddress": "",
+      "resourceGroup": "resourcegroupname",
+      "zones": ""
+    }
+    ```
+
+1. Copy the **systemAssignedIdentity** GUID, as it will be used in the coming steps.
+   
+1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`). If you'll be using an existing key vault, ignore this step:
+
+    ```azurecli
+    az keyvault create \
+      --name <KeyVaultName> \
+      --resource-group <KeyVaultResourceGroupName>
+    ```    
+
+1. Copy the name of the (newly created or existing) key vault and the name of its resource group. You'll need these when you run the deployment script in the coming steps.
+
+1. Run the following command to **assign a key vault access policy** to the VM's system-assigned identity that you copied above (substitute actual names for the `<placeholders>`):
+
+    ```azurecli
+    az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <VM system-assigned identity> --secret-permissions get list set
+    ```
+
+    This policy will allow the VM to list, read, and write secrets from/to the key vault.
+
+#### Registered application
+
+1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
+
+1. Run the following command to **create and register an application**:
+
+    ```azurecli
+    az ad sp create-for-rbac
+    ```
+
+    The command above will create the application, producing output that looks like this:
+
+    ```json
+    {
+      "appId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "displayName": "azure-cli-2022-01-28-17-59-06",
+      "password": "ssssssssssssssssssssssssssssssssss",
+      "tenant": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
+    }
+    ```
+
+1. Copy the **appId**, **tenant**, and **password** from the output. You'll need these for assigning the key vault access policy and running the deployment script in the coming steps.
+
+1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`). If you'll be using an existing key vault, ignore this step :
+
+    ```azurecli
+    az keyvault create \
+      --name <KeyVaultName> \
+      --resource-group <KeyVaultResourceGroupName>
+    ```
+
+1. Copy the name of the (newly created or existing) key vault and the name of its resource group. You'll need these for assigning the key vault access policy and running the deployment script in the coming steps.
+
+1. Run the following command to **assign a key vault access policy** to the registered application ID that you copied above (substitute actual names or values for the `<placeholders>`):
+
+    ```azurecli
+    az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <appId> --secret-permissions get list set
+    ```
+
+    For example:
+
+    ```azurecli
+    az keyvault set-policy -n sentinelkeyvault -g sentinelresourcegroup --application-id aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --secret-permissions get list set
+    ```
+
+    This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
 ## Data connector agent deployment overview
 
@@ -120,9 +230,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
        
     Learn more about [deploying the connector over a SNC connection](configure-snc.md).
 
-    - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**.
-        - If you select **Application Identity**, provide the [application ID and secret](../../active-directory/develop/howto-create-service-principal-portal.md).
-        - Learn more about [how to access the Key Vault](#data-connector-agent-deployment-overview).
+    - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**. You set up the managed identity or registered application (application identity) in the [prerequisites](#set-up-managed-identity-or-registered-application).
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
