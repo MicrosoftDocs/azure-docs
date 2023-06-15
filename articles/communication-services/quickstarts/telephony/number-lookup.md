@@ -51,7 +51,13 @@ dotnet build
 ```
 
 ### Connect to dev package feed
-The private preview version of the SDK is published to the dev NuGet package feed. Directions for connecting to the dev feed can be found in the [contributing](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) guide.
+The private preview version of the SDK is published to a dev package feed. You can add the dev feed using the [NuGet CLI](https://docs.microsoft.com/nuget/reference/nuget-exe-cli-reference), which will add it to the NuGet.Config file.
+
+```console
+nuget sources add -Name "Azure SDK for .NET Dev Feed" -Source "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json"
+```
+
+More detailed information and other options for connecting to the dev feed can be found in the [contributing guide](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
 
 ### Install the package
 
