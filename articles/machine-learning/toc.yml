@@ -115,6 +115,8 @@
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Environments
+    href: concept-environments.md
   - name: Manage environments in studio
     items:
       - name: Create and manage files
@@ -144,6 +146,9 @@
   - name: Compute instance
     displayName: resource, dsvm, Data Science Virtual Machine
     href: concept-compute-instance.md
+  - name: Compute target
+    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+    href: concept-compute-target.md
   - name: Manage resources VS Code
     href: how-to-manage-resources-vscode.md
   - name: Work with MLflow
@@ -634,7 +639,7 @@
     displayName: mlops, mlopspython, production
     href: ./v1/how-to-convert-ml-experiment-to-production.md
   # end v1
-- name: Deploy with inferencing
+- name: Deploy with inftyerencing
   items:
     - name: Online endpoints (real-time)
       items:
@@ -876,6 +881,23 @@
           href: tutorial-create-secure-workspace.md
         - name: "Tutorial: Create a secure workspace with templates"
           href: tutorial-create-secure-workspace-template.md
+    - name: Security overview
+      items:
+        - name: Enterprise security overview
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
+        - name: Secured workspace traffic flow
+          href: concept-secure-network-traffic-flow.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
+        - name: Data encryption
+          href: concept-data-encryption.md
+        - name: Customer-managed keys
+          href: concept-customer-managed-keys.md
+        - name: Vulnerability management
+          href: concept-vulnerability-management.md
     - name: Identity & access management
       items:
         - name: Set up authentication
@@ -1075,32 +1097,6 @@
     - name: Audit and manage
       displayName: policy
       href: how-to-integrate-azure-policy.md
-- name: Concepts
-  items:
-    - name: Workspace & compute resources
-      items:
-        - name: Environments
-          href: concept-environments.md
-        - name: Compute target
-          displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-          href: concept-compute-target.md
-    - name: Security
-      items:
-        - name: Enterprise security overview
-          displayName: authorization authentication encryption aad azure active directory
-          href: concept-enterprise-security.md
-        - name: Secured workspace traffic flow
-          href: concept-secure-network-traffic-flow.md
-        - name: Security baseline
-          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
-        - name: Security controls by Azure Policy
-          href: ./security-controls-policy.md
-        - name: Data encryption
-          href: concept-data-encryption.md
-        - name: Customer-managed keys
-          href: concept-customer-managed-keys.md
-        - name: Vulnerability management
-          href: concept-vulnerability-management.md
 - name: How-to guides
   items:
     - name: Understand resources and assets
