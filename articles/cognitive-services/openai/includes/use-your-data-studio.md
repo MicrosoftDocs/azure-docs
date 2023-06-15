@@ -64,25 +64,8 @@ Azure OpenAI also performs content moderation on the prompt inputs and generated
 
 In the chat playground you can also view Python and curl code samples prefilled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
 
-## Deploy a web app
 
-> [!TIP]
-> You can also deploy and use a web app with the default Azure OpenAI models (without using your data).
-
-Once you're satisfied with the experience in the Studio, you can deploy a web app directly from the 
-Studio by selecting the **Deploy to** button. 
-
-:::image type="content" source="../media/quickstarts/chatgpt-playground-publish-web-app.png" alt-text="A screenshot showing the button to publish a web app in Azure AI studio." lightbox="../media/quickstarts/chatgpt-playground-publish-web-app.png":::
-
-The first time you deploy a web app, you should select **Create a new web app**. Choose a name for the app, which will 
-become part of the app URL. For example, `https://<appname>.azurewebsites.net`. 
-
-Select your subscription, resource group, location, and pricing plan for the published app. To 
-update an existing app, select **Publish to an existing web app** and choose the name of your previous 
-app from the dropdown menu.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue with the web app.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Create-sample-app)
+[!INCLUDE [deploy-web-app](deploy-web-app.md)]
 
 
 ### Important considerations
