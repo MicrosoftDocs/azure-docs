@@ -71,33 +71,67 @@ Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a lis
 
 1. To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
 
+    # [Bash](#tab/bash)
     ```bash
     az login
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az login
+    ```
+
+    ---
+
 1. Ensure you're running the latest version of the CLI via the `upgrade` command.
 
+    # [Bash](#tab/bash)
     ```bash
     az upgrade
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az upgrade
+    ```
+
+    ---
+
 1. Install the latest version of the Azure Container Apps CLI extension.
 
+    # [Bash](#tab/bash)
     ```bash
     az extension add --name containerapp --upgrade
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az extension add --name containerapp --upgrade
+    ```
+
+    ---
+
 1. Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
+    # [Bash](#tab/bash)
     ```bash
     az provider register --namespace Microsoft.App
     az provider register --namespace Microsoft.OperationalInsights
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az provider register --namespace Microsoft.App
+    az provider register --namespace Microsoft.OperationalInsights
+    ```
+
+    ---
+
 1. Define the environment variables that are used throughout this article.
 
     ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
+    # [Bash](#tab/bash)
     ```bash
     RESOURCE_GROUP="jobs-sample"
     LOCATION="northcentralus"
@@ -105,10 +139,21 @@ Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a lis
     JOB_NAME="github-actions-runner-job"
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    $RESOURCE_GROUP="jobs-sample"
+    $LOCATION="northcentralus"
+    $ENVIRONMENT="env-jobs-sample"
+    $JOB_NAME="github-actions-runner-job"
+    ```
+
+    ---
+
     ::: zone-end
 
     ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
 
+    # [Bash](#tab/bash)
     ```bash
     RESOURCE_GROUP="jobs-sample"
     LOCATION="northcentralus"
@@ -116,6 +161,17 @@ Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a lis
     JOB_NAME="azure-pipelines-agent-job"
     PLACEHOLDER_JOB_NAME="placeholder-agent-job"
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    $RESOURCE_GROUP="jobs-sample"
+    $LOCATION="northcentralus"
+    $ENVIRONMENT="env-jobs-sample"
+    $JOB_NAME="azure-pipelines-agent-job"
+    $PLACEHOLDER_JOB_NAME="placeholder-agent-job"
+    ```
+
+    ---
 
     ::: zone-end
 
