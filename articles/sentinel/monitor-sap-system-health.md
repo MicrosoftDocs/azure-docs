@@ -31,6 +31,8 @@ This article describes how to use the following features, which allow you to per
 
 Learn how to [add new SAP systems](sap/deploy-data-connector-agent-container.md).
 
+### System health status and details
+
 |Field  |Description  |Values  |Notes  |
 |---------|---------|---------|---------|
 |SID     |The name of the connected SAP system ID (SID).  |         |         |
