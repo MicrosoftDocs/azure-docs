@@ -512,7 +512,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --location eastus
    ```
 
-1. Accept the legal terms and privacy statements for the Enterprise tier. Note: This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
+1. Use the following commands to accept the legal terms and privacy statements for the Enterprise plan. This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
 
    ```azurecli-interactive
    az provider register --namespace Microsoft.SaaS
