@@ -356,7 +356,7 @@ Platform metrics are sent automatically to Azure Monitor Metrics by default and 
 - 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
-- Sources: The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.
+- **Sources**. The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.
 - **Destinations**: One or more destinations to send to.
 
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), create multiple settings. Each resource can have up to five diagnostic settings.
