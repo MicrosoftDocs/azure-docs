@@ -245,8 +245,8 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 
 # [Azure CLI](#tab/azurecli)
 
-This example creates a maintenance configuration named *myConfig* scoped to guest machines (VMs and Arc enabled servers) with a scheduled window of 2 hours every 20 days. To learn more about this maintenance configurations on guest VMs see [Guest](maintenance-configurations.md#guest).
-
+This example creates a maintenance configuration named *myConfig* scoped to guest machines (VMs and Arc enabled servers) with a scheduled window of 2 hours every 20 days. To learn more about this maintenance configurations on guest VMs see [Guest](../virtual-machines/maintenance-configurations.md#guest).
+ 
 ```azurecli-interactive
 az maintenance configuration create \
    --resource-group myMaintenanceRG \
