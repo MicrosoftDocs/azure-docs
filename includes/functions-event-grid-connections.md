@@ -24,7 +24,7 @@ In this mode, the extension requires the following properties:
 
 | Property           | Environment variable template                | Description         | Example value |
 |--------------------|----------------------------------------------|---------------------|---------------|
-| Topic Endpoint URI | `<CONNECTION_NAME_PREFIX>__topicEndpointUri` | The topic endpoint. | https://<topic-name>.centralus-1.eventgrid.azure.net/api/events  |
+| Topic Endpoint URI | `<CONNECTION_NAME_PREFIX>__topicEndpointUri` | The topic endpoint. | https://\<topic-name\>.centralus-1.eventgrid.azure.net/api/events  |
 
 Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
 > [!NOTE]
