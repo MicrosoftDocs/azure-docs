@@ -38,16 +38,37 @@ To enable traffic splitting the app has to have the `configuration.activeRevisio
 ::: zone pivot="azure-cli"
 
 ```azurecli
-commitId=0b699ef
-az containerapp create --name <APP_NAME> \
-  --environment <APP_ENVIRONMENT_NAME> \ 
-  --resource-group <RESOURCE_GROUP> \
+export APP_NAME=<APP_NAME>
+export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
+export RESOURCE_GROUP=<RESOURCE_GROUP>
+
+# add 'sha1' prefix to the commit as the revision suffix cannot start with number
+export BLUE_COMMIT_ID=sha10b699ef # this is the commitId that corresponds to the app code currently in production.
+export GREEN_COMMIT_ID=sha1c6f1515 # this the commitId that corresponds to the new version of the app code to be deployed
+
+# create a new app with a new revision
+az containerapp create --name $APP_NAME \
+  --environment $APP_ENVIRONMENT_NAME \
+  --resource-group $RESOURCE_GROUP \
   --image k8seteste2e.azurecr.io/e2e-apps/test-app:latest \
-  --revision-suffix $commitId \ # set revision suffix
-  --env-vars REVISION_COMMIT_ID=$commitId \ # save commitId in an env variable
+  --revision-suffix $BLUE_COMMIT_ID \
+  --env-vars REVISION_COMMIT_ID=$BLUE_COMMIT_ID \
   --ingress external \
   --target-port 80 \
-  --revisions-mode multiple # set revision mode to 'multiple'
+  --revisions-mode multiple
+
+# Fix 100% of traffic to the revision
+az containerapp ingress traffic set \
+  --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --revision-weight $APP_NAME--$BLUE_COMMIT_ID=100
+
+# give that revision a label 'blue'
+az containerapp revision label add \
+  --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --label blue \
+  --revision $APP_NAME--$BLUE_COMMIT_ID
 ```
 
 ::: zone end
@@ -146,14 +167,210 @@ output latestRevisionName string = blueGreenDeploymentApp.properties.latestRevis
 Deploy the app with the bicep template using this command:
 
 ```azurecli
-commitId=0b699ef
+export APP_NAME=<APP_NAME>
+export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
+export RESOURCE_GROUP=<RESOURCE_GROUP>
+
+# add 'sha1' prefix to the commit as the revision suffix cannot start with number
+export BLUE_COMMIT_ID=sha10b699ef # this is the commitId that corresponds to the app code currently in production.
+export GREEN_COMMIT_ID=sha1c6f1515 # this the commitId that corresponds to the new version of the app code to be deployed
+
 az deployment group create \
-    -n <DEPLOYMENT_NAME> \
-    -g <RESOURCE_GROUP> \
-    -f main.bicep \
-    -p appName=<APP-NAME> commitId=$commitId containerAppsEnvironmentName=<APP_ENVIRONMENT_NAME> \
-    --query properties.outputs.latestRevisionName
+    --name create-app-$BLUE_COMMIT_ID \
+    --resource-group $RESOURCE_GROUP \
+    --template-file main.bicep \
+    --parameters appName=$APP_NAME commitId=$BLUE_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --query properties.outputs.fqdn
 ```
 
-:::
+::: zone end
 
+## Deploy a new revision and assign labels
+
+For the purposes of this article the `blue` label will refer to a production deployment, which is a revision that takes the production traffic arriving on the apps FQDN. The `green` label will refer to a new version of an app that is about to be rolled out into production. It is identified by a new commit id. The following command will deploy a new revision for that commit id and mark it with `green` label.
+
+::: zone pivot="azure-cli"
+
+```azurecli
+# create a second revision for green commitId
+az containerapp update --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --image k8seteste2e.azurecr.io/e2e-apps/test-app:latest \
+  --revision-suffix $GREEN_COMMIT_ID  \
+  --set-env-vars REVISION_COMMIT_ID=$GREEN_COMMIT_ID
+
+# give that revision a 'green' label
+az containerapp revision label add \
+  --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --label green \
+  --revision $APP_NAME--$GREEN_COMMIT_ID
+```
+::: zone end
+
+::: zone pivot="bicep"
+
+```azurecli
+az deployment group create \
+    --name create-revision-$GREEN_COMMIT_ID \
+    --resource-group $RESOURCE_GROUP \
+    --template-file main.bicep \
+    --parameters appName=$APP_NAME commitId=$GREEN_COMMIT_ID blueRevisonName=$APP_NAME--$BLUE_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --query properties.outputs.fqdn
+```
+
+::: zone end
+
+After running those commands the traffic section of the app will look as below. The revision with the `blue` commitId is taking 100% of production traffic while the newly deployed revision with `green` commitId does not take any production traffic.
+
+```json
+{ 
+  "traffic": [
+    {
+      "revisionName": "<APP_NAME>--sha10b699ef",
+      "weight": 100,
+      "label": "blue"
+    },
+    {
+      "revisionName": "<APP_NAME>--sha1c6f1515",
+      "weight": 0,
+      "label": "green"
+    }
+  ]
+}
+```
+
+The newly deployed revision can be tested by using the label-specific FQND:
+
+```bash
+curl https://$APP_NAME---green.thankfulstone-f55032c7.westus.azurecontainerapps.io/api/env
+```
+
+# Send a percentage of production traffic to the green revision
+
+After testing the newly deployed revosopm via label-specific FQDN the next step is to send some percentage of production traffic to that revision.
+
+::: zone pivot="azure-cli"
+
+```azurecli
+az containerapp ingress traffic set \
+  --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --label-weight blue=80 green=20
+```
+
+::: zone end
+
+::: zone pivot="bicep"
+
+```azurecli
+az deployment group create \
+    --name set-traffic-$GREEN_COMMIT_ID \
+    --resource-group $RESOURCE_GROUP \
+    --template-file main.bicep \
+    --parameters appName=$APP_NAME commitId=$GREEN_COMMIT_ID blueRevisonName=$APP_NAME--$BLUE_COMMIT_ID greenRevisionWeight=20 containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --query properties.outputs.fqdn
+```
+
+::: zone end
+
+After running that command the traffic section of the app will look as below.
+
+```json
+{ 
+  "traffic": [
+    {
+      "revisionName": "<APP_NAME>--sha10b699ef",
+      "weight": 80,
+      "label": "blue"
+    },
+    {
+      "revisionName": "<APP_NAME>--sha1c6f1515",
+      "weight": 20,
+      "label": "green"
+    }
+  ]
+}
+```
+
+## Swap the labels to send all production traffic to the new revision
+
+After confirming that the app code in the revision labelled `green` works as expected we are ready to swap the labels to make this revision `blue` and send 100% of production traffic to it.
+
+::: zone pivot="azure-cli"
+
+```azurecli
+# set 100% of traffic back to the blue label
+az containerapp ingress traffic set \
+  --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --label-weight blue=100 green=0
+
+# swap revision labels
+az containerapp revision label swap \
+  --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --source green --target blue
+```
+
+::: zone end
+
+::: zone pivot="bicep"
+
+```azurecli
+az deployment group create \
+    --name swap-labels-$GREEN_COMMIT_ID \
+    --resource-group $RESOURCE_GROUP \
+    --template-file main.bicep \
+    --parameters appName=$APP_NAME commitId=$GREEN_COMMIT_ID blueRevisonName=$APP_NAME--$GREEN_COMMIT_ID greenRevisonName=$APP_NAME--$BLUE_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --query properties.outputs.fqdn
+```
+
+::: zone end
+
+After running that command the traffic section of the app will look as below. The revision that was marked with `green` label is now marked as `blue` and is taking 100% of production traffic.
+
+```json
+{ 
+  "traffic": [
+    {
+      "revisionName": "<APP_NAME>--sha1c6f1515",
+      "weight": 100,
+      "label": "blue"
+    },
+    {
+      "revisionName": "<APP_NAME>--sha10b699ef",
+      "weight": 0,
+      "label": "green"
+    }
+  ]
+}
+```
+
+# Roooback the deployment in case of problems
+
+If after the swap and running in production the new revision found to have bugs then the app can be rolled back to the previous good state by swapping the labels again:
+
+::: zone pivot="azure-cli"
+
+```azurecli
+az containerapp revision label swap \
+  --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --source blue --target green
+```
+
+::: zone end
+
+::: zone pivot="bicep"
+
+```azurecli
+az deployment group create \
+    --name rollback-$BLUE_COMMIT_ID \
+    --resource-group $RESOURCE_GROUP \
+    --template-file main.bicep \
+    --parameters appName=$APP_NAME commitId=$GREEN_COMMIT_ID blueRevisonName=$APP_NAME--$BLUE_COMMIT_ID greenRevisonName=$APP_NAME--$GREEN_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --query properties.outputs.fqdn
+```
+
+::: zone end
