@@ -41,6 +41,9 @@ Initialize a connection to Application Insights:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
+> [!TIP]
+> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [reactPlugin],`.
+
 ```javascript
 import React from 'react';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -48,12 +51,22 @@ import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-reac
 import { createBrowserHistory } from "history";
 const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
+// Add the Click Analytics plug-in.
+/* var clickPluginInstance = new ClickAnalyticsPlugin();
+   var clickPluginConfig = {
+     autoCapture: true
+}; */
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        // If you're adding the Click Analytics plug-in, delete the next line.
         extensions: [reactPlugin],
+     // Add the Click Analytics plug-in.
+     // extensions: [reactPlugin, clickPluginInstance],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
+       // Add the Click Analytics plug-in.
+       // [clickPluginInstance.identifier]: clickPluginConfig
         }
     }
 });
@@ -271,6 +284,9 @@ If a custom `PageView` duration isn't provided, `PageView` duration defaults to 
 
 Check out the [Application Insights React demo](https://github.com/microsoft/applicationinsights-react-js/tree/main/sample/applicationinsights-react-sample).
 
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+
 ## [React Native](#tab/reactnative)
 
 ### React Native plugin for Application Insights JavaScript SDK
@@ -305,15 +321,29 @@ To use this plugin, you need to construct the plugin and add it as an `extension
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
+> [!TIP]
+> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [RNPlugin]`.
+
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
 
 var RNPlugin = new ReactNativePlugin();
+// Add the Click Analytics plug-in.
+/* var clickPluginInstance = new ClickAnalyticsPlugin();
+var clickPluginConfig = {
+  autoCapture: true
+}; */
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        // If you're adding the Click Analytics plug-in, delete the next line.
         extensions: [RNPlugin]
+     // Add the Click Analytics plug-in.
+     /* extensions: [RNPlugin, clickPluginInstance],
+             extensionConfig: {
+                 [clickPluginInstance.identifier]: clickPluginConfig
+          } */
     }
 });
 appInsights.loadAppInsights();
@@ -401,7 +431,10 @@ JavaScript correlation is turned off by default in order to minimize the telemet
 
 #### PageView
 
-If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0. 
+If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0.
+
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
  
 ## [Angular](#tab/angular)
@@ -437,6 +470,9 @@ Set up an instance of Application Insights in the entry component in your app:
 > [!IMPORTANT]
 > When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
 
+> [!TIP]
+> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [angularPlugin],`.
+
 ```js
 import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -453,13 +489,25 @@ export class AppComponent {
         private router: Router
     ){
         var angularPlugin = new AngularPlugin();
-        const appInsights = new ApplicationInsights({ config: {
-        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        extensions: [angularPlugin],
-        extensionConfig: {
-            [angularPlugin.identifier]: { router: this.router }
-        }
-        } });
+     // Add the Click Analytics plug-in.
+     /* var clickPluginInstance = new ClickAnalyticsPlugin();
+        var clickPluginConfig = {
+          autoCapture: true
+        }; */
+        const appInsights = new ApplicationInsights({
+            config: {
+                connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+                // If you're adding the Click Analytics plug-in, delete the next line.        
+                extensions: [angularPlugin],
+             // Add the Click Analytics plug-in.
+             // extensions: [angularPlugin, clickPluginInstance],
+                extensionConfig: {
+                    [angularPlugin.identifier]: { router: this.router }
+                 // Add the Click Analytics plug-in.
+                 // [clickPluginInstance.identifier]: clickPluginConfig
+                }
+            } 
+         });
         appInsights.loadAppInsights();
     }
 }
@@ -525,6 +573,9 @@ The Angular Plugin automatically tracks route changes and collects other Angular
 #### PageView
 
 If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0. 
+
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
 ---
 
