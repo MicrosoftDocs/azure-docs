@@ -38,7 +38,7 @@ For the list of authentication parsers Microsoft Sentinel provides refer to the 
 When implementing custom parsers for the Authentication information model, name your KQL functions using the following syntax:
 
 - `vimAuthentication<vendor><Product>` for filtering parsers
-- `ASiAuthentication<vendor><Product>` for parameter-less parsers
+- `ASimAuthentication<vendor><Product>` for parameter-less parsers
 
 For information on adding your custom parsers to the unifying parser, refer to [Managing ASIM parsers](normalization-manage-parsers.md).
 
