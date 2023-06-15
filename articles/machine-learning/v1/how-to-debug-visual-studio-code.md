@@ -507,7 +507,7 @@ Local web service deployments require a working Docker installation on your loca
 
     This command attaches your `score.py` locally to the one in the container. Therefore, any changes made in the editor are automatically reflected in the container
 
-2. For a better experience, you can go into the container with a new VS code interface. Select the `Docker` extention from the VS Code side bar, find your local container created, in this documentation its `debug:1`. Right-click this container and select `"Attach Visual Studio Code"`, then a new VS Code interface will be opened automatically, and this interface shows the inside of your created container.
+2. For a better experience, you can go into the container with a new VS Code interface. Select the `Docker` extention from the VS Code side bar, find your local container created, in this documentation its `debug:1`. Right-click this container and select `"Attach Visual Studio Code"`, then a new VS Code interface will be opened automatically, and this interface shows the inside of your created container.
 
     ![The container VS Code interface](../media/how-to-troubleshoot-deployment/container-interface.png)
 
