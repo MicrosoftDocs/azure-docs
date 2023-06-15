@@ -277,7 +277,7 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
             "parameters": {
                 "endpoint": "'YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT'",
                 "key": "'YOUR_AZURE_COGNITIVE_SEARCH_KEY'",
-                "indexName": "'YOUR_AZURE_COGNITIVE_SEARCH_INDEX_NAME    '"
+                "indexName": "'YOUR_AZURE_COGNITIVE_SEARCH_INDEX_NAME'"
             }
         }
     ],
@@ -329,7 +329,7 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 | `stop` | string or array | Optional | null | Up to 2 sequences where the API will stop generating further tokens. |
 | `max_tokens` | integer | Optional | 1000 | 	The maximum number of tokens allowed for the generated answer. By default, the number of tokens the model can return will be `4096 - prompt tokens`.  |
 
-The following parameters can be used inside of the `parameters` field inside of `datasources`.
+The following parameters can be used inside of the `parameters` field inside of `dataSources`.
 
 |  Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
