@@ -14,22 +14,21 @@ ms.date: 06/02/2023
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 The intelligent tuning feature of Azure Database for PostgreSQL - Flexible Server is designed to enhance overall
-performance automatically and help prevent possible issues. It continuously monitors the database instance's overall
-status and performance and automatically optimizes the workload's performance.
+performance automatically and help prevent problems. It continuously monitors the database instance's overall
+status and performance, and it automatically optimizes the workload's performance.
 
-The Azure Database for PostgreSQL - Flexible Server is equipped with an inherent intelligence mechanism that can
-dynamically adapt the database to your workload, thereby automatically enhancing performance. This feature comprises two
-automatic tuning functionalities:
+Azure Database for PostgreSQL - Flexible Server has an intelligence mechanism that can
+dynamically adapt the database to your workload to enhance performance. This feature comprises two
+automatic tuning functions:
 
 * **Autovacuum tuning**: This function diligently tracks the bloat ratio and adjusts autovacuum settings accordingly. It
-  factors in both current and predicted resource usage to ensure your workload isn't disrupted.
-* **Writes tuning**: This feature persistently monitors the volume and patterns of write operations, modifying
+  factors in both current and predicted resource usage to prevent workload disruptions.
+* **Writes tuning**: This function monitors the volume and patterns of write operations, and it modifies
   parameters that affect write performance. These parameters
-  include `bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`. The primary aim of these
-  adjustments is to enhance both system performance and reliability, thereby proactively averting potential
+  include `bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`. These adjustments enhance both system performance and reliability, to proactively avert potential
   complications.
 
-Learn how to enable intelligent tuning using [Azure portal](how-to-enable-intelligent-performance-portal.md) or [CLI](how-to-enable-intelligent-performance-cli.md).
+Learn how to enable intelligent tuning by using the [Azure portal](how-to-enable-intelligent-performance-portal.md) or the [Azure CLI](how-to-enable-intelligent-performance-cli.md).
 
 ## Why intelligent tuning?
 
