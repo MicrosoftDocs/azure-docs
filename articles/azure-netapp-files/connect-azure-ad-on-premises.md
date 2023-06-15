@@ -55,8 +55,8 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 1. Provide values for: 
     * `$servicePrincipalName`: The SPN details from mounting the Azure NetApp Files volume. Use the CIFS/FQDN format. 
     * `$targetApplicationID`: Application ID of the Azure AD application 
-    * `domainCred`: On-premises Active Directory administrator credentials 
-    * `cloudCred`: Azure AD credentials with global administrator privilege from a fully qualified domain name.
+    * `$domainCred`: On-premises Active Directory administrator credentials 
+    * `$cloudCred`: Azure AD credentials with global administrator privilege from a fully qualified domain name.
     For example: 
 
     ```powershell
