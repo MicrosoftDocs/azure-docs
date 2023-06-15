@@ -296,7 +296,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
-:::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance.":::
+:::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
 Use the following command to specify the app name on Azure Spring Apps as `hellospring`:
 
@@ -517,9 +517,9 @@ Use the following steps to create an Azure Spring Apps service instance.
    ```azurecli-interactive
    az provider register --namespace Microsoft.SaaS
    az term accept \ 
-      --publisher vmware-inc \ 
-      --product azure-spring-cloud-vmware-tanzu-2 \ 
-      --plan asa-ent-hr-mtr
+       --publisher vmware-inc \ 
+       --product azure-spring-cloud-vmware-tanzu-2 \ 
+       --plan asa-ent-hr-mtr
    ```
 
 1. Use the following command to create an Azure Spring Apps service instance:
@@ -535,7 +535,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
-:::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance.":::
+:::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
 Use the following command to specify the app name on Azure Spring Apps as `hellospring`:
 
