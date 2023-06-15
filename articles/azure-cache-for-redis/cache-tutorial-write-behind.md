@@ -82,7 +82,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
     public static class RedisSamples
     {
         public const string cacheAddress = "<YourRedisConnectionString>";
-        public const string SQLAddress = "<YourSQLConnectionString>;
+        public const string SQLAddress = "<YourSQLConnectionString>";
 
         [FunctionName("KeyeventTrigger")]
         public static void KeyeventTrigger(
