@@ -7401,89 +7401,11 @@ For more information about these updates, see [Filter audit logs](../reports-mon
 
 ---
 
-## June 2019
 
-### New riskDetections API for Microsoft Graph (Public preview)
 
-**Type:** New feature
-**Service category:** Identity Protection
-**Product capability:** Identity Security & Protection
 
-We're pleased to announce the new riskDetections API for Microsoft Graph is now in public preview. You can use this new API to view a list of your organization's Identity Protection-related user and sign-in risk detections. You can also use this API to more efficiently query your risk detections, including details about the detection type, status, level, and more.
 
-For more information, see the [Risk detection API reference documentation](/graph/api/resources/riskdetection).
 
----
-
-### New Federated Apps available in Azure AD app gallery - June 2019
-
-**Type:** New feature 
-**Service category:** Enterprise Apps
-**Product capability:** 3rd Party Integration
-
-In June 2019, we've added these 22 new apps with Federation support to the app gallery:
-
-[Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Azure VPN Client](https://portal.azure.com/), [ExpenseIn](../saas-apps/expensein-tutorial.md), [Helper Helper](../saas-apps/helper-helper-tutorial.md), [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne](../saas-apps/globalone-tutorial.md), [Mercedes-Benz In-Car Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-tutorial.md), [CyberArk SAML Authentication](../saas-apps/cyberark-saml-authentication-tutorial.md), [Scrible Edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](../saas-apps/pandadoc-tutorial.md), [Vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager for Oracle Retail Merchandising, Oracle Access Manager for Oracle E-Business Suite, Oracle IDCS for E-Business Suite, Oracle IDCS for PeopleSoft, Oracle IDCS for JD Edwards
-
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md).
-
----
-
-### Automate user account provisioning for these newly supported SaaS apps
-
-**Type:** New feature 
-**Service category:** Enterprise Apps
-**Product capability:** Monitoring & Reporting
-
-You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
-
-- [Zoom](../saas-apps/zoom-provisioning-tutorial.md)
-
-- [Envoy](../saas-apps/envoy-provisioning-tutorial.md)
-
-- [Proxyclick](../saas-apps/proxyclick-provisioning-tutorial.md)
-
-- [4me](../saas-apps/4me-provisioning-tutorial.md)
-
-For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md)
-
----
-
-### View the real-time progress of the Azure AD provisioning service
-
-**Type:** Changed feature
-**Service category:** App Provisioning
-**Product capability:** Identity Lifecycle Management
-
-We've updated the Azure AD provisioning experience to include a new progress bar that shows you how far you are in the user provisioning process. This updated experience also provides information about the number of users provisioned during the current cycle, as well as how many users have been provisioned to date.
-
-For more information, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md).
-
----
-
-### Company branding now appears on sign out and error screens
-
-**Type:** Changed feature
-**Service category:** Authentications (Logins)
-**Product capability:** User Authentication
-
-We've updated Azure AD so that your company branding now appears on the sign out and error screens, as well as the sign-in page. You don't have to do anything to turn on this feature, Azure AD simply uses the assets you've already set up in the **Company branding** area of the Azure portal.
-
-For more information about setting up your company branding, see [Add branding to your organization's Azure Active Directory pages](./customize-branding.md).
-
----
-
-### Azure Active Directory Multi-Factor Authentication (MFA) Server is no longer available for new deployments
-
-**Type:** Deprecated
-**Service category:** MFA
-**Product capability:** Identity Security & Protection
-
-As of July 1, 2019, Microsoft will no longer offer multifactor authentication (MFA) Server for new deployments. New customers who want to require multifactor authentication in their organization must now use cloud-based Azure AD Multi-Factor Authentication. Customers who activated multifactor authentication (MFA) Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
-
-For more information, see [Getting started with the Azure Active Directory Multi-Factor Authentication Server](../authentication/howto-mfaserver-deploy.md). For more information about cloud-based Azure AD Multi-Factor Authentication, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
-
----
 
 
 
