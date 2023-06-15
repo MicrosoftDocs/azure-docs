@@ -8,7 +8,7 @@ ms.date: 06/15/2023
 
 # Bicep CLI commands
 
-This article describes the commands you can use in the Bicep CLI. You have two options for executing these commands: either by utilizing Azure CLI or by directly invoking Bicep CLI commands. Each method requires a distinct installation process. For more information, see [Install Azure CLI](./install.md/azure-cli) and [Install Azure PowerShell](./install.md#azure-powershell).
+This article describes the commands you can use in the Bicep CLI. You have two options for executing these commands: either by utilizing Azure CLI or by directly invoking Bicep CLI commands. Each method requires a distinct installation process. For more information, see [Install Azure CLI](./install.md#azure-cli) and [Install Azure PowerShell](./install.md#azure-powershell).
 
 This article shows how to run the commands in Azure CLI. When running through Azure CLI, you start the commands with `az`. If you're not using Azure CLI, run the commands without `az` at the start of the command. For example, `az bicep build` becomes `bicep build`, and `az bicep version` becomes `bicep --version`.
 
