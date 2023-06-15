@@ -25,6 +25,8 @@ impact on your secure score.
 
 [!INCLUDE [asc-recs-aws-container](../../includes/mdfc/mdfc-recs-aws-container.md)]
 
+All the data plane recommendations listed [here](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections), are supported under AWS after [enabling the azure policy add-on](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections#enable-kubernetes-data-plane-hardening). 
+
 ## <a name='recs-aws-data'></a> AWS Data recommendations
 
 [!INCLUDE [asc-recs-aws-data](../../includes/mdfc/mdfc-recs-aws-data.md)]
@@ -36,10 +38,6 @@ impact on your secure score.
 ## <a name='recs-aws-networking'></a> AWS Networking recommendations
 
 [!INCLUDE [asc-recs-aws-networking](../../includes/mdfc/mdfc-recs-aws-networking.md)]
-
-## Data plane recommendations
-
-All the data plane recommendations listed [here](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections), are supported under AWS after [enabling the azure policy add-on](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections#enable-kubernetes-data-plane-hardening). 
 
 ## Next steps
 
