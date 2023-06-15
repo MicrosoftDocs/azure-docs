@@ -27,6 +27,7 @@ These Events are triggered when a DICOM image is created or deleted by calling t
  |----------|-----------|
  |**DicomImageCreated** |The event emitted after a DICOM image is created successfully.|
  |**DicomImageDeleted** |The event emitted after a DICOM image is deleted successfully.|
+ |**DicomImageUpdated** |The event emitted after a DICOM image is updated successfully.|
 
 ## Example events
 This section contains examples of what Azure Health Data Services Events message data would look like for each FHIR Observation and DICOM image event.
