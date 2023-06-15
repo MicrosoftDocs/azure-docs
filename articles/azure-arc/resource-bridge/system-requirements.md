@@ -63,7 +63,7 @@ The appliance VM has the following requirements:
 - Static IP assigned (strongly recommended), used for the `k8snodeippoolstart` in configuration command. This IP address should only be used for the appliance VM and not in-use anywhere else on the network. (If using DHCP, then the address must be reserved.)
 - Appliance VM IP address must be from within the IP address prefix provided during configuration creation command.
 - Ability to reach a DNS server that can resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses, container registry names, and other [required URLs](network-requirements.md#outbound-connectivity).
-- If using a proxy, the proxy server configuration is provided when running the `createconfig` command, which is used to create the configuration files of the appliance VM. The proxy should allow internet access on the appliance VM to connect to [required URLs](network-requirements.md#outbound-connectivity) needed for deployment, such as the URL to download OS images.
+- If using a proxy, the proxy server configuration is provided when creating the configuration files for Arc resource bridge. The proxy should allow internet access on the appliance VM to connect to [required URLs](network-requirements.md#outbound-connectivity) needed for deployment, such as the URL to download OS images. The proxy server has to also be reachable from IPs within the IP prefix, including the appliance VM IP. 
 
 ## Reserved appliance VM IP requirements
 
@@ -76,7 +76,9 @@ The reserved appliance VM IP has the following requirements:
 - Internet access.
 - Connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy and firewall.
 - Static IP assigned, used for the `k8snodeippoolend` in configuration command. (If using DHCP, then the address must be reserved.)
-- Ability to reach a DNS server that can resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses, container registry names, and other [required URLs](network-requirements.md#outbound-connectivity).
+- - Ability to reach a DNS server that can resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses, container registry names, and other [required URLs](network-requirements.md#outbound-connectivity).
+
+- If using a proxy, the proxy server has to also be reachable from IPs within the IP prefix, including the reserved appliance VM IP. 
 
 ## Control plane IP requirements
 
@@ -86,7 +88,9 @@ The control plane IP has the following requirements:
 
 - Open communication with the management machine.
 - The control plane needs to be able to resolve the management machine and vice versa.
-- Static IP address assigned; the IP should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. If you're using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid) and installing resource bridge, then the control plane IP for the resource bridge can't be used by the AKS hybrid cluster. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
+- - Static IP address assigned; the IP should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. If you're using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid) and installing resource bridge, then the control plane IP for the resource bridge can't be used by the AKS hybrid cluster. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
+
+- If using a proxy, the proxy server has to also be reachable from IPs within the IP prefix, including the reserved appliance VM IP. 
 
 ## User account and credentials
 
@@ -127,6 +131,7 @@ When deploying Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the
 - Understand [network requirements for Azure Arc resource bridge (preview)](network-requirements.md).
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
 
 
 

@@ -11,7 +11,7 @@ ms.date: 06/02/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: mode-other, build-2023, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
+ms.custom: mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-translator
 ---
 
@@ -21,8 +21,10 @@ Document Translation is a cloud-based feature of the [Azure Translator](../../tr
 
 ## Prerequisites
 
-> [!NOTE]
+> [!IMPORTANT]
 >
+> * Java and JavaScript Document Translation SDKs are currently available in **public preview**. Features, approaches and processes may change, prior to the general availability (GA) release, based on user feedback.
+> * C# and Python SDKs are general availability (GA) releases ready for use in your production applications
 > * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 >
 > * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
@@ -108,64 +110,38 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 
 For this project, you need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart. The source language is English.
 
-## HTTP request
-
-A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
-
-For detailed information regarding Azure Translator Service request limits, *see* [**Document Translation request limits**](../../request-limits.md#document-translation).
-
-### Headers
-
-The following headers are included with each Document Translation API request:
-
-|HTTP header|Description|
-|---|--|
-|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure key for your Translator or Cognitive Services resource.|
-|Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
-
-### POST request body
-
-* The POST request body is a JSON object named `inputs`.
-* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
-* The `prefix` and `suffix` are case-sensitive strings to filter documents in the source path for translation. The `prefix` field is often used to delineate subfolders for translation. The `suffix` field is most often used for file extensions.
-* A value for the  `glossaries`  field (optional) is applied when the document is being translated.
-* The `targetUrl` for each target language must be unique.
-
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# programming](includes/csharp.md)]
+[!INCLUDE [C# programming](includes/rest-api/csharp.md)]
 ::: zone-end
 
 :::zone pivot="programming-language-go"
 
-[!INCLUDE [Go programming](includes/go.md)]
+[!INCLUDE [Go programming](includes/rest-api/go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java programming](includes/java.md)]
+[!INCLUDE [Java programming](includes/rest-api/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS programming](includes/javascript.md)]
+[!INCLUDE [NodeJS programming](includes/rest-api/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python programming](includes/python.md)]
+[!INCLUDE [Python programming](includes/rest-api/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [REST API](includes/rest-api.md)]
+[!INCLUDE [REST API](includes/rest-api/rest-api.md)]
 ::: zone-end
 
 That's it, congratulations! In this quickstart, you used Document Translation to translate a document while preserving it's original structure and data format.
 
 ## Next steps
 
-Learn more about Document Translation:
 
-> [!div class="nextstepaction"]
->[Document Translation REST API guide](../reference/rest-api-guide.md) </br></br>[Language support](../../language-support.md)
