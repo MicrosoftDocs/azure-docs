@@ -73,7 +73,7 @@ Use the following steps configure an alert.
 
    :::image type="content" source="media/alerts-action-groups/alerts-rules-page.png" alt-text="Screenshot of the Azure portal showing the Alert rules page with the Create button highlighted." lightbox="media/alerts-action-groups/alerts-rules-page.png":::
 
-1. On the **Create an alert rule** page and on the **Condition**  tab, you select a signal to trigger the alert rule. Select **See all signals**. On the **Select a signal** pane, select **App CPU Usage** and then select **Apply**.
+1. On the **Create an alert rule** page on the **Condition**  tab, you must select a signal to trigger the alert rule. Select **See all signals**. On the **Select a signal** pane, select **CPU Usage** and then select **Apply**.
 
    :::image type="content" source="media/alerts-action-groups/create-alert-rule.png" alt-text="Screenshot of the Azure portal showing the Create an Alert rule page with the select a signal pane open and App CPU Usage highlighted." lightbox="media/alerts-action-groups/create-alert-rule.png":::
 
@@ -88,7 +88,7 @@ Use the following steps configure an alert.
    :::image type="content" source="media/alerts-action-groups/select-action-group.png" alt-text="Screenshot of the Azure portal showing the Select an action group to attach to this alert rule pane with an Action group name highlighted." lightbox="media/alerts-action-groups/select-action-group.png":::
 
 1. Select **Select**.
-1. Select the **Details** tab and then set the **Severity** and make any other needed changes.
+1. Select the **Details** tab and set **Severity** and make any other needed changes.
 
    :::image type="content" source="media/alerts-action-groups/create-rule-details.png" alt-text="Screenshot of the Azure portal showing the Create rule page with Severity in Alert Details highlighted." lightbox="media/alerts-action-groups/create-rule-details.png":::
 
