@@ -25,7 +25,9 @@ impact on your secure score.
 
 [!INCLUDE [asc-recs-gcp-container](../../includes/mdfc/mdfc-recs-gcp-container.md)]
 
-All the data plane recommendations listed [here](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections), are supported under GCP after [enabling the azure policy add-on](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections#enable-kubernetes-data-plane-hardening). 
+### Data plane recommendations
+
+All the data plane recommendations listed [here](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections) are supported under GCP after [enabling the azure policy add-on](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections#enable-kubernetes-data-plane-hardening). 
 
 
 ## <a name='recs-gcp-data'></a> GCP Data recommendations
