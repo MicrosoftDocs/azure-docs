@@ -196,8 +196,7 @@ fine_tune_headers = {'api-key': api_key}
 fine_tune_data = "{ \"model\": \"curie\", " + \
   "\"training_file\": \"" + training_id + "\", " + \
   "\"validation_file\": \"" + validation_id + "\", " + \
-  "\"hyperparams\": " + \
-  "{ \"batch_size\": 1, \"learning_rate_multiplier\": 0.1, \"n_epochs\": 4 } }"
+  "\"batch_size\": 1, \"learning_rate_multiplier\": 0.1, \"n_epochs\": 4 }"
 
 # Start the fine-tune job using the REST API
 r = requests.post(api_base + 'openai/fine-tunes', 
