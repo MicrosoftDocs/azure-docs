@@ -75,7 +75,7 @@ When created, these compute resources are automatically part of your workspace, 
 > [!NOTE]
 > To avoid charges when the compute is idle:
 > * For compute *cluster* make sure the minimum number of nodes is set to 0, or use [serverless compute](./how-to-use-serverless-compute.md) (preview).
-> * For a compute *instance*, [enable idle shutdown](how-to-create-compute-instance.md#enable-idle-shutdown).
+> * For a compute *instance*, [enable idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown).
 
 ### Supported VM series and sizes
 

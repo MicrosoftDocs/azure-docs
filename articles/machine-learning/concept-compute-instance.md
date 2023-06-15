@@ -45,7 +45,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 * The compute instance is also a secure training compute target similar to [compute clusters](how-to-create-attach-compute-cluster.md), but it's single node. 
 * You can [create a compute instance](how-to-create-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-compute-instance.md?tabs=python#create-on-behalf-of)**.
 * You can also **[use a setup script](how-to-customize-compute-instance.md)**  for an automated way to customize and configure the compute instance as per your needs.
-* To save on costs, **[create  a schedule](how-to-create-compute-instance.md#schedule-automatic-start-and-stop)** to automatically start and stop the compute instance, or [enable idle shutdown](how-to-create-compute-instance.md#enable-idle-shutdown)
+* To save on costs, **[create  a schedule](how-to-create-compute-instance.md#schedule-automatic-start-and-stop)** to automatically start and stop the compute instance, or [enable idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown)
 
 
 ## Tools and environments

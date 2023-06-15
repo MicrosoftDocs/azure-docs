@@ -118,7 +118,7 @@ Where the file *create-instance.yml* is:
 1. Select **Create** unless you want to configure advanced settings for the compute instance.
 1. <a name="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
 
-    * Enable idle shutdown. Configure a compute instance to automatically shut down if it's inactive. For more information, see [enable idle shutdown](#enable-idle-shutdown).
+    * Enable idle shutdown. Configure a compute instance to automatically shut down if it's inactive. For more information, see [enable idle shutdown](#configure-idle-shutdown).
     * Add schedule. Schedule times for the compute instance to automatically start and/or shut down. See [schedule details](#schedule-automatic-start-and-stop) below.
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
@@ -149,7 +149,7 @@ Where the file *create-instance.yml* is:
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 
 1. Select **Review + Create** unless you want to configure advanced settings for the compute instance.
-1. Select **Next** to go to **Scheduling** if you want to to schedule the compute to start or stop on a recurring basis. See [enable idle shutdown](#enable-idle-shutdown) & [add schedule](#schedule-automatic-start-and-stop) below.
+1. Select **Next** to go to **Scheduling** if you want to to schedule the compute to start or stop on a recurring basis. See [enable idle shutdown](#configure-idle-shutdown) & [add schedule](#schedule-automatic-start-and-stop) below.
 1. <a name="security-settings"></a>Select **Security** if you want to configure security settings such as SSH, virtual network, root access, and managed identity for your compute instance. Use this section to:
 
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of)
