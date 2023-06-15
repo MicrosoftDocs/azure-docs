@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a private endpoint - Azure PowerShell'
-description: In this quickstart, you'll learn how to create a private endpoint using Azure PowerShell.
+description: In this quickstart, you learn how to create a private endpoint using Azure PowerShell.
 services: private-link
 author: asudbring
 ms.service: private-link
