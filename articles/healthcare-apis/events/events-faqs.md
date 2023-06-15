@@ -54,6 +54,8 @@ Events are generated from the following DICOM service types:
 
 - **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
 
+- **DicomImageUpdated** - The event emitted after a DICOM image gets updated successfully.
+
 ### What is the payload of an Events message? 
 
 For a detailed description of the Events message structure and both required and nonrequired elements, see [Events troubleshooting guide](events-troubleshooting-guide.md). 

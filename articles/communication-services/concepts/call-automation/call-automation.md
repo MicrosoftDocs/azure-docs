@@ -52,6 +52,7 @@ The following list presents the set of features that are currently available in 
 |                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |
+|                       | Cancel media operations                           | ✔️    |  ✔️   |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |
 |                       | List all participants in a call                   | ✔️    | ✔️    |
@@ -110,6 +111,8 @@ When your application has answered a one-to-one call, the hang-up action will re
 **Terminate**
 Whether your application has answered a one-to-one or group call, or placed an outbound call with one or more participants, this action will remove all participants and end the call. This operation is triggered by setting `forEveryOne` property to true in Hang-Up call action.
 
+**Cancel media operations** 
+Based on business logic your application may need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, you will received a webhook event indicating that the action has been canceled. 
 
 ## Events
 
@@ -143,10 +146,12 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | AddParticipantSucceeded| Your application added a participant  |
 |AddParticipantFailed   | Your application was unable to add a participant  |
 | ParticipantUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
-| PlayCompleted| Your application successfully played the audio file provided |
-| PlayFailed| Your application failed to play audio |
+| PlayCompleted | Your application successfully played the audio file provided |
+| PlayFailed | Your application failed to play audio |
+| PlayCanceled | Your application canceled the play operation |
 | RecognizeCompleted | Recognition of user input was successfully completed |
 | RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md)*|
+| RecognizeCanceled | Your application canceled the request to recognize user input |
 
 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation/actions-for-call-control.md) that provides code samples as well as sequence diagrams for various call control flows. 

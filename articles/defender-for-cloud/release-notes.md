@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/11/2023
+ms.date: 06/15/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,11 +26,22 @@ Updates in June include:
 
 |Date |Update  |
 |---------|---------|
+June 15 | [Control updates were made to the NIST 800-53 standards in regulatory compliance](#control-updates-were-made-to-the-nist-800-53-standards-in-regulatory-compliance)
 |June 11 | [Planning of cloud migration with an Azure Migrate business case now includes Defender for Cloud](#planning-of-cloud-migration-with-an-azure-migrate-business-case-now-includes-defender-for-cloud) |
 |June 7 | [Express configuration for vulnerability assessments in Defender for SQL is now Generally Available](#express-configuration-for-vulnerability-assessments-in-defender-for-sql-is-now-generally-available) |
 |June 6 | [More scopes added to existing Azure DevOps Connectors](#more-scopes-added-to-existing-azure-devops-connectors) |
 |June 5 |   [Onboarding directly (without Azure Arc) to Defender for Servers is now Generally Available](#onboarding-directly-without-azure-arc-to-defender-for-servers-is-now-generally-available)      |
 |June 4     | [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)        |
+
+### Control updates were made to the NIST 800-53 standards in regulatory compliance
+
+June 15, 2023
+
+The NIST 800-53 standards (both R4 and R5) have recently been updated with control changes in Microsoft Defender for Cloud regulatory compliance. The Microsoft-managed controls have been removed from the standard, and the information on the Microsoft responsibility implementation (as part of the cloud shared responsibility model) is now available only in the control details pane under **Microsoft Actions**. 
+
+These controls were previously calculated as passed controls, so you may see a significant dip in your compliance score for NIST standards between April 2023 and May 2023.
+
+For more information on compliance controls, see [Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud](regulatory-compliance-dashboard.md#investigate-regulatory-compliance-issues).
 
 ### Planning of cloud migration with an Azure Migrate business case now includes Defender for Cloud
 
