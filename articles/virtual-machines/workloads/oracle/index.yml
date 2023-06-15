@@ -23,9 +23,8 @@ landingContent:
       - linkListType: overview
         links:
           - text: Oracle Applications and solutions on Azure
-            url: oracle-overview.md          
-          - text: Oracle on Azure VMs
-            url: index.yml
+            url: oracle-overview.md         
+          
   #card 2  
   - title: Getting started
     linkLists: 
