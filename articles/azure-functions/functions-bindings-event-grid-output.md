@@ -225,7 +225,7 @@ public class Function {
 }
 ```
 
-You can also use a POJO class to send EventGrid messages.
+You can also use a POJO class to send Event Grid messages.
 
 ```java
 public class Function {
