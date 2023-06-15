@@ -33,7 +33,7 @@ This article shows you how to implement blue/green deployment a container app. T
 
 ## Create a container app with multiple active revisions enabled
 
-To enable traffic splitting the app has to have the `configuration.activeRevisionsMode` property set to `multiple`. To use deterministic revision names the `template.revisionSuffix` configuration setting can be used. It can be set to some string value that uniquely identifies a release, for example a build number of a git commit id.
+To enable traffic splitting the app has to have the `configuration.activeRevisionsMode` property set to `multiple`. To use deterministic revision names the `template.revisionSuffix` configuration setting can be used. It can be set to some string value that uniquely identifies a release, for example a build number or a git commit id. For the following commands some random commit ids were generated.
 
 ::: zone pivot="azure-cli"
 
