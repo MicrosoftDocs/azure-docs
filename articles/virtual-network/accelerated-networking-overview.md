@@ -10,7 +10,7 @@ ms.author: steveesp
 
 # Accelerated Networking overview
 
-This article describes the benefits, constraints, and supported configurations of Accelerated Networking. Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-) on supported virtual machine (VM) types, greatly improving networking performance. This high-performance data path bypasses the host, which reduces latency, jitter, and CPU utilization for demanding network workloads.
+This article describes the benefits, constraints, and supported configurations of Accelerated Networking. Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-) on supported virtual machine (VM) types, greatly improving networking performance. This high-performance data path bypasses the host, which reduces latency, jitter, and CPU utilization for the most demanding network workloads.
 
 The following diagram illustrates how two VMs communicate with and without Accelerated Networking.
 
@@ -34,7 +34,7 @@ Accelerated Networking has the following benefits:
 
 - The benefits of Accelerated Networking apply only to the VM that enables it.
 
-- For best results, you should enable Accelerated Networking on at least two VMs in the same Azure virtual network. This feature has minimal effect on latency when you communicate across virtual networks or connect on-premises.
+- For best results, enable Accelerated Networking on at least two VMs in the same Azure virtual network. This feature has minimal effect on latency when you communicate across virtual networks or connect on-premises.
 
 - You can't enable Accelerated Networking on a running VM. You can enable Accelerated Networking on a supported VM only when the VM is stopped and deallocated.
 
@@ -52,7 +52,7 @@ The following versions of Windows support Accelerated Networking:
 - Windows Server 2019 Standard/Datacenter
 - Windows Server 2016 Standard/Datacenter
 - Windows Server 2012 R2 Standard/Datacenter
-- Windows 10, version 21H2 or later, including Windows 10 Enterprise multisession
+- Windows 10 version 21H2 or later, including Windows 10 Enterprise multisession
 - Windows 11, including Windows 11 Enterprise multisession
 
 The following Linux and FreeBSD distributions from Azure Marketplace support Accelerated Networking out of the box:
@@ -67,7 +67,7 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Debian "Buster" or later
 - Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)
 - Oracle Linux 7.5 and later with UEK version 5
-- FreeBSD 10.4, 11.1, 12.0 or later
+- FreeBSD 10.4, 11.1, 12.0, or later
 
 ### Supported VM instances
 
@@ -142,7 +142,7 @@ EOF
 ```
 
 >[!NOTE]
->We strongly advise against running competing network interface software (such as ifupdown and networkd) on custom images and running dhcpclient directly on multiple interfaces.
+>We strongly advise that you don't run competing network interface software (such as ifupdown and networkd) on custom images, and that you don't run dhcpclient directly on multiple interfaces.
 
 ---
 

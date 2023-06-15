@@ -241,7 +241,9 @@ You can disable or enable Accelerated Networking on a virtual NIC in a nonrunnin
 $ az network nic update --name u1804895 --resource-group testrg --accelerated-network false 
 ```
 
-Disabling Accelerated Networking that's enabled in the guest VM produces a `dmesg` output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same `dmesg` output as when the VF interface is readded after Azure host servicing. You can use these Azure CLI commands to simulate Azure host servicing. You can then verify that your applications don't incorrectly depend on direct interaction with the VF interface.
+Disabling Accelerated Networking that's enabled in the guest VM produces a `dmesg` output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same `dmesg` output as when the VF interface is readded after Azure host servicing.
+
+You can use these Azure CLI commands to simulate Azure host servicing. You can then verify that your applications don't incorrectly depend on direct interaction with the VF interface.
 
 ## Next steps
 
