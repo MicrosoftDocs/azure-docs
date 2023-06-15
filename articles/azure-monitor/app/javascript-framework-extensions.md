@@ -17,7 +17,23 @@ In addition to the core SDK, there are also plugins available for specific frame
 These plugins provide extra functionality and integration with the specific framework.
 
 > [!IMPORTANT]
-> If you haven't already, you need to [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) first before you enable a framework extension.
+> If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable a framework extension.
+
+## Prerequisites
+
+### [React](#tab/react)
+
+None.
+
+### [React Native](#tab/reactnative)
+
+You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App, which is based on the Expo framework.
+
+### [Angular](#tab/angular)
+
+None.
+
+---
 
 ## What does the plug-in enable?
 
@@ -53,25 +69,9 @@ The Angular plugin for the Application Insights JavaScript SDK, enables:
 
 ## Add a plug-in
 
-To enable a plug-in, follow the steps in this section.
+To add a plug-in, follow the steps in this section.
 
-### 1. Prerequisites
-
-#### [React](#tab/react)
-
-None.
-
-#### [React Native](#tab/reactnative)
-
-You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App, which is based on the Expo framework.
-
-#### [Angular](#tab/angular)
-
-None.
-
----
-
-### 2. Install the package
+### 1. Install the package
 
 #### [React](#tab/react)
 
@@ -103,7 +103,7 @@ npm install @microsoft/applicationinsights-angularplugin-js
 
 ---
 
-### 3. Initialize a connection to Application Insights
+### 2. Initialize a connection to Application Insights
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -537,4 +537,4 @@ Check out the [Application Insights Angular demo](https://github.com/microsoft/a
 
 ## Next steps
 
-- [Confirm data is flowing](javascript-sdk.md#5-confirm-data-is-flowing)
+- [Confirm data is flowing](javascript-sdk.md#5-confirm-data-is-flowing).

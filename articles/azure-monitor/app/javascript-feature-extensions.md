@@ -17,7 +17,7 @@ Application Insights JavaScript SDK feature extensions are extra features that c
 In this article, we cover the Click Analytics plug-in, which automatically tracks click events on webpages and uses `data-*` attributes or customized tags on HTML elements to populate event telemetry.
 
 > [!IMPORTANT]
-> If you haven't already, you need to [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) first before you enable the Click Analytics plug-in.
+> If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable the Click Analytics plug-in.
 
 ## What data does the plug-in collect?
 
@@ -49,13 +49,13 @@ The following key properties are captured by default when the plug-in is enabled
 | timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
 
 
-## Add the Click Analytics Auto-Collection plug-in
+## Add the Click Analytics plug-in
 
 Users can set up the Click Analytics Auto-Collection plug-in via Javascript (Web) SDK Loader Script or NPM.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-### 1. Set up the code
+### 1. Add the code
 
 ### Javascript (Web) SDK Loader Script setup
 
@@ -135,15 +135,15 @@ appInsights.loadAppInsights();
 
 If you need to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). This setting isn't required to use the Click Analytics plug-in.
 
-### 3. Use the plug-in
+## Use the plug-in
 
 The following sections describe how to use the plug-in.
 
-#### Telemetry data storage
+### Telemetry data storage
 
 Telemetry data generated from the click events are stored as `customEvents` in the Azure portal > Application Insights > Logs section.
 
-#### `name`
+### `name`
 
 The `name` column of the `customEvent` is populated based on the following rules:
   1. The `id` provided in the `data-*-id`, which means it must start with `data` and end with `id`, is used as the `customEvent` name. For example, if the clicked HTML element has the attribute `"data-sample-id"="button1"`, then `"button1"` is the `customEvent` name.
@@ -153,7 +153,7 @@ The `name` column of the `customEvent` is populated based on the following rules
   > [!TIP]
   > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
 
-#### `parentId` key
+### `parentId` key
 
 To populate the `parentId` key within `customDimensions` of the `customEvent` table in the logs, declare the tag `parentDataTag` or define the `data-parentid` attribute.
      
@@ -180,7 +180,7 @@ If you declare `parentDataTag` and define the `data-parentid` or `data-*-parenti
 > [!CAUTION]
 > If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 
-#### `customDataPrefix`
+### `customDataPrefix`
 
 The `customDataPrefix` provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix should always be lowercase and start with `data-`. For example:
 
