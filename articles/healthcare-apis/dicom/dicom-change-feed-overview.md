@@ -162,7 +162,7 @@ Content-Type: application/json
 ```
 
 ### Response
-```json
+```jsonc
 {
     "Sequence": 2,
     "StudyInstanceUid": "{uid}",
