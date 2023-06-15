@@ -74,7 +74,7 @@ Cloud sync writes Exchange On-line attributes back to users in order to enable E
 Provisioning on-demand with Exchange hybrid writeback requires two steps.  You need to first provision or create the user.  Exchange online then populates the necessary attributes on the user.  Then cloud sync can then "write back" these attributes to the user.  The steps are:
 
 - Provision and sync the initial user - this brings the user into the cloud and allows them to be populated with Exchange online attributes.
-- Writeback exchange attributes to Active Directory - this writes the Exchange online attributes to the user on-premises.
+- Write back exchange attributes to Active Directory - this writes the Exchange online attributes to the user on-premises.
 
 Provisioning on-demand with Exchange hybrid use the following steps
 

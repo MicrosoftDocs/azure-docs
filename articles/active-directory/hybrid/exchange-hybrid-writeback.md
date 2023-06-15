@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 # Exchange hybrid writeback 
 A hybrid deployment offers organizations the ability to extend the feature-rich experience and administrative control they have with their existing on-premises Microsoft Exchange organization to the cloud. A hybrid deployment provides the seamless look and feel of a single Exchange organization between an on-premises Exchange organization and Exchange Online. 
 
-To accomplish this scenario and allow your on-premises users to take full advantage of Exchange online, attributes from the cloud, must be written back to your on-premises users.  Both cloud sync or connect sync can writeback the attributes.
+To accomplish this scenario and allow your on-premises users to take full advantage of Exchange online, attributes from the cloud, must be written back to your on-premises users.  Both cloud sync or connect sync can write back the attributes.
 
  :::image type="content" source="cloud-sync/media/exchange-hybrid/exchange-hybrid.png" alt-text="Conceptual image of exchange hybrid scenario." lightbox="cloud-sync/media/exchange-hybrid/exchange-hybrid.png":::
 
