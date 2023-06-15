@@ -20,12 +20,12 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 This article describes how to monitor Spring app resources using alerts and action groups in Azure Spring Apps.
 
-Azure Spring Apps alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.
+Azure Spring Apps alerts support monitoring resources based on conditions such as available storage, rate of requests, and data usage. An alert sends notification when rates or conditions meet the defined specifications.
 
 There are two steps to set up an alert pipeline:
 
 1. Set up an Action group with the actions to be taken when an alert is triggered, such as email, SMS, Runbook, or Webhook. Action Groups can be reused among different alerts.
-1. Set up Alert rules. The rules bind metric patterns with the action groups based on target resource, metric, condition, time aggregation, etc.
+1. Set up Alert rules. The rules bind metric patterns with the action groups based on target resource, metric, condition, time aggregation, and other criteria.
 
 ## Prerequisites
 
@@ -53,15 +53,15 @@ In the Azure portal, do the following steps:
 
    :::image type="content" source="media/alerts-action-groups/alerts-create-action-group-notif.png" alt-text="Screenshot of the Azure portal showing the Create action group page on the Notifications tab with the pane open that defines the notification type." lightbox="media/alerts-action-groups/alerts-create-action-group-notif.png":::
 
-1. Select **Notification Type**.  This action opens a pane to define the action that is taken on activation. This example shows and email and messaging type. Complete the needed information and select **OK** when done.
+1. Select a **Notification Type**.  This action opens a pane to define the action that is taken on activation. This example shows an email and messaging type. Complete the needed information and select **OK** when done.
 
 1. Select **Name** to provide a name for the action group.
 
 1. Select **Review + create** to finish creating the action group.
 
-### Set up an Alert
+### Set up an alert
 
-The previous steps created an **Action group** that uses email. You could also use phone notification, webhooks, Azure functions, and so forth. The following steps configure an **Alert**.
+Use the following steps configure an alert.
 
 1. Select **Alerts** in the navigation pane, and then select **Alert rules**.
 
@@ -71,18 +71,19 @@ The previous steps created an **Action group** that uses email. You could also u
 
    :::image type="content" source="media/alerts-action-groups/alerts-rules-page.png" alt-text="Screenshot of the Azure portal showing the Alert rules page with the Create button highlighted." lightbox="media/alerts-action-groups/alerts-rules-page.png":::
 
-1. On the **Create an alert rule** page and on the **Condition** tab, select a signal to trigger the alert rule. For this example, in the **Signal name** dropdown menu, select **See all signals**. In the **Select a signal** pane, select **App CPU Usage** and then select **Apply**.
+1. On the **Create an alert rule** page and on the **Condition** tab, you select a signal to trigger the alert rule. Select **See all signals**.
+1. For this example, in the **Select a signal** pane select **App CPU Usage** and then select **Apply**.
 
    :::image type="content" source="media/alerts-action-groups/create-alert-rule.png" alt-text="Screenshot of the Azure portal showing the Create an Alert rule page with the select a signal pane open and App CPU Usage highlighted." lightbox="media/alerts-action-groups/create-alert-rule.png":::
 
-1. The signal selection determines the alert logic settings to configure. Set the **Threshold value** to 75.
+1. The signal selection determines the alert logic settings to configure. Set **Threshold value** to 75.
 
    :::image type="content" source="media/alerts-action-groups/rule-value.png" alt-text="Screenshot of the Azure portal showing the Create an Alert rule page with the alert logic setting for Threshold value highlighted." lightbox="media/alerts-action-groups/rule-value.png":::
 
    For details of the conditions available to monitor, see the [User portal metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 1. Select the **Actions** tab and then select **Select action group**.
-1. On the **Select action groups** pane, select the action group whose actions should apply to the rule, such as the action group you previously defined.
+1. On the **Select action groups** pane, select the action group whose actions should be triggered by the rule such as the action group you defined previously.
 
    :::image type="content" source="media/alerts-action-groups/select-action-group.png" alt-text="Screenshot of the Azure portal showing the Select an action group to attach to this alert rule pane with an Action group name highlighted." lightbox="media/alerts-action-groups/select-action-group.png":::
 
