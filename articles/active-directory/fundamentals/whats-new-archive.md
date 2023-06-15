@@ -7784,23 +7784,6 @@ You can now successfully change a user's UPN suffix from one Federated domain to
 
 ---
 
-### Increased security using the app protection-based Conditional Access policy in Azure AD (Public preview)
-
-**Type:** New feature
-**Service category:** Conditional Access
-**Product capability:** Identity Security & Protection
-
-App protection-based Conditional Access is now available by using the **Require app protection** policy. This new policy helps to increase your organization's security by helping to prevent:
-
-- Users gaining access to apps without a Microsoft Intune license.
-
-- Users being unable to get a Microsoft Intune app protection policy.
-
-- Users gaining access to apps without a configured Microsoft Intune app protection policy.
-
-For more information, see [How to Require app protection policy for cloud app access with Conditional Access](../conditional-access/app-protection-based-conditional-access.md).
-
----
 
 
 
