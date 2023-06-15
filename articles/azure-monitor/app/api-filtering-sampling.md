@@ -325,7 +325,7 @@ Insert a JavaScript telemetry initializer, if needed. For more information on th
 
 #### [Javascript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
-Insert a telemetry initializer by adding the onInit callback function in the [Javascript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#sdk-loader-script-configuration):
+Insert a telemetry initializer by adding the onInit callback function in the [Javascript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration):
 
 ```html
 <script type="text/javascript">

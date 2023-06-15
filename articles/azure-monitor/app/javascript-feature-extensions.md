@@ -95,7 +95,7 @@ Ignore this setup if you use the npm setup.
 ```
 
 > [!NOTE]
-> To add or update Javascript (Web) SDK Loader Script configuration, see [Javascript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#sdk-loader-script-configuration).
+> To add or update Javascript (Web) SDK Loader Script configuration, see [Javascript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration).
 
 ### npm setup
 

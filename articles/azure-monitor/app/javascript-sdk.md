@@ -23,7 +23,7 @@ The Microsoft Azure Monitor Application Insights JavaScript SDK allows you to mo
 Follow the steps in this section to instrument your application with the Application Insights JavaScript SDK.
 
 > [!TIP] 
-> Good news! We're making it even easier to enable JavaScript. Check out where [Javascript (Web) SDK Loader Script injection by configuration is available](./codeless-overview.md#sdk-loader-script-injection-by-configuration)!
+> Good news! We're making it even easier to enable JavaScript. Check out where [Javascript (Web) SDK Loader Script injection by configuration is available](./codeless-overview.md#javascript-web-sdk-loader-script-injection-by-configuration)!
 
 > [!NOTE]
 > If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#4-optional-advanced-sdk-configuration).
@@ -59,7 +59,7 @@ Two methods are available to add the code to enable Application Insights via the
    </script>
    ```
 
-1. (Optional) Add or update optional [Javascript (Web) SDK Loader Script configuration](#sdk-loader-script-configuration), depending on if you need to optimize the loading of your web page or resolve loading errors.
+1. (Optional) Add or update optional [Javascript (Web) SDK Loader Script configuration](#javascript-web-sdk-loader-script-configuration), depending on if you need to optimize the loading of your web page or resolve loading errors.
 
    :::image type="content" source="media/javascript-sdk/sdk-loader-script-configuration.png" alt-text="Screenshot of the Javascript (Web) SDK Loader Script. The parameters for configuring the Javascript (Web) SDK Loader Script are highlighted." lightbox="media/javascript-sdk/sdk-loader-script-configuration.png":::
 
