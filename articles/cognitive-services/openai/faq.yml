@@ -125,25 +125,25 @@ sections:
       - question: |
           Will my web app be overwritten when I deploy the app again from the Azure AI Studio?
         answer:
-          Your app code will not be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure Cognitive Search index, and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
+          Your app code will not be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure Cognitive Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
   - name: Using your data
     questions:
       - question: |
-          What is Azure OpenAI on Your Data?  
+          What is Azure OpenAI on your data?  
         answer:
-          Azure OpenAI on Your Data is a feature of the Azure OpenAI Services that helps organizations to generate customized insights, content, and searches using their designated data sources. It works with the capabilities of the OpenAI models in Azure OpenAI to provide more accurate and relevant responses to user queries in natural language. Azure OpenAI on Your Data can be integrated with customer's existing applications and workflows, offers insights into key performance indicators, and can interact with users seamlessly.  
+          Azure OpenAI on your data is a feature of the Azure OpenAI Services that helps organizations to generate customized insights, content, and searches using their designated data sources. It works with the capabilities of the OpenAI models in Azure OpenAI to provide more accurate and relevant responses to user queries in natural language. Azure OpenAI on your data can be integrated with customer's existing applications and workflows, offers insights into key performance indicators, and can interact with users seamlessly.  
       - question: |
-          How can I access Azure OpenAI on Your Data?  
+          How can I access Azure OpenAI on your data?  
         answer:
-          All Azure OpenAI customers can use Azure OpenAI on Your Data via the Azure AI studio and Rest API.
+          All Azure OpenAI customers can use Azure OpenAI on your data via the Azure AI studio and Rest API.
       - question: |
-          What data sources does Azure OpenAI on Your Data support?
+          What data sources does Azure OpenAI on your data support?
         answer:
-          Azure OpenAI on Your Data supports ingestion from Azure Cognitive Search, Azure Blob Storage, and uploading local files. You can learn more about Azure OpenAI on Your Data from the [conceptual article](./concepts/using-your-data.md) and [quickstart](./use-your-data-quickstart.md).
+          Azure OpenAI on your data supports ingestion from Azure Cognitive Search, Azure Blob Storage, and uploading local files. You can learn more about Azure OpenAI on your data from the [conceptual article](./concepts/using-your-data.md) and [quickstart](./use-your-data-quickstart.md).
       - question: |
-          How much does it cost to use Azure OpenAI on Your Data?
+          How much does it cost to use Azure OpenAI on your data?
         answer:
-          When using Azure OpenAI on Your Data, you incur costs when you use Azure Cognitive Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There is no additional cost for using the "your data" feature in the Azure AI Studio.
+          When using Azure OpenAI on your data, you incur costs when you use Azure Cognitive Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There is no additional cost for using the "your data" feature in the Azure AI Studio.
       - question: |
           How can I customize or automate the index creation process?
         answer:
@@ -153,13 +153,13 @@ sections:
         answer:
           You can upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
       - question: | 
-          What file types does Azure OpenAI on Your Data support?
+          What file types does Azure OpenAI on your data support?
         answer:
           See [Using your data](./concepts/using-your-data.md#data-formats-and-file-types) for more information on supported file types. 
       - question: |
-          Is responsible AI supported by Azure OpenAI on Your Data?
+          Is responsible AI supported by Azure OpenAI on your data?
         answer:
-          Yes, [Azure OpenAI on Your Data](./concepts/using-your-data.md) is part of the Azure OpenAI service and works with the [models]./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on Your Data responsibly. 
+          Yes, [Azure OpenAI on your data](./concepts/using-your-data.md) is part of the Azure OpenAI service and works with the [models]./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
       - question: |
           Is there a token limit on the system message?
         answer: 
