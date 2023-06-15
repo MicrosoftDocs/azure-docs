@@ -2,7 +2,7 @@
 title: Manage backed up SAP HANA databases on Azure VMs
 description: In this article, you'll learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 06/20/2023
+ms.date: 06/30/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: jyothisuri
@@ -231,6 +231,39 @@ Unregister an SAP HANA instance after you disable protection but before you dele
 1. Right-click the protected instance, and then select **Unregister**.
 
    ![Select unregister](./media/sap-hana-db-manage/unregister.png)
+
+### Verify the registration status of VMs or Nodes to the vault
+
+Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration).
+
+>[!Note]
+>After failover/fall back if backups fail, ensure that physical/logical registration is correctly set. Otherwise, [rediscover the VMs/Nodes](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases).
+
+**Confirm the physical registration**
+
+Go to the *Recovery Services vault* > **Manage** > **Backup Infrastructure** > **Workload in Azure VM**.
+
+The status of both primary and secondary VMs should be **registered**.
+
+:::image type="content" source="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png" alt-text="Screenshot shows the physical registration status.." lightbox="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png":::
+
+
+**Confirm the logical registration**
+
+Follow these steps:
+
+1. Go to *Recovery services vault* > **Backup Items** > **SAP HANA in Azure VM**.
+
+2. Under **HANA System**, select the name of the HANA instance.
+
+   :::image type="content" source="./media/sap-hana-db-manage/view-backup-item-details.png" alt-text="Screenshot shows how to check th backup item details.." lightbox="./media/sap-hana-db-manage/view-backup-item-details.png":::
+
+   Two VMs/Nodes appear under **FQDN** and are in **registered** state.
+ 
+   :::image type="content" source="./media/sap-hana-db-manage/confirm-logical-registration-status.png" alt-text="Screenshot shows the logical registration status.." lightbox="./media/sap-hana-db-manage/confirm-logical-registration-status.png":::
+ 
+>[!Note]
+>If status is in **not registered** state, you need to [rediscover the VMs/Nodes](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases) and check the status again.
 
 ## Manage operations using SAP HANA native clients
 

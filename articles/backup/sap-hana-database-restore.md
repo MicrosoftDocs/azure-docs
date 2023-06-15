@@ -16,7 +16,9 @@ This article describes how to restore SAP HANA databases that are running on Azu
 Azure Backup now supports backup and restore of SAP HANA System Replication (HSR) databases.
 
 >[!Note]
->The restore process for HANA databases with HSR is the same as the restore process for HANA databases without HSR. As per SAP advisories, you can restore databases with HSR mode as *standalone* databases. If the target system has the HSR mode enabled, first disable the mode, and then restore the database.
+>- The restore process for HANA databases with HSR is the same as the restore process for HANA databases without HSR. As per SAP advisories, you can restore databases with HSR mode as *standalone* databases. If the target system has the HSR mode enabled, first disable the mode, and then restore the database.
+>- Original Location Recovery (OLR) is currently not supported for HSR.
+>- Restore to HSR instance isn't supported. However, restore only to HANA instance is supported.
 
 For information about the supported configurations and scenarios, see the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
@@ -99,17 +101,6 @@ To restore a database, you need the following permissions:
 1. If applicable, select the **Overwrite if the DB with the same name already exists on selected HANA instance** checkbox.
 
 1. In **Select restore point**, select **Logs (Point in Time)** to [restore to a specific point in time](#restore-to-a-specific-point-in-time). Or select **Full & Differential** to [restore to a specific recovery point](#restore-to-a-specific-recovery-point).
-
-### Restore and overwrite
-
-1. On the **Restore** pane, under **Where and how to Restore?**, select **Overwrite DB**, and then select **OK**.
-
-   :::image type="content" source="./media/sap-hana-db-restore/hana-overwrite-database.png" alt-text="Screenshot that shows where to overwrite the database.":::
-
-1. On the **Select restore point** pane, do either of the following:
-
-   * To [restore to a specific point in time](#restore-to-a-specific-point-in-time), select **Logs (Point in Time)**. 
-   * To [restore to a specific recovery point](#restore-to-a-specific-recovery-point), select **Full & Differential**.
 
 ### Restore as files
 
