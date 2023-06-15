@@ -405,7 +405,7 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
    - **Subscription**: Select the subscription you want to be billed for this resource.
    - **Resource group**: Creating new resource groups for new resources is a best practice.
    - **Name**: Specify the service instance name.
-   - **Plan**: Select the *Enterprise* plan for your service instance.
+   - **Plan**: Select the *Standard* plan for your service instance.
    - **Region**: Select the region for your service instance.
    - **Zone Redundant**: Select the zone redundant checkout to create your Azure Spring Apps service in an Azure availability zone.
 
