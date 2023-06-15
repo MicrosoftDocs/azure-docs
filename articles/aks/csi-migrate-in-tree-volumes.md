@@ -144,7 +144,7 @@ The following are important considerations to evaluate:
           csi:
             driver: disk.csi.azure.com
             volumeAttributes:
-              csi.storage.k8s.io/pv/name: $PV-csi
+              csi.storage.k8s.io/pv/name: $PV
               csi.storage.k8s.io/pvc/name: $PVC-csi
               csi.storage.k8s.io/pvc/namespace: $NAMESPACE
               requestedsizegib: "$STORAGE_SIZE"
