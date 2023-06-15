@@ -10,19 +10,20 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
-ms.date: 03/15/2022
+ms.date: 06/15/2023
 #Customer intent: I'm a data scientist with ML knowledge in the machine learning space, looking to build ML models using data in Azure Machine Learning with full control of the model training including debugging and monitoring of live jobs.
 ---
 
 # Debug jobs and monitor training progress
 
-Machine learning model training is usually an iterative process and requires significant experimentation. With the Azure Machine Learning interactive job experience, data scientists can use the Azure Machine Learning Python SDKv2, Azure Machine Learning CLIv2 or the Azure Studio to access the container where their job is running.  Once the job container is accessed, users can iterate on training scripts, monitor training progress or debug the job remotely like they typically do on their local machines. Jobs can be interacted with via different training applications including **JupyterLab, TensorBoard, VS Code** or by connecting to the job container directly via **SSH**.  
+Machine learning model training is an iterative process and requires significant experimentation. With the Azure Machine Learning interactive job experience, data scientists can use the Azure Machine Learning Python SDKv2, Azure Machine Learning CLIv2 or the Azure Studio to access the container where their job is running.  Once the job container is accessed, users can iterate on training scripts, monitor training progress or debug the job remotely like they typically do on their local machines. Jobs can be interacted with via different training applications including JupyterLab, TensorBoard, VS Code or by connecting to the job container directly via SSH.  
 
 Interactive training is supported on **Azure Machine Learning Compute Clusters** and **Azure Arc-enabled Kubernetes Cluster**.
 
 ## Prerequisites
+
 - Review [getting started with training on Azure Machine Learning](./how-to-train-model.md).
-- To use **VS Code**, [follow this guide](how-to-setup-vs-code.md) to set up the Azure Machine Learning extension.
+- For more information, see this link for [VS Code](how-to-setup-vs-code.md) to set up the Azure Machine Learning extension.
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all Azure Machine Learning curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported.
 - To use SSH, you need an SSH key pair. You can use the `ssh-keygen -f "<filepath>"` command to generate a public and private key pair.
@@ -36,14 +37,14 @@ By specifying interactive applications at job creation, you can connect directly
 1. Create a new job from the left navigation pane in the studio portal.
 
 
-2. Choose `Compute cluster` or `Attached compute` (Kubernetes) as the compute type, choose the compute target, and specify how many nodes you need in `Instance count`. 
+2. Choose **Compute cluster** or **Attached compute** (Kubernetes) as the compute type, choose the compute target, and specify how many nodes you need in `Instance count`. 
   
   :::image type="content" source="./media/interactive-jobs/select-compute.png" alt-text="Screenshot of selecting a compute location for a job.":::
 
 3. Follow the wizard to choose the environment you want to start the job.
   
 
-4. In `Job settings` step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job.
+4. In **Job settings** step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job.
   
   :::image type="content" source="./media/interactive-jobs/sleep-command.png" alt-text="Screenshot of reviewing a drafted job and completing the creation.":::
 
