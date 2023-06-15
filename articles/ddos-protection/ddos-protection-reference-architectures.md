@@ -19,28 +19,29 @@ Azure DDoS Protection is designed [for services that are deployed in a virtual n
 
 Supported resources include:
 * Public IPs attached to:
-    * An IaaS VM (except for single VM running behind a public IP).
-    * Load Balancer (Classic & Standard Load Balancers).
+    * An IaaS virtual machine.
     * Application Gateway (including WAF) cluster.
-    * Firewall.
-    * Bastion.
-    * VPN Gateway.
-    * Service Fabric.
-    * IaaS based Network Virtual Appliance (NVA). 
     * Azure API Management (Premium tier only).
+    * Bastion.
     * Connected to a virtual network (VNet) in the external mode. 
-    * Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). 
+    * Firewall.
+    * IaaS based Network Virtual Appliance (NVA). 
+    * Load Balancer (Classic & Standard Load Balancers).
+    * Service Fabric.
+    * VPN Gateway.
+* Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). 
 
     
 Unsupported resources include:
 
 * Azure Virtual WAN.
 * Azure API Management in deployment modes other than the supported modes.
-* Protected resources that include public IPs created from public IP address prefix.
 * PaaS services (multi-tenant) including Azure App Service Environment for Power Apps.
+* Protected resources that include public IPs created from public IP address prefix.
+
 
 > [!NOTE]
-> * For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
+> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
 
 ## Virtual machine (Windows/Linux) workloads
 
