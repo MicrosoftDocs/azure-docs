@@ -101,7 +101,7 @@ Name            | Type     | Description | Default | Min | Max |
 offset          | long     | The number of events to skip from the beginning of the result set | `0` | `0` | |
 limit           | int      | The maximum number of events to return | `100` | `1` | `200` |
 startTime       | DateTime | The inclusive start time for change events | `"0001-01-01T00:00:00Z"` | `"0001-01-01T00:00:00Z"` | `"9999-12-31T23:59:59.9999998Z"`|
-endTime         | DateTime |  The exclusive end time for change events | `"9999-12-31T23:59:59.9999999Z"` | `"0001-01-01T00:00:00.0000001"` | `"9999-12-31T23:59:59.9999999Z"` |
+endTime         | DateTime | The exclusive end time for change events | `"9999-12-31T23:59:59.9999999Z"` | `"0001-01-01T00:00:00.0000001"` | `"9999-12-31T23:59:59.9999999Z"` |
 includeMetadata | bool     | Indicates whether or not to include the DICOM metadata | `true` | | |
 
 ### Version 1
