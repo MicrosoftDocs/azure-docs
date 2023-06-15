@@ -9,12 +9,12 @@ ms.date: 06/15/2023
 ms.author: jasteppe
 ---
 
-# Frequently asked questions about convert-data
+# Frequently asked questions about $convert-data
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-## Convert-data: The basics
+## $convert-data: The basics
 
 ## Does your service create/manage the entire ETL pipeline for me?
 
@@ -30,7 +30,7 @@ However, the $convert-data operation isn't an ETL pipeline in of itself.
 
 You can use the FHIR services APIs to persist the converted data into the FHIR service (for example: `POST {{fhirUrl}}/{{FHIR resource type}}`) with the request body containing the FHIR resource to be persisted in JSON format. For more information, see [Access the Azure Health Data Services FHIR service using Postman](use-postman.md).
 
-## Is there a difference in the experience of the $convert data endpoint in Azure API for FHIR versus in the Azure Health Data Services?
+## Is there a difference in the experience of the $convert-data endpoint in Azure API for FHIR versus in the Azure Health Data Services?
 
 The experience and core converter functionality is similar for both [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/overview.md) and the [Azure Health Data Services FHIR service](../../healthcare-apis/fhir/overview.md). The only difference exists in the setup for the Azure API for FHIR version of converter, which requires assigning permissions to the right resources. For more information about converter versions, see:
 
