@@ -55,7 +55,7 @@
     items: 
     - name:  What is password hash sync?
       href:  connect/whatis-phs.md
-    - name:  What is pass-through authenticaion?
+    - name:  What is pass-through authentication?
       href:  connect/how-to-connect-pta.md
     - name:  What is federation?
       href:  connect/whatis-fed.md
@@ -126,7 +126,7 @@
         href: cloud-sync/how-to-sso.md
       - name: Directory extensions and custom attributes
         href: cloud-sync/custom-attribute-mapping.md
-      - name: Exchange hyrid
+      - name: Exchange hybrid
         href: cloud-sync/exchange-hybrid.md
     - name: Plan and design
       items:
