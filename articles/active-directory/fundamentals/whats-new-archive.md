@@ -7429,26 +7429,6 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Automate user account provisioning for these newly supported SaaS apps
-
-**Type:** New feature 
-**Service category:** Enterprise Apps
-**Product capability:** Monitoring & Reporting
-
-You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
-
-- [Zoom](../saas-apps/zoom-provisioning-tutorial.md)
-
-- [Envoy](../saas-apps/envoy-provisioning-tutorial.md)
-
-- [Proxyclick](../saas-apps/proxyclick-provisioning-tutorial.md)
-
-- [4me](../saas-apps/4me-provisioning-tutorial.md)
-
-For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md)
-
----
-
 
 
 
