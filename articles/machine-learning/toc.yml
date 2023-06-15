@@ -1329,7 +1329,7 @@
       items:
         - name: VS Code interactive debugging
           displayName: vscode,remote,debug,pipelines,deployments,ssh
-          href: how-to-debug-visual-studio-code.md
+          href: ./v1/how-to-debug-visual-studio-code.md
     # end v1
 - name: Reference
   items:
