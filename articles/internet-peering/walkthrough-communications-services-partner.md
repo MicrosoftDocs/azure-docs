@@ -107,6 +107,10 @@ In this section, you activate the prefix:
 
     :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-configuration.png" alt-text="Screenshot shows the Configuration tab of creating a Peering Service connection in the Azure portal."::: 
 
+1. Select **Review + create**.
+
+1. Review the settings, and then select **Create**.
+
 ## Frequently asked questions (FAQ):
 
 **Q.**   When will my BGP peer come up?
