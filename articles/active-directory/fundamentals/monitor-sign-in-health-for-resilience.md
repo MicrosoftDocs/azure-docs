@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 06/16/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -43,15 +43,15 @@ During an impacting event, two things may happen:
 
 To access workbooks in the **Azure portal**, select **Azure Active Directory**, select **Workbooks**. The following screenshot shows the Workbooks Gallery in the Azure portal.
 
-![Screenshot showing the workbooks gallery in the Azure portal.](./media/monitor-sign-in-health-for-resilience/sign-in-health-workbook.png)
+:::image type="content" source="./media/monitor-sign-in-health-for-resilience/sign-in-health-workbook.png" alt-text="Screenshot showing the workbooks gallery in the Azure portal.":::
 
 Workbooks appear under **Usage**, **Conditional Access**, and **Troubleshoot**. The App sign in health workbook appears in the **Health** section. After you use a workbook, it may appear in the **Recently modified workbooks** section.
 
 You can use the App sign-in health workbook to visualize what is happening with your sign-ins. As shown in the following screenshot, the workbook presents two graphs. 
 
-![Screenshot showing sign in health graphs.](./media/monitor-sign-in-health-for-resilience/sign-in-health-graphs.png)
+:::image type="content" source="./media/monitor-sign-in-health-for-resilience/sign-in-health-graphs.png" alt-text="Screenshot showing sign in health graphs.":::
 
-In the preceding screenshot, there are two graphs.
+In the preceding screenshot, there are two graphs:
 
 - **Hourly usage (number of successful users)**. Comparing your current number of successful users to a typical usage period helps you to spot a drop in usage that may require investigation. A drop-in successful usage rate can help detect performance and utilization issues that the failure rate can't detect. For example, when users can't reach your application to attempt to sign in, there's a drop in usage but no failures. See the sample query for this data in the next section of this article. 
 - **Hourly failure rate**. A spike in failure rate may indicate an issue with your authentication mechanisms. Failure rate measures only appear when users can attempt to authenticate. When users can't gain access to make the attempt, there are no failures.
@@ -62,71 +62,71 @@ You create alert rules in Azure Monitor and can automatically run saved queries 
 
 Use the following instructions to create email alerts based on the queries reflected in the graphs. The sample scripts send an email notification when:
 
-- the successful usage drops by 90% from the same hour two days ago, as shown in the preceding hourly usage graph example.
-- the failure rate increases by 90% from the same hour two days ago, as shown in the preceding hourly failure rate graph example.
+- The successful usage drops by 90% from the same hour two days ago, as shown in the preceding hourly usage graph example.
+- The failure rate increases by 90% from the same hour two days ago, as shown in the preceding hourly failure rate graph example.
 
 To configure the underlying query and set alerts, complete the following steps using the sample query as the basis for your configuration. The query structure description appears at the end of this section. Learn how to create, view, and manage log alerts using Azure Monitor in [Manage log alerts](../../azure-monitor/alerts/alerts-log.md).
 
 1. In the workbook, select **Edit** as shown in the following screenshot. Select the **query icon** in the upper right corner of the graph.
 
-[![Screenshot showing edit workbook.](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/edit-workbook.png" alt-text="Screenshot showing edit workbook.":::
 
 2. View the query log as shown in the following screenshot.
 
-[![Screenshot showing the query log.](./media/monitor-sign-in-health-for-resilience/query-log.png)](./media/monitor-sign-in-health-for-resilience/query-log.png)
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/query-log.png" alt-text="Screenshot showing the query log.":::
 
 3. Copy one of the following sample scripts for a new Kusto query.
 
-- [Kusto query for increase in failure rate](#kusto-query-for-increase-in-failure-rate)
-- [Kusto query for drop in usage](#kusto-query-for-drop-in-usage)
+    - [Kusto query for increase in failure rate](#kusto-query-for-increase-in-failure-rate)
+    - [Kusto query for drop in usage](#kusto-query-for-drop-in-usage)
 
 4. Paste the query in the window. Select **Run**. Look for the **Completed** message and the query results as shown in the following screenshot.
 
-[![Screenshot showing the run query results.](./media/monitor-sign-in-health-for-resilience/run-query.png)](./media/monitor-sign-in-health-for-resilience/run-query.png)
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/run-query.png" alt-text="Screenshot showing the run query results.":::
 
 5. Highlight the query. Select **+ New alert rule**. 
  
-[![Screenshot showing the new alert rule screen.](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/new-alert-rule.png" alt-text="Screenshot showing the new alert rule screen.":::
 
 6. Configure alert conditions. As shown in the following example screenshot, in the **Condition** section, under **Measurement**, select **Table rows** for **Measure**. Select **Count** for **Aggregation type**. Select **2 days** for **Aggregation granularity**. 
 
-[![Screenshot showing configure alerts screen.](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)
-
-- **Table rows**. You can use the number of rows returned to work with events such as Windows event logs, Syslog, and application exceptions.
-- **Aggregation type**. Data points applied with Count.
-- **Aggregation granularity**. This value defines the period that works with **Frequency of evaluation**.
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/configure-alerts.png" alt-text="Screenshot showing configure alerts screen.":::
+    
+    - **Table rows**. You can use the number of rows returned to work with events such as Windows event logs, Syslog, and application exceptions.
+    - **Aggregation type**. Data points applied with Count.
+    - **Aggregation granularity**. This value defines the period that works with **Frequency of evaluation**.
 
 7. In **Alert Logic**, configure the parameters as shown in the example screenshot.
 
-[![Screenshot showing alert logic screen.](./media/monitor-sign-in-health-for-resilience/alert-logic.png)](./media/monitor-sign-in-health-for-resilience/alert-logic.png)
-
-- **Threshold value**: 0. This value alerts on any results.
-- **Frequency of evaluation**: 1 hour. This value sets the evaluation period to once per hour for the previous hour.
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/alert-logic.png" alt-text="Screenshot showing alert logic screen.":::
+    
+    - **Threshold value**: 0. This value alerts on any results.
+    - **Frequency of evaluation**: 1 hour. This value sets the evaluation period to once per hour for the previous hour.
 
 8. In the **Actions** section, configure settings as shown in the example screenshot.
 
-[![Screenshot showing the Create an alert rule screen.](./media/monitor-sign-in-health-for-resilience/create-alert-rule.png)](./media/monitor-sign-in-health-for-resilience/create-alert-rule.png)
-
-- Select **Select action group** and add the group for which you want alert notifications.
-- Under **Customize actions**, select **Email alerts**.
-- Add a **subject line**.
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/create-alert-rule.png" alt-text="Screenshot showing the Create an alert rule screen.":::
+    
+    - Select **Select action group** and add the group for which you want alert notifications.
+    - Under **Customize actions**, select **Email alerts**.
+    - Add a **subject line**.
 
 9. In the **Details** section, configure settings as shown in the example screenshot.
 
-[![Screenshot showing the Details section.](./media/monitor-sign-in-health-for-resilience/details-section.png)](./media/monitor-sign-in-health-for-resilience/details-section.png)
-
-- Add a **Subscription** name and a description.
-- Select the **Resource group** to which you want to add the alert.
-- Select the default **Severity**.
-- Select **Enable upon creation** if you want it to immediately go live. Otherwise, select **Mute actions**.
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/details-section.png" alt-text="Screenshot showing the Details section.":::
+    
+    - Add a **Subscription** name and a description.
+    - Select the **Resource group** to which you want to add the alert.
+    - Select the default **Severity**.
+    - Select **Enable upon creation** if you want it to immediately go live. Otherwise, select **Mute actions**.
 
 10. In the **Review + create** section, configure settings as shown in the example screenshot.
 
-[![Screenshot showing the Review + create section.](./media/monitor-sign-in-health-for-resilience/review-create.png)](./media/monitor-sign-in-health-for-resilience/review-create.png)
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/review-create.png" alt-text="Screenshot showing the Review + create section.":::
 
 11. Select **Save**. Enter a name for the query. For **Save as**, select **Query**. For **Category**, select **Alert**. Again, select **Save**.
 
-[![Screenshot showing the save query button.](./media/monitor-sign-in-health-for-resilience/save-query.png)](./media/monitor-sign-in-health-for-resilience/save-query.png)
+    :::image type="content" source="./media/monitor-sign-in-health-for-resilience/save-query.png" alt-text="Screenshot showing the save query button.":::
 
 ### Refine your queries and alerts
 
@@ -203,7 +203,7 @@ yesterday
 )
 on rn
 // Calculate the difference in number of users in the last hour compared to the same time yesterday
-| project TimeGenerated, users, usersYesterday, difference = abs(users – usersYesterday), max = max_of(users, u"ersYesterday)
+| project TimeGenerated, users, usersYesterday, difference = abs(users – usersYesterday), max = max_of(users, usersYesterday)
 | extend ratio = (difference * 1.0) / max // Ratio is the percent difference in traffic in the last hour as compared to the same time yesterday
 // Day variable is the number of days since the previous Sunday. Optionally ignore results on Sat, Sun, and Mon because large variability in traffic is expected.
 | extend day = dayofweek(now())
