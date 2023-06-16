@@ -101,7 +101,7 @@ Alerts|[Connect ServiceNow to Azure Monitor](alerts/itsmc-secure-webhook-connect
 Application-Insights|[Application Insights SDK support guidance](app/sdk-support-guidance.md)|Release notes are now available for each SDK.|
 Application-Insights|[What is distributed tracing and telemetry correlation?](app/distributed-tracing-telemetry-correlation.md)|Merged our documents related to distributed tracing and telemetry correlation.|
 Application-Insights|[Application Insights availability tests](app/availability-overview.md)|Separated and called out the two Classic Tests, which are older versions of availability tests.|
-Application-Insights|[Microsoft Azure Monitor Application Insights JavaScript SDK configuration](app/javascript-sdk-advanced.md)|JavaScript SDK advanced topics now include npm setup, cookie configuration and management, source map un-minify support, and tree shaking optimized code.|
+Application-Insights|[Microsoft Azure Monitor Application Insights JavaScript SDK configuration](app/javascript-sdk-configuration.md)|JavaScript SDK configuration now includes npm setup, cookie configuration and management, source map un-minify support, and tree shaking optimized code.|
 Application-Insights|[Microsoft Azure Monitor Application Insights JavaScript SDK](app/javascript-sdk.md)|Our introductory article to the JavaScript SDK now provides only the fast and easy code-snippet method of getting started.|
 Application-Insights|[Geolocation and IP address handling](app/ip-collection.md)|Updated code samples for .NET 6/7.|
 Application-Insights|[Application Insights logging with .NET](app/ilogger.md)|Updated code samples for .NET 6/7.|

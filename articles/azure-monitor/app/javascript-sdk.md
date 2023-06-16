@@ -120,7 +120,7 @@ To paste the connection string in your environment, follow these steps:
 
 ### 3. (Optional) Add SDK configuration
 
-The optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization.
+The optional [SDK configuration](./javascript-sdk-configuration.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization.
 
 To add SDK configuration, add each configuration option directly under `connectionString`. For example:
 
@@ -166,6 +166,6 @@ If you can't run the application or you aren't getting data as expected, see the
 * [Track page views](api-custom-events-metrics.md#page-views)
 * [Track custom events and metrics](api-custom-events-metrics.md)
 * [Insert a JavaScript telemetry initializer](api-filtering-sampling.md#javascript-telemetry-initializers)
-* [Add JavaScript SDK configuration](javascript-sdk-advanced.md)
+* [Add JavaScript SDK configuration](javascript-sdk-configuration.md)
 * See the detailed [release notes](https://github.com/microsoft/ApplicationInsights-JS/releases) on GitHub for updates and bug fixes.
 * [Query data in Log Analytics](../../azure-monitor/logs/log-query-overview.md).
