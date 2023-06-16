@@ -49,7 +49,9 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
 1. On the Visual Studio Code Activity Bar, select the **Azure** icon. (Keyboard: Shift+Alt+A)
 
-1. In the **Azure** window that opens, on the **Workspace** toolbar, select **Create new code project**. Find and select the local folder that you created for your project.
+1. In the **Azure** window that opens, on the **Workspace** toolbar, select **Create new logic app workspace**. 
+
+1. In the **Create new logic app workspace** prompt that appears, find and select the local folder that you created for your project.
 
 1. Follow the prompts to provide the following information:
 
