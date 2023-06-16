@@ -14,12 +14,20 @@
   items:
   - name: Check and install on-demand updates
     href: quickstart-on-demand.md
+  - name: Schedule updates at scale using dynamic scoping (preview)
+    href: quickstart-dynamic-scoping.md
+- name: Tutorials
+  items:
+  - name: Apply updates at scale using dynamic scoping (preview)
+    href: tutorial-dynamic-scoping-for-scheduled-patching.md
 - name: Concepts
   items:
   - name: Update and maintenance options
     href: updates-maintenance-schedules.md
   - name: Schedule patching configuration on Azure VMs for business continuity
     href: prerequsite-for-schedule-patching.md
+  - name: About dynamic scoping (preview)
+    href: dynamic-scope-overview.md
   - name: Assessment options
     href: assessment-options.md
   - name: Query resources with Azure Resource Graph
@@ -46,6 +54,8 @@
       href: deploy-updates.md
     - name: Schedule updates
       href: scheduled-patching.md
+    - name: Manage dynamic scoping (preview)
+      href: manage-dynamic-scoping.md
     - name: Manage update settings
       href: manage-update-settings.md
     - name: Manage updates for Azure VMs using REST API
