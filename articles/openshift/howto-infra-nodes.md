@@ -224,10 +224,10 @@ Use this procedure for any additional ingress controllers you may have in the cl
 
 1. Set the `nodePlacement` on the registry to `node-role.kubernetes.io/infra`:
 
-    a. ```
-    b. oc patch configs.imageregistry.operator.openshift.io/cluster --type=merge \
-    c. -p='{"spec":{"affinity":{"podAntiAffinity":{"preferredDuringSchedulingIgnoredDuringExecution":[{"podAffinityTerm":{"namespaces":["openshift-image-registry"],"topologyKey":"kubernetes.io/hostname"},"weight":100}]}},"logLevel":"Normal","managementState":"Managed","nodeSelector":{"node-role.kubernetes.io/infra":""},"tolerations":[{"effect":"NoSchedule","key":"node-role.kubernetes.io/infra","operator":"Exists"}]}}'
-    d. ```
+    ```
+    oc patch configs.imageregistry.operator.openshift.io/cluster --type=merge \
+    -p='{"spec":{"affinity":{"podAntiAffinity":{"preferredDuringSchedulingIgnoredDuringExecution":[{"podAffinityTerm":{"namespaces":["openshift-image-registry"],"topologyKey":"kubernetes.io/hostname"},"weight":100}]}},"logLevel":"Normal","managementState":"Managed","nodeSelector":{"node-role.kubernetes.io/infra":""},"tolerations":[{"effect":"NoSchedule","key":"node-role.kubernetes.io/infra","operator":"Exists"}]}}'
+    ```
     
 1. Verify that the Registry Operator is starting pods on the new infrastructure nodes:
 
