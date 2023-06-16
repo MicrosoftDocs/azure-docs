@@ -14,7 +14,7 @@ ms.custom: template-how-to-pattern
 
 AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both managed and bring your own (BYO) Prometheus and Grafana are supported. Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use BYO Prometheus and Grafana to visualize the scraped metrics.
 
-<!-- image placeholder 
+<!-- image placeholder, will uncomment after we receive updated image
 :::image type="content" source="./media/network-observability-byo-cli/network-observability-byo.png" alt-text="Diagram of BYO Network Observability add-on for AKS.":::
 -->
 
@@ -154,29 +154,29 @@ Use the following example to configure scrape jobs on Prometheus and enable visu
 
 1. Add the following scrape job to your existing Prometheus configuration and restart your Prometheus server:
 
-```yml
-scrape_configs:
-  - job_name: "network-obs-pods"
-    kubernetes_sd_configs:
-      - role: pod
-    relabel_configs:
-      - source_labels: [__meta_kubernetes_pod_container_name]
-        action: keep
-        regex: kappie(.*)
-      - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
-        separator: ":"
-        regex: ([^:]+)(?::\d+)?
-        target_label: __address__
-        replacement: ${1}:${2}
-        action: replace
-      - source_labels: [__meta_kubernetes_pod_node_name]
-        action: replace
-        target_label: instance
-    metric_relabel_configs:
-      - source_labels: [__name__]
-        action: keep
-        regex: (.*)
-``` 
+    ```yml
+    scrape_configs:
+      - job_name: "network-obs-pods"
+        kubernetes_sd_configs:
+          - role: pod
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_container_name]
+            action: keep
+            regex: kappie(.*)
+          - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+            separator: ":"
+            regex: ([^:]+)(?::\d+)?
+            target_label: __address__
+            replacement: ${1}:${2}
+            action: replace
+          - source_labels: [__meta_kubernetes_pod_node_name]
+            action: replace
+            target_label: instance
+        metric_relabel_configs:
+          - source_labels: [__name__]
+            action: keep
+            regex: (.*)
+    ``` 
 
 1. In **Targets** of Prometheus, verify the **network-obs-pods** are present.
 
@@ -189,21 +189,21 @@ scrape_configs:
 
 1. Add the following scrape job to your existing Prometheus configuration and restart your prometheus server. 
 
-```yml
-scrape_configs:
-- job_name: 'kubernetes-pods'
-  kubernetes_sd_configs:
-  - role: pod
-  relabel_configs:
-    - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
-      action: keep
-      regex: true
-    - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
-      action: replace
-      regex: (.+):(?:\d+);(\d+)
-      replacement: ${1}:${2}
-      target_label: __address__
-```
+    ```yml
+    scrape_configs:
+    - job_name: 'kubernetes-pods'
+      kubernetes_sd_configs:
+      - role: pod
+      relabel_configs:
+        - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+          action: keep
+          regex: true
+        - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+          action: replace
+          regex: (.+):(?:\d+);(\d+)
+          replacement: ${1}:${2}
+          target_label: __address__
+    ```
 
 1. In **Targets** of prometheus, verify the **kubernetes-pods** are present.
 
