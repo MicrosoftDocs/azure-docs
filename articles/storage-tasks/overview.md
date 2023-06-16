@@ -12,7 +12,7 @@ ms.author: normesta
 
 ---
 
-# What is Azure Storage Tasks?
+# What are Azure Storage Tasks?
 
 Put something here.
 

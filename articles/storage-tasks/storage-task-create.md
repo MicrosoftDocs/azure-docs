@@ -10,28 +10,28 @@ ms.date: 05/10/2023
 
 # Create a Storage Task
 
-Storage tasks enable you to perform common data management, protection, and movement operations on containers and blobs. You define the conditions and the operations of each task and then connect the task to one or more Azure Storage accounts by using an _assignment_.  
+A storage task can perform operations on containers and blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets.
 
-In this how-to article, you learn to create a Storage Task.
+In this how-to article, you'll learn how to create a Storage Task. 
 
 > [!IMPORTANT]
 > Storage Tasks are currently in PREVIEW and is available in the following regions: \<List regions here\>.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
+To learn more about Storage Tasks, see [What are Azure Storage Tasks?](overview.md).
+
 ## Create a task
 
-1. In the Azure portal, search for _Storage Tasks_.
+In the Azure portal, search for _Storage Tasks_. Then, under **Services**, select **Storage Tasks**.
 
-2. Under **Services**, select **Storage Tasks**.
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the search result of the string Storage Tasks.](./media/storage-task-create/storage-task-search.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of the search result of the string Storage Tasks.](./media/storage-task-create/storage-task-search.png)
+On the **Storage tasks** page, select **Create**.
 
-3. On the **Storage tasks** page, select **Create**.
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of the storage task create button.](./media/storage-task-create/storage-task-create-button.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the storage task create button.](./media/storage-task-create/storage-task-create-button.png)
 
 ### Basics tab
 
@@ -51,11 +51,11 @@ The following image shows an example of the **Basics** tab.
 
 ### Conditions tab
 
-On the **Conditions** tab, define one or more conditions that must be met by each object (container or blob), and one or more operations to perform on any object that meets the specified condition(s).
+On the **Conditions** tab, define the conditions that must be met by each object (container or blob), and the operations to perform on the object.
 
-You must define at least one condition and one operation to continue to the next tab.
+You must define at least one condition and one operation. To add conditions, select  **Add new clause**. To add operations, select **Add new operation**. 
 
-Add conditions by selecting  **Add new clause** and add operations by selecting **Add new operation**. The following table describes the fields on the **Conditions** tab.
+The following table describes the fields on the **Conditions** tab.
 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
@@ -75,9 +75,11 @@ To learn more about conditions and operations, see [Storage Task conditions and 
 
 ### Assignments tab
 
-A Storage Task _assignment_ identifies a storage account to which you'd like to apply the conditions and operations of the task. The assignment also contains configuration properties which help you target specific blobs, or specify when and how often the task runs. Completing this section is optional. You can either add assignments in this tab or add assignments later by using settings in the Azure portal.
+An _assignment_ identifies a storage account target. It also contains properties that can narrow the scope of target objects and specify when and how often a task should run.
 
-Add assignments by selecting **Add assignment**. The following table describes the fields that appear in the **Add assignment** pane.
+To add an assignment, select **Add assignment**. This step is optional. You don't have to add an assignment to create the task.
+
+The following table describes the fields that appear in the **Add assignment** pane.
 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
