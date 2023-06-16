@@ -54,7 +54,7 @@ If you’re using the following supported SDKs, you can configure the SDK Loader
    |	:---	|	:---	|
    | ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
    | Node.js | [Automatic web Instrumentation](./nodejs.md#automatic-web-instrumentationpreview) |
-   | Java | [JavaScript SDK Loader Script Injection](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config#javascript-sdk-loader-script-injection-preview) |
+   | Java | [Browser SDK Loader Script Injection](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config#browser-sdk-loader-script-injection-preview) |
 
 ## Next steps
 
