@@ -1,5 +1,5 @@
 ---
-title: [Not an active article] Set and view configuration settings in Permissions Management
+title: Set and view configuration settings in Permissions Management
 description: How to view the Permissions Management API integration settings and create service accounts and roles.
 services: active-directory
 author: jenniferf-skc
@@ -92,9 +92,3 @@ The **Integrations** dashboard displays the authorization systems available to y
     - **Action (after the key rotation period ends)**: Select **Disable Action Key** or **No Action**.
 
 5. Click **Save**.
-
-## Next steps
-
-[View integrated authorization systems](product-integrations)
-<!---[Installation overview](installation.md)--->
-<!---[Sign up and deploy FortSentry registration](fortsentry-registration.md)--->
