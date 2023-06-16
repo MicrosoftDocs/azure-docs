@@ -40,11 +40,10 @@ Azure CLI or Azure Cloudshell
 
 ``az vm image list --publisher oracle --output table –all``
 
-The images are bring-your-own-license. You're charged only for the costs of compute, storage, and networking incurred running a VM. 
+The images are bring-your-own-license. You're charged only for the costs of compute, storage, and networking incurred running a VM. You can also choose to build your solutions on a custom image that you create from scratch in Azure or upload a custom image from your on-premises environment.  
 >[!IMPORTANT]
 >You require a proper license to use Oracle software and a current support agreement with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. For more information about license mobility, see the [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure/interconnect/faq/).
 
-You can also choose to base your solutions on a custom image that you create from scratch in Azure or upload a custom image from your on-premises environment.
 ## Applications on Oracle Linux and WebLogic server
 Run enterprise applications on WebLogic server in Azure on supported Oracle Linux images. For more information, see the WebLogic documentation,[Oracle WebLogic Server on Azure Solution Overview](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster). 
 
