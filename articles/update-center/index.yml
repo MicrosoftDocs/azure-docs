@@ -13,7 +13,6 @@ metadata:
   ms.author: v-ssudhir
 
 landingContent:
-
   # Card (optional)
   - title: About Update management center
     linkLists:
@@ -23,8 +22,8 @@ landingContent:
             url: overview.md
           - text: Update options
             url: updates-maintenance-schedules.md.md
-          - text: 
-  # Card
+          
+
   - title: Manage machine update state
     linkLists:     
       - linkListType: get-started
@@ -35,7 +34,7 @@ landingContent:
             url: deploy-updates.md
           - text: Schedule recurring updates for machines
             url: scheduled-patching.md
-  # Card
+  
   - title: Dynamic scoping (preview)
     linkLists:     
       - linkListType: concept
