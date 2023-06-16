@@ -249,7 +249,7 @@ When you no longer need a workspace, delete it.
 [!INCLUDE [machine-learning-delete-workspace](../../../includes/machine-learning-delete-workspace.md)]
 
 > [!TIP]
-> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](./concept-soft-delete.md).
+> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](../concept-soft-delete.md).
 
 
 Delete the workspace `ws`:
