@@ -121,14 +121,13 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
 
 1. Create a Resource Group
 1. Create a Virtual Network
-1. Create an Availability Set  
-   Set max update domain
+1. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a virtual machine scale set with flexible orchestration.
 1. Create Virtual Machine 1  
    Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
-   Select Availability Set created earlier  
+   Select the scale set, availability zone or availability set created in step 3.
 1. Create Virtual Machine 2  
    Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
-   Select Availability Set created earlier  
+   Select the scale set, availability zone or availability set created in step 3 (not the same zone as in step 4).
 1. Add at least one data disk to both virtual machines  
    The data disks are used for the /usr/sap/`<SAPSID`> directory
 1. Create load balancer (internal, standard):  
@@ -454,9 +453,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # LD_LIBRARY_PATH=/usr/sap/<b>NW1</b>/ERS<b>02</b>/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/<b>NW1</b>/ERS<b>02</b>/exe/sapstartsrv pf=/usr/sap/<b>NW1</b>/ERS<b>02</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> -D -u <b>nw1</b>adm
    </code></pre>
 
-2. **[1]** Create the SAP cluster resources
+1. **[1]** Create the SAP cluster resources
 
-  If using enqueue server 1 architecture (ENSA1), define the resources as follows:
+   If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
    <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -487,7 +486,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as follows:
 
-<pre><code>sudo pcs property set maintenance-mode=true
+   <pre><code>sudo pcs property set maintenance-mode=true
    
    sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
     InstanceName=<b>NW1</b>_ASCS00_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS00_<b>nw1-ascs</b>" \
