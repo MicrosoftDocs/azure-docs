@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 08/12/2022
+ms.date: 06/16/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
 ---
@@ -334,7 +334,8 @@ az group delete -g <resource-group-name>
 
 For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az-ml-workspace-delete) documentation.
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](./v1/how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
+> [!TIP]
+> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](./concept-soft-delete.md).
 
 ## Troubleshooting
 
