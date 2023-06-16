@@ -1116,12 +1116,12 @@
       - name: Work in VS Code remote
         displayName: Visual Studio Code, VSCode, debug, bugs
         href: how-to-work-in-vs-code-remote.md
-    - name: Work with data
-      items:
-        - name: Prepare data with Apache Spark (preview)
-          items:
-            - name: Configure Apache Spark jobs 
-              href: quickstart-spark-jobs.md
+      - name: Work with data
+        items:
+          - name: Prepare data with Apache Spark (preview)
+            items:
+              - name: Configure Apache Spark jobs 
+                href: quickstart-spark-jobs.md
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity
