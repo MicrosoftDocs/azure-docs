@@ -310,6 +310,10 @@ For more information on the `properties` and `secrets` parameters for your build
 ### [Manage APMs via Bindings in builder](#tab/manage-apms-via-bindings-in-builder)
 When the build service uses the Azure Spring Apps managed container registry, you can build an application to an image and then deploy it, but only within the current Azure Spring Apps service instance.
 
+#### Manage APM configurations via bindings in builder 
+You can manage APM configurations via bindings in builder, refer to [Manage Bindings in Builder in Azure Spring Apps](#manage-bindings-in-builder-in-azure-spring-apps).
+
+#### Bind to app builds and deployments
 Use the following command to integrate APM into your deployments, the APM is confgured via Bindings in the builder:
 
 ```azurecli
