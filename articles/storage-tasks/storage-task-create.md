@@ -94,7 +94,8 @@ Add assignments by selecting **Add assignment**. The following table describes t
 
 The following image shows an example of the **Add assignment** pane.
 
-:::image type="content" source="media/storage-task-create/storage-task-assignment-tab.png" alt-text="Screenshot of assignment tab of the Storage Task create experience.":::
+> [!div class="mx-imgBorder"]
+> ![Screenshot of assignment tab of the Storage Task create experience.](./media/storage-task-create/storage-task-assignment-tab.png)
 
 To learn more about assignments, see [Storage Task assignment](storage-task-assignment.md).
 
