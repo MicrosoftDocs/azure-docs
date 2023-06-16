@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Validate OData request
 
-The `validate-odata-request` policy validates the request URL, headers, and parameters of a request to an OData API to ensure conformance with the [OData specification](http://www.odata.org/documentation).
+The `validate-odata-request` policy validates the request URL, headers, and parameters of a request to an OData API to ensure conformance with the [OData specification](https://www.odata.org/documentation).
 
 > [!NOTE]
 > This policy is currently in preview.
