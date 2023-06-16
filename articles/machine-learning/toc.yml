@@ -639,7 +639,7 @@
     displayName: mlops, mlopspython, production
     href: ./v1/how-to-convert-ml-experiment-to-production.md
   # end v1
-- name: Deploy with inftyerencing
+- name: Deploy with inferencing
   items:
     - name: Online endpoints (real-time)
       items:
