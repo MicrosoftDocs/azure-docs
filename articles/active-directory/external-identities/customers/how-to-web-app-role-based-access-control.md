@@ -36,7 +36,7 @@ In this article, you learn how to receive user roles or group membership or both
 
 Once you configure your customer's tenant, you can retrieve your *roles* and *groups* claims in your client app. The *roles* and *groups* claims are both present in the ID token and the access token, but your client app only needs to check for these claims in the ID token to implement authorization in the client side. The API app can also retrieve these claims when it receives the access token.
 
-You check your *roles* claim value as shown in the following code snippet examples:
+You check your *roles* claim value as shown in the following code snippet example:
 
 ```javascript
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
