@@ -43,7 +43,7 @@ Create a new search resource using PowerShell and the **Az.Search** module. In t
 1. Load the **Az.Search** module: 
 
    ```powershell
-   Install-Module -Name Az.Search
+   Install-Module -Name Az.Search -Scope CurrentUser
    ```
 
 1. Create a new search service. Use the following cmdlet as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas:
@@ -83,7 +83,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/bulk-insert/Program.cs" highlight="16-19, 21-23, 32, 49" :::
+    :::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/bulk-insert/Program.cs" :::
 
 1. Open an integrated terminal in Visual Studio Code for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, then run the following command to install the dependencies. 
 

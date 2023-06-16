@@ -178,7 +178,7 @@ Configurations, controlled by Global Administrators, affect resources. While som
 
 * External user access requirements that conflict with production or sensitive resource policies.
 
-* Organizations that span multiple countries and regions, and companies hosted in a single Azure AD Tenant. For example, what settings and licenses are used in different countries or regions, or business subsidiaries.
+* Organizations that span multiple countries/regions, and companies hosted in a single Azure AD Tenant. For example, what settings and licenses are used in different countries/regions, or business subsidiaries.
 
 ## Administration in a tenant
 
@@ -275,9 +275,9 @@ Incorporating zero-trust principles into your Azure AD design strategy can help 
 
 * [Azure AD fundamentals](secure-with-azure-ad-fundamentals.md)
 
-* [Azure resource management fundamentals](secure-with-azure-ad-resource-management.md)
+* [Azure resource management fundamentals](secure-resource-management.md)
 
-* [Resource isolation in a single tenant](secure-with-azure-ad-single-tenant.md)
+* [Resource isolation in a single tenant](secure-single-tenant.md)
 
 * [Resource isolation with multiple tenants](secure-multiple-tenants.md)
 
