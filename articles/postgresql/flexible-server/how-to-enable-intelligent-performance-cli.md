@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You can verify and update intelligent tuning configuration for an Azure Database for PostgreSQL server by using the Azure CLI.
+You can verify and update the intelligent tuning configuration for an Azure Database for PostgreSQL server by using the Azure CLI.
 
 To learn more about intelligent tuning, see the [overview](concepts-intelligent-tuning.md).
 

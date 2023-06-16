@@ -28,11 +28,12 @@ To learn more about intelligent tuning, see the [overview](concepts-intelligent-
 
    :::image type="content" source="media/how-to-intelligent-tuning-portal/enable-intelligent-tuning.png" alt-text="Screenshot of the pane for server parameters with a search for intelligent tuning.":::
 
-3. The pane shows two parameters: `intelligent_tuning` and `intelligent_tuning.metric_targets`. To activate intelligent tuning, change `intelligent_tuning` to `ON`. You have the option to select one, multiple, or all available tuning targets in `intelligent_tuning.metric_targets`. Select the `Save` button to apply these changes.
+3. The pane shows two parameters: `intelligent_tuning` and `intelligent_tuning.metric_targets`. To activate intelligent tuning, change `intelligent_tuning` to **ON**. You have the option to select one, multiple, or all available tuning targets in `intelligent_tuning.metric_targets`. Select the **Save** button to apply these changes.
 
    :::image type="content" source="media/how-to-intelligent-tuning-portal/choose-tuning-targets.png" alt-text="Screenshot of Server Parameter blade with tuning targets options.":::
 
-   Both `intelligent_tuning` and `intelligent_tuning.metric_targets` server parameters are dynamic. That is, no server restart is required when their values are changed.
+> [!NOTE]
+> Both `intelligent_tuning` and `intelligent_tuning.metric_targets` server parameters are dynamic. That is, no server restart is required when their values are changed.
 
 ### Considerations for selecting values for tuning targets
 

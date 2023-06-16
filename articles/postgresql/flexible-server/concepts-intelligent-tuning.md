@@ -120,8 +120,8 @@ performance is the reason why `checkpoint_completion_target` is a target metric 
 
 ## Next steps
 
-* [Configure intelligent performance for Azure Database for PostgreSQL - Flexible Server by using the Azure portal](how-to-enable-intelligent-performance-portal.md)
-* [Configure intelligent performance for Azure Database for PostgreSQL - Flexible Server by using the Azure CLI](how-to-enable-intelligent-performance-cli.md)
+* [Configure intelligent tuning for Azure Database for PostgreSQL - Flexible Server by using the Azure portal](how-to-enable-intelligent-performance-portal.md)
+* [Configure intelligent tuning for Azure Database for PostgreSQL - Flexible Server by using the Azure CLI](how-to-enable-intelligent-performance-cli.md)
 * [Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server](concepts-troubleshooting-guides.md)
 * [Autovacuum tuning in Azure Database for PostgreSQL - Flexible Server](how-to-autovacuum-tuning.md)
 * [Troubleshoot high IOPS utilization for Azure Database for PostgreSQL - Flexible Server](how-to-high-io-utilization.md)
