@@ -20,7 +20,7 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 | Workload                                        | HX                                                                |
 |-------------------------------------------------|-------------------------------------------------------------------|
-| STREAM Triad                                    | 750-780GB/s of DDR5 , up to 5.7 TB/s of 3D-V Cache bandwidth                                                    |
+| STREAM Triad                                    | 750-780GB/s of DDR5, up to 5.7 TB/s of 3D-V Cache bandwidth                                                    |
 | High-Performance Linpack (HPL)                  | Up to 7.6 TF (Rpeak, FP64) for 144-core VM size                   |
 | RDMA latency & bandwidth                        | < 2 microseconds (1 byte), 400 Gb/s (one-way)                     |
 | FIO on local NVMe SSDs (RAID0)                  | 12 GB/s reads, 7 GB/s writes; 186k IOPS reads, 201k IOPS writes   |
