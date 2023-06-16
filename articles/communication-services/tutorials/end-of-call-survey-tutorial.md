@@ -31,7 +31,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 -	An active Log Analytics Workspace, also known as Azure Monitor Logs. See [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md).
--	To conduct a survey with custom questions using free form text, you will need an [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
+-	To conduct a survey with custom questions using free form text, you need an [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 
 
 > [!IMPORTANT]
@@ -182,12 +182,12 @@ In addition to using the End of Call Survey API you can create your own survey q
 	});
 	appInsights.flush();
 	```
-User responses that were sent using AppInsights will be available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources, correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
+User responses that were sent using AppInsights are available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources, correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
 -  Create new [Workbooks](../../update-center/workbooks.md) (Your ACS Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your ACS resource.
 -  Add new query (+Add -> Add query)
 -  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
 -  You can rename the query (Advanced Settings -> Step name [example: call-survey])
--  Please be aware that it could require a maximum of **2 hours** before the survey data becomes visible in the Azure portal.. Query the call rating data-
+-  Be aware that it could require a maximum of **2 hours** before the survey data becomes visible in the Azure portal.. Query the call rating data-
    ```KQL
    ACSCallSurvey
    | where TimeGenerated > now(-24h)
