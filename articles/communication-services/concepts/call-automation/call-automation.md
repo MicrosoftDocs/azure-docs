@@ -155,18 +155,11 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | RecognizeCompleted | Recognition of user input was successfully completed |
 | RecognizeCanceled | The requested recognize action has been canceled. |
 | RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md)*|
-|RecordingStateChanged | Status of recording action has changed. |
+|RecordingStateChanged | Status of recording action has changed from active to inactive or vice versa. |
 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation/actions-for-call-control.md) that provides code samples as well as sequence diagrams for various call control flows. 
 
 To learn how to secure the callback event delivery, refer to [this guide](../../how-tos/call-automation/secure-webhook-endpoint.md).
-
-## Known issues
-
-1. Using the incorrect IdentifierType for endpoints for `Transfer` requests (like using CommunicationUserIdentifier to specify a phone number) returns a 500 error instead of a 400 error code. Solution: Use the correct type, CommunicationUserIdentifier for Communication Users and PhoneNumberIdentifier for phone numbers. 
-2. Taking a pre-call action like Answer/Reject on the original call after redirected it gives a 200 success instead of failing on 'call not found'.
-3. Transferring a call with more than two participants is currently not supported.
-4. After transferring a call, you may receive two `CallDisconnected` events and will need to handle this behavior by ignoring the duplicate.
 
 ## Next steps
 
