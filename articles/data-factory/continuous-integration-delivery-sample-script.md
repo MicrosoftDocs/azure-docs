@@ -51,7 +51,7 @@ When running a post-deployment script, you will need to specify a variation of t
 :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image11.png" alt-text="Azure PowerShell task":::
 
 ## Script execution and paramters - YAML Pipelines
-The following YAML code excecutes a script that can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. If following the [New CI/CD Flow] (./continuous-integration-delivery-improvements#the-new-cicd-flow) this script will be exported as part of artifact created via the npm publish package.
+The following YAML code excecutes a script that can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. If following the [New CI/CD Flow](articles/data-factory/continuous-integration-delivery-improvements.md) this script will be exported as part of artifact created via the npm publish package.
 
 ### Stop ADF Triggers
 ```
