@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 05/01/2023
+ms.date: 06/15/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,17 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.8.2         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.8.2         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.8.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.8.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for Version 10.8.3
+
+Date published: May 20, 2023
+
+In this release, we've made the following changes:
+
+- Fixed connectivity issue that affected connections with Windows XP and Windows Vista.
+- Addressed an issue that caused diagnostics reporting for Azure Virtual Desktop connections to be inaccurate.
 
 ## Updates for Version 10.8.2
 

@@ -45,11 +45,11 @@ The following client libraries are the **minimum** version required
 
 | Language | Library | Image | Example | Has Windows |
 |-----------|-----------|----------|----------|----------|
-| .NET | [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | ghcr.io/azure/azure-workload-identity/msal-net | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-net/akvdotnet) | Yes |
-| Go | [microsoft-authentication-library-for-go](https://github.com/AzureAD/microsoft-authentication-library-for-go) | ghcr.io/azure/azure-workload-identity/msal-go | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-go) | Yes |
-| Java | [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java) | ghcr.io/azure/azure-workload-identity/msal-java | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-java) | No |
-| JavaScript | [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) | ghcr.io/azure/azure-workload-identity/msal-node | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-node) | No |
-| Python | [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | ghcr.io/azure/azure-workload-identity/msal-python | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-python) | No |
+| .NET | [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | ghcr.io/azure/azure-workload-identity/msal-net:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-net/akvdotnet) | Yes |
+| Go | [microsoft-authentication-library-for-go](https://github.com/AzureAD/microsoft-authentication-library-for-go) | ghcr.io/azure/azure-workload-identity/msal-go:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-go) | Yes |
+| Java | [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java) | ghcr.io/azure/azure-workload-identity/msal-java:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-java) | No |
+| JavaScript | [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) | ghcr.io/azure/azure-workload-identity/msal-node:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-node) | No |
+| Python | [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | ghcr.io/azure/azure-workload-identity/msal-python:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-python) | No |
 
 ## Limitations
 
@@ -93,6 +93,8 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 
 ### Service account annotations
 
+All annotations are optional. If the annotation is not specified, the default value will be used.
+
 |Annotation |Description |Default |
 |-----------|------------|--------|
 |`azure.workload.identity/client-id` |Represents the Azure AD application<br> client ID to be used with the pod. ||
@@ -109,6 +111,8 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 |`azure.workload.identity/use` | This label is required in the pod template spec. Only pods with this label will be mutated by the azure-workload-identity mutating admission webhook to inject the Azure specific environment variables and the projected service account token volume. |true |Yes |
 
 ### Pod annotations
+
+All annotations are optional. If the annotation is not specified, the default value will be used.
 
 |Annotation |Description |Default |
 |-----------|------------|--------|
