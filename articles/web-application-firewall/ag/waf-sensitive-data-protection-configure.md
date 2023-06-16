@@ -39,7 +39,7 @@ To enable Sensitive Data Protection:
 1. Under **Settings**, select **Sensitive data**.
 1. On the **Sensitive data** page, select **Enable log scrubbing**.
 
-To configure Sensitive Data Protection rules:
+To configure Log Scrubbing rules for Sensitive Data Protection:
 
 1. Under **Sensitive Data Protection rules**, select a **Match variable**.
 1. Select an **Operator** (if applicable).
