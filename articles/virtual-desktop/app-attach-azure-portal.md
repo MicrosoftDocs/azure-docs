@@ -13,6 +13,8 @@ MSIX app attach is an application layering solution that allows you to dynamical
 
 This article will walk you through how to set up MSIX app attach in an Azure Virtual Desktop environment.
 
+Learn more about MSIX app attach at [What is MSIX app attach?](what-is-app-attach.md)
+
 ## Requirements
 
 Here's what you need to configure MSIX app attach:

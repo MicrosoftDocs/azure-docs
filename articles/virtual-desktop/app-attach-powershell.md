@@ -12,6 +12,8 @@ manager: femila
 
 In addition to the Azure portal, you can also set up MSIX app attach manually with PowerShell. This article will walk you through how to use PowerShell to set up MSIX app attach.
 
+Learn more about MSIX app attach at [What is MSIX app attach?](what-is-app-attach.md)
+
 ## Requirements
 
 Here's what you need to configure MSIX app attach:
