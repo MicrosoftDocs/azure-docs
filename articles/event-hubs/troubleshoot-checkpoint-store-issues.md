@@ -5,7 +5,7 @@ ms.topic: troubleshooting
 ms.date: 06/16/2023
 ---
 
-# Troubleshoot storage checkpoint store issues 
+# Troubleshoot checkpoint store issues 
 This article discusses issues with using Blob Storage as a checkpoint store.
 
 ## Issues with using Blob Storage as a checkpoint store
