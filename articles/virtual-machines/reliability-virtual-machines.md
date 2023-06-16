@@ -15,57 +15,39 @@ This article contains [specific reliability recommendations for Virtual Machines
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-## Reliability recommendations
-
-This section contains recommendations for achieving resiliency and availability for your Azure Virtual Machines.  All recommendations fall into one of two categories:
-
-- **Health items** cover areas such as configuration items and the proper function of the major components that make up your Azure Workload, such as Azure Resource configuration settings, dependencies on other services, and so on.
-
-- **Risk items** cover areas such as availability and recovery requirements, testing, monitoring, deployment, and other items that if left unresolved increase the chances of problems in the environment. Usually the Well-Architected Framework best practices.
-
-
-### Reliability recommendations priority matrix
-
-Each recommendation is marked in accordance with the following priority matrix:
-
-| Image | Priority | Description
-|----|----|----|
-|![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg)|High|Immediate fix needed.|
-|![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg)|Medium|Fix within 3-6 months.|
-|![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg)|Low|Needs to be reviewed.|
-
+[!INCLUDE [Reliability recommendations](~/azure/reliability/includes/reliability-recommendations-include.md)]
  
 ### Reliability recommendations summary
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**High Availability**](#high-availability) | ![This is a high recommendation for VM-1.](../reliability/media/icon-recommendation-high.svg) | [VM-1: Run production workloads on two or more VMs](#this-is-a-high-recommendation-vm-1-run-production-workloads-on-two-or-more-vms) |
-||![This is a high recommendation VM-2.](../reliability/media/icon-recommendation-high.svg) |[VM-2: Deploy VMs across availability zones](#this-is-a-high-recommendation-vm-2-deploy-vms-across-availability-zones) | 
-||![This is a high recommendation for VM-3.](../reliability/media/icon-recommendation-high.svg) |[VM-3: If Availability Set is required, then put each application tier into a separate Availability Set](#this-is-a-high-recommendation-vm-3-if-availability-set-is-required-then-put-each-application-tier-into-a-separate-availability-set) | 
-||![This is a high recommendation for VM-5.](../reliability/media/icon-recommendation-high.svg) |[VM-5: Use managed disks for VM disks](#this-is-a-high-recommendation-vm-5-use-managed-disks-for-vm-disks)|
-|[**Disaster Recovery**](#disaster-recovery)| ![This is a medium recommendation for VM-4.](../reliability/media/icon-recommendation-medium.svg) |[VM-4: If Availability Set is required, then put each application tier into a separate Availability Set](#this-is-a-low-recommendation-vm-4-replicate-vms-using-azure-site-recovery) |
-||![This is a medium recommendation for VM-7](../reliability/media/icon-recommendation-medium.svg) |[VM-7: Backup data on your VMs with Azure Backup service](#this-is-a-medium-recommendation-vm-7-backup-data-on-your-vms-with-azure-backup-service) |
-|[**Performance**](#performance) |![This is a low recommendation for VM-6.](../reliability/media/icon-recommendation-low.svg) | [VM-6: Host application and database data on a data disk](#this-is-a-low-recommendation-vm-6-host-application-and-database-data-on-a-data-disk)| 
-||![This is a high recommendation for VM-8.](../reliability/media/icon-recommendation-high.svg) | [VM-8: Production VMs should be using SSD disks](#this-is-a-high-recommendation-vm-8-production-vms-should-be-using-ssd-disks)| 
-||![This is a medium recommendation for VM-10.](../reliability/media/icon-recommendation-medium.svg)|[VM-10: Enable Accelerated Networking (AccelNet)](#this-is-a-medium-recommendation-vm-10-enable-accelerated-networking-accelnet) |
-|| ![This is a low recommendation for VM-11.](../reliability/media/icon-recommendation-low.svg) |[VM-11: Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#this-is-a-low-recommendation-vm-11-accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months) | 
-|[**Management**](#management)|![This is a low recommendation for VM-9.](../reliability/media/icon-recommendation-low.svg) |[VM-9: Watch for VMs in Stopped state](#this-is-a-low-recommendation-vm-9-watch-for-vms-in-stopped-state) |  
-|| ![This is a high recommendation for VM-22.](../reliability/media/icon-recommendation-high.svg) |[VM-22: Use maintenance configurations for the VM](#this-is-a-high-recommendation-vm-22-use-maintenance-configurations-for-the-vm) |
-|[**Security**](#security)|![This is a medium recommendation for VM-12.](../reliability/media/icon-recommendation-medium.svg) |[VM-12: VMs should not have a Public IP directly associated](#this-is-a-medium-recommendation-vm-12-vms-should-not-have-a-public-ip-directly-associated) |
-||![This is a low recommendation for VM-13.](../reliability/media/icon-recommendation-low.svg) |[VM-13: Virtual Network Interfaces have an NSG associated](#this-is-a-low-recommendation-vm-13-virtual-network-interfaces-have-an-nsg-associated)  |
-|| ![This is a medium recommendation for VM-14.](../reliability/media/icon-recommendation-medium.svg) |[VM-14: IP Forwarding should only be enabled for Network Virtual Appliances](#this-is-a-medium-recommendation-vm-14-ip-forwarding-should-only-be-enabled-for-network-virtual-appliances) | 
-|| ![This is a low recommendation for VM-17.](../reliability/media/icon-recommendation-low.svg)|[VM-17: Network access to the VM disk should be set to "Disable public access and enable private access"](#this-is-a-low-recommendation-vm-17-network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access) | 
-||![This is a medium recommendation for VM-19.](../reliability/media/icon-recommendation-medium.svg)|[VM-19: Enable disk encryption and data at rest encryption by default](#this-is-a-medium-recommendation-vm-19-enable-disk-encryption-and-data-at-rest-encryption-by-default)  | 
-|[**Networking**](#networking) |  ![This is a low recommendation for VM-15.](../reliability/media/icon-recommendation-low.svg) |[VM-15: Customer DNS Servers should be configured in the Virtual Network level](#this-is-a-low-recommendation-vm-15-customer-dns-servers-should-be-configured-in-the-virtual-network-level) |
-|[**Storage**](#storage) | ![This is a medium recommendation for VM-16.](../reliability/media/icon-recommendation-medium.svg)|[VM-16: Shared disks should only be enabled in clustered servers](#this-is-a-medium-recommendation-vm-16-shared-disks-should-only-be-enabled-in-clustered-servers) | 
-|[**Compliance**](#compliance)| ![This is a low recommendation for VM-18.](../reliability/media/icon-recommendation-low.svg) |[VM-18: Ensure that your VMs are compliant with Azure Policies](#this-is-a-low-recommendation-vm-18-ensure-that-your-vms-are-compliant-with-azure-policies) |
-|[**Monitoring**](#monitoring)| ![This is a low recommendation for VM-20.](../reliability/media/icon-recommendation-low.svg) |[VM-20: Enable VM Insights](#this-is-a-low-recommendation-vm-20-enable-vm-insights) | 
-||![This is a low recommendation for VM-21.](../reliability/media/icon-recommendation-low.svg)|[VM-21: Configure diagnostic settings for all Azure resources](#this-is-a-low-recommendation-vm-21-configure-diagnostic-settings-for-all-azure-resources) | 
+| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VM-1: Run production workloads on two or more VMs](#vm-1-run-production-workloads-on-two-or-more-vms) |
+||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-2: Deploy VMs across availability zones](#vm-2-deploy-vms-across-availability-zones) | 
+||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::|[VM-3: If Availability Set is required, then put each application tier into a separate Availability Set](#vm-3-if-availability-set-is-required-then-put-each-application-tier-into-a-separate-availability-set) | 
+||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-5: Use managed disks for VM disks](#vm-5-use-managed-disks-for-vm-disks)|
+|[**Disaster Recovery**](#disaster-recovery)| :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  |[VM-4: If Availability Set is required, then put each application tier into a separate Availability Set](#vm-4-replicate-vms-using-azure-site-recovery) |
+||:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: |[VM-7: Backup data on your VMs with Azure Backup service](#vm-7-backup-data-on-your-vms-with-azure-backup-service) |
+|[**Performance**](#performance) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  | [VM-6: Host application and database data on a data disk](#vm-6-host-application-and-database-data-on-a-data-disk)| 
+||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: | [VM-8: Production VMs should be using SSD disks](#vm-8-production-vms-should-be-using-ssd-disks)| 
+||:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: |[VM-10: Enable Accelerated Networking (AccelNet)](#vm-10-enable-accelerated-networking-accelnet) |
+||:::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: |[VM-11: Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11-when-accelnet-is-enabled-you-must-manually-update-the-guestos-nic-driver) | 
+|[**Management**](#management)|:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  |[VM-9: Watch for VMs in Stopped state](#vm-9-review-vms-in-stopped-state) |  
+||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-22: Use maintenance configurations for the VM](#vm-22-use-maintenance-configurations-for-the-vm) |
+|[**Security**](#security)|:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  |[VM-12: VMs should not have a Public IP directly associated](#vm-12-vms-should-not-have-a-public-ip-directly-associated) |
+||:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  |[VM-13: Virtual Network Interfaces have an NSG associated](#vm-13-vm-network-interfaces-have-a-network-security-group-nsg-associated)  |
+||:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  |[VM-14: IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14-ip-forwarding-should-only-be-enabled-for-network-virtual-appliances) | 
+||:::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: |[VM-17: Network access to the VM disk should be set to "Disable public access and enable private access"](#vm-17-network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access) | 
+||:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: |[VM-19: Enable disk encryption and data at rest encryption by default](#vm-19-enable-disk-encryption-and-data-at-rest-encryption-by-default)  | 
+|[**Networking**](#networking) | :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  |[VM-15: Customer DNS Servers should be configured in the Virtual Network level](#vm-15-dns-servers-should-be-configured-in-the-virtual-network-level) |
+|[**Storage**](#storage) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: |[VM-16: Shared disks should only be enabled in clustered servers](#vm-16-shared-disks-should-only-be-enabled-in-clustered-servers) | 
+|[**Compliance**](#compliance)| :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  |[VM-18: Ensure that your VMs are compliant with Azure Policies](#vm-18-ensure-that-your-vms-are-compliant-with-azure-policies) |
+|[**Monitoring**](#monitoring)| :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  |[VM-20: Enable VM Insights](#vm-20-enable-vm-insights) | 
+||:::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: |[VM-21: Configure diagnostic settings for all Azure resources](#vm-21-configure-diagnostic-settings-for-all-azure-resources) | 
 
 
 ### High availability
-
-#### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-1: Run production workloads on two or more VMs** 
+ 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-1: Run production workloads on two or more VMs** 
 
 To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use availability sets. Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components. Then, deploy multiple VMs in different Availability Zones, or put them into an Availability Set or Virtual Machine Scale Set, with a Load Balancer in front of them.
 For more information on availability sets, see [Availability sets](/azure/virtual-machines/availability#availability-sets).
@@ -76,7 +58,7 @@ For more information on availability sets, see [Availability sets](/azure/virtua
 ----
 
 
-#### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-2: Deploy VMs across availability zones** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-2: Deploy VMs across availability zones** 
     
 When you create your VMs, use availability zones to protect your applications and data against unlikely datacenter failure. For more information about availability zones for VMs, see [Availability zone support](#availability-zone-support) in this document.
 
@@ -92,7 +74,7 @@ For information on how to migrate your existing VMs to availability zone support
 ----
 
 
-#### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-3: If Availability Set is required, then put each application tier into a separate Availability Set**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::  **VM-3: If Availability Set is required, then put each application tier into a separate Availability Set**
 
 If the region where you are running your application doesn’t support availability zones, put your VMs into an availability set. In an N-tier application, don’t put VMs from different tiers into the same availability set. VMs in an availability set are placed across fault domains (FDs) and update domains (UD). However, to get the redundancy benefit of FDs and UDs, every VM in the availability set must be able to handle the same client requests.
 
@@ -104,7 +86,7 @@ If the region where you are running your application doesn’t support availabil
 ----
 
 
-#### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-5: Use managed disks for VM disks**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::  **VM-5: Use managed disks for VM disks**
 
 To provide better reliability for VMs in an availability set, use managed disks. Managed disks are sufficiently isolated from each other to avoid single points of failure. Also, managed disks aren’t subject to the IOPS limits of VHDs created in a storage account.
 
@@ -117,7 +99,7 @@ To provide better reliability for VMs in an availability set, use managed disks.
 
 ### Disaster recovery
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-4: Replicate VMs using Azure Site Recovery**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-4: Replicate VMs using Azure Site Recovery**
 When you replicate Azure VMs using Site Recovery, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you a Recovery Point Objective (RPO) in the order of minutes. You can conduct disaster recovery drills as many times as you want, without affecting the production application or the ongoing replication.
 
 To learn how to run a disaster recovery drill, see [Run a test failover](/azure/site-recovery/site-recovery-test-failover-to-azure).
@@ -129,7 +111,7 @@ To learn how to run a disaster recovery drill, see [Run a test failover](/azure/
 
 ---
 
-#### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-7: Backup data on your VMs with Azure Backup service**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  **VM-7: Backup data on your VMs with Azure Backup service**
 
 The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. For more information, see [What is the Azure Backup Service](/azure/backup/backup-overview).
 
@@ -141,7 +123,7 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 
 ### Performance
 
-####  ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-6: Host application and database data on a data disk**
+####  :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-6: Host application and database data on a data disk**
 
 A data disk is a managed disk that’s attached to a VM. Use the data disk to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting your data on a data disk makes it easy to backup or restore your data. You can also migrate the disk without having to move the entire VM and Operating System. Also, you'll be able to select a different disk SKU, with different type, size, and performance that meet your requirements. For more information on data disks, see [Data Disks](/azure/virtual-machines/managed-disks-overview#data-disk).
 
@@ -152,7 +134,7 @@ A data disk is a managed disk that’s attached to a VM. Use the data disk to st
 ---
 
 
-#### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-8: Production VMs should be using SSD disks** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::  **VM-8: Production VMs should be using SSD disks** 
 
 
 Premium SSD disks offer high-performance, low-latency disk support for I/O-intensive applications and production workloads. Standard SSD Disks are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. 
@@ -178,7 +160,7 @@ For more information on Azure managed disks and disks types, see [Azure managed 
 
 ---
 
-### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-10: Enable Accelerated Networking (AccelNet)** 
+### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  **VM-10: Enable Accelerated Networking (AccelNet)** 
 
 AccelNet enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads on supported VM types.
 
@@ -192,7 +174,7 @@ For more information on Accelerated Networking, see [Accelerated Networking](/az
 ---
 
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-11: When AccelNet is enabled, you must manually update the GuestOS NIC driver** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-11: When AccelNet is enabled, you must manually update the GuestOS NIC driver** 
 
 When AccelNet is enabled, the default Azure Virtual Network interface in the GuestOS is replaced for a Mellanox interface. As a result, the GuestOS NIC driver is provided from Mellanox, a 3rd party vendor.  Although Marketplace images maintained by Microsoft are offered with the latest version of Mellanox drivers, once the VM is deployed, you'll need to manually update GuestOS NIC driver every six months.
 
@@ -204,7 +186,7 @@ When AccelNet is enabled, the default Azure Virtual Network interface in the Gue
 
 ### Management
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-9: Review VMs in stopped state** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-9: Review VMs in stopped state** 
 VM instances go through different states, including provisioning and power states. If a VM is in a stopped state, the VM may be facing an issue or is no longer necessary and could be removed to help reduce costs.
 
 # [Azure Resource Graph](#tab/graph)
@@ -213,7 +195,7 @@ VM instances go through different states, including provisioning and power state
 
 ---
 
-#### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-22: Use maintenance configurations for the VM**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::  **VM-22: Use maintenance configurations for the VM**
 
 To ensure that VM updates/interruptions are done in a planned time frame, use maintenance configuration settings to schedule and manage updates. For more information on managing VM updates with maintenance configurations, see [Managing VM updates with Maintenance Configurations](maintenance-configurations.md).
 
@@ -226,7 +208,7 @@ To ensure that VM updates/interruptions are done in a planned time frame, use ma
 
 ### Security
 
-#### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-12: VMs should not have a Public IP directly associated** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  **VM-12: VMs should not have a Public IP directly associated** 
 
 If a VM requires outbound internet connectivity, it's recommended that you use NAT Gateway or Azure Firewall. NAT Gateway or Azure Firewall help to increase security and resiliency of the service, since both services have much higher availability and [Source Network Address Translation (SNAT)](/azure/load-balancer/load-balancer-outbound-connections) ports. For inbound internet connectivity, it's recommended that you use a load balancing solution such as Azure Load Balancer and Application Gateway.
 
@@ -238,7 +220,7 @@ If a VM requires outbound internet connectivity, it's recommended that you use N
 ---
 
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-13: VM network interfaces have a Network Security Group (NSG) associated**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-13: VM network interfaces have a Network Security Group (NSG) associated**
 
 It's recommended that you associate a NSG to a subnet, or a network interface, but not both. Since rules in a NSG associated to a subnet can conflict with rules in a NSG associated to a network interface, you can have unexpected communication problems that require troubleshooting. For more information, see [Intra-Subnet traffic](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic).
 
@@ -250,7 +232,7 @@ It's recommended that you associate a NSG to a subnet, or a network interface, b
 ---
 
 
-#### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-14: IP forwarding should only be enabled for network virtual appliances** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  **VM-14: IP forwarding should only be enabled for network virtual appliances** 
 
 IP forwarding enables the virtual machine network interface to:
 
@@ -270,7 +252,7 @@ To learn how to enable or disable IP forwarding, see [Enable or disable IP forwa
 ---
 
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-17: Network access to the VM disk should be set to "Disable public access and enable private access"**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-17: Network access to the VM disk should be set to "Disable public access and enable private access"**
 
 It's recommended that you set VM disk network access to “Disable public access and enable private access” and create a private endpoint. To learn how to create a private endpoint, see [Create a private endpoint](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#create-a-private-endpoint).
 
@@ -282,7 +264,7 @@ It's recommended that you set VM disk network access to “Disable public access
 ---
 
 
-#### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-19: Enable disk encryption and data at rest encryption by default** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  **VM-19: Enable disk encryption and data at rest encryption by default** 
 
 There are several types of encryption available for your managed disks, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host.
 
@@ -301,7 +283,7 @@ For more information about managed disk encryption options, see [Overview of man
 
 ### Networking
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-15: DNS Servers should be configured in the Virtual Network level**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-15: DNS Servers should be configured in the Virtual Network level**
 
 Configure the DNS Server in the Virtual Network to avoid name resolution inconsistency across the environment. For more information on name resolution for resources in Azure virtual networks, see [Name resolution for VMs and cloud services](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances?tabs=redhat).
 
@@ -315,7 +297,7 @@ Configure the DNS Server in the Virtual Network to avoid name resolution inconsi
 
 ### Storage
 
-#### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-16: Shared disks should only be enabled in clustered servers**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  **VM-16: Shared disks should only be enabled in clustered servers**
 
 Azure shared disks is a feature for Azure managed disks that enables you to attach a managed disk to multiple VMs simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure and should only be used in those situations where the disk will be assigned to more than one VM member of a cluster.
 
@@ -331,7 +313,7 @@ To learn more about how to enable shared disks for managed disks, see [Enable sh
 
 ### Compliance
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-18: Ensure that your VMs are compliant with Azure Policies**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-18: Ensure that your VMs are compliant with Azure Policies**
 
 It’s important to keep your virtual machine (VM) secure for the applications that you run. Securing your VMs can include one or more Azure services and features that cover secure access to your VMs and secure storage of your data. For more information on how to keep your VM and applications secure, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines](/azure/virtual-machines/security-controls-policy).
 
@@ -344,7 +326,7 @@ It’s important to keep your virtual machine (VM) secure for the applications t
 
 ### Monitoring
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-20: Enable VM Insights** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-20: Enable VM Insights** 
 
 Enable [VM Insights](/azure/azure-monitor/vm/vminsights-overview) to get more visibility into the health and performance of your virtual machine. VM Insights gives you information on the performance and health of your VMs and Virtual Machine Scale Sets (VMSS), by monitoring their running processes and dependencies on other resources. VM Insights can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues. Insights can also help you understand whether an issue is related to other dependencies.
 
@@ -356,7 +338,7 @@ Enable [VM Insights](/azure/azure-monitor/vm/vminsights-overview) to get more vi
 ---
 
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-21: Configure diagnostic settings for all Azure resources**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::  **VM-21: Configure diagnostic settings for all Azure resources**
 
 Platform metrics are sent automatically to Azure Monitor Metrics by default and without configuration. Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on and are one of the following types:
 
