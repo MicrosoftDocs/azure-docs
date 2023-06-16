@@ -13,7 +13,7 @@ ms.date: 06/05/2023
 
 # Tutorial: Sign in users in .NET MAUI shell app
 
-This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) shell and run the app on the Windows platform.
+This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) shell and run the app on the Android platform.
 
 In this tutorial, you learn how to:
 
@@ -433,7 +433,7 @@ A .NET MAUI app project contains a Platforms folder, with each child folder repr
    - `MsalActivity` class is declared within the `MauiAppBasic.Platforms.Android.Resources` namespace. The class inherits from the `BrowserTabActivity` class, indicating that it extends its functionality.
    - The class is decorated with the `[Activity(Exported = true)]` attribute, which signifies that the activity is exported and can be accessed by other methods.
    - An intent filter is specified using the "[IntentFilter(...)]" attribute. It configures the activity to intercept the `ActionView` intent.
-   - The intent filter is set to handle the `ActionView` intent with the specified `DataScheme` (`msalEnter_the_Application_Id_Here`) and `DataHost` ("auth"). This configuration allows the activity to handle the authentication process by intercepting and processing the `ActionView` intent. Replace `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
+   - The intent filter is set to handle the `ActionView` intent with the specified `DataScheme` (`msalEnter_the_Application_Id_Here`) and `DataHost` ("auth"). This configuration allows the activity to handle the authentication process by intercepting and processing the `ActionView` intent. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** of the app you registered earlier.
 
 ## Add app settings
 
