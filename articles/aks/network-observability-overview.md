@@ -25,7 +25,7 @@ Network observability is an important part of maintaining a healthy and performa
 
 Networking Observability add-on operates seamlessly on Non-Cilium and Cilium data-planes. It empowers customers with enterprise-grade capabilities for DevOps and SecOps. This solution offers a centralized way to monitor network issues in your cluster for cluster network administrators, cluster security administrators, and DevOps engineers.
 
-When the Network Observability addon is enabled, it allows for the collection and conversion of useful metrics into Prometheus format, which can then be visualized in Grafana. There are two options available for using Prometheus and Grafana in this context: Managed [Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) and [Grafana](/azure/managed-grafana/overview) or BYO Prometheus and Grafana.
+When the Network Observability add-on is enabled, it allows for the collection and conversion of useful metrics into Prometheus format, which can then be visualized in Grafana. There are two options available for using Prometheus and Grafana in this context: Managed [Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) and [Grafana](/azure/managed-grafana/overview) or BYO Prometheus and Grafana.
 
 * **Azure Managed Prometheus and Managed Grafana:** This option involves using a managed service provided by Azure. The managed service takes care of the infrastructure and maintenance of Prometheus and Grafana, allowing you to focus on configuring and visualizing your metrics. This option is convenient if you prefer not to manage the underlying infrastructure.
 
