@@ -478,6 +478,10 @@
               href: api-server-vnet-integration.md
             - name: Private Endpoint
               href: private-clusters.md#use-a-private-endpoint-connection
+        - name: Network Observability
+          items:
+          - name: Setup Network Observability - BYO
+            href: network-observability-byo-cli.md
     - name: Configure storage
       items:
         - name: CSI storage drivers
