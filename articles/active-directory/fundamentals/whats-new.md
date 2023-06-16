@@ -66,6 +66,31 @@ Lifecycle Workflows is now general available within Microsoft Entra ID Governanc
 
 ---
 
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - June 2023
+
+**Type:** New feature   
+**Service category:** App Provisioning               
+**Product capability:** 3rd Party Integration    
+      
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [Headspace](../saas-apps/headspace-provisioning-tutorial.md)
+- [Humbol](../saas-apps/humbol-provisioning-tutorial.md)
+- [LUSID](../saas-apps/lusid-provisioning-tutorial.md)
+- [Markit Procurement Service](../saas-apps/markit-procurement-service-provisioning-tutorial.md)
+- [Moqups](../saas-apps/moqups-provisioning-tutorial.md)
+- [Notion](../saas-apps/notion-provisioning-tutorial.md)
+- [OpenForms](../saas-apps/openforms-provisioning-tutorial.md)
+- [SafeGuard Cyber](../saas-apps/safeguard-cyber-provisioning-tutorial.md)
+- [Uni-tel A/S](../saas-apps/uni-tel-as-provisioning-tutorial.md)
+- [Vault Platform](../saas-apps/vault-platform-provisioning-tutorial.md)
+- [V-Client](../saas-apps/v-client-provisioning-tutorial.md)
+- [Veritas Enterprise Vault.cloud SSO-SCIM](../saas-apps/veritas-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+---
+
 ### General Availability - Updated look and feel for Per-user MFA
 
 **Type:** Plan for change    
