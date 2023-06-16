@@ -24,7 +24,7 @@ For more information about AKS Network Observability, see [What is Azure Kuberne
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Installations of Prometheus and Grafana.
+- Installations of BYO Prometheus and Grafana.
 
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
@@ -180,7 +180,7 @@ Use the following example to configure scrape jobs on Prometheus and enable visu
 
 1. In **Targets** of Prometheus, verify the **network-obs-pods** are present.
 
-1. Sign in to Grafana and import the dashboards with the following link: [Cilium Agent Metrics](https://grafana.com/grafana/dashboards/16611-cilium-metrics/).
+1. Sign in to Grafana and import Network Observability Dashbaord with ID [18814]( https://grafana.com/grafana/dashboards/18814/).
 
 # [**Cilium**](#tab/cilium)
 
