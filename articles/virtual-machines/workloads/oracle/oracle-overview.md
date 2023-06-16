@@ -25,10 +25,10 @@ In this article, you learn about running Oracle solutions using the Azure infras
 Oracle supports running its Database 12.1 and higher Standard and Enterprise editions in Azure on VM images based on Oracle Linux. You can run Oracle databases on Azure infrastructure using Oracle Database on Oracle Linux images available in the Azure Marketplace. 
 - Oracle Database 12.2, and 18.3 Enterprise Edition
 - Oracle Database 12.2, and 18.3 Standard Edition
-- Oracle Database 19.3    
-You can also take the following approaches:
+- Oracle Database 19.3      
+You can also take one of the following approaches:
 - Set up Oracle Database on a non-Oracle Linux image available in Azure.
-- Base a solution on a custom image you create from scratch in Azure.
+- Build a solution on a custom image you create from scratch in Azure.
 - Upload a custom image from your on-premises environment.
 
 You can also choose to configure your solution with multiple attached disks. You can improve database performance by installing Oracle Automated Storage Management (ASM).
@@ -72,7 +72,7 @@ configCopy
 - Dynamic clustering and load balancing limitations. Suppose you want to   use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This approach can be done as long as you use a fixed port number for each of the managed servers, not dynamically assigned from a range, and don't start more managed servers than there are machines the administrator is tracking. There should be no more than one managed server per VM.
     If your configuration results in more Oracle WebLogic Servers being started than there are VMs, it isn't possible for more than one of those instances of Oracle WebLogic Servers to bind to a given port number. That is, if multiple Oracle WebLogic Server instances share the same virtual machine, the others on that VM fail.
     If you configure the admin server to automatically assign unique port numbers to its managed servers, then load balancing isn't possible because Azure doesn't support mapping from a single public port to multiple private ports, as would be required for this configuration.    
-- **Multiple instances of Oracle WebLogic Server on a VM**. Depending on your deployment requirements, you might consider running multiple instances of Oracle WebLogic Server on the same VM, if the VM is large enough. For example, on a midsize VM, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture. Running multiple instances of Oracle WebLogic Server on just one VM would be such a single point.
+- Multiple instances of Oracle WebLogic Server on a VM. Depending on your deployment requirements, you might consider running multiple instances of Oracle WebLogic Server on the same VM, if the VM is large enough. For example, on a midsize VM, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture. Running multiple instances of Oracle WebLogic Server on just one VM would be such a single point.
 
 Using at least two VMs could be a better approach. Each VM can run multiple instances of Oracle WebLogic Server. Each instance of Oracle WebLogic Server could still be part of the same cluster. However, it's currently not possible to use Azure to load-balance endpoints that are exposed by such Oracle WebLogic Server deployments within the same VM. Azure Load Balancer requires the load-balanced servers to be distributed among unique VMs.
 ## High availability and disaster recovery options
