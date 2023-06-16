@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: infrastructure nodes, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 06/15/2023
+ms.date: 06/16/2023
 ms.custom: template-how-to
 ---
 
@@ -46,20 +46,22 @@ In order for Azure VMs added to an ARO cluster to recognize as infrastructure no
     
 - There can be no more than three nodes. Any additional nodes are charged an OpenShift fee.
 
-- The nodes must have an Azure tag of **node_role: infra**.
+- The nodes must have an Azure tag of **node_role: infra**
 
-- No other workloads other than those designed for infrastructure nodes are allowed. Other types of nodes are considered worker nodes and will be charged a fee. This may also invalidate the Software License Agreement and compromise the stability of the cluster.
+- Only workloads designed for infrastructure nodes are allowed. All other node types are considered worker nodes and will be charged a fee. This may also invalidate the Software License Agreement and compromise the stability of the cluster.
 
 
 ## Creating infrastructure machine sets
 
 1. Use the [template below](#manifest-definition-template) to create the manifest definition for your infrastructure machine set.
 
-1. Replace all fields in between "<>" with your specific values. For example, replace `location: <REGION>` with `location: westus2`
+1. Replace all fields in between "<>" with your specific values.
 
-1. For help with the required commands and values, see [Commands and values](#commands-and-values).
+    For example, replace `location: <REGION>` with `location: westus2`
 
-1. Create the machine set with the command `oc create -f <machine-set-filename.yaml>`.
+1. For help with the required syntax, see [Commands and values](#commands-and-values).
+
+1. Create the machine set with the following command: `oc create -f <machine-set-filename.yaml>`
 
 1. To verify the creation of the machine set, run the following command: `oc get machineset -n openshift-machine-api`
 
@@ -146,51 +148,51 @@ spec:
 
 ### Commands and values
 
-Below are some common commands/values that you may need when creating and executing the template.
+Below are some common commands/values used when creating and executing the template.
 
-List all machine sets:
-
-`oc get machineset -n openshift-machine-api`
-
-Get details for a specific machine set:
-
-`oc get machineset <machineset_name> -n openshift-machine-api -o yaml`
-
-Cluster resource group:
-
-`oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.resourceGroupName}'`
-
-Network resource group:
-
-`oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.networkResourceGroupName}'`
-
-Infrastructure ID:
-
-`oc get infrastructure cluster -o jsonpath='{.status.infrastructureName}'`
-
-Region:
-
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.location}'`
-
-SKU:
-
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.sku}'`
-
-Subnet:
-
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.subnet}'`
-
-Version:
-
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'`
-
-Vnet:
-
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'`
-
+    List all machine sets:
+    
+    `oc get machineset -n openshift-machine-api`
+    
+    Get details for a specific machine set:
+    
+    `oc get machineset <machineset_name> -n openshift-machine-api -o yaml`
+    
+    Cluster resource group:
+    
+    `oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.resourceGroupName}'`
+    
+    Network resource group:
+    
+    `oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.networkResourceGroupName}'`
+    
+    Infrastructure ID:
+    
+    `oc get infrastructure cluster -o jsonpath='{.status.infrastructureName}'`
+    
+    Region:
+    
+    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.location}'`
+    
+    SKU:
+    
+    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.sku}'`
+    
+    Subnet:
+    
+    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.subnet}'`
+    
+    Version:
+    
+    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'`
+    
+    Vnet:
+    
+    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'`
+    
 ## Moving workloads to the new infrastructure nodes
 
-Follow the instructions below to move your infrastructure workloads to the infrastructure nodes you just created:
+Use the instructions below to move your infrastructure workloads to the infrastructure nodes previously created.
 
 ### Ingress
 
@@ -249,7 +251,7 @@ Use this procedure for any additional ingress controllers you may have in the cl
     > This will override any other customizations to the cluster monitoring stack, so you may want to merge your existing customizations before running the command.
     > 
     
-1. Verify that the OpenShift Monitoring Operator is starting pods on the new infrastructure nodes. Note that some nodes (such as prometheus-operator) will remain on master nodes.
+1. Verify that the OpenShift Monitoring Operator is starting pods on the new infrastructure nodes. Note that some nodes (such as `prometheus-operator`) will remain on master nodes.
 
     ```
     oc -n openshift-monitoring get pods -o wide
@@ -266,5 +268,4 @@ Use this procedure for any additional ingress controllers you may have in the cl
     ...
     ...
     ```
-    
-
+   
