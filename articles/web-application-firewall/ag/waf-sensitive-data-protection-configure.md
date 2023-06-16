@@ -36,7 +36,7 @@ Use the following information to enable and configure Sensitive Data Protection.
 To enable Sensitive Data Protection:
 
 1. Open an existing Application Gateway WAF policy.
-1. Under **Settings**, select **Sensitive Data Protection rules**.
+1. Under **Settings**, select **Sensitive data**.
 1. On the **Sensitive Data Protection rules** page, select **Enable Sensitive Data Protection**.
 
 To configure Sensitive Data Protection rules:
