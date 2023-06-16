@@ -80,6 +80,8 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 * Secure applications with built-in layer 3-4 DDoS protection, seamlessly attached [Web Application Firewall (WAF)](../web-application-firewall/afds/afds-overview.md), and [Azure DNS to protect your domains](how-to-configure-endpoints.md).
 
+* Protect your applications against L7 layer DDoS protection using WAF. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+
 * Protect your apps from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence.
 
 * Privately connect to your backend behind Azure Front Door with [Private Link](private-link.md) and embrace a zero-trust access model.

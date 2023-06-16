@@ -24,6 +24,15 @@ WAF prevents malicious attacks close to the attack sources, before they enter yo
 
 Azure Front Door has [two tiers](../../frontdoor/standard-premium/overview.md): Front Door Standard and Front Door Premium. WAF is natively integrated with Front Door Premium with full capabilities. For Front Door Standard, only [custom rules](#custom-authored-rules) are supported.
 
+## Protection
+
+* Protect your web applications from web vulnerabilities and attacks without modification to back-end code.
+
+* Protect your web applications from malicious bots with the IP Reputation ruleset.
+
+* Protect your application against DDoS attacks. For more information, see [Application DDoS Protection](../shared/application-ddos-protection.md).
+
+
 ## WAF policy and rules
 
 You can configure a [WAF policy](waf-front-door-create-portal.md) and associate that policy to one or more Front Door front-ends for protection. A WAF policy consists of two types of security rules:
