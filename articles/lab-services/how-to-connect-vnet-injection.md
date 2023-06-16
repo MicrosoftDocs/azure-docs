@@ -7,7 +7,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 06/16/2023
 ---
 
 # Connect a lab plan to a virtual network with advanced networking
@@ -36,7 +36,7 @@ The following diagram shows an overview of the Azure Lab Services advanced netwo
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Your Azure account has the [network contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role assigned.
-- An existing Azure virtual network and subnet in the same Azure region as the lab plan. Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
+- An Azure virtual network and subnet in the same Azure region as the lab plan. Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
 - For on-premises connectivity using a [Virtual Network Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways), the gateway, virtual network, network security group, and the lab plan must all be in the same Azure region.
 
 ## 1. Delegate the virtual network subnet
@@ -51,10 +51,10 @@ Follow these steps to delegate your subnet for use with a lab plan:
 
 1. Go to your virtual network, and select **Subnets**.
 
-1. Select the subnet you wish to delegate to Azure Lab Services.
+1. Select a dedicated subnet you wish to delegate to Azure Lab Services.
 
     > [!IMPORTANT]
-    > You can't use a VNET Gateway subnet with Azure Lab Services.
+    > The subnet you use for Azure Lab Services should not already be used for a VNET gateway or Azure Bastion.
 
 1. In **Delegate subnet to a service**, select *Microsoft.LabServices/labplans*, and then select **Save**.
 
@@ -162,14 +162,17 @@ It's recommended that you use the default configuration settings for the virtual
 
 For specific networking scenarios, you might need to update the networking configuration. Learn more about the [supported networking architectures and topologies in Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services-blog/network-architectures-and-topologies-with-lab-plans/ba-p/3781597#M130) and the corresponding network configuration.
 
-You can modify the networking configuration settings after you create the lab plan with advanced networking. However, there are some considerations when making networking configurations:
+You can modify the virtual network settings after you create the lab plan with advanced networking. However, when you change the [DNS settings on the virtual network](/azure/virtual-network/manage-virtual-network#change-dns-servers), you need to restart any running lab virtual machines. Lab virtual machines that are stopped will receive the updated DNS settings when they start.
 
-- If you delete the virtual network or subnet that is associated with the lab plan, the labs stop working.
-- You can change the subnet range, as long as there are no virtual machines (lab template VM or lab VMs) created for the lab.
-- When you change the DNS label on the public IP address, the **Connect** button for lab VMs stops working.
-
-> [!NOTE]
-> Azure Firewall is currently not supported.
+> [!CAUTION]
+> The following networking configuration changes are not supported after you've configured advanced networking :
+>
+> - Delete the virtual network or subnet associated with the lab plan. This causes the labs to stop working.
+> - Change the subnet address range when there are virtual machines created (template VM or lab VMs).
+> - Change the DNS label on the public IP address. This causes the **Connect** button for lab VMs to stop working.
+> - Change the [frontend IP configuration](/azure/load-balancer/manage#add-frontend-ip-configuration) on the Azure load balancer. This causes the **Connect** button for lab VMs to stop working.
+> - Use a route table with a default route for the subnet (forced-tunneling). This causes users to lose connectivity to their lab.
+> - The use of Azure Firewall or Azure Bastion is not supported.
 
 ## Next steps
 
