@@ -542,19 +542,19 @@ Resources of some services that are registered in your subscription can access y
 
 The following table lists services that can access your storage account data if the resource instances of those services have the appropriate permission.
 
-| Service                        | Resource provider name                   | Purpose            |
-| :----------------------------- | :--------------------------------------- | :----------------- |
-| Azure FarmBeats                | `Microsoft.AgFoodPlatform/farmBeats`     | Enables access to storage accounts. |
-| Azure API Management           | `Microsoft.ApiManagement/service`        | Enables access to storage accounts behind firewalls via policies. [Learn more](../../api-management/authentication-managed-identity-policy.md#use-managed-identity-in-send-request-policy). |
-| Microsoft Autonomous Systems   | `Microsoft.AutonomousSystems/workspaces`      | Enables access to storage accounts. |
+| Service                         | Resource provider name                  | Purpose            |
+| :------------------------------ | :-------------------------------------- | :----------------- |
+| Azure FarmBeats                 | `Microsoft.AgFoodPlatform/farmBeats`    | Enables access to storage accounts. |
+| Azure API Management            | `Microsoft.ApiManagement/service`       | Enables access to storage accounts behind firewalls via policies. [Learn more](../../api-management/authentication-managed-identity-policy.md#use-managed-identity-in-send-request-policy). |
+| Microsoft Autonomous Systems    | `Microsoft.AutonomousSystems/workspaces` | Enables access to storage accounts. |
 | Azure Cache for Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md).| 
-| Azure Cognitive Search         | `Microsoft.Search/searchServices`        | Enables access to storage accounts for indexing, processing, and querying. |
-| Azure Cognitive Services       | `Microsoft.CognitiveService/accounts`    | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
-| Azure Container Registry       | `Microsoft.ContainerRegistry/registries` | Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
-| Azure Databricks               | `Microsoft.Databricks/accessConnectors`  | Enables access to storage accounts. |
-| Azure Data Factory             | `Microsoft.DataFactory/factories`        | Enables access to storage accounts through the Data Factory runtime. |
-| Azure Backup Vault             | `Microsoft.DataProtection/BackupVaults`  | Enables access to storage accounts. |
-| Azure Data Share               | `Microsoft.DataShare/accounts`           | Enables access to storage accounts. |
+| Azure Cognitive Search          | `Microsoft.Search/searchServices`       | Enables access to storage accounts for indexing, processing, and querying. |
+| Azure Cognitive Services        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
+| Azure Container Registry        | `Microsoft.ContainerRegistry/registries`| Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
+| Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. |
+| Azure Data Factory              | `Microsoft.DataFactory/factories`       | Enables access to storage accounts through the Data Factory runtime. |
+| Azure Backup Vault              | `Microsoft.DataProtection/BackupVaults` | Enables access to storage accounts. |
+| Azure Data Share                | `Microsoft.DataShare/accounts`          | Enables access to storage accounts. |
 | Azure Database for PostgreSQL   | `Microsoft.DBForPostgreSQL`             | Enables access to storage accounts. |
 | Azure IoT Hub                   | `Microsoft.Devices/IotHubs`             | Allows data from an IoT hub to be written to Blob Storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources). |
 | Azure DevTest Labs              | `Microsoft.DevTestLab/labs`             | Enables access to storage accounts. |
@@ -581,7 +581,7 @@ The following table lists services that can access your storage account data if 
 | Microsoft Purview               | `Microsoft.Purview/accounts`            | Enables access to storage accounts. |
 | Azure Site Recovery             | `Microsoft.RecoveryServices/vaults`     | Enables access to storage accounts. |
 | Security Center                 | `Microsoft.Security/dataScanners`       | Enables access to storage accounts. |
-|           | `Microsoft.Singularity/accounts`                              | Enables access to storage accounts. |
+| Singularity                     | `Microsoft.Singularity/accounts`        | Enables access to storage accounts. |
 | Azure SQL Database              | `Microsoft.Sql`                         | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure SQL Servers               | `Microsoft.Sql/servers`                 | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure Synapse Analytics         | `Microsoft.Sql`                         | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
