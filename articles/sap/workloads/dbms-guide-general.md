@@ -91,8 +91,8 @@ When you plan your disk layout, find the best balance between these items:
 * The number of additional data disks possible per VM size.
 * The overall storage or network throughput a VM can provide.
 * The latency different Azure Storage types can provide.
-- VM storage IOPS and throughput quota.
-- VM network quota in case you're using NFS - traffic to NFS shares is counting against the VM's network quota and **NOT** the storage quota.
+* VM storage IOPS and throughput quota.
+* VM network quota in case you're using NFS - traffic to NFS shares is counting against the VM's network quota and **NOT** the storage quota.
 * VM SLAs.
 
 Azure enforces an IOPS quota per data disk or NFS share. These quotas are different for disks hosted on the different Azure block storage solutions or shares. I/O latency is also different between these different storage types as well. 
@@ -236,7 +236,6 @@ These best practices are the result of thousands of customer deployments:
 
 
 > [!WARNING]
-
 > Configuring [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of a SAP NetWeaver-, Hybris-, or S/4HANA-based SAP system isn't supported. This restriction is for functionality and performance reasons. The communication path between the SAP application layer and the DBMS layer must be a direct one. The restriction doesn't include [application security group (ASG) and NSG rules](../../virtual-network/network-security-groups-overview.md) if those ASG and NSG rules allow a direct communication path. This also includes traffic to NFS shares that host DBMS data and redo log files.
 >
 > Other scenarios where network virtual appliances aren't supported are in:

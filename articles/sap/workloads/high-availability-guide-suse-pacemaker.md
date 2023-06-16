@@ -492,7 +492,7 @@ To create a service principal, do the following:
 
 ### **[1]** Create a custom role for the fence agent
 
-By default, neither managed identity norservice principal have permissions to access your Azure resources. You need to give the managed identity or service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
+By default, neither managed identity nor service principal have permissions to access your Azure resources. You need to give the managed identity or service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
 
 Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 

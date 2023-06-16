@@ -133,13 +133,13 @@ Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list
 
 1. Create or select a resource group.
 1. Create or select a virtual network and subnet.
-1. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a VM scale set with flexible orchestration.
+1. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a virtual machine scale set with flexible orchestration.
 1. Create Virtual Machine 1.
     + Use Red Hat Enterprise Linux for SAP image in the Azure Marketplace.
-    + Select the VM scale set, availability zone or availability set created in step 3.
+    + Select the scale set, availability zone or availability set created in step 3.
 1.  Create Virtual Machine 2.
     + Use Red Hat Enterprise Linux for SAP image in the Azure Marketplace.
-    + Select the VM scale set, availability zone or availability set created in step 3 (not the same zone as in step 4).
+    + Select the scale set, availability zone or availability set created in step 3 (not the same zone as in step 4).
 1. Add data disks to the VMs, and then check the recommendation of a file system setup in the article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload][dbms-db2].
 
 ## Install the IBM Db2 LUW and SAP environment
