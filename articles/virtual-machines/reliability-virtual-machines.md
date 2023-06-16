@@ -68,7 +68,7 @@ Each recommendation is marked in accordance with the following priority matrix:
 #### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-1: Run production workloads on two or more VMs** 
 
 To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use availability sets. Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components. Then, deploy multiple VMs in different Availability Zones, or put them into an Availability Set or Virtual Machine Scale Set, with a Load Balancer in front of them.
-
+For more information on availability sets, see [Availability sets](/azure/virtual-machines/availability#availability-sets).
 # [Azure Resource Graph](#tab/graph)
 
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-1/vm-1.kql":::
@@ -78,7 +78,7 @@ To safeguard application workloads from downtime due to the temporary unavailabi
 
 #### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-2: Deploy VMs across availability zones** 
     
-When you create your VMs, make sure to use availability zones to protect your applications and data against unlikely datacenter failure. For more information about availability zones for VMs, see [Availability zone support](#availability-zone-support) in this document.
+When you create your VMs, use availability zones to protect your applications and data against unlikely datacenter failure. For more information about availability zones for VMs, see [Availability zone support](#availability-zone-support) in this document.
 
 For information on how to enable availability zones support when you create your VM, see [create availability zone support](#create-a-resource-with-availability-zone-enabled).
 
