@@ -52,8 +52,15 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
  
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-1: Run production workloads on two or more VMs** 
 
-To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use availability sets. Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components. Then, deploy multiple VMs in different Availability Zones, or put them into an Availability Set or Virtual Machine Scale Set, with a Load Balancer in front of them.
-For more information on availability sets, see [Availability sets](/azure/virtual-machines/availability#availability-sets).
+To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, it is recommended that you run production workloads on two or more VMs.
+
+To achieve this you can use:
+
+- **Availability zones**. For more information on availability zones and VMs, see [Availability zone support](#availability-zone-support).
+- **Availability sets**. User availability sets when availability zones are not available in your region or if you have low latency requirements. With availability sets, Azure places VMs and disks in separate fault domains with different power, network, and server components. For more information on availability sets, see [Availability sets](/azure/virtual-machines/availability-set-overview).
+
+Use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
+
 # [Azure Resource Graph](#tab/graph)
 
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machines/code/vm-1/vm-1.kql":::
@@ -77,10 +84,10 @@ For information on how to migrate your existing VMs to availability zone support
 ----
 
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-3: If Availability Set is required, then put each application tier into a separate Availability Set**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-3: If using availability sets, place each application tier into a separate availability set**
 
-If the region where you are running your application doesn’t support availability zones, put your VMs into an availability set. In an N-tier application, don’t put VMs from different tiers into the same availability set. VMs in an availability set are placed across fault domains (FDs) and update domains (UD). However, to get the redundancy benefit of FDs and UDs, every VM in the availability set must be able to handle the same client requests.
-
+VMs in an availability set are placed across fault domains (FDs) and update domains (UD). However, to get the redundancy benefit of FDs and UDs, each VM in the availability set must be able to handle the same client requests.
+In an N-tier application, it's recommended that you place each application tier into its own availability set.
 
 # [Azure Resource Graph](#tab/graph)
 
