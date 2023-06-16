@@ -177,12 +177,12 @@ In order to ensure that more specific rules are processed first, use the rule pr
 ```azurecli-interactive
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name wccontosoRule \
+  --name contosoRule \
   --resource-group myResourceGroupAG \
-  --http-listener wccontosoListener \
+  --http-listener contosoListener \
   --rule-type Basic \
   --priority 200 \
-  --address-pool wccontosoPool
+  --address-pool contosoPool
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
