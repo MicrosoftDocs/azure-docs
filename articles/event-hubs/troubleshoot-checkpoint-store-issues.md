@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot storage checkpoint store issues in Azure Event Hubs
 description: This article describes how to troubleshoot checkpoint store issues when using Azure Blob Storage as the checkpoint store in Azure Event Hubs. 
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 06/16/2023
 ---
 
