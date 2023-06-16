@@ -1148,7 +1148,7 @@ VHD distribute properties:
 
 ## Properties: optimize
 
-The `optimize` property can be enabled while creating a VM image and allows prefetch optimization to improve image creation time.
+The `optimize` property can be enabled while creating a VM image and allows VM optimization to improve image creation time.
 
 # [JSON](#tab/json)
 

@@ -44,7 +44,7 @@ Optimization can be enabled while creating a VM image using the CLI.
 
 Customers can create an Azure VM Image Builder template using CLI. It contains details regarding source, type of customization, and distribution.
 
-In your template, you will need to enable the additional fields shown below for VM optimization. For more information on how to enable VM optimization for your image builder template, see the [Optimize property](../virtual-machines/linux/image-builder-json.md#properties-optimize).
+In your template, you will need to enable the additional fields for VM optimization. For more information on how to enable the VM optimization fields for your image builder template, see the [Optimize property](../virtual-machines/linux/image-builder-json.md#properties-optimize).
 
 > [!NOTE]
 > To enable VM optimization benefits, you must be using Azure Image Builder API Version `2022-07-01` or later.
