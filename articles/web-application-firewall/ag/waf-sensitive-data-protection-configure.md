@@ -12,7 +12,7 @@ ms.date: 06/13/2023
 
 The Web Application Firewall's (WAF's) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive data. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
 
-The following table shows examples of sensitive data that can be scrubbed from your logs:
+The following table shows examples of log scrubbing rules that can be used to protect your sensitive data:
 
 | Match Variable | Operator | Selector | What gets scrubbed |
 | --- | --- | --- | --- |
