@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
@@ -64,7 +64,7 @@ There are several moving parts across GCP and Azure, which are required to be co
 
     Optionally, specify **G-Suite IDP Secret Name** and **G-Suite IDP User Email** to enable G-Suite integration.
 
-    You can either download and run the script at this point or you can do it in the Google Cloud Shell.
+1. You can either download and run the script at this point or you can do it in the Google Cloud Shell.
 1. Select **Next**.
 
 Choose from 3 options to manage GCP projects. 

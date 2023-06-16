@@ -1,5 +1,5 @@
 ---
-title:  Enable Permissions Management in your organization
+title:  Enable Microsoft Permissions Management in your organization
 description: How to enable Permissions Management in your organization.
 services: active-directory
 author: jenniferf-skc
