@@ -480,7 +480,7 @@
       {
           "source_path_from_root": "/articles/healthcare-apis/data-transformation/convert-data.md",
           "redirect_url": "/azure/healthcare-apis/fhir/overview-of-convert-data",
-          "redirect_document_id": true
+          "redirect_document_id": false
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/convert-data.md",
