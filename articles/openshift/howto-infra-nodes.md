@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: infrastructure nodes, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 06/15/2023
 ms.custom: template-how-to
 ---
 
@@ -150,45 +150,45 @@ spec:
 
 Below are some common commands/values used when creating and executing the template.
 
-    List all machine sets:
+List all machine sets:
     
-    `oc get machineset -n openshift-machine-api`
+`oc get machineset -n openshift-machine-api`
     
-    Get details for a specific machine set:
+Get details for a specific machine set:
     
-    `oc get machineset <machineset_name> -n openshift-machine-api -o yaml`
+`oc get machineset <machineset_name> -n openshift-machine-api -o yaml`
     
-    Cluster resource group:
+Cluster resource group:
     
-    `oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.resourceGroupName}'`
+`oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.resourceGroupName}'`
     
-    Network resource group:
+Network resource group:
     
-    `oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.networkResourceGroupName}'`
+`oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.networkResourceGroupName}'`
     
-    Infrastructure ID:
+Infrastructure ID:
     
-    `oc get infrastructure cluster -o jsonpath='{.status.infrastructureName}'`
+`oc get infrastructure cluster -o jsonpath='{.status.infrastructureName}'`
     
-    Region:
+Region:
     
-    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.location}'`
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.location}'`
     
-    SKU:
+SKU:
     
-    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.sku}'`
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.sku}'`
     
-    Subnet:
+Subnet:
     
-    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.subnet}'`
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.subnet}'`
     
-    Version:
+Version:
     
-    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'`
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'`
     
-    Vnet:
+Vnet:
     
-    `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'`
+`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'`
     
 ## Moving workloads to the new infrastructure nodes
 
@@ -268,4 +268,4 @@ Use this procedure for any additional ingress controllers you may have in the cl
     ...
     ...
     ```
-   
+    
