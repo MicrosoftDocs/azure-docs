@@ -25,7 +25,7 @@ Follow these steps to configure advanced networking for your lab plan:
 
 You can only connect a lab plan when you create the lab plan. You can't configure advanced networking after the lab plan was created.
 
-The following diagram shows an overview of the Azure Lab Services advanced networking configuration.
+The following diagram shows an overview of the Azure Lab Services advanced networking configuration. The lab template and lab virtual machines are assigned an IP address in your subnet, and the network security group allows lab users to connect to the lab VMs by using RDP or SSH.
 
 :::image type="content" source="./media/how-to-connect-vnet-injection/lab-services-advanced-networking-overview.png" alt-text="Diagram that shows an overview of the advanced networking configuration in Azure Lab Services.":::
 
