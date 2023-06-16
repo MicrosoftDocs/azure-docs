@@ -138,6 +138,7 @@ There are two ways to configure APM in Azure Spring Apps:
 This section provides guidance for both approaches as below.
 
 ### Manage APMs on service instance level (recommended)
+You can create APM Configuration and bind to App Builds and Deployments.
 
 #### Manage APM Configuration in Azure Spring Apps
 
