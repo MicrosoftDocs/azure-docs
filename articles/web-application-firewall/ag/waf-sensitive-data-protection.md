@@ -15,7 +15,7 @@ The Web Application Firewall's (WAF's) Log Scrubbing tool helps you remove sensi
 
 ## Default log behavior
 
-Normally, when a WAF rule is triggered, the WAF logs the details of the request in clear text. If the portion of the request triggering the WAF rule contains sensitive data, (such as customer passwords or IP addresses) that sensitive data is viewable by anyone with access to the WAF logs. To protect customer data, you can set up Sensitive Data Protection rules targeting this sensitive data.
+Normally, when a WAF rule is triggered, the WAF logs the details of the request in clear text. If the portion of the request triggering the WAF rule contains sensitive data, (such as customer passwords or IP addresses) that sensitive data is viewable by anyone with access to the WAF logs. To protect customer data, you can set up Log Scrubbing rules targeting this sensitive data for protection.
 
 > [!IMPORTANT]
 > Selectors are case insensitive for the RequestHeaderNames match variable only. All other match variables are case sensitive.
