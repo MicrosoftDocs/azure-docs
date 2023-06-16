@@ -12,13 +12,13 @@ ms.custom: template-how-to
 
 # Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster
 
-ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, the integrated container image registry, and the components for cluster metrics and monitoring. These infrastructure machines are not counted toward the total number of subscriptions that are required to run the environment.
+ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, the integrated container image registry, and the components for cluster metrics and monitoring. These infrastructure machines aren't counted toward the total number of subscriptions that are required to run the environment.
 
 In a production deployment, it's recommended that you deploy at least three machine sets to hold infrastructure components. Each of these nodes can be deployed to different availability zones to increase availability. This type of configuration requires three different machines sets; one for each availability zone.
 
 ## Qualified workloads
 
-The following infrastructure workloads do not incur OpenShift Container Platform worker subscriptions:
+The following infrastructure workloads don't incur OpenShift Container Platform worker subscriptions:
 
 - Kubernetes and OpenShift Container Platform control plane services that run on masters
 
@@ -33,47 +33,46 @@ The following infrastructure workloads do not incur OpenShift Container Platform
 - Cluster-aggregated logging
 
 > [!IMPORTANT]
-> If workloads outside of the types mentioned above are discovered on the infrastructure nodes, the Software License Agreement will be invalidated and the stability of the cluster may be compromised. 
+> If workloads other than the allowable types are discovered on the infrastructure nodes, the Software License Agreement will be invalidated and the stability of the cluster may be compromised. 
 
 ## Before you begin
 
-In order for Azure VMs added to an ARO cluster to recognized as infrastructure nodes (as opposed to additonal worker nodes) and not be charged an OpenShift fee, the following criteria must be met:
+In order for Azure VMs added to an ARO cluster to recognize as infrastructure nodes (as opposed to more worker nodes) and not be charged an OpenShift fee, the following criteria must be met:
 
-- The nodes must be of of the following instance types only:
+- The nodes must be one of the following instance types only:
     - Standard_E4s_v5
     - Standard_E8s_v5
     - Standard_E16s_v5
     
-- There can be no more than three nodes. Any additional nodes will be charged an OpenShift fee.
+- There can be no more than three nodes. Any additional nodes are charged an OpenShift fee.
 
 - The nodes must have an Azure tag of **node_role: infra**.
 
-- No other workloads besides those designed for the infra nodes (described above) are allowed. Other types of nodes will be deemed as worker nodes and be charged a fee. This may also invalidate the Software License Agreement and compromise the stability of the cluster.
+- No other workloads other than those designed for infrastructure nodes are allowed. Other types of nodes are considered worker nodes and will be charged a fee. This may also invalidate the Software License Agreement and compromise the stability of the cluster.
 
 
 ## Creating infrastructure machine sets
 
-Use the template below to create the manifest definition for your infrastructure machine set.
+1. Use the [template below](#manifest-definition-template) to create the manifest definition for your infrastructure machine set.
 
-Replace all fields in between "<>" with your specific values. For example, replace `location: <REGION>` with `location: westus2`
+1. Replace all fields in between "<>" with your specific values. For example, replace `location: <REGION>` with `location: westus2`
 
-For help with the required commands and values, see...
+1. For help with the required commands and values, see [Commands and values](#commands-and-values).
 
-Create the machine set with the command `oc create -f <machine-set-filename.yaml>`.
+1. Create the machine set with the command `oc create -f <machine-set-filename.yaml>`.
 
-To verify the creation of the machine set, run the following command: `oc get machineset -n openshift-machine-api`
+1. To verify the creation of the machine set, run the following command: `oc get machineset -n openshift-machine-api`
 
-The output of the verification command should look similar to below:
-
-
-```
-NAME                            DESIRED     CURRENT  READY   AVAILABLE   AGE
-ok0608-vkxvw-infra-westus21     1           1        1       1           165M
-ok0608-vkxvw-worker-westus21    1           1        1       1           4H24M
-ok0608-vkxvw-worker-westus22    1           1        1       1           4H24M 
-ok0608-vkxvw-worker-westus23    1           1        1       1           4H24M
-```
-
+    The output of the verification command should look similar to below:
+    
+    ```
+    NAME                            DESIRED     CURRENT  READY   AVAILABLE   AGE
+    ok0608-vkxvw-infra-westus21     1           1        1       1           165M
+    ok0608-vkxvw-worker-westus21    1           1        1       1           4H24M
+    ok0608-vkxvw-worker-westus22    1           1        1       1           4H24M 
+    ok0608-vkxvw-worker-westus23    1           1        1       1           4H24M
+    ```
+    
 ### Manifest definition template
 
 Use the following template in the procedure above to create the manifest definition for your infrastructure machine set:
@@ -149,11 +148,11 @@ spec:
 
 Below are some common commands/values that you may need when creating and executing the template.
 
-List all machinesets:
+List all machine sets:
 
 `oc get machineset -n openshift-machine-api`
 
-Get details for a specific machineset:
+Get details for a specific machine set:
 
 `oc get machineset <machineset_name> -n openshift-machine-api -o yaml`
 
@@ -181,17 +180,91 @@ Subnet:
 
 `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.subnet}'`
 
-
 Version:
 
 `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'`
-
 
 Vnet:
 
 `oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'`
 
-## Moving infrastructure workloads to the new infra nodes
+## Moving workloads to the new infrastructure nodes
 
+Follow the instructions below to move your infrastructure workloads to the infrastructure nodes you just created:
 
+### Ingress
+
+Use this procedure for any additional ingress controllers you may have in the cluster.
+
+> [!NOTE]
+> If your application has very high ingress resource requirements, it may be better to spread them across worker nodes or a dedicated machine set.
+> 
+
+1. Set the `nodePlacement` on the `ingresscontroller` to `node-role.kubernetes.io/infra` and increase the `replicas` to match the number of infrastructure nodes:
+  
+    ```
+    oc patch -n openshift-ingress-operator ingresscontroller default --type=merge  \
+     -p='{"spec":{"replicas":3,"nodePlacement":{"nodeSelector":{"matchLabels":{"node-role.kubernetes.io/infra":""}},"tolerations":[{"effect":"NoSchedule","key":"node-role.kubernetes.io/infra","operator":"Exists"}]}}}'
+    ```
+    
+1. Verify that the Ingress Controller Operator is starting pods on the new infrastructure nodes:
+
+    ```
+    oc -n openshift-ingress get pods -o wide
+    ```
+    
+    ```bash
+    NAME                              READY   STATUS        RESTARTS   AGE   IP         NODE                                                    NOMINATED NODE   READINESS GATES
+    router-default-69f58645b7-6xkvh   1/1     Running       0          66s   10.129.6.6    cz-cluster-hsmtw-infra-aro-machinesets-eastus-3-l6dqw   <none>           <none>
+    router-default-69f58645b7-vttqz   1/1     Running       0          66s   10.131.4.6    cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
+    router-default-6cb5ccf9f5-xjgcp   1/1     Terminating   0          23h   10.131.0.11   cz-cluster-hsmtw-worker-eastus2-xj9qx                   <none>           <none>
+    ```
+    
+### Registry
+
+1. Set the `nodePlacement` on the registry to `node-role.kubernetes.io/infra`:
+
+    a. ```
+    b. oc patch configs.imageregistry.operator.openshift.io/cluster --type=merge \
+    c. -p='{"spec":{"affinity":{"podAntiAffinity":{"preferredDuringSchedulingIgnoredDuringExecution":[{"podAffinityTerm":{"namespaces":["openshift-image-registry"],"topologyKey":"kubernetes.io/hostname"},"weight":100}]}},"logLevel":"Normal","managementState":"Managed","nodeSelector":{"node-role.kubernetes.io/infra":""},"tolerations":[{"effect":"NoSchedule","key":"node-role.kubernetes.io/infra","operator":"Exists"}]}}'
+    d. ```
+    
+1. Verify that the Registry Operator is starting pods on the new infrastructure nodes:
+
+    ```
+    oc -n openshift-image-registry get pods -l "docker-registry" -o wide
+    ```
+    
+    ```bash
+    NAME                              READY   STATUS    RESTARTS   AGE     IP           NODE                                                    NOMINATED NODE   READINESS GATES
+    image-registry-84cbd76d5d-cfsw7   1/1     Running   0          3h46m   10.128.6.7   cz-cluster-hsmtw-infra-aro-machinesets-eastus-2-kljml   <none>           <none>
+    image-registry-84cbd76d5d-p2jf9   1/1     Running   0          3h46m   10.129.6.7   cz-cluster-hsmtw-infra-aro-machinesets-eastus-3-l6dqw   <none>           <none>
+    ```
+    
+### Cluster monitoring
+
+1. Configure the cluster monitoring stack to use the infrastructure nodes.
+
+    > [!NOTE]
+    > This will override any other customizations to the cluster monitoring stack, so you may want to merge your existing customizations before running the command.
+    > 
+    
+1. Verify that the OpenShift Monitoring Operator is starting pods on the new infrastructure nodes. Note that some nodes (such as prometheus-operator) will remain on master nodes.
+
+    ```
+    oc -n openshift-monitoring get pods -o wide
+    ```
+    
+    
+    ```bash
+    NAME                                           READY   STATUS    RESTARTS   AGE     IP            NODE                                                    NOMINATED NODE   READINESS GATES
+    alertmanager-main-0                            6/6     Running   0          2m14s   10.128.6.11   cz-cluster-hsmtw-infra-aro-machinesets-eastus-2-kljml   <none>           <none>
+    alertmanager-main-1                            6/6     Running   0          2m46s   10.131.4.11   cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
+    cluster-monitoring-operator-5bbfd998c6-m9w62   2/2     Running   0          28h     10.128.0.23   cz-cluster-hsmtw-master-1                               <none>           <none>
+    grafana-599d4b948c-btlp2                       3/3     Running   0          2m48s   10.131.4.10   cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
+    kube-state-metrics-574c5bfdd7-f7fjk            3/3     Running   0          2m49s   10.131.4.8    cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
+    ...
+    ...
+    ```
+    
 
