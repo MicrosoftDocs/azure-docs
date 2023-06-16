@@ -130,8 +130,6 @@ items:
       href: quickstarts/telephony/get-phone-number.md
     - name: Add outbound phone calling to your app
       href: quickstarts/telephony/pstn-call.md
-    - name: Handle an inbound phone call
-      href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
     - name: Configure direct routing
       href: quickstarts/telephony/voice-routing-sdk-config.md
   - name: Email
@@ -395,8 +393,6 @@ items:
         href: quickstarts/telephony/port-phone-number.md
     - name: Call Automation
       items:
-      - name: Build a workflow for customer interactions 
-        href: quickstarts/call-automation/callflows-for-customer-interactions.md
       - name: Control and steer calls
         href: how-tos/call-automation/actions-for-call-control.md
       - name: Customize voice prompts to users with play action 

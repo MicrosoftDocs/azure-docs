@@ -172,4 +172,5 @@ To learn how to secure the callback event delivery, refer to [this guide](../../
 
 Here are some articles of interest to you: 
 - Understand how your resource will be [charged for various calling use cases](../pricing.md) with examples. 
-- Learn how to [manage an inbound phone call](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md).
+- Try out the quickstart to [place an outbound call](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
+- Learn about [usage and operational logs](../analytics/logs/call-automation-logs.md) published by call automation.
