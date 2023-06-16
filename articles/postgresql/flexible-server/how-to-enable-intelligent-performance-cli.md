@@ -1,6 +1,6 @@
 ---
-title: Configure intelligent performance - Azure Database for PostgreSQL - Flexible Server - CLI
-description: This article describes how to configure intelligent performance in Azure Database for PostgreSQL - Flexible Server by using the Azure CLI.
+title: Configure intelligent tuning - Azure Database for PostgreSQL - Flexible Server - CLI
+description: This article describes how to configure intelligent tuning in Azure Database for PostgreSQL - Flexible Server by using the Azure CLI.
 ms.author: alkuchar
 author: AwdotiaRomanowna
 ms.service: postgresql
@@ -11,11 +11,11 @@ ms.date: 06/02/2023
 ms.custom: devx-track-azurecli
 ---
 
-# Configure intelligent performance for Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
+# Configure intelligent tuning for Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You can verify and update intelligent performance configuration for an Azure Database for PostgreSQL server by using the Azure CLI.
+You can verify and update intelligent tuning configuration for an Azure Database for PostgreSQL server by using the Azure CLI.
 
 To learn more about intelligent tuning, see the [overview](concepts-intelligent-tuning.md).
 
@@ -43,7 +43,7 @@ To learn more about intelligent tuning, see the [overview](concepts-intelligent-
 
 ## Verify current settings
 
-Use the [az postgres flexible-server parameter show](/cli/azure/postgres/flexible-server/parameter#az-postgres-flexible-server-parameter-show) command to confirm the current settings of the intelligent performance feature.
+Use the [az postgres flexible-server parameter show](/cli/azure/postgres/flexible-server/parameter#az-postgres-flexible-server-parameter-show) command to confirm the current settings of the intelligent tuning feature.
 
 You can verify if this feature is activated for the server `mydemoserver.postgres.database.azure.com` under the resource group `myresourcegroup` by using the following command:
 
