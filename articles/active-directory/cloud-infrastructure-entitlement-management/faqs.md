@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions (FAQs) about Permissions Management
-description: Frequently asked questions (FAQs) about Permissions Management.
+title: Frequently asked questions (FAQs) about Microsoft Entra Permissions Management
+description: Frequently asked questions (FAQs) about Microsoft Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 01/25/2023
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
 # Frequently asked questions (FAQs)
 
-This article answers frequently asked questions (FAQs) about Permissions Management.
+This article answers frequently asked questions (FAQs) about Microsoft Entra Permissions Management.
 
-## What's Permissions Management?
+## What's Microsoft Entra Permissions Management?
 
-Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle.
+Microsoft Entra Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle.
 
 
 ## What are the prerequisites to use Permissions Management?
@@ -178,7 +178,7 @@ Where xx-XX is one of the following available language parameters: 'cs-CZ', 'de-
 
 ## Resources
 
-- [Public Preview announcement blog](https://www.aka.ms/CloudKnox-Public-Preview-Blog)
+- [Public Preview announcement blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity)
 - [Permissions Management web page](https://microsoft.com/security/business/identity-access-management/permissions-management)
 - For more information about Microsoft's privacy and security terms, see [Commercial Licensing Terms](https://www.microsoft.com/licensing/terms/product/ForallOnlineServices/all). 
 - For more information about Microsoft's data processing and security terms when you subscribe to a product, see [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA).
@@ -186,5 +186,5 @@ Where xx-XX is one of the following available language parameters: 'cs-CZ', 'de-
 
 ## Next steps
 
-- For an overview of Permissions Management, see [What's Permissions Management?](overview.md).
+- For an overview of Permissions Management, see [What's Microsoft Entra Permissions Management?](overview.md).
 - For information on how to onboard Permissions Management in your organization, see [Enable Permissions Management in your organization](onboard-enable-tenant.md).
