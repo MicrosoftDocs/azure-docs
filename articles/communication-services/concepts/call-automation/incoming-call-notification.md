@@ -90,5 +90,4 @@ Since the `IncomingCall` notification doesn't have a specific destination other 
     ```
 
 ## Next steps
-- [Build a Call Automation application](../../quickstarts/call-automation/callflows-for-customer-interactions.md) to simulate a customer interaction.
-- [Redirect an inbound PSTN call](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md) to your resource.
+- Try out the quickstart to [place an outbound call](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
