@@ -18,11 +18,11 @@ Click on the relevant tab for instructions to enable Managed identity authentica
 
 When creating a new cluster from the Azure portal: On the **Integrations** tab, first check the box for *Enable Container Logs*, then check the box for *Use managed identity*.  
 
-:::image type="content" source="./media/container-insights-authentication/aks-cluster-creation.png" alt-text="Screenshot that shows an checkbox to select." lightbox="media/container-insights-authentication/aks-cluster-creation.png"::
+:::image type="content" source="./media/container-insights-authentication/aks-cluster-creation.png" alt-text="Screenshot that shows an checkbox to select." lightbox="media/container-insights-authentication/aks-cluster-creation.png":::
 
 For existing clusters, you can switch to Managed Identity authentication from the *Monitor settings* panel: Navigate to your AKS cluster, scroll through the menu on the left till you see the **Monitoring** section, there click on the **Insights** tab. In the Insights tab, click on the *Monitor Settings* option and check the box for *Use managed identity*
 
-:::image type="content" source="./media/container-insights-authentication/monitor-settings.png" alt-text="Screenshot that shows an checkbox to select." lightbox="media/container-insights-authentication/monitor-settings.png"::
+:::image type="content" source="./media/container-insights-authentication/monitor-settings.png" alt-text="Screenshot that shows an checkbox to select." lightbox="media/container-insights-authentication/monitor-settings.png":::
 
 If you don't see the *Use managed identity* option, you are using an SPN clusters. In that case, you must use command line tools to migrate. See other tabs for migration instructions and templates.
 
