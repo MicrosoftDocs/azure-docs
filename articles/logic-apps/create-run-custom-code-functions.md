@@ -47,27 +47,45 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 >
 > You can't use the same project for both your code and workflows.
 
-1. On the Visual Studio Code Activity Bar, select the **Azure** icon. (Keyboard: Shift+Alt+A)
+1. Open Visual Studio Code. On the Activity Bar, select the **Azure** icon. (Keyboard: Shift+Alt+A)
 
 1. In the **Azure** window that opens, on the **Workspace** toolbar, select **Create new logic app workspace**. 
 
+   :::image type="content" source="media/create-run-custom-code-functions/create-workspace.png" alt-text="Screenshot shows Visual Studio Code, Azure window, and selected option for Create new logic app workspace.":::
+
 1. In the **Create new logic app workspace** prompt that appears, find and select the local folder that you created for your project.
 
-1. Follow the prompts to provide the following information:
+   :::image type="content" source="media/create-run-custom-code-functions/select-local-folder.png" alt-text="Screenshot shows Visual Studio Code with prompt to select a local folder for workflow project.":::
 
-   - Workspace name
-   - Function name
-   - Namespace name
-   - Workflow template, either stateful or stateless
-   - Workflow name
+1. Follow the prompts to provide the following example values:
+
+   | Item | Example value |
+   |------|---------------|
+   | Workspace name | **MyLogicAppWorkspace** |
+   | Function name | **WeatherForecast** |
+   | Namespace name | **Contoso.Enterprise** |
+   | Workflow template: <br>- **Stateful Workflow** <br>- **Stateless Workflow** | **Stateful Workflow** |
+   | Workflow name | **MyWorkflow** |
 
 1. Select **Open in current window**.
 
-   After you finish this step, Visual Studio Code creates your workspace, which includes a function project and a logic app project, by default, for example:
+   After you finish this step, Visual Studio Code creates your workspace, which includes a function project and a logic app workflow project, by default, for example:
+
+   :::image type="content" source="media/create-run-custom-code-functions/created-workspace.png" alt-text="Screenshot shows Visual Studio Code with created workspace.":::
+
+   | Node | Description |
+   |------|-------------|
+   | **<*workspace-name*>** | Contains both your function project and logic app workflow project. |
+   | **Functions** | Contains the artifacts for your function project. For example, the **<*function-name*>.cs** file is the code file where you can author your code. |
+   | **LogicApp** | Contains the artifacts for your logic app project, including a blank workflow. |
 
 ## Write your code
 
-1. In your workspace, expand **Functions**, if not already expanded, and open the <*your-function-name*>.cs file, which contains the following code elements, with the information that you previously provided:
+1. In your workspace, expand the **Functions** node, if not already expanded.
+
+1. Open the **<*function-name*>.cs** file.
+
+   This file contains the following code elements with the names that you previously provided:
 
    - Namespace with the previously provided name
    - Class name
@@ -76,15 +94,92 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    - Return type
    - Complex type
 
-   The function definition includes a default `Run` method that you can use to get started. This sample method demonstrates some of the capabilities available with the custom code feature, such as passing different inputs and outputs, including complex .NET types.
+1. In the **<*function-name*>.cs** file, author the code that you want.
 
-   > [!TIP]
-   >
-   > You can edit the default `Run` method for your own scenarios. Or, you can copy the function, 
-   > including the `[FunctionName("<*function-name*>")]` declaration, and then rename the function, 
-   > using a unique name. You can then edit the renamed function to meet your needs.
+   The following sample code uses the provided example values:
 
-1. 
+   ```csharp
+   //------------------------------------------------------------
+   // Copyright (c) Microsoft Corporation. All rights reserved.
+   //------------------------------------------------------------
+
+   namespace Contoso.Enterprise
+   {
+       using System;
+       using System.Collections.Generic;
+       using System.Threading.Tasks;
+       using Microsoft.Azure.Functions.Extensions.Workflows;
+       using Microsoft.Azure.WebJobs;
+
+       /// <summary>
+       /// Represents the WeatherForecast flow invoked function.
+       /// </summary>
+       public static class WeatherForecast
+       {
+           /// <summary>
+           /// Executes the logic app workflow.
+           /// </summary>
+           /// <param name="zipCode">The zip code.</param>
+           /// <param name="temperatureScale">The temperature scale (e.g., Celsius or Fahrenheit).</param>
+           [FunctionName("WeatherForecast")]
+           public static Task<Weather> Run([WorkflowActionTrigger] int zipCode, string temperatureScale)
+           {
+               // Generate random temperature within a range based on the temperature scale
+               Random rnd = new Random();
+               var currentTemp = temperatureScale == "Celsius" ? rnd.Next(1, 30) : rnd.Next(40, 90);
+               var lowTemp = currentTemp - 10;
+               var highTemp = currentTemp + 10;
+
+               // Create a Weather object with the temperature information
+               var weather = new Weather()
+               {
+                   ZipCode = zipCode,
+                   CurrentWeather = $"The current weather is {currentTemp} {temperatureScale}",
+                   DayLow = $"The low for the day is {lowTemp} {temperatureScale}",
+                   DayHigh = $"The high for the day is {highTemp} {temperatureScale}"
+               };
+
+               return Task.FromResult(weather);
+           }
+
+           /// <summary>
+           /// Represents the weather information.
+           /// </summary>
+           public class Weather
+           {
+               /// <summary>
+               /// Gets or sets the zip code.
+               /// </summary>
+               public int ZipCode { get; set; }
+
+               /// <summary>
+               /// Gets or sets the current weather.
+               /// </summary>
+               public string CurrentWeather { get; set; }
+
+               /// <summary>
+               /// Gets or sets the low temperature for the day.
+               /// </summary>
+               public string DayLow { get; set; }
+
+               /// <summary>
+               /// Gets or sets the high temperature for the day.
+               /// </summary>
+               public string DayHigh { get; set; }
+           }
+       }
+   }
+   ```
+
+The function definition includes a default `Run` method that you can use to get started. This sample method demonstrates some of the capabilities available with the custom code feature, such as passing different inputs and outputs, including complex .NET types.
+
+> [!TIP]
+>
+> You can edit the default `Run` method for your own scenarios. Or, you can copy the function, 
+> including the `[FunctionName("<*function-name*>")]` declaration, and then rename the function, 
+> using a unique name. You can then edit the renamed function to meet your needs.
+
+1. When you're done, save your work.
 
 ## Compile and build your code
 
