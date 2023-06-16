@@ -70,7 +70,7 @@ Image definitions contain metadata for the image to allow grouping of images tha
    | Features | Accepted Values | Definition | Supported in |
    |--|--|--|--|
    | IsHibernateSupported | True, False | Create VMs with support for hibernation. | Private, direct shared, community |
-   | IsAcceleratedNetworkSupported | True, False | Create VM's with accelerated networking enabled. When set to `True` on Image definition, capturing VMs that don't support accelerated networking is not supported. | Private, direct shared, community |
+   | IsAcceleratedNetworkSupported | True, False | Create VMs with accelerated networking enabled. When set to `True` on Image definition, capturing VMs that don't support accelerated networking is not supported. | Private, direct shared, community |
    | DiskControllerType | ["SCSI", "NVMe"], ["SCSI"] | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in image definitions that are tagged to be supporting NVMe. | Private, direct shared, community |
  
    When you specify a SecurityType using the `features` parameter, it limits the security features that are enabled on the VM. Some types limited, based on the type of gallery that they are stored in:
@@ -85,7 +85,7 @@ Image definitions contain metadata for the image to allow grouping of images tha
 
    For more information, see the CLI examples for adding [image definition features and SecurityType](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create) or the [PowerShell examples](/powershell/module/az.compute/new-azgalleryimagedefinition#example-4-create-an-image-definition-for-generalized-windows-images-and-set-features).
    
-   **ConfidentialVM is only supported in the regions where it's available, You can find the supported regions [here](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview#regions).
+   **ConfidentialVM is only supported in the regions where it's available, You can find the supported regions [here](/azure/confidential-computing/confidential-vm-overview#regions).
 ## Image versions
 
 An **image version** is what you use to create a VM. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
