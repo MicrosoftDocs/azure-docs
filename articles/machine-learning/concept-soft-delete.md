@@ -61,7 +61,7 @@ During the retention period, soft deleted workspaces can be recovered or permane
 
 The default deletion behavior when deleting a workspace is soft delete. Optionally, you may override the soft delete behavior by permanently deleting your workspace. Permanently deleting a workspace ensures workspace data is immediately deleted. Use this option to meet related compliance requirements, or whenever you require a workspace name to be reused immediately after deletion. This may be useful in dev/test scenarios where you want to create and later delete a workspace.
 
-When deleting a workspace from the Azure Portal, check __Delete the workspace permanently__. You can permanently delete only one workspace at a time, and not using a batch operation. 
+When deleting a workspace from the Azure portal, check __Delete the workspace permanently__. You can permanently delete only one workspace at a time, and not using a batch operation. 
 
 :::image type="content" source="./media/concept-soft-delete/soft-delete-permanently-delete.png" alt-text="Screenshot of the delete workspace form in the portal.":::
 
