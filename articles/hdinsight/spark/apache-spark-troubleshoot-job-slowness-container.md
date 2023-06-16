@@ -18,9 +18,9 @@ When you run an HDInsight cluster, the Apache Spark job that writes to Azure sto
 
 This issue is a known Spark related issue. The slowness comes from the `ListBlob` and `GetBlobProperties` operations during Spark job execution.
 
-To track partitions, Spark has to maintain a `FileStatusCache` that, contains info about directory structure. Using this cache, Spark can parse the paths and be aware of available partitions. The benefit of tracking partitions is that Spark only touches the necessary files when you read data. To keep this information up-to-date, when you write new data, Spark has to list all files under the directory and update this cache.
+To track partitions, Spark has to maintain a `FileStatusCache` that, contains info about directory structure. If you use this cache, Spark can parse the paths and be aware of available partitions. The benefit of tracking partitions is that Spark only touches the necessary files when you read data. To keep this information up-to-date, when you write new data, Spark has to list all files under the directory and update this cache.
 
-In Spark 2.1, while we don't need to update the cache after every write, Spark will check whether an existing partition column matches with the proposed one in the current write request, so it will also lead to listing operations at the beginning of every write.
+In Spark 2.1, while we don't need to update the cache after every write, Spark will check whether an existing partition column matches with the proposed one in the current write request. So it will also lead to listing operations at the beginning of every write.
 
 In Spark 2.2, when writing data with append mode, this performance problem should be fixed.
 
