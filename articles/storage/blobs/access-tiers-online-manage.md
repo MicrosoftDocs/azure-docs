@@ -322,7 +322,7 @@ az storage blob set-tier \
 
 #### [AzCopy](#tab/azcopy)
 
-To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter. 
+To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter.
 
 > [!IMPORTANT]
 > Using AzCopy to change a blob's access tier is currently in PREVIEW.
@@ -334,9 +334,6 @@ To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\com
 ```azcopy
 azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=<tier>
 ```
-
-> [!NOTE]
-> Setting the `--block-blob-tier` parameter to `cold` is not yet supported. If you want to change a blob's tier to the `cold` tier, use the Azure portal, PowerShell, or the Azure CLI.
 
 To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
 
