@@ -8,11 +8,15 @@ ms.topic: how-to
 ms.date: 05/23/2023
 ---
 
-# Create and run .NET Framework code from Standard workflows in Azure Logic Apps
+# Create and run .NET Framework code from Standard workflows in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-For integration solutions where you have to write and run .NET Framework code with your Standard logic app workflow, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension. This capability provides the following benefits:
+> [!IMPORTANT]
+> This capability is in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+For integration solutions where you have to author and run .NET Framework code from your Standard logic app workflow, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension. This extension provides the following capabilities and benefits:
 
 - Create code that has the flexibility and control to solve your most challenging integration problems.
 - Debug code locally in Visual Studio Code. Step through your code and workflows in the same debugging session.
@@ -33,9 +37,7 @@ For integration solutions where you have to write and run .NET Framework code wi
 
 ## Limitations
 
-- Custom code authoring currently isn't available in the Azure portal.
-
-  However, after you deploy your custom code to Azure, you can use the **Call a local function in this logic app** built-in action and deployed functions to run code and reference the outputs in subsequent actions like in any other workflow. You can view the run history, inputs, and outputs for the built-in action.
+Custom code authoring currently isn't available in the Azure portal. However, after you deploy your custom code to Azure, you can use the **Call a local function in this logic app** built-in action and deployed functions to run code and reference the outputs in subsequent actions like in any other workflow. You can view the run history, inputs, and outputs for the built-in action.
 
 ## Create a code project
 
@@ -59,27 +61,32 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
 1. Select **Open in current window**.
 
-   After you finish this step, Visual Studio Code creates your workspace, which contains a function project and a logic app project, for example:
+   After you finish this step, Visual Studio Code creates your workspace, which includes a function project and a logic app project, by default, for example:
 
 ## Write your code
 
-The function project includes a .cs file that contains the function with the name that you previously provided. This function includes a default Run method that you can use to get started.  This sample method demonstrates some of the capabilities found in calling in our custom code feature including passing different inputs and outputs including complex .NET types.
-Note: You can modify the existing Run method to meet your needs, or you can copy and paste the function, including the [FunctionName(“function-name”)] declaration, and rename it to ensure there is a unique name associated with it. Modify this new function as you see fit.
+1. In your workspace, expand **Functions**, if not already expanded, and open the <*your-function-name*>.cs file, which contains the following code elements, with the information that you previously provided:
 
-1. In your workspace, expand **Functions**, if not already expanded, and open the <*your-function-name*>.cs file, which contains the following code elements:
-
-   - Class namespace
+   - Namespace with the previously provided name
    - Class name
-   - Function name
+   - Function with the previously provided name
    - Function parameters
    - Return type
    - Complex type
+
+   The function definition includes a default `Run` method that you can use to get started. This sample method demonstrates some of the capabilities available with the custom code feature, such as passing different inputs and outputs, including complex .NET types.
+
+   > [!TIP]
+   >
+   > You can edit the default `Run` method for your own scenarios. Or, you can copy the function, 
+   > including the `[FunctionName("<*function-name*>")]` declaration, and then rename the function, 
+   > using a unique name. You can then edit the renamed function to meet your needs.
 
 1. 
 
 ## Compile and build your code
 
-After you finish writing your code, compile that code to make sure that no build errors exist.
+After you finish writing your code, compile that code to make sure that no build errors exist. Your function project automatically includes build tasks that compiles your code and adds that compiled code to the **lib\custom\net472** folder in your logic app project where workflows look for custom code to run.
 
 1. From the Visual Studio Code **Terminal** menu, select **New Terminal**.
 
@@ -95,11 +102,15 @@ After you finish writing your code, compile that code to make sure that no build
 
 1. In your workspace, expand **LogicApp** > **lib\custom** > **net472**, and confirm that the following items exist:
 
-   - Multiple assembly (DLL) files, including a file named **<*your-function-name*>.dll**, which are required to run your code.
+   - Multiple assembly (DLL) files, including a file named **<*your-function-name*>.dll**, that are required to run your code.
 
-   - A subfolder named **<*your-function-name*>**, which you provided earlier, that contains a **function.json** file.
-   
-     This file contains the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
+   - A subfolder named **<*your-function-name*>** that contains a **function.json** file. This file contains the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
 
 
 ## Configure custom code to call from a workflow
+
+After you confirm that your code compiles, and that your logic app project contains the necessary files for your code to run, set up the **Call a local function in this logic app** built-in action in your workflow.
+
+1. In your workspace, under **LogicApp**, expand **<*your-workflow-name*>**, open the shortcut menu for **workflow.json**, and select **Open Designer**.
+
+1. After the workflow designer opens, 
