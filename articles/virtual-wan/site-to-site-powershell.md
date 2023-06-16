@@ -184,7 +184,7 @@ Once you have a VNet, follow the steps in this article to connect your VNet to t
 
 ## Configure VPN device
 
-To configure your on-premise VPN device, follow the steps in the [Site-to-site: Azure portal](virtual-wan-site-to-site-portal.md#device) article.
+To configure your on-premises VPN device, follow the steps in the [Site-to-site: Azure portal](virtual-wan-site-to-site-portal.md#device) article.
 
 ## <a name="cleanup"></a>Clean up resources
 
