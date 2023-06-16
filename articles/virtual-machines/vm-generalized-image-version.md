@@ -580,11 +580,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ## Reporting issues with a community image 
 Using community-submitted virtual machine images has several risks. Images could contain malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images when you see these issues.
 
-The easiest way to report issues with a community gallery is to use the portal, which will pre-fill information for the report:
-- For issues with links or other information in the fields of an image definition, select **Report community image**.
-- If an image version contains malicious code or there are other issues with a specific version of an image, select **Report** under the **Report version** column in the table of image versions.
-
-You can also use the following links to report issues, but the forms won't be pre-filled:
+Use the following links to report issues:
 - Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
 - Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
 
