@@ -1,7 +1,7 @@
 ---
 title: Target-based scaling in Azure Functions
 description: Explains target-based scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 04/04/2023
+ms.date: 06/16/2023
 ms.topic: conceptual
 ms.service: azure-functions
 ---
@@ -26,16 +26,19 @@ The default _target executions per instance_ values come from the SDKs used by t
 The following considerations apply when using target-based scaling:
 
 + Target-based scaling is enabled by default for function apps on the Consumption plan or for Premium plans without runtime scale monitoring, but you can [opt-out](#opting-out).
-+ When using target-based scaling, the `functionAppScaleLimit` site setting is still honoured. For more information, see [Limit scale out](event-driven-scaling.md#limit-scale-out).
-+ To determine the change in _desired instances_ when multiple functions in the same function app are voting to scale out, a sum across them is used to determine the change in desired instances. Scale-out requests override scale-in. When there are no scale-out requests but there are scale-in requests, then the max scale in value is used. To achieve the most accurate scaling-based on metrics, use only one target-based triggered function per function app.
++ When using target-based scaling, the `functionAppScaleLimit` site setting is still honored. For more information, see [Limit scale out](event-driven-scaling.md#limit-scale-out).
++ To achieve the most accurate scaling based on metrics, use only one target-based triggered function per function app.
++ When multiple functions in the same function app are all voting to scale out at the same time, a sum across those functions is used to determine the change in desired instances.
++ Functions voting to scale-out override functions requesting to scale-in.
++ When there are scale-in requests without any scale-out requests, the max scale in value is used. 
 
 ## Prerequisites
 
-Target-based scaling is supported for the [Consumption](consumption-plan.md) and [Premium](functions-premium-plan.md) plans. Your function app runtime must be 4.3.0 or higher.
+Target-based scaling is supported for the [Consumption](consumption-plan.md) and [Premium](functions-premium-plan.md) plans. Your [function app runtime version](set-runtime-version.md) must be 4.3.0 or higher.
 
 ## Opting out
 
-Target-based scaling is enabled by default for function apps on the Consumption plan or Premium plans without runtime scale monitoring. If you wish to disable target-based scaling and revert to incremental scaling, add the following app setting to your function app:
+Target-based scaling is enabled by default for function apps hosted on a Consumption plan or on a Premium plans without runtime scale monitoring. To disable target-based scaling and fall back to incremental scaling, add the following app setting to your function app:
 
 |          App Setting          | Value |
 | ----------------------------- | ----- |
