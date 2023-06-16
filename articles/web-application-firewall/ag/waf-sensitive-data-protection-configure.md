@@ -50,7 +50,7 @@ Repeat to add more rules.
 
 #### [PowerShell](#tab/powershell)
 
-Use the following Azure PowerShell commands to [create](https://learn.microsoft.com/en-us/powershell/module/az.network/new-azapplicationgatewayfirewallpolicylogscrubbingrule) and [configure](https://learn.microsoft.com/en-us/powershell/module/az.network/new-azapplicationgatewayfirewallpolicylogscrubbingconfiguration) Log Scrubbing rules for Sensitive Data Protection:
+Use the following Azure PowerShell commands to [create](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicylogscrubbingrule) and [configure](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicylogscrubbingconfiguration) Log Scrubbing rules for Sensitive Data Protection:
 
 ```azurepowershell
 $logScrubbingRule1 = New-AzApplicationGatewayFirewallPolicyLogScrubbingRule `
