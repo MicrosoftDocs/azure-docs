@@ -17,7 +17,7 @@ Network observability is an important part of maintaining a healthy and performa
 
 :::image type="content" source="./media/network-observability-overview/network-observability-components.png" alt-text="Diagram of Network Observability components.":::
 
-## Overview of Network Observability addon in AKS
+## Overview of Network Observability add-on in AKS
 
 > [!IMPORTANT]
 > AKS Network Observability is currently in PREVIEW.
