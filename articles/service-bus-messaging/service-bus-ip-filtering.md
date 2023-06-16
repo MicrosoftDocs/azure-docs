@@ -24,7 +24,7 @@ The IP firewall rules are applied at the Service Bus namespace level. Therefore,
     - Azure Functions
 
 > [!NOTE]
-> You see the **Networking** tab only for **premium** namespaces. To set IP firewall rules for the other tiers, please [use Azure Resource Manager templates](use-resource-manager-template).
+> You see the **Networking** tab only for **premium** namespaces. To set IP firewall rules for the other tiers, please [use Azure Resource Manager templates](#use-resource-manager-template).
 
 ## Use Azure portal
 
