@@ -107,7 +107,7 @@ To discover the HSR database, follow these steps:
 
 1. On the **Select Virtual Machines** pane, at the bottom, select the **this** link in **Run this script on the SAP HANA VMs to provide these permissions to Azure Backup service**.
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/download-script.png" alt-text="Screenshot that highlights the link for downloading the script.":::
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/download-script.png" alt-text="Screenshot that highlights the link for downloading the script." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/download-script.png":::
 
 1. Run the script on each VM that hosts SAP HANA databases that you want to back up.
 
@@ -127,7 +127,7 @@ To enable the backup, follow these steps:
 
 1. On the **Select items to back up** pane, select all the databases you want to protect, and then select **OK**.
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/select-virtual-machines-for-protection.png" alt-text="Screenshot that shows a list of virtual machines available to be backed up.":::
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/select-virtual-machines-for-protection.png" alt-text="Screenshot that shows a list of virtual machines available to be backed up. lightbox="./media/sap-hana-database-with-hana-system-replication-backup/select-virtual-machines-for-protection.png"":::
 
 1. In the **Backup policy** dropdown list, select the policy you want to use, and then select **Add**.
 
