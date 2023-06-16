@@ -17,9 +17,6 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, s
 
 [!INCLUDE [sdk/cli v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK/CLI extension you are using:"]
-> * [v2 (current version)](how-to-secure-workspace-vnet.md)
-> * [v1](v1/how-to-secure-workspace-vnet.md?view=azureml-api-1&preserve-view=true)
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
 
@@ -55,12 +52,7 @@ In this article you learn how to enable the following workspaces resources in a 
     > [!IMPORTANT]
     > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
-
-    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnets/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 ### Azure Container Registry
 

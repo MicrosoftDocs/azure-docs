@@ -128,9 +128,7 @@ To manually deploy SAP HANA system replication:
 
 1. Create a virtual network.
 
-1. Create an availability set.
-
-    - Set the max update domain.
+1. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a virtual machine scale set with flexible orchestration.
 
 1. Create a load balancer (internal).
 
@@ -140,12 +138,12 @@ To manually deploy SAP HANA system replication:
 1. Create virtual machine 1.
 
    - Use an SLES4SAP image in the Azure gallery that's supported for SAP HANA on the VM type you selected.
-   - Select the availability set you created in step 3.
+   - Select the scale set, availability zone or availability set created in step 3.
 
 1. Create virtual machine 2.
 
    - Use an SLES4SAP image in the Azure gallery that's supported for SAP HANA on the VM type you selected.
-   - Select the availability set you created in step 3.
+   - Select the scale set, availability zone or availability set created in step 3.
 
 1. Add data disks.
 

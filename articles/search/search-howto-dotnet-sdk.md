@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 10/04/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # How to use Azure.Search.Documents in a C# .NET Application

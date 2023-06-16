@@ -11,6 +11,7 @@ ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: powershell
+ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm

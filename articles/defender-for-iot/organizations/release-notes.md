@@ -105,6 +105,8 @@ To understand whether a feature is supported in your sensor version, check the r
 
 This version includes bug fixes for stability improvements.
 
+- [Improved monitoring and support for OT sensor logs](whats-new.md#improved-monitoring-and-support-for-ot-sensor-logs)
+
 ### 22.3.8
 
 **Release date**: 04/2023
@@ -135,6 +137,7 @@ Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 
 - [Activation files for locally managed sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 - Severity for all [**Suspicion of Malicious Activity**](alert-engine-messages.md#malware-engine-alerts) alerts is now **Critical**
 - [Allow internet connections on an OT network in bulk](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
+- [Security recommendations for OT networks for insecure or missing passwords](recommendations.md#supported-security-recommendations)
 
 ### 22.3.5
 
