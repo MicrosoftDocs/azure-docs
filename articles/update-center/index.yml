@@ -5,12 +5,12 @@ metadata:
   title: Update management center documentation
   description: Learn how to use update management center (preview) in Azure to manage updates on machines across Azure and hybrid environments.
   services: Update-management-center
-  author: SGSneha
+  author: SnehaSudhir
   manager: jsuri
   ms.service: Update-management-center
   ms.topic: landing-page
-  ms.date: 04/01/2022
-  ms.author: v-ssudhir
+  ms.date: 06/16/2023
+  ms.author: sudhirsneha
 
 landingContent:
   # Card (optional)
@@ -21,9 +21,8 @@ landingContent:
           - text: What is Update management center?
             url: overview.md
           - text: Update options
-            url: updates-maintenance-schedules.md.md
+            url: updates-maintenance-schedules.md
           
-
   - title: Manage machine update state
     linkLists:     
       - linkListType: get-started
@@ -49,7 +48,7 @@ landingContent:
         links:
           - text: Schedule updates at scale
             url: quickstart-dynamic-scoping.md
-      - linkListType: manage
+      - linkListType: how-to-guide
         links:
           - text: Manage dynamic scope (preview) operations
             url: manage-dynamic-scoping.md
