@@ -15,14 +15,19 @@ Target-based scaling provides a fast and intuitive scaling model for customers a
 - Event Hubs
 - Azure Cosmos DB
 
-Target-based scaling  replaces the previous Azure Functions incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of one worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale. In contrast, target-based scaling allows scale up of four instances at a time, and the scaling decision is based on a simple target-based equation:
+Target-based scaling replaces the previous Azure Functions incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of one worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale. In contrast, target-based scaling allows scale up of four instances at a time, and the scaling decision is based on a simple target-based equation:
 
 ![Illustration of the equation: desired instances = event source length / target executions per instance.](./media/functions-target-based-scaling/target-based-scaling-formula.png)
 
 The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
 
-> [!NOTE]
-> To determine the change in _desired instances_ if multiple functions in the same function app are voting to scale out, a sum across them is used to determine the change in desired instances. Scale out requests override scale in. If there are no scale out request but there are scale in requests, then the max scale in value is used. In order to achieve the most accurate scaling based on metrics, we recommend one target-based triggered function per function app.
+## Considerations
+
+The following considerations apply when using target-based scaling:
+
++ Target-based scaling is enabled by default for function apps on the Consumption plan or for Premium plans without runtime scale monitoring, but you can [opt-out](#opting-out).
++ When using target-based scaling, the `functionAppScaleLimit` site setting is still honoured. For more information, see [Limit scale out](event-driven-scaling.md#limit-scale-out).
++ To determine the change in _desired instances_ when multiple functions in the same function app are voting to scale out, a sum across them is used to determine the change in desired instances. Scale-out requests override scale-in. When there are no scale-out requests but there are scale-in requests, then the max scale in value is used. To achieve the most accurate scaling-based on metrics, use only one target-based triggered function per function app.
 
 ## Prerequisites
 
