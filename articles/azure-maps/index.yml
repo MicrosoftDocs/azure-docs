@@ -106,7 +106,7 @@ landingContent:
           - text: Getting started with web map control
             url: how-to-use-map-control.md
           - text: Azure Maps web SDK code samples
-            url: https://azuremapscodesamples.azurewebsites.net/
+            url: https://samples.azuremaps.com/
           - text: Web SDK supported browsers
             url: supported-browsers.md
       - linkListType: tutorial

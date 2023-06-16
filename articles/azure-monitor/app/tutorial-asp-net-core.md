@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 04/24/2023
-ms.reviewer: casocha
+ms.reviewer: mmcc
 ---
 
 # Enable Application Insights for ASP.NET Core applications

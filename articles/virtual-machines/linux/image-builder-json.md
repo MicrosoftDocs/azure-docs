@@ -35,6 +35,7 @@ The basic format is:
     "buildTimeoutInMinutes": <minutes>,
     "customize": [],
     "distribute": [],
+    "optimize": [],
     "source": {},
     "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>",
     "validate": {},
@@ -1144,6 +1145,36 @@ resource distribute 'Microsoft.Compute/galleries/images/runOutputs' = {
 VHD distribute properties:
 
 **uri** - Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
+
+## Properties: optimize
+
+The `optimize` property can be enabled while creating a VM image and allows VM optimization to improve image creation time.
+
+# [JSON](#tab/json)
+
+```json
+"optimize": { 
+
+      "vmboot": { 
+
+        "state": "Enabled" 
+
+      } 
+
+    }
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+optimize: {
+      vmboot: {
+        state: 'Enabled'
+      }
+    }
+```
+---
+
 
 ## Properties: source
 
