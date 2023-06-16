@@ -3,9 +3,9 @@ title: Call Automation overview
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Communication Services Call Automation.
 author: ashwinder
-
 ms.service: azure-communication-services
-ms.topic: include
+ms.subservice: call-automation
+ms.topic: conceptual
 ms.date: 09/06/2022
 ms.author: askaur
 ms.custom: public_preview
@@ -17,7 +17,8 @@ ms.custom: public_preview
 Azure Communication Services(ACS) Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. The SDKs, available for .NET and Java, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
 
 > [!NOTE]
-> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making or redirecting a call to a Teams user or adding them to a call using Call Automation aren't supported. 
+> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making or redirecting a call to a Teams user or adding them to a call using Call Automation aren't supported.
+> Call Automation currently doesn't support [Rooms](../rooms/room-concept.md) calls.
 
 ## Common use cases
 
@@ -52,6 +53,7 @@ The following list presents the set of features that are currently available in 
 |                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |
+|                       | Cancel media operations                           | ✔️    |  ✔️   |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |
 |                       | List all participants in a call                   | ✔️    | ✔️    |
@@ -110,6 +112,8 @@ When your application has answered a one-to-one call, the hang-up action will re
 **Terminate**
 Whether your application has answered a one-to-one or group call, or placed an outbound call with one or more participants, this action will remove all participants and end the call. This operation is triggered by setting `forEveryOne` property to true in Hang-Up call action.
 
+**Cancel media operations** 
+Based on business logic your application may need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, you will received a webhook event indicating that the action has been canceled. 
 
 ## Events
 
@@ -141,24 +145,21 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | CallTransferAccepted         | Your application’s call leg has been transferred to another endpoint  |
 | CallTransferFailed  | The transfer of your application’s call leg failed  |
 | AddParticipantSucceeded| Your application added a participant  |
-|AddParticipantFailed   | Your application was unable to add a participant  |
-| ParticipantUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
-| PlayCompleted| Your application successfully played the audio file provided |
-| PlayFailed| Your application failed to play audio |
+| AddParticipantFailed   | Your application was unable to add a participant  |
+| RemoveParticipantSucceeded| Your application has successfuly removed a participant from the call.  |
+| RemoveParticipantFailed   | Your application was unable to remove a participant from the call.  |
+| ParticipantsUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
+| PlayCompleted | Your application successfully played the audio file provided |
+| PlayFailed | Your application failed to play audio |
+| PlayCanceled | The requested play action has been canceled. |
 | RecognizeCompleted | Recognition of user input was successfully completed |
+| RecognizeCanceled | The requested recognize action has been canceled. |
 | RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md)*|
-
+|RecordingStateChanged | Status of recording action has changed from active to inactive or vice versa. |
 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation/actions-for-call-control.md) that provides code samples as well as sequence diagrams for various call control flows. 
 
 To learn how to secure the callback event delivery, refer to [this guide](../../how-tos/call-automation/secure-webhook-endpoint.md).
-
-## Known issues
-
-1. Using the incorrect IdentifierType for endpoints for `Transfer` requests (like using CommunicationUserIdentifier to specify a phone number) returns a 500 error instead of a 400 error code. Solution: Use the correct type, CommunicationUserIdentifier for Communication Users and PhoneNumberIdentifier for phone numbers. 
-2. Taking a pre-call action like Answer/Reject on the original call after redirected it gives a 200 success instead of failing on 'call not found'.
-3. Transferring a call with more than two participants is currently not supported.
-4. After transferring a call, you may receive two `CallDisconnected` events and will need to handle this behavior by ignoring the duplicate.
 
 ## Next steps
 

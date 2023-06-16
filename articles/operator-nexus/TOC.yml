@@ -59,6 +59,8 @@
       href: howto-precertification.md
     - name: Tracking asynchronous operations
       href: howto-track-async-operations-cli.md
+    - name: Cluster Upgrades
+      href: howto-cluster-runtime-upgrade.md
 - name: Troubleshooting
   items:
     - name: Troubleshoot Bare Metal Machine
