@@ -44,7 +44,7 @@ To get a v1.0 token, use [ADAL](../active-directory/azuread-dev/active-directory
 - client_secret: {Client secret of Azure AD App}
 - resource: `"https://management.azure.com/"`
 
-To get a v2.0 token, use Microsoft Authentication Library [MSAL](../active-directory/develop/msal-overview.md) or can send requests to the REST API in the following format:
+To get a v2.0 token, use Microsoft Authentication Library [MSAL](../active-directory/develop/msal-overview.md) or send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
 - Headers for using Azure AD App:
 - grant_type: "client_credentials"
@@ -207,7 +207,7 @@ Approximately 10,000 indicators per minute is the maximum throughput before a th
             "pattern": "[ipv4-addr:value = '192.168.1.1']", 
             "pattern_type": "stix",
             "pattern_version": "2.1",
-            "valid_from": "2023-021-01T18:29:07.778Z", 
+            "valid_from": "2023-01-01T18:29:07.778Z", 
             "valid_until": "2025-02-26T18:29:07.778Z",
             "kill_chain_phases": [
                 {

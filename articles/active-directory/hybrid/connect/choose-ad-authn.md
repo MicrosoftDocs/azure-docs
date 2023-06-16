@@ -210,4 +210,4 @@ In today's world, threats are present 24 hours a day and come from everywhere. I
 
 [Get started](../../fundamentals/active-directory-whatis.md) with Azure AD and deploy the right authentication solution for your organization.
 
-If you're thinking about migrating from federated to cloud authentication, learn more about [changing the sign-in method](plan-connect-user-signin.md). To help you plan and implement the migration, use [these project deployment plans](../../fundamentals/active-directory-deployment-plans.md), or consider using the new [Staged Rollout](how-to-connect-staged-rollout.md) feature to migrate federated users to using cloud authentication in a staged approach.
+If you're thinking about migrating from federated to cloud authentication, learn more about [changing the sign-in method](plan-connect-user-signin.md). To help you plan and implement the migration, use [these project deployment plans](../../fundamentals/deployment-plans.md), or consider using the new [Staged Rollout](how-to-connect-staged-rollout.md) feature to migrate federated users to using cloud authentication in a staged approach.

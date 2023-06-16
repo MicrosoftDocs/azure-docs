@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/13/2023
+ms.date: 06/15/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
@@ -103,7 +103,7 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
     Example usage:
 
     ```powershell
-    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
 3. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command with elevated permissions:
 
@@ -199,7 +199,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) |  CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) |  7134EF5B61D3560A102DF4814CB91C95E44EAE9677AAF1CC68AE0A04A6DBD613 
 
 ### 3. Create an appliance
 
