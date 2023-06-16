@@ -24,8 +24,6 @@ For more information about AKS Network Observability, see [What is Azure Kuberne
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Deployments of managed Grafana and Prometheus. For more information about how to deploy managed Grafana and Prometheus, see [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview#enable) and [What is Azure Managed Grafana?](/azure/managed-grafana/overview).
-
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### Install the `aks-preview` Azure CLI extension
