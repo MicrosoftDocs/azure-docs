@@ -4,7 +4,7 @@ description: Describes known issues that third-party applications may find with 
 author: gillharmeet
 ms.author: harmeetgill
 ms.reviewer: sngun
-ms.date: 06/14/2023
+ms.date: 06/16/2023
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: troubleshooting
@@ -14,17 +14,19 @@ ms.topic: troubleshooting
 
 Applications built for SQL Server will seamlessly work with Azure Synapse dedicated SQL pools. In some cases, however, features and language elements that are commonly used in SQL Server may not be available in Azure Synapse, or they may behave differently.
 
-This article lists known issues you may come across when using third-party applications with Azure Synapse Analytics. 
+## Common issues
 
-## Tableau error: "An attempt to complete a transaction has failed. No corresponding transaction found"
+This article lists common issues you may come across when using third-party applications with Azure Synapse Analytics. 
+
+### Tableau error: "An attempt to complete a transaction has failed. No corresponding transaction found"
 
 Starting from Azure Synapse dedicated SQL pool version 10.0.11038.0, some Tableau queries making stored procedure calls may fail with the following error message: "**[Microsoft][ODBC Driver 17 for SQL Server][SQL Server]111214; An attempt to complete a transaction has failed. No corresponding transaction found.**"
 
-### Cause
+#### Cause
 
 This is an issue in Azure Synapse dedicated SQL pool caused by the introduction of new system stored procedures that are called automatically by the ODBC and JDBC drivers. One of those system stored procedures can cause open transactions to be aborted if they fail execution. This issue can happen depending on the client application logic.
 
-### Solution
+#### Solution
 Customers seeing this particular issue when using Tableau connected to Azure Synapse dedicated SQL pools should set FMTONLY to YES in the SQL connection. For Tableau Desktop and Tableau Server, you should use a Tableau Data source Customization (TDC) file to ensure Tableau passes this parameter to the driver.  
 
 > [!NOTE] 
