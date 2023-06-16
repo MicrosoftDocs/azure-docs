@@ -108,7 +108,7 @@ Changes made in `config.toml` to `edgeAgent` environment variables like the `hos
 
 ### Proxy Authentication
 
-When the environment variable "HTTPS_PROXY" is used, the edgeAgent uses a proxy to authenticate the clients. If username and password are specified as a desired authentication method, then edgeAgent does not use those rights away. First the EdgeAgent queries the proxy authentication schema by trying to connect without any authentication parameter. Next, the proxy will return 407 error with suggested authentication schema to use. If the suggested authentication is NTLM, then the authentication will fail as IoT Edge doesn't currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allowlist.
+When the environment variable "HTTPS_PROXY" is used, the edgeAgent uses a proxy to authenticate the clients. If username and password are specified as a desired authentication method in proxy, then edgeAgent does not use those right away. First, the EdgeAgent queries the proxy authentication schema by trying to connect without any authentication parameter. Next, the proxy will return 407 error with suggested authentication schema to use. If the suggested authentication is NTLM, then the authentication will fail as IoT Edge doesn't currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allowlist.
 
 ## Next steps
 
