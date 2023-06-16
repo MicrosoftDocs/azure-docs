@@ -137,7 +137,7 @@ There are two ways to configure APM in Azure Spring Apps:
 
 This section provides guidance for both approaches as below.
 
-### [Manage APMs on service instance level (recommended)](#tab/manage-apms-on-service-instance-level-recommended)
+### Manage APMs on service instance level (recommended)
 
 #### Manage APM Configuration in Azure Spring Apps
 
@@ -307,7 +307,7 @@ For more information on the `properties` and `secrets` parameters for your build
      --apms <your-APM>
   ```
   
-### [Manage APMs via Bindings in builder](#tab/manage-apms-via-bindings-in-builder)
+### Manage APMs via Bindings in builder
 When the build service uses the Azure Spring Apps managed container registry, you can build an application to an image and then deploy it, but only within the current Azure Spring Apps service instance.
 
 #### Manage APM configurations via bindings in builder 
@@ -325,8 +325,6 @@ az spring app deploy \
     --artifact-path <path-to-your-JAR-file>
 ```
 
----
-
 ### Enable Application Insights when creating service instance
 If you enable Application Insights when creating a service instance:
 - If a managed Azure Container Registry is used for build service, Application Insights is bound to Bindings in default builder.
@@ -335,14 +333,16 @@ If you enable Application Insights when creating a service instance:
 ## Configure CA certificates for App Builds and Deployments
 
 There are two ways to configure CA certificates in Azure Spring Apps:
-- [Manage public certificates in TLS/SSL Settings](how-to-use-tls-certificate.md#import-a-certificate) and bind to app builds and [deployments](how-to-use-tls-certificate.md#load-a-certificate) by referring to them. It's the recommended way to configure CA certificates.
-- [Manage public certificates in TLS/SSL Settings](how-to-use-tls-certificate.md#import-a-certificate) and [bind CA certificates via Bindings in builder](#manage-bindings-in-builder-in-azure-spring-apps). 
+- Manage public certificates in TLS/SSL Settings and bind to app builds and deployments by referring to them. It's the recommended way to configure CA certificates.
+- Manage public certificates in TLS/SSL Settings and [bind CA certificates via Bindings in builder](#manage-bindings-in-builder-in-azure-spring-apps). 
   > [!NOTE]
   > It's the old way to configure CA certificates and it's deprecated, it's strongly recommended to [migrate CA Certificate configured in Bindings](#migrate-ca-certificate-configured-in-bindings). 
 
-This section provides guidance for both approaches as below.
+Please refer to [Import TLS/SSL settings](how-to-use-tls-certificate.md#import-a-certificate) to manage public certificates on service instance level, and follow either approach below to bind CA certificates to App Builds and Deployments.
 
-### [Bind CA certificates to app builds](#tab/bind-ca-certificates-to-app-builds)
+### Bind CA certificates to App Builds and Deployments
+You can refer to [Load a certificate](how-to-use-tls-certificate.md#load-a-certificate) for how to bind CA certificates to deployments, and see below instructions about binding to app builds.
+
 - When Build Service is enabled and a managed Azure Container Registry is used for build service, use the following command to integrate CA Certificates into your deployment:
 
   ```azurecli
@@ -367,7 +367,7 @@ This section provides guidance for both approaches as below.
       --artifact-path <path-to-your-JAR-file>
   ```
 
-### [Bind CA certificates via Bindings in builder](#tab/bind-ca-certificates-via-bindings-in-builder)
+### Bind CA certificates via Bindings in builder
 
 CA certificates use the [ca-certificates](https://github.com/paketo-buildpacks/ca-certificates) buildpack to support providing CA certificates to the system trust store at build and runtime.
 
@@ -378,8 +378,6 @@ In the Azure Spring Apps Enterprise plan, the CA certificates use the **Public K
 You can configure the CA certificates on the **Edit binding** page. The `succeeded` certificates are shown in the **CA Certificates** list.
 
 :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/ca-certificates-buildpack-binding.png" alt-text="Screenshot of the Azure portal showing the Edit bindings for default builder page with the Edit binding for CA Certificates panel open." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/ca-certificates-buildpack-binding.png":::
-
----
 
 ## Manage Bindings in Builder in Azure Spring Apps
 
