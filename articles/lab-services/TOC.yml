@@ -42,6 +42,9 @@
   - name: Migrate lab account role assignments
     displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
     href: concept-migrate-from-lab-accounts-roles.md
+  - name: Supported networking topologies
+    displayName: advanced, networking, vnet, subnet, hybrid, connectivity, VPN, ExpressRoute, peering, NAT, gateway, firewall, proxy, load balancer, Azure Bastion, Azure Firewall, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer, Azure Bastion, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer
+    href: concept-lab-services-supported-networking-scenarios.md
   - name: Migrate from physical labs
     href: concept-migrating-physical-labs.md
   - name: Nested virtualization on a template VM
