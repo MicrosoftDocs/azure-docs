@@ -58,7 +58,7 @@ $logScrubbingRule1 = New-AzApplicationGatewayFirewallPolicyLogScrubbingRule `
   -SelectorMatchOperator <String> -Selector <String>
 
 $logScrubbingRuleConfig = New-AzApplicationGatewayFirewallPolicyLogScrubbingConfiguration `
-  -State Enabled -ScrubbingRule $logScrubbingRule1
+  -State <String> -ScrubbingRule $logScrubbingRule1
 ```
 #### [CLI](#tab/cli)
 
