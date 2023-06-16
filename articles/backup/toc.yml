@@ -26,7 +26,7 @@
     href: quick-backup-postgresql-database-portal.md
   - name: Enable Multi-user authorization on Recovery Services vault
     href: enable-multi-user-authorization-quickstart.md
-  - name: Backup SAP HANA System Reolication database
+  - name: Backup SAP HANA System Replication database
     items:
     - name: Backup
       href: quick-backup-hana-cli.md

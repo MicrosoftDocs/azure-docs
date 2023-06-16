@@ -245,7 +245,7 @@ Go to the *Recovery Services vault* > **Manage** > **Backup Infrastructure** > *
 
 The status of both primary and secondary VMs should be **registered**.
 
-:::image type="content" source="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png" alt-text="Screenshot shows the physical registration status.." lightbox="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png":::
+:::image type="content" source="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png" alt-text="Screenshot shows the physical registration status." lightbox="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png":::
 
 
 **Confirm the logical registration**
@@ -256,11 +256,11 @@ Follow these steps:
 
 2. Under **HANA System**, select the name of the HANA instance.
 
-   :::image type="content" source="./media/sap-hana-db-manage/view-backup-item-details.png" alt-text="Screenshot shows how to check th backup item details.." lightbox="./media/sap-hana-db-manage/view-backup-item-details.png":::
+   :::image type="content" source="./media/sap-hana-db-manage/view-backup-item-details.png" alt-text="Screenshot shows how to check th backup item details." lightbox="./media/sap-hana-db-manage/view-backup-item-details.png":::
 
    Two VMs/Nodes appear under **FQDN** and are in **registered** state.
  
-   :::image type="content" source="./media/sap-hana-db-manage/confirm-logical-registration-status.png" alt-text="Screenshot shows the logical registration status.." lightbox="./media/sap-hana-db-manage/confirm-logical-registration-status.png":::
+   :::image type="content" source="./media/sap-hana-db-manage/confirm-logical-registration-status.png" alt-text="Screenshot shows the logical registration status." lightbox="./media/sap-hana-db-manage/confirm-logical-registration-status.png":::
  
 >[!Note]
 >If status is in **not registered** state, you need to [rediscover the VMs/Nodes](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases) and check the status again.
