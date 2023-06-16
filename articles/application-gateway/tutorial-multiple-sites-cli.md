@@ -221,7 +221,7 @@ for i in `seq 1 2`; do
     --instance-count 2 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
-    --vm-sku Standard_DS2 \
+    --vm-sku Standard_D1_v2 \
     --upgrade-policy-mode Automatic \
     --app-gateway myAppGateway \
     --backend-pool-name $poolName
