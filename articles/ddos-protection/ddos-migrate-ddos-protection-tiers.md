@@ -16,9 +16,9 @@ In this guide, we walk through the steps to migrate Azure DDoS Protection tiers 
 
 ## Cost assessment
 
-When IP Protection is enabled for a public IP resource and then a DDoS Protection plan is created and enabled on its virtual network, customers are billed for the lower *per Public IP resource* rate. In this case, we'll automatically start billing for Network Protection. To learn more about the pricing scenarios, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=ddos-protection).
+When IP Protection is enabled for a public IP resource and then a DDoS protection plan is created and enabled on its virtual network, customers are billed for the lower *per Public IP resource* rate. In this case, we'll automatically start billing for Network Protection. To learn more about the pricing scenarios, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=ddos-protection).
 
-Network Protection cost begins once the DDoS Protection plan is created and enabled on the virtual network to which the public IP is associated. IP Protection cost begins once the Public IP address is configured with IP Protection, and its associated virtual network isn't protected by a DDoS protection plan. 
+Network Protection cost begins once the DDoS protection plan is created and enabled on the virtual network to which the public IP is associated. IP Protection cost begins once the Public IP address is configured with IP Protection, and its associated virtual network isn't protected by a DDoS protection plan. 
 
 For more information, see [Azure DDoS Protection Pricing](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -30,7 +30,7 @@ For more information, see [Azure DDoS Protection Pricing](https://azure.microsof
 
 ## Migrate to Network Protection
 
-### Add Protected Resources to DDoS protection plan
+### Add protected resources to DDoS protection plan
 
  Services must be added to the DDoS protection plan to be protected by Network Protection. You don't need disable IP protection during this transition. Once the service is added to the DDoS protection plan, the SKU will automatically transition to Network Protection from IP Protection.
 
@@ -67,7 +67,7 @@ To prevent DDoS protection downtime, you must enable IP Protection before disabl
 
 ### Disable Network Protection
 
-The DDoS Protection plan must be disassociated from the protected resources before you can delete the plan. 
+The DDoS protection plan must be disassociated from the protected resources before you can delete the plan. 
 
 >[!WARNING]
 >To maintain DDoS Protection during migration, validate IP protection is enabled on your pubic IP address before disabling Network Protection.
@@ -77,7 +77,7 @@ The DDoS Protection plan must be disassociated from the protected resources befo
 
     :::image type="content" source="./media/ddos-migrate-ddos-protection/ddos-remove-protected-resources.png" alt-text="Screenshot of removing protected resources to DDoS protection plan.":::
 
-### Validate DDoS Protection Status
+### Validate DDoS Protection status
 
 To validate the status of your protected resource follow the steps below.
 
