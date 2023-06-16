@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/09/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Use ARM templates to create DevTest Labs virtual machines

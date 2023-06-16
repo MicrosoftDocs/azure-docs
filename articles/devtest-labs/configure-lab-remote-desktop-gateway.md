@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Configure and use a remote desktop gateway in Azure DevTest Labs
