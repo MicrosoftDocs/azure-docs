@@ -31,6 +31,12 @@ For integration solutions where you have to write and run .NET Framework code wi
 
 - A local folder to use for creating your code project
 
+## Limitations
+
+- Custom code authoring currently isn't available in the Azure portal.
+
+  However, after you deploy your custom code to Azure, you can use the **Call a local function in this logic app** built-in action and deployed functions to run code and reference the outputs in subsequent actions like in any other workflow. You can view the run history, inputs, and outputs for the built-in action.
+
 ## Create a code project
 
 The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes a code project template that provides a streamlined experience for writing, debugging, and deploying your own code with your workflows. This project template creates a workspace file and two sample projects: one project to write your code, the other project to create your workflows. 
@@ -57,10 +63,10 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
 ## Write your code
 
-Within the Functions project, we will find a .cs file that contains the function that we created in the previous step. This function will include a default Run method that you can use to get started.  This sample method demonstrates some of the capabilities found in calling in our custom code feature including passing different inputs and outputs including complex .NET types.
+The function project includes a .cs file that contains the function with the name that you previously provided. This function includes a default Run method that you can use to get started.  This sample method demonstrates some of the capabilities found in calling in our custom code feature including passing different inputs and outputs including complex .NET types.
 Note: You can modify the existing Run method to meet your needs, or you can copy and paste the function, including the [FunctionName(“function-name”)] declaration, and rename it to ensure there is a unique name associated with it. Modify this new function as you see fit.
 
-1. In your workspace, expand **Functions**, if not already expanded, and open the <*function-name*>.cs file, which contains the following code elements:
+1. In your workspace, expand **Functions**, if not already expanded, and open the <*your-function-name*>.cs file, which contains the following code elements:
 
    - Class namespace
    - Class name
@@ -70,7 +76,30 @@ Note: You can modify the existing Run method to meet your needs, or you can copy
    - Complex type
 
 1. 
-1. After you finish writing your code, compile that code to make sure that no build errors exist.
 
-   1. From the Visual Studio Code **Terminal** menu, select **New Terminal**.
-   1. 
+## Compile and build your code
+
+After you finish writing your code, compile that code to make sure that no build errors exist.
+
+1. From the Visual Studio Code **Terminal** menu, select **New Terminal**.
+
+1. From the working directory list that appears, select **Functions** as your current working directory for the new terminal.
+
+   Visual Studio Code opens a command prompt window.
+
+1. At the command prompt, enter **dotnet restore**.
+
+   Visual Studio Code analyzes your projects and determines whether they're up-to-date to restore.
+
+1. After the command prompt reappears, enter **dotnet build**. Or, from the **Terminal** menu, select **Run Build Task**.
+
+1. In your workspace, expand **LogicApp** > **lib\custom** > **net472**, and confirm that the following items exist:
+
+   - Multiple assembly (DLL) files, including a file named **<*your-function-name*>.dll**, which are required to run your code.
+
+   - A subfolder named **<*your-function-name*>**, which you provided earlier, that contains a **function.json** file.
+   
+     This file contains the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
+
+
+## Configure custom code to call from a workflow
