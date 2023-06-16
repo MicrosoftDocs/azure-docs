@@ -17,9 +17,9 @@ monikerRange: 'azureml-api-1'
 
 # Deploy a model for use with Cognitive Search
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](../search/search-what-is-azure-search.md).
+This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](/azure/search/search-what-is-azure-search).
 
 Cognitive Search performs content processing over heterogenous content, to make it queryable by humans or applications. This process can be enhanced by using a model deployed from Azure Machine Learning.
 
@@ -28,7 +28,7 @@ Azure Machine Learning can deploy a trained model as a web service. The web serv
 > [!IMPORTANT]
 > The information in this article is specific to the deployment of the model. It provides information on the supported deployment configurations that allow the model to be used by Cognitive Search.
 >
-> For information on how to configure Cognitive Search to use the deployed model, see the [Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md) tutorial.
+> For information on how to configure Cognitive Search to use the deployed model, see the [Build and deploy a custom skill with Azure Machine Learning](/azure/search/cognitive-search-tutorial-aml-custom-skill) tutorial.
 
 When deploying a model for use with Azure Cognitive Search, the deployment must meet the following requirements:
 
@@ -40,13 +40,13 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
+* An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 
 * A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).  
 
 * A registered model.
 
-* A general understanding of [How and where to deploy models](v1/how-to-deploy-and-where.md).
+* A general understanding of [How and where to deploy models](how-to-deploy-and-where.md).
 
 ## Connect to your workspace
 
@@ -55,7 +55,7 @@ An Azure Machine Learning workspace provides a centralized place to work with al
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](v1/how-to-configure-environment.md).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md).
 
 ```python
 from azureml.core import Workspace
@@ -80,7 +80,7 @@ When you deploy a model from Azure Machine Learning to Azure Kubernetes Service,
 The following code demonstrates how to create a new Azure Kubernetes Service (AKS) cluster for your workspace:
 
 > [!TIP]
-> You can also attach an existing Azure Kubernetes Service to your Azure Machine Learning workspace. For more information, see [How to deploy models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
+> You can also attach an existing Azure Kubernetes Service to your Azure Machine Learning workspace. For more information, see [How to deploy models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 > [!IMPORTANT]
 > Notice that the code uses the `enable_ssl()` method to enable transport layer security (TLS) for the cluster. This is required when you plan on using the deployed model from Cognitive Search.
@@ -117,7 +117,7 @@ except Exception as e:
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster exists. Make sure to delete your AKS cluster when you're done with it.
 
-For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
+For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## Write the entry script
 
@@ -185,7 +185,7 @@ def run(raw_data):
         return json.dumps({"error": result, "tb": traceback.format_exc()})
 ```
 
-For more information on entry scripts, see [How and where to deploy](v1/how-to-deploy-and-where.md).
+For more information on entry scripts, see [How and where to deploy](how-to-deploy-and-where.md).
 
 ## Define the software environment
 
@@ -213,7 +213,7 @@ For more information on environments, see [Create and manage environments for tr
 The deployment configuration defines the Azure Kubernetes Service hosting environment used to run the web service.
 
 > [!TIP]
-> If you aren't sure about the memory, CPU, or GPU needs of your deployment, you can use profiling to learn these. For more information, see [How and where to deploy a model](v1/how-to-deploy-and-where.md).
+> If you aren't sure about the memory, CPU, or GPU needs of your deployment, you can use profiling to learn these. For more information, see [How and where to deploy a model](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core.model import Model
@@ -304,7 +304,7 @@ The result returned from the service is similar to the following JSON:
 
 ## Connect to Cognitive Search
 
-For information on using this model from Cognitive Search, see the [Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md) tutorial.
+For information on using this model from Cognitive Search, see the [Build and deploy a custom skill with Azure Machine Learning](/azure/search/cognitive-search-tutorial-aml-custom-skill) tutorial.
 
 ## Clean up the resources
 
@@ -320,4 +320,4 @@ aks_target.delete()
 
 ## Next steps
 
-* [Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md)
+* [Build and deploy a custom skill with Azure Machine Learning](/azure/search/cognitive-search-tutorial-aml-custom-skill)

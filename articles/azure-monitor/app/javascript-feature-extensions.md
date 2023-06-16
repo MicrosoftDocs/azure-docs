@@ -19,11 +19,11 @@ In this article, we cover the Click Analytics plug-in, which automatically track
 
 ## Get started
 
-Users can set up the Click Analytics Auto-Collection plug-in via SDK Loader Script or NPM.
+Users can set up the Click Analytics Auto-Collection plug-in via SDK Loader Script or npm and then optionally add a framework extension.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-### SDK Loader Script setup
+### [SDK Loader Script setup](#tab/sdkloaderscript)
 
 Ignore this setup if you use the npm setup.
 
@@ -63,7 +63,7 @@ Ignore this setup if you use the npm setup.
 > [!NOTE]
 > To add or update SDK Loader Script configuration, see [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration).
 
-### npm setup
+### [npm setup](#tab/npmsetup)
 
 Install the npm package:
 
@@ -96,6 +96,109 @@ const configObj = {
 const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
 ```
+
+---
+
+## Add a framework extension
+
+Add a framework extension, if needed.
+
+### [React](#tab/react)
+
+```javascript
+import React from 'react';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
+
+var browserHistory = createBrowserHistory({ basename: '' });
+var reactPlugin = new ReactPlugin();
+var clickPluginInstance = new ClickAnalyticsPlugin();
+var clickPluginConfig = {
+  autoCapture: true
+};
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [reactPlugin, clickPluginInstance],
+        extensionConfig: {
+          [reactPlugin.identifier]: { history: browserHistory },
+          [clickPluginInstance.identifier]: clickPluginConfig
+        }
+    }
+});
+appInsights.loadAppInsights();
+```
+
+> [!NOTE] 
+> To add React configuration, see [React configuration](./javascript-framework-extensions.md?tabs=react#configuration). For more information on the React plug-in, see [React plug-in](./javascript-framework-extensions.md?tabs=react#react-application-insights-javascript-sdk-plug-in).
+
+### [React Native](#tab/reactnative)
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
+import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+
+var clickPluginInstance = new ClickAnalyticsPlugin();
+var clickPluginConfig = {
+  autoCapture: true
+};
+var RNPlugin = new ReactNativePlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+       connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [RNPlugin,  clickPluginInstance],
+        extensionConfig: {
+                  [clickPluginInstance.identifier]: clickPluginConfig
+         }
+    }
+});
+appInsights.loadAppInsights();
+```
+
+> [!NOTE] 
+> To add React Native configuration, see [Enable Correlation for React Native](./javascript-framework-extensions.md?tabs=reactnative#enable-correlation). For more information on the React Native plug-in, see [React Native plug-in](./javascript-framework-extensions.md?tabs=reactnative#react-native-plugin-for-application-insights-javascript-sdk).
+
+### [Angular](#tab/angular)
+
+```javascript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
+import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    constructor(
+        private router: Router
+    ){
+        var angularPlugin = new AngularPlugin();
+        var clickPluginInstance = new ClickAnalyticsPlugin();
+        var clickPluginConfig = {
+          autoCapture: true
+        };
+        const appInsights = new ApplicationInsights({ config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [angularPlugin, clickPluginInstance],
+        extensionConfig: {
+            [angularPlugin.identifier]: { router: this.router },
+              [clickPluginInstance.identifier]: clickPluginConfig
+        }
+        } });
+        appInsights.loadAppInsights();
+    }
+}
+```
+
+> [!NOTE] 
+> To add Angular configuration, see [Enable Correlation for Angular](./javascript-framework-extensions.md?tabs=angular#enable-correlation). For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular#angular-plugin-for-application-insights-javascript-sdk).
+
+---
 
 ## Set the authenticated user context
 
@@ -144,7 +247,7 @@ If you declare `parentDataTag` and define the `data-parentid` or `data-*-parenti
 > Once `parentDataTag` is included in *any* HTML element across your application *the SDK begins looking for parents tags across your entire application* and not just the HTML element where you used it.
 
 > [!CAUTION]
-> If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
+> If you're using the HEART workbook with the Click Analytics plug-in, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 
 ### `customDataPrefix`
 
@@ -171,7 +274,7 @@ The following key properties are captured by default when the plug-in is enabled
 | --------------------- | ---------------------------------------|-----------------|
 | Name                  | The name of the custom event. For more information on how a name gets populated, see [Name column](#name).| About              |
 | itemType              | Type of event.                                      | customEvent      |
-|sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
+|sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2_ClickPlugin2|
 
 ### Custom dimensions
 

@@ -134,7 +134,7 @@ Once you have the Visual Studio Code extension installed, use it to:
 
 * [Manage your Azure Machine Learning resources](how-to-manage-resources-vscode.md)
 * [Connect to an Azure Machine Learning compute instance](how-to-set-up-vs-code-remote.md)
-* [Run and debug experiments](how-to-debug-visual-studio-code.md)
+* [Debug online endpoints locally](how-to-debug-managed-online-endpoints-visual-studio-code.md)
 * [Deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ## Azure Machine Learning compute instance
