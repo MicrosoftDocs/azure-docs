@@ -14,7 +14,7 @@ Here are the high-level steps to use a managed identity to access a Service Bus 
     - [Configure managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
     - [Configure managed identities for Azure resources on a VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)    
 1. Assign Azure Service Bus Data Owner, Azure Service Bus Data Sender, or Azure Service Bus Data Receiver role to the managed identity at the appropriate scope (Azure subscription, resource group, Service Bus namespace, or Service Bus queue or topic). For instructions to assign a role to a managed identity, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-1. In your application, use the managed identity and the endpoint to Service Bus namespace to connect to the namespace. For example, in .NET, you could use the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient.-ctor#azure-messaging-servicebus-servicebusclient-ctor(system-string-azure-core-tokencredential)) constructor to connect to a Service Bus entity using an endpoint and [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which uses the managed identity.
+1. In your application, use the managed identity and the endpoint to Service Bus namespace to connect to the namespace. For example, in .NET, you use the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient.-ctor#azure-messaging-servicebus-servicebusclient-ctor(system-string-azure-core-tokencredential)) constructor that takes `TokenCredential` and `fullyQualifiedNamespace` (a string, for example: `cotosons.servicebus.windows.net`) parameters to connect to Service Bus using the managed identity. You pass in [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which derives from `TokenCredential` and uses the managed identity. 
 
     > [!IMPORTANT]
     > You can disable local or SAS key authentication for a Service Bus namespace and allow only Azure Active Directory authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
@@ -54,14 +54,21 @@ az role assignment create \
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
-### .NET example
-The [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object is initialized by using a constructor that takes a fully qualified namespace and a `TokenCredential`. The `DefaultAzureCredential` derives from `TokenCredential`, which automatically uses the managed identity configured for the app. The flow of the managed identity context to Service Bus and the authorization handshake are automatically handled by the token credential. It's a simpler model than using SAS.
+### Examples
 
-After you make these changes, publish and run the application. You can obtain the correct publishing data easily by downloading and then importing a publishing profile in Visual Studio:
+In .NET, the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object is initialized by using a constructor that takes a fully qualified namespace and a `TokenCredential`. The `DefaultAzureCredential` derives from `TokenCredential`, which automatically uses the managed identity configured for the app. The flow of the managed identity context to Service Bus and the authorization handshake are automatically handled by the token credential. It's a simpler model than using SAS.
 
-![Get publish profile](./media/service-bus-managed-service-identity/msi3.png)
- 
-To send or receive messages, enter the name of the namespace and the name of the entity you created. Then, select either **send** or **receive**.
+```csharp
+var client = new ServiceBusClient('cotosons.servicebus.windows.net', new DefaultAzureCredential());
+```
+
+You send and receive messages as usual using [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) and [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) or [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor). 
+
+For complete step-by-step instructions to send and receive messages using a managed identity, see the following quickstarts. These quickstarts have the code to use a service principal to send and receive messages, but the code is the same for using a managed identity.  
+
+- [.NET](service-bus-dotnet-get-started-with-queues.md).
+- [Java](service-bus-java-how-to-use-queues).
+- [Python](service-bus-nodejs-how-to-use-queues.md)
 
 > [!NOTE]
 > The managed identity works only inside the Azure environment, on App services, Azure VMs, and scale sets. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library, which is used by the Service Bus NuGet package, provides an abstraction over this protocol and supports a local development experience. This library also allows you to test your code locally on your development machine, using your user account from Visual Studio, Azure CLI 2.0 or Active Directory Integrated Authentication. For more on local development options with this library, see [Service-to-service authentication to Azure Key Vault using .NET](/dotnet/api/overview/azure/service-to-service-authentication).  
