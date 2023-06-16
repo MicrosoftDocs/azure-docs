@@ -116,66 +116,21 @@ You can filter the list of custom security attributes assigned to users on the A
 
 1. Select **Remove assignment**.
 
-## PowerShell
+## PowerShell or Microsoft Graph API
 
-To manage custom security attribute assignments for users in your Azure AD organization, you can use PowerShell. The following commands can be used to manage assignments.
-
-#### Assign a custom security attribute with a multi-string value to a user
-
-Use the [Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser) command to assign a custom security attribute with a multi-string value to a user.
-
-- Attribute set: `Engineering`
-- Attribute: `Project`
-- Attribute data type: Collection of Strings
-- Attribute value: `("Baker","Cascade")`
-
-```powershell
-$attributes = @{
-    Engineering = @{
-        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
-        "Project@odata.type" = "#Collection(String)"
-        Project = @("Baker","Cascade")
-    }
-}
-Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttributes $attributes
-```
-
-#### Update a custom security attribute with a multi-string value for a user
-
-Use the [Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser) command to update a custom security attribute with a multi-string value for a user.
-
-- Attribute set: `Engineering`
-- Attribute: `Project`
-- Attribute data type: Collection of Strings
-- Attribute value: `("Alpine","Baker")`
-
-```powershell
-$attributesUpdate = @{
-    Engineering = @{
-        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
-        "Project@odata.type" = "#Collection(String)"
-        Project = @("Alpine","Baker")
-    }
-}
-Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttributes $attributesUpdate 
-```
-
-#### Get the custom security attribute assignments for a user
-
-Use the [Get-AzureADMSUser](/powershell/module/azuread/get-azureadmsuser) command to get the custom security attribute assignments for a user.
-
-```powershell
-$user1 = Get-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -Select CustomSecurityAttributes
-$user1.CustomSecurityAttributes
-```
-
-## Microsoft Graph API
-
-To manage custom security attribute assignments for users in your Azure AD organization, you can use the Microsoft Graph API. The following API calls can be made to manage assignments. For more information, see [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
+To manage custom security attribute assignments for users in your Azure AD organization, you can use PowerShell or Microsoft Graph API. The following examples can be used to manage assignments.
 
 #### Assign a custom security attribute with a string value to a user
 
-Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a string value to a user.
+The following example assigns a custom security attribute with a string value to a user.
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
@@ -196,14 +151,28 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
 #### Assign a custom security attribute with a multi-string value to a user
 
-Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a multi-string value to a user.
+The following example assigns a custom security attribute with a multi-string value to a user.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
 - Attribute data type: Collection of Strings
 - Attribute value: `["Baker","Cascade"]`
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -220,14 +189,39 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser)
+
+```powershell
+$attributes = @{
+    Engineering = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "Project@odata.type" = "#Collection(String)"
+        Project = @("Baker","Cascade")
+    }
+}
+Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttributes $attributes
+```
+
+---
+
 #### Assign a custom security attribute with an integer value to a user
 
-Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with an integer value to a user.
+The following example assigns a custom security attribute with an integer value to a user.
 
 - Attribute set: `Engineering`
 - Attribute: `NumVendors`
 - Attribute data type: Integer
 - Attribute value: `4`
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -244,14 +238,28 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
 #### Assign a custom security attribute with a multi-integer value to a user
 
-Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a multi-integer value to a user.
+The following example assigns a custom security attribute with a multi-integer value to a user.
 
 - Attribute set: `Engineering`
 - Attribute: `CostCenter`
 - Attribute data type: Collection of Integers
 - Attribute value: `[1001,1003]`
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -268,14 +276,28 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
 #### Assign a custom security attribute with a Boolean value to a user
 
-Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a Boolean value to a user.
+The following example assigns a custom security attribute with a Boolean value to a user.
 
 - Attribute set: `Engineering`
 - Attribute: `Certification`
 - Attribute data type: Boolean
 - Attribute value: `true`
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -291,14 +313,28 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
 #### Update a custom security attribute with an integer value for a user
 
-Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to update a custom security attribute with an integer value for a user.
+The following example updates a custom security attribute with an integer value for a user.
 
 - Attribute set: `Engineering`
 - Attribute: `NumVendors`
 - Attribute data type: Integer
 - Attribute value: `8`
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -315,14 +351,28 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
 #### Update a custom security attribute with a Boolean value for a user
 
-Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to update a custom security attribute with a Boolean value for a user.
+The following example updates a custom security attribute with a Boolean value for a user.
 
 - Attribute set: `Engineering`
 - Attribute: `Certification`
 - Attribute data type: Boolean
 - Attribute value: `false`
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -338,9 +388,57 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
+#### Update a custom security attribute with a multi-string value for a user
+
+The following example updates a custom security attribute with a multi-string value for a user.
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Attribute value: `("Alpine","Baker")`
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+None
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser)
+
+```powershell
+$attributesUpdate = @{
+    Engineering = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "Project@odata.type" = "#Collection(String)"
+        Project = @("Alpine","Baker")
+    }
+}
+Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttributes $attributesUpdate 
+```
+
+---
+
 #### Get the custom security attribute assignments for a user
 
-Use the [Get user](/graph/api/user-get?view=graph-rest-beta&preserve-view=true) API to get the custom security attribute assignments for a user.
+The following example gets the custom security attribute assignments for a user.
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Get user](/graph/api/user-get?view=graph-rest-beta&preserve-view=true)
 
 ```http
 GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
@@ -354,52 +452,113 @@ If there are no custom security attributes assigned to the user or if the callin
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Get-AzureADMSUser](/powershell/module/azuread/get-azureadmsuser)
+
+```powershell
+$user1 = Get-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -Select CustomSecurityAttributes
+$user1.CustomSecurityAttributes
+```
+
+---
+
 #### List all users with a custom security attribute assignment that equals a value
 
-Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to list all users with a custom security attribute assignment that equals a value. The following example retrieves users with a custom security attribute named `AppCountry` with a value that equals `Canada`. The filter value is case sensitive. You must add `ConsistencyLevel=eventual` in the request or the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example lists all users with a custom security attribute assignment that equals a value. It retrieves users with a custom security attribute named `AppCountry` with a value that equals `Canada`. The filter value is case sensitive. You must add `ConsistencyLevel=eventual` in the request or the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 - Attribute set: `Marketing`
 - Attribute: `AppCountry`
 - Filter: AppCountry eq 'Canada'
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry eq 'Canada'
 ConsistencyLevel: eventual
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
 #### List all users with a custom security attribute assignment that starts with a value
 
-Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to list all users with a custom security attribute assignment that starts with a value. The following example retrieves users with a custom security attribute named `EmployeeId` with a value that starts with `GS`. The filter value is case sensitive. You must add `ConsistencyLevel=eventual` in the request or the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example lists all users with a custom security attribute assignment that starts with a value. It retrieves users with a custom security attribute named `EmployeeId` with a value that starts with `GS`. The filter value is case sensitive. You must add `ConsistencyLevel=eventual` in the request or the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 - Attribute set: `Marketing`
 - Attribute: `EmployeeId`
 - Filter: EmployeeId startsWith 'GS'
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')
 ConsistencyLevel: eventual
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
 #### List all users with a custom security attribute assignment that does not equal a value
 
-Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to list all users with a custom security attribute assignment that does not equal a value. The following example retrieves users with a custom security attribute named `AppCountry` with a value that does not equal `Canada`. The filter value is case sensitive. You must add `ConsistencyLevel=eventual` in the request or the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example lists all users with a custom security attribute assignment that does not equal a value. It retrieves users with a custom security attribute named `AppCountry` with a value that does not equal `Canada`. The filter value is case sensitive. You must add `ConsistencyLevel=eventual` in the request or the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 - Attribute set: `Marketing`
 - Attribute: `AppCountry`
 - Filter: AppCountry ne 'Canada'
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry ne 'Canada'
 ConsistencyLevel: eventual
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
 #### Remove a single-valued custom security attribute assignment from a user
 
-Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to remove a single-valued custom security attribute assignment from a user by setting the value to null.
+The following example removes a single-valued custom security attribute assignment from a user by setting the value to null.
 
 - Attribute set: `Engineering`
 - Attribute: `ProjectDate`
 - Attribute value: `null`
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -415,13 +574,27 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
+
 #### Remove a multi-valued custom security attribute assignment from a user
 
-Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to remove a multi-valued custom security attribute assignment from a user by setting the value to an empty collection.
+The following example removes a multi-valued custom security attribute assignment from a user by setting the value to an empty collection.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
 - Attribute value: `[]`
+
+# [PowerShell](#tab/ms-powershell)
+
+None
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -436,6 +609,12 @@ PATCH https://graph.microsoft.com/beta/users/{id}
     }
 }
 ```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
+---
 
 ## Frequently asked questions
 
@@ -475,4 +654,5 @@ No, custom security attributes are not supported in B2C tenants and are not rela
 
 - [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md)
 - [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)
+- [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples)
 - [Troubleshoot custom security attributes in Azure AD](../fundamentals/custom-security-attributes-troubleshoot.md)
