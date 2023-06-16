@@ -1,47 +1,44 @@
 ---
-title: What is Azure Kubernetes Service (AKS) network observability powered by Kappie?
-description: An overview of network observability powered by Kappie for Azure Kubernetes Service (AKS).
+title: What is Azure Kubernetes Service (AKS) Network Observability? (Preview)
+description: An overview of network observability for Azure Kubernetes Service (AKS).
 author: asudbring
 ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: overview
-ms.date: 5/23/2023
+ms.date: 06/16/2023
 ---
 
-# What is Azure Kubernetes Service (AKS) network observability powered by Kappie?
+# What is Azure Kubernetes Service (AKS) Network Observability? (Preview)
 
-Network observability powered by Kappie is a cloud and vendor agnostic Kubernetes networking observability platform that helps customers with enterprise grade DevOps, SecOps and compliance use cases. It's designed for cluster network administrators, cluster security administrators and DevOps engineers. Kappie provides a centralized platform for monitoring application and network health, and security. Network observability is capable of collecting data from multiple sources and aggregating it into a single time-series database. Network observability can send data to multiple destinations, such as Prometheus and Azure Monitor. The data can be visualized in various ways, like Grafana, Azure Monitor, and Azure log analytics.
+Kubernetes is a powerful tool for managing containerized applications. As containerized environments grow in complexity, it can be difficult to identify and troubleshoot networking issues in a Kubernetes cluster.
 
-## Features
+Network observability is an important part of maintaining a healthy and performant Kubernetes cluster. By collecting and analyzing data about network traffic, you can gain insights into how your cluster is operating and identify potential problems before they cause outages or performance degradation.
 
-* eBPF based networking observability platform for Kubernetes workloads. For more information about ePBF, see [What is eBPF?](https://ebpf.io/what-is-ebpf/#what-is-ebpf).
+:::image type="content" source="./media/network-observability-overview/network-observability-components.png" alt-text="Diagram of Network Observability components.":::
 
-* On demand and configurable. Product is cloud agnostic.
+## Overview of Network Observability addon in AKS
 
-* Emit actionable networking observability data into industry standard Prometheus metrics.
+> [!IMPORTANT]
+> AKS Network Observability is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## How it works?
+Networking Observability add-on operates seamlessly on Non-Cilium and Cilium dataplanes. It empowers customers with enterprise-grade capabilities for DevOps and SecOps.  This solution caters to the needs of cluster network administrators, cluster security administrators, and DevOps engineers by offering a centralized solution for monitoring network related issues in you cluster.
 
-Kappie is an interface to Kubernetes Cluster network traffic intended to be infrastructure and cloud agnostic. Kappie's goals aren't to provide a comprehensive Kubernetes network monitoring or troubleshooting solution. Instead, Kappie aims to provide an accessible interface in which other monitoring and troubleshooting solutions can be used as a data source to support three main pillars: 
+When the Network Observability addon is enabled, it allows for the collection and conversion of useful metrics into Prometheus format, which can then be visualized in Grafana. There are two options available for using Prometheus and Grafana in this context: Managed [Prometheus] (https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-overview and [Grafana]  (https://learn.microsoft.com/en-us/azure/managed-grafana/) or BYO Prometheus and BYO Grafana.
 
-* **Observability**: Increased visibility into Kubernetes network and connection data 
+* **Azure Managed Prometheus and Managed Grafana:** This option involves using a managed service provided by a Azure. The managed service takes care of the infrastructure and maintenance of Prometheus and Grafana, allowing you to focus on configuring and visualizing your metrics. This can be a convenient option if you prefer not to manage the underlying infrastructure.
 
-* **Debuggability**: Simplifying and streamlining the debugging and troubleshooting process. 
+* **BYO Prometheus and BYO Grafana:** Alternatively, you can choose to set up your own Prometheus and Grafana instances. In this case, you are responsible for provisioning and managing the infrastructure required to run Prometheus and Grafana. You will need to install and configure Prometheus to scrape the metrics generated by the Network Observability addon and store them. Similarly, Grafana needs to be set up to connect to Prometheus and visualize the collected data.
 
-* **Security**: Increasing data aggregation to enable better integration with existing security tools. 
-
-:::image type="content" source="./media/network-observability-overview/kappie-components.png" alt-text="Diagram of network observability powered by Kappie diagram.":::
+    | Dataplane | Data Source | Visualization |
+    |-------------|------------|-------|
+    | Non-Cilium (Linux and Windows) | Network Observability add-on  | Managed Grafana/BYO Grafana |
+    |Cilium | Cilium | Managed Grafana/BYO Grafana |
 
 ## Metrics
 
-Kappie supports both Linux and Windows platforms. The following table lists the metrics supported by each platform:
-
-* **Cilium Linux nodes**: In this data plane, Cilium Agent metrics are used directly as basic metrics.
-
-* **Regular Linux nodes**: in this data plane, Kappie daemon sets generate data by inserting relevant eBPF programs or gathering data from linux utilities.
-
-* **Windows nodes**: HNS and VFP stats are used for metrics.
+ Network Observability add-on currently only supports node level metrics in both Linux and Windows platforms.The below table outlines the different metrics generated by the Network Observability add-on.
 
 | Metric Name | Description | Labels | Linux | Windows |
 |-------------|-------------|--------|-------|---------|
@@ -57,6 +54,14 @@ Kappie supports both Linux and Windows platforms. The following table lists the 
 | **kappie_udp_connection_stats** | UDP connection statistics. | Statistic, NodeName, Cluster | Yes | No |
 | **kappie_udp_active_sockets** | UDP active socket count | NodeName, Cluster | Yes | No |
 | **kappie_interface_stats** | Interface statistics. | InterfaceName, Statistic, NodeName, Cluster | Yes | Yes |
+
+## Limitations
+
+* Pod level metrics aren't supported.
+
+## Scale
+
+Certain scale limitations apply when you use Managed Prometheus and Grafana. For more information, see [Scrape Prometheus metrics at scale in Azure Monitor](/azure/azure-monitor/essentials/prometheus-metrics-scrape-scale)
 
 ## Next steps
 
