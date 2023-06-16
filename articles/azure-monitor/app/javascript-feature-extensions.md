@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
-# Feature extensions for the Application Insights JavaScript SDK (Click Analytics)
+# Enable Click Analytics Auto-Collection plug-in
 
 Application Insights JavaScript SDK feature extensions are extra features that can be added to the Application Insights JavaScript SDK to enhance its functionality.
 
@@ -542,7 +542,7 @@ appInsights.loadAppInsights();
 
 ## Sample app
 
-[Simple web app with the Click Analytics Autocollection Plug-in enabled](https://go.microsoft.com/fwlink/?linkid=2152871)
+See a [simple web app with the Click Analytics Autocollection Plug-in enabled](https://go.microsoft.com/fwlink/?linkid=2152871) for how to implement custom event properties such as `Name` and `parentid` and custom behavior and content. See the [sample app readme](https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo/blob/main/README.md) for information about where to find click data.
 
 ## Examples of `parentId` key
 
@@ -633,6 +633,5 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 - See the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection Plug-in.
 - Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Use the [Telemetry Viewer extension](https://github.com/microsoft/ApplicationInsights-JS/tree/master/tools/chrome-debug-extension) to list out the individual events in the network payload and monitor the internal calls within Application Insights.
-- See a [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for how to implement custom event properties such as Name and parentid and custom behavior and content.
-- See the [sample app readme](https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo/blob/main/README.md) for where to find click data and [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
+- See [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
 - Build a [workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.

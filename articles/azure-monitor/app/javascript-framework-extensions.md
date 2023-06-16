@@ -103,7 +103,7 @@ npm install @microsoft/applicationinsights-angularplugin-js
 
 ---
 
-### 2. Initialize a connection to Application Insights
+### 2. Add the extension to your code
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -517,22 +517,6 @@ The `AppInsightsErrorBoundary` requires two props to be passed to it. They're th
 
 ### [React Native](#tab/reactnative)
 
-None.
-
-### [Angular](#tab/angular)
-
-None.
-
----
-
-## Enable IDeviceInfoModule
-
-### [React](#tab/react)
-
-Currently unavailable.
-
-### [React Native](#tab/reactnative)
-
 ### IDeviceInfoModule
 
 Interface to abstract how the plugin can access the Device Info. This interface is a stripped down version of the `react-native-device-info` interface and is mostly supplied for testing.
@@ -566,7 +550,7 @@ If events are getting "blocked" because the `Promise` returned via `getUniqueId`
 
 ### [Angular](#tab/angular)
 
-Currently unavailable.
+None.
 
 ---
 
