@@ -107,7 +107,7 @@ az aks create \
 
 ## Existing cluster
 
-Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observability on an existing cluster.
+Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observability for an existing cluster.
 
 ```azurecli-interactive
 az aks update \
@@ -199,9 +199,9 @@ scrape_configs:
         regex: (.*)
 ``` 
 
-1. In **Targets** of prometheus, verify the "network-obs-pods" are present.
+1. In **Targets** of prometheus, verify the **network-obs-pods** are present.
 
-1. Now, log in to grafana and import dashboards with link( https://grafana.com/grafana/dashboards/16611-cilium-metrics/).
+1. Sign in to Grafana and import dashboards with the following link: [Cilium Agent Metrics](https://grafana.com/grafana/dashboards/16611-cilium-metrics/).
 
 ---
 
