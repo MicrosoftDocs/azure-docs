@@ -117,7 +117,7 @@ No. You can access your virtual machine from the Azure portal using your browser
 
 ### <a name="native-client"></a>Can I connect to my VM using a native client?
 
-Yes. You can connect to a VM from your local computer using a native client. See [Connect to a VM using a native client](connect-native-client-windows.md).
+Yes. You can connect to a VM from your local computer using a native client. See [Connect to a VM using a native client](native-client.md).
 
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 

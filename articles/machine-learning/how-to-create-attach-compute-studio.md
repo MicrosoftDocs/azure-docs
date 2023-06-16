@@ -39,6 +39,8 @@ To see all compute targets for your workspace, use the following steps:
 
     :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="View list of compute targets":::
 
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
+
 ## Compute instance and clusters
 
 You can create compute instances and compute clusters in your workspace, using the Azure Machine Learning SDK, CLI, or studio:
