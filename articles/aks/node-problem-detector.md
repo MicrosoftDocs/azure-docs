@@ -96,7 +96,7 @@ These events are also available in [Container Insights](/azure/azure-monitor/con
 
 ## Metrics
 
-NPD also exposes Prometheus metrics based on the node problems which can be used for monitoring and alerting. This are exposed on port 20257 on the node and can be scraped by Prometheus. Below is an example of a scrape config that can be used with the [Azure Managed Prometheus add on as a DaemonSet](/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset)
+NPD also exposes Prometheus metrics based on the node problems which can be used for monitoring and alerting. This are exposed on port 20257 of the Node IP and can be scraped by Prometheus. Below is an example of a scrape config that can be used with the [Azure Managed Prometheus add on as a DaemonSet](/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset)
 
 ```yaml
 kind: ConfigMap
