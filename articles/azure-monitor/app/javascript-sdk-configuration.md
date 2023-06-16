@@ -130,7 +130,7 @@ Source map support helps you debug minified JavaScript code with the ability to 
  
 To view the unminified callstack, select an Exception Telemetry item in the Azure portal, find the source maps that match the call stack, and drag and drop the source maps onto the call stack in the Azure portal. The source map must have the same name as the source file of a stack frame, but with a `map` extension.
 
-:::image type="content" source="media/javascript-sdk-configuration/javascript-sdk-configuration-unminify.gif" alt-text="Animation demonstrating unminify feature.":::
+:::image type="content" source="media/javascript-sdk-configuration/javascript-sdk-advanced-unminify.gif" alt-text="Animation demonstrating unminify feature.":::
 
 ## Tree shaking
 
