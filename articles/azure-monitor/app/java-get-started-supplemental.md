@@ -18,7 +18,7 @@ For more information, see [Application monitoring for Azure App Service and Java
 
 ## Azure Functions
 
-For more information, see [Monitoring Azure Functions with Azure Monitor Application Insights](./monitor-functions.md#distributed-tracing-for-java-applications-preview).
+For more information, see [Monitoring Azure Functions with Azure Monitor Application Insights](./monitor-functions.md#distributed-tracing-for-java-applications).
 
 ## Azure Spring Apps
 
@@ -71,6 +71,8 @@ If you're using a third-party container image that you can't modify, mount the A
 For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 ## Java Application servers
+
+The following sections show how to set the Application Insights Java agent path for different application servers. You can find the configuration options [here](./java-standalone-config.md).
 
 ### Tomcat 8 (Linux)
 

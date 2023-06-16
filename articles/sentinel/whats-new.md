@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 06/08/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -15,11 +15,21 @@ The listed features were released in the last three months. For information abou
 
 See these [important announcements](#announcements) about recent changes to features and services.
 
+> [!TIP]
+> Get notified when this page is updated by copying and pasting the following URL into your feed reader:
+>
+> `https://aka.ms/sentinel/rss`
+
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## June 2023
 
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
+- [Microsoft Sentinel solution for SAP® applications: new systemconfig.json file](#microsoft-sentinel-solution-for-sap-applications-new-systemconfigjson-file)
+
+### Microsoft Sentinel solution for SAP® applications: new systemconfig.json file
+
+Microsoft Sentinel solution for SAP® applications uses the new *[systemconfig.json](sap/reference-systemconfig-json.md)* file from agent versions deployed on June 22 and later. For previous agent versions, you must still use the *[systemconfig.ini file](sap/reference-systemconfig.md)*.
 
 ## May 2023
 

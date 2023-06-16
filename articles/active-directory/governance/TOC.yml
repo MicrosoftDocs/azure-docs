@@ -144,6 +144,8 @@
         href: entitlement-management-logic-apps-integration.md
       - name: Delegate to access package managers
         href: entitlement-management-delegate-managers.md
+      - name: Set up group writeback
+        href: entitlement-management-group-writeback.md  
     - name: Access package managers and Access package assignment managers
       items:
       - name: Create a new access package

@@ -57,6 +57,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 - `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2022-12-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
+- `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
 
 **Request body**
 
@@ -196,6 +197,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 - `2023-03-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
+- `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
 
 #### Example request
 
@@ -259,6 +261,14 @@ POST https://{your-resource-name}.openai.azure.com/openai/images/generations:sub
 **Supported versions**
 
 - `2023-06-01-preview`
+
+**Request body**
+
+| Parameter | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| ```prompt``` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
+| ```n``` | integer | Optional | 1 | The number of images to generate. Must be between 1 and 5. |
+| ```size``` | string | Optional | 1024x1024 | The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`. |
 
 #### Example request
 

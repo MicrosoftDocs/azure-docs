@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Update management center (preview)
 description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
 ms.service: update-management-center
-ms.date: 05/02/2023
+ms.date: 05/30/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
