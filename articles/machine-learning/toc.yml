@@ -1107,16 +1107,15 @@
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
   items:
-        - name: Azure Container for PyTorch
-          displayName: acpt
-          href: how-to-azure-container-for-pytorch-environment.md
-        - name: Launch VS Code remote
-          displayName: Visual Studio Code, VSCode, debug, bugs
-          href: how-to-launch-vs-code-remote.md
-        - name: Work in VS Code remote
+    - name: Azure Container for PyTorch
+      displayName: acpt
+      href: how-to-azure-container-for-pytorch-environment.md
+    - name: Launch VS Code remote
+      displayName: Visual Studio Code, VSCode, debug, bugs
+      href: how-to-launch-vs-code-remote.md
+    - name: Work in VS Code remote
           displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-work-in-vs-code-remote.md
-
     - name: Work with data
       items:
         - name: Prepare data with Apache Spark (preview)
