@@ -34,14 +34,13 @@ To complete the steps in this tutorial, you must have the following resources an
   |Built-in role  |Scope  |Reason  |
   |---------|---------|---------|
   |- [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md)</br>- [Azure Connected Machine Resource Administrator](../role-based-access-control/built-in-roles.md)     |  - Virtual machines</br>- Scale sets</br>- Azure Arc-enabled servers        |   To deploy the agent      |
-  |Any role that includes the action Microsoft.Resources/deployments/*    | - Subscription and/or</br>- Resource group and/or</br>- An existing data collection rule       |  To deploy Azure Resource Manager templates       |
-  |[Monitoring Contributor ](../role-based-access-control/built-in-roles.md)    |- Subscription and/or </br>- Resource group and/or</br>- An existing data collection rule        | To create or edit data collection rules        |
-- Log Analytics workspace.
-- Linux server that's running an operating system that supports Azure Monitor Agent.
+  |Any role that includes the action Microsoft.Resources/deployments/*    | - Subscription </br>- Resource group</br>- Existing data collection rule       |  To deploy Azure Resource Manager templates       |
+  |[Monitoring Contributor ](../role-based-access-control/built-in-roles.md)    |- Subscription </br>- Resource group </br>- Existing data collection rule        | To create or edit data collection rules        |
+- A Log Analytics workspace.
+- A Linux server that's running an operating system that supports Azure Monitor Agent.
    - [Supported Linux operating systems for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#linux).
-   - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or
-   - Add an on-premises Linux server to Azure Arc. See [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-- Linux-based device that generates event log data like a firewall network device.
+   - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- A Linux-based device that generates event log data like a firewall network device.
 
 ## Create a data collection rule
 
