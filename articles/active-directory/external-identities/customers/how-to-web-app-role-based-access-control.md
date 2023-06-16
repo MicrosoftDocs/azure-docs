@@ -30,17 +30,26 @@ In this article, you learn how to receive user roles or group membership or both
 
 - If you've not done so, complete the steps in [Using role-based access control for applications](how-to-use-app-roles-customers.md) article. This article shows you how to create roles for your application, how to assign users and groups to those roles, how to add members to a group and how to add a group claim to a to security token. Learn more about [ID tokens](../../develop/id-tokens.md) and [access tokens](../../develop/access-tokens.md). 
 
+- If you've not done so, complete the steps in [Sign in users in your own Node.js web application](how-to-web-app-node-sign-in-overview.md)
+
 ## Receive groups and roles claims in your Node.js web app 
 
 Once you've configured your customer's tenant, you can retrieve your *roles* and *groups* claims in your client app. The *roles* and *groups* claims are both present in the ID token and the access token, but your client app only needs to check for these claims in the ID token to implement authorization in the client side. The API app can also retrieve these claims when it receives the access token.
 
-You check your *roles* claim value as shown in the following code snippet:
+You check your *roles* claim value as shown in the following code snippet examples:
 
 ```javascript
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
 let roles = tokenResponse.idTokenClaims.roles;
-//console.log("\nroles: \n" + tokenResponse.idTokenClaims.roles);
 
+//Check roles
+if (roles && roles.includes("Orders.Manager")) {
+    //This user can view the the ID token claims page.
+    return res.redirect('/id');
+}
+
+//User can only view the index page.
+return res.redirect('/');
 ```
 
 If you assign a user to multiple roles, the `roles` string contains all roles separated by a comma, such as `Orders.Manager,Store.Manager,...`. Make sure you build your application to handle the following conditions:
@@ -49,7 +58,7 @@ If you assign a user to multiple roles, the `roles` string contains all roles se
 - user hasn't been assigned to any role
 - multiple values in the `roles` claim when you assign a user to multiple roles  
 
-You can also check your *groups* claim value as shown in the following code snippet:
+You can also check your *groups* claim value as shown in the following code snippet example:
 
 ```javascript
 const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
