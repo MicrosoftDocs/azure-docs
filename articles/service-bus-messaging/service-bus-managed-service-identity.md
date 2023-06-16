@@ -12,7 +12,7 @@ Here are the high-level steps to use a managed identity to access a Service Bus 
 
 1. Enable managed identity for your client app or environment. For example, enable managed identity for your Azure App Service app, Azure Functions app, or a virtual machine in which your app is running. Here are the articles that help you with this step:
     - [Configure managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
-    - [Configure managed identities for Azure resources on a VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)    
+    - [Configure managed identities for Azure resources on a VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)    
 1. Assign Azure Service Bus Data Owner, Azure Service Bus Data Sender, or Azure Service Bus Data Receiver role to the managed identity at the appropriate scope (Azure subscription, resource group, Service Bus namespace, or Service Bus queue or topic). For instructions to assign a role to a managed identity, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 1. In your application, use the managed identity and the endpoint to Service Bus namespace to connect to the namespace. For example, in .NET, you use the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient.-ctor#azure-messaging-servicebus-servicebusclient-ctor(system-string-azure-core-tokencredential)) constructor that takes `TokenCredential` and `fullyQualifiedNamespace` (a string, for example: `cotosons.servicebus.windows.net`) parameters to connect to Service Bus using the managed identity. You pass in [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which derives from `TokenCredential` and uses the managed identity. 
 
@@ -54,7 +54,7 @@ az role assignment create \
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
-### Examples
+## Examples
 
 In .NET, the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object is initialized by using a constructor that takes a fully qualified namespace and a `TokenCredential`. The `DefaultAzureCredential` derives from `TokenCredential`, which automatically uses the managed identity configured for the app. The flow of the managed identity context to Service Bus and the authorization handshake are automatically handled by the token credential. It's a simpler model than using SAS.
 
