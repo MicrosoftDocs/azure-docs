@@ -162,7 +162,7 @@ The Redis clustering protocol requires each client to connect to each shard dire
 
 ### How do I connect to my cache when clustering is enabled?
 
-You can connect to your cache using the same [endpoints](cache-configure.md#properties), [ports](cache-configure.md#properties), and [keys](cache-configure.md#access-keys) that you use when connecting to a cache that doesn't have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
+You can connect to your cache using the same [endpoints](cache-configure.md#properties), [ports](cache-configure.md#properties), and [keys](cache-configure.md#access-keys) that you use when connecting to a cache that doesn't have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client as long as the client library supports Redis clustering.
 
 ### Can I directly connect to the individual shards of my cache?
 

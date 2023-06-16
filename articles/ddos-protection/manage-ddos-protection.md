@@ -17,8 +17,6 @@ A DDoS protection plan defines a set of virtual networks that have DDoS Network 
 
 In this quickstart, you'll create a DDoS protection plan and link it to a virtual network.
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram.png" alt-text="Diagram of DDoS Network Protection.":::
-
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

@@ -101,6 +101,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |emails[type eq "work"].value|String||&check;
    |name.givenName|String||&check;
    |name.familyName|String||&check;
+   |addresses[type eq "work"].locality|String||&check;
    |addresses[type eq "work"].country|String||&check;
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String||&check;
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||&check;
