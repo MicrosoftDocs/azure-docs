@@ -40,10 +40,10 @@ For some device types that don't allow local installation of Azure Monitor Agent
 The Azure Monitor Agent for Linux only collects events with the facilities and severities that are specified in its configuration. You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
 
 ### Configure Syslog in the Azure portal
-Configure Syslog from the **Data Collection Rules** menu of Azure Monitor. This configuration is delivered to the configuration file on each Linux agent:
+Configure Syslog from the **Data Collection Rules** menu of Azure Monitor. This configuration is delivered to the configuration file on each Linux agent.
 
-* Select **Add data source**.
-* For **Data source type**, select **Linux syslog**.
+1. Select **Add data source**.
+1. For **Data source type**, select **Linux syslog**.
 
 You can collect Syslog events with a different log level for each facility. By default, all Syslog facility types are collected. If you don't want to collect, for example, events of `auth` type, select **NONE** in the **Minimum log level** list box for `auth` facility and save the changes. If you need to change the default log level for Syslog events and collect only events with a log level starting at **NOTICE** or a higher priority, select **LOG_NOTICE** in the **Minimum log level** list box.
 
