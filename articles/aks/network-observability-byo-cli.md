@@ -12,7 +12,7 @@ ms.custom: template-how-to-pattern
 
 # Setup Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana
 
-AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both managed and bring your own (BYO) Prometheus and Grafana are supported. Cilium and non-Cilium data plane are supported. In this document we will be going over steps on how to enable Network observability addon and use BYO Prometheus and BYO Grafana to visualize the scraped metrics
+AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both managed and bring your own (BYO) Prometheus and Grafana are supported. Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use BYO Prometheus and Grafana to visualize the scraped metrics.
 
 <!-- image placeholder 
 :::image type="content" source="./media/network-observability-byo-cli/network-observability-byo.png" alt-text="Diagram of BYO Network Observability add-on for AKS.":::
