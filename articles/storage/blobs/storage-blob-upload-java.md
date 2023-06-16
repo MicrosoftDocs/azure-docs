@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 06/14/2023
+ms.date: 06/16/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -78,7 +78,9 @@ The following code example shows how to set values for [ParallelTransferOptions]
 
 ### Upload a block blob with index tags
 
-The following example uploads a block blob with index tags set using `BlobUploadFromFileOptions`:
+Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data.
+
+The following example uploads a block blob with index tags set using [BlobUploadFromFileOptions](/java/api/com.azure.storage.blob.options.blobuploadfromfileoptions):
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobUpload.java" id="Snippet_UploadBlobTags":::
 
