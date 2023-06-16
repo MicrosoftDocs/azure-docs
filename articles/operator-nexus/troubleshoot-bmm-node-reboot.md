@@ -6,7 +6,7 @@ ms.custom: troubleshooting
 ms.topic: troubleshooting
 ms.date: 06/13/2023
 ms.author: v-sathysubra
-author: v-sathysubra
+author: Sathyadevi-S
 ---
 # Troubleshoot post BMM cordon & restart, VMs show up as error on portal. Power & Restart doesn’t work anymore
 Follow this troubleshooting guide for BMM Cordon & Restart:
