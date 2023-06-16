@@ -106,9 +106,12 @@ For more information on uploading files with IoT Hub, see [Upload files with IoT
 
 Changes made in `config.toml` to `edgeAgent` environment variables like the `hostname` aren't applied to `edgeAgent` if the container already existed. To apply these changes, remove the `edgeAgent` container using the command  `sudo docker rm -f edgeAgent`. The IoT Edge daemon recreates the container and starts edgeAgent in about a minute.
 
-### NTLM Authentication
+### Proxy Authentication
+  * EdgeAgent
+  When the environment variable "HTTPS_PROXY" is used, the edgeAgent will use a proxy to authenticate the clients. If username and password are specified, edgeAgent won't use those right away, it will first query the proxy authentication schema by trying to connect without any authentication parameter. The proxy will then return 407 error with the proper authentication schema.
 
-IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allowlist.
+  * NTLM Authentication
+  IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allowlist.
 
 ## Next steps
 
