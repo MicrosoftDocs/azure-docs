@@ -153,9 +153,15 @@ By restricting operating system capabilities, you can strengthen the security of
 
 - Prevent unwanted software from running on session hosts. You can enable App Locker for additional security on session hosts, ensuring that only the apps you allow can run on the host.
 
-## Azure Virtual Desktop support for Trusted Launch
+## Trusted Launch
 
 Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+
+### Enable trusted launch as default
+
+Trusted launch protects against advanced and persistent attack techniques. This feature also allows for secure deployment of VMs with verified boot loaders, OS kernels, and drivers. Trusted launch also protects keys, certificates, and secrets in the VMs. Learn more about trusted launch at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+
+When you add session hosts using the Azure portal, the security type automatically changes to **Trusted virtual machines**. This ensures that your VM meets the mandatory requirements for Windows 11. For more information about these requirements, see [Virtual machine support](/windows/whats-new/windows-11-requirements#virtual-machine-support).
 
 ## Azure Confidential computing virtual machines
 
@@ -171,12 +177,6 @@ The following operating systems are supported for use as session hosts with conf
 ### OS disk encryption
 
 Encrypting the operating system disk is an extra layer of encryption that binds disk encryption keys to the Confidential computing VM's Trusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and monitoring alerts if the VM didn’t boot because attestation failed with the defined baseline. For more information about integrity monitoring, see [Microsoft Defender for Cloud Integration](../virtual-machines/trusted-launch.md#microsoft-defender-for-cloud-integration) and [Create an Azure Confidential computing VM](add-session-hosts-host-pool.md#create-an-azure-confidential-computing-vm).
-
-### Enable trusted launch as default
-
-Trusted launch protects against advanced and persistent attack techniques. This feature also allows for secure deployment of VMs with verified boot loaders, OS kernels, and drivers. Trusted launch also protects keys, certificates, and secrets in the VMs. Learn more about trusted launch at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
-
-When you add session hosts using the Azure portal, the security type automatically changes to **Trusted virtual machines**. This ensures that your VM meets the mandatory requirements for Windows 11. For more information about these requirements, see [Virtual machine support](/windows/whats-new/windows-11-requirements#virtual-machine-support).
 
 ### Secure Boot
 

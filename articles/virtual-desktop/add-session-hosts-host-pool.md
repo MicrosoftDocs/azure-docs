@@ -70,7 +70,7 @@ Here's how to generate a registration key using the [desktopvirtualization](/cli
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-2. Use the `az desktopvirtualization workspace update` command with the following example to generate a registration key that is valid for 24 hours.
+1. Use the `az desktopvirtualization workspace update` command with the following example to generate a registration key that is valid for 24 hours.
 
    ```azurecli
    az desktopvirtualization hostpool update \
@@ -79,7 +79,7 @@ Here's how to generate a registration key using the [desktopvirtualization](/cli
        --registration-info expiration-time=$(date -d '+24 hours' --iso-8601=ns) registration-token-operation="Update"
    ```
 
-3. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
+1. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
 
    ```azurecli
    az desktopvirtualization hostpool retrieve-registration-token \
@@ -97,7 +97,7 @@ Here's how to generate a registration key using the [Az.DesktopVirtualization](/
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Use the `New-AzWvdRegistrationInfo` cmdlet with the following example to generate a registration key that is valid for 24 hours.
+1. Use the `New-AzWvdRegistrationInfo` cmdlet with the following example to generate a registration key that is valid for 24 hours.
 
    ```azurepowershell
    $parameters = @{
@@ -109,7 +109,7 @@ Here's how to generate a registration key using the [Az.DesktopVirtualization](/
    New-AzWvdRegistrationInfo @parameters
    ```
 
-3. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
+1. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
 
    ```azurepowershell
    $parameters = @{
@@ -172,11 +172,11 @@ Here's how to create session hosts and register them to a host pool using the Az
 
    Once you've completed this tab, select **Next: Tags**.
 
-2. On the **Tags** tab, you can optionally enter any name/value pairs you need, then select **Next: Review + create**.
+1. On the **Tags** tab, you can optionally enter any name/value pairs you need, then select **Next: Review + create**.
 
-3. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment. If validation doesn't pass, review the error message and check what you entered in each tab.
+1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment. If validation doesn't pass, review the error message and check what you entered in each tab.
 
-4. Select **Create**. Once your deployment is complete, the session hosts should appear in the host pool.
+1. Select **Create**. Once your deployment is complete, the session hosts should appear in the host pool.
 
 > [!IMPORTANT]
 > Once you've added session hosts with the Azure Virtual Desktop service, skip to the section [Post deployment](#post-deployment) for some extra configuration you may need to do.

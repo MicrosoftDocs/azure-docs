@@ -167,7 +167,7 @@ Here's how to create a host pool using the Azure portal.
 
    Once you've completed this tab, select **Next: Workspace**.
 
-2. *Optional*: If you want to create a workspace and register the default desktop application group from this host pool in this process, on the **Workspace** tab, complete the following information:
+1. *Optional*: If you want to create a workspace and register the default desktop application group from this host pool in this process, on the **Workspace** tab, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
@@ -176,7 +176,7 @@ Here's how to create a host pool using the Azure portal.
 
    Once you've completed this tab, select **Next: Advanced**.
 
-3. *Optional*: If you want to enable diagnostics settings in this process, on the **Advanced** tab, complete the following information:
+1. *Optional*: If you want to enable diagnostics settings in this process, on the **Advanced** tab, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
@@ -185,13 +185,13 @@ Here's how to create a host pool using the Azure portal.
 
    Once you've completed this tab, select **Next: Tags**.
 
-4. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
 
-5. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
+1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
 
-6. Select **Create** to create the host pool.
+1. Select **Create** to create the host pool.
 
-7. Once the host pool has been created, select **Go to resource** to go to the overview of your new host pool, then select **Properties** to view its properties.
+1. Once the host pool has been created, select **Go to resource** to go to the overview of your new host pool, then select **Properties** to view its properties.
 
 ## Optional: Post deployment
 
@@ -208,7 +208,7 @@ Here's how to create a host pool using the [desktopvirtualization](/cli/azure/de
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-2. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+1. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
    
@@ -236,7 +236,7 @@ Here's how to create a host pool using the [desktopvirtualization](/cli/azure/de
           --location <AzureRegion>
       ```
 
-3. You can view the properties of your new host pool by running the following command:
+1. You can view the properties of your new host pool by running the following command:
 
    ```azurecli
    az desktopvirtualization hostpool show --name <Name> --resource-group <ResourceGroupName>
@@ -251,7 +251,7 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Use the `New-AzWvdHostPool` cmdlet with the following examples to create a host pool. More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
+1. Use the `New-AzWvdHostPool` cmdlet with the following examples to create a host pool. More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
 
    1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
    
@@ -285,7 +285,7 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
       New-AzWvdHostPool @parameters
       ```
 
-3. You can view the properties of your new host pool by running the following command:
+1. You can view the properties of your new host pool by running the following command:
 
    ```azurepowershell
    Get-AzWvdHostPool -Name <Name> -ResourceGroupName <ResourceGroupName> | FL *
