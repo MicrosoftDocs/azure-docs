@@ -5,8 +5,8 @@ ms.date: 06/16/2023
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-author: v-pgaddala
-ms.author: v-pgaddala
+author: jyothisuri
+ms.author: jsuri
 keywords: "VMM, Arc, Azure"
 ---
 
