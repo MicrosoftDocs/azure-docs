@@ -1,6 +1,6 @@
 ---
-title: "Setup Network Observability for Azure Kubernetes Service (AKS) - Managed Prometheus and Grafana"
-description: Get started with AKS Network Observability for your AKS cluster using managed Prometheus and Grafana.
+title: "Setup Network Observability for Azure Kubernetes Service (AKS) - Azure Managed Prometheus and Grafana"
+description: Get started with AKS Network Observability for your AKS cluster using Azure managed Prometheus and Grafana.
 author: asudbring
 ms.author: allensu
 ms.service: azure-kubernetes-service
@@ -84,7 +84,6 @@ az group create \
 
 Create an AKS cluster with [az aks create](/cli/azure/aks#az-aks-create). The following example creates an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group:
 
-
 # [**Non-Cilium**](#tab/non-cilium)
 
 Non-Cilium clusters support the enablement of Network Observability on an existing cluster or during the creation of a new cluster. 
@@ -136,11 +135,72 @@ az aks create \
 
 ---
 
+## Prometheus and Grafana
+
+Use the following example to install and enable Prometheus and Grafana for your AKS cluster.
+
+### Create Azure Monitor resource
+
+```azurecli-interactive
+az resource create \
+    --resource-group myResourceGroup \
+    --namespace microsoft.monitor \
+    --resource-type accounts \
+    --name myAzureMonitor \
+    --location eastus \
+    --properties '{}'
+```
+
+### Create Grafana instance
+
+Use [az grafana create](/cli/azure/grafana#az-grafana-create) to create a Grafana instance. The name of the Grafana instance must be unique. Replace **myGrafana** with a unique name for your Grafana instance.
+
+```azurecli-interactive
+az grafana create \
+    --name myGrafana \
+    --resource-group myResourceGroup 
+```
+
+### Place the Grafana and Azure Monitor resource IDs in variables
+
+Use [az grafana show](/cli/azure/grafana#az-grafana-show) to place the Grafana resource ID in a variable. Use [az resource show](/cli/azure/resource#az-resource-show) to place the Azure Monitor resource ID in a variable. Replace **myGrafana** with the name of your Grafana instance.
+
+```azurecli-interactive
+grafanaId=$(az grafana show \
+                --name myGrafana \
+                --resource-group myResourceGroup \
+                --query id \
+                --output tsv)
+
+azuremonitorId=$(az resource show \
+                    --resource-group myResourceGroup \
+                    --name myAzureMonitor \
+                    --resource-type "Microsoft.Monitor/accounts" \
+                    --query id \
+                    --output tsv)
+```
+
+### Link Azure Monitor and Grafana to AKS cluster
+
+Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and Grafana resources to your AKS cluster.
+
+```azurecli-interactive
+az aks update \
+    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --enable-azuremonitormetrics \
+    --azure-monitor-workspace-resource-id $azuremonitorId \
+    --grafana-resource-id $grafanaId
+```
+
+---
+
 ## Get cluster credentials 
 
 ```azurecli-interactive
 az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
 ```
+
 
 ## Enable visualization on Grafana
 
@@ -173,31 +233,53 @@ az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
 > [!NOTE]
 > The following section requires deployments of managed Prometheus and Grafana.
 
-1. Add the following scrape job to your existing Prometheus configuration and restart your Prometheus server
+1. Use the following example to create a yaml file named **`ama-cilium-configmap.yaml`**. Copy the code in the example into the file created.
 
-```yml
-scrape_configs:
-  - job_name: "network-obs-pods"
-    kubernetes_sd_configs:
-      - role: pod
-    relabel_configs:
-      - source_labels: [__meta_kubernetes_pod_container_name]
-        action: keep
-        regex: kappie(.*)
-      - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
-        separator: ":"
-        regex: ([^:]+)(?::\d+)?
-        target_label: __address__
-        replacement: ${1}:${2}
-        action: replace
-      - source_labels: [__meta_kubernetes_pod_node_name]
-        action: replace
-        target_label: instance
-    metric_relabel_configs:
-      - source_labels: [__name__]
-        action: keep
-        regex: (.*)
-``` 
+    ```yaml
+    scrape_configs:
+    - job_name: "cilium-pods"
+        kubernetes_sd_configs:
+        - role: pod
+        relabel_configs:
+        - source_labels: [__meta_kubernetes_pod_container_name]
+            action: keep
+            regex: cilium(.*)
+        - source_labels:
+            [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+            separator: ":"
+            regex: ([^:]+)(?::\d+)?
+            target_label: __address__
+            replacement: ${1}:${2}
+            action: replace
+        - source_labels: [__meta_kubernetes_pod_node_name]
+            action: replace
+            target_label: instance
+        - source_labels: [__meta_kubernetes_pod_label_k8s_app]
+            action: keep
+            regex: cilium
+        - source_labels: [__meta_kubernetes_pod_name]
+            action: replace
+            regex: (.*)
+            target_label: pod
+        metric_relabel_configs:
+        - source_labels: [__name__]
+            action: keep
+            regex: (.*)
+    ```
+
+1. To create the `configmap`, use the following example:
+
+    ```azurecli-interactive
+    kubectl create configmap ama-metrics-prometheus-config-node \
+        --from-file=./ama-cilium-configmap.yaml \
+        --name kube-system
+    ```
+
+1. Once the Azure Monitor pods have been deployed on the cluster, port forward to the `ama` pod to verify the pods are being scraped. Use the following example to port forward to the pod:
+
+    ```azurecli-interactive
+    k port-forward $(k get po -l dsName=ama-metrics-node -oname | head -n 1) 9090:9090
+    ```
 
 1. In **Targets** of prometheus, verify the **network-obs-pods** are present.
 
