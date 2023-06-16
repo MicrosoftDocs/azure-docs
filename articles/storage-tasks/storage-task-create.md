@@ -33,7 +33,7 @@ On the **Storage tasks** page, select **Create**.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the storage task create button.](./media/storage-task-create/storage-task-create-button.png)
 
-### Basics tab
+## Basics tab
 
 On the **Basics** tab, provide the essential information for your Storage Task. The following table describes the fields on the **Basics** tab.
 
@@ -49,7 +49,7 @@ The following image shows an example of the **Basics** tab.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of basics tab of the Storage Task create experience.](./media/storage-task-create/storage-task-basics-page.png)
 
-### Conditions tab
+## Conditions tab
 
 On the **Conditions** tab, define the conditions that must be met by each object (container or blob), and the operations to perform on the object.
 
@@ -59,21 +59,21 @@ The following table describes the fields on the **Conditions** tab.
 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
-| If | And/Or | Required | Description. |
-| If | Blob property | Required | Put something here. |
-| If | Operator | Required | Put something here. |
-| If| Property value | Required | Put something here. |
-| Then | Operations | Required | Description. |
-| Then | Parameter | Required | Put something here. |
+| If | And/Or | Required | An operator which combines two or more predicates to form a logical-AND or logical-OR expression. |
+| If | Blob property | Required | The blob or container property that you like to use in the condition. See [Supported blob properties](storage-task-conditions-reference.md#supported-blob-properties)|
+| If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-conditions-reference.md#supported-operators)|
+| If| Property value | Required | The value that relates to the corresponding property. See [Supported property values](storage-task-conditions-reference.md#supported-property-values) |
+| Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-conditions-reference.md#supported-operations)|
+| Then | Parameter | Required | A value used by the operation. |
 
-The following image shows an example of the **Conditions** ab.
+The following image shows an example of the **Conditions** tab.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of conditions tab of the Storage Task create experience.](./media/storage-task-create/storage-task-conditions-tab.png)
 
 To learn more about conditions and operations, see [Storage Task conditions and operations](storage-task-conditions-operations.md).
 
-### Assignments tab
+## Assignments tab
 
 An _assignment_ identifies a storage account target. It also contains properties that can narrow the scope of target objects and specify when and how often a task should run.
 
@@ -83,16 +83,16 @@ The following table describes the fields that appear in the **Add assignment** p
 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
-| Select scope | Subscription | Required | Description. |
-| Select scope | Select a storage account | Required | Put something here. |
-| Select scope | Assignment name | Required | Put something here. |
-| Filter objects | Filter by | Required | Put something here. |
-| Filter objects | Blob prefixes | Required | Description. |
-| Trigger details | Run frequency | Required | Put something here. |
-| Trigger details | Start from | Required | Put something here. |
-| Trigger details | End by | Required | Put something here. |
-| Trigger details | Repeat very (in days) | Required | Put something here. |
-| Trigger details | Report export container | Required | Put something here. |
+| Select scope | Subscription | Required | The subscription of the storage account that you want to add to this assignment. |
+| Select scope | Select a storage account | Required | The storage account that you want to add to this assignment. |
+| Select scope | Assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and may contain only letters and numbers. |
+| Filter objects | Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
+| Filter objects | Blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
+| Trigger details | Run frequency | Required | Option to either run the task one time or multiple times. |
+| Trigger details | Start from | Required | The date and time to begin running the task. |
+| Trigger details | End by | Required | The date and time stop running the task. |
+| Trigger details | Repeat very (in days) | Required | The interval in days between each run. |
+| Trigger details | Report export container | Required | The container where task execution reports are stored. |
 
 The following image shows an example of the **Add assignment** pane.
 
@@ -101,7 +101,7 @@ The following image shows an example of the **Add assignment** pane.
 
 To learn more about assignments, see [Storage Task assignment](storage-task-assignment.md).
 
-### Tags tab
+## Tags tab
 
 On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
 
@@ -110,7 +110,7 @@ The following image shows a standard configuration of the index tag properties f
 > [!div class="mx-imgBorder"]
 > ![Screenshot of tags tab of the Storage Task create experience.](./media/storage-task-create/storage-task-tags-page.png)
 
-### Review + create tab
+## Review + create tab
 
 When you navigate to the **Review + create** tab, Azure runs validation on the Storage Task settings that you have chosen. If validation passes, you can proceed to create the Storage Task.
 

@@ -23,15 +23,21 @@ Put something here.
 
 To learn how to add and edit Storage Tasks conditions, see [Define conditions](storage-task-condition-edit.md).
 
-## Supported values
+## Supported blob properties
 
-Describe a condition here
+Put something here.
 
-The following table lists supported properties, operands, actions, and values.
+## Supported Operators
 
-| Properties | Operands | actions | values | 
-|--|--|--|--|
-|Property 1<br>Property2<br>Property 3 | Operand 1<br>Operand 2<br>Operand 3  | action 1<br>action 2<br>action3  | value 1<br>value 2<br>value 3  |
+Put something here.
+
+## Supported property values
+
+Put something here.
+
+## Supported operations
+
+Put something here.
 
 ## See also
 
