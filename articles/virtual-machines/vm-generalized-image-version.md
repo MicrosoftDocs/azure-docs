@@ -488,7 +488,8 @@ az login --tenant $tenant1
 az account get-access-token 
 az login --tenant $tenant2
 az account get-access-token
-
+az login --tenant $tenant1
+az account get-access-token
 ```
  
 
@@ -523,6 +524,7 @@ $tenant1 = "<Tenant 1 ID>"
 $tenant2 = "<Tenant 2 ID>"
 Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 Connect-AzAccount -Tenant "<Tenant 2 ID>" -UseDeviceAuthentication
+Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 ```
 
 
