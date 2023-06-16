@@ -106,11 +106,26 @@ After you finish writing your code, compile that code to make sure that no build
 
    - A subfolder named **<*your-function-name*>** that contains a **function.json** file. This file contains the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
 
-
-## Configure custom code to call from a workflow
+## Add the action to call your code from a workflow
 
 After you confirm that your code compiles, and that your logic app project contains the necessary files for your code to run, set up the **Call a local function in this logic app** built-in action in your workflow.
 
 1. In your workspace, under **LogicApp**, expand **<*your-workflow-name*>**, open the shortcut menu for **workflow.json**, and select **Open Designer**.
 
-1. After the workflow designer opens, 
+1. After the workflow designer opens, [follow these steps to add the trigger you want to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+
+1. Now [follow these steps to add the built-in action named **Call a local function in this logic app** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+## Debug your code and workflow
+
+1. Start the Azurite storage emulator for each of the following storage services:
+
+   - Azure Blob Service
+   - Azure Table Service
+   - Azure Queue Service
+   
+  1. From the Visual Studio Code **View** menu, select **Command Palette**.
+
+  1. At the prompt, enter **/find Azurite: Start**.
+
+  1. From the working directory list that appears, select **LogicApp**.
