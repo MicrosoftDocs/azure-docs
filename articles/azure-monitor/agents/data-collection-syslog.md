@@ -108,7 +108,7 @@ When Azure Monitor Agent is installed on a Linux machine, it installs a default 
 ### Rsyslog
 On many Linux distributions, the rsyslogd daemon is responsible for consuming, storing, and routing log messages sent by using the Linux Syslog API. Azure Monitor Agent uses the UNIX domain socket output module (`omuxsock`) in rsyslog to forward log messages to Azure Monitor Agent.
 
-The Azure Monitor Agent installation includes default config files that get placed under the following directory: `/etc/opt/microsoft/azuremonitoragent/syslog/rsyslogconf/05-azuremonitoragent-loadomuxsock.conf`
+The Azure Monitor Agent installation includes default config files that get placed under the following directory: `/etc/opt/microsoft/azuremonitoragent/syslog/rsyslogconf/`
 
 When Syslog is added to a DCR, these configuration files are installed under the `etc/rsyslog.d` system directory and rsyslog is automatically restarted for the changes to take effect. These files are used by rsyslog to load the output module and forward the events to the Azure Monitor Agent daemon by using defined rules.
 
