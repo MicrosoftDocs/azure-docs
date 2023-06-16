@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Azure Queue Storage client library for .NET

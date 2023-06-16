@@ -72,3 +72,5 @@ The following information applies if you convert an existing virtual network to 
 ## Next steps
 
 - [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
+

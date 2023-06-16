@@ -15,8 +15,6 @@ ms.author: anfdocs
 
 Several features of Azure NetApp Files require that you have an Active Directory connection. For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 
-[!INCLUDE [April 2023 Netlogon notice](includes/netlogon-april-2023.md)]
-
 ## <a name="requirements-for-active-directory-connections"></a>Requirements and considerations for Active Directory connections
 
 > [!IMPORTANT]

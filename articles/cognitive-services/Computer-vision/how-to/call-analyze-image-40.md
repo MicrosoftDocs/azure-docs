@@ -108,7 +108,7 @@ To analyze a local image, you'd put the binary image data in the HTTP request bo
 
 The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
 
-Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia.
 
 > [!NOTE]
 > The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**. The SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
@@ -185,7 +185,7 @@ To use a custom model, don't use the features query parameter. Instead, set the 
 
 You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language.
 
-Language option only applies when you are using the standard model.
+Language option only applies when you're using the standard model.
 
 #### [C#](#tab/csharp)
 
@@ -227,7 +227,7 @@ A populated URL might look like this:
 
 If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
 
-Gender neurtal caption option only applies when you are using the standard model.
+Gender neutral caption option only applies when you're using the standard model.
 
 #### [C#](#tab/csharp)
 
@@ -261,7 +261,7 @@ A populated URL might look like this:
 
 An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
-Smart cropping aspect rations only applies when you are using the standard model.
+Smart cropping aspect rations only applies when you're using the standard model.
 
 #### [C#](#tab/csharp)
 

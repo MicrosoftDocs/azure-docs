@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 05/01/2023
-ms.custom: template-concept, engagement-fy23
+ms.custom: template-concept, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Create a hub and spoke topology in Azure - PowerShell

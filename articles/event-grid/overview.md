@@ -80,7 +80,9 @@ Event Grid supports the following use cases:
 
 ### MQTT messaging
 
-Event Grid enables your clients to communicate on [custom MQTT topic names](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901107) using a publish-subscribe messaging model. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Your MQTT client can connect to Event Grid and publish/subscribe to messages, while Event Grid authenticates your clients, authorizes publish/subscribe requests, and forward messages to interested clients. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases.
+Event Grid enables your clients to communicate on [custom MQTT topic names](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901107) using a publish-subscribe messaging model. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases.
+
+The MQTT support in Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
 
 :::image type="content" source="media/overview/mqtt-messaging.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging-high-res.png" border="false":::
 
@@ -120,7 +122,7 @@ Use Event Grid to build serverless solutions with Azure Functions Apps, Logic Ap
 #### Receive events from Azure services
 :::image type="content" source="media/overview/receive-events-azure.png" alt-text="Diagram that shows Blob Storage publishing events to Event Grid over HTTP. Event Grid sends those events to event handlers, which are either webhooks or Azure services." lightbox="media/overview/receive-events-azure-high-res.png" border="false":::
 
-Azure services make their [events available](system-topics.md) so that you can automate your operations. For example, you can configure Event Grid to receive an event when a new blob has been created on an Azure Storage Account so that your downstream application can read and process its content.
+Event Grid can receive events from 20+ Azure services so that you can automate your operations. For example, you can configure Event Grid to receive an event when a new blob has been created on an Azure Storage Account so that your downstream application can read and process its content. For a list of all supported Azure services and events, see [System topics](system-topics.md).
 
 #### Receive events from your applications
 :::image type="content" source="media/overview/receive-events-apps.png" alt-text="Diagram that shows customer application publishing events to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-events-apps-high-res.png" border="false":::

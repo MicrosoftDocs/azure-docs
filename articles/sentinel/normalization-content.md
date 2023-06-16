@@ -43,6 +43,7 @@ The following built-in DNS query content is supported for ASIM normalization.
 
 ### Solutions
 
+- [DNS Essentials](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-dns-domain?tab=Overview)
 - [Log4j Vulnerability Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-apachelog4jvulnerability?tab=Overview)
 - [Legacy IOC Based Threat Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-ioclegacy?tab=Overview)
 
@@ -93,7 +94,7 @@ The following built-in network session related content is supported for ASIM nor
 
 ### Solutions
 
-- [Network Threat Protection Essentials](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-networkthreatdetection?tab=Overview)
+- [Network Session Essentials](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-networksession?tab=Overview)
 - [Log4j Vulnerability Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-apachelog4jvulnerability?tab=Overview)
 - [Legacy IOC Based Threat Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-ioclegacy?tab=Overview)
 

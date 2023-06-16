@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
@@ -55,8 +55,8 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
 
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
@@ -92,8 +92,8 @@ To interact with the Form Recognizer service, you need to create an instance of 
 
     * The [prebuilt-businessCard](#business-card-model) model extracts key information from business card images.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=setup)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=setup) -->
 
 ## Read model
 
@@ -167,8 +167,8 @@ if __name__ == "__main__":
 
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-read)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-read) -->
 
 ### Read model output
 
@@ -285,8 +285,8 @@ if __name__ == "__main__":
 
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-layout)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-layout) -->
 
 ### Layout model output
 
@@ -419,8 +419,8 @@ if __name__ == "__main__":
 
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-general-document)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-general-document) -->
 
 ### General document model output
 
@@ -746,8 +746,8 @@ if __name__ == "__main__":
 
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-w2-tax)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-w2-tax) -->
 
 ### W-2 tax model output
 
@@ -1043,8 +1043,8 @@ if __name__ == "__main__":
 
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-invoice)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-invoice) -->
 
 ### Invoice model output
 
@@ -1145,8 +1145,8 @@ if __name__ == "__main__":
 
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-receipt)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-receipt) -->
 
 ### Receipt model output
 
@@ -1241,8 +1241,8 @@ if __name__ == "__main__":
 
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-id-document)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-id-document) -->
 
 ### ID document model output
 
@@ -1379,8 +1379,8 @@ if __name__ == "__main__":
 
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-business-card)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-business-card) -->
 
 ### Business card model output
 

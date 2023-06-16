@@ -2,6 +2,7 @@
 title: Use Blob Storage as checkpoint store on Azure Stack Hub 
 description: This article describes how to use Blob Storage as a checkpoint store in Event Hubs on Azure Stack Hub. 
 ms.topic: how-to
+ms.custom: devx-track-python
 ms.date: 09/28/2021
 ---
 
