@@ -162,7 +162,7 @@ It's recommended that you use the default configuration settings for the virtual
 
 For specific networking scenarios, you might need to update the networking configuration. Learn more about the [supported networking architectures and topologies in Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services-blog/network-architectures-and-topologies-with-lab-plans/ba-p/3781597#M130) and the corresponding network configuration.
 
-You can modify the virtual network settings after you create the lab plan with advanced networking. However, when you change the [DNS settings on the virtual network](/azure/virtual-network/manage-virtual-network#change-dns-servers), you need to restart any running lab virtual machines. Lab virtual machines that are stopped will receive the updated DNS settings when they start.
+You can modify the virtual network settings after you create the lab plan with advanced networking. However, when you change the [DNS settings on the virtual network](/azure/virtual-network/manage-virtual-network#change-dns-servers), you need to restart any running lab virtual machines. If the lab VMs are stopped, they'll automatically receive the updated DNS settings when they start.
 
 > [!CAUTION]
 > The following networking configuration changes are not supported after you've configured advanced networking :
