@@ -43,7 +43,8 @@ To run on-demand backups, follow these steps:
 1. Monitor the Azure portal notifications. To do so, on the Recovery Services vault dashboard, select **Backup Jobs**, and then select **In progress**. 
 
    >[!Note]
-   >Based on the size of your database, creating the initial backup might take a while.
+   >- Based on the size of your database, creating the initial backup might take a while.
+   >- Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration). [Learn more](#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
 
 ## Monitor manual backup jobs
 
@@ -253,7 +254,7 @@ Follow these steps:
 
 2. Under **HANA System**, select the name of the HANA instance.
 
-   :::image type="content" source="./media/sap-hana-db-manage/view-backup-item-details.png" alt-text="Screenshot shows how to check th backup item details." lightbox="./media/sap-hana-db-manage/view-backup-item-details.png":::
+   :::image type="content" source="./media/sap-hana-db-manage/select-database-name.png" alt-text="Screenshot shows how to select the database name." lightbox="./media/sap-hana-db-manage/select-database-name.png":::
 
    Two VMs/Nodes appear under **FQDN** and are in **registered** state.
  

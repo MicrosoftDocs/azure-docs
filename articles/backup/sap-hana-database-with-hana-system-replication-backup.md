@@ -220,12 +220,12 @@ To configure the policy settings, follow these steps:
 
 Backups run in accordance with the policy schedule. Learn how to [run an on-demand backup](sap-hana-database-manage.md#run-on-demand-backups).
 
+>[!Note]
+>Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration). [Learn more](sap-hana-database-manage.md#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
+
 ## Run SAP HANA native clients backup on a database with Azure Backup
 
 You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
-
->[!Note]
->Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration). [Learn more](sap-hana-database-manage.md#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
 
 
 ## Next steps
