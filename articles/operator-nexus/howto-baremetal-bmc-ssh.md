@@ -29,6 +29,12 @@ The BMCs support a maximum number of 12 users. Users are defined on a per Cluste
 - The users added must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
 - To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bmcKeySets`. The options are `/read`, `/write`, and `/delete`.
 
+> [!NOTE]
+> When BMC access is created, modified or deleted via the commands described in this
+> article, a background process delivers those changes to the machines. This process is paused during
+> Operator Nexus software upgrades. If an upgrade is known to be in progress, you can use the `--no-wait`
+> option with the command to prevent the command prompt from waiting for the process to complete.
+
 ## Creating a BMC keyset
 
 The `bmckeyset create` command creates SSH access to the bare metal machine in a Cluster for a group of users.
