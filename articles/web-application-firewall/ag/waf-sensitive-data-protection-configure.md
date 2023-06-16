@@ -10,7 +10,7 @@ ms.date: 06/13/2023
 
 # How to mask sensitive data on Azure Web Application Firewall
 
-Sensitive Data Protection is a tool that helps you remove sensitive information from your logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that are sensitive. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
+The Web Application Firewall's (WAF's) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive data. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
 
 The following table shows examples of sensitive data that can be scrubbed from your logs:
 
