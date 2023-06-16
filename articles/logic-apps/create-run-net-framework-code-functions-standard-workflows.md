@@ -1,6 +1,6 @@
 ---
 title: Create and run .NET Framework code from Standard workflows
-description: Author and run code using the .NET Framework from Standard workflows in Azure Logic Apps.
+description: Write and run code using the .NET Framework from Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
@@ -47,7 +47,7 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 >
 > You can't use the same project for both your code and workflows.
 
-1. On the Visual Studio Code Activity toolbar, select the **Azure** icon.
+1. On the Visual Studio Code Activity Bar, select the **Azure** icon. (Keyboard: Shift+Alt+A)
 
 1. In the **Azure** window that opens, on the **Workspace** toolbar, select **Create new code project**. Find and select the local folder that you created for your project.
 
@@ -112,20 +112,48 @@ After you confirm that your code compiles, and that your logic app project conta
 
 1. In your workspace, under **LogicApp**, expand **<*your-workflow-name*>**, open the shortcut menu for **workflow.json**, and select **Open Designer**.
 
-1. After the workflow designer opens, [follow these steps to add the trigger you want to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. After the workflow designer opens, [follow these steps to add the Request trigger named **When a HTTP request is received** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
 1. Now [follow these steps to add the built-in action named **Call a local function in this logic app** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
+1. After the action information pane appears to the right, confirm that the **Function name** parameter value is set to the function that you want. Review or change any other parameter values that your function uses.
+
 ## Debug your code and workflow
 
-1. Start the Azurite storage emulator for each of the following storage services:
+1. Repeat the following steps to start the Azurite storage emulator *three* times. Each time starts each of the following Azure Storage services:
 
    - Azure Blob Service
    - Azure Table Service
    - Azure Queue Service
-   
-  1. From the Visual Studio Code **View** menu, select **Command Palette**.
 
-  1. At the prompt, enter **/find Azurite: Start**.
+   1. From the Visual Studio Code **View** menu, select **Command Palette**.
 
-  1. From the working directory list that appears, select **LogicApp**.
+   1. At the prompt that appears, enter **/**, and then enter **Azurite: Start**.
+
+   1. From the working directory list that appears, select **LogicApp**.
+
+   You're successful when the bottom of the screen shows the three storage services running, for example:
+
+1. On the Visual Studio Code Activity Bar, select **Run and Debug**. (Keyboard: Ctrl+Shift+D)
+
+1. In the **Run and Debug** list, make sure that **Attach to Logic App (LogicApp)** is selected. Select the **Play** button (green arrow).
+
+1. From the **Run and Debug** list, select **Attach to .NET Functions (Functions)**. Select the **Play** button (green arrow).
+
+1. To fire the Request trigger in your workflow, find the trigger URL:
+
+   1. Return to view your workspace and projects.
+
+   1. In your logic app project, open the **workflow.json** file's shortcut menu, and select **Overview**.
+
+   1. Make sure the **Run trigger** button is still enabled.
+
+   1. On the **Overview** page, under **Workflow Properties**, find the **Callback URL** value, which is the URL for the endpoint created by the Request trigger.
+
+## Deploy your code
+
+You can deploy your custom code in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the logic app project's **lib/custom/net472** folder before you deploy.
+
+## Next steps
+
+[Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
