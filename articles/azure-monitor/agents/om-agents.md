@@ -109,9 +109,9 @@ Perform the following series of steps to configure your Operations Manager manag
 > [!NOTE]
 > - If Log Analytics data stops coming in from a specific agent or management server, reset the Winsock Catalog by using `netsh winsock reset`. Then reboot the server. Resetting the Winsock Catalog allows network connections that were broken to be reestablished.
 > - Newer integrations and reconfiguration of the existing integration between Operations Manager management server and Log Analytics will no longer workas this connection will be retired soon. However, you can still connect your monitored System Center Operations Manager agents to Log Analytics using the following methods based on your scenario.
-> 1.	Use a Log Analytics Gateway and point the agent to that server. Learn more about [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/agents/gateway).
-> 2.	Use the AMA (Azure Monitoring Agent) agent side-by-side to connect the agent to Log Analytics. Learn more about [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration). 
-> 3.	Configure a direct connection to Log Analytics in the Microsoft Monitoring Agent. (Dual-Home with System Center Operations Manager).
+>     1.	Use a Log Analytics Gateway and point the agent to that server. Learn more about [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/agents/gateway).
+>     2.	Use the AMA (Azure Monitoring Agent) agent side-by-side to connect the agent to Log Analytics. Learn more about [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration). 
+>     3.	Configure a direct connection to Log Analytics in the Microsoft Monitoring Agent. (Dual-Home with System Center Operations Manager).
 
 During initial registration of your Operations Manager management group with a Log Analytics workspace, the option to specify the proxy configuration for the management group isn't available in the Operations console. The management group has to be successfully registered with the service before this option is available. To work around this situation, update the system proxy configuration by using `netsh` on the system you're running the Operations console from to configure integration, and all management servers in the management group.
 
