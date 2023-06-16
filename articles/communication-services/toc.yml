@@ -132,6 +132,8 @@ items:
       href: quickstarts/telephony/pstn-call.md
     - name: Handle an inbound phone call
       href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+    - name: Make an outbound call
+      href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
     - name: Configure direct routing
       href: quickstarts/telephony/voice-routing-sdk-config.md
   - name: Email
