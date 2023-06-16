@@ -364,7 +364,7 @@ sudo systemctl status waagent
 Typically this is all you need, but if for some reason you need to install it from https://github.com directly, use the following steps.
 
 ## Update the Linux Agent when no agent package exists for distribution
-
+<!--
 Install wget, there are some distros that don't install it by default, such as Red Hat, CentOS, and Oracle Linux versions 6.4 and 6.5.
 
 ### 1. Download the latest version
@@ -435,5 +435,5 @@ sudo waagent -version
 ```
 
 You'll see that the Azure Linux Agent version has been updated to the new version.
-
-For more information regarding the Azure Linux Agent, see [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
+-->
+For more information regarding updating the Azure Linux Agent when no package exists, see [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
