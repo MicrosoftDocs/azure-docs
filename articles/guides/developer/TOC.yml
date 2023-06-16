@@ -148,8 +148,6 @@
     items:
     - name: Web and mobile apps
       href: ../../app-service/troubleshoot-diagnostic-logs.md
-    - name: Windows VM
-      href: ../../virtual-machines/windows/tutorial-monitor.md
     - name: Microservices
       href: ../../service-fabric/service-fabric-diagnostics-overview.md
     - name: Billing alerts

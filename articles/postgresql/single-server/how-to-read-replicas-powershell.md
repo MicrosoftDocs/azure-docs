@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 In this article, you learn how to create and manage read replicas in the Azure Database for PostgreSQL
 service using PowerShell. To learn more about read replicas, see the
 [overview](concepts-read-replicas.md).
@@ -26,7 +28,7 @@ You can create and manage read replicas using PowerShell.
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed
   locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for PostgreSQL server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 

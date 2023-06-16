@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/12/2023
-ms.author: v-apunnamara
+ms.author: aahi
 ---
 
 # Bing Search API use and display requirements

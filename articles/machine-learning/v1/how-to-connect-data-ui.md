@@ -10,7 +10,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 09/28/2021
-ms.custom: data4ml, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, data4ml, event-tier1-build-2022, ignite-2022
 #Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my ML models.
 ---
 
@@ -168,7 +168,7 @@ If your data storage account is in a **virtual network**, extra configuration st
 ### Access validation
 
 > [!WARNING]
->  Cross tenant access to storage accounts is not supported. If cross tenant access is needed for your scenario, please reach out to the AzureML Data Support team alias at  amldatasupport@microsoft.com for assistance with a custom code solution.
+>  Cross tenant access to storage accounts is not supported. If cross tenant access is needed for your scenario, please reach out to the Azure Machine Learning Data Support team alias at  amldatasupport@microsoft.com for assistance with a custom code solution.
 
 **As part of the initial datastore creation and registration process**, Azure Machine Learning automatically validates that the underlying storage service exists and the user provided principal (username, service principal, or SAS token) has access to the specified storage.
 

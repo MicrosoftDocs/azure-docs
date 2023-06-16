@@ -27,7 +27,7 @@ Use the Log Analytics agent if you need to:
 * Use [VM insights](../vm/vminsights-overview.md), which allows you to monitor your machines at scale and monitor their processes and dependencies on other resources and external processes.  
 * Manage the security of your machines by using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) or [Microsoft Sentinel](../../sentinel/overview.md).
 * Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
-* Use different [solutions](../insights/solutions.md) to monitor a particular service or application.
+* Use different [solutions](/previous-versions/azure/azure-monitor/insights/solutions) to monitor a particular service or application.
 
 Limitations of the Log Analytics agent:
 
@@ -58,7 +58,7 @@ This section explains how to install the Log Analytics agent on different types 
 - Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md) can be installed with the Azure portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 - [Microsoft Defender for Cloud can provision the Log Analytics agent](../../security-center/security-center-enable-data-collection.md) on all supported Azure VMs and any new ones that are created if you enable it to monitor for security vulnerabilities and threats.
 - Install for individual Azure virtual machines [manually from the Azure portal](../vm/monitor-virtual-machine.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
-- Connect the machine to a workspace from the **Virtual machines** option in the **Log Analytics workspaces** menu in the Azure portal.
+- Connect the machine to a workspace from the **Virtual machines (deprecated)** option in the **Log Analytics workspaces** menu in the Azure portal.
 
 ### Windows virtual machine on-premises or in another cloud
 
@@ -156,4 +156,4 @@ For example:
 
 * Review [data sources](../agents/agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system.
 * Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and solutions.
-* Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
+* Learn about [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.

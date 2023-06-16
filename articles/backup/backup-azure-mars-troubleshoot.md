@@ -3,9 +3,9 @@ title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
 ms.date: 12/05/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot the Microsoft Azure Recovery Services (MARS) agent
@@ -246,6 +246,10 @@ Backup operations could fail if there isn't sufficient shadow copy storage space
 ### Another process or antivirus software blocking access to cache folder
 
 [!INCLUDE [antivirus-scan-exclusion-rules](../../includes/backup-azure-antivirus-scan-exclusion-rules.md)]
+
+### Backup or restore job is displayed as *in progress* in Azure for many days but is not visible in the console
+
+If a MARS Agent backup or restore job crashes during execution, it is marked as failed in the MARS console, but the status might not get propagated to Azure. Hence, the job might be displayed as "in progress" in the Azure Portal even when it is not running. This stale job entry will be removed from the Azure Portal automatically after 30 days.
 
 ## Common issues
 

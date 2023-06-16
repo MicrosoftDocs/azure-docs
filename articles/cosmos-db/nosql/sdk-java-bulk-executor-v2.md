@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
 # Java bulk executor library: Download information

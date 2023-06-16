@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/02/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Create a suggester to enable autocomplete and suggested results in a query
@@ -168,8 +168,6 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 ## Sample code
 
 + [Add search to a web site (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) uses an open source Suggestions package for partial term completion in the client app.
-
-+ [Create your first app in C# (lesson 3 - Add search-as-you-type)](tutorial-csharp-type-ahead-and-suggestions.md) sample demonstrates suggested queries, autocomplete, and faceted navigation. This code provides native support for typeahead instead of using a widget.
 
 ## Next steps
 

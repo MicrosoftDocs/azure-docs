@@ -22,6 +22,8 @@
 - name: How-to guides
   expanded: true
   items:
+  - name: Deploy Identity Protection
+    href: how-to-deploy-identity-protection.md
   - name: Configure notifications
     href: howto-identity-protection-configure-notifications.md
   - name: Policy configuration

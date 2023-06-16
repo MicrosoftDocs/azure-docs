@@ -2,8 +2,8 @@
 title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 10/05/2022
-ms.custom: contperf-fy21q1,contperf-fy21q3-portal
+ms.date: 02/28/2023
+ms.custom: contperf-fy21q1, contperf-fy21q3-portal, devx-track-arm-template
 ---
 # What is Azure Resource Manager?
 
@@ -86,6 +86,8 @@ There are some important factors to consider when defining your resource group:
   You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?"
 
   The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+
+  To ensure state consistency for the resource group, all [control plane operations](./control-plane-and-data-plane.md) are routed through the resource group's location. When selecting a resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to your current location. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
   
   If a resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. This condition doesn't apply to global resources like Azure Content Delivery Network, Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door.
    

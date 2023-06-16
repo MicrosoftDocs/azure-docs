@@ -105,7 +105,7 @@ To view soft-deleted containers in the Azure portal, follow these steps:
 1. Navigate to your storage account in the Azure portal and view the list of your containers.
 1. Toggle the Show deleted containers switch to include deleted containers in the list.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot showing how to view soft deleted containers in the Azure portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot showing how to view soft-deleted containers in the Azure portal.":::
 
 ## Restore a soft-deleted container
 

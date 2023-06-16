@@ -2,8 +2,6 @@
 title: Monitor AKS hybrid clusters
 ms.date: 01/10/2023
 ms.topic: article
-author: austonli
-ms.author: aul
 description: Collect metrics and logs of AKS hybrid clusters using Azure Monitor.
 ms.reviewer: aul
 ---
@@ -25,7 +23,7 @@ ms.reviewer: aul
 - Log Analytics workspace. Azure Monitor Container Insights supports a Log Analytics workspace in the regions listed under Azure [products by region page](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). You can create your own workspace using [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md), or [Azure portal](../logs/quick-create-workspace.md).
 - [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Azure Arc-enabled Kubernetes resource. If the Log Analytics workspace is in a different subscription, then [Log Analytics Contributor](../logs/manage-access.md#azure-rbac) role assignment is needed on the Log Analytics workspace.
 - To view the monitoring data, you need to have [Log Analytics Reader](../logs/manage-access.md#azure-rbac) role assignment on the Log Analytics workspace.
-- The following endpoints need to be enabled for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
+- The following endpoints need to be enabled for outbound access in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
 - Azure CLI version 2.43.0 or higher
 - Azure k8s-extension version 1.3.7 or higher
 - Azure Resource-graph version 2.1.0

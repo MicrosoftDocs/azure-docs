@@ -8,6 +8,7 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
+ms.custom: devx-track-azurecli
 ms.collection: windows
 ---
 

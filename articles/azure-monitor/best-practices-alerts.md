@@ -4,7 +4,7 @@ description: Recommendations for deployment of Azure Monitor alerts and automate
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/18/2021
+ms.date: 05/31/2023
 ms.reviewer: bwren
 
 ---
@@ -37,7 +37,7 @@ Multiple types of alert rules are defined by the type of data they use. Each has
 - [Activity log rules](alerts/activity-log-alerts.md). Creates an alert in response to a new activity log event that matches specified conditions. There's no cost to these alerts so they should be your first choice, although the conditions they can detect are limited. See [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md) for information on creating an activity log alert.
 - [Metric alert rules](alerts/alerts-metric-overview.md). Creates an alert in response to one or more metric values exceeding a threshold. Metric alerts are stateful, which means that the alert will automatically close when the value drops below the threshold, and it will only send out notifications when the state changes. There's a cost to metric alerts, but it's often much less than log alerts. See [Create, view, and manage metric alerts by using Azure Monitor](alerts/alerts-metric.md) for information on creating a metric alert.
 - [Log alert rules](alerts/alerts-unified-log.md). Creates an alert when the results of a schedule query match specified criteria. They're the most expensive of the alert rules, but they allow the most complex criteria. See [Create, view, and manage log alerts by using Azure Monitor](alerts/alerts-log.md) for information on creating a log query alert.
-- [Application alerts](app/monitor-web-app-availability.md). Performs proactive performance and availability testing of your web application. You can perform a ping test at no cost, but there's a cost to more complex testing. See [Monitor the availability of any website](app/monitor-web-app-availability.md) for a description of the different tests and information on creating them.
+- [Application alerts](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability). Performs proactive performance and availability testing of your web application. You can perform a ping test at no cost, but there's a cost to more complex testing. See [Monitor the availability of any website](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) for a description of the different tests and information on creating them.
 
 ## Alert severity
 
@@ -49,7 +49,7 @@ Each alert rule defines the severity of the alerts that it creates based on the 
 | Sev 1 | Error  | Degradation of performance or loss of availability of some aspect of an application or service. Requires attention but not immediate. |
 | Sev 2 | Warning | A problem that doesn't include any current loss in availability or performance, although it has the potential to lead to more severe problems if unaddressed. |
 | Sev 3 | Informational | Doesn't indicate a problem but provides interesting information to an operator, such as successful completion of a regular process. |
-| Sev 4 | Verbose | Detailed information that isn't useful.
+| Sev 4 | Verbose | Doesn't indicate a problem but provides detailed information that is verbose.
 
 Assess the severity of the condition each rule is identifying to assign an appropriate level. Define the types of issues you assign to each severity level and your standard response to each in your alerts strategy.
 
@@ -110,4 +110,4 @@ Typically, you'll want to alert on issues for all your critical Azure applicatio
 
 ## Next steps
 
-[Define alerts and automated actions from Azure Monitor data](best-practices-alerts.md)
+[Optimize cost in Azure Monitor](best-practices-cost.md)

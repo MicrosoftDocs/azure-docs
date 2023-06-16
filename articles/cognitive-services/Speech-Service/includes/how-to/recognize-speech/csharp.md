@@ -58,10 +58,10 @@ class Program
     async static Task FromMic(SpeechConfig speechConfig)
     {
         using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-        using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+        using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
         Console.WriteLine("Speak into your microphone.");
-        var result = await recognizer.RecognizeOnceAsync();
+        var result = await speechRecognizer.RecognizeOnceAsync();
         Console.WriteLine($"RECOGNIZED: Text={result.Text}");
     }
 
@@ -91,9 +91,9 @@ class Program
     async static Task FromFile(SpeechConfig speechConfig)
     {
         using var audioConfig = AudioConfig.FromWavFileInput("PathToFile.wav");
-        using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+        using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
-        var result = await recognizer.RecognizeOnceAsync();
+        var result = await speechRecognizer.RecognizeOnceAsync();
         Console.WriteLine($"RECOGNIZED: Text={result.Text}");
     }
 
@@ -125,18 +125,18 @@ class Program
     async static Task FromStream(SpeechConfig speechConfig)
     {
         var reader = new BinaryReader(File.OpenRead("PathToFile.wav"));
-        using var audioInputStream = AudioInputStream.CreatePushStream();
-        using var audioConfig = AudioConfig.FromStreamInput(audioInputStream);
-        using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+        using var audioConfigStream = AudioInputStream.CreatePushStream();
+        using var audioConfig = AudioConfig.FromStreamInput(audioConfigStream);
+        using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
         byte[] readBytes;
         do
         {
             readBytes = reader.ReadBytes(1024);
-            audioInputStream.Write(readBytes, readBytes.Length);
+            audioConfigStream.Write(readBytes, readBytes.Length);
         } while (readBytes.Length > 0);
 
-        var result = await recognizer.RecognizeOnceAsync();
+        var result = await speechRecognizer.RecognizeOnceAsync();
         Console.WriteLine($"RECOGNIZED: Text={result.Text}");
     }
 
@@ -191,7 +191,7 @@ Start by defining the input and initializing [`SpeechRecognizer`](/dotnet/api/mi
 
 ```csharp
 using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
-using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
 
 Then create a `TaskCompletionSource<int>` instance to manage the state of speech recognition:
@@ -205,15 +205,15 @@ Next, subscribe to the events that `SpeechRecognizer` sends:
 * [`Recognizing`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizing): Signal for events that contain intermediate recognition results.
 * [`Recognized`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
 * [`SessionStopped`](/dotnet/api/microsoft.cognitiveservices.speech.recognizer.sessionstopped): Signal for events that indicate the end of a recognition session (operation).
-* [`Canceled`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result or a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
+* [`Canceled`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result of a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
 
 ```csharp
-recognizer.Recognizing += (s, e) =>
+speechRecognizer.Recognizing += (s, e) =>
 {
     Console.WriteLine($"RECOGNIZING: Text={e.Result.Text}");
 };
 
-recognizer.Recognized += (s, e) =>
+speechRecognizer.Recognized += (s, e) =>
 {
     if (e.Result.Reason == ResultReason.RecognizedSpeech)
     {
@@ -225,7 +225,7 @@ recognizer.Recognized += (s, e) =>
     }
 };
 
-recognizer.Canceled += (s, e) =>
+speechRecognizer.Canceled += (s, e) =>
 {
     Console.WriteLine($"CANCELED: Reason={e.Reason}");
 
@@ -239,7 +239,7 @@ recognizer.Canceled += (s, e) =>
     stopRecognition.TrySetResult(0);
 };
 
-recognizer.SessionStopped += (s, e) =>
+speechRecognizer.SessionStopped += (s, e) =>
 {
     Console.WriteLine("\n    Session stopped event.");
     stopRecognition.TrySetResult(0);
@@ -249,13 +249,13 @@ recognizer.SessionStopped += (s, e) =>
 With everything set up, call `StartContinuousRecognitionAsync` to start recognizing:
 
 ```csharp
-await recognizer.StartContinuousRecognitionAsync();
+await speechRecognizer.StartContinuousRecognitionAsync();
 
 // Waits for completion. Use Task.WaitAny to keep the task rooted.
 Task.WaitAny(new[] { stopRecognition.Task });
 
 // Make the following call at some point to stop recognition:
-// await recognizer.StopContinuousRecognitionAsync();
+// await speechRecognizer.StopContinuousRecognitionAsync();
 ```
 
 ## Change the source language
@@ -266,8 +266,13 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig.SpeechRecognitionLanguage = "it-IT";
 ```
 
-The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
+The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech to text locales](../../../language-support.md?tabs=stt).
 
+## Language identification
+
+You can use [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+
+For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text).
 
 ## Use a custom endpoint
 
@@ -278,6 +283,12 @@ var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourSer
 speechConfig.EndpointId = "YourEndpointId";
 var speechRecognizer = new SpeechRecognizer(speechConfig);
 ```
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
 
 ## Change how silence is handled
 

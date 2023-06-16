@@ -19,7 +19,7 @@ The samples use these Cognitive Services:
 
 - Language service - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
-- Speech-to-text - transcribe audio files to extract text-based transcripts.
+- Speech to text - transcribe audio files to extract text-based transcripts.
 - Anomaly Detector - detect anomalies within a time series data.
 
 ## Prerequisites
@@ -111,9 +111,9 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 | https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/dog.jpg | ['dog' 'outdoor' 'fence' 'wooden' 'small' 'brown' 'building' 'sitting' 'front' 'bench' 'standing' 'table' 'walking' 'board' 'beach' 'white' 'holding' 'bridge' 'track']                
 | https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/house.jpg | ['outdoor' 'grass' 'house' 'building' 'old' 'home' 'front' 'small' 'church' 'stone' 'large' 'grazing' 'yard' 'green' 'sitting' 'leading' 'sheep' 'brick' 'bench' 'street' 'white' 'country' 'clock' 'sign' 'parked' 'field' 'standing' 'garden' 'water' 'red' 'horse' 'man' 'tall' 'fire' 'group'] 
 
-## Speech-to-Text
+## Speech to text
 
-The [Speech-to-text](../speech-service/index-speech-to-text.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
+The [Speech to text](../speech-service/index-speech-to-text.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -122,7 +122,7 @@ import org.apache.spark.sql.functions.col
 val df = Seq(("https://mmlspark.blob.core.windows.net/datasets/Speech/audio2.wav"),
              ("https://mmlspark.blob.core.windows.net/datasets/Speech/audio3.mp3")).toDF("url")
 
-// Run the Speech-to-text service to translate the audio into text
+// Run the Speech to text service to translate the audio into text
 val speechToText = new SpeechToTextSDK()
     .setSubscriptionKey(serviceKey)
     .setLocation("eastus")

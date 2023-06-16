@@ -75,12 +75,12 @@ For more information, see [TPM attestation device requirements](how-to-provision
 IoT Edge and IoT Hub routing syntax is almost identical.
 Supported query syntax:
 
-* [Message routing query based on message properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties)
-* [Message routing query based on message body](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body)
+* [Message routing query based on message properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#query-based-on-message-properties)
+* [Message routing query based on message body](../iot-hub/iot-hub-devguide-routing-query-syntax.md#query-based-on-message-body)
 
 Not supported query syntax:
 
-* [Message routing query based on device twin](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-device-twin)
+* [Message routing query based on device twin](../iot-hub/iot-hub-devguide-routing-query-syntax.md#query-based-on-device-or-module-twin)
 
 ### Restart policies
 
@@ -108,7 +108,7 @@ Changes made in `config.toml` to `edgeAgent` environment variables like the `hos
 
 ### NTLM Authentication
 
-IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allow-list.
+IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allowlist.
 
 ## Next steps
 

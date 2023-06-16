@@ -1,5 +1,5 @@
 ---
-title: Sign-in risk-based multifactor authentication - Azure Active Directory
+title: Sign-in risk-based multifactor authentication
 description: Create Conditional Access policies using Identity Protection sign-in risk
 
 services: active-directory

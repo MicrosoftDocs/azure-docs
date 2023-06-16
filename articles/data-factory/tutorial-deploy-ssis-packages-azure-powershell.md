@@ -13,7 +13,7 @@ ms.author: chugu
 
 # Set up an Azure-SSIS IR in Azure Data Factory by using PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This tutorial provides steps for using PowerShell to provision an Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) in Azure Data Factory (ADF). An Azure-SSIS IR supports:
 
@@ -59,7 +59,7 @@ In this tutorial, you will:
 
   - Confirm that your database server does not have an SSISDB instance already. The provisioning of an Azure-SSIS IR does not support using an existing SSISDB instance.
 
-- **Azure PowerShell**. To run a PowerShell script to set up your Azure-SSIS IR, follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+- **Azure PowerShell**. To run a PowerShell script to set up your Azure-SSIS IR, follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!NOTE]
 > For a list of Azure regions in which Azure Data Factory and Azure-SSIS IR are currently available, see [Azure Data Factory and Azure-SSIS IR availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 

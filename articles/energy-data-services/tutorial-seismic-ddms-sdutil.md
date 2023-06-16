@@ -1,12 +1,12 @@
 ---
-title: Microsoft Energy Data Services Preview - Seismic store sdutil tutorial #Required; page title is displayed in search results. Include the brand.
-description: Information on setting up and using sdutil, a command-line interface (CLI) tool that allows users to easily interact with seismic store. #Required; article description that is displayed in search results. 
-author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
-ms.author: elhalper #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview - Seismic store sdutil tutorial
+description: Information on setting up and using sdutil, a command-line interface (CLI) tool that allows users to easily interact with seismic store.
+author: elizabethhalper
+ms.author: elhalper
+ms.service: energy-data-services
+ms.topic: tutorial
 ms.date: 09/09/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 
 #Customer intent: As a developer, I want to learn how to use sdutil so that I can load data into the seismic store.
 ---
@@ -27,7 +27,7 @@ Windows
 
 - [64-bit Python 3.8.3](https://www.python.org/ftp/python/3.8.3/python-3.8.3-amd64.exe)
 - [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-- [Linux Subsystem Ubuntu](https://learn.microsoft.com/windows/wsl/install)
+- [Linux Subsystem Ubuntu](/windows/wsl/install)
 
 Linux
 
@@ -301,9 +301,9 @@ Run the changelog script (`./changelog-generator.sh`) to automatically generate 
   ./scripts/changelog-generator.sh
 ```
 
-## Usage for Microsoft Energy Data Services
+## Usage for Azure Data Manager for Energy Preview
 
-Microsoft Energy Data Services instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your MEDS instance.
+Azure Data Manager for Energy Preview instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your Azure Data Manager for Energy instance.
 
 1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your Python virtual environment, editing the `config.yaml` file and setting your three environment variables. 
 

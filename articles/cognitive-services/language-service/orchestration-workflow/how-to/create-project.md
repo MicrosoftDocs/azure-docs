@@ -1,5 +1,5 @@
 ---
-title: How to create projects and build schema in orchestration workflow
+title: Create orchestration workflow projects and use Azure resources
 titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to create projects in orchestration workflow
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 03/23/2023
 ms.author: aahi
 ms.custom: language-service-orchestration
 ---

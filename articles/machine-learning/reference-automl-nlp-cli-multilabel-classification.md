@@ -34,9 +34,9 @@ https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLNLPTextClassificat
 | `$schema` | string | Represents the location/url to load the YAML schema. If the user uses the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of the file enables the user to invoke schema and resource completions. | | |
 | `type` | const | **Required.** The type of job. | `automl` | `automl` |
 | `task` | const | **Required.** The type of AutoML task. <br> Task description for multilabel classification: <br> There are multiple possible classes and each sample can be assigned any number of classes. The task is to predict all the classes for each sample. For example, classifying a movie script as "Comedy", or "Romantic", or "Comedy and Romantic".| `text_classification_multilabel` |  |
-| `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate a GUID for the name. | | |
-| `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, Azure ML will autogenerate a human-readable adjective-noun identifier for the display name. | | |
-| `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
+| `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure Machine Learning will autogenerate a GUID for the name. | | |
+| `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, Azure Machine Learning will autogenerate a human-readable adjective-noun identifier for the display name. | | |
+| `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure Machine Learning will default it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
 | `tags` | object | Dictionary of tags for the job. | | |
 | `compute` | string | Name of the compute target to execute the job on. To reference an existing compute in the workspace, we use syntax: `azureml:<compute_name>` | | |

@@ -7,6 +7,7 @@ ms.reviewer: maghan
 ms.date: 11/04/2022
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ---
 

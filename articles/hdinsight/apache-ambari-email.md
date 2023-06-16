@@ -3,7 +3,7 @@ title: 'Tutorial: Configure Apache Ambari email notifications in Azure HDInsight
 description: This article describes how to use SendGrid with Apache Ambari for email notifications.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 04/11/2022
+ms.date: 05/25/2023
 
 #Customer intent: As a HDInsight user, I want to configure Apache Ambari to send email notifications.
 ---
@@ -90,7 +90,7 @@ If you select **Start TLS** from the **Create Alert Notification** page, and you
 1. Go to the Apache Ambari UI.
 2. Go to **Alerts > ManageNotifications > Edit (Edit Notification)**.
 3. Select **Add Property**.
-4. Add the new property, `mail.smtp.ssl.protocol` with a value of `TLSv1.2`.
+4. Add the new property, `mail.smtp.ssl.protocols` with a value of `TLSv1.2`.
 
 
 

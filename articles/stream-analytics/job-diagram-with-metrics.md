@@ -7,7 +7,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/8/2022
+ms.date: 2/17/2023
 ---
 
 # Stream Analytics job diagram (preview) in Azure portal
@@ -86,9 +86,9 @@ The processor diagram in physical job diagram visualizes the processor topology 
         | --- | --- | 
         | **Input** or **Output** | This processor is used for reading input or writing output data streams. |
         | **ReferenceData** | This processor is used for fetching the reference data. |
-        | **Computing** | This processor is used for processing the stream data according to the query logic, for example, aggregating, filtering, grouping with window, etc.. To learn more about the stream data computation query functions, see [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference). |
+        | **Computing** | This processor is used for processing the stream data according to the query logic, for example, aggregating, filtering, grouping with window, etc. To learn more about the stream data computation query functions, see [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference). |
         | **MarshallerUpstream** and **MarshallerDownstream** | When there's stream data interaction among streaming nodes, there will be two marshaller processors: 1). **MarshallerUpstream** for sending the data in the upstream streaming node and 2). **MarshallerDownstream** for receiving the data in the downstream streaming node. |
-        | **Merger** | This processor is to receive the crossing-partition stream data, which were outputted from several upstream streaming nodes. The best practice to optimize job performance is to update query to remove the merger processor to make the job become parallel since the merger processor is the bottleneck of the job. The job diagram simulator feature within VSCode ASA extension can help you simulating your query locally when you optimizing your job query. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md). |
+        | **Merger** | This processor is to receive the crossing-partition stream data, which were outputted from several upstream streaming nodes. The best practice to optimize job performance is to update query to remove the merger processor to make the job become parallel since the merger processor is the bottleneck of the job. The job diagram simulator feature within Visual Studio Code ASA extension can help you simulating your query locally when you optimizing your job query. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md). |
         |
 
 
@@ -97,7 +97,7 @@ The processor diagram in physical job diagram visualizes the processor topology 
 
     * **Adapter type**: it shows the type of the input or output adapter. Stream Analytics supports various input sources and output destinations. Each input source or output destination has a dedicated adapter type. It's only available in input processor and output processor. For example, "InputBlob" represents the ADLS Gen2 input where the input processor receives the data from; "OutputDocumentDb" represents the Cosmos DB output where the output processor outputs the data to. 
     
-        To learn more details of the input and output types, see [Azure Stream Analytics inputs overview](./stream-analytics-define-inputs.md), and [Azure Stream Analytics outputs overview](./stream-analytics-define-outputs.md)
+        To learn more details of the input and output types, see [Azure Stream Analytics inputs overview](./stream-analytics-define-inputs.md), and [Azure Stream Analytics outputs overview](./stream-analytics-define-outputs.md).
 
     * **Partition IDs**: it shows which partition IDs' data are being processed by this processor. It's only available in input processor and output processor.
     * **Serializer type**: it shows the type of the serialization. Stream Analytics supports several [serialization types](./stream-analytics-define-inputs.md). It's only available in input processor and output processor.

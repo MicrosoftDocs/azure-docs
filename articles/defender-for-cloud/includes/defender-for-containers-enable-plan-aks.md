@@ -1,13 +1,12 @@
 ---
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 11/08/2022
+ms.date: 06/01/2023
 ---
 
 ## Enable the plan
-
 
 **To enable the plan**:
 
@@ -22,15 +21,15 @@ ms.date: 11/08/2022
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-1. Turn the relevant component on to enable it. 
+1. Turn the relevant component on to enable it.
 
     :::image type="content" source="../media/defender-for-containers-enable-plan-gke/container-components-on.png" alt-text="screenshot of turning on components." lightbox="../media/defender-for-containers-enable-plan-gke/container-components-on.png":::
 
     > [!Note]
     > When you turn off Defender for Containers, the components are set to off and are not deployed to any more containers but they are not removed from containers that they are already installed on.
- 
+
 By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to automatically install required components to provide the protections offered by plan, including the assignment of a default workspace.
-    
+
 You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) through Azure Policy.
 
 If you don't want to automatically install the Defender for Containers monitoring components on your container resources, select **Edit configuration** for the **Containers** plan. Then, in the Settings & monitoring page, turn off automatic installation for each component.
@@ -39,8 +38,8 @@ In addition, you can modify this configuration from the [Defender plans page](ht
 
 If you disable the automatic installation of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
 
- - Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
- - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
+- Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
+- Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
 - Azure Arc-enabled Kubernetes Defender extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
 - Azure Arc-enabled Kubernetes Policy extension - [Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169)
 
@@ -144,12 +143,6 @@ Request body parameters:
 
     > [!IMPORTANT]
     > Ensure that you use the same subscription ID for ``<your-subscription-id>`` as the one associated with your AKS cluster.
-
-1. Enable the feature flag in the CLI:
-
-    ```azurecli
-    az feature register --namespace Microsoft.ContainerService --name AKS-AzureDefender
-    ```
 
 1. Enable the Defender profile on your containers:
 

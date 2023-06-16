@@ -21,6 +21,8 @@ landingContent:
       links:
         - text: What is Device Update for IoT Hub?
           url: understand-device-update.md
+        - text: Release notes and version history
+          url: device-update-changelog.md
   - title: Get started
     linkLists:
     - linkListType: tutorial

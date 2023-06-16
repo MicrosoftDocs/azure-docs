@@ -1,12 +1,12 @@
 ---
 title: What's new on the Data Science Virtual Machine
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: Release notes for the Azure Data Science Virtual Machine
 author: jesscioffi
 ms.service: data-science-vm
 
 ms.author: jcioffi
-ms.date: 12/14/2021
+ms.date: 04/18/2023
 ms.topic: reference
 ---
 
@@ -20,6 +20,29 @@ Azure portal users will always find the latest image available for provisioning 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## April 26, 2023
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `23.04.24`
+
+Main changes:
+
+- SDK `1.50.0`
+- Dotnet upgraded to `6.0` SDK
+- PyTorch GPU functionality fixed in `azureml_py38_PT_and_TF environment.
+- Blobfuse upgraded to blobfuse2
+
+## April 4, 2023
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version: `23.03.31`
+
+Main changes:
+
+- SDK `1.49`
+- Cuda drivers upgraded to `11.4`
+- PyTorch GPU functionality fixed on `azureml_py38` and `azureml_py28_PT_and_TF` environments
+- `Dotnet` upgraded to `6.0`
 
 ## January 10, 2023
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
@@ -38,7 +61,7 @@ Version: `22.11.25`
 
 Main changes:
 
-- `Azure ML SDK V2` samples included
+- `Azure Machine Learning SDK V2` samples included
 - `Ray` to version `2.0.0`
 - Added `clock`, `recipes` `R` packages
 - `azureml-core` to version `1.47.0`
@@ -50,7 +73,7 @@ Version: `22.11.27`
 
 Main changes:
 
-- `Azure ML SDK V2` samples included
+- `Azure Machine Learning SDK V2` samples included
 - `RScirpt` environment path alignment
 - `Ray` version `2.0.0` package added to `azureml_py38` and `azureml_py38_PT_TF` environments.
 - `azureml-core` to version `1.47.0`
@@ -58,7 +81,7 @@ Main changes:
 
 ## September 20, 2022
 **Announcement:**
-Ubuntu 18 DSVM will **not be** available on the marketplace starting Oct 1, 2022. We recommend users switch to Ubuntu 20 DSVM as we continue to ship updates/patches on our latest [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+Starting October 1, 2022, Ubuntu 18 DSVM will **not be** available on the marketplace. We recommend users switch to Ubuntu 20 DSVM as we continue to ship updates/patches on our latest [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
 Users that are using Azure Resource Manager (ARM) template/virtual machine scale set to deploy the Ubuntu DSVM machines, should configure:
 
@@ -81,7 +104,7 @@ Version `22.09.19`
 
 Main changes:
 
-- `.Net Framework` to version `3.1.423`
+- `.NET Framework` to version `3.1.423`
 - `Azure Cli` to version `2.40.0`
 - `Intelijidea` to version `2022.2.2`
 - Microsoft Edge Browser to version `107.0.1379.1`
@@ -133,7 +156,7 @@ Main changes:
 - Updated `Spark` to version `3.2.2`
 - `MMLSpark` notebook features `v0.10.0`
 - 4 additional R libraries: [janitor](https://cran.r-project.org/web/packages/janitor/index.html), [skimr](https://cran.r-project.org/web/packages/skimr/index.html#:~:text=CRAN%20-%20Package%20skimr%20skimr:%20Compact%20and%20Flexible%2cby%20the%20user%20as%20can%20the%20default%20formatting.), [palmerpenguins](https://cran.r-project.org/web/packages/palmerpenguins/index.html) and [doParallel](https://cran.r-project.org/web/packages/doParallel/index.html)
-- Added new AzureML Environment `azureml_310_sdkv2`
+- Added new Azure Machine Learning Environment `azureml_310_sdkv2`
 
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
 
@@ -183,7 +206,7 @@ Main changes:
 
 - `Plotly` and `summarytools` R studio extensions runtime import fix.
 - `Cudatoolkit` and `CUDNN` upgraded to `13.1` and `2.8.1` respectively.
-- Fix `Python 3.8` - AzureML notebook run, pinned `matplotlib` to `3.2.1` and `cycler` to `0.11.0` packages in `Azureml_py38` environment.
+- Fix `Python 3.8` - Azure Machine Learning notebook run, pinned `matplotlib` to `3.2.1` and `cycler` to `0.11.0` packages in `Azureml_py38` environment.
 
 ## April 26, 2022
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
@@ -212,11 +235,11 @@ Main changes:
 - `Azure CLI` to version `2.33.1`
 - Fixed `jupyterhub` access issue using public ip address
 - Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
-  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](../concept-automated-ml.md) environment
+  - `azureml_py38`: environment based on Python 3.8 with preinstalled [Azure Machine Learning SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](../concept-automated-ml.md) environment
   - `azureml_py38_PT_TF`: additional `azureml_py38` environment, preinstalled with latest `TensorFlow` and `PyTorch`
   - `py38_default`: default system environment based on `Python 3.8`
   - We have removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
- 
+
 
 ## March 18, 2022
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
@@ -229,7 +252,7 @@ Main changes:
 - Further `Log4j` vulnerability mitigation - although not used, we moved all `log4j` to version v2, we have removed old log4j jars1.0 and moved `log4j` version 2.0 jars.
 - Azure CLI to version 2.33.1
 - Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
-  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](../concept-automated-ml.md) environment
+  - `azureml_py38`: environment based on Python 3.8 with preinstalled [Azure Machine Learning SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](../concept-automated-ml.md) environment
   - `azureml_py38_PT_TF`: complementary environment `azureml_py38` with preinstalled with latest TensorFlow and PyTorch
   - `py38_default`: default system environment based on Python 3.8
   - we removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
@@ -244,7 +267,7 @@ Main changes:
 Version: `21.12.03`
 
 Windows 2019 DSVM will now be supported under publisher: microsoft-dsvm, offer ID: dsvm-win-2019, plan ID/SKU ID: winserver-2019
- 
+
 Users using Azure Resource Manager (ARM) template / virtual machine scale set to deploy the Windows DSVM machines, should configure the SKU with `winserver-2019` instead of `server-2019`, since we'll continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
 
 ## December 3, 2021
@@ -259,7 +282,7 @@ Main changes:
 - Updated tensorflow to version 2.7.0
 - Fix for Azure Machine Learning SDK & AutoML environment
 - Windows Security update
-- Improvement of stability and minor bug fixes 
+- Improvement of stability and minor bug fixes
 
 
 
@@ -316,7 +339,7 @@ Main changes:
  - Changed VS Code to version 1.60.2
  - Fixed AutoML environment (azureml_py36_automl)
  - Fixed Azure Storage Explorer stability
- - Improvement of stability and minor bug fixes 
+ - Improvement of stability and minor bug fixes
 
 
 ## August 11, 2021
@@ -331,7 +354,7 @@ Main changes:
 - Update of Nvidia CuDNN to 8.1.0
 - Update of Jupyter Lab -to 3.0.16
 - Added MLFLow for experiment tracking
-- Improvement of stability and minor bug fixes 
+- Improvement of stability and minor bug fixes
 
 
 
@@ -345,7 +368,7 @@ Main changes:
 - Updated Azure CLI to 2.26.1
 - Updated Azure CLI Azure Machine Learning extension to 1.29.0
 - Update VS Code version 1.58.1
-- Improvement of stability and minor bug fixes 
+- Improvement of stability and minor bug fixes
 
 
 ## June 22, 2021
@@ -394,7 +417,7 @@ Selected version updates are:
 - R 4.1.0
 - Julia 1.0.5
 - NodeJS 16.2.0
-- Visual Studio Code 1.56.2 incl. Azure ML extension
+- Visual Studio Code 1.56.2 incl. Azure Machine Learning extension
 - PyCharm Community Edition 2021.1.1
 - Jupyter Lab 2.2.6
 - RStudio 1.4.1106

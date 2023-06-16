@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 11/21/2022
 ms.author: kendownie
 ms.subservice: files
+recommendations: false
 ---
 
 # Optimize costs for Azure Files with Reservations

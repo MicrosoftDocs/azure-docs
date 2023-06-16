@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 3/10/2023
 ms.author: jeedes
 ---
 # Azure Active Directory integration with Fuse
@@ -70,8 +70,6 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up Fuse** section, copy the appropriate URL(s) as per your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ## Configure Fuse single sign-on
 

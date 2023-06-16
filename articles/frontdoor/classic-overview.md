@@ -1,20 +1,14 @@
 ---
-title: Azure Front Door (classic) | Microsoft Docs
+title: Azure Front Door (classic)
 description: This article provides an overview of Azure Front Door (classic).
 services: frontdoor
-documentationcenter: ''
 author: duongau
-editor: ''
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2022
 ms.author: duau
-
 # customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
-
 ---
 
 # What is Azure Front Door (classic)?

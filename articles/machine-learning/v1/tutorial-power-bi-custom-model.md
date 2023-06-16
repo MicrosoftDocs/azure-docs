@@ -8,9 +8,9 @@ ms.subservice: core
 ms.topic: tutorial
 ms.author: samkemp
 author: samuel100
-ms.reviewer: sdgilley
+ms.reviewer: sgilley
 ms.date: 12/22/2021
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Power BI integration - Create the predictive model with a Jupyter Notebook (part 1 of 2)

@@ -10,7 +10,7 @@ ms.date: 03/17/2021
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common
-
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure network routing preference for Azure Storage

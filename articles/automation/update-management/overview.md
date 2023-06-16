@@ -3,11 +3,15 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 11/25/2022
+ms.date: 04/22/2023
 ms.topic: conceptual
 ---
 
 # Update Management overview
+
+> [!Important]
+> - Automation Update management relies on [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) (aka MMA agent), which is on a deprecation path and won’t be supported after **August 31, 2024**. [Update management center (Preview)](../../update-center/overview.md) (UMC) is the v2 version of Automation Update management and the future of Update management in Azure. UMC is a native service in Azure and does not rely on [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) or [Azure Monitor agent](../../azure-monitor/agents/agents-overview.md).
+> - Guidance for migrating from Automation Update management to Update management center will be provided to customers once the latter is Generally Available. For customers using Automation Update management, we recommend continuing to use the Log Analytics agent and **NOT** migrate to Azure Monitoring agent until migration guidance is provided for Update management or else Automation Update management will not work. Also, the Log Analytics agent would not be deprecated before moving all Automation Update management customers to UMC.
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates and manage the process of installing required updates for your machines reporting to Update Management. 
 
@@ -39,13 +43,13 @@ The following table summarizes the supported connected sources with Update Manag
 | Linux |Yes |Update Management collects information about system updates from Linux machines with the Log Analytics agent and installation of required updates on supported distributions.<br> Machines need to report to a local or remote repository. |
 | Operations Manager management group |Yes |Update Management collects information about software updates from agents in a connected management group.<br/><br/>A direct connection from the Operations Manager agent to Azure Monitor logs isn't required. Log data is forwarded from the management group to the Log Analytics workspace. |
 
-The machines assigned to Update Management report how up to date they are based on what source they are configured to synchronize with. Windows machines need to be configured to report to either [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or [Microsoft Update](https://www.update.microsoft.com), and Linux machines need to be configured to report to a local or public repository. You can also use Update Management with Microsoft Endpoint Configuration Manager, and to learn more see [Integrate Update Management with Windows Endpoint Configuration Manager](mecmintegration.md). 
+The machines assigned to Update Management report how up to date they are based on what source they are configured to synchronize with. Windows machines need to be configured to report to either [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or [Microsoft Update](https://www.update.microsoft.com), and Linux machines need to be configured to report to a local or public repository. You can also use Update Management with Microsoft Configuration Manager, and to learn more see [Integrate Update Management with Windows Configuration Manager](mecmintegration.md). 
 
 If the Windows Update Agent (WUA) on the Windows machine is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repo instead of a public repo. On a Windows machine, the compliance scan is run every 12 hours by default. For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes. When a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor Logs. 
 
 You can deploy and install software updates on machines that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows machines. Only required updates are included in the deployment scope.
 
-The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](../../azure-monitor/logs/computer-groups.md) that's based on log searches of a specific set of machines (or based on an [Azure query](query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](../../azure-monitor/insights/solution-targeting.md), which is used to control the targeting of machines that receive the configuration to enable Update Management. This prevents them from performing and reporting update compliance, and install approved required updates.
+The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](../../azure-monitor/logs/computer-groups.md) that's based on log searches of a specific set of machines (or based on an [Azure query](query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](/previous-versions/azure/azure-monitor/insights/solution-targeting), which is used to control the targeting of machines that receive the configuration to enable Update Management. This prevents them from performing and reporting update compliance, and install approved required updates.
 
 While defining a deployment, you also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 10-minute span of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 10 minutes in the maintenance window, a reboot won't occur.
 
@@ -164,7 +168,7 @@ sudo yum -q --security check-update
 
 ## Integrate Update Management with Configuration Manager
 
-Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Update Management with Windows Endpoint Configuration Manager](mecmintegration.md).
+Customers who have invested in Microsoft Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Update Management with Windows Configuration Manager](mecmintegration.md).
 
 ## Third-party updates on Windows
 

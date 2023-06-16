@@ -1,9 +1,7 @@
 ---
 title: 'Set up alerts on Azure VPN Gateway metrics'
 description: Learn about alerts based on metrics for virtual network VPN gateways.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 07/25/2022

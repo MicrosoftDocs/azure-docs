@@ -6,12 +6,13 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 08/23/2022
+ms.date: 11/09/2022
+ms.custom: engagement-fy23, devx-track-arm-template
 ---
 # Deploy a Service Fabric managed cluster across availability zones
 Availability Zones in Azure are a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location equipped with independent power, cooling, and networking within an Azure region.
 
-Service Fabric managed cluster supports deployments that span across multiple Availability Zones to provide zone resiliency. This configuration will ensure high-availability of the critical system services and your applications to protect from single-points-of-failure. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](../availability-zones/az-overview.md).
+Service Fabric managed cluster supports deployments that span across multiple Availability Zones to provide zone resiliency. This configuration ensures high-availability of the critical system services and your applications to protect from single-points-of-failure. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](../availability-zones/az-overview.md).
 
 >[!NOTE]
 >Availability Zone spanning is only available on Standard SKU clusters.
@@ -45,13 +46,13 @@ Sample node list depicting FD/UD formats in a virtual machine scale set spanning
  ![Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones.][sfmc-multi-az-nodes]
 
 **Distribution of Service replicas across zones**:
-When a service is deployed on the node types that are spanning zones, the replicas are placed to ensure they land up in separate zones. This separation is ensured as the fault domain’s on the nodes present in each of these node types are configured with the zone information (i.e FD = fd:/zone1/1 etc.). For example: for five replicas or instances of a service the distribution will be 2-2-1 and runtime will try to ensure equal distribution across AZs.
+When a service is deployed on the node types that are spanning zones, the replicas are placed to ensure they land up in separate zones. This separation is ensured as the fault domain’s on the nodes present in each of these node types are configured with the zone information (i.e FD = fd:/zone1/1 etc.). For example: for five replicas or instances of a service, the distribution will be 2-2-1 and runtime will try to ensure equal distribution across AZs.
 
 **User Service Replica Configuration**:
-Stateful user services deployed on the cross-availability zone node types should be configured with this configuration: replica count with target = 9, min = 5. This configuration will help the service to be working even when one zone goes down since 6 replicas will be still up in the other two zones. An application upgrade in such a scenario will also go through.
+Stateful user services deployed on the cross-availability zone node types should be configured with this configuration: replica count with target = 9, min = 5. This configuration helps the service to be working even when one zone goes down since 6 replicas will be still up in the other two zones. An application upgrade in such a scenario will also go through.
 
 **Zone down scenario**:
-When a zone goes down, all the nodes in that zone will appear as down. Service replicas on these nodes will also be down. Since there are replicas in the other zones, the service continues to be responsive with primary replicas failing over to the zones which are functioning. The services will appear in warning state as the target replica count is not met and the VM count is still more than the defined min target replica size. As a result, Service Fabric load balancer will bring up replicas in the working zones to match the configured target replica count. At this point, the services will appear healthy. When the zone which was down comes back up, the load balancer will again spread all the service replicas evenly across all the zones.
+When a zone goes down, all the nodes in that zone appear as down. Service replicas on these nodes will also be down. Since there are replicas in the other zones, the service continues to be responsive with primary replicas failing over to the zones which are functioning. The services will appear in warning state as the target replica count is not met and the VM count is still more than the defined min target replica size. As a result, Service Fabric load balancer brings up replicas in the working zones to match the configured target replica count. At this point, the services should appear healthy. When the zone that was down comes back up, the load balancer will again spread all the service replicas evenly across all the zones.
 
 ## Networking Configuration
 For more information, see [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md)
@@ -119,7 +120,7 @@ Requirements:
 
    If the Public IP resource is not zone resilient, migration of the cluster will cause a brief loss of external connectivity. This is due to the migration setting up new Public IP and updating the cluster FQDN to the new IP. If the Public IP resource is zone resilient, migration will not modify the Public IP resource or FQDN and there will be no external connectivity impact.
    
-2) Initiate conversion of the underlying storage account created for managed cluster from LRS to ZRS using [customer-initiated conversion](../storage/common/redundancy-migration.md#customer-initiated-conversion-preview). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
+2) Initiate conversion of the underlying storage account created for managed cluster from LRS to ZRS using [customer-initiated conversion](../storage/common/redundancy-migration.md#customer-initiated-conversion). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
 
 3) Add a new primary node type which spans across availability zones
 
@@ -217,6 +218,30 @@ Requirements:
    }
    ```
    If you run in to any problems reach out to support for assistance.
+
+## Enable FastZonalUpdate on Service Fabric managed clusters (preview)
+Service Fabric managed clusters support faster cluster and application upgrades by reducing the max upgrade domains per availability zone. The default configuration right now can have at most 15 UDs in multiple AZ nodetype. This huge number of UDs reduced the upgrade velocity. Using the new configuration, the max UDs are reduced, which results in faster updates, keeping the safety of the upgrades intact.   
+
+The update should be done via ARM template by setting the zonalUpdateMode property to “fast” and then modifying a node type attribute, such as adding a node and then removing the node to each nodetype (see required steps 2 and 3 below).  The Service Fabric managed cluster resource apiVersion should be 2022-10-01-preview or later.
+
+1. Modify the ARM template with the new property mentioned above.
+```json
+   "resources": [
+        {
+            "type": "Microsoft.ServiceFabric/managedClusters",
+            "apiVersion": "2022-10-01-preview",
+            '''
+            "properties": {
+                '''
+                "zonalResiliency": true,
+                "zonalUpdateMode": “fast”,
+                ...
+            }
+        }]
+```
+2. Add a node to the node type from a cluster by following the procedure to [modify node type](how-to-managed-cluster-modify-node-type.md). 
+
+3. Remove a node to the node type from a cluster by following the procedure to [modify node type](how-to-managed-cluster-modify-node-type.md).
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png

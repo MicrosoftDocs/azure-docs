@@ -45,6 +45,14 @@ Predetermined policies, referred to as 'built-ins', facilitate governance over y
 
 ### Key Vaults
 
+#### Access Control
+
+Using the Azure Policy service, you can govern the migration to the RBAC permission model across your vaults. Learn more at [Migrate from vault access policy to an Azure role-based access control permission model](../general/rbac-migration.md) 
+
+| Policy | Effects |
+|--|--|
+| [Azure Key Vault should use RBAC permission model](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12d4fa5e-1f9f-4c21-97a9-b99b3c6611b5) | Audit _(Default)_, Deny, Disabled |
+
 #### Network Access
 
 Reduce the risk of data leakage by restricting public network access, enabling [Azure Private Link](https://azure.microsoft.com/products/private-link/) connections,  creating private DNS zones to override DNS resolution for a private endpoint, and enabling [firewall protection](network-security.md) so that the key vault is not accessible by default to any public IP.

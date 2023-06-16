@@ -1,4 +1,12 @@
-### Vowels
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for bg-BG
 
 | `ipa` | `viseme` | Example 1           | Example 2               | Example 3        |
 |-------|----------|---------------------|-------------------------|------------------|
@@ -11,7 +19,7 @@
 | `ɤ`   | 1        | **ъ**гъл            | ъг**ъ**л                | имамбаялд**ъ**   |
 | `j͡u` | 6,7      | **ю**тия            | отво**ю**вал            | сто**ю**         |
 
-### Consonant
+### Consonant for bg-BG
 
 | `ipa` | `viseme` | Example 1           | Example 2               | Example 3        |
 |-------|----------|---------------------|-------------------------|------------------|

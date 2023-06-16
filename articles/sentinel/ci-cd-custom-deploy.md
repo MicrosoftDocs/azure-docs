@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article describes how to customize repository deployments for the repositories feature in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 1/11/2022
+ms.date: 1/11/2023
 ms.author: austinmc
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to optimize my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 ---
@@ -27,7 +27,7 @@ There are two primary ways to customize the deployment of your repository conten
 Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
 
 - An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
-- Contributor access to your GitHub or Azure DevOps repository
+- Collaborator access to your GitHub repository or Project Administrator access to your Azure DevOps repository
 - Actions enabled for GitHub and Pipelines enabled for Azure DevOps
 - Ensure custom content files you want to deploy to your workspaces are in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml).
 

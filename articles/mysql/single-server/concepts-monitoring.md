@@ -4,8 +4,8 @@ description: This article describes the metrics for monitoring and alerting for 
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: aditivgupta
+ms.author: adig
 ms.custom: references_regions
 ms.date: 06/20/2022
 ---

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Archive directory logs to a storage account | Microsoft Docs
+title: Tutorial - Archive directory logs to a storage account
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to a storage account 
 services: active-directory
 author: shlipsey3

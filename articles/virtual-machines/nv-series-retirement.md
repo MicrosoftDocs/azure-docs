@@ -1,11 +1,11 @@
 ---
 title: NV series retirement
-description: NV series retirement starting September 1, 2021
+description: NV series retirement starting September 1, 2023
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 01/12/2020
+ms.date: 02/27/2023
 ms.author: vikancha
 ---
 # Migrate your NV and NV_Promo series virtual machines by August 31, 2023

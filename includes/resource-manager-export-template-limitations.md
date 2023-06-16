@@ -2,11 +2,13 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 12/16/2021
+ms.date: 03/22/2023
 ms.author: tomfitz
 ---
 
 ## Limitations
+
+Export is not guaranteed to succeed. Export is not a reliable way to turn pre-existing resources into templates that are usable in production. It is better to create resources from scratch using hand-written [Bicep file](../articles/azure-resource-manager/bicep/overview.md), [ARM template](../articles/azure-resource-manager/templates/overview.md) or [terraform](/azure/developer/terraform/overview).
 
 When exporting from a resource group or resource, the exported template is generated from the [published schemas](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) for each resource type. Occasionally, the schema doesn't have the latest version for a resource type. Check your exported template to make sure it includes the properties you need. If necessary, edit the exported template to use the API version you need.
 

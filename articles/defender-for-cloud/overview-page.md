@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Cloud's main dashboard or 'overview' page
 description: Learn about the features of the Defender for Cloud overview page
-ms.date: 01/10/2023
+ms.date: 03/08/2023
 ms.topic: conceptual
 ms.custom: ignite-2022
 ---
@@ -31,7 +31,7 @@ The **top menu bar** offers:
 The center of the page displays the **feature tiles**, each linking to a high profile feature or dedicated dashboard:
 
 - **Security posture** - Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can understand, at a glance, your current security situation: the higher the score, the lower the identified risk level. [Learn more](secure-score-security-controls.md).
-- **Workload protections** - This tile is the cloud workload protection platform (CWPP) integrated within Defender for Cloud for advanced, intelligent protection of your workloads running on Azure, on-premises machines, or other cloud providers. For each resource type, there's a corresponding Microsoft Defender plan. The tile shows the coverage of your connected resources (for the currently selected subscriptions) and the recent alerts, color-coded by severity. Learn more about [the enhanced security features](enhanced-security-features-overview.md).
+- **Workload protections** - This is the cloud workload protection platform (CWPP) integrated within Defender for Cloud for advanced, intelligent protection of your workloads running on Azure, on-premises machines, or other cloud providers. For each resource type, there's a corresponding Microsoft Defender plan. The tile shows the coverage of your connected resources (for the currently selected subscriptions) and the recent alerts, color-coded by severity. Learn more about [the Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).
 - **Regulatory compliance** - Defender for Cloud provides insights into your compliance posture based on continuous assessments of your Azure environment. Defender for Cloud analyzes risk factors in your environment according to security best practices. These assessments are mapped to compliance controls from a supported set of standards. [Learn more](regulatory-compliance-dashboard.md).
 - **Inventory** - The asset inventory page of Microsoft Defender for Cloud provides a single page for viewing the security posture of the resources you've connected to Microsoft Defender for Cloud. All resources with unresolved security recommendations are shown in the inventory. If you've enabled the integration with Microsoft Defender for Endpoint and enabled Microsoft Defender for Servers, you'll also have access to a software inventory. The tile on the overview page shows you at a glance the total healthy and unhealthy resources (for the currently selected subscriptions). [Learn more](asset-inventory.md).
 
@@ -39,10 +39,10 @@ The center of the page displays the **feature tiles**, each linking to a high pr
 
 The **Insights** pane offers customized items for your environment including:
 
-- Your most attacked resources
-- Your [security controls](secure-score-security-controls.md) that have the highest potential to increase your secure score
-- The active recommendations with the most resources impacted
-- Recent blog posts by Microsoft Defender for Cloud experts
+- Actionable items to enhance your security.
+- Tips to handle alerts and recommendations.
+- Recommendations on how to to upgrade your service to enhance your environments protections.
+- Recent blog posts by Microsoft Defender for Cloud experts.
 
 ## Next steps
 

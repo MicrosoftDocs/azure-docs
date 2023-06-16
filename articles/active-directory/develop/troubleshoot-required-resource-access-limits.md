@@ -14,7 +14,7 @@ ms.reviewer: phsignor, jawoods
 
 # Troubleshooting the configured permissions limits
 
-The `RequiredResourceAccess` collection (RRA) on an application object contains all the configured API permissions that an app requires for its default consent request. This collection has various limits depending on which types of identities the app supports, For more information on the limits for supported account types, see [Validation differences by supported account types](supported-accounts-validation.md).
+The `RequiredResourceAccess` collection (RRA) on an application object contains all the configured API permissions that an app requires for its default consent request. This collection has various limits depending on which types of identities the app supports. For more information on the limits for supported account types, see [Validation differences by supported account types](supported-accounts-validation.md).
 
 The limits on maximum permissions were updated in May 2022, so some apps may have more permissions in their RRA than are now allowed. In addition, apps that change their supported account types after configuring permissions may exceed the limits of the new setting. When apps exceed the configured permissions limit, no new permissions may be added until the number of permissions in the `RequiredResourceAccess` collection is brought back under the limits.
 
@@ -28,14 +28,13 @@ In general, all applications with more than 400 permissions have exceeded the co
 
 ## Resolution steps
 
-If the application isn't needed anymore, the first option you should consider is to delete the app registration entirely. (You can restore recently deleted applications, in case you discover soon afterwards that it was still needed.)
+If the application isn't needed anymore, the first option you should consider is to delete the app registration entirely. (You can [restore recently deleted applications](/azure/active-directory/fundamentals/recover-from-deletions#applications-and-service-principals), in case you discover soon afterwards that it was still needed.)
 
 If you still need the application or are unsure, the following steps will help you resolve this issue:
 
 1. **Remove duplicate permissions.** In some cases, the same permission is listed multiple times. Review the required permissions and remove permissions that are listed two or more times. See the related PowerShell script on the [additional resources](#additional-resources) section of this article.
 2. **Remove unused permissions.** Review the permissions required by the application and compare them to what the application or service does. Remove permissions that are configured in the app registration, but which the application or service doesn’t require. For more information on how to review permissions, see [Review application permissions](../manage-apps/manage-application-permissions.md)
 3. **Remove redundant permissions.** In many APIs, including Microsoft Graph, some permissions aren't necessary when other more privileged permissions are included. For example, the Microsoft Graph permission User.Read.All (read all users) isn't needed when an application also has User.ReadWrite.All (read, create and update all users). To learn more about Microsoft Graph permissions, see [Microsoft Graph permissions reference](/graph/permissions-reference). 
-4. **Use multiple app registrations.** If a single app or service requires more than 400 permissions in the required permissions list, the app will need to be configured to use two (or more) different app registrations, each one with 400 or fewer permissions configured on the app registration. 
 
 ## Frequently asked questions (FAQ)
 

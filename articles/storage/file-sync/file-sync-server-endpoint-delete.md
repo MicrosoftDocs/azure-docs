@@ -9,7 +9,7 @@ ms.author: kendownie
 ms.subservice: files
 ---
 
-# Deprovision your Azure File Sync server endpoint
+# Deprovision or delete your Azure File Sync server endpoint
 
 Removing a server endpoint means stopping sync to and from that server location with the cloud endpoint (Azure file share) in the same sync group. Before you deprovision your server endpoint, there are a few steps you should take to maintain data integrity and availability. This article covers several methods of deprovisioning and the appropriate guidance, ordered by scenario. Follow the steps for the use case that best applies to you.
 

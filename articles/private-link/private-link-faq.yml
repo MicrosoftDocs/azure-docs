@@ -41,7 +41,13 @@ sections:
       - question: |
           Do I need to disable network policies for Private Link?
         answer: |
-          Yes. Both Private Endpoint and Private Link Service need to disable network policies to function properly. They both have properties independent of one another.
+          Yes. Private Link Service need to disable network policies to function properly.
+      
+      - question: |
+          Can I use for User-Defined Routes only, Network Security Groups only, or for both for Private EndPoint?
+        answer: |
+          Yes. To utilize policies like User-Defined Routes and Network Security Groups, you need to enable Network policies for a subnet in a virtual network for the Private Endpoint. This setting affects all the private endpoints within the subnet.
+          
 
   - name: Private Endpoint
     questions:

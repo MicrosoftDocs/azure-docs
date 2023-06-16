@@ -1,6 +1,7 @@
 ---
-title: Monitor device status - Azure IoT Hub
-description: Use Event Grid or heartbeat patterns to monitor IoT Hub device connection states.
+title: Monitor device status
+titleSuffix: Azure IoT Hub
+description: Use Event Grid or the device heartbeat pattern to monitor the connection states of Azure IoT Hub devices.
 author: kgremban
 ms.author: kgremban
 ms.topic: reference
@@ -68,16 +69,19 @@ Using Event Grid to monitor your device status comes with the following limitati
 
 If any of these limitations affect your ability to use Event Grid for device status monitoring, then you should consider building a custom device heartbeat pattern instead.
 
-## Device heartbeat
+## Device heartbeat pattern
 
 If you need to know the connection state of your devices but the limitations of Event Grid are too restricting for your solution, you can implement the *heartbeat pattern*. In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour). Even if a device doesn't have any data to send, it still sends an empty device-to-cloud message, usually with a property that identifies it as a heartbeat message. On the service side, the solution maintains a map with the last heartbeat received for each device. If the solution doesn't receive a heartbeat message within the expected time from the device, it assumes that there's a problem with the device.
-
-> [!NOTE]
-> If an IoT solution uses the connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, consider using the simpler *short expiry time* pattern. This pattern achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being more efficient. If you request message acknowledgements, IoT Hub can notify you about which devices are able to receive messages and which are not.
 
 ### Device heartbeat limitations
 
 Since heartbeat messages are implemented as device-to-cloud messages, they count against your [IoT Hub message quota and throttling limits](iot-hub-devguide-quotas-throttling.md).
+
+### Short expiry time pattern
+
+If an IoT solution uses the connection state solely to determine whether to send cloud-to-device messages to a device, and messages aren't broadcast to large sets of devices, consider using the *short expiry time pattern* as a simpler alternative to the heartbeat pattern. The short expiry time pattern is a way to determine whether to send cloud-to-device messages by sending messages with a short message expiration time and requesting message acknowledgments from the devices.
+
+For more information, see [Message expiration (time to live)](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
 ## Other monitoring options
 

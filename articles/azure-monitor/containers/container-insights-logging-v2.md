@@ -1,5 +1,5 @@
 ---
-title: Configure the ContainerLogV2 schema (preview) for Container Insights
+title: Configure the ContainerLogV2 schema for Container Insights
 description: Switch your ContainerLog table to the ContainerLogV2 schema.
 author: aul
 ms.author: bwren
@@ -10,10 +10,11 @@ ms.date: 05/11/2022
 ms.reviewer: aul
 ---
 
-# Enable the ContainerLogV2 schema (preview)
-Azure Monitor Container insights is now in public preview of a new schema for container logs, called ContainerLogV2. As part of this schema, there are new fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
+# Enable the ContainerLogV2 schema 
+Azure Monitor Container insights offers a schema for container logs, called ContainerLogV2. As part of this schema, there are fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
 
-The ContainerLogV2 schema is a preview feature. Container insights does not yet support the **View in Analytics** option, but the data is available when it's queried directly from the [Log Analytics](./container-insights-log-query.md) interface.
+>[!NOTE]
+>For Windows containers the PodName is not currently collected with ContainerLogV2
 
 The new fields are:
 * `ContainerName`
@@ -31,6 +32,10 @@ The new fields are:
  LogSource: string,
  TimeGenerated: datetime
 ```
+
+>[!NOTE]
+> [Export](../logs/logs-data-export.md) to Event Hub and Storage Account is not supported if the incoming LogMessage is not a valid JSON. For best performance, we recommend emitting container logs in JSON format.
+
 ## Enable the ContainerLogV2 schema
 Customers can enable the ContainerLogV2 schema at the cluster level. To enable the ContainerLogV2 schema, configure the cluster's ConfigMap. Learn more about ConfigMap in [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)  and in [Azure Monitor documentation](./container-insights-agent-config.md#configmap-file-settings-overview).
 Follow the instructions to configure an existing ConfigMap or to use a new one.
@@ -65,6 +70,19 @@ This applies to the scenario where you have already enabled container insights f
 >[!NOTE]
 >* The configuration change can take a few minutes to complete before it takes effect. All ama-logs pods in the cluster will restart. 
 >* The restart is a rolling restart for all ama-logs pods. It won't restart all of them at the same time.
+
+## Multi-line logging in Container Insights 
+Azure Monitor - Container insights now supports multiline logging. With this feature enabled, previously split container logs are stitched together and sent as single entries to the ContainerLogV2 table. Customers are able see container log lines upto to 64 KB (up from the existing 16 KB limit). If the stitched log line is larger than 64 KB, it gets truncated due to Log Analytics limits. 
+Additionally, the feature also adds support for .NET and Go stack traces, which appear as single entries instead of being split into multiple entries in ContainerLogV2 table. 
+
+### Pre-requisites 
+Customers must enable *ContainerLogV2* for multi-line logging to work.  Go here to [enable ContainerLogV2](/containers/container-insights-logging-v2#enable-the-containerlogv2-schema) in Container Insights. 
+
+### How to enable - This is currently a preview feature
+Multi-line logging can be enabled by setting *enable_multiline_logs* flag to “true” in [the config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml#L49) 
+
+### Next steps for Multi-line logging
+* Read more about the [ContainerLogV2 schema](https://aka.ms/ContainerLogv2) 
 
 ## Next steps
 * Configure [Basic Logs](../logs/basic-logs-configure.md) for ContainerLogv2.

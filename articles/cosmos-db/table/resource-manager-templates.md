@@ -4,7 +4,7 @@ description: Use Azure Resource Manager templates to create and configure Azure 
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: table
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: sidandrews

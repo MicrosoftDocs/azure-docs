@@ -1,12 +1,12 @@
 ---
-title: Sign-in event details for Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Sign-in event details for Azure AD Multi-Factor Authentication
 description: Learn how to view sign-in activity for Azure AD Multi-Factor Authentication events and status messages.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 06/01/2023
 
 ms.author: justinha
 author: justinha
@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 # Use the sign-ins report to review Azure AD Multi-Factor Authentication events
 
@@ -41,7 +41,7 @@ To view the sign-in activity report in the [Azure portal](https://portal.azure.c
 1. Under *Activity* from the menu on the left-hand side, select **Sign-ins**.
 1. A list of sign-in events is shown, including the status. You can select an event to view more details.
 
-    The **Authentication Details** or **Conditional Access** tab of the event details shows you the status code or which policy triggered the MFA prompt.
+    The **Conditional Access** tab of the event details shows you which policy triggered the MFA prompt.
 
     [![Screenshot of example Azure Active Directory sign-ins report in the Azure portal](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 

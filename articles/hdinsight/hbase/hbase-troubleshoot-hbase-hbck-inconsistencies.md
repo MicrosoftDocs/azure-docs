@@ -49,6 +49,8 @@ Bring regions online by running:
 hbase hbck -ignorePreCheckPermission –fixAssignment
 ```
 
+Alternatively, run `assign <region-hash>` on hbase-shell to force to assign this region
+
 ---
 
 ## Issue: Regions have the same start/end keys

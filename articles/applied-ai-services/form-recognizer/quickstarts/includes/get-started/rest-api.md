@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/07/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD001 -->
@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 | [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/) |
 
-In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
+In this quickstart, you use the following APIs to extract structured data from forms and documents:
 
 * [Layout](#try-it-layout-model)
 
@@ -35,7 +35,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
   > [!TIP]
   > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -46,7 +46,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 * [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../../cognitive-services/security-features.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
 ## **Try it**: Layout model
 
@@ -56,7 +56,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{key}` with the key you copied from the previous step.
-1. Replace `\"{your-document-url}` with a sample form URL:
+1. Replace `\"{your-document-url}` with a sample document URL:
 
 ```http
 https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf
@@ -70,7 +70,7 @@ curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Cont
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
 https://<span></span>cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/**{resultId}**.
 
@@ -97,7 +97,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/v2.1/layout/analyzeResults/{re
 
 ### Examine the results
 
-You'll receive a `200 (success)` response with JSON content.
+You receive a `200 (success)` response with JSON content.
 
 See the following invoice image and its corresponding JSON output.
 
@@ -119,7 +119,7 @@ You can view the [full sample output on GitHub](https://github.com/Azure-Samples
 
 ### Choose a prebuilt model
 
-You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
 
 * [**Invoice**](../../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
 * [**Receipt**](../../../concept-receipt.md): extracts text and key information from receipts.
@@ -144,7 +144,7 @@ curl -v -i POST https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyze"
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
  _https://<span></span>cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/**{resultId}**_
 
@@ -170,7 +170,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyzeR
 
 ### Examine the response
 
-You'll receive a `200 (Success)` response with JSON output.
+You receive a `200 (Success)` response with JSON output.
 
 * The `"readResults"` field contains every line of text that was extracted from the invoice.
 * The `"pageResults"` includes the tables and selections marks extracted from the invoice.

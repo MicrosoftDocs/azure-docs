@@ -1,20 +1,20 @@
 ---
-title: Planning for an Azure Elastic SAN (preview)
+title: Planning for an Azure Elastic SAN Preview
 description: Understand planning for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 05/02/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022
 ---
 
-# Plan for deploying an Elastic SAN (preview)
+# Plan for deploying an Elastic SAN Preview
 
 There are three main aspects to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes. When deploying a SAN, you make selections while configuring the SAN, including the redundancy of the entire SAN, and how much performance and storage the SAN has. Then you create volume groups that are used to manage volumes at scale. Any settings applied to a volume group are inherited by volumes inside that volume group. Finally, you partition the storage capacity that was allocated at the SAN-level into individual volumes.
 
-Before deploying an Elastic SAN (preview), consider the following:
+Before deploying an Elastic SAN Preview, consider the following:
 
 - How much storage do you need?
 - What level of performance do you need?
@@ -42,6 +42,8 @@ Using the same example of a 100 TiB SAN that has 250,000 IOPS and 4,000 MB/s. Sa
 
 In Preview, Elastic SAN supports public endpoint from selected virtual network, restricting access to specified virtual networks. You configure volume groups to allow network access only from specific vnet subnets. Once a volume group is configured to allow access from a subnet, this configuration is inherited by all volumes belonging to the volume group. You can then mount volumes from any clients in the subnet, with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. You must enable [service endpoint for Azure Storage](../../virtual-network/virtual-network-service-endpoints-overview.md) in your virtual network before setting up the network rule on volume group.
 
+If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
+
 ## Redundancy
 
 To protect the data in your Elastic SAN against data loss or corruption, all SANs store multiple copies of each file as they're written. Depending on the requirements of your workload, you can select additional degrees of redundancy. The following data redundancy options are currently supported:
@@ -57,9 +59,7 @@ Data in an Azure Elastic SAN is encrypted and decrypted transparently using 256-
 
 For more information about the cryptographic modules underlying SSE, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-## Protocol compatibility
-
-### iSCSI support
+## iSCSI support
 
 Elastic SAN supports the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. The following iSCSI commands are currently supported:
 
@@ -89,8 +89,9 @@ The following iSCSI features aren't currently supported:
 - iSCSI Error Recovery Levels 1 and 2
 - ESXi iSCSI flow control
 - More than one LUN per iSCSI target
-- Multiple connections per session (MC/S)
 
 ## Next steps
 
-[Deploy an Elastic SAN (preview)](elastic-san-create.md)
+For a video that goes over the general planning and deployment with a few example scenarios, see [Getting started with Azure Elastic SAN](/shows/inside-azure-for-it/getting-started-with-azure-elastic-san).
+
+[Deploy an Elastic SAN Preview](elastic-san-create.md)

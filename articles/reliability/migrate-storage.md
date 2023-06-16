@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure storage accounts to availability zo
 author: sonmitt
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 02/27/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions, subject-reliability
@@ -16,7 +16,7 @@ This guide describes how to migrate or convert Azure Storage accounts to add ava
 
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the Service-Level Agreement (SLA) for Azure Storage even in the face of failures.
 
-By default, data in a storage account is replicated in a single data center in the primary region. If your application must be highly available, you can convert the data in the primary region to zone-redundant storage (ZRS). ZRS takes advantage of Azure availability zones to replicate data in the primary region across three separate data centers.
+By default, data in a storage account is replicated three times within a single data center in the primary region. If your application must be highly available, you can convert the data in the primary region to zone-redundant storage (ZRS). ZRS takes advantage of Azure availability zones to replicate data within the primary region across three separate data centers.
 
 Azure Storage offers the following types of replication:
 
@@ -29,68 +29,53 @@ For an overview of each of these options, see [Azure Storage redundancy](../stor
 
 This article describes two basic options for adding availability zone support to a storage account:
 
-- [Conversion](#option-1-conversion): If your application must be highly available, you can convert the data in the primary region to zone-redundant storage (ZRS). ZRS takes advantage of Azure availability zones to replicate data in the primary region across three separate data centers.
-- [Manual migration](#option-2-manual-migration): Manual migration gives you complete control over the migration process by allowing you to use tools such as AzCopy move to a new storage account with the desired replication settings at the time of your choosing.
+- [Conversion](#option-1-conversion): If your application must be highly available, you can convert the storage account in the primary region to zone-redundant storage (ZRS), without experiencing any downtime. ZRS takes advantage of Azure availability zones to replicate data in the primary region across three separate data centers.
+- [Manual migration](#option-2-manual-migration): Manual migration gives you complete control over the migration process by allowing you to use tools such as AzCopy move to a new storage account with the desired replication settings at the time of your choosing. This option typically does involve downtime.
 
 > [!NOTE]
 > For complete details on how to change how your storage account is replicated, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
 
 ## Prerequisites
 
-Before making any changes, review the [limitations for changing replication types](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types) to make sure your storage account is eligible for migration or conversion, and to understand the options available to you. Many storage accounts can be converted directly to ZRS, while others either require a multi-step process or a manual migration. After reviewing the limitations, choose the right option in this article to convert your storage account based on:
+Before making any changes, review the [limitations for changing replication types](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types) to understand your options for migrating or converting your storage account. Many storage accounts can be converted directly to ZRS, while others either require a multi-step process or a manual migration. After reviewing the limitations, choose the right option in this article to convert your storage account based on:
 
 - [Storage account type](../storage/common/redundancy-migration.md#storage-account-type)
 - [Region](../storage/common/redundancy-migration.md#region)
 - [Access tier](../storage/common/redundancy-migration.md#access-tier)
 - [Protocols enabled](../storage/common/redundancy-migration.md#protocol-support)
 - [Failover status](../storage/common/redundancy-migration.md#failover-and-failback)
+- [Feature conflicts](../storage/common/redundancy-migration.md#feature-conflicts)
 
 ## Downtime requirements
 
-During a conversion to ZRS, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
+During a conversion to ZRS, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Storage service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
 If you choose manual migration, some downtime is required, but you have more control over when the process starts and completes.
 
 ## Option 1: Conversion
 
-During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
+During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Storage service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
 ### When to perform a conversion
 
 Perform a conversion if:
 
 - You want to convert your storage account from LRS to ZRS in the primary region with no application downtime.
-- You don't need the change to be completed by a certain date. While Microsoft handles your request for conversion promptly, there's no guarantee as to when it will complete.  Generally, the more data you have in your account, the longer it takes to replicate that data.
+- You don't need the change to be completed by a certain date. While Microsoft handles your request for conversion promptly, there's no guarantee as to when it will complete.  Generally, the more data you have in your account, the longer it takes to replicate that data. If you need more control over the timing of a migration, consider using [manual migration](#option-2-manual-migration).
 - You want to minimize the amount of manual effort required to complete the change.
 
 ### Conversion considerations
 
-Conversion can be used in most situations to add availability zone support, but in some cases you will need to use multiple steps or perform a manual migration. For example, if you also want to add or remove geo-redundancy (GRS) or read access (RA) to the secondary region, you will need to perform a two-step process. Perform the conversion to ZRS as one step and the GRS and/or RA change as a separate step. These steps can be performed in any order.
-
-A full list of things to consider can be found in [Limitations](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types).
+Conversion can be used in most situations to add availability zone support, but in some cases you will need to use multiple steps or perform a manual migration. For example, if you also want to migrate from LRS to RA-GZRS, you will need to perform a two-step process. Perform the conversion to ZRS as one step, and then change from ZRS to RA-GZRS as a separate step. These steps can be performed in any order.
 
 ### How to perform a conversion
 
 A conversion can be accomplished in one of two ways:
 
-- [A Customer-initiated conversion (preview)](#customer-initiated-conversion-preview)
+- [A Customer-initiated conversion](#customer-initiated-conversion)
 - [Request a conversion by creating a support request](#request-a-conversion-by-creating-a-support-request)
 
-#### Customer-initiated conversion (preview)
-
-> [!IMPORTANT]
-> Customer-initiated conversion is currently in preview and available in all public ZRS regions except for the following:
->
-> - (Europe) West Europe
-> - (Europe) UK South
-> - (North America) Canada Central
-> - (North America) East US
-> - (North America) East US 2
->
-> To opt in to the preview, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md) and specify **CustomerInitiatedMigration** as the feature name.
->
-> This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+#### Customer-initiated conversion
 
 Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can request the conversion directly from within the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
 
@@ -123,22 +108,22 @@ Follow these steps to request a conversion from Microsoft:
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
-    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Problem description tab.":::
+    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Problem description tab." lightbox="../storage/common/media/redundancy-migration/request-live-migration-problem-desc-portal.png":::
 
 1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
     - **Target replication type**: (choose the desired option from the drop-down)
     - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
     - Select **Submit**.
 
-    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page.":::
+    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page." lightbox="../storage/common/media/redundancy-migration/request-live-migration-solutions-portal.png":::
 
 1. Take the appropriate action if the results indicate your storage account is not eligible for conversion. If it is eligible, select **Return to support request**.
 
 1. Select **Next**. If you have more than one storage account to migrate, then on the **Details** tab, specify the name for each account, separated by a semicolon.
 
-    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab.":::
+    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab." lightbox="../storage/common/media/redundancy-migration/request-live-migration-details-portal.png":::
 
-1. Fill out the additional required information on the **Additional details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
+1. Fill out the extra required information on the **Additional details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
 ## Option 2: Manual migration
 
@@ -152,11 +137,9 @@ Use a manual migration if:
 
 - You want to migrate your data to a ZRS storage account that's in a different region than the source account.
 
-- You want to add or remove zone-redundancy and you don't want to use the customer-initiated migration feature in preview.
-
 - Your storage account is a premium page blob or block blob account.
 
-- Your storage account includes data that's in the archive tier.
+- Your storage account includes data that's in the archive tier and it would be too costly to rehydrate the data before converting the account.
 
 ### How to manually migrate Azure Storage accounts
 

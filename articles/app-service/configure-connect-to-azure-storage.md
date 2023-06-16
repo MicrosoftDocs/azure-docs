@@ -9,7 +9,9 @@ ms.author: msangapu
 zone_pivot_groups: app-service-containers-code
 ---
 # Mount Azure Storage as a local share in App Service
-
+> [!NOTE]
+> When using VNET integration on your web app, the mounted drive will use an RC1918 IP address and not an IP address from your VNET.
+>
 ::: zone pivot="code-windows"
 
 This guide shows how to mount Azure Storage Files as a network share in Windows code (non-container) in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
@@ -261,8 +263,6 @@ To validate that the Azure Storage is mounted successfully for the app:
 
 - If you [initiate a storage failover](../storage/common/storage-initiate-account-failover.md) and the storage account is mounted to the app, the mount will fail to connect until you either restart the app or remove and add the Azure Storage mount. 
  
-- When using Azure Storage [private endpoints](../storage/common/storage-private-endpoints.md) with the app, you need to [enable the **Route All** setting](configure-vnet-integration-routing.md).
-
 - When VNET integration is used, ensure app setting, `WEBSITE_CONTENTOVERVNET` is set to `1` and the following ports are open:
     - Azure Files: 80 and 445
 
@@ -287,11 +287,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 - It's not recommended to use storage mounts for local databases (such as SQLite) or for any other applications and components that rely on file handles and locks. 
 
 - If you [initiate a storage failover](../storage/common/storage-initiate-account-failover.md) and the storage account is mounted to the app, the mount will fail to connect until you either restart the app or remove and add the Azure Storage mount. 
- 
-- When using Azure Storage [private endpoints](../storage/common/storage-private-endpoints.md) with the app, you need to [enable the **Route All** setting](configure-vnet-integration-routing.md).
 
-    > [!NOTE]
-    > In App Service environment V3, the **Route All** setting is disabled by default and must be explicitly enabled.
 ::: zone-end
 
 ::: zone pivot="container-linux"
@@ -317,8 +313,6 @@ To validate that the Azure Storage is mounted successfully for the app:
 - If your app [scales to multiple instances](../azure-monitor/autoscale/autoscale-get-started.md), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.  
 
 - It's not recommended to use storage mounts for local databases (such as SQLite) or for any other applications and components that rely on file handles and locks. 
-
-- When using Azure Storage [private endpoints](../storage/common/storage-private-endpoints.md) with the app, you need to [enable the **Route All** setting](configure-vnet-integration-routing.md).
 
 - If you [initiate a storage failover](../storage/common/storage-initiate-account-failover.md) and the storage account is mounted to the app, the mount will fail to connect until you either restart the app or remove and add the Azure Storage mount. 
 

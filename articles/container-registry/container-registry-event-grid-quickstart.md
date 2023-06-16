@@ -69,7 +69,7 @@ Once the registry has been created, the Azure CLI returns output similar to the 
 
 ## Create an event endpoint
 
-In this section, you use a Resource Manager template located in a GitHub repository to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your registry's Event Grid events and specify this app as the endpoint to which the events are sent.
+In this section, you use a Resource Manager template located in a GitHub repository to deploy a prebuilt sample web application to Azure App Service. Later, you subscribe to your registry's Event Grid events and specify this app as the endpoint to which the events are sent.
 
 To deploy the sample app, set `SITE_NAME` to a unique name for your web app, and execute the following commands. The site name must be unique within Azure because it forms part of the fully qualified domain name (FQDN) of the web app. In a later section, you navigate to the app's FQDN in a web browser to view your registry's events.
 
@@ -90,11 +90,11 @@ You should see the sample app rendered with no event messages displayed:
 
 ![Web browser showing sample web app with no events displayed][sample-app-02]
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to registry events
 
-In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. The following [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
+In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. The following [`az eventgrid event-subscription create`][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -147,7 +147,7 @@ Execute the following Azure CLI command to build a container image from the cont
 az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
-You should see output similar to the following while ACR Tasks builds and then pushes your image. The following sample output has been truncated for brevity.
+You should see output similar to the following while ACR Tasks build and then pushes your image. The following sample output has been truncated for brevity.
 
 ```output
 Sending build context to ACR...
@@ -163,7 +163,7 @@ Step 1/5 : FROM node:9-alpine
 ...
 ```
 
-To verify that the built image is in your registry, execute the following command to view the tags in the "myimage" repository:
+To verify that the built image is in your registry, execute the following command to view the tags in the `myimage` repository:
 
 ```azurecli-interactive
 az acr repository show-tags --name $ACR_NAME --repository myimage

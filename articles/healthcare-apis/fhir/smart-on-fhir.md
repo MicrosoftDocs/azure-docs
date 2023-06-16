@@ -34,7 +34,7 @@ Below tutorials provide steps to enable SMART on FHIR applications with FHIR Ser
 Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
 
 ### Step 2 : FHIR server integration with samples
-[Follow the steps](https://github.com/Azure-Samples/azure-health-data-services-samples/blob/main/samples/Patient%20and%20Population%20Services%20G10/docs/deployment.md) under Azure Health Data Service Samples OSS. This will enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
+[Follow the steps](https://aka.ms/azure-health-data-services-smart-on-fhir-sample) under Azure Health Data Service Samples OSS. This will enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
 
 > [!NOTE]
 > Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples can be used to demonstrate how Azure Health Data Services and other open-source tools can be used together to demonstrate ONC (g)(10) compliance, using Azure Active Directory as the identity provider workflow.  

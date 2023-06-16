@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 04/03/2023
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
@@ -118,6 +118,8 @@ You can pay for Azure Blob Storage charges with your Azure Prepayment (previousl
 
 Consider using these options to reduce costs.
 
+- Analyze existing containers and blobs
+
 - Reserve storage capacity
 
 - Organize data into access tiers
@@ -125,6 +127,18 @@ Consider using these options to reduce costs.
 - Automatically move data between access tiers
 
 This section covers each option in more detail.
+
+#### Analyze existing containers and blobs
+
+If you've been using Blob Storage for some time, you should periodically review the contents of your containers to identify opportunities to reduce your costs. By understanding how your blobs are stored, organized, and used in production, you can better optimize the tradeoffs between availability, performance, and cost of those blobs.
+
+See any of these articles to itemize and analyze your existing containers and blobs:
+
+- [Tutorial: Analyze blob inventory reports](../blobs/storage-blob-inventory-report-analytics.md)
+
+- [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
+
+- [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.md)
 
 #### Reserve storage capacity
 
@@ -134,9 +148,15 @@ To learn more, see [Optimize costs for Blob Storage with reserved capacity](../b
 
 #### Organize data into access tiers
 
-You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. See [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md).
+You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. 
 
-To learn more, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal).
+See any of these articles:
+
+- [Access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal)
+
+- [Best practices for using blob access tiers](../blobs/access-tiers-best-practices.md)
+
+- [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
 
 #### Automatically move data between access tiers
 
@@ -177,6 +197,19 @@ You can add other filters as well (For example: a filter to see costs for specif
 ## Export cost data
 
 You can also [export your cost data](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+
+## Avoid billing surprises
+
+Some actions, such as changing the default access tier of your account, can lead to costs that you might not expect. While articles about each feature contain information about how to avoid unexpected costs, this table captures common causes.  
+
+| Category | Action | Potential impact on your bill |
+|----------|--------|-------------------------------|
+| Access tiers | Changing the default access tier setting | If your account contains a large number of blobs for which the access tier is inferred, then a change to this setting can incur a significant cost. <br><br>A change to the default access tier setting of a storage account applies to all blobs in the account for which an access tier hasn't been explicitly set. For example, if you toggle the default access tier setting from hot to cool in a general-purpose v2 account, then you're charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in a general-purpose v2 account. <br><br>For more information, see [Default account access tier setting](../blobs/access-tiers-overview.md#default-account-access-tier-setting). |
+| Access tiers | Rehydrating from archive  | High priority rehydration from archive can lead to higher than normal bills. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations. <br><br>For more information, see [Rehydration priority](../blobs/archive-rehydrate-overview.md#rehydration-priority).|
+| Data protection | Enabling blob soft delete | Overwriting blobs can lead to blob snapshots. Unlike the case where a blob is deleted, the creation of these snapshots isn't logged. This can lead to unexpected storage costs. Consider whether data that is frequently overwritten should be placed in an account that doesn't have soft delete enabled.<br><br>For more information, see [How overwrites are handled when soft delete is enabled](../blobs/soft-delete-blob-overview.md#how-overwrites-are-handled-when-soft-delete-is-enabled).|
+| Data protection | Enabling blob versioning | Every write operation on a blob creates a new version. As is the case with enabling blob soft delete, consider whether data that is frequently overwritten should be placed in an account that doesn't have versioning enabled. <br><br>For more information, see [Versioning on write operations](../blobs/versioning-overview.md#versioning-on-write-operations). |
+| Monitoring | Enabling Storage Analytics logs (classic logs)| Storage analytics logs can accumulate in your account over time if the retention policy is not set. Make sure to set the retention policy to avoid log buildup which can lead to unexpected capacity charges.<br><br>For more information, see [Modify log data retention period](manage-storage-analytics-logs.md#modify-log-data-retention-period) |
+| Protocols | Enabling SSH File Transfer Protocol (SFTP) support| Enabling the SFTP endpoint incurs an hourly cost. To avoid passive charges, consider enabling SFTP only when you are actively using it to transfer data.<br><br> For guidance about how to enable and then disable SFTP support, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to.md). |
 
 ## FAQ
 

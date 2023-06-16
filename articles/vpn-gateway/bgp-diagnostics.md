@@ -2,13 +2,11 @@
 title: 'View BGP status and metrics'
 titleSuffix: Azure VPN Gateway
 description: Learn how to view important BGP-related information for troubleshooting.
-services: vpn-gateway
-author: anzaman
-
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 03/10/2021
-ms.author: alzam 
+ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -120,6 +118,10 @@ Use **Get-AzVirtualNetworkGatewayAdvertisedRoute** to view all the routes that t
 ```azurepowershell-interactive
 Get-AzVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName gatewayName -ResourceGroupName resourceGroupName -Peer 10.0.0.254
 ```
+
+## Rest API
+
+You can also use the GetBgpPeerStatus [Rest API call](/rest/api/network-gateway/virtual-network-gateways/get-bgp-peer-status) to retrieve the information. This is an Async operation and will return a 202 status code. You need to fetch the results via a separate GET call. For more information, see [Azure-AsyncOperation request and response](../azure-resource-manager/management/async-operations.md#azure-asyncoperation-request-and-response).
 
 ## Next steps
 

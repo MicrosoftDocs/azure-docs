@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LanSchool Air | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LanSchool Air'
 description: Learn how to configure single sign-on between Azure Active Directory and LanSchool Air.
 services: active-directory
 author: jeevansd

@@ -3,7 +3,7 @@ title: Trace observed people in a video
 description: This topic gives an overview of a Trace observed people in a video concept.
 
 ms.topic: how-to
-ms.date: 03/27/2022
+ms.date: 04/06/2023
 ms.author: juliako
 ---
 
@@ -69,18 +69,7 @@ The following JSON response illustrates what Video Indexer returns when tracing 
 
 ## Limitations and assumptions 
 
-It's important to note the limitations of Observed People Tracing, to avoid or mitigate the effects of false negatives (missed detections) and limited detail.
-
-* To optimize the detector results, use video footage from static cameras (although a moving camera or mixed scenes will also give results). 
-* People are generally not detected if they appear small (minimum person height is 200 pixels).
-* Maximum frame size is HD
-* People are generally not detected if they're not standing or walking. 
-* Low quality video (for example, dark lighting conditions) may impact the detection results. 
-* The recommended frame rate —at least 30 FPS. 
-* Recommended video input should contain up to 10 people in a single frame. The feature could work with more people in a single frame, but the detection result retrieves up to 10 people in a frame with the detection highest confidence. 
-* People with similar clothes (for example, people wear uniforms, players in sport games) could be detected as the same person with the same ID number. 
-* Obstruction – there maybe errors where there are obstructions (scene/self or obstructions by other people).
-* Pose: The tracks may be split due to different poses (back/front)       
+For more information, see [Considerations and limitations when choosing a use case](observed-matched-people.md#considerations-and-limitations-when-choosing-a-use-case).
 
 ## Next steps
 

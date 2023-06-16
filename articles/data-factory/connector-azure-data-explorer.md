@@ -88,7 +88,7 @@ The Azure Data Explorer connector supports the following authentication types. S
 
 To use service principal authentication, follow these steps to get a service principal and to grant permissions:
 
-1. Register an application entity in Azure Active Directory by following the steps in [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
+1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key

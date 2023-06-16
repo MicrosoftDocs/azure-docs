@@ -1,7 +1,7 @@
 ---
 title: What's new archive for Microsoft Defender for IoT for organizations
 description: Learn about the features and enhancements released for Microsoft Defender for IoT for organizations more than 6 months ago.
-ms.topic: overview
+ms.topic: concept-article
 ms.date: 08/07/2022
 ---
 
@@ -178,7 +178,7 @@ Webhook extended can be used to send extra data to the endpoint. The extended fe
 
 ### Unicode support for certificate passphrases
 
-Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md).
+Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates).
 
 ## April 2021
 

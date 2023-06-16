@@ -1,12 +1,12 @@
 ---
-title: Conditional Access - Authentication strength for external users - Azure Active Directory
+title: Conditional Access - Authentication strength for external users
 description: Create a custom Conditional Access policy with authentication strength to require specific multifactor authentication (MFA) methods for external users.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 04/03/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,7 +29,7 @@ You can use one of the built-in strengths or create a [custom authentication str
 In external user scenarios, the MFA authentication methods that a resource tenant can accept vary depending on whether the user is completing MFA in their home tenant or in the resource tenant. For details, see [Conditional Access authentication strength](https://aka.ms/b2b-auth-strengths).
 
 > [!NOTE]
-> Currently, you can only apply authentication strength policies to external users who authenticate with Azure AD. For email one-time passcode, SAML/WS-Fed, and Google federation users, use the [MFA grant control](concept-conditional-access-grant.md#require-multi-factor-authentication) to require MFA.
+> Currently, you can only apply authentication strength policies to external users who authenticate with Azure AD. For email one-time passcode, SAML/WS-Fed, and Google federation users, use the [MFA grant control](concept-conditional-access-grant.md#require-multifactor-authentication) to require MFA.
 
 ## Configure cross-tenant access settings to trust MFA
 
@@ -48,7 +48,7 @@ The authentication methods that external users can use to satisfy MFA requiremen
 Determine if one of the built-in authentication strengths will work for your scenario or if you'll need to create a custom authentication strength.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**.
+1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths**.
 1. Review the built-in authentication strengths to see if one of them meets your requirements.
 1. If you want to enforce a different set of authentication methods, [create a custom authentication strength](https://aka.ms/b2b-auth-strengths).
 
@@ -65,7 +65,7 @@ Use the following steps to create a Conditional Access policy that applies an au
 
    <!---![Screenshot showing where to select guest and external user types.](media/howto-conditional-access-policy-authentication-strength-external/assignments-external-user-types.png)--->
 
-1. Select the types of [guest or external users](../external-identities/authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types-preview) you want to apply the policy to.
+1. Select the types of [guest or external users](../external-identities/authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types) you want to apply the policy to.
 
 1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
 1. Under **Cloud apps or actions**, under **Include** or **Exclude**, select any applications you want to include in or exclude from the authentication strength requirements.

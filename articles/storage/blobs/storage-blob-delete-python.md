@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 01/25/2023
+ms.date: 05/11/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -38,7 +38,12 @@ To delete *only* the snapshots and not the blob itself, you can pass the paramet
 
 Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
-You can use the Azure Storage client libraries to restore a soft-deleted blob or snapshot. 
+You can use the Azure Storage client libraries to restore a soft-deleted blob or snapshot.
+
+How you restore a soft-deleted blob depends on whether or not your storage account has blob versioning enabled. For more information on blob versioning, see [Blob versioning](../../storage/blobs/versioning-overview.md). See one of the following sections, depending on your scenario:
+
+- [Blob versioning is not enabled](#restore-soft-deleted-objects-when-versioning-is-disabled)
+- [Blob versioning is enabled](#restore-soft-deleted-objects-when-versioning-is-enabled)
 
 #### Restore soft-deleted objects when versioning is disabled
 
@@ -46,7 +51,7 @@ To restore deleted blobs when versioning is disabled, call the following method:
 
 - [BlobClient.undelete_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-undelete-blob)
 
-This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect. 
+This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_restore_blob":::
 

@@ -38,7 +38,7 @@ Each data center is assigned to a physical zone. Physical zones are mapped to lo
 
 You can design resilient solutions by using Azure services that use availability zones. Co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones.
 
-Azure *availability zones-enabled services* are designed to provide the right level of resiliency and flexibility. They can be configured in two ways. They can be either *zone redundant*, with automatic replication across zones, or *zonal*, with instances pinned to a specific zone. You can also combine these approaches.
+Azure Services that support availability zones are designed to provide the right level of resiliency and flexibility for their resources. The resources can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal (zone aligned to a specific zone). You can combine these approaches across different resources.
 
 Some organizations require high availability of availability zones and protection from large-scale phenomena and regional disasters. Azure regions are designed to offer protection against localized disasters with availability zones and protection from regional or large geography disasters with disaster recovery, by making use of another region. To learn more about business continuity, disaster recovery, and cross-region replication, see [Cross-region replication in Azure](cross-region-replication-azure.md).
 

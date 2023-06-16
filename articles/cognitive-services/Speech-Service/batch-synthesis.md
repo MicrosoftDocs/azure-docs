@@ -19,7 +19,7 @@ The Batch synthesis API (Preview) can synthesize a large volume of text input (l
 > [!IMPORTANT]
 > The Batch synthesis API is currently in public preview. Once it's generally available, the Long Audio API will be deprecated. For more information, see [Migrate to batch synthesis API](migrate-to-batch-synthesis.md).
 
-The batch synthesis API is asynchronous and doesn't return synthesized audio in real time. You submit text files to be synthesized, poll for the status, and download the audio output when the status indicates success. The text inputs must be plain text or [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) text.
+The batch synthesis API is asynchronous and doesn't return synthesized audio in real-time. You submit text files to be synthesized, poll for the status, and download the audio output when the status indicates success. The text inputs must be plain text or [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) text.
 
 This diagram provides a high-level overview of the workflow.
 
@@ -441,5 +441,5 @@ The response body will resemble the following JSON example:
 ## Next steps
 
 - [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
-- [Text-to-speech quickstart](get-started-text-to-speech.md)
+- [Text to speech quickstart](get-started-text-to-speech.md)
 - [Migrate to batch synthesis](migrate-to-batch-synthesis.md)

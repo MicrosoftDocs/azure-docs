@@ -5,7 +5,7 @@ description: Use Azure Communication Services SDKs to manage calls for Teams use
 author: xixian73
 ms.author: xixian
 ms.service: azure-communication-services
-ms.subservice: calling
+ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 12/01/2021
 ms.custom: template-how-to

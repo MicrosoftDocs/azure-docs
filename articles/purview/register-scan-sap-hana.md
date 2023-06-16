@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -16,12 +16,9 @@ This article outlines how to register SAP HANA, and how to authenticate and inte
 
 ## Supported capabilities
 
-|**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**| **Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No|No | No |
-
->[!NOTE]
->Supported version for SAP HANA is 15.
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No|No | No | No |
 
 When scanning SAP HANA source, Microsoft Purview supports extracting technical metadata including:
 
@@ -29,13 +26,17 @@ When scanning SAP HANA source, Microsoft Purview supports extracting technical m
 - Databases
 - Schemas
 - Tables including the columns, foreign keys, indexes, and unique constraints
-- Views including the columns
+- Views including the columns. Note SAP HANA Calculation Views are not supported now.
 - Stored procedures including the parameter dataset and result set
 - Functions including the parameter dataset
 - Sequences
 - Synonyms
 
 When setting up scan, you can choose to scan an entire SAP HANA database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 
@@ -49,7 +50,7 @@ When setting up scan, you can choose to scan an entire SAP HANA database, or sco
 
     * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
-    * Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure that Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](/cpp/windows/latest-supported-vc-redist).
 
     * Download the SAP HANA JDBC driver ([JAR ngdbc](https://mvnrepository.com/artifact/com.sap.cloud.db.jdbc/ngdbc)) on the machine where your self-hosted integration runtime is running. Note down the folder path which you will use to set up the scan.
 
@@ -78,10 +79,11 @@ GRANT SELECT ON SCHEMA _SYS_BIC TO <user>;
 
 ## Register
 
-This section describes how to register a SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
+This section describes how to register an SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
-1. Go to your Microsoft Purview account.
-
+1. Open the Microsoft Purview governance portal by:
+    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left pane.
 
 1. Select **Register**.
@@ -92,7 +94,7 @@ This section describes how to register a SAP HANA in Microsoft Purview by using 
 
    1. For **Name**, enter a name that Microsoft Purview will list as the data source.
 
-   1. For **Server**, enter the host name or IP address used to connect to a SAP HANA source. For example, `MyDatabaseServer.com` or `192.169.1.2`.
+   1. For **Server**, enter the host name or IP address used to connect to an SAP HANA source. For example, `MyDatabaseServer.com` or `192.169.1.2`.
 
    1. For **Port**, enter the port number used to connect to the database server (39013 by default for SAP HANA).
 
@@ -108,7 +110,7 @@ Use the following steps to scan SAP HANA databases to automatically identify ass
 
 ### Authentication for a scan
 
-The supported authentication type for a SAP HANA source is **Basic authentication**.
+The supported authentication type for an SAP HANA source is **Basic authentication**.
 
 ### Create and run scan
 

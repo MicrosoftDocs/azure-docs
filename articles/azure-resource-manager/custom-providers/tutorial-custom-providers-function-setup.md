@@ -2,6 +2,7 @@
 title: Set up Azure Functions
 description: This tutorial describes how to create a function app in Azure Functions that works with Azure Custom Resource Providers.
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.date: 09/20/2022
 ms.author: jobreen
 author: jjbfour

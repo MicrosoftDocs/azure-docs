@@ -3,14 +3,14 @@ title: Azure App Configuration best practices | Microsoft Docs
 description: Learn best practices while using Azure App Configuration. Topics covered include key groupings, key-value compositions, App Configuration bootstrap, and more.
 services: azure-app-configuration
 documentationcenter: ''
-author: maud-lv
+author: mcleanbyron
 editor: ''
 
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 09/21/2022
-ms.author: malev
+ms.author: mcleans
 ms.custom: "devx-track-csharp, mvc"
 ---
 

@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Create a public load balancer with an IP-based backend - Azure portal'
 titleSuffix: Azure Load Balancer
-description: In this tutorial, learn how to create a public load balancer with an IP based backend pool.
+description: In this tutorial, learn how to create a public load balancer with an IP based backend pool using the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 12/16/2022
-ms.custom: FY23 content-maintenance
+ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Create a public load balancer with an IP-based backend using the Azure portal
@@ -81,6 +81,13 @@ In this section, you'll create a virtual network for the load balancer, NAT gate
 1. Select the **Review + create** tab or select the **Review + create** button.
 
 1. Select **Create**.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
+
 ## Create NAT gateway
 
 In this section, you'll create a NAT gateway and assign it to the subnet in the virtual network you created previously.

@@ -2,9 +2,7 @@
 title: 'Configure custom IPsec/IKE connection policies for S2S VPN & VNet-to-VNet: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using PowerShell.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/30/2023
@@ -39,6 +37,11 @@ The following table lists the supported configurable cryptographic algorithms an
 [!INCLUDE [Algorithm and keys table](../../includes/vpn-gateway-ipsec-ike-algorithm-include.md)]
 
 [!INCLUDE [Important requirements table](../../includes/vpn-gateway-ipsec-ike-requirements-include.md)]
+
+> [!NOTE]
+> IKEv2 Integrity is used for both Integrity and PRF(pseudo-random function). 
+> If IKEv2 Encryption  algorithm specified is GCM*, the value passed in IKEv2 Integrity is used for PRF only and implicitly we set IKEv2 Integrity to GCM*. In all other cases, the value passed in IKEv2 Integrity is used for both IKEv2 Integrity and PRF.
+>
 
 #### Diffie-Hellman groups
 

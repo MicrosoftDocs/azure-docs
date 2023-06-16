@@ -2,18 +2,18 @@
 title: Azure Health Data Services as Event Grid source
 description: Describes the properties that are provided for Azure Health Data Services events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 01/31/2023
 ---
 
 # Azure Health Data Services as an Event Grid source
 
-This article provides the properties and schema for Azure Health Data Services events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for Azure Health Data Services Events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-## Available event types
+## Available Event types
 
-### List of events for Azure Health Data Services REST APIs
+### List of Events for Azure Health Data Services REST APIs
 
-These events are triggered when a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation resource is created, updated, or deleted by calling the FHIR service REST APIs.
+These events are triggered when a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation is created, updated, or deleted by calling the FHIR service REST APIs.
 
  |Event name|Description|
  |----------|-----------|
@@ -21,15 +21,16 @@ These events are triggered when a Fast Healthcare Interoperability Resources (FH
  |**FhirResourceUpdated** |The event emitted after a FHIR Observation resource is updated successfully.|
  |**FhirResourceDeleted** |The event emitted after a FHIR Observation resource is soft deleted successfully.|
 
-These events are triggered when a DICOM image is created or deleted by calling the DICOM service REST APIs.
+These Events are triggered when a DICOM image is created or deleted by calling the DICOM service REST APIs.
 
  |Event name|Description|
  |----------|-----------|
  |**DicomImageCreated** |The event emitted after a DICOM image is created successfully.|
  |**DicomImageDeleted** |The event emitted after a DICOM image is deleted successfully.|
+ |**DicomImageUpdated** |The event emitted after a DICOM image is updated successfully.|
 
 ## Example events
-This section contains examples of what events message data would look like for each FHIR Observation resource and DICOM image event.
+This section contains examples of what Azure Health Data Services Events message data would look like for each FHIR Observation and DICOM image event.
 
 > [!NOTE]
 > Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
@@ -245,6 +246,49 @@ This section contains examples of what events message data would look like for e
     "sequenceNumber": 2
   },
   "specVersion": "1.0"
+}
+```
+---
+### DicomImageUpdated
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+```json
+{
+  "id": "83cb0f51-af41-e58c-3c6c-46344b349bc5",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/partitions/Microsoft.Default/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "data": {
+    "partitionName": "Microsoft.Default",
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 2
+  },
+  "eventType": "Microsoft.HealthcareApis.DicomImageUpdated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2023-06-09T16:55:44.7197137Z"
+}
+```
+# [CloudEvent schema](#tab/cloud-event-schema)
+```json
+{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/partitions/Microsoft.Default/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "type": "Microsoft.HealthcareApis.DicomImageUpdated",
+  "time": "2022-09-15T01:14:04.5613214Z",
+  "id": "7e8aca04-e815-4387-82a8-9fcf15a3114b",
+  "data": {
+    "partitionName": "Microsoft.Default",
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 1
+  },
+  "specversion": "1.0"
 }
 ```
 ---

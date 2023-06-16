@@ -7,7 +7,7 @@ ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jukullam
 ms.custom: github-actions-azure, mode-other
-ms.date: 10/26/2022
+ms.date: 02/15/2023
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure MySQL
@@ -49,7 +49,7 @@ The file has two sections:
 
 ## Copy the MySQL connection string
 
-In the Azure portal, go to your Azure Database for MySQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string will look similar to the following.
+In the Azure portal, go to your Azure Database for MySQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string looks similar to the following.
 
 > [!IMPORTANT]
 >
@@ -84,7 +84,7 @@ You'll use the connection string as a GitHub secret.
         branches: [ main ]
     ```
 
-4. Rename your workflow `MySQL for GitHub Actions` and add the checkout and login actions. These actions will check out your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
+4. Rename your workflow `MySQL for GitHub Actions` and add the checkout and login actions. These actions check out your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
 
     # [Service principal](#tab/userlevel)
     
@@ -142,7 +142,7 @@ You'll use the connection string as a GitHub secret.
         sql-file: './data.sql'
     ```
 
-6. Complete your workflow by adding an action to sign out of Azure. Here's the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
+6. Complete your workflow by adding an action to sign out of Azure. Here's the completed workflow. The file appears in the `.github/workflows` folder of your repository.
 
     # [Service principal](#tab/userlevel)
     

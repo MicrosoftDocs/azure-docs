@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 07/04/2022
+ms.date: 04/04/2023
 ---
 
 #  Azure Web PubSub trigger and bindings for Azure Functions
@@ -40,7 +40,7 @@ Working with the trigger and bindings requires you reference the appropriate pac
 > Install the client library from [NuGet](https://www.nuget.org/) with specified package and version.
 > 
 > ```bash
-> func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
+> func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub
 > ```
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
@@ -79,34 +79,22 @@ Use the function trigger to handle requests from Azure Web PubSub service.
 ```cs
 [FunctionName("WebPubSubTrigger")]
 public static void Run(
-    [WebPubSubTrigger("<hub>", WebPubSubEventType.User, "message")]
-    UserEventRequest request,
-    WebPubSubConnectionContext context,
-    string data,
-    WebPubSubDataType dataType)
+    [WebPubSubTrigger("<hub>", WebPubSubEventType.User, "message")] UserEventRequest request)
 {
-    Console.WriteLine($"Request from: {context.UserId}");
-    Console.WriteLine($"Request message data: {data}");
-    Console.WriteLine($"Request message dataType: {dataType}");
+    Console.WriteLine($"Request from: {request.ConnectionContext.UserId}");
+    Console.WriteLine($"Request message data: {request.Data}");
+    Console.WriteLine($"Request message dataType: {request.DataType}");
 }
 ```
 
 `WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event, when server can check and deny the client request, or send messages to the caller directly. `Connect` event respects `ConnectEventResponse` and `EventErrorResponse`, and user event respects `UserEventResponse` and `EventErrorResponse`, rest types not matching current scenario will be ignored. And if `EventErrorResponse` is returned, service will drop the client connection.
 
 ```cs
-[FunctionName("WebPubSubTriggerReturnValue")]
-public static MessageResponse Run(
-    [WebPubSubTrigger("<hub>", WebPubSubEventType.User, "message")]
-    UserEventRequest request,
-    ConnectionContext context,
-    string data,
-    WebPubSubDataType dataType)
+[FunctionName("WebPubSubTriggerReturnValueFunction")]
+public static UserEventResponse Run(
+    [WebPubSubTrigger("hub", WebPubSubEventType.User, "message")] UserEventRequest request)
 {
-    return new UserEventResponse
-    {
-        Data = BinaryData.FromString("ack"),
-        DataType = WebPubSubDataType.Text
-    };
+    return request.CreateResponse(BinaryData.FromString("ack"), WebPubSubDataType.Text);
 }
 ```
 
@@ -163,7 +151,7 @@ Here's an `WebPubSubTrigger` attribute in a method signature:
 ```csharp
 [FunctionName("WebPubSubTrigger")]
 public static void Run([WebPubSubTrigger("<hub>", <WebPubSubEventType>, "<event-name>")] 
-WebPubSubConnectionContext context, ILogger log)
+    WebPubSubConnectionContext context, ILogger log)
 {
     ...
 }
@@ -202,6 +190,9 @@ In weakly typed language like JavaScript, `name` in `function.json` will be used
 |subprotocols|`IList<string>`|Available subprotocols in system `connect` request | -|
 |clientCertificates|`IList<ClientCertificate>`|A list of certificate thumbprint from clients in system `connect` request|-|
 |reason|`string`|Reason in system `disconnected` request|-|
+
+> [!IMPORTANT]
+> In C#, multiple types supported parameter __MUST__ be put in the first, i.e. `request` or `data` that other than the default `BinaryData` type to make the function binding correctly. 
 
 ### Return response
 

@@ -10,6 +10,7 @@ ms.author: tchladek
 ms.date: 08/01/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: teams-interop
 ---
 # Teams interoperability pricing
 

@@ -53,7 +53,7 @@ Once the VM is deployed, follow the steps to connect to the VM using SSH.
 
 To make sure that the VM host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
 
-```console
+```bash
 sudo vi /etc/hosts
 ```
 
@@ -64,7 +64,7 @@ In the *hosts* file, update the *localhost* address. In the following example:
 
 Update these names with your own values:
 
-```console
+```config
 127.0.0.1 linux-q2gr linux-q2gr.aaddscontoso.com
 ```
 
@@ -178,7 +178,7 @@ To join the managed domain using **winbind** and the *YaST command line interfac
 
 * Join the domain:
 
-  ```console
+  ```bash
   sudo yast samba-client joindomain domain=aaddscontoso.com user=<admin> password=<admin password> machine=<(optional) machine account>
   ```
 
@@ -188,7 +188,7 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
 1. Install kerberos client and samba-winbind:
 
-   ```console
+   ```bash
    sudo zypper in krb5-client samba-winbind
    ```
 
@@ -196,7 +196,7 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
    * /etc/samba/smb.conf
    
-     ```ini
+     ```config
      [global]
          workgroup = AADDSCONTOSO
          usershare allow guests = NO #disallow guests from sharing
@@ -215,7 +215,7 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
    * /etc/krb5.conf
    
-     ```ini
+     ```config
      [libdefaults]
          default_realm = AADDSCONTOSO.COM
          clockskew = 300
@@ -239,7 +239,7 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
    * /etc/security/pam_winbind.conf
    
-     ```ini
+     ```config
      [global]
          cached_login = yes
          krb5_auth = yes
@@ -249,46 +249,46 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
    * /etc/nsswitch.conf
    
-     ```ini
+     ```config
      passwd: compat winbind
      group: compat winbind
      ```
 
 3. Check that the date and time in Azure AD and Linux are in sync. You can do this by adding the Azure AD server to the NTP service:
    
-   1. Add the following line to /etc/ntp.conf:
+   1. Add the following line to `/etc/ntp.conf`:
      
-      ```console
+      ```config
       server aaddscontoso.com
       ```
 
    1. Restart the NTP service:
      
-      ```console
+      ```bash
       sudo systemctl restart ntpd
       ```
 
 4. Join the domain:
 
-   ```console
+   ```bash
    sudo net ads join -U Administrator%Mypassword
    ```
 
 5. Enable winbind as a login source in the Linux Pluggable Authentication Modules (PAM):
 
-   ```console
-   pam-config --add --winbind
+   ```bash
+   config pam-config --add --winbind
    ```
 
 6. Enable automatic creation of home directories so that users can log in:
 
-   ```console
-   pam-config -a --mkhomedir
+   ```bash
+   sudo pam-config -a --mkhomedir
    ```
 
 7. Start and enable the winbind service:
 
-   ```console
+   ```bash
    sudo systemctl enable winbind
    sudo systemctl start winbind
    ```
@@ -299,13 +299,13 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 1. Open the *sshd_conf* file with an editor:
 
-    ```console
+    ```bash
     sudo vi /etc/ssh/sshd_config
     ```
 
 1. Update the line for *PasswordAuthentication* to *yes*:
 
-    ```console
+    ```config
     PasswordAuthentication yes
     ```
 
@@ -313,7 +313,7 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 1. To apply the changes and let users sign in using a password, restart the SSH service:
 
-    ```console
+    ```bash
     sudo systemctl restart sshd
     ```
 
@@ -323,13 +323,13 @@ To grant members of the *AAD DC Administrators* group administrative privileges 
 
 1. Open the *sudoers* file for editing:
 
-    ```console
+    ```bash
     sudo visudo
     ```
 
 1. Add the following entry to the end of */etc/sudoers* file. The *AAD DC Administrators* group contains whitespace in the name, so include the backslash escape character in the group name. Add your own domain name, such as *aaddscontoso.com*:
 
-    ```console
+    ```config
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators@aaddscontoso.com ALL=(ALL) NOPASSWD:ALL
     ```
@@ -342,29 +342,29 @@ To verify that the VM has been successfully joined to the managed domain, start 
 
 1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *linux-q2gr.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
-    ```console
-    ssh -l contosoadmin@AADDSCONTOSO.com linux-q2gr.aaddscontoso.com
+    ```bash
+    sudo ssh -l contosoadmin@AADDSCONTOSO.com linux-q2gr.aaddscontoso.com
     ```
 
 2. When you've successfully connected to the VM, verify that the home directory was initialized correctly:
 
-    ```console
-    pwd
+    ```bash
+    sudo pwd
     ```
 
     You should be in the */home* directory with your own directory that matches the user account.
 
 3. Now check that the group memberships are being resolved correctly:
 
-    ```console
-    id
+    ```bash
+    sudo id
     ```
 
     You should see your group memberships from the managed domain.
 
 4. If you signed in to the VM as a member of the *AAD DC Administrators* group, check that you can correctly use the `sudo` command:
 
-    ```console
+    ```bash
     sudo zypper update
     ```
 

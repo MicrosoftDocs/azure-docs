@@ -9,7 +9,7 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.custom: references_regions, mode-other
+ms.custom: references_regions, mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
 ---
 
@@ -63,4 +63,9 @@ In this quickstart you learned how to:
 
 > [!div class="nextstepaction"]
 > [Send an SMS](../sms/send.md)
+> 
+> [!div class="nextstepaction"]
+> [Toll-free verification](../../concepts/sms/sms-faq.md#toll-free-verification)
+
+> [!div class="nextstepaction"]
 > [Get started with calling](../voice-video-calling/getting-started-with-calling.md)

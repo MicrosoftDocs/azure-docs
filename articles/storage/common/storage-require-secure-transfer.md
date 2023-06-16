@@ -11,7 +11,7 @@ ms.date: 06/01/2021
 ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -65,7 +65,7 @@ To require secure transfer programmatically, set the *enableHttpsTrafficOnly* pr
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This sample requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+This sample requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Run `Connect-AzAccount` to create a connection with Azure.
 

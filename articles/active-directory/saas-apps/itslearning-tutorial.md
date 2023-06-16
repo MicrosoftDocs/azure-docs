@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with itslearning | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with itslearning'
 description: Learn how to configure single sign-on between Azure Active Directory and itslearning.
 services: active-directory
 author: jeevansd

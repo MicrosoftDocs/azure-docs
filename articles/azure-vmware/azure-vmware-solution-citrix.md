@@ -16,7 +16,7 @@ Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VM
 
 [Deployment guide](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops-service/install-configure/resource-location/azure-resource-manager.html#azure-vmware-solution-avs-integration)
 
-[Solution brief](https://www.citrix.com/content/dam/citrix/en_us/documents/solution-brief/citrix-virtual-apps-and-desktop-service-on-azure-vmware-solution.pdf)
+[Solution brief](https://www.citrix.com/downloads/citrix-virtual-apps-and-desktops/)
 
 **FAQ (review Q&As)**
 

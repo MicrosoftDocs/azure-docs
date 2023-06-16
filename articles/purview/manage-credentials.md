@@ -43,7 +43,7 @@ If you're using the Microsoft Purview system-assigned managed identity (SAMI) to
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
 - [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md#authentication-for-registration)
-- [Azure Synapse Workspace](register-scan-synapse-workspace.md#authentication-for-registration)
+- [Azure Synapse Workspace](register-scan-synapse-workspace.md#register)
 - [Azure Synapse dedicated SQL pools (formerly SQL DW)](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
 ## Grant Microsoft Purview access to your Azure Key Vault
@@ -130,17 +130,22 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
 Before you can create a Credential, first associate one or more of your existing Azure Key Vault instances with your Microsoft Purview account.
 
-1. From the [Azure portal](https://portal.azure.com), select your Microsoft Purview account and open the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). Navigate to the **Management Center** in the studio and then navigate to **credentials**.
+1. Open your Microsoft Purview governance portal by:
 
-2. From the **Credentials** page, select **Manage Key Vault connections**.
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Open the [Azure portal](https://portal.azure.com), search for and select the Microsoft Purview account you want to use to receive the share. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/).
+
+1. Navigate to the **Management Center** in the studio and then navigate to **credentials**.
+
+1. From the **Credentials** page, select **Manage Key Vault connections**.
 
    :::image type="content" source="media/manage-credentials/manage-kv-connections.png" alt-text="Manage Azure Key Vault connections":::
 
-3. Select **+ New** from the Manage Key Vault connections page.
+1. Select **+ New** from the Manage Key Vault connections page.
 
-4. Provide the required information, then select **Create**.
+1. Provide the required information, then select **Create**.
 
-5. Confirm that your Key Vault has been successfully associated with your Microsoft Purview account as shown in this example:
+1. Confirm that your Key Vault has been successfully associated with your Microsoft Purview account as shown in this example:
 
    :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="View Azure Key Vault connections to confirm.":::
 
@@ -235,6 +240,22 @@ The following steps will show you how to create a UAMI for Microsoft Purview to 
 
 1. After all the information is filled in, select **Create**.
 
+### Delete a user-assigned managed identity
+
+1. In the [Azure portal](https://portal.azure.com/) navigate to your Microsoft Purview account.
+
+1. In the **Managed identities** section on the left menu, select the identity you want to delete.
+
+1. Select the **Remove** button.
+
+1. Once the managed identity is successfully removed, navigate to the [Microsoft Purview governance portal](https://web.purview.azure.com/), by selecting the **Open Microsoft Purview governance portal** button.
+
+1. Navigate to the Management Center in the studio and then navigate to the Credentials section.
+
+1. Select the identity you want to delete, and then select the **Delete** button.
+
+>[!NOTE]
+>If you have deleted a user-assigned managed identity in the Azure portal, you need to delete the original identiy and create a new one in the Microsoft Purview governance portal.
 
 ## Next steps
 

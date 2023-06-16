@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IntelligenceBank | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IntelligenceBank'
 description: Learn how to configure single sign-on between Azure Active Directory and IntelligenceBank.
 services: active-directory
 author: jeevansd

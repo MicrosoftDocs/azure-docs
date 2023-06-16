@@ -2,7 +2,7 @@
 title: Design a Log Analytics workspace architecture
 description: The article describes the considerations and recommendations for customers preparing to deploy a workspace in Azure Monitor.
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 04/05/2023
 
 ---
 
@@ -23,7 +23,7 @@ The following table presents criteria to consider when you design your workspace
 
 | Criteria | Description |
 |:---|:---|
-| [Segregate operational and security data](#segregate-operational-and-security-data) | Many customers will create separate workspaces for their operational and security data for data ownership and the extra cost from Microsoft Sentinel. In some cases, you might be able to save costs by consolidating into a single workspace to qualify for a commitment tier. |
+| [Operational and security data](#operational-and-security-data) | You may choose to combine operational data from Azure Monitor in the same workspace as security data from Microsoft Sentinel or separate each into their own workspace. Combining them gives you better visibility across all your data, while your security standards might require separating them so that your security team has a dedicated workspace. You may also have cost implications to each strategy. |
 | [Azure tenants](#azure-tenants) | If you have multiple Azure tenants, you'll usually create a workspace in each one. Several data sources can only send monitoring data to a workspace in the same Azure tenant. |
 | [Azure regions](#azure-regions) | Each workspace resides in a particular Azure region. You might have regulatory or compliance requirements to store data in specific locations. |
 | [Data ownership](#data-ownership) | You might choose to create separate workspaces to define data ownership. For example, you might create workspaces by subsidiaries or affiliated companies. | 
@@ -33,16 +33,23 @@ The following table presents criteria to consider when you design your workspace
 | [Legacy agent limitations](#legacy-agent-limitations) | Legacy virtual machine agents have limitations on the number of workspaces they can connect to. |
 | [Data access control](#data-access-control) | Configure access to the workspace and to different tables and data from different resources. |
 
-### Segregate operational and security data
-Most customers who use both Azure Monitor and Microsoft Sentinel will create a dedicated workspace for each to segregate ownership of data between operational and security teams. This approach also helps to optimize costs. If Microsoft Sentinel is enabled in a workspace, all data in that workspace is subject to Microsoft Sentinel pricing, even if it's operational data collected by Azure Monitor.
+### Operational and security data
+The decision whether to combine your operational data from Azure Monitor in the same workspace as security data from Microsoft Sentinel or separate each into their own workspace depends on your security requirements and the potential cost implications for your environment.
+
+**Dedicated workspaces**
+Creating dedicated workspaces for Azure Monitor and Microsoft Sentinel will allow you to segregate ownership of data between operational and security teams. This approach may also help to optimize costs since when Microsoft Sentinel is enabled in a workspace, all data in that workspace is subject to Microsoft Sentinel pricing even if it's operational data collected by Azure Monitor. 
 
 A workspace with Microsoft Sentinel gets three months of free data retention instead of 31 days. This scenario typically results in higher costs for operational data in a workspace without Microsoft Sentinel. See [Azure Monitor Logs pricing details](cost-logs.md#workspaces-with-microsoft-sentinel).
 
-The exception is if combining data in the same workspace helps you reach a [commitment tier](#commitment-tiers), which provides a discount to your ingestion charges. For example, consider an organization that has operational data and security data each ingesting about 50 GB per day. Combining the data in the same workspace would allow a commitment tier at 100 GB per day. That scenario would provide a 15% discount for Azure Monitor and a 50% discount for Microsoft Sentinel.
+
+**Combined workspace**
+Combing your data from Azure Monitor and Microsoft Sentinel in the same workspace gives you better visibility across all of your data allowing you to easily combine both in queries and workbooks. If access to the security data should be limited to a particular team, you can use [table level RBAC](../logs/manage-access.md#set-table-level-read-access) to block particular users from tables with security data or limit users to accessing the workspace using [resource-context](../logs/manage-access.md#access-mode).
+
+This configuration may result in cost savings if helps you reach a [commitment tier](#commitment-tiers), which provides a discount to your ingestion charges. For example, consider an organization that has operational data and security data each ingesting about 50 GB per day. Combining the data in the same workspace would allow a commitment tier at 100 GB per day. That scenario would provide a 15% discount for Azure Monitor and a 50% discount for Microsoft Sentinel.
 
 If you create separate workspaces for other criteria, you'll usually create more workspace pairs. For example, if you have two Azure tenants, you might create four workspaces with an operational and security workspace in each tenant.
 
-- **If you use both Azure Monitor and Microsoft Sentinel:** Create a separate workspace for each. Consider combining the two if it helps you reach a commitment tier.
+- **If you use both Azure Monitor and Microsoft Sentinel:** Consider separating each in a dedicated workspace if required by your security team or if it results in a cost savings. Consider combining the two for better visibility of your combined monitoring data or if it helps you reach a commitment tier.
 - **If you use both Microsoft Sentinel and Microsoft Defender for Cloud:** Consider using the same workspace for both solutions to keep security data in one place.
 
 ### Azure tenants
@@ -52,7 +59,7 @@ Most resources can only send monitoring data to a workspace in the same Azure te
 - **If you have multiple Azure tenants:** Create a workspace for each tenant. For other options including strategies for service providers, see [Multiple tenant strategies](#multiple-tenant-strategies).
 
 ### Azure regions
-Each Log Analytics workspaces resides in a [particular Azure region](https://azure.microsoft.com/global-infrastructure/geographies/). You might have regulatory or compliance purposes for keeping data in a particular region. For example, an international company might locate a workspace in each major geographical region, such as the United States and Europe.
+Each Log Analytics workspace resides in a [particular Azure region](https://azure.microsoft.com/global-infrastructure/geographies/). You might have regulatory or compliance purposes for keeping data in a particular region. For example, an international company might locate a workspace in each major geographical region, such as the United States and Europe.
 
 - **If you have requirements for keeping data in a particular geography:** Create a separate workspace for each region with such requirements.
 - **If you don't have requirements for keeping data in a particular geography:** Use a single workspace for all regions.

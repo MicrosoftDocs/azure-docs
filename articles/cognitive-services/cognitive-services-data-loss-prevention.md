@@ -1,12 +1,12 @@
 ---
-title: Data Loss Prevention #Required; page title is displayed in search results. Include the brand.
-description: Cognitive Services Data Loss Prevention capabilities allow customers to configure the list of outbound URLs their Cognitive Services resources are allowed to access. This configuration creates another level of control for customers to prevent data loss. #Required; article description that is displayed in search results. 
-author: gclarkmt #Required; your GitHub user alias, with correct capitalization.
-ms.author: gregc #Required; microsoft alias of author; optional team alias.
-ms.service: cognitive-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 07/02/2021 #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+title: Data Loss Prevention
+description: Cognitive Services Data Loss Prevention capabilities allow customers to configure the list of outbound URLs their Cognitive Services resources are allowed to access. This configuration creates another level of control for customers to prevent data loss.
+author: gclarkmt
+ms.author: gregc
+ms.service: cognitive-services
+ms.topic: how-to
+ms.date: 03/31/2023
+ms.custom: template-concept
 ---
 
 # Configure data loss prevention for Azure Cognitive Services
@@ -57,7 +57,7 @@ There are two parts to enable data loss prevention. First the property restrictO
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. Display the current properties for Cognitive Services resource.
 
@@ -94,6 +94,7 @@ There are two parts to enable data loss prevention. First the property restrictO
 
 The following services support data loss prevention configuration:
 
+- Azure OpenAI
 - Computer Vision
 - Content Moderator
 - Custom Vision

@@ -3,11 +3,11 @@ title: Configure TLS for a cloud service  | Microsoft Docs
 description: Learn how to specify an HTTPS endpoint for a web role and how to upload a TLS/SSL certificate to secure your application. These examples use the Azure portal.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Configuring TLS for an application in Azure

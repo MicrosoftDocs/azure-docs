@@ -60,7 +60,7 @@ If you don't have a device ready, you should create one before continuing with t
 
 All IoT Edge gateways need a device CA certificate installed on them. The IoT Edge security daemon uses the IoT Edge device CA certificate to sign a workload CA certificate, which in turn signs a server certificate for IoT Edge hub. The gateway presents its server certificate to the downstream device during the initiation of the connection. The downstream device checks to make sure that the server certificate is part of a certificate chain that rolls up to the root CA certificate. This process allows the downstream device to confirm that the gateway comes from a trusted source. For more information, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-![Gateway certificate setup](./media/how-to-create-transparent-gateway/gateway-setup.png)
+:::image type="content" source="./media/how-to-create-transparent-gateway/gateway-setup.png" alt-text="Screenshot that shows the gateway certificate setup." lightbox="./media/how-to-create-transparent-gateway/gateway-setup.png":::
 
 The root CA certificate and the device CA certificate (with its private key) need to be present on the IoT Edge gateway device and configured in the IoT Edge config file. Remember that in this case *root CA certificate* means the topmost certificate authority for this IoT Edge scenario. The gateway device CA certificate and the downstream device certificates need to roll up to the same root CA certificate.
 
@@ -119,6 +119,8 @@ If you don't have your own certificate authority and want to use demo certificat
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 Now, you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine.
+
+For more information on the following commands, see [PowerShell functions for IoT Edge](reference-iot-edge-for-linux-on-windows-functions.md).
 
 1. Check the certificate meets [format requirements](how-to-manage-device-certificates.md#format-requirements).
 

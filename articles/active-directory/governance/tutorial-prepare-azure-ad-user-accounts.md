@@ -2,20 +2,20 @@
 title: 'Tutorial: Preparing user accounts for Lifecycle workflows (preview)'
 description: Tutorial for preparing user accounts for Lifecycle workflows (preview).
 services: active-directory
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 06/13/2022
-ms.author: amsliu
+ms.date: 03/18/2023
+ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
 # Preparing user accounts for Lifecycle workflows tutorials (Preview)
 
-For the on-boarding and off-boarding tutorials you'll need accounts for which the workflows will be executed, the following section will help you prepare these accounts, if you already have test accounts that meet the following requirements you can proceed directly to the on-boarding and off-boarding tutorials. Two accounts are required for the on-boarding tutorials, one account for the new hire and another account that acts as the manager of the new hire. The new hire account must have the following attributes set:
+For the on-boarding and off-boarding tutorials you need accounts for which the workflows are executed. This section helps you prepare these accounts, if you already have test accounts that meet the following requirements, you can proceed directly to the on-boarding and off-boarding tutorials. Two accounts are required for the on-boarding tutorials, one account for the new hire and another account that acts as the manager of the new hire. The new hire account must have the following attributes set:
 
 - employeeHireDate must be set to today
 - department must be set to sales
@@ -27,30 +27,30 @@ The off-boarding tutorials only require one account that has group and Teams mem
 
 [!INCLUDE [active-directory-p2-license.md](../../../includes/active-directory-p2-license.md)] 
 - An Azure AD tenant
-- A global administrator account for the Azure AD tenant.  This account will be used to create our users and workflows.
+- A global administrator account for the Azure AD tenant.  This account is used to create our users and workflows.
 
 ## Before you begin
 
-In most cases, users are going to be provisioned to Azure AD either from an on-premises solution (Azure AD Connect, Cloud sync, etc.) or with an HR solution. These users will have the attributes and values populated at the time of creation. Setting up the infrastructure to provision users is outside the scope of this tutorial. For information, see [Tutorial: Basic Active Directory environment](../cloud-sync/tutorial-basic-ad-azure.md) and [Tutorial: Integrate a single forest with a single Azure AD tenant](../cloud-sync/tutorial-single-forest.md)
+In most cases, users are going to be provisioned to Azure AD either from an on-premises solution (Azure AD Connect, Cloud sync, etc.) or with an HR solution. These users have the attributes and values populated at the time of creation. Setting up the infrastructure to provision users is outside the scope of this tutorial. For information, see [Tutorial: Basic Active Directory environment](../cloud-sync/tutorial-basic-ad-azure.md) and [Tutorial: Integrate a single forest with a single Azure AD tenant](../cloud-sync/tutorial-single-forest.md)
 
 ## Create users in Azure AD
 
-We'll use the Graph Explorer to quickly create two users needed to execute the Lifecycle Workflows in the tutorials.  One user will represent our new employee and the second will represent the new employee's manager.
+We use the Graph Explorer to quickly create two users needed to execute the Lifecycle Workflows in the tutorials.  One user represents our new employee and the second represents the new employee's manager.
 
-You'll need to edit the POST and replace the &lt;your tenant name here&gt; portion with the name of your tenant.  For example:   $UPN_manager = "bsimon@&lt;your tenant name here&gt;" to $UPN_manager = "bsimon@contoso.onmicrosoft.com".  
+You need to edit the POST and replace the &lt;your tenant name here&gt; portion with the name of your tenant.  For example:   $UPN_manager = "bsimon@&lt;your tenant name here&gt;" to $UPN_manager = "bsimon@contoso.onmicrosoft.com".  
 
 >[!NOTE]
 >Be aware that a workflow will not trigger when the employee hire date (Days from event) is prior to the workflow creation date. You must set a employeeHiredate in the future by design.  The dates used in this tutorial are a snapshot in time.  Therefore, you should change the dates accordingly to accommodate for this situation.
 
-First we'll create our employee, Melva Prince.
+First we create our employee, Melva Prince.
 
  1. Now navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
  2. Sign-in to Graph Explorer with the global administrator account for your tenant.
  3. At the top, change **GET** to **POST** and add `https://graph.microsoft.com/v1.0/users/` to the box. 
- 4. Copy the code below in to the **Request body** 
- 5. Replace `<your tenant here>` in the code below with the value of your Azure AD tenant.
+ 4. Copy the following code in to the **Request body** 
+ 5. Replace `<your tenant here>` in the following code with the value of your Azure AD tenant.
  6. Select **Run query**
- 7. Copy the ID that is returned in the results.  This will be used later to assign a manager.
+ 7. Copy the ID that is returned in the results.  This is used later to assign a manager.
 
    ```HTTP
   {
@@ -69,14 +69,14 @@ First we'll create our employee, Melva Prince.
    ```
  :::image type="content" source="media/tutorial-lifecycle-workflows/graph-post-user.png" alt-text="Screenshot of POST create Melva in graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-post-user.png":::
 
-Next, we'll create Britta Simon.  This is the account that will be used as our manager.
+Next, we create Britta Simon.  This is the account that is used as our manager.
 
  1. Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
  2. Make sure the top is still set to **POST** and `https://graph.microsoft.com/v1.0/users/` is in the box.  
- 3. Copy the code below in to the **Request body** 
- 4.  Replace `<your tenant here>` in the code below with the value of your Azure AD tenant.
+ 3. Copy the following code in to the **Request body** 
+ 4.  Replace `<your tenant here>` in the following code with the value of your Azure AD tenant.
  5. Select **Run query**
- 6. Copy the ID that is returned in the results.  This will be used later to assign a manager.
+ 6. Copy the ID that is returned in the results.  This is used later to assign a manager.
    ```HTTP
   {
   "accountEnabled": true,
@@ -96,18 +96,18 @@ Next, we'll create Britta Simon.  This is the account that will be used as our m
 >[!NOTE]
 > You need to change the &lt;your tenant name here&gt; section of the code to match your Azure AD tenant.
 
-As an alternative, the following PowerShell script may also be used to quickly create two users needed execute a lifecycle workflow.  One user will represent our new employee and the second will represent the new employee's manager.
+As an alternative, the following PowerShell script may also be used to quickly create two users needed execute a lifecycle workflow.  One user represents our new employee and the second represents the new employee's manager.
 
 >[!IMPORTANT]
 >The following PowerShell script is provided to quickly create the two users required for this tutorial.  These users can also be created manually by signing in to the Azure portal as a global administrator and creating them.
 
-In order to create this step, save the PowerShell script below to a location on a machine that has access to Azure. 
+In order to create this step, save the following PowerShell script to a location on a machine that has access to Azure. 
 
 Next, you need to edit the script and replace the &lt;your tenant name here&gt; portion with the name of your tenant.  For example:   $UPN_manager = "bsimon@&lt;your tenant name here&gt;" to $UPN_manager = "bsimon@contoso.onmicrosoft.com".  
 
 You need to do perform this action for both $UPN_employee and $UPN_manager  
 
-After editing the script, save it and follow the steps below.
+After editing the script, save it and follow these steps:
 
  1.  Open a Windows PowerShell command prompt, with Administrative privileges, from a machine that has access to the Azure portal.
 2. Navigate to the saved PowerShell script location and run it.
@@ -166,7 +166,7 @@ Some of the attributes required for the pre-hire onboarding tutorial are exposed
 |mail|Used to notify manager of the new employees temporary access pass|Manager|
 |manager|This attribute that is used by the lifecycle workflow|Employee|
 
-For the tutorial, the **mail** attribute only needs to be set on the manager account and the **manager** attribute set on the employee account.  Use the following steps below.
+For the tutorial, the **mail** attribute only needs to be set on the manager account and the **manager** attribute set on the employee account.  Use the following steps:
 
  1. Sign in to Azure portal.
  2. On the right, select **Azure Active Directory**.
@@ -195,7 +195,7 @@ In order to do this, we must get the object ID for our user Melva Prince.
  5.  Select the copy sign next to the **Object ID**.
  6.  Now navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
  7. Sign-in to Graph Explorer with the global administrator account for your tenant.
- 8. At the top, change **GET** to **PATCH** and add `https://graph.microsoft.com/v1.0/users/<id>` to the box.  Replace `<id>` with the value we copied above.
+ 8. At the top, change **GET** to **PATCH** and add `https://graph.microsoft.com/v1.0/users/<id>` to the box.  Replace `<id>` with the value we copied before.
  9. Copy the following in to the **Request body** and select **Run query**
       ```Example
       {
@@ -213,7 +213,7 @@ The manager attribute is used for email notification tasks.  It's used by the li
 1.  Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 2. Make sure the top is still set to **PUT** and `https://graph.microsoft.com/v1.0/users/<id>/manager/$ref` is in the box.  Change `<id>` to the ID of Melva Prince. 
  3. Copy the code below in to the **Request body** 
- 4. Replace `<managerid>` in the code below with the value of Britta Simons ID.
+ 4. Replace `<managerid>` in the following code with the value of Britta Simons ID.
  5. Select **Run query**
       ```Example
       {
@@ -234,7 +234,7 @@ For more information about updating manager information for a user in Graph API,
 ### Enabling the Temporary Access Pass (TAP) 
 A Temporary Access Pass is a time-limited pass issued by an admin that satisfies strong authentication requirements.  
 
-In this scenario, we'll use this feature of Azure AD to generate a temporary access pass for our new employee.  It will then be mailed to the employee's manager.
+In this scenario, we use this feature of Azure AD to generate a temporary access pass for our new employee.  It is then mailed to the employee's manager.
 
 To use this feature, it must be enabled on our Azure AD tenant.  To do this, use the following steps.
 

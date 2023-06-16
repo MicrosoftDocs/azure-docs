@@ -1,7 +1,7 @@
 ---
 title: Orchestration workflows - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Orchestration workflows.
+description: Customize an AI model to connect your Conversational Language Understanding, question answering and LUIS applications.
 services: cognitive-services
 author: aahill
 manager: nitinme

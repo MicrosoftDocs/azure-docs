@@ -21,6 +21,7 @@ By using short-lived certificates or by increasing the frequency of certificate 
 This article discusses how to renew your Azure Key Vault certificates.
 
 ## Get notified about certificate expiration
+
 To get notified about certificate life events, you would need to add certificate contact. Certificate contacts contain contact information to send notifications triggered by certificate lifetime events. The contacts information is shared by all the certificates in the key vault. A notification is sent to all the specified contacts for an event for any certificate in the key vault.
 
 ### Steps to set certificate notifications
@@ -54,6 +55,8 @@ By using Azure Key Vault, you can import certificates from any CA, a benefit tha
 
 To renew a nonintegrated CA certificate:
 
+# [Azure portal](#tab/azure-portal)
+
 1. Sign in to the Azure portal, and then open the certificate you want to renew.
 1. On the certificate pane, select **New Version**.
 3. On the **Create a certificate** page, make sure the **Generate** option is selected under **Method of Certificate Creation**.
@@ -65,6 +68,38 @@ To renew a nonintegrated CA certificate:
 1. Bring back the signed request, and select **Merge Signed Request** on the same certificate operation pane.
 10. The status after merging will show **Completed** and on the main certificate pane you can hit **Refresh** to see the new version of the certificate.
 
+# [Azure CLI](#tab/azure-cli)
+
+Use the Azure CLI [az keyvault certificate create](/cli/azure/keyvault/certificate#az-keyvault-certificate-create) command, providing the name of the certificate you wish to renew:
+
+```azurecli-interactive
+az keyvault certificate create --vault-name "<your-unique-keyvault-name>" -n "<name-of-certificate-to-renew>" -p "$(az keyvault certificate get-default-policy)"
+```
+
+After renewing the certificate, you can view all the versions of the certificate using the Azure CLI [az keyvault certificate list-versions](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) command:
+
+```azurecli-interactive
+az keyvault certificate list-versions --vault-name "<your-unique-keyvault-name>" -n "<name-of-renewed-certificate>"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the Azure PowerShell [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy) cmdlet, providing the name of the certificate you wish to renew:
+
+```azurepowershell-interactive
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
+
+Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "<name-of-certificate-to-renew>" -CertificatePolicy $Policy
+```
+
+After renewing the certificate, you can view all the versions of the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) cmdlet:
+
+```azurepowershell-interactive
+Get-AzKeyVaultCertificate "<your-unique-keyvault-name>" -Name "<name-of-renewed-certificate>" -IncludeVersions
+```
+
+---
+
 > [!NOTE]
 > It's important to merge the signed CSR with the same CSR request that you created. Otherwise, the key won't match.
 
@@ -75,6 +110,6 @@ For more information about creating a new CSR, see [Create and merge a CSR in Ke
 Azure Key Vault also handles autorenewal of self-signed certificates. To learn more about changing the issuance policy and updating a certificate's lifecycle attributes, see [Configure certificate autorotation in Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## Next steps
-- [Azure Key Vault certificate renewal frequently as questions](faq.yml)
+- [Azure Key Vault certificate renewal frequently asked questions](faq.yml)
 - [Integrate Key Vault with DigiCert certificate authority](how-to-integrate-certificate-authority.md)
 - [Tutorial: Configure certificate autorotation in Key Vault](tutorial-rotate-certificates.md)

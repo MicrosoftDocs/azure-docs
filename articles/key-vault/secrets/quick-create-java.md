@@ -2,7 +2,7 @@
 title: Quickstart - Azure Key Vault Secret client library for Java
 description: Provides a quickstart for the Azure Key Vault Secret client library for Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
 ms.date: 01/11/2023
 ms.service: key-vault
@@ -14,6 +14,9 @@ ms.devlang: java
 # Quickstart: Azure Key Vault Secret client library for Java
 
 Get started with the Azure Key Vault Secret client library for Java. Follow these steps to install the package and try out example code for basic tasks.
+
+> [!TIP]
+> If you're working with Azure Key Vault Secrets resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Key Vault Secrets, see [Load a secret from Azure Key Vault in a Spring Boot application](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault).
 
 Additional resources:
 

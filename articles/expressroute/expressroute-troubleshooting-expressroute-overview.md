@@ -3,24 +3,23 @@ title: 'Verify Azure ExpressRoute connectivity - troubleshooting guide'
 description: This article provides instructions on troubleshooting and validating end-to-end connectivity of an ExpressRoute circuit.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 01/07/2022
+ms.date: 06/15/2023
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-
 ---
+
 # Verify ExpressRoute connectivity
 
-This article helps you verify and troubleshoot Azure ExpressRoute connectivity. ExpressRoute extends an on-premises network into the Microsoft Cloud over a private connection that's commonly facilitated by a connectivity provider. ExpressRoute connectivity traditionally involves three distinct network zones:
+This article helps you verify and troubleshoot Azure ExpressRoute connectivity. ExpressRoute extends an on-premises network into the Microsoft Cloud over a private connection commonly facilitated by a connectivity provider. ExpressRoute connectivity traditionally involves three distinct network zones:
 
 - 	Customer network
 -  	Provider network
 -  	Microsoft datacenter
 
 > [!NOTE]
-> In the ExpressRoute direct connectivity model (offered at a bandwidth of 10/100 Gbps), customers can directly connect to the port for Microsoft Enterprise Edge (MSEE) routers. The direct connectivity model includes only customer and Microsoft network zones.
+> In the ExpressRoute Direct connectivity model, you can directly connect to the port for Microsoft Enterprise Edge (MSEE) routers. The direct connectivity model includes only yours and Microsoft network zones.
 
 This article helps you identify if and where a connectivity issue exists. You can then seek support from the appropriate team to resolve the issue. 
 
@@ -44,11 +43,11 @@ In the preceding diagram, the numbers indicate key network points:
 
 At times, this article references these network points by their associated number. 
 
-Depending on the ExpressRoute connectivity model, network points 3 and 4 might be switches (layer 2 devices) or routers (layer 3 devices). The ExpressRoute connectivity models are cloud exchange co-location, point-to-point Ethernet connection, or any-to-any (IPVPN). 
+Depending on the ExpressRoute connectivity model, network points 3 and 4 might be switches (layer 2 devices) or routers (layer 3 devices). The ExpressRoute connectivity models are cloud exchange colocation, point-to-point Ethernet connection, or any-to-any (IPVPN). 
 
 In the direct connectivity model, there are no network points 3 and 4. Instead, CEs (2) are directly connected to MSEEs via dark fiber.
 
-If the cloud exchange co-location, point-to-point Ethernet, or direct connectivity model is used, CEs (2) establish Border Gateway Protocol (BGP) peering with MSEEs (5). 
+If the cloud exchange colocation, point-to-point Ethernet, or direct connectivity model is used, CEs (2) establish Border Gateway Protocol (BGP) peering with MSEEs (5). 
 
 If the any-to-any (IPVPN) connectivity model is used, PE-MSEEs (4) establish BGP peering with MSEEs (5). PE-MSEEs propagate the routes received from Microsoft back to the customer network via the IPVPN service provider network.
 
@@ -85,8 +84,8 @@ To list all the ExpressRoute circuits in a resource group, use the following com
 Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 ```
 
->[!TIP]
->If you're looking for the name of a resource group, you can get it by using the `Get-AzResourceGroup` command to list all the resource groups in your subscription.
+> [!TIP]
+> If you're looking for the name of a resource group, you can get it by using the `Get-AzResourceGroup` command to list all the resource groups in your subscription.
 
 To select a particular ExpressRoute circuit in a resource group, use the following command:
 
@@ -129,11 +128,11 @@ ServiceProviderProvisioningState : Provisioned
 ```
 
 > [!NOTE]
-> After you configure an ExpressRoute circuit, if **Circuit status** is stuck in a **Not enabled** status, contact [Microsoft Support][Support]. If **Provider status** is stuck in **Not provisioned** status, contact your service provider.
+> After you configure an ExpressRoute circuit, if the **Circuit status** is stuck in a **Not enabled** status, contact [Microsoft Support][Support]. If the **Provider status** is stuck in a **Not provisioned** status, contact your service provider.
 
 ## Validate peering configuration
 
-After the service provider has completed provisioning the ExpressRoute circuit, multiple routing configurations based on external BGP (eBGP) can be created over the ExpressRoute circuit between CEs/MSEE-PEs (2/4) and MSEEs (5). Each ExpressRoute circuit can have one or both of the following: 
+After the service provider has completed provisioning the ExpressRoute circuit, multiple routing configurations based on external BGP (eBGP) can be created over the ExpressRoute circuit between CEs/MSEE-PEs (2/4) and MSEEs (5). Each ExpressRoute circuit can have one or both of the following peering configurations: 
 
 - Azure private peering: traffic to private virtual networks in Azure
 - Microsoft peering: traffic to public endpoints of platform as a service (PaaS) and software as a service (SaaS) 
@@ -205,7 +204,7 @@ $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-
 Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-If a peering isn't configured, you'll get an error message. Here's an example response when the stated peering (Azure public peering in this case) isn't configured within the circuit:
+If a peering isn't configured, you get an error message. Here's an example response when the stated peering (Azure public peering in this case) isn't configured within the circuit:
 
 ```azurepowershell
 Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
@@ -306,7 +305,7 @@ StatusCode: 400
 
 ## Test private peering connectivity
 
-Test your private peering connectivity by counting packets arriving at and leaving the Microsoft edge of your ExpressRoute circuit on the MSEE devices. This diagnostic tool works by applying an ACL to the MSEE to count the number of packets that hit specific ACL rules. Using this tool will allow you to confirm connectivity by answering questions such as:
+Test your private peering connectivity by counting packets arriving at and leaving the Microsoft edge of your ExpressRoute circuit on the MSEE devices. This diagnostic tool works by applying an ACL to the MSEE to count the number of packets that hit specific ACL rules. Using this tool allows you to confirm connectivity by answering questions such as:
 
 * Are my packets getting to Azure?
 * Are they getting back to on-premises?
@@ -337,14 +336,14 @@ Test your private peering connectivity by counting packets arriving at and leavi
 
 ### Interpret results
 
-When your results are ready, you'll have two sets of them for the primary and secondary MSEE devices. Review the number of matches in and out, and use the following scenarios to interpret the results:
+When your results are ready, you have two sets of them for the primary and secondary MSEE devices. Review the number of matches in and out, and use the following scenarios to interpret the results:
 
 * **You see packet matches sent and received on both MSEEs**: This result indicates healthy traffic inbound to and outbound from the MSEEs on your circuit. If loss is occurring either on-premises or in Azure, it's happening downstream from the MSEEs.
 * **If you're testing PsPing from on-premises to Azure, received results show matches, but sent results show no matches**: This result indicates that traffic is coming in to Azure but isn't returning to on-premises. Check for return-path routing issues. For example, are you advertising the appropriate prefixes to Azure? Is a user-defined route (UDR) overriding prefixes?
-* **If you're testing PsPing from Azure to on-premises, sent results show no matches, but received results show matches**: This result indicates that traffic is coming in to on-premises but isn't returning to Azure. Work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
+* **If you're testing PsPing from Azure to on-premises, sent results show matches, but received results show no matches**: This result indicates that traffic is coming in to on-premises but isn't returning to Azure. Work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
 * **One MSEE shows no matches, but the other shows good matches**: This result indicates that one MSEE isn't receiving or passing any traffic. It might be offline (for example, BGP/ARP is down).
 
-Your test results for each MSEE device will look like the following example:
+Your test results for each MSEE device look like the following example:
 
 ```
 src 10.0.0.0 dst 20.0.0.0 dstport 3389 (received): 120 matches
@@ -359,9 +358,9 @@ This test result has the following properties:
 
 ## Verify availability of the virtual network gateway
 
-The ExpressRoute virtual network gateway facilitates the management and control plane connectivity to private link services and private IPs deployed to an Azure virtual network. The virtual network gateway infrastructure is managed by Microsoft and sometimes undergoes maintenance. 
+The ExpressRoute virtual network gateway facilitates the management and control plane connectivity to private link services and private IPs deployed to an Azure virtual network. Microsoft manages the virtual network gateway infrastructure and sometimes undergoes maintenance. 
 
-During a maintenance period, performance of the virtual network gateway might be reduced. To troubleshoot connectivity issues to the virtual network and reactively detect if recent maintenance events reduced capacity for the virtual network gateway:
+During a maintenance period, performance of the virtual network gateway may reduce. To troubleshoot connectivity issues to the virtual network and see if a recent maintenance event caused reduce capacity, follow these steps:
 
 1. Select **Diagnose and solve problems** from your ExpressRoute circuit in the Azure portal.
 
@@ -375,7 +374,7 @@ During a maintenance period, performance of the virtual network gateway might be
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/gateway-result.png" alt-text="Screenshot of the diagnostic results.":::
    
-    If maintenance on your virtual network gateway occurred during a period when you experienced packet loss or latency, it's possible that the reduced capacity of the gateway contributed to connectivity issues you're experiencing with the target virtual network. Follow the recommended steps. To support a higher network throughput and avoid connectivity issues during future maintenance events, consider upgrading the [virtual network gateway SKU](expressroute-about-virtual-network-gateways.md#gwsku).
+    If maintenance was done on your virtual network gateway during a period when you experienced packet loss or latency. It's possible that the reduced capacity of the gateway contributed to connectivity issues you're experiencing for the targeted virtual network. Follow the recommended steps. To support a higher network throughput and avoid connectivity issues during future maintenance events, consider upgrading the [virtual network gateway SKU](expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## Next steps
 
@@ -387,10 +386,9 @@ For more information or help, check out the following links:
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "Diagram that shows logical ExpressRoute connectivity and connections between a customer network, a provider network, and a Microsoft datacenter."
-[2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "All resources icon"
 [3]: ./media/expressroute-troubleshooting-expressroute-overview/portal-overview.png "Overview icon"
 [4]: ./media/expressroute-troubleshooting-expressroute-overview/portal-circuit-status.png "Screenshot that shows an example of ExpressRoute essentials listed in the Azure portal."
-[5]: ./media/expressroute-troubleshooting-expressroute-overview/portal-private-peering.png "Screenshot that shows an example ExpressRoute peerings listed in the Azure portal."
+[5]: ./media/expressroute-troubleshooting-expressroute-overview/portal-private-peering.png "Screenshot that shows an example ExpressRoute peering listed in the Azure portal."
 
 <!--Link References-->
 [Support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
@@ -398,4 +396,3 @@ For more information or help, check out the following links:
 [CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
 [ARP]: ./expressroute-troubleshooting-arp-resource-manager.md
 [HA]: ./designing-for-high-availability-with-expressroute.md
-[DR-Pvt]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md

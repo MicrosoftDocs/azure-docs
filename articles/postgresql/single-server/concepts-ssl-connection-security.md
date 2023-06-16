@@ -13,6 +13,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Azure Database for PostgreSQL prefers connecting your client applications to the PostgreSQL service using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). Enforcing TLS connections between your database server and your client applications helps protect against "man-in-the-middle" attacks by encrypting the data stream between the server and your application.
 
 By default, the PostgreSQL database service is configured to require TLS connection. You can choose to disable requiring TLS if your client application does not support TLS connectivity.
@@ -47,6 +49,16 @@ You can enable or disable the **ssl-enforcement** parameter using `Enabled` or `
 
 ```azurecli
 az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
+```
+### Determining SSL connections status
+
+You can also collect all the information about your Azure Database for PostgreSQL - Single Server instance's SSL usage by process, client, and application by using the following query:
+```sql
+SELECT datname as "Database name", usename as "User name", ssl, client_addr, application_name, backend_type
+   FROM pg_stat_ssl
+   JOIN pg_stat_activity
+   ON pg_stat_ssl.pid = pg_stat_activity.pid
+   ORDER BY ssl;
 ```
 
 ## Ensure your application or framework supports TLS connections

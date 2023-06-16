@@ -21,7 +21,7 @@ This article describes how you can add or remove a new user for a group in Permi
 
 ## Add a user
 
-1. Navigate to the [Microsoft Entra admin center](https://entr.microsoft.com/#home). 
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/#home).
 1. From the Azure Active Directory tile, select **Go to Azure Active Directory**. 
 1. From the navigation pane, select the **Groups** drop-down menu, then **All groups**.
 1. Select the group name for the group you want to add the user to.
@@ -37,7 +37,7 @@ This article describes how you can add or remove a new user for a group in Permi
 
 ## Remove a user
 
-1. Navigate to the Microsoft [Entra admin center](https://entr.microsoft.com/#home). 
+1. Navigate to the Microsoft [Entra admin center](https://entra.microsoft.com/#home). 
 1. From the Azure Active Directory tile, select **Go to Azure Active Directory**. 
 1. From the navigation pane, select the **Groups** drop-down menu, then **All groups**.
 1. Select the group name for the group you want to remove the user from.

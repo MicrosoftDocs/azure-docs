@@ -14,6 +14,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 This article helps you identify and resolve common issues that can occur in the single-server deployment of Azure Database for PostgreSQL when configured with data encryption using a customer-managed key.
 
 ## Introduction

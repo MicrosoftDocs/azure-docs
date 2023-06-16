@@ -73,12 +73,19 @@ The following flags are inherited from parent command [`blobfuse2 mount`](blobfu
 Mount all blob storage containers in the storage account specified in the configuration file to the path specified in the command. (Each container will be a subdirectory under the directory specified):
 
 ```bash
-~$ mkdir bf2all
-~$ blobfuse2 mount all ./bf2all --config-file=./config.yaml
+sudo mkdir bf2all
+sudo blobfuse2 mount all ./bf2all --config-file=./config.yaml
+```
+Example Output
+```output
 Mounting container : blobfuse2a to path : bf2all/blobfuse2a
 Mounting container : blobfuse2b to path : bf2all/blobfuse2b
-
-~$ blobfuse2 mount list
+```
+```bash
+sudo blobfuse2 mount list
+```
+Example output
+```output
 1 : /home/<user>/bf2all/blobfuse2a
 2 : /home/<user>/bf2all/blobfuse2b
 ```

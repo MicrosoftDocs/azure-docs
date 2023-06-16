@@ -28,6 +28,9 @@ Shared Access Signatures are a claims-based authorization mechanism using simple
 
 SAS authentication in Service Bus is configured with named [Shared Access Authorization Policies](#shared-access-authorization-policies) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base64 representation. You can configure rules at the namespace level, on Service Bus [queues](service-bus-messaging-overview.md#queues) and [topics](service-bus-messaging-overview.md#topics).
 
+> [!NOTE]
+> These keys are plain text strings using a Base64 representation, and must not be decoded before they are used.
+
 The Shared Access Signature token contains the name of the chosen authorization policy, the URI of the resource that shall be accessed, an expiry instant, and an HMAC-SHA256 cryptographic signature computed over these fields using either the primary or the secondary cryptographic key of the chosen authorization rule.
 
 ## Shared Access Authorization Policies

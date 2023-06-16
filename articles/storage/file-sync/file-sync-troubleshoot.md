@@ -7,7 +7,6 @@ ms.topic: troubleshooting
 ms.date: 8/08/2022
 ms.author: kendownie
 ms.subservice: files 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure File Sync
@@ -61,6 +60,5 @@ Some issues can be related to more than one subject area.
 
 ## See also
 - [Monitor Azure File Sync](file-sync-monitoring.md)
-- [Troubleshoot Azure Files problems in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files problems in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
-- [Troubleshoot Azure file shares performance issues](../files/storage-troubleshooting-files-performance.md)
+- [Troubleshoot Azure Files](../files/files-troubleshoot.md)
+- [Troubleshoot Azure Files performance issues](../files/files-troubleshoot-performance.md)

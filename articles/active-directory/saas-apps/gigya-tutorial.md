@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Gigya | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Gigya'
 description: Learn how to configure single sign-on between Azure Active Directory and Gigya.
 services: active-directory
 author: jeevansd

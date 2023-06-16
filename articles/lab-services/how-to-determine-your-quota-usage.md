@@ -1,10 +1,10 @@
 --- 
 title: How to determine your quota usage 
 description: Learn how to determine where the cores for your subscription are used and if you have any spare capacity against your quota.  
-author: RoseHJM 
+author: ntrogh
+ms.author: nicktrog
 ms.topic: how-to 
 ms.date: 10/11/2022 
-ms.author: rosemalcolm 
 --- 
 
 # Determine usage and quota  

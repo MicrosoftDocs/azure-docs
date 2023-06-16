@@ -3,7 +3,7 @@ title: Azure portal - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks through the Azure portal.
 author: roygara
 
-ms.date: 01/19/2023
+ms.date: 02/22/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -19,13 +19,6 @@ Azure Disk Storage allows you to manage your own keys when using server-side enc
 ## Restrictions
 
 For now, customer-managed keys have the following restrictions:
-
-- If this feature is enabled for your disk, you can't disable it.
-    If you need to work around this, you must copy all the data to an entirely different managed disk that isn't using customer-managed keys:
-
-    - For Linux: [Copy a managed disk](./linux/disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)
-
-    - For Windows: [Copy a managed disk](./windows/disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)
 
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
@@ -87,3 +80,4 @@ The VM deployment process is similar to the standard deployment process, the onl
 - [Replicate machines with customer-managed keys enabled disks](../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Set up disaster recovery of VMware VMs to Azure with PowerShell](../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager](../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
+- See [Create a managed disk from a snapshot with CLI](scripts/create-managed-disk-from-snapshot.md#disks-with-customer-managed-keys) for a code sample.

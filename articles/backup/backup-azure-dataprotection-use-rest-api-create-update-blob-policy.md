@@ -4,10 +4,10 @@ description: In this article, you'll learn how to create and manage backup polic
 ms.topic: how-to
 ms.date: 10/28/2022
 ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
 ms.custom: engagement-fy23
+author: jyothisuri
+ms.author: jsuri
 ---
 # Create Azure Data Protection backup policies for blobs using REST API
 

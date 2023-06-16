@@ -1,5 +1,5 @@
 ---
-title: Identity Governance - Microsoft Entra | Microsoft Docs
+title: Identity Governance - Microsoft Entra
 description: Microsoft Entra Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 01/26/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management

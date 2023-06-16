@@ -48,7 +48,7 @@ Publishing locations for individual SDK packages are detailed below.
 | Chat | [npm](https://www.npmjs.com/package/@azure/communication-chat)| [NuGet](https://www.NuGet.org/packages/Azure.Communication.Chat) | [PyPi](https://pypi.org/project/azure-communication-chat/) | [Maven](https://search.maven.org/search?q=a:azure-communication-chat) | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)| [Maven](https://search.maven.org/search?q=a:azure-communication-chat) | -|
 | SMS| [npm](https://www.npmjs.com/package/@azure/communication-sms) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Sms)| [PyPi](https://pypi.org/project/azure-communication-sms/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms) | -| -| -|
 | Email| [npm](https://www.npmjs.com/package/@azure/communication-email) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Email)| [PyPi](https://pypi.org/project/azure-communication-email/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-email) | -| -| -|
-| Calling| [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Calling) | -| - | [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| -|
+| Calling| [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient) | -| - | [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| -|
 |Call Automation||[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)||[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
 |Network Traversal| [npm](https://www.npmjs.com/package/@azure/communication-network-traversal)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.NetworkTraversal/) | [PyPi](https://pypi.org/project/azure-communication-networktraversal/) | [Maven](https://search.maven.org/search?q=a:azure-communication-networktraversal) | -|- | - |
 | UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
@@ -124,4 +124,4 @@ For more information, see the following SDK overviews:
 To get started with Azure Communication Services:
 
 - [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md)
-- Generate [User Access Tokens](../quickstarts/access-tokens.md)
+- Generate [User Access Tokens](../quickstarts/identity/access-tokens.md)

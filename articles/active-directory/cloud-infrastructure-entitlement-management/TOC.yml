@@ -21,6 +21,8 @@
         href: onboard-azure.MD
       - name: Onboard a GCP project
         href: onboard-gcp.md
+      - name: Configure AWS IAM Identity Center as an identity provider
+        href: how-to-configure-aws-iam.md
       - name: Enable or disable the controller after onboarding is complete
         href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
@@ -64,8 +66,10 @@
     - name: Manage roles/policies and permission requests
       expanded: false
       items:
+      - name: View privileged role assignments in your organization
+        href: product-privileged-role-insights.md
       - name: View roles/policies and requests for permission in the Remediation dashboard
-        href: ui-remediation.md
+        href: ui-remediation.md 
       - name: View information about roles/policies
         href: how-to-view-role-policy.md
       - name: View information about active and completed tasks
@@ -162,4 +166,6 @@
       href: faqs.md
     - name: Glossary
       href: multi-cloud-glossary.md
+    - name: Microsoft Entra Permissions Management partners
+      href: partner-list.md
 

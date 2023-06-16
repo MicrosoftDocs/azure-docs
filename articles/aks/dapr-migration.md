@@ -4,7 +4,6 @@ description: Learn how to migrate your managed clusters from Dapr OSS to the Dap
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: nigreenf
-ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 11/21/2022
 ms.custom: devx-track-azurecli

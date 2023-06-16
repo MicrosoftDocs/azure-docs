@@ -1,7 +1,7 @@
 ---
 title: Manage SIM groups - Azure portal
-titleSuffix: Azure Private 5G Core Preview
-description: With this how-to guide, learn how to manage SIM groups for Azure Private 5G Core Preview through the Azure portal.  
+titleSuffix: Azure Private 5G Core
+description: With this how-to guide, learn how to manage SIM groups for Azure Private 5G Core through the Azure portal.  
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core

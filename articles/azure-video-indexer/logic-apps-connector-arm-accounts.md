@@ -13,7 +13,7 @@ Azure Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-deta
 > [!TIP]
 > For the latest `api-version`, chose the latest stable version in [our REST documentation](/rest/api/videoindexer/stable/generate).
 
-To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
+To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://make.powerautomate.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
 
 You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for the integration gives you better visibility on the health of your workflow and an easy way to debug it.
 
@@ -157,9 +157,10 @@ The following image shows the first flow:
         |Key| Value|
         |----|----|
         | Connection name| <*Enter a name for the connection*>, in this case `aviconnection`.|
-        | API key| This is your personal API key, which is available under **Profile** in the [developer portal](https://api-portal.videoindexer.ai/profile)|
+        | API key| This is your personal API key, which is available under **Profile** in the [developer portal](https://api-portal.videoindexer.ai/profile) Because this Logic App is for ARM accounts we do not need the actual API key and you can fill in a dummy value like 12345 |
     
         Select **Create**.
+        
     1. Fill **Upload video and index** action parameters.
     
         > [!TIP]

@@ -6,7 +6,7 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 01/12/2021
 ms.devlang: csharp, javascript
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # SDK, REST, and CLI developer resources for Language Understanding (LUIS)

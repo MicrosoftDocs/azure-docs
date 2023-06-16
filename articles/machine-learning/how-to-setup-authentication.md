@@ -10,16 +10,13 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 09/23/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-	
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-setup-authentication.md)
-> * [v2 (current version)](how-to-setup-authentication.md)
+    
 
 Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
@@ -176,7 +173,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     ```
 
 1. To grant access to the workspace and other resources used by Azure Machine Learning, use the information in the following articles:
-    * [How to assign roles and actions in AzureML](how-to-assign-roles.md)
+    * [How to assign roles and actions in Azure Machine Learning](how-to-assign-roles.md)
     * [How to assign roles in the CLI](../role-based-access-control/role-assignments-cli.md)
 
     > [!IMPORTANT]
@@ -186,7 +183,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 ## Configure a managed identity
 
 > [!IMPORTANT]
-> Managed identity is only supported when using the Azure Machine Learning SDK from an Azure Virtual Machine or with an Azure Machine Learning compute cluster.
+> Managed identity is only supported when using the Azure Machine Learning SDK from an Azure Virtual Machine, an Azure Machine Learning compute cluster, or compute instance.
 
 ### Managed identity with a VM
 
@@ -199,6 +196,10 @@ The easiest way to create an SP and grant access to your workspace is by using t
 ### Managed identity with compute cluster
 
 For more information, see [Set up managed identity for compute cluster](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
+
+### Managed identity with compute instance
+
+For more information, see [Set up managed identity for compute instance](how-to-create-manage-compute-instance.md#assign-managed-identity).
 
 <a id="service-principal-authentication"></a>
 
@@ -317,7 +318,7 @@ print(ml_client)
 ## Use Conditional Access
 
 As an administrator, you can enforce [Azure AD Conditional Access policies](../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
-can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to Machine Learning Cloud app.
+can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the app named __Azure Machine Learning__. The app ID is __0736f41a-0425-bdb5-1563eff02385__. 
 
 ## Next steps
 

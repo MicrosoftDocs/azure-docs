@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/26/2021
 ms.author: cwerner
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-js
 #Customer intent: As an application developer, I want to learn how to change the code in my Node.js application from using ADAL as its authentication library to MSAL.
 ---
 
@@ -171,7 +171,7 @@ authenticationContext.acquireTokenWithAuthorizationCode(
 );
 ```
 
-The v2.0 endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
+MSAL Node supports only the **v2.0** endpoint. The v2.0 endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
 const tokenRequest = {

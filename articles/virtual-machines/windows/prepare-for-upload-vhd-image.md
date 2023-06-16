@@ -240,13 +240,15 @@ Make sure the following settings are configured correctly for remote access:
 
    ```powershell
    Enable-PSRemoting -Force
-   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP, WINRM-HTTP-In-TCP-PUBLIC -Enabled True
    ```
+   
+> [!NOTE]
+> When this command runs, it enables the appropriate firewall rules automatically.
 
 1. Enable the following firewall rules to allow the RDP traffic:
 
    ```powershell
-   Set-NetFirewallRule -Group '@FirewallAPI.dll,-28752' -Enabled True
+   Get-NetFirewallRule -DisplayGroup 'Remote Desktop' | Set-NetFirewallRule -Enabled True
    ```
 
 1. Enable the rule for file and printer sharing so the VM can respond to ping requests inside the
@@ -262,6 +264,9 @@ Make sure the following settings are configured correctly for remote access:
    New-NetFirewallRule -DisplayName AzurePlatform -Direction Inbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow -EdgeTraversalPolicy Allow
    New-NetFirewallRule -DisplayName AzurePlatform -Direction Outbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow
    ```
+  
+ > [!IMPORTANT]
+ > 168.63.129.16 is a special public IP address that is owned by Microsoft for Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 1. If the VM is part of a domain, check the following Azure AD policies to make sure the previous
    settings aren't reverted.
@@ -524,7 +529,7 @@ generalized disk, see
 ## Convert the virtual disk to a fixed size VHD
 
 > [!NOTE]
-> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) will perform it for you.
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd) will perform it for you.
 
 Use one of the methods in this section to convert and resize your virtual disk to the required format for Azure:
 
@@ -571,7 +576,7 @@ You can convert a virtual disk using the [Convert-VHD](/powershell/module/hyper-
 cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 > [!NOTE]
-> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) will perform it for you.
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd) will perform it for you.
 
 The following example converts the disk from VHDX to VHD. It also converts the disk from a
 dynamically expanding disk to a fixed-size disk.
@@ -587,7 +592,7 @@ disk.
 ### Use Hyper-V Manager to resize the disk
 
 > [!NOTE]
-> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) will perform it for you.
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd) will perform it for you.
 
 1. Open Hyper-V Manager and select your local computer on the left. In the menu above the computer
    list, select **Action** > **Edit Disk**.
@@ -599,7 +604,7 @@ disk.
 ### Use PowerShell to resize the disk
 
 > [!NOTE]
-> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) will perform it for you.
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd) will perform it for you.
 
 You can resize a virtual disk using the [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
 cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).

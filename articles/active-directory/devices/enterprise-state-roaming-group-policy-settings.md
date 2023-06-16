@@ -1,5 +1,5 @@
 ---
-title: Group Policy and MDM settings for ESR - Azure Active Directory
+title: Group Policy and MDM settings for ESR
 description: Management settings for Enterprise State Roaming
 
 services: active-directory

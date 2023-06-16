@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 02/27/2023
 ---
 
 # Monitor query requests in Azure Cognitive Search
 
-This article explains how to measure query performance and volume using metrics and resource logging. It also explains how to get the query strings entered by application users.
+This article explains how to measure query performance and volume using built-in metrics and resource logging. It also explains how to get the query strings entered by application users.
 
 The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics can be accessed in the portal for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](monitor-azure-cognitive-search.md) that specifies a storage option for persisting logged operations and metrics.
 

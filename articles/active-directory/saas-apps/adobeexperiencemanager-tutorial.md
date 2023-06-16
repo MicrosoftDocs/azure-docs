@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Adobe Experience Manager | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Adobe Experience Manager'
 description: Learn how to configure single sign-on between Azure Active Directory and Adobe Experience Manager.
 services: active-directory
 author: jeevansd

@@ -4,13 +4,18 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 10/28/2022
+ms.date: 04/03/2023
 ms.custom:
 ---
 
+#### Register the data source in Microsoft Purview
+Before a policy can be created in Microsoft Purview for a data resource, you must register that data resource in Microsoft Purview Studio. You will find the instructions related to registering the data resource later in this guide.
+>[!NOTE]
+> If a data source is moved to a new resource group or subscription it first needs to be de-registered and then re-registered for Microsoft Purview's policies to continue to work, as they rely on the data source's ARM path.
+
 #### Configure permissions to enable Data use management on the data source
 
-Before a policy can be created in Microsoft Purview for a resource, you must configure permissions. To enable the **Data use management** toggle for a data source, resource group, or subscription, the *same user* must have *both* specific identity and access management (IAM) privileges on the resource and specific Microsoft Purview privileges: 
+Once a resource is registered, but before a policy can be created in Microsoft Purview for that resource, you must configure permissions. A set of permissions are needed to enable the **Data use management**. This applies to data sources, resource groups, or subscriptions. To enable *Data use management*, the **same user** must have **both** specific identity and access management (IAM) privileges on the resource and specific Microsoft Purview privileges: 
 
 - The user must have *either one* of the following IAM role combinations on the resource's Azure Resource Manager path or any parent of it (that is, using IAM permission inheritance):
    - IAM Owner
@@ -37,8 +42,8 @@ For more information about managing Microsoft Purview role assignments, see [Cre
 
 >[!NOTE]
 > Currently, Microsoft Purview roles related to creating, updating, and deleting policies must be configured at the root collection level.
->
-> In addition to the Microsoft Purview *Policy author* role, users might need [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) permission in Azure Active Directory to create a policy. This is a common permission for users in an Azure tenant.
+
+In addition, to easily search Azure AD users or groups when creating or updating the subject of a policy, the Policy Author may greatly benefit from having the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) permission in Azure AD. This is a common permission for users in an Azure tenant. Without the Directory Reader permission, the Policy Author will have to type the complete username or email for all the principals included in the subject.
 
 #### Configure Microsoft Purview permissions for publishing Data Owner policies
 

@@ -3,7 +3,7 @@ title: Overview
 description: Microsoft Defender External Attack Surface Management (Defender EASM) continuously discovers and maps your digital attack surface to provide an external view of your online infrastructure.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: conceptual
 ---
@@ -44,6 +44,11 @@ Defender EASM provides a series of dashboards that help users quickly understand
 Customers can filter their inventory to surface the specific insights they care about most. Filtering offers a level of flexibility and customization that enables users to access a specific subset of assets. This allows you to leverage Defender EASM data according to your specific use case, whether searching for assets that connect to deprecating infrastructure or identifying new cloud resources.
 
 ![Screenshot of Inventory View](media/Overview-4.png)
+
+## User permissions 
+
+Users that have been assigned either Owner or Contributor roles can create, delete, and edit Defender EASM resources and the inventory assets within it. These roles can utilize all capabilities offered in the platform. Users that have been assigned the Reader role are able to view Defender EASM data, but are unable to create, delete or edit inventory assets or the resource itself.  
+
 
 ## Data residency, availability and privacy
 

@@ -1,11 +1,11 @@
 ---
-title: Security posture for Microsoft Defender for Cloud
+title: Secure score
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 ms.topic: conceptual
-ms.date: 01/15/2023
+ms.date: 04/20/2023
 ---
 
-# Security posture for Microsoft Defender for Cloud
+# Secure score
 
 ## Overview of secure score
 
@@ -34,12 +34,12 @@ For more information, see [How your secure score is calculated](secure-score-sec
 
 On the Security posture page, you're able to see the secure score for your entire subscription, and each environment in your subscription. By default all environments are shown.
 
-:::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page.":::
+:::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page." lightbox="media/secure-score-security-controls/security-posture-page.png":::
 
 | Page section | Description |
 |--|--|
 | :::image type="content" source="media/secure-score-security-controls/select-environment.png" alt-text="Screenshot showing the different environment options."::: | Select your environment to see its secure score, and details. Multiple environments can be selected at once. The page will change based on your selection here.|
-| :::image type="content" source="media/secure-score-security-controls/environment.png" alt-text="Screenshot of the environment section of the security posture page."::: | Shows the total number of subscriptions, accounts and projects that affect your overall score. It also shows how many unhealthy resources and how many recommendations exist in your environments. |
+| :::image type="content" source="media/secure-score-security-controls/environment.png" alt-text="Screenshot of the environment section of the security posture page." lightbox="media/secure-score-security-controls/environment.png"::: | Shows the total number of subscriptions, accounts and projects that affect your overall score. It also shows how many unhealthy resources and how many recommendations exist in your environments. |
 
 The bottom half of the page allows you to view and manage viewing the individual secure scores, number of unhealthy resources and even view the recommendations for all of your individual subscriptions, accounts, and projects.
 
@@ -95,8 +95,7 @@ In this example:
 
 ### Which recommendations are included in the secure score calculations?
 
-Only built-in recommendations have an impact on the secure score.
-
+Only built-in recommendations that are part of the default initiative, Azure Security Benchmark, have an impact on the secure score.
 Recommendations flagged as **Preview** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
 
 Preview recommendations are marked with: :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::
@@ -111,14 +110,14 @@ You can also [configure the Enforce and Deny options](prevent-misconfigurations.
 
 The table below lists the security controls in Microsoft Defender for Cloud. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources.
 
-The set of security recommendations provided with Defender for Cloud is tailored to the available resources in each organization's environment. You can [disable policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempt specific resources from a recommendation](exempt-resource.md) to further customize the recommendations.
+The set of security recommendations provided with Defender for Cloud is tailored to the available resources in each organization's environment. You can [disable recommendations](tutorial-security-policy.md#disable-a-security-recommendation) and [exempt specific resources from a recommendation](exempt-resource.md) to further customize the recommendations.
 
 We recommend every organization carefully reviews their assigned Azure Policy initiatives.
 
 > [!TIP]
-> For details about reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md).
+> For details about reviewing and editing your initiatives, see [manage security policies](tutorial-security-policy.md).
 
-Even though Defender for Cloud's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
+Even though Defender for Cloud's default security initiative, the Azure Security Benchmark, is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
 
@@ -130,7 +129,7 @@ No. It won't change until you remediate all of the recommendations for a single 
 
 ### If a recommendation isn't applicable to me, and I disable it in the policy, will my security control be fulfilled and my secure score updated?
 
-Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
+Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security recommendations](./tutorial-security-policy.md#disable-a-security-recommendation).
 
 ### If a security control offers me zero points towards my secure score, should I ignore it?
 
@@ -148,3 +147,5 @@ For related material, see the following articles:
 - [Learn about the different elements of a recommendation](review-security-recommendations.md)
 - [Learn how to remediate recommendations](implement-security-recommendations.md)
 - [View the GitHub-based tools for working programmatically with secure score](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
+
+

@@ -7,9 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
+
 ms.custom: references.regions
 ---
 <!-- markdownlint-disable MD033 -->
@@ -26,7 +26,13 @@ ms.custom: references.regions
 
 ::: moniker range="form-recog-3.0.0"
 
-Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents such as US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
+Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents. The API analyzes identity documents (including the following) and returns a structured JSON data representation:
+
+* US Drivers Licenses (all 50 states and District of Columbia)
+* International passport biographical pages
+* US state IDs
+* Social Security cards
+* Permanent resident cards
 
 ::: moniker-end
 
@@ -67,7 +73,7 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 ## Development options
 
 ::: moniker range="form-recog-3.0.0"
-The following tools are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -76,7 +82,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ::: moniker range="form-recog-2.1.0"
 
-The following tools are supported by Form Recognizer v2.1:
+Form Recognizer v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -94,14 +100,16 @@ The following tools are supported by Form Recognizer v2.1:
 ::: moniker range="form-recog-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+
+* Form Recognizer processes PDF and TIFF files up to 2000 pages or only the first two pages for free-tier subscribers.
+
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 
 ### Try Form Recognizer
 
-Extract data, including name, birth date, and expiration date, from ID documents. You'll need the following resources:
+Extract data, including name, birth date, and expiration date, from ID documents. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -155,9 +163,9 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown menu.":::
+    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select document type dropdown menu.":::
 
-1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Form Recognizer Sample Labeling tool calls the Analyze Prebuilt API and analyzes the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
@@ -167,7 +175,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
     * The "readResults" node contains every line of text with its respective bounding box placement on the page.
     * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
-    * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
+    * The "pageResults" section includes the tables extracted. For each table, Form Recognizer extracts the text, row, and column index, row and column spanning, bounding box, and more.
     * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
 
 > [!NOTE]
@@ -177,22 +185,24 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 ::: moniker range="form-recog-3.0.0"
 
-## Supported languages and locales
+## Supported document types
 
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
-
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li><li>English (United States)—en-US (state ID)</li><li>English (United States)—en-US (social security card)</li><li>English (United States)—en-US (permanent resident card)</li></ul></br>|English (United States)—en-US|
+| Region | Document Types |
+|--------|----------------|
+|Worldwide|Passport Book, Passport Card|
+|`United States (US)`|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
+|`India (IN)`|Driver License, PAN Card, Aadhaar Card|
+|`Canada (CA)`|Driver License, Identification Card, Residency Permit (Maple Card)|
+|`United Kingdom (GB)`|Driver License, National Identity Card|
+|`Australia (AU)`|Driver License, Photo Card, Key-pass ID (including digital version)|
 
 ## Field extractions
 
-Below are the fields extracted per document type. The Azure Form Recognizer ID model `prebuilt-idDocument` extracts the below fields in the `documents.*.fields`. It also extracts all the text in the documents, words, lines, and styles that are included in the JSON output in the different sections.  
+The following are the fields extracted per document type. The Azure Form Recognizer ID model `prebuilt-idDocument` extracts the following fields in the `documents.*.fields`. The json output includes all the extracted text in the documents, words, lines, and styles.
 
 >[!NOTE]
 >
-> In addition to specifying the IdDocument model, you can designate the ID type for (driver license, passport, national identity card, residence permit, or US social security card ).
+> In addition to specifying the IdDocument model, you can designate the ID type for (driver license, passport, national/regional identity card, residence permit, or US social security card ).
 
 ### Data extraction (all types)
 
@@ -245,7 +255,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`PlaceOfBirth`|`string`|Place of birth|MASSACHUSETTS, U.S.A.|
 |`PlaceOfIssue`|`string`|Place of issue|LA PAZ|
 |`IssuingAuthority`|`string`|Issuing authority|United States Department of State|
-|`PersonalNumber`|`string`|Personal Id. No.|A234567893|
+|`PersonalNumber`|`string`|Personal ID. No.|A234567893|
 |`MachineReadableZone`|`object`|Machine readable zone (MRZ)|P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816|
 |`MachineReadableZone.FirstName`|`string`|Given name and middle initial if applicable|JENNIFER|
 |`MachineReadableZone.LastName`|`string`|Surname|BROOKS|
@@ -262,8 +272,8 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |:------|:-----|:------------|:--------|
 |`CountryRegion`|`countryRegion`|Country or region code|USA|
 |`Region`|`string`|State or province|Washington|
-|`DocumentNumber`|`string`|National identity card number|WDLABCD456DG|
-|`DocumentDiscriminator`|`string`|National identity card document discriminator|12645646464554646456464544|
+|`DocumentNumber`|`string`|National/regional identity card number|WDLABCD456DG|
+|`DocumentDiscriminator`|`string`|National/regional identity card document discriminator|12645646464554646456464544|
 |`FirstName`|`string`|Given name and middle initial if applicable|LIAM R.|
 |`LastName`|`string`|Surname|TALBOT|
 |`Address`|`address`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|
@@ -300,31 +310,16 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
-#### `idDocument` field extracted
+#### `idDocument` fields extracted
 
-|Name| Type | Description | Standardized output|
-|:-----|:----|:----|:----|
-|  DateOfIssue | Date | Issue date  | yyyy-mm-dd |
-|  Height | String | Height of the holder.  | |
-|  Weight | String | Weight of the holder.  | |
-|  EyeColor | String | Eye color of the holder.  | |
-|  HairColor | String | Hair color of the holder.  | |
-|  DocumentDiscriminator | String | Document discriminator is a security code that identifies where and when the license was issued.  | |
-| Endorsements | String | More driving privileges granted to a driver such as Motorcycle or School bus.  | |
-| Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
-| VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
-|  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
-|  DateOfBirth | Date | DOB | yyyy-mm-dd |
-|  DateOfExpiration | Date | Expiration date DOB | yyyy-mm-dd |
-|  DocumentNumber | String | Relevant passport number, driver's license number, etc. |  |
-|  FirstName | String | Extracted given name and middle initial if applicable |  |
-|  LastName | String | Extracted surname |  |
-|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) |  |
-|  Sex | String | Possible extracted values include "M", "F" and "X" | |
-|  MachineReadableZone | Object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | String | Document type, for example, Passport, Driver's License, Social security card and more | "passport" |
-|  Address | String | Extracted address, address is also parsed to its components - address, city, state, country, zip code ||
-|  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
+| Field | Type | Description | Example |
+|:------|:-----|:------------|:--------|
+|`Address`|`address`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|
+|`DocumentNumber`|`string`|Driver license number|WDLABCD456DG|
+|`FirstName`|`string`|Given name and middle initial if applicable|LIAM R.|
+|`LastName`|`string`|Surname|TALBOT|
+|`DateOfBirth`|`date`|Date of birth|01/06/1958|
+|`DateOfExpiration`|`date`|Date of expiration|08/12/2020|
 
 ::: moniker-end
 

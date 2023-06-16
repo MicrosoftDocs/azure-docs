@@ -158,7 +158,7 @@ Follow these steps to get started:
      displayName: 'Install npm package'
    
    # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
-   # Enter the appropriate subscription and name for the source factory.
+   # Enter the appropriate subscription and name for the source factory. Either of the "Validate" or "Validate and Generate ARM temmplate" options are required to perform validation. Running both is unnecessary.
    
    - task: Npm@1
      inputs:
@@ -195,7 +195,7 @@ Follow these steps to get started:
 5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated.
 
 > [!NOTE]
-> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually.
+> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually. However, when deploying one would still need to reference the [documentation on stopping and starting triggers](continuous-integration-delivery-sample-script.md#script-execution-and-parameters) to execute the provided script.
 
 ## Next steps
 

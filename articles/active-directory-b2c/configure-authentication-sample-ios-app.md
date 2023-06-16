@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 01/06/2023
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -134,8 +134,8 @@ Update the following class members:
 
 |Key  |Value  |
 |---------|---------|
-|kTenantName| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
-|kAuthorityHostName|The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.b2clogin.com`).|
+|kTenantName| Your Azure AD B2C tenant full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+|kAuthorityHostName|The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.b2clogin.com`).|
 |kClientID|The mobile application ID from [step 2.3](#step-23-register-the-mobile-app).|
 |kRedirectUri|The mobile application redirect URI from [step 2.3](#step-23-register-the-mobile-app), `msauth.com.microsoft.identitysample.MSALiOS://auth`.|
 |kSignupOrSigninPolicy| The sign-up or sign-in user flow or custom policy you created in [step 1](#step-1-configure-your-user-flow).|

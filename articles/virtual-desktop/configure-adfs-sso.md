@@ -6,6 +6,7 @@ author: Heidilohr
 manager: lizross
 
 ms.service: virtual-desktop
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: helohr

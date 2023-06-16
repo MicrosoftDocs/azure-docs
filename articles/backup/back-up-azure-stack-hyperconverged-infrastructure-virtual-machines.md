@@ -2,7 +2,7 @@
 title: Back up Azure Stack HCI virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 05/15/2022
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -25,6 +25,8 @@ MABS can back up Azure Stack HCI virtual machines in the following scenarios:
 - **VM Move within a cluster**: When VMs are moved within a stretched/normal cluster, MABS continues to protect the virtual machines as long as the MABS protection agent is installed on the Azure Stack HCI host. The way in which MABS protects the virtual machines depends on the type of live migration involved. With a VM Move within a cluster, MABS detects the migration, and backs up the virtual machine from the new cluster node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups. 
 
 - **VM Move to a different stretched/normal cluster**: VM Move to a different stretched/normal cluster is not supported.
+
+Learn more about the [supported scenarios for MABS V3 UR2 and later](backup-mabs-protection-matrix.md#vm-backup).
 
 ## Host versus guest backup
 

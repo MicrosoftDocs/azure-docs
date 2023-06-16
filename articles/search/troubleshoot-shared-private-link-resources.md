@@ -9,7 +9,7 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 02/22/2023
 ---
 
 # Troubleshoot issues with Shared Private Links in Azure Cognitive Search
@@ -53,9 +53,10 @@ Some common errors that occur during the creation phase are listed below.
   | Azure Storage | `Microsoft.Storage/storageAccounts`| `2020-08-01` |
   | Azure Cosmos DB | `Microsoft.DocumentDb/databaseAccounts`| `2020-08-01` |
   | Azure SQL Database | `Microsoft.Sql/servers`| `2020-08-01` |
-  | Azure Database for MySQL (preview) | `Microsoft.DBforMySQL/servers`| `2020-08-01-Preview` |
   | Azure Key Vault | `Microsoft.KeyVault/vaults` | `2020-08-01` |
+  | Azure Database for MySQL (preview) | `Microsoft.DBforMySQL/servers`| `2020-08-01-Preview` |
   | Azure Functions (preview) | `Microsoft.Web/sites` | `2020-08-01-Preview` |
+  | Azure SQL Managed Instance (preview) | `Microsoft.Sql/managedInstance` | `2020-08-01-Preview` |
 
   In addition, the specified `groupId` needs to be valid for the specified resource type. For example, `groupId` "blob" is valid for type "Microsoft.Storage/storageAccounts", it can't be used with any other resource type. For a given search management API version, customers can find out the supported `groupId` and resource type details by utilizing the [List supported API](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
@@ -63,16 +64,17 @@ Some common errors that occur during the creation phase are listed below.
 
 ## Deployment failures
 
-A search service initiates the request to create a shared private link, but Azure Resource Manager performs the actual work. You can [check the deployment's status](search-indexer-howto-access-private.md#check-endpoint-status) in the portal or by query, and address any errors that might occur.
+A search service initiates the request to create a shared private link, but Azure Resource Manager performs the actual work. You can [check the deployment's status](search-indexer-howto-access-private.md#1---create-a-shared-private-link) in the portal or by query, and address any errors that might occur.
 
 Shared private link resources that have failed Azure Resource Manager deployment will show up in [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) and [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) API calls, but will have a "Provisioning State" of `Failed`. Once the reason of the Azure Resource Manager deployment failure has been ascertained, delete the `Failed` resource and re-create it after applying the appropriate resolution from the following table.
 
 | Deployment failure reason | Description | Resolution |
-| --- | --- | --- |
-| Network resource provider not registered on target resource's subscription | A private endpoint (and associated DNS mappings) is created for the target resource (Storage Account, Azure Cosmos DB, Azure SQL) via the `Microsoft.Network` resource provider (RP). If the subscription that hosts the target resource ("target subscription") isn't registered with `Microsoft.Network` RP, then the Azure Resource Manager deployment can fail. | You need to register this RP in their target subscription. You can [register the resource provider](../azure-resource-manager/management/resource-providers-and-types.md) using the Azure portal, PowerShell, or CLI.|
+| ------------------------- | ----------- | ---------- |
+| "LinkedAuthorizationFailed" | The error message states that the client has permission to create the shared private link on the search service, but doesn't have permission to perform action 'privateEndpointConnectionApproval/action' on the linked scope. | Re-check the private link ID in the request to make sure there are no errors or omissions in the URI. If Azure Cognitive Search and the Azure PaaS resource are in different subscriptions, and if you're using REST or a command line interface, make sure that the [active Azure account is for the Azure PaaS resource](search-indexer-howto-access-private.md?tabs=rest-create#1---create-a-shared-private-link). For REST clients, make sure you're not using an expired bearer token, and that the token is valid for the active subscription. |
+| Network resource provider not registered on target resource's subscription | A private endpoint (and associated DNS mappings) is created for the target resource (Storage Account, Azure Cosmos DB, Azure SQL) via the `Microsoft.Network` resource provider (RP). If the subscription that hosts the target resource ("target subscription") isn't registered with `Microsoft.Network` RP, then the Azure Resource Manager deployment can fail. | You need to register this RP in their target subscription. You can [register the resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) using the Azure portal, PowerShell, or CLI.|
 | Invalid `groupId` for the target resource | When Azure Cosmos DB accounts are created, you can specify the API type for the database account. While Azure Cosmos DB offers several different API types, Azure Cognitive Search only supports "Sql" as the `groupId` for shared private link resources. When a shared private link of type "Sql" is created for a `privateLinkResourceId` pointing to a non-Sql database account, the Azure Resource Manager deployment will fail because of the `groupId` mismatch. The Azure resource ID of an Azure Cosmos DB account isn't sufficient to determine the API type that is being used. Azure Cognitive Search tries to create the private endpoint, which is then denied by Azure Cosmos DB. | You should ensure that the `privateLinkResourceId` of the specified Azure Cosmos DB resource is for a database account of "Sql" API type |
 | Target resource not found | Existence of the target resource specified in `privateLinkResourceId` is checked only during the commencement of the Azure Resource Manager deployment. If the target resource is no longer available, then the deployment will fail. | You should ensure that the target resource is present in the specified subscription and resource group and isn't moved or deleted. |
-| Transient/other errors | The Azure Resource Manager deployment can fail if there is an infrastructure outage or because of other unexpected reasons. This should be rare and usually indicates a transient state. | Retry creating this resource at a later time. If the problem persists, reach out to Azure Support. |
+| Transient/other errors | The Azure Resource Manager deployment can fail if there's an infrastructure outage or because of other unexpected reasons. This should be rare and usually indicates a transient state. | Retry creating this resource at a later time. If the problem persists, reach out to Azure Support. |
 
 ## Issues approving the backing private endpoint
 
@@ -86,7 +88,7 @@ Shared private links and private endpoints are used when search service **Public
 
 If you observe that the connectivity change operation is taking a significant amount of time, wait for a few hours. Connectivity change operations involve operations such as updating DNS records which may take longer than expected.
 
-If **Public Network Access** is changed, existing shared private links and private endpoints may not work correctly. If existing shared private links and private endpoints stop working during a connectivity change operation, wait a few hours for the operation to complete. If they are still not working, try deleting and recreating them.
+If **Public Network Access** is changed, existing shared private links and private endpoints may not work correctly. If existing shared private links and private endpoints stop working during a connectivity change operation, wait a few hours for the operation to complete. If they're still not working, try deleting and recreating them.
 
 ## Shared private link resource stalled in an "Updating" or "Incomplete" state
 
@@ -94,7 +96,7 @@ Typically, a shared private link resource should go a terminal state (`Succeeded
 
 In rare circumstances, Azure Cognitive Search can fail to correctly mark the state of the shared private link resource to a terminal state (`Succeeded` or `Failed`). This usually occurs due to an unexpected failure. Shared private link resources are automatically transitioned to a `Failed` state if it has been "stuck" in a non-terminal state for more than a few hours.
 
-If you observe that the shared private link resource has not transitioned to a terminal state, wait for a few hours to ensure that it becomes `Failed` before you can delete it and re-create it. Alternatively, instead of waiting you can try to create another shared private link resource with a different name (keeping all other parameters the same).
+If you observe that the shared private link resource hasn't transitioned to a terminal state, wait for a few hours to ensure that it becomes `Failed` before you can delete it and re-create it. Alternatively, instead of waiting you can try to create another shared private link resource with a different name (keeping all other parameters the same).
 
 ## Updating a shared private link resource
 
@@ -122,7 +124,7 @@ Some common errors that occur during the deletion phase are listed below.
 
 | Failure Type | Description | Resolution |
 | --- | --- | --- |
-| Resource is in non-terminal state | A shared private link resource that's not in a terminal state (`Succeeded` or `Failed`) can't be deleted. It is possible (rare) for a shared private link resource to be stuck in a non-terminal state for up to 8 hours. | Wait until the resource has reached a terminal state and retry the delete request. |
+| Resource is in non-terminal state | A shared private link resource that's not in a terminal state (`Succeeded` or `Failed`) can't be deleted. It's possible (rare) for a shared private link resource to be stuck in a non-terminal state for up to 8 hours. | Wait until the resource has reached a terminal state and retry the delete request. |
 | Delete operation failed with error "Conflict" | The Azure Resource Manager operation to delete a shared private link resource reaches out to the resource provider of the target resource specified in `privateLinkResourceId` ("target RP") before it can remove the private endpoint and DNS mappings. Customers can utilize [Azure resource locks](../azure-resource-manager/management/lock-resources.md) to prevent any changes to their resources. When Azure Resource Manager reaches out to the target RP, it requires the target RP to modify the state of the target resource (to remove details about the private endpoint from its metadata). When the target resource has a lock configured on it (or its resource group/subscription), the Azure Resource Manager operation fails with a "Conflict" (and appropriate details). The shared private link resource won't be deleted. | Customers should remove the lock on the target resource before retrying the deletion operation. **Note**: This problem can also occur when customers try to delete a search service with shared private link resources that point to "locked" target resources |
 | Delete operation failed | The asynchronous Azure Resource Manager delete operation can fail in rare cases. When this operation fails, querying the state of the asynchronous operation will present customers with an error message and appropriate details. | Retry the operation at a later time, or reach out to Azure Support if the problem persists.
 | Resource stuck in "Deleting" state | In rare cases, a shared private link resource might be stuck in "Deleting" state for up to 8 hours, likely due to some catastrophic failure on the search RP. | Wait for 8 hours, after which the resource would transition to `Failed` state and then reissue the request.|
