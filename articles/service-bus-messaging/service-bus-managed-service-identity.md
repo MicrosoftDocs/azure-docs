@@ -3,21 +3,18 @@ title: Managed identities for Azure resources with Service Bus
 description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
 ms.date: 06/15/2023
-ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
 # Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources
-[Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) is a cross-Azure feature that enables you to create a secure identity associated with the deployment under which your application code runs. You can then associate that identity with access-control roles that grant custom permissions for accessing specific Azure resources that your application needs. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service such as Azure Service Bus that supports Azure AD authentication, without having credentials in your code. If you aren't familiar with managed identities, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) before proceeding to read through this article.
 
 Here are the high-level steps to use a managed identity to access a Service Bus entity: 
 
-1. Enable managed identity for your client app or environment. For example, enable managed identity for your Azure App Service app, Azure Functions app, or a virtual machine in which your app is running. 
-1. Add the managed identity to Azure Service Bus Data Owner, Azure Service Bus Data Sender, or Azure Service Bus Data Receiver role at the appropriate scope (Azure subscription, resource group, Service Bus namespace, or Service Bus queue or topic).
-1. Use the managed identity and the endpoint to Service Bus entity to connect to Service Bus namespace from your app's code. 
-
-    > [!NOTE]
-    > - When you use managed identities, you don't need to store and protect access keys in your application code or configuration. The client app doesn't need to handle SAS rules and keys, or any other access tokens. The client app only needs the **endpoint address** of the Service Bus namespace. When the app connects, Service Bus binds the managed entity's context to the client in an operation that is shown in an example later in this article. Once it is associated with a managed identity, your Service Bus client can do all authorized operations. Authorization is granted by associating a managed entity with Service Bus roles. 
-    > - For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+1. Enable managed identity for your client app or environment. For example, enable managed identity for your Azure App Service app, Azure Functions app, or a virtual machine in which your app is running. Here are the articles that help you with this step:
+    - [Configure managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
+    - [Configure managed identities for Azure resources on a VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)    
+1. Assign Azure Service Bus Data Owner, Azure Service Bus Data Sender, or Azure Service Bus Data Receiver role to the managed identity at the appropriate scope (Azure subscription, resource group, Service Bus namespace, or Service Bus queue or topic). For instructions to assign a role to a managed identity, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. In your application, use the managed identity and the endpoint to Service Bus namespace to connect to the namespace. For example, in .NET, you could use the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient.-ctor#azure-messaging-servicebus-servicebusclient-ctor(system-string-azure-core-tokencredential)) constructor to connect to a Service Bus entity using an endpoint and [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which uses the managed identity.
 
     > [!IMPORTANT]
     > You can disable local or SAS key authentication for a Service Bus namespace and allow only Azure Active Directory authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
@@ -31,7 +28,7 @@ Azure provides the following Azure built-in roles for authorizing access to a Se
 - [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use this role to allow sending messages to Service Bus queues and topics.
 - [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Use this role to allow receiving messages from Service Bus queues and subscriptions. 
 
-To assign a role to a managed identity, use the **Access control (IAM)** page. Navigate to this page by selecting **Access control (IAM)** on the **Service Bus Namespace** page for your namespace. For step-by-step instructions for assigning a role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
+To assign a role to a managed identity in the Azure portal, use the **Access control (IAM)** page. Navigate to this page by selecting **Access control (IAM)** on the **Service Bus Namespace** page or **Service Bus queue** page, or **Service Bus topic** page. For step-by-step instructions for assigning a role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
 
 ## Resource scope 
 Before you assign an Azure role to a managed identity, determine the scope of access that the managed identity should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
@@ -57,11 +54,7 @@ az role assignment create \
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
-### Sample
-See the following sample on GitHub: [Use Service Bus from App Service with Managed Service Identity](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet/tree/master).
-
-The Default.aspx page is your landing page. The code can be found in the Default.aspx.cs file. The result is a minimal web application with a few entry fields, and with **send** and **receive** buttons that connect to Service Bus to either send or receive messages.
-
+### .NET example
 The [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object is initialized by using a constructor that takes a fully qualified namespace and a `TokenCredential`. The `DefaultAzureCredential` derives from `TokenCredential`, which automatically uses the managed identity configured for the app. The flow of the managed identity context to Service Bus and the authorization handshake are automatically handled by the token credential. It's a simpler model than using SAS.
 
 After you make these changes, publish and run the application. You can obtain the correct publishing data easily by downloading and then importing a publishing profile in Visual Studio:
