@@ -9,7 +9,6 @@
  ms.custom: include file
 ---
 
-## Reliability recommendations
 
 This section contains recommendations for achieving resiliency and availability for your Azure Virtual Machines.  All recommendations fall into one of two categories:
 

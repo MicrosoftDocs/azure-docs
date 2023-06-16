@@ -15,7 +15,10 @@ This article contains [specific reliability recommendations for Virtual Machines
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-[!INCLUDE [Reliability recommendations](~/azure/reliability/includes/reliability-recommendations-include.md)]
+
+## Reliability recommendations
+
+[!INCLUDE [Reliability recommendations](../reliability/includes/reliability-recommendations-include.md)]
  
 ### Reliability recommendations summary
 
