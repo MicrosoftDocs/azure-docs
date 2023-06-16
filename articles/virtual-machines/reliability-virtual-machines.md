@@ -106,7 +106,7 @@ If the region where you are running your application doesn’t support availabil
 
 #### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-5: Use managed disks for VM disks**
 
-Make sure to use managed disks, as managed disks provide better reliability for VMs in an availability set. Managed disks are sufficiently isolated from each other to avoid single points of failure. Also, managed disks aren’t subject to the IOPS limits of VHDs created in a storage account.
+To provide better reliability for VMs in an availability set, use managed disks. Managed disks are sufficiently isolated from each other to avoid single points of failure. Also, managed disks aren’t subject to the IOPS limits of VHDs created in a storage account.
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -143,7 +143,7 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 
 ####  ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-6: Host application and database data on a data disk**
 
-A data disk is a managed disk that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting you data on a data disk also helps with flexibility when backuping or restoring data, as well as migrating the disk without having to migrate the entire Virtual Machine and Operating System. You will be able to also select a different disk sku, with different type, size, and performance that meet your requirements. For more information on data disks, see [Data Disks](/azure/virtual-machines/managed-disks-overview#data-disk).
+A data disk is a managed disk that’s attached to a VM. Use the data disk to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting your data on a data disk makes it easy to backup or restore your data. You can also migrate the disk without having to move the entire VM and Operating System. Also, you'll be able to select a different disk SKU, with different type, size, and performance that meet your requirements. For more information on data disks, see [Data Disks](/azure/virtual-machines/managed-disks-overview#data-disk).
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -154,14 +154,23 @@ A data disk is a managed disk that’s attached to a virtual machine to store ap
 
 #### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-8: Production VMs should be using SSD disks** 
 
-We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
+
+Premium SSD disks offer high-performance, low-latency disk support for I/O-intensive applications and production workloads. Standard SSD Disks are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. 
+
+It is recommended that you:
+
+- Use Standard HDD disks for Dev/Test scenarios and less critical workloads at lowest cost.
+- Use Premium SSD disks instead of Standard HDD disks with your premium-capable VMs. For any Single Instance VM using premium storage for all Operating System Disks and Data Disks, Azure guarantees VM connectivity of at least 99.9%. 
+
+If you want to upgrade from Standard HDD to Premium SSD disks, consider the following issues:
+
+- Upgrading requires a VM reboot and this process takes 3-5 minutes to complete. 
+- If VMs are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
     
-Premium SSD disks offer high-performance, low-latency disk support for I/O-intensive applications and production workloads. Standard SSD Disks are a cost effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Use Standard HDD disks for Dev/Test scenarios and less critical workloads at lowest cost.
 
 For more information on Azure managed disks and disks types, see [Azure managed disk types](/azure/virtual-machines/disks-types#premium-ssd).
 
 
-For more information on availability sets, see [Availability sets](/azure/virtual-machines/availability#availability-sets).
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -183,9 +192,9 @@ For more information on Accelerated Networking, see [Accelerated Networking](/az
 ---
 
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-11: Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months** 
+#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-11: When AccelNet is enabled, you must manually update the GuestOS NIC driver** 
 
-When AccelNet is enabled, the default Azure Virtual Network interface in the GuestOS is replaced for a Mellanox and consecutively its driver is provided from a 3rd party vendor. Marketplace images maintained by Microsoft are offered with the latest version of Mellanox drivers, however, once the Virtual Machine is deployed, the customer is responsible for maintaining the driver up to date.
+When AccelNet is enabled, the default Azure Virtual Network interface in the GuestOS is replaced for a Mellanox interface. As a result, the GuestOS NIC driver is provided from Mellanox, a 3rd party vendor.  Although Marketplace images maintained by Microsoft are offered with the latest version of Mellanox drivers, once the VM is deployed, you'll need to manually update GuestOS NIC driver every six months.
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -195,8 +204,8 @@ When AccelNet is enabled, the default Azure Virtual Network interface in the Gue
 
 ### Management
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-9: Watch for VMs in Stopped state** 
-Azure Virtual Machines (VM) instances go through different states. There are provisioning and power states. If a Virtual Machine is not running that indicates the Virtual Machine might facing an issue or is no longer necessary and could be removed helping to reduce costs.
+#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-9: Review VMs in stopped state** 
+VM instances go through different states, including provisioning and power states. If a VM is in a stopped state, the VM may be facing an issue or is no longer necessary and could be removed to help reduce costs.
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -206,7 +215,7 @@ Azure Virtual Machines (VM) instances go through different states. There are pro
 
 #### ![This is a high recommendation.](../reliability/media/icon-recommendation-high.svg) **VM-22: Use maintenance configurations for the VM**
 
-The maintenance configuration settings allows user to schedule and manage updates, ensuring the VM updates/interruptions are done in planned time frame. For more information on managing VM updates with maintenance configurations, see [Managing VM updates with Maintenance Configurations](maintenance-configurations.md).
+To ensure that VM updates/interruptions are done in a planned time frame, use maintenance configuration settings to schedule and manage updates. For more information on managing VM updates with maintenance configurations, see [Managing VM updates with Maintenance Configurations](maintenance-configurations.md).
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -219,7 +228,7 @@ The maintenance configuration settings allows user to schedule and manage update
 
 #### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-12: VMs should not have a Public IP directly associated** 
 
-If a VM requires outbound internet connectivity, we recommend the use of NAT Gateway or Azure Firewall. NAT Gateway or Azure Firewall help to increase security and resiliency of the service, since both services have much higher availability and [Source Network Address Translation (SNAT)](/azure/load-balancer/load-balancer-outbound-connections) ports. For inbound internet connectivity, we recommend using a load balancing solution such as Azure Load Balancer and Application Gateway.
+If a VM requires outbound internet connectivity, it's recommended that you use NAT Gateway or Azure Firewall. NAT Gateway or Azure Firewall help to increase security and resiliency of the service, since both services have much higher availability and [Source Network Address Translation (SNAT)](/azure/load-balancer/load-balancer-outbound-connections) ports. For inbound internet connectivity, it's recommended that you use a load balancing solution such as Azure Load Balancer and Application Gateway.
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -229,9 +238,9 @@ If a VM requires outbound internet connectivity, we recommend the use of NAT Gat
 ---
 
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-13: Virtual Network Interfaces have an NSG associated**
+#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-13: VM network interfaces have a Network Security Group (NSG) associated**
 
-Unless you have a specific reason to, we recommend that you associate a network security group to a subnet, or a network interface, but not both. Since rules in a network security group associated to a subnet can conflict with rules in a network security group associated to a network interface, you can have unexpected communication problems that require troubleshooting. For more information, see [Intra-Subnet traffic](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic).
+It's recommended that you associate a NSG to a subnet, or a network interface, but not both. Since rules in a NSG associated to a subnet can conflict with rules in a NSG associated to a network interface, you can have unexpected communication problems that require troubleshooting. For more information, see [Intra-Subnet traffic](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic).
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -241,7 +250,7 @@ Unless you have a specific reason to, we recommend that you associate a network 
 ---
 
 
-#### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-14: IP Forwarding should only be enabled for Network Virtual Appliances** 
+#### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-14: IP forwarding should only be enabled for network virtual appliances** 
 
 IP forwarding enables the virtual machine network interface to:
 
@@ -249,7 +258,7 @@ IP forwarding enables the virtual machine network interface to:
 
 - Send network traffic with a different source IP address than the one assigned to one of a network interface’s IP configurations.
 
-The setting must be enabled for every network interface that is attached to the virtual machine that receives traffic that the virtual machine needs to forward. A virtual machine can forward traffic whether it has multiple network interfaces or a single network interface attached to it. While IP forwarding is an Azure setting, the virtual machine must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications.
+The IP forwarding setting must be enabled for every network interface that's attached to the VM receiving traffic to be forwarded. A VM can forward traffic whether it has multiple network interfaces, or a single network interface attached to it. While IP forwarding is an Azure setting, the VM must also run an application that's able to forward the traffic, such as firewall, WAN optimization, and load balancing applications.
 
 To learn how to enable or disable IP forwarding, see [Enable or disable IP forwarding](/azure/virtual-network/virtual-network-network-interface?tabs=azure-portal#enable-or-disable-ip-forwarding).
 
@@ -263,7 +272,7 @@ To learn how to enable or disable IP forwarding, see [Enable or disable IP forwa
 
 #### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-17: Network access to the VM disk should be set to "Disable public access and enable private access"**
 
-It is recommended that you set VM disk network access to “Disable public access and enable private access” and create a private endpoint. To learn how to create a private endpoint, see [Create a private endpoint](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#create-a-private-endpoint).
+It's recommended that you set VM disk network access to “Disable public access and enable private access” and create a private endpoint. To learn how to create a private endpoint, see [Create a private endpoint](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#create-a-private-endpoint).
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -280,7 +289,7 @@ There are several types of encryption available for your managed disks, includin
 - Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments.
 - Azure Disk Storage Server-Side Encryption (also referred to as encryption-at-rest or Azure Storage encryption) automatically encrypts data stored on Azure managed disks (OS and data disks) when persisting on the Storage Clusters.
 - Encryption at host ensures that data stored on the VM host hosting your VM is encrypted at rest and flows encrypted to the Storage clusters.
-- Confidential disk encryption binds disk encryption keys to the virtual machine’s TPM and makes the protected disk content accessible only to the VM.
+- Confidential disk encryption binds disk encryption keys to the VM’s TPM and makes the protected disk content accessible only to the VM.
 
 For more information about managed disk encryption options, see [Overview of managed disk encryption options](./disk-encryption-overview.md).
 
@@ -292,9 +301,9 @@ For more information about managed disk encryption options, see [Overview of man
 
 ### Networking
 
-#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-15: Customer DNS Servers should be configured in the Virtual Network level**
+#### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-15: DNS Servers should be configured in the Virtual Network level**
 
-Configure the DNS Server in the Virtual Network to avoid name resolution inconsistency across the environment. For more information on Name resolution for resources in Azure virtual networks, see [Name resolution for VMs and cloud services](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances?tabs=redhat).
+Configure the DNS Server in the Virtual Network to avoid name resolution inconsistency across the environment. For more information on name resolution for resources in Azure virtual networks, see [Name resolution for VMs and cloud services](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances?tabs=redhat).
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -308,7 +317,7 @@ Configure the DNS Server in the Virtual Network to avoid name resolution inconsi
 
 #### ![This is a medium recommendation.](../reliability/media/icon-recommendation-medium.svg) **VM-16: Shared disks should only be enabled in clustered servers**
 
-Azure shared disks is a feature for Azure managed disks that enables you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure, and should only be used in those situations where the disk will be assigned to more than one Virtual Machine member of a Cluster.
+Azure shared disks is a feature for Azure managed disks that enables you to attach a managed disk to multiple VMs simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure and should only be used in those situations where the disk will be assigned to more than one VM member of a cluster.
 
 To learn more about how to enable shared disks for managed disks, see [Enable shared disk](/azure/virtual-machines/disks-shared-enable?tabs=azure-portal).
 
@@ -324,7 +333,7 @@ To learn more about how to enable shared disks for managed disks, see [Enable sh
 
 #### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-18: Ensure that your VMs are compliant with Azure Policies**
 
-It’s important to keep your virtual machine (VM) secure for the applications that you run. Securing your VMs can include one or more Azure services and features that cover secure access to your VMs and secure storage of your data. To get more information on how to keep your VM and applications secure, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines](/azure/virtual-machines/security-controls-policy).
+It’s important to keep your virtual machine (VM) secure for the applications that you run. Securing your VMs can include one or more Azure services and features that cover secure access to your VMs and secure storage of your data. For more information on how to keep your VM and applications secure, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines](/azure/virtual-machines/security-controls-policy).
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -337,7 +346,7 @@ It’s important to keep your virtual machine (VM) secure for the applications t
 
 #### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-20: Enable VM Insights** 
 
-Enable [VM Insights](/azure/azure-monitor/vm/vminsights-overview). to get more visibility into the health and performance of your virtual machine. VM insights monitors the performance and health of your virtual machines and virtual machine scale sets. It monitors their running processes and dependencies on other resources. VM insights can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues. It can also help you understand whether an issue is related to other dependencies.
+Enable [VM Insights](/azure/azure-monitor/vm/vminsights-overview) to get more visibility into the health and performance of your virtual machine. VM Insights gives you information on the performance and health of your VMs and Virtual Machine Scale Sets (VMSS), by monitoring their running processes and dependencies on other resources. VM Insights can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues. Insights can also help you understand whether an issue is related to other dependencies.
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -349,10 +358,10 @@ Enable [VM Insights](/azure/azure-monitor/vm/vminsights-overview). to get more v
 
 #### ![This is a low recommendation.](../reliability/media/icon-recommendation-low.svg) **VM-21: Configure diagnostic settings for all Azure resources**
 
-Platform metrics are sent automatically to Azure Monitor Metrics by default and without configuration. Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on:
+Platform metrics are sent automatically to Azure Monitor Metrics by default and without configuration. Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on and are one of the following types:
 
 - **Resource logs** that aren’t collected until they’re routed to a destination.
-- Activity logs exist on their own but can be routed to other locations.
+- **Activity logs** that exist on their own but can be routed to other locations.
 - 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
