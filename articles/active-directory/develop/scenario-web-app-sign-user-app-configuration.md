@@ -169,7 +169,7 @@ In the Azure portal, the reply URIs that you register on the **Authentication** 
 
 Here, the configuration parameters reside in *.env.dev* as environment variables:
 
-:::code language="text" source="~/ms-identity-node/App/.env":::
+:::code language="text" source="~/ms-identity-node/App/.env.dev":::
 
 These parameters are used to create a configuration object in *authConfig.js* file, which will eventually be used to initialize MSAL Node:
 
