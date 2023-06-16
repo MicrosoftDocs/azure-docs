@@ -20,9 +20,7 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 
 - Identify/create a Recovery Services vault in the same region and subscription as the two VMs/nodes of the HANA System Replication (HSR) database.
 - Allow connectivity from each of the VMs/nodes to the internet for communication with Azure. 
-- Run the preregistration script on both VMs or nodes that are part of HANA System Replication (HSR) database.
-  >[!Note]
-  >You can download the latest preregistration script [from here](https://aka.ms/ScriptForPermsOnHANA). You can also download it from the link under *Recovery Services vault* > **Backup** > **Discover DB’s in VM’s** > **Start Discovery**.
+- Run the preregistration script on both VMs or nodes that are part of HANA System Replication (HSR) database. You can download the latest preregistration script [from here](https://aka.ms/ScriptForPermsOnHANA). You can also download it from the link under *Recovery Services vault* > **Backup** > **Discover DB’s in VM’s** > **Start Discovery**.
 
 >[!Important]
 >Ensure that the combined length of the SAP HANA Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs and 77 characters for classic VMs. This limitation is because some characters are reserved by the service.
@@ -49,17 +47,17 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
 
    `-bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME`
    
-   If the password of this custom backup key expires, it could lead to the backup and restore operations failure.
+   If the password of this custom backup key expires, the backup and restore operations will fail.
 
    **Example**:
 
-   ```
+   ```HDBSQL
    hdbuserstore set SYSTEMKEY localhost:30013@SYSTEMDB <custom-user> '<some-password>'
    hdbuserstore set SYSTEMKEY <load balancer host/ip>:30013@SYSTEMDB <custom-user> '<some-password>'
    ```
 
    >[!Note]
-   >You can create a custom backup key with the environment of load balancer host/IP instead of local host to use Virtual IP (VIP).
+   >You can create a custom backup key using the load balancer host/IP instead of local host to use Virtual IP (VIP).
 
 1. Create the same *Custom backup user* (with the same password) and key (in *hdbuserstore*) on both VMs/nodes.
    
@@ -227,7 +225,7 @@ Backups run in accordance with the policy schedule. Learn how to [run an on-dema
 You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
 >[!Note]
->After failover/fall back if backups fail, ensure that physical/logical registration is correctly set. [Learn more](sap-hana-database-manage.md#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
+>Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration). [Learn more](sap-hana-database-manage.md#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
 
 
 ## Next steps

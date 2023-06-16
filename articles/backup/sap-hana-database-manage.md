@@ -234,10 +234,7 @@ Unregister an SAP HANA instance after you disable protection but before you dele
 
 ### Verify the registration status of VMs or Nodes to the vault
 
-Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration).
-
->[!Note]
->After failover/fall back if backups fail, ensure that physical/logical registration is correctly set. Otherwise, [rediscover the VMs/Nodes](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases).
+Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration). If backups fail after failover/fallback, ensure that physical/logical registration is complete. Otherwise, [rediscover the VMs/Nodes](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases).
 
 **Confirm the physical registration**
 
