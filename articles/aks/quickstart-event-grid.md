@@ -35,7 +35,7 @@ In this quickstart, you create an Azure Kubernetes Service (AKS) cluster and sub
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Create an Azure resource group using the [`New-AzResourceGroup`] cmdlet.
+1. Create an Azure resource group using the [`New-AzResourceGroup`][new-azresourcegroup] cmdlet.
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name myResourceGroup -Location eastus
@@ -237,3 +237,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-create]: /cli/azure/group#az_group_create
 [az-eventgrid-event-subscription-list]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-list
 [get-azeventgridsubscription]: /powershell/module/az.eventgrid/get-azeventgridsubscription
+[new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
