@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/15/2023
+ms.date: 06/16/2023
 ms.author: depadia
 ---
 
@@ -512,17 +512,17 @@ Option 1: [Geo-redundant database backup restore](/azure/azure-sql/database/reco
    > [!IMPORTANT]
    > Geo-restore is available for SQL databases configured with geo-redundant [backup storage](/azure/azure-sql/database/automated-backups-overview#backup-storage-redundancy).
 
-Option 2: [Geo-replication](/azure/azure-sql/database/active-geo-replication-overview) or an [autofailover group](/azure/azure-sql/database/auto-failover-group-overview)
+Option 2: [Geo-replication](/azure/azure-sql/database/active-geo-replication-overview) or an [auto-failover group](/azure/azure-sql/database/auto-failover-group-overview)
 
-   Geo-replication is a SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different region. If geo-replication is enabled for the CMS and audit database, the application can initiate failover to a secondary database in a different Azure region. Geo-replication is enabled for individual databases, but to enable transparent and coordinated failover of multiple databases (CMS and audit) for an SAP BOBI application, it's advisable to use an autofailover group. It provides the group semantics on top of active geo-replication, which means the entire SQL server (all databases) is replicated to another region instead of individual databases. Check the capabilities table that [compares geo-replication with failover groups](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#compare-geo-replication-with-failover-groups).
+   Geo-replication is a SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different region. If geo-replication is enabled for the CMS and audit database, the application can initiate failover to a secondary database in a different Azure region. Geo-replication is enabled for individual databases, but to enable transparent and coordinated failover of multiple databases (CMS and audit) for an SAP BOBI application, it's advisable to use an auto-failover group. It provides the group semantics on top of active geo-replication, which means the entire SQL server (all databases) is replicated to another region instead of individual databases. Check the capabilities table that [compares geo-replication with failover groups](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#compare-geo-replication-with-failover-groups).
 
-   Autofailover groups provide read/write and read-only listener endpoints that remain unchanged during failover. The read/write endpoint can be maintained as a listener in the ODBC connection entry for the CMS and audit database. So whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. The application is automatically connected to the CMS database as the read/write endpoint is maintained as a listener in the ODBC connection.
+   Auto-failover groups provide read/write and read-only listener endpoints that remain unchanged during failover. The read/write endpoint can be maintained as a listener in the ODBC connection entry for the CMS and audit database. So whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. The application is automatically connected to the CMS database as the read/write endpoint is maintained as a listener in the ODBC connection.
 
-   In the following image, an autofailover group for the SQL server (azussqlbodb) running on the East US 2 region is replicated to the East US secondary region (DR site). The read/write listener endpoint is maintained as a listener in an ODBC connection for the BI application server running on Windows. After failover, the endpoint will remain the same. No manual intervention is required to connect the BI application to the SQL database on the secondary region.
+   In the following image, an auto-failover group for the SQL server (azussqlbodb) running on the East US 2 region is replicated to the East US secondary region (DR site). The read/write listener endpoint is maintained as a listener in an ODBC connection for the BI application server running on Windows. After failover, the endpoint will remain the same. No manual intervention is required to connect the BI application to the SQL database on the secondary region.
 
-   ![Screenshot that shows SQL Database autofailover groups.](media\businessobjects-deployment-guide\businessobjects-deployment-windows-sql-failover-group.png)
+   ![Screenshot that shows SQL Database auto-failover groups.](media\businessobjects-deployment-guide\businessobjects-deployment-windows-sql-failover-group.png)
 
-   This option provides a lower RTO and RPO than option 1. For more information about this option, see [Use autofailover groups to enable transparent and coordinated failover of multiple databases](/azure/azure-sql/database/auto-failover-group-overview).
+   This option provides a lower RTO and RPO than option 1. For more information about this option, see [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](/azure/azure-sql/database/auto-failover-group-overview).
 
 #### Azure Database for MySQL
 
@@ -544,7 +544,7 @@ The following table lists the recommendations for DR for each tier used in this 
 | BI application servers                           | Replicate by using Site Recovery                             |
 | Azure Premium Files                              | AzCopy *or* Azure PowerShell                               |
 | Azure NetApp Files                               | File-based copy tool to replicate data to a secondary region *or* Azure NetApp Files Cross-Region Replication Preview |
-| Azure SQL Database                               | Geo-replication/autofailover groups *or* geo-restore     |
+| Azure SQL Database                               | Geo-replication/auto-failover groups *or* geo-restore     |
 | Azure Database for MySQL                         | Cross-region read replicas *or* restore backup from geo-redundant backups |
 
 ## Next steps

@@ -14,8 +14,6 @@ ms.author: depadia
 
 # SAP BusinessObjects BI platform planning and implementation guide on Azure
 
-## Overview
-
 The purpose of this guide is to provide guidelines for planning, deploying, and configuring SAP BusinessObjects BI Platform, also known as SAP BOBI Platform on Azure. This guide is intended to cover common Azure services and features that are relevant for SAP BOBI Platform. This guide isn't an exhaustive list of all possible configuration options. It covers solutions common to typical deployment scenarios.
 
 This guide isn't intended to replace the standard SAP BOBI Platform installation and administration guides, operating system, or any database documentation.
