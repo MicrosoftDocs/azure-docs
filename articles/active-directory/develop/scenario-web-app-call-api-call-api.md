@@ -50,7 +50,7 @@ public class IndexModel : PageModel
 
  public async Task OnGet()
  {
-  var user = await _graphServiceClient.Me.Request().GetAsync();
+  var user = await _graphServiceClient.Me.GetAsync();
   try
   {
    using (var photoStream = await _graphServiceClient.Me.Photo.Content.GetAsync())
