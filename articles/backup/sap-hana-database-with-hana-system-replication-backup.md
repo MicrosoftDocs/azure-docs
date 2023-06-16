@@ -20,7 +20,7 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 
 - Identify/create a Recovery Services vault in the same region and subscription as the two VMs/nodes of the HANA System Replication (HSR) database.
 - Allow connectivity from each of the VMs/nodes to the internet for communication with Azure. 
-- Run the preregistration script on both VMs or nodes that are part of HANA System Replication (HSR) database. You can download the latest preregistration script [from here](https://aka.ms/ScriptForPermsOnHANA). You can also download it from the link under *Recovery Services vault* > **Backup** > **Discover DB’s in VM’s** > **Start Discovery**.
+- Run the preregistration script on both VMs or nodes that are part of HANA System Replication (HSR). You can download the latest preregistration script [from here](https://aka.ms/ScriptForPermsOnHANA). You can also download it from the link under *Recovery Services vault* > **Backup** > **Discover DBs in VMs** > **Start Discovery**.
 
 >[!Important]
 >Ensure that the combined length of the SAP HANA Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs and 77 characters for classic VMs. This limitation is because some characters are reserved by the service.
