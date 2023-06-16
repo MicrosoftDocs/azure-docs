@@ -327,7 +327,7 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 | `top_p` | number | Optional | 1 |An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both.|
 | `stream` | boolean | Optional | false | If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a message `"messages": [{"delta": {"content": "[DONE]"}, "index": 2, "end_turn": true}]`  |
 | `stop` | string or array | Optional | null | Up to 2 sequences where the API will stop generating further tokens. |
-| `max_tokens` | integer | Optional | 1000 | 	The maximum number of tokens allowed for the generated answer. By default, the number of tokens the model can return will be `4096 - prompt tokens`.  |
+| `max_tokens` | integer | Optional | 1000 | 	The maximum number of tokens allowed for the generated answer. By default, the number of tokens the model can return is `4096 - prompt tokens`.  |
 
 The following parameters can be used inside of the `parameters` field inside of `dataSources`.
 
@@ -342,7 +342,7 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `topNDocuments` | number | Optional | 5 | Number of documents that need to be fetched for document augmentation.  |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure Cognitive Search. |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only available when `queryType` is set to `semantic`.  |
-| `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the “System Message” in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
+| `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the “System Message” in Azure OpenAI Studio. <!--See [Using your data](./concepts/use-your-data.md#system-message) for more information.--> There’s a 100 token limit, which counts towards the overall token limit.|
 
 ## Image generation
 
