@@ -27,6 +27,8 @@ Choose password-based SSO when:
 
 The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the application uses. This string must be the page that includes the username input field.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To configure password-based SSO in your Azure AD tenant, you need:
