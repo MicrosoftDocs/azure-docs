@@ -164,7 +164,7 @@ appInsights.loadAppInsights();
 ```
 
 > [!NOTE] 
-> To add React configuration, see [React configuration](./javascript-framework-extensions.md?tabs=react#configuration). For more information on the React plug-in, see [React plug-in](./javascript-framework-extensions.md?tabs=react#react-application-insights-javascript-sdk-plug-in).
+> To add React configuration, see [React configuration](./javascript-framework-extensions.md?tabs=react#add-configuration). For more information on the React plug-in, see [React plug-in](./javascript-framework-extensions.md?tabs=react).
 
 #### [React Native](#tab/reactnative)
 
@@ -191,7 +191,7 @@ appInsights.loadAppInsights();
 ```
 
 > [!NOTE] 
-> To add React Native configuration, see [Enable Correlation for React Native](./javascript-framework-extensions.md?tabs=reactnative#enable-correlation). For more information on the React Native plug-in, see [React Native plug-in](./javascript-framework-extensions.md?tabs=reactnative#react-native-plugin-for-application-insights-javascript-sdk).
+> For more information on the React Native plug-in, see [React Native plug-in](./javascript-framework-extensions.md?tabs=reactnative).
 
 #### [Angular](#tab/angular)
 
@@ -230,7 +230,7 @@ export class AppComponent {
 ```
 
 > [!NOTE] 
-> To add Angular configuration, see [Enable Correlation for Angular](./javascript-framework-extensions.md?tabs=angular#enable-correlation). For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular#angular-plugin-for-application-insights-javascript-sdk).
+> For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular).
 
 ---
 

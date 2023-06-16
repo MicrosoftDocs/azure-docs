@@ -26,7 +26,7 @@ Follow the steps in this section to instrument your application with the Applica
 > Good news! We're making it even easier to enable JavaScript. Check out where [Javascript (Web) SDK Loader Script injection by configuration is available](./codeless-overview.md#javascript-web-sdk-loader-script-injection-by-configuration)!
 
 > [!NOTE]
-> If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#4-optional-advanced-sdk-configuration).
+> If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#4-optional-add-advanced-sdk-configuration).
 
 ### 1. Add the JavaScript code
 
