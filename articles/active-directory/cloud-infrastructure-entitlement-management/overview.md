@@ -70,6 +70,6 @@ Once your organization has explored and implemented the discover, remediation an
 
 ## Next steps
 
-- Deepen your learning with the [Introduction to Microsoft Entra Permissions Management](/learn-pr/learn-pr/permissions-management/intro-to-entra-permissions-management/1-introduction.yml) learn module. 
+- Deepen your learning with the [Introduction to Microsoft Entra Permissions Management](/learn-pr/learn-pr/permissions-management/intro-to-entra-permissions-management/1-introduction.md) learn module. 
 - Sign up for a [45-day free trial](https://aka.ms/TryPermissionsManagement) of Permissions Management.
 - For a list of frequently asked questions (FAQs) about Permissions Management, see [FAQs](faqs.md).
