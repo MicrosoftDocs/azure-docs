@@ -54,7 +54,7 @@ az role assignment create \
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
-## Examples
+## Using SDKs
 
 In .NET, the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object is initialized by using a constructor that takes a fully qualified namespace and a `TokenCredential`. The `DefaultAzureCredential` derives from `TokenCredential`, which automatically uses the managed identity configured for the app. The flow of the managed identity context to Service Bus and the authorization handshake are automatically handled by the token credential. It's a simpler model than using SAS.
 
@@ -67,16 +67,14 @@ You send and receive messages as usual using [ServiceBusSender](/dotnet/api/azur
 For complete step-by-step instructions to send and receive messages using a managed identity, see the following quickstarts. These quickstarts have the code to use a service principal to send and receive messages, but the code is the same for using a managed identity.  
 
 - [.NET](service-bus-dotnet-get-started-with-queues.md).
-- [Java](service-bus-java-how-to-use-queues).
-- [Python](service-bus-nodejs-how-to-use-queues.md)
+- [Java](service-bus-java-how-to-use-queues.md).
+- [JavaScript](service-bus-nodejs-how-to-use-queues.md)
+- [Python](service-bus-python-how-to-use-queues.md)
 
 > [!NOTE]
 > The managed identity works only inside the Azure environment, on App services, Azure VMs, and scale sets. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library, which is used by the Service Bus NuGet package, provides an abstraction over this protocol and supports a local development experience. This library also allows you to test your code locally on your development machine, using your user account from Visual Studio, Azure CLI 2.0 or Active Directory Integrated Authentication. For more on local development options with this library, see [Service-to-service authentication to Azure Key Vault using .NET](/dotnet/api/overview/azure/service-to-service-authentication).  
 
+
 ## Next steps
+See [this .NET web application sample on GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet/tree/master), which uses a managed identity to connect to Service Bus to send and receive messages. Add the identity of the app service to the **Azure Service Bus Data Owner** role. 
 
-To learn more about Service Bus messaging, see the following topics:
-
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
