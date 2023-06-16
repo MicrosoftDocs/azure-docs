@@ -6,11 +6,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 05/30/2023
+ms.date: 06/16/2023
 ms.author: jasteppe
 ---
 
-# Troubleshoot convert-data
+# Troubleshoot the FHIR Converter
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
@@ -66,7 +66,7 @@ In this article, you've learned about the `$convert-data` endpoint for convertin
 To learn how to configure your environment to use convert-data, see:
  
 >[!div class="nextstepaction"]
->[Configure convert-data](configure-convert-data.md)
+>[Configure convert-data](deploy-and-configure-convert-data.md)
 
 To learn how to troubleshoot convert-data, see:
  

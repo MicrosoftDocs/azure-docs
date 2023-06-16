@@ -1,27 +1,27 @@
 ---
-title: Configure convert-data using the Azure portal - Azure Health Data Services
-description: Learn how to configure convert-data using the Azure portal.
+title: Deploy and configure the FHIR Converter using the Azure portal - Azure Health Data Services
+description: Learn how to deploy and configure the FHIR Converter using the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/30/2022
+ms.date: 06/16/2022
 ms.author: jasteppe
 ---
 
-# Configure convert-data
+# Deploy and configure the FHIR Converter using the Azure portal
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, you learn how to configure convert-data to convert your existing data to FHIR R4 data using the Azure portal.
+In this article, you'll learn how to deploy and configure the FHIR Converter using the Azure portal to convert your existing data to FHIR R4.
 
 ## Customize templates
 
 You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data.
 
 > [!NOTE]
-> FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported. 
+> The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported. 
 
 ## Host your own templates
 

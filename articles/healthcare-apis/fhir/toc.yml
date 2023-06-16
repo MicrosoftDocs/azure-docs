@@ -78,9 +78,9 @@ items:
       expanded: false
       items:
       - name: Overview of convert-data
-        href: convert-data.md
-      - name: Configure convert-data
-        href: configure-convert-data.md
+        href: overview-of-convert-data.md
+      - name: Deploy and configure convert-data
+        href: deploy-and-configure-convert-data.md
       - name: Troubleshoot convert-data
         href: troubleshoot-convert-data.md
       - name: FAQs - convert-data 
