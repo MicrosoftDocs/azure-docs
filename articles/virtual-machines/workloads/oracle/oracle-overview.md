@@ -25,22 +25,25 @@ In this article, you learn about running Oracle solutions using the Azure infras
 Oracle supports running its Database 12.1 and higher Standard and Enterprise editions in Azure on VM images based on Oracle Linux. You can run Oracle databases on Azure infrastructure using Oracle Database on Oracle Linux images available in the Azure Marketplace. 
 - Oracle Database 12.2, and 18.3 Enterprise Edition
 - Oracle Database 12.2, and 18.3 Standard Edition
-- Oracle Database 19.3
+- Oracle Database 19.3    
 You can also take the following approaches:
 - Set up Oracle Database on a non-Oracle Linux image available in Azure.
 - Base a solution on a custom image you create from scratch in Azure.
 - Upload a custom image from your on-premises environment.
 
-Optionally configure your solution with multiple attached disks. You can improve database performance by installing Oracle Automated Storage Management (ASM).
-For the best performance for production workloads of Oracle Database on Azure, be sure to properly size the VM image and select the right storage options based on throughput, IOPS & latency. For instructions on how to quickly get an Oracle Database up and running in Azure using the Oracle published VM image, see Create an Oracle Database in an Azure VM.
+You can also choose to configure your solution with multiple attached disks. You can improve database performance by installing Oracle Automated Storage Management (ASM).
+For the best performance for production workloads of Oracle Database on Azure, be sure to properly size the VM image and select the right storage options based on throughput, IOPS & latency. For instructions on how to quickly get an Oracle Database up and running in Azure using the Oracle published VM image, see [Create an Oracle Database](oracle-database-quick-create.md) in an Azure VM.
 ## Deploy Oracle VM images on Microsoft Azure
 This section covers information about Oracle solutions based on virtual machine (VM) images published by Oracle in the Azure Marketplace.
-To get a list of currently available Oracle images, run the following command using:
+To get a list of currently available Oracle images, run the following command using
 Azure CLI or Azure Cloudshell
 
 ``az vm image list --publisher oracle --output table –all``
 
-The images are bring-your-own-license. You're charged only for the costs of compute, storage, and networking incurred running a VM. You must have a proper license to use Oracle software and have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. For more information about license mobility, see the [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure/interconnect/faq/).
+The images are bring-your-own-license. You're charged only for the costs of compute, storage, and networking incurred running a VM. 
+>[!IMPORTANT]
+>You require a proper license to use Oracle software and a current support agreement with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. For more information about license mobility, see the [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure/interconnect/faq/).
+
 You can also choose to base your solutions on a custom image that you create from scratch in Azure or upload a custom image from your on-premises environment.
 ## Applications on Oracle Linux and WebLogic server
 Run enterprise applications on WebLogic server in Azure on supported Oracle Linux images. For more information, see the WebLogic documentation,[Oracle WebLogic Server on Azure Solution Overview](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster). 
@@ -49,15 +52,15 @@ Run enterprise applications on WebLogic server in Azure on supported Oracle Linu
 Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Marketplace in the form of Azure Application offering. For more information about these offers, see [What are solutions for running Oracle WebLogic Server](oracle-weblogic.md).
 
 ### Oracle WebLogic Server VM images
-- Clustering is supported on Enterprise Edition only. You're licensed to use WebLogic clustering only when you use the Enterprise Edition of Oracle WebLogic Server. Don't use clustering with Oracle WebLogic Server Standard Edition.
-- UDP multicast isn't supported. Azure supports UDP unicasting, but not multicasting or broadcasting. Oracle WebLogic Server is able to rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size is kept static, or kept with no more than 10 managed servers.
-- Oracle WebLogic Server expects public and private ports to be the same for T3 access, for example, when using Enterprise JavaBeans. Consider a multi-tier scenario where a service layer (EJB) application is running on an Oracle WebLogic Server cluster consisting of two or more VMs, in a virtual network named SLWLS. The client tier is in a different subnet in the same virtual network, running a simple Java program trying to call EJB in the service layer. Because you must load balance the service layer, a public load-balanced endpoint needs to be created for the VMs in the Oracle WebLogic Server cluster. If the private port that you specify is different from the public port, for example, 7006:7008, an error such as the following occurs:
-OutputCopy
+**Clustering is supported on Enterprise Edition only**. You're licensed to use WebLogic clustering only when you use the Enterprise Edition of Oracle WebLogic Server. Don't use clustering with Oracle WebLogic Server Standard Edition.
+**UDP multicast isn't supported**. Azure supports UDP unicasting, but not multicasting or broadcasting. Oracle WebLogic Server can rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size is kept static, or kept with no more than 10 managed servers.
+**Oracle WebLogic Server expects public and private ports to be the same for T3 access**. For example, when using Enterprise JavaBeans (EJB). Consider a multi-tier scenario where a service layer application is running on an Oracle WebLogic Server cluster consisting of two or more VMs, in a virtual network named SLWLS. The client tier is in a different subnet in the same virtual network, running a simple Java program trying to call EJB in the service layer. Because you must load balance the service layer, a public load-balanced endpoint needs to be created for the VMs in the Oracle WebLogic Server cluster. If the private port specified is different from the public port an error occurs. For example, if you use ``7006:7008``, the following error occurs because for any remote T3 access, Oracle WebLogic Server expects the load balancer port and the WebLogic managed server port to be the same.
+
 ``[java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:``
 
 ``Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]``
 
-This error occurs because for any remote T3 access, Oracle WebLogic Server expects the load balancer port and the WebLogic managed server port to be the same. In the preceding case, the client is accessing port 7006, which is the load balancer port, and the managed server is listening on 7008, which is the private port. This restriction is applicable only for T3 access, not HTTP.
+ In the preceding case, the client is accessing port 7006, which is the load balancer port, and the managed server is listening on 7008, which is the private port. This restriction is applicable only for T3 access, not HTTP.
 
 To avoid this issue, use one of the following workarounds:
 
@@ -66,7 +69,7 @@ To avoid this issue, use one of the following workarounds:
 configCopy
 ``Dweblogic.rjvm.enableprotocolswitch=true``
 
-- **Dynamic clustering and load balancing limitations**. Suppose you want to   use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This approach can be done as long as you use a fixed port number for each of the managed servers, not dynamically assigned from a range, and don't start more managed servers than there are machines the administrator is tracking. That is, there's no more than one managed server per VM.
+- Dynamic clustering and load balancing limitations. Suppose you want to   use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This approach can be done as long as you use a fixed port number for each of the managed servers, not dynamically assigned from a range, and don't start more managed servers than there are machines the administrator is tracking. There should be no more than one managed server per VM.
     If your configuration results in more Oracle WebLogic Servers being started than there are VMs, it isn't possible for more than one of those instances of Oracle WebLogic Servers to bind to a given port number. That is, if multiple Oracle WebLogic Server instances share the same virtual machine, the others on that VM fail.
     If you configure the admin server to automatically assign unique port numbers to its managed servers, then load balancing isn't possible because Azure doesn't support mapping from a single public port to multiple private ports, as would be required for this configuration.    
 - **Multiple instances of Oracle WebLogic Server on a VM**. Depending on your deployment requirements, you might consider running multiple instances of Oracle WebLogic Server on the same VM, if the VM is large enough. For example, on a midsize VM, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture. Running multiple instances of Oracle WebLogic Server on just one VM would be such a single point.
