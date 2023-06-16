@@ -52,12 +52,12 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
  
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-1: Run production workloads on two or more VMs** 
 
-To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, it is recommended that you run production workloads on two or more VMs.
+To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, it's recommended that you run production workloads on two or more VMs.
 
 To achieve this you can use:
 
 - **Availability zones**. For more information on availability zones and VMs, see [Availability zone support](#availability-zone-support).
-- **Availability sets**. User availability sets when availability zones are not available in your region or if you have low latency requirements. With availability sets, Azure places VMs and disks in separate fault domains with different power, network, and server components. For more information on availability sets, see [Availability sets](/azure/virtual-machines/availability-set-overview).
+- **Availability sets**. Use availability sets when availability zones are not available in your region or if you have low latency requirements. With availability sets, Azure places VMs and disks in separate fault domains with different power, network, and server components. For more information on availability sets, see [Availability sets](/azure/virtual-machines/availability-set-overview).
 
 Use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
 
