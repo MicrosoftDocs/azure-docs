@@ -139,7 +139,7 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 > [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
 > public async Task<IActionResult> Index()
 > {
->     var user = await _graphServiceClient.Me..GetAsync();
+>     var user = await _graphServiceClient.Me.GetAsync();
 >     ViewData["ApiResult"] = user?.DisplayName;
 > 
 >     return View();
