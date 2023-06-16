@@ -39,9 +39,9 @@ Azure WAF has many features that can be used to mitigate many different types of
 
 Beyond WAF, Azure Front Door also offers default Azure Infrastructure DDoS protection to protect against L3/4 DDoS attacks. Enabling caching on AFD can help absorb sudden peak traffic volume at edge and protect backend origins from attack as well. 
 
-For more information on features and DDoS protection on Azure Front Door, see [DDoS protection on Azure Front Door](../frontdoor/front-door-ddos.md).
+For more information on features and DDoS protection on Azure Front Door, see [DDoS protection on Azure Front Door](../../frontdoor/front-door-ddos.md).
 
-# Azure WAF with Azure Application Gateway
+## Azure WAF with Azure Application Gateway
 
 It's recommended to use Application Gateway WAF v2 SKU that comes with latest features, including DDoS mitigation features, to defend against DDoS attacks.  
 
@@ -96,13 +96,13 @@ AzureDiagnostics
 | where Category == "ApplicationGatewayFirewallLog"
 ```
 
-For more information, see [Azure WAF with Azure Application Gateway](../ag/application-gateway-waf-logs.md).
+For more information, see [Azure WAF with Azure Application Gateway](../ag/web-application-firewall-logs.md).
 
 ## Next steps
 
 * [Create a WAF policy](../afds/waf-front-door-create-portal.md) for Azure Front Door.
 * [Create an Application Gateway](../ag/application-gateway-web-application-firewall-portal.md) with a Web Application Firewall.
 
-* Learn how Azure Front Door can help [protect against DDoS attacks](../frontdoor/front-door-ddos.md).
-* Protect your application gateway with [Azure DDoS Network Protection](../application-gateway/tutorial-protect-application-gateway-ddos.md).
-* Learn more about the [Types of attacks Azure DDoS Protection mitigates](../ddos-protection/types-of-attacks.md).
+* Learn how Azure Front Door can help [protect against DDoS attacks](../../frontdoor/front-door-ddos.md).
+* Protect your application gateway with [Azure DDoS Network Protection](../../application-gateway/tutorial-protect-application-gateway-ddos.md).
+* Learn more about the [Types of attacks Azure DDoS Protection mitigates](../../ddos-protection/types-of-attacks.md).
