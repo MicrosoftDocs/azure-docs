@@ -35,7 +35,7 @@ An email is considered to be domain-owner verified if:
 1. The email is from a Google account 
 1. The email was used for authentication using the one-time passcode (OTP) flow
 
-It should also be noted that Facebook and SAML/WS-Fed accounts do not have verified domains.
+It should also be noted that Facebook and SAML/WS-Fed accounts don't have verified domains.
 
 This risk of unauthorized access has only been found in multi-tenant apps, as a user from one tenant could escalate their privileges to access resources from another tenant through modification of their Mail attribute. 
 
@@ -45,13 +45,13 @@ To secure applications from mistakes with unverified email addresses, all new mu
 
 Depending on your scenario, you may determine that your application's tokens should continue receiving unverified emails. While not recommended for most applications, you may disable the default behavior by setting the `removeUnverifiedEmailClaim` property in the [Authentication Behaviors Microsoft Graph API](https://learn.microsoft.com/graph/api/resources/authenticationbehaviors?view=graph-rest-beta).
 
-By setting `removeUnverifiedEmailClaim` to `false`, your application will receive `email` claims that are potentially unverified and subject users to account takeover risk. If you are disabling this behavior in order to not break user login flows, it is highly recommended to migrate to a uniquely idendifying token claim mapping as soon as possible, as described in the guidance below. 
+By setting `removeUnverifiedEmailClaim` to `false`, your application will receive `email` claims that are potentially unverified and subject users to account takeover risk. If you are disabling this behavior in order to not break user login flows, it's highly recommended to migrate to a uniquely identifying token claim mapping as soon as possible, as described in the guidance below. 
 
 ## Identifying insecure configurations and performing database migration 
 
-You should never use mutable claims (such as `email`, `preferred_username`, etc.) as identifiers to perform authorization checks or index users in a database. These values are re-usable and could expose your application to privilege escalation attacks.
+You should never use mutable claims (such as `email`, `preferred_username`, etc.) as identifiers to perform authorization checks or index users in a database. These values are reusable and could expose your application to privilege escalation attacks.
 
-The following psudeocode sample helps illustrate the insecure pattern of user identification / authorization:
+The following pseudocode sample helps illustrate the insecure pattern of user identification / authorization:
 
 ```
  // Your relying party (RP) using the insecure email claim for user identification (or authorization)
@@ -70,7 +70,7 @@ The following psudeocode sample helps illustrate the insecure pattern of user id
  }
 ```
 
-Once you've determined that your application is relying on this insecure attribute, you'll need to update business logic to re-index users on a globally unique identifier (GUID). 
+Once you've determined that your application is relying on this insecure attribute, you need to update business logic to reindex users on a globally unique identifier (GUID). 
 
 Mutli-tenant applications should index on a mapping of two uniquely identifying claims, `tid` + `oid`. This mapping segments tenants by the `tid`, and segments users by their `oid`. 
 
@@ -78,7 +78,7 @@ Mutli-tenant applications should index on a mapping of two uniquely identifying 
 
 To assist developers in the migration process, we have introduced an optional claim, `xms_edov`, a Boolean property that indicates whether or not the email domain owner has been verified. 
 
-`xms_edov` can be used to assist in verfifying a user's email before migrating their primary key to unique identifiers, such as `oid`. The following psuedocode example illustrates how this claim may be used as part of your migration. 
+`xms_edov` can be used to assist in verifying a user's email before migrating their primary key to unique identifiers, such as `oid`. The following psuedocode example illustrates how this claim may be used as part of your migration. 
 
 ```
 // Verify email and migrate users by performing lookups on tid+oid, email, and xms_edov claims
@@ -114,7 +114,7 @@ MyRPUsesSecurePattern()
 }
 ```
 
-Migrating to a globally unique mapping ensures that each user is primarily indexed with a value that can't be re-used, or abused to impersonate another user. Once your users are indexed on a globablly unique identifier, you are ready to fix any potential authorization logic that uses the `email` claim.
+Migrating to a globally unique mapping ensures that each user is primarily indexed with a value that can't be reused, or abused to impersonate another user. Once your users are indexed on a globally unique identifier, you're ready to fix any potential authorization logic that uses the `email` claim.
 
 
 ## Update authorization logic with proper claims validation
