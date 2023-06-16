@@ -53,7 +53,7 @@ In few temporary scenarios, Events are emitted with relevant information to be a
 |SystemLogMonitor|DockerStart|
 |SystemLogMonitor|ContainerdStart|
 
-In certain instances, AKS will automatically cordon and drain the node to prevent any disruption to the workloads. You can learn more about the events and actions [here](/azure/aks/node-auto-repair#node-auto-drain).
+In certain instances, AKS will automatically cordon and drain the node to minimize disruption to workloads. You can learn more about the events and actions [here](/azure/aks/node-auto-repair#node-auto-drain).
 
 ## Check the node conditions and events
  ```azurecli-interactive
