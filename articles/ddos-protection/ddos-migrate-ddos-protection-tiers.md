@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: how-to 
-ms.date: 06/13/2023
+ms.date: 06/16/2023
 ms.custom: template-how-to-pattern 
 ---
 
@@ -16,9 +16,9 @@ In this guide, we walk through the steps to migrate Azure DDoS Protection tiers 
 
 ## Cost assessment
 
-When IP Protection is enabled for a public IP resource and then a DDoS Protection plan is created and enabled on its virtual network, customers are billed for the lower *per Public IP resource* rate. In this case, we will automatically start billing for Network Protection. To learn more about the pricing scenarios, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=ddos-protection).
+When IP Protection is enabled for a public IP resource and then a DDoS Protection plan is created and enabled on its virtual network, customers are billed for the lower *per Public IP resource* rate. In this case, we'll automatically start billing for Network Protection. To learn more about the pricing scenarios, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=ddos-protection).
 
-Network Protection cost begins once the DDoS Protection plan is created. IP Protection cost begins once the Public IP address is configured with IP Protection. 
+Network Protection cost begins once the DDoS Protection plan is created and enabled on the virtual network to which the public IP is associated. IP Protection cost begins once the Public IP address is configured with IP Protection, and its associated virtual network isn't protected by a DDoS protection plan. 
 
 For more information, see [Azure DDoS Protection Pricing](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -32,7 +32,7 @@ For more information, see [Azure DDoS Protection Pricing](https://azure.microsof
 
 ### Add Protected Resources to DDoS protection plan
 
-Add your protected resources to the DDoS protection plan before you disable IP Protection to maintain DDoS protection during transition. Services must be added to the DDoS protection plan to be protected.
+ Services must be added to the DDoS protection plan to be protected by Network Protection. You don't need disable IP protection during this transition. Once the service is added to the DDoS protection plan, the SKU will automatically transition to Network Protection from IP Protection.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your DDoS protection plan.
