@@ -192,10 +192,10 @@ items:
             displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
           - name: JavaScript SDK configuration
-            href: app/javascript-sdk-advanced.md
+            href: app/javascript-sdk-configuration.md
           - name: React, React Native, Angular
             href: app/javascript-framework-extensions.md
-          - name: Click Analytics Auto-Collection plug-in
+          - name: Click Analytics Auto-Collection
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
