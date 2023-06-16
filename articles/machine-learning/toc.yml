@@ -115,6 +115,8 @@
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Understand resources and assets
+    href: concept-azure-machine-learning-v2.md
   - name: Environments
     href: concept-environments.md
   - name: Manage environments in studio
@@ -127,6 +129,9 @@
         href: how-to-access-terminal.md
       - name: Manage compute sessions
         href: how-to-manage-compute-sessions.md
+      - name: Manage environments in studio
+        displayName: environments, studio, create, edit
+        href: how-to-manage-environments-in-studio.md
       # v1
       - name: Set up software environments CLI (v1)
         href: ./v1/how-to-use-environments.md
@@ -139,6 +144,9 @@
       # end v1
   - name: Azure Machine Learning CLI and Python SDK
     href: concept-v2.md
+  - name: Manage environments with SDK and CLI (v2)
+    displayName: environment
+    href: how-to-manage-environments-v2.md
   - name: Azure Machine Learning UI
     items:
       - name: Searching for Assets and Resources
@@ -1099,15 +1107,6 @@
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
   items:
-    - name: Understand resources and assets
-      href: concept-azure-machine-learning-v2.md
-    - name: Set up an environment
-      items:
-        - name: Set up studio environment
-          items:
-            - name: Manage environments in studio
-              displayName: environments, studio, create, edit
-              href: how-to-manage-environments-in-studio.md
         - name: Azure Container for PyTorch
           displayName: acpt
           href: how-to-azure-container-for-pytorch-environment.md
@@ -1117,9 +1116,7 @@
         - name: Work in VS Code remote
           displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-work-in-vs-code-remote.md
-        - name: Manage environments with SDK and CLI (v2)
-          displayName: environment
-          href: how-to-manage-environments-v2.md
+
     - name: Work with data
       items:
         - name: Prepare data with Apache Spark (preview)
