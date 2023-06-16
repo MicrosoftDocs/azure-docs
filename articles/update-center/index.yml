@@ -51,6 +51,6 @@ landingContent:
           - text: Schedule updates at scale
             url: quickstart-dynamic-scoping.md
       - linkListType: manage
-         links:
-          - text: Manage dynamic scope(preview) operations
+        links:
+          - text: Manage dynamic scope (preview) operations
             url: manage-dynamic-scoping.md
