@@ -54,6 +54,15 @@ To allow other people to manage savings plans, you have two options:
 
 ## View and manage savings plans as a billing administrator
 
+If you're a billing administrator, use following steps to view and manage all savings plans and savings plan transactions in the Azure portal:
+
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to **Cost Management + Billing**.
+    - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
+    - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
+1. In the left menu, select **Products + services** > **Savings plans**.
+    The complete list of savings plans for your EA enrollment or billing profile is shown.
+1. Billing administrators can take ownership of a savings plan with the [Savings Plan Order - Elevate REST API](/rest/api/billingbenefits/savings-plan-order/elevate) to give themselves Azure RBAC roles.
+
 If you're a billing administrator, you can use the [Savings Plan Order - List](/rest/api/billingbenefits/savings-plan-order/list) REST API to list all savings plan orders that you have access to.
 
 Use the [Savings Plan Order - Elevate](/rest/api/billingbenefits/savings-plan-order/elevate) REST API to grant Azure RBAC access to a savings plan order.
