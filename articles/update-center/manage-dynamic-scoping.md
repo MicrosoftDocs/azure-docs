@@ -1,5 +1,5 @@
 ---
-title: Manage various operation of dynamic scoping (preview).
+title: Manage various operations of dynamic scoping (preview).
 description: This article describes how to manage dynamic scoping (preview) operations 
 ms.service: update-management-center
 author: SnehaSudhirG
@@ -28,7 +28,7 @@ To view the list of Dynamic scopes (preview) associated to a given maintenance c
 To add a Dynamic scope to an existing configuration, follow the steps:
 
 1. Sign in to the Azure portal and navigate to Update management center (preview). 
-1. Select **Machines> **Browse maintenance configurations** > **Maintenance configurations**. 
+1. Select **Machines** > **Browse maintenance configurations** > **Maintenance configurations**. 
 1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to add a Dynamic scope. 
 1. In the given maintenance configuration page > select **Dynamic scopes** > **Add a dynamic scope**.
 1. In the **Add a dynamic scope** page, select **subscriptions** This is a mandatory field for creating a scope.
