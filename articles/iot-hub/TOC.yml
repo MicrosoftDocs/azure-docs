@@ -448,8 +448,6 @@
               href: iot-hub-raspberry-pi-kit-c-get-started.md
     - name: Extended IoT scenarios
       items:
-        - name: Device management with IoT extension for Azure CLI
-          href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
         - name: Remote monitoring and notifications with Logic Apps
           href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
     - name: Troubleshoot and problem solution

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/28/2023
 ms.author: magoedte
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 

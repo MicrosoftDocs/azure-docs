@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated worker process to run your C# func
 ms.service: azure-functions
 ms.topic: conceptual 
 ms.date: 01/16/2023
-ms.custom: template-concept 
+ms.custom: template-concept, devx-track-dotnet
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---

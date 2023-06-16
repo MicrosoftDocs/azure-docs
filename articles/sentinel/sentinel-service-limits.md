@@ -40,6 +40,10 @@ This article lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](includes/sentinel-limits-threat-intelligence.md)]
 
+## TI upload indicators API limits
+
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-ti-upload-api.md)]
+
 ## User and Entity Behavior Analytics (UEBA) limits
 
 [!INCLUDE [sentinel-service-limits](includes/sentinel-limits-ueba.md)]

@@ -488,7 +488,8 @@ az login --tenant $tenant1
 az account get-access-token 
 az login --tenant $tenant2
 az account get-access-token
-
+az login --tenant $tenant1
+az account get-access-token
 ```
  
 
@@ -501,7 +502,7 @@ location="<location where the image is replicated>"
 user='<username for the VM>'
 name='<name for the VM>'
 
-az group create --location --resource-group $resourcegroup
+az group create --location $location --resource-group $resourcegroup
 az vm create \
   --resource-group $resourcegroup \
   --name $name \
@@ -523,6 +524,7 @@ $tenant1 = "<Tenant 1 ID>"
 $tenant2 = "<Tenant 2 ID>"
 Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 Connect-AzAccount -Tenant "<Tenant 2 ID>" -UseDeviceAuthentication
+Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 ```
 
 

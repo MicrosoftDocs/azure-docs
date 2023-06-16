@@ -79,7 +79,7 @@ Azure Stack Edge Mini R physical device, Azure resource, and target storage acco
 
 - **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
 
-- **Device availability** - For a list of all the countries where the Azure Stack Edge Mini R device is available, go to Availability section in the Azure Stack Edge Mini R tab for [Azure Stack Edge Mini R pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR).
+- **Device availability** - For a list of all the countries/regions where the Azure Stack Edge Mini R device is available, go to Availability section in the Azure Stack Edge Mini R tab for [Azure Stack Edge Mini R pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR).
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Mini R data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 

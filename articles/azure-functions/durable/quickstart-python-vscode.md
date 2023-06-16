@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 06/15/2022
 ms.reviewer: azfuncdf, antchu
 ms.devlang: python
-ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete
+ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete, devx-track-python
 zone_pivot_groups: python-mode-functions
 ---
 

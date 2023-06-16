@@ -5,6 +5,7 @@ author: v-miegge
 ms.author: jparrel
 manager: dcscontentpm
 tags: top-support-issue,azure-resource-manager
+ms.custom: devx-track-python
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: linux

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
@@ -20,7 +20,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pretrained invoice model.
 
 ## Prerequisites
 
@@ -39,8 +39,8 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
 
 ## Set up
 
@@ -79,8 +79,8 @@ In this quickstart you'll, use the following features to analyze and extract dat
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item index.js**.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=setup)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=setup) -->
 
 ## Build your application
 
@@ -101,7 +101,7 @@ To interact with the Form Recognizer service, you need to create an instance of 
 
 ## General document model
 
-Extract text, tables, structure,and key-value pairs from documents.
+Extract text, tables, structure, and key-value pairs from documents.
 
 > [!div class="checklist"]
 >
@@ -160,8 +160,8 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-general-document) -->
 
 ### General document model output
 
@@ -262,8 +262,8 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-layout)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-layout) -->
 
 ### Layout model output
 
@@ -355,8 +355,8 @@ Once you've added a code sample to your application, run your program:
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt) -->
 
 ### Prebuilt model output
 

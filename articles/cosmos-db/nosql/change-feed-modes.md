@@ -14,13 +14,16 @@ ms.date: 05/09/2023
 
 There are two change feed modes in Azure Cosmos DB. Each mode offers the same core functionality with differences including the operations captured in the feed, metadata available for each change, and retention period of changes. You can consume the change feed in different modes across multiple applications for the same Azure Cosmos DB container to fit the requirements of each workload.
 
+> [!Note]
+> Do you have any feedback about change feed modes? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team: cosmoschangefeed@microsoft.com
+
 ## Latest version change feed mode
 
 Latest version mode is a persistent record of changes to items from creates and updates. You get the latest version of each item in the container. For example, if an item is created and then updated before you read the change feed, only the updated version appears in the change feed. Deletes aren't captured as changes, and when an item is deleted it's no longer be available in the feed. Latest version change feed mode is enabled by default and is compatible with all Azure Cosmos DB accounts except API for Table and API for PostgreSQL. This mode was previously the default way to consume the change feed.
 
 ## All versions and deletes change feed mode (preview)
 
-All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode. This mode is only compatible with Azure Cosmos DB for NoSQL accounts.
+All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode. This mode is only compatible with Azure Cosmos DB for NoSQL accounts. Learn more about how to [sign up for the preview](#getting-started).
 
 ## Change feed use cases
 
@@ -114,7 +117,7 @@ During the preview, the following methods to read the change feed are available 
 
 | **Method to read change feed** | **.NET** | **Java** | **Python** | **Node/JS** |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Change feed pull model](change-feed-pull-model.md) | [>= 3.32.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) | [>= 4.42.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.37.0) |  No  |  No  |
+| [Change feed pull model](change-feed-pull-model.md) | [>= 3.32.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.32.0-preview) | [>= 4.42.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.37.0) |  No  |  No  |
 | [Change feed processor](change-feed-processor.md) | No | [>= 4.42.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.42.0) | No | No |
 | Azure Functions trigger | No | No | No | No |
 
@@ -123,7 +126,7 @@ During the preview, the following methods to read the change feed are available 
 
 ### Getting started
 
-To get started using all versions and deletes change feed mode, enroll in the preview via the [Preview Features page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. Search for the **All versions and deletes change feed mode** feature and select **Register**.
+To get started using all versions and deletes change feed mode, enroll in the preview via the [Preview Features page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. Search for the **AllVersionsAndDeletesChangeFeed** feature and select **Register**.
 
 :::image type="content" source="media/change-feed-modes/enroll-in-preview.png" alt-text="Screenshot of All versions and deletes change feed mode feature in Preview Features page in Subscriptions overview in Azure portal.":::
 

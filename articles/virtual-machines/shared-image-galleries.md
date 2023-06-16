@@ -63,30 +63,29 @@ Image definitions contain metadata for the image to allow grouping of images tha
 - Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](./windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
-- The `features` parameter can track what features are supported. Some features support is also based on the type of gallery:
+- Architecture
+  - x64 or ARM64 [Architecture](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+- Features allow you to specify additional features and SecurityType(s) that are supported on the image, based on the type of gallery:
 
-   | Feature | Accepted values | Definition | Supported gallery types |
+   | Features | Accepted Values | Definition | Supported in |
    |--|--|--|--|
    | IsHibernateSupported | True, False | Create VMs with support for hibernation. | Private, direct shared, community |
-   | IsAcceleratedNetworkSupported | True, False | Create VMs with accelerated networking enabled can be created when set on the image. When set to True on tImage definition, you won't be able to capture VMs that don't support accelerated networking. | Private, direct shared, community |
-   | DiskControllerType | SCSI, NVMe | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in Image definitions that support NVMe. | Private, direct shared, community |
+   | IsAcceleratedNetworkSupported | True, False | Create VM's with accelerated networking enabled. When set to `True` on Image definition, capturing VMs that don't support accelerated networking is not supported. | Private, direct shared, community |
+   | DiskControllerType | ["SCSI", "NVMe"], ["SCSI"] | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in image definitions that are tagged to be supporting NVMe. | Private, direct shared, community |
  
+   When you specify a SecurityType using the `features` parameter, it limits the security features that are enabled on the VM. Some types limited, based on the type of gallery that they are stored in:
 
-- Architecture - specifies the CPU architecture. Can be set to x64 or ARM64 [Architecture](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+   | SecurityType | Accepted Values | Definition | Supported in |
+   |--|--|--|--|
+   | ConfidentialVMSupported | [ConfidentialVMSupported](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-supported-images) | It's a generic Gen2 image that does not contain VMGS blob. Gen2 VM or Confidential VM can be created from this image type | Private, Direct shared, Community |
+   | ConfidentialVM | [Confidential VM](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) | Only Confidential VMs can be created from this image type | Private |
+   | TrustedLaunchSupported | TrustedLaunchSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM or TrustedLaunch VM can be created from this image type. | Private, direct shared, community |
+   | TrustedLaunch | TrustedLaunch | Only TrustedLaunch VM can be   created from this image type | Private |
+   | TrustedLaunchAndConfidentialVmSupported | TrustedLaunchAndConfidentialVmSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM, TrustedLaunch VM, or a ConfidentialVM can be created from this image type. | Private, direct shared, community |
 
-- SecurityType can be one of the following:
-
-   | Accepted Values | Definition | Supported gallery types |
-   |--|--|--|
-   | ConfidentialVM | Only [Confidential VMs](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) can be created from this image type | Private | 
-   | ConfidentialVMSupported | Image capable of creating either a Gen2 or [Confidential VM](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) | Private |
-   | TrustedLaunchSupported | A generic Gen2 image that doesn't contain the VM guest state. A Gen2 or TrustedLaunch VM can be created from this image type | Private, direct shared, community |
-   | TrustedLaunch | Only TrustedLaunch VM can be created from this image type | Private |
-   | TrustedLaunchAndConfidentialVmSupported | It's a generic Gen2 image that doesn't contain the VM guest state. Gen2 VM, TrustedLaunch VM or a ConfidentialVM can be created from this image type. | Private, direct shared, community |
-
--Examples
- - CLI examples for adding [Image Definition features](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
-
+   For more information, see the CLI examples for adding [image definition features and SecurityType](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create) or the [PowerShell examples](/powershell/module/az.compute/new-azgalleryimagedefinition#example-4-create-an-image-definition-for-generalized-windows-images-and-set-features).
+   
+   **ConfidentialVM is only supported in the regions where it's available, You can find the supported regions [here](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview#regions).
 ## Image versions
 
 An **image version** is what you use to create a VM. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
@@ -95,7 +94,6 @@ The properties of an image version are:
 
 - Version number. This is used as the name of the image version. It is always in the format: MajorVersion.MinorVersion.Patch. When you specify to use **latest** when creating a VM, the latest image is chosen based on the highest MajorVersion, then MinorVersion, then Patch. 
 - Source. The source can be a VM, managed disk, snapshot, managed image, or another image version. 
-- Exclude from latest. You can keep a version from being used as the latest image version. 
 - End of life date. Indicate the end-of-life date for the image version. End-of-life dates are informational; users will still be able to create VMs from versions past the end-of-life date.
 
 
@@ -123,6 +121,7 @@ Image definition:
 - Recommended memory
 - Description
 - End of life date
+- ReleaseNotes
 
 Image version:
 - Regional replica count

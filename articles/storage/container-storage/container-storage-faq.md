@@ -7,6 +7,7 @@ ms.date: 05/12/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.topic: conceptual
+ms.custom: references_regions
 ---
 
 # Frequently asked questions (FAQ) about Azure Container Storage

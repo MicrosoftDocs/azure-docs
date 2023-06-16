@@ -1,35 +1,37 @@
 ---
-title: Sign in users with a vanilla JavaScript single-page-application
-description: Learn how to configure a vanilla JavaScript single-page app (SPA) to sign in and sign out users with your Azure Active Directory (AD) for customers tenant.
+title: Tutorial - Add sign-in and sign-out to a Vanilla JavaScript single-page app (SPA) for a customer tenant
+description: Learn how to configure a Vanilla JavaScript single-page app (SPA) to sign in and sign out users with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
-
 ms.author: owenrichards
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
-ms.date: 05/23/2023
-ms.custom: developer
-
-#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
+ms.topic: tutorial
+ms.date: 05/25/2023
+#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Configure a Single-page application User Interface and Sign-In
+# Tutorial: Add sign-in and sign-out to a vanilla JavaScript single-page app for a customer tenant
 
-When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, [Bootstrap](https://getbootstrap.com/) is used to create a responsive UI that contains a **Sign-In** and **Sign-Out** button. Next, you'll run the project and test the sign-in and sign-out functionality.
+In the [previous article](how-to-single-page-app-vanillajs-configure-authentication.md), you edited the popup and redirection files that handle the sign-in page response. This tutorial demonstrates how to build a responsive user interface (UI) that contains a **Sign-In** and **Sign-Out** button and run the project to test the sign-in and sign-out functionality.
+
+In this tutorial;
+
+> [!div class="checklist"]
+> * Add code to the *index.html* file to create the user interface
+> * Add code to the *signout.html* file to create the sign-out page
+> * Sign in and sign out of the application
 
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Create components for authentication and authorization](how-to-single-page-app-vanillajs-configure-authentication.md).
 
-## Create the *index.html* file
+## Add code to the *index.html* file
 
-The main page of the application, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign Out** button. 
+The main page of the SPA, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign-Out** button. 
 
-1. In the *public* folder, create a new file named *index.html*. This file contains the HTML for the main page of the application.
-1. Open *index.html* and add the following code snippet:
+1. Open *public/index.html* and add the following code snippet:
 
    ```html
     <!DOCTYPE html>
@@ -101,10 +103,9 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 1. Save the file.
 
-## Create the *signout.html* file
+## Add code to the *signout.html* file
 
-1. In the *public* folder, create a new file named *signout.html*. This file contains the HTML for the sign-out page of the application.
-1. Open *signout.html* and add the following code snippet:
+1. Open *public/signout.html* and add the following code snippet:
 
     ```html
     <!DOCTYPE html>
@@ -130,10 +131,11 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 1. Save the file.
 
-## Create the *ui.js* file
+## Add code to the *ui.js* file
 
-1. In the *public* folder, create a new file named *ui.js*. This file contains the JavaScript code for the UI of the application.
-1. Open *ui.js* and add the following code snippet:
+When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, [Bootstrap](https://getbootstrap.com/) is used to create a responsive UI that contains a **Sign-In** and **Sign-Out** button.
+
+1. Open *public/ui.js* and add the following code snippet:
 
     ```javascript
     // Select DOM elements to work with
@@ -171,14 +173,13 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 1. Save the file.
 
-## Create the styles.css file
+## Add code to the *styles.css* file
 
-1. In the *public* folder, create a new file named *styles.css*. This file contains the CSS code for the UI of the application.
-1. Open *styles.css* and add the following code snippet:
+1. Open *public/styles.css* and add the following code snippet:
 
     ```css
     .navbarStyle {
-    padding: .5rem 1rem !important;
+        padding: .5rem 1rem !important;
     }
     
     .table-responsive-ms {
@@ -195,16 +196,16 @@ The main page of the application, *index.html*, is the first page that is loaded
 Now that all the required code snippets have been added, the application can be called and tested in a web browser.
 
 1. Open a new terminal and run the following command to start your express web server.
-
     ```powershell
     npm start
     ```
-
-1. Open a new private browser, and enter the application URI into the browser, `https://localhost:3000/`.
+1. Open a new private browser, and enter the application URI into the browser, `http://localhost:3000/`.
 1. Select **No account? Create one**, which starts the sign-up flow.
 1. In the **Create account** window, enter the email address registered to your Azure Active Directory (AD) for customers tenant, which starts the sign-up flow as a user for your application.
 1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
+
     1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
+
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
     :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into a vanilla JS SPA." lightbox="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png":::
@@ -217,5 +218,4 @@ Now that all the required code snippets have been added, the application can be 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
+- [Enable self-service password reset](./how-to-enable-password-reset-customers.md)

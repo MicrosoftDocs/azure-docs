@@ -5991,6 +5991,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/nosql/synapse-link-time-travel.md",
+      "redirect_url": "/azure/cosmos-db/synapse-link-time-travel",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/graph/how-to-create-container-gremlin.md",
       "redirect_url": "/azure/cosmos-db/gremlin/how-to-create-container-gremlin",
       "redirect_document_id": true
