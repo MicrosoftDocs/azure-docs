@@ -348,9 +348,9 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 }
 ```
 
-## JavaScript SDK Loader Script Injection (preview)
+## Browser SDK Loader Script Injection (preview)
 
-This feature automatically injects the [JavaScript SDK Loader Script](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
+This feature automatically injects the [Browser SDK Loader Script](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
 
 For example, when your java application returns a response like:
 
@@ -371,9 +371,10 @@ Then it will be automatically modified to return:
 <html lang="en">
   <head>
     <script type="text/javascript">
-    !function(v,y,T){var S=v.location,k="script".........
+    !function(v,y,T){var S=v.location,k="script"
+    <!-- Removed for brevity -->
     connectionString: "YOUR_CONNECTION_STRING"
-    ........ }});
+    <!-- Removed for brevity --> }});
     </script>
     <title>Title</title>
   </head>
