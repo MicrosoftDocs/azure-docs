@@ -6,7 +6,7 @@ ms.date: 06/13/2023
 ms.reviewer: damendo
 ---
 
-# Authentication for Azure Monitor - Container Insights 
+# Authentication for Container Insights 
 
 Container Insights now defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a Monitoring Metrics Publisher role to the cluster.
 
@@ -16,7 +16,7 @@ Click on the relevant tab for instructions to enable Managed identity authentica
 
 ## [Azure portal](#tab/portal-azure-monitor)
 
-No action is needed when creating a cluster from the Portal. However, it isn't possible to switch to Managed Identity authentication from the Azure portal. Customers must use command line tools to migrate. See other tabs for migration instructions and templates. 
+No action is needed when creating a cluster from the Portal. However, it isn't possible to switch to Managed Identity authentication from the Azure portal. Customers must use command line tools to migrate. See other tabs for migration instructions and templates.
 
 ## [Azure CLI](#tab/cli)
 
