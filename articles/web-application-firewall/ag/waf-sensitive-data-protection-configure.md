@@ -70,7 +70,7 @@ The Azure CLI commands to enable and configure Sensitive Data Protection are com
 
 ## Verify Sensitive Data Protection
 
-To verify your Sensitive Data Protection rules, open the firewall log and search for _******_ in place of the sensitive fields.
+To verify your Sensitive Data Protection rules, open the Application Gateway firewall log and search for _******_ in place of the sensitive fields.
 
 ## Next steps
 
