@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/31/2023
+ms.date: 06/16/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
@@ -230,7 +230,7 @@ Use the following table to better understand how to resolve errors that you find
 |SystemForCrossDomainIdentity<br>ManagementMultipleEntriesInResponse| A GET request to retrieve a user or group received multiple users or groups in the response. The system expects to receive only one user or group in the response. For example, if you do a [GET Group request](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group) to retrieve a group, provide a filter to exclude members, and your System for Cross-Domain Identity Management (SCIM) endpoint returns the members, you'll get this error.|
 |SystemForCrossDomainIdentity<br>ManagementServiceIncompatible|The Azure AD provisioning service is unable to parse the response from the third party application. Work with the application developer to ensure that the SCIM server is compatible with the [Azure AD SCIM client](../app-provisioning/use-scim-to-provision-users-and-groups.md#understand-the-azure-ad-scim-implementation).|
 |SchemaPropertyCanOnlyAcceptValue|The property in the target system can only accept one value, but the property in the source system has multiple. Ensure that you either map a single-valued attribute to the property that is throwing an error, update the value in the source to be single-valued, or remove the attribute from the mappings.|
-
+|AzureActiveDirectoryCannotUpdateObjectsMasteredOnPremises|If the user in the target tenant was originally synchronized from AD to Azure AD and coverted to an external user, the source of authority is still on-premises and the user cannot be updated.|
 
 ## Error codes for cross-tenant synchronization
 
