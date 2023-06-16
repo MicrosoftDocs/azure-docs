@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 04/28/2023
+ms.date: 06/15/2023
 ms.author: jasteppe
 ---
 
@@ -22,7 +22,7 @@ When combining the MedTech service, the FHIR service, and Teams, you can enable 
 
 The diagram is a MedTech service to Teams notifications conceptual architecture for enabling the MedTech service, the FHIR service, and the Teams Patient App.
 
-You can even embed Power BI Dashboards inside the Microsoft Teams client. For more information on embedding Power BI in Microsoft Team visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
+You can even embed Power BI Dashboards inside the Microsoft Teams client. For more information on embedding Power BI in Microsoft Team, see [Embed Power BI content in Microsoft Teams](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
 :::image type="content" source="media/concepts-teams/iot-connector-teams.png" alt-text="Screenshot of the MedTech service and Teams." lightbox="media/concepts-teams/iot-connector-teams.png":::
 
@@ -46,5 +46,15 @@ For an overview of the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [What is the MedTech service?](overview.md)
+
+To learn about the MedTech service device message data transformation, see
+
+> [!div class="nextstepaction"]
+> [Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+To learn about methods for deploying the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

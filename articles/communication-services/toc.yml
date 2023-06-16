@@ -754,7 +754,7 @@ items:
     - name: SDK features
       href: concepts/email/sdk-features.md
     - name: Allowed attachment types
-      href: /concepts/email/email-attachment-allowed-mime-types.md
+      href: concepts/email/email-attachment-allowed-mime-types.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains
