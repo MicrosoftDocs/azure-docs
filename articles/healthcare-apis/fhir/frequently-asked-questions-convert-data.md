@@ -32,7 +32,7 @@ However, the $convert-data operation isn't an ETL pipeline in of itself.
 
 You can use the FHIR services APIs to persist the converted data into the FHIR service by using `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to be persisted in JSON format. 
 
-* For more information about using the $convert-data endpoint to persist data in the FHIR service, see [Azure Health Data Services: Convert your data to FHIR in Azure Health Data Services](overview-of-convert-data.md#use-the-convert-data-endpoint).
+* For more information about using the $convert-data endpoint to persist data in the FHIR service, see [Overview of the FHIR Converter](overview-of-convert-data.md#use-the-convert-data-endpoint).
 
 * For more information about using Postman with the FHIR service, see [Access the Azure Health Data Services FHIR service using Postman](use-postman.md).
 
