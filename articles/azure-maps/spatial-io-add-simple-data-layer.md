@@ -127,12 +127,13 @@ The real power of the simple data layer comes when:
 - Features in the data set have several style properties individually set on them; or
 - You're not sure what the data set exactly contains.
 
-For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The following sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides.
+For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The [Simple data layer options] sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides.
 
-<br/>
+:::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer-options.png"alt-text="A screenshot of map with a panel on the left showing the different simple data layer options.":::
 
-<iframe height="700" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!------------------------------------
+<iframe height="700" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------------>
 
 > [!NOTE]
 > This simple data layer uses the [popup template](map-add-popup.md#add-popup-templates-to-the-map) class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iframe as a security feature. However, there are limitations:
@@ -257,3 +258,5 @@ See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Supported data format details](spatial-io-supported-data-format-details.md)
+
+[Simple data layer options]: https://samples.azuremaps.com/spatial-io-module/simple-data-layer-options
