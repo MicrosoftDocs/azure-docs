@@ -351,7 +351,7 @@ Enable [VM Insights](/azure/azure-monitor/vm/vminsights-overview). to get more v
 
 Platform metrics are sent automatically to Azure Monitor Metrics by default and without configuration. Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on:
 
-- Resource logs aren’t collected until they’re routed to a destination.
+- **Resource logs** that aren’t collected until they’re routed to a destination.
 - Activity logs exist on their own but can be routed to other locations.
 - 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
