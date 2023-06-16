@@ -93,6 +93,8 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 
 ### Service account annotations
 
+All annotations are optional. If the annotation is not specified, the default value will be used.
+
 |Annotation |Description |Default |
 |-----------|------------|--------|
 |`azure.workload.identity/client-id` |Represents the Azure AD application<br> client ID to be used with the pod. ||
@@ -109,6 +111,8 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 |`azure.workload.identity/use` | This label is required in the pod template spec. Only pods with this label will be mutated by the azure-workload-identity mutating admission webhook to inject the Azure specific environment variables and the projected service account token volume. |true |Yes |
 
 ### Pod annotations
+
+All annotations are optional. If the annotation is not specified, the default value will be used.
 
 |Annotation |Description |Default |
 |-----------|------------|--------|
