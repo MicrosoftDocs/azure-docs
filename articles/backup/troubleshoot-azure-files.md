@@ -41,7 +41,7 @@ Retry the registration. If the problem persists, contact support.
 - Ensure that the file share you're looking to protect hasn't been deleted.
 - Ensure that the Storage Account is a supported storage account for file share backup. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
 - Check if the file share is already protected in the same Recovery Services vault.
-- Check the Network Routing setting of storage account to ensure that routing preference is set as Microsoft network routing .
+- Check the Network Routing setting of storage account to ensure that routing preference is set as Microsoft network routing.
 
 ### Backup file share configuration (or the protection policy configuration) is failing
 
@@ -135,11 +135,11 @@ Error Message: Storage accounts with Internet routing configuration are not supp
 
 Ensure that the routing preference set for the storage account hosting backed up file share is Microsoft network routing.
 
-### FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling- File share backup or restore failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account
+### FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling- File share backup or restore operation failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account
 
 Error Code: FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling
 
-Error Message: File share backup or restore failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account.
+Error Message: File share backup or restore operation failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account.
 
 Try the backup/restore operation at a later time.
 
@@ -282,11 +282,11 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 - Ensure that the storage keys aren't rotated during the restore.
 - Check the network configuration on the storage account(s) and ensure that it allows the Microsoft first party services.
 
+  :::image type="content" source="./media/troubleshoot-azure-files/storage-account-network-configuration.png" alt-text="Screenshot shows the required networking details in a storage account." lightbox="./media/troubleshoot-azure-files/storage-account-network-configuration.png":::
 
+- Ensure that the target storage account has the following configuration: *Permitted scope for copy operations* is set to *From storage accounts in the same Azure AD tenant*.
 
-- Ensure that the target storage account has the following configuration: *Permitted scope for copy operations* are set to *From storage accounts in the same Azure AD tenant*.
-
-
+  :::image type="content" source="./media/troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the target storage account configuration." lightbox="./media/troubleshoot-azure-files/target-storage-account-configuration.png":::
 
 
 ## Common modify policy errors

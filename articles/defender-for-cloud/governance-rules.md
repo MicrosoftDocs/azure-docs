@@ -14,6 +14,7 @@ Security teams are responsible for improving the security posture of their organ
 Stay on top of the progress on the recommendations in the security posture. Weekly email notifications to the owners and managers make sure that they take timely action on the recommendations that can improve your security posture and recommendations.
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
+
 - [Remediate Security Recommendations with Governance](episode-fifteen.md)
 
 ## Building an automated process for improving security with governance rules
@@ -27,15 +28,16 @@ You can then review the progress of the tasks by subscription, recommendation, o
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-| Prerequisite: | Requires the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md) to be enabled.|
+|Prerequisite: | Requires the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md) to be enabled.|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
 
 > [!NOTE]
 > Starting January 1, 2023, governance capabilities will require Defender Cloud Security Posture Management (CSPM) plan enablement.
 > Customers deciding to keep Defender CSPM plan off on scopes with governance content:
-> -	Existing assignments remain as is and continue to work with no customization option or ability to create new ones.
-> -	Existing rules will remain as is but won’t trigger new assignments creation.
+>
+> - Existing assignments remain as is and continue to work with no customization option or ability to create new ones.
+> - Existing rules will remain as is but won’t trigger new assignments creation.
 
 ### Defining governance rules to automatically set the owner and due date of recommendations
 
@@ -85,13 +87,14 @@ If there are existing recommendations that match the definition of the governanc
 
 > [!TIP]
 > Here are some sample use-cases for the at-scale experience:
-> -	View and manage all governance rules effective in the organization using a single page.
-> -	Create and apply rules on multiple scopes at once using management scopes cross cloud.
-> -	Check effective rules on selected scope using the scope filter.
+>
+> - View and manage all governance rules effective in the organization using a single page.
+> - Create and apply rules on multiple scopes at once using management scopes cross cloud.
+> - Check effective rules on selected scope using the scope filter.
 
 To view the effect of rules on a specific scope, use the Scope filter to select a specific scope.
 
-Conflicting rules are applied in priority order. For example, rules on a management scope (Azure management groups, AWS accounts and GCP organizations), take effect before rules on scopes (for example, Azure subscriptions, AWS accounts, or GCP projects). 
+Conflicting rules are applied in priority order. For example, rules on a management scope (Azure management groups, AWS accounts and GCP organizations), take effect before rules on scopes (for example, Azure subscriptions, AWS accounts, or GCP projects).
 
 ## Manually assigning owners and due dates for recommendation remediation
 

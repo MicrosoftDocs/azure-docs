@@ -304,6 +304,8 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
+      - name: NGads V620-series (preview)
+        href: ngads-v-620-series.md
       - name: NV-series
         href: nv-series.md
       - name: NVv3-series
@@ -1618,6 +1620,8 @@
   - name: Overview
     displayName: Security Overview
     href: ../security/fundamentals/virtual-machines-overview.md?toc=/azure/virtual-machines/toc.json
+  - name: Zero trust principles
+    href: /security/zero-trust/azure-infrastructure-virtual-machines
   - name: Microsoft Defender for Cloud
     href: ../security-center/security-center-introduction.md
     maintainContext: true

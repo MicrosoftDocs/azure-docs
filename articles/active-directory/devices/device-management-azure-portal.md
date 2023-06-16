@@ -145,14 +145,19 @@ The exported list includes these device identity attributes:
 
 If you want to manage device identities by using the Azure portal, the devices need to be either [registered or joined](overview.md) to Azure AD. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
 
-You must be assigned one of the following roles to view or manage device settings in the Azure portal:
+You must be assigned one of the following roles to view device settings in the Azure portal:
 
 - Global Administrator
 - Global Reader
 - Cloud Device Administrator
-- Intune administrator
-- Windows 365 administrator
-- Directory reviewer
+- Intune Administrator
+- Windows 365 Administrator
+- Directory Reviewer
+
+You must be assigned one of the following roles to manage device settings in the Azure portal:
+
+- Global Administrator
+- Cloud Device Administrator
 
 ![Screenshot that shows device settings related to Azure AD.](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
@@ -178,7 +183,7 @@ You must be assigned one of the following roles to view or manage device setting
 This option is a premium edition capability available through products like Azure AD Premium and Enterprise Mobility + Security.
 - **Enable Azure AD Local Administrator Password Solution (LAPS) (preview)**: LAPS is the management of local account passwords on Windows devices. LAPS provides a solution to securely manage and retrieve the built-in local admin password. With cloud version of LAPS, customers can enable storing and rotation of local admin passwords for both Azure AD and Hybrid Azure AD join devices. To learn how to manage LAPS in Azure AD, see [the overview article](howto-manage-local-admin-passwords.md).
 
-- **Restrict non-admin users from recovering the BitLocker key(s) for their owned devices (preview)**: In this preview, admins can block self-service BitLocker key access to the registered owner of the device. Default users without the BitLocker read permission will be unable to view or copy their BitLocker key(s) for their owned devices.
+- **Restrict non-admin users from recovering the BitLocker key(s) for their owned devices**: Admins can block self-service BitLocker key access to the registered owner of the device. Default users without the BitLocker read permission will be unable to view or copy their BitLocker key(s) for their owned devices. You must be a Global Administrator or Privileged Role Administrator to update this setting. 
 
 - **Enterprise State Roaming**: For information about this setting, see [the overview article](enterprise-state-roaming-overview.md).
 
