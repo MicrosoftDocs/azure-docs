@@ -43,14 +43,8 @@ If you already registered your application in your customer tenant, you can add 
 
 1. Choose **Select**.
 
-## Update the application code with your tenant information
-
-Now you need to update your application code configuration with the application ID from the application registration, your customer tenant name, and a client secret value.
-
-We have several samples and how-to guides that can help you update your application to integrate with a user flow, based on app type, platform, and language. See [Samples for customer identity and access management (CIAM) in Azure Active Directory](samples-ciam-all.md).
-
 ## Next steps
-
-- If you selected email with password sign-in, [enable password reset](how-to-enable-password-reset-customers.md).
+- If you haven't done so already, complete the trust relationship between Azure AD and your app by updating your application source code with the values assigned during [app registration](how-to-register-ciam-app.md), such as the application (client) ID, directory (tenant) subdomain, and client secret. We have several [code sample guides and tutorials](samples-ciam-all.md) that show how to configure your application code with these values. For example, see how to [configure a sample Node.js web app](how-to-web-app-node-sample-sign-in#configure-the-sample-web-app).
+- If you selected email with password sign-in, [enable password reset]).(how-to-enable-password-reset-customers.md).
 - Add [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) federation.
 - [Add multifactor authentication (MFA) to a customer-facing app](how-to-multifactor-authentication-customers.md).

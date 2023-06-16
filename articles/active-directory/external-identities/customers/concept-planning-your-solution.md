@@ -64,6 +64,8 @@ Customer accounts have a [default set of permissions](reference-user-permissions
 
 Before your applications can interact with Azure AD for customers, you need to register them in your customer tenant. Azure AD performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Azure Active Directory for customers.
 
+To complete the trust relationship between Azure AD and your app, you also need to update your application source code with the values assigned during app registration, such as the application (client) ID, directory (tenant) subdomain, and client secret.
+
 We provide code sample guides and in-depth integration guides for several app types and languages. Depending on the type of app you want to register, you can find guidance on our [Samples by app type and language page](samples-ciam-all.md).
 
 ### How to register your application
