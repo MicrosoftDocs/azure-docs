@@ -59,7 +59,7 @@ Some applications may require low latency in addition to high throughput. You ca
 
 ## Increase the number of TCP connections
 
-You can use the `nconnect` mount option to increase performance at scale but only if your Linux kernel has **Azure nconnect support**. 
+You can use the `nconnect` mount option to get higher aggregate read and write performance from a single VM but only if your Linux kernel has **Azure nconnect support**. 
 
 `nconnect` is a client-side Linux mount option that allows you to use multiple TCP connections between the client and the Blob service endpoint. You can use the `nconnect` option in the mount command to specify the number of TCP connections that you want create (for example: `mount -t aznfs -o nconnect=16,sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdatain`).
 
@@ -72,7 +72,9 @@ Azure nconnect support is available with most of the recent Ubuntu kernals that 
 [ -e /sys/module/sunrpc/parameters/enable_azure_nconnect ] && echo "Yes" || echo "No"
 ```
 
-If Azure nconnect support is available for your kernel, then `Yes` is printed to the console. If Azure nconnect support is available, then enable it by running the following command.
+If Azure nconnect support is available for your kernel, then `Yes` is printed to the console. Otherwise, `'No` is printed to the console.
+
+If Azure nconnect support is available, then enable it by running the following command.
 
 ```
 echo Y > /sys/module/sunrpc/parameters/enable_azure_nconnect
