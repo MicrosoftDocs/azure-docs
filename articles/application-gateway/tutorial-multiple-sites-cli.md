@@ -186,12 +186,12 @@ az network application-gateway rule create \
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name shopcontosoRule \
+  --name fabrikamRule \
   --resource-group myResourceGroupAG \
-  --http-listener shopcontosoListener \
+  --http-listener fabrikamListener \
   --rule-type Basic \
   --priority 100 \
-  --address-pool shopcontosoPool
+  --address-pool fabrikamPool
 
 ```
 
