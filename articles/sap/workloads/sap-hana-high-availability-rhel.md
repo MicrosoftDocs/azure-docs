@@ -128,7 +128,7 @@ To deploy the template, follow these steps:
 > [!Note]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-1. To set up standard load balancer, follow these configuration steps:
+To set up standard load balancer, follow these configuration steps:
    1. First, create a front-end IP pool:
 
       1. Open the load balancer, select **frontend IP pool**, and select **Add**.
