@@ -63,12 +63,6 @@ If you're a billing administrator, use following steps to view and manage all sa
     The complete list of savings plans for your EA enrollment or billing profile is shown.
 1. Billing administrators can take ownership of a savings plan with the [Savings Plan Order - Elevate REST API](/rest/api/billingbenefits/savings-plan-order/elevate) to give themselves Azure RBAC roles.
 
-If you're a billing administrator, you can use the [Savings Plan Order - List](/rest/api/billingbenefits/savings-plan-order/list) REST API to list all savings plan orders that you have access to.
-
-Use the [Savings Plan Order - Elevate](/rest/api/billingbenefits/savings-plan-order/elevate) REST API to grant Azure RBAC access to a savings plan order.
-
-For more information, see [Savings Plan Order](/rest/api/billingbenefits/savings-plan-order) REST API.
-
 ### Adding billing administrators
 
 Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement in the Azure portal.
