@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 06/02/2023
+ms.date: 06/09/2023
 ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023
 #Customer intent: As an experienced Python developer, I need to read my data, to make it available to a remote compute resource, to train my machine learning models.
 ---
@@ -328,7 +328,7 @@ When you submit a job, the Azure Machine Learning data runtime controls the data
 - Seamless integration with [fsspec](https://filesystem-spec.readthedocs.io/en/latest/) - a unified pythonic interface to local, remote and embedded file systems and bytes storage.
 
 > [!TIP]
-> We recommend that you leverage the Azure Machine Learning data runtime, rather than creating your own mounting/downloading capability in your training (client) code. In particular, we have seen storage throughput constrained when the client code uses Python to download data from storage due to [Global Interpreter Lock (GIL)](https://wikipedia.org/wiki/Global_interpreter_lock) issues. Also, the Azure Machine Learning data mounting capability can offer faster performance compared to `blobfuse` and `blobfuse2`, for common machine learning scenarios.
+> We recommend that you leverage the Azure Machine Learning data runtime, rather than creating your own mounting/downloading capability in your training (client) code. In particular, we have seen storage throughput constrained when the client code uses Python to download data from storage due to [Global Interpreter Lock (GIL)](https://wikipedia.org/wiki/Global_interpreter_lock) issues.
 
 ## Paths
 
