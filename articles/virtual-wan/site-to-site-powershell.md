@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 This article shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv1 and IKEv2) VPN connection via PowerShell. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN overview](virtual-wan-about.md). You can also create this configuration using the [Azure portal](virtual-wan-site-to-site-portal.md) instructions.
 
-:::image type="content" source="./media/site-to-site/virtual-wan-diagram.png" alt-text="Screenshot shows a networking diagram for Virtual WAN.":::
+:::image type="content" source="./media/site-to-site/site-to-site-diagram.png" alt-text="Screenshot shows a networking diagram for Virtual WAN." lightbox="./media/site-to-site/site-to-site-diagram.png" :::
 
 ## Prerequisites
 
@@ -184,7 +184,7 @@ Once you have a VNet, follow the steps in this article to connect your VNet to t
 
 ## Configure VPN device
 
-To configure your on-premise VPN device, follow the steps in the [Site-to-site: Azure portal](virtual-wan-site-to-site-portal.md#device) article.
+To configure your on-premises VPN device, follow the steps in the [Site-to-site: Azure portal](virtual-wan-site-to-site-portal.md#device) article.
 
 ## <a name="cleanup"></a>Clean up resources
 
