@@ -55,7 +55,7 @@ Use the following Azure PowerShell commands to [create](https://learn.microsoft.
 ```azurepowershell
 $logScrubbingRule1 = New-AzApplicationGatewayFirewallPolicyLogScrubbingRule `
   -State <String> -MatchVariable <String> `
-  -SelectorMatchOperator Equals -Selector test
+  -SelectorMatchOperator <String> -Selector <String>
 
 $logScrubbingRuleConfig = New-AzApplicationGatewayFirewallPolicyLogScrubbingConfiguration `
   -State Enabled -ScrubbingRule $logScrubbingRule1
