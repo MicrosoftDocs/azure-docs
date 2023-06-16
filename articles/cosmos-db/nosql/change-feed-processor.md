@@ -177,34 +177,34 @@ You also can use the [change feed estimator](how-to-use-change-feed-estimator.md
 
 ## Deployment unit
 
-A single change feed processor deployment unit consists of one or more compute instances that have the same lease container configuration and the same `leasePrefix`, but different `hostName` value. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances.
+A single change feed processor deployment unit consists of one or more compute instances that have the same lease container configuration and the same `leasePrefix`, but different `hostName` values. You can have many deployment units in which each one has a different business flow for the changes, and each deployment unit consists of one or more instances.
 
-For example, you might have one deployment unit that triggers an external API anytime there's a change in your container. Another deployment unit might move data in real time each time there's a change. When a change happens in your monitored container, all your deployment units are notified.
+For example, you might have one deployment unit that triggers an external API  each time there's a change in your container. Another deployment unit might move data in real time each time there's a change. When a change happens in your monitored container, all your deployment units are notified.
 
 ## Dynamic scaling
 
-As mentioned earlier, within a deployment unit you can have one or more compute instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are:
+As mentioned earlier, within a deployment unit, you can have one or more compute instances. To take advantage of the compute distribution within the deployment unit, the only key requirements are that:
 
 * All instances should have the same lease container configuration.
 * All instances should have the same value set in `options.setLeasePrefix` (or none set at all).
 * Each instance needs to have a different `hostName`.
 
-If these three conditions apply, then the change feed processor distributes all the leases in the lease container across all running instances of that deployment unit and parallelizes compute by using an equal distribution algorithm. A lease is owned by one instance at a given time, so the number of instances shouldn't be greater than the number of leases.
+If these three conditions apply, then the change feed processor distributes all the leases in the lease container across all running instances of that deployment unit, and it parallelizes compute by using an equal-distribution algorithm. A lease is owned by one instance at any time, so the number of instances shouldn't be greater than the number of leases.
 
-The number of instances can grow and shrink, and the change feed processor will dynamically adjust the load by redistributing accordingly. Deployment units can share the same lease container, but they should each have a different `leasePrefix`.
+The number of instances can grow and shrink. The change feed processor dynamically adjusts the load by redistributing accordingly. Deployment units can share the same lease container, but they should each have a different `leasePrefix` value.
 
-Moreover, the change feed processor can dynamically adjust to containers scale due to throughput or storage increases. When your container grows, the change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among existing instances.
+Moreover, the change feed processor can dynamically adjust a container's scale if the container's throughput or storage increases. When your container grows, the change feed processor transparently handles the scenario by dynamically increasing the leases and distributing the new leases among existing instances.
 
 ## Starting time
 
-By default, when a change feed processor starts the first time, it initializes the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
+By default, when a change feed processor starts for the first time, it initializes the lease container and starts its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time aren't detected.
 
 > [!NOTE]
-> Modifying the starting time of the change feed processor is not available when you are using [all versions and deletes mode](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview). Currently, you must use the default start time.
+> Modifying the starting time of the change feed processor isn't available when you use [all versions and deletes mode](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview). Currently, you must use the default start time.
 
 ### Reading from a previous date and time
 
-It's possible to initialize the change feed processor to read changes starting at a *specific date and time* by setting `setStartTime` in `options`. The change feed processor is initialized for that specific date and time, and it starts reading the changes that happened after.
+It's possible to initialize the change feed processor to read changes starting at a *specific date and time* by setting `setStartTime` in `options`. The change feed processor is initialized for that specific date and time, and it starts reading the changes that happened afterward.
 
 ### Reading from the beginning
 
@@ -217,21 +217,21 @@ In the sample, `setStartFromBeginning` is set to `false`, which is the same as t
 
 ## Change feed and provisioned throughput
 
-Change feed read operations on the monitored container consume [request units](../request-units.md). Make sure your monitored container isn't experiencing [throttling](troubleshoot-request-rate-too-large.md), it adds delays in receiving change feed events on your processors.
+Change feed read operations on the monitored container consume [request units](../request-units.md). Make sure that your monitored container isn't experiencing [throttling](troubleshoot-request-rate-too-large.md). Throttling adds delays in receiving change feed events on your processors.
 
-Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances that are using the same lease container, the higher the potential request units consumption is. Make sure your lease container isn't experiencing [throttling](troubleshoot-request-rate-too-large.md), it adds delays in receiving change feed events and can even stop processing completely.
+Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances that use the same lease container, the higher the potential consumption of request units. Make sure that your lease container isn't experiencing [throttling](troubleshoot-request-rate-too-large.md). Throttling adds delays in receiving change feed events. Throttling can even completely end processing.
 
-## Sharing the lease container
+## Share the lease container
 
-You can share the lease container across multiple [deployment units](#deployment-unit), each deployment unit would be listening to a different monitored container or have a different `processorName`. With this configuration, each deployment unit would maintain an independent state on the lease container. Review the [request unit consumption on the lease container](#change-feed-and-provisioned-throughput) to make sure the provisioned throughput is enough for all the deployment units.
+You can share a lease container across multiple [deployment units](#deployment-unit). In a shared lease container, each deployment unit listens to a different monitored container or has a different value for `processorName`. In this configuration, each deployment unit maintains an independent state on the lease container. Review the [request unit consumption on a lease container](#change-feed-and-provisioned-throughput) to make sure that the provisioned throughput is enough for all the deployment units.
 
 ## Advanced lease configuration
 
-There are three key configurations that can affect the change feed processor behavior, in all cases, they'll affect the [request unit consumption on the lease container](#change-feed-and-provisioned-throughput). These configurations can be changed during the creation of the change feed processor but should be used carefully:
+Three key configurations can affect how the change feed processor works. Each configuration affects the [request unit consumption on the lease container](#change-feed-and-provisioned-throughput). You can set one of these configurations when you create the change feed processor, but use them carefully:
 
-* Lease Acquire: By default every 17 seconds. A host will periodically check the state of the lease store and consider acquiring leases as part of the [dynamic scaling](#dynamic-scaling) process. This process is done by executing a Query on the lease container. Reducing this value makes rebalancing and acquiring leases faster but increase [request unit consumption on the lease container](#change-feed-and-provisioned-throughput).
-* Lease Expiration: By default 60 seconds. Defines the maximum amount of time that a lease can exist without any renewal activity before it's acquired by another host. When a host crashes, the leases it owned is picked up by other hosts after this period of time plus the configured renewal interval. Reducing this value will make recovering after a host crash faster, but the expiration value should never be lower than the renewal interval.
-* Lease Renewal: By default every 13 seconds. A host owning a lease will periodically renew it even if there are no new changes to consume. This process is done by executing a Replace on the lease. Reducing this value lowers the time required to detect leases lost by host crashing but increase [request unit consumption on the lease container](#change-feed-and-provisioned-throughput).
+* Lease Acquire: By default, every 17 seconds. A host periodically checks the state of the lease store and consider acquiring leases as part of the [dynamic scaling](#dynamic-scaling) process. This process is done by executing a Query on the lease container. Reducing this value makes rebalancing and acquiring leases faster, but it increases [request unit consumption on the lease container](#change-feed-and-provisioned-throughput).
+* Lease Expiration: By default, 60 seconds. Defines the maximum amount of time that a lease can exist without any renewal activity before it's acquired by another host. When a host crashes, the leases it owned is picked up by other hosts after this period of time plus the configured renewal interval. Reducing this value makes recovering after a host crash faster, but the expiration value should never be lower than the renewal interval.
+* Lease Renewal: By default, every 13 seconds. A host that owns a lease periodically renews the lease, even if there are no new changes to consume. This process is done by executing a Replace on the lease. Reducing this value lowers the time that's required to detect leases lost by a host crashing, but it increases [request unit consumption on the lease container](#change-feed-and-provisioned-throughput).
 
 ## Where to host the change feed processor
 
