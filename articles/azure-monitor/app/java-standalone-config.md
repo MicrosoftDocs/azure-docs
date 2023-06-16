@@ -388,7 +388,7 @@ If you want to enable this feature, add the below configuration option:
 
 ```json
 "preview": {
-  "javaScriptSDKLoaderScript": {
+  "browserSdkLoader": {
      "enabled": true
    }
 }
