@@ -21,6 +21,9 @@ landingContent:
         links:
           - text: What is Update management center?
             url: overview.md
+          - text: Update options
+            url: updates-maintenance-schedules.md.md
+          - text: 
   # Card
   - title: Manage machine update state
     linkLists:     
@@ -33,9 +36,19 @@ landingContent:
           - text: Schedule recurring updates for machines
             url: scheduled-patching.md
   # Card
-  - title: Get started
+  - title: Dynamic scoping (preview)
     linkLists:     
+      - linkListType: concept
+        links:
+          - text: About Dynamic scoping (preview)
+            url: dynamic-scope-overview.md
       - linkListType: tutorial
         links:
-          - text: Check and install on-demand updates
-            url: quickstart-on-demand.md
+          - text: Apply updates at scale
+            url: tutorial-dynamic-scoping-for-scheduled-patching.md
+      - linkListType: quickstart
+          - text: Schedule updates at scale
+            url: quickstart-dynamic-scoping.md
+      - linkListType: manage
+          - text: Manage dynamic scope(preview) operations
+            url: manage-dynamic-scoping.md
