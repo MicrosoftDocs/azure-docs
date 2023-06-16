@@ -301,6 +301,4 @@ In this how-to article, you learned how to install and enable AKS Network Observ
 
 - For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
-<!-- uncomment after all merges into release branch so links work
 - To create an AKS cluster with Network Observability and BYO Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](network-observability-byo-cli.md).
--->
