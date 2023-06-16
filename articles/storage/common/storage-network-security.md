@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 06/16/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement-fy23
@@ -544,28 +544,51 @@ The following table lists services that can access your storage account data if 
 
 | Service                        | Resource provider name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
+|           | `Microsoft.AgFoodPlatform/farmBeats`      |  |
 | Azure API Management           | `Microsoft.ApiManagement/service`        | Enables access to storage accounts behind firewalls via policies. [Learn more](../../api-management/authentication-managed-identity-policy.md#use-managed-identity-in-send-request-policy). |
+|           | `Microsoft.AutonomousSystems/workspaces`      |  |
 | Azure Cache for Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md).| 
 | Azure Cognitive Search         | `Microsoft.Search/searchServices`        | Enables access to storage accounts for indexing, processing, and querying. |
 | Azure Cognitive Services       | `Microsoft.CognitiveService/accounts`    | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry | `Microsoft.ContainerRegistry/registries` | Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
+|           | `Microsoft.Databricks/accessConnectors`      |  |
 | Azure Data Factory             | `Microsoft.DataFactory/factories`        | Enables access to storage accounts through the Data Factory runtime. |
+|           | `Microsoft.DataProtection/BackupVaults`      |  |
 | Azure Data Share               | `Microsoft.DataShare/accounts`           | Enables access to storage accounts. |
-| Azure DevTest Labs             | `Microsoft.DevTestLab/labs`              | Enables access to storage accounts. |
-| Azure Event Grid  | `Microsoft.EventGrid/topics` | Enables access to storage accounts. |
-| Azure Healthcare APIs | `Microsoft.HealthcareApis/services` | Enables access to storage accounts. |
-| Azure IoT Central | `Microsoft.IoTCentral/IoTApps` | Enables access to storage accounts. |
+|           | `Microsoft.DBForPostgreSQL`      |  |
 | Azure IoT Hub                  | `Microsoft.Devices/IotHubs`              | Allows data from an IoT hub to be written to Blob Storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources). |
-| Azure Logic Apps               | `Microsoft.Logic/workflows`              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
+| Azure DevTest Labs             | `Microsoft.DevTestLab/labs`              | Enables access to storage accounts. |
+| Azure Event Grid  | `Microsoft.EventGrid/domains`       |  |
+| Azure Event Grid  | `Microsoft.EventGrid/partnerTopics` |  |
+| Azure Event Grid  | `Microsoft.EventGrid/systemTopics`  |  |
+| Azure Event Grid  | `Microsoft.EventGrid/topics`        | Enables access to storage accounts. |
+| Azure Healthcare APIs | `Microsoft.HealthcareApis/services`   | Enables access to storage accounts. |
+| Azure Healthcare APIs | `Microsoft.HealthcareApis/workspaces` | Enables access to storage accounts. |
+| Azure IoT Central | `Microsoft.IoTCentral/IoTApps` | Enables access to storage accounts. |
+|           | `Microsoft.keyvault/managedHSMs`      |  |
+| Azure Logic Apps               | `Microsoft.Logic/integrationAccounts`       | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
+| Azure Logic Apps               | `Microsoft.Logic/workflows`                 | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Machine Learning | `Microsoft.MachineLearningServices`      | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning | `Microsoft.MachineLearning/registries`      | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning | `Microsoft.MachineLearningServices/workspaces`      | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Media Services           | `Microsoft.Media/mediaservices`          | Enables access to storage accounts. |
 | Azure Migrate                  | `Microsoft.Migrate/migrateprojects`      | Enables access to storage accounts. |
+|           | `Microsoft.MixedReality/remoteRenderingAccounts`      |  |
+|           | `Microsoft.Network/expressRoutePorts`      |  |
+|           | `Microsoft.PowerPlatform/enterprisePolicies`      |  |
+|           | `Microsoft.ProjectArcadia/workspaces`      |  |
+|           | `Microsoft.ProjectBabylon/accounts`      |  |
 | Microsoft Purview                  | `Microsoft.Purview/accounts`             | Enables access to storage accounts. |
 | Azure Site Recovery            | `Microsoft.RecoveryServices/vaults`      | Enables access to storage accounts. |
+|           | `Microsoft.Security/dataScanners`      |  |
+|           | `Microsoft.Singularity/accounts`      |  |
 | Azure SQL Database             | `Microsoft.Sql`                          | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
+| Azure SQL Servers             | `Microsoft.Sql/servers`                          | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure Synapse Analytics        | `Microsoft.Sql`                          | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics         | `Microsoft.StreamAnalytics`              | Allows data from a streaming job to be written to Blob Storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
+| Azure Stream Analytics         | `Microsoft.StreamAnalytics/streamingjobs`              | Allows data from a streaming job to be written to Blob Storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | `Microsoft.Synapse/workspaces`           | Enables access to data in Azure Storage. |
+|           | `Microsoft.VideoIndexer/Accounts`      |  |
 
 If your account doesn't have the hierarchical namespace feature enabled on it, you can grant permission by explicitly assigning an Azure role to the [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role that's assigned to the managed identity.
 
