@@ -166,6 +166,20 @@ Once you've configured provisioning, use the following resources to monitor your
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
+## Just-in-time (JIT) application access with PIM for groups
+With PIM for Groups, you can provide just-in-time access to groups in Amazon Web Services and reduce the number of users that have permanent access to priviliged groups in AWS. 
+
+1. Create a group in Azure AD that will be used to manage access to a set of permissions in AWS.
+2. Enable [PIM to manage the group](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-discover-groups).
+3. Add [eligibility](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-assign-member-owner) to the group with the role set to member. 
+4. Create an enterprise application and configure it for provisioning as described in the tutorial above. 
+5. Assign the group created in step 1 to the application created in step 4. 
+6. Assign your test user directly to the application or to a group that can be used for persistent non-admin access in AWS. This ensures that when the group access is removed, the user is not completely deleted from the application. 
+7. Use on-demand provisioning to provision the group into your application. At this point the group does not have any active members so this will simply create the group object in your application.
+8. Assign the group in AWS the necessary permissions.
+9. Sign-in to your application and assign the group to the necessary role / permissions.  
+
+
 ## Troubleshooting Tips
 
 ### Missing attributes
