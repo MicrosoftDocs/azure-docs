@@ -45,7 +45,7 @@ To secure applications from mistakes with unverified email addresses, all new mu
 
 Depending on your scenario, you may determine that your application's tokens should continue receiving unverified emails. While not recommended for most applications, you may disable the default behavior by setting the `removeUnverifiedEmailClaim` property in the [Authentication Behaviors Microsoft Graph API](https://learn.microsoft.com/graph/api/resources/authenticationbehaviors?view=graph-rest-beta).
 
-By setting `removeUnverifiedEmailClaim` to `false`, your application will receive `email` claims that are potentially unverified and subject users to account takeover risk. If you are disabling this behavior in order to not break user login flows, it's highly recommended to migrate to a uniquely identifying token claim mapping as soon as possible, as described in the guidance below. 
+By setting `removeUnverifiedEmailClaim` to `false`, your application will receive `email` claims that are potentially unverified and subject users to account takeover risk. If you're disabling this behavior in order to not break user login flows, it's highly recommended to migrate to a uniquely identifying token claim mapping as soon as possible, as described in the guidance below. 
 
 ## Identifying insecure configurations and performing database migration 
 
@@ -78,7 +78,7 @@ Mutli-tenant applications should index on a mapping of two uniquely identifying 
 
 To assist developers in the migration process, we have introduced an optional claim, `xms_edov`, a Boolean property that indicates whether or not the email domain owner has been verified. 
 
-`xms_edov` can be used to assist in verifying a user's email before migrating their primary key to unique identifiers, such as `oid`. The following psuedocode example illustrates how this claim may be used as part of your migration. 
+`xms_edov` can be used to help verifying a user's email before migrating their primary key to unique identifiers, such as `oid`. The following pseudocode example illustrates how this claim may be used as part of your migration. 
 
 ```
 // Verify email and migrate users by performing lookups on tid+oid, email, and xms_edov claims
