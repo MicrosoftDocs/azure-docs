@@ -1,12 +1,12 @@
 ---
-title: Overview of convert-data - Azure Health Data Services
+title: Overview of FHIR Converter - Azure Health Data Services
 description: Overview of how to use the $convert-data endpoint and custom converter templates to convert data to FHIR R4 in Azure Health Data Services.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 05/30/2023
+ms.date: 06/16/2023
 ms.author: jasteppe
 ---
 
@@ -114,22 +114,20 @@ A `$convert-data` API call packages the health data for conversion inside a JSON
 
 In this article, you've learned about the convert-data operation and the `$convert-data` endpoint for converting health data to FHIR R4 by using the FHIR service in the Azure Health Data Service. 
 
-To learn how to configure your environment to use convert-data, see:
+To learn how to deploy and configure the FHIR Converter, see:
  
 >[!div class="nextstepaction"]
->[Configure convert-data](configure-convert-data.md)
+>[Deploy and configure the FHIR Conveter](deploy-and-configure-convert-data.md)
 
-To learn how to troubleshoot convert-data, see:
+To learn how to troubleshoot the FHIR Converter, see:
  
 >[!div class="nextstepaction"]
->[Troubleshoot convert-data](troubleshoot-convert-data.md)
+>[Troubleshoot the FHIR Converter](troubleshoot-convert-data.md)
 
-To learn about the frequently asked questions (FAQs) for convert-data, see
-
-To learn how to troubleshoot convert-data, see:
+To learn about the frequently asked questions (FAQs) for the FHIR Converter, see
  
 >[!div class="nextstepaction"]
->[Frequently asked questions about convert-data](frequently-asked-questions-convert-data.md)
+>[Frequently asked questions about the FHIR Converter](frequently-asked-questions-convert-data.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
  
