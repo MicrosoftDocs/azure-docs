@@ -28,7 +28,7 @@ To add or deactivate custom security attributes definitions, you must have:
 - Azure AD Premium P1 or P2 license
 - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
-- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using PowerShell
+- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using Azure AD PowerShell
 
 > [!IMPORTANT]
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
@@ -1132,7 +1132,7 @@ Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttrib
 
 **Can you delete custom security attribute definitions?**
 
-No, you can't delete custom security attribute definitions. You can only [deactivate custom security attribute definitions](#deactivate-a-custom-security-attribute). Once you deactivate a custom security attribute, it can no longer be applied to the Azure AD objects. Custom security attribute assignments for the deactivated custom security attribute definition are not automatically removed. There is no limit to the number of deactivated custom security attributes. You can have 500 active custom security attribute definitions per tenant with 100 allowed predefined values per custom security attribute definition.
+No, you can't delete custom security attribute definitions. You can only [deactivate custom security attribute definitions](#deactivate-a-custom-security-attribute-definition). Once you deactivate a custom security attribute, it can no longer be applied to the Azure AD objects. Custom security attribute assignments for the deactivated custom security attribute definition are not automatically removed. There is no limit to the number of deactivated custom security attributes. You can have 500 active custom security attribute definitions per tenant with 100 allowed predefined values per custom security attribute definition.
 
 ## Next steps
 
