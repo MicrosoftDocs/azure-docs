@@ -41,15 +41,17 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 ## 5. Validate the apps
 
+The following sections describe how to validate the deployment.
+
 ### 5.1. Access the applications
 
-According to the content output by the deployment, open the URL exposed by the app  named `api-gateway`, for example, `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io`.
+Using the URL information in the deployment log output, open the URL exposed by the app named `api-gateway` - for example, `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io`. The application should look similar to the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application.png" alt-text="Screenshot of the PetClinic application running on Azure Spring Apps." lightbox="media/quickstart-deploy-microservice-apps/application.png":::
 
 ### 5.2. Query the application logs
 
-After you browse each function of the Pet Clinic, the Log Analytics workspace collects logs of each application. You can check the logs by using your custom queries.
+After you browse each function of the Pet Clinic, the Log Analytics workspace collects logs of each application. You can check the logs by using custom queries, as shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query.png" alt-text="Screenshot of the Azure portal showing the Logs page of the query on PetClinic application and the results." lightbox="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query.png":::
 
@@ -59,7 +61,7 @@ Application Insights monitors the application dependencies, as shown by the foll
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of the Azure portal showing the Application map page for an Application Insights." lightbox="media/quickstart-deploy-microservice-apps/application-insights-map.png":::
 
-Open the URL exposed by the app `admin-server` to manage the applications through the Spring Boot Admin Server.
+Open the URL exposed by the app `admin-server` to manage the applications through the Spring Boot Admin Server, as shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/admin-server.png" alt-text="Screenshot of the Admin Server for the PetClinic application listing the current application instances." lightbox="media/quickstart-deploy-microservice-apps/admin-server.png":::
 
