@@ -1,6 +1,6 @@
 ---
-title: Add or deactivate custom security attributes in Azure AD (Preview)
-description: Learn how to add new custom security attributes or deactivate custom security attributes in Azure Active Directory.
+title: Add or deactivate custom security attribute definitions in Azure AD (Preview)
+description: Learn how to add new custom security attribute definitions or deactivate custom security attribute definitions in Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -13,17 +13,17 @@ ms.date: 02/03/2022
 ms.collection: M365-identity-device-management
 ---
 
-# Add or deactivate custom security attributes in Azure AD (Preview)
+# Add or deactivate custom security attribute definitions in Azure AD (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Custom security attributes](custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. This article describes how to add, edit, or deactivate custom security attributes.
+[Custom security attributes](custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. This article describes how to add, edit, or deactivate custom security attribute definitions.
 
 ## Prerequisites
 
-To add or deactivate custom security attributes, you must have:
+To add or deactivate custom security attributes definitions, you must have:
 
 - Azure AD Premium P1 or P2 license
 - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
@@ -54,7 +54,7 @@ An attribute set is a collection of related attributes. All custom security attr
 
     The new attribute set appears in the list of attribute sets.
 
-## Add a custom security attribute
+## Add a custom security attribute definition
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -62,7 +62,7 @@ An attribute set is a collection of related attributes. All custom security attr
 
 1. On the Custom security attributes page, find an existing attribute set or click **Add attribute set** to add a new attribute set.
 
-    All custom security attributes must be part of an attribute set.
+    All custom security attribute definitions must be part of an attribute set.
 
 1. Click to open the selected attribute set.
  
@@ -107,9 +107,9 @@ An attribute set is a collection of related attributes. All custom security attr
 
 1. If you want to include predefined values, follow the steps in the next section.
 
-## Edit a custom security attribute
+## Edit a custom security attribute definition
 
-Once you add a new custom security attribute, you can later edit some of the properties. Some properties are immutable and cannot be changed.
+Once you add a new custom security attribute definition, you can later edit some of the properties. Some properties are immutable and cannot be changed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -125,9 +125,9 @@ Once you add a new custom security attribute, you can later edit some of the pro
 
     ![Screenshot of Add predefined value pane in Azure portal.](./media/custom-security-attributes-add/attribute-predefined-value-add.png)
 
-## Deactivate a custom security attribute
+## Deactivate a custom security attribute definition
 
-Once you add a custom security attribute, you can't delete it. However, you can deactivate a custom security attribute.
+Once you add a custom security attribute definition, you can't delete it. However, you can deactivate a custom security attribute definition.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -145,7 +145,7 @@ Once you add a custom security attribute, you can't delete it. However, you can 
 
 ## PowerShell or Microsoft Graph API
 
-To manage custom security attributes in your Azure AD organization, you can also use PowerShell or Microsoft Graph API. The following examples manage attribute sets and custom security attributes.
+To manage custom security attribute definitions in your Azure AD organization, you can also use PowerShell or Microsoft Graph API. The following examples manage attribute sets and custom security attribute definitions.
 
 #### Get all attribute sets
 
@@ -369,7 +369,7 @@ Set-AzureADMSAttributeSet -Id "Engineering" -MaxAttributesPerSet 20
 
 ---
 
-#### Get all custom security attributes
+#### Get all custom security attribute definitions
 
 The following example gets all custom security attribute definitions.
 
@@ -437,7 +437,7 @@ Get-AzureADMSCustomSecurityAttributeDefinition
 
 ---
 
-#### Filter custom security attributes
+#### Filter custom security attribute definitions
 
 The following examples filter custom security attribute definitions.
 
@@ -529,7 +529,7 @@ None
 
 ---
 
-#### Get a custom security attribute
+#### Get a custom security attribute definition
 
 The following example gets a custom security attribute definition.
 
@@ -576,7 +576,7 @@ Get-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate"
 
 ---
 
-#### Add a custom security attribute
+#### Add a custom security attribute definition
 
 The following example adds a new custom security attribute definition.
 
@@ -644,7 +644,7 @@ New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name
 
 ---
 
-#### Add a custom security attribute that supports multiple predefined values
+#### Add a custom security attribute definition that supports multiple predefined values
 
 The following example adds a new custom security attribute definition that supports multiple predefined values.
 
@@ -708,7 +708,7 @@ None
 
 ---
 
-#### Add a custom security attribute with a list of predefined values
+#### Add a custom security attribute definition with a list of predefined values
 
 The following example adds a new custom security attribute definition with a list of predefined values.
 
@@ -801,7 +801,7 @@ None
 
 ---
 
-#### Update a custom security attribute
+#### Update a custom security attribute definition
 
 The following example updates a custom security attribute definition.
 
@@ -840,7 +840,7 @@ Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate" -De
 
 ---
 
-#### Update the predefined values for a custom security attribute
+#### Update the predefined values for a custom security attribute definition
 
 The following example updates the predefined values for a custom security attribute definition.
 
@@ -905,7 +905,7 @@ None
 
 ---
 
-#### Deactivate a custom security attribute
+#### Deactivate a custom security attribute definition
 
 The following example deactivates a custom security attribute definition.
 

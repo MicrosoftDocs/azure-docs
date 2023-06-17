@@ -91,7 +91,7 @@ There are no custom security attributes defined and assigned yet for your tenant
 
 **Solution 3**
 
-Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md), [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
+Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md), [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
 
 ## Symptom - Custom security attributes cannot be deleted
 
@@ -101,7 +101,7 @@ Currently, you can only activate and deactivate custom security attribute defini
 
 **Solution**
 
-Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md).
+Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md).
 
 ## Symptom - Cannot add a role assignment at an attribute set scope using PIM
 

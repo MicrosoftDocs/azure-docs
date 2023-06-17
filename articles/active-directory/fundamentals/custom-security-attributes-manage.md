@@ -33,7 +33,7 @@ To manage access to custom security attributes, you must have:
 
 ## Step 1: Figure out how to organize your attributes
 
-Every custom security attribute must be part of an attribute set. An attribute set is a way to group and manage related custom security attributes. You'll need to figure out how you want to add attributes sets for your organization. For example, you might want to add attribute sets based on departments, teams, or projects. Your ability to grant access to custom security attributes will depend on how you organize your attribute sets.
+Every custom security attribute definition must be part of an attribute set. An attribute set is a way to group and manage related custom security attributes. You'll need to figure out how you want to add attributes sets for your organization. For example, you might want to add attribute sets based on departments, teams, or projects. Your ability to grant access to custom security attributes will depend on how you organize your attribute sets.
 
 ![Diagram showing an attribute set by department.](./media/custom-security-attributes-manage/attribute-set-department.png)
 
@@ -247,6 +247,6 @@ The following screenshot shows an example of the audit log. To filter the logs f
 
 ## Next steps
 
-- [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
+- [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md)
 - [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
 - [Troubleshoot custom security attributes in Azure AD](custom-security-attributes-troubleshoot.md)

@@ -38,7 +38,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md).
+1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](../fundamentals/custom-security-attributes-add.md).
 
 1. Select **Azure Active Directory** > **Users**.
 
@@ -80,7 +80,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. When finished, select **Save**.
 
-## Filter users based on custom security attributes
+## Filter users based on custom security attribute assignments
 
 You can filter the list of custom security attributes assigned to users on the All users page.
 
@@ -377,9 +377,9 @@ None
 
 ---
 
-#### Update a custom security attribute with an integer value for a user
+#### Update a custom security attribute assignment with an integer value for a user
 
-The following example updates a custom security attribute with an integer value for a user.
+The following example updates a custom security attribute assignment with an integer value for a user.
 
 - Attribute set: `Engineering`
 - Attribute: `NumVendors`
@@ -427,9 +427,9 @@ None
 
 ---
 
-#### Update a custom security attribute with a Boolean value for a user
+#### Update a custom security attribute assignment with a Boolean value for a user
 
-The following example updates a custom security attribute with a Boolean value for a user.
+The following example updates a custom security attribute assignment with a Boolean value for a user.
 
 - Attribute set: `Engineering`
 - Attribute: `Certification`
@@ -475,9 +475,9 @@ None
 
 ---
 
-#### Update a custom security attribute with a multi-string value for a user
+#### Update a custom security attribute assignment with a multi-string value for a user
 
-The following example updates a custom security attribute with a multi-string value for a user.
+The following example updates a custom security attribute assignment with a multi-string value for a user.
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
@@ -1068,15 +1068,15 @@ None
 
 ## Frequently asked questions
 
-**Where are custom security attributes for users supported?**
+**Where are custom security attribute assignments for users supported?**
 
-Custom security attributes for users are supported in Azure portal, PowerShell, and Microsoft Graph APIs. Custom security attributes are not supported in My Apps or Microsoft 365 admin center.
+Custom security attribute assignments for users are supported in Azure portal, PowerShell, and Microsoft Graph APIs. Custom security attribute assignments are not supported in My Apps or Microsoft 365 admin center.
 
 **Who can view the custom security attributes assigned to a user?**
 
 Only users that have been assigned the Attribute Assignment Administrator or Attribute Assignment Reader roles at tenant scope can view custom security attributes assigned to any users in the tenant. Users cannot view the custom security attributes assigned to their own profile or other users. Guests cannot view the custom security attributes regardless of the guest permissions set on the tenant.
 
-**Do I need to create an app to use custom security attributes?**
+**Do I need to create an app to add custom security attribute assignments?**
 
 No, custom security attributes can be assigned to user objects without requiring an application.
 
@@ -1092,7 +1092,7 @@ Yes, custom security attributes can be assigned to members or guests in your ten
 
 Yes, directory synced users from an on-premises Active Directory can be assigned custom security attributes.
 
-**Are custom security attributes available for dynamic membership rules?**
+**Are custom security attribute assignments available for dynamic membership rules?**
 
 No, custom security attributes assigned to users are not supported for configuring dynamic membership rules.
 
@@ -1102,7 +1102,7 @@ No, custom security attributes are not supported in B2C tenants and are not rela
 
 ## Next steps
 
-- [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md)
+- [Add or deactivate custom security attribute definitions in Azure AD](../fundamentals/custom-security-attributes-add.md)
 - [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)
 - [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples)
 - [Troubleshoot custom security attributes in Azure AD](../fundamentals/custom-security-attributes-troubleshoot.md)
