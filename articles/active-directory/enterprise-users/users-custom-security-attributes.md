@@ -531,10 +531,40 @@ The following example gets the custom security attribute assignments for a user.
 
 ```powershell
 Select-MgProfile -Name "beta"
-Get-MgUser -UserId $userId -Property "customSecurityAttributes"
+$userAttributes = Get-MgUser -UserId $userId -Property "customSecurityAttributes"
+$userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
+$userAttributes.CustomSecurityAttributes.AdditionalProperties.Engineering
+$userAttributes.CustomSecurityAttributes.AdditionalProperties.Marketing
 ```
 
-If there are no custom security attributes assigned to the user or if the calling principal does not have access, the response will look like:
+```Output
+Key   : Engineering
+Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [Project@odata.type, #Collection(String)], [Project, System.Object[]],
+        [ProjectDate, 2023-10-01]…}
+
+Key   : Marketing
+Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [EmployeeId, GS45897]}
+
+
+Key                   Value
+---                   -----
+@odata.type           #microsoft.graph.customSecurityAttributeValue
+Project@odata.type    #Collection(String)
+Project               {Baker, Alpine}
+ProjectDate           2023-10-01
+NumVendors            8
+CostCenter@odata.type #Collection(Int32)
+CostCenter            {1001, 1003}
+Certification         False
+
+
+Key         Value
+---         -----
+@odata.type #microsoft.graph.customSecurityAttributeValue
+EmployeeId  KX45897
+```
+
+If there are no custom security attributes assigned to the user or if the calling principal does not have access, the response will be empty.
 
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -575,6 +605,31 @@ The following example lists all users with a custom security attribute assignmen
 # [PowerShell](#tab/ms-powershell)
 
 [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+
+```powershell
+Select-MgProfile -Name "beta"
+$userAttributes = Get-MgUser -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "customSecurityAttributes/Marketing/AppCountry eq 'Canada'" -ConsistencyLevel eventual
+$userAttributes | select Id,DisplayName,CustomSecurityAttributes
+$userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
+```
+
+```Output
+Id                                   DisplayName CustomSecurityAttributes
+--                                   ----------- ------------------------
+b1d6d9da-1e5d-4696-833e-4f25f6e95e75 Jiya        Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+4bbc0e6c-f8b8-4bc3-9b39-dc04d29cf409 Jana        Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+
+Key   : Engineering
+Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [Datacenter@odata.type, #Collection(String)], [Datacenter, System.Object[]]}
+
+Key   : Marketing
+Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [AppCountry@odata.type, #Collection(String)], [AppCountry, System.Object[]],
+        [EmployeeId, KX19476]}
+
+Key   : Marketing
+Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [AppCountry@odata.type, #Collection(String)], [AppCountry, System.Object[]],
+        [EmployeeId, GS46982]}
+```
 
 # [Microsoft Graph](#tab/ms-graph)
 
