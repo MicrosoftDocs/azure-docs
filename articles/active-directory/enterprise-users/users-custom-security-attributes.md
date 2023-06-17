@@ -29,6 +29,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 - Azure AD Premium P1 or P2 license
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
+- Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
 - [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using PowerShell
 
 > [!IMPORTANT]
