@@ -504,6 +504,21 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
 
+```http
+PATCH https://graph.microsoft.com/beta/users/{id}
+{
+    "customSecurityAttributes":
+    {
+        "Engineering":
+        {
+            "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
+            "Project@odata.type":"#Collection(String)",
+            "Project":["Alpine","Baker"]
+        }
+    }
+}
+```
+
 # [Azure AD PowerShell](#tab/aad-powershell)
 
 [Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser?branch=main)
@@ -575,6 +590,34 @@ If there are no custom security attributes assigned to the user or if the callin
 GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
 ```
 
+```Response
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(customSecurityAttributes)/$entity",
+    "customSecurityAttributes": {
+        "Engineering": {
+            "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+            "Project@odata.type": "#Collection(String)",
+            "Project": [
+                "Baker",
+                "Alpine"
+            ],
+            "ProjectDate": "2023-10-01",
+            "NumVendors": 8,
+            "CostCenter@odata.type": "#Collection(Int32)",
+            "CostCenter": [
+                1001,
+                1003
+            ],
+            "Certification": false
+        },
+        "Marketing": {
+            "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+            "EmployeeId": "GS45897"
+        }
+    }
+}
+```
+
 If there are no custom security attributes assigned to the user or if the calling principal does not have access, the response will look like:
 
 ```http
@@ -616,8 +659,8 @@ $userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
 ```Output
 Id                                   DisplayName CustomSecurityAttributes
 --                                   ----------- ------------------------
-b1d6d9da-1e5d-4696-833e-4f25f6e95e75 Jiya        Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
-4bbc0e6c-f8b8-4bc3-9b39-dc04d29cf409 Jana        Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+4b4e8090-e9ba-4bdc-b2f0-67c3c7c59489 Jiya        Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+efdf3082-64ae-495f-b051-855e2d8df969 Jana        Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
 
 Key   : Engineering
 Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [Datacenter@odata.type, #Collection(String)], [Datacenter, System.Object[]]}
@@ -640,6 +683,52 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 ConsistencyLevel: eventual
 ```
 
+```Response
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
+    "@odata.count": 2,
+    "value": [
+        {
+            "id": "4b4e8090-e9ba-4bdc-b2f0-67c3c7c59489",
+            "displayName": "Jiya",
+            "customSecurityAttributes": {
+                "Engineering": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "Datacenter@odata.type": "#Collection(String)",
+                    "Datacenter": [
+                        "India"
+                    ]
+                },
+                "Marketing": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "AppCountry@odata.type": "#Collection(String)",
+                    "AppCountry": [
+                        "India",
+                        "Canada"
+                    ],
+                    "EmployeeId": "KX19476"
+                }
+            }
+        },
+        {
+            "id": "efdf3082-64ae-495f-b051-855e2d8df969",
+            "displayName": "Jana",
+            "customSecurityAttributes": {
+                "Marketing": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "AppCountry@odata.type": "#Collection(String)",
+                    "AppCountry": [
+                        "Canada",
+                        "Mexico"
+                    ],
+                    "EmployeeId": "GS46982"
+                }
+            }
+        }
+    ]
+}
+```
+
 # [Azure AD PowerShell](#tab/aad-powershell)
 
 None
@@ -658,6 +747,35 @@ The following example lists all users with a custom security attribute assignmen
 
 [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
 
+```powershell
+Select-MgProfile -Name "beta"
+$userAttributes = Get-MgUser -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')" -ConsistencyLevel eventual
+$userAttributes | select Id,DisplayName,CustomSecurityAttributes
+$userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
+```
+
+```Output
+Id                                   DisplayName CustomSecurityAttributes
+--                                   ----------- ------------------------
+02d52406-be75-411b-b02f-29d7f38dcf62 Chandra     Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+efdf3082-64ae-495f-b051-855e2d8df969 Jana        Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+d5a1c025-2d79-4ad3-9217-91ac3a4ed8b8 Joe         Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+
+Key   : Marketing
+Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [EmployeeId, GS36348]}
+
+Key   : Marketing
+Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [AppCountry@odata.type, #Collection(String)], [AppCountry, System.Object[]],
+        [EmployeeId, GS46982]}
+
+Key   : Engineering
+Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [Project@odata.type, #Collection(String)], [Project, System.Object[]],
+        [ProjectDate, 2023-10-01]…}
+
+Key   : Marketing
+Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [EmployeeId, GS45897]}
+```
+
 # [Microsoft Graph](#tab/ms-graph)
 
 [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true&branch=main)
@@ -665,6 +783,66 @@ The following example lists all users with a custom security attribute assignmen
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')
 ConsistencyLevel: eventual
+```
+
+```Response
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
+    "@odata.count": 3,
+    "value": [
+        {
+            "id": "02d52406-be75-411b-b02f-29d7f38dcf62",
+            "displayName": "Chandra",
+            "customSecurityAttributes": {
+                "Marketing": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "EmployeeId": "GS36348"
+                }
+            }
+        },
+        {
+            "id": "efdf3082-64ae-495f-b051-855e2d8df969",
+            "displayName": "Jana",
+            "customSecurityAttributes": {
+                "Marketing": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "AppCountry@odata.type": "#Collection(String)",
+                    "AppCountry": [
+                        "Canada",
+                        "Mexico"
+                    ],
+                    "EmployeeId": "GS46982"
+                }
+            }
+        },
+        {
+            "id": "d5a1c025-2d79-4ad3-9217-91ac3a4ed8b8",
+            "displayName": "Joe",
+            "customSecurityAttributes": {
+                "Engineering": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "Project@odata.type": "#Collection(String)",
+                    "Project": [
+                        "Baker",
+                        "Alpine"
+                    ],
+                    "ProjectDate": "2023-10-01",
+                    "NumVendors": 8,
+                    "CostCenter@odata.type": "#Collection(Int32)",
+                    "CostCenter": [
+                        1001,
+                        1003
+                    ],
+                    "Certification": false
+                },
+                "Marketing": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "EmployeeId": "GS45897"
+                }
+            }
+        }
+    ]
+}
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -685,6 +863,22 @@ The following example lists all users with a custom security attribute assignmen
 
 [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
 
+```powershell
+Select-MgProfile -Name "beta"
+$userAttributes = Get-MgUser -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "customSecurityAttributes/Marketing/AppCountry ne 'Canada'" -ConsistencyLevel eventual
+$userAttributes | select Id,DisplayName,CustomSecurityAttributes
+```
+
+```Output
+Id                                   DisplayName              CustomSecurityAttributes
+--                                   -----------              ------------------------
+02d52406-be75-411b-b02f-29d7f38dcf62 Chandra                  Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+eaea4971-7764-4498-9aeb-776496812e75 Isabella                 Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+d937580c-692c-451f-a507-6758d3bdf353 Alain                    Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+d5a1c025-2d79-4ad3-9217-91ac3a4ed8b8 Joe                      Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+23ad8721-f46c-421a-9785-33b0ef474198 Dara                     Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+```
+
 # [Microsoft Graph](#tab/ms-graph)
 
 [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true&branch=main)
@@ -692,6 +886,83 @@ The following example lists all users with a custom security attribute assignmen
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry ne 'Canada'
 ConsistencyLevel: eventual
+```
+
+```Response
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
+    "@odata.count": 47,
+    "value": [
+        {
+            "id": "02d52406-be75-411b-b02f-29d7f38dcf62",
+            "displayName": "Chandra",
+            "customSecurityAttributes": {
+                "Marketing": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "EmployeeId": "GS36348"
+                }
+            }
+        },
+        {
+            "id": "eaea4971-7764-4498-9aeb-776496812e75",
+            "displayName": "Isabella",
+            "customSecurityAttributes": {
+                "Marketing": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "AppCountry@odata.type": "#Collection(String)",
+                    "AppCountry": [
+                        "France"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "d937580c-692c-451f-a507-6758d3bdf353",
+            "displayName": "Alain",
+            "customSecurityAttributes": {
+                "Marketing": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "AppCountry@odata.type": "#Collection(String)",
+                    "AppCountry": [
+                        "Germany",
+                        "Japan"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "d5a1c025-2d79-4ad3-9217-91ac3a4ed8b8",
+            "displayName": "Joe",
+            "customSecurityAttributes": {
+                "Engineering": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "Project@odata.type": "#Collection(String)",
+                    "Project": [
+                        "Baker",
+                        "Alpine"
+                    ],
+                    "ProjectDate": "2023-10-01",
+                    "NumVendors": 8,
+                    "CostCenter@odata.type": "#Collection(Int32)",
+                    "CostCenter": [
+                        1001,
+                        1003
+                    ],
+                    "Certification": false
+                },
+                "Marketing": {
+                    "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
+                    "EmployeeId": "GS45897"
+                }
+            }
+        },
+        {
+            "id": "23ad8721-f46c-421a-9785-33b0ef474198",
+            "displayName": "Dara",
+            "customSecurityAttributes": null
+        }
+    ]
+}
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
