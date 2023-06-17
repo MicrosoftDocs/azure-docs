@@ -205,21 +205,21 @@ After you finish writing your code, compile that code to make sure that no build
 
 1. In your workspace, expand the following nodes: **LogicApp** > **lib\custom** > **net472**.
 
-1. Confirm that the following items exist:
+1. Confirm that the following items exist in your logic app project
 
    - Multiple assembly (DLL) files, including a file named **<*function-name*>.dll**, that are required to run your code.
 
    - A subfolder named **<*function-name*>** that contains a **function.json** file. This file contains the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
 
-   The following example shows sample generated items for the function project:
+   The following example shows sample generated assemblies and other files in the logic app project:
 
-   :::image type="content" source="media/create-run-custom-code-functions/generated-assemblies.png" alt-text="Screenshot shows Visual Studio Code, workspace, and function project with generated assemblies.":::
+   :::image type="content" source="media/create-run-custom-code-functions/generated-assemblies.png" alt-text="Screenshot shows Visual Studio Code and logic app workspace with function project and logic app project, now with the generated assemblies and other required filesfs.":::
 
-## Add the action to call your code from a workflow
+## Call your code from a workflow
 
-After you confirm that your code compiles, and that your logic app project contains the necessary files for your code to run, set up the **Call a local function in this logic app** built-in action in your workflow.
+After you confirm that your code compiles and that your logic app project contains the necessary files for your code to run, add the built-in action named **Call a local function in this logic app** to your workflow.
 
-1. In your workspace, under **LogicApp**, expand **<*your-workflow-name*>**, open the shortcut menu for **workflow.json**, and select **Open Designer**.
+1. In your workspace, under **LogicApp**, expand the **<*workflow-name*>** node, open the shortcut menu for **workflow.json**, and select **Open Designer**.
 
 1. After the workflow designer opens, [follow these steps to add the Request trigger named **When a HTTP request is received** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
