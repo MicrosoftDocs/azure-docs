@@ -201,14 +201,21 @@ If you must use a binding extension or an extension version not in a supported b
 
 By default, these settings aren't migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published.
 
-The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference articles:
-
-* [C# precompiled](functions-dotnet-class-library.md#environment-variables)
-* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-* [Java](functions-reference-java.md#environment-variables)
-* [JavaScript](functions-reference-node.md#environment-variables)
-* [PowerShell](functions-reference-powershell.md#environment-variables)
-* [Python](functions-reference-python.md#environment-variables)
+::: zone pivot="programming-language-csharp"
+The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-java"
+The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-java.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-node.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-powershell"
+The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-powershell.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-python"
+The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-python.md#environment-variables).
+::: zone-end
 
 When no valid storage connection string is set for [`AzureWebJobsStorage`] and a local storage emulator isn't being used, the following error message is shown:
 
