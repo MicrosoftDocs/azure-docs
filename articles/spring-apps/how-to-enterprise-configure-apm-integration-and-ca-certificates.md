@@ -27,6 +27,7 @@ You can enable or disable Tanzu Build Service on an Azure Springs Apps Enterpris
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.49.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 
 ## Supported scenarios - APM and CA certificates integration
+
 Tanzu Build Service uses buildpack binding to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other cloud native buildpacks such as the [ca-certificates](https://github.com/paketo-buildpacks/ca-certificates) buildpack on GitHub.
 
 Currently, Azure Spring Apps supports the following APM types:
@@ -39,20 +40,20 @@ Currently, Azure Spring Apps supports the following APM types:
 
 Azure Spring Apps supports CA certificates for all language family buildpacks, but not all supported APMs. The following table shows the binding types supported by Tanzu language family buildpacks.
 
-| Buildpack  | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
-|------------|---------------------|-----------|-------------|-----------|------------|
-| Java       | ✔                  | ✔         | ✔          | ✔         | ✔         |
-| Dotnet     |                     |           |             | ✔        |            |
-| Go         |                     |           |             | ✔        |            |
-| Python     |                     |           |             |           |            |
-| NodeJS     |                     | ✔        | ✔           | ✔        | ✔          |
+| Buildpack   | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
+|-------------|---------------------|-----------|-------------|-----------|------------|
+| Java        | ✔                  | ✔         | ✔          | ✔         | ✔         |
+| Dotnet      |                     |           |             | ✔        |            |
+| Go          |                     |           |             | ✔        |            |
+| Python      |                     |           |             |           |            |
+| NodeJS      |                     | ✔        | ✔           | ✔        | ✔          |
 | Web servers |                     |           |             | ✔        |            |
 
 For information about using Web servers, see [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
 Tanzu Build Service is enabled by default in Azure Spring Apps Enterprise. If you choose to disable the build service, you can deploy applications but only by using a custom container image. This section provides guidance for both build service enabled and disabled scenarios.
 
-#### Supported APM Types
+#### Supported APM types
 
 This section lists the supported languages and required environment variables for the APMs that you can use for your integrations.
 
@@ -127,13 +128,15 @@ This section lists the supported languages and required environment variables fo
 
   For other supported environment variables, see [AppDynamics](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
-## Configure APM Integration for App Builds and Deployments
+## Configure APM integration for app builds and deployments
 
-There are two ways to configure APM in Azure Spring Apps:
-- Manage APM configurations on service instance level and bind to app builds and deployments by referring to them. It's the recommended way to configure APM.
-- Manage APM configurations via Bindings in builder and bind to app builds and deployments by referring to the builder. 
+You can configure APM in Azure Spring Apps in the following two ways:
+
+- Manage APM configurations on the service instance level and bind to app builds and deployments by referring to them. This approach is the recommended way to configure APM.
+- Manage APM configurations via Bindings in the builder and bind to app builds and deployments by referring to the builder.
+
   > [!NOTE]
-  > It's the old way to configure APM and it's deprecated, it's strongly recommended to [migrate APM configured in Bindings](#migrate-apm-configured-in-bindings).
+  > This approach is the old way to configure APM, and it's now deprecated. We recommend to [migrate APM configured in Bindings](#migrate-apm-configured-in-bindings).
 
 This section provides guidance for both approaches as below.
 
@@ -495,12 +498,15 @@ az spring build-service builder buildpack-binding delete \
 ---
 
 ## Migrate APM and CA Certificates from Bindings in Builder
-The Bindings feature in Builder is deprecated and will be removed in the future. It's strongly recommended to migrate Bindings in builder.
-APM and CA certificates can be configured in Bindings and you can migrate them respectively.
+
+The Bindings feature in Builder is deprecated and will be removed in the future. We recommend that you migrate Bindings in builder.
+You can configure APM and CA certificates in Bindings and you can migrate them respectively.
 
 ### Migrate APM configured in Bindings
-In most use cases, there's only one APM configured in Bindings in default builder, you can create a new APM configuration with the same configuration in Bindings and enable this APM configuration globally. It will be used by all the subsequent builds and deployments automatically.
-1. Create an APM configuration:
+
+In most use cases, there's only one APM configured in Bindings in the default builder. You can create a new APM configuration with the same configuration in Bindings and enable this APM configuration globally. This configuration is used by all the subsequent builds and deployments automatically.
+
+1. Use the following command to create an APM configuration:
 
    ```azurecli
    az spring apm create \
@@ -511,8 +517,8 @@ In most use cases, there's only one APM configured in Bindings in default builde
        --properties a=b c=d \
        --secrets e=f g=h
    ```
-   
-1. Enable the APM configuration globally:
+
+1. Use the following command to enable the APM configuration globally:
 
    ```azurecli
    az spring apm enable-globally \
@@ -520,8 +526,8 @@ In most use cases, there's only one APM configured in Bindings in default builde
        --service <Azure-Spring-Apps-instance-name> \
        --name <your-APM-name> \
    ```
-   
-1. Re-deploy all the applications to use the new APM configuration enabled globally:
+
+1. Use the following command to  redeploy all the applications to use the new APM configuration enabled globally:
 
    ```azurecli
    az spring app deploy \
@@ -531,7 +537,8 @@ In most use cases, there's only one APM configured in Bindings in default builde
        --builder <builder-name> \
        --artifact-path <path-to-your-JAR-file>
    ```
-1. Verify if the new APM configuration works for all the applications. If everything works fine, remove the APM Bindings in builder:
+
+1. Verify that the new APM configuration works for all the applications. If everything works fine, use the following command to remove the APM Bindings in builder:
 
    ```azurecli
    az spring build-service builder buildpack-binding delete \
@@ -541,7 +548,7 @@ In most use cases, there's only one APM configured in Bindings in default builde
        --builder-name <your-builder-name>
    ```
 
-If there are several APMs configured in Bindings, you can create serveral APM configurations with the same configuration in Bindings and enable the APM configuration globally if it's applicable. Use the `--apms` parameter to specify an APM configuration for a deployment if you want to override the APM enabled globally:
+If there are several APMs configured in Bindings, you can create several APM configurations with the same configuration in Bindings and enable the APM configuration globally if it's applicable. Use the `--apms` parameter to specify an APM configuration for a deployment if you want to override the APM enabled globally:
 
 ```azurecli
 az spring app deploy \
@@ -554,8 +561,8 @@ az spring app deploy \
 ```
 
 During the migration process, APM is configured in both Bindings and APM configuration. In this case, APM configuration takes effect and Binding is ignored.
-   
-### Migrate CA Certificate configured in Bindings
+
+### Migrate CA certificate configured in Bindings
 
 1. For CA certificate configured in Binding, if it's used in runtime, you can [load the certificate into your application](how-to-use-tls-certificate.md#load-a-certificate)
 
@@ -563,29 +570,30 @@ During the migration process, APM is configured in both Bindings and APM configu
 
    ```azurecli
    az spring app deploy \
-      --resource-group <resource-group-name> \
-      --service <Azure-Spring-Apps-instance-name> \
-      --name <app-name> \
-      --builder <builder-name> \
-      --build-certificates <CA certificate-name> \
-      --artifact-path <path-to-your-JAR-file>
-    ```
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <app-name> \
+       --builder <builder-name> \
+       --build-certificates <CA certificate-name> \
+       --artifact-path <path-to-your-JAR-file>
+   ```
 
 1. Verify if the CA certificate works for all the applications using it. If everything works fine, remove the CA certificate Bindings in builder:
 
    ```azurecli
    az spring build-service builder buildpack-binding delete \
-      --resource-group <resource-group-name> \
-      --service <Azure-Spring-Apps-instance-name> \
-      --name <your-CA-certificate-buildpack-binding-name> \
-      --builder-name <your-builder-name>
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-CA-certificate-buildpack-binding-name> \
+       --builder-name <your-builder-name>
    ```
 
 ## Bindings in Builder is deprecated
+
 > [!NOTE]
-> Previously APM integration and CA certificates is managed via  [Bindings in Builder](#manage-bindings-in-builder-in-azure-spring-apps) in Azure Spring Apps. 
-> The Bindings in Builder feature is deprecated and will be removed in the future. It's strongly recommended to [migrate APM configured in Bindings](#migrate-apm-configured-in-bindings).
-> - When your own Container Registry is used for Build Service or Build Service is disabled, the bindings feature in builder is not available. 
+> Previously APM integration and CA certificates is managed via  [Bindings in Builder](#manage-bindings-in-builder-in-azure-spring-apps) in Azure Spring Apps. The Bindings in Builder feature is deprecated and will be removed in the future. It's strongly recommended to [migrate APM configured in Bindings](#migrate-apm-configured-in-bindings).
+>
+> - When your own Container Registry is used for Build Service or Build Service is disabled, the bindings feature in builder is not available.
 > - When a managed Azure Container Registry is used for build service, it's still available for backward compatible, but it will not be available in the future.
 
 When you use Azure CLI to create a service instance and see error message "Buildpack bindings feature is deprecated, it's not available when your own container registry is used for build service or build service is disabled", which means you are using an old version of CLI, please [upgrade Azure CLI](/cli/azure/update-azure-cli) to fix this issue. 
