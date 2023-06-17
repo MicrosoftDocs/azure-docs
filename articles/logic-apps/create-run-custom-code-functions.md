@@ -217,9 +217,15 @@ After you finish writing your code, compile that code to make sure that no build
 
 ## Call your code from a workflow
 
-After you confirm that your code compiles and that your logic app project contains the necessary files for your code to run, add the built-in action named **Call a local function in this logic app** to your workflow.
+After you confirm that your code compiles and that your logic app project contains the necessary files for your code to run, open and edit the default workflow that's included with your logic app project.
 
 1. In your workspace, under **LogicApp**, expand the **<*workflow-name*>** node, open the shortcut menu for **workflow.json**, and select **Open Designer**.
+
+   On the workflow designer that opens, a workflow with the following trigger and actions is already created for you:
+
+   - The built-in Request trigger named **When a HTTP request is received**
+   - The built-in action named **Call a local function in this logic app**
+   - The built-in Response action named **Response**, which is used only with the Request trigger
 
 1. After the workflow designer opens, [follow these steps to add the Request trigger named **When a HTTP request is received** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
