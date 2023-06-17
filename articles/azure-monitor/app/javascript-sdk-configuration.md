@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Monitor Application Insights JavaScript SDK advanced topics
-description: Microsoft Azure Monitor Application Insights JavaScript SDK advanced topics.
+title: Microsoft Azure Monitor Application Insights JavaScript SDK configuration
+description: Microsoft Azure Monitor Application Insights JavaScript SDK configuration.
 ms.topic: conceptual
 ms.date: 02/28/2023
 ms.devlang: javascript
@@ -8,9 +8,9 @@ ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
-# Microsoft Azure Monitor Application Insights JavaScript SDK advanced topics
+# Microsoft Azure Monitor Application Insights JavaScript SDK configuration
 
-The Azure Application Insights JavaScript SDK provides advanced features for tracking, monitoring, and debugging your web applications.
+The Azure Application Insights JavaScript SDK provides configuration for tracking, monitoring, and debugging your web applications.
 
 > [!div class="checklist"]
 > - [SDK configuration](#sdk-configuration)
@@ -20,10 +20,7 @@ The Azure Application Insights JavaScript SDK provides advanced features for tra
 
 ## SDK configuration
 
-These configuration fields are optional and default to false unless otherwise stated. Depending on how you're enabling Application Insights, add these configuration fields as follows: 
-
-- If you're using the SDK Loader Script to enable Application Insights, add these configuration fields within the `cfg` object.
--  If you're using the npm package to enable Application Insights, add these configuration fields within the `config` object.
+These configuration fields are optional and default to false unless otherwise stated.
 
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
@@ -53,10 +50,10 @@ These configuration fields are optional and default to false unless otherwise st
 | correlationHeaderDomains | string[] | undefined | Enable correlation headers for specific domains |
 | disableFlushOnBeforeUnload | boolean | false | Default false. If true, flush method isn't called when onBeforeUnload event triggers |
 | enableSessionStorageBuffer | boolean | true | Default true. If true, the buffer with all unsent telemetry is stored in session storage. The buffer is restored on page load |
-| cookieCfg | [ICookieCfgConfig](javascript-sdk-advanced.md#cookies)<br>[Optional]<br>(Since 2.6.0) | undefined | Defaults to cookie usage enabled see [ICookieCfgConfig](javascript-sdk-advanced.md#cookies) settings for full defaults. |
-| disableCookiesUsage | alias for [`cookieCfg.enabled`](javascript-sdk-advanced.md#cookies)<br>[Optional] | false | Default false. A boolean that indicates whether to disable the use of cookies by the SDK. If true, the SDK doesn't store or read any data from cookies.<br>(Since v2.6.0) If `cookieCfg.enabled` is defined it takes precedence. Cookie usage can be re-enabled after initialization via the core.getCookieMgr().setEnabled(true). |
-| cookieDomain | alias for [`cookieCfg.domain`](javascript-sdk-advanced.md#cookies)<br>[Optional] | null | Custom cookie domain. It's helpful if you want to share Application Insights cookies across subdomains.<br>(Since v2.6.0) If `cookieCfg.domain` is defined it takes precedence over this value. |
-| cookiePath | alias for [`cookieCfg.path`](javascript-sdk-advanced.md#cookies)<br>[Optional]<br>(Since 2.6.0) | null | Custom cookie path. It's helpful if you want to share Application Insights cookies behind an application gateway.<br>If `cookieCfg.path` is defined, it takes precedence. |
+| cookieCfg | [ICookieCfgConfig](#cookies)<br>[Optional]<br>(Since 2.6.0) | undefined | Defaults to cookie usage enabled see [ICookieCfgConfig](#cookies) settings for full defaults. |
+| disableCookiesUsage | alias for [`cookieCfg.enabled`](#cookies)<br>[Optional] | false | Default false. A boolean that indicates whether to disable the use of cookies by the SDK. If true, the SDK doesn't store or read any data from cookies.<br>(Since v2.6.0) If `cookieCfg.enabled` is defined it takes precedence. Cookie usage can be re-enabled after initialization via the core.getCookieMgr().setEnabled(true). |
+| cookieDomain | alias for [`cookieCfg.domain`](#cookies)<br>[Optional] | null | Custom cookie domain. It's helpful if you want to share Application Insights cookies across subdomains.<br>(Since v2.6.0) If `cookieCfg.domain` is defined it takes precedence over this value. |
+| cookiePath | alias for [`cookieCfg.path`](#cookies)<br>[Optional]<br>(Since 2.6.0) | null | Custom cookie path. It's helpful if you want to share Application Insights cookies behind an application gateway.<br>If `cookieCfg.path` is defined, it takes precedence. |
 | isRetryDisabled | boolean | false | Default false. If false, retry on 206 (partial success), 408 (timeout), 429 (too many requests), 500 (internal server error), 503 (service unavailable), and 0 (offline, only if detected) |
 | isStorageUseDisabled | boolean | false | If true, the SDK doesn't store or read any data from local and session storage. Default is false. |
 | isBeaconApiDisabled | boolean | true | If false, the SDK sends all telemetry using the [Beacon API](https://www.w3.org/TR/beacon) |
@@ -133,7 +130,7 @@ Source map support helps you debug minified JavaScript code with the ability to 
  
 To view the unminified callstack, select an Exception Telemetry item in the Azure portal, find the source maps that match the call stack, and drag and drop the source maps onto the call stack in the Azure portal. The source map must have the same name as the source file of a stack frame, but with a `map` extension.
 
-:::image type="content" source="media/javascript-sdk-advanced/javascript-sdk-advanced-unminify.gif" alt-text="Animation demonstrating unminify feature.":::
+:::image type="content" source="media/javascript-sdk-configuration/javascript-sdk-advanced-unminify.gif" alt-text="Animation demonstrating unminify feature.":::
 
 ## Tree shaking
 
@@ -259,4 +256,3 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 * [Track usage](usage-overview.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-* [JavaScript SDK advanced topics](javascript-sdk-advanced.md)

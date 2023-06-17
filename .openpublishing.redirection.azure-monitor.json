@@ -6160,6 +6160,11 @@
             "source_path_from_root": "/articles/azure-monitor/logs/api/app-insights-azure-ad-api.md",
             "redirect_url": "/azure/azure-monitor/app/app-insights-azure-ad-api",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-sdk-advanced.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-sdk-configuration",
+            "redirect_document_id": false
         }
     ]
 }
