@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, you'll learn how to deploy and configure the FHIR Converter using the Azure portal to convert your existing data to FHIR R4.
+In this article, learn how to deploy and configure the FHIR Converter using the Azure portal to convert your existing data to FHIR R4.
 
 ## Customize templates
 
@@ -85,15 +85,6 @@ To use the Azure portal:
 4. Select **Save**. 
 
 It might take a few minutes for the registration to take effect.
-
-**NOTES FROM WILL TO DISCUSS REGARDING THIS SECTION**
-
-From personal experience this command seems to only work for Gen1 Azure API for FHIR and I do not think it works for Gen2 FHIR Service so we should probably remove this CLI section. This CLI command seems to always be trying to add the login-servers to a resource /services (Gen1). I don't think there is a Gen2 equivalent... maybe another developer on the team with more experience with $convert can confirm... I couldn't find anything. Feel free to test out the command as well.
-
-
-Here's the CLI docs which show that az healthcareapis acr add are for Azure API for FHIR: https://learn.microsoft.com/cli/azure/healthcareapis/acr?view=azure-cli-latest.
-
-I think the closest thing for fhir service (Gen2) would be to run a fhir service create command and pass in the login servers: https://learn.microsoft.com/cli/azure/healthcareapis/workspace/fhir-service?view=azure-cli-latest#az-healthcareapis-workspace-fhir-service-create
 
 To use the Azure CLI:
 
