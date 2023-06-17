@@ -28,7 +28,7 @@ You must strongly consider the following facts regarding the storage accounts us
 
 + Important data, such as function code, [access keys](functions-bindings-http-webhook-trigger.md#authorization-keys), and other important service-related data, may be persisted in the storage account. You must carefully manage access to the storage accounts used by function apps in the following ways: 
 
-    + Limit the access of apps and users that have access to the storage account based on a least-privilige model. Permissions to the storage account can come from [data actions in the assigned role](../role-based-access-control/role-definitions.md#control-and-data-actions) or through permission to perform the [listKeys operation].
+    + Audit and limit the access of apps and users to the storage account based on a least-privilege model. Permissions to the storage account can come from [data actions in the assigned role](../role-based-access-control/role-definitions.md#control-and-data-actions) or through permission to perform the [listKeys operation].
 
     + To help prevent unauthorized access in your storage account, you should enable logging for both data plane activity (such as retrieving keys) and resources in your storage account. Consider maintaining storage logs in a location other than Azure Storage. For more information, see [Storage logs](#storage-logs). 
 
