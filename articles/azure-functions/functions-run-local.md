@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Work with Azure Functions Core Tools
 
-Azure Functions Core Tools lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime. You can even deploy a function app to your Azure subscription.
+Azure Functions Core Tools lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Azure Functions runtime. You can even deploy your project to an existing function app in your Azure subscription.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
@@ -21,7 +21,7 @@ To be able to publish to Azure from Core Tools, you must have one of the followi
 + [Azure CLI](/cli/azure/install-azure-cli) 
 + [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
-These tools authenticate Core Tools with your Azure account.
+These tools are required to authenticate with your Azure account from your local computer.
 
 ## <a name="v2"></a>Core Tools versions
 
@@ -41,7 +41,7 @@ The following considerations apply to Core Tools versions:
 
 + Version 2.x and 3.x of Core Tools were used with versions 2.x and 3.x of the Functions runtime, which have reached their end of life (EOL). For more information, see [Azure Functions runtime versions overview](functions-versions.md).  
 ::: zone pivot="programming-language-csharp,programming-language-javascript"  
-+ Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you are currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today. 
++ Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today. 
 ::: zone-end
 
 ## Install the Azure Functions Core Tools
@@ -131,7 +131,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 ---
 
-When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to pertform the upgrade. Visual Studio and Visual Studio Code may also install Azure Functions Core Tools, depending on your specific tools installation. 
+When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to perform the upgrade. Visual Studio and Visual Studio Code may also install Azure Functions Core Tools, depending on your specific tools installation. 
 
 ## Create a local Functions project
 
@@ -163,7 +163,7 @@ The following considerations apply to project initialization:
 + If you plan to deploy your project as a function app in a Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
 
 ::: zone pivot="programming-language-csharp"
-+ Core Tools lets you create function app projects for the .NET runtime as both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# class library projects (.csproj). These projects, which can be used with Visual Studio or Visual Studio Code, are compiled during debugging and when publishing to Azure. 
++ Core Tools lets you create function app projects for the .NET runtime as either [in-process](functions-dotnet-class-library.md) or [isolated worker process](dotnet-isolated-process-guide.md) C# class library projects (.csproj). These projects, which can be used with Visual Studio or Visual Studio Code, are compiled during debugging and when publishing to Azure. 
 
 + Use the `--csx` parameter if you want to work locally with C# script (.csx) files. These files are the same ones you get when you create functions in the Azure portal and when using version 1.x of Core Tools. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
 ::: zone-end
@@ -189,7 +189,7 @@ This section doesn't apply to version 1.x of the Functions runtime. In version 1
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-For compiled C# project, add references to the specific NuGet packages for the binding extensions required by your functions. C# Script (.csx) project should use [extension bundles](functions-bindings-register.md#extension-bundles).
+For compiled C# project, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project should use [extension bundles](functions-bindings-register.md#extension-bundles).
 ::: zone-end
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your host.json should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the host.json file, see [Extension bundles](functions-bindings-register.md#extension-bundles).
@@ -467,7 +467,7 @@ To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes
 
 ::: zone pivot="programming-language-csharp"
 > [!NOTE]
-> This section only applies to C# Script (.csx) projects, which also rely on extension bundles. Compiled C# projects use NuGet extension packages in the regular way. 
+> This section only applies to C# script (.csx) projects, which also rely on extension bundles. Compiled C# projects use NuGet extension packages in the regular way. 
 ::: zone-end
 
 In the rare event you aren't able to use [extension bundles](functions-bindings-register.md#extension-bundles), you can use Core Tools to install the specific extension packages required by your project. The following are some reasons why you might need to install extensions manually:
