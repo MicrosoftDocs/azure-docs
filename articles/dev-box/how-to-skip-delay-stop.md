@@ -42,6 +42,7 @@ To skip the shutdown, select **Skip** in the notification. The dev box doesn't s
 In the developer portal, you can see the scheduled shutdown time on the dev box tile, and delay or skip the shutdown from the more options menu.
 
 Shutdown time is shown on dev box tile:
+
 :::image type="content" source="media/how-to-skip-delay-stop/dev-portal-stop-time.png" alt-text="Screenshot showing the dev box tile, with the shutdown time highlighted. In this example, the shutdown time is 6.30 P M.":::
 
 ### Delay the shutdown
