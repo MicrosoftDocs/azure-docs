@@ -590,7 +590,7 @@ If there are no custom security attributes assigned to the user or if the callin
 GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
 ```
 
-```Response
+```http
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(customSecurityAttributes)/$entity",
     "customSecurityAttributes": {
@@ -683,7 +683,7 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 ConsistencyLevel: eventual
 ```
 
-```Response
+```http
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
     "@odata.count": 2,
@@ -785,7 +785,7 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 ConsistencyLevel: eventual
 ```
 
-```Response
+```http
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
     "@odata.count": 3,
@@ -888,7 +888,7 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 ConsistencyLevel: eventual
 ```
 
-```Response
+```http
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
     "@odata.count": 47,
