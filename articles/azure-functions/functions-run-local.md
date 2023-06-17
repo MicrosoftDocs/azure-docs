@@ -27,13 +27,22 @@ These tools authenticate Core Tools with your Azure account.
 
 Versions of Azure Functions Core Tools are linked to specific versions of the Azure Functions runtime. For example, version 4.x of Core Tools supports version 4.x of the Functions runtime. This is the recommended version of the Functions runtime and Core Tools.
 
-Version 2.x and 3.x of Core Tools were used with versions 2.x and 3.x of the Functions runtime, which have reached their end of life (EOL). For more information, see [Azure Functions runtime versions overview](functions-versions.md).
+Run the following command to determine the version of your current Core Tools installation:
 
-::: zone pivot="programming-language-csharp,programming-language-javascript" 
-Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you are currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today. 
+```command
+func --version
+``` 
+
+Unless otherwise noted, the examples in this article are for version 4.x. 
+
+The following considerations apply to Core Tools versions:
+
++ You can only install one version of Core Tools on a given computer. 
+
++ Version 2.x and 3.x of Core Tools were used with versions 2.x and 3.x of the Functions runtime, which have reached their end of life (EOL). For more information, see [Azure Functions runtime versions overview](functions-versions.md).  
+::: zone pivot="programming-language-csharp,programming-language-javascript"  
++ Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you are currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today. 
 ::: zone-end
-
-You can only install one version of Core Tools on a given computer. Unless otherwise noted, the examples in this article are for version 4.x. 
 
 ## Install the Azure Functions Core Tools
 
