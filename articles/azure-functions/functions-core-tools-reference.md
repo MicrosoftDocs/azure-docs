@@ -437,7 +437,7 @@ Installs Functions extensions in a non-C# class library project.
 
 When possible, you should instead use extension bundles. To learn more, see [Extension bundles](functions-bindings-register.md#extension-bundles).
 
-For C# class library and .NET isolated projects, instead use standard NuGet package installation methods, such as `dotnet add package`.
+For compiled C# projects (both in-process and isolated worker process), instead use standard NuGet package installation methods, such as `dotnet add package`.
 
 The `install` action supports the following options:
 
@@ -451,7 +451,7 @@ The `install` action supports the following options:
 | **`--source`** |  NuGet feed source when not using NuGet.org.|
 | **`--version`** |  Extension package version. |
 
-No action is taken when an extension bundle is defined in your host.json file.
+No action is taken when an extension bundle is defined in your host.json file. When you need to manually install extensions, you must first remove the bundle definition. For more information, see [Install extensions](functions-run-local.md#install-extensions).
 
 ## func extensions sync
 
