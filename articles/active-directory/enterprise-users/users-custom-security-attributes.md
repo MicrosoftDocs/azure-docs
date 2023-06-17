@@ -124,18 +124,29 @@ To manage custom security attribute assignments for users in your Azure AD organ
 
 The following example assigns a custom security attribute with a string value to a user.
 
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+- Attribute data type: String
+- Attribute value: `"2023-10-01"`
+
 # [PowerShell](#tab/ms-powershell)
 
 [Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
 
+```powershell
+Select-MgProfile -Name "beta"
+$customSecurityAttributes = @{
+    "Engineering" = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "ProjectDate" = "2023-10-01"
+    }
+}
+Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttributes
+```
+
 # [Microsoft Graph](#tab/ms-graph)
 
 [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
-
-- Attribute set: `Engineering`
-- Attribute: `ProjectDate`
-- Attribute data type: String
-- Attribute value: `"2022-10-01"`
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -145,7 +156,7 @@ PATCH https://graph.microsoft.com/beta/users/{id}
         "Engineering":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
-            "ProjectDate":"2022-10-01"
+            "ProjectDate":"2023-10-01"
         }
     }
 }
@@ -169,6 +180,18 @@ The following example assigns a custom security attribute with a multi-string va
 # [PowerShell](#tab/ms-powershell)
 
 [Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+
+```powershell
+Select-MgProfile -Name "beta"
+$customSecurityAttributes = @{
+    "Engineering" = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "Project@odata.type" = "#Collection(String)"
+        "Project" = @("Baker","Cascade")
+    }
+}
+Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttributes
+```
 
 # [Microsoft Graph](#tab/ms-graph)
 
@@ -219,6 +242,18 @@ The following example assigns a custom security attribute with an integer value 
 
 [Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
 
+```powershell
+Select-MgProfile -Name "beta"
+$customSecurityAttributes = @{
+    "Engineering" = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "NumVendors@odata.type" = "#Int32"
+        "NumVendors" = 4
+    }
+}
+Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttributes
+```
+
 # [Microsoft Graph](#tab/ms-graph)
 
 [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
@@ -256,6 +291,18 @@ The following example assigns a custom security attribute with a multi-integer v
 # [PowerShell](#tab/ms-powershell)
 
 [Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+
+```powershell
+Select-MgProfile -Name "beta"
+$customSecurityAttributes = @{
+    "Engineering" = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "CostCenter@odata.type" = "#Collection(Int32)"
+        "CostCenter" = @(1001,1003)
+    }
+}
+Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttributes
+```
 
 # [Microsoft Graph](#tab/ms-graph)
 
@@ -295,6 +342,17 @@ The following example assigns a custom security attribute with a Boolean value t
 
 [Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
 
+```powershell
+Select-MgProfile -Name "beta"
+$customSecurityAttributes = @{
+    "Engineering" = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "Certification" = $true
+    }
+}
+Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttributes
+```
+
 # [Microsoft Graph](#tab/ms-graph)
 
 [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
@@ -331,6 +389,18 @@ The following example updates a custom security attribute with an integer value 
 # [PowerShell](#tab/ms-powershell)
 
 [Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+
+```powershell
+Select-MgProfile -Name "beta"
+$customSecurityAttributes = @{
+    "Engineering" = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "NumVendors@odata.type" = "#Int32"
+        "NumVendors" = 8
+    }
+}
+Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttributes
+```
 
 # [Microsoft Graph](#tab/ms-graph)
 
@@ -370,6 +440,17 @@ The following example updates a custom security attribute with a Boolean value f
 
 [Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
 
+```powershell
+Select-MgProfile -Name "beta"
+$customSecurityAttributes = @{
+    "Engineering" = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "Certification" = $false
+    }
+}
+Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttributes
+```
+
 # [Microsoft Graph](#tab/ms-graph)
 
 [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
@@ -407,6 +488,18 @@ The following example updates a custom security attribute with a multi-string va
 
 [Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
 
+```powershell
+Select-MgProfile -Name "beta"
+$customSecurityAttributes = @{
+    "Engineering" = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "Project@odata.type" = "#Collection(String)"
+        "Project" = @("Alpine","Baker")
+    }
+}
+Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttributes
+```
+
 # [Microsoft Graph](#tab/ms-graph)
 
 [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
@@ -435,6 +528,14 @@ The following example gets the custom security attribute assignments for a user.
 # [PowerShell](#tab/ms-powershell)
 
 [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+
+```powershell
+Select-MgProfile -Name "beta"
+Get-MgUser -UserId $userId -Property "customSecurityAttributes"
+```
+
+If there are no custom security attributes assigned to the user or if the calling principal does not have access, the response will look like:
+
 
 # [Microsoft Graph](#tab/ms-graph)
 
@@ -554,7 +655,19 @@ The following example removes a single-valued custom security attribute assignme
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest)
+
+```powershell
+$params = @{
+    "customSecurityAttributes" = @{
+        "Engineering" = @{
+            "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+            "ProjectDate" = $null
+        }
+    }
+}
+Invoke-MgGraphRequest -Method PATCH -Uri "https://graph.microsoft.com/beta/users/$userId" -Body $params
+```
 
 # [Microsoft Graph](#tab/ms-graph)
 
@@ -591,6 +704,17 @@ The following example removes a multi-valued custom security attribute assignmen
 # [PowerShell](#tab/ms-powershell)
 
 [Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+
+```powershell
+Select-MgProfile -Name "beta"
+$customSecurityAttributes = @{
+    "Engineering" = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "Project" = @()
+    }
+}
+Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttributes
+```
 
 # [Microsoft Graph](#tab/ms-graph)
 
