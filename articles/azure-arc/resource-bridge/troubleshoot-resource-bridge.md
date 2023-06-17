@@ -92,6 +92,15 @@ When trying to deploy Arc resource bridge, you may see an error that contains `b
 
 If you are experiencing connectivity, check to make sure your network allows all of the firewall and proxy URLs that are required to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
 
+### .local not supported
+
+When trying to set the configuration for Arc resource bridge, you may receive an error message similar to: 
+
+"message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"
+
+This occurs when a .local path is provided for a configuration setting, such as proxy, dns, datastore or management endpoint (ex: vCenter). Arc resource bridge appliance VM uses Mariner Linux OS which does not support .local by default. A workaround could be to provide the IP address where applicable.
+
+
 ### Azure Arc resource bridge is unreachable
 
 Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if not reserved. Rebooting the Azure Arc resource bridge (preview) or VM can trigger an IP address change, resulting in failing services.
