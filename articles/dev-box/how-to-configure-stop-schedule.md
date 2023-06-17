@@ -145,7 +145,7 @@ In rare circumstances, a dev box may shut down unexpectedly. An unexpected shutd
 
 Consider the following example. A dev box that is a member of a pool that has a scheduled shutdown time of 7pm has a devBoxAction that performs the shutdown at 7pm. An idle state is detected and Dev Box creates a new devBoxAction for the dev box with the idle shutdown time of 6pm. Now there are two devBoxActions for the dev box, a scheduled shutdown at 7pm and an idle shutdown at 6pm. If the user does not skip or delay the scheduled shutdown, the dev box shuts down at 6PM.
 
-At 5PM, the idle devBoxAction warns the user their dev box will shut down at 6pm, the soonest upcoming shutdown time. If they choose to "Delay scheduled shutdown" and select 8PM as the time to delay until, Dev Box attempts to delay both devBoxActions (the idle shutdown at 6PM and the scheduled shutdown at 7PM). If the 6PM (idle shutdown) devBoxAction successfully delays until 8PM, but the 7PM (scheduled shutdown) devBoxAction delay fails, the dev box shuts down at 7PM, even though the requested shutdown time was 8PM and the idle shutdown time was 6PM.
+At 5PM, the idle devBoxAction warns the user their dev box will shut down at 6pm, the soonest upcoming shutdown time. If they choose to delay the scheduled shutdown until 8PM, Dev Box attempts to delay both devBoxActions (the idle shutdown at 6PM and the scheduled shutdown at 7PM). If the 6PM (idle shutdown) devBoxAction successfully delays until 8PM, but the 7PM (scheduled shutdown) devBoxAction delay fails, the dev box shuts down at 7PM, even though the requested shutdown time was 8PM and the idle shutdown time was 6PM.
 
 ## Next steps
 
