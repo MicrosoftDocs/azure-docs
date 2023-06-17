@@ -33,7 +33,7 @@ Arc resource bridge has the following minimum resource requirements:
 These minimum requirements enable most scenarios. However, a partner product may support a higher resource connection count to Arc resource bridge, which requires the bridge to have higher resource requirements. Failure to provide sufficient resources may cause errors during deployment, such as disk copy errors. Review the partner product's documentation for specific resource requirements.
 
 > [!NOTE]
-> To [use Azure Kubernetes Service (AKS) on Azure Stack HCI with Arc resource bridge](#aks-and-arc-resource-bridge-on-azure-stack-hci), AKS must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS can't be installed unless you delete Arc resource bridge first. Once AKS is deployed to Azure Stack HCI, you can deploy Arc resource bridge again.
+> To use Azure Kubernetes Service (AKS) on Azure Stack HCI with Arc resource bridge, AKS must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS can't be installed unless you delete Arc resource bridge first. Once AKS is deployed to Azure Stack HCI, you can deploy Arc resource bridge again.
 
 ## IP address prefix (subnet) requirements
 
@@ -161,7 +161,7 @@ Reserved appliance VM IP requirements:
 
    ### Appliance configuration files
 
-   Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): <resourcename>-resource.yaml, <resourcename>-appliance.yaml and <resourcename>-infra.yaml.
+   Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): <appliance-name>-resource.yaml, <appliance-name>-appliance.yaml and <appliance-name>-infra.yaml.
 
    By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 
