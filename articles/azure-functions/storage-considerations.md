@@ -30,7 +30,7 @@ You must strongly consider the following facts regarding the storage accounts us
 
     + Audit and limit the access of apps and users to the storage account based on a least-privilege model. Permissions to the storage account can come from [data actions in the assigned role](../role-based-access-control/role-definitions.md#control-and-data-actions) or through permission to perform the [listKeys operation].
 
-    + To help prevent unauthorized access in your storage account, you should enable logging for both data plane activity (such as retrieving keys) and resources in your storage account. Consider maintaining storage logs in a location other than Azure Storage. For more information, see [Storage logs](#storage-logs). 
+    + Monitor both control plane activity (such as retrieving keys) and data plane operations (such as writing to a blob) in your storage account. Consider maintaining storage logs in a location other than Azure Storage. For more information, see [Storage logs](#storage-logs). 
 
 ## Storage account requirements
 
@@ -73,11 +73,11 @@ You shouldn't apply [lifecycle management policies](../storage/blobs/lifecycle-m
 
 ### Storage logs
 
-Logging of activity against the storage account is a good way to monitor for unauthorized access. Azure Monitor resource logs can be used to track events against the storage data plane. See [Monitoring Azure Storage](../storage/blobs/monitor-blob-storage.md) for details on how to configure and examine these logs.
+Because function code and keys may be persisted in the storage account, logging of activity against the storage account is a good way to monitor for unauthorized access. Azure Monitor resource logs can be used to track events against the storage data plane. See [Monitoring Azure Storage](../storage/blobs/monitor-blob-storage.md) for details on how to configure and examine these logs.
 
 The [Azure Monitor activity log](../azure-monitor/essentials/activity-log.md) shows control plane events, including the [listKeys operation]. However, you should also configure resource logs for the storage account to track subsequent use of keys or other identity-based data plane operations. You should have at least the [StorageWrite log category](../storage/blobs/monitor-blob-storage.md#collection-and-routing) enabled to be able to identify modifications to the data outside of normal Functions operations. 
 
-To limit the potential impact of any broadly scoped storage permissions, consider using a nonstorage destination for these logs, such as Log Analytics. For more information, see [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md).
+To limit the potential impact of any broadly scoped storage permissions, consider using a nonstorage destination for these logs, such as Log Analytics. For more information, see [Monitoring Azure Blob Storage](../storage/blobs/monitor-blob-storage.md).
 
 ### Optimize storage performance
 
