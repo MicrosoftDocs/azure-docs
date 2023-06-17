@@ -180,4 +180,6 @@ For more information, see the following articles:
 
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
+- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that can route and control calls with client applications. 
 - [Plan your PSTN solution](../telephony/plan-solution.md)
+
