@@ -185,23 +185,35 @@ The function definition includes a default `Run` method that you can use to get 
 
 After you finish writing your code, compile that code to make sure that no build errors exist. Your function project automatically includes build tasks that compiles your code and adds that compiled code to the **lib\custom\net472** folder in your logic app project where workflows look for custom code to run.
 
-1. From the Visual Studio Code **Terminal** menu, select **New Terminal**.
+1. In Visual Studio Code, from the **Terminal** menu, select **New Terminal**.
 
 1. From the working directory list that appears, select **Functions** as your current working directory for the new terminal.
 
-   Visual Studio Code opens a command prompt window.
+   :::image type="content" source="media/create-run-custom-code-functions/compile-function-project.png" alt-text="Screenshot shows Visual Studio Code, prompt for current working directory, and selected Functions directory.":::
 
-1. At the command prompt, enter **dotnet restore**.
+   Visual Studio Code opens a terminal window with a command prompt.
 
-   Visual Studio Code analyzes your projects and determines whether they're up-to-date to restore.
+1. In the **Terminal** window, at the command prompt, enter **dotnet restore**.
+
+   Visual Studio Code analyzes your projects and determines whether they're up-to-date.
+
+   :::image type="content" source="media/create-run-custom-code-functions/dotnet-restore-complete.png" alt-text="Screenshot shows Visual Studio Code, Terminal window, and completed dotnet restore command.":::
 
 1. After the command prompt reappears, enter **dotnet build**. Or, from the **Terminal** menu, select **Run Build Task**.
 
-1. In your workspace, expand **LogicApp** > **lib\custom** > **net472**, and confirm that the following items exist:
+   If your build succeeds, the **Terminal** window reports that the **Build succeeded**.
 
-   - Multiple assembly (DLL) files, including a file named **<*your-function-name*>.dll**, that are required to run your code.
+1. In your workspace, expand the following nodes: **LogicApp** > **lib\custom** > **net472**.
 
-   - A subfolder named **<*your-function-name*>** that contains a **function.json** file. This file contains the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
+1. Confirm that the following items exist:
+
+   - Multiple assembly (DLL) files, including a file named **<*function-name*>.dll**, that are required to run your code.
+
+   - A subfolder named **<*function-name*>** that contains a **function.json** file. This file contains the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
+
+   The following example shows sample generated items for the function project:
+
+   :::image type="content" source="media/create-run-custom-code-functions/generated-assemblies.png" alt-text="Screenshot shows Visual Studio Code, workspace, and function project with generated assemblies.":::
 
 ## Add the action to call your code from a workflow
 
