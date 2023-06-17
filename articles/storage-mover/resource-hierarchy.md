@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 06/16/2023
 ---
 
 <!-- 
@@ -19,7 +19,7 @@ REVIEW Engineering: not reviewed
 EDIT PASS: not started
 
 Initial doc score: 86
-Current doc score: 96 (1915 words and 0 issues)
+Current doc score: 97 (1570 words and 3 false positive issues)
 
 !########################################################
 -->
@@ -50,7 +50,7 @@ When you deploy the resource, your subscription is registered with the *Microsof
 
 ## Migration agent
 
-Storage Mover is a hybrid service and utilizes one or more migration agents to facilitate migrations. The agent is a virtual machine you are running in your network. It's also the name of a resource, parented to the storage mover resource you've deployed in your resource group. 
+Storage Mover is a hybrid service and utilizes one or more migration agents to facilitate migrations. The agent is a virtual machine that runs within your network. It's also the name of a resource, parented to the storage mover resource you've deployed in your resource group. 
 
 Your agents appear in your storage mover after they've been registered. Registration creates the trust relationship to the storage mover resource you've selected during registration and enables you to manage all migration related aspects from the cloud service. (Azure portal, Azure PowerShell/CLI)
 
@@ -66,7 +66,7 @@ You can deploy several migration agent VMs and register each with a unique name 
 
 A project allows you to organize your larger scale cloud migration into smaller, more manageable units that make sense for your situation.
 
-The smallest unit of a migration can be defined as the contents of one source moving into one target. But data center migrations are rarely that simple. Often multiple sources support one workload and must be migrated together for timely failover of the workload to the new cloud storage locations in Azure. 
+The smallest unit of a migration can be defined as the contents of one source moving into one target. But data center migrations are rarely that simple. Often multiple sources support one workload and must be migrated together for timely failover of the workload to the new cloud storage locations in Azure.
 
 In a different example, one source may even need to be split into multiple target locations. The reverse is also possible, where you need to combine multiple sources into subpaths of the same target location in Azure.
 
@@ -116,7 +116,7 @@ Learn more about telemetry, metrics and logs in the job definition monitoring ar
 
 Migrations require well defined source and target locations. While the term *endpoint* is often used in networking, here it describes a storage location to a high level of detail. An endpoint contains the path to the storage location and additional information.
 
-While there's a single endpoint resource, the properties of each endpoint may vary, based on the type of endpoint. For example, an NFS share endpoint needs fundamentally different information as compared to an Azure Storage blob container endpoint.
+While there's a single endpoint resource, the properties of each endpoint may vary, based on the type of endpoint. For example, NFS shares, SMB shares, and Azure Storage blob container endpoints each require fundamentally different information.
 
 Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively. Refer to the [Supported sources and targets](service-overview.md#supported-sources-and-targets) section in the Azure Storage Mover overview article.
 
