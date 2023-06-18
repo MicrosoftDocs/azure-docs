@@ -96,6 +96,7 @@ The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure 
    > - Centos7, Centos8
    > - RedHat7, RedHat8, RedHat9
    > - Rocky8, Rocky9
+   > - SUSE (SLES 15)
 
 ## Step 6: Mount the container
 
