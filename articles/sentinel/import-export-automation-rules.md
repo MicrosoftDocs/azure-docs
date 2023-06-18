@@ -73,13 +73,9 @@ The file includes all the parameters defined in the automation rule. Rules of an
     1. Edit the automation rule in the second workspace, choosing the now-present custom details from the drop-down.
     1. Enable the automation rule.
 
-- **Playbook doesn't exist:** If you export an automation rule that calls a playbook, and then import it to another workspace that doesn't have access to the playbook, or if the playbook was moved or deleted, the following things will happen:
-    - The automation rule deployment will fail.
-    - You'll receive an error message: ___?
+- **Playbook doesn't exist:** If you export an automation rule that calls a playbook, and then import it to another workspace that doesn't have access to the playbook, or if the playbook was moved or deleted, the automation rule deployment will fail, and you'll receive an error message with the specific reason.
 
-- **Expired automation rule:** If an automation rule is past its expiration date when imported, the following things will happen:
-    - The automation rule deployment will fail.
-    - You'll receive an error message: ___?
+- **Expired automation rule:** If an automation rule is past its expiration date when imported, the automation rule deployment will fail and you'll receive an error message.
 
 ## Next steps
 
