@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 06/20/2023
 ms.custom: template-how-to-pattern
 ---
 
