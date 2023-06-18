@@ -14,9 +14,9 @@ ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ---
 
-# Best practices for using the Multivariate Anomaly Detection API
+# Best practices for using the Multivariate Anomaly Detector API
 
-This article will provide guidance around recommended practices to follow when using the multivariate Anomaly Detection (MVAD) APIs. 
+This article will provide guidance around recommended practices to follow when using the multivariate Anomaly Detector (MVAD) APIs. 
 In this tutorial, you'll:
 
 > [!div class="checklist"]
