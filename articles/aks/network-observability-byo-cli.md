@@ -176,7 +176,7 @@ Use the following example to configure scrape jobs on Prometheus and enable visu
 
 1. In **Targets** of Prometheus, verify the **network-obs-pods** are present.
 
-1. Sign in to Grafana and import Network Observability Dashboard with ID [18814]( https://grafana.com/grafana/dashboards/18814/).
+1. Sign in to Grafana and import Network Observability Dashboard with ID [18814](https://grafana.com/grafana/dashboards/18814/).
 
 # [**Cilium**](#tab/cilium)
 
@@ -203,7 +203,7 @@ Use the following example to configure scrape jobs on Prometheus and enable visu
 
 1. In **Targets** of prometheus, verify the **kubernetes-pods** are present.
 
-1. Sign in to Grafana and import dashboards with the following ID [16611-cilium-metrics].(https://grafana.com/grafana/dashboards/16611-cilium-metrics/)
+1. Sign in to Grafana and import dashboards with the following ID [16611-cilium-metrics](https://grafana.com/grafana/dashboards/16611-cilium-metrics/)
 
 ---
 
