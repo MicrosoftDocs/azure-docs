@@ -31,7 +31,7 @@ If you want to get started right away, complete the [Core Tools quickstart artic
 ::: zone pivot="programming-language-python"
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-python.md).
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-typescript"
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-typescript.md).
 ::: zone-end
 
