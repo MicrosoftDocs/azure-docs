@@ -1,22 +1,18 @@
 ---
-title: "Setup Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana"
+title: "Setup of Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana"
 description: Get started with AKS Network Observability for your AKS cluster using BYO Prometheus and Grafana.
 author: asudbring
 ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 06/20/2023
 ms.custom: template-how-to-pattern
 ---
 
-# Setup Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana
+# Setup of Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana
 
 AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both managed and bring your own (BYO) Prometheus and Grafana are supported. Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use BYO Prometheus and Grafana to visualize the scraped metrics.
-
-<!-- image placeholder, will uncomment after we receive updated image
-:::image type="content" source="./media/network-observability-byo-cli/network-observability-byo.png" alt-text="Diagram of BYO Network Observability add-on for AKS.":::
--->
 
 For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
@@ -180,7 +176,7 @@ Use the following example to configure scrape jobs on Prometheus and enable visu
 
 1. In **Targets** of Prometheus, verify the **network-obs-pods** are present.
 
-1. Sign in to Grafana and import Network Observability Dashbaord with ID [18814]( https://grafana.com/grafana/dashboards/18814/).
+1. Sign in to Grafana and import Network Observability Dashboard with ID [18814]( https://grafana.com/grafana/dashboards/18814/).
 
 # [**Cilium**](#tab/cilium)
 
@@ -207,7 +203,7 @@ Use the following example to configure scrape jobs on Prometheus and enable visu
 
 1. In **Targets** of prometheus, verify the **kubernetes-pods** are present.
 
-1. Sign in to Grafana and import dashboards with ID [18814]( https://grafana.com/grafana/dashboards/18814/).
+1. Sign in to Grafana and import dashboards with the following ID [16611-cilium-metrics].(https://grafana.com/grafana/dashboards/16611-cilium-metrics/)
 
 ---
 
@@ -226,6 +222,5 @@ In this how-to article, you learned how to install and enable AKS Network Observ
 
 - For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
-<!-- uncomment after all merges into release branch so links work
 - To create an AKS cluster with Network Observability and managed Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) managed Prometheus and Grafana](network-observability-managed-cli.md).
-- -->
+
