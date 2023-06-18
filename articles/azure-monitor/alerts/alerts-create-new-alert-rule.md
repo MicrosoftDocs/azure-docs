@@ -249,11 +249,15 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
-1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert notification payload to add more information to it. Add the property **Name** and **Value** for the custom property you want included in the payload. You can use those values in the action group webhook or logic app.
+1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
 
-    To extract values from the payload, use a "$", and then the path of the schema field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
+    The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
 
-    In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the [common alert schema](alerts-common-schema.md):
+    The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
+
+    Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema. 
+
+    In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
 
     **Example 1**
 
