@@ -14,6 +14,27 @@ Azure Functions Core Tools lets you develop and test your functions on your loca
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
+Core Tools can be used with all [supported languages](supported-languages.md). Select your language at the top of the article.
+
+::: zone pivot="programming-language-csharp"
+If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-csharp.md).
+::: zone-end
+::: zone pivot="programming-language-java"
+If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-java.md).
+::: zone-end
+::: zone pivot="programming-language-javascript"
+If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-node.md).
+::: zone-end
+::: zone pivot="programming-language-powershell"
+If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-powershell.md).
+::: zone-end
+::: zone pivot="programming-language-python"
+If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-python.md).
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-typescript.md).
+::: zone-end
+
 ## Prerequisites
 
 To be able to publish to Azure from Core Tools, you must have one of the following Azure tools installed locally: 
