@@ -291,7 +291,7 @@ sections:
       - question: |
           Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?
         answer: |
-          You receive a daily allowance of 500 MB of free data ingestion for each virtual machine (VM) connected to the workspace. This allocation specifically applies to the [security data types](#what-data-types-are-included-in-the-500-mb-data-daily-allowance) collected directly by Defender for Cloud.
+          You receive a daily allowance of 500 MB of free data ingestion for each virtual machine (VM) connected to the workspace. This allocation specifically applies to the security data types collected directly by Defender for Cloud.
 
           The data allowance is a daily rate calculated across all connected machines. Your total daily free limit is equal to the **[number of machines] x 500 MB**. So even if on a given day some machines send 100 MB and others send 800 MB, if the total data from all machines doesn't exceed your daily free limit, you won't be charged extra.
 

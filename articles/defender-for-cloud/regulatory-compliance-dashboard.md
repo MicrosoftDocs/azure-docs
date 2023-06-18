@@ -2,7 +2,7 @@
 title: 'Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud'
 description: 'Tutorial: Learn how to Improve your regulatory compliance using Microsoft Defender for Cloud.'
 ms.topic: tutorial
-ms.date: 05/09/2023
+ms.date: 06/18/2023
 ---
 
 # Tutorial: Improve your regulatory compliance
@@ -221,4 +221,4 @@ To learn more, see these related pages:
 
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md) - Learn how to select which standards appear in your regulatory compliance dashboard.
 - [Managing security recommendations in Defender for Cloud](review-security-recommendations.md) - Learn how to use recommendations in Defender for Cloud to help protect your Azure resources.
-- Check out [common questions](faq-regulatory-compliace.yml) about regulatory compliance.
+- Check out [common questions](faq-regulatory-compliance.yml) about regulatory compliance.

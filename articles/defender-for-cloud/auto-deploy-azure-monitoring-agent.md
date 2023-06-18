@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure Monitor Agent on your Azure, multiclo
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 06/18/2023
 ms.custom: template-how-to, ignite-2022
 ---
 
@@ -121,7 +121,7 @@ When you auto-provision the Log Analytics agent in Defender for Cloud, you can c
 
 If you want to collect security events when you auto-provision the Azure Monitor Agent, you can create a [Data Collection Rule](../azure-monitor/essentials/data-collection-rule-overview.md) to collect the required events. Learn [how do it with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
 
-Like for Log Analytics workspaces, Defender for Cloud users are eligible for [500-MB of free data](plan-defender-for-servers-data-workspace.md#log-analytics-pricing-faq) daily on defined data types that include security events.
+Like for Log Analytics workspaces, Defender for Cloud users are eligible for [500-MB of free data](faq-defender-for-servers.yml) daily on defined data types that include security events.
 
 ## Next steps
 
