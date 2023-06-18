@@ -4,7 +4,7 @@ description: Export and import automation rules to and from ARM templates to aid
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 06/18/2023
 ---
 
 # Export and import automation rules to and from ARM templates
