@@ -61,7 +61,7 @@ To deploy the Azure Monitor Agent with Defender for Cloud:
     - The Azure Monitor Agent is installed on all existing machines in the selected subscription, and on all new machines created in the subscription.
     - The Log Analytics agent isn't uninstalled from machines that already have it installed. You can [leave the Log Analytics agent](#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) on the machine, or you can manually [remove the Log Analytics agent](../azure-monitor/agents/azure-monitor-agent-migration.md) if you don't require it for other protections.
     - The agent sends data to the default workspace for the subscription. You can also [configure a custom workspace](#configure-custom-destination-log-analytics-workspace) to send data to.
-    - You can't enable [collection of other security events](#additional-security-events-collection).
+    - You can't enable [collection of other security events](#other-security-events-collection).
 
 ## Impact of running with both the Log Analytics and Azure Monitor Agents
 
