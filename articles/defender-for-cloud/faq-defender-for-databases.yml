@@ -36,7 +36,7 @@ sections:
 
           Lab tests of our solution showed CPU usage averaging 3% for peak slices, comparing it against benchmark loads. An analysis of our current user data shows a negligible effect on CPU and memory usage.
 
-          Of course, performance always varies between environments, machines, and loads. The statements and numbers above are provided as a general guideline, not a guarantee for any individual deployment.
+          Performance always varies between environments, machines, and loads. The statements are provided as a general guideline, not a guarantee for any individual deployment.
 
       - question: |
           What happens to the old scan results and baselines after I switch to express configuration?
@@ -48,7 +48,7 @@ sections:
       - question: |
           Can I set up recurring scans with express configuration?
         answer: |
-          Express configuration automatically sets up recurring scans for all databases under your server. This is the default and is not configurable at server or database level.
+          Express configuration automatically sets up recurring scans for all databases under your server. This is the default and isn't configurable at server or database level.
 
       - question: |
           Is there a way with express configuration to get the weekly email report that is provided in the classic configuration?
@@ -75,9 +75,9 @@ sections:
           Stay tuned for updates!
 
       - question: |
-          Can I choose which experience will be the default?
+          Can I choose which experience is the default?
         answer: |
-          No. Express configuration will be the default for every new supported Azure SQL database.
+          No. Express configuration is the default for every new supported Azure SQL database.
 
       - question: |
           Does express configuration change scan behavior?

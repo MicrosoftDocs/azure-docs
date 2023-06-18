@@ -35,7 +35,7 @@ sections:
       - question: |
           Is there a difference in features between the new and Defender for Storage (classic)?
         answer: |
-          Yes, there is a difference in the capabilities of the two plans. New and future security capabilities will only be available in the new Defender for Storage plan. If you want to access these new capabilities, you'll need to enable the new plan.
+          Yes, there's a difference in the capabilities of the two plans. New and future security capabilities will only be available in the new Defender for Storage plan. If you want to access these new capabilities, you need to enable the new plan.
 
 
       - question: |
@@ -55,7 +55,7 @@ sections:
       - question: |
           How can I calculate the cost of each plan?
         answer: |
-          To estimate the cost of Defender for Storage, we've provided a pricing estimation workbook and a PowerShell script that you can run in your environment. YOu can also check out the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information.
+          To estimate the cost of Defender for Storage, we've provided a pricing estimation workbook and a PowerShell script that you can run in your environment. You can also check out the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information.
 
 
 additionalContent: |

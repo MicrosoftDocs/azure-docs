@@ -42,7 +42,7 @@ sections:
         answer: |
           The roles and permissions used by Defender for Cloud to perform agentless scanning on your Azure and AWS environments are listed here. In Azure, these permissions are automatically added to your subscriptions when you enable agentless scanning. In AWS, these permissions are [added to the CloudFormation stack in your AWS connector](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
 
-          - Azure permissions - The built-in role “VM scanner operator” has read-only permissions for VM disks which are required for the snapshot process. The detailed list of permissions is:
+          - Azure permissions - The built-in role “VM scanner operator” has read-only permissions for VM disks that are required for the snapshot process. The detailed list of permissions is:
 
             - `Microsoft.Compute/disks/read`
             - `Microsoft.Compute/disks/beginGetAccess/action`
@@ -113,7 +113,7 @@ sections:
       - question: |
           What are the costs related to agentless scanning?
         answer: |
-          Agentless scanning is included in Defender Cloud Security Posture Management (CSPM) and Defender for Servers P2 plans. No other costs will incur to Defender for Cloud when enabling it.
+          Agentless scanning is included in Defender Cloud Security Posture Management (CSPM) and Defender for Servers P2 plans. No other costs incur to Defender for Cloud when enabling it.
 
           > [!NOTE]
           > AWS charges for retention of disk snapshots. Defender for Cloud scanning process actively tries to minimize the period during which a snapshot is stored in your account (typically up to a few minutes), but you may be charged by AWS a minimal overhead cost for the disk snapshots storage.
