@@ -97,12 +97,12 @@ sections:
       - question: |
           How does vector search work?
         answer: |
-          Vector search works by accepting a query input represented as a vector. The search engine then calculates the similarity of vector fields in the search index, finding items that are similar to the given vector query. Because it's too expensive to compare the query vector to all vectors in the index, vector search uses Approximate Nearest Neighbor (ANN) algorithms to find the nearest match. This improves query speed, at the cost of recall.
+          Vector search works by finding the most similar vector documents for an input query vector. To build your vector index, you provide a vector embedding for each document in your index, which internally creates vector indexes that optimize for efficient and quick querying. When you issue a search query, you first convert it to a vector embedding using the same model from indexing. Then, you send this query vector to us. The search engine calculates the similarity of vector fields in the search index, finding items that are similar to the given vector query. Because it's too resource intensive and slow to exhaustively compare the query vector to all vectors in the index, vector search uses Approximate Nearest Neighbor (ANN) algorithms to find the nearest match. The algorithm will visit nodes in a region to identify the approximately nearest neighbors. This improves query speed, at the cost of recall.
 
       - question: |
           Does Azure Cognitive Search support vector search?
         answer: |
-          Support for vector search is in public preview and available through the 2023-07-01-preview REST APIs. Support consists of search fields that contain embeddings that you provide.
+          Support for vector search is in public preview and available through the 2023-07-01-Preview REST APIs. Support consists of search fields that contain embeddings that you provide.
 
       - question: |
           How does vector search work in Azure Cognitive Search?
