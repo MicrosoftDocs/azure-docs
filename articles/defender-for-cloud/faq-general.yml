@@ -8,7 +8,7 @@ metadata:
   manager: raynew
   ms.topic: faq
   ms.custom: ignite-2022
-  ms.date: 01/24/2023
+  ms.date: 06/18/2023
 title: FAQ - General questions about Microsoft Defender for Cloud
 summary: |
 
@@ -287,3 +287,21 @@ sections:
           What GCP regions are supported by Defender for Cloud?
         answer: |
           Defender for Cloud supports and scans all available regions on GCP public cloud.
+
+    
+      - question: |
+          Does workflow automation support any business continuity or disaster recovery (BCDR) scenarios?
+        answer: |
+          When preparing your environment for BCDR scenarios, where the target resource is experiencing an outage or other disaster, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic Apps.
+
+          For every active automation, we recommend you create an identical (disabled) automation and store it in a different location. When there's an outage, you can enable these backup automations and maintain normal operations.
+
+          Learn more about [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md).
+
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn about what's new in Defender for Cloud](release-notes.md)
+  

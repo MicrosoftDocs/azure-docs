@@ -72,9 +72,7 @@ sections:
           
           Learn more about the [data collected by the Log Analytics agent](monitoring-components.md#log-analytics-agent).
           
-          
-          
-          
+
       - question: |
           What qualifies a VM for automatic provisioning of the Log Analytics agent installation?
         answer: |
@@ -320,3 +318,26 @@ sections:
           I already have security solution on my workspaces. What are the billing implications?
         answer: |
           The Security & Audit solution is used to enable **Microsoft Defender for Servers**. If the Security & Audit solution is already installed on a workspace, Defender for Cloud uses the existing solution. There's no change in billing.
+
+
+      - question: |
+          Which data is collected from snapshots?
+        answer: |
+          Agentless scanning collects data similar to the data an agent collects to perform the same analysis. Raw data, PIIs or sensitive business data isn't collected, and only metadata results are sent to Defender for Cloud.
+
+
+      - question: |
+          What are the costs related to agentless scanning?
+        answer: |
+          Agentless scanning is included in Defender Cloud Security Posture Management (CSPM) and Defender for Servers P2 plans. No other costs incur to Defender for Cloud when enabling it.
+
+          > [!NOTE]
+          > AWS charges for retention of disk snapshots. Defender for Cloud scanning process actively tries to minimize the period during which a snapshot is stored in your account (typically up to a few minutes), but you may be charged by AWS a minimal overhead cost for the disk snapshots storage.
+
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn about how Defender for Cloud collects data](monitoring-components.md)
+  
