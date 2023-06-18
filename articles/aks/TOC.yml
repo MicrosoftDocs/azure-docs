@@ -474,9 +474,9 @@
               href: configure-kube-proxy.md
         - name: Network Observability
           items:
-          - name: Setup Network Observability - BYO
+          - name: Set up Network Observability - BYO
             href: network-observability-byo-cli.md
-          - name: Setup Network Observability - Azure Managed
+          - name: Set up Network Observability - Azure Managed
             href: network-observability-managed-cli.md
         - name: Security
           items:
