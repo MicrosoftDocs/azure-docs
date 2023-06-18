@@ -1,5 +1,5 @@
 ---
-title: "Setup Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
+title: "Set up Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
 description: Get started with AKS Network Observability for your AKS cluster using Azure managed Prometheus and Grafana.
 author: asudbring
 ms.author: allensu
@@ -10,7 +10,7 @@ ms.date: 06/16/2023
 ms.custom: template-how-to-pattern
 ---
 
-# Setup Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
+# Set up Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
 AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both managed and BYO Prometheus and Grafana are supported. Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use Managed Prometheus and Grafana to visualize the scraped metrics.
 
