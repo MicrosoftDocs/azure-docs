@@ -64,7 +64,28 @@ The maximum document size when calling an Index API is approximately 16 megabyte
 
 Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit realistically depends on how many documents are in the batch. For a batch with a single document, the maximum document size is 16 MB of JSON.
 
-When estimating document size, remember to consider only those fields that can be consumed by a search service. Any binary or image data in source documents should be omitted from your calculations.  
+When estimating document size, remember to consider only those fields that can be consumed by a search service. Any binary or image data in source documents should be omitted from your calculations.
+
+## Vector index size limits
+
+The size of all of your vector fields in memory is restricted based on the reserved memory for the chosen SKU. This limit is calculated **per partition** and is a hard limit to ensure the service is healthy. The table below describes the vector index size quota per partition across our SKUs.
+
+Please see our [documentation on vector index size](./vector-search-index-size.md) for more details.
+
+### Services created prior to 2023-07-01
+
+| SKU   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| ----- | ------------------ | ------------------------------------------ | ---------------------------- |
+| Basic | 2                  | 0.5                                        | 115 million                  |
+| S1    | 25                 | 1                                          | 235 million                  |
+| S2    | 100                | 6                                          | 1,400 million                |
+| S3    | 200                | 12                                         | 2,801 million                |
+| L1    | 1,000              | 12                                         | 3,221 million                |
+| L2    | 2,000              | 36                                         | 9,664 million                |
+
+### Services created after 2023-07-01 in supported regions
+
+tbd
 
 ## Indexer limits
 

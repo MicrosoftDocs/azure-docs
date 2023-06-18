@@ -410,14 +410,16 @@
         href: knowledge-store-connect-power-bi.md
   - name: Vectors
     items:
+    - name: Create a vector index
+      href: vector-search-how-to-create-index.md
     - name: Generate embeddings
       href: vector-search-how-to-generate-embeddings.md
     - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
-    - name: Create a vector index
-      href: vector-search-how-to-create-index.md
     - name: Create a vector query
       href: vector-search-how-to-query.md
+    - name: Explaining vector index size behavior
+      href: vector-search-index-size.md
   - name: Queries
     items:
     - name: Create a basic query
