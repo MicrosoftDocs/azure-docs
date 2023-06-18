@@ -44,4 +44,4 @@ This article explains how agentless scanning works and how it helps you collect 
 
 - Learn more about how to [enable vulnerability assessment with agentless scanning](enable-vulnerability-assessment-agentless.md).
 
-- Check out Defender for Cloud's [common questions](faq-concepts.yml) for more information on agentless scanning for machines.
+- Check out Defender for Cloud's [common questions](faq-data-collection-agents.yml) for more information on agentless scanning for machines.

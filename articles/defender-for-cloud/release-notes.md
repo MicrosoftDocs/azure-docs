@@ -125,7 +125,7 @@ This extended support increases coverage and visibility over your cloud estate w
 - For new customers enabling agentless scanning in AWS - encrypted disks coverage is built in and supported by default.
 - For existing customers that already have an AWS connector with agentless scanning enabled, you need to reapply the CloudFormation stack to your onboarded AWS accounts to update and add the new permissions that are required to process encrypted disks. The updated CloudFormation template includes new assignments that allow Defender for Cloud to process encrypted disks.
 
-You can learn more about the [permissions used to scan AWS instances](faq-concepts.yml).
+You can learn more about the [permissions used to scan AWS instances](faq-permissions.yml).
 
 **To re-apply your CloudFormation stack**:
 
