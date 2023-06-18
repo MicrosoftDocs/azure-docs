@@ -24,8 +24,13 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## June 2023
 
+- [Windows Forwarded Events connector is now generally available](#windows-forwarded-events-connector-is-now-generally-available)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
 - [Microsoft Sentinel solution for SAP® applications: new systemconfig.json file](#microsoft-sentinel-solution-for-sap-applications-new-systemconfigjson-file)
+
+### Windows Forwarded Events connector is now generally available
+
+The Windows Forwarded Events connector is now generally available. The connector is available in both the Azure Commercial and Azure Government clouds. Review the [connector information](data-connectors/windows-forwarded-events.md).
 
 ### Microsoft Sentinel solution for SAP® applications: new systemconfig.json file
 
@@ -192,7 +197,7 @@ We strongly encourage you to migrate any remaining playbooks in your **Classic**
 
 The Microsoft Defender for Identity alerts now support the Government Community Cloud (GCC). To enable this support, there is a change to the way alerts are sent to Microsoft Sentinel. 
 
-For customers connecting and disconnecting the MDI alerts connector, the `UniqueExternalId` field is no longer populated. The `UniqueExternalId` represents the alert, and was formerly located in the`ExternalProperties` field. You can now obtain the ID through the `AlertName` field, which contains the alert’s name. 
+For customers connecting and disconnecting the MDI alerts connector, the `UniqueExternalId` field is no longer populated. The `UniqueExternalId` represents the alert, and was formerly located in the`ExtendedProperties` field. You can now obtain the ID through the `AlertName` field, which contains the alert’s name. 
 
 Review the [complete mapping between the alert names and unique external IDs](/defender-for-identity/alerts-overview#security-alert-name-mapping-and-unique-external-ids).
 
