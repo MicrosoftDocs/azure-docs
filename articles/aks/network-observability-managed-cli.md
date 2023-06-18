@@ -1,5 +1,5 @@
 ---
-title: "Set up Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
+title: "Setup of Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
 description: Get started with AKS Network Observability for your AKS cluster using Azure managed Prometheus and Grafana.
 author: asudbring
 ms.author: allensu
@@ -10,7 +10,7 @@ ms.date: 06/16/2023
 ms.custom: template-how-to-pattern
 ---
 
-# Set up Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
+# Setup of Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
 AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both managed and BYO Prometheus and Grafana are supported. Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use Managed Prometheus and Grafana to visualize the scraped metrics.
 
@@ -275,9 +275,9 @@ az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
     k port-forward $(k get po -l dsName=ama-metrics-node -oname | head -n 1) 9090:9090
     ```
 
-1. In **Targets** of prometheus, verify the **network-obs-pods** are present.
+1. In **Targets** of prometheus, verify the **cilium-pods** are present.
 
-1. Sign in to Grafana and import dashboards with the following link: [Cilium Agent Metrics](https://grafana.com/grafana/dashboards/16611-cilium-metrics/).
+1. Sign in to Grafana and import dashboards with the following ID [16611-cilium-metrics](https://grafana.com/grafana/dashboards/16611-cilium-metrics/).
 
 ---
 
