@@ -361,9 +361,9 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 ## <a name="alerts-resourcemanager"></a>Alerts for Resource Manager
 
-Alerts with “**delegated access**” indication are triggered due to activity of third parties/y service providers.
-
-Learn more about [service providers activity indicator](/azure/defender-for-cloud/defender-for-resource-manager-usage).  / enrichment
+> [!NOTE]
+> Alerts with a **delegated access** indication are triggered due to activity of third-party service providers.
+> Learn more about [service provider activity indications](/azure/defender-for-cloud/defender-for-resource-manager-usage).
 
 [Further details and notes](defender-for-resource-manager-introduction.md)
 
