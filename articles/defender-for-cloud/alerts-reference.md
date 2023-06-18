@@ -361,6 +361,10 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 ## <a name="alerts-resourcemanager"></a>Alerts for Resource Manager
 
+Alerts with “**delegated access**” indication are triggered due to activity of third parties/y service providers.
+
+Learn more about [service providers activity indicator](/azure/defender-for-cloud/defender-for-resource-manager-usage).  / enrichment
+
 [Further details and notes](defender-for-resource-manager-introduction.md)
 
 | Alert (alert type)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE tactics<br>([Learn more](#intentions)) | Severity |
@@ -739,3 +743,5 @@ VM_VbScriptHttpObjectAllocation| VBScript HTTP object allocation detected | High
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
 - [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md)
 - [Continuously export Defender for Cloud data](continuous-export.md)
+
+
