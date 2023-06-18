@@ -88,7 +88,7 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
     - **If you don't want the rule to run again in the original workspace:**
         1. Edit the JSON file that represents the exported automation rule.
-        1. Find the expiration date and replace it with a date in the future.
+        1. Find the expiration date (that appears immediately after the string `"expirationTimeUtc":`) and replace it with a date in the future.
         1. Save the file and re-import it into the second workspace.
 
 ## Next steps
