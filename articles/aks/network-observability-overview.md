@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: overview
-ms.date: 06/16/2023
+ms.date: 06/20/2023
 ---
 
 # What is Azure Kubernetes Service (AKS) Network Observability? (Preview)
@@ -66,3 +66,8 @@ Certain scale limitations apply when you use Managed Prometheus and Grafana. For
 ## Next steps
 
 - For more information about Azure Kubernetes Service (AKS), see [What is Azure Kubernetes Service (AKS)?](/azure/aks/intro-kubernetes).
+
+- To create an AKS cluster with Network Observability and managed Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) managed Prometheus and Grafana](network-observability-managed-cli.md).
+
+- To create an AKS cluster with Network Observability and BYO Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](network-observability-byo-cli.md).
+
