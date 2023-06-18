@@ -34,6 +34,8 @@ If the error message doesn't clearly identify what's missing from the response, 
 
 - Send the SAML response to the app vendor and ask them what's missing.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Attributes are missing from the SAML response
 
 To add an attribute in the Azure AD configuration that will be sent in the Azure AD response, follow these steps:

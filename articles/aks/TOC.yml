@@ -40,6 +40,8 @@
         - name: Use ARM template
           displayName: Resource Manager
           href: learn/quick-kubernetes-deploy-rm-template.md
+        - name: Use Terraform
+          href: learn/quick-kubernetes-deploy-terraform.md
     - name: Deploy a Windows-based AKS Cluster
       items:
         - name: Use the Azure CLI
@@ -287,9 +289,6 @@
               href: resize-node-pool.md
         - name: Use the Azure Linux container host for AKS
           href: use-azure-linux.md
-        - name: Deploy AKS with Terraform
-          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
-          maintainContext: true
         - name: Azure portal Kubernetes resource view
           href: kubernetes-portal.md
         - name: Use tags
