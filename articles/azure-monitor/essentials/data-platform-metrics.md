@@ -66,9 +66,9 @@ Azure Monitor provides REST APIs that allow you to get data in and out of Azure 
 
 ## Security
 
-All communication between connected systems and the Azure Monitor service is encrypted using the TLS (HTTPS) protocol. The Microsoft SDL process is followed to ensure all Azure services are up-to-date with the most recent advances in cryptographic protocols. 
+All communication between connected systems and the Azure Monitor service is encrypted using the TLS (HTTPS) protocol. The Microsoft SDL process is followed to ensure all Azure services are up-to-date with the most recent advances in cryptographic protocols.  
 
-Secure connection is established between the agent and the Azure Monitor service using certificate-based authentication and TLS with port 443. Azure Monitor uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices. For more information on security, see [Azure Monitor Logs data security](../logs/data-security.md)
+Secure connection is established between the agent and the Azure Monitor service using certificate-based authentication and TLS with port 443. Azure Monitor uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices. For more information on security, see  [Encryption of data in transit](../../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit), [Encryption of data in transit](../../security/fundamentals/encryption-atrest.md), and [Azure Monitor Logs data security](../logs/data-security.md)
 
 ## Metrics Explorer
 
@@ -80,7 +80,7 @@ For more information, see [Getting started with Azure Monitor Metrics Explorer](
 
 ## Data structure
 
-Data that Azure Monitor Metrics collects is stored in a time-series database that's optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
+Data that Azure Monitor Metrics collects, is stored in a time-series database that's optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
 
 * The time when the value was collected.
 * The resource that the value is associated with.
