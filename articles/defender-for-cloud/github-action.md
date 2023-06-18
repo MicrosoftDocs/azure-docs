@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
 description: Learn how to configure the Microsoft Security DevOps GitHub action.
-ms.date: 05/01/2023
+ms.date: 06/18/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
