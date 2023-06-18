@@ -75,7 +75,21 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
 - **Playbook doesn't exist:** If you export an automation rule that calls a playbook, and then import it to another workspace that doesn't have access to the playbook, or if the playbook was moved or deleted, the automation rule deployment will fail, and you'll receive an error message with the specific reason.
 
+    To allow this automation rule to deploy properly when imported, make sure that the playbook exists and that the second workspace has access to the resource group that contains the playbook.
+
 - **Expired automation rule:** If an automation rule is past its expiration date when imported, the automation rule deployment will fail and you'll receive an error message.
+
+    To allow this automation rule to deploy properly when imported, choose **one** of the following procedures, depending on the relevant circumstances:
+
+    - **If you don't mind the automation rule running in the original workspace:**
+        1. Edit the automation rule in the original workspace and change its expiration date to a date in the future.
+        1. Export the rule again from the original workspace.
+        1. Import the newly exported version into the second workspace.
+
+    - **If you don't want the rule to run again in the original workspace:**
+        1. Edit the JSON file that represents the exported automation rule.
+        1. Find the expiration date and replace it with a date in the future.
+        1. Save the file and re-import it into the second workspace.
 
 ## Next steps
 
