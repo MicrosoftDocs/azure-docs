@@ -18,7 +18,7 @@ This information can't be modified because the user information is pulled from A
 
 ## View personal information
 
-1. From the Permissions Management home page, select the down arrow to the right of the **User** (your initials) menu, then select **Account Settings**.
+- From the Permissions Management home page, select the down arrow to the right of the **User** (your initials) menu, then select **Account Settings**.
 
     The **Personal Information** box displays your **First Name**, **Last Name**, and the **Email Address** used to register your account with Permissions Management.
 
