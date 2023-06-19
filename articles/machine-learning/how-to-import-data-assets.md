@@ -161,7 +161,7 @@ ml_client.data.import_data(data_import=data_import)
    
    A new panel opens, where you can define a **Recurrence** schedule, or a **Cron** schedule. This screenshot shows the panel for a **Recurrence** schedule:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="Screenshot that shows selection of the Add schedule button.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="A screenshot that shows selection of the Add schedule button.":::
    
 
   - **Name**: the unique identifier of the schedule within the workspace.
@@ -306,7 +306,7 @@ ml_client.data.import_data(data_import=data_import)
    
    A new panel opens, where you can define a **Recurrence** schedule, or a **Cron** schedule. This screenshot shows the panel for a **Recurrence** schedule:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="Screenshot showing selection of the Add schedule button.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="A screenshot showing selection of the Add schedule button.":::
    
 
   - **Name**: the unique identifier of the schedule within the workspace.
