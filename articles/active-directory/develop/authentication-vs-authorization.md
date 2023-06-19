@@ -60,3 +60,4 @@ For other topics that cover authentication and authorization basics:
 
 * To learn how access tokens, refresh tokens, and ID tokens are used in authorization and authentication, see [Security tokens](security-tokens.md).
 * To learn about the process of registering your application so it can integrate with the Microsoft identity platform, see [Application model](application-model.md).
+* To learn about proper authorization using token claims, see [Secure applications and APIs by validating claims](./claims-validation.md)
