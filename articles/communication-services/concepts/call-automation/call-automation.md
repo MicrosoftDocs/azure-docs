@@ -4,6 +4,7 @@ titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Communication Services Call Automation API.
 author: ashwinder
 ms.service: azure-communication-services
+ms.subservice: call-automation
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.author: askaur
