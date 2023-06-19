@@ -2,7 +2,7 @@
 title: Understanding just-in-time virtual machine access in Microsoft Defender for Cloud
 description: This document explains how just-in-time VM access in Microsoft Defender for Cloud helps you control access to your Azure virtual machines
 ms.topic: how-to
-ms.date: 05/15/2022
+ms.date: 06/12/2023
 ---
 
 # Understanding just-in-time (JIT) VM access
@@ -51,30 +51,6 @@ The diagram below shows the logic that Defender for Cloud applies when deciding 
 When Defender for Cloud finds a machine that can benefit from JIT, it adds that machine to the recommendation's **Unhealthy resources** tab. 
 
 ![Just-in-time (JIT) virtual machine (VM) access recommendation.](./media/just-in-time-explained/unhealthy-resources.png)
-
-## FAQ - Just-in-time virtual machine access
-
-### What permissions are needed to configure and use JIT?
-
-JIT Requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) to be enabled on the subscription. 
-
-**Reader** and **SecurityReader** roles can both view the JIT status and parameters.
-
-If you want to create custom roles that can work with JIT, you'll need the details from the table below.
-
-If you are setting up JIT on your Amazon Web Service (AWS) VM, you will need to [connect your AWS account](quickstart-onboard-aws.md) to Microsoft Defender for Cloud.
-
-> [!TIP]
-> To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) from the Defender for Cloud GitHub community pages.
-
-| To enable a user to: | Permissions to set|
-| --- | --- |
-|Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  <ul><li>On the scope of a subscription or resource group that is associated with the VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> On the scope of a subscription or resource group of VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
-|Request JIT access to a VM | *Assign these actions to the user:*  <ul><li> `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li> `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li> `Microsoft.Compute/virtualMachines/read` </li><li> `Microsoft.Network/networkInterfaces/*/read` </li> <li> `Microsoft.Network/publicIPAddresses/read` </li></ul> |
-|Read JIT policies| *Assign these actions to the user:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Security/pricings/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
-
-> [!Note]
-> Only the `Microsoft.Security` permissions are relevant for AWS.
 
 ## Next steps
 
