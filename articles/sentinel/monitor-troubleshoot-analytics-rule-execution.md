@@ -17,11 +17,11 @@ To ensure that Microsoft Sentinel's threat detection provides complete coverage 
 
 ## Summary
 
-The Execution Management for scheduled Analytics rules offers two new capabilities – built-in schedule rule insights and re-run scheduled rules on-demand. 
+There are two execution management tools for scheduled analytics rules: built-in scheduled rule insights and the capability to re-run scheduled rules on-demand.
 
-The Analytics rule Insights panel provides further information related to a rule, such as Failed executions, top health issues, alert count over time and closed classification of the incidents triggered by the rule. These insights help security analysts to identify potential issues or misconfigurations with the analytics rules, troubleshoot rule failures, and optimize rule configurations for better performance and accuracy. 
+On the **Analytics** page, the **Insights** panel displays as another tab in the details pane, alongside the **Info** tab. The **Insights** panel provides information about a rule's activity and results. For example: failed executions, top health issues, alert count over time, and closing classifications of incidents created by the rule. These insights help your security analysts identify potential issues or misconfigurations with analytics rules, and allow them to troubleshoot rule failures and optimize rule configurations for better performance and accuracy. 
 
-The ability to re-run analytics rules on-demand in Microsoft Sentinel can provide flexibility and control in validating the effectiveness of the rules. It can be beneficial in a few scenarios such as rule refinement, testing, validation and many more. Having the flexibility to initiate manual re-runs can support efficient security operations, enable effective incident response, and enhance the overall detection and response capabilities of the system. 
+Also on the **Analytics** page, you have the ability to re-run analytics rules on-demand. This capability provides flexibility and control in validating the effectiveness of the rules. It can be useful in scenarios such as rule refinement, testing, validation, and others. Having the flexibility to initiate manual re-runs can support efficient security operations, enable effective incident response, and enhance the overall detection and response capabilities of the system. 
 
 ## Use the SentinelHealth and SentinelAudit data tables (Preview)
 
