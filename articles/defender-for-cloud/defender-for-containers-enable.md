@@ -6,7 +6,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022, devx-track-azurecli
 zone_pivot_groups: k8s-host
-ms.date: 10/30/2022
+ms.date: 06/14/2023
 ---
 
 # Enable Microsoft Defender for Containers
@@ -97,10 +97,6 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
 
-::: zone pivot="defender-for-container-aks,defender-for-container-arc"
-[!INCLUDE [FAQ](./includes/defender-for-containers-override-faq.md)]
-::: zone-end
-
 ## Learn More
 
 You can check out the following blogs:
@@ -115,3 +111,4 @@ Now that you enabled Defender for Containers, you can:
 
 - [Scan your ACR images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
 - [Scan your Amazon AWS ECR images for vulnerabilities](defender-for-containers-vulnerability-assessment-elastic.md)
+- Check out [common questions](faq-defender-for-containers.yml) about Defender for Containers.
