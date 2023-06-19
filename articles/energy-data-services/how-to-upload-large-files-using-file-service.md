@@ -1,6 +1,6 @@
 ---
-title: How to upload large files using File service API in Microsoft Azure Data Manager for Energy Preview
-description: This article describes how to to upload large files in ADME using File service API in Microsoft Azure Data Manager for Energy Preview
+title: How to upload large files using file service API in Microsoft Azure Data Manager for Energy Preview
+description: This article describes how to to upload large files using File service API in Microsoft Azure Data Manager for Energy Preview
 author: harshit283
 ms.author: haaggarw
 ms.service: energy-data-services
@@ -9,11 +9,11 @@ ms.date: 06/13/2023
 ms.custom: template-how-to
 ---
 
-# How to upload files in Azure Data Manager for Energy preview using File service
+# How to upload files in Azure Data Manager for Energy Preview using File service
 In this article, you know how to upload large files using File service API in Microsoft Azure Data Manager for Energy Preview. The upload process involves fetching a signed URL from [File API](https://community.opengroup.org/osdu/platform/system/file/-/tree/master/) and then using the signed URL to store the file into Azure Blob Storage
 
 ## Generate a signed URL
-Run the below curl command in Azure Cloud Bash to get a signed URL from file service for a given data partition of your Azure Data Manager for Energy Preview instance.
+Run the below curl command in Azure Cloud Bash to get a signed URL from file service for a given data partition of your Azure Data Manager for Energy Preview resource.
 
 ```bash
     curl --location 'https://<URI>/api/file/v2/files/uploadURL' \
@@ -23,7 +23,7 @@ Run the below curl command in Azure Cloud Bash to get a signed URL from file ser
 ```
 
 ### Sample request
-Consider an Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
+Consider an Azure Data Manager for Energy Preview resource named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request POST 'https://medstest.energy.azure.com/api/file/v2/files/uploadURL' \
@@ -56,13 +56,13 @@ In order to upload file sizes less than 5000 MiB one can directly use [PUT blob 
     --header 'Content-Type: <file_type>' \ # for instance application/zip or application/csv or application/json depending on file type
     --data '@/<path_to_file>'
 ```
-If the upload is successful, we get a 201 Created status code in response
+If the upload is successful, we get a `201 Created` status code in response
 
 ## Upload files with size greater or equal to 5000 MiB
-In order to upload files with sizes >= 5000 MiB, we would need [azcopy](https://github.com/Azure/azure-storage-azcopy)utility as a single PUT blob call can't be greater than 5000 MiB [doc link](https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/#put-blob)
+To upload files with sizes >= 5000 MiB, we would need [azcopy](https://github.com/Azure/azure-storage-azcopy)utility as a single PUT blob call can't be greater than 5000 MiB [doc link](https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/#put-blob)
 
 ### Steps
-1. Download azcopy using this [link](https://github.com/Azure/azure-storage-azcopy#download-azcopy)
+1. Download `azcopy` using this [link](https://github.com/Azure/azure-storage-azcopy#download-azcopy)
 
 2. Run this command to upload your file
 
