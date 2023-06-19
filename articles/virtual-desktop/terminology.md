@@ -28,11 +28,17 @@ The following table goes into more detail about the differences between each typ
 |Feature|Personal host pools|Pooled host pools|
 |---|---|---|
 |Load balancing| User sessions are always load balanced to the session host the user is assigned to. If the user isn't currently assigned to a session host, the user session is load balanced to the next available session host in the host pool. | User sessions are load balanced to session hosts in the host pool based on user session count. You can choose which [load balancing algorithm](host-pool-load-balancing.md) to use: breadth-first or depth-first. |
-|Maximum session limit| One. | As configured by the **Max session limit** value of the properties of a host pool. |
+|Maximum session limit| One. | As configured by the **Max session limit** value of the properties of a host pool. Under high concurrent connection load when multiple users connect to the host pool at the same time, the number of sessions created on a session host can exceed the maximum session limit. |
 |User assignment process| Users can either be directly assigned to session hosts or be automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. |
 |Scaling|None. | [Autoscale](autoscale-scaling-plan.md) for pooled host pools turns VMs on and off based on the capacity thresholds and schedules the customer defines. |
 |Windows Updates|Updated with Windows Updates, [System Center Configuration Manager (SCCM)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
 |User data| Each user only ever uses one session host, so they can store their user profile data on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in [FSLogix](/fslogix/configure-profile-container-tutorial). |
+
+### Validation environment
+
+You can set a host pool to be a *validation environment*. Validation environments let you monitor service updates before the service applies them to your production or non-validation environment. Without a validation environment, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
+
+To ensure your apps work with the latest updates, the validation environment should be as similar to host pools in your non-validation environment as possible. Users should connect as frequently to the validation environment as they do to the production environment. If you have automated testing on your host pool, you should include automated testing on the validation environment.
 
 ## Application groups
 
@@ -41,6 +47,7 @@ An application group is a logical grouping of applications installed on session 
 An application group can be one of two types: 
 
 - RemoteApp, where users access the RemoteApps you individually select and publish to the application group. Available with pooled host pools only.
+
 - Desktop, where users access the full desktop. Available with pooled or personal host pools.
  
 Pooled host pools have a preferred application group type that dictates whether users see RemoteApp or Desktop apps in their feed if both resources have been published to the same user. By default, Azure Virtual Desktop automatically creates a Desktop application group with the friendly name **Default Desktop** whenever you create a host pool and sets the host pool's preferred application group type to **Desktop**. You can remove the Desktop application group at any time. If you want your users to only see RemoteApps in their feed, you should set the **preferred application group type** value to **RemoteApp**. If you want your users to only see session desktops in their feed, you should set the **preferred application group type** value to **Desktop**. You can't create another Desktop application group in a host pool while a Desktop application group exists.

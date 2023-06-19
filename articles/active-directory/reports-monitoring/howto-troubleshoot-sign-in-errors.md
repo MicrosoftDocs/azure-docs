@@ -52,7 +52,7 @@ You need:
 
 6. The failure reason describes the error. For example, in the above scenario, the failure reason is **Invalid username or password or Invalid on-premises username or password**. The fix is to simply sign-in again with the correct username and password.
 
-7. You can get additional information, including ideas for remediation, by searching for the error code, **50126** in this example, in the [sign-ins error codes reference](../develop/reference-aadsts-error-codes.md). 
+7. You can get additional information, including ideas for remediation, by searching for the error code, **50126** in this example, in the [sign-ins error codes reference](../develop/reference-error-codes.md). 
 
 8. If all else fails, or the issue persists despite taking the recommended course of action, [open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) following the steps in the **Troubleshooting and support** tab. 
 

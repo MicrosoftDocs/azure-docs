@@ -2,14 +2,16 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 07/27/2022
+ ms.date: 05/04/2023
  ms.author: cherylmc
 
 #Customer intent: this file is used for both virtual wan and vpn gateway articles.
 ---
 
 > [!IMPORTANT]
->Only MacOS 10.13 and above is supported with OpenVPN protocol.
+> Only MacOS 10.13 and above is supported with OpenVPN protocol.
+
+[!INCLUDE [OpenVPN client version 2.6 not supported](vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
 
 1. Download and install an OpenVPN client, such as [TunnelBlick](https://tunnelblick.net/downloads.html).
 

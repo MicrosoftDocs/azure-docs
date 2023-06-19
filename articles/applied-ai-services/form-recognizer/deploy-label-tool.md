@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
-recommendations: false
 ---
 
 # Deploy the Sample Labeling tool

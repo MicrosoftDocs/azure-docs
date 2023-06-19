@@ -62,7 +62,6 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Update file upload status](/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
 | [Bulk device operation](/rest/api/iothub/service/bulk-registry/update-registry) | Yes, except for IoT Edge capabilities | Yes |
 | [Create import export job](/rest/api/iothub/service/jobs/createimportexportjob), [Get import export job](/rest/api/iothub/service/jobs/getimportexportjob), [Cancel import export job](/rest/api/iothub/service/jobs/cancelimportexportjob) | Yes | Yes |
-| [Purge command queue](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-purgecommandqueue) |   | Yes |
 | [Get device twin](/rest/api/iothub/service/devices/get-twin), [Update device twin](/rest/api/iothub/service/devices/update-twin) |   | Yes |
 | [Get module twin](/rest/api/iothub/service/modules/get-twin), [Update module twin](/rest/api/iothub/service/modules/update-twin) |   | Yes |
 | [Invoke device method](/rest/api/iothub/service/devices/invoke-method) |   | Yes |

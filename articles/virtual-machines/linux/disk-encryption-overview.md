@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 04/18/2023
+ms.date: 06/14/2023
 ms.custom: seodec18
 
 ---
@@ -61,13 +61,30 @@ Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux dist
 Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption; of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
 | Publisher | Offer | SKU | URN | Volume type supported for encryption |
-| --- | --- |--- | --- |
+| --- | --- |--- | --- | --- |
+| Canonical | Ubuntu | 22.04-LTS | Canonical:0001-com-ubuntu-server-focal:22_04-lts:latest | OS and data disk |
+| Canonical | Ubuntu | 22.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:22_04-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-LTS | Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-DAILY-LTS | Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-DAILY-LTS Gen2 |Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 18.04 | 18.04-DAILY-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:latest | OS and data disk |
+| MicrosoftCBLMariner | cbl-mariner | cbl-mariner-2 | MicrosoftCBLMariner:cbl-mariner:cbl-mariner-2:latest\* | OS and data disk |
+| MicrosoftCBLMariner | cbl-mariner | cbl-mariner-2-gen2 | MicrosoftCBLMariner:cbl-mariner:cbl-mariner-2-gen2:latest* | OS and data disk |
+| OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic:CentOS-LVM:8-LVM:latest | OS and data disk |
+| OpenLogic | CentOS 8.4 | 8_4 | OpenLogic:CentOS:8_4:latest | OS and data disk |
+| OpenLogic | CentOS 8.3 | 8_3 | OpenLogic:CentOS:8_3:latest | OS and data disk |
+| OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest | OS and data disk |
+| OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest | OS and data disk |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.9.2021020400 | OS and data disk |
+| OpenLogic | CentOS 7.9 | 7_9 | OpenLogic:CentOS:7_9:latest | OS and data disk |
+| OpenLogic | CentOS 7.8 | 7_8 | OpenLogic:CentOS:7_8:latest | OS and data disk |
+| OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS and data disk |
+| OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS and data disk |
+| OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS and data disk |
+| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | OS and data disk |
+| OpenLogic | CentOS 6.8 | 6.8 | OpenLogic:CentOS:6.8:latest | Data disk only |
 | Oracle | Oracle Linux 8.6 | 8.6 | Oracle:Oracle-Linux:ol86-lvm:latest | OS and data disk (see note below) |
 | Oracle | Oracle Linux 8.6 Gen 2 | 8.6 | Oracle:Oracle-Linux:ol86-lvm-gen2:latest | OS and data disk (see note below) |
 | Oracle | Oracle Linux 8.5 | 8.5 | Oracle:Oracle-Linux:ol85-lvm:latest | OS and data disk (see note below) |
@@ -92,22 +109,11 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | OS and data disk (see note below) |
 | RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | Data disk (see note below) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Data disk (see note below) |
-| OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic:CentOS-LVM:8-LVM:latest | OS and data disk |
-| OpenLogic | CentOS 8.4 | 8_4 | OpenLogic:CentOS:8_4:latest | OS and data disk |
-| OpenLogic | CentOS 8.3 | 8_3 | OpenLogic:CentOS:8_3:latest | OS and data disk |
-| OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest | OS and data disk |
-| OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest | OS and data disk |
-| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.9.2021020400 | OS and data disk |
-| OpenLogic | CentOS 7.9 | 7_9 | OpenLogic:CentOS:7_9:latest | OS and data disk |
-| OpenLogic | CentOS 7.8 | 7_8 | OpenLogic:CentOS:7_8:latest | OS and data disk |
-| OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS and data disk |
-| OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS and data disk |
-| OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS and data disk |
-| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | OS and data disk |
-| OpenLogic | CentOS 6.8 | 6.8 | OpenLogic:CentOS:6.8:latest | Data disk only |
 | SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | Data disk only |
 | SUSE | SLES 12-SP4 | 12-SP4 | SUSE:SLES:12-SP4:latest | Data disk only |
 | SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Data disk only |
+
+\* For image versions greater than or equal to May 2023.
 
 > [!NOTE]
 > RHEL:

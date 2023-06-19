@@ -34,7 +34,7 @@ For more information on pricing, see the [AKS pricing details](https://azure.mic
 
 ## Uptime SLA terms and conditions
 
-In the Standard tier, the Uptime SLA feature is enabled by default per cluster. For more information, see [SLA for AKS](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
+In the Standard tier, the Uptime SLA feature is enabled by default per cluster. The Uptime SLA feature guarantees 99.95% availability of the Kubernetes API server endpoint for clusters using [Availability Zones][availability-zones], and 99.9% of availability for clusters that aren't using Availability Zones.For more information, see [SLA](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
 
 ## Region availability
 

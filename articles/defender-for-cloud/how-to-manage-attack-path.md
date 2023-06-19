@@ -7,7 +7,7 @@ ms.custom: ignite-2022
 ms.date: 03/27/2023
 ---
 
-# Identify and remediate attack paths 
+# Identify and remediate attack paths
 
 Defender for Cloud's contextual security capabilities assists security teams in the reduction of the risk of impactful breaches. Defender for Cloud uses environment context to perform a risk assessment of your security issues. Defender for Cloud identifies the biggest security risk issues, while distinguishing them from less risky issues.
 
@@ -20,7 +20,7 @@ You can check out the full list of [Attack path names and descriptions](attack-p
 | Aspect | Details |
 |--|--|
 | Release state | GA (General Availability) |
-| Prerequisites | - [Enable agentless scanning](enable-vulnerability-assessment-agentless.md), or [Enable Defender for Server P1 (which includes MDVM)](defender-for-servers-introduction.md) or [Defender for Server P2 (which includes MDVM and Qualys)](defender-for-servers-introduction.md). <br> - [Enable Defender CSPM](enable-enhanced-security.md) <br> - [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer. |
+| Prerequisites | - [Enable agentless scanning](enable-vulnerability-assessment-agentless.md), or [Enable Defender for Server P1 (which includes MDVM)](defender-for-servers-introduction.md) or [Defender for Server P2 (which includes MDVM and Qualys)](defender-for-servers-introduction.md). <br> - [Enable Defender CSPM](enable-enhanced-security.md) <br> - [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This also gives you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer. |
 | Required plans | - Defender Cloud Security Posture Management (CSPM) enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
@@ -33,7 +33,7 @@ The attack path page shows you an overview of all of your attack paths. You can 
 
 On this page you can organize your attack paths based on name, environment, paths count, risk categories.
 
-For each attack path you can see all of risk categories and any affected resources.
+For each attack path, you can see all of risk categories and any affected resources.
 
 The potential risk categories include credentials exposure, compute abuse, data exposure, subscription and account takeover.
 
@@ -102,8 +102,8 @@ Once an attack path is resolved, it can take up to 24 hours for an attack path t
 
 ## Consume attack path data programmatically using API
 
-You can consume attack path data programmatically by querying Azure Resource Graph (ARG) API. 
-Learn [how to query ARG API](/rest/api/azureresourcegraph/resourcegraph(2020-04-01-preview)/resources/resources?source=recommendations&tabs=HTTP). 
+You can consume attack path data programmatically by querying Azure Resource Graph (ARG) API.
+Learn [how to query ARG API](/rest/api/azureresourcegraph/resourcegraph(2020-04-01-preview)/resources/resources?source=recommendations&tabs=HTTP).
 
 The following examples show sample ARG queries that you can run:
 
@@ -111,21 +111,22 @@ The following examples show sample ARG queries that you can run:
 
 ```kusto
 securityresources
-| where type == "microsoft.security/locations/attackpaths"
+| where type == "microsoft.security/attackpaths"
 | where subscriptionId == <SUBSCRIPTION_ID>
 ```
 
-**Get all instances for a specific attack path**:   
-For example, ‘Internet exposed VM with high severity vulnerabilities and read permission to a Key Vault’. 
+**Get all instances for a specific attack path**:
+For example, ‘Internet exposed VM with high severity vulnerabilities and read permission to a Key Vault’.
 
 ```kusto
 securityresources
-| where type == "microsoft.security/locations/attackpaths"
+| where type == "microsoft.security/attackpaths"
 | where subscriptionId == "212f9889-769e-45ae-ab43-6da33674bd26"
 | extend AttackPathDisplayName = tostring(properties["displayName"])
 | where AttackPathDisplayName == "<DISPLAY_NAME>"
 ```
-### API response schema 
+
+### API response schema
 
 The following table lists the data fields returned from the API response:
 
@@ -139,15 +140,15 @@ The following table lists the data fields returned from the API response:
 | Subscription ID | The subscription of the attack path |
 | Properties.description | The description of the attack path |
 | Properties.displayName | The display name of the attack path |
-| Properties.attackPathType | The type of the attack path| 
+| Properties.attackPathType | The type of the attack path|
 | Properties.manualRemediationSteps | Manual remediation steps of the attack path |
 | Properties.refreshInterval | The refresh interval of the attack path |
-| Properties.potentialImpact | The potential impact of the attack path being breached | 
+| Properties.potentialImpact | The potential impact of the attack path being breached |
 | Properties.riskCategories | The categories of risk of the attack path |
 | Properties.entryPointEntityInternalID | The internal ID of the entry point entity of the attack path |
 | Properties.targetEntityInternalID | The internal ID of the target entity of the attack path |
 | Properties.assessments | Mapping of entity internal ID to the security assessments on that entity |
-| Properties.graphComponent | List of graph components representing the attack path | 
+| Properties.graphComponent | List of graph components representing the attack path |
 | Properties.graphComponent.insights | List of insights graph components related to the attack path |
 | Properties.graphComponent.entities | List of entities graph components related to the attack path |
 | Properties.graphComponent.connections | List of connections graph components related to the attack path |
@@ -157,10 +158,10 @@ The following table lists the data fields returned from the API response:
 
 An external attack surface is the entire area of an organization or system that is susceptible to an attack from an external source. An organization's attack surface is made up of all the points of access that an unauthorized person could use to enter their system. The larger your attack surface is, the harder it's to protect.
 
-While you are [investigating and remediating an attack path](#investigate-and-remediate-attack-paths), you can also view your EASM if it is available and you have enabled Defender EASM to your subscription.
+While you're [investigating and remediating an attack path](#investigate-and-remediate-attack-paths), you can also view your EASM if it's available, and if you've enabled Defender EASM to your subscription.
 
 > [!NOTE]
-> To manage your EASM, you must [deploy the Defender EASM Azure resource](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md) to your subscription. Defender EASM has it's own cost and is separate from Defender for Cloud. To learn more about Defender for EASM pricing options, you can check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-external-attack-surface-management/). 
+> To manage your EASM, you must [deploy the Defender EASM Azure resource](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md) to your subscription. Defender EASM has its own cost and is separate from Defender for Cloud. To learn more about Defender for EASM pricing options, you can check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-external-attack-surface-management/).
 
 **To manage your EASM**:
 

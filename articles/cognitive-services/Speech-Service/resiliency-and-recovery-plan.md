@@ -44,7 +44,7 @@ Follow these steps to configure your client to monitor for errors:
 
 1.  Find the [list of regionally available endpoints in our documentation](./rest-speech-to-text.md).
 2.  Select a primary and one or more secondary/backup regions from the list.
-3. From Azure portal, create Speech Service resources for each region.
+3. From Azure portal, create Speech service resources for each region.
     -  If you have set a specific quota, you may also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](./speech-services-quotas-and-limits.md).
 
 4.  Each region has its own STS token service. For the primary region and any backup regions your client configuration file needs to know the:
@@ -54,7 +54,7 @@ Follow these steps to configure your client to monitor for errors:
 5.  Configure your code to monitor for connectivity errors (typically connection timeouts and service unavailability errors). Here's sample code in C#: [GitHub: Adding Sample for showing a possible candidate for switching regions](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/fa6428a0837779cbeae172688e0286625e340942/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L965).
 
     1.  Since networks experience transient errors, for single connectivity issue occurrences, the suggestion is to retry.
-    2.  For persistence redirect traffic to the new STS token service and Speech service endpoint. (For Text-to-Speech, reference sample code: [GitHub: TTS public voice switching region](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L880).
+    2.  For persistence redirect traffic to the new STS token service and Speech service endpoint. (For Text to speech, reference sample code: [GitHub: TTS public voice switching region](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L880).
 
 The recovery from regional failures for this usage type can be instantaneous and at a low cost. All that is required is the development of this functionality on the client side. The data loss that will incur assuming no backup of the audio stream will be minimal.
 
@@ -62,11 +62,11 @@ The recovery from regional failures for this usage type can be instantaneous and
 
 Data assets, models or deployments in one region can't be made visible or accessible in any other region.
 
-You should create Speech Service resources in both a main and a secondary region by following the same steps as used for default endpoints.
+You should create Speech service resources in both a main and a secondary region by following the same steps as used for default endpoints.
 
 ### Custom Speech
 
-Custom Speech Service doesn't support automatic failover. We suggest the following steps to prepare for manual or automatic failover implemented in your client code. In these steps, you replicate custom models in a secondary region. With this preparation, your client code can switch to a secondary region when the primary region fails.
+Custom Speech service doesn't support automatic failover. We suggest the following steps to prepare for manual or automatic failover implemented in your client code. In these steps, you replicate custom models in a secondary region. With this preparation, your client code can switch to a secondary region when the primary region fails.
 
 1.  Create your custom model in one main region (Primary).
 2.  Run the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) operation to replicate the custom model to all prepared regions (Secondary).

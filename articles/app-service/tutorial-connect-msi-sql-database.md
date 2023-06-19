@@ -5,7 +5,7 @@ description: Secure Azure SQL Database connectivity with managed identity from a
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/01/2023
-ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
+ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet
 ---
 # Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity
 
@@ -116,7 +116,7 @@ For more information on adding an Active Directory admin, see [Provision an Azur
 
 # [Azure PowerShell](#tab/ps)
 
-1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
+1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine.
 
 1. Sign in to Azure CLI with the following cmdlet using your Azure AD user:
 

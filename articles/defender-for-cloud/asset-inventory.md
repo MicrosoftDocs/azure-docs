@@ -3,8 +3,8 @@ title: Using the asset inventory to view your security posture with Microsoft De
 description: Learn about Microsoft Defender for Cloud's asset management experience providing full visibility over all your Defender for Cloud monitored resources.
 ms.date: 01/03/2023
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 # Use asset inventory to manage your resources' security posture
 
@@ -27,7 +27,6 @@ The security recommendations on the asset inventory page are also shown in the *
 |Pricing:|Free<br> Some features of the inventory page, such as the [software inventory](#access-a-software-inventory) require paid solutions to be in-place|
 |Required roles and permissions:|All users|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) <br> <br> Software inventory isn't currently supported in national clouds.|
-
 
 ## What are the key features of asset inventory?
 

@@ -9,6 +9,7 @@ ms.topic: sample
 ms.date: 11/01/2022
 ms.author: marhamil
 ms.devlang: python
+ms.custom: devx-track-python
 ---
 
 # Python Samples for Cognitive Services for big data
@@ -19,7 +20,7 @@ The samples in this article use these Cognitive Services:
 
 - Language service - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
-- Speech-to-text - transcribe audio files to extract text-based transcripts.
+- Speech to text - transcribe audio files to extract text-based transcripts.
 - Anomaly Detector - detect anomalies within a time series data.
 
 ## Prerequisites
@@ -117,8 +118,8 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 | https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/house.jpg | ['outdoor' 'grass' 'house' 'building' 'old' 'home' 'front' 'small' 'church' 'stone' 'large' 'grazing' 'yard' 'green' 'sitting' 'leading' 'sheep' 'brick' 'bench' 'street' 'white' 'country' 'clock' 'sign' 'parked' 'field' 'standing' 'garden' 'water' 'red' 'horse' 'man' 'tall' 'fire' 'group']
 
 
-## Speech-to-Text sample
-The [Speech-to-text](../speech-service/index-speech-to-text.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
+## Speech to text sample
+The [Speech to text](../speech-service/index-speech-to-text.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
 
 ```python
 
@@ -127,7 +128,7 @@ df = spark.createDataFrame([("https://mmlspark.blob.core.windows.net/datasets/Sp
                            ("https://mmlspark.blob.core.windows.net/datasets/Speech/audio3.mp3",)
                            ], ["url"])
 
-# Run the Speech-to-text service to translate the audio into text
+# Run the Speech to text service to translate the audio into text
 speech_to_text = (SpeechToTextSDK()
     .setSubscriptionKey(service_key)
     .setLocation("eastus")
@@ -212,7 +213,7 @@ display(anamoly_detector.transform(df).select("timestamp", "value", "anomalies.i
 
 ## Arbitrary web APIs
 
-With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries around the world.
+With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries/regions around the world.
 
 ```python
 from requests import Request
@@ -223,7 +224,7 @@ from pyspark.sql.functions import udf, col
 def world_bank_request(country):
   return Request("GET", "http://api.worldbank.org/v2/country/{}?format=json".format(country))
 
-# Create a dataframe with spcificies which countries we want data on
+# Create a dataframe with spcificies which countries/regions we want data on
 df = (spark.createDataFrame([("br",),("usa",)], ["country"])
   .withColumn("request", http_udf(world_bank_request)(col("country"))))
 

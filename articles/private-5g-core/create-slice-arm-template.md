@@ -2,8 +2,8 @@
 title: Create a slice - ARM template
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a slice in your private mobile network using an Azure Resource Manager (ARM) template. 
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 09/30/2022
@@ -52,8 +52,8 @@ The following Azure resource is defined in the template.
     |--|--|
     | **Subscription** | Select the Azure subscription you used to create your private mobile network. |
     | **Resource group** | Select the resource group containing the mobile network resource representing your private mobile network. |
-    | **Region** | Select **East US**. |
-    | **Location** | Enter *eastus*. |
+    | **Region** | Select the region in which you deployed the private mobile network. |
+    | **Location** | Enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network. |
     | **Existing Mobile Network Name** | Enter the name of the Mobile Network resource representing your private mobile network. |
     | **Slice Name** | Enter the name of the network slice. |
     | **Sst** | Enter the slice/service type (SST) value. If the slice will be used by 4G UEs, enter a value of 1. |

@@ -13,6 +13,7 @@ ms.author: jawoods
 ms.reviewer: phsignor
 zone_pivot_groups: enterprise-apps-all
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to review permissions granted to applications so that I can restrict suspicious or over privileged applications.
 
@@ -23,6 +24,8 @@ ms.collection: M365-identity-device-management
 In this article, you learn how to review permissions granted to applications in your Azure Active Directory (Azure AD) tenant. You may need to review permissions when you've detected a malicious application or the application has been granted more permissions than is necessary. You learn how to revoke permissions granted to the application using Microsoft Graph API and existing versions of PowerShell.
 
 The steps in this article apply to all applications that were added to your Azure AD tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

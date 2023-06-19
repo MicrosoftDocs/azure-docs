@@ -1,6 +1,6 @@
 ---
 title: "CI/CD Workflow using GitOps - Azure Arc-enabled Kubernetes"
-ms.date: 03/21/2023
+ms.date: 05/08/2023
 ms.topic: conceptual
 description: "This article provides a conceptual overview of a CI/CD workflow using GitOps with Flux"
 ---
@@ -10,7 +10,7 @@ description: "This article provides a conceptual overview of a CI/CD workflow us
 > [!IMPORTANT]
 > The workflow described in this document uses GitOps with Flux v1. GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [learn about CI/CD workflow using GitOps with Flux v2](./conceptual-gitops-flux2-ci-cd.md). We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
 >
-> Support for Flux v1-based cluster configuration resources created prior to May 1, 2023 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on May 1, 2023, you won't be able to create new Flux v1-based cluster configuration resources.
+> Support for Flux v1-based cluster configuration resources created prior to January 1, 2024 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on January 1, 2024, you won't be able to create new Flux v1-based cluster configuration resources.
 
 Modern Kubernetes deployments house multiple applications, clusters, and environments. With GitOps, you can manage these complex setups more easily, tracking the desired state of the Kubernetes environments declaratively with Git. Using common Git tooling to track cluster state, you can increase accountability, facilitate fault investigation, and enable automation to manage environments.
 

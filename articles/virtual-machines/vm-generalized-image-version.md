@@ -488,7 +488,8 @@ az login --tenant $tenant1
 az account get-access-token 
 az login --tenant $tenant2
 az account get-access-token
-
+az login --tenant $tenant1
+az account get-access-token
 ```
  
 
@@ -501,7 +502,7 @@ location="<location where the image is replicated>"
 user='<username for the VM>'
 name='<name for the VM>'
 
-az group create --location --resource-group $resourcegroup
+az group create --location $location --resource-group $resourcegroup
 az vm create \
   --resource-group $resourcegroup \
   --name $name \
@@ -523,6 +524,7 @@ $tenant1 = "<Tenant 1 ID>"
 $tenant2 = "<Tenant 2 ID>"
 Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 Connect-AzAccount -Tenant "<Tenant 2 ID>" -UseDeviceAuthentication
+Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 ```
 
 
@@ -580,10 +582,6 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ## Reporting issues with a public image 
 Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
 
-### Reporting images through the Azure portal:
-Selecting a community image will show several "Report" options. You can report the whole image, or report a specific version if previous versions were unaffected by the issue you encountered.
-
-:::image type="content" source="media/shared-image-galleries/report-options.png" alt-text="Screenshot showing the Report button for malicious images.":::
 
 ### Reporting images externally:
 - Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).

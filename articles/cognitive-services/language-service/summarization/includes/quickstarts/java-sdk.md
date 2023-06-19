@@ -24,8 +24,7 @@ Use this quickstart to create a text summarization application with the client l
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Clean-up-resources" target="_target" target="_target">I ran into an issue</a>
+
 
 ## Setting up
 
@@ -43,12 +42,15 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 </dependencies>
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Summarization&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+
 
 ## Code example
 
-Create a Java file named `Example.java`. Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
+Create a Java file named `Example.java`. Open the file and copy the below code. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
@@ -64,11 +66,12 @@ import com.azure.ai.textanalytics.util.*;
 
 public class Example {
 
-    private static String KEY = "replace-with-your-key-here";
-    private static String ENDPOINT = "replace-with-your-endpoint-here";
+    // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+    private static String languageKey = System.getenv("LANGUAGE_KEY");
+    private static String languageEndpoint = System.getenv("LANGUAGE_ENDPOINT");
 
     public static void main(String[] args) {
-        TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
+        TextAnalyticsClient client = authenticateClient(languageKey, languageEndpoint);
         summarizationExample(client);
     }
     // Method to authenticate the client object with your key and endpoint
@@ -130,8 +133,7 @@ public class Example {
 
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+
 
 ### Output
 

@@ -67,9 +67,9 @@ Locations such as your organization's public network ranges can be marked as tru
 > [!WARNING]
 > Even if you know the network and mark it as trusted does not mean you should exclude it from policies being applied. Verify explicitly is a core principle of a Zero Trust architecture. To find out more about Zero Trust and other ways to align your organization to the guiding principles, see the [Zero Trust Guidance Center](/security/zero-trust/).
 
-### Countries
+### Countries/regions
 
-Organizations can determine country location by IP address or GPS coordinates. 
+Organizations can determine country/region location by IP address or GPS coordinates. 
 
 To define a named location by country/region, you need to provide: 
 
@@ -84,9 +84,12 @@ If you select **Determine location by IP address**, the system collects the IP a
 
 If you select **Determine location by GPS coordinates**, the user needs to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system contacts the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
-The first time the user must share their location from the Microsoft Authenticator app, the user receives a notification in the app. The user needs to open the app and grant location permissions. Every hour the user is accessing resources covered by the policy they need to approve a push notification from the app.
+The first time the user must share their location from the Microsoft Authenticator app, the user receives a notification in the app. The user needs to open the app and grant location permissions. For the next 24 hours, if the user is still accessing the resource and granted the app permission to run in the background, the device's location is shared silently once per hour.
+
+- After 24 hours, the user must open the app and approve the notification.
+- Users who have number matching or additional context enabled in the Microsoft Authenticator app won't receive notifications silently and must open the app to approve notifications.
  
-Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. 
+Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. The Microsoft Authenticator app on Android uses the Google Play Integrity API to facilitate jailbreak detection. If the Google Play Integrity API is unavailable, the request is denied and the user isn't be able to access the requested resource unless the Conditional Access policy is disabled.
 
 > [!NOTE]
 > A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
@@ -101,6 +104,17 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 #### Include unknown countries/regions
 
 Some IP addresses don't map to a specific country or region. To capture these IP locations, check the box **Include unknown countries/regions** when defining a geographic location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
+
+### Define locations
+
+1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
+1. Choose **New location**.
+1. Give your location a name.
+1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.
+   1. Provide the **IP ranges** or select the **Countries/Regions** for the location you're specifying.
+      * If you choose Countries/Regions, you can optionally choose to include unknown areas.
+1. Choose **Save**
 
 ## Location condition in policy
 

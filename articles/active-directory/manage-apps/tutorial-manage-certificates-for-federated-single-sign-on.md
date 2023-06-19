@@ -12,6 +12,7 @@ ms.date: 02/02/2023
 ms.author: jomondi
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 
 #customer intent: As an admin of an application, I want to learn how to manage federated SAML certificates by customizing expiration dates and renewing certificates.
 ---
@@ -29,6 +30,8 @@ In this tutorial, an administrator of the application learns how to:
 > * Customize the expiration dates for certificates
 > * Add email notification address for certificate expiration dates
 > * Renew certificates
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

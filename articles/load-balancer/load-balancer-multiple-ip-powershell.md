@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: mbender
-ms.custom: template-how-to, seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: template-how-to, seodec18, devx-track-azurepowershell
 ---
 
 # Load balancing on multiple IP configurations using PowerShell

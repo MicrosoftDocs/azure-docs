@@ -5,7 +5,7 @@ author: asudbring
 ms.subservice: aks-networking
 ms.author: allensu
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 05/12/2023
 
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
@@ -15,7 +15,7 @@ ms.date: 03/28/2023
 You can customize egress for an AKS cluster to fit specific scenarios. By default, AKS will provision a standard SKU load balancer to be set up and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
 
 This article covers the various types of outbound connectivity that are available in AKS clusters.
-
+how 
 > [!NOTE]
 > You can now update the `outboundType` after cluster creation. This feature is in preview. See [Updating `outboundType after cluster creation (preview)](#updating-outboundtype-after-cluster-creation-preview).
 
@@ -67,6 +67,26 @@ For more information, see [configuring cluster egress via user-defined routing](
 ## Updating `outboundType` after cluster creation (preview)
 
 Changing the outbound type after cluster creation will deploy or remove resources as required to put the cluster into the new egress configuration.
+
+The following tables show the supported migration paths between outbound types for managed and BYO virtual networks.
+
+### Supported Migration Paths for Managed VNet
+
+|                         | SLB       | Managed NATGateway | BYO NATGateway | userDefinedNATGateway |
+|-------------------------|-----------|--------------------|----------------|-----------------------|
+| SLB                     | N/A       | Supported          | Not Supported  | Not Supported         |
+| Managed NATGateway      | Supported | N/A                | Not Supported  | Not Supported         |
+| BYO NATGateway          | Supported | Not Supported      | N/A            | Not Supported         |
+| User Defined NATGateway | Supported | Not Supported      | Supported      | N/A                   |
+
+### Supported Migration Paths for BYO VNet
+
+|                         | SLB           | Managed NATGateway | BYO NATGateway | userDefinedNATGateway |
+|-------------------------|---------------|--------------------|----------------|-----------------------|
+| SLB                     | N/A           | Supported          | Supported      | Supported             |
+| Managed NATGateway      | Supported     | N/A                | Not Supported  | Not Supported         |
+| BYO NATGateway          | Supported     | Not Supported      | N/A            | Supported             |
+| User Defined NATGateway | Not Supported | Not Supported      | Not Supported  | N/A                   |
 
 Migration is only supported between `loadBalancer`, `managedNATGateway` (if using a managed virtual network), and `userDefinedNATGateway` (if using a custom virtual network).
 

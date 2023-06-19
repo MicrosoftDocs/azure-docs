@@ -3,7 +3,7 @@ title: Enable Microsoft Defender for Cloud's integrated workload protections
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable enhanced security features to extend the protections of Microsoft Defender for Cloud to your hybrid and multicloud resources
 ms.topic: quickstart
-ms.date: 01/24/2023
+ms.date: 04/23/2023
 ms.custom: mode-other, ignite-2022
 ---
 
@@ -76,10 +76,14 @@ If you want to disable any of the plans, turn off the plan. The extensions used 
     :::image type="content" source="./media/enable-enhanced-security/upgrade-workspaces-and-subscriptions.png" alt-text="Screenshot that shows where the upgrade button is located on the screen." lightbox="media/enable-enhanced-security/upgrade-workspaces-and-subscriptions-full.png":::
 
     > [!NOTE]
+    >
     > - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
     > - If you select a workspace that's eligible for a free trial, the next step will begin a trial.   
 
 If you want to disable any of the plans, turn off the plan. The extensions used by the plan aren't uninstalled but, after a short time, the extensions stop collecting data.
+
+> [!NOTE]
+> Plans can also be enabled or disabled via [Powershell](/powershell/module/az.security/set-azsecuritypricing) or [REST API](/rest/api/defenderforcloud/pricings) commands.
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.date: 04/13/2023
 
 # Reference list of attack paths and cloud security graph components
 
-This article lists the attack paths, connections, and insights used in Defender for Cloud Security Posture Management (CSPM).
+This article lists the attack paths, connections, and insights used in Defender Cloud Security Posture Management (CSPM).
 
 - You need to [enable Defender CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view attack paths.
 - What you see in your environment depends on the resources you're protecting, and your customized configuration. 
@@ -22,7 +22,7 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
 
 Prerequisite: For a list of prerequisites, see the [Availability table](how-to-manage-attack-path.md#availability) for attack paths.
 
-| Attack Path Display Name | Attack Path Description |
+| Attack path display name | Attack path description |
 |--|--|
 | Internet exposed VM has high severity vulnerabilities | A virtual machine is reachable from the internet and has high severity vulnerabilities. |
 | Internet exposed VM has high severity vulnerabilities and high permission to a subscription | A virtual machine is reachable from the internet, has high severity vulnerabilities, and identity and permission to a subscription. |
@@ -34,11 +34,11 @@ Prerequisite: For a list of prerequisites, see the [Availability table](how-to-m
 | VM has high severity vulnerabilities and read permission to a key vault | A virtual machine has high severity vulnerabilities and read permission to a key vault. |
 | VM has high severity vulnerabilities and read permission to a data store | A virtual machine has high severity vulnerabilities and read permission to a data store. |
 
-### AWS Instances
+### AWS EC2 instances
 
 Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentless.md).
 
-| Attack Path Display Name	| Attack Path Description |
+| Attack path display name | Attack path description |
 |--|--|
 | Internet exposed EC2 instance has high severity vulnerabilities and high permission to an account | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has permission to an account. |
 | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a DB | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has permission to a database. |
@@ -53,7 +53,7 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 
 ### Azure data
 
-| Attack Path Display Name	| Attack Path Description |
+| Attack path display name | Attack path description |
 |--|--|
 | Internet exposed SQL on VM has a user account with commonly used username and allows code execution on the VM (Preview) | SQL on VM is reachable from the internet, has a local user account with a commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM. <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md) |
 | Internet exposed SQL on VM has a user account with commonly used username and known vulnerabilities (Preview) | SQL on VM is reachable from the internet, has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md) |
@@ -66,7 +66,7 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 
 ### AWS data
 
-| Attack Path Display Name	| Attack Path Description |
+| Attack path display name | Attack path description |
 |--|--|
 | Internet exposed AWS S3 Bucket with sensitive data is publicly accessible (Preview) | An S3 bucket with sensitive data is reachable from the internet and allows public read access without authorization required. <br/> Prerequisite: [Enable data-aware security for S3 buckets in Defender CSPM](data-security-posture-enable.md), or [leverage Microsoft Purview Data Catalog to protect sensitive data](information-protection.md). |
 |Internet exposed SQL on EC2 instance has a user account with commonly used username and allows code execution on the underlying compute (Preview) | Internet exposed SQL on EC2 instance has a user account with commonly used username and allows code execution on the underlying compute. <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md). |
@@ -90,7 +90,7 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 
 Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer.
 
-| Attack Path Display Name	| Attack Path Description |
+| Attack path display name | Attack path description |
 |--|--|
 | Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | An internet exposed Kubernetes pod in a namespace is running a container using an image that has vulnerabilities allowing remote code execution. |
 | Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | A Kubernetes pod in a namespace with host network access enabled is exposed to the internet via the host network. The pod is running a container using an image that has vulnerabilities allowing remote code execution. |
@@ -99,13 +99,13 @@ Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md
 
 Prerequisite: [Enable Defender for DevOps](defender-for-devops-introduction.md).
 
-| Attack Path Display Name	| Attack Path Description |
+| Attack path display name | Attack path description |
 |--|--|
 | Internet exposed GitHub repository with plaintext secret is publicly accessible (Preview) | A GitHub repository is reachable from the internet, allows public read access without authorization required, and holds plaintext secrets. |
 
 ## Cloud security graph components list
 
-This section  lists all of the cloud security graph components (connections and insights) that can be used in queries with the [cloud security explorer](concept-attack-path.md).
+This section lists all of the cloud security graph components (connections and insights) that can be used in queries with the [cloud security explorer](concept-attack-path.md).
 
 ### Insights
 

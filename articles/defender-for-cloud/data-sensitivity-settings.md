@@ -1,8 +1,8 @@
 ---
 title: Customize data sensitivity settings in Microsoft Defender for Cloud
 description: Learn how to customize data sensitivity settings in Defender for Cloud
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 03/22/2023
 ---

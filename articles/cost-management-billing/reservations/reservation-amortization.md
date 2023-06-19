@@ -33,7 +33,7 @@ In Cost analysis, you view costs with a metric. They include Actual cost and Amo
 
 **Actual cost** - Shows the purchase as it appears on your bill. For example, if you bought a one-year reservation for $1200 in January 2022, cost analysis shows a $1200 cost in the month of January for the reservation. It doesn't show a reservation cost for other months of the year. If you group your actual costs by VM, then a VM that received the reservation benefit for a given month would have zero cost for the month.
 
-**Amortized cost** - Shows a reservation purchase split as an amortized cost over the duration of the reservation term. With the same example above, cost analysis shows a different amount for each month depending on the number of days in the month. If you group costs by VM in this example, you'd see cost attributed to each VM that received the reservation benefit. However, _unused reservation_ costs are attributed to the subscription used to buy the reservation because the unused portion isn't attributable to any specific resource or subscription.
+**Amortized cost** - Shows a reservation purchase split as an amortized cost over the duration of the reservation term. With the same example above, cost analysis shows a different amount for each month depending on the number of days in the month. If you group costs by VM in this example, you'd see cost attributed to each VM that received the reservation benefit. However, _unused reservation_ costs are not attributed to the subscription used to buy the reservation because the unused portion isn't attributable to any specific resource or subscription.
 
 ## View amortized costs
 

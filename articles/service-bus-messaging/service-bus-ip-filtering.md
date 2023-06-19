@@ -7,7 +7,7 @@ ms.date: 02/16/2023
 ---
 
 # Allow access to Azure Service Bus namespace from specific IP addresses or ranges
-By default, Service Bus namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
+By default, Service Bus namespaces are accessible from the internet as long as the request contains valid authentication and authorization. With IP firewall, inbound traffic can be restricted to a set of IPv4 addresses or IPv4 address ranges (in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation).
 
 This feature is helpful in scenarios in which Azure Service Bus should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Service Bus with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses or addresses of a corporate NAT gateway. 
 
@@ -138,7 +138,7 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`. The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
 ## Use Azure CLI
-Use [`az servicebus namespace network-rule`](/cli/azure/servicebus/namespace/network-rule) add, list, update, and remove commands to manage IP firewall rules for a Service Bus namespace.
+Use [`az servicebus namespace network-rule-set`](/cli/azure/servicebus/namespace/network-rule-set) add, list, update, and remove commands to manage IP firewall rules for a Service Bus namespace.
 
 ## Use Azure PowerShell
 Use the following Azure PowerShell commands to add, list, remove, update, and delete IP firewall rules. 

@@ -89,10 +89,13 @@ An IoT device can use one of several network protocols when it connects to an Io
 - AMQP over WebSockets
 - HTTPS
 
+> [!NOTE]
+> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md), currently in public preview. For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
+
 To learn more about how to choose a protocol for your devices to connect to the cloud, see:
 
 - [Protocol support in Azure IoT Hub](../iot-hub/iot-hub-devguide-protocols.md)
-- [Communicate with DPS using the MQTT protocol](../iot-dps/iot-dps-mqtt-support.md)
+- [Communicate with DPS using the MQTT protocol](iot-mqtt-connect-to-iot-dps.md)
 - [Communicate with DPS using the HTTPS protocol (symmetric keys)](../iot-dps/iot-dps-https-sym-key-support.md)
 - [Communicate with DPS using the HTTPS protocol (X.509)](../iot-dps/iot-dps-https-x509-support.md)
 

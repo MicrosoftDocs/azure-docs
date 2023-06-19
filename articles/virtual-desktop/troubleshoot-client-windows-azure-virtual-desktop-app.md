@@ -15,7 +15,7 @@ This article describes issues you may experience with the [Azure Virtual Desktop
 
 The Azure Virtual Desktop Store app is downloaded and automatically updated through the Microsoft Store. It relies on the dependency app *Azure Virtual Desktop (HostApp)*, which is also automatically downloaded and updated. For more information, see [Azure Virtual Desktop (HostApp)](users/client-features-windows-azure-virtual-desktop-app.md#azure-virtual-desktop-hostapp).
 
-You can also manually search for new updates for the app. For more information, see [Update the Azure Virtual Desktop app](users/client-features-windows-azure-virtual-desktop-app.md#update-the-azure-virtual-desktop-app).
+You can go to the [Microsoft Store to check for updates](https://aka.ms/AVDStoreClient), or you can also manually search for new updates from the app. For more information, see [Update the Azure Virtual Desktop app](users/client-features-windows-azure-virtual-desktop-app.md#update-the-azure-virtual-desktop-app).
 
 ## General
 
