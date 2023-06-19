@@ -30,10 +30,10 @@ These patterns are considered insecure, as users without a provisioned mailbox c
 
 An email is considered to be domain-owner verified if: 
 
-1. The domain belongs to the tenant where the user account resides, and the tenant admin has done verification of the domain
-1. The email is from a Microsoft Account (MSA)
-1. The email is from a Google account 
-1. The email was used for authentication using the one-time passcode (OTP) flow
+- The domain belongs to the tenant where the user account resides, and the tenant admin has done verification of the domain
+- The email is from a Microsoft Account (MSA)
+- The email is from a Google account 
+- The email was used for authentication using the one-time passcode (OTP) flow
 
 It should also be noted that Facebook and SAML/WS-Fed accounts don't have verified domains.
 
