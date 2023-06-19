@@ -19,7 +19,7 @@ Learn more about MSIX app attach at [What is MSIX app attach?](what-is-app-attac
 Here's what you need to configure MSIX app attach:
 
 - A functioning Azure Virtual Desktop deployment. To learn how to deploy Azure Virtual Desktop (classic), see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Azure Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
-- A Azure Virtual Desktop host pool with at least one active session host.
+- An Azure Virtual Desktop host pool with at least one active session host.
 - A Desktop or RemoteApp application group.
 - The MSIX packaging tool.
 - An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.

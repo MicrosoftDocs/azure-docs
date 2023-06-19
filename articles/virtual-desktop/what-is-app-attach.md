@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/16/2023
+ms.date: 06/19/2023
 ms.author: helohr
 manager: femila
 ---
@@ -25,7 +25,7 @@ There are certain terms you should familiarize yourself with as you read about M
 | MSIX container | A lightweight app container. All apps within the container are isolated using file system and registry virtualization. For more information, see [MSIX container](/windows/msix/msix-container). |
 | MSIX application | An application stored within an MSIX container. The application and all its child processes run inside of the container. |
 | MSIX package | The .MSIX file that the container and its applications are stored inside. |
-| MSIX share | A network share that holds expanded MSIX packages. MSIX shares must support SMB 3 or later, and be accessible to VMs in the host pool system account. MSIX packages get staged from the share without having to move application files ot the system drive. |
+| MSIX share | A network share that holds expanded MSIX packages. MSIX shares must support SMB 3 or later, and be accessible to VMs in the host pool system account. MSIX packages get staged from the share without having to move application files to the system drive. |
 | MSIX image | A VHD, VHDx, or CIM file that contains one or more MSIX packaged applications. Each application is delivered in the MSIX image using the MSIXMGR tool. |
 
 ## What does MSIX app attach do?
