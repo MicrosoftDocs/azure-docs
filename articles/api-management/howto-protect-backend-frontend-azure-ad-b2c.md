@@ -426,7 +426,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Select index.html blob from the list 
 1. Click 'Edit' 
 1. Update the auth values in the msal config section to match your *front-end* application you registered in B2C earlier. Use the code comments for hints on how the config values should look.
-The *authority* value needs to be in the format:- https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantname}.onmicrosoft.com}/{signupandsigninpolicyname}, if you have used our sample names and your b2c tenant is called 'contoso' then you would expect the authority to be 'https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com}/Frontendapp_signupandsignin'.
+The *authority* value needs to be in the format:- https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantname}.onmicrosoft.com}/{signupandsigninpolicyname}, if you have used our sample names and your b2c tenant is called 'contoso' then you would expect the authority to be 'https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/Frontendapp_signupandsignin'.
 1. Set the api values to match your backend address (The API Base Url you recorded earlier, and the 'b2cScopes' values were recorded earlier for the *backend application*).
 1. Click Save
 
