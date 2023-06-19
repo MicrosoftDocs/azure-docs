@@ -55,5 +55,5 @@ The recognize action can be used for many reasons, below are a few examples of h
 ![Recognize Action](./media/recognize-flow.png)
 
 ## Next steps
-
 - Check out our how-to guide to learn how you can [gather user input](../../how-tos/call-automation/recognize-action.md).
+- Learn about [usage and operational logs](../analytics/logs/call-automation-logs.md) published by call automation.
