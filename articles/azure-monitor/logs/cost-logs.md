@@ -83,7 +83,7 @@ When you link workspaces to a cluster, the pricing tier is changed to cluster, a
 
 If your linked workspace is using the legacy Per Node pricing tier, it will be billed based on data ingested against the cluster's commitment tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
 
-If a cluster is deleted, billing for the cluster will stop even if the cluster is within it's 31-day commitment period. 
+If a cluster is deleted, billing for the cluster will stop even if the cluster is within its 31-day commitment period. 
 
 For more information on how to create a dedicated cluster and specify its billing type, see [Create a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster).
 
@@ -185,7 +185,7 @@ On your bill, the service will be **Insight and Analytics** for Log Analytics us
 
 ### Standard and Premium pricing tiers
 
-Workspaces cannot be created in or moved to the **Standard** or **Premium** pricing tiers since October 1, 2016. Workspaces already in these pricing tiers can continue to use them, but if a workspace is moved out of these tiers, it can't be moved back. The Standard and Preium pricing tiers have fixed data retention of 30 days and 365 days, respectively. Workspaces in these pricing tiers don't support the use of [Basic Logs](basic-logs-configure.md) and Data Archive. Data ingestion meters on your Azure bill for these legacy tiers are called "Data Analyzed."
+Workspaces cannot be created in or moved to the **Standard** or **Premium** pricing tiers since October 1, 2016. Workspaces already in these pricing tiers can continue to use them, but if a workspace is moved out of these tiers, it can't be moved back. The Standard and Premium pricing tiers have fixed data retention of 30 days and 365 days, respectively. Workspaces in these pricing tiers don't support the use of [Basic Logs](basic-logs-configure.md) and Data Archive. Data ingestion meters on your Azure bill for these legacy tiers are called "Data Analyzed."
 
 ### Microsoft Defender for Cloud with legacy pricing tiers
 
