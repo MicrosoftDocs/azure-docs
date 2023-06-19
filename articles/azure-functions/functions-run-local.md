@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Work with Azure Functions Core Tools
 
-Azure Functions Core Tools lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Azure Functions runtime. You can even deploy your project to an existing function app in your Azure subscription.
+Azure Functions Core Tools lets you develop and test your functions on your local computer. Core Tools includes a version of the same runtime that powers Azure Functions. This runtime means your local functions run as they would in Azure and can connect to live Azure services during local development and debugging. You can even deploy your code project to Azure using Core Tools.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
@@ -34,6 +34,8 @@ If you want to get started right away, complete the [Core Tools quickstart artic
 ::: zone pivot="programming-language-typescript"
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-typescript.md).
 ::: zone-end
+
+Core Tools enables the integrated local development and debugging experience for your functions provided by both Visual Studio and Visual Studio Code. 
 
 ## Prerequisites
 
@@ -67,7 +69,7 @@ The following considerations apply to Core Tools versions:
 
 ## Install the Azure Functions Core Tools
 
-[Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) includes a version of the same runtime that powers Azure Functions, which runs on your local computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
+The recommended way to install Core Tools depends on the operating system of your local development computer.
 
 # [Windows](#tab/windows)
 
@@ -123,7 +125,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-1. Check the `/etc/apt/sources.list.d/dotnetdev.list` file for one of the appropriate Linux version strings listed below:
+1. Check the `/etc/apt/sources.list.d/dotnetdev.list` file for one of the appropriate Linux version strings in the following table:
 
     | Linux distribution         | Version    |
     | -------------------------- | ---------- |
@@ -369,7 +371,7 @@ You call the following endpoint to locally run HTTP and webhook triggered functi
 http://localhost:{port}/api/{function_name}
 ```
 
-Make sure to use the same server name and port that the Functions host is listening on. You see this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger.
+Make sure to use the same server name and port that the Functions host is listening on. You see an endpoint like this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger.
 
 The following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string.
 
@@ -395,7 +397,7 @@ You can make GET requests from a browser passing data in the query string. For a
 
 For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can call the `functions` administrator endpoint (`http://localhost:{port}/admin/functions/`) to get URLs for all available functions, both HTTP triggered and non-HTTP triggered.
 
-When running locally, authentication and authorization is bypassed. However, when you try to call the same administrator endpoints on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
+When running your functions in Core Tools, authentication and authorization is bypassed. However, when you try to call the same administrator endpoints on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
 
 >[!IMPORTANT]
 >Access keys are valuable shared secrets. When used locally, they must be securely stored outside of source control. Because authentication and authorization isn't required by Functions when running locally, you should avoid using and storing access keys unless your scenarios require it.
@@ -446,7 +448,7 @@ The Azure Functions Core Tools supports two types of deployment:
 
 A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder.  
 
-You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you'll deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
+You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you can  deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
 
 To learn how to create a function app from the command prompt or terminal window using the Azure CLI or Azure PowerShell, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). 
 
@@ -475,7 +477,7 @@ The following considerations apply to this kind of deployment:
 
 + Java uses Maven to publish your local project to Azure. Instead, use the following command to publish to Azure: `mvn azure-functions:deploy`. Azure resources are created during initial deployment.
 
-+ You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. 
++ You get an error when you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. 
 
 ### Kubernetes cluster
 
@@ -534,7 +536,7 @@ You can view a stream of log files being generated by your functions in a comman
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-This type of streaming logs requires that Application Insights integration be enabled for your function app.  
+This type of streaming logs requires that Application Insights integration qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq     enabled for your function app.  
 
 [!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
 
