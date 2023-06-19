@@ -23,8 +23,6 @@
       href: faq-data-collection-agents.yml
     - name: Azure Virtual Machines questions
       href: faq-vms.yml
-    - name: Common questions about Defender for APIs
-      href: faq-defender-for-apis.yml
     - name: Common questions about regulatory compliance
       displayName: regulatory, compliance, regulatory compliance, common questions
       href: faq-regulatory-compliance.yml
@@ -414,6 +412,8 @@
       href: defender-for-apis-posture.md
     - name: Manage Defender for APIs
       href: defender-for-apis-manage.md
+    - name: Common questions
+      href: faq-defender-for-apis.yml
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
