@@ -6,12 +6,9 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/16/2022
 ms.author: kpunjabi
-ms.custom: public_preview
 ---
 
 # Gathering user input
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 With the Recognize action developers will be able to enhance their IVR or contact center applications to gather user input. One of the most common scenarios of recognition is to play a message and request user input. This input is received in the form of DTMF (input via the digits on their calling device) which then allows the application to navigate the user to the next action. 
 
