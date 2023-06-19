@@ -37,9 +37,9 @@ To enable Permissions Management in your organization:
     1. In the Azure portal, select **Permissions Management**, and then select the link to purchase a license or begin a trial.
 
 
-## How to get a trial or paid license 
-There are two ways to enable a trial or a full product license. 
-- Go to [admin.microsoft.com](https://admin.microsoft.com).
+## Activate a free trial or paid license 
+There are two ways to activate a trial or a full product license. 
+- The first way is to go to [admin.microsoft.com](https://admin.microsoft.com).
     - Sign in with *Global Admin* or *Billing Admin* credentials for your tenant.
     - Go to Setup and sign up for an Entra Permissions Management trial. 
     - For self-service, navigate to the [Microsoft 365 portal](https://aka.ms/TryPermissionsManagement) to sign up for a 45-day free trial or to purchase licenses. 
