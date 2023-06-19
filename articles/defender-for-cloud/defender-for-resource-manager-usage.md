@@ -22,7 +22,6 @@ When you receive an alert from Microsoft Defender for Resource Manager, we recom
 Security alerts from Microsoft Defender for Resource Manager are based on threats detected by monitoring Azure Resource Manager operations. Defender for Cloud uses internal log sources of Azure Resource Manager as well as Azure Activity log, a platform log in Azure that provides insight into subscription-level events.
 
 In addition, Microsoft Defender for Resource Manager provides visibility to activity from third party service providers with delegated access, as an enrichment for the Resource manager alerts.
-
 For example: "Azure Resource Manager operation from suspicious proxy IP address - **delegated access"**.
 
 The “delegated access” indication refers to access via [Azure Lighthouse](/azure/lighthouse/overview) or via [delegated admin partners](/partner-center/dap-faq). 
