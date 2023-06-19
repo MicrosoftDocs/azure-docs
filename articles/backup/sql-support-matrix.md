@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 06/19/2023
 ms.custom: references_regions 
 ms.service: backup
 author: jyothisuri
@@ -56,7 +56,10 @@ Azure Backup supports a consistent data transfer rate of 350 MBps for full and d
 - The backup schedules are spread across a subset of databases. Multiple backups running concurrently on a VM shares the network consumption rate between the backups. [Learn more](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) about how to control the number of concurrent backups.
 
 >[!NOTE]
-> [Download the detailed Resource Planner](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) to calculate the approximate number of protected databases that are recommended per server based on the VM resources, bandwidth and the backup policy.
+>- The higher throughput is automatically throttled when the following conditions are met:
+>    - All the databases should be above the size of *4 TB*.
+>    - The databases should be hosted on Azure VMs that have *maximum uncached disk throughput metric greater than 800 MBpS*.
+>- [Download the detailed Resource Planner](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) to calculate the approximate number of protected databases that are recommended per server based on the VM resources, bandwidth and the backup policy.
 
 ## Next steps
 
