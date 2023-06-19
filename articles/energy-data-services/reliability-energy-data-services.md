@@ -12,7 +12,7 @@ ms.date: 06/07/2023
 
 # Reliability in Azure Data Manager for Energy (Preview)
 
-This article describes reliability support in Azure Data Manager for Energy Preview, and covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview.md).
+This article describes reliability support in Azure Data Manager for Energy Preview, and covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/overview).
 
 [!INCLUDE [preview features callout](../energy-data-services/includes/preview/preview-callout.md)]
 
