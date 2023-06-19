@@ -133,8 +133,8 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         **Step 4.** Using the same steps in **Step 3**, create the following app settings:
         - **MYSQL_ATTR_SSL_CA**: Use */home/site/wwwroot/ssl/DigiCertGlobalRootCA.crt.pem* as the value. This app setting points to the path of the [TLS/SSL certificate you need to access the MySQL server](../../../mysql/flexible-server/how-to-connect-tls-ssl.md#download-the-public-ssl-certificate). It's included in the sample repository for convenience.
         - **LOG_CHANNEL**: Use *stderr* as the value. This setting tells Laravel to pipe logs to stderr, which makes it available to the App Service logs.
-        - **APP_DEBUG**: Use *true* as the value. This is a [Laravel debugging variable](https://laravel.com/docs/10.x/errors#configuration) that enables debug mode pages.
-        - **APP_KEY**: Use *base64:Dsz40HWwbCqnq0oxMsjq7fItmKIeBfCBGORfspaI1Kw=* as the value. This is a [Laravel encryption variable](https://laravel.com/docs/10.x/encryption#configuration).
+        - **APP_DEBUG**: Use *true* as the value. It's a [Laravel debugging variable](https://laravel.com/docs/10.x/errors#configuration) that enables debug mode pages.
+        - **APP_KEY**: Use *base64:Dsz40HWwbCqnq0oxMsjq7fItmKIeBfCBGORfspaI1Kw=* as the value. It's a [Laravel encryption variable](https://laravel.com/docs/10.x/encryption#configuration).
         1. In the menu bar at the top, select **Save**.
         1. When prompted, select **Continue**.
     :::column-end:::
@@ -148,7 +148,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 3 - Deploy sample code
 
-In this step, you'll configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository will kick off the build and deploy action. You'll make some changes to your codebase with Visual Studio Code directly in the browser, then let GitHub Actions deploy automatically for you.
+In this step, you'll configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action. You'll make some changes to your codebase with Visual Studio Code directly in the browser, then let GitHub Actions deploy automatically for you.
 
 :::row:::
     :::column span="2":::
