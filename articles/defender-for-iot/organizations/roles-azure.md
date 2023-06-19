@@ -5,7 +5,7 @@ ms.date: 09/19/2022
 ms.topic: concept-article
 ms.custom: enterprise-iot
 ms.collection:
-  -       zerotrust-services
+  -       zerotrust-extra
 ---
 
 # Azure user roles and permissions for Defender for IoT
