@@ -4,7 +4,7 @@ description: Understand the data redundancy options available in Azure file shar
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/13/2023
+ms.date: 06/16/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -180,4 +180,5 @@ For pricing information for each redundancy option, see [Azure Files pricing](ht
 
 ## See also
 
-- [Change the redundancy option for a storage account](../common/redundancy-migration.md)
+- [Change the redundancy option for a storage account](../common/redundancy-migration.md?toc=/azure/storage/files/toc.json)
+- [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json)

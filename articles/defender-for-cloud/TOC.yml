@@ -25,6 +25,9 @@
       href: faq-vms.yml
     - name: Common questions about Defender for APIs
       href: faq-defender-for-apis.yml
+    - name: Common questions about regulatory compliance
+      displayName: regulatory, compliance, regulatory compliance, common questions
+      href: faq-regulatory-compliance.yml
 - name: Quickstarts
   items:
   - name: 1. Enable Defender for Cloud on your subscriptions
@@ -169,6 +172,9 @@
       - name: Agentless scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
+      - name: Common questions
+        displayName: questions, common, CSPM, agentless scanning
+        href: faq-cspm.yml
   - name: Improve your data security posture
     items:
     - name: About data-aware security posture
@@ -228,8 +234,7 @@
       href: concept-agentless-data-collection.md
     - name: Scale a Defender for Servers deployment
       href: plan-defender-for-servers-scale.md
-    - name: Common questions
-      href: faq-defender-for-servers.yml
+    
 - name: How-to guides
   items:
   - name: Build interactive reports with Azure Monitor workbooks
@@ -438,6 +443,9 @@
       - name: Disable specific vulnerability findings
         displayName: qualys, rapid7, va
         href: remediate-vulnerability-findings-vm.md#disable-specific-findings
+      - name: Common questions
+        displayName: common questions, VA, vulnerability, assessment
+        href: faq-vulnerability-assessments.yml
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview
@@ -475,6 +483,8 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
+    - name: Common questions
+      href: faq-defender-for-servers.yml
   - name: Defender for Containers
     items:
     - name: Overview
@@ -501,6 +511,9 @@
     - name: Defender for container registries (deprecated)
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
+    - name: Common questions
+      displayName: containers, common questions
+      href: faq-defender-for-containers.yml
   - name: Database protection
     items:
     - name: Enable database protection
@@ -572,7 +585,10 @@
         href: concept-defender-for-cosmos.md
       - name: Enable Microsoft Defender for Azure Cosmos DB
         displayName: Cosmos, DB, Cosmos db
-        href: defender-for-databases-enable-cosmos-protections.md 
+        href: defender-for-databases-enable-cosmos-protections.md
+    - name: Common questions
+      displayName: database, common questions, databases, sql, express configuration
+      href: faq-defender-for-databases.yml
   - name: Defender for App Service
     items:
     - name: Overview
@@ -602,6 +618,9 @@
         href: defender-for-storage-test.md
     - name: List of security threats and security alerts
       href: defender-for-storage-threats-alerts.md
+    - name: Common questions
+      displayName: storage, common questions, defender for storage, storage
+      href: faq-defender-for-storage.yml
     - name: Defender for Storage (classic)
       items:
       - name: Overview (classic)
@@ -610,6 +629,9 @@
         href: defender-for-storage-classic-enable.md
       - name: Migrating to the new plan
         href: defender-for-storage-classic-migrate.md
+      - name: Common questions
+        displayName: storage, common questions, defender for storage, storage
+        href: faq-defender-for-storage-classic.yml
   - name: Defender for Key Vault
     items:
     - name: Overview
@@ -662,9 +684,9 @@
     - name: Enable pull request annotations in GitHub or in Azure DevOps
       displayName: PR annotations, annotations, DevOps, GitHub, pull request
       href: enable-pull-request-annotations.md
-    - name: Defender for DevOps FAQ
+    - name: Common questions
       displayName: DevOps, FAQ
-      href: devops-faq.md
+      href: faq-defender-for-devops.yml
     - name: Credential scanner rules
       displayName: credential, scanner, rules, DevOps
       href: concept-credential-scanner-rules.md
