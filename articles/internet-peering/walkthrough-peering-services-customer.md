@@ -24,21 +24,21 @@ Below are the steps to activate the prefix.
 
 1. Look for “Peering Services” resource 
 
-  :::image type="content" source="./media/peering-service-search.png" alt-text="Screenshot on searching for Peering Service on Azure portal." :::
+  :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-search.png" alt-text="Screenshot on searching for Peering Service on Azure portal." :::
   
-  :::image type="content" source="./media/peering-service-list.png" alt-text="Screenshot of a list of existing peering services." :::
+  :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot of a list of existing peering services." :::
 
 2. Create a new Peering Service resource
 
-  :::image type="content" source="./media/create-peering-service.png" alt-text="Screenshot showing how to create a new peering service." :::
+  :::image type="content" source="./media/walkthrough-communications-services-partner/create-peering-service.png" alt-text="Screenshot showing how to create a new peering service." :::
 
 3. Choose your provider in the list, and choose the primary and backup interconnect locations. If backup location is set to “none”, the traffic will fail over the internet. 
 
     The prefix key should be the same one you received from your Peering Service provider. 
 
-  :::image type="content" source="./media/peering-service-properties.png" alt-text="Screenshot of the fields to be filled to create a peering service." :::
+  :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-properties.png" alt-text="Screenshot of the fields to be filled to create a peering service." :::
 
-  :::image type="content" source="./media/peering-service-deployment.png" alt-text="Screenshot showing the validation of peering service resource before deployment." :::
+  :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-deployment.png" alt-text="Screenshot showing the validation of peering service resource before deployment." :::
 
 ## FAQs:
 
