@@ -180,7 +180,7 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
 1. Navigate to an existing container or create a new one.
 1. Upload a file to that container. Avoid uploading any file that may contain sensitive data.
     
-    :::image type="content" source="media/alert-validation/storage-atp-upload-image.png" alt-text="Screenshot showing where to navigate to select a container." lightbox="media/alert-validation/storage-atp-upload-image.png":::
+    :::image type="content" source="media/alert-validation/storage-atp-upload-image.png" alt-text="Screenshot showing where to upload a file to the container." lightbox="media/alert-validation/storage-atp-upload-image.png":::
 
 1. Right-select the uploaded file and select **Generate SAS**.
 1. Select the Generate SAS token and URL button (no need to change any options).
