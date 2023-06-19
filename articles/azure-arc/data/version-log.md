@@ -38,7 +38,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2023-01-15-preview|
-|`arcdata` Azure CLI extension version|1.5.1 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|`arcdata` Azure CLI extension version|1.5.2 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.20.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 |SQL Database version | 957 |
@@ -350,4 +350,5 @@ This release introduces general availability for Azure Arc-enabled SQL Managed I
 |`arcdata` Azure CLI extension version                   | 1.0 |
 |Arc enabled Kubernetes helm chart extension version     | 1.0.16701001, release train: stable |
 |Arc Data extension for Azure Data Studio                | 0.9.5 |
+
 
