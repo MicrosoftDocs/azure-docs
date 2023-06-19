@@ -219,11 +219,11 @@ While there is no standard method of normalizing error metrics, automated ML tak
 Calculating metrics for forecasting model evaluation requires some special considerations when the data contains multiple time series. There are two natural choices for aggregating metrics over multiple series:
 
 1. A **macro average** wherein the evaluation metrics from _each series_ are given equal weight,
-2. A **micro average** wherein evaluation metrics from each row, or sample, have equal weight.
+2. A **micro average** wherein evaluation metrics for each prediction have equal weight.
 
 These cases have direct analogies to macro and micro averaging in [multi-class classification](#binary-vs-multiclass-classification-metrics). 
 
-The distinction between macro and micro averaging can be important when selecting a primary metric for model selection. For example, consider a retail scenario where you want to forecast demand for a selection of consumer products. Some products sell much higher volumes than others. If you choose a micro-averaged RMSE as the primary metric, it is possible that the high volume items will contribute a majority of the modeling error and, consequently, dominate the metric. The model selection algorithm may then favor models with higher accuracy on the high volume items than on the low volume ones. In contrast, a macro-averaged, normalized RMSE gives low volume items approximately equal weight to the high volume items.
+The distinction between macro and micro averaging can be important when selecting a primary metric for model selection. For example, consider a retail scenario where you want to forecast demand for a selection of consumer products. Some products sell at much higher volumes than others. If you choose a micro-averaged RMSE as the primary metric, it's possible that the high-volume items will contribute a majority of the modeling error and, consequently, dominate the metric. The model selection algorithm may then favor models with higher accuracy on the high-volume items than on the low-volume ones. In contrast, a macro-averaged, normalized RMSE gives low-volume items approximately equal weight to the high-volume items.
 
 The following table shows which of AutoML's forecasting metrics use macro vs. micro averaging:  
 
@@ -231,7 +231,7 @@ Macro averaged | Micro averaged
 -- | --
 `normalized_mean_absolute_error`, `normalized_median_absolute_error`, `normalized_root_mean_squared_error`, `normalized_root_mean_squared_log_error` | `mean_absolute_error`, `median_absolute_error`, `root_mean_squared_error`, `root_mean_squared_log_error`, `r2_score`, `explained_variance`, `spearman_correlation`, `mean_absolute_percentage_error`
 
-**Note that macro-averaged metrics normalize each series separately**. The normalized metrics from each series are then averaged. The correct choice of macro vs. micro depends on the business scenario, but we generally recommend using `normalized_root_mean_squared_error`.
+**Note that macro-averaged metrics normalize each series separately**. The normalized metrics from each series are then averaged to give the final result. The correct choice of macro vs. micro depends on the business scenario, but we generally recommend using `normalized_root_mean_squared_error`.
 
 ## Residuals
 
