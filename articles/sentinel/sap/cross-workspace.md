@@ -23,7 +23,7 @@ The Microsoft Sentinel solution for SAP® applications natively supports a cross
 > [!IMPORTANT]
 > Working with multiple workspaces is currently in PREVIEW. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can define multiple workspaces when you [deploy the SAP security content](deploy-sap-security-content.md#deploy-sap-security-content).  
+You can define multiple workspaces when you [deploy the SAP security content](deploy-sap-security-content.md#deploy-the-security-content-from-the-content-hub).  
 
 ## Collaboration between the SOC and SAP teams in your organization
 
@@ -42,7 +42,7 @@ In this scenario, the SAP and SOC teams have separate Microsoft Sentinel workspa
 
 :::image type="content" source="media/cross-workspace/sap-cross-workspace-separate.png" alt-text="Diagram of working with the Microsoft Sentinel solution for SAP® applications in separate workspaces for the SAP and SOC data." border="false":::
 
-When your organization [deploys the Microsoft Sentinel solution for SAP® applications](deploy-sap-security-content.md#deploy-sap-security-content), each team specifies its SAP workspace. 
+When your organization [deploys the Microsoft Sentinel solution for SAP® applications](deploy-sap-security-content.md#deploy-the-microsoft-sentinel-solution-for-sap-applications-from-the-content-hub), each team specifies its SAP workspace. 
 
 A common practice is to provide some or all of the SOC team members with the **Sentinel Reader** role on the SAP workspace. 
 

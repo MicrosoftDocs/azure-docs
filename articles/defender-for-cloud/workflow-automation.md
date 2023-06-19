@@ -30,6 +30,9 @@ This article describes the workflow automation feature of Microsoft Defender for
 
     From this page you can create new automation rules, enable, disable, or delete existing ones.
 
+    > [!NOTE]
+    > A scope refers to the subscription where the workflow automation is deployed.
+
 1. To define a new workflow, select **Add workflow automation**. The options pane for your new automation opens.
 
     :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane." lightbox="media/workflow-automation/add-workflow.png":::

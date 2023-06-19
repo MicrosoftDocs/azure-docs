@@ -130,6 +130,8 @@ items:
       href: quickstarts/telephony/get-phone-number.md
     - name: Add outbound phone calling to your app
       href: quickstarts/telephony/pstn-call.md
+    - name: Make an outbound call
+      href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
     - name: Configure direct routing
       href: quickstarts/telephony/voice-routing-sdk-config.md
   - name: Email
