@@ -81,7 +81,7 @@ No. The script doesn't  replicate this configuration for v2. You must add the lo
 
 ### Does this script support certificate uploaded to Azure Key Vault?
 
-You can download the certificate from Keyvault and provide it as input to the migration script .
+Yes. You can download the certificate from Keyvault and provide it as input to the migration script .
 
 ### I ran into some issues with using this script. How can I get help?
 
