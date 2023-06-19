@@ -37,19 +37,19 @@ If you don't already have a certificate, you can create a sample certificate usi
 To create root and intermediate certificates, run the following command:
 
 ```powershell
-.\step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
+step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
 ```
 
 Using the CA files generated to create certificate for the client.
 
 ```powershell
-.step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
+step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
 ```
 
 To view the thumbprint, run the Step command.
 
 ```powershell
-.\step certificate fingerprint client1-authnID.pem
+step certificate fingerprint client1-authnID.pem
 ```
 
 > [!IMPORTANT]
