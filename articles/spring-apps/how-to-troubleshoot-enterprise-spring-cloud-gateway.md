@@ -27,9 +27,9 @@ This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu
 
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or later. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
 
-## Check logs
+## Check Gateway logs
 
-The logs of Spring Cloud Gateway are available in Log Analytics.
+There are two components make up the Spring Cloud Gateway for VMware Tanzu: the Gateway itself and the Gateway operator. You can infer from the name that the Gateway operator is for managing the Gateway, while Gateway itself fullfils the features. The logs of both components are available, and you can check them in the following steps.
 
 ### Diagnostic Settings of Log Analytics
 
@@ -45,12 +45,14 @@ You must turn on System Logs and send to your Log Analytics before query logs fo
 
 ### Check logs in Log Analytics
 
-To check logs for VMware Spring Cloud Gateway in the Azure portal, use the following steps:
+To check logs in the Azure portal, use the following steps:
 
 1. Make sure you turned on System Logs. See [Diagnostic Settings of Log Analytics](#diagnostic-settings-of-log-analytics) section in this document.
 1. Open your Azure Spring Apps instance.
 1. Select **Logs** in the navigation pane, and then select **Overview**.
 1. Use below sample query in the query edit, adjust Time range, then click **Run** to search for logs.
+
+##### [Query logs for Gateway](#tab/Gateway)
 
 ```Kusto
 AppPlatformSystemLogs 
@@ -58,6 +60,17 @@ AppPlatformSystemLogs
 | project TimeGenerated , ServiceName , LogType, Log , _ResourceId 
 | limit 100
 ```
+
+##### [Query logs for Gateway Operator](#tab/GatewayOperator)
+
+```Kusto
+AppPlatformSystemLogs
+| where LogType in ("SpringCloudGatewayOperator")
+| project TimeGenerated , ServiceName , LogType, Log , _ResourceId
+| limit 100
+```
+
+---
 
 Take below screenshot as an example:
 :::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png" alt-text="Screenshot of the Azure portal showing the query and result of logs of VMware Spring Cloud Gateway" lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png":::
