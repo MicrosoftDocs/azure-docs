@@ -30,12 +30,12 @@ Azure Virtual Network uses a different IP address range. The IP addresses are de
 
 You might choose not to put any availability configuration in place within a single region, but still have the demand to have the workload served if a disaster occurs. Typical cases for such scenarios are nonproduction systems. Although having the system down for half a day or even a day is sustainable, you can't allow the system to be unavailable for 48 hours or more. To make the setup less costly, run another system that is even less important in the VM. The other system functions as a destination. You can also size the VM in the secondary region to be smaller, and choose not to preload the data. Because the failover is manual and entails many more steps to fail over the complete application stack, the additional time to shut down the VM, resize it, and then restart the VM is acceptable.
 
-If you are using the scenario of sharing the DR target with a QA system in one VM, you need to take these considerations into account:
+If you're using the scenario of sharing the DR target with a QA system in one VM, you need to take these considerations into account:
 
 - There are two [operation modes](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) with delta_datashipping and logreplay, which are available for such a scenario
 - Both operation modes have different memory requirements without preloading data
 - Delta_datashipping might require drastically less memory without the preload option than logreplay could require. See chapter 4.3 of the SAP document [How To Perform System Replication for SAP HANA](https://www.sap.com/documents/2017/07/606a676e-c97c-0010-82c7-eda71af511fa.html)
-- The memory requirement of logreplay operation mode without preload is not deterministic and depends on the columnstore structures loaded. In extreme cases, you might require 50% of the memory of the primary instance. The memory for logreplay operation mode is independent on whether you chose to have the data preloaded set or not.
+- The memory requirement of logreplay operation mode without preload isn't deterministic and depends on the columnstore structures loaded. In extreme cases, you might require 50% of the memory of the primary instance. The memory for logreplay operation mode is independent on whether you chose to have the data preloaded set or not.
 
 ![Diagram of two VMs over two regions](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.png)
 
@@ -56,7 +56,7 @@ In these cases, you can set up what SAP calls an [SAP HANA multi-tier system rep
 
 ![Diagram of three VMs over two regions](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.png)
 
-SAP introduced [multi-target system replication](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) with HANA 2.0 SPS3. Multi-target system replication brings some advantages in update scenarios. For example, the DR site (Region 2) is not impacted when the secondary HA site is down for maintenance or updates.
+SAP introduced [multi-target system replication](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) with HANA 2.0 SPS3. Multi-target system replication brings some advantages in update scenarios. For example, the DR site (Region 2) isn't impacted when the secondary HA site is down for maintenance or updates.
 You can find out more about HANA multi-target system replication at the [SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
 Possible architecture with multi-target replication would look like:
 
