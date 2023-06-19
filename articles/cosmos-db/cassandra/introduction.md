@@ -48,7 +48,7 @@ The API for Cassandra has added benefits of being built on Azure Cosmos DB:
 
 ## Azure Managed Instance for Apache Cassandra
 
-For some customers, adapting to API for Cassandra can be a challenge due to differences in behaviour and/or configuration, especially for lift-and-shift migrations. [Azure Managed Instance for Apache Cassandra](../managed-instance-apache-cassandra/introduction.md) is a first party service hosting open-source Apache Cassandra clusters. Patching, deployment, scaling, platform security, cloud infrastructure, and live site support are taken care of for you, with 100% compatibility with Apache Cassandra, and full control of operations where required. 
+For some customers, adapting to API for Cassandra can be a challenge due to differences in behaviour and/or configuration, especially for lift-and-shift migrations. [Azure Managed Instance for Apache Cassandra](../../managed-instance-apache-cassandra/introduction.md) is a first party service hosting open-source Apache Cassandra clusters. Patching, deployment, scaling, platform security, cloud infrastructure, and live site support are taken care of for you, with 100% compatibility with Apache Cassandra, and full control of operations where required. 
 
 ## Next steps
 
