@@ -55,7 +55,7 @@ There are several moving parts across GCP and Azure, which are required to be co
     > 1. Return to the Permissions Management window, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
 ### 2. Set up a GCP OIDC project.
-1. In the **Permissions Management Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project ID** and **OIDC Project Number** of the GCP project in which the OIDC provider and pool will be created. You can change the role name to your requirements.
+1. In the **Permissions Management Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project Number** and **OIDC Project ID**of the GCP project in which the OIDC provider and pool will be created. You can change the role name to your requirements.
 
     > [!NOTE]
     > You can find the **Project number** and **Project ID** of your GCP project on the GCP **Dashboard** page of your project in the **Project info** panel.
@@ -64,8 +64,12 @@ There are several moving parts across GCP and Azure, which are required to be co
 
     Optionally, specify **G-Suite IDP Secret Name** and **G-Suite IDP User Email** to enable G-Suite integration.
 
+
 1. You can either download and run the script at this point or you can do it in the Google Cloud Shell.
 1. Select **Next**.
+1. You can either download and run the script at this point or you can run it in the Google Cloud Shell.
+
+1. Select **Next** after sucessfully running the setup script. 
 
 Choose from 3 options to manage GCP projects. 
 

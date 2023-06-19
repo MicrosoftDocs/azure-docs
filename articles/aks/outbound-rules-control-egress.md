@@ -4,7 +4,7 @@ description: Learn what ports and addresses are required to control egress traff
 ms.subservice: aks-networking
 ms.topic: article
 ms.author: allensu
-ms.date: 03/10/2023
+ms.date: 06/13/2023
 author: asudbring
 
 #Customer intent: As an cluster operator, I want to learn the network and FQDNs rules to control egress traffic and improve security for my AKS clusters.
@@ -143,11 +143,11 @@ If you choose to block/not allow these FQDNs, the nodes will only receive OS upd
 
 #### Required FQDN / application rules
 
-| FQDN                                          | Port      | Use      |
-|-----------------------------------------------|-----------|----------|
-| **`login.microsoftonline.com`** | **`HTTPS:443`** | Required for Active Directory Authentication. |
-| **`*.ods.opinsights.azure.com`** | **`HTTPS:443`** | Required for Microsoft Defender to upload security events to the cloud.|
-| **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | Required to Authenticate with LogAnalytics workspaces.|
+| FQDN                                                       | Port      | Use      |
+|------------------------------------------------------------|-----------|----------|
+| **`login.microsoftonline.com`** <br/> **`login.microsoftonline.us`** (Azure Government) <br/> **`login.microsoftonline.cn`** (Azure China 21Vianet) | **`HTTPS:443`** | Required for Active Directory Authentication. |
+| **`*.ods.opinsights.azure.com`** <br/> **`*.ods.opinsights.azure.us`** (Azure Government) <br/> **`*.ods.opinsights.azure.cn`** (Azure China 21Vianet)| **`HTTPS:443`** | Required for Microsoft Defender to upload security events to the cloud.|
+| **`*.oms.opinsights.azure.com`** <br/> **`*.oms.opinsights.azure.us`** (Azure Government) <br/> **`*.oms.opinsights.azure.cn`** (Azure China 21Vianet)| **`HTTPS:443`** | Required to Authenticate with LogAnalytics workspaces.|
 
 ### CSI Secret Store
 

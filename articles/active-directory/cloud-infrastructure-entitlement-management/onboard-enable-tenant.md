@@ -1,6 +1,6 @@
 ---
-title:  Enable Microsoft Permissions Management in your organization
-description: How to enable Permissions Management in your organization.
+title:  Enable Microsoft Entra Permissions Management in your organization
+description: How to enable Microsoft Entra Permissions Management in your organization.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -60,6 +60,6 @@ Use the **Data Collectors** dashboard in Permissions Management to configure dat
 
 ## Next steps
 
-- For an overview of Permissions Management, see [What's Permissions Management?](overview.md)
+- For an overview of Permissions Management, see [What's Microsoft Entra Permissions Management?](overview.md)
 - For a list of frequently asked questions (FAQs) about Permissions Management, see [FAQs](faqs.md).
 - For information on how to start viewing information about your authorization system in Permissions Management, see [View key statistics and data about your authorization system](ui-dashboard.md).

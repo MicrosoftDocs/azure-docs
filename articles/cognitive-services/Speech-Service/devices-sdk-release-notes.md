@@ -119,4 +119,4 @@ The following sections list changes in the most recent releases.
 
 ## Speech Devices SDK 0.2.12733: 2018-May release
 
-The first public preview release of the Cognitive Services Speech Devices SDK.
+The first public preview release of the Speech Devices SDK.
