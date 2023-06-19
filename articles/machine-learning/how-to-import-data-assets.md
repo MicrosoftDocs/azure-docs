@@ -173,7 +173,7 @@ ml_client.data.import_data(data_import=data_import)
     - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will always be active until you manually disable it.
     - **Tags**: the selected schedule tags.
    
-   #### This screenshot shows the panel for a **Cron** schedule:
+   This screenshot shows the panel for a **Cron** schedule:
    
    :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot that shows selection of the Add schedule button.":::
 
@@ -211,7 +211,7 @@ ml_client.data.import_data(data_import=data_import)
 
 - (Optional) `start_time` specifies the start date and time with the timezone of the schedule. For example, `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in the UTC-4 timezone. If `start_time` is omitted, the `start_time` equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
 
-1. The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
+The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
 
    :::image type="content" source="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" lightbox="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" alt-text="Screenshot that shows all parameters of the data import.":::
 
@@ -318,7 +318,7 @@ ml_client.data.import_data(data_import=data_import)
     - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will remain active until you manually disable it.
     - **Tags**: the selected schedule tags.
    
-   #### This screenshot shows the panel for a **Cron** schedule:
+   This screenshot shows the panel for a **Cron** schedule:
    
    :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot showing the selection of the Add schedule button.":::
 
