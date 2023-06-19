@@ -119,6 +119,12 @@
     href: concept-azure-machine-learning-v2.md
   - name: Environments
     href: concept-environments.md
+  - name: Compute instance
+    displayName: resource, dsvm, Data Science Virtual Machine
+    href: concept-compute-instance.md
+  - name: Compute target
+    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+    href: concept-compute-target.md
   - name: Manage environments in studio
     items:
       - name: Create and manage files
@@ -151,12 +157,6 @@
     items:
       - name: Searching for Assets and Resources
         href: how-to-search-assets.md
-  - name: Compute instance
-    displayName: resource, dsvm, Data Science Virtual Machine
-    href: concept-compute-instance.md
-  - name: Compute target
-    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-    href: concept-compute-target.md
   - name: Manage resources VS Code
     href: how-to-manage-resources-vscode.md
   - name: Work with MLflow
