@@ -201,7 +201,7 @@ To simulate an app services EICAR alert:
 
 1. If you don’t have a Key Vault created yet, make sure to [create one](https://learn.microsoft.com/azure/key-vault/general/quick-create-portal).
 1. After finishing creating the Key Vault and the secret, go to a VM that has Internet access and [download the TOR Browser](https://www.torproject.org/download/).
-1. Install the TOR Browser on your VM
+1. Install the TOR Browser on your VM.
 1. Once you finished the installation, open your regular browser, logon to the Azure portal, and access the Key Vault page. Select the URL highlighted below and copy the address.
 1. Open TOR and paste this URL (you will need to authenticate again to access the Azure Portal).
 1. After finishing access, you can also click in the Secrets option in the left pane.
