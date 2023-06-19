@@ -46,7 +46,7 @@ These tools are required to authenticate with your Azure account from your local
 
 ## <a name="v2"></a>Core Tools versions
 
-Versions of Azure Functions Core Tools are linked to specific versions of the Azure Functions runtime. For example, version 4.x of Core Tools supports version 4.x of the Functions runtime. This is the recommended version of the Functions runtime and Core Tools.
+Major versions of Azure Functions Core Tools are linked to specific major versions of the Azure Functions runtime. For example, version 4.x of Core Tools supports version 4.x of the Functions runtime. This is the recommended major version of both the Functions runtime and Core Tools. You can find the latest Core Tools release version on [this release page](https://github.com/Azure/azure-functions-core-tools/releases/latest). 
 
 Run the following command to determine the version of your current Core Tools installation:
 
