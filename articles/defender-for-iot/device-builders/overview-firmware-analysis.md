@@ -20,7 +20,7 @@ Use Microsoft Defender for IoT's firmware analysis to identify embedded security
 
 ## How to be sure your firmware is secure
 
-Defender for IoT can analyze your firmware for common weaknesses and vulnerabilities, and provide insight into your firmware security, whether you build the firmware in-house, receive firmware from your supply chain, or engage in a hybrid firmware development model (supply chain and in-house development).
+Defender for IoT can analyze your firmware for common weaknesses and vulnerabilities, and provide insight into your firmware security. This analysis is useful whether you build the firmware in-house or receive firmware from your supply chain.
 
 - **Software Bill of Materials (SBOM)**: Receive a detailed listing of open-source packages used during the firmware's build process. See the package version and what license governs the use of the open-source package.
 
@@ -28,7 +28,7 @@ Defender for IoT can analyze your firmware for common weaknesses and vulnerabili
 
 - **Binary Hardening Analysis**: Identify binaries that haven't enabled specific security flags during compilation like buffer overflow protection, position independent executables, and more common hardening techniques.
 
-- **SSL Certificate Analysis**: Reveal expired and revoked SSL certificates.
+- **SSL Certificate Analysis**: Reveal expired and revoked TLS/SSL certificates.
 
 - **Public & Private Key Analysis**: Verify the public and private cryptographic keys discovered in the firmware are necessary and not accidental.
 
