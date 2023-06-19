@@ -128,7 +128,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
 
 + Get management operations in the last 7 days. 
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where TimeGenerated > ago(7d)
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
@@ -137,7 +137,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     ```
 + Get runtime audit logs generated in the last one hour. 
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where TimeGenerated > ago(1h)
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
@@ -145,7 +145,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     ```
 + Get access attempts to a key vault that resulted in "key not found" error.
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where ResourceProvider == "MICROSOFT.SERVICEBUS" 
     | where Category == "Error" and OperationName == "wrapkey"
@@ -154,7 +154,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
 
 + Get errors from the past 7 days
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where TimeGenerated > ago(7d)
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
@@ -164,7 +164,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
 
 + Get operations performed with a key vault to disable or restore the key.
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where ResourceProvider == "MICROSOFT.SERVICEBUS"
     | where (Category == "info" and (OperationName == "disable" or OperationName == "restore"))
