@@ -45,7 +45,7 @@ There are several moving parts across GCP and Azure, which are required to be co
 
 1. On the **Permissions Management Onboarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure App Name**.
 
-    This app is used to set up an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated will create the app of this specified name in your Azure AD tenant with the right configuration.
+    This app is used to set up an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated creates the app of this specified name in your Azure AD tenant with the right configuration.
 
 1. To create the app registration, copy the script and run it in your command-line app.
 
@@ -55,7 +55,7 @@ There are several moving parts across GCP and Azure, which are required to be co
     > 1. Return to the Permissions Management window, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
 ### 2. Set up a GCP OIDC project.
-1. In the **Permissions Management Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project Number** and **OIDC Project ID**of the GCP project in which the OIDC provider and pool will be created. You can change the role name to your requirements.
+1. In the **Permissions Management Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project Number** and **OIDC Project ID** of the GCP project in which the OIDC provider and pool is created. You can change the role name to your requirements.
 
     > [!NOTE]
     > You can find the **Project number** and **Project ID** of your GCP project on the GCP **Dashboard** page of your project in the **Project info** panel.
@@ -66,12 +66,10 @@ There are several moving parts across GCP and Azure, which are required to be co
 
 
 1. You can either download and run the script at this point or you can do it in the Google Cloud Shell.
-1. Select **Next**.
-1. You can either download and run the script at this point or you can run it in the Google Cloud Shell.
 
-1. Select **Next** after sucessfully running the setup script. 
+1. Select **Next** after successfully running the setup script. 
 
-Choose from 3 options to manage GCP projects. 
+Choose from three options to manage GCP projects. 
 
 #### Option 1: Automatically manage 
 
@@ -88,7 +86,7 @@ To enable controller mode 'On' for any projects, add following roles to the spec
 3. Select **Next**.
 
 #### Option 2: Enter authorization systems 
-You have the ability to specify only certain GCP member projects to manage and monitor with MEPM (up to 100 per collector). Follow the steps below to configure these GCP member projects to be monitored: 
+You have the ability to specify only certain GCP member projects to manage and monitor with MEPM (up to 100 per collector). Follow the steps to configure these GCP member projects to be monitored: 
 1. In the **Permissions Management Onboarding - GCP Project Ids** page, enter the **Project IDs**.
 
     You can enter up to comma separated 100 GCP project IDs. 
