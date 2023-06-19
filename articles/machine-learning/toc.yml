@@ -1294,7 +1294,7 @@
     - name: Troubleshoot secure workspace connectivity
       href: how-to-troubleshoot-secure-connection-workspace.md
     - name: Troubleshoot SerializationError
-      href: how-to-troubleshoot-serialization-error.md
+      href: ./v1/how-to-troubleshoot-serialization-error.md
     - name: Troubleshoot descriptor error
       displayName: descriptors cannot not be created directly
       href: how-to-troubleshoot-protobuf-descriptor-error.md
