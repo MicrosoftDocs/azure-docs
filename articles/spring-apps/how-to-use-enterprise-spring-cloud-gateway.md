@@ -1,6 +1,6 @@
 ---
-title: How to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier
-description: Shows you how to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier to route requests to your applications.
+title: How to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan
+description: Shows you how to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan to route requests to your applications.
 author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
@@ -14,9 +14,9 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier to route requests to your applications.
+This article shows you how to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan to route requests to your applications.
 
 [VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is a commercial VMware Tanzu component based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
@@ -33,7 +33,7 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
   > To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
@@ -298,4 +298,4 @@ az spring spring-cloud-gateway delete \
 ## Next steps
 
 - [Azure Spring Apps](index.yml)
-- [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](./quickstart-deploy-apps-enterprise.md)
+- [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](./quickstart-deploy-apps-enterprise.md)

@@ -22,7 +22,7 @@ Target-based scaling  replaces the previous Azure Functions incremental scaling 
 The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
 
 > [!NOTE]
-> In order to achieve the most accurate scaling based on metrics, we recommend one target-based triggered function per function app.
+> To determine the change in _desired instances_ if multiple functions in the same function app are voting to scale out, a sum across them is used to determine the change in desired instances. Scale out requests override scale in. If there are no scale out request but there are scale in requests, then the max scale in value is used. In order to achieve the most accurate scaling based on metrics, we recommend one target-based triggered function per function app.
 
 ## Prerequisites
 
@@ -73,12 +73,6 @@ In [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#pre
 | Event Hubs     |         5.2.0          |
 | Service Bus    |         5.9.0          |
 | Azure Cosmos DB      |         4.1.0          |
-
-Additionally, target-based scaling is currently an **opt-in** feature with runtime scale monitoring. In order to use target-based scaling with the Premium plan when runtime scale monitoring is enabled, add the following app setting to your function app:
-
-|          App Setting          | Value |
-| ----------------------------- | ----- |
-|`TARGET_BASED_SCALING_ENABLED` |   1   |
 
 ## Dynamic concurrency support
 
@@ -292,6 +286,10 @@ For **v2.x+** of the Storage extension, modify the `host.json` setting `batchSiz
     }
 }
 ```
+
+> [!NOTE]
+> **Scale efficiency:** For the storage queue extension, messages with [visibilityTimeout](/rest/api/storageservices/put-message#uri-parameters) are still counted in _event source length_ by the Storage Queue APIs. This can cause overscaling of your function app. Consider using Service Bus queues que scheduled messages, [limiting scale out](event-driven-scaling.md#limit-scale-out), or not using visibilityTimeout for your solution.
+
 
 ### Azure Cosmos DB
 

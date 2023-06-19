@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 04/14/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
@@ -30,6 +30,11 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
         - `ml.azure.com`
         - `automlresources-prod.azureedge.net`
+
+> [!TIP]
+> The information in this article is primarily about using an Azure Virtual Network. Azure Machine Learning can also use a **managed virtual networks** (preview). With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. 
+>
+> To address data exfiltration concerns, managed virtual networks allow you to restrict egress to only approved outbound traffic. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
 
 ## Prerequisites
 
@@ -121,7 +126,7 @@ __Allow__ outbound traffic to the following __service tags__. Replace `<region>`
 __Allow__ outbound traffic over __ANY port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `*.<region>.batch.azure.com`
-* `*.<region>.service.batch.com`
+* `*.<region>.service.batch.azure.com`
 
 > [!WARNING]
 > If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts over __TCP port 443__:

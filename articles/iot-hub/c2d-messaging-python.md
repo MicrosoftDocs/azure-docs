@@ -8,7 +8,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: how-to
-ms.date: 01/02/2023
+ms.date: 05/30/2023
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
@@ -20,7 +20,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 This article shows you how to:
 
-* Send cloud-to-device messages, from your solution backend, to a single device through IoT Hub
+* Send cloud-to-device (C2D) messages from your solution backend to a single device through IoT Hub
 
 * Receive cloud-to-device messages on a device
 

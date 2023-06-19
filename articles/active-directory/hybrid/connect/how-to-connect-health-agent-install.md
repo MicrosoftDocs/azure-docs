@@ -30,7 +30,7 @@ The following table lists requirements for using Azure AD Connect Health:
 | Requirement | Description |
 | --- | --- |
 | You have an Azure Active Directory (Azure AD) Premium (P1 or P2) Subscription. |Azure AD Connect Health is a feature of Azure AD Premium (P1 or P2). For more information, see [Sign up for Azure AD Premium](../../fundamentals/active-directory-get-started-premium.md). <br /><br />To start a free 30-day trial, see [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/). |
-| You're a hybrid identity administrator in Azure AD. |By default, only Hybrid Identity Administrator and Global Administrator accounts can install and configure health agents, access the portal, and do any operations within Azure AD Connect Health. For more information, see [Administering your Azure AD directory](../../fundamentals/active-directory-whatis.md). <br /><br /> By using Azure role-based access control (Azure RBAC), you can allow other users in your organization to access Azure AD Connect Health. For more information, see [Azure RBAC for Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Important**: Use a work or school account to install the agents. You can't use a Microsoft account to install the agents. For more information, see [Sign up for Azure as an organization](../../fundamentals/sign-up-organization.md). |
+| You're a global administrator in Azure AD. |Currently, only Global Administrator accounts can install and configure health agents. For more information, see [Administering your Azure AD directory](../../fundamentals/active-directory-whatis.md). <br /><br /> By using Azure role-based access control (Azure RBAC), you can allow other users in your organization to access Azure AD Connect Health. For more information, see [Azure RBAC for Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Important**: Use a work or school account to install the agents. You can't use a Microsoft account to install the agents. For more information, see [Sign up for Azure as an organization](../../fundamentals/sign-up-organization.md). |
 | The Azure AD Connect Health agent is installed on each targeted server. | Health agents must be installed and configured on targeted servers so that they can receive data and provide monitoring and analytics capabilities. <br /><br />For example, to get data from your Active Directory Federation Services (AD FS) infrastructure, you must install the agent on the AD FS server and on the Web Application Proxy server. Similarly, to get data from your on-premises Azure Active Directory Domain Services (Azure AD DS) infrastructure, you must install the agent on the domain controllers. |
 | The Azure service endpoints have outbound connectivity. | During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If firewalls block outbound connectivity, add the [outbound connectivity endpoints](how-to-connect-health-agent-install.md#outbound-connectivity-to-azure-service-endpoints) to an allowlist. |
 |Outbound connectivity is based on IP addresses. | For information about firewall filtering based on IP addresses, see [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=56519).|
@@ -91,27 +91,20 @@ To start the agent installation, double-click the *.exe* file you downloaded. In
 
 :::image type="content" source="media/how-to-connect-health-agent-install/install1.png" alt-text="Screenshot that shows the installation window for the Azure AD Connect Health AD FS agent.":::
 
-After the installation finishes, select **Configure Now**.
-
-:::image type="content" source="media/how-to-connect-health-agent-install/install2.png" alt-text="Screenshot that shows the confirmation message for the Azure AD Connect Health AD FS agent installation.":::
-
-A PowerShell window opens to start the agent registration process. When you're prompted, sign in by using an Azure AD account that has permissions to register the agent. By default, the Hybrid Identity Administrator account has permissions.
+When you're prompted, sign in by using an Azure AD account that has permissions to register the agent. By default, the Hybrid Identity Administrator account has permissions.
 
 :::image type="content" source="media/how-to-connect-health-agent-install/install3.png" alt-text="Screenshot that shows the sign-in window for Azure AD Connect Health AD FS.":::
 
-After you sign in, PowerShell continues the installation. When it finishes, you can close PowerShell. Configuration is complete.
+After you sign in, the installation process will complete and you can close the window.
+
+:::image type="content" source="media/how-to-connect-health-agent-install/install2.png" alt-text="Screenshot that shows the confirmation message for the Azure AD Connect Health AD FS agent installation.":::
 
 At this point, the agent services should start to automatically allow the agent to securely upload the required data to the cloud service.
 
-If you haven't met all the prerequisites, warnings appear in the PowerShell window. Be sure to complete the [requirements](how-to-connect-health-agent-install.md#requirements) before you install the agent. The following screenshot shows an example of these warnings.
-
-:::image type="content" source="media/how-to-connect-health-agent-install/install4.png" alt-text="Screenshot that shows the Azure AD Connect Health AD FS configure script.":::
-
 To verify that the agent was installed, look for the following services on the server. If you completed the configuration, they should already be running. Otherwise, they're stopped until the configuration is complete.
 
-- Azure AD Connect Health AD FS Diagnostics Service
-- Azure AD Connect Health AD FS Insights Service
-- Azure AD Connect Health AD FS Monitoring Service
+- Microsoft Azure AD Connect Agent Updater
+- Microsoft Azure AD Connect Health Agent
 
 :::image type="content" source="media/how-to-connect-health-agent-install/install5.png" alt-text="Screenshot that shows Azure AD Connect Health AD FS services.":::
 

@@ -10,7 +10,7 @@ ms.date: 03/30/2023
 ms.author: mbullwin
 ---
 
-Get started with the Anomaly Detector multivariate client library for C#. Follow these steps to install the package and start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
+Get started with the Anomaly Detector multivariate client library for C#. Follow these steps to install the package and start using the algorithms provided by the service. The new multivariate anomaly detector APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
 
 Use the Anomaly Detector multivariate client library for C# to:
 
@@ -285,7 +285,7 @@ internal class Program
                     Console.WriteLine("Errors:");
                     try
                     {
-                        Console.WriteLine(string.Format("Error code: {}. Message: {}", resultResponse.Results[0].Summary.Code.ToString(), resultResponse.Results[0].Summary.Message.ToString()));
+                        Console.WriteLine(string.Format("Error code: {}. Message: {}", resultResponse.Summary.Errors[0].Code.ToString(), resultResponse.Summary.Errors[0].Message.ToString()));
                     }
                     catch (Exception e)
                     {

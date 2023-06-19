@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 12/29/2022
 ms.author: pafarley
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, build-2023, build-2023-dataai
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
 

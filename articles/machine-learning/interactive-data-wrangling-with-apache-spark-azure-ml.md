@@ -85,7 +85,7 @@ The Notebooks UI also provides options for Spark session configuration, for the 
 
     :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/stop-current-session.png" alt-text="Screenshot showing the stop current session dialog box.":::
 
-The session configuration changes will persist and will become available to another notebook session that is started using the serverless Spark compute.
+The session configuration changes persist and becomes available to another notebook session that is started using the serverless Spark compute.
 
 ### Import and wrangle data from Azure Data Lake Storage (ADLS) Gen 2
 
@@ -247,7 +247,7 @@ To start interactive data wrangling:
 
 ### Import and wrangle data from Azure Machine Learning Datastore
 
-To access data from [Azure Machine Learning Datastore](how-to-datastore.md), define a path to data on the datastore with [URI format](how-to-create-data-assets.md?tabs=cli#supported-paths) `azureml://datastores/<DATASTORE_NAME>/paths/<PATH_TO_DATA>`. To wrangle data from an Azure Machine Learning Datastore in a Notebooks session interactively:
+To access data from [Azure Machine Learning Datastore](how-to-datastore.md), define a path to data on the datastore with [URI format](how-to-create-data-assets.md#create-data-assets) `azureml://datastores/<DATASTORE_NAME>/paths/<PATH_TO_DATA>`. To wrangle data from an Azure Machine Learning Datastore in a Notebooks session interactively:
 
 1. Select the serverless Spark compute **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu, or select an attached Synapse Spark pool under **Synapse Spark pool (Preview)** from the **Compute** selection menu.
 2. This code sample shows how to read and wrangle Titanic data from an Azure Machine Learning Datastore, using `azureml://` datastore URI, `pyspark.pandas` and `pyspark.ml.feature.Imputer`.

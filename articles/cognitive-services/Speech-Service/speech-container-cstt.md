@@ -7,6 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: eur
@@ -193,17 +194,17 @@ If you have been approved to run the container disconnected from the internet, t
 
 In order to prepare and configure a disconnected custom speech to text container you will need two separate speech resources:
 
-- A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This is used to train, download, and configure your custom speech models for use in your container.
-- An Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
+- A regular Azure Cognitive Services Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This is used to train, download, and configure your custom speech models for use in your container.
+- An Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
 
 Follow these steps to download and run the container in disconnected environments. 
-1. [Download a model for the disconnected container](#download-a-model-for-the-disconnected-container). For this step, use a regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
-1. [Download the disconnected container license](#download-the-disconnected-container-license). For this step, use an Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
-1. [Run the disconnected container for service](#run-the-disconnected-container). For this step, use an Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+1. [Download a model for the disconnected container](#download-a-model-for-the-disconnected-container). For this step, use a regular Azure Cognitive Services Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
+1. [Download the disconnected container license](#download-the-disconnected-container-license). For this step, use an Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+1. [Run the disconnected container for service](#run-the-disconnected-container). For this step, use an Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
 ### Download a model for the disconnected container
 
-For this step, use a regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
+For this step, use a regular Azure Cognitive Services Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
 
 [!INCLUDE [Custom speech container run](includes/containers-cstt-common-run.md)]
 
@@ -211,21 +212,23 @@ For this step, use a regular Azure Speech Service resource which is either confi
 
 Next, you download your disconnected license file. The `DownloadLicense=True` parameter in your `docker run` command will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. 
 
-You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a `speech-to-text` container with a `neural-text-to-speech` container.
+You can only use a license file with the appropriate container and model that you've been approved for. For example, you can't use a license file for a `speech-to-text` container with a `neural-text-to-speech` container.
 
 | Placeholder | Description | 
 |-------------|-------|
 | `{IMAGE}` | The container image you want to use.<br/><br/>For example: `mcr.microsoft.com/azure-cognitive-services/custom-speech-to-text:latest` |
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.<br/><br/>For example: `/host/license:/path/to/license/directory` |
+| `{MODEL_PATH}` | The path where the model is located.<br/><br/>For example: `/path/to/model/` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal.<br/><br/>For example: `https://<your-resource-name>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Speech resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
 
-For this step, use an Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+For this step, use an Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
 ```bash
 docker run --rm -it -p 5000:5000 \ 
 -v {LICENSE_MOUNT} \
+-v {MODEL_PATH} \
 {IMAGE} \
 eula=accept \
 billing={ENDPOINT_URI} \
@@ -246,14 +249,14 @@ Wherever the container is run, the license file must be mounted to the container
 | `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container.<br/><br/>For example: `4g` |
 | `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container.<br/><br/>For example: `4` |
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.<br/><br/>For example: `/host/license:/path/to/license/directory` |
+| `{MODEL_PATH}` | The path where the model is located.<br/><br/>For example: `/path/to/model/` |
+| `{OUTPUT_PATH}` | The output path for logging.<br/><br/>For example: `/host/output:/path/to/output/directory`<br/><br/>For more information, see [usage records](../containers/disconnected-containers.md#usage-records) in the Azure Cognitive Services documentation. |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal.<br/><br/>For example: `https://<your-resource-name>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Speech resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
 | `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.<br/><br/>For example: `/path/to/output/directory` |
-| `{OUTPUT_PATH}` | The output path for logging.<br/><br/>For example: `/host/output:/path/to/output/directory`<br/><br/>For more information, see [usage records](../containers/disconnected-containers.md#usage-records) in the Azure Cognitive Services documentation. |
-| `{MODEL_PATH}` | The path where the model is located.<br/><br/>For example: `/path/to/model/` |
 
-For this step, use an Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+For this step, use an Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
@@ -290,5 +293,3 @@ sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PA
 * See the [Speech containers overview](speech-container-overview.md)
 * Review [configure containers](speech-container-configuration.md) for configuration settings
 * Use more [Azure Cognitive Services containers](../cognitive-services-container-support.md)
-
-

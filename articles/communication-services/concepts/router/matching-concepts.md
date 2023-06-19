@@ -10,6 +10,7 @@ ms.author: danielgerlag
 ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
 ---
 
@@ -171,4 +172,3 @@ The [OfferIssued Event][offer_issued_event] includes details about the job, work
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
 [offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
-
