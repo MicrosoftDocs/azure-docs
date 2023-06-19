@@ -192,6 +192,8 @@ Access the Azure portal and go to the **Azure Stack Edge** resource created in t
 
 If you're running other VMs on your Azure Stack Edge, we recommend that you stop them now, and start them again once the cluster is deployed. The cluster requires access to specific CPU resources that running VMs may already be using.
 
+Review [Azure Stack Edge virtual machine sizing](azure-stack-edge-virtual-machine-sizing.md#azure-stack-edge-virtual-machine-sizing) to ensure you use the correct memory sizing for the cluster.
+
 1. To deploy the cluster, select the **Kubernetes** option and then select the **Add** button to configure the cluster.
 
    :::image type="content" source="media/commission-cluster/commission-cluster-add-kubernetes.png" alt-text="Screenshot of Kubernetes Overview pane, showing the Add button to configure Kubernetes service.":::
