@@ -527,125 +527,26 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     {
         "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#microsoft.graph.applicationServicePrincipal",
         "application": {
-            "objectId": "{objectId}",
+            "id": "{id}",
             "appId": "{appId}",
             "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
+            "createdDateTime": "2023-06-18T23:26:24Z",
+            "deletedDateTime": null,
             "displayName": "Fabrikam",
-            "homepage": "{homepage}",
-            "identifierUris": [],
-            "publicClient": null,
-            "replyUrls": [],
-            "logoutUrl": null,
-            "samlMetadataUrl": null,
-            "errorUrl": null,
+            "description": null,
             "groupMembershipClaims": null,
-            "availableToOtherTenants": false,
-            "requiredResourceAccess": []
-        },
-        "servicePrincipal": {
-            "objectId": "{objectId}",
-            "deletionTimestamp": null,
-            "accountEnabled": true,
-            "appId": "{appId}",
-            "appDisplayName": "Fabrikam",
-            "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
-            "appOwnerTenantId": "{targetTenantId}",
-            "appRoleAssignmentRequired": true,
-            "displayName": "Fabrikam",
-            "errorUrl": null,
-            "loginUrl": null,
-            "logoutUrl": null,
-            "homepage": "{homepage}",
-            "samlMetadataUrl": null,
-            "microsoftFirstParty": null,
-            "publisherName": "{tenantDisplayName}",
-            "preferredSingleSignOnMode": null,
-            "preferredTokenSigningKeyThumbprint": null,
-            "preferredTokenSigningKeyEndDateTime": null,
-            "replyUrls": [],
-            "servicePrincipalNames": [
-                "{appId}"
-            ],
-            "tags": [
-                "WindowsAzureActiveDirectoryIntegratedApp"
-            ],
-            "notificationEmailAddresses": [],
-            "samlSingleSignOnSettings": null,
-            "keyCredentials": [],
-            "passwordCredentials": []
-        }
-    }
-    ```
-
-1. Use the [List servicePrincipals](/graph/api/serviceprincipal-list?branch=main) API to get the service principal ID and app role ID.
-
-    **Request**
-
-    ```http
-    https://graph.microsoft.com/v1.0/servicePrincipals?$filter=displayName+eq+'Fabrikam'
-    ```
-    
-    **Response**
-
-    ```http
-    {
-        "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#servicePrincipals",
-        "value": [
-            {
-                "id": "{servicePrincipalId}",
-                "deletedDateTime": null,
-                "accountEnabled": true,
-                "alternativeNames": [],
-                "appDisplayName": "Fabrikam",
-                "appDescription": null,
-                "appId": "{appId}",
-                "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
-                "appOwnerOrganizationId": "{appOwnerOrganizationId}",
-                "appRoleAssignmentRequired": true,
-                "createdDateTime": "2023-05-20T23:42:37Z",
-                "description": null,
-                "disabledByMicrosoftStatus": null,
-                "displayName": "Fabrikam",
-                "homepage": "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=aad2aadsync|ISV9.1|primary|z",
-                "loginUrl": null,
-                "logoutUrl": null,
-                "notes": null,
-                "notificationEmailAddresses": [],
-                "preferredSingleSignOnMode": null,
-                "preferredTokenSigningKeyThumbprint": null,
-                "replyUrls": [],
-                "servicePrincipalNames": [
-                    "{appId}"
-                ],
-                "servicePrincipalType": "Application",
-                "signInAudience": "AzureADMyOrg",
-                "tags": [
-                    "WindowsAzureActiveDirectoryIntegratedApp"
-                ],
-                "tokenEncryptionKeyId": null,
-                "samlSingleSignOnSettings": null,
-                "addIns": [],
-                "appRoles": [
-                    {
-                        "allowedMemberTypes": [
-                            "User"
-                        ],
-                        "description": "msiam_access",
-                        "displayName": "msiam_access",
-                        "id": "{appRoleId}",
-                        "isEnabled": true,
-                        "origin": "Application",
-                        "value": null
-                    }
-                ],
-                "info": {
-                    "logoUrl": null,
-                    "marketingUrl": null,
-                    "privacyStatementUrl": null,
-                    "supportUrl": null,
-                    "termsOfServiceUrl": null
-                },
-                "keyCredentials": [],
+            "identifierUris": [],
+            "isFallbackPublicClient": false,
+            "signInAudience": "AzureADMyOrg",
+            "tags": [],
+            "tokenEncryptionKeyId": null,
+            "defaultRedirectUri": null,
+            "optionalClaims": null,
+            "addIns": [],
+            "api": {
+                "acceptMappedClaims": null,
+                "knownClientApplications": [],
+                "requestedAccessTokenVersion": null,
                 "oauth2PermissionScopes": [
                     {
                         "adminConsentDescription": "Allow the application to access Fabrikam on behalf of the signed-in user.",
@@ -658,15 +559,117 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
                         "value": "user_impersonation"
                     }
                 ],
-                "passwordCredentials": [],
-                "resourceSpecificApplicationPermissions": [],
-                "verifiedPublisher": {
-                    "displayName": null,
-                    "verifiedPublisherId": null,
-                    "addedDateTime": null
+                "preAuthorizedApplications": []
+            },
+            "appRoles": [
+                {
+                    "allowedMemberTypes": [
+                        "User"
+                    ],
+                    "displayName": "msiam_access",
+                    "id": "{appRoleId}",
+                    "isEnabled": true,
+                    "description": "msiam_access",
+                    "value": null,
+                    "origin": "Application"
                 }
+            ],
+            "info": {
+                "logoUrl": null,
+                "marketingUrl": null,
+                "privacyStatementUrl": null,
+                "supportUrl": null,
+                "termsOfServiceUrl": null
+            },
+            "keyCredentials": [],
+            "parentalControlSettings": {
+                "countriesBlockedForMinors": [],
+                "legalAgeGroupRule": "Allow"
+            },
+            "passwordCredentials": [],
+            "publicClient": {
+                "redirectUris": []
+            },
+            "requiredResourceAccess": [],
+            "verifiedPublisher": {
+                "displayName": null,
+                "verifiedPublisherId": null,
+                "addedDateTime": null
+            },
+            "web": {
+                "homePageUrl": "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=aad2aadsync|ISV9.1|primary|z",
+                "redirectUris": [],
+                "logoutUrl": null
             }
-        ]
+        },
+        "servicePrincipal": {
+            "id": "{servicePrincipalId}",
+            "deletedDateTime": null,
+            "accountEnabled": true,
+            "appId": "{appId}",
+            "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
+            "appDisplayName": "Fabrikam",
+            "alternativeNames": [],
+            "appOwnerOrganizationId": "{appOwnerOrganizationId}",
+            "displayName": "Fabrikam",
+            "appRoleAssignmentRequired": true,
+            "loginUrl": null,
+            "logoutUrl": null,
+            "homepage": "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=aad2aadsync|ISV9.1|primary|z",
+            "notificationEmailAddresses": [],
+            "preferredSingleSignOnMode": null,
+            "preferredTokenSigningKeyThumbprint": null,
+            "replyUrls": [],
+            "servicePrincipalNames": [
+                "{appId}"
+            ],
+            "servicePrincipalType": "Application",
+            "tags": [
+                "WindowsAzureActiveDirectoryIntegratedApp"
+            ],
+            "tokenEncryptionKeyId": null,
+            "samlSingleSignOnSettings": null,
+            "addIns": [],
+            "appRoles": [
+                {
+                    "allowedMemberTypes": [
+                        "User"
+                    ],
+                    "displayName": "msiam_access",
+                    "id": "{appRoleId}",
+                    "isEnabled": true,
+                    "description": "msiam_access",
+                    "value": null,
+                    "origin": "Application"
+                }
+            ],
+            "info": {
+                "logoUrl": null,
+                "marketingUrl": null,
+                "privacyStatementUrl": null,
+                "supportUrl": null,
+                "termsOfServiceUrl": null
+            },
+            "keyCredentials": [],
+            "oauth2PermissionScopes": [
+                {
+                    "adminConsentDescription": "Allow the application to access Fabrikam on behalf of the signed-in user.",
+                    "adminConsentDisplayName": "Access Fabrikam",
+                    "id": "{id}",
+                    "isEnabled": true,
+                    "type": "User",
+                    "userConsentDescription": "Allow the application to access Fabrikam on your behalf.",
+                    "userConsentDisplayName": "Access Fabrikam",
+                    "value": "user_impersonation"
+                }
+            ],
+            "passwordCredentials": [],
+            "verifiedPublisher": {
+                "displayName": null,
+                "verifiedPublisherId": null,
+                "addedDateTime": null
+            }
+        }
     }
     ```
     
@@ -705,10 +708,6 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```
 
 # [Microsoft Graph](#tab/ms-graph)
-
-1. Get the service principal object ID from the previous step.
-
-    Be sure to use the service principal object ID instead of the application ID.
 
 1. In the source tenant, use the [synchronizationJob: validateCredentials](/graph/api/synchronization-synchronizationjob-validatecredentials?branch=main) API to test the connection to the target tenant and validate the credentials.
 
@@ -791,7 +790,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
     POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs
     Content-type: application/json
     
-    { 
+    {
         "templateId": "Azure2Azure"
     }
     ```
@@ -876,15 +875,15 @@ In the source tenant, to enable provisioning, create a provisioning job.
     PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/secrets 
     Content-Type: application/json
     
-    { 
-        "value": [ 
+    {
+        "value": [
             {
                 "key": "AuthenticationType",
                 "value": "SyncPolicy"
             },
-            { 
-                "key": "CompanyId", 
-                "value": "{targetTenantId}" 
+            {
+                "key": "CompanyId",
+                "value": "{targetTenantId}"
             },
             {
                 "key": "SyncNotificationSettings",
@@ -1091,6 +1090,17 @@ Now that you have a configuration, you can test on-demand provisioning with one 
             }
         ]
     }
+    ```
+
+    **Response**
+
+    ```http
+    {
+        "@odata.context": "https://graph.microsoft.com/beta/$metadata#microsoft.graph.stringKeyStringValuePair",
+        "key": "Microsoft.Identity.Health.CPP.Common.DataContracts.SyncFabric.StatusInfo",
+        "value": "[{\"provisioningSteps\":[{\"name\":\"EntryImport\",\"type\":\"Import\",\"status\":\"Success\",\"description\":\"Retrieved User 'user1@fabrikam.com' from Azure Active Directory\",\"timestamp\":\"2023-06-19T00:00:16.7866324Z\",\"details\":{\"objectId\":\"{userObjectId}\",\"accountEnabled\":\"True\",\"displayName\":\"User1\",\"mailNickname\":\"user1\",\"userPrincipalName\":\"user1@fabrikam.com\",}
+    
+        ...
     ```
 
 ---
