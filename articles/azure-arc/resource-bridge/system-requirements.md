@@ -129,7 +129,7 @@ Reserved appliance VM IP requirements:
 
    ## Example minimum configuration for static IP deployment
    
-   Below is an example of valid configuration values that can be passed during configuration file creation for Arc resource bridge. It is strongly recommended to use static IP addresses when deploying Arc resource bridge. 
+The following example shows valid configuration values that can be passed during configuration file creation for Arc resource bridge. It is strongly recommended to use static IP addresses when deploying Arc resource bridge. 
 
    Notice that the IP addresses for the Gateway, Control Plane, appliance VM and DNS server (for internal resolution) are within the IP address prefix - this key detail ensures the successful deployment of the appliance VM.
 
