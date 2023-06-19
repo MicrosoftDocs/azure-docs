@@ -89,7 +89,7 @@ This section describe how to adjust log levels of VMware Spring Cloud Gateway an
 
 ## Restart Gateway
 
-In the case of some errors, a restart might help solve the issue. To restart, use the following steps:
+In the case of some errors, a restart might help solve the issue. To restart using the Azure portal, use the following steps:
 1. Open your Azure Spring Apps instance.
 1. Select **Spring Cloud Gateway** in the navigation pane.
 1. Select **Restart** in the top bar, and select **OK** to restart the Gateway.
