@@ -178,7 +178,7 @@ This example continues with the sample code without any changes.
 
 ## Compile and build your code
 
-After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks that compiles your code and adds that compiled code to the **lib\custom\net472** folder in your logic app project where workflows look for custom code to run.
+After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compiles and adds your code to the **lib\custom\net472** folder in your logic app project where workflows look for custom code to run.
 
 1. In Visual Studio Code, from the **Terminal** menu, select **New Terminal**.
 
@@ -202,7 +202,7 @@ After you finish writing your code, compile to make sure that no build errors ex
 
 1. Confirm that the following items exist in your logic app project
 
-   - Multiple assembly (DLL) files, including a file named **<*function-name*>.dll**, that are required to run your code.
+   - Multiple assembly (DLL) files that are required to run your code, including a file named **<*function-name*>.dll**.
 
    - A subfolder named **<*function-name*>** that contains a **function.json** file. This file contains the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
 
