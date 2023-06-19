@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 06/08/2023
+ms.date: 06/19/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -68,6 +68,10 @@ The migration feature doesn't support the following scenarios. See the [manual m
 - App Service Environment in a region not listed in the supported regions
 
 The App Service platform reviews your App Service Environment to confirm migration support. If your scenario doesn't pass all validation checks, you can't migrate at this time using the migration feature. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates.
+
+> [!NOTE]
+> App Service Environment v3 doesn't support IP SSL. If you use IP SSL, you must remove all IP SSL bindings before migrating to App Service Environment v3. The migration feature will support your environment once all IP SSL bindings are removed.
+>
 
 ### Troubleshooting
 
@@ -210,6 +214,8 @@ For more scenarios on cost changes and savings opportunities with App Service En
   The migration feature supports this [migration scenario](#supported-scenarios). You can migrate using a manual method if you don't want to use the migration feature. You can configure your [custom domain suffix](./how-to-custom-domain-suffix.md) when creating your App Service Environment v3 or any time after. 
 - **What if my App Service Environment is zone pinned?**  
   Zone pinned App Service Environment is currently not a supported scenario for migration using the migration feature. App Service Environment v3 doesn't support zone pinning. To migrate to App Service Environment v3, see the [manual migration options](migration-alternatives.md).
+- **What if my App Service Environment has IP SSL addresses?**
+  IP SSL isn't supported on App Service Environment v3. You must remove all IP SSL bindings before migrating using the migration feature or one of the manual options. If you intend to use the migration feature, once you remove all IP SSL bindings, you'll pass that validation check and can proceed with the automated migration.  
 - **What properties of my App Service Environment will change?**  
   You're on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For ILB App Service Environment, you keep the same ILB IP address. For internet facing App Service Environment, the public IP address and the outbound IP address change. Note for ELB App Service Environment, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses). For a full comparison of the App Service Environment versions, see [App Service Environment version comparison](version-comparison.md).
 - **What happens if migration fails or there is an unexpected issue during the migration?**  

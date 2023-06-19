@@ -45,13 +45,13 @@ To learn about Application Gateway infrastructure, see [Azure Application Gatewa
 
 * Protect your apps from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence.
 
-* Secure applications against L3-4 DDoS protection with [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) plan.
+* Secure applications against L3 and L4 DDoS attacks with [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) plan.
 
 * Privately connect to your backend behind Application Gateway with [Private Link](private-link.md) and embrace a zero-trust access model.
 
 * Eliminate risk of data exfiltration and control privacy of communication from within the virtual network with a fully [Private-only Application Gateway deployment](application-gateway-private-deployment.md).
 
-* Provide a centralized security experience for your application via Azure Policy and Azure Advisor that ensures consistent security features across apps.
+* Provide a centralized security experience for your application via Azure Policy, Azure Advisor, and Microsoft Sentinel integration that ensures consistent security features across apps.
 
 
 ## Pricing and SLA
