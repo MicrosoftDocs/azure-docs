@@ -75,4 +75,3 @@ This page explained the process of responding to an alert from Microsoft Defende
 - [Continuously export Defender for Cloud data](continuous-export.md)
 
 
-
