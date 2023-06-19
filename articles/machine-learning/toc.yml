@@ -155,6 +155,9 @@
   - name: Manage environments with SDK and CLI (v2)
     displayName: environment
     href: how-to-manage-environments-v2.md
+  - name: Azure Container for PyTorch
+    displayName: acpt
+    href: how-to-azure-container-for-pytorch-environment.md
   - name: Launch VS Code remote
     displayName: Visual Studio Code, VSCode, debug, bugs
     href: how-to-launch-vs-code-remote.md
@@ -1111,16 +1114,6 @@
     - name: Audit and manage
       displayName: policy
       href: how-to-integrate-azure-policy.md
-- name: How-to guides
-  items:
-      - name: Azure Container for PyTorch
-        displayName: acpt
-        href: how-to-azure-container-for-pytorch-environment.md
-      - name: Work with data
-        items:
-          - name: Prepare data with Apache Spark (preview)
-            items:
-
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity
