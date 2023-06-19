@@ -59,7 +59,7 @@ Management machine requirements:
 - Open communication to Control Plane IP (`controlplaneendpoint` parameter in `createconfig` command).
 - Open communication to Appliance VM IP. 
 - Open communication to the reserved Appliance VM IP. 
-- - Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
+- Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
 - Internet access
 ## Appliance VM IP address requirements
 
