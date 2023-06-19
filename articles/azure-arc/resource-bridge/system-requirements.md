@@ -119,7 +119,7 @@ Reserved appliance VM IP requirements:
 
    - If using a proxy, the proxy server has to also be reachable from IPs within the IP prefix, including the reserved appliance VM IP. 
 
-   ## DNS Server
+   ## DNS server
    
    DNS Server(s) must have internal and external endpoint resolution. The appliance VM and control plane need to resolve the management machine and vice versa. All three IPs must be able to reach the required URLs for deployment.
 
