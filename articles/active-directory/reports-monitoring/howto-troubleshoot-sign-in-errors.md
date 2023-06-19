@@ -94,4 +94,4 @@ If all else fails, or the issue persists despite taking the recommended course o
 
 * [Sign-ins error codes reference](./concept-sign-ins.md)
 * [Sign-ins report overview](concept-sign-ins.md)
-* [How to use the Sign-in diagnostics](how-to-use-sign-in-diagnostics.md)
+* [How to use the Sign-in diagnostics](howto-use-sign-in-diagnostics.md)

@@ -25,7 +25,7 @@ This article gives you an overview of the types of scenarios you can identify an
 
 ## How to access the Sign-in Diagnostics
 
-There are three ways to access the Sign-in Diagnostics tool: from the Diagnose and solve problems area, the Azure AD sign-in logs, and when creating a new support request. For more information, see [How to use the sign-in diagnostics](how-to-use-sign-in-diagnostics.md).
+There are three ways to access the Sign-in Diagnostics tool: from the Diagnose and solve problems area, the Azure AD sign-in logs, and when creating a new support request. For more information, see [How to use the sign-in diagnostics](howto-use-sign-in-diagnostics.md).
 ## Conditional Access  
 
 Conditional Access policies are used to apply the right access controls when needed to keep your organization secure. Because Conditional Access policies can be used to grant or block access to resources, they often show up in the sign-in diagnostic.
