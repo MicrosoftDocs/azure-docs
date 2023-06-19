@@ -99,3 +99,9 @@ These are the regions that are currently available for the new experience:
 ## Next steps
 
 Stay tuned for updates! Until then, make use of Microsoft Purview's other features:
+
+- [Create an account](create-microsoft-purview-portal.md)
+- [Share and receive data](quickstart-data-share.md)
+- [Data lineage](concept-data-lineage.md)
+- [Data owner policies](concept-policies-data-owner.md)
+- [Classification](concept-classification.md)
