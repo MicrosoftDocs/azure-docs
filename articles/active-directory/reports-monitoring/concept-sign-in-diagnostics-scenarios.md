@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/02/2023
+ms.date: 06/19/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler  
 ms.collection: M365-identity-device-management
@@ -19,10 +19,13 @@ ms.collection: M365-identity-device-management
 # Sign in diagnostics for Azure AD scenarios
 <a name="supported-scenarios"></a>
 
-You can use the sign-in diagnostic for Azure AD to analyze what happened during a sign-in attempt and get recommendations for resolving problems without needing to involve Microsoft support.  
+You can use the sign-in diagnostic for Azure Active Directory (Azure AD) to analyze what happened during a sign-in attempt and get recommendations for resolving problems without needing to involve Microsoft support.  
 
 This article gives you an overview of the types of scenarios you can identify and resolve when using this tool.
 
+## How to access the Sign-in Diagnostics
+
+There are three ways to access the Sign-in Diagnostics tool: from the Diagnose and solve problems area, the Azure AD sign-in logs, and when creating a new support request. For more information, see [How to use the sign-in diagnostics](how-to-use-sign-in-diagnostics.md).
 ## Conditional Access  
 
 Conditional Access policies are used to apply the right access controls when needed to keep your organization secure. Because Conditional Access policies can be used to grant or block access to resources, they often show up in the sign-in diagnostic.
