@@ -13,21 +13,21 @@ zone_pivot_groups: bicep-azure-cli
 
 # Blue/Green Deployment in Azure Container Apps
 
-Blue/green deployment is a software release strategy that aims to minimize downtime and reduce the risk associated with deploying new versions of an application. In a blue/green deployment, two identical environments, referred to as "blue" and "green," are set up.
-
-1. Blue Environment: The blue environment represents the currently running and stable version of the application. It handles the production traffic, and users interact with it.
-
-1. Green Environment: The green environment is an identical clone of the blue environment. It is prepared with the new version of the application or the updates you want to deploy. However, it remains inactive and doesn't receive any production traffic initially.
-
-1. Testing and Verification: The green environment is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing can involve various activities, including functional tests, performance tests, and compatibility checks.
-
-1. Traffic Switch: Once the green environment passes all the necessary tests, a traffic switch is performed. The router or load balancer directing incoming requests is reconfigured to start routing traffic to the green environment instead of the blue environment. This switch is done in a controlled manner, ensuring a smooth transition.
-
-1. Validation: After the traffic switch, the green environment becomes the active production environment, serving user traffic. This allows you to validate the new version in a real-world scenario. If any issues or errors arise, it's possible to quickly roll back by switching the traffic back to the blue environment.
-
-1. Rollback or Cleanup: If problems occur in the green environment, you can revert the traffic switch, routing traffic back to the stable blue environment. This rollback ensures minimal impact on users in case of issues. After resolving any issues in the green environment, it can be cleaned up, ready for future deployments.
+[Blue/Green Deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) is a software release strategy that aims to minimize downtime and reduce the risk associated with deploying new versions of an application. In a blue/green deployment, two identical environments, referred to as "blue" and "green," are set up.
 
 In the context of Azure Container Apps the blue/green deployment release approach is enabled by using [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md) and [revision labels](revisions.md#revision-labels). 
+
+1. `Blue` revision: The revision labelled as `blue` represents the currently running and stable version of the application. It handles the production traffic, and users interact with it.
+
+1. `Green` revision: The revision labelled as `green` is a copy of of the `blue` revision except it uses a newer version of the app code and possibly new set of env variables. It doesn't receive any production traffic initially but can be accessed by using label specific FQDN.
+
+1. Testing and Verification: The `green` revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing can involve various activities, including functional tests, performance tests, and compatibility checks.
+
+1. Traffic Switch: Once the `green` revision passes all the necessary tests, a traffic switch is performed so that the `green` revision starts serving production load. This switch is done in a controlled manner, ensuring a smooth transition.
+
+1. Rollback: If problems occur in the `green` revision, you can revert the traffic switch, routing traffic back to the stable `blue` revision. This rollback ensures minimal impact on users in case of issues. After resolving any issues in the `green` revision, it can be used for future deployments.
+
+1. Role change: For the next deployment cycle the roles of the blue/green revisions change. The `green` revision now represents the stable production environment and the new version of the application code is deployed and tested in the `blue` revision.
 
 This article shows you how to implement blue/green deployment a container app. To run the following examples, you need a container app environment in which you can create a new app.
 
@@ -93,21 +93,31 @@ param appName string
 @description('Container environment name')
 param containerAppsEnvironmentName string
 
-@minLength(1)
 @maxLength(64)
-@description('CommitId of a version to deploy')
-param commitId string
+@description('CommitId for blue revision')
+param blueCommitId string = ''
 
-@description('Name of the blue revision that takes production traffic')
-param blueRevisonName string = ''
+@maxLength(64)
+@description('CommitId for green revision')
+param greenCommitId string = ''
 
-@description('Name of the green revision that that is used for testing new versions')
-param greenRevisonName string = ''
+@maxLength(64)
+@description('CommitId for the latest deployed revision')
+param latestCommitId string = ''
+
+@allowed([
+  'blue'
+  'green'
+])
+@description('Name of the label that gets 100% of the traffic')
+param productionLabel string = 'blue'
 
 @minValue(0)
 @maxValue(100)
-@description('Percentage of traffic to route to the green (non-production) revision (0-100)')
-param greenRevisionWeight int = 0
+@description('Percentage of traffic that goes to the production label')
+param productionTrafficWeight int = 100
+
+var currentCommitId = !empty(latestCommitId) ? latestCommitId : blueCommitId
 
 resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2022-03-01' existing = {
   name: containerAppsEnvironmentName
@@ -118,25 +128,22 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
   location: location  
   properties: {
     environmentId: containerAppsEnvironment.id
+    workloadProfileName: 'Consumption'
     configuration: {
       activeRevisionsMode: 'multiple' // Multiple active revisions mode is required when using traffic weights
       ingress: {
         external: true
         targetPort: 80
-        traffic: !empty(blueRevisonName) ? [
+        traffic: !empty(blueCommitId) && !empty(greenCommitId) ? [
           {
-            revisionName: blueRevisonName
+            revisionName: '${appName}--${blueCommitId}'
             label: 'blue'
-            weight: 100 - greenRevisionWeight
+            weight: productionLabel == 'blue' ? productionTrafficWeight : 100 - productionTrafficWeight
           }
-          !empty(greenRevisonName) ? {
-            revisionName: greenRevisonName
+          {
+            revisionName: '${appName}--${greenCommitId}'
             label: 'green'
-            weight: greenRevisionWeight
-          } : {
-            revisionName: '${appName}--${commitId}'
-            label: 'green'
-            weight: greenRevisionWeight
+            weight: productionLabel == 'green' ? productionTrafficWeight : 100 - productionTrafficWeight
           }
         ] : [
           {
@@ -147,7 +154,7 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
       }
     }
     template: {
-      revisionSuffix: commitId
+      revisionSuffix: currentCommitId
       containers:[
         {
           image: 'k8seteste2e.azurecr.io/e2e-apps/test-app:latest'
@@ -158,8 +165,8 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
           }
           env: [
             {
-              name: 'BuildVersion'
-              value: commitId
+              name: 'REVISION_COMMIT_ID'
+              value: currentCommitId
             }
           ]
         }
@@ -185,11 +192,12 @@ export BLUE_COMMIT_ID=sha10b699ef
 export GREEN_COMMIT_ID=sha1c6f1515
 # Note: 'sha1' prefix added to the commit hash as the revision suffix cannot start with number
 
+# create a new app with a blue revision
 az deployment group create \
-    --name create-app-$BLUE_COMMIT_ID \
-    --resource-group $RESOURCE_GROUP \
+    --name createapp-$BLUE_COMMIT_ID \
+    --resource-group openai-capps-rg \
     --template-file main.bicep \
-    --parameters appName=$APP_NAME commitId=$BLUE_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --parameters appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
     --query properties.outputs.fqdn
 ```
 
@@ -197,7 +205,7 @@ az deployment group create \
 
 ## Deploy a new revision and assign labels
 
-For the purposes of this article the `blue` label will refer to a production deployment, which is a revision that takes the production traffic arriving on the apps FQDN. The `green` label will refer to a new version of an app that is about to be rolled out into production. It is identified by a new commit id. The following command will deploy a new revision for that commit id and mark it with `green` label.
+The `blue` label currently refers to a revision that takes the production traffic arriving on the app's FQDN. The `green` label will refer to a new version of an app that is about to be rolled out into production. The new version of the app code is identified by a new commit id. The following command will deploy a new revision for that commit id and mark it with `green` label.
 
 ::: zone pivot="azure-cli"
 
@@ -221,11 +229,12 @@ az containerapp revision label add \
 ::: zone pivot="bicep"
 
 ```azurecli
+# deploy a new version of the app to green revision
 az deployment group create \
-    --name create-revision-$GREEN_COMMIT_ID \
+    --name deploy-to-green-$GREEN_COMMIT_ID \
     --resource-group $RESOURCE_GROUP \
     --template-file main.bicep \
-    --parameters appName=$APP_NAME commitId=$GREEN_COMMIT_ID blueRevisonName=$APP_NAME--$BLUE_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --parameters appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$GREEN_COMMIT_ID productionLabel=blue containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
     --query properties.outputs.fqdn
 ```
 
@@ -257,13 +266,13 @@ The newly deployed revision can be tested by using the label-specific FQND:
 export APP_DOMAIN=$(az containerapp env show -g $RESOURCE_GROUP -n $APP_ENVIRONMENT_NAME --query properties.defaultDomain -o tsv | tr -d '\r\n')
 
 # Test the production FQDN
-curl https://$APP_NAME.$APP_DOMAIN/api/env | jq
+curl https://$APP_NAME.$APP_DOMAIN/api/env | jq | grep COMMIT
 
 # Test the blue lable FQDN
-curl https://$APP_NAME---blue.$APP_DOMAIN/api/env | jq
+curl https://$APP_NAME---blue.$APP_DOMAIN/api/env | jq | grep COMMIT
 
 # Test the green lable FQDN
-curl https://$APP_NAME---green.$APP_DOMAIN/api/env | jq
+curl https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
 ```
 
 # Send a percentage of production traffic to the green revision
@@ -273,6 +282,7 @@ After testing the newly deployed revosopm via label-specific FQDN the next step 
 ::: zone pivot="azure-cli"
 
 ```azurecli
+# send 20% of prod traffic to the green revision
 az containerapp ingress traffic set \
   --name $APP_NAME \
   --resource-group $RESOURCE_GROUP \
@@ -284,11 +294,12 @@ az containerapp ingress traffic set \
 ::: zone pivot="bicep"
 
 ```azurecli
+# send 20% of prod traffic to the green revision
 az deployment group create \
-    --name set-traffic-$GREEN_COMMIT_ID \
-    --resource-group $RESOURCE_GROUP \
+    --name send-some-traffic-to-green-$GREEN_COMMIT_ID \
+    -g $RESOURCE_GROUP \
     --template-file main.bicep \
-    --parameters appName=$APP_NAME commitId=$GREEN_COMMIT_ID blueRevisonName=$APP_NAME--$BLUE_COMMIT_ID greenRevisionWeight=20 containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    -p appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$GREEN_COMMIT_ID productionLabel=blue productionTrafficWeight=80 containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
     --query properties.outputs.fqdn
 ```
 
@@ -313,54 +324,48 @@ After running that command the traffic section of the app will look as below.
 }
 ```
 
-## Swap the labels to send all production traffic to the new revision
+## Send all production traffic to the green revision
 
-After confirming that the app code in the revision labelled `green` works as expected we are ready to swap the labels to make this revision `blue` and send 100% of production traffic to it.
+After confirming that the app code in the `green` revision works as expected we send 100% of production traffic to it. We also designate the `green` revision as the production revision.
 
 ::: zone pivot="azure-cli"
 
 ```azurecli
-# set 100% of traffic back to the blue label
+# set 100% of traffic to green revision
 az containerapp ingress traffic set \
   --name $APP_NAME \
   --resource-group $RESOURCE_GROUP \
-  --label-weight blue=100 green=0
-
-# swap revision labels
-az containerapp revision label swap \
-  --name $APP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --source green --target blue
-```
+  --label-weight blue=0 green=100
 
 ::: zone end
 
 ::: zone pivot="bicep"
 
 ```azurecli
+# make green the prod revision
 az deployment group create \
-    --name swap-labels-$GREEN_COMMIT_ID \
-    --resource-group $RESOURCE_GROUP \
+    --name make-green-prod-$GREEN_COMMIT_ID \
+    -g $RESOURCE_GROUP \
     --template-file main.bicep \
-    --parameters appName=$APP_NAME commitId=$GREEN_COMMIT_ID blueRevisonName=$APP_NAME--$GREEN_COMMIT_ID greenRevisonName=$APP_NAME--$BLUE_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    -p appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$GREEN_COMMIT_ID productionLabel=green containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
     --query properties.outputs.fqdn
 ```
 
 ::: zone end
 
-After running that command the traffic section of the app will look as below. The revision that was marked with `green` label is now marked as `blue` and is taking 100% of production traffic.
+After running that command the traffic section of the app will look as below. The `green` revision with the new application code takes all the user traffic while `blue` revision with the old application version does not serve any user requests.
 
 ```json
 { 
   "traffic": [
     {
       "revisionName": "<APP_NAME>--sha1c6f1515",
-      "weight": 100,
+      "weight": 0,
       "label": "blue"
     },
     {
       "revisionName": "<APP_NAME>--sha10b699ef",
-      "weight": 0,
+      "weight": 100,
       "label": "green"
     }
   ]
@@ -369,15 +374,16 @@ After running that command the traffic section of the app will look as below. Th
 
 # Rollback the deployment in case of problems
 
-If after the swap and running in production the new revision found to have bugs then the app can be rolled back to the previous good state by swapping the labels again:
+If, after running in production, the new revision found to have bugs then the app can be rolled back to the previous good state by sending 100% of traffic to the old version in the `blue` revision and designating the `blue` revision as the production revision again:
 
 ::: zone pivot="azure-cli"
 
 ```azurecli
-az containerapp revision label swap \
+# set 100% of traffic to green revision
+az containerapp ingress traffic set \
   --name $APP_NAME \
   --resource-group $RESOURCE_GROUP \
-  --source blue --target green
+  --label-weight blue=100 green=0
 ```
 
 ::: zone end
@@ -385,11 +391,57 @@ az containerapp revision label swap \
 ::: zone pivot="bicep"
 
 ```azurecli
+# rollback traffic to blue revision
 az deployment group create \
-    --name rollback-$BLUE_COMMIT_ID \
-    --resource-group $RESOURCE_GROUP \
+    --name rollback-to-blue-$GREEN_COMMIT_ID \
+    -g $RESOURCE_GROUP \
     --template-file main.bicep \
-    --parameters appName=$APP_NAME commitId=$GREEN_COMMIT_ID blueRevisonName=$APP_NAME--$BLUE_COMMIT_ID greenRevisonName=$APP_NAME--$GREEN_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    -p appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$GREEN_COMMIT_ID productionLabel=blue containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --query properties.outputs.fqdn
+```
+
+::: zone end
+
+After the bugs have been fixed the new version of the application is deployed as a `green` revision again and eventually becomes a production revision.
+
+# Next deployment cycle
+
+Now the `green` label marks the revision that is currently running the stable production code. So for the next deployment cycle the `blue` label will mark the revision with the new application version that is being rolled out to production. Example commands would look as follows:
+
+::: zone pivot="azure-cli"
+
+```azurecli
+# set the new commitId
+export BLUE_COMMIT_ID=sha10d1436b
+
+# create a third revision for blue commitId
+az containerapp update --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --image k8seteste2e.azurecr.io/e2e-apps/test-app:latest \
+  --revision-suffix $BLUE_COMMIT_ID  \
+  --set-env-vars REVISION_COMMIT_ID=$BLUE_COMMIT_ID
+
+# give that revision a 'blue' label
+az containerapp revision label add \
+  --name $APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --label blue \
+  --revision $APP_NAME--$BLUE_COMMIT_ID
+```
+::: zone end
+
+::: zone pivot="bicep"
+
+```azurecli
+# set the new commitId
+export BLUE_COMMIT_ID=sha10d1436b
+
+# deploy new version of the app to blue revision
+az deployment group create \
+    --name deploy-to-blue-$BLUE_COMMIT_ID \
+    -g $RESOURCE_GROUP \
+    --template-file main.bicep \
+    -p appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$BLUE_COMMIT_ID productionLabel=green containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
     --query properties.outputs.fqdn
 ```
 
@@ -398,4 +450,4 @@ az deployment group create \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [GitHub Actions](github-actions.md)
+> [Traffic Weights](traffic-splitting.md)
