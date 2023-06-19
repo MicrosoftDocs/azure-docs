@@ -21,10 +21,10 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Symptoms**: When you copy data into Azure Cosmos DB with a default write batch size, you receive the following error: `Request size is too large.`
 
-- **Cause**: Azure Cosmos DB limits the size of a single request to 2 MB. The formula is *request size = single document size \* write batch size*. If your document size is large, the default behavior will result in a request size that's too large. You can tune the write batch size.
+- **Cause**: Azure Cosmos DB limits the size of a single request to 2 MB. The formula is *request size = single document size \* write batch size*. If your document size is large, the default behavior will result in a request size that's too large.
 
 - **Resolution**: <br>
-In the copy activity sink, reduce the *write batch size* value (the default value is 10000). <br>
+You can tune the write batch size. In the copy activity sink, reduce the *write batch size* value (the default value is 10000). <br>
 If reducing the *write batch size* value to 1 still doesn't work, change your Azure Cosmos DB SQL API from V2 to V3. To complete this configuration, you have two options:
 
      - **Option 1**: Change your authentication type to service principal or system-assigned managed identity or user-assigned managed identity.
