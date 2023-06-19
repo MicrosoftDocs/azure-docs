@@ -45,3 +45,7 @@ Below are the steps to activate the prefix.
 **Q.** Will Microsoft re-advertise your prefixes to the Internet?
 
 **A.** No.
+
+**Q.** My peering service prefix has failed validation. How should I proceed?
+
+**A.** Review the [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md) and follow the troubleshooting steps described.

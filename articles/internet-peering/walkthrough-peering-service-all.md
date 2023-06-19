@@ -155,6 +155,14 @@ Below are the steps to activate the prefix.
 
 **A.** No.
 
+**Q.** My peering registered prefix has failed validation. How should I proceed?
+
+**A.** Review the [Peering Registered Prefix Requirements](./peering-registered-prefix-requirements.md) and follow the troubleshooting steps described.
+
+**Q.** My peering service prefix has failed validation. How should I proceed?
+
+**A.** Review the [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md) and follow the troubleshooting steps described.
+
 **Q.** Is there a fee for this service?
 
 **A.** No, however Peer is expected to carry site cross connect costs.

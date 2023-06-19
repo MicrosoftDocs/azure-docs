@@ -135,6 +135,14 @@ In this section, you activate the prefix:
 
 **A.** Microsoft announces all of Microsoft's public service prefixes over these interconnects. This ensures not only Communications but other cloud services are accessible from the same interconnect.
 
+**Q.** My peering registered prefix has failed validation. How should I proceed?
+
+**A.** Review the [Peering Registered Prefix Requirements](./peering-registered-prefix-requirements.md) and follow the troubleshooting steps described.
+
+**Q.** My peering service prefix has failed validation. How should I proceed?
+
+**A.** Review the [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md) and follow the troubleshooting steps described.
+
 **Q.**   Are there any AS path constraints?
 
 **A.**   Yes, a private ASN can't be in the AS path. For registered prefixes smaller than /24, the AS path must be less than four.
