@@ -277,7 +277,7 @@ curl https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
 
 ## Send a percentage of production traffic to the green revision
 
-After completing the tests of the newly deployed revision via label-specific FQDN, the next step is to send some percentage of production traffic to that revision.
+After you've completed the tests of the newly deployed revision via label-specific FQDN, the next step is to send some percentage of production traffic to that revision.
 
 ::: zone pivot="azure-cli"
 
