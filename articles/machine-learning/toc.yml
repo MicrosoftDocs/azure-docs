@@ -113,10 +113,10 @@
     # end v1
 - name: Interact with Azure Machine Learning
   items:
-  - name: Workspace
-    href: concept-workspace.md
   - name: Understand resources and assets
     href: concept-azure-machine-learning-v2.md
+  - name: Workspace
+    href: concept-workspace.md
   - name: Environments
     href: concept-environments.md
   - name: Compute instance
@@ -135,6 +135,8 @@
         href: how-to-access-terminal.md
       - name: Manage compute sessions
         href: how-to-manage-compute-sessions.md
+      - name: Searching for Assets and Resources
+        href: how-to-search-assets.md
       - name: Manage environments in studio
         displayName: environments, studio, create, edit
         href: how-to-manage-environments-in-studio.md
@@ -153,10 +155,12 @@
   - name: Manage environments with SDK and CLI (v2)
     displayName: environment
     href: how-to-manage-environments-v2.md
-  - name: Azure Machine Learning UI
-    items:
-      - name: Searching for Assets and Resources
-        href: how-to-search-assets.md
+  - name: Launch VS Code remote
+    displayName: Visual Studio Code, VSCode, debug, bugs
+    href: how-to-launch-vs-code-remote.md
+  - name: Work in VS Code remote
+    displayName: Visual Studio Code, VSCode, debug, bugs
+    href: how-to-work-in-vs-code-remote.md
   - name: Manage resources VS Code
     href: how-to-manage-resources-vscode.md
   - name: Work with MLflow
@@ -334,6 +338,8 @@
     items:
     - name: Overview
       href: apache-spark-azure-ml-concepts.md
+    - name: Configure Apache Spark jobs 
+      href: quickstart-spark-jobs.md
     - name: Submit Spark Jobs
       displayName: Submit Spark jobs in Azure Machine Learning
       href: how-to-submit-spark-jobs.md
@@ -1110,18 +1116,11 @@
       - name: Azure Container for PyTorch
         displayName: acpt
         href: how-to-azure-container-for-pytorch-environment.md
-      - name: Launch VS Code remote
-        displayName: Visual Studio Code, VSCode, debug, bugs
-        href: how-to-launch-vs-code-remote.md
-      - name: Work in VS Code remote
-        displayName: Visual Studio Code, VSCode, debug, bugs
-        href: how-to-work-in-vs-code-remote.md
       - name: Work with data
         items:
           - name: Prepare data with Apache Spark (preview)
             items:
-              - name: Configure Apache Spark jobs 
-                href: quickstart-spark-jobs.md
+
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity
