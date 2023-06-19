@@ -132,7 +132,7 @@ AzureDiagnostics :
  }
 
 ```
-Resource Specific Table Entry:
+Resource specific table entry:
 ```json 
 {
     "ActivityId": "<activity id>",
