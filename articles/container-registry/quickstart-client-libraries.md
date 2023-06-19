@@ -596,7 +596,7 @@ go get github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry
 
 ## Authenticate the client
 
-When you're developing and debugging your application locally, you can use [azidentity.NewDefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#NewDefaultAzureCredential) to authenticate. We recommend to use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) in production environment. 
+When you're developing and debugging your application locally, you can use [azidentity.NewDefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#NewDefaultAzureCredential) to authenticate. We recommend using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) in a production environment. 
 
 ```go
 import (
@@ -621,7 +621,7 @@ See the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/az
 
 ## Examples
 
-Each sample assumes the container registry endpoint url is "https://myregistry.azurecr.io".
+Each sample assumes the container registry endpoint URL is "https://myregistry.azurecr.io".
 
 ### List tags
 
