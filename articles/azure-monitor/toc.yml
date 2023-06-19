@@ -189,13 +189,13 @@ items:
         - name: JavaScript
           items:
           - name: Get started
-            displayName: browser, client-side, SDK Loader Script
+            displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
-          - name: JavaScript SDK advanced topics
-            href: app/javascript-sdk-advanced.md
-          - name: Framework extensions
+          - name: JavaScript SDK configuration
+            href: app/javascript-sdk-configuration.md
+          - name: React, React Native, Angular
             href: app/javascript-framework-extensions.md
-          - name: Feature extensions (Click Analytics)
+          - name: Click Analytics Auto-Collection
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
