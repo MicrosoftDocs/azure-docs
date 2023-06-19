@@ -58,7 +58,7 @@ While you're waiting for approval, you can [setup the prerequisites](speech-cont
 The Speech containers send billing information to Azure by using a Speech resource on your Azure account. 
 
 > [!NOTE]
-> Connected and disconnected container pricing and commitment tiers vary. For more information, see [Speech Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Connected and disconnected container pricing and commitment tiers vary. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 Speech containers aren't licensed to run without being connected to Azure for metering. You must configure your container to communicate billing information with the metering service at all times. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). 
 
