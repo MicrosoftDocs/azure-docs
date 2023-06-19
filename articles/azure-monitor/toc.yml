@@ -601,8 +601,6 @@ items:
             href: logs/logs-data-export.md
           - name: Export with Logic Apps
             href: logs/logs-export-logic-app.md
-          - name: Query data with Azure Data Explorer
-            href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
   - name: System Center
