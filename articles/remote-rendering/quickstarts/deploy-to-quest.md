@@ -12,6 +12,13 @@ ms.custom: mode-other
 
 This quickstart covers how to deploy and run the quickstart sample app for Unity to a Meta Quest 2 or Quest Pro device.
 
+> [!IMPORTANT]
+> **Support for Quest 2 and Quest Pro is currently in Public Preview**.
+>
+> This functionality is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have limited capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 In this quickstart you'll learn how to:
 
 > [!div class="checklist"]
