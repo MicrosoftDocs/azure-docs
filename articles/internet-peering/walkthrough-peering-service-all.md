@@ -27,7 +27,7 @@ The following flowchart summarizes the process to onboard to Peering Services
 The technical requirements to establish direct interconnect for Peering Services are as following:
 -	The Peer MUST provide own Autonomous System Number (ASN), which MUST be public.
 -	The peer MUST have redundant Interconnect (PNI) at each interconnect location to ensure local redundancy.
--	The Peer MUST have geo redundancy in place to ensure failover in event of site failures in region/ metro.
+-	The Peer MUST have geo redundancy in place to ensure failover if there are site failures in the region or metro.
 -	The Peer MUST has the BGP sessions as Active- Active to ensure high availability and faster convergence and should not be provisioned as Primary and backup.
 -	The Peer MUST maintain a 1:1 ratio for Peer peering routers to peering circuits and no rate limiting is applied.
 -	The Peer MUST supply and advertise their own publicly routable IPv4 address space. 
@@ -38,11 +38,11 @@ The technical requirements to establish direct interconnect for Peering Services
 
 ## Establishing Direct Interconnect with Microsoft for Peering Services.
 
-To establish a direct interconnect using Azure Internet peering please follow the below steps:
+To establish a direct interconnect using Azure Internet peering, follow these steps:
 
 **1.	Associate Peer public ASN to the Azure Subscription:**
 
-In case Peer already associated public ASN to Azure subscription, please ignore this step.
+In case Peer already associated public ASN to Azure subscription, ignore this step.
 
 [Associate peer ASN to Azure subscription using the portal - Azure | Microsoft Docs](./howto-subscription-association-portal.md)
 
@@ -57,7 +57,7 @@ Follow the instructions to [Create or modify a Direct peering using the portal](
 
 Ensure it meets high-availability requirement.
 
-Please ensure you are selecting following options on “Create a Peering” Page:
+Ensure you're selecting following options on “Create a Peering” Page:
 
 Peering Type:	**Direct**
 
@@ -80,15 +80,15 @@ Use for Peering Services: 	**Enabled**
 
 For optimized routing for your Peering Services infrastructure prefixes, you should register all your prefixes with your peering interconnects.
 
-Please ensure that the prefixes registered are being announced over the direct interconnects established in that location.
-If the same prefix is announced in multiple peering locations, it is sufficient to register them with just one of the peerings in order to retrieve the unique prefix keys after validation.
+Ensure that the prefixes registered are being announced over the direct interconnects established in that location.
+If the same prefix is announced in multiple peering locations, it's sufficient to register them with just one of the peerings in order to retrieve the unique prefix keys after validation.
 
 > [!NOTE] 
 > The Connection State of your peering connections must be Active before registering any prefixes.
 
 **Prefix Registration**
 
-1. If you are an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
+1. If you're an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
 
    :::image type="content" source="./media/registered-prefixes-under-direct-peering.png" alt-text="Screenshot of registered prefixes tab under a peering enabled for Peering Service." :::
 
@@ -102,9 +102,9 @@ If the same prefix is announced in multiple peering locations, it is sufficient 
 
 **Prefix Activation**
 
-In the previous steps, you registered the prefix and generated the prefix key. The prefix registration DOES NOT activate the prefix for optimized routing (and will not even accept <\/24 prefixes) and it requires prefix activation and alignment to the right partner (In this case the OC partner) and the appropriate interconnect location (to ensure cold potato routing).
+In the previous steps, you registered the prefix and generated the prefix key. The prefix registration DOES NOT activate the prefix for optimized routing. It won't allow for the acceptance of <\/24 prefixes. These require prefix activation and alignment to the OC partner and the appropriate interconnect location to ensure cold potato routing.
 
-Below are the steps to activate the prefix.
+Instructions to activate the prefix:
 
 1. Look for “Peering Services” resource 
 
@@ -116,7 +116,7 @@ Below are the steps to activate the prefix.
 
   :::image type="content" source="./media/create-peering-service.png" alt-text="Screenshot showing how to create a new peering service." :::
 
-3. Provide details on the location, provider and primary and backup interconnect location. If backup location is set to “none”, the traffic will fail over the internet. 
+3. Provide details on the location, provider and primary and backup interconnect location. If backup location is set to “none”, the traffic fails over the internet. 
 
     If you are an Operator Connect partner, you would be able to see yourself as the provider. 
     The prefix key should be the same as the one obtained in the "Prefix Registration" step. 
@@ -137,11 +137,11 @@ Below are the steps to activate the prefix.
 
 **Q.**	I have smaller subnets (</24) for my Peering services. Can I get the smaller subnets also routed?
 
-**A.**	Yes, Microsoft Azure Peering service supports smaller prefix routing also. Please ensure that you are registering the smaller prefixes for routing and the same are announced over the interconnects.
+**A.**	Yes, Microsoft Azure Peering service supports smaller prefix routing also. Please register the smaller prefixes for routing and the same are announced over the interconnects.
 
 **Q.**	What Microsoft routes will we receive over these interconnects?
 
-**A.** Microsoft announces all of Microsoft's public service prefixes over these interconnects. This will ensure not only communications but other cloud services are accessible from the same interconnect.
+**A.** Microsoft announces all of Microsoft's public service prefixes over these interconnects. This announcement ensures not only communications but other cloud services are accessible from the same interconnect.
 
 **Q.**   Are there any AS path constraints?
 
@@ -151,7 +151,7 @@ Below are the steps to activate the prefix.
 
 **A.** Microsoft announces roughly 280 prefixes on internet, and it may increase by 10-15% in future. So, a safe limit of 400-500 can be good to set as “Max prefix count”
 
-**Q.** Will Microsoft re-advertise the Peer prefixes to the Internet?
+**Q.** Will Microsoft readvertise the Peer prefixes to the Internet?
 
 **A.** No.
 
@@ -169,7 +169,7 @@ Below are the steps to activate the prefix.
 
 **Q.** What is the minimum link speed for an interconnect?
 
-**A.** 10Gbps.
+**A.** 10 Gbps.
 
 **Q.** Is the Peer bound to an SLA?
 
@@ -177,7 +177,7 @@ Below are the steps to activate the prefix.
 
 **Q.** How does it take to complete the onboarding process?
 
-**A.** Time will be variable depending on number and location of sites, and if Peer is migrating existing private peerings or establishing new cabling. Carrier should plan for 3+ weeks.
+**A.** Time is variable depending on number and location of sites, and if Peer is migrating existing private peerings or establishing new cabling. Carrier should plan for 3+ weeks.
 
 **Q.** How is progress communicated outside of the portal status?
 
@@ -185,4 +185,4 @@ Below are the steps to activate the prefix.
 
 **Q.** Can we use APIs for onboarding?
 
-**A.** Currently there is no API support, and configuration must be performed via web portal.
+**A.** Currently there's no API support, and configuration must be performed via web portal.

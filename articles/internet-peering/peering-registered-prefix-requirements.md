@@ -12,44 +12,44 @@ ms.custom: template-concept, engagement-fy23
 
 # Peering registered prefix requirements
 
-Ensure the prerequisites below are met before you activate your prefixes for Peering Service.
+Ensure the prerequisites in this document are met before you activate your prefixes for Peering Service.
 
 ## Technical requirements
 
 For a registered prefix to be validated after creation, the following checks must pass:
 
-* The prefix cannot be in a private range
+* The prefix can't be in a private range
 * All sessions on the parent peering must advertise routes for the prefix
 * Routes must be advertised with the MAPS community string 8075:8007
-* AS paths in your routes cannot exceed a path length of 3, and cannot contain private ASNs
+* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
 
 ## Troubleshooting
 
-The validation state of a peering service prefix can be seen in the Azure Portal.
+The validation state of a peering service prefix can be seen in the Azure portal.
 
 :::image type="content" source="media/peering-registered-prefix-validation-failed.png" alt-text="Peering registered prefixes displayed with validation failure messages" :::
 
-Prefixes can only be registered when all validation steps have passed. Listed below are possible validation errors, with troubleshooting steps to solve them.
+Prefixes can only be registered when all validation steps have passed. Listed in this document are possible validation errors, with troubleshooting steps to solve them.
 
 ### Prefix not received from IP
 
-To validate a prefix during registration, the prefix must be advertised on every session belonging to the prefix's parent peering. This message indicates that Microsoft is not receiving prefix advertisement from one or more of the sessions. All IPs listed in this message are missing advertisement. Contact your networking team, and confirm that the prefixes are being advertised on all sessions.
+To validate a prefix during registration, the prefix must be advertised on every session belonging to the prefix's parent peering. This message indicates that Microsoft isn't receiving prefix advertisement from one or more of the sessions. All IPs listed in this message are missing advertisement. Contact your networking team, and confirm that the prefixes are being advertised on all sessions.
 
-If you're advertising your prefix on all sessions and you're still seeing this validation failure message, please contact mapschamps@microsoft.com with your Azure subscription, and prefix and we will assist you.
+If you're advertising your prefix on all sessions and you're still seeing this validation failure message, contact mapschamps@microsoft.com with your Azure subscription, and prefix and we will assist you.
 
 ### Advertisement missing MAPS community
 
-A requirement for registered prefix validation is that prefixes are advertised with the MAPS community string "8075:8007". This message indicates that Microsoft is receiving prefix advertisement, but the MAPS community string is missing. Please add the MAPS community string to the community when advertising routes for MAPS prefixes. After that, the community requirements will be satisfied and validation will continue.
+A requirement for registered prefix validation is that prefixes are advertised with the MAPS community string "8075:8007". This message indicates that Microsoft is receiving prefix advertisement, but the MAPS community string is missing. Add the MAPS community string to the community when advertising routes for MAPS prefixes. After that, the community requirements will be satisfied and validation will continue.
 
-If you have any issues or questions, please contact mapschamps@microsoft.com with your Azure subscription, and prefix and we will assist you.
+If you have any issues or questions, contact mapschamps@microsoft.com with your Azure subscription, and prefix and we'll assist you.
 
-### AS path is not correct
+### AS path isn't correct
 
-For registered prefix validation, the AS path of the advertised routes must satisfy technical requirements. Namely, the AS path of the routes must not exceed a path length of 3, and the AS path cannot contain any private ASNs. This message indicates that Microsoft is receiving routes for the prefix, but the AS path violates one of those two requirements. Please adjust the prefix advertisement on all sessions, and ensure that the AS path length does not exceed 3, and there are no private ASNs in the path. After that, the AS path requirements will be satisfied and validation will continue.
+For registered prefix validation, the AS path of the advertised routes must satisfy technical requirements. Namely, the AS path of the routes must not exceed a path length of 3, and the AS path can't contain any private ASNs. This message indicates that Microsoft is receiving routes for the prefix, but the AS path violates one of those two requirements. Adjust the prefix advertisement on all sessions, and ensure that the AS path length doesn't exceed 3, and there are no private ASNs in the path. After that, the AS path requirements will be satisfied and validation will continue.
 
 ### Internal server error
 
-Please contact mapschamps@microsoft.com with your Azure subscription, and prefix and we will assist you.
+Contact mapschamps@microsoft.com with your Azure subscription, and prefix and we'll assist you.
 
 ## Next steps
 
