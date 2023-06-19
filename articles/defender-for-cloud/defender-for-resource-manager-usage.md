@@ -74,4 +74,3 @@ This page explained the process of responding to an alert from Microsoft Defende
 - [Suppress security alerts](alerts-suppression-rules.md)
 - [Continuously export Defender for Cloud data](continuous-export.md)
 
-
