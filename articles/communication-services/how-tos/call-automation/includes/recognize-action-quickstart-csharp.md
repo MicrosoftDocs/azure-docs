@@ -47,7 +47,7 @@ During the preview phase, the NuGet package can be obtained by configuring your 
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this instance, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). In this quickstart, we'll create an outbound call.
 
 ## Call the recognize action
 
