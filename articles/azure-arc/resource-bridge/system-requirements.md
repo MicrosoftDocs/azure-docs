@@ -90,7 +90,7 @@ The reserved appliance VM IP is the ending IP address for the appliance VM IP po
 
 Reserved appliance VM IP requirements:  
 
-- Open communication with the management machine and management endpoint. (ex: vCenter for VMware, MOC cloud agent service endpoint for Azure Stack HCI)
+- Open communication with the management machine and management endpoint (such as vCenter for VMware or MOC cloud agent service endpoint for Azure Stack HCI).
 
 - Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
 
