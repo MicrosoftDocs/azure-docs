@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 06/19/2023
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
@@ -261,7 +261,7 @@ Use the following commands with AzCopy 10:
 
     ```powershell
     $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName)[0].Value
-    $blobendpoint = (Get-AzEnvironment -Name envarm).StorageEndpointSuffix
+    $blobendpoint = (Get-AzEnvironment -Name Environment Name).StorageEndpointSuffix
     $StorageAccountContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -Endpoint $blobendpoint
     <Create the container if it does not exist>
     $containerName = "con1"
