@@ -120,9 +120,9 @@ Operational log entries include elements listed in the following table:
 
 Here's an example of an operational log JSON string:
 
+AzureDiagnostics:
 
-
-```AzureDiagnostics
+```json
 
 {
   "ActivityId": "0000000000-0000-0000-0000-00000000000000",
@@ -138,8 +138,9 @@ Here's an example of an operational log JSON string:
 
 
 ```
+Resource specific table entry:
 
-```AZMSOperationalLogs
+```json
 
 {
 
@@ -157,8 +158,6 @@ Here's an example of an operational log JSON string:
 }
 
 ```
-
-
 
 ### Events and operations captured in operational logs
 Operational logs capture all management operations that are performed on the Azure Service Bus namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on Azure Service Bus.
@@ -201,7 +200,8 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 
 Here's an example of a virtual network log JSON string:
 
-```AzureDiagnostics
+AzureDiagnostics;
+```json
 {
     "SubscriptionId": "0000000-0000-0000-0000-000000000000",
     "NamespaceName": "namespace-name",
@@ -213,8 +213,8 @@ Here's an example of a virtual network log JSON string:
     "Category": "ServiceBusVNetConnectionEvent"
 }
 ```
-
-```AZMSVNetConnectionEvents
+Resource specific table entry:
+```json
 {
     "SubscriptionId": "0000000-0000-0000-0000-000000000000",
     "NamespaceName": "namespace-name",
@@ -257,7 +257,8 @@ Name | Description | Supported in Azure Diagnostics | Supported in AZMSRuntimeAu
 
 Here's an example of a runtime audit log entry:
 
-```AzureDiagnostics
+AzureDiagnostics:
+```json
 {
     "ActivityId": "<activity id>",
     "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
@@ -274,8 +275,8 @@ Here's an example of a runtime audit log entry:
  }
 
 ```
-
-```AZMSRuntimeAuditLogs
+Resource specific table entry:
+```json
 {
     "ActivityId": "<activity id>",
     "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
@@ -293,7 +294,6 @@ Here's an example of a runtime audit log entry:
  }
 
 ```
-
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
 
@@ -301,6 +301,3 @@ Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these
 - For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).
 - For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
 
-```
-
-```
