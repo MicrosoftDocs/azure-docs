@@ -43,7 +43,7 @@ The IP address prefix is the subnet's IP address range for the virtual network a
 
 Consult your system or network administrator to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
 
-## Static Configuration
+## Static configuration
 
 Static configuration is recommended for Arc resource bridge because the resource bridge needs three static IPs in the same subnet for the control plane, appliance VM, and reserved appliance VM. 
 
