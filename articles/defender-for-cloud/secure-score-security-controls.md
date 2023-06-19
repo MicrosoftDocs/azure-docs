@@ -2,7 +2,7 @@
 title: Secure score
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 06/18/2023
 ---
 
 # Secure score
@@ -121,20 +121,6 @@ Even though Defender for Cloud's default security initiative, the Azure Security
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
 
-## FAQ - Secure score
-
-### If I address only three out of four recommendations in a security control, will my secure score change?
-
-No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations for all resources.
-
-### If a recommendation isn't applicable to me, and I disable it in the policy, will my security control be fulfilled and my secure score updated?
-
-Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security recommendations](./tutorial-security-policy.md#disable-a-security-recommendation).
-
-### If a security control offers me zero points towards my secure score, should I ignore it?
-
-In some cases, you'll see a control max score greater than zero, but the impact is zero. When the incremental score for fixing resources is negligible, it's rounded to zero. Don't ignore these recommendations because they still bring security improvements. The only exception is the "Additional Best Practice" control. Remediating these recommendations won't increase your score, but it will enhance your overall security.
-
 ## Next steps
 
 This article described the secure score and the included security controls.
@@ -147,5 +133,4 @@ For related material, see the following articles:
 - [Learn about the different elements of a recommendation](review-security-recommendations.md)
 - [Learn how to remediate recommendations](implement-security-recommendations.md)
 - [View the GitHub-based tools for working programmatically with secure score](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
-
-
+- Check out [common questions](faq-cspm.yml) about secure score.
