@@ -34,7 +34,7 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 | Node.js (mysql)                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python (mysql-connector-python) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python-Django                   | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| PHP (mysqli)                    | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| PHP (MySQLi)                    | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Ruby (mysql2)                   | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | None                            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
@@ -222,9 +222,9 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_CLIENTSECRET          | Your client secret    | `<client-secret>`                                      |
 | Azure_MYSQL_TENANTID              | Your tenant ID        | `<tenant-ID>`                                          |
 
-#### PHP (mysqli)
+#### PHP (MySQLi)
 
-#### PHP (mysqli) secret / connection string
+#### PHP (MySQLi) secret / connection string
 
 | Default environment variable name | Description        | Example value                              |
 |-----------------------------------|--------------------|--------------------------------------------|
@@ -233,37 +233,37 @@ Use the connection details below to connect compute services to Azure Database f
 | Azure_MYSQL_PASSWORD              | Database password  | `<MySQL-DB-password>`                      |
 | Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
 | Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MYSQLI_CLIENT_SSL`                        |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
 
-#### PHP (mysqli) system-assigned managed identity
+#### PHP (MySQLi) system-assigned managed identity
 
 | Default environment variable name | Description        | Example value                              |
 |-----------------------------------|--------------------|--------------------------------------------|
 | Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MYSQLI_CLIENT_SSL`                        |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
 | Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>`      |
 
-#### PHP (mysqli) User-assigned managed identity
+#### PHP (MySQLi) User-assigned managed identity
 
 | Default environment variable name | Description        | Example value                              |
 |-----------------------------------|--------------------|--------------------------------------------|
 | Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MYSQLI_CLIENT_SSL`                        |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
 | Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_CLIENTID              | Your client ID     | `<client-ID>`                              |
 
-#### PHP (mysqli) Service principal
+#### PHP (MySQLi) Service principal
 
 | Default environment variable name | Description        | Example value                              |
 |-----------------------------------|--------------------|--------------------------------------------|
 | Azure_MYSQL_DBNAME                | Database name      | `<MySQL-DB-name>`                          |
 | Azure_MYSQL_HOST                  | Database Host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
 | Azure_MYSQL_PORT                  | Port number        | `3306`                                     |
-| Azure_MYSQL_FLAG                  | SSL or other flags | `MYSQLI_CLIENT_SSL`                        |
+| Azure_MYSQL_FLAG                  | SSL or other flags | `MySQLi_CLIENT_SSL`                        |
 | Azure_MYSQL_USERNAME              | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | Azure_MYSQL_CLIENTID              | Your client ID     | `<client-ID>`                              |
 | Azure_MYSQL_CLIENTSECRET          | Your client secret | `<client-secret>`                          |
