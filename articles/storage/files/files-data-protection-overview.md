@@ -65,10 +65,13 @@ To learn how to back up and restore Azure file shares using the REST API, see th
 
 Azure Files offers multiple redundancy options, including geo-redundancy, to help protect your data from service outages due to hardware problems or natural disasters. To find out which option is best for your use case, see [Azure Files data redundancy](files-redundancy.md).
 
+> [!IMPORTANT]
+> Azure Files only supports geo-redundancy (GRS or GZRS) for standard SMB file shares. Premium file shares and NFS file shares must use locally redundant storage (LRS) or zone redundant storage (ZRS).
+
 ## Disaster recovery and failover
 In the case of a disaster or unplanned outage, restoring access to file share data is usually critical to keeping the business operational. Depending on the criticality of the data hosted in your file shares, you might need a disaster recovery strategy that includes failing your Azure file shares over to a secondary region.
 
-Azure Files offers customer-managed failover if the data center in the primary region becomes unavailable.
+Azure Files offers customer-managed failover for standard storage accounts if the data center in the primary region becomes unavailable. See [Disaster recovery and failover for Azure Files](files-disaster-recovery.md).
 
 ## Prevent accidental deletion of storage accounts and file shares
 
@@ -108,5 +111,4 @@ This method simplifies disaster recovery and gives you multiple options. You can
 ## See also
 
 - [Azure Files redundancy](files-redundancy.md)
-- [Azure Files disaster recovery and failover](../common/storage-initiate-account-failover.md)
-
+- [Azure Files disaster recovery and failover](files-disaster-recovery.md)

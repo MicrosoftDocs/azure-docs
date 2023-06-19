@@ -1,6 +1,6 @@
 ---
-title: Disaster recovery and failover for Azure Files and Azure File Sync
-description: Learn how to recover your data in Azure Files and Azure File Sync. Understand the concepts and processes involved with disaster recovery and storage account failover.
+title: Disaster recovery and failover for Azure Files
+description: Learn how to recover your data in Azure Files. Understand the concepts and processes involved with disaster recovery and storage account failover.
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: kendownie
 ms.subservice: files
 ---
 
-# Disaster recovery and failover for Azure Files and Azure File Sync
+# Disaster recovery and failover for Azure Files
 
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur, and you should have a disaster recovery (DR) plan in place for handling a regional service outage. An important part of a disaster recovery plan is preparing to fail over to the secondary endpoint in the event that the primary endpoint becomes unavailable. This article describes the concepts and processes involved with disaster recovery (DR) and storage account failover.
 
