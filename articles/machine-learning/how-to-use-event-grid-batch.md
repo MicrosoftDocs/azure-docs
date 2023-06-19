@@ -32,7 +32,7 @@ The workflow looks as follows:
    
    b. It will trigger the batch endpoint (default deployment) using the newly created file as input.
 
-5. The batch endpoint will return the name of the job that was greated to process the file.
+5. The batch endpoint will return the name of the job that was created to process the file.
 
 > [!IMPORTANT]
 > When using Logic App connected with event grid to invoke batch endpoint, you are generateing one job per **each blob file** created in the sotrage account. Keep in mind that since batch endpoints distribute the work at the file level, there will not be any parallelization happening. Instead, you will be taking advantage of batch endpoints's capability of executing multiple jobs under the same compute cluster. If you need to run jobs on entire folders in an automatic fashion, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
