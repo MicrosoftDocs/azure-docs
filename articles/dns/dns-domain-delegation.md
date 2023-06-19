@@ -40,7 +40,7 @@ When a recursive DNS server receives a query for a DNS record such as `www.conto
 
 This procedure is called resolving the DNS name. Strictly speaking, DNS resolution includes more steps such as following CNAMEs, but that's not important to understanding how DNS delegation works.
 
-How does a parent zone `point` to the name servers for a child zone? It does this using a special type of DNS record called an NS record (NS stands for 'name server'). For example, the root zone contains NS records for `com` and shows the name servers for the `com` zone. In turn, the `com` zone contains NS records for `contoso.com`, which shows the name servers for the `contoso.com` zone. Setting up the NS records for a child zone in a parent zone is called delegating the domain.
+How does a parent zone point to the name servers for a child zone? It does this using a special type of DNS record called an NS record (NS stands for 'name server'). For example, the root zone contains NS records for `com` and shows the name servers for the `com` zone. In turn, the `com` zone contains NS records for `contoso.com`, which shows the name servers for the `contoso.com` zone. Setting up the NS records for a child zone in a parent zone is called delegating the domain.
 
 The following image shows an example DNS query. The `contoso.net` and `partners.contoso.net` are Azure DNS zones.
 
