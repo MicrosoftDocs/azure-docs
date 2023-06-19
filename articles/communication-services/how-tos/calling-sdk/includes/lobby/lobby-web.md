@@ -1,0 +1,85 @@
+---
+title: Teams meeting lobby
+titleSuffix: An Azure Communication Services how-to guide
+description: Use Azure Communication Services SDKs to admit or reject users from Teams meeting lobby.
+author: tinaharter
+ms.author: tinaharter
+ms.service: azure-communication-services
+ms.subservice: teams-interop
+ms.topic: how-to 
+ms.date: 06/15/2023
+ms.custom: template-how-to
+
+---
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
+
+Object `Lobby` on `Call` or `TeamsCall` class allow users to access Teams meeting lobby informations. It would be undefined if current call not the meeting scenario. It includes the APIs, `admit`, `reject` and `admitAll`, which allows user to admit and reject participants from Teams meeting lobby. User could also get the `lobbyParticipants` collection and subscribe the `lobbyParticipantsUpdated` event to receive notification.
+
+### Get lobby object
+The first thing is to get the `Call` or `TeamsCall` object of admitter: [Learn how to join Teams meeting](./teams-interoperability.md)
+You can get the `Lobby` object from `Call` or `TeamsCall` object, however `Lobby` object would only available in meeting scenario. You can subscribe to the `lobbyChanged` event, and you will be notified when the lobby object is available.
+```js
+const lobby = call.lobby;
+```
+
+### Get lobby participants properties
+To know who is in the lobby, you could get the `lobbyParticipants` collection from `Lobby` object. It is a collection of `RemoteParticipant` object with `InLobby` state.To get the `lobbyParticipants` collection:
+
+```js
+const lobby = call.lobby; 
+let lobbyParticipants = lobby.lobbyParticipants; // [remoteParticipant, remoteParticipant....]
+```
+
+### Get identifier for a remote participant
+Before admit or reject participant from lobby, you could get the identifier for a remote participant:
+```js
+const identifier = remoteParticipant.identifier;
+```
+
+The `identifier` can be one of the following `CommunicationIdentifier` types:
+
+- `{ communicationUserId: '<COMMUNICATION_SERVICES_USER_ID'> }`: Object representing the Azure Communication Services user.
+- `{ phoneNumber: '<PHONE_NUMBER>' }`: Object representing the phone number in E.164 format.
+- `{ microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
+- `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
+
+### Admit, reject and admitAll participant from lobby
+To admit, reject or admit all users from the lobby, you can use the `admit`, `reject` and `admitAll` methods. 
+They are the async APIs, to verify results can be used `lobbyParticipantsUpdated` listeners.
+
+You can admit or reject from lobby by calling the method `admit` and `reject`. The method accepts identifiers `MicrosoftTeamsUserIdentifier`, `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `UnknownIdentifier` as input. You can also admit all users from the lobby by calling the method `admitAll`. 
+```js
+const lobby = call.lobby; 
+//admit
+await lobby.admit(identifier);
+//reject
+await lobby.reject(identifier);
+//admitAll
+await lobby.admitAll();
+```
+
+### Handle lobby updated event
+You could subscribe to the `lobbyParticipantsUpdated` event to handle the changes in the `lobbyParticipants` collection. This event will be triggered when the participants are added or removed from the lobby and it will provides the added or removed participants list.
+```js
+subscribeToCall = (call) => {
+    try {
+        //Subscribe to call's 'lobbyChanged' event to get notification when lobby is available.
+        call.on('lobbyChanged', () => {
+            //Subscribe to lobby's 'lobbyParticipantsUpdated' event for lobbyParticipants update.
+            call.lobby.on('lobbyParticipantsUpdated', lobbyParticipantsUpdatedHandler);
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const lobbyParticipantsUpdatedHandler = (event) => {
+    event.added.forEach(remoteParticipant => {
+        console.log(`${remoteParticipant._displayName} joins the lobby`);
+    });
+    event.removed.forEach(remoteParticipant => {
+        console.log(`${remoteParticipant._displayName} leaves the lobby`);
+    })
+};
+```
+[Learn more about events and subscription ](./events.md)
