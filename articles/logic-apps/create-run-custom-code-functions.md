@@ -266,7 +266,7 @@ After you confirm that your code compiles and that your logic app project contai
 
    :::image type="content" source="media/create-run-custom-code-functions/set-breakpoint.png" alt-text="Screenshot shows Visual Studio Code and the open function code file with a breakpoint set for a line in code.":::
 
-1. To manually run the Request trigger in your workflow, find the trigger URL:
+1. To manually run the Request trigger in your workflow, open the workflow's **Overview** page.
 
    1. From your logic app project, open the **workflow.json** file's shortcut menu, and select **Overview**.
 
