@@ -173,7 +173,7 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
 ## Simulate alerts for Storage ATP (Advanced Threat Protection)
 
 1. Navigate to a storage account that has Azure Defender for Storage enabled.
-1. Select the Containers tab in the sidebar.
+1. Select the **Containers** tab in the sidebar.
     
     :::image type="content" source="media/alert-validation/storage-atp-navigate-container.png" alt-text="Screenshot showing where to navigate to select a container." lightbox="media/alert-validation/storage-atp-navigate-container.png":::
 
