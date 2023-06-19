@@ -71,7 +71,7 @@ The appliance VM IP is the starting IP address for the appliance VM IP pool rang
 
 Appliance VM IP address requirements:
 
-- Open communication with the management machine and management endpoint. (ex: vCenter for VMware, MOC cloud agent service endpoint for Azure Stack HCI)
+- Open communication with the management machine and management endpoint (such as vCenter for VMware or MOC cloud agent service endpoint for Azure Stack HCI).
 - Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
 - Static IP assigned (strongly recommended)
    - Not recommended: If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP.
