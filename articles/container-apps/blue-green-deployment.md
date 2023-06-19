@@ -73,7 +73,7 @@ az containerapp revision label add \
   --revision $APP_NAME--$BLUE_COMMIT_ID
 ```
 
-::: zone end
+::: zone-end
 
 ::: zone pivot="bicep"
 
@@ -201,7 +201,7 @@ az deployment group create \
     --query properties.outputs.fqdn
 ```
 
-::: zone end
+::: zone-end
 
 ## Deploy a new revision and assign labels
 
@@ -224,7 +224,7 @@ az containerapp revision label add \
   --label green \
   --revision $APP_NAME--$GREEN_COMMIT_ID
 ```
-::: zone end
+::: zone-end
 
 ::: zone pivot="bicep"
 
@@ -238,7 +238,7 @@ az deployment group create \
     --query properties.outputs.fqdn
 ```
 
-::: zone end
+::: zone-end
 
 After running those commands the traffic section of the app will look as below. The revision with the `blue` commitId is taking 100% of production traffic while the newly deployed revision with `green` commitId does not take any production traffic.
 
@@ -289,7 +289,7 @@ az containerapp ingress traffic set \
   --label-weight blue=80 green=20
 ```
 
-::: zone end
+::: zone-end
 
 ::: zone pivot="bicep"
 
@@ -303,7 +303,7 @@ az deployment group create \
     --query properties.outputs.fqdn
 ```
 
-::: zone end
+::: zone-end
 
 After running that command the traffic section of the app will look as below.
 
@@ -337,7 +337,7 @@ az containerapp ingress traffic set \
   --resource-group $RESOURCE_GROUP \
   --label-weight blue=0 green=100
 
-::: zone end
+::: zone-end
 
 ::: zone pivot="bicep"
 
@@ -351,7 +351,7 @@ az deployment group create \
     --query properties.outputs.fqdn
 ```
 
-::: zone end
+::: zone-end
 
 After running that command the traffic section of the app will look as below. The `green` revision with the new application code takes all the user traffic while `blue` revision with the old application version does not serve any user requests.
 
@@ -386,7 +386,7 @@ az containerapp ingress traffic set \
   --label-weight blue=100 green=0
 ```
 
-::: zone end
+::: zone-end
 
 ::: zone pivot="bicep"
 
@@ -400,7 +400,7 @@ az deployment group create \
     --query properties.outputs.fqdn
 ```
 
-::: zone end
+::: zone-end
 
 After the bugs have been fixed the new version of the application is deployed as a `green` revision again and eventually becomes a production revision.
 
@@ -428,7 +428,7 @@ az containerapp revision label add \
   --label blue \
   --revision $APP_NAME--$BLUE_COMMIT_ID
 ```
-::: zone end
+::: zone-end
 
 ::: zone pivot="bicep"
 
@@ -445,7 +445,7 @@ az deployment group create \
     --query properties.outputs.fqdn
 ```
 
-::: zone end
+::: zone-end
 
 ## Next steps
 
