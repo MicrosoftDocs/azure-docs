@@ -32,7 +32,7 @@ In this quickstart you'll learn how to:
 In this quickstart, we'll deploy the sample project from [Quickstart: Render a model with Unity](render-model.md).
 Make sure your credentials are saved properly with the scene and you can connect to a session from within the Unity editor.
 
-In Unity you need to have Android build support installed.
+In Unity you need to have **Android Build Support** installed.
 
 Your Quest 2 / Quest Pro device must be set up for [Developer Mode](https://developer.oculus.com/documentation/native/android/mobile-device-setup/).
 
