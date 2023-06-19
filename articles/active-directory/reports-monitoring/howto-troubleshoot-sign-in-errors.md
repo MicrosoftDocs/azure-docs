@@ -63,7 +63,7 @@ The **Failure reason** and **Additional Details** may provide you with the detai
 The following failure reasons and details are common:
 
 -  The failure reason **Authentication failed during the strong authentication request** doesn't provide much to troubleshoot, but the additional details field says the user didn't complete the MFA prompt. Have the user sign-in again and complete the MFA prompts.
-- The failure reason **The Federation Service failed to issue an OAuth Primary Refresh Token** provides a good starting point, but the additional details briefly explain how authentication works in this scenario and tells you to make sure that device sync is enabled. 
+- The failure reason **The Federation Service failed to issue an OAuth Primary Refresh Token** provides a good starting point, but the additional details briefly explain how authentication works in this scenario and tell you to make sure that device sync is enabled. 
 - A common failure reason is **Error validating credentials due to invalid username or password**. The user entered something incorrectly and needs to try again.
 
 ### Sign-in error codes
