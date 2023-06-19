@@ -269,4 +269,4 @@ For related material, see the following documentation:
 - [Microsoft Sentinel documentation](../sentinel/index.yml)
 - [Azure Monitor documentation](../azure-monitor/index.yml)
 - [Export data types schemas](https://aka.ms/ASCAutomationSchemas)
-- Check out [common questions](faq-how-to.yml) about continuous export.
+- Check out [common questions](faq-general.yml) about continuous export.
