@@ -299,6 +299,44 @@ sections:
           Learn more about [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md).
 
 
+      - question: |
+          What are the costs involved in exporting data?
+        answer: |
+          There's no cost for enabling a continuous export. Costs might be incurred for ingestion and retention of data in your Log Analytics workspace, depending on your configuration there.
+
+          Many alerts are only provided when you've enabled Defender plans for your resources. A good way to preview the alerts you'll get in your exported data is to see the alerts shown in Defender for Cloud's pages in the Azure portal.
+
+          Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+          Learn more about [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+
+          For general information about Defender for Cloud pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+      
+      
+      - question: |
+          Does the continuous export include data about the current state of all resources?
+        answer: |
+          No. Continuous export is built for streaming of **events**:
+
+          - **Alerts** received before you enabled export won't be exported.
+          - **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
+          - **Secure score** per security control or subscription is sent when a security control's score changes by 0.01 or more.
+          - **Regulatory compliance status** is sent when the status of the resource's compliance changes.
+
+
+      - question: |
+          Why are recommendations sent at different intervals?
+        answer: |
+          Different recommendations have different compliance evaluation intervals, which can range from every few minutes to every few days. So, the amount of time that it takes for recommendations to appear in your exports varies.
+
+
+      - question: |
+          Does continuous export support any business continuity or disaster recovery (BCDR) scenarios?
+        answer: |
+          Continuous export can be helpful in to prepare for BCDR scenarios where the target resource is experiencing an outage or other disaster. However, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic App.
+
+          Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
+
 additionalContent: |
 
   ## Next steps
