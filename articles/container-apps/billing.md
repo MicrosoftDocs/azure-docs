@@ -99,7 +99,7 @@ The billing for apps running in the Dedicated plan within the Consumption + Dedi
 
 | Fixed management costs | Variable costs |
 |---|---|
-| If you have one or more dedicated workload profiles in your environment, you're charged a management fee.<br><br>For instance, you aren't billed any charges for Dedicated unless you use a Dedicated workload profile in your environment. | You're billed on a per-second basis for vCPU-seconds and GiB-seconds resources in all the workload profile instances in use. As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced. |
+| If you have one or more dedicated workload profiles in your environment, you're charged a management fee. For instance, you aren't billed any charges for Dedicated unless you use a Dedicated workload profile in your environment. | You're billed on a per-second basis for vCPU-seconds and GiB-seconds resources in all the workload profile instances in use. As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced. |
 
 Make sure to optimize the applications you deploy to a dedicated workload profile. Evaluate the needs of your applications so that they can use the most amount of resources available to the profile.
 
