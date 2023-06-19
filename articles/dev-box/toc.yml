@@ -29,6 +29,8 @@ items:
 - name: How-to guides
   expanded: true
   items:
+    - name: Skip or delay an automatic shutdown
+      href: how-to-skip-delay-stop.md
     - name: Provide access to project admins
       href: how-to-project-admin.md
     - name: Provide access to dev box users

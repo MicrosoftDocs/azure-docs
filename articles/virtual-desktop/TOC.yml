@@ -191,7 +191,7 @@
       - name: Use the getting started feature
         href: getting-started-feature.md
       - name: Enable GPU acceleration
-        href: configure-vm-gpu.md
+        href: enable-gpu-acceleration.md
       - name: Applications
         items:
         - name: Publish applications using Azure portal
