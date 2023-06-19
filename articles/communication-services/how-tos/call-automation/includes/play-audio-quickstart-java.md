@@ -75,13 +75,7 @@ In your editor of choice, open App.java file and update it with the code provide
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
-
-``` java
-AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>");
-Response<AnswerCallResult> answerCallResult = callAutomationClient.answerCallWithResponse(answerCallOptions)
-                          .block();
-```
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). In this quickstart, we'll create an outbound call.
 
 ## Play audio
 

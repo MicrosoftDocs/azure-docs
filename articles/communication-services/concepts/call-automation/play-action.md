@@ -46,4 +46,4 @@ As part of compliance requirements in various industries, vendors are expected t
 - Play action isn't enabled to work with Teams Interoperability.
 
 ## Next Steps
-Check out our how-to guide to learn [how-to play custom voice prompts](../../how-tos/call-automation/play-action.md) to users.
+- Check out our how-to guide to learn [how-to play custom voice prompts](../../how-tos/call-automation/play-action.md) to users.

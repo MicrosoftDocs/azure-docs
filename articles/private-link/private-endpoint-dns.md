@@ -97,7 +97,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.net | azurehdinsight.net |
 | Azure Arc (Microsoft.HybridCompute) / hybridcompute | privatelink.his.arc.azure.com <br/> privatelink.guestconfiguration.azure.com </br> privatelink.kubernetesconfiguration.azure.com | his.arc.azure.com <br/> guestconfiguration.azure.com </br> kubernetesconfiguration.azure.com |
 | Azure Media Services (Microsoft.Media) / keydelivery, liveevent, streamingendpoint | privatelink.media.azure.net | media.azure.net |
-| Azure Data Explorer (Microsoft.Kusto) | privatelink.{regionName}.kusto.windows.net | {regionName}.kusto.windows.net |
+| Azure Data Explorer (Microsoft.Kusto/Clusters) / cluster | privatelink.{regionName}.kusto.windows.net | {regionName}.kusto.windows.net |
 | Azure Static Web Apps (Microsoft.Web/staticSites) / staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 | Azure Migrate (Microsoft.Migrate) / migrate projects, assessment project and discovery site | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 | Azure API Management (Microsoft.ApiManagement/service) / gateway | privatelink.azure-api.net  | azure-api.net  |
@@ -199,7 +199,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.cn  |  adf.azure.cn  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.cn | azurehdinsight.cn |
-| Azure Data Explorer (Microsoft.Kusto) | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
+| Azure Data Explorer (Microsoft.Kusto/Clusters) / cluster | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
 | Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global  | privatelink-global.wvd.azure.cn  | wvd.azure.cn  |
 | Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection  | privatelink.wvd.azure.cn | wvd.azure.cn |
 
