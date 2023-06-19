@@ -85,18 +85,16 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
 1. Open the **<*function-name*>.cs** file.
 
-   This file contains the following code elements with the names that you previously provided:
+   By default, this file contains sample code that has the following code elements along with the previously provided example values where appropriate:
 
-   - Namespace with the previously provided name
+   - Namespace name
    - Class name
-   - Function with the previously provided name
+   - Function name
    - Function parameters
    - Return type
    - Complex type
 
-1. In the **<*function-name*>.cs** file, author the code that you want.
-
-   The following sample code uses the provided example values:
+   The following example shows the complete sample code:
 
    ```csharp
    //------------------------------------------------------------
@@ -171,19 +169,15 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    }
    ```
 
-The function definition includes a default `Run` method that you can use to get started. This sample method demonstrates some of the capabilities available with the custom code feature, such as passing different inputs and outputs, including complex .NET types.
+   The function definition includes a default `Run` method that you can use to get started. This sample `Run` method demonstrates some of the capabilities available with the custom code feature, such as passing different inputs and outputs, including complex .NET types.
 
-> [!TIP]
->
-> You can edit the default `Run` method for your own scenarios. Or, you can copy the function, 
-> including the `[FunctionName("<*function-name*>")]` declaration, and then rename the function, 
-> using a unique name. You can then edit the renamed function to meet your needs.
+1. Replace the sample function code with your own, and edit the default `Run` method for your own scenarios. Or, you can copy the function, including the `[FunctionName("<*function-name*>")]` declaration, and then rename the function with a unique name. You can then edit the renamed function to meet your needs.
 
-1. When you're done, save your work.
+This example continues with the sample code without any changes.
 
 ## Compile and build your code
 
-After you finish writing your code, compile that code to make sure that no build errors exist. Your function project automatically includes build tasks that compiles your code and adds that compiled code to the **lib\custom\net472** folder in your logic app project where workflows look for custom code to run.
+After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks that compiles your code and adds that compiled code to the **lib\custom\net472** folder in your logic app project where workflows look for custom code to run.
 
 1. In Visual Studio Code, from the **Terminal** menu, select **New Terminal**.
 
@@ -213,57 +207,81 @@ After you finish writing your code, compile that code to make sure that no build
 
    The following example shows sample generated assemblies and other files in the logic app project:
 
-   :::image type="content" source="media/create-run-custom-code-functions/generated-assemblies.png" alt-text="Screenshot shows Visual Studio Code and logic app workspace with function project and logic app project, now with the generated assemblies and other required filesfs.":::
+   :::image type="content" source="media/create-run-custom-code-functions/generated-assemblies.png" alt-text="Screenshot shows Visual Studio Code and logic app workspace with function project and logic app project, now with the generated assemblies and other required files.":::
 
 ## Call your code from a workflow
 
-After you confirm that your code compiles and that your logic app project contains the necessary files for your code to run, open and edit the default workflow that's included with your logic app project.
+After you confirm that your code compiles and that your logic app project contains the necessary files for your code to run, open the default workflow that's included with your logic app project.
 
 1. In your workspace, under **LogicApp**, expand the **<*workflow-name*>** node, open the shortcut menu for **workflow.json**, and select **Open Designer**.
 
-   On the workflow designer that opens, a workflow with the following trigger and actions is already created for you:
+   On the workflow designer that opens, the default workflow, included with your logic app project, appears with the following trigger and actions:
 
-   - The built-in Request trigger named **When a HTTP request is received**
+   - The built-in [Request trigger named **When a HTTP request is received**](../connectors/connectors-native-reqres.md)
    - The built-in action named **Call a local function in this logic app**
-   - The built-in Response action named **Response**, which is used only with the Request trigger
+   - The built-in [Response action named **Response**](../connectors/connectors-native-reqres.md), which you use to reply to the caller only when you use the Request trigger
 
-1. After the workflow designer opens, [follow these steps to add the Request trigger named **When a HTTP request is received** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. Select the action named **Call a local function in this logic app**.
 
-1. Now [follow these steps to add the built-in action named **Call a local function in this logic app** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
-
-1. After the action information pane appears to the right, confirm that the **Function name** parameter value is set to the function that you want. Review or change any other parameter values that your function uses.
+1. After the action information pane opens to the right, review and confirm that the **Function name** parameter value is set to the function that you want to run. Review or change any other parameter values that your function uses.
 
 ## Debug your code and workflow
 
-1. Repeat the following steps to start the Azurite storage emulator *three* times. Each time starts each of the following Azure Storage services:
+1. Repeat the following steps to start the Azurite storage emulator *three* times: one time each for the following Azure Storage services:
 
    - Azure Blob Service
-   - Azure Table Service
    - Azure Queue Service
+   - Azure Table Service
 
    1. From the Visual Studio Code **View** menu, select **Command Palette**.
 
-   1. At the prompt that appears, enter **/**, and then enter **Azurite: Start**.
+   1. At the prompt that appears, find and select **Azurite: Start Blob Service**.
 
    1. From the working directory list that appears, select **LogicApp**.
 
-   You're successful when the bottom of the screen shows the three storage services running, for example:
+   1. Repeat these steps for **Azurite: Start Queue Service** and **Azurite: Start Table Service**.
+
+   You're successful when the Visual Studio Code taskbar at the bottom of the screen shows the three storage services running, for example:
+
+   :::image type="content" source="media/create-run-custom-code-functions/storage-services-running.png" alt-text="Screenshot shows Visual Studio Code taskbar with Azure Blob Service, Azure Queue Service, and Azure Table Service running.":::
 
 1. On the Visual Studio Code Activity Bar, select **Run and Debug**. (Keyboard: Ctrl+Shift+D)
 
-1. In the **Run and Debug** list, make sure that **Attach to Logic App (LogicApp)** is selected. Select the **Play** button (green arrow).
+   :::image type="content" source="media/create-run-custom-code-functions/run-debug.png" alt-text="Screenshot shows Visual Studio Code Activity Bar with Run and Debug selected.":::
 
-1. From the **Run and Debug** list, select **Attach to .NET Functions (Functions)**. Select the **Play** button (green arrow).
+1. From the **Run and Debug** list, select **Attach to logic app (LogicApp)**, if not already selected, and then select **Play** (green arrow).
 
-1. To fire the Request trigger in your workflow, find the trigger URL:
+   :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-logic-app.png" alt-text="Screenshot shows Run and Debug list with Attach to logic app selected and Play button selected.":::
 
-   1. Return to view your workspace and projects.
+   The **Terminal** window opens and shows the started debugging process. The **Debug Console** window then appears and shows the debugging statuses. At the bottom of Visual Studio Code, the task bar turns orange, indicating that the .NET debugger is loaded.
 
-   1. In your logic app project, open the **workflow.json** file's shortcut menu, and select **Overview**.
+1. From the **Run and Debug** list, select **Attach to .NET Functions (Functions)**, and then select **Play** (green arrow).
 
-   1. Make sure the **Run trigger** button is still enabled.
+   :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-net-functions.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions selected and Play button selected.":::
 
-   1. On the **Overview** page, under **Workflow Properties**, find the **Callback URL** value, which is the URL for the endpoint created by the Request trigger.
+1. To set any breakpoints, in your function definition (**<*function-name*>.cs**) or workflow definition (**workflow.json**), find the line number where you want the breakpoint, and select the column to the left, for example:
+
+   :::image type="content" source="media/create-run-custom-code-functions/set-breakpoint.png" alt-text="Screenshot shows Visual Studio Code and the open function code file with a breakpoint set for a line in code.":::
+
+1. To manually run the Request trigger in your workflow, find the trigger URL:
+
+   1. From your logic app project, open the **workflow.json** file's shortcut menu, and select **Overview**.
+
+      On the workflow's **Overview** page, the **Run trigger** button is available for when you want to manually start the workflow. Under **Workflow Properties**, the **Callback URL** value is the URL for a callable endpoint that's created by the Request trigger in your workflow. You can send requests to this URL to trigger your workflow from other apps, including other logic app workflows.
+
+      :::image type="content" source="media/create-run-custom-code-functions/workflow-overview.png" alt-text="Screenshot shows Visual Studio Code and workflow's Overview page opened.":::
+
+  1. On the **Overview** page toolbar, select **Run trigger**.
+
+     After your workflow starts to run, the debugger activates your first breakpoint.
+
+  1. On the **Run** menu or debugger toolbar, select a [debug action](https://code.visualstudio.com/docs/editor/debugging#_debug-actions).
+
+     After the workflow run completes, the **Overview** page shows the finished run and basic details about that run.
+
+1. To review more information about the workflow run, select the finished run. Or, from the list next to the **Duration** column, select **Show run**.
+
+   :::image type="content" source="media/create-run-custom-code-functions/workflow-run-history.png" alt-text="Screenshot shows Visual Studio Code and finished workflow run.":::
 
 ## Deploy your code
 
