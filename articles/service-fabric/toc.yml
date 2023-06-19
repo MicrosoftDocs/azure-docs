@@ -440,6 +440,8 @@
       href: how-to-managed-cluster-ephemeral-os-disks.md
     - name: Configure managed cluster upgrade options
       href: how-to-managed-cluster-upgrades.md
+    - name: Configure maintenance control on a managed cluster
+      href: how-to-managed-cluster-maintenance-control.md
     - name: Deploy application secrets to a managed cluster
       href: how-to-managed-cluster-application-secrets.md
     - name: Deploy an application to a managed cluster using Azure Resource Manager

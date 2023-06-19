@@ -56,7 +56,7 @@ Build succeeded.
 
 Install the OpenAI .NET client library with:
 
-```console
+```dotnetcli
 dotnet add package Azure.AI.OpenAI --prerelease
 ```
 

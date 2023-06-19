@@ -4,7 +4,7 @@ description: Learn how to create annotations to track deployment or other signif
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 01/24/2023
-ms.reviewer: casocha
+ms.reviewer: abinetabate
 ---
 
 # Release annotations for Application Insights

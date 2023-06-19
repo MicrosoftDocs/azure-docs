@@ -1,9 +1,9 @@
-  - name: Permissions Management
+  - name: Microsoft Entra Permissions Management
     href: index.yml
   - name: Overview
     expanded: true
     items:
-      - name: What's Permissions Management?
+      - name: What's Microsoft Entra Permissions Management?
         href: overview.md       
   - name: How-to guides
     expanded: true
