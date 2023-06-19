@@ -16,7 +16,7 @@ ms.subservice: calling
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. You configure these capabilities through the Azure portal.
 
-The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for Communications Services, see [Enable logging in diagnostic settings](../enable-logging.md).
+The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
 
 ## Data concepts
 
@@ -26,7 +26,7 @@ The following high-level descriptions of data concepts are specific to Voice Cal
 
 Become familiar with the following terms:
 
-- **Call**: As represented in the data, a call is an abstraction that's depicted by `correlationId`. Values for `correlationId` are unique for each call, and they're time bound by `callStartTime` and `callDuration`.
+- **Call**: As represented in the data, a call is an abstraction that's depicted by `correlationId`. Values for `correlationId` are unique for each call, and they're time-bound by `callStartTime` and `callDuration`.
 
 - **Participant**: This entity represents the connection between an endpoint and the server. A participant (`participantId`) is present only when the call is a group call.
 
@@ -36,7 +36,7 @@ Become familiar with the following terms:
 
   Native SDKs for Android and iOS reuse the same `endpointId` value for a user across multiple calls, so you can get an understanding of experiences across sessions. This process differs from web-based endpoints, which always generate a new `endpointId` value for each new call.
 
-- **Stream**: This is the most granular entity. There's one stream for each direction (inbound or outbound) and `mediaType` value (for example, audio or video).  
+- **Stream**: This is the most granular entity. There's one stream for each direction (inbound or outbound) and `mediaType` value (for example, `Audio` or `Video`).  
 
 ## Data definitions
 
@@ -69,7 +69,7 @@ The call summary log contains data to help you identify key properties of all ca
 |     `operationVersion`          |     The `api-version` value associated with the operation, if the `operationName` operation was performed through an API. If no API corresponds to this operation, the version represents the version of the operation, in case the properties associated with the operation change in the future.                                                   |
 |     `category`                  |     The log category of the event. This property is the granularity at which you can enable or disable logs on a resource. The properties that appear within the `properties` blob of an event are the same within a log category and resource type.   |
 |     `correlationId`     |    The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call, and you can use it to join data from different logs. If you ever need to open a support case with Microsoft, you can use the `correlationId` value to easily identify the call that you're troubleshooting.                                                                                                                                                                      |
-|     `identifier`                |     The unique ID for the user. The identity can be an Azure Communications Services user, an Azure Active Directory (Azure AD) user ID, a Teams anonymous user ID, or a Teams bot ID. You can use this ID to correlate user events across logs.                  |
+|     `identifier`                |     The unique ID for the user. The identity can be an Azure Communication Services user, an Azure Active Directory (Azure AD) user ID, a Teams anonymous user ID, or a Teams bot ID. You can use this ID to correlate user events across logs.                  |
 |     `callStartTime`             |     A time stamp for the start of the call, based on the first attempted connection from any endpoint.                                                  |
 |     `callDuration`              |     The duration of the call, expressed in seconds. It's based on the first attempted connection and the end of the last connection between two endpoints.               |
 |     `callType`                  |     The type of the call. It contains either `"P2P"` or `"Group"`. A `"P2P"` call is a direct 1:1 connection between only two, non-server endpoints. A `"Group"` call is a call that has more than two endpoints or is created as `"Group"` call before the connection.                  |
@@ -80,7 +80,7 @@ The call summary log contains data to help you identify key properties of all ca
 |     `participantEndReason`      |     The reason for the end of a participant connection. It contains Calling SDK error codes that the SDK emits (when relevant) for each `participantId` value.            |
 |     `endpointId`                |     The unique ID that represents each endpoint connected to the call, where `endpointType` defines the endpoint type. When the value is `null`, the connected entity is the Communication Services server (`endpointType` = `"Server"`). <br><br>The `endpointId` value can sometimes persist for the same user across multiple calls (`correlationId`) for native clients. The number of `endpointId` values determines the number of call summary logs. A distinct summary log is created for each `endpointId` value.    |
 |     `endpointType`              |     This value describes the properties of each endpoint that's connected to the call. It can contain `"Server"`, `"VOIP"`, `"PSTN"`, `"BOT"`, or `"Unknown"`.               |
-|     `sdkVersion`                |     The version string for the Communication Services Calling SDK version that each relevant endpoint uses (example: `"1.1.00.20212500"`).                                               |
+|     `sdkVersion`                |     The version string for the Communication Services Calling SDK version that each relevant endpoint uses (for example, `"1.1.00.20212500"`).                                               |
 |     `osVersion`                 |     A string that represents the operating system and version of each endpoint device.                                                                        |
 |     `participantTenantId`               |    The ID of the Microsoft tenant associated with the participant. This field is used to guide cross-tenant redaction.
 
@@ -97,31 +97,31 @@ For each endpoint within a call, a distinct call diagnostic log is created for o
 |---------------------------|-------------------------------------|
 |     `operationName`         |     The operation associated with the log record.   |
 |     `operationVersion`      |     The `api-version` value associated with the operation, if the `operationName` operation was performed through an API. If no API corresponds to this operation, the version represents the version of the operation, in case the properties associated with the operation change in the future.                                   |
-|     `category`              |     The log category of the event. This property is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the `properties` blob of an event are the same within a particular log category and resource type.             |
+|     `category`              |     The log category of the event. This property is the granularity at which you can enable or disable logs on a resource. The properties that appear within the `properties` blob of an event are the same within a log category and resource type.             |
 |     `correlationId`     |     The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call. If you ever need to open a support case with Microsoft, you can use the `correlationId` value to easily identify the call that you're troubleshooting.                       |
 |     `participantId`         |     The ID that's generated to represent the two-way connection between a `"Participant"` endpoint (`endpointType` =  `"Server"`) and the server. When `callType`   = `"P2P"`, there's a direct connection between two endpoints, and no `participantId` value is generated.       |
-|     `identifier`            |     The unique ID for the user. The identity can be an Azure Communications Services user, an Azure AD user ID, a Teams object ID, or a Teams bot ID. You can use this ID to correlate user events across logs.                  |
+|     `identifier`            |     The unique ID for the user. The identity can be an Azure Communication Services user, an Azure AD user ID, a Teams object ID, or a Teams bot ID. You can use this ID to correlate user events across logs.                  |
 |     `endpointId`            |     The unique ID that represents each endpoint that's connected to the call, where `endpointType` defines the endpoint type. When the value is `null`, the connected entity is the Communication Services server. `EndpointId` can persist for the same user across multiple calls (`correlationId`) for native clients but is unique for every call when the client is a web browser.                    |
 |     `endpointType`          |     The value that describes the properties of each `endpointId` instance. It can contain  `"Server"`, `"VOIP"`, `"PSTN"`, `"BOT"`, `"Voicemail"`, `"Anonymous"`, or `"Unknown"`.           |
 |     `mediaType`             |     The string value that describes the type of media that's being transmitted between endpoints within each stream. Possible values include `"Audio"`, `"Video"`, `"VBSS"` (video-based screen sharing), and `"AppSharing"`.                    |
 |     `streamId`              |     A non-unique integer that, together with `mediaType`, you can use to uniquely identify streams of the same `participantId` value.|
 |     `transportType`         |     The string value that describes the network transport protocol for each `participantId` value. It can contain `"UDP"`, `"TCP"`, or `"Unrecognized"`. `"Unrecognized"` indicates that the system could not determine if the transport type was TCP or UDP.              |
 |     `roundTripTimeAvg`      |     The average time that it takes to get an IP packet from one endpoint to another within a `participantDuration` period. This network propagation delay is related to the physical distance between the two points, the speed of light, and any overhead that the various routers take in between. <br><br>The latency is measured as one-way time or round-trip time (RTT). Its value expressed in milliseconds. An RTT greater than 500 ms is negatively affecting the call quality.          |
-|     `roundTripTimeMax`      |     The maximum RTT (in milliseconds) measured fo reach media stream during a `participantDuration` period in a group call or `callDuration` period in a P2P call.        |
-|     `jitterAvg`             |     The average change in delay between successive packets. Azure Communication Services can adapt to some levels of jitter through buffering. When the jitter exceeds the buffering, which is approximately at a `jitterAvg` time greater than 30 ms, a negative quality impact is likely occurring. The packets arriving at different speeds cause a speaker's voice to sound robotic. <br><br>This metric is measured for each media stream over the `participantDuration` period in a group call or `callDuration` period in a P2P call.      |
+|     `roundTripTimeMax`      |     The maximum RTT (in milliseconds) measured fo reach media stream during a `participantDuration` period in a group call or during a `callDuration` period in a P2P call.        |
+|     `jitterAvg`             |     The average change in delay between successive packets. Azure Communication Services can adapt to some levels of jitter through buffering. When the jitter exceeds the buffering, which is approximately at a `jitterAvg` time greater than 30 ms, a negative quality impact is likely occurring. The packets arriving at different speeds cause a speaker's voice to sound robotic. <br><br>This metric is measured for each media stream over the `participantDuration` period in a group call or over the `callDuration` period in a P2P call.      |
 |     `jitterMax`             |     The maximum jitter value measured between packets for each media stream. Bursts in network conditions can cause problems in the audio/video traffic flow.  |
-|     `packetLossRateAvg`     |     The average percentage of packets that are lost. Packet loss directly affects audio quality. Small, individual lost packets have almost no impact, whereas back-to-back burst losses cause audio to cut out completely. The packets being dropped and not arriving at their intended destination cause gaps in the media. This situation results in missed syllables and words, along with choppy video and sharing. <br><br>A packet loss rate of greater than 10% (0.1) is likely having a negative quality impact. This metric is measured for each media stream  over the `participantDuration` period in a group call or `callDuration` period in a P2P call.    |
-|     `packetLossRateMax`     |     This value represents the maximum packet loss rate (percentage) for each media stream over the `participantDuration` period in a group call or `callDuration` period in a P2P call. Bursts in network conditions can cause problems in the audio/video traffic flow.
+|     `packetLossRateAvg`     |     The average percentage of packets that are lost. Packet loss directly affects audio quality. Small, individual lost packets have almost no impact, whereas back-to-back burst losses cause audio to cut out completely. The packets being dropped and not arriving at their intended destination cause gaps in the media. This situation results in missed syllables and words, along with choppy video and sharing. <br><br>A packet loss rate of greater than 10% (0.1) is likely having a negative quality impact. This metric is measured for each media stream over the `participantDuration` period in a group call or over the `callDuration` period in a P2P call.    |
+|     `packetLossRateMax`     |     This value represents the maximum packet loss rate (percentage) for each media stream over the `participantDuration` period in a group call or over the `callDuration` period in a P2P call. Bursts in network conditions can cause problems in the audio/video traffic flow.
 
 ### P2P vs. group calls
 
 There are two types of calls, as represented by `callType`:
 
-- **P2P** calls are a connection between only two endpoints, with no server endpoint. P2P calls are initiated as a call between those endpoints and are not created as a group call event before the connection.
+- **P2P call**: A connection between only two endpoints, with no server endpoint. P2P calls are initiated as a call between those endpoints and are not created as a group call event before the connection.
 
   :::image type="content" source="../media/call-logs-azure-monitor/p2p-diagram.png" alt-text="Diagram that shows a P2P call across two endpoints.":::
 
-- **Group** calls include any call that has more than two endpoints connected. Group calls include a server endpoint and the connection between each endpoint and the server. P2P calls that add another endpoint during the call cease to be P2P, and they become a group call. You can determine the timeline of when each endpoints joined the call by using the `participantStartTime` and `participantDuration` metrics.
+- **Group call**: Any call that has more than two endpoints connected. Group calls include a server endpoint and the connection between each endpoint and the server. P2P calls that add another endpoint during the call cease to be P2P, and they become a group call. You can determine the timeline of when each endpoint joined the call by using the `participantStartTime` and `participantDuration` metrics.
 
   :::image type="content" source="../media/call-logs-azure-monitor/group-call-version-a.png" alt-text="Diagram that shows a group call across multiple endpoints.":::
 
@@ -129,13 +129,13 @@ There are two types of calls, as represented by `callType`:
 
 Azure Communication Services creates two types of logs:
 
-- **Call summary logs**: Contain basic information about the call, including all the relevant IDs, time stamps, endpoint, and SDK information. For each participant within a call, Communication Services creates a distinct call summary log.
+- **Call summary logs**: Contain basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. For each participant within a call, Communication Services creates a distinct call summary log.
 
-  If someone rejoins a call, that participant has the same `EndpointId` value but a different `ParticipantId` value, so there can be two call summary logs for that endpoint.
+  If someone rejoins a call, that participant has the same `EndpointId` value but a different `ParticipantId` value. That endpoint can then have two call summary logs.
 
 - **Call diagnostic logs**: Contain information about the stream, along with a set of metrics that indicate quality of experience measurements. For each endpoint within a call (including the server), Communication Services creates a distinct call diagnostic log for each media stream (audio or video, for example) between endpoints.
 
-In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In a group call, each stream associated with `endpointType` = `"Server"` creates a log that contains data for the inbound streams. All other streams create logs that contain data for the outbound streams for all non-sever endpoints. In group calls, use the `participantId` value as the key to join the related inbound and outbound logs into a distinct participant connection.
+In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In a group call, each stream associated with `endpointType` = `"Server"` creates a log that contains data for the inbound streams. All other streams create logs that contain data for the outbound streams for all non-server endpoints. In group calls, use the `participantId` value as the key to join the related inbound and outbound logs into a distinct participant connection.
 
 ### Example: P2P call
 
@@ -149,17 +149,17 @@ The following diagram represents a group call example with three `participantID`
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-2-group-call-same-tenant.png" alt-text="Diagram that shows a group call within the same tenant.":::
 
-### Example: P2P call cross-tenant
+### Example: Cross-tenant P2P call
 
 The following diagram represents two participants across multiple tenants that are connected directly in a P2P call. In this example, Communication Services creates one call summary log (one for each participant) with redacted OS and SDK versions. Communication Services also creates four call diagnostic logs (one for each media stream). Each log contains data that relates to the outbound stream of `participantID`.
 
-:::image type="content" source="../media/call-logs-azure-monitor/example-3-p2p-call-cross-tenant.png" alt-text="Diagram that shows a P2P call cross-tenant.":::
+:::image type="content" source="../media/call-logs-azure-monitor/example-3-p2p-call-cross-tenant.png" alt-text="Diagram that shows a cross-tenant P2P call.":::
 
-### Example: Group call cross-tenant
+### Example: Cross-tenant group call
 
 The following diagram represents a group call example with three `participantId` values across multiple tenants. Communication Services creates one call summary log for each participant with redacted OS and SDK versions. Communication Services also creates four call diagnostic logs that relate to each `participantId` value (one for each media stream).
 
-:::image type="content" source="../media/call-logs-azure-monitor/example-4-group-call-cross-tenant.png" alt-text="Diagram that shows a group call cross-tenant.":::
+:::image type="content" source="../media/call-logs-azure-monitor/example-4-group-call-cross-tenant.png" alt-text="Diagram that shows a cross-tenant group call.":::
 
 > [!NOTE]
 > This release supports only outbound diagnostic logs.
@@ -422,7 +422,7 @@ Here's a call summary for PSTN endpoint 2:
 }
 ```
 
-Here are cross-tenant call summary logs:
+Here's a cross-tenant call summary log:
 
 ```json
 "properties": {

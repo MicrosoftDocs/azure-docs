@@ -16,14 +16,14 @@ ms.subservice: data
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. You configure these capabilities through the Azure portal.
 
-The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for Communications Services, see [Enable logging in diagnostic settings](../enable-logging.md).
+The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
 
 ## Resource log categories
 
 Communication Services offers the following types of logs that you can enable:
 
 * **Usage logs**: Provide usage data associated with each billed service offering.
-* **Call Recording summary logs**: Provide summary information for call recordings like:
+* **Call Recording summary logs**: Provide summary information for call recordings, like:
   * Call duration.
   * Media content (for example, audio/video, unmixed, or transcription).
   * Format types used for the recording (for example, WAV or MP4).
@@ -80,7 +80,7 @@ Summary logs are published after a recording is ready to be downloaded. The logs
 
 A call can have one recording or many recordings, depending on how many times a recording event is triggered.
 
-For example, if an agent initiates an outbound call on a recorded line and the call drops because of a poor network signal, `callID` will have one `recordingID` value. If the agent calls back the customer, the system generates a new `callID` instance and a new `recordingID` value.
+For example, if an agent starts an outbound call on a recorded line and the call drops because of a poor network signal, `callID` will have one `recordingID` value. If the agent calls back the customer, the system generates a new `callID` instance and a new `recordingID` value.
 
 #### Example: Call Recording for one call to one recording
 
@@ -105,7 +105,7 @@ For example, if an agent initiates an outbound call on a recorded line and the c
 }
 ```
 
-If the agent initiates a recording and then stops and restarts the recording multiple times while the call is still on, `callID` will have many `recordingID` values, depending on how many times the recording events were triggered.
+If the agent starts a recording and then stops and restarts the recording multiple times while the call is still on, `callID` will have many `recordingID` values. The number of values depends on how many times the recording events were triggered.
 
 #### Example: Call Recording for one call to many recordings
 
@@ -192,5 +192,5 @@ Here's an example:
 
 ## Next steps
 
-- Get [Call Recording insights](../insights/call-recording-insights.md)
+- Get [Call Recording insights](../insights/call-recording-insights.md).
 - Learn more about [Call Recording](../../voice-video-calling/call-recording.md).

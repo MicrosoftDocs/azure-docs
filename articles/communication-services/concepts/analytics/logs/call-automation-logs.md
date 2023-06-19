@@ -20,14 +20,15 @@ Azure Communication Services offers logging capabilities that you can use to mon
 
 Azure Communication Services provides monitoring and analytics features via [Azure Monitor Logs](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
-* Categories of logs and metric data sent to the destinations that the setting defines. The available categories vary by resource type.
+* Categories of log and metric data sent to the destinations that the setting defines. The available categories vary by resource type.
 * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Azure Event Hubs, and Azure Storage.
-* A single diagnostic setting can define no more than one destination. If you want to send data to more than one destination type (for example, two Log Analytics workspaces), create multiple settings. Each resource can have up to five diagnostic settings.
+
+  A single diagnostic setting can define no more than one of each destination type. If you want to send data to more than one destination type (for example, two Log Analytics workspaces), create multiple settings. Each resource can have up to five diagnostic settings.
 
 > [!IMPORTANT]
 > You must enable a diagnostic setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, an event hub, or an Azure storage account to receive and analyze your survey data. If you don't send Call Automation data to one of these options, your survey data won't be stored and will be lost.
 
-The following instructions configure your Azure Monitor resource to start creating logs and metrics for your Communications Services instance. For detailed documentation about using diagnostic settings across all Azure resources, see [Enable logging in diagnostic settings](../enable-logging.md).
+The following instructions configure your Azure Monitor resource to start creating logs and metrics for your Communication Services instance. For detailed documentation about using diagnostic settings across all Azure resources, see [Enable logging in diagnostic settings](../enable-logging.md).
 
 Under the diagnostic setting name, select **Operation Call Automation Logs** and **Call Automation Events Summary Logs** to enable the logs for Call Automation.
 
