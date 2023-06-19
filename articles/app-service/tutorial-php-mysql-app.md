@@ -432,6 +432,8 @@ Most of the time taken by the two-job process is spent uploading and download ar
 
 ## Next steps
 
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
+
 > [!div class="nextstepaction"]
 > [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
