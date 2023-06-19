@@ -205,7 +205,7 @@ az deployment group create \
 
 ## Deploy a new revision and assign labels
 
-The `blue` label currently refers to a revision that takes the production traffic arriving on the app's FQDN. The `green` label refers to a new version of an app that is about to be rolled out into production. The new version of the app code is identified by a new commit id. The following command deploys a new revision for that commit id and marks it with `green` label.
+The `blue` label currently refers to a revision that takes the production traffic arriving on the app's FQDN. The `green` label refers to a new version of an app that is about to be rolled out into production. A new commit id identifies the new version of the app code. The following command deploys a new revision for that commit id and marks it with `green` label.
 
 ::: zone pivot="azure-cli"
 
@@ -240,7 +240,7 @@ az deployment group create \
 
 ::: zone-end
 
-After running those commands the traffic section of the app will look as below. The revision with the `blue` commitId is taking 100% of production traffic while the newly deployed revision with `green` commitId does not take any production traffic.
+The traffic section of the container app will look as below. The revision with the `blue` commitId is taking 100% of production traffic while the newly deployed revision with `green` commitId doesn't take any production traffic.
 
 ```json
 { 
@@ -277,7 +277,7 @@ curl https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
 
 ## Send a percentage of production traffic to the green revision
 
-After testing the newly deployed revosopm via label-specific FQDN the next step is to send some percentage of production traffic to that revision.
+After completing the tests of the newly deployed revision via label-specific FQDN, the next step is to send some percentage of production traffic to that revision.
 
 ::: zone pivot="azure-cli"
 
@@ -305,7 +305,7 @@ az deployment group create \
 
 ::: zone-end
 
-After running that command the traffic section of the app will look as below.
+The traffic section of the app looks as follows.
 
 ```json
 { 
@@ -326,7 +326,7 @@ After running that command the traffic section of the app will look as below.
 
 ## Send all production traffic to the green revision
 
-After confirming that the app code in the `green` revision works as expected we send 100% of production traffic to it. We also designate the `green` revision as the production revision.
+After confirming that the app code in the `green` revision works as expected, we send 100% of production traffic to it. We also designate the `green` revision as the production revision.
 
 ::: zone pivot="azure-cli"
 
@@ -353,7 +353,7 @@ az deployment group create \
 
 ::: zone-end
 
-After running that command the traffic section of the app will look as below. The `green` revision with the new application code takes all the user traffic while `blue` revision with the old application version does not serve any user requests.
+The traffic section of the container app looks as in the following example. The `green` revision with the new application code takes all the user traffic while `blue` revision with the old application version doesn't serve any user requests.
 
 ```json
 { 
@@ -372,7 +372,7 @@ After running that command the traffic section of the app will look as below. Th
 }
 ```
 
-## Roll back the deployment in case of problems
+## Roll back the deployment if there were problems
 
 If after running in production, the new revision found to have bugs then the app can be rolled back to the previous good state by sending 100% of traffic to the old version in the `blue` revision and designating the `blue` revision as the production revision again:
 
@@ -402,7 +402,7 @@ az deployment group create \
 
 ::: zone-end
 
-After the bugs have been fixed the new version of the application is deployed as a `green` revision again and eventually becomes a production revision.
+After the bugs have been fixed, the new version of the application is deployed as a `green` revision again and eventually becomes a production revision.
 
 ## Next deployment cycle
 
