@@ -1,11 +1,15 @@
 {
-  "redirections": [
+  "redirections": [    
+  {
+    "source_path": "use-blob-storage-checkpoint-store-azure-stack-hub.md",
+    "redirect_url": "/azure/event-hubs/troubleshoot-checkpoint-store-issues",
+    "redirect_document_id": false
+  },  
   {
     "source_path": "event-hubs-tutorial-visualize-anomalies.md",
     "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
     "redirect_document_id": false
-  },
-  
+  },  
   {
     "source_path": "event-hubs-api-overview.md",
     "redirect_url": "/azure/event-hubs/event-hubs-samples",
