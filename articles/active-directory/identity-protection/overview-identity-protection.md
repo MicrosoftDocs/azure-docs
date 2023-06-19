@@ -60,7 +60,7 @@ The sheer scale of signals and attacks requires some level of automation just to
 
 ### Automatic remediation
 
-[Risk-based Conditional Access policies](howto-identity-protection-configure-risk-policies.md) can be enabled to require access controls such as providing a strong authentication method, performing multifactor authentication, or performing a secure password reset based on the detected risk level. If the user successfully completes the access control, the risk is automatically remediated. 
+[Risk-based Conditional Access policies](howto-identity-protection-configure-risk-policies.md) can be enabled to require access controls such as providing a strong authentication method, perform multifactor authentication, or perform a secure password reset based on the detected risk level. If the user successfully completes the access control, the risk is automatically remediated. 
 
 ### Manual remediation 
 

@@ -50,7 +50,7 @@ To view and investigate a user’s risky sign-ins, select the “Recent risky si
 
 To view and investigate risks on a user’s account, select the “Detections not linked to a sign-in” tab or the “User’s risk detections” link. 
 
-The Risk history tab also shows all the events that have led to a user risk change in the last 90 days, including risk detections that increased the user’s risk and admin remediation actions that lowered the user’s risk. View it to understand how the user’s risk has changed. 
+The Risk history tab also shows all the events that have led to a user risk change in the last 90 days. This list includes risk detections that increased the user’s risk and admin remediation actions that lowered the user’s risk. View it to understand how the user’s risk has changed. 
 
 :::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Risky users report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
 
