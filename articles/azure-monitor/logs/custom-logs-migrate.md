@@ -68,7 +68,7 @@ The API call enables all DCR-based custom logs features on the table. The Data C
 > - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
 > - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
 > - Custom columns you add to an Azure table must have the suffix `_CF`.
-> - If you update the table schema in your Log Analytics workspace, you must also update the you must also update the input stream definition in the data collection rule to ingest data into new or modified columns.
+> - If you update the table schema in your Log Analytics workspace, you must also update the input stream definition in the data collection rule to ingest data into new or modified columns.
 
 ## Call the Log Ingestion API
 
