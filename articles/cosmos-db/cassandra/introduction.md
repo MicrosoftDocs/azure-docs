@@ -45,6 +45,11 @@ The API for Cassandra has added benefits of being built on Azure Cosmos DB:
 
 - **Event Sourcing**: The API for Cassandra provides access to a persistent change log, the [Change Feed](change-feed.md). The change feed can facilitate event sourcing directly from the database. In Apache Cassandra, change data capture (CDC) is the only equivalent feature. CDC is merely a mechanism to flag specific tables for archival and rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. These capabilities are redundant in Azure Cosmos DB as the relevant aspects are automatically governed.
 
+
+## Azure Managed Instance for Apache Cassandra
+
+For some customers, adapting to API for Cassandra can be a challenge due to differences in behaviour and/or configuration, especially for lift-and-shift migrations. [Azure Managed Instance for Apache Cassandra](../managed-instance-apache-cassandra) is a first party service hosting open-source Apache Cassandra clusters. Patching, deployment, scaling, platform security, cloud infrastructure, and live site support are taken care of for you, with 100% compatibility with Apache Cassandra, and full control of operations where required. 
+
 ## Next steps
 
 - Get started with [creating a API for Cassandra account, database, and a table](create-account-java.md) by using a Java application.
