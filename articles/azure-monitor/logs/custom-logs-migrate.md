@@ -31,7 +31,14 @@ The migration procedure described in this article assumes you have:
 - [Permissions to create data collection rules](../essentials/data-collection-rule-overview.md#permissions) in the Log Analytics workspace.
 - [An Azure AD application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
 
-## Migrate existing custom tables that use the Data Collector API
+## Create new resources required for the Log ingestion API
+
+The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
+
+- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the the data you collect is ingested into the pipeline for processing.
+- [Data collection rules](../essentials/data-collection-rule-overview.md), which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
+
+## Migrate existing custom tables or create new tables
 
 If you have an existing custom table to which you currently send data using the Data Collector API, you can: 
 
@@ -46,8 +53,7 @@ This table summarizes considerations to keep in mind for each option:
 |-|-|-|
 |**Table and column naming**|Reuse existing table name.<br>Column naming options: <br>- Use new column names and define a transformation to direct incoming data to the newly named column.<br>- Continue using old names.|Set the new table name freely.<br>Need to adjust integrations, dashboards, and alerts before switching to the new table.|
 |**Migration procedure**|One-off table migration. Not possible to roll back a migrated table. |Migration can be done gradually, per table.|
-|**Following migration**|You can continue to ingest data using the HTTP Data Collector API with existing columns, except custom columns.<br>Ingest data into new columns using the Log Ingestion API only.|
- Data in the old table is available until the end of retention period.<br>When you first set up a new table or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.|
+|**Following migration**|You can continue to ingest data using the HTTP Data Collector API with existing columns, except custom columns.<br>Ingest data into new columns using the Log Ingestion API only.| Data in the old table is available until the end of retention period.<br>When you first set up a new table or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.|
   
 To convert a table that uses the Data Collector API to data collection rules and the Log Ingestion API, issue this API call against the table:  
 
@@ -64,13 +70,6 @@ The API call enables all DCR-based custom logs features on the table. The Data C
 > - Custom columns you add to an Azure table must have the suffix `_CF`.
 > - If you update the table schema in your Log Analytics workspace, you must also update the you must also update the input stream definition in the data collection rule to ingest data into new or modified columns.
 
-## Create new resources required for the Log ingestion API
-
-The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
-
-- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the the data you collect is ingested into the pipeline for processing.
-- [Data collection rules](../essentials/data-collection-rule-overview.md), which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
-    
 ## Call the Log Ingestion API
 
 The Log Ingestion API lets you send up to 1 MB of compressed or uncompressed data per call. If you need to send more than 1 MB of data, you can send multiple calls in parallel. This is a change from the Data Collector API, which lets you send up to 32 MB of data per call.
