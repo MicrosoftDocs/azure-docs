@@ -33,36 +33,41 @@ The migration procedure described in this article assumes you have:
 
 ## Migrate existing custom tables that use the Data Collector API
 
-If you have an existing custom table to which you currently send data using the Data Collector API, you continue ingesting data into the same table using the Log Ingestion API. 
-    
+If you have an existing custom table to which you currently send data using the Data Collector API, you can: 
+
+- Migrate the table to continue ingesting data into the same table using the Log Ingestion API. 
+- Maintain the existing table and data and set up a new table into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready.
+
+This table summarizes the advantages and limitations of each option:
+
+|Table migration|Side-by-side implementation|
+|-|-|
+|Reuse existing table name.|Set the new table name freely.|
+|Column naming options: <br>- Use new column names and define a transformation to direct incoming data to the newly named column.<br>- Continue using old names.|Adjust integrations, dashboards, and so on can be adjusted before switching to the new table. |
+|One-off table migration. Not possible to roll back a migrated table. |Migration can be done 'per table'|
+|After table migration:<br>- You can continue to ingest data using the HTTP Data Collector API with existing columns, except custom columns.<br>- You can ingest data into new columns using the Log Ingestion API only.|Data in the old table is available until the end of retention period.|
+  
 To convert a table that uses the Data Collector API to data collection rules and the Log Ingestion API, issue this API call against the table:  
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-12-01-preview
 ```
 
+
+This is the preferred option, especially if you to need to make changes to the existing table. Changes to existing data types and multiple multiple schema changes to existing Data Collector API custom tables can lead to internal server error 500.
+
+> [!NOTE]
+> When you first set up a pipeline or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.
 This call is idempotent, so it has no effect if the table has already been converted.    
 
 > [!NOTE] 
 > This API call enables all DCR-based custom logs features on the table. The Data Collector API will continue to ingest data into existing columns, but won't create any new columns. Any previously defined [custom fields](../logs/custom-fields.md) will stop populating. Another way to migrate an existing table to using data collection rules, but not necessarily the Log Ingestion API is applying a [workspace transformation](../logs/tutorial-workspace-transformations-portal.md) to the table.
-
-- Maintain the existing table and data and set up a new data into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready.
-
-    This is the preferred option, especially if you to need to make changes to the existing table. Changes to existing data types and multiple multiple schema changes to existing Data Collector API custom tables can lead to internal server error 500.
 
 > [!IMPORTANT]
 > - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
 > - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
 > - Custom columns you add to an Azure table must have the suffix `_CF`.
 > - If you update the table schema in your Log Analytics workspace, you must also update the you must also update the input stream definition in the data collection rule to ingest data into new or modified columns.
-
-## Migrate existing custom tables but continue using the Data Collector API
-
-## Side-by-side implementation
-
-> [!NOTE]
-> When you first set up a pipeline or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.
-
 
 ## Create new resources required for the Log ingestion API
 
@@ -88,7 +93,8 @@ When the source data schema changes, you can:
 - Leave the destination table and data collection rule unchanged. In this case, you won't ingest the new data.
 
 > [!NOTE]
-> The Log Ingestion API returns an `internal server error 500` when the data type of an existing property changes and does not match the data type expected by the data collection rule and destination table.
+> You can't reuse a column name with a data type that's different to the original data type defined for the column. 
+
 ## Next steps
 
 - [Walk through a tutorial sending custom logs using the Azure portal.](tutorial-logs-ingestion-portal.md)
