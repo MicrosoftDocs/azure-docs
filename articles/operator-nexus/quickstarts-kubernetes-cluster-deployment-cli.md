@@ -52,7 +52,7 @@ To define these variables, use the following set commands and replace the exampl
 
 ```bash
 RESOURCE_GROUP="myResourceGroup"
-LOCATION="$(az group show --name $RESOURCE_GROUP --query location)"
+LOCATION="$(az group show --name $RESOURCE_GROUP --query location | tr -d '\"')"
 SUBSCRIPTION_ID="$(az account show -o tsv --query id)"
 CUSTOM_LOCATION="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
 CSN_ARM_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
@@ -85,9 +85,8 @@ az networkcloud kubernetescluster create \
 --location "${LOCATION}" \
 --kubernetes-version "${K8S_VERSION}" \
 --aad-configuration admin-group-object-ids="[${AAD_ADMIN_GROUP_OBJECT_ID}]" \
---administrator-configuration \
-    admin-username="${ADMIN_USERNAME}" \
-    ssh-public-keys="[{keyData:'${SSH_PUBLIC_KEY}'}]" \
+--admin-username "${ADMIN_USERNAME}" \
+--ssh-key-values "${SSH_PUBLIC_KEY}" \
 --control-plane-node-configuration \
     count="${CONTROL_PLANE_COUNT}" \
     vm-sku-name="${CONTROL_PLANE_VM_SIZE}" \
