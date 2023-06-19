@@ -97,7 +97,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Entitlement Management                          
 **Product capability:** Entitlement Management                
 
-The Entitlement Management service can now be targeted in the conditional access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “*Azure AD Identity Governance - Entitlement Management*” in the cloud apps picker. For more information, see: [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies-preview).
+The Entitlement Management service can now be targeted in the conditional access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “*Azure AD Identity Governance - Entitlement Management*” in the cloud apps picker. For more information, see: [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies).
 
 ---
 
