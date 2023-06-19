@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Azure AD Identity Protection helps organizations detect, investigate, and remediate identity-based risks. These identity-based risks can be further fed into tools like Conditional Access to make access decisions or fed back to a security information and event management (SIEM) tool for further investigation and correlation. 
 
-
+:::image type="content" source="media/overview-identity-protection/identity-protection-overview.png" alt-text="Diagram showing how Identity Protection works at a high level.":::
 
 ## Detect risks
 
