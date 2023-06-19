@@ -1,6 +1,6 @@
 ---
-title: Define and manage users, roles, and access levels in Permissions Management
-description: How to define and manage users, roles, and access levels in Permissions Management User management dashboard.
+title: Define and manage users, roles, and access levels in Microsoft Permissions Management
+description: How to define and manage users, roles, and access levels in the Permissions Management User management dashboard.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 06/19/2023
 ms.author: jfields
 ---
 
@@ -268,5 +268,5 @@ Creating a permission directly in Permissions Management allows system administr
 
 ## Next steps
 
-- For information about how to view user management information, see [Manage users with the User management dashboard](ui-user-management.md).
-- For information about how to create group-based permissions, see [Create group-based permissions](how-to-create-group-based-permissions.md).
+- To view user management information, see [Manage users with the User management dashboard](ui-user-management.md).
+- To create group-based permissions, see [Create group-based permissions](how-to-create-group-based-permissions.md).
