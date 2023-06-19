@@ -27,6 +27,7 @@ The following table lists the available configuration settings.
 | `skip_api_build` | Set the value to `true` to skip building the API functions. | No |
 | `cwd`<br />(Azure Pipelines only) | Absolute path to the working folder. Defaults to `$(System.DefaultWorkingDirectory)`. | No |
 | `build_timeout_in_minutes` | Set this value to customize the build timeout. Defaults to `15`. | No |
+| `config_file_location` | This folder contains the `staticwebapp.config.json` file. Defaults to `app_location` or any subfolder under it. | No |
 
 With these settings, you can set up GitHub Actions or [Azure Pipelines](get-started-portal.md?pivots=azure-devops) to run continuous integration/continuous delivery (CI/CD) for your static web app.
 
