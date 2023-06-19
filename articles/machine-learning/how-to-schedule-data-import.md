@@ -165,19 +165,19 @@ When you have a data import with satisfactory performance and outputs, you can s
 
    1. Under **Assets** in the left navigation, select **Data**. On the **Data import** tab, select the imported data asset to which you want to attach a schedule. The **Import jobs history** page should appear, as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/data-import-list.png" lightbox="./media/how-to-schedule-data-import/data-import-list.png" alt-text="Screenshot highlighting the imported data asset name in the Data imports tab.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/data-import-list.png" lightbox="./media/how-to-schedule-data-import/data-import-list.png" alt-text="Screenshot highlighting the imported data asset name in the Data imports tab.":::
 
    1. At the **Import jobs history** page, select the latest **Import job name** link, to open the pipelines job details page as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/data-import-history.png" lightbox="./media/how-to-schedule-data-import/data-import-history.png" alt-text="Screenshot highlighting the imported data asset guid in the Import jobs history tab.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/data-import-history.png" lightbox="./media/how-to-schedule-data-import/data-import-history.png" alt-text="Screenshot highlighting the imported data asset guid in the Import jobs history tab.":::
 
    1. At the pipeline job details page of any data import, select **Schedule** -> **Create new schedule** to open the schedule creation wizard, as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/schedule-entry-button.png" lightbox="./media/how-to-schedule-data-import/schedule-entry-button.png" alt-text="Screenshot of the jobs tab, with the create new schedule button.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/schedule-entry-button.png" lightbox="./media/how-to-schedule-data-import/schedule-entry-button.png" alt-text="Screenshot of the jobs tab, with the create new schedule button.":::
 
    1. The *Basic settings* of the schedule creation wizard have the properties shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/create-schedule-basic-settings.png" lightbox="./media/how-to-schedule-data-import/create-schedule-basic-settings.png" alt-text="Screenshot of schedule creation wizard showing the basic settings.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/create-schedule-basic-settings.png" lightbox="./media/how-to-schedule-data-import/create-schedule-basic-settings.png" alt-text="Screenshot of schedule creation wizard showing the basic settings.":::
 
   - **Name**: the unique identifier of the schedule within the workspace.
   - **Description**: the schedule description.
@@ -315,19 +315,19 @@ When you have a data import with satisfactory performance and outputs, you can s
 
    1. Under **Assets** in the left navigation, select **Data**. On the **Data import** tab, select the imported data asset to which you want to attach a schedule. The **Import jobs history** page should appear, as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/data-import-list.png" lightbox="./media/how-to-schedule-data-import/data-import-list.png" alt-text="Screenshot highlighting the imported data asset name in the Data imports tab.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/data-import-list.png" lightbox="./media/how-to-schedule-data-import/data-import-list.png" alt-text="Screenshot highlighting the imported data asset name in the Data imports tab.":::
 
    1. At the **Import jobs history** page, select the latest **Import job name** link, to open the pipelines job details page as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/data-import-history.png" lightbox="./media/how-to-schedule-data-import/data-import-history.png" alt-text="Screenshot highlighting the imported data asset guid in the Import jobs history tab.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/data-import-history.png" lightbox="./media/how-to-schedule-data-import/data-import-history.png" alt-text="Screenshot highlighting the imported data asset guid in the Import jobs history tab.":::
 
    1. At the pipeline job details page of any data import, select **Schedule** -> **Create new schedule** to open the schedule creation wizard, as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/schedule-entry-button.png" lightbox="./media/how-to-schedule-data-import/schedule-entry-button.png" alt-text="Screenshot of the jobs tab, with the create new schedule button.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/schedule-entry-button.png" lightbox="./media/how-to-schedule-data-import/schedule-entry-button.png" alt-text="Screenshot of the jobs tab, with the create new schedule button.":::
 
    1. The *Basic settings* of the schedule creation wizard have the properties shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/create-schedule-basic-settings.png" lightbox="./media/how-to-schedule-data-import/create-schedule-basic-settings.png" alt-text="Screenshot of schedule creation wizard showing the basic settings.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/create-schedule-basic-settings.png" lightbox="./media/how-to-schedule-data-import/create-schedule-basic-settings.png" alt-text="Screenshot of schedule creation wizard showing the basic settings.":::
 
   - **Name**: the unique identifier of the schedule within the workspace.
   - **Description**: the schedule description.
@@ -469,22 +469,22 @@ To change the import frequency, or to create a new association for the data impo
 
    1. Under **Assets** in the left navigation, select **Data**. On the **Data import** tab, select the imported data asset to which you want to attach a schedule. Then, the **Import jobs history** page opens, as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/data-import-list.png" alt-text="Screenshot highlighting the imported data asset name in the Data imports tab.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/data-import-list.png" alt-text="Screenshot highlighting the imported data asset name in the Data imports tab.":::
 
    1. At the **Import jobs history** page, select the latest **Import job name** link, to open the pipelines job details page as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/data-import-history.png" alt-text="Screenshot highlighting the imported data asset guid in the Import jobs history tab.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/data-import-history.png" alt-text="Screenshot highlighting the imported data asset guid in the Import jobs history tab.":::
 
    1. At the pipeline job details page of any data import, select **Schedule** -> **Updated to existing schedule**, to open the Select schedule wizard, as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/schedule-update-button.png" alt-text="Screenshot of the jobs tab with the schedule button selected, showing the create update to existing schedule button.":::
+      :::image type="content" source="./media/how-to-schedule-data-import/schedule-update-button.png" alt-text="Screenshot of the jobs tab with the schedule button selected, showing the create update to existing schedule button.":::
 
    1. Select an existing schedule from the list, as shown in this screenshot:
 
-   :::image type="content" source="./media/how-to-schedule-data-import/update-select-schedule.png" alt-text="Screenshot of update select schedule showing the select schedule tab." :::
+      :::image type="content" source="./media/how-to-schedule-data-import/update-select-schedule.png" alt-text="Screenshot of update select schedule showing the select schedule tab." :::
 
-   > [!IMPORTANT]
-   > Make sure to select the correct schedule to update. Once you finish the update, the schedule will trigger different data imports.
+      > [!IMPORTANT]
+      > Make sure to select the correct schedule to update. Once you finish the update, the schedule will trigger different data imports.
 
    1. You can also modify the source, query and change the destination path, for future data imports that the schedule triggers.
 
