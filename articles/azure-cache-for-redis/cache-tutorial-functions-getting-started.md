@@ -21,7 +21,7 @@ The following tutorial shows how to implement basic triggers with Azure Cache fo
 
 ## Instructions
 
-### Set up an Azure Cache for Redis Instance
+### Set up an Azure Cache for Redis instance
 
 Create a new **Azure Cache for Redis** instance using the Azure portal or your preferred CLI tool. We use a _Standard C1_ instance, which is a good starting point. Use the [quickstart guide](quickstart-create-redis.md) to get started.
 
@@ -58,7 +58,7 @@ The new project is created:
 
 <!-- ![Image](Media/VSCodeWorkspace.png) -->
 
-### Install Necessary NuGet packages
+### Install necessary NuGet packages
 
 You need to install two NuGet packages:
 
@@ -74,7 +74,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
 dotnet restore
 ```
 
-### Configure Cache
+### Configure cache
 
 Go to your newly created Azure Cache for Redis instance. Two steps are needed here.
 
@@ -212,7 +212,7 @@ You should see the triggers activating in the terminal:
 
 <!-- ![Image](Media/TriggersWorking.png) -->
 
-### Deploy Code to an Azure Function
+### Deploy code to an Azure function
 
 Create a new Azure function by going back to the Azure tab, expanding your subscription, and right clicking on **Function App**. Select **Create a Function App in Azure…(Advanced)**.
 
