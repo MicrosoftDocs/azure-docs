@@ -18,7 +18,7 @@ This document contains information about new features and other changes to the A
 
 ### Changes (0.2.2)
 
-- Performance improvements in dynamic styling updates
+- Performance improvements in dynamic styling updates.
 
 ### Bug fixes (0.2.2)
 
