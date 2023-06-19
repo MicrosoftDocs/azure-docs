@@ -282,6 +282,8 @@
                 href: ./rest-api-postman.md
         - name: Azure CLI
           href: /cli/azure/appconfig
+    - name: Kubernetes provider
+      href: reference-kubernetes-provider.md
     - name: Deployment
       href: /azure/templates/microsoft.appconfiguration/configurationstores
     - name: Azure Policy built-ins

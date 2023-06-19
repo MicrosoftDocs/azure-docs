@@ -2089,6 +2089,16 @@
             "source_path_from_root": "/articles/storage/files/storage-troubleshooting-files-nfs.md",
             "redirect_url": "/azure/storage/files/files-troubleshoot-linux-nfs",
             "redirect_document_id": false
-        }            
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-auth-azure-active-directory-enable.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-auth-active-directory-domain-service-enable.md",
+            "redirect_url": "/azure/storage/files/storage-files-identity-auth-domain-services-enable",
+            "redirect_document_id": true
+        }
     ]
 }
