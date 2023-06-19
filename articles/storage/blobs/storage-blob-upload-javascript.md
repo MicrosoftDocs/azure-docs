@@ -46,7 +46,7 @@ The following example uploads a block blob from a local file path:
 
 ## Upload a block blob from a stream
 
-The following example uploads a block by creating a readable stream and uploading the stream::
+The following example uploads a block by creating a readable stream and uploading the stream:
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js" id="Snippet_UploadBlob":::
 
@@ -64,11 +64,11 @@ The following example uploads a block blob from a string:
 
 ## Upload a block blob with configuration options
 
-You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The following code examples show how to set properties in the [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) interface to define configuration options when calling an upload method.
+You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The code examples in this section show how to set configuration options using the [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) interface, and how to pass those options as a parameter to an upload method call. 
 
 ### Specify data transfer options on upload
 
-You can configure values in [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to improve performance for data transfer operations. The following table lists the properties you can configure, along with a description:
+You can configure properties in [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to improve performance for data transfer operations. The following table lists the properties you can configure, along with a description:
 
 | Method | Description |
 | --- | --- |
