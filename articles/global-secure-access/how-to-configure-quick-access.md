@@ -31,7 +31,7 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 - Avoid overlapping app segments between Quick Access and per-app access.
 - Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
 
-## How it works <!---Remove how it works and setup overview and put in own article at some point--->
+## How it works <!--- Remove how it works and setup overview and put in own article at some point --->
 
 Quick Access for Microsoft Entra Private Access unlocks the ability to specify the FQDNs and IP addresses that you consider private or internal, so you can manage how your organization accesses them.
 
