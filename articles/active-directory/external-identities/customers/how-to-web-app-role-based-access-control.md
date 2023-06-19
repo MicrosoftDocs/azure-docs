@@ -39,17 +39,39 @@ Once you configure your customer's tenant, you can retrieve your *roles* and *gr
 You check your *roles* claim value as shown in the following code snippet example:
 
 ```javascript
-const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
-let roles = tokenResponse.idTokenClaims.roles;
+const msal = require('@azure/msal-node');
+const { msalConfig, TENANT_SUBDOMAIN, REDIRECT_URI, POST_LOGOUT_REDIRECT_URI } = require('../authConfig');
 
-//Check roles
-if (roles && roles.includes("Orders.Manager")) {
-    //This user can view the the ID token claims page.
-    return res.redirect('/id');
+...
+class AuthProvider {
+...
+    async handleRedirect(req, res, next) {
+        const authCodeRequest = {
+            ...req.session.authCodeRequest,
+            code: req.body.code, // authZ code
+            codeVerifier: req.session.pkceCodes.verifier, // PKCE Code Verifier
+        };
+    
+        try {
+            const msalInstance = this.getMsalInstance(this.config.msalConfig);
+            const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
+            let roles = tokenResponse.idTokenClaims.roles;
+        
+            //Check roles
+            if (roles && roles.includes("Orders.Manager")) {
+                //This user can view the the ID token claims page.
+                res.redirect('/id');
+            }
+            
+            //User can only view the index page.
+            res.redirect('/');
+        } catch (error) {
+            next(error);
+        }
+    }
+...
 }
 
-//User can only view the index page.
-return res.redirect('/');
 ```
 
 If you assign a user to multiple roles, the `roles` string contains all roles separated by a comma, such as `Orders.Manager,Store.Manager,...`. Make sure you build your application to handle the following conditions:
