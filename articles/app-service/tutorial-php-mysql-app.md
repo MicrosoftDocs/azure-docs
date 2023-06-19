@@ -278,11 +278,6 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 
 [Laravel application lifecycle](https://laravel.com/docs/10.x/lifecycle#lifecycle-overview) begins in the **/public** directory instead. The default PHP container for App Service uses Nginx, which starts in the application's root directory. To change the site root, you need to change the Nginx configuration file in the PHP container (*/etc/nginx/sites-available/default*). For your convenience, the sample repository contains a custom configuration file called *default*. As noted previously, you don't want to replace this file using the SSH shell, because the change is outside of `/home` and will be lost after an app restart. 
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Change site root step 1](./includes/tutorial-php-mysql-app/azure-portal-change-site-root-1.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-change-site-root-1-240px.png" alt-text="A screenshot showing how to open the general settings tab in the configuration page of App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-change-site-root-1.png"::: |
-| [!INCLUDE [Change site root step 2](./includes/tutorial-php-mysql-app/azure-portal-change-site-root-2.md)] | :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-change-site-root-2-240px.png" alt-text="A screenshot showing how to configure a startup command in App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-change-site-root-2.png"::: |
-
 :::row:::
     :::column span="2":::
         **Step 1.**
@@ -290,7 +285,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
         1. Select the **General settings** tab.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-change-site-root-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-php-mysql-app/azure-portal-change-site-root-1.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-change-site-root-1.png" alt-text="A screenshot showing how to open the general settings tab in the configuration page of App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-change-site-root-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -301,7 +296,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
         The command replaces the Nginx configuration file in the PHP container and restarts Nginx. This configuration ensures that the same change is made to the container each time it starts.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-change-site-root-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-php-mysql-app/azure-portal-change-site-root-2.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-change-site-root-2.png" alt-text="A screenshot showing how to configure a startup command in App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-change-site-root-2.png":::
     :::column-end:::
 :::row-end:::
 
