@@ -98,7 +98,7 @@ When trying to set the configuration for Arc resource bridge, you may receive an
 
 "message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"
 
-This occurs when a .local path is provided for a configuration setting, such as proxy, dns, datastore or management endpoint (ex: vCenter). Arc resource bridge appliance VM uses Mariner Linux OS which does not support .local by default. A workaround could be to provide the IP address where applicable.
+This occurs when a `.local` path is provided for a configuration setting, such as proxy, dns, datastore or management endpoint (such as vCenter). Arc resource bridge appliance VM uses Azure Linux OS, which doesn't support `.local` by default. A workaround could be to provide the IP address where applicable.
 
 
 ### Azure Arc resource bridge is unreachable
