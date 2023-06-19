@@ -24,7 +24,7 @@ For existing clusters, you can switch to Managed Identity authentication from th
 
 :::image type="content" source="./media/container-insights-authentication/monitor-settings.png" alt-text="Screenshot that shows the settings panel." lightbox="media/container-insights-authentication/monitor-settings.png":::
 
-If you don't see the *Use managed identity* option, you are using an SPN clusters. In that case, you must use command line tools to migrate. See other tabs for migration instructions and templates.
+If you don't see the *Use managed identity* option, you are using an SPN cluster. In that case, you must use command line tools to migrate. See other tabs for migration instructions and templates.
 
 ## [Azure CLI](#tab/cli)
 
@@ -90,13 +90,13 @@ az account set --subscription "Subscription Name"
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.bicep --parameters ./existingClusterParam.json
 ```
 
-For new aks cluster:
+For new AKS cluster:
 Replace and use the managed cluster resources in this [guide](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-bicep?tabs=azure-cli)
 
 
 ## [Terraform](#tab/terraform)
 
-**Enable Monitoring with MSI without syslog for new aks cluster**
+**Enable Monitoring with MSI without syslog for new AKS cluster**
 
 1.	Download Terraform template for enable monitoring msi with syslog enabled:
 https://aka.ms/enable-monitoring-msi-terraform
@@ -113,7 +113,7 @@ https://aka.ms/enable-monitoring-msi-terraform
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
 
-**Enable Monitoring with MSI with syslog for new aks cluster** 
+**Enable Monitoring with MSI with syslog for new AKS cluster** 
 1.	Download Terraform template for enable monitoring msi with syslog enabled:
 https://aka.ms/enable-monitoring-msi-syslog-terraform
 2.	Adjust the azurerm_kubernetes_cluster resource in main.tf based on what cluster settings you're going to have
@@ -129,7 +129,7 @@ https://aka.ms/enable-monitoring-msi-syslog-terraform
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
 
-**Enable Monitoring with MSI for existing aks cluster:**
+**Enable Monitoring with MSI for existing AKS cluster:**
 1.	Import the existing cluster resource first with this command: ` terraform import azurerm_kubernetes_cluster.k8s <aksResourceId>`
 2.	Add the oms_agent add-on profile to the existing azurerm_kubernetes_cluster resource.
 ```
