@@ -21,7 +21,7 @@ This article shows you how to uninstall the OMS add-on and related resources fro
       --addons open-service-mesh
     ```
 
-## Remove additional OSM resources
+## Remove OSM resources
 
 * Uninstall the remaining resources on the cluster using the `osm uninstall cluster-wide-resources` command.
 
