@@ -79,7 +79,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
-## Configure CivicEye SSO SSO
+## Configure CivicEye SSO
 
 To configure single sign-on on **CivicEye SSO** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [CivicEye SSO support team](mailto:help@civiceye.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
