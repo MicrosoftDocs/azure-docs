@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3
 description: How to migrate your applications to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 10/20/2022
+ms.date: 06/19/2023
 ms.author: jordanselig
 ---
 # Migrate to App Service Environment v3
@@ -154,7 +154,7 @@ Once your migration and any testing with your new environment is complete, delet
 - **Will I experience downtime during the migration?**  
   Downtime is dependent on your migration process. If you have a different App Service Environment that you can point traffic to while you migrate or if you can use a different subnet to create your new environment, you won't have downtime. However, if you must use the same subnet, there will be downtime resulting from the time it takes to delete the old environment, create the App Service Environment v3, create the new App Service plans, re-create the apps, and update any resources that need to know about the new IP addresses.
 - **Do I need to change anything about my apps to get them to run on App Service Environment v3?**  
-  No, apps that run on App Service Environment v1 and v2 shouldn't need any modifications to run on App Service Environment v3.
+  No, apps that run on App Service Environment v1 and v2 shouldn't need any modifications to run on App Service Environment v3. If you are using IP SSL, that will need to be removed before migrating.
 - **What if my App Service Environment has a custom domain suffix?**  
   The migration feature supports this [migration scenario](./migrate.md#supported-scenarios). You can migrate using a manual method if you don't want to use the migration feature. You can configure your [custom domain suffix](./how-to-custom-domain-suffix.md) when creating your App Service Environment v3 or any time after that. 
 - **What if my App Service Environment is zone pinned?**  
