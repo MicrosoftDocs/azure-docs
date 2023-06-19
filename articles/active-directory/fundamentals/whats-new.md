@@ -91,6 +91,26 @@ For more information about how to better secure your organization by using autom
 
 ---
 
+### General Availability - Include/exclude Entitlement Management in Conditional Access policies
+
+**Type:** New feature       
+**Service category:** Entitlement Management                          
+**Product capability:** Entitlement Management                
+
+The Entitlement Management service can now be targeted in the conditional access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “*Azure AD Identity Governance - Entitlement Management*” in the cloud apps picker. For more information, see: [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies-preview).
+
+---
+
+### General Availability - Azure Active Directory User and Group capabilities on Azure Mobile are now available
+
+**Type:** New feature       
+**Service category:** Azure Mobile App                             
+**Product capability:** End User Experiences                  
+
+The Azure Mobile app now includes a section for Azure Active Directory. Within Azure Active Directory on mobile, user can search for and view more details about user and groups. Additionally, permitted users can invite guest users to their active tenant, assign group memberships and ownerships for users, and view user sign-in logs. For more information, see: [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+
+---
+
 ### General Availability - Updated look and feel for Per-user MFA
 
 **Type:** Plan for change    
