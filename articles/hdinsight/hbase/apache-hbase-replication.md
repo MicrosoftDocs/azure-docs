@@ -374,7 +374,7 @@ Create keytab file for the user using `ktutil`.
 1. `wkt /etc/security/keytabs/admin.keytab`
 
 > [!NOTE] 
-> Make sure the keytab file store is `/etc/security/keytabs/` folder in `<username>.keytab` format.
+> Make sure the keytab file is stored in `/etc/security.keytabs/` folder in the `<username>.keytab` format.
 
 **Step 2** 
 Run script action with `-ku` option 
