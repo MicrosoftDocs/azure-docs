@@ -72,7 +72,7 @@ The following pseudocode sample helps illustrate the insecure pattern of user id
 
 Once you've determined that your application is relying on this insecure attribute, you need to update business logic to reindex users on a globally unique identifier (GUID). 
 
-Mutli-tenant applications should index on a mapping of two uniquely identifying claims, `tid` + `oid`. This mapping segments tenants by the `tid`, and segments users by their `oid`. 
+Mutli-tenant applications should index on a mapping of two uniquely identifying claims, `tid` + `oid`. This will segment tenants by the `tid`, and segment users by their `oid`. 
 
 ### Using the `xms_edov` optional claim to determine email verification status and migrate users
 
