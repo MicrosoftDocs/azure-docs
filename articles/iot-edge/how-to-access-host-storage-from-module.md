@@ -73,8 +73,6 @@ Or, you can configure the local storage directly in the deployment manifest. For
 Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path and `<HostStoragePath>` must exist. For example, you can map both *edgeAgent* and *edgeHub* paths similarly to the following:
 
 ```json
-
-```json
 "createOptions": {
     "HostConfig": {
         "Binds":[
