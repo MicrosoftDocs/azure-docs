@@ -333,7 +333,7 @@ When you have a data import with satisfactory performance and outputs, you can s
   - **Description**: the schedule description.
   - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
     - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
-    - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. Under **Recurrence**, you can specify the recurrence frequency - by minutes, hours, days, weeks, or months.
+    - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. **Cron expression** allows you to specify more flexible and customized recurrence pattern.
     - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
     - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule remains active until you manually disable it.
     - **Tags**: the selected schedule tags.
