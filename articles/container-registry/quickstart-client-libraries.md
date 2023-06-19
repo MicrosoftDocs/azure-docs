@@ -5,14 +5,14 @@ ms.topic: quickstart
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
-zone_pivot_groups: programming-languages-set-ten
+zone_pivot_groups: programming-languages-set-fivedevlangs
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 # Quickstart: Use the Azure Container Registry client libraries
 
-::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-python, programming-language-go"
 
 Use this article to get started with the client library for Azure Container Registry. Follow these steps to try out example code for data-plane operations on images and artifacts.
 
