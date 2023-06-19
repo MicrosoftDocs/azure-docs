@@ -108,8 +108,6 @@
         href: ui-audit-trail.md
       - name: Create a custom query
         href: how-to-create-custom-queries.md
-      - name: Generate an on-demand report from a query
-        href: how-to-audit-trail-results.md
       - name: Filter and query user activity
         href: product-audit-trail.md
     - name: Set activity alerts and triggers 
@@ -139,6 +137,8 @@
     - name: Create and view reports 
       expanded: false
       items: 
+      - name: Generate an on-demand report from a query
+        href: how-to-audit-trail-results.md
       - name: View system reports in the Reports dashboard
         href: product-reports.md
       - name: View a list and description of system reports
