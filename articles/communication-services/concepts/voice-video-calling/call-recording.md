@@ -155,5 +155,6 @@ It's possible that when a call is created using Call Automation, you won't get a
 For more information, see the following articles:
 
 - Learn more about Call recording, check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+- Learn more about call recording [Insights](../analytics/insights/call-recording-insights.md) and [Logs](../analytics/logs/recording-logs.md)
 - Learn more about [Call Automation](../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Learn more about [Video Calling](../../quickstarts/voice-video-calling/get-started-with-video-calling.md).
