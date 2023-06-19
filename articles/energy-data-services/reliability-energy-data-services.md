@@ -58,10 +58,10 @@ If you [set up private links](how-to-set-up-private-links.md) to your Azure Data
 > If you don't enable public access networks or create a secondary private endpoint before an outage, you'll lose access to the failed over Azure Data Manager for Energy Preview resource in the secondary region. You will be able to access the Azure Data Manager for Energy Preview resource only after the primary region failback is complete.
    
 > [!IMPORTANT]
-> After failover and until the primary region failback completes, you will be unable to perform state modifications to Azure Data Manager for Energy Preview resource created in your subscription. For example,
-- > you cannot **Enable** or **Disable** public access networks.
-- > you cannot **Approve** or **Reject** private endpoint connection to Azure Data Manager for Energy Preview resource
-- > you cannot create a new data partition.
+> After failover and until the primary region failback completes, you will be unable to perform state modifications to Azure Data Manager for Energy Preview resource created in your subscription. For example, 
+> - you cannot **Enable** or **Disable** public access networks.
+> - you cannot **Approve** or **Reject** private endpoint connection to Azure Data Manager for Energy Preview resource
+> - you cannot create a new data partition.
 
 ## Next steps
 > [!div class="nextstepaction"]
