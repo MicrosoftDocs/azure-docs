@@ -13,10 +13,7 @@ ms.author: jboback
 ms.custom: language-service-summarization, ignite-fall-2021, ignite-2022
 ---
 
-# How to use document summarization (preview)
-
-> [!IMPORTANT] 
-> The summarization features described in this documentation are preview capabilities provided “AS IS” and “WITH ALL FAULTS.” As such, document summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of document summarization. 
+# How to use document summarization
 
 Document summarization is designed to shorten content that users consider too long to read. Both extractive and abstractive summarization condense articles, papers, or documents to key sentences.
 
