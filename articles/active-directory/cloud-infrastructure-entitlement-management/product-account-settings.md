@@ -1,5 +1,5 @@
 ---
-title: View personal and organization information in Micrsoft Entra Permissions Management
+title: View personal and organization information in Microsoft Entra Permissions Management
 description: How to view personal and organization information in the Account settings dashboard in Microsoft Entra Permissions Management.
 services: active-directory
 manager: amycolannino

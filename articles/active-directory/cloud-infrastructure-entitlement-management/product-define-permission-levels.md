@@ -33,7 +33,7 @@ Follow this process to invite users if the customer hasn't enabled SAML integrat
 
 ### Invite a user to Permissions Management
 
-Inviting a user to Permissions Management adds the user to the system and allows system administrators to assign permissions to those users. Follow the steps below to invite a user to Permissions Management.
+Inviting a user to Permissions Management adds the user to the system and allows system administrators to assign permissions to those users. Follow the steps to invite a user to Permissions Management.
 
 1. To invite a user to Permissions Management, select the down caret icon next to the **User** icon on the right of the screen, and then select **User Management**.
 2. From the **Users** tab, select **Invite User**.

@@ -301,7 +301,7 @@ The **Operator** menu displays the following options depending on the identity y
 1. To view a list of all resources, hover over **Multiple**.
 
     - **Resource Type**: Displays the type of resource, for example, *Key* (encryption key) or *Bucket* (storage).
-    - **Task Name**: The name of the task that was performed by the identity.
+    - **Task Name**: The name of the task performed by the identity.
 
          An exclamation mark (**!**) next to the task name indicates that the task failed.
 
@@ -342,7 +342,7 @@ The **Operator** menu displays the following options depending on the identity y
 
       - **Query Name**: Displays the name of the saved query.
       - **Query Type**: Displays whether the query is a *System* query or a *Custom* query.
-      - **Schedule**: Displays how often a report will be generated. You can schedule a one-time report or a monthly report.
+      - **Schedule**: Displays how often a report is generated. You can schedule a one-time report or a monthly report.
       - **Next On**: Displays the date and time the next report will be generated.
       - **Format**: Displays the output format for the report, for example, CSV.
       - **Last Modified On**: Displays the date in which the query was last modified on.

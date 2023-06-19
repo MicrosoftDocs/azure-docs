@@ -16,7 +16,7 @@ ms.author: jfields
 
 Gain insight into current billable resources listed in your authorization system. In Microsoft Entra Permissions Management, a billable resource is defined as a cloud service that uses compute or memory and requires a license. The Permissions Management Billable Resources tab shows you which resources are in your authorization system, and how many of them you're being billed for.
 
-Here is the current list of resources per cloud provider. This list is subject to change as cloud providers add more services in the future.
+Here's the current list of resources per cloud provider. This list is subject to change as cloud providers add more services in the future.
 
 :::image type="content" source="media/onboard-enable-tenant/billable-resources.png" alt-text="A table of current Microsoft billable resources." lightbox="media/onboard-enable-tenant/billable-resources.png":::
 
