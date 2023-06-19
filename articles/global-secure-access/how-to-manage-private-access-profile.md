@@ -51,30 +51,6 @@ Details of the Quick Access and any enterprise apps configured for Private acces
 
 ![Screenshot of the private access application details.](media/how-to-manage-private-access-profile/private-access-app-details.png)
 
-## Linked Conditional Access policies
-
-Conditional Access policies can be applied to your Quick Access and Global Secure Access applications. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
-
-Conditional Access policies are created and applied to the Quick Access application in the **Protection** area of Microsoft Entra ID. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
-
-The following example creates a Conditional Access policy requiring multifactor authentication for your quick access applications.
-
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
-1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
-1. Select **Create new policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-1. Under **Target resources** > **Include**, and select **Select apps**.
-   1. Choose your configured quick access application.
-1. Under **Access controls** > **Grant**
-   1. Select **Grant access**, **Require multifactor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **Report-only**.
-1. Select **Create** to create to enable your policy.
-
-After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
-
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps

@@ -40,6 +40,7 @@ To summarize, the overall process is as follows:
 1. Create an App Proxy connector group, if you don't already have one.
 1. Create a new enterprise app from Global Secure Access.
 1. Assign users and groups to the app.
+1. Configure Conditional Access policies.
 1. Enable Microsoft Entra Private Access.
 
 Let's look at each of these steps in more detail.
@@ -124,7 +125,7 @@ For per-app access, you can enable or disable access to the app using the Global
 
 ### Assign Conditional Access policies
 
-Conditional Access policies for per-app access are configured at the application level for each app. Conditional Access policies are created and applied to the application in the **Protection** area of Microsoft Entra ID. For more information, see the article [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
+Conditional Access policies for per-app access are configured at the application level for each app. Conditional Access policies are created and applied to the application in the **Protection** area of Microsoft Entra ID. For more information, see [Quick access Conditional Access policies](how-to-configure-quick-access.md#linked-conditional-access-policies).
 
 ## Enable Microsoft Entra Private Access
 
