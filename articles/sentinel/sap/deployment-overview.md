@@ -1,10 +1,10 @@
 ---
 title: Deploy Microsoft Sentinel solution for SAP® applications in Microsoft Sentinel
 description: This article introduces you to the process of deploying the Microsoft Sentinel solution for SAP® applications.
-author: MSFTandrelom
-ms.author: andrelom
+author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
-ms.date: 04/12/2022
+ms.date: 06/19/2023
 ---
 
 # Deploy Microsoft Sentinel solution for SAP® applications
@@ -14,7 +14,7 @@ This article introduces you to the process of deploying the Microsoft Sentinel s
 > [!TIP]
 > Learn how to [monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
 
-Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA® Cloud, Private Edition RISE with SAP and SAP S/4 on-premise. Learn more about this [certification](solution-overview.md#certification).
+Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA® Cloud, Private Edition RISE with SAP and SAP S/4 on-premises. Learn more about this [certification](solution-overview.md#certification).
 
 > [!NOTE]
 > If needed, you can [update an existing Microsoft Sentinel for SAP data connector](update-sap-data-connector.md) to its latest version. 

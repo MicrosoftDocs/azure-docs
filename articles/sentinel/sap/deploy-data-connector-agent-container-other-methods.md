@@ -1,5 +1,5 @@
 ---
-title: Deploy and configure the container hosting the SAP data connector agent
+title: Microsoft Sentinel solution for SAP® applications - deploy and configure the SAP data connector agent container
 description: This article shows you how to manually deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
 author: limwainstein
 ms.author: lwainstein
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/18/2023
 ---
 
-# Deploy and configure the container hosting the SAP data connector agent
+# Deploy and configure the container hosting the SAP data connector agent via the command line
 
 This article shows you how to use various methods to deploy the container that hosts the SAP data connector agent, and create new SAP systems under the agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP. 
 
@@ -111,7 +111,7 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh --cloud fairfax
     ```
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
 2. **Follow the on-screen instructions** to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
