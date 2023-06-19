@@ -23,7 +23,7 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 
 | Assembly | Protocols| Environment | Capabilities|
 |--------|----------|---------|----------------------------------|
-| Azure Resource Manager | [REST](/rest/api/communication/communicationservice)| Service| Provision and manage Communication Services resources|
+| Azure Resource Manager | [REST](rest/api/communication/resourcemanager/communication-services)| Service| Provision and manage Communication Services resources|
 | Common | N/A | Client & Service | Provides base types for other SDKs |
 | Identity | [REST](/rest/api/communication/communication-identity) | Service| Manage users, access tokens|
 | Phone numbers| [REST](/rest/api/communication/phonenumbers) | Service| Acquire and manage phone numbers |
