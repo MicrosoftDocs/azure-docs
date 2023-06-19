@@ -74,6 +74,8 @@ landingContent:
             url: how-to-convert-segy-to-ovds.md
           - text: How to convert SEG-Y to ZGY
             url: how-to-convert-segy-to-zgy.md
+          - text: How to Upload large files using file service
+            url: how-to-upload-large-files-using-file-service.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide

@@ -49,9 +49,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## May 2023
 
-- **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server**
+- **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server (General Availability)**
 
-  Azure Database for MySQL - Flexible server now supports cross region read-replica in a geo-paired region. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in geo-paired region. [Learn more](how-to-read-replicas-portal.md)
+  Azure Database for MySQL - Flexible server now supports cross region read-replica in a geo-paired region. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in geo-paired region. [Learn more](concepts-read-replicas.md)
 
 - **Support for data-in replication using GTID**
 
