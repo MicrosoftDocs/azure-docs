@@ -78,7 +78,7 @@ For information about how to call the Log Ingestion API, see [Log Ingestion REST
 
 ## Modify table schemas and data collection rules based on changes to source data object
 
-The Data Collector API automatically adjusts the destination table schema when the source data object schema changes. The Log Ingestion API doesn't automatically adjust the destination table schema. This ensures that you don't collect new data into columns that you didn't intend to create.  
+While the Data Collector API automatically adjusts the destination table schema when the source data object schema changes, the Log Ingestion API doesn't. This ensures that you don't collect new data into columns that you didn't intend to create.  
 
 When the source data schema changes, you can:
 
