@@ -26,7 +26,7 @@ This article describes how to enable Microsoft Entra Permissions Management in y
 To enable Permissions Management in your organization:
 
 - You must have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
-- You must be eligible for or have an active assignment to the Permissions Management Administrator role as a user in that tenant.
+- You must be eligible for or have an active assignment to the *Permissions Management Administrator* role as a user in that tenant.
 
 ## How to enable Permissions Management on your Azure AD tenant
 
