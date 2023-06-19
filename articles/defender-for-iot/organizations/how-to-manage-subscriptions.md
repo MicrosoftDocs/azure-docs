@@ -1,7 +1,7 @@
 ---
 title: Manage OT plans and licenses - Microsoft Defender for IoT
 description: Manage Microsoft Defender for IoT plans and licenses for OT monitoring.
-ms.date: 05/17/2023
+ms.date: 06/19/2023
 ms.topic: how-to
 ---
 
@@ -96,6 +96,23 @@ You may need to cancel a Defender for IoT plan from your Azure subscription, for
 > 
 > For more information, see the [Microsoft 365 admin center documentation](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins#cancel-a-purchase-or-trial-subscription).
 >
+
+## Migrate from a legacy OT plan
+
+If you're an existing customer with a legacy OT plan, migrate your plan to a site-based Microsoft 365 plan. TBD - why would i migrate if i don't have to? Also, what if i have multiple plans - i can only migrate one, right? So how can i otherwise consolidate my plans without losing data?
+
+**To migrate your plan**:
+
+1. Purchase a new, site-based license in the Microsoft 365 Marketplace for the site size that you need. For more information, see [Purchase a Defender for IoT license](#purchase-a-defender-for-iot-license).
+1. In Defender for IoT in the Azure portal, go to **Plans and pricing** and locate the subscription for the plan want to migrate.
+1. On the subscription row, select the options menu (**...**) at the right > select **Edit plan**.
+1. In the **Price plan** field, select **Microsoft 365 (recommended)** > **Next**.
+1. Review your plan details and select **Save**.
+
+**To complete the migration by updating your site sizes**:
+
+1. Select **Sites and sensors** and then select the site you want to migrate. If you have multiple sites, the sites linked to the plan you migrated are highlighted as needing changes.
+1. In the **Edit site** pane, in the **Size** field, edit your site size to match your licensed sites.
 
 ## Legacy procedures for plan management in the Azure portal
 

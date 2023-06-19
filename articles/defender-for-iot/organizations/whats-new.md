@@ -16,6 +16,19 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## July 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) <br> [Security recommendations for OT networks for insecure passwords and critical CVEs](#security-recommendations-for-ot-networks-for-insecure-passwords-and-critical-cves) |
+
+
+### Migrate to site-based licenses
+
+Starting July 5, existing customers can migrate their legacy Defender for IoT purchasing plans to new, site-based Microsoft 365 licenses. <!--for example: image-->
+
+For more information, see [Migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan).
+
 ## June 2023
 
 |Service area  |Updates  |
