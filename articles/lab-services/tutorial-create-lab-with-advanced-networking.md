@@ -34,7 +34,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Azure manage resources](./includes/lab-services-prerequisite-manage-resources.md)]
 
 ## Create a resource group
 

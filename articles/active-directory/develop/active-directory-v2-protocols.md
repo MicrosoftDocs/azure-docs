@@ -22,9 +22,9 @@ Knowing about OAuth or OpenID Connect (OIDC) at the protocol level isn't require
 
 Four parties are generally involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. These exchanges are often called *authentication flows* or *auth flows*.
 
-![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagram showing the OAuth 2.0 roles](./media/v2-flows/protocols-roles.svg)
 
-* **Authorization server** - The identity platform is the authorization server. Also called an *identity provider* or *IdP*, it securely handles the end-user's information, their access, and the trust relationships between the parties in the auth flow. The authorization server issues the security tokens your apps and APIs use for granting, denying, or revoking access to resources (authorization) after the user has signed in (authenticated).
+* **Authorization server** - The Microsoft identity platform is the authorization server. Also called an *identity provider* or *IdP*, it securely handles the end-user's information, their access, and the trust relationships between the parties in the auth flow. The authorization server issues the security tokens your apps and APIs use for granting, denying, or revoking access to resources (authorization) after the user has signed in (authenticated).
 
 * **Client** - The client in an OAuth exchange is the application requesting access to a protected resource. The client could be a web app running on a server, a single-page web app running in a user's web browser, or a web API that calls another web API. You'll often see the client referred to as *client application*, *application*, or *app*.
 
@@ -34,7 +34,7 @@ Four parties are generally involved in an OAuth 2.0 and OpenID Connect authentic
 
 ## Tokens
 
-The parties in an authentication flow use **bearer tokens** to assure, verify, and authenticate a principal (user, host, or service) and to grant or deny access to protected resources (authorization). Bearer tokens in the identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
+The parties in an authentication flow use **bearer tokens** to assure, verify, and authenticate a principal (user, host, or service) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
 
 Three types of bearer tokens are used by the identity platform as *security tokens*:
 
@@ -46,7 +46,7 @@ Three types of bearer tokens are used by the identity platform as *security toke
 
 ## App registration
 
-Your client app needs a way to trust the security tokens issued to it by the identity platform. The first step in establishing trust is by [registering your app](quickstart-register-app.md). When you register your app, the identity platform automatically assigns it some values, while others you configure based on the application's type.
+Your client app needs a way to trust the security tokens issued to it by the Microsoft identity platform. The first step in establishing trust is by [registering your app](quickstart-register-app.md). When you register your app, the identity platform automatically assigns it some values, while others you configure based on the application's type.
 
 Two of the most commonly referenced app registration settings are:
 
@@ -57,7 +57,7 @@ Your app's registration also holds information about the authentication and auth
 
 ## Endpoints
 
-The identity platform offers authentication and authorization services using standards-compliant implementations of OAuth 2.0 and OpenID Connect (OIDC) 1.0. Standards-compliant authorization servers like the identity platform provide a set of HTTP endpoints for use by the parties in an auth flow to execute the flow.
+The Microsoft identity platform offers authentication and authorization services using standards-compliant implementations of OAuth 2.0 and OpenID Connect (OIDC) 1.0. Standards-compliant authorization servers like the identity platform provide a set of HTTP endpoints for use by the parties in an auth flow to execute the flow.
 
 The endpoint URIs for your app are generated automatically when you register or configure your app. The endpoints you use in your app's code depend on the application's type and the identities (account types) it should support.
 
@@ -89,7 +89,7 @@ Next, learn about the OAuth 2.0 authentication flows used by each application ty
 * [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 * [Microsoft Authentication Library (MSAL)](msal-overview.md)
 
-**We strongly advise against crafting your own library or raw HTTP calls to execute authentication flows.** A [Microsoft Authentication Library](reference-v2-libraries.md) is safer and easier. However, if your scenario prevents you from using our libraries or you'd just like to learn more about the identity platform's implementation, we have protocol reference:
+**We strongly advise against crafting your own library or raw HTTP calls to execute authentication flows.** A [Microsoft Authentication Library](reference-v2-libraries.md) is safer and easier. However, if your scenario prevents you from using our libraries or you'd just like to learn more about the Microsoft identity platform's implementation, we have protocol reference:
 
 * [Authorization code grant flow](v2-oauth2-auth-code-flow.md) - Single-page apps (SPA), mobile apps, native (desktop) applications
 * [Client credentials flow](v2-oauth2-client-creds-grant-flow.md) - Server-side processes, scripts, daemons

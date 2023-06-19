@@ -5,6 +5,7 @@ author: ut-karsh
 ms.author: umaheshwari
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
 ms.date: 09/01/2022 
 zone_pivot_groups: programming-languages-set-two-with-js-spx
@@ -161,4 +162,3 @@ Check out more options to improve recognition accuracy.
 
 > [!div class="nextstepaction"]
 > [Custom Speech](custom-speech-overview.md)
-

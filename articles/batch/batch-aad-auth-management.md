@@ -3,7 +3,7 @@ title: Use Azure Active Directory to authenticate Batch Management solutions
 description: Explore using Azure Active Directory to authenticate from applications that use the Batch Management .NET library.
 ms.topic: how-to
 ms.date: 04/27/2017
-ms.custom: has-adal-ref, devx-track-csharp, devx-track-arm-template
+ms.custom: has-adal-ref, devx-track-csharp, devx-track-arm-template, devx-track-dotnet
 ---
 
 # Authenticate Batch Management solutions with Active Directory

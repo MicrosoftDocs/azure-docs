@@ -4,7 +4,7 @@ description: This article shows you how to configure Azure Monitor Application I
 ms.topic: conceptual
 ms.date: 05/20/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 
@@ -237,12 +237,14 @@ and have it inherited by dependency and log telemetry, which are captured in the
 
 ```json
 {
-  "inheritedAttributes": [
-    {
-      "key": "mycustomer",
-      "type": "string"
-    }
-  ]
+  "preview": {
+    "inheritedAttributes": [
+      {
+        "key": "mycustomer",
+        "type": "string"
+      }
+    ]
+  }
 }
 ```
 
@@ -348,7 +350,7 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 
 ## Telemetry processors (preview)
 
-Yu can use telemetry processors to configure rules that are applied to request, dependency, and trace telemetry. For example, you can:
+You can use telemetry processors to configure rules that are applied to request, dependency, and trace telemetry. For example, you can:
 
  * Mask sensitive data.
  * Conditionally add custom dimensions.

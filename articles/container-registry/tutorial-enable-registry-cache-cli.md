@@ -2,7 +2,8 @@
 title: Enable Cache for ACR (preview) - Azure CLI 
 description: Learn how to enable Registry Cachein your Azure Container Registry using Azure CLI.
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.custom: devx-track-azurecli
+ms.date: 06/17/2022
 ms.author: tejaswikolli
 ---
 
@@ -12,7 +13,7 @@ This article is part three of a six-part tutorial series. [Part one](tutorial-re
 
 ## Prerequisites
 
-* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
+* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.46.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
 
 ## Configure Cache for ACR (preview)  - Azure CLI
 
@@ -38,8 +39,13 @@ Follow the steps to create a Cache rule without using a Credential set.
 
 ### Pull your image
 
-1. Pull the image from your Cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`.
+1. Pull the image from your cache using the Docker command by the registry login server name, repository name, and its desired tag.
 
+    - For example, to pull the image from the repository `hello-world` with its desired tag `latest` for a given registry login server `myregistry.azurecr.io`.
+
+    ```azurecli-interactive
+     docker pull myregistry.azurecr.io/hello-world:latest
+    ```
 
 ## Clean up the resources
 

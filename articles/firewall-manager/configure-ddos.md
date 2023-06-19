@@ -87,6 +87,5 @@ You should now see that the virtual network has an associated DDoS Protection Pl
 
 ## Next steps
 
-To learn more about DDoS Protection Plans, see:
-
 - [Azure DDoS Protection overview](../ddos-protection/ddos-protection-overview.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

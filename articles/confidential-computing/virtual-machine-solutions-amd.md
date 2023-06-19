@@ -86,10 +86,20 @@ It's not possible to resize a non-confidential VM to a confidential VM.
 
 OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
-- Ubuntu 20.04 Gen 2
-- Ubuntu 22.04 Gen 2
-- Windows Server 2019 Gen 2
-- Windows Server 2022 Gen 2
+- Ubuntu 20.04 LTS
+- Ubuntu 22.04 LTS
+- Windows Server 2019 Datacenter - x64 Gen 2
+- Windows Server 2019 Datacenter Server Core - x64 Gen 2
+- Windows Server 2022 Datacenter - x64 Gen 2
+- Windows Server 2022 Datacenter: Azure Edition Core - x64 Gen 2
+- Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
+- Windows Server 2022 Datacenter Server Core - x64 Gen 2
+- Windows 11 Enterprise N, version 22H2 -x64 Gen 2
+- Windows 11 Pro, version 22H2 ZH-CN -x64 Gen 2
+- Windows 11 Pro, version 22H2 -x64 Gen 2
+- Windows 11 Pro N, version 22H2 -x64 Gen 2
+- Windows 11 Enterprise, version 22H2 -x64 Gen 2
+- Windows 11 Enterprise multi-session, version 22H2 -x64 Gen 2
 
 For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](../virtual-machines/generation-2.md). 
 

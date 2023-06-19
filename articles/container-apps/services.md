@@ -15,7 +15,7 @@ As you develop applications in Azure Container Apps, you often need to connect t
 
 Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as "dev services".
 
-dev services allow you to use OSS services without the burden of manual downloads, creation, and configuration.
+Dev services allow you to use OSS services without the burden of manual downloads, creation, and configuration.
 
 Services available as dev services include:
 
@@ -58,7 +58,7 @@ The following table shows you which service to use in development, and which ser
 |---|---|---|
 | Cache | Open-source Redis | Azure Cache for Redis |
 | Database | N/A | Azure Cosmos DB |
-| Database | Open-source PostgreSQL | Azure DB for PostgreSQL Flexible Service |
+| Database | Open-source PostgreSQL | Azure Database for PostgreSQL Flexible Service |
 
 You're responsible for data continuity between development and production environments.
 

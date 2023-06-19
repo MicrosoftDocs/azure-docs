@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/2/2022
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: devx-track-js, cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video, ignite-2022
 ---
 # Manage indexing in Azure Cosmos DB for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
@@ -110,9 +110,6 @@ You can also use the preceding compound index to efficiently sort on a query wit
 However, the sequence of the paths in the compound index must exactly match the query. Here's an example of a query that would require an additional compound index:
 
 `db.coll.find().sort({age:1,name:1})`
-
-> [!NOTE]
-> Compound indexes are only used in queries that sort results. For queries that have multiple filters that don't need to sort, create multipe single field indexes.
 
 ### Multikey indexes
 

@@ -9,7 +9,7 @@ ms.date: 10/02/2020
 ms.author: kendownie
 ms.subservice: files
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Develop for Azure Files with .NET

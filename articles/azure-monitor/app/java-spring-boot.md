@@ -4,7 +4,7 @@ description: How to configure Azure Monitor Application Insights for Spring Boot
 ms.topic: conceptual
 ms.date: 05/20/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Using Azure Monitor Application Insights with Spring Boot
@@ -96,6 +96,34 @@ For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.
 
 See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
 to change the location for a file outside the classpath.
+
+#### Structure of applicationinsights-dev.json
+
+```json
+{
+  "connectionString":"Your-Intrumentation-Key"
+}
+```
+
+#### Setting up the configuration file
+
+Open your configuration file (either `application.properties` or `application.yaml`) in the *resources* folder. Update the file with the following.
+
+##### application.yaml
+
+```yaml
+-Dapplicationinsights:
+  runtime-attach:
+    configuration:
+      classpath:
+        file: "applicationinsights-dev.json"
+```
+
+##### application.properties
+
+```properties
+-Dapplicationinsights.runtime-attach.configuration.classpath.file = "applicationinsights-dev.json"
+```
 
 #### Self-diagnostic log file location
 

@@ -82,6 +82,7 @@ For more information, see:
 - [Deploying Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
 - [SAP solution security content](sap-solution-security-content.md)
 - [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
 - [Configuration file reference](configuration-file-reference.md)
 - [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
