@@ -66,7 +66,7 @@ These steps describe how to modify the auto delete settings of an imported data 
 :::image type="content" source="./media/how-to-manage-imported-data-assets/data-assets-details.png" alt-text="Screenshot showing the edit of the auto delete setting.":::
 
 1. To change the auto delete **Condition** setting, select **Created greater than**, and change **Value** to any numerical value. Then, select **Save** as shown in the next screenshot:
-:::image type="content" source="./media/how-to-manage-imported-data-assets/edit-managed-data-asset-details.png" alt-text="Screenshot showing the managed data asset auto delete settings choices.":::
+:::image type="content" source="./media/how-to-manage-imported-data-assets/edit-managed-data-asset-details.png" alt-text="Screenshot that shows the managed data asset auto delete settings choices.":::
 
 > [!NOTE]
 > At this time, the supported values range from 1 day to 3 years.

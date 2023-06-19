@@ -142,26 +142,26 @@ ml_client.data.import_data(data_import=data_import)
 
 1. At the Data Type screen, fill in the values. The **Type** value defaults to **Table (mltable)**. Then select Next, as shown in this screenshot:
 
-   :::image type="content" source="media/how-to-import-data-assets/select-snowflake-data-asset-type.png" lightbox="media/how-to-import-data-assets/select-snowflake-data-asset-type.png" alt-text="Screenshot showing selection of a Snowflake data asset type.":::
+   :::image type="content" source="media/how-to-import-data-assets/select-snowflake-data-asset-type.png" lightbox="media/how-to-import-data-assets/select-snowflake-data-asset-type.png" alt-text="Screenshot that shows selection of a Snowflake data asset type.":::
 
 1. At the Create data import screen, fill in the values, and select Next, as shown in this screenshot:
 
-   :::image type="content" source="media/how-to-import-data-assets/create-snowflake-data-import.png" lightbox="media/how-to-import-data-assets/create-snowflake-data-import.png" alt-text="Screenshot showing details of the data source selection.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-snowflake-data-import.png" lightbox="media/how-to-import-data-assets/create-snowflake-data-import.png" alt-text="Screenshot that shows details of the data source selection.":::
 
 1. Fill in the values at the Choose a datastore to output screen, and select Next, as shown in this screenshot. **Workspace managed datastore** is selected by default; the path is automatically assigned by the system when you choose manged datastore. If you select **Workspace managed datastore**, the **Auto delete setting** dropdown appears. It offers a data deletion time window of 30 days by default, and [how to manage imported data assets](./how-to-manage-imported-data-assets.md) explains how to change this value.
 
-   :::image type="content" source="media/how-to-import-data-assets/choose-snowflake-datastore-to-output.png" lightbox="media/how-to-import-data-assets/choose-snowflake-datastore-to-output.png" alt-text="Screenshot showing details of the data source to output.":::
+   :::image type="content" source="media/how-to-import-data-assets/choose-snowflake-datastore-to-output.png" lightbox="media/how-to-import-data-assets/choose-snowflake-datastore-to-output.png" alt-text="Screenshot that shows details of the data source to output.":::
 
    > [!NOTE]
    > To choose your own datastore, select **Other datastores**. In this case, you must select the path for the location of the data cache.
 
 1. You can add a schedule. Select **Add schedule** as shown in this screenshot:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-add-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-add-schedule.png" alt-text="Screenshot showing selection of the Add schedule button.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-add-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-add-schedule.png" alt-text="Screenshot that shows selection of the Add schedule button.":::
    
    A new panel opens, where you can define a **Recurrence** schedule, or a **Cron** schedule. This screenshot shows the panel for a **Recurrence** schedule:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="Screenshot showing selection of the Add schedule button.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="Screenshot that shows selection of the Add schedule button.":::
    
 
   - **Name**: the unique identifier of the schedule within the workspace.
@@ -175,7 +175,7 @@ ml_client.data.import_data(data_import=data_import)
    
    #### This screenshot shows the panel for a **Cron** schedule:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot showing selection of the Add schedule button.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot that shows selection of the Add schedule button.":::
 
 ---
 
@@ -213,7 +213,7 @@ ml_client.data.import_data(data_import=data_import)
 
 1. The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
 
-   :::image type="content" source="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" lightbox="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" alt-text="Screenshot showing all parameters of the data import.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" lightbox="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" alt-text="Screenshot that shows all parameters of the data import.":::
 
 ---
 
