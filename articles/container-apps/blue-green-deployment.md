@@ -240,7 +240,7 @@ az deployment group create \
 
 ::: zone-end
 
-The traffic section of the container app will look as below. The revision with the `blue` commitId is taking 100% of production traffic while the newly deployed revision with `green` commitId doesn't take any production traffic.
+The traffic section of the container app looks as follows. The revision with the `blue` commitId is taking 100% of production traffic while the newly deployed revision with `green` commitId doesn't take any production traffic.
 
 ```json
 { 
@@ -402,7 +402,7 @@ az deployment group create \
 
 ::: zone-end
 
-After the bugs have been fixed, the new version of the application is deployed as a `green` revision again and eventually becomes a production revision.
+After the bugs have been fixed, the new version of the application is deployed as a `green` revision again, and eventually becomes a production revision.
 
 ## Next deployment cycle
 
