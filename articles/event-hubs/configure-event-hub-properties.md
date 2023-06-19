@@ -6,7 +6,7 @@ ms.custom: log-compaction
 ms.date: 10/7/2022
 ---
 
-# Configure properties for an event hub in Azure Event Hubs
+# Configure properties for an event hub
 This article shows you how to configure properties for an event hub.
 
 :::image type="content" source="./media/configure-event-hub-properties/properties-page.png" alt-text="Screenshot showing the Properties page for an event hub.":::
