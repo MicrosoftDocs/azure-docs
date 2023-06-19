@@ -82,7 +82,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.js"></script>
 
         <script type='text/javascript'>
 
@@ -160,7 +160,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.js"></script>
 
         <!-- Add reference to the Azure Maps Spatial IO module. -->
         <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
