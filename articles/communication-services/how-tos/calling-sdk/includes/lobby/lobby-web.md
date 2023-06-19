@@ -9,14 +9,13 @@ ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 06/15/2023
 ms.custom: template-how-to
-
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 Object `Lobby` on `Call` or `TeamsCall` class allow users to access Teams meeting lobby information. It would be undefined if current call not the meeting scenario. It includes the APIs, `admit`, `reject` and `admitAll`, which allows user to admit and reject participants from Teams meeting lobby. User could also get the `lobbyParticipants` collection and subscribe the `lobbyParticipantsUpdated` event to receive notification.
 
 ### Get lobby object
-The first thing is to get the `Call` or `TeamsCall` object of admitter: [Learn how to join Teams meeting](./teams-interoperability.md)
+The first thing is to get the `Call` or `TeamsCall` object of admitter: [Learn how to join Teams meeting](./teams-interoperability.md). 
 You can get the `Lobby` object from `Call` or `TeamsCall` object, however `Lobby` object would only available in meeting scenario. You can subscribe to the `lobbyChanged` event, and you will be notified when the lobby object is available.
 ```js
 const lobby = call.lobby;

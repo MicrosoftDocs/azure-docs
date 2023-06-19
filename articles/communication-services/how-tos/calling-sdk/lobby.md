@@ -34,8 +34,6 @@ To update or check current meeting join & lobby policies in Teams admin center:
 
 **The following APIs are supported for both Communication Services and Microsoft 365 users**
 
-Teams meeting lobby is only supported in Teams meeting scenario.
-
 |APIs| Organizer | Co-Organizer | Presenter | Attendee |
 |----------------------------------------------|--------|--------|--------|--------|
 | admit | ✔️ | ✔️ | ✔️ |  |
