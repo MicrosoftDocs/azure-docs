@@ -12,7 +12,7 @@ ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Create a user delegation SAS for a blob with .NET

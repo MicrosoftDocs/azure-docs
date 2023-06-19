@@ -1603,7 +1603,16 @@
             "redirect_url": "/azure/frontdoor/web-application-firewall",
             "redirect_document_id": false
         },
-
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-configure-route.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-endpoint-manager.md",
+            "redirect_url": "/azure/frontdoor/manager",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
@@ -9025,6 +9034,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
+            "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
+            "redirect_document_id": false
+        },    
+        {
             "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
             "redirect_document_id": false
@@ -11575,6 +11589,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/firewall/sample-powershell.md",
+            "redirect_url": "/azure/firewall/deploy-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/firewall/scripts/sample-create-firewall-test.md",
+            "redirect_url": "/azure/firewall/deploy-ps",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security/governance-in-azure.md",
             "redirect_url": "/azure/governance/",
             "redirect_document_id": false
@@ -13902,6 +13926,26 @@
         {
             "source_path_from_root": "/articles/search/search-how-to-index-power-query-data-sources.md",
             "redirect_url": "/previous-versions/azure/search/search-how-to-index-power-query-data-sources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/search-get-started-dotnet.md",
+            "redirect_url": "/azure/search/search-get-started-text",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/search/search-get-started-python.md",
+            "redirect_url": "/azure/search/search-get-started-text",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/search-get-started-java.md",
+            "redirect_url": "/azure/search/search-get-started-text",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/search-get-started-javascript.md",
+            "redirect_url": "/azure/search/search-get-started-text",
             "redirect_document_id": false
         },
         {
@@ -17465,6 +17509,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/bastion/connect-native-client-windows.md",
+            "redirect_url": "/azure/bastion/native-client",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-wan/high-availability-vpn-client.md",
             "redirect_url": "/azure/virtual-wan/global-hub-profile",
             "redirect_document_id": false
@@ -17522,6 +17571,41 @@
         {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-about",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-vnet-vnet-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-how-to-radius-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-download-vpndevicescript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/create-routebased-vpn-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/powershell-samples.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpngateways",
             "redirect_document_id": false
         },
         {
@@ -17597,6 +17681,21 @@
         {
             "source_path_from_root": "/articles/vs-azure-tools-storage-explorer-relnotes-0-8-7.md",
             "redirect_url": "/azure/vs-azure-tools-storage-explorer-relnotes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/ag/powershell-samples.md",
+            "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/ag/resource-manager-template-samples.md",
+            "redirect_url": "/azure/web-application-firewall/ag/quick-create-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/afds/resource-manager-template-samples.md",
+            "redirect_url": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-waf-managed/",
             "redirect_document_id": false
         },
         {
@@ -22105,6 +22204,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/active-directory-how-applications-are-added.md",
+            "redirect_url": "/azure/active-directory/develop/how-applications-are-added",
+            "redirect_document_id": false
+        },
+	{
+            "source_path_from_root": "/articles/active-directory/develop/active-directory-how-to-integrate.md",
+            "redirect_url": "/azure/active-directory/develop/how-to-integrate",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js-passport.md",
             "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
             "redirect_document_id": false
@@ -22751,7 +22860,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/use-mariner.md",
-            "redirect_url": "/azure/aks/use-azurelinux",
+            "redirect_url": "/azure/aks/use-azure-linux",
             "redirect_document_id": false
         },
         {

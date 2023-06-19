@@ -100,7 +100,7 @@ There are two ways to add a policy through the Azure portal.
 
   :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
 
-  The **Last accessed** option is available only if you have enabled access time tracking. To learn how to enable access tracking, see [Optionally enable access time tracking](#optionally-enable-access-time-tracking).
+  The **Last accessed** option is available only if you have enabled access time tracking and you've selected **Block blobs** as the blob type. To learn how to enable access tracking, see [Optionally enable access time tracking](#optionally-enable-access-time-tracking).
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs whose name begins with *log* in a container called *sample-container*.
 

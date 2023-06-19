@@ -37,7 +37,7 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 | CentOS |	7.x+,  8.x+ |	Not Supported |
 | Debian |	10+ |	Not Supported |
 | Flatcar Linux |	3374.2.x+ |	Not Supported |
-| Mariner | 2.x | Not Supported |
+| Azure Linux | 2.x | Not Supported |
 | openSUSE |	12.3+ |	Not Supported |
 | Oracle Linux |	6.4+, 7.x+, 8.x+ |	Not Supported |
 | Red Hat Enterprise Linux |	6.7+, 7.x+,  8.x+ |	Not Supported |

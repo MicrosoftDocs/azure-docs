@@ -7,7 +7,7 @@ ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: compute-evergreen
+ms.custom: compute-evergreen, devx-track-dotnet
 ---
 
 # Enable communication for role instances in Azure Cloud Services (classic)
@@ -364,7 +364,3 @@ An XML schema reference for the elements used above can be found [here](/previou
 
 ## Next steps
 Read more about the Cloud Service [model](cloud-services-model-and-package.md).
-
-
-
-

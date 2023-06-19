@@ -4,7 +4,7 @@ description: Learn how to create a TypeScript function from the command line, th
 ms.date: 03/06/2023
 ms.topic: quickstart
 ms.devlang: typescript
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-js
 zone_pivot_groups: functions-nodejs-model
 ---
 

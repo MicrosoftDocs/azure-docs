@@ -17,6 +17,7 @@ ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [ARM template](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
 
@@ -57,7 +58,6 @@ az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-g
 ```
 
 > [!NOTE]
-> - The storage account can't have network rules that restrict network access to only Microsoft services or specific virtual networks.
 > - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 > - If the storage account is in a different resource group or subscription, you must specify the full ID of the storage account instead of only its name. For example, if **myStorageAccount** storage account is in a resource group named **StorageRG** while the network security group is in the resource group **myResourceGroup**, you must use `/subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/myStorageAccount` for `--storage-account` parameter instead of `myStorageAccount`.
 

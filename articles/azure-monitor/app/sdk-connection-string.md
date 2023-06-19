@@ -3,7 +3,7 @@ title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
 ms.date: 11/15/2022
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---
 
@@ -221,7 +221,7 @@ For more information, see [Connection string configuration](./java-standalone-co
 
 JavaScript doesn't support the use of environment variables. You have two options:
 
-- To use the SDK Loader Script, see [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights).
+- To use the JavaScript (Web) SDK Loader Script, see [JavaScript (Web) SDK Loader Script](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started).
 - Manual setup:
    ```javascript
    import { ApplicationInsights } from '@microsoft/applicationinsights-web'
