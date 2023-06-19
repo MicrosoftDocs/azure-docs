@@ -72,7 +72,25 @@ To upload files with sizes >= 5000 MiB, we would need [azcopy](https://github.co
 
 3. Sample response 
 
-:::image type="content" source="media/how-to-upload-large-files-using-file-service/1-azcopy-sample-response.png" alt-text="Screenshot of azcopy copy command response":::
+```
+    INFO: Could not read destination length. If the destination is write-only, use --check-length=false on the command line.
+    100.0 %, 1 Done, 0 Failed, 0 Pending, 0 Skipped, 1 Total
+    
+    Job 624c59e8-9d5c-894a-582f-ef9d3fb3091d summary
+    Elapsed Time (Minutes): 0.1002
+    Number of File Transfers: 1
+    Number of Folder Property Transfers: 0
+    Number of Symlink Transfers: 0
+    Total Number of Transfers: 1
+    Number of File Transfers Completed: 1
+    Number of Folder Transfers Completed: 0
+    Number of File Transfers Failed: 0
+    Number of Folder Transfers Failed: 0
+    Number of File Transfers Skipped: 0
+    Number of Folder Transfers Skipped: 0
+    TotalBytesTransferred: 1367301
+    Final Job Status: Completed
+```
 
 ## Next steps
 Begin your journey by ingesting data into your Azure Data Manager for Energy Preview resource.
