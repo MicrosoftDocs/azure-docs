@@ -1,5 +1,5 @@
 ---
-title: What is risk? Azure AD Identity Protection
+title: What are risks in Azure AD Identity Protection
 description: Explaining risk in Azure AD Identity Protection
 
 services: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
-# What is risk?
+# What are risk detections?
 
 Risk detections in Azure AD Identity Protection include any identified suspicious actions related to user accounts in the directory. Risk detections (both user and sign-in linked) contribute to the overall user risk score that is found in the Risky Users report.
 
@@ -43,6 +43,41 @@ Real-time detections may not show up in reporting for 5 to 10 minutes. Offline d
 >    - Secure password change. 
 >
 > Our system will dismiss the risk state and a risk detail of “AI confirmed sign-in safe” will show and no longer contribute to the user’s overall risk. 
+
+### Sign-in risk detections
+
+| Risk detection | Detection type | Type |
+| --- | --- | --- |
+| [Atypical travel](#atypical-travel) | Offline | Premium |
+| [Anomalous Token](#anomalous-token) | Offline | Premium |
+| [Token Issuer Anomaly](#token-issuer-anomaly) | Offline | Premium |
+| [Malware linked IP address](#malware-linked-ip-address-deprecated) | Offline | Premium **[This detection has been deprecated](../fundamentals/whats-new-archive.md#planned-deprecation---malware-linked-ip-address-detection-in-identity-protection)**. |
+| [Suspicious browser](#suspicious-browser) | Offline | Premium |
+| [Unfamiliar sign-in properties](#unfamiliar-sign-in-properties) | Real-time | Premium |
+| [Malicious IP address](#malicious-ip-address) | Offline | Premium |
+| [Suspicious inbox manipulation rules](#suspicious-inbox-manipulation-rules) | Offline | Premium |
+| [Password spray](#password-spray) | Offline | Premium |
+| [Impossible travel](#impossible-travel) | Offline | Premium |
+| [New country](#new-country) | Offline | Premium |
+| [Activity from anonymous IP address](#activity-from-anonymous-ip-address) | Offline | Premium |
+| [Suspicious inbox forwarding](#suspicious-inbox-forwarding) | Offline | Premium |
+| [Mass Access to Sensitive Files](#mass-access-to-sensitive-files) | Offline | Premium |
+| [Verified threat actor IP](#verified-threat-actor-ip) | Real-time | Premium |
+| [Additional risk detected](#additional-risk-detected-sign-in) | Real-time or Offline | Nonpremium |
+| [Anonymous IP address](#anonymous-ip-address) | Real-time | Nonpremium |
+| [Admin confirmed user compromised](#admin-confirmed-user-compromised) | Offline | Nonpremium |
+| [Azure AD threat intelligence](#azure-ad-threat-intelligence-sign-in) | Offline | Nonpremium |
+
+### User risk detections
+
+| Risk detection |  Detection type | Type |
+| --- | --- | --- |
+| [Possible attempt to access Primary Refresh Token (PRT)](#possible-attempt-to-access-primary-refresh-token-prt) | Offline | Premium |
+| [Anomalous user activity](#anomalous-user-activity) | Offline | Premium |
+| [User reported suspicious activity](#user-reported-suspicious-activity) | Offline | Premium | 
+| [Additional risk detected](#additional-risk-detected-user) | Real-time or Offline | Nonpremium |
+| [Leaked credentials](#leaked-credentials) | Offline | Nonpremium |
+| [Azure AD threat intelligence](#azure-ad-threat-intelligence-user) | Offline | Nonpremium |
 
 ## Premium detections
 

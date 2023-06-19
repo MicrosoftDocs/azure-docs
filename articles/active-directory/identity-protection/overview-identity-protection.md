@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 
 Azure AD Identity Protection helps organizations detect, investigate, and remediate identity-based risks. These identity-based risks can be further fed into tools like Conditional Access to make access decisions or fed back to a security information and event management (SIEM) tool for further investigation and correlation. 
 
+
+
 ## Detect risks
 
 Microsoft continually adds and updates detections in our catalog to protect organizations. These detections come from our learnings based on the analysis of trillions of signals each day from Active Directory, Microsoft Accounts, and in gaming with Xbox. This broad range of signals helps Identity Protection detect risky behaviors like: 
@@ -36,9 +38,9 @@ For a full listing of risks and how they're detected, see the article [What is r
 
 Any risks detected on an identity are tracked with reporting. Identity Protection provides three key reports for administrators to investigate risks and take action: 
 
-- Risk detections: Each risk detected is reported as a risk detection.
-- Risky sign-ins: A risky sign-in is reported when there are one or more risk detections reported for that sign-in.
-- Risky users: A Risky user is reported when either or both of the following are true:
+- **Risk detections:** Each risk detected is reported as a risk detection.
+- **Risky sign-ins:** A risky sign-in is reported when there are one or more risk detections reported for that sign-in.
+- **Risky users:** A Risky user is reported when either or both of the following are true:
    - The user has one or more Risky sign-ins.
    - One or more risk detections have been reported.
 
