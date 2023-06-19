@@ -12,7 +12,7 @@ ms.custom: template-how-to-pattern
 
 # Setup of Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
-AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both managed and BYO Prometheus and Grafana are supported. Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use Managed Prometheus and Grafana to visualize the scraped metrics.
+AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
 
 For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
@@ -129,7 +129,7 @@ az aks create \
 
 ---
 
-## Prometheus and Grafana
+## Azure managed Prometheus and Grafana
 
 Use the following example to install and enable Prometheus and Grafana for your AKS cluster.
 
@@ -201,7 +201,7 @@ az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
 # [**Non-Cilium**](#tab/non-cilium)
 
 > [!NOTE]
-> The following section requires deployments of managed Prometheus and Grafana.
+> The following section requires deployments of Azure managed Prometheus and Grafana.
 
 1. Use the following example to verify the Azure Monitor pods are running. 
 
@@ -225,7 +225,7 @@ az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
 # [**Cilium**](#tab/cilium)
 
 > [!NOTE]
-> The following section requires deployments of managed Prometheus and Grafana.
+> The following section requires deployments of Azure managed Prometheus and Grafana.
 
 1. Use the following example to create a yaml file named **`ama-cilium-configmap.yaml`**. Copy the code in the example into the file created.
 
