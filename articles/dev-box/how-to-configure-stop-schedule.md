@@ -1,7 +1,7 @@
 ---
 title: Set a dev box auto-stop schedule
 titleSuffix: Microsoft Dev Box
-description: Learn how to configure an auto-stop schedule to automatically shutdown dev boxes in a pool at a specified time.
+description: Learn how to configure an auto-stop schedule to automatically shut down dev boxes in a pool at a specified time.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -11,7 +11,7 @@ ms.topic: how-to
 ---
 
 # Auto-stop your Dev Boxes on schedule
-To save on costs, you can enable an Auto-stop schedule on a dev box pool. Microsoft Dev Box Preview will attempt to shut down all dev boxes in that pool at the time specified in the schedule. You can configure one stop time in one timezone for each pool.
+To save on costs, you can enable an Auto-stop schedule on a dev box pool. Microsoft Dev Box Preview attempts to shut down all dev boxes in that pool at the time specified in the schedule. You can configure one stop time in one timezone for each pool.
 
 ## Permissions
 To manage a dev box schedule, you need the following permissions:
@@ -48,7 +48,7 @@ You can create an auto-stop schedule while creating a new dev box pool, or by mo
    |Name|Value|
    |----|----|
    |**Enable Auto-stop**|Select **Yes** to enable an Auto-stop schedule after the pool has been created.|
-   |**Stop time**| Select a time to shutdown all the dev boxes in the pool. All Dev Boxes in this pool will be shut down at this time, everyday.|
+   |**Stop time**| Select a time to shutdown all the dev boxes in the pool. All Dev Boxes in this pool shutdown at this time every day.|
    |**Time zone**| Select the time zone that the stop time is in.|
    
    :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-save-pool.png" alt-text="Screenshot of the edit dev box pool page showing the Auto-stop options."::: 
@@ -80,7 +80,7 @@ You can create an auto-stop schedule while creating a new dev box pool, or by mo
    |**Network connection**|Select an existing network connection. The network connection determines the region of the dev boxes created within this pool.|
    |**Dev Box Creator Privileges**|Select Local Administrator or Standard User.|
    |**Enable Auto-stop**|Yes is the default. Select No to disable an Auto-stop schedule. You can configure an Auto-stop schedule after the pool has been created.|
-   |**Stop time**| Select a time to shutdown all the dev boxes in the pool. All Dev Boxes in this pool will be shut down at this time, everyday.|
+   |**Stop time**| Select a time to shutdown all the dev boxes in the pool. All Dev Boxes in this pool shutdown at this time every day.|
    |**Time zone**| Select the time zone that the stop time is in.|
    |**Licensing**| Select this check box to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
@@ -90,7 +90,7 @@ You can create an auto-stop schedule while creating a new dev box pool, or by mo
 1. Select **Add**.
  
 1. Verify that the new dev box pool appears in the list. You may need to refresh the screen.
- 
+
 
 ### Delete an auto-stop schedule
 
@@ -138,6 +138,14 @@ You can also manage auto-stop schedules using Azure CLI.
 |-----|-----|
 |poolName|Name of your pool|
 |project|Name of your Project|
+
+## Understand unexpected shutdowns due to scheduled shutdowns
+
+In rare circumstances, a dev box may shut down unexpectedly. An unexpected shutdown may happen if the dev box receives conflicting instructions for shutdown or delay.
+
+Consider the following example. A dev box that is a member of a pool that has a scheduled shutdown time of 7pm has a devBoxAction that performs the shutdown at 7pm. An idle state is detected and Dev Box creates a new devBoxAction for the dev box with the idle shutdown time of 6pm. Now there are two devBoxActions for the dev box, a scheduled shutdown at 7pm and an idle shutdown at 6pm. If the user does not skip or delay the scheduled shutdown, the dev box shuts down at 6PM.
+
+At 5PM, the idle devBoxAction warns the user their dev box will shut down at 6pm, the soonest upcoming shutdown time. If they choose to delay the scheduled shutdown until 8PM, Dev Box attempts to delay both devBoxActions (the idle shutdown at 6PM and the scheduled shutdown at 7PM). If the 6PM (idle shutdown) devBoxAction successfully delays until 8PM, but the 7PM (scheduled shutdown) devBoxAction delay fails, the dev box shuts down at 7PM, even though the requested shutdown time was 8PM and the idle shutdown time was 6PM.
 
 ## Next steps
 

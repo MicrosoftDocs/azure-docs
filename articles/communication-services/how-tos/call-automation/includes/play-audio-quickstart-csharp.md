@@ -33,13 +33,13 @@ During the preview phase, the NuGet package can be obtained by configuring your 
 
 ## Prepare your audio file
 
-Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file that ACS supports needs to be **WAV, mono and 16 KHz sample rate**. 
+If you don't already have an audio file, you can create a new one to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file that ACS supports needs to be **WAV, mono and 16 KHz sample rate**. 
 
 You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../cognitive-services/Speech-Service/how-to-audio-content-creation.md).
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). In this quickstart, we'll create an outbound call.
 
 ## Play audio
 
@@ -155,10 +155,10 @@ Assert.AreEqual(202, cancelResponse.Status) // The request was accepted.
 ``` csharp
 if (@event is PlayCanceled { OperationContext: "PlayAudio" })
         {
-            var playFailedEvent = (PlayCanceled)@event;
+            var playCanceledEvent = (PlayCanceled)@event;
 
             logger.LogInformation($"PlayCanceled event received for call connection id: {@event.CallConnectionId}");
-            //Take action on recognize canceled operation
+            //Take action on play canceled operation
             await callConnection.HangUpAsync(forEveryone: true);
         }
 ```
