@@ -17,7 +17,7 @@ Billing in Azure Container apps is based on your [plan type](plans.md).
 | Plan type | Description |
 |--|--|
 | [Consumption or Consumption workload profiles](#consumption-plan) | Serverless environment where you're only billed for the resources your apps use as they're running. |
-| [Dedicated workload profiles](#consumption-dedicated) | A fully managed environment that supports both Consumption-based apps and Dedicated workload profiles that offer customized compute options for your apps. You're billed for each node in each [workload profile](workload-profiles-overview.md). Charges apply to resources allocated to each running replica. |
+| [Dedicated workload profiles](#consumption-dedicated) | A fully managed environment that supports both Consumption-based apps and Dedicated workload profiles that offer customized compute options for your apps. You're billed for instances allocated to each [workload profile](workload-profiles-overview.md). |
 
 - Your plan selection determines billing calculations.
 - Different applications in an environment can use different plans.
@@ -26,7 +26,7 @@ For more information, see the [Azure Container Apps Pricing](https://azure.micro
 
 ## Consumption plan & Consumption workload profile (preview)
 
-Azure Container Apps consumption plan billing consists of two types of charges:
+Billing for Azure Container Apps Consumption plan and Consumption workload profile consists of two types of charges:
 
 - **[Resource consumption](#resource-consumption-charges)**: The amount of resources allocated to your container app on a per-second basis, billed in vCPU-seconds and GiB-seconds.
 - **[HTTP requests](#request-charges)**: The number of HTTP requests your container app receives.
@@ -39,7 +39,6 @@ The following resources are free during each calendar month, per subscription:
 
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
-Billing for the Consumption plan workload profile is calculated the same as for the standard Consumption plan.
 
 > [!NOTE]
 > If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
