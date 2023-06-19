@@ -19,9 +19,18 @@ The new experience is an enhancement to the current Microsoft Purview, and doesn
 If you're an account owner or root collection admin, you can upgrade your Microsoft Purview account to the new experience from:
 
 - [Microsoft Purview Accounts in the Azure portal](https://portal.azure.com/#browse/Microsoft.Purview%2FAccounts)
+
+    :::image type="content" source="./media/account-upgrades/upgrade-notification-single-account.png" alt-text="Screenshot showing the notification for the new portal highlighted to indicate selection.":::
+
 - [Classic Microsoft Purview portal](https://ms.web.purview.azure.com/)
-- New Microsoft Purview portal (coming soon!)
+
+    :::image type="content" source="./media/account-upgrades/portal-upgrade-account.png" alt-text="Screenshot showing the upgrade account option in the Microsoft Purview governance portal.":::
+
 - Your upgrade notification email
+
+    :::image type="content" source="./media/account-upgrades/email-upgrade-account.png" alt-text="Screenshot showing the upgrade account option in the Microsoft Purview account upgrade email.":::
+
+- New Microsoft Purview portal (coming soon!)
 
 ## Upgrade
 
@@ -47,7 +56,11 @@ To access it, you can either:
 #### Your region doesn't map to an available region
 
 1. Have an account owner or root collection admin select the **Upgrade** button in the Azure portal, Microsoft Purview portal, or upgrade email.
+
 1. If your account is in a different region than your tenant, an admin needs to confirm set up.
+
+    :::image type="content" source="./media/account-upgrades/different-region.png" alt-text="Screenshot showing the different region confirmation pop up window.":::
+
     >[!NOTE]
     >If you want to use a different region, you will either need to cancel and wait for more regions to be available, or cancel and create a new Microsoft Purview account in one of the [available regions](#regions).
 1. After confirmation, the new portal will launch.
@@ -55,14 +68,21 @@ To access it, you can either:
 
 >[!TIP]
 >You can switch between the classic and new experiences using the toggle at the top of the portal.
+>:::image type="content" source="./media/account-upgrades/switch.png" alt-text="Screenshot of the toggle to switch between the new and classic experiences after upgrading.":::
 
 ### Multiple Microsoft Purview accounts
 
 1. Have an account owner or root collection admin select the **Upgrade** button in the Azure portal, Microsoft Purview portal, or upgrade email.
-1. The new experience requires a tenant-level account that is the primary account for your organization. Select an existing account to upgrade it to be your organization-wide account.
+1. The new experience requires a tenant-level/organization-wide account that is the primary account for your organization. Select an existing account to upgrade it to be your organization-wide account.
     >[!NOTE]
     >This does not affect your other Microsoft Purview accounts, or their data. In the future, their information will also be made available in the primary account.
+
+    :::image type="content" source="./media/account-upgrades/selected-account.png" alt-text="Screenshot of the pop up window for selecting an organization wide primary account.":::
+
 1. If the account you select is in a different region than your tenant, an admin needs to confirm set up.
+
+    :::image type="content" source="./media/account-upgrades/selected-account-different-region.png" alt-text="Screenshot of confirmation for selecting an account in a region that's different from your tenant region.":::
+
     >[!NOTE]
     >If you want to use a different region, you will either need to cancel and select or create a different Microsoft Purview account, or cancel wait for more [regions](#regions) to be available.
 1. After confirmation, the new portal will launch.
@@ -70,6 +90,7 @@ To access it, you can either:
 
 >[!TIP]
 >You can switch between the classic and new experiences using the toggle at the top of the portal.
+> :::image type="content" source="./media/account-upgrades/switch.png" alt-text="Screenshot of the toggle to switch between the new and classic experiences.":::
 
 ## Regions
 
