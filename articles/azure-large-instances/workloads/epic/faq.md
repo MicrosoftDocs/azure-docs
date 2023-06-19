@@ -10,13 +10,17 @@ ms.date: 06/01/2023
 
 # Frequently asked questions about Epic on Azure Large Instance
 
-This article provides answers to frequently asked questions about Azure Large Instances(ALI) for Epic workloads.
+This article provides answers to frequently asked questions about Azure Large Instances (ALI) for Epic workloads.
 
 ## In which regions is this service available?
 
-The Epic on Azure Large Instances(ALI) service is available in East US, US West2, US South Central  
+ALI on Epic is available in the following regions:
 
- ## Do I need to give permissions to allow the deployment of a managed resource group in my subscription?
+* East US
+* US West2
+* US South Central  
+
+## Do I need to give permissions to allow the deployment of a managed resource group in my subscription?
 
 No, explicit permissions aren't required but register the resource provider with your subscription.
 
