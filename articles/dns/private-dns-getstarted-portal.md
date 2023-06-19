@@ -20,7 +20,7 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 > [!IMPORTANT]
 > When you create a private DNS zone, Azure stores the zone data as a global resource. This means that the private zone is not dependent on a single VNet or region. You can link the same private zone to multiple VNets in different regions. If service is interrupted in one VNet, your private zone is still available. For more information, see [Azure Private DNS zone resiliency](private-dns-resiliency.md). 
 
-The following figure provides a summary of the private DNS zone, resource records, VNets, and links used in this article.
+In this article, two VMs are used in a single VNet linked to your private DNS zone with autoregistration enabled. The setup is summarized in the following figure.
 
 ![Summary diagram of the quickstart setup](media/private-dns-portal/private-dns-quickstart-summary.png)
 
