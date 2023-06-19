@@ -34,14 +34,14 @@ The first resource you deploy with a proximity placement group attaches to a spe
 > [!NOTE]
 > While proximity placement groups require a node pool to use only *one* availability zone, the [baseline Azure VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) is still in effect for VMs in a single zone.
 
-Proximity placement groups are a node pool concept and associated with each individual node pool. Using a PPG resource has no impact on AKS control plane availability. This can impact how a cluster should be designed with zones. To ensure a cluster is spread across multiple zones, we recommend using the following design:
+Proximity placement groups are a node pool concept and associated with each individual node pool. Using a PPG resource has no impact on AKS control plane availability, which can impact how you should design your cluster with zones. To ensure a cluster is spread across multiple zones, we recommend using the following design:
 
-* Provision a cluster with the first system pool using *three* zones and no proximity placement group associated. This ensures the system pods land in a dedicated node pool which spreads across multiple zones.
-* Add extra user node pools with a unique zone and proximity placement group associated to each pool. An example is *nodepool1* in zone one and PPG1, *nodepool2* in zone two and PPG2, and *nodepool3* in zone 3 with PPG3. This ensures that, at a cluster level, nodes are spread across multiple zones and each individual node pool is colocated in the designated zone with a dedicated PPG resource.
+* Provision a cluster with the first system pool using *three* zones and no proximity placement group associated to ensure the system pods land in a dedicated node pool, which spreads across multiple zones.
+* Add extra user node pools with a unique zone and proximity placement group associated to each pool. An example is *nodepool1* in zone one and PPG1, *nodepool2* in zone two and PPG2, and *nodepool3* in zone 3 with PPG3. This configuration ensures that, at a cluster level, nodes are spread across multiple zones and each individual node pool is colocated in the designated zone with a dedicated PPG resource.
 
 ## Create a new AKS cluster with a proximity placement group
 
-Accelerated networking greatly improves networking performance of virtual machines. Ideally, use proximity placement groups in conjunction with accelerated networking. By default, AKS uses accelerated networking on [supported virtual machine instances](../virtual-network/accelerated-networking-overview.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), which include most Azure virtual machine with two or more vCPUs.
+Accelerated networking greatly improves networking performance of virtual machines. Ideally, use proximity placement groups with accelerated networking. By default, AKS uses accelerated networking on [supported virtual machine instances](../virtual-network/accelerated-networking-overview.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), which include most Azure virtual machine with two or more vCPUs.
 
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
@@ -55,7 +55,7 @@ Accelerated networking greatly improves networking performance of virtual machin
     az ppg create -n myPPG -g myResourceGroup -l centralus -t standard
     ```
 
-    The command produces an output similar to the following example output, which includes the *id* value you need for upcoming CLI commands.
+    The command produces an output similar to the following example output, which includes the *ID* value you need for upcoming CLI commands.
 
     ```output
     {
@@ -118,3 +118,4 @@ Learn more about [proximity placement groups][proximity-placement-groups].
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
+[az-ppg-create]: /cli/azure/ppg#az_ppg_create
