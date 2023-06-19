@@ -27,6 +27,8 @@ items:
       href: dall-e-quickstart.md
 - name: Concepts
   items:
+    - name: Abuse monitoring
+      href: ./concepts/abuse-monitoring.md
     - name: Content filtering
       href: ./concepts/content-filter.md
     - name: Embeddings
@@ -96,6 +98,9 @@ items:
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/cognitive-services/openai/context/context
 - name: Reference
   items:
+    - name: Bicep/Azure Resource Manager/Terraform
+      href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
+      displayName: ARM, ARM template, template 
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)

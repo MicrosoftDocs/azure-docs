@@ -36,9 +36,8 @@ pip install azureml-sdk[automl,explain,notebooks]>=1.42.0
 
 For more information on updating an Azure Machine Learning environment (for training or deployment), see the following articles:
 
-* [Manage environments in studio](how-to-manage-environments-in-studio.md#rebuild-an-environment)
-* [Create & use software environments (SDK v1)](how-to-use-environments.md#update-an-existing-environment)
-* [Create & manage environments (CLI v2)](how-to-manage-environments-v2.md#update)
+* [Manage environments in studio](../how-to-manage-environments-in-studio.md#rebuild-an-environment)
+* [Create & use software environments](how-to-use-environments.md)
 
 To verify the version of your installed SDK, use the following command:
 
@@ -50,6 +49,5 @@ pip show azureml-core
 
 For more information on updating an Azure Machine Learning environment (for training or deployment), see the following articles:
 
-* [Manage environments in studio](how-to-manage-environments-in-studio.md#rebuild-an-environment)
-* [Create & use software environments (SDK v1)](how-to-use-environments.md#update-an-existing-environment)
-* [Create & manage environments (CLI v2)](how-to-manage-environments-v2.md#update)
+* [Manage environments in studio](../how-to-manage-environments-in-studio.md#rebuild-an-environment)
+* [Create & use software environments](how-to-use-environments.md)
