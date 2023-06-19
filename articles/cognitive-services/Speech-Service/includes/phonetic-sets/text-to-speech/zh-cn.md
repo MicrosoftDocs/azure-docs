@@ -1,6 +1,14 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 The Speech service phone set for `zh-CN` is based on the native phone <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">Pinyin </a> set.
 
-### Pinyin Initials
+### Pinyin Initials for zh-CN
 
 | Pinyin | `viseme`| Character example | `sapi` example |
 |--------|-------------------|----------------|----------------|
@@ -28,7 +36,8 @@ The Speech service phone set for `zh-CN` is based on the native phone <a href="h
 | y    |  6    | 衣                | **y**i 1       |
 | w    | 7  | 屋                | **w**u 1       |
 
-### Pinyin Finals
+### Pinyin Finals for zh-CN
+
 | Pinyin | `viseme`| Character example | `sapi` example |
 |--------|--------|-------------------|----------------|
 | a      |  2, 2    (19, 2, 2 for no initials)  | 法                | f**a** 3       |
@@ -65,7 +74,8 @@ The Speech service phone set for `zh-CN` is based on the native phone <a href="h
 | uang   | 7, 2, 20  | 广                | g**uang** 3    |
 | uo     | 7, 8, 8 | 多                | d**uo** 1      |
 
-### Pinyin Whole syllable
+### Pinyin Whole syllable for zh-CN
+
 | Pinyin | `viseme`| Character example | `sapi` example |
 |--------|--------|-------------------|----------------|
 | zhi    | 19, 15, 6, 6 | 知                | **zhi** 1      |
@@ -95,7 +105,8 @@ The Speech service phone set for `zh-CN` is based on the native phone <a href="h
 | en     | 19, 1, 19  | 恩                | **en** 1       |
 | ang    |19, 2, 20  | 昂                | **ang** 2      |
 
-### Pinyin Tone
+### Pinyin Tone for zh-CN
+
 | Pinyin | Character example | `sapi` example |
 |--------|-------------------|----------------|
 | bā     | 八                | ba **1**       |
@@ -104,7 +115,7 @@ The Speech service phone set for `zh-CN` is based on the native phone <a href="h
 | bà     | 坝                | ba **4**       |
 | ba     | 吧                | ba **5**       |
 
-#### Example
+#### Example for zh-CN
 
 | Character | Speech service                |
 |-----------|-------------------------------|

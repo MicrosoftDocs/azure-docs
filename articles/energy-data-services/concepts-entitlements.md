@@ -1,12 +1,12 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview entitlement concepts #Required; page title is displayed in search results. Include the brand.
-description:  This article describes the various concepts regarding the entitlement services in Azure Data Manager for Energy Preview #Required; article description that is displayed in search results. 
-author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitalization.
-ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview entitlement concepts
+description:  This article describes the various concepts regarding the entitlement services in Azure Data Manager for Energy Preview
+author: Lakshmisha-KS
+ms.author: lakshmishaks
+ms.service: energy-data-services
+ms.topic: conceptual
 ms.date: 02/10/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Entitlement service

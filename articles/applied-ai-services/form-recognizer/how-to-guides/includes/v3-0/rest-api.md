@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 
@@ -43,8 +43,8 @@ ms.author: lajanuar
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
 
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
@@ -75,14 +75,22 @@ Open a command prompt and run the following cURL command. We've added the endpoi
 curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/{modelID}:analyze?api-version=2022-08-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
 ```
 
+   **Enable add-on capabilities
+
+   To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available for the 2023-02-28-preview: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, visit the [Add-On Capabilities concept page](../../../concept-accuracy-confidence.md). You can only call the highResolution, formula and font capabilities for the Read and Layout model, and the queryFields capability for the General Documents model. The following example shows how to call the highResolution, formula and font capabilities for the Layout model.
+
+   ```bash
+   curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/prebuilt-layout:analyze?features=ocr.highResolution,ocr.formula,ocr.font?api-version=2023-02-28-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
+   ```
+
 ### POST response
 
 You receive a `202 (Success)` response that includes an **Operation-location** header. You use the value of this header to retrieve the response results.
 
 :::image type="content" source="../../../media/how-to/rest-get-response.png" alt-text="{alt-text}":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=post-request-analyze)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=post-request-analyze) -->
 
 ### Get analyze results (GET Request)
 
@@ -115,8 +123,8 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
   ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=windows&Product=FormRecognizer&Page=how-to&Section=format-json)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=windows&Product=FormRecognizer&Page=how-to&Section=format-json) -->
 
 #### [macOS](#tab/macOS)
 
@@ -130,12 +138,12 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
   curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
   ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=macos&Product=FormRecognizer&Page=how-to&Section=format-json)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=macos&Product=FormRecognizer&Page=how-to&Section=format-json) -->
 
 #### [Linux](#tab/linux)
 
-* The **json_pp** command line tool is pre-installed in most Linux distributions. If it's not included, you can use your distribution's package manager to install it.
+* The **json_pp** command line tool is preinstalled in most Linux distributions. If it's not included, you can use your distribution's package manager to install it.
 
 * Pretty print the JSON output by including `| json_pp` with your GET requests.
 
@@ -145,8 +153,8 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
   curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
   ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=linux&Product=FormRecognizer&Page=how-to&Section=format-json)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=linux&Product=FormRecognizer&Page=how-to&Section=format-json) -->
 
 ---
 
@@ -168,8 +176,8 @@ Before you run the following command, make these changes:
 curl -i -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" | `{json-tool}`
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=get-request-results)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=get-request-results) -->
 
 ### Examine the response
 

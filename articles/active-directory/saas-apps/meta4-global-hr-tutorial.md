@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Meta4 Global HR | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Meta4 Global HR'
 description: Learn how to configure single sign-on between Azure Active Directory and Meta4 Global HR.
 services: active-directory
 author: jeevansd

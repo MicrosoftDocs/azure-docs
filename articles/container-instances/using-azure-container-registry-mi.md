@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Deploy to Azure Container Instances from Azure Container Registry using a managed identity
@@ -45,15 +45,15 @@ In order to properly configure the identity in future steps, use [az identity sh
 
 ```azurecli-interactive
 # Get resource ID of the user-assigned identity
-userID=$(az identity show --resource-group myResourceGroup --name myACRId --query id --output tsv)
+USERID=$(az identity show --resource-group myResourceGroup --name myACRId --query id --output tsv)
 # Get service principal ID of the user-assigned identity
-spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
+SPID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
 You'll need the identity's resource ID to sign in to the CLI from your virtual machine. To show the value:
 
 ```bash
-echo $userID
+echo $USERID
 ```
 
 The resource ID is of the form:
@@ -65,7 +65,7 @@ The resource ID is of the form:
 You'll also need the service principal ID to grant the managed identity access to your container registry. To show the value:
 
 ```bash
-echo $spID
+echo $SPID
 ```
 
 The service principal ID is of the form:
@@ -79,7 +79,7 @@ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx
 In order for your identity to access your container registry, you must grant it a role assignment. Use to following command to grant the `acrpull` role to the identity you've just created, making sure to provide your registry's ID and the service principal we obtained earlier:
 
 ```azurecli-interactive
-az role assignment create --assignee $spID --scope <registry-id> --role acrpull
+az role assignment create --assignee $SPID --scope <registry-id> --role acrpull
 ```
 
 ## Deploy using an Azure Resource Manager (ARM) template
@@ -161,7 +161,7 @@ az deployment group create --resource-group myResourceGroup --template-file azur
 To deploy a container group using managed identity to authenticate image pulls via the Azure CLI, use the following command, making sure that your `<dns-label>` is globally unique:
 
 ```azurecli-interactive
-az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --ports 80 --dns-name-label <dns-label>
+az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $USERID --assign-identity $USERID --ports 80 --dns-name-label <dns-label>
 ```
 
 ## Deploy in a virtual network using the Azure CLI
@@ -169,7 +169,7 @@ az container create --name my-containergroup --resource-group myResourceGroup --
 To deploy a container group to a virtual network using managed identity to authenticate image pulls from an ACR that runs behind a private endpoint via the Azure CLI, use the following command:
 
 ```azurecli-interactive
-az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --vnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVNetResourceGroup/providers/ --subnet mySubnetName
+az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $USERID --assign-identity $USERID --vnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVNetResourceGroup/providers/ --subnet mySubnetName
 ```
 
 For more info on how to deploy to a virtual network see [Deploy container instances into an Azure virtual network](./container-instances-vnet.md).

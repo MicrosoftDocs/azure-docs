@@ -1,5 +1,5 @@
 ---
-title: Create custom roles in Azure AD role-based access control | Microsoft Docs
+title: Create custom roles in Azure AD role-based access control
 description: Create and assign custom Azure AD roles with resource scope on Azure Active Directory resources.
 services: active-directory
 author: rolyon
@@ -33,7 +33,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Create a new custom role to grant access to manage app registrations
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** > **New custom role**.
 
@@ -152,7 +152,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
 
 Like built-in roles, custom roles are assigned by default at the default organization-wide scope to grant access permissions over all app registrations in your organization. Additionally, custom roles and some relevant built-in roles (depending on the type of Azure AD resource) can also be assigned at the scope of a single Azure AD resource. This allows you to give the user the permission to update credentials and basic properties of a single app without having to create a second custom role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with Application Developer permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com)  with Application Developer permissions.
 
 1. Select **Azure Active Directory** > **App registrations**.
 

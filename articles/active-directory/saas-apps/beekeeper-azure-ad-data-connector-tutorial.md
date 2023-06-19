@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Beekeeper Azure AD SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Beekeeper Azure AD SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Beekeeper Azure AD SSO.
 services: active-directory
 author: jeevansd

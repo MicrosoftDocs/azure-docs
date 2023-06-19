@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 06/13/2023
 ms.custom: engagement-fy23
 tags: connectors
 ---
@@ -57,6 +57,8 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
   For more information about managed identities, review [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
+* By default, the Service Bus built-in connector operations are stateless. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+
 ## Considerations for Azure Service Bus operations
 
 ### Infinite loops
@@ -82,6 +84,8 @@ When you create a Consumption logic app workflow, you can select the **Correlate
 ### Large message support
 
 Large message support is available only for Standard workflows when you use the Service Bus built-in connector operations. For example, you can receive and large messages using the built-in triggers and actions respectively.
+
+For the Service Bus managed connector, the maximum message size is limited to 1 MB, even when you use a premium tier Service Bus namespace.
 
 ### Increase timeout for receiving and sending messages
 
@@ -278,6 +282,8 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
 #### Built-in connector trigger
 
+The built-in Service Bus connector is a stateless connector, by default. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md).
+
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
 1. On the designer, select **Choose an operation**.
@@ -314,7 +320,7 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
    >
    > This Service Bus trigger follows the *push trigger* pattern, which means that the trigger waits and listens 
    > for events or data that meet the specified condition before running a workflow. The trigger doesn't check 
-   > for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
+   > for events or data based on a specified schedule. For more information, review [Triggers](introduction.md#triggers).
 
 1. Add any actions that your workflow needs.
 
@@ -434,6 +440,8 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
 #### Built-in connector action
 
+The built-in Service Bus connector is a stateless connector, by default. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md).
+
 1. In the [Azure portal](https://portal.azure.com), and open your logic app workflow in the designer.
 
 1. Under the trigger or action where you want to add the action, select the plus sign (**+**), and then select **Add an action**.
@@ -535,7 +543,7 @@ The Service Bus built-in connector is available only for Standard logic app work
 | When messages are available in a queue | Start a workflow when one or more messages are available in a queue. |
 | When messages are available in a topic subscription | Start a workflow when one or more messages are available in a topic subscription. |
 
-These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
+These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](introduction.md#triggers).
 
 | Action | Description |
 |--------|-------------|
@@ -576,5 +584,6 @@ As long as this error happens only occasionally, the error is expected. When the
 
 ## Next steps
 
-* [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Built-in connectors in Azure Logic Apps](built-in.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

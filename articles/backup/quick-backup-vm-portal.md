@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and backup the VM,  with the Azure portal.
-ms.date: 01/11/2022
+ms.date: 02/27/2023
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui
@@ -44,6 +44,8 @@ To apply a backup policy to your Azure VMs, follow these steps:
 
    - If you don't want to use the default policy, select **Create New**, and create a custom policy as described in the next procedure.
 
+> [!Note]
+> With Enhanced policy, you can now back up Azure VMs multiple times a day that helps to perform hourly backups. [Learn more](backup-azure-vms-enhanced-policy.md).
 
 ## Select a VM to back up
 

@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting 
-ms.date: 12/09/2022
+ms.date: 04/26/2023
 ms.author: banders
 ---
 
@@ -46,7 +46,7 @@ For more information about how to troubleshoot Azure sign-up issues, see the fol
 
 ## You represent a business that doesn't want to pay by card
 
-If you represent a business, you can use invoice payment methods such as checks, overnight checks, or wire transfers to pay for your Azure subscription. After you set up the account to pay by invoice, you can't change to another payment option, unless you have a Microsoft Customer Agreement and signed up for Azure through the Azure website.
+If you represent a business, you can use the invoice payment method (wire transfer) to pay for your Azure subscription. After you set up the account to pay by invoice, you can't change to another payment option, unless you have a Microsoft Customer Agreement and signed up for Azure through the Azure website.
 
 For more information about how to pay by invoice, see [Submit a request to pay Azure subscription by invoice](pay-by-invoice.md).
 

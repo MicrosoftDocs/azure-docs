@@ -2,16 +2,15 @@
 title: "Known issues: Online migrations from PostgreSQL to Azure Database for PostgreSQL"
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL using the Azure Database Migration Service.
-services: database-migration
-author: croblesm
-ms.author: roblescarlos
-manager: craigg
+author: apduvuri
+ms.author: adityaduvuri
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: [seo-lt-2019, seo-dt-2019]
-ms.topic: troubleshooting
 ms.date: 02/20/2020
+ms.service: dms
+ms.topic: troubleshooting
+ms.custom:
+  - seo-lt-2019
+  - seo-dt-2019
 ---
 
 # Known issues/limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL

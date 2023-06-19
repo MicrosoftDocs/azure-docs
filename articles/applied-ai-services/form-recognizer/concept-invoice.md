@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -56,7 +55,7 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 ::: moniker range="form-recog-3.0.0"
 
-The following tools are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -66,7 +65,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ::: moniker range="form-recog-2.1.0"
 
-The following tools are supported by Form Recognizer v2.1:
+Form Recognizer v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -166,13 +165,13 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
+| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), United Kingdom (-uk), India (-in)|
 | &bullet; Spanish (es) |Spain (es)|
 | &bullet; German (de) | Germany (de)|
 | &bullet; French (fr) | France (fr) |
 | &bullet; Italian (it) | Italy (it)|
 | &bullet; Portuguese (pt) | Portugal (pt), Brazil (br)|
-| &bullet; Dutch (de) | Netherlands (de)|
+| &bullet; Dutch (nl) | Netherlands (nl)|
 
 ## Field extraction
 
@@ -207,7 +206,8 @@ See how data, including customer information, vendor details, and line items, is
 | ServiceStartDate | Date | First date for the service period (for example, a utility bill service period) | yyyy-mm-dd |
 | ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
-| PaymentOptions | Array | An array that holds Payment Option details such as `IBAN`and `SWIFT` |  |
+| CurrencyCode | String | The currency code associated with the extracted amount | |
+| PaymentDetails | Array | An array that holds Payment Option details such as `IBAN`and `SWIFT` |  |
 | TotalDiscount | Number | The total discount applied to an invoice | Integer |
 | TaxItems (en-IN only) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale  |  |
 
@@ -295,7 +295,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 
 The JSON output has three parts:
 
-* `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words.
+* `"readResults"` node contains all of the recognized text and selection marks. Text is organized via page, then by line, then by individual words.
 * `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
 * `"documentResults"` node contains the invoice-specific values and line items that the model discovered. It's where to find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
 

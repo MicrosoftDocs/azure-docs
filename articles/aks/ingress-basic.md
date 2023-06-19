@@ -4,6 +4,7 @@ description: Learn how to create and configure an ingress controller in an Azure
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/23/2023
 ---
@@ -71,7 +72,7 @@ To control image versions, you'll want to import them into your own Azure Contai
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
-SOURCE_REGISTRY=k8s.gcr.io
+SOURCE_REGISTRY=registry.k8s.io
 CONTROLLER_IMAGE=ingress-nginx/controller
 CONTROLLER_TAG=v1.2.1
 PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
@@ -91,7 +92,7 @@ To control image versions, you'll want to import them into your own Azure Contai
 ```azurepowershell-interactive
 $RegistryName = "<REGISTRY_NAME>"
 $ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
-$SourceRegistry = "k8s.gcr.io"
+$SourceRegistry = "registry.k8s.io"
 $ControllerImage = "ingress-nginx/controller"
 $ControllerTag = "v1.2.1"
 $PatchImage = "ingress-nginx/kube-webhook-certgen"
@@ -124,6 +125,7 @@ The following example creates a Kubernetes namespace for the ingress resources n
 ```console
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 ACR_URL=<REGISTRY_URL>
@@ -157,6 +159,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
 ```azurepowershell-interactive
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
@@ -197,6 +200,7 @@ Use the `--set controller.service.loadBalancerIP` and `--set controller.service.
 ```console
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 ACR_URL=<REGISTRY_URL>
@@ -224,7 +228,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
     --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
-    --set defaultBackend.image.digest="" \
+    --set defaultBackend.image.digest="" 
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -232,6 +236,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
 ```azurepowershell-interactive
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
@@ -278,7 +283,7 @@ NAME                       TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S) 
 ingress-nginx-controller   LoadBalancer   10.0.65.205   EXTERNAL-IP     80:30957/TCP,443:32414/TCP   1m   app.kubernetes.io/component=controller,app.kubernetes.io/instance=ingress-nginx,app.kubernetes.io/name=ingress-nginx
 ```
 
-No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the external IP address. Ingress rules are configured in the following steps.
+If you browse to the external IP address at this stage, you see a 404 page displayed. This is because you still need to set up the connection to the external IP, which is done in the next sections.
 
 ## Run demo applications
 
@@ -317,7 +322,7 @@ To see the ingress controller in action, run two demo applications in your AKS c
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-one
     ```
@@ -355,7 +360,7 @@ To see the ingress controller in action, run two demo applications in your AKS c
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-two
     ```
@@ -387,7 +392,7 @@ In the following example, traffic to *EXTERNAL_IP/hello-world-one* is routed to 
     spec:
       ingressClassName: nginx
       rules:
-     - http:
+      - http:
           paths:
           - path: /hello-world-one(/|$)(.*)
             pathType: Prefix
@@ -421,7 +426,7 @@ In the following example, traffic to *EXTERNAL_IP/hello-world-one* is routed to 
     spec:
       ingressClassName: nginx
       rules:
-     - http:
+      - http:
           paths:
           - path: /static(/|$)(.*)
             pathType: Prefix

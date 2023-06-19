@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory activity logs in Azure Monitor | Microsoft Docs
+title: Azure Active Directory activity logs in Azure Monitor
 description: Introduction to Azure Active Directory activity logs in Azure Monitor
 services: active-directory
 author: shlipsey3

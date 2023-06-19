@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Compliance ELF | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Compliance ELF'
 description: Learn how to configure single sign-on between Azure Active Directory and Compliance ELF.
 services: active-directory
 author: jeevansd

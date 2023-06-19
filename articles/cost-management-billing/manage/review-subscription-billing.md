@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: article
-ms.date: 12/13/2021
+ms.date: 04/05/2023
 ms.author: banders
 # Customer intent: As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 ---

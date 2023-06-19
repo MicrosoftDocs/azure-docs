@@ -1,5 +1,5 @@
 ---
-title: Configure authentication session management - Azure Active Directory
+title: Configure authentication session management
 description: Customize Azure AD authentication session configuration including user sign-in frequency and browser session persistence.
 
 services: active-directory
@@ -58,7 +58,7 @@ Sign-in frequency previously applied to only to the first factor authentication 
 
 ### User sign-in frequency and device identities
 
-On Azure AD joined and hybrid Azure AD joined devices, unlocking the device, or signing in interactively will only refresh the Primary Refresh Token (PRT) every 4 hours. The last refresh timestamp recorded for PRT compared with the current timestamp must be within the time allotted in SIF policy for PRT to satisfy SIF and grant access to a PRT that has an existing MFA claim. On [Azure AD registered devices](/azure/active-directory/devices/concept-azure-ad-register), unlock/sign-in would not satisfy the SIF policy because the user is not accessing an Azure AD registered device via an Azure AD account. However, the [Azure AD WAM](../develop/scenario-desktop-acquire-token-wam.md) plugin can refresh a PRT during native application authentication using WAM.
+On Azure AD joined and hybrid Azure AD joined devices, unlocking the device, or signing in interactively will only refresh the Primary Refresh Token (PRT) every 4 hours. The last refresh timestamp recorded for PRT compared with the current timestamp must be within the time allotted in SIF policy for PRT to satisfy SIF and grant access to a PRT that has an existing MFA claim. On [Azure AD registered devices](../devices/concept-azure-ad-register.md), unlock/sign-in would not satisfy the SIF policy because the user is not accessing an Azure AD registered device via an Azure AD account. However, the [Azure AD WAM](../develop/scenario-desktop-acquire-token-wam.md) plugin can refresh a PRT during native application authentication using WAM.
 
 Note: The timestamp captured from user log-in is not necessarily the same as the last recorded timestamp of PRT refresh because of the 4-hour refresh cycle. The case when it is the same is when a PRT has expired and a user log-in refreshes it for 4 hours. In the following examples, assume SIF policy is set to 1 hour and PRT is refreshed at 00:00.
 
@@ -111,12 +111,14 @@ A persistent browser session allows users to remain signed in after closing and 
 
 The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS single sign-on settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online), we'll comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the [company branding pane](../fundamentals/customize-branding.md).
 
+In persistent browsers, cookies stay stored in the user’s device even after a user closes the browser. These cookies could have access to Azure Active Directory artifacts, and those artifacts are useable until token expiry regardless of the Conditional Access policies placed on the resource environment. So, token caching can be in direct violation of desired security policies for authentication. While it may seem convenient to store tokens beyond the current session, doing so can create a security vulnerability by allowing unauthorized access to Azure Active Directory artifacts.
+
 ## Configuring authentication session controls
 
 Conditional Access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft retired the configurable token lifetime feature for refresh and session token lifetimes on January 30, 2021 and replaced it with the Conditional Access authentication session management feature.  
+> If you are using the [configurable token lifetime](../develop/configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft retired the configurable token lifetime feature for refresh and session token lifetimes on January 30, 2021 and replaced it with the Conditional Access authentication session management feature.  
 >
 > Before enabling Sign-in Frequency, make sure other reauthentication settings are disabled in your tenant. If "Remember MFA on trusted devices" is enabled, be sure to disable it before using Sign-in frequency, as using these two settings together may lead to prompting users unexpectedly. To learn more about reauthentication prompts and session lifetime, see the article, [Optimize reauthentication prompts and understand session lifetime for Azure AD Multifactor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
@@ -187,7 +189,7 @@ Use the [What If tool](what-if-tool.md) to simulate a sign-in from the user to t
 
 ## Prompt tolerance
 
-We factor for five minutes of clock skew, so that we don’t prompt users more often than once every five minutes. If the user has done MFA in the last 5 minutes, and they hit another Conditional Access policy that requires reauthentication, we won't prompt the user. Over-promoting users for reauthentication can impact their productivity and increase the risk of users approving MFA requests they didn’t initiate. Use “Sign-in frequency – every time” only for specific business needs. 
+We factor for five minutes of clock skew, so that we don’t prompt users more often than once every five minutes. If the user has done MFA in the last 5 minutes, and they hit another Conditional Access policy that requires reauthentication, we won't prompt the user. Over-prompting users for reauthentication can impact their productivity and increase the risk of users approving MFA requests they didn’t initiate. Use “Sign-in frequency – every time” only for specific business needs. 
 
 ## Known issues
 

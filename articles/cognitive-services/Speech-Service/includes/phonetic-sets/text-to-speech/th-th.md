@@ -1,4 +1,12 @@
-### Vowels
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for th-TH
 
 | `ipa` | `viseme` | Example 1 | Example 2         | Example 3  |
 |-------|----------|-----------|-------------------|------------|
@@ -24,7 +32,7 @@
 | `ɔ`   | 3        |           | **น็อ**ต          |            |
 | `ɔː`  | 3        |           | น**อ**น           | เจ็บค**อ** |
 
-### Consonant
+### Consonant for th-TH
 
 | `ipa` | `viseme` | Example 1 | Example 2         | Example 3  |
 |-------|----------|-----------|-------------------|------------|
@@ -50,7 +58,7 @@
 | `w`   | 7        | **วิ่**ง  | ก**วี**           | แก้**ว**   |
 | `ʔ`   | 19       | **อ**า    | สะ**อ**าด         |            |
 
-### Tone
+### Tone for th-TH
 
 | `ipa` | `Description` | Example |
 |-------|---------------|---------|

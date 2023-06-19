@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Interactive map search with Azure Maps'
 titeSuffix: Microsoft Azure Maps
-description: 'Quickstart: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get a primary key, and use the Web SDK to set up map applications'
+description: 'Quickstart: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get the subscription key, and use the Web SDK to set up map applications'
 author: eriklindeman
 ms.author: eriklind
 ms.date: 12/23/2021
@@ -16,7 +16,7 @@ ms.custom: mvc, mode-other
 In this quickstart, you will learn how to use Azure Maps to create a map that gives users an interactive search experience. It walks you through these basic steps:
 
 * Create your own Azure Maps account.
-* Get your primary key to use in the demo web application.
+* Get your Azure Maps subscription key to use in the demo web application.
 * Download and open the demo map application.
 
 This quickstart uses the Azure Maps Web SDK, however the Azure Maps service can be used with any map control, such as these popular [open-source map controls](open-source-projects.md#third-part-map-control-plugins) that the Azure Maps team has created plugin's for.
@@ -47,15 +47,15 @@ Create a new Azure Maps account with the following steps:
 
 <a id="getkey"></a>
 
-## Get the primary key for your account
+## Get the subscription key for your account
 
-Once your Azure Maps account is successfully created, retrieve the primary key that enables you to query the Maps APIs.
+Once your Azure Maps account is successfully created, retrieve the subscription key that enables you to query the Maps APIs.
 
 1. Open your Maps account in the portal.
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** and save it locally to use later in this tutorial.
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Screenshot showing your Azure Maps Primary Key in the Azure portal" lightbox="./media/quick-demo-map-app/get-key.png":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal" lightbox="./media/quick-demo-map-app/get-key.png":::
 
 >[!NOTE]
 > This quickstart uses the [Shared Key](azure-maps-authentication.md#shared-key-authentication) authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) authentication.
@@ -67,7 +67,7 @@ Once your Azure Maps account is successfully created, retrieve the primary key t
 3. Add the **Primary Key** value you got in the preceding section
     1. Comment out all of the code in the `authOptions` function, this code is used for Azure Active Directory authentication.
     1. Uncomment the last two lines in the `authOptions` function, this code is used for Shared Key authentication, the approach being used in this quickstart.
-    1. Replace `<Your Azure Maps Key>` with the **Primary Key** value from the preceding section.
+    1. Replace `<Your Azure Maps Key>` with the subscription key value from the preceding section.
 
 ## Open the demo application
 

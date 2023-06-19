@@ -102,7 +102,7 @@ Add new managed identities, switch the default managed identity between user-ass
 
 ## Next steps
 
-Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ApiUsage/ArmBased).
+Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/).
 
 
 <!-- links -->

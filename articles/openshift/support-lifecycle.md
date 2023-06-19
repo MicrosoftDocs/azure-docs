@@ -5,7 +5,7 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 06/01/2023
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
@@ -25,7 +25,7 @@ Red Hat OpenShift Container Platform uses semantic versioning. Semantic versioni
 Each number in the version indicates general compatibility with the previous version:
 
 * **Major version**: No major version releases are planned at this time. Major versions change when incompatible API changes or backwards compatibility may be broken.
-* **Minor version**: Released approximately every three months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
+* **Minor version**: Released approximately every four months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
 * **Patches**: Typically released each week, or as needed. Patch version upgrades can include bug fixes, security enhancements, and other improvements.
 
 Customers should aim to run the latest minor release of the major version they're running. For example, if your production cluster is on 4.9, and 4.10 is the latest generally available minor version for the 4 series, you should upgrade to 4.10 as soon as you can. 
@@ -46,7 +46,7 @@ Azure Red Hat OpenShift supports two generally available (GA) minor versions of 
 * The latest GA minor version that is released in Azure Red Hat OpenShift (which we'll refer to as N)
 * One previous minor version (N-1)
 
-If available in a stable upgrade channel, newer minor releases (N+1, N+2) available in upstream OCP may be supported as well.
+If available in a stable upgrade channel, newer minor releases (N+1, N+2) available in upstream OCP are supported as well.
 
 Critical patch updates are applied to clusters automatically by Azure Red Hat OpenShift Site Reliability Engineers (SRE). Customers that wish to install patch updates in advance are free to do so.
 
@@ -56,6 +56,9 @@ For example, if Azure Red Hat OpenShift introduces 4.10.z today, support is prov
 |-|-|
 |4.10.z|4.10.z, 4.9.z|
 
+> [!NOTE]
+> The table above is just an example to illustrate lifecycle support; it is not meant as a list of currently supported versions.
+> 
 ".z" is representative of patch versions. If available in a stable upgrade channel, customers may also upgrade to 4.9.z.
 
 When a new minor version is introduced, the oldest minor version is deprecated and removed. For example, say the current supported version list is 4.10.z and 4.9.z. When Azure Red Hat OpenShift releases 4.11.z, the 4.9.z release will be removed and will be out of support within 30 days.

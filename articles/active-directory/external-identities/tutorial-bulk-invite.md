@@ -1,6 +1,6 @@
 ---
 
-title: Bulk invite guest users for B2B collaboration tutorial - Azure AD
+title: Bulk invite guest users for B2B collaboration tutorial
 description: In this tutorial, you learn how to send bulk invitations using a CSV file to external Azure AD B2B collaboration users. 
 
 services: active-directory

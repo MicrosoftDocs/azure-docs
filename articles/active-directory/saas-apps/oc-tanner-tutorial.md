@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with O.C. Tanner - AppreciateHub | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with O.C. Tanner - AppreciateHub'
 description: Learn how to configure single sign-on between Azure Active Directory and O.C. Tanner - AppreciateHub.
 services: active-directory
 author: jeevansd

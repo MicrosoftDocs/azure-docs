@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SmarterU | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SmarterU'
 description: Learn how to configure single sign-on between Azure Active Directory and SmarterU.
 services: active-directory
 author: jeevansd

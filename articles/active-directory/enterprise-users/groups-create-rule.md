@@ -1,5 +1,5 @@
 ---
-title: Create or edit a dynamic group and get status - Azure AD | Microsoft Docs
+title: Create or edit a dynamic group and get status
 description: How to create or update a group membership rule in the Azure portal, and check its processing status.
 services: active-directory
 documentationcenter: ''
@@ -41,8 +41,8 @@ For examples of syntax, supported properties, operators, and values for a member
 
 ## To create a group membership rule
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Intune administrator, or User administrator role in the Azure AD organization.
-1. Search for and select **Groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is in the Global Administrator, Intune Administrator, or User Administrator role in the Azure AD organization.
+1. Browse to **Azure Active Directory** > **Groups**.
 1. Select **All groups**, and select **New group**.
 
    ![Screenshot showing how to select the "add new group" action](./media/groups-create-rule/create-new-group-azure-active-directory.png)
@@ -61,8 +61,8 @@ If the rule you entered isn't valid, an explanation of why the rule couldn't be 
 
 ## To update an existing rule
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Group administrator, Intune administrator, or User administrator role in the Azure AD organization.
-1. Select **Groups** > **All groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is in the Global Administrator, Group Administrator, Intune Administrator, or User Administrator role in the Azure AD organization.
+1. Browse to **Azure Active Directory** > **Groups** > **All groups**.
 1. Select a group to open its profile.
 1. On the profile page for the group, select **Dynamic membership rules**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 

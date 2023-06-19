@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory'
 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tableau Cloud.
 
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: b4038c18-2bfd-47cb-8e74-3873dc85a796
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -93,7 +93,7 @@ To keep track of role assignments, you can create two purpose-specific groups fo
 Once provisioning is set up, you will want to edit role changes directly in Azure Active Directory. Otherwise, you may end up with role inconsistencies between Tableau Cloud and Azure Active Directory.
 
 ### Valid Tableau site role values
-On the **Select a Role** page in your Azure Active Directory portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
+On the **Select a Role** page in your Azure portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
 
 
 If you select a role that is not in the above list, such as a legacy (pre-v2018.1) role, you will experience an error.

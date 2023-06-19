@@ -7,7 +7,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 03/10/2022
 ms.devlang: php
-ms.custom: mode-other, devdivchpfy22
+ms.custom: mode-other, devdivchpfy22, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 

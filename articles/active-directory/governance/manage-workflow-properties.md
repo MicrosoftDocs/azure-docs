@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 03/07/2023
+ms.date: 05/31/2023
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---
@@ -36,7 +36,7 @@ To edit the properties of a workflow using the Azure portal, you do the followin
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
 1. On the left menu, select **Lifecycle workflows (Preview)**. 
 

@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # View a business case (preview)
 
-This article describes how to review the business case reports for on-premises servers and workloads in your VMware environment with Azure Migrate: Discovery and assessment tool.
+This article describes how to review the business case reports for on-premises servers and workloads in your datacenter with Azure Migrate: Discovery and assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party Independent Software Vendor (ISV) offerings.
 
@@ -48,7 +48,7 @@ This card covers your potential total cost of ownership savings based on the cho
 It covers the cost of running all the servers scoped in the business case using some of the industry benchmarks. It doesn't cover Facilities (lease/colocation/power) cost by default, but you can edit it in the on-premises cost assumptions section. It includes one time cost for some of the capital expenditures like hardware acquisition etc., and annual cost for other components that you might pay as operating expenses like maintenance etc.
 
 ### Estimated Azure cost
-It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer the respective *Azure IaaS* and *Azure PaaS* report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target and most suitable pricing offers for your workloads. You can override the migration strategy, target location or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
+It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer to the respective *Azure IaaS* and *Azure PaaS* report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target and most suitable pricing offers for your workloads. You can override the migration strategy, target location or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
 
 ### YoY estimated current vs future state cost
 As you plan to migrate to Azure in phases, this line chart shows your cashflow per year based on the estimated migration completed that year. By default, it's assumed that you'll migrate 0% in the current year, 20% in Year 1, 50% in Year 2, and 100% in Year 3.

@@ -13,6 +13,9 @@ ms.author: danlep
 
 This article shows how to defend your Azure API Management instance against distributed denial of service (DDoS) attacks by enabling [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md). Azure DDoS Protection provides enhanced DDoS mitigation features to defend against volumetric and protocol DDoS attacks.​
 
+> [!NOTE]
+> For web workloads, we highly recommend utilizing Azure DDoS protection and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
+
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Supported configurations
@@ -57,7 +60,7 @@ Depending on the DDoS Protection plan you use, enable DDoS protection on the vir
 
 ### Enable DDoS protection on the API Management public IP address
 
-If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection Preview for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-preview-for-an-existing-public-ip-address).
+If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-for-an-existing-public-ip-address).
 
 ## Next steps
 

@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Use the REST API to manage an application
-titleSuffix: Azure IoT Central
 description: In this tutorial you use the REST API to create and manage an IoT Central application, add a device, and configure data export.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/07/2022
+ms.date: 04/26/2023
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -48,7 +47,7 @@ The tutorial uses a predefined Postman collection that includes some scripts to 
 
 ## Import the Postman collection
 
-To import the collection, open Postman and select **Import**. In the **Import** dialog, select **Link** and paste in the following [URL](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/postman-collection/IoT%20Central.postman_collection.json), <!-- TODO: Add link here --> Select **Continue**.
+To import the collection, open Postman and select **Import**. In the **Import** dialog, select **Link** and paste in the following [URL](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/postman-collection/IoT%20Central%20REST%20tutorial.postman_collection.json), select **Continue**.
 
 Your workspace now contains the **IoT Central REST tutorial** collection. This collection includes all the APIs you use in the tutorial.
 

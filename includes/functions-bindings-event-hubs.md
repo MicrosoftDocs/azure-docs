@@ -121,12 +121,15 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
     "version": "2.0",
     "extensions": {
         "eventHubs": {
-            "maxEventBatchSize" : 10,
+            "maxEventBatchSize" : 100,
+            "minEventBatchSize" : 25,
+            "maxWaitTime" : "00:05:00",            
             "batchCheckpointFrequency" : 1,
             "prefetchCount" : 300,
             "transportType" : "amqpWebSockets",
             "webProxy" : "https://proxyserver:8080",
             "customEndpointAddress" : "amqps://company.gateway.local",
+            "targetUnprocessedEventThreshold" : 75,
             "initialOffsetOptions" : {
                 "type" : "fromStart",
                 "enqueuedTimeUtc" : ""
@@ -145,21 +148,26 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 
 |Property  |Default | Description |
 |---------|---------|---------|
-| maxEventBatchSize| 10| The maximum number of events that will be included in a batch for a single invocation. Must be at least 1.|
+| maxEventBatchSize| 10| The maximum number of events included in a batch for a single invocation. Must be at least 1.|
+| minEventBatchSize<sup>1</sup>|  1| The minimum number of events desired in a batch.  The minimum applies only when the function is receiving multiple events and must be less than `maxEventBatchSize`.<br/>The minimum size isn't strictly guaranteed.  A partial batch is dispatched when a full batch can't be prepared before the `maxWaitTime` has elapsed.  Partial batches are also likely for the first invocation of the function after scaling takes place.|
+| maxWaitTime<sup>1</sup>| 00:01:00| The maximum interval that the trigger should wait to fill a batch before invoking the function. The wait time is only considered when `minEventBatchSize` is larger than 1 and is otherwise ignored. If less than `minEventBatchSize` events were available before the wait time elapses, the function is invoked with a partial batch. The longest allowed wait time is 10 minutes.<br/><br/>**NOTE:** This interval is not a strict guarantee for the exact timing on which the function is invoked. There is a small magin of error due to timer precision.  When scaling takes place, the first invocation with a partial batch may occur more quickly or may take up to twice the configured wait time.|
 | batchCheckpointFrequency| 1| The number of batches to process before creating  a checkpoint for the event hub.|
-| prefetchCount| 300| The number of events that will be eagerly requested from Event Hubs and held in a local cache to allow reads to avoid waiting on a network operation|
+| prefetchCount| 300| The number of events that is eagerly requested from Event Hubs and held in a local cache to allow reads to avoid waiting on a network operation|
 | transportType| amqpTcp | The protocol and transport that is used for communicating with Event Hubs. Available options: `amqpTcp`, `amqpWebSockets`|
-| webProxy| | The proxy to use for communicating with Event Hubs over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
-| customEndpointAddress | | The address to use when establishing a connection to Event Hubs, allowing network requests to be routed through an application gateway or other path needed for the host environment. The fully qualified namespace for the event hub is still needed when a custom endpoint address is used and must be specified explicitly or via the connection string.|
+| webProxy| null | The proxy to use for communicating with Event Hubs over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
+| customEndpointAddress | null | The address to use when establishing a connection to Event Hubs, allowing network requests to be routed through an application gateway or other path needed for the host environment. The fully qualified namespace for the event hub is still needed when a custom endpoint address is used and must be specified explicitly or via the connection string.|
+| targetUnprocessedEventThreshold<sup>1</sup> | null | The desired number of unprocessed events per function instance.  The threshold is used in target-based scaling to override the default scaling threshold inferred from the `maxEventBatchSize` option. When set, the total unprocessed event count is divided by this value to determine the number of function instances needed.  The instance count will be rounded up to a number that creates a balanced partition distribution.|
 | initialOffsetOptions/type | fromStart| The location in the event stream to start processing when a checkpoint does not exist in storage. Applies to all partitions. For more information, see the  [OffsetType documentation](/dotnet/api/microsoft.azure.webjobs.eventhubs.offsettype). Available options: `fromStart`, `fromEnd`, `fromEnqueuedTime`|
-| initialOffsetOptions/enqueuedTimeUtc | | Specifies the enqueued time of the event in the stream from which to start processing. When `initialOffsetOptions/type` is configured as `fromEnqueuedTime`, this setting is mandatory. Supports time in any format supported by [DateTime.Parse()](/dotnet/standard/base-types/parsing-datetime), such as  `2020-10-26T20:31Z`. For clarity, you should also specify a timezone. When timezone isn't specified, Functions assumes the local timezone of the machine running the function app, which is UTC when running on Azure. |
-| clientRetryOptions/mode | exponential | The approach to use for calculating retry delays. Exponential mode will retry attempts with a delay based on a back-off strategy where each attempt will increase the duration that it waits before retrying. The fixed mode will retry attempts at fixed intervals with each delay having a consistent duration. Available options: `exponential`, `fixed`|
+| initialOffsetOptions/enqueuedTimeUtc | null | Specifies the enqueued time of the event in the stream from which to start processing. When `initialOffsetOptions/type` is configured as `fromEnqueuedTime`, this setting is mandatory. Supports time in any format supported by [DateTime.Parse()](/dotnet/standard/base-types/parsing-datetime), such as  `2020-10-26T20:31Z`. For clarity, you should also specify a timezone. When timezone isn't specified, Functions assumes the local timezone of the machine running the function app, which is UTC when running on Azure. |
+| clientRetryOptions/mode | exponential | The approach to use for calculating retry delays. Exponential mode retries attempts with a delay based on a back-off strategy where each attempt will increase the duration that it waits before retrying. The fixed mode retries attempts at fixed intervals with each delay having a consistent duration. Available options: `exponential`, `fixed`|
 | clientRetryOptions/tryTimeout | 00:01:00 | The maximum duration to wait for an Event Hubs operation to complete, per attempt.|
 | clientRetryOptions/delay | 00:00:00.80 | The delay or back-off factor to apply between retry attempts.|
 | clientRetryOptions/maximumDelay | 00:00:01 | The maximum delay to allow between retry attempts. |
 | clientRetryOptions/maximumRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
 
-The `clientRetryOptions` are used to retry operations between the Functions host and Event Hubs (such as fetching events and sending events).  Please refer to guidance on [Azure Functions error handling and retries](../articles/azure-functions/functions-bindings-error-pages.md#retries) for information on applying retry policies to individual functions.
+<sup>1</sup> Using `minEventBatchSize` and `maxWaitTime` requires [v5.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.3.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package, or a later version.
+
+The `clientRetryOptions` are used to retry operations between the Functions host and Event Hubs (such as fetching events and sending events).  Refer to guidance on [Azure Functions error handling and retries](../articles/azure-functions/functions-bindings-error-pages.md#retries) for information on applying retry policies to individual functions.
 
 For a reference of host.json in Azure Functions 2.x and beyond, see [host.json reference for Azure Functions](../articles/azure-functions/functions-host-json.md).
 
@@ -190,7 +198,7 @@ For a reference of host.json in Azure Functions 2.x and beyond, see [host.json r
 |eventProcessorOptions/maxBatchSize|10|The maximum event count received per receive loop.|
 |eventProcessorOptions/prefetchCount|300|The default prefetch count used by the underlying `EventProcessorHost`. The minimum allowed value is 10.|
 |initialOffsetOptions/type<sup>1</sup>|fromStart|The location in the event stream from which to start processing when a checkpoint doesn't exist in storage. Options are `fromStart` , `fromEnd` or `fromEnqueuedTime`. `fromEnd` processes new events that were enqueued after the function app started running. Applies to all partitions. For more information, see the [EventProcessorOptions documentation](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider).|
-|initialOffsetOptions/enqueuedTimeUtc<sup>1</sup>| | Specifies the enqueued time of the event in the stream from which to start processing. When `initialOffsetOptions/type` is configured as `fromEnqueuedTime`, this setting is mandatory. Supports time in any format supported by [DateTime.Parse()](/dotnet/standard/base-types/parsing-datetime), such as  `2020-10-26T20:31Z`. For clarity, you should also specify a timezone. When timezone isn't specified, Functions assumes the local timezone of the machine running the function app, which is UTC when running on Azure. For more information, see the [EventProcessorOptions documentation](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider).|
+|initialOffsetOptions/enqueuedTimeUtc<sup>1</sup>| null | Specifies the enqueued time of the event in the stream from which to start processing. When `initialOffsetOptions/type` is configured as `fromEnqueuedTime`, this setting is mandatory. Supports time in any format supported by [DateTime.Parse()](/dotnet/standard/base-types/parsing-datetime), such as  `2020-10-26T20:31Z`. For clarity, you should also specify a timezone. When timezone isn't specified, Functions assumes the local timezone of the machine running the function app, which is UTC when running on Azure. For more information, see the [EventProcessorOptions documentation](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider).|
 
 <sup>1</sup> Support for `initialOffsetOptions` begins with [EventHubs v4.2.0](https://github.com/Azure/azure-functions-eventhubs-extension/releases/tag/v4.2.0).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Dynatrace | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Dynatrace'
 description: Learn how to configure single sign-on between Azure Active Directory and Dynatrace.
 services: active-directory
 author: jeevansd

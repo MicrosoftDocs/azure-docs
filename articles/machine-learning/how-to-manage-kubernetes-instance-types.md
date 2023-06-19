@@ -195,7 +195,7 @@ code_configuration:
 instance_type: <instance type name>
 environment: 
   conda_file: file:./model/conda.yml
-  image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1
+  image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest
 ```
 
 #### [Python SDK](#tab/select-instancetype-to-modeldeployment-with-sdk)
@@ -208,7 +208,7 @@ from azure.ai.ml import KubernetesOnlineDeployment,Model,Environment,CodeConfigu
 model = Model(path="./model/sklearn_mnist_model.pkl")
 env = Environment(
     conda_file="./model/conda.yml",
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
 )
 
 # define the deployment
@@ -228,6 +228,10 @@ blue_deployment = KubernetesOnlineDeployment(
 
 In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system uses `defaultinstancetype` to deploy the model.
 
+> [!IMPORTANT]
+>
+> For MLFlow model deployment, the resource request require at least 2 CPU and 4 GB memory, otherwise the deployment will fail.
+
 #### Resource section validation
 If you're using the `resource section` to define the resource request and limit of your model deployments, for example:
 
@@ -244,7 +248,7 @@ code_configuration:
   scoring_script: score.py
 environment: 
   conda_file: file:./model/conda.yml
-  image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1
+  image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest
 resources:
   requests:
     cpu: "0.1"
@@ -270,7 +274,7 @@ from azure.ai.ml import (
 model = Model(path="./model/sklearn_mnist_model.pkl")
 env = Environment(
     conda_file="./model/conda.yml",
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
 )
 
 requests = ResourceSettings(cpu="0.1", memory="0.2G")

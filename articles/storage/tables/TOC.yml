@@ -1,13 +1,13 @@
 - name: Azure Table storage documentation
   href: ./index.yml
 - name: Overview
-  expanded: true
-  items: 
+  items:
   - name: Azure Table storage overview
     href: table-storage-overview.md
   - name: Choose Table storage or Azure Cosmos DB for Table
     href: ../../cosmos-db/table-support.md
-    maintainContext: true   
+    maintainContext: true
+  expanded: true
 - name: Quickstarts
   items:
   - name: Create a table in the Azure portal
@@ -16,27 +16,27 @@
   items:
   - name: .NET
     href: ../../cosmos-db/tutorial-develop-table-dotnet.md
-    maintainContext: true  
+    maintainContext: true
   - name: F#
     href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
     maintainContext: true
   - name: Java
     href: ../../cosmos-db/table-storage-how-to-use-java.md
-    maintainContext: true  
+    maintainContext: true
   - name: Node.js
     href: ../../cosmos-db/table-storage-how-to-use-nodejs.md
     maintainContext: true
-  - name: C++ 
+  - name: C++
     href: ../../cosmos-db/table-storage-how-to-use-c-plus.md
     maintainContext: true
   - name: PHP
     href: ../../cosmos-db/table-storage-how-to-use-php.md
-    maintainContext: true 
+    maintainContext: true
   - name: Python
     href: ../../cosmos-db/table-storage-how-to-use-python.md
-    maintainContext: true 
+    maintainContext: true
   - name: Go
-    href: ../../cosmos-db/table-storage-how-to-use-go.md 
+    href: ../../cosmos-db/table-storage-how-to-use-go.md
     maintainContext: true
   - name: Ruby
     href: ../../cosmos-db/table-storage-how-to-use-ruby.md
@@ -83,7 +83,7 @@
     items:
     - name: Performance and scalability checklist
       href: storage-performance-checklist.md
-    - name: Design scalable and performant tables 
+    - name: Design scalable and performant tables
       href: table-storage-design.md
   - name: Guidelines for table design
     href: table-storage-design-guidelines.md
@@ -91,8 +91,6 @@
     href: table-storage-design-for-query.md
   - name: Design for data modification
     href: table-storage-design-for-modification.md
-  - name: Encrypting table data
-    href: table-storage-design-encrypt-data.md
   - name: Modeling relationships
     href: table-storage-design-modeling.md
   - name: Table design patterns
@@ -103,14 +101,14 @@
   items:
   - name: Create a storage account
     displayName: resource manager, resource manager template, template, ARM
-    href: ../common/storage-account-create.md?toc=/azure/storage/tables/toc.json  
-    maintainContext: true 
+    href: ../common/storage-account-create.md?toc=/azure/storage/tables/toc.json
+    maintainContext: true
   - name: Upgrade a storage account
     href: ../common/storage-account-upgrade.md?toc=/azure/storage/tables/toc.json
   - name: Recover a deleted storage account
     href: ../common/storage-account-recover.md?toc=/azure/storage/tables/toc.json
   - name: Migrate a classic account to Azure Resource Manager
-    href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/tables/toc.json
+    href: ../common/classic-account-migrate.md?toc=/azure/storage/tables/toc.json
   - name: Get account configuration properties
     href: ../common/storage-account-get-info.md?toc=/azure/storage/tables/toc.json
   - name: Use the storage emulator (deprecated)
@@ -142,10 +140,10 @@
             href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/tables/toc.json
         - name: Configure customer-managed keys in a different tenant
           items:
-            - name: Configure customer-managed keys for a new account
-              href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/tables/toc.json
-            - name: Configure customer-managed keys for an existing account
-              href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/tables/toc.json
+          - name: Configure customer-managed keys for a new account
+            href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/tables/toc.json
+          - name: Configure customer-managed keys for an existing account
+            href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/tables/toc.json
         - name: Configure customer-managed keys in a managed HSM
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/tables/toc.json
       - name: Enable infrastructure encryption for the account
@@ -153,13 +151,13 @@
     - name: Configure client-side encryption
       items:
       - name: .NET
-        href: ../common/storage-client-side-encryption.md?toc=/azure/storage/tables/toc.json
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=dotnet
       - name: Java
-        href: ../common/storage-client-side-encryption-java.md?toc=/azure/storage/tables/toc.json
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=java
       - name: Python
-        href: ../common/storage-client-side-encryption-python.md?toc=/azure/storage/tables/toc.json
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=python
     - name: Configure network security
-      items: 
+      items:
       - name: Configure firewalls and virtual networks
         href: ../common/storage-network-security.md?toc=/azure/storage/tables/toc.json
       - name: Require secure transfer
@@ -167,7 +165,7 @@
       - name: Manage Transport Layer Security (TLS)
         items:
         - name: Enforce minimum TLS version for incoming requests
-          href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/tables/toc.json 
+          href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/tables/toc.json
         - name: Configure TLS version for a client application
           href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/tables/toc.json
     - name: Enable threat protection with Microsoft Defender for Storage
@@ -178,10 +176,10 @@
       href: ../common/redundancy-migration.md?toc=/azure/storage/tables/toc.json
     - name: Design highly available applications
       items:
-        - name: .NET (v12 SDK)
-          href: ../common/geo-redundant-design.md?toc=/azure/storage/tables/toc.json
-        - name: .NET (v11 SDK)
-          href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/tables/toc.json
+      - name: .NET (v12 SDK)
+        href: ../common/geo-redundant-design.md?toc=/azure/storage/tables/toc.json
+      - name: .NET (v11 SDK)
+        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/tables/toc.json
   - name: Manage disaster recovery
     items:
     - name: Check the Last Sync Time property
@@ -189,7 +187,7 @@
     - name: Initiate account failover
       href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/tables/toc.json
   - name: Transfer data
-    items:  
+    items:
     - name: AzCopy on Windows (v8)
       href: /previous-versions/azure/storage/storage-use-azcopy
     - name: AzCopy on Linux (v8)
@@ -197,13 +195,13 @@
   - name: Troubleshoot
     items:
     - name: Performance
-      href: ../common/troubleshoot-storage-performance.md?toc=/azure/storage/tables/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-performance
     - name: Availability
-      href: ../common/troubleshoot-storage-availability.md?toc=/azure/storage/tables/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-availability
     - name: Client errors
-      href: ../common/troubleshoot-storage-client-application-errors.md?toc=/azure/storage/tables/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors
     - name: Latency issues
-      href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=/azure/storage/tables/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs
 - name: Resources
   items:
   - name: Azure updates

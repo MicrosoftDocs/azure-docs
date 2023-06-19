@@ -146,6 +146,18 @@ When configuring a routing rule, you can select a wildcard domain as a front-end
 
 ## Next steps
 
+::: zone pivot="front-door-standard-premium"
+
+- Learn how to [create an Azure Front Door profile](create-front-door-portal.md).
+- Learn how to [add a custom domain](standard-premium/how-to-add-custom-domain.md) to your Azure Front Door.
+- Learn how to [enable HTTPS on a custom domain](standard-premium/how-to-configure-https-custom-domain.md).
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 - Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md).
 - Learn how to [add a custom domain](front-door-custom-domain.md) to your Azure Front Door.
 - Learn how to [enable HTTPS on a custom domain](front-door-custom-domain-https.md).
+
+::: zone-end

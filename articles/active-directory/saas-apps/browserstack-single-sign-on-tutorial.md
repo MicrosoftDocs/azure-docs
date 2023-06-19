@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BrowserStack Single Sign-on | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BrowserStack Single Sign-on'
 description: Learn how to configure single sign-on between Azure Active Directory and BrowserStack Single Sign-on.
 services: active-directory
 author: jeevansd

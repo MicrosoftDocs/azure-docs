@@ -1,18 +1,16 @@
 ---
-# Mandatory fields.
 title: Create a data history connection
 titleSuffix: Azure Digital Twins
 description: See how to set up a data history connection for historizing Azure Digital Twins updates into Azure Data Explorer.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2023
+ms.date: 03/28/2023
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -123,6 +121,9 @@ Next, create a Kusto (Azure Data Explorer) cluster and database to receive the d
 
 As part of the [data history connection setup](#set-up-data-history-connection) later, you'll grant the Azure Digital Twins instance the *Contributor* role on at least the database (it can also be scoped to the cluster), and the *Admin* role on the database.
 
+>[!IMPORTANT]
+>Make sure that the cluster has public network access enabled. If the Azure Data Explorer cluster has [public network access disabled](/azure/data-explorer/security-network-restrict-public-access), Azure Digital Twins will be unable to configure the tables and other required artifacts, and data history setup will fail.
+
 # [CLI](#tab/cli) 
 
 Use the following CLI commands to create the required resources. The commands use several local variables (`$location`, `$resourcegroup`, `$clustername`, and `$databasename`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
@@ -182,11 +183,6 @@ When executing the above command, you'll be given the option of assigning the ne
 
 For regular data plane operation, these roles can be reduced to a single Azure Event Hubs Data Sender role, if desired.
 
->[!NOTE]
-> If you encounter the error "Could not create Azure Digital Twins instance connection. Unable to create table and mapping rule in database. Check your permissions for the Azure Database Explorer and run `az login` to refresh your credentials," resolve the error by adding yourself as an *AllDatabasesAdmin* under Permissions in your Azure Data Explorer cluster.
->
->If you're using the Cloud Shell and encounter the error "Failed to connect to MSI. Please make sure MSI is configured correctly," try running the command with a local Azure CLI installation instead.
-
 # [Portal](#tab/portal)
 
 Start by navigating to your Azure Digital Twins instance in the Azure portal (you can find the instance by entering its name into the portal search bar). Then complete the following steps.
@@ -231,6 +227,14 @@ After setting up the data history connection, you can optionally remove the role
 >[!NOTE]
 >Once the connection is set up, the default settings on your Azure Data Explorer cluster will result in an ingestion latency of approximately 10 minutes or less. You can reduce this latency by enabling [streaming ingestion](/azure/data-explorer/ingest-data-streaming) (less than 10 seconds of latency) or an [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). For more information about Azure Data Explorer ingestion latency, see [End-to-end ingestion latency](concepts-data-history.md#end-to-end-ingestion-latency).
 
+### Troubleshoot connection setup
+
+Here are a few common errors you might encounter when setting up a data history connection, and how to resolve them.
+
+* If you have public network access disabled for your Azure Data Explorer cluster, you'll encounter an error that the service failed to create the data history connection, with the message "The resource could not ACT due to an internal server error." Data history setup will fail if the Azure Data Explorer cluster has [public network access disabled](/azure/data-explorer/security-network-restrict-public-access), since Azure Digital Twins will be unable to configure the tables and other required artifacts.
+* (CLI users) If you encounter the error "Could not create Azure Digital Twins instance connection. Unable to create table and mapping rule in database. Check your permissions for the Azure Database Explorer and run `az login` to refresh your credentials," resolve the error by adding yourself as an *AllDatabasesAdmin* under Permissions in your Azure Data Explorer cluster.
+* (Cloud Shell users) If you're using the Cloud Shell and encounter the error "Failed to connect to MSI. Please make sure MSI is configured correctly," try running the command with a local Azure CLI installation instead.
+
 ## Verify with a sample twin graph
 
 Now that your data history connection is set up, you can test it with data from your digital twins.
@@ -257,13 +261,25 @@ You'll see confirmation messages on the screen as models, twins, and relationshi
 
 When the simulation is ready, the **Start simulation** button will become enabled. Scroll down and select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop and complete other browser actions in a separate window. This will continuously generate twin property updates events that will be historized to Azure Data Explorer.
 
-To verify that data is flowing through the data history pipeline, navigate to the [Azure portal](https://portal.azure.com) and open the Event Hubs namespace resource you created. You should see charts showing the flow of messages into and out of the namespace, indicating the flow of incoming messages from Azure Digital Twins and outgoing messages to Azure Data Explorer. The image below shows what these charts might look like after an hour of running the simulator (but you should start to see some data after only a few minutes).
+#### Verify data flow
+
+To verify that data is flowing through the data history pipeline, you can use the [data history validation in Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
+
+1. Navigate to the [Azure Digital Twins Explorer](https://explorer.digitaltwins.azure.net/) and ensure it's [connected to the right instance](how-to-use-azure-digital-twins-explorer.md#switch-contexts-within-the-app).
+
+1. Use the instructions in [Validate and explore historized properties](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties) to choose a historized twin property to visualize in the chart.
+
+If you see data being populated in the chart, this means that Azure Digital Twins update events are being successfully stored in Azure Data Explorer.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-chart.png" alt-text="Screenshot of the Data history explorer showing a chart of historized values for a property." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-chart.png":::
+
+If you *don't* see data in the chart, the historization data flow isn't working properly. You can investigate the issue by viewing your Event Hubs namespace in the [Azure portal](https://portal.azure.com), which displays charts showing the flow of messages into and out of the namespace. This will allow you to verify both the flow of incoming messages from Azure Digital Twins and the outgoing messages to Azure Data Explorer, to help you identify which part of the flow isn't working.
 
 :::image type="content"  source="media/how-to-create-data-history-connection/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment." lightbox="media/how-to-create-data-history-connection/simulated-environment-portal.png":::
 
 ### View the historized updates in Azure Data Explorer
 
-In this section, you'll view all three types of historized updates that were generated by the simulator and stored in Azure Data Explorer tables.
+Now that you've verified the data history flow is sending data to Azure Data Explorer, this section will show you how to view all three types of historized updates that were generated by the simulator and stored in Azure Data Explorer tables.
 
 Start in the [Azure portal](https://portal.azure.com) and navigate to the Azure Data Explorer cluster you created earlier. Choose the **Databases** pane from the left menu to open the database view. Find the database you created for this article and select the checkbox next to it, then select **Query**.
 
@@ -360,7 +376,7 @@ The results should show the outflow numbers changing over time.
 
 ## Next steps 
 
-To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/Dairy_operation_with_data_history/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
+To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/Dairy_operation_with_data_history) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
 
 To build Grafana dashboards that visualize the performance of the dairy operation, read [Creating dashboards with Azure Digital Twins, Azure Data Explorer, and Grafana](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries/Dairy_operation_with_data_history/Visualize_with_Grafana).
 

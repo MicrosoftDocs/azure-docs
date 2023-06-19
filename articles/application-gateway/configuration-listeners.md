@@ -5,9 +5,8 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 05/19/2023
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Application Gateway listener configuration
@@ -81,6 +80,8 @@ $gw.EnableHttp2 = $true
 
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
+
+You can also enable HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in Application gateway > Configuration. 
 
 ### WebSocket support
 

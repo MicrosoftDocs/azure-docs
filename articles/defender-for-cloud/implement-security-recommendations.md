@@ -2,8 +2,8 @@
 title: Implement security recommendations in Microsoft Defender for Cloud
 description: This article explains how to respond to recommendations in Microsoft Defender for Cloud to protect your resources and satisfy security policies.
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.date: 10/20/2022
 ---
 # Implement security recommendations in Microsoft Defender for Cloud

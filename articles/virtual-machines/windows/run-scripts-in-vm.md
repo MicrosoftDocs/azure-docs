@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.collection: windows
 author: bobbytreed
 ms.author: robreed
-ms.date: 05/02/2018
+ms.reviewer: erd
+ms.date: 03/20/2023
 ms.topic: how-to
 
 ---
@@ -50,7 +51,9 @@ The [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md
 * Full script output is returned and stored.
 * Job history available for 90 days.
 * Scripts can run as Local System or with user-supplied credentials.
-* Requires [manual installation](../../automation/automation-windows-hrw-install.md)
+* Requires [manual installation](../../automation/extension-based-hybrid-runbook-worker-install.md).
+
+
 
 ## Serial console
 

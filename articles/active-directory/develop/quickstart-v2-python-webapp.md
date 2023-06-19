@@ -6,7 +6,7 @@ author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/24/2023
 ROBOTS: NOINDEX

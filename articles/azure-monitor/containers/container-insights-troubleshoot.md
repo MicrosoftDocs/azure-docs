@@ -179,6 +179,10 @@ The solution to this issue is to clean up the existing resources of the Containe
 
 If the preceding steps didn't resolve the installation of Azure Monitor Containers Extension issues, create a support ticket to send to Microsoft for further investigation.
 
+## Duplicate alerts being received
+You may have enabled Prometheus alert rules without disabling Container insights recommended alerts. See [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](container-insights-metric-alerts.md#migrate-from-metric-rules-to-prometheus-rules-preview).
+
+
 ## Next steps
 
 When monitoring is enabled to capture health metrics for the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Container insights, see [View Azure Kubernetes Service health](container-insights-analyze.md).

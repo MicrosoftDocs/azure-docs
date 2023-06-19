@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 02/23/2023
 ms.author: shuaijunye
 ms.subservice: spark
+ms.custom: devx-track-azurepowershell
 ---
 
 # Automate the library management process through Azure PowerShell cmdlets and REST APIs

@@ -11,7 +11,7 @@ ms.author: aahi
 
 Create a **GET** request using the following URL, headers, and JSON body to get the trained model evaluation summary.
 
-## Model Summary (#tab/model-summary)
+## Model Summary
 
 This API returns the summary of your model's evaluation results, including the precision, recall, F1, and confusion matrix of your intents and entities.
 
@@ -216,7 +216,7 @@ Once you send the request, you will get the following response.
 ```
 
 
-## Model Results (#tab/model-results)
+## Model Results
 
 This API returns the individual results for each utterance including their expected and actual predictions for intents and entities.
 

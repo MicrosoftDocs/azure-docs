@@ -1,5 +1,5 @@
 ---
-title: Assign sensitivity labels to groups - Azure AD | Microsoft Docs
+title: Assign sensitivity labels to groups
 description: Learn how to assign sensitivity labels to groups. See troubleshooting information and view additional available resources.
 services: active-directory
 documentationcenter: ''
@@ -81,8 +81,8 @@ You will also need to synchronize your sensitivity labels to Azure AD. For instr
 
 ## Assign a label to a new group in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
-1. Select **Groups**, and then select **New group**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Groups**, and then select **New group**.
 1. On the **New Group** page, select **Office 365**, and then fill out the required information for the new group and select a sensitivity label from the list.
 
    ![Assign a sensitivity label in the New groups page](./media/groups-assign-sensitivity-labels/new-group-page.png)
@@ -93,8 +93,8 @@ Your group is created and the site and group settings associated with the select
 
 ## Assign a label to an existing group in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Groups admin account, or as a group owner.
-1. Select **Groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a Groups admin account, or as a group owner.
+1. Browse to **Azure Active Directory** > **Groups**.
 1. From the **All groups** page, select the group that you want to label.
 1. On the selected group's page, select **Properties** and select a sensitivity label from the list.
 
@@ -104,8 +104,8 @@ Your group is created and the site and group settings associated with the select
 
 ## Remove a label from an existing group in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global Administrator or Groups admin account, or as a group owner.
-1. Select **Groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a Global Administrator or Groups admin account, or as a group owner.
+1. Browse to **Azure Active Directory** > **Groups**.
 1. From the **All groups** page, select the group that you want to remove the label from.
 1. On the **Group** page, select **Properties**.
 1. Select **Remove**.
@@ -143,8 +143,8 @@ If the label you are looking for is not in the list, this could be the case for 
 
 Labels can be swapped at any time using the same steps as assigning a label to an existing group, as follows:
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global or Group administrator account or as group owner.
-1. Select **Groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a Global or Group administrator account or as group owner.
+1. Browse to **Azure Active Directory** > **Groups**.
 1. From the **All groups** page, select the group that you want to label.
 1. On the selected group's page, select **Properties** and select a new sensitivity label from the list.
 1. Select **Save**.

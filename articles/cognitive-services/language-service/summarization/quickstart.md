@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use Document Summarization (preview)"
+title: "Quickstart: Use Document Summarization"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using Document Summarization.
 services: cognitive-services
@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/17/2023
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
-ms.custom: language-service-summarization, ignite-fall-2021, mode-api
+ms.custom: language-service-summarization, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: using document summarization and conversation summarization (preview)
+# Quickstart: using document summarization and conversation summarization
 
 [!INCLUDE [availability](includes/regional-availability.md)]
 
@@ -56,8 +56,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Clean-up-resources" target="_target" target="_target">I ran into an issue</a>
+
 
 ## Next steps
 

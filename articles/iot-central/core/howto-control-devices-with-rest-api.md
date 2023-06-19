@@ -1,9 +1,9 @@
 ---
 title: Use the REST API to manage devices in Azure IoT Central
-description: How to use the IoT Central REST API to control devices in an application
+description: How to use the IoT Central REST API to control devices in an application by using properties and commands.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/20/2022
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -29,7 +29,10 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
-To learn how to control devices by using the IoT Central UI, see [Use properties in an Azure IoT Central solution](../core/howto-use-properties.md) and [How to use commands in an Azure IoT Central solution()](../core/howto-use-commands.md)
+To learn how to control devices by using the IoT Central UI, see
+
+- [Use properties in an Azure IoT Central solution](../core/howto-use-properties.md).
+- [How to use commands in an Azure IoT Central solution()](../core/howto-use-commands.md).
 
 ## Components and modules
 
@@ -305,7 +308,7 @@ The response to this request looks like the following example:
 
 ## Write properties
 
-Some properties are writable. For example, in the thermostat model the `targetTemperature` property is a writable property.
+Some properties are writable. In the example thermostat model, the `targetTemperature` property is a writable property.
 
 Use the following request to write an individual property value to a device that doesn't use components. In this example, the device is called `thermostat-01`:
 
@@ -410,7 +413,7 @@ GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modu
 
 ## Call commands
 
-You can use the REST API to call device commands and retrieve the device history.
+You can use the REST API to call device commands and retrieve the command history.
 
 Use the following request to call a command on device that doesn't use components. In this example, the device is called `thermostat-01` and the command is called `getMaxMinReport`:
 

@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/22/2022
+ms.date: 04/07/2023
 ms.author: cherylmc
 
 ---
@@ -47,7 +47,7 @@ Before you can connect and authenticate using Azure AD, you must first configure
 1. Navigate to the profile file that you want to import, select it, then click **Open**.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/import-2.png" alt-text="Screenshot of Azure VPN Client import clicking open.":::
-1. View the connection profile information, then click **Save**.
+1. View the connection profile information. Change the **Certificate Information** value to show **DigiCert Global Root G2**, rather than the default or blank, then click **Save**.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/import-3.png" alt-text="Screenshot of Azure VPN Client saving the imported profile settings.":::
 1. In the VPN connections pane, select the connection profile that you saved. Then, click **Connect**.
@@ -63,7 +63,7 @@ Before you can connect and authenticate using Azure AD, you must first configure
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/add-1.png" alt-text="Screenshot of Azure VPN Client selecting Add.":::
 
-1. On the **Azure VPN Client** page, you can configure the profile settings.
+1. On the **Azure VPN Client** page, you can configure the profile settings. Change the **Certificate Information** value to show **DigiCert Global Root G2**, rather than the default or blank, then click **Save**.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/add-2.png" alt-text="Screenshot of Azure VPN Client profile settings.":::
 

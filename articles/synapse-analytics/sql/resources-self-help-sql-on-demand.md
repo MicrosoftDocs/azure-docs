@@ -49,11 +49,19 @@ Incorrect network configuration is often the cause of this behavior. Make sure t
 
 Finally, make sure the appropriate roles are granted and have not been revoked.
 
+### Unable to create new database as the request will use the old/expired key
+
+This error is caused by changing workspace customer managed key used for enryption. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. Learn here how to [manage the workspace keys](../security/workspaces-encryption.md#manage-the-workspace-customer-managed-key).
+
+### Synapse serverless SQL pool is unavailable after transfering a subscription to a different Azure AD tenant
+
+If you moved a subscription to another Azure AD tenant, you might experience some issues with serverless SQL pool. Create a support ticket and Azure suport will contact you to resolve the issue.
+
 ## Storage access
 
 If you get errors while you try to access files in Azure storage, make sure that you have permission to access data. You should be able to access publicly available files. If you try to access data without credentials, make sure that your Azure Active Directory (Azure AD) identity can directly access the files.
 
-If you have a shared access signature key that you should use to access files, make sure that you created a [server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential) credential that contains that credential. The credentials are required if you need to access data by using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name (SPN)](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
+If you have a shared access signature key that you should use to access files, make sure that you created a [server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential) credential that contains that credential. The credentials are required if you need to access data by using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name (SPN)](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
 
 ### Can't read, list, or access files in Azure Data Lake Storage
 
@@ -722,6 +730,10 @@ There are several mitigation steps that you can do to avoid this:
 - If you are using delta file format, use the optimize write feature in Spark.  This can improve the performance of queries by reducing the amount of data that needs to be read and processed. How to use optimize write is described in [Using optimize write on Apache Spark](../spark/optimize-write-for-apache-spark.md). 
 - To avoid some of the top-level wildcards by effectively hardcoding the implicit filters over partitioning columns use [dynamic SQL](../sql/develop-dynamic-sql.md). 
 
+### Missing column when using automatic schema inference
+
+You can easily query files without knowing or specifying schema, by omitting WITH clause. In that case column names and data types will be inferred from the files. Have in mind that if you are reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, please use OPENROWSET WITH clause. If you specify schema (by using external table or OPENROWSET WITH clause) default lax path mode will be used. That means that the columns that don’t exist in some files will be returned as NULLs (for rows from those files). To understand how path mode is used, please check the following [documentation](../sql/develop-openrowset.md) and [sample](../sql/develop-openrowset.md#specify-columns-using-json-paths). 
+
 ## Configuration
 
 Serverless SQL pools enable you to use T-SQL to configure database objects. There are some constraints:
@@ -857,6 +869,7 @@ There are some limitations that you might see in Delta Lake support in serverles
 - Serverless SQL pools don't support time travel queries. Use Apache Spark pools in Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools don't support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Synapse Analytics to [update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
   - You can't [store query results to storage in Delta Lake format](create-external-table-as-select.md) by using the CETAS command. The CETAS command supports only Parquet and CSV as the output formats.
+- Serverless SQL pools in Synapse Analytics are compatible with Delta reader version 1. The Delta features that require Delta readers with version 2 or higher (for example [column mapping](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-requirements-for-column-mapping)) are not supported in the serverless SQL pools.
 - Serverless SQL pools in Synapse Analytics don't support the datasets with the [BLOOM filter](/azure/databricks/optimizations/bloom-filters). The serverless SQL pool ignores the BLOOM filters.
 - Delta Lake support isn't available in dedicated SQL pools. Make sure that you use serverless SQL pools to query Delta Lake files.
 - For more information about known issues with serverless SQL pools, see [Azure Synapse Analytics known issues](../known-issues.md).
@@ -864,6 +877,10 @@ There are some limitations that you might see in Delta Lake support in serverles
 ### Column rename in Delta table is not supported
 
 The serverless SQL pool does not support querying Delta Lake tables with the [renamed columns](https://docs.delta.io/latest/delta-batch.html#rename-columns). Serverless SQL pool cannot read data from the renamed column.
+
+### The value of a column in the Delta table is NULL
+
+If you are using Delta data set that requires a Delta reader version 2 or higher, and uses the features that are unsupported in version 1 (for example - renaming columns, dropping columns, or column mapping), the values in the referenced columns might not be shown.
 
 ### JSON text isn't properly formatted
 
@@ -909,7 +926,7 @@ Our engineering team is currently working on a full support for Spark 3.3.
 If you created a Delta table in Spark, and it is not shown in the serverless SQL pool, check the following:
 - Wait some time (usually 30 seconds) because the Spark tables are synchronized with delay.
 - If the table didn't appear in the serverless SQL pool after some time, check the schema of the Spark Delta table. Spark tables with complex types or the types that are not supported in serverless are not available. Try to create a Spark Parquet table with the same schema in a lake database and check would that table appears in the serverless SQL pool.
-- Check could workspace Managed Identity access Delta Lake folder that is referenced by the table. Serverless SQL pool uses workspace Managed Identity to get the table column information from the storage to create the table.
+- Check the workspace Managed Identity access Delta Lake folder that is referenced by the table. Serverless SQL pool uses workspace Managed Identity to get the table column information from the storage to create the table.
 
 ## Lake database
 
@@ -1092,13 +1109,13 @@ Some general system constraints might affect your workload:
 | Property | Limitation |
 |---|---|
 | Maximum number of Azure Synapse workspaces per subscription | [See limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-limits-for-workspaces). |
-| Maximum number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool). |
+| Maximum number of databases per serverless pool | 100 (not including databases synchronized from Apache Spark pool). |
 | Maximum number of databases synchronized from Apache Spark pool | Not limited. |
 | Maximum number of databases objects per database | The sum of the number of all objects in a database can't exceed 2,147,483,647. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects). |
 | Maximum identifier length in characters | 128. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects).|
 | Maximum query duration | 30 minutes. |
 | Maximum size of the result set | Up to 400 GB shared between concurrent queries. |
-| Maximum concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data. |
+| Maximum concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in that case consider decreasing concurrency and execute queries over a longer period of time if possible.|
 | Maximum size of External Table name | 100 characters. |
 
 ### Can't create a database in serverless SQL pool

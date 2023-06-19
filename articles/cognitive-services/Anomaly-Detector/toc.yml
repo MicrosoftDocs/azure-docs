@@ -29,8 +29,6 @@
   items:
     - name: Univariate Anomaly Detection
       items:
-      - name: REST API with Postman
-        href: how-to/postman.md
       - name: Identify anomalies in your data 
         href: how-to/identify-anomalies.md
       - name: Deploy Anomaly Detector (univariate)
@@ -52,6 +50,8 @@
                 maintainContext: true
     - name: Multivariate Anomaly Detection
       items:
+        - name: REST API with Postman
+          href: how-to/postman.md
         - name: Create an Anomaly Detector Resource
           href: how-to/create-resource.md
         - name: Prepare and upload your data

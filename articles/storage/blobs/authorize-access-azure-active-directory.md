@@ -2,12 +2,12 @@
 title: Authorize access to blobs using Active Directory
 titleSuffix: Azure Storage
 description: Authorize access to Azure blobs using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/09/2023
-ms.author: jammart
+ms.date: 03/17/2023
+ms.author: tamram
 ms.subservice: common
 ---
 
@@ -39,6 +39,13 @@ To learn about how to access data in the Azure portal with an Azure AD account, 
 
 ### Use Azure AD to authorize access in application code
 
+To authorize access to Azure Storage with Azure AD, you can use one of the following client libraries to acquire an OAuth 2.0 token:
+
+- The Azure Identity client library is recommended for most development scenarios.
+- The [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) may be suitable for certain advanced scenarios.
+
+#### Azure Identity client library
+
 The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure Active Directory (Azure AD) via the [Azure SDK](https://github.com/Azure/azure-sdk). The latest versions of the Azure Storage client libraries for .NET, Java, Python, JavaScript, and Go integrate with the Azure Identity libraries for each of those languages to provide a simple and secure means to acquire an access token for authorization of Azure Storage requests.
 
 An advantage of the Azure Identity client library is that it enables you to use the same code to acquire the access token whether your application is running in the development environment or in Azure. The Azure Identity client library returns an access token for a security principal. When your code is running in Azure, the security principal may be a managed identity for Azure resources, a service principal, or a user or group. In the development environment, the client library provides an access token for either a user or a service principal for testing purposes.
@@ -47,7 +54,18 @@ The access token returned by the Azure Identity client library is encapsulated i
 
 [!INCLUDE [storage-auth-language-table](../../../includes/storage-auth-language-table.md)]
 
-Authorizing blob data operations with Azure AD is supported only for REST API versions 2017-11-09 and later. For more information, see [Versioning for the Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+#### Microsoft Authentication Library (MSAL)
+
+While Microsoft recommends using the Azure Identity client library when possible, the MSAL library may be appropriate to use in certain advanced scenarios. For more information, see [Learn about MSAL](../../active-directory/develop/msal-overview.md).
+
+When you use MSAL to acquire an OAuth token for access to Azure Storage, you need to provide an Azure AD resource ID. The Azure AD resource ID indicates the audience for which a token that is issued can be used to provide access to an Azure resource. In the case of Azure Storage, the resource ID may be specific to a single storage account, or it may apply to any storage account.
+
+The following table describes the values that you can provide for the resource ID. The resource ID for Azure Storage is the same for all public and sovereign clouds:
+
+| Resource ID | Description |
+|---|---|
+| `https://<account>.blob.core.windows.net` | The service endpoint for a given storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account and service only. Replace the value in brackets with the name of your storage account. |
+| `https://storage.azure.com/` | Use to acquire a token for authorizing requests to any Azure Storage account. |
 
 ## Assign Azure roles for access rights
 
@@ -124,6 +142,8 @@ Azure CLI and PowerShell support signing in with Azure AD credentials. After you
 ## Feature support
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
+
+Authorizing blob data operations with Azure AD is supported only for REST API versions 2017-11-09 and later. For more information, see [Versioning for the Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 ## Next steps
 

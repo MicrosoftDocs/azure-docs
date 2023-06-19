@@ -286,3 +286,4 @@ You could otherwise specify individual files in the container. You must generate
 - [Batch transcription overview](batch-transcription.md)
 - [Create a batch transcription](batch-transcription-create.md)
 - [Get batch transcription results](batch-transcription-get.md)
+- [See batch transcription code samples at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch/)

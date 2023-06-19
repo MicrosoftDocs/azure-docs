@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure MediusFlow for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure MediusFlow for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to MediusFlow.
 services: active-directory
 author: twimmers

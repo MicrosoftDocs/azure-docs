@@ -18,7 +18,7 @@ To help understand media quality in VoIP and Video calls using Azure Communicati
 
 ## Media quality statistics for ongoing call
 > [!NOTE]
-> This API is provided as a preview ('beta') for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This API is provided as a Public Preview ('beta') for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
 > [!IMPORTANT]
 > There is also an API breaking change on MediaStats in the SDK beginning since version 1.8.0-beta.1

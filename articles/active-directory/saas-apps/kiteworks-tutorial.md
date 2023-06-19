@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Kiteworks | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Kiteworks'
 description: Learn how to configure single sign-on between Azure Active Directory and Kiteworks.
 services: active-directory
 author: jeevansd

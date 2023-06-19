@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TAP App Security | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TAP App Security'
 description: Learn how to configure single sign-on between Azure Active Directory and TAP App Security.
 services: active-directory
 author: jeevansd

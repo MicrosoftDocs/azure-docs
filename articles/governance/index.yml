@@ -10,9 +10,9 @@ metadata:
   ms.service: governance
   ms.topic: hub-page
   ms.collection: collection
-  author: timwarner-msft
-  ms.author: timwarner
-  ms.date: 07/13/2022
+  author: davidsmatlak
+  ms.author: davidsmatlak
+  ms.date: 06/16/2023
 
 highlightedContent:
   items:
@@ -172,7 +172,7 @@ additionalContent:
               url: https://www.powershellgallery.com/packages/Az.Blueprint
               note: (PS Gallery Module)
             - text: Azure SDK for .NET
-              url: /dotnet/api/overview/azure/blueprint/management/management-blueprint
+              url: /dotnet/api/overview/azure/blueprint
             - text: REST
               url: /rest/api/blueprints/
         - title: Azure Resource Graph

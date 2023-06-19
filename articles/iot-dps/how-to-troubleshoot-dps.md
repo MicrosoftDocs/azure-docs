@@ -1,13 +1,13 @@
 ---
-title: Diagnose and troubleshoot provisioning errors with Azure IoT Hub DPS
+title: Diagnose and troubleshoot provisioning errors with DPS 
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Learn to diagnose and troubleshoot common errors for Azure IoT Hub Device Provisioning Service (DPS)
 author: kgremban
-ms.service: iot-dps
-services: iot-dps
-ms.topic: conceptual
-ms.date: 05/25/2022
+
 ms.author: kgremban
-#Customer intent: As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are not being provisioned and troubleshoot and resolve those issues right away.
+ms.service: iot-dps
+ms.topic: troubleshooting
+ms.date: 05/25/2022
 ---
 
 # Troubleshooting with Azure IoT Hub Device Provisioning Service

@@ -1,24 +1,21 @@
 ---
-title: What is a cross-tenant synchronization in Azure Active Directory? (preview)
+title: What is a cross-tenant synchronization in Azure Active Directory?
 description: Learn about cross-tenant synchronization in Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 02/22/2023
+ms.date: 05/31/2023
 ms.author: rolyon
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# What is cross-tenant synchronization? (preview)
-
-> [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# What is cross-tenant synchronization?
 
 *Cross-tenant synchronization* automates creating, updating, and deleting [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) users across tenants in an organization. It enables users to access applications and collaborate across tenants, while still allowing the organization to evolve. 
 
@@ -27,6 +24,8 @@ Here are the primary goals of cross-tenant synchronization:
 - Seamless collaboration for a multi-tenant organization
 - Automate lifecycle management of B2B collaboration users in a multi-tenant organization
 - Automatically remove B2B accounts when a user leaves the organization 
+
+> [!VIDEO https://www.youtube.com/embed/7B-PQwNfGBc]
 
 ## Why use cross-tenant synchronization?
 
@@ -51,7 +50,7 @@ With cross-tenant synchronization, you can do the following:
 
 ## Teams and Microsoft 365
 
-Users created by cross-tenant synchronization will have the same experience when accessing Microsoft Teams and other Microsoft 365 services as B2B collaboration users created through a manual invitation. The [userType](../external-identities/user-properties.md) property on the B2B user, whether guest or member, does not change the end user experience. Over time, the member userType will be used by the various Microsoft 365 services to provide differentiated end user experiences for users in a multi-tenant organization. 
+Users created by cross-tenant synchronization will have the same experience when accessing Microsoft Teams and other Microsoft 365 services as B2B collaboration users created through a manual invitation. Microsoft Teams currently does not support the userType `member` with shared channels. If your organization uses shared channels, please create users with type `guest`. Please see the [known issues](../app-provisioning/known-issues.md) document for additional details. Over time, the `member` userType will be used by the various Microsoft 365 services to provide differentiated end user experiences for users in a multi-tenant organization.
 
 ## Properties
 
@@ -76,13 +75,13 @@ The following table shows the parts of cross-tenant synchronization and which te
 
 [!INCLUDE [cross-tenant-synchronization-include](../includes/cross-tenant-synchronization-include.md)]
 
-To configure this setting using Microsoft Graph, see the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+To configure this setting using Microsoft Graph, see the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?branch=main) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 ## Automatic redemption setting
 
 [!INCLUDE [automatic-redemption-include](../includes/automatic-redemption-include.md)]
 
-To configure this setting using Microsoft Graph, see the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+To configure this setting using Microsoft Graph, see the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?branch=main) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 #### How do users know what tenants they belong to?
 
@@ -130,7 +129,8 @@ In the target tenant: Cross-tenant sync relies on the Azure AD External Identiti
 
 Which clouds can cross-tenant synchronization be used in?
 
-- Cross-tenant synchronization is supported within the commercial cloud. It is not supported within Azure Government or Azure China.
+- Cross-tenant synchronization is supported within the commercial cloud and Azure Government. 
+- Cross-tenant synchronization isn't supported within the Azure China cloud. 
 - Synchronization is only supported between two tenants in the same cloud.
 - Cross-cloud (such as public cloud to Azure Government) isn't currently supported.
 
@@ -149,10 +149,6 @@ How do I control what is synchronized into the target tenant?
 If a user is removed from the scope of sync in a source tenant, will cross-tenant synchronization soft delete them in the target?
 
 - Yes. If a user is removed from the scope of sync in a source tenant, cross-tenant synchronization will soft delete them in the target tenant.
-
-If the sync relationship is severed, are external users previously managed by cross-tenant synchronization deleted in the target tenant?
-
-- No. No changes are made to the external users previously managed by cross-tenant synchronization if the relationship is severed (for example, if the cross-tenant synchronization policy is deleted).
 
 #### Object types
 
@@ -256,6 +252,34 @@ What federation options are supported for users in the target tenant back to the
 Does cross-tenant synchronization use System for Cross-Domain Identity Management (SCIM)?
 
 - No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../fundamentals/sync-scim.md).
+
+#### Deprovisioning
+Does cross-tenant synchronization support deprovisioning users?
+
+- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../fundamentals/recover-from-deletions.md#soft-deletions) in the target tenant. 
+
+  - Delete the user in the source tenant
+  - Unassign the user from the cross-tenant synchronization configuration
+  - Remove the user from a group that is assigned to the cross-tenant synchronization configuration
+  - An attribute on the user changes such that they do not meet the scoping filter conditions defined on the cross-tenant synchronization configuration anymore 
+
+- Currently only regular users, Helpdesk Admins and User Account Admins can be deleted. Users with other Azure AD roles such as directory reader currently cannot be deleted by cross-tenant synchronization. This is subject to change in the future.
+
+- If the user is blocked from sign-in in the source tenant (accountEnabled = false) they will be blocked from sign-in in the target. This is not a deletion, but an updated to the accountEnabled property.
+
+Does cross-tenant synchronization support restoring users? 
+
+- If the user in the source tenant is restored, reassigned to the app, meets the scoping condition again within 30 days of soft deletion, it will be restored in the target tenant.
+- IT admins can also manually [restore](/azure/active-directory/fundamentals/active-directory-users-restore
+../fundamentals/active-directory-users-restore.md) the user directly in the target tenant.
+
+How can I deprovision all the users that are currently in scope of cross-tenant synchronization? 
+
+- Unassign all users and / or groups from the cross-tenant synchronization configuration. This will trigger all the users that were unassigned, either directly or through group membership, to be deprovisioned in subsequent sync cycles. Please note that the target tenant will need to keep the inbound policy for sync enabled until deprovisioning is complete. If the scope is set to **Sync all users and groups**, you will also need to change it to **Sync only assigned users and groups**. The users will be automatically soft deleted by cross-tenant synchronization. The users will be automatically hard deleted after 30 days or you can choose to hard delete the users directly from the target tenant. You can choose to hard delete the users directly in the target tenant or wait 30 days for the users to be automatically hard deleted. 
+
+If the sync relationship is severed, are external users previously managed by cross-tenant synchronization deleted in the target tenant?
+
+- No. No changes are made to the external users previously managed by cross-tenant synchronization if the relationship is severed (for example, if the cross-tenant synchronization policy is deleted).
 
 
 ## Next steps

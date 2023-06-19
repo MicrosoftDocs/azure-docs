@@ -27,7 +27,9 @@ RDP Shortpath can be used in two ways:
 The transport used for RDP Shortpath is based on the [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed.
 
 > [!IMPORTANT]
-> During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
+> - During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
+>
+> - RDP Shortpath for public networks with TURN is only available in the Azure public cloud.
 
 ## Key benefits
 
@@ -96,7 +98,7 @@ To provide the best chance of a UDP connection being successful when using a pub
 
 When a connection is being established, Interactive Connectivity Establishment (ICE) coordinates the management of STUN and TURN to optimize the likelihood of a connection being established, and ensure that precedence is given to preferred network communication protocols.
 
-Each RDP session uses a dynamically assigned UDP port from an ephemeral port range (**49152** to **65535** by default) that accepts the RDP Shortpath traffic. You can also use a smaller, predictable port range. For more information, see [Limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md).
+Each RDP session uses a dynamically assigned UDP port from an ephemeral port range (**49152** to **65535** by default) that accepts the RDP Shortpath traffic. Port 65330 is ignored from this range as it is reserved for use internally by Azure. You can also use a smaller, predictable port range. For more information, see [Limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md).
 
 > [!TIP]
 > RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
@@ -150,10 +152,9 @@ To support RDP Shortpath for public networks, you typically don't need any parti
 
 As RDP Shortpath uses UDP to establish a data flow, if a firewall on your network blocks UDP traffic, RDP Shortpath will fail and the connection will fall back to TCP-based reverse connect transport. Azure Virtual Desktop uses STUN servers provided by Azure Communication Services and Microsoft Teams. By the nature of the feature, outbound connectivity from the session hosts to the client is required. Unfortunately, you can't predict where your users are located in most cases. Therefore, we recommend allowing outbound UDP connectivity from your session hosts to the internet. To reduce the number of ports required, you can [limit the port range used by clients](configure-rdp-shortpath-limit-ports-public-networks.md) for the UDP flow. Use the following tables for reference when configuring firewalls for RDP Shortpath.
 
-If your users are in a scenario where RDP Shortpath for both managed network and public networks is available to them, then the first algorithm found will be used. The user will use whichever connection gets established first for that session.
+If your environment uses Symmetric NAT, which is the mapping of a single private source *IP:Port* to a unique public destination *IP:Port*, then you can use an indirect connection with TURN. This will be the case if you use Azure Firewall and Azure NAT Gateway. For more information about NAT with Azure virtual networks, see [Source Network Address Translation with virtual networks](../virtual-network/nat-gateway/nat-gateway-resource.md#source-network-address-translation).
 
-> [!NOTE]
-> RDP Shortpath doesn't support Symmetric NAT, which is the mapping of a single private source *IP:Port* to a unique public destination *IP:Port*. This is because RDP Shortpath needs to reuse the same external port (or NAT binding) used in the initial connection. Where multiple paths are used, for example a highly available firewall pair, external port reuse cannot be guaranteed. Azure Firewall and Azure NAT Gateway use Symmetric NAT and so are not supported. For more information about NAT with Azure virtual networks, see [Source Network Address Translation with virtual networks](../virtual-network/nat-gateway/nat-gateway-resource.md#source-network-address-translation).
+Where users have RDP Shortpath for both managed network and public networks is available to them, then the first algorithm found will be used. The user will use whichever connection gets established first for that session. For more information, see [Example scenarios](#example-scenarios).
 
 #### TURN availability (preview)
 

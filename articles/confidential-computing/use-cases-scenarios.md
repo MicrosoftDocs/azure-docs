@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 # Use cases and scenarios
 Confidential computing applies to various use cases for protecting data in regulated industries such as government, financial services, and healthcare institutes. For example, preventing access to sensitive data helps protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data may contain biometric data that is used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
 
-:::image type="content" source="media/use-cases-scenarios/use-cases.png" alt-text="Screenshot of use cases for Azure confidential computing, including government, financial services, and health care scenarios.":::
+![Screenshot of use cases for Azure confidential computing, including government, financial services, and health care scenarios.](media/use-cases-scenarios/use-cases.png)
 
 This article provides an overview of several common scenarios for Azure confidential computing. The recommendations in this article serve as a starting point as you develop your application using confidential computing services and frameworks.
 
@@ -40,13 +40,71 @@ In this secure multi-party computation example, multiple banks share data with e
 
 Through confidential computing, these financial institutions can increase fraud detection rates, address money laundering scenarios, reduce false positives, and continue learning from larger data sets.
 
-:::image type="content" source="media/use-cases-scenarios/mpc-banks.png" alt-text="Graphic of multiparty data sharing for banks, showing the data movement that confidential computing enables.":::
+![Graphic of multiparty data sharing for banks, showing the data movement that confidential computing enables.](media/use-cases-scenarios/mpc-banks.png)
 
 ### Drug development in healthcare
 
 Partnered health facilities contribute private health data sets to train an ML model. Each facility can only see their own data set. No other facility or even the cloud provider, can see the data or training model. All facilities benefit from using the trained model. By creating the model with more data, the model became more accurate. Each facility that contributed to training the model can use it and receive useful results.
 
 ![Diagram of confidential healthcare scenarios, showing attestation between scenarios.](media/use-cases-scenarios/confidential_healthcare.png)
+
+### Protecting privacy with IoT and smart-building solutions
+
+Many countries/regions have strict privacy laws about gathering and using data on people’s presence and movements inside buildings. This may include data that is directly personally identifiable data from CCTV or security badge scans. Or, indirectly identifiable where different sets of sensor data could be considered personally identifiable when grouped together.
+
+Privacy needs to be balanced with cost & environmental needs where organizations are keen to understand occupancy/movement in-order to provide the most efficient use of energy to heat and light a building.
+
+Determining which areas of corporate real-estate are under or over-occupied by staff from individual departments typically requires processing some personally identifiable data alongside less individual data like temperature and light sensors.
+
+In this use-case the primary goal is allowing analysis of occupancy data and temperature sensors to be processed alongside CCTV motion tracing sensors and badge-swipe data to understand usage without exposing the raw aggregate data to anyone.
+
+Confidential compute is used here by placing the analysis application (in this example running on Confidential Container Instances) inside a trusted execution environment where the in-use data is protected by encryption.
+
+The aggregate data-sets from many types of sensor and data feed are managed in an Azure SQL Always Encrypted with Enclaves database, this protects in-use queries by encrypting them in-memory. This prevents a server administrator from being able to access the aggregate data set while it is being queried and analyzed.
+
+[![Diverse sensors feeding an analysis solution inside a trusted execution environment. Operators have no access to in-use data inside the TEE.](media/use-cases-scenarios/iot-sensors.jpg)](media/use-cases-scenarios/iot-sensors.jpg#lightbox)
+
+
+## Legal or jurisdictional requirements
+
+Commonly applicable to FSI and healthcare where there are legal or regulatory requirements that limit where certain workloads can be processed and be stored at-rest.
+
+In this use-case we use a combination of Azure Confidential Compute technologies with Azure Policy, Network Security Groups (NSGs) and Azure Active Directory Conditional Access to ensure that the following protection goals are met for the ‘lift & shift’ of an existing application:
+
+- Application is protected from the cloud operator whilst in-use using Confidential Compute
+- Application resources can only be deployed in the West Europe Azure region
+- Consumers of the application authenticating with modern authentication protocols can be mapped to the sovereign region they're connecting from, and denied access unless they are in an allowed region.
+- Access using administrative protocols (RDP, SSH etc.) is limited to access from the Azure Bastion service that is integrated with Privileged Identity Management (PIM). The PIM policy requires a Conditional Access Policy that validates which sovereign region the administrator is accessing from.
+- All services log actions to Azure Monitor.
+
+[![Diagram showing workloads protected by Azure Confidential Compute and complemented with Azure configuration including Azure Policy and Conditional Access.](media/use-cases-scenarios/restricted-workload.jpg)](media/use-cases-scenarios/restricted-workload.jpg#lightbox)
+
+## Manufacturing – IP Protection
+
+Manufacturing organizations protect the IP around their manufacturing processes and technologies, often manufacturing is outsourced to third parties who deal with the physical production processes, which could be considered ‘hostile’ environments where there are active threats to steal that IP.
+
+In this example Tailspin Toys are developing a new toy-line, the specific dimensions and innovative designs of their toys are company proprietary and they want to keep them safe, whilst being flexible over which company they choose to physically produce their prototypes.
+
+Contoso, a high-quality 3D printing and testing company provide the systems that physically print prototypes at large-scale and run them through safety tests required for safety approvals. 
+
+Contoso deploy customer managed containerized applications and data within the Contoso tenant, which uses their 3D printing machinery via an IoT-type API.
+
+Contoso use the telemetry from the physical manufacturing systems to drive their billing, scheduling and materials ordering systems whilst Tailspin Toys use telemetry from their application suite to determine how successfully their toys can be manufactured and defect rates.
+
+Contoso operators are able to load the Tailspin Toys application suite into the Contoso tenant using the provided container images over the Internet. 
+
+Tailspin Toys configuration policy mandates deployment on Confidential Compute enabled hardware so that all Tailspin application servers and databases are protected whilst in-use from Contoso administrators even though they are running in the Contoso tenant.
+
+If, for example a rogue admin at Contoso tries moving the Tailspin Toys provided containers to general x86 compute hardware that isn't able to provide a Trusted Execution Environment, it could mean potential exposure of confidential IP.
+
+In this case, the Azure Container Instance policy engine would refuse to release the decryption keys or start containers if the attestation call reveals that the policy requirements aren't able to be met, ensuring Tailspin Toys IP is protected in-use and at-rest.
+
+The Tailspin Toys application itself is coded to periodically make a call to the attestation service and report the results back to Tailspin Toys over the Internet to ensure there's a continual heartbeat of security status. 
+
+The attestation service returns cryptographically signed details from the hardware supporting the Contoso tenant to validate that the workload is running inside a confidential enclave as expected, the attestation is outside the control of the Contoso administrators and is based on the hardware root of trust that Confidential Compute provides.
+
+[![Diagram showing a service provider running an industrial control suite from a toy manufacturer inside a Trusted Execution Environment (TEE).](media/use-cases-scenarios/manufacturing-ip-protection.jpg)](media/use-cases-scenarios/manufacturing-ip-protection.jpg#lightbox)
+
 
 ## Enhanced customer data privacy
 
@@ -60,7 +118,7 @@ Confidential computing goes in this direction by allowing customers incremental 
 
 ### Data sovereignty
 
-In Government and public agencies, Azure confidential computing is a solution to raise the degree of trust towards the ability to protect data sovereignty in the public cloud. Moreover, thanks to the increasingly adoption of confidential computing capabilities into PaaS services in Azure, a higher degree of trust can be achieved with a reduced impact to the innovation ability provided by public cloud services. This combination of protecting data sovereignity with a reduced impact to the innovation ability makes Azure confidential computing a very effective response to the needs of sovereignty and digital transformation of Government services.
+In Government and public agencies, Azure confidential computing is a solution to raise the degree of trust towards the ability to protect data sovereignty in the public cloud. Moreover, thanks to the increasing adoption of confidential computing capabilities into PaaS services in Azure, a higher degree of trust can be achieved with a reduced impact to the innovation ability provided by public cloud services. This combination of protecting data sovereignty with a reduced impact to the innovation ability makes Azure confidential computing a very effective response to the needs of sovereignty and digital transformation of Government services.
 
 ### Reduced chain of trust
 

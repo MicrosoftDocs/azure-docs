@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Native Qumulo Scalable File Service Preview
+title: Azure Native Qumulo Scalable File Service
 summary: Azure Native Qumulo Scalable File Service enables you to create and manage a Qumulo file system by using the Azure portal with a seamlessly integrated experience.
 
 metadata:
@@ -13,7 +13,7 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Azure Native Qumulo Scalable File Service Preview
+  - title: About Azure Native Qumulo Scalable File Service
     linkLists:
       - linkListType: overview
         links:
@@ -27,7 +27,7 @@ landingContent:
             # url: qumulo-link-to-existing.md
 
   # Card
-  - title: Create an Azure Native Qumulo Scalable File Service Preview instance
+  - title: Create an Azure Native Qumulo Scalable File Service instance
     linkLists:
       - linkListType: how-to-guide
         links:

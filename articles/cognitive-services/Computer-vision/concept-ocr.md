@@ -276,4 +276,4 @@ The text extraction feature is part of the [Analyze Image API](https://aka.ms/vi
 
 ## Next steps
 
-Follow the [Image Analysis quickstart](./quickstarts-sdk/image-analysis-client-library.md) to extract text from an image using the Image Analysis 4.0 API.
+Follow the [Image Analysis quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to extract text from an image using the Image Analysis 4.0 API.

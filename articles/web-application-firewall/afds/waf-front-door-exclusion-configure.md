@@ -4,7 +4,7 @@ description: Learn how to configure a WAF exclusion list for an existing Front D
 services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-bicep
 ms.date: 10/18/2022
 ms.author: jodowns
 ms.topic: conceptual

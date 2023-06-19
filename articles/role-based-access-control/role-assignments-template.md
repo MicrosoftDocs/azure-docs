@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/19/2022
 ms.author: rolyon 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 # Assign Azure roles using Azure Resource Manager templates

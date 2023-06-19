@@ -51,6 +51,11 @@ See the list of SKUs and pricing information below.
 | Content Moderator | `ContentModerator` |
 | Personalizer      | `Personalizer`     |
 
+#### Azure OpenAI
+
+| Service           | Kind               |
+|-------------------|--------------------|
+| Azure OpenAI      | `OpenAI`           |
 
 #### Pricing tiers and billing
 

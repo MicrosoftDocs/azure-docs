@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workplace by Facebook for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workplace by Facebook for automatic user provisioning with Azure Active Directory'
 description: Learn the steps you need to do in both Workplace by Facebook and Azure Active Directory (Azure AD) to configure automatic user provisioning.
 services: active-directory
 author: twimmers

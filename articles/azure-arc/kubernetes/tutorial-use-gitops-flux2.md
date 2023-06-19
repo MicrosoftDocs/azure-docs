@@ -1,24 +1,26 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 02/08/2023
+ms.date: 04/27/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
 
 # Tutorial: Deploy applications using GitOps with Flux v2
 
-GitOps with Flux v2 can be enabled as a [cluster extension](conceptual-extensions.md) in Azure Arc-enabled Kubernetes clusters or Azure Kubernetes Service (AKS) clusters. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
-
-> [!NOTE]
-> Eventually Azure will stop supporting GitOps with Flux v1, so we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
-
-This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
+This tutorial describes how to use GitOps in a Kubernetes cluster. GitOps with Flux v2 is enabled as a [cluster extension](conceptual-extensions.md) in Azure Arc-enabled Kubernetes clusters or Azure Kubernetes Service (AKS) clusters. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
 In this tutorial, we use an example GitOps configuration with two kustomizations, so that you can see how one kustomization can have a dependency on another. You can add more kustomizations and dependencies as needed, depending on your scenario.
 
+Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
+
+> [!TIP]
+> While the source in this tutorial is a Git repository, Flux also provides support for other common file sources such as Helm repositories, Buckets, and Azure Blob Storage.
+>
+> You can also create Flux configurations by using Bicep, ARM templates, or Terraform AzAPI provider. For more information, see [Microsoft.KubernetesConfiguration fluxConfigurations](/azure/templates/microsoft.kubernetesconfiguration/fluxconfigurations).
+
 > [!IMPORTANT]
-> The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](conceptual-gitops-flux2.md#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension, you can upgrade to the latest extension manually using the Azure CLI: `az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>` (use `-t connectedClusters` for Arc clusters and `-t managedClusters` for AKS clusters).
+> The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](conceptual-gitops-flux2.md#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension, you can upgrade to the [latest version](extensions-release.md#flux-gitops) manually using the Azure CLI: `az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>` (use `-t connectedClusters` for Arc clusters and `-t managedClusters` for AKS clusters).
 
 > [!TIP]
 > When using this extension with [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
@@ -31,7 +33,7 @@ To deploy applications using GitOps with Flux v2, you need the following:
 
 #### For Azure Arc-enabled Kubernetes clusters
 
-* An Azure Arc-enabled Kubernetes connected cluster that's up and running.
+* An Azure Arc-enabled Kubernetes connected cluster that's up and running. Starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023), ARM64-based clusters are supported.
   
   [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 
@@ -61,7 +63,7 @@ To deploy applications using GitOps with Flux v2, you need the following:
   az upgrade
   ```
 
-* The Kubernetes command-line client, [kubectl](https://kubernetes.io/docs/user-guide/kubectl/). `kubectl` is already installed if you use Azure Cloud Shell.
+* The Kubernetes command-line client, [kubectl](https://kubernetes.io/docs/reference/kubectl/). `kubectl` is already installed if you use Azure Cloud Shell.
 
   Install `kubectl` locally using the [`az aks install-cli`](/cli/azure/aks#az-aks-install-cli) command:
 
@@ -139,7 +141,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
 #### For Azure Arc-enabled Kubernetes clusters
 
-* An Azure Arc-enabled Kubernetes connected cluster that's up and running.
+* An Azure Arc-enabled Kubernetes connected cluster that's up and running. Starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023), ARM64-based clusters are supported.
   
   [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 
@@ -579,7 +581,7 @@ When you delete a Flux configuration, all of the Flux configuration objects in t
 
 When you delete the Flux extension, both the `microsoft.flux` extension resource in Azure and the Flux extension objects in the cluster will be removed.
 
-For an Azure Arc-enabled Kubernetes cluster, navigate to the cluster and select **Extensions**. Select the `flux` extension and select **Delete**, then confirm the deletion.
+For an Azure Arc-enabled Kubernetes cluster, navigate to the cluster and select **Extensions**. Select the `flux` extension and select **Uninstall**, then confirm the deletion.
 
 For AKS clusters, you can't use the Azure portal to delete the extension. Instead, use the following Azure CLI command:
 

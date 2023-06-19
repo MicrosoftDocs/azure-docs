@@ -2,7 +2,7 @@
 title: Reserved resource name errors
 description: Describes how to resolve errors when providing a resource name that includes a reserved word.
 ms.topic: troubleshooting
-ms.date: 01/03/2023
+ms.date: 04/05/2023
 ---
 
 # Resolve errors for reserved resource names
@@ -60,6 +60,7 @@ The following words are reserved:
 - SKYPE
 - VISIO
 - VISUALSTUDIO
+- WEB.CONFIG
 - XBOX
 
 The following words can't be used as either a whole word or a substring in the name:

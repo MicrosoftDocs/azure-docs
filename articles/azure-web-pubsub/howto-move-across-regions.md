@@ -6,7 +6,7 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 12/22/2021
 ms.author: juniwang 
-ms.custom: subject-moving-resources
+ms.custom: subject-moving-resources, devx-track-azurepowershell
 ---
 
 # Move an Azure Web PubSub resource to another region

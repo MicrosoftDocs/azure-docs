@@ -4,7 +4,7 @@ description: Troubleshoot problems using identity-based authentication to connec
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 05/15/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -102,7 +102,10 @@ This error is most likely triggered by a syntax error in the `Join-AzStorageAcco
 
 ## Azure Files on-premises AD DS Authentication support for AES-256 Kerberos encryption
 
-Azure Files supports AES-256 Kerberos encryption for AD DS authentication beginning with the AzFilesHybrid module v0.2.2. AES-256 is the recommended authentication method. If you've enabled AD DS authentication with a module version lower than v0.2.2, you'll need to [download the latest AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases) and run the PowerShell below. If you haven't enabled AD DS authentication on your storage account yet, follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
+Azure Files supports AES-256 Kerberos encryption for AD DS authentication beginning with the AzFilesHybrid module v0.2.2. AES-256 is the recommended encryption method, and it's the default encryption method beginning in AzFilesHybrid module v0.2.5. If you've enabled AD DS authentication with a module version lower than v0.2.2, you'll need to [download the latest AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases) and run the PowerShell below. If you haven't enabled AD DS authentication on your storage account yet, follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
+
+> [!IMPORTANT]
+> If you were previously using RC4 encryption and update the storage account to use AES-256, you should run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
@@ -148,19 +151,19 @@ New-AzStorageAccountKey `
 The following script will rotate both keys for the storage account. If you desire to swap out keys during rotation, you'll need to provide additional logic in your script to handle this scenario. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
 ```bash
-resourceGroupName="<resource-group>"
-storageAccountName="<storage-account>"
+RESOURCE_GROUP_NAME="<resource-group>"
+STORAGE_ACCOUNT_NAME="<storage-account>"
 
 # Rotate primary key (key 1). You should switch to key 2 before rotating key 1.
 az storage account keys renew \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --key "primary"
 
 # Rotate secondary key (key 2). You should switch to the new key 1 before rotating key 2.
 az storage account keys renew \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --key "secondary"
 ```
 
@@ -183,7 +186,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
 ## Potential errors when enabling Azure AD Kerberos authentication for hybrid users
 
-You might encounter the following errors when trying to enable Azure AD Kerberos authentication for hybrid user accounts.
+You might encounter the following errors when enabling Azure AD Kerberos authentication for hybrid user accounts.
 
 ### Error - Grant admin consent disabled
 
@@ -233,7 +236,7 @@ To mitigate this, you have two options: either rotate the service principal pass
 
 #### Option 1: Update the service principal password using PowerShell
 
-1. Install the latest Az.Storage and AzureAD modules. Use PowerShell 5.1, because currently the AzureAD module doesn't work in PowerShell 7. Azure Cloud Shell won't work in this scenario. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+1. Install the latest Az.Storage and AzureAD modules. Use PowerShell 5.1, because currently the AzureAD module doesn't work in PowerShell 7. Azure Cloud Shell won't work in this scenario. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 To install the modules, open PowerShell with elevated privileges and run the following commands:
 
@@ -319,6 +322,28 @@ If you don't want to rotate the service principal password every six months, you
 1. [Reconfigure Azure AD Kerberos via the Azure portal](storage-files-identity-auth-azure-active-directory-enable.md#enable-azure-ad-kerberos-authentication-for-hybrid-user-accounts)
 
 Once you've reconfigured Azure AD Kerberos, the new experience will auto-create and manage the newly created application.
+
+### Error 1326 - The username or password is incorrect when using private link
+
+If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, when attempting to mount a file share via `net use` or other method, the client is prompted for credentials. The user will likely type their credentials in, but the credentials are rejected.
+
+#### Cause 
+
+This is because the SMB client has tried to use Kerberos but failed, so it falls back to using NTLM authentication, and Azure Files doesn't support using NTLM authentication for domain credentials. The client can't get a Kerberos ticket to the storage account because the private link FQDN isn't registered to any existing Azure AD application.
+
+#### Solution
+
+The solution is to add the privateLink FQDN to the storage account's Azure AD application before you mount the file share. You can add the required identifierUris to the application object using the [Azure portal](https://portal.azure.com) by following these steps.
+
+1. Open **Azure Active Directory**.
+1. Select **App registrations** in the left pane.
+1. Select **All Applications**.
+1. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
+1. Select **Manifest** in the left pane.
+1. Copy and paste the existing content so you have a duplicate copy. Replace all instances of `<storageaccount>.file.core.windows.net` with `<storageaccount>.privatelink.file.core.windows.net`.
+1. Review the content and select **Save** to update the application object with the new identifierUris.
+1. Update any internal DNS references to point to the private link.
+1. Retry mounting the share.
 
 ## Need help?
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

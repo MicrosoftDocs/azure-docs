@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 12/06/2022
+ms.date: 04/10/2023
 ms.author: radeltch
 ---
 
@@ -23,6 +23,7 @@ ms.author: radeltch
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
 [2772999]:https://launchpad.support.sap.com/#/notes/2772999
+[3108316]:https://launchpad.support.sap.com/#/notes/3108316
 [2009879]:https://launchpad.support.sap.com/#/notes/2009879
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -96,7 +97,7 @@ The example configurations and installation commands use the following instance 
 
 This document assumes that you've already deployed an [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), subnet and resource group.
 
-1. Deploy your VMs. You can deploy VMs in availability sets, or in availability zones, if the Azure region supports these options. If you need additional IP addresses for your VMs, deploy and attach a second NIC. Don’t add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../load-balancer/load-balancer-multivip-overview.md#limitations).  
+1. Deploy your VMs. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload). You can deploy VMs in availability zones, if the Azure region supports zones, or in availability sets. If you need additional IP addresses for your VMs, deploy and attach a second NIC. Don’t add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../load-balancer/load-balancer-multivip-overview.md#limitations).  
  
 2. For your virtual IPs, deploy and configure an Azure [load balancer](../../load-balancer/load-balancer-overview.md). It's recommended to use a [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
@@ -375,17 +376,17 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 8. **[A]** RHEL configuration
 
-   Configure RHEL as described in SAP Note [2002167] for RHEL 7.x or SAP Note [2772999] for RHEL 8.x  
+   Configure RHEL as described in SAP Note [2002167] for RHEL 7.x, SAP Note [2772999] for RHEL 8.x or SAP note [3108316] for RHEL 9.x.     
 
 ### Installing SAP NetWeaver ASCS/ERS
 
 1. **[1]** Configure cluster default properties
 
     ```bash
-    # If using RHEL 7.X
+    # If using RHEL 7.x
     pcs resource defaults resource-stickiness=1
     pcs resource defaults migration-threshold=3
-    # If using RHEL 8.X
+    # If using RHEL 8.x or later
     pcs resource defaults update resource-stickiness=1
     pcs resource defaults update migration-threshold=3
     ```

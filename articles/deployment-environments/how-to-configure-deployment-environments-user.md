@@ -1,17 +1,17 @@
 ---
-title: Provide access to developers
+title: Provide user access to projects for developers
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure access for developers by using the Deployment Environments User built-in role.
+description: Learn how to configure access to projects for developers by using the Deployment Environments User built-in role.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
 
-# Provide access to developers
+# Provide access for developers to projects in Deployment Environments 
 
 In Azure Deployment Environments, development team members must get access to a specific project before they can create deployment environments. By using the built-in Deployment Environments User role, you can assign permissions to Active Directory users or groups at either the project level or the environment type level. 
 

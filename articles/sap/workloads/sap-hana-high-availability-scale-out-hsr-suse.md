@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/27/2023
+ms.date: 04/25/2023
 ms.author: radeltch
 
 ---
@@ -391,7 +391,7 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     ```bash
     sudo vi /etc/fstab
     # Add the following entry
-    10.23.1.7:/HN1-shared-s1 /hana/shared nfs rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.7:/HN1-shared-s1 /hana/shared nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
     # Mount all volumes
     sudo mount -a 
     ```
@@ -401,7 +401,7 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     ```bash
     sudo vi /etc/fstab
     # Add the following entry
-    10.23.1.7:/HN1-shared-s2 /hana/shared nfs rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.7:/HN1-shared-s2 /hana/shared nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     ```
@@ -434,7 +434,7 @@ In this example, the shared HANA file systems are deployed on NFS on Azure Files
     ```bash
     sudo vi /etc/fstab
     # Add the following entry
-    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1 /hana/shared  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1 /hana/shared  nfs nfsvers=4.1,sec=sys  0  0
     # Mount all volumes
     sudo mount -a 
     ```
@@ -444,7 +444,7 @@ In this example, the shared HANA file systems are deployed on NFS on Azure Files
     ```bash
     sudo vi /etc/fstab
     # Add the following entries
-    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2 /hana/shared  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2 /hana/shared  nfs nfsvers=4.1,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     ```
@@ -799,7 +799,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
     crm configure primitive fs_HN1_HDB03_fscheck Filesystem \
       params device="/hana/shared/HN1/check" \
       directory="/hana/check" fstype=nfs4 \
-      options="bind,defaults,rw,hard,proto=tcp,intr,noatime,vers=4.1,lock" \
+      options="bind,defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock" \
       op monitor interval=120 timeout=120 on-fail=fence \
       op_params OCF_CHECK_LEVEL=20 \
       op start interval=0 timeout=120 op stop interval=0 timeout=120

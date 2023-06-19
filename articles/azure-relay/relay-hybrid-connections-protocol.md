@@ -324,7 +324,7 @@ properties at this time:
 ```json
 {
     "accept" : {
-        "address" : "wss://dc-node.servicebus.windows.net:443/$hc/{path}?..."
+        "address" : "wss://dc-node.servicebus.windows.net:443/$hc/{path}?...",
         "id" : "4cb542c3-047a-4d40-a19f-bdc66441e736",
         "connectHeaders" : {
             "Host" : "...",

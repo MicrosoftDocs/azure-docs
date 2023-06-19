@@ -4,6 +4,7 @@ description: This article shows how to create Azure key vaults and vault access 
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
+ms.custom: devx-track-arm-template
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to

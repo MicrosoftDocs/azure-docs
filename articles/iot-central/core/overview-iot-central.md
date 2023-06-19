@@ -1,9 +1,9 @@
 ---
-title: What is Azure IoT Central | Microsoft Docs
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. It helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
+title: What is Azure IoT Central
+description: Azure IoT Central is an application platform that simplifies the creation of IoT solutions, reducing the overhead of IoT management operations, and development.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/28/2022
+ms.date: 06/02/2023
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -12,9 +12,9 @@ ms.custom: mvc, contperf-fy21q2, contperf-fy22q1, contperf-fy22q2
 
 # What is Azure IoT Central?
 
-IoT Central is an IoT application platform as a service (aPaaS) that reduces the burden and cost of developing, managing, and maintaining IoT solutions. Use IoT Central to quickly evaluate your IoT scenario and assess the opportunities it can create for your business. IoT Central streamlines the development of a complex and continually evolving IoT infrastructure by letting you to focus your efforts on determining the business impact you can create with the IoT data stream.
+IoT Central is an IoT application platform as a service (aPaaS) that reduces the burden and cost of developing, managing, and maintaining IoT solutions. Use IoT Central to quickly evaluate your IoT scenario and assess the opportunities it can create for your business. To streamline the development of a complex and continually evolving IoT infrastructure, IoT Central lets you focus your efforts on determining the business impact you can create with the IoT data stream.
 
-The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. Once you've used IoT Central to evaluate your IoT scenario, you can then build your enterprise ready solutions by using the power of Azure IoT platform.  
+The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. After you've used IoT Central to evaluate your IoT scenario, you can then build your enterprise-ready Azure IoT solution.  
 
 This article provides an overview of the features of Azure IoT Central.
 
@@ -41,8 +41,8 @@ Every device connected to IoT Central uses a _device template_. A device templat
 
 - Telemetry it sends. Examples include temperature and humidity. Telemetry is streaming data.
 - Business properties that an operator can modify. Examples include a customer address and a last serviced date.
-- Device properties that are set by a device and are read-only in the application. For example, the state of a valve as either open or shut.
-- Properties that are set by an operator and that determine the behavior of the device. For example, a target temperature for the device.
+- Device properties that a device sets and that are read-only in the application. For example, the state of a valve as either open or shut.
+- Device properties that an operator sets and that determine the behavior of the device. For example, a target temperature for the device.
 - Commands that are called by an operator and that run on a device. For example, a command to remotely reboot a device.
 
 Every [device template](howto-set-up-template.md) includes:
@@ -87,7 +87,7 @@ As with any IoT solution designed to operate at scale, a structured approach to 
 
 ### Dashboards
 
-Start with a pre-built dashboard in an application template or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
+Start with a prebuilt dashboard in an application template or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
 
 ### Rules and actions
 
@@ -99,11 +99,13 @@ Build [custom rules](tutorial-create-telemetry-rules.md) based on device state a
 
 ## Integrate with other services
 
-As an application platform, IoT Central lets you transform your IoT data into the business insights that drive actionable outcomes. [Rules](./tutorial-create-telemetry-rules.md), [data export](./howto-export-to-blob-storage.md), and the [public REST API](tutorial-use-rest-api.md) are examples of how you can integrate IoT Central with line-of-business applications:
+As an application platform, IoT Central lets you transform your IoT data into the business insights that drive actionable outcomes. Examples include: determining machine efficiency trends and predicting future energy usage on a factory floor.
+
+[Rules](./tutorial-create-telemetry-rules.md), [data export](./howto-export-to-blob-storage.md), and the [public REST API](tutorial-use-rest-api.md) are examples of how you can integrate IoT Central with line-of-business applications:
 
 ![How IoT Central can transform your IoT data](media/overview-iot-central/transform.png)
 
-You can generate business insights, such as determining machine efficiency trends or predicting future energy usage on a factory floor, by building custom analytics pipelines to process telemetry from your devices and store the results. Configure data exports in your IoT Central application to export telemetry, device property changes, and device template changes to other services where you can analyze, store, and visualize the data with your preferred tools.
+Generate business insights by building custom analytics pipelines to process telemetry from your devices and store the results. Configure data exports in your IoT Central application to export telemetry, device property changes, and device template changes to other services where you can analyze, store, and visualize the data with your preferred tools.
 
 ### Build custom IoT solutions and integrations with the REST APIs
 
@@ -128,7 +130,7 @@ The IoT Central documentation refers to four user roles that interact with an Io
 - A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](quick-export-data.md), and further customizing the application for operators and device developers.
 - An _operator_ [manages the devices](howto-manage-devices-individually.md) connected to the application.
 - An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application and [configuring managed identities](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) for securing connects to other services.
-- A _device developer_ [creates the code that runs on a device](concepts-telemetry-properties-commands.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
+- A _device developer_ [creates the code that runs on a device](./tutorial-connect-device.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
 
 ## Next steps
 

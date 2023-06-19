@@ -4,6 +4,7 @@ description: Describes practices to follow when creating your Bicep files so the
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 05/16/2022
 ---
 # Best practices for Bicep

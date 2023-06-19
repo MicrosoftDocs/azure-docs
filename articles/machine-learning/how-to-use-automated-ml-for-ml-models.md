@@ -80,7 +80,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
             
         Select **Next.**
 
-    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling (v1)](v1/how-to-connect-data-ui.md#profile).
 
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
@@ -107,7 +107,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Select **Create**. Creation of a new compute can take a few minutes.
 
     >[!NOTE]
-    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](v1/how-to-connect-data-ui.md#profile) for more details).
+    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling (v1)](v1/how-to-connect-data-ui.md#profile) for more details).
 
     Select **Next**.
 
@@ -115,7 +115,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
     1. For **classification**, you can also enable deep learning.
     
-        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](how-to-configure-cross-validation-data-splits.md).
+        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md).
 
     1. For **forecasting** you can, 
     
@@ -130,7 +130,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
-    Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
+    Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms (SDK v1)](./v1/how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
@@ -142,7 +142,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites). 
+    1. Specify the type of validation to be used for your training job. [Learn more about cross validation (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md#prerequisites). 
     
         1. Forecasting tasks only supports k-fold cross validation.
     
@@ -152,7 +152,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
         
         * Test data is considered a separate from training and validation, so as to not bias the results of the test job of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
-        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](./v1/how-to-create-register-datasets.md#tabulardataset).         
+        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset (v1)](./v1/how-to-create-register-datasets.md#tabulardataset).         
         * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
         * The test dataset should not be the same as the training dataset or the validation dataset.
         * Forecasting jobs do not support train/test split.
@@ -266,7 +266,7 @@ After your experiment completes, you can test the model(s) that automated ML gen
 
 To better understand your model, you can see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
 
-The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importance. [Learn more about the explanation dashboard visualizations](how-to-machine-learning-interpretability-aml.md#visualizations).
+The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importance. [Learn more about the explanation dashboard visualizations (v1)](./v1/how-to-machine-learning-interpretability-aml.md#visualizations).
 
 To get explanations for a particular model, 
 
@@ -293,7 +293,7 @@ The **Edit and submit** button opens the **Create a new Automated ML job** wizar
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
 
 >[!TIP]
-> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model](./v1/how-to-deploy-and-where.md) to the workspace. 
+> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model (v1)](./v1/how-to-deploy-and-where.md) to the workspace. 
 >
 > Once you're model is registered, find it in the studio by selecting **Models** on the left pane. Once you open your model, you can select the **Deploy** button at the top of the screen, and then follow the instructions as described in **step 2** of the **Deploy your model** section.
 
@@ -319,7 +319,7 @@ Automated ML helps you with deploying the model without writing code:
     Compute type| Select the type of endpoint you want to deploy: [*Azure Kubernetes Service (AKS)*](../aks/intro-kubernetes.md) or [*Azure Container Instance (ACI)*](../container-instances/container-instances-overview.md).
     Compute name| *Applies to AKS only:* Select the name of the AKS cluster you wish to deploy to.
     Enable authentication | Select to allow for token-based or key-based authentication.
-    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. Otherwise, automated ML provides these assets for you by default. [Learn more about scoring scripts](./v1/how-to-deploy-and-where.md).
+    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. Otherwise, automated ML provides these assets for you by default. [Learn more about scoring scripts (v1)](./v1/how-to-deploy-and-where.md).
 
     >[!Important]
     > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
@@ -333,6 +333,6 @@ Now you have an operational web service to generate predictions! You can test th
 
 ## Next steps
 
-* [Learn how to consume a web service](v1/how-to-consume-web-service.md).
+* [Learn how to consume a web service (SDK v1)](v1/how-to-consume-web-service.md).
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.

@@ -34,13 +34,13 @@ highlightedContent:
 
 conceptualContent:
   items:
-    - title: Speech-to-text
+    - title: Speech to text
       links:
         - itemType: overview
-          text: About speech-to-text
+          text: About speech to text
           url: speech-to-text.md
         - itemType: quickstart
-          text: Get started with speech-to-text
+          text: Get started with speech to text
           url: get-started-speech-to-text.md
         - itemType: overview
           text: Improve accuracy with Custom Speech
@@ -51,13 +51,13 @@ conceptualContent:
       footerLink:
         text: More
         url: index-speech-to-text.yml
-    - title: Text-to-speech
+    - title: Text to speech
       links:
         - itemType: overview
-          text: About text-to-speech
+          text: About text to speech
           url: text-to-speech.md
         - itemType: quickstart
-          text: Get started with text-to-speech
+          text: Get started with text to speech
           url: get-started-text-to-speech.md
         - itemType: how-to-guide
           text: Improve synthesis with SSML
@@ -66,7 +66,7 @@ conceptualContent:
           text: Create a custom voice
           url: custom-neural-voice.md    
         - itemType: how-to-guide
-          text: Make text-to-speech sound natural
+          text: Make text to speech sound natural
           url: how-to-audio-content-creation.md                
       footerLink:
         text: More
@@ -148,9 +148,6 @@ conceptualContent:
         - itemType: how-to-guide
           text: Speech service containers on Azure Container Instances
           url: ../containers/azure-container-instance-recipe.md
-      footerLink:
-        text: More
-        url: index-hosting.yml 
     - title: Migration
       links:
         - itemType: how-to-guide
@@ -191,11 +188,11 @@ additionalContent:
     - items:
       - title: REST APIs
         links:
-        - text: Speech-to-text
+        - text: Speech to text
           url: rest-speech-to-text.md
         - text: Batch transcription
           url: batch-transcription.md
-        - text: Text-to-speech
+        - text: Text to speech
           url: rest-text-to-speech.md
         - text: Conversation transcription
           url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html

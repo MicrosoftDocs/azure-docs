@@ -7,7 +7,7 @@ author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
@@ -61,6 +61,8 @@ The following list presents all the recognized relations by the Text Analytics f
 
 **ABBREVIATION**
 
+**AMOUNT_OF_SUBSTANCE_USE**
+
 **BODY_SITE_OF_CONDITION**
 
 **BODY_SITE_OF_TREATMENT**
@@ -94,6 +96,8 @@ The following list presents all the recognized relations by the Text Analytics f
 **FREQUENCY_OF_CONDITION**
 
 **FREQUENCY_OF_MEDICATION**
+
+**FREQUENCY_OF_SUBSTANCE_USE**
 
 **FREQUENCY_OF_TREATMENT**
 

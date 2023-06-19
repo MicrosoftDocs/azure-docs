@@ -3,7 +3,7 @@ title: Create an Azure Red Hat OpenShift 4 private cluster
 description: Learn how to create an Azure Red Hat OpenShift private cluster running OpenShift 4
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 03/17/2023
 author: joharder
 ms.author: joharder
 keywords: aro, openshift, az aro, red hat, cli
@@ -214,7 +214,7 @@ To create a private cluster without a public IP address, register for the featur
 ```
 az feature register --namespace Microsoft.RedHatOpenShift --name UserDefinedRouting
 ```
-After you've registered the feature flag, [create the private ARO cluster](#create-the-cluster).
+After you've registered the feature flag, create the cluster [using the command above](#create-the-cluster).
 
 Enabling this User Defined Routing option prevents a public IP address from being provisioned. User Defined Routing (UDR) allows you to create custom routes in Azure to override the default system routes or to add more routes to a subnet's route table. See 
 [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md) to learn more.

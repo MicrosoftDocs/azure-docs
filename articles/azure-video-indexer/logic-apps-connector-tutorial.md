@@ -2,7 +2,7 @@
 title: The Azure Video Indexer connectors with Logic App and Power Automate.
 description: This tutorial shows how to unlock new experiences and monetization opportunities Azure Video Indexer connectors with Logic App and Power Automate.
 ms.author: alzam
-ms.topic: tutorial #Required
+ms.topic: tutorial
 ms.date: 09/21/2020
 ---
 
