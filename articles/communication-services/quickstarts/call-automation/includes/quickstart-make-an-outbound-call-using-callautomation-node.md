@@ -4,14 +4,12 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services using Call Automation
 author: anujb-msft
 ms.author: anujb-msft
-ms.date: 05/26/2023
+ms.date: 06/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: callautomation
+ms.subservice: call-automation
 ms.custom: mode-other
 ---
-
-Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start, we cover a way to make an outbound call and recognize various events in the call.
 
 ## Sample code
 

@@ -3,17 +3,14 @@ title: Incoming call concepts
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Communication Services IncomingCall notification
 author: jasonshave
-
 ms.service: azure-communication-services
-ms.topic: include
+ms.subservice: call-automation
+ms.topic: conceptual
 ms.date: 09/26/2022
 ms.author: jassha
-ms.custom: public_preview
 ---
 
 # Incoming call concepts
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services Call Automation provides developers the ability to build applications, which can make and receive calls. Azure Communication Services relies on Event Grid subscriptions to deliver each `IncomingCall` event, so setting up your environment to receive these notifications is critical to your application being able to redirect or answer a call.
 
