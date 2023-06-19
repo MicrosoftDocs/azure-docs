@@ -27,6 +27,8 @@ items:
       href: dall-e-quickstart.md
 - name: Concepts
   items:
+    - name: Abuse monitoring
+      href: ./concepts/abuse-monitoring.md
     - name: Content filtering
       href: ./concepts/content-filter.md
     - name: Embeddings
