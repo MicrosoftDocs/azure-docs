@@ -27,16 +27,13 @@
         href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
         href: onboard-add-account-after-onboarding.md
-    - name: View risk metrics in your authorization system
+    - name: View information about your Authorization Systems
       expanded: false
       items:
       - name: View key statistics and data about your authorization system
         href: ui-dashboard.md
       - name: View data about the activity in your authorization system
         href: product-dashboard.md  
-    - name: View information about your Authorization Systems
-      expanded: false
-      items:
       - name: View and configure settings for data collection
         href: product-data-sources.md
       - name: View current billable resources in your authorization system
