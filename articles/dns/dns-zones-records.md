@@ -106,11 +106,11 @@ The multiple strings in a DNS record shouldn't be confused with the multiple TXT
 
 Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources. Azure Resource Manager uses tags to enable filtered views of your Azure bill and also enables you to set a policy for certain tags. For more information about tags, see [Using tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
-Azure DNS supports using Azure Resource Manager tags on DNS zone resources.  It doesn't support tags on DNS record sets, although as an alternative `metadata` is supported on DNS record sets as explained below.
+Azure DNS supports using Azure Resource Manager tags on DNS zone resources.  It doesn't support tags on DNS record sets, although as an alternative, metadata is supported on DNS record sets as explained below.
 
 ### Metadata
 
-As an alternative to record set tags, Azure DNS supports annotating record sets using `metadata`.  Similar to tags, metadata enables you to associate name-value pairs with each record set.  This feature can be useful, for example to record the purpose of each record set.  Unlike tags, metadata cannot be used to provide a filtered view of your Azure bill and cannot be specified in an Azure Resource Manager policy.
+As an alternative to record set tags, Azure DNS supports annotating record sets using *metadata*.  Similar to tags, metadata enables you to associate name-value pairs with each record set.  This feature can be useful, for example to record the purpose of each record set. Unlike tags, metadata cannot be used to provide a filtered view of your Azure bill and cannot be specified in an Azure Resource Manager policy.
 
 ## Etags
 
@@ -120,7 +120,7 @@ Azure DNS uses Etags to handle concurrent changes to the same resource safely. E
 
 By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets. The optional *-Overwrite* switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred are overwritten.
 
-At the level of the Azure DNS REST API, Etags are specified using HTTP headers.  Their behavior is given in the following table:
+At the level of the Azure DNS REST API, Etags are specified using HTTP headers. Their behavior is given in the following table:
 
 | Header | Behavior |
 | --- | --- |
