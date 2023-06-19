@@ -44,3 +44,4 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ## Next Steps
 - Check out our how-to guide to learn [how-to play custom voice prompts](../../how-tos/call-automation/play-action.md) to users.
+- Learn about [usage and operational logs](../analytics/logs/call-automation-logs.md) published by call automation.
