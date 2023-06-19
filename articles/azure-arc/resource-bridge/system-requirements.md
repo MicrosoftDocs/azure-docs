@@ -185,7 +185,7 @@ The following example shows valid configuration values that can be passed during
 
 - The IP address prefix (subnet) must contain enough IP addresses for both the Arc resource bridge and AKS-HCI.
 
-- Arc resource bridge should be given a unique 'vnetname' that is different from the one used for AKS Hybrid. 
+- Arc resource bridge should be given a unique `vnetname` that is different from the one used for AKS Hybrid. 
 
 - The Arc resource bridge requires different IP addresses for `vippoolstart/end` and `k8snodeippoolstart/end`. These IPs can't be shared between the two.
 
