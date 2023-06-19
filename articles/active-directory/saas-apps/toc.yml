@@ -496,6 +496,8 @@
         href: citrix-cloud-saml-sso-tutorial.md  
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
+      - name: CivicEye SSO
+        href: civic-eye-sso-tutorial.md
       - name: Civic Platform
         href: civic-platform-tutorial.md
       - name: Clarity
