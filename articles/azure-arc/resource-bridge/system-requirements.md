@@ -189,7 +189,7 @@ Reserved appliance VM IP requirements:
 
 - The Arc resource bridge requires different IP addresses for `vippoolstart/end` and `k8snodeippoolstart/end`. These IPs can't be shared between the two.
 
-- The control plane IP must be unique to each, it can't be shared between the two. 
+- Arc resource bridge and AKS-HCI must each have a unique control plane IP .
 
 For instructions to deploy Arc resource bridge on AKS Hybrid, see [How to install Azure Arc Resource Bridge on Windows Server - AKS hybrid](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server). 
 
