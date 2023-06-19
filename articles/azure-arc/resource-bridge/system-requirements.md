@@ -121,7 +121,7 @@ Reserved appliance VM IP requirements:
 
    ## DNS server
    
-   DNS Server(s) must have internal and external endpoint resolution. The appliance VM and control plane need to resolve the management machine and vice versa. All three IPs must be able to reach the required URLs for deployment.
+   DNS server(s) must have internal and external endpoint resolution. The appliance VM and control plane need to resolve the management machine and vice versa. All three IPs must be able to reach the required URLs for deployment.
 
    ## Gateway
    
