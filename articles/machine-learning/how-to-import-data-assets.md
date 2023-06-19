@@ -175,7 +175,7 @@ ml_client.data.import_data(data_import=data_import)
    
    #### This screenshot shows the panel for a **Cron** schedule:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot that shows the selection of the Add schedule button.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot that shows selection of the Add schedule button.":::
 
 ---
 
@@ -320,7 +320,7 @@ ml_client.data.import_data(data_import=data_import)
    
    #### This screenshot shows the panel for a **Cron** schedule:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot showing selection of the Add schedule button.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot showing the selection of the Add schedule button.":::
 
 ---
 
