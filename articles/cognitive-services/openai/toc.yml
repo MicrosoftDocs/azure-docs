@@ -96,6 +96,8 @@ items:
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/cognitive-services/openai/context/context
 - name: Reference
   items:
+    - name: Bicep/ARM template/Terraform
+      href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
