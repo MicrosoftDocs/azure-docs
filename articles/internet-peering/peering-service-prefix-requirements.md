@@ -28,7 +28,7 @@ For a registered prefix to be validated after creation, the following checks mus
 
 The validation state of a peering service prefix can be seen in the Azure Portal.
 
-    :::image type="content" source="media/peering-service-prefix-validation-failed.png" alt-text="Peering service prefixes failing validation" :::
+:::image type="content" source="media/peering-service-prefix-validation-failed.png" alt-text="Peering service prefixes failing validation" :::
 
 Prefixes can only be activated when all validation steps have passed. Listed below are possible validation errors, with troubleshooting steps to solve them.
 
@@ -50,7 +50,7 @@ If you're seeing this validation failure message, the prefix string that you've 
 
 ### Not receiving prefix advertisement from IP for prefix
 
-MAPS requires the provider to advertise routes for their peering service prefix. If you're seeing this validation failure message, it means the provider isn't advertising routes for the prefix that's being validated. Refer to this document and review the [MAPS technical requirements](walkthrough-peering-service-all#technical-requirements) regarding route advertisement. Contact your networking team and confirm that they're advertising routes for the prefix being validated. Also confirm the advertisement adheres to MAPS requirements, such as advertising using the MAPS community string 8075:8007, and that the AS path of the route doesn't contain private ASNs. Use the IP address in the message to identify the MAPS connection that isn't advertising the prefix. All MAPS connections must advertise routes.
+MAPS requires the provider to advertise routes for their peering service prefix. If you're seeing this validation failure message, it means the provider isn't advertising routes for the prefix that's being validated. Refer to this document and review the [MAPS technical requirements](./walkthrough-peering-service-all.md#technical-requirements) regarding route advertisement. Contact your networking team and confirm that they're advertising routes for the prefix being validated. Also confirm the advertisement adheres to MAPS requirements, such as advertising using the MAPS community string 8075:8007, and that the AS path of the route doesn't contain private ASNs. Use the IP address in the message to identify the MAPS connection that isn't advertising the prefix. All MAPS connections must advertise routes.
 
 If you are a Peering Service customer, contact your Peering Service provider about this issue. If you are a Peering Service partner, you're advertising routes for your prefix and you're still seeing this validation failure message, contact mapschamps@microsoft.com with your Azure subscription and prefix so we can assist you.
 

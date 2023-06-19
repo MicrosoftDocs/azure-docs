@@ -22,7 +22,7 @@ Internet peering provides highly reliable and QoS (Quality of Service) enabled i
 
 The following flowchart summarizes the process to onboard to Communications Services:
 
-:::image type="content" source="media/oconboarding-azure-maps-voice-highre.png" alt-text="Onboarding process for Communications Services" :::
+:::image type="content" source="media/oconboarding-azure-maps-voice-highres.png" alt-text="Onboarding process for Communications Services" :::
 
 ## Technical Requirements
 
