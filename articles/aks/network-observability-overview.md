@@ -59,6 +59,8 @@ When the Network Observability add-on is enabled, it allows for the collection a
 
 * Pod level metrics aren't supported.
 
+* The deployment of the Network Observability add-on on Mariner 1.0 is currently unsupported.
+
 ## Scale
 
 Certain scale limitations apply when you use Managed Prometheus and Grafana. For more information, see [Scrape Prometheus metrics at scale in Azure Monitor](/azure/azure-monitor/essentials/prometheus-metrics-scrape-scale)
