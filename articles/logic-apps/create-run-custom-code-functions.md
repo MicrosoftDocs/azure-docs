@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.date: 05/23/2023
+# Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
 ---
 
 # Create and run .NET Framework code from Standard workflows in Azure Logic Apps (preview)
@@ -223,7 +224,9 @@ After you confirm that your code compiles and that your logic app project contai
 
 1. Select the action named **Call a local function in this logic app**.
 
-1. After the action information pane opens to the right, review and confirm that the **Function name** parameter value is set to the function that you want to run. Review or change any other parameter values that your function uses.
+   The action's information pane opens to the right.
+
+1. Review and confirm that the **Function name** parameter value is set to the function that you want to run. Review or change any other parameter values that your function uses.
 
 ## Debug your code and workflow
 
