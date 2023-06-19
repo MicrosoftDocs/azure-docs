@@ -44,6 +44,7 @@ If you already registered your application in your customer tenant, you can add 
 1. Choose **Select**.
 
 ## Next steps
+
 - If you selected email with password sign-in, [enable password reset](how-to-enable-password-reset-customers.md).
 - Add [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) federation.
 - [Add multifactor authentication (MFA) to a customer-facing app](how-to-multifactor-authentication-customers.md).
