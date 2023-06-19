@@ -28,7 +28,7 @@ Every new item or new price written to the cache is then reflected in a SQL tabl
 
 ## Instructions
 
-### 1. Create and configure a new Azure SQL Database instance
+### Create and configure a new Azure SQL Database instance
 
 The SQL database is the backing database for this example. You can create an Azure SQL database instance through the Azure portal or through your preferred method of automation.
 
@@ -56,7 +56,7 @@ CREATE TABLE inventory (
 
 Once that command has completed, expand the **Tables** folder and verify that the new table was created.
 
-### 2. Configure the Redis trigger
+### Configure the Redis trigger
 
 First, make a copy of the same VS Code project used in the previous tutorial. Copy the folder from the previous tutorial under a new name, such as “RedisWriteBehindTrigger” and open it up in VS Code.
 
@@ -70,7 +70,7 @@ In this example, we’re going to use the [pub/sub trigger](cache-how-to-functio
 
 To do this, copy and paste the following code in redisfunction.cs, replacing the existing code.
 
-```c#
+```csharp
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
@@ -157,7 +157,7 @@ You see errors in some of the SQL classes. You need to import the `System.Data.S
 dotnet add package System.Data.SqlClient
 ```
 
-### 3. Build and run the project
+### Build and run the project
 
 Go to the **Run and debug tab** in VS Code and run the project. Navigate back to your Azure Cache for Redis instance in the Azure portal and select the **Console** button to enter the Redis Console. Try using some set commands:
 
@@ -171,7 +171,7 @@ SELECT TOP (100) * FROM [dbo].[inventory]
 
 You should see the items written to your Azure Cache for Redis instance show up here!
 
-### 4. Deploy to your Azure Functions App
+### Deploy to your Azure Functions App
 
 The only thing left is to deploy the code to the actual Azure Function app. As before, go to the Azure tab in VS Code, find your subscription, expand it, find the Function App section, and expand that. Select and hold (or right-click) your Azure Function app. Then, select **Deploy to Function App…**
 

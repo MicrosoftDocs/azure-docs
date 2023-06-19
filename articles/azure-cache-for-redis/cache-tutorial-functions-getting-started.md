@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 05/24/2023
+ms.date: 06/19/2023
 
 ---
 
@@ -21,7 +21,7 @@ The following tutorial shows how to implement basic triggers with Azure Cache fo
 
 ## Instructions
 
-### 1. Set up an Azure Cache for Redis Instance
+### Set up an Azure Cache for Redis Instance
 
 Create a new **Azure Cache for Redis** instance using the Azure portal or your preferred CLI tool. We use a _Standard C1_ instance, which is a good starting point. Use the [quickstart guide](quickstart-create-redis.md) to get started.
 
@@ -31,7 +31,7 @@ The default settings should suffice. We use a public endpoint for this demo, but
 
 Creating the cache can take a few minutes, so feel move to the next section while creating the cache completes.
 
-### 2. Set up Visual Studio Code
+### Set up Visual Studio Code
 
 If you haven’t installed the functions extension for VS Code, search for _Azure Functions_ in the extensions menu, and select **Install**. If you don’t have the C# extension installed, install it, too.
 
@@ -58,7 +58,7 @@ The new project is created:
 
 <!-- ![Image](Media/VSCodeWorkspace.png) -->
 
-### 3. Install Necessary NuGet packages
+### Install Necessary NuGet packages
 
 You need to install two NuGet packages:
 
@@ -74,7 +74,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
 dotnet restore
 ```
 
-### 4. Configure Cache
+### Configure Cache
 
 Go to your newly created Azure Cache for Redis instance. Two steps are needed here.
 
@@ -86,7 +86,7 @@ Second, select **Access keys** from the Resource menu and write down/copy the Pr
 
 <!-- ![Image](Media/AccessKeys.png) -->
 
-### 5. Set up the example code
+### Set up the example code
 
 Go back to VS Code, add a file to the project called `RedisFunctions.cs` Copy and paste the code sample:
 
@@ -167,7 +167,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
 }
 ```
 
-This example shows multiple different triggers:
+This tutorial shows multiple different triggers:
 
 1. _PubSubTrigger_, which is triggered when activity is published to the pub/sub channel named `pubsubTest`
 
@@ -187,7 +187,7 @@ To connect to your cache, take the connection string you copied from earlier and
 
 <!-- ![Image](Media/ConnectionString.png) -->
 
-### 6. Build and run the code locally
+### Build and run the code locally
 
 Switch to the **Run and debug** tab in VS Code and select the green arrow to debug the code locally. If you don’t have Azure Functions core tools installed, you're prompted to do so. In that case, you’ll need to restart VS Code after installing.
 
@@ -212,7 +212,7 @@ You should see the triggers activating in the terminal:
 
 <!-- ![Image](Media/TriggersWorking.png) -->
 
-### 6. Deploy Code to an Azure Function
+### Deploy Code to an Azure Function
 
 Create a new Azure function by going back to the Azure tab, expanding your subscription, and right clicking on **Function App**. Select **Create a Function App in Azure…(Advanced)**.
 
@@ -239,8 +239,8 @@ Wait a few minutes for the new Function App to be created. It appears in the dro
 
 <!-- ![Image](Media/DeployToFunction.png) -->
 
-The app builds and starts deploying. You can track progress in the **Output Window**
-.
+The app builds and starts deploying. You can track progress in the **Output Window**.
+
 Once deployment is complete, open your Function App in the Azure portal and select **Log Stream** from the Resource menu. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
 
 <!-- ![Image](Media/LogStream.png) -->
