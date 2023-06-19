@@ -17,20 +17,21 @@ ms.custom: devplatv2
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
-Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. In this tutorial, we learn how to trigger a batch endpoint's job to process files as soon as they are created in a storage account. In this architecture, we use a Logic App to subscribe to those events and trigger call the endpoint.
+Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. In this tutorial, we learn how to trigger a batch endpoint's job to process files as soon as they are created in a storage account. In this architecture, we use a Logic App to subscribe to those events and trigger the endpoint.
 
 The workflow looks as follows:
 
 1. A **file created** event is triggered when a new blob is created in a specific storage account.
 2. The event is sent to Event Grid to get processed to all the subscribers.
-3. A Logic App is subscribed to listen to those events. Since the storage account can contain multiple data assets, event filtering will be applied to only react to events happening in a specific folder inside of it. Further filtering can be done is needed (for instance, based on file extensions).
+3. A Logic App is subscribed to listen to those events. Since the storage account can contain multiple data assets, event filtering will be applied to only react to events happening in a specific folder inside of it. Further filtering can be done if needed (for instance, based on file extensions).
 4. The Logic App will be triggered, which in turns will:
 
    a. It will get an authorization token to invoke batch endpoints using the credentials from a Service Principal.
+   
    b. It will trigger the batch endpoint (default deployment) using the newly created file as input.
 
 > [!IMPORTANT]
-> When using Logic App connected with event grid to invoke batch endpoint, you are generateing one job per **each blob file** created in the sotrage account. Keep in mind that since batch endpoints distribute the work at the file level, there will not be any parallelization happening. Instead, you will be taking advantage batch endpoints's capability of executing multiple jobs under the same compute cluster. If you need to run jobs on entire folders in an automatic fashion, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
+> When using Logic App connected with event grid to invoke batch endpoint, you are generateing one job per **each blob file** created in the sotrage account. Keep in mind that since batch endpoints distribute the work at the file level, there will not be any parallelization happening. Instead, you will be taking advantage of batch endpoints's capability of executing multiple jobs under the same compute cluster. If you need to run jobs on entire folders in an automatic fashion, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
 
 ## Prerequisites
 
@@ -254,7 +255,7 @@ We want to trigger the Logic App each time a new file is created in a given fold
    ```
    
    > [!TIP]
-   > The previous payload correspond to a **Model deployment**. If you are working with a **Pipeline component deployment**, please adapt the format according to the expectations of the pipeline inputs. Learn more about how to structure the input in REST calls at [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest).
+   > The previous payload correspond to a **Model deployment**. If you are working with a **Pipeline component deployment**, please adapt the format according to the expectations of the pipeline's inputs. Learn more about how to structure the input in REST calls at [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest).
    
    The action will look as follows:
    
