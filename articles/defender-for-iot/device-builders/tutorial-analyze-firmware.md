@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Analyze a firmware image with Microsoft Defender for IoT.
+title: Analyze a firmware image with Microsoft Defender for IoT.
 description: Learn to analyze a compiled firmware image within Microsoft Defender for IoT.
 ms.topic: tutorial
 ms.date: 06/15/2023    
@@ -104,4 +104,4 @@ Once the image is deleted, there's no way to retrieve the image or the associate
 
 For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md)
 
-[def]: https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/roles-azure
+[def]: https://learn.microsoft.com/azure/defender-for-iot/organizations/roles-azure
