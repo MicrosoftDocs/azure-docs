@@ -157,7 +157,7 @@ ml_client.data.import_data(data_import=data_import)
 
 1. You can add a schedule. Select **Add schedule** as shown in this screenshot:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-add-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-add-schedule.png" alt-text="Screenshot that shows selection of the Add schedule button.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-add-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-add-schedule.png" alt-text="Screenshot that shows the selection of the Add schedule button.":::
    
    A new panel opens, where you can define a **Recurrence** schedule, or a **Cron** schedule. This screenshot shows the panel for a **Recurrence** schedule:
    
@@ -175,7 +175,7 @@ ml_client.data.import_data(data_import=data_import)
    
    #### This screenshot shows the panel for a **Cron** schedule:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot that shows selection of the Add schedule button.":::
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot that shows the selection of the Add schedule button.":::
 
 ---
 
