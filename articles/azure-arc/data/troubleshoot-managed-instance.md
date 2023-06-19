@@ -186,12 +186,9 @@ You should be able to connect to exposed external port (which has been confirmed
 
 You can use any client like `SqlCmd`, SQL Server Management Studio (SSMS), or Azure Data Studio (ADS) to test this out.
 
-## Collecting the logs
+## Connection between failover groups is lost
 
-If the previous steps all succeeded without any problem and you still can't log in, collect the logs and contact support
-
-### Connection between Failover groups is lost
-If the Failover groups between primary and geo-secondary Arc SQL Managed instances is configured to be in `sync` mode and the connection is lost for whatever reason for an extended period of time, then the logs on the primary Arc SQL managed instance cannot be truncated until the transactions are sent to the geo-secondary. This could lead to the logs filling up and potentially running out of space on the primary site. To break out of this situation, remove the failover groups and re-configure when the connection between the sites is re-established. 
+If the failover groups between primary and geo-secondary Arc SQL Managed instances is configured to be in `sync` mode and the connection is lost for whatever reason for an extended period of time, then the logs on the primary Arc SQL managed instance cannot be truncated until the transactions are sent to the geo-secondary. This could lead to the logs filling up and potentially running out of space on the primary site. To break out of this situation, remove the failover groups and re-configure when the connection between the sites is re-established. 
 
 The failover groups can be removed on both primary as well as secondary site as follows:
 
@@ -203,6 +200,10 @@ and if the data controller is deployed in `direct` mode, provide the `sharedname
 
 
 Once the failover group on the primary site is deleted, logs can be truncated to free up space.
+
+## Collect the logs
+
+If the previous steps all succeeded without any problem and you still can't log in, collect the logs and contact support
 
 ### Collection controller logs
 
