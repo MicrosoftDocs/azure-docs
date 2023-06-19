@@ -7,12 +7,9 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/06/2022
 ms.author: kpunjabi
-ms.custom: public_preview
 ---
 
 # Playing audio in call
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 The play action provided through the call automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. The play action allows you to provide ACS access to your pre-recorded audio files with support for authentication. 
 
