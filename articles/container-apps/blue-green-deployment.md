@@ -33,7 +33,7 @@ This article shows you how to implement blue/green deployment a container app. T
 
 ## Create a container app with multiple active revisions enabled
 
-The container app has to have the `configuration.activeRevisionsMode` property set to `multiple` in order to enable traffic splitting. To get deterministic revision names, the `template.revisionSuffix` configuration setting can be used. It can be set to some string value that uniquely identifies a release, for example a build number or a git commit id. For the following commands, some random commit ids were generated.
+The container app has to have the `configuration.activeRevisionsMode` property set to `multiple` in order to enable traffic splitting. To get deterministic revision names, the `template.revisionSuffix` configuration setting can be used. It can be set to some string value that uniquely identifies a release, for example a build number or a git commit short hash. For the following commands, some random commit hashes were generated.
 
 ::: zone pivot="azure-cli"
 
@@ -205,7 +205,7 @@ az deployment group create \
 
 ## Deploy a new revision and assign labels
 
-The `blue` label currently refers to a revision that takes the production traffic arriving on the app's FQDN. The `green` label refers to a new version of an app that is about to be rolled out into production. A new commit id identifies the new version of the app code. The following command deploys a new revision for that commit id and marks it with `green` label.
+The `blue` label currently refers to a revision that takes the production traffic arriving on the app's FQDN. The `green` label refers to a new version of an app that is about to be rolled out into production. A new commit hash identifies the new version of the app code. The following command deploys a new revision for that commit hash and marks it with `green` label.
 
 ::: zone pivot="azure-cli"
 
