@@ -26,7 +26,7 @@ In this article, you will learn how to implement the Teams meetings lobby capabi
 User ends up in the lobby depending on Microsoft Teams configuration. The controls are described here:
 [Learn more about Teams configuration ](../../concepts/interop/guest/teams-administration.md)
 
-Microsoft 365 or Azure Communication Services users can admit or reject users from lobby, if they are connected to Teams meeting and have Organizer, Co-organizer, or Presenter meeting role.
+Microsoft 365 or Azure Communication Services users can admit or reject users from lobby, if they're connected to Teams meeting and have Organizer, Co-organizer, or Presenter meeting role.
 [Learn more about meeting roles](https://support.microsoft.com/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019)
 
 To update or check current meeting join & lobby policies in Teams admin center:

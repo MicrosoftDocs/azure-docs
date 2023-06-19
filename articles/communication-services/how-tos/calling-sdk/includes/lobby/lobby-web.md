@@ -13,7 +13,7 @@ ms.custom: template-how-to
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-Object `Lobby` on `Call` or `TeamsCall` class allow users to access Teams meeting lobby informations. It would be undefined if current call not the meeting scenario. It includes the APIs, `admit`, `reject` and `admitAll`, which allows user to admit and reject participants from Teams meeting lobby. User could also get the `lobbyParticipants` collection and subscribe the `lobbyParticipantsUpdated` event to receive notification.
+Object `Lobby` on `Call` or `TeamsCall` class allow users to access Teams meeting lobby information. It would be undefined if current call not the meeting scenario. It includes the APIs, `admit`, `reject` and `admitAll`, which allows user to admit and reject participants from Teams meeting lobby. User could also get the `lobbyParticipants` collection and subscribe the `lobbyParticipantsUpdated` event to receive notification.
 
 ### Get lobby object
 The first thing is to get the `Call` or `TeamsCall` object of admitter: [Learn how to join Teams meeting](./teams-interoperability.md)
@@ -23,7 +23,7 @@ const lobby = call.lobby;
 ```
 
 ### Get lobby participants properties
-To know who is in the lobby, you could get the `lobbyParticipants` collection from `Lobby` object. It is a collection of `RemoteParticipant` object with `InLobby` state.To get the `lobbyParticipants` collection:
+To know who is in the lobby, you could get the `lobbyParticipants` collection from `Lobby` object. It's a collection of `RemoteParticipant` object with `InLobby` state. To get the `lobbyParticipants` collection:
 
 ```js
 const lobby = call.lobby; 
@@ -45,7 +45,7 @@ The `identifier` can be one of the following `CommunicationIdentifier` types:
 
 ### Admit, reject and admitAll participant from lobby
 To admit, reject or admit all users from the lobby, you can use the `admit`, `reject` and `admitAll` methods. 
-They are the async APIs, to verify results can be used `lobbyParticipantsUpdated` listeners.
+They're the async APIs, to verify results can be used `lobbyParticipantsUpdated` listeners.
 
 You can admit or reject from lobby by calling the method `admit` and `reject`. The method accepts identifiers `MicrosoftTeamsUserIdentifier`, `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `UnknownIdentifier` as input. You can also admit all users from the lobby by calling the method `admitAll`. 
 ```js
@@ -59,7 +59,7 @@ await lobby.admitAll();
 ```
 
 ### Handle lobby updated event
-You could subscribe to the `lobbyParticipantsUpdated` event to handle the changes in the `lobbyParticipants` collection. This event will be triggered when the participants are added or removed from the lobby and it will provides the added or removed participants list.
+You could subscribe to the `lobbyParticipantsUpdated` event to handle the changes in the `lobbyParticipants` collection. This event will be triggered when the participants are added or removed from the lobby and it will provide the added or removed participants list.
 ```js
 subscribeToCall = (call) => {
     try {
