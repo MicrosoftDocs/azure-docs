@@ -288,7 +288,7 @@ After you confirm that your code compiles and that your logic app project contai
 
 ## Deploy your code
 
-You can deploy your custom code in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the logic app project's **lib/custom/net472** folder before you deploy.
+You can deploy your custom code in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the logic app project's **lib/custom/net472** folder before you deploy. For more information, see [Deploy Standard workflows from Visual Studio Code to Azure](create-single-tenant-workflows-visual-studio-code.md#deploy-azure).
 
 ## Next steps
 
