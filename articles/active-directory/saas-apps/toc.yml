@@ -1317,6 +1317,8 @@
         href: isams-tutorial.md 
       - name: iServer Portal
         href: iserver-portal-tutorial.md
+      - name: ISG GovernX Federation
+        href: isg-governx-federation-tutorial.md
       - name: i-Sight
         href: isight-tutorial.md
       - name: Island
