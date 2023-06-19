@@ -1712,6 +1712,15 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: aahi
+- id: openai-use-your-data
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Azure OpenAI Studio
+  - id: rest-api
+    title: REST API
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages

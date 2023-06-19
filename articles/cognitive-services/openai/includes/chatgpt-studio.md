@@ -115,6 +115,8 @@ The assistant's response to the prompt will then be returned below the `<|im_sta
 
 The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the `gpt-35-turbo` model effectively.
 
+[!INCLUDE [deploy-web-app](deploy-web-app.md)]
+
 ## Clean up resources
 
 Once you're done testing out the Chat playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
