@@ -1,4 +1,4 @@
-- name: Traffic Controller documentation
+- name: Application Gateway for Containers documentation
   href: index.yml
 - name: Overview
   items:
@@ -48,7 +48,7 @@
     href: /rest/api/traffic-controller/traffic-controllers
   - name: Azure Resource Manager
     displayName: ARM
-    href: ../azure-resource-manager/management/overview.md
+    href: ../../azure-resource-manager/management/overview.md
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.network/applicationgateways
@@ -56,7 +56,7 @@
   items:
   - name: Author templates
     displayName: ARM
-    href: ../azure-resource-manager/templates/syntax.md
+    href: ../../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
