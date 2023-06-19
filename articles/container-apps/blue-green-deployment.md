@@ -17,17 +17,17 @@ zone_pivot_groups: bicep-azure-cli
 
 In the context of Azure Container Apps, the blue/green deployment release approach is enabled by using [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md) and [revision labels](revisions.md#revision-labels). 
 
-1. `Blue` revision: The revision labelled as `blue` represents the currently running and stable version of the application. It handles the production traffic, and users interact with it.
+1. `Blue` revision: The revision labeled as `blue` represents the currently running and stable version of the application. It handles the production traffic, and users interact with it.
 
-1. `Green` revision: The revision labelled as `green` is a copy of of the `blue` revision except it uses a newer version of the app code and possibly new set of env variables. It doesn't receive any production traffic initially but can be accessed by using label specific FQDN.
+1. `Green` revision: The revision labeled as `green` is a copy of the `blue` revision except it uses a newer version of the app code and possibly new set of env variables. It doesn't receive any production traffic initially but can be accessed by using label specific FQDN.
 
 1. Testing and Verification: The `green` revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing can involve various activities, including functional tests, performance tests, and compatibility checks.
 
 1. Traffic Switch: Once the `green` revision passes all the necessary tests, a traffic switch is performed so that the `green` revision starts serving production load. This switch is done in a controlled manner, ensuring a smooth transition.
 
-1. Rollback: If problems occur in the `green` revision, you can revert the traffic switch, routing traffic back to the stable `blue` revision. This rollback ensures minimal impact on users if there are issues in the new version. After resolving any issues in the `green` revision, it can be used for future deployments.
+1. Rollback: If problems occur in the `green` revision, you can revert the traffic switch, routing traffic back to the stable `blue` revision. This rollback ensures minimal impact on users if there are issues in the new version. The `green` revision can still be used for the next deployment.
 
-1. Role change: The roles of the blue/green revisions change for the next deployment cycle. The `green` revision now represents the stable production environment and the new version of the application code is deployed and tested in the `blue` revision.
+1. Role change: The roles of the blue/green revisions change after a successful deployment to the `green` revision. During the next release cycle, the `green` revision represents the stable production environment while the new version of the application code is deployed and tested in the `blue` revision.
 
 This article shows you how to implement blue/green deployment a container app. To run the following examples, you need a container app environment in which you can create a new app.
 
