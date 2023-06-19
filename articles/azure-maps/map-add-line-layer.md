@@ -190,6 +190,6 @@ See the following articles for more code samples to add to your maps:
 > [!div class="nextstepaction"]
 > [Add a polygon layer](map-add-shape.md)
 
-[Line with Stroke Gradient]: https://samples.azuremaps.com/?search=line&sample=line-with-stroke-gradient
+[Line with Stroke Gradient]: https://samples.azuremaps.com/line-layer/line-with-stroke-gradient
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Line Layer Options]: https://samples.azuremaps.com/?search=line&sample=line-layer-options
+[Line Layer Options]: https://samples.azuremaps.com/line-layer/line-layer-options

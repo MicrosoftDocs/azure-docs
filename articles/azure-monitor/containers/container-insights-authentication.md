@@ -6,17 +6,21 @@ ms.date: 06/13/2023
 ms.reviewer: damendo
 ---
 
-# Authentication for Azure Monitor - Container Insights 
+# Authentication for Container Insights 
 
 Container Insights now defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a Monitoring Metrics Publisher role to the cluster.
 
 ## How to enable
 
-Click on the relevant tab for instructions to enable Managed identity authentication on existing clusters.  
+Click on the relevant tab for instructions to enable Managed identity authentication on your clusters.  
 
 ## [Azure portal](#tab/portal-azure-monitor)
 
-No action is needed when creating a cluster from the Portal. However, it isn't possible to switch to Managed Identity authentication from the Azure portal. Customers must use command line tools to migrate. See other tabs for migration instructions and templates. 
+When creating a new cluster from the Azure portal: On the **Integrations** tab, first check the box for *Enable Container Logs*, then check the box for *Use managed identity*.  
+
+For existing clusters, you can switch to Managed Identity authentication from the *Monitor settings* panel: Navigate to your AKS cluster, scroll through the menu on the left till you see the **Monitoring** section, there click on the **Insights** tab. In the Insights tab, click on the *Monitor Settings* option and check the box for *Use managed identity*
+
+If you don't see the *Use managed identity* option, you are using an SPN clusters. In that case, you must use command line tools to migrate. See other tabs for migration instructions and templates.
 
 ## [Azure CLI](#tab/cli)
 

@@ -161,5 +161,5 @@ Learn more about the classes and methods used in this article:
 > [Drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Add drawing toolbar to map]: https://samples.azuremaps.com/?search=add%20drawing%20toolbar&sample=add-drawing-toolbar-to-map
-[Change drawing rendering style]: https://samples.azuremaps.com/?search=render&sample=change-drawing-rendering-style
+[Add drawing toolbar to map]: https://samples.azuremaps.com/drawing-tools-module/add-drawing-toolbar-to-map
+[Change drawing rendering style]: https://samples.azuremaps.com/drawing-tools-module/change-drawing-rendering-style

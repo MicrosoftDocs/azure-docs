@@ -976,7 +976,11 @@
       - name: Configure auditing
         href: sap/configure-audit.md
       - name: Deploy data connector agent
-        href: sap/deploy-data-connector-agent-container.md
+        items:
+        - name: Deploy data connector agent (command line)
+          href: sap/deploy-data-connector-agent-container-other-methods.md
+        - name: Deploy via data connector agent (UI - Preview)
+          href: sap/deploy-data-connector-agent-container.md        
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
       - name: Configure the solution
