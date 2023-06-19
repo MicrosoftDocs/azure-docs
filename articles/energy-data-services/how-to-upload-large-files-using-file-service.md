@@ -47,7 +47,7 @@ Consider an Azure Data Manager for Energy Preview instance named "medstest" with
 The SignedURL key in the response object can be then used to upload files into Azure Blob Storage
 
 ## Upload files with size less than 5000 MiB
-In order to upload file sizes less than 5000 MiB one can directly use [PUT blob API](https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob?tabs=azure-ad) call to upload their files into Azure Blob Storage
+In order to upload file sizes less than 5000 MiB one can directly use [PUT blob API](https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/#put-blob) call to upload their files into Azure Blob Storage
 
 ### Sample Curl Request
 ```bash
@@ -59,10 +59,10 @@ In order to upload file sizes less than 5000 MiB one can directly use [PUT blob 
 If the upload is successful, we get a 201 Created status code in response
 
 ## Upload files with size greater or equal to 5000 MiB
-In order to upload files with sizes >= 5000 MiB, we would need [azcopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy)utility as a single PUT blob call can't be greater than 5000 MiB [doc link](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage)
+In order to upload files with sizes >= 5000 MiB, we would need [azcopy](https://github.com/Azure/azure-storage-azcopy)utility as a single PUT blob call can't be greater than 5000 MiB [doc link](https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/#put-blob)
 
 ### Steps
-1. Download azcopy using this [link](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)
+1. Download azcopy using this [link](https://github.com/Azure/azure-storage-azcopy#download-azcopy)
 
 2. Run this command to upload your file
 
