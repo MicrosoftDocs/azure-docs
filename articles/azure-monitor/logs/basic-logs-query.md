@@ -16,7 +16,10 @@ For more information, see [Set a table's log data plan](basic-logs-configure.md)
 
 
 > [!NOTE]
-> Other tools that use the Azure API for querying - for example, Grafana and Power BI - cannot access Basic Logs. 
+> Other tools that use the Azure API for querying - for example, Grafana and Power BI - cannot access Basic Logs.
+
+> [!NOTE]
+> Billing for basic log search is not yet enabled. Advance notice will be provided before search billing starts.
 
 ## Limitations
 Queries with Basic Logs are subject to the following limitations:
