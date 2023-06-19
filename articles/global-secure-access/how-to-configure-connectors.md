@@ -112,8 +112,8 @@ For more help with installing a connector, see [Problem installing the Applicati
 To confirm the connector installed and registered correctly:
 1. Select the **Windows** key and enter `services.msc` to open the Windows Services Manager.
 1. Check to see if the status for the following services **Running**.
-    - *Microsoft AAD Application Proxy Connector* enables connectivity.
-    - *Microsoft AAD Application Proxy Connector Updater* is an automated update service.
+    - *Microsoft Azure AD Application Proxy Connector* enables connectivity.
+    - *Microsoft Azure AD Application Proxy Connector Updater* is an automated update service.
     - The updater checks for new versions of the connector and updates the connector as needed.
 1. If the status for the services isn't **Running**, right-click to select each service and choose **Start**.
 
