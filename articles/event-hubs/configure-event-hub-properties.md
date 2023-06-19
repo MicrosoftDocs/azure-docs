@@ -3,13 +3,11 @@ title: Configure properties for an Azure event hub
 description: Learn how to configure status, partition count, cleanup policy, and retention time for an event hub
 ms.topic: how-to
 ms.custom: log-compaction
-ms.date: 10/7/2022
+ms.date: 06/19/2023
 ---
 
 # Configure properties for an event hub
-This article shows you how to configure properties for an event hub.
-
-:::image type="content" source="./media/configure-event-hub-properties/properties-page.png" alt-text="Screenshot showing the Properties page for an event hub.":::
+This article shows you how to configure properties such as status, partition count, retention time, etc. for an event hub.
 
 ## Configure status
 You can update the status of an event hub to one of these values on the **Properties** page after the event hub is created. 
@@ -17,6 +15,10 @@ You can update the status of an event hub to one of these values on the **Proper
 - Select **Active** (default) if you want to send events to and receive events from an event hub. 
 - Select **Disabled** if you want to disable both sending and receiving events from an event hub.  
 - Select **SendDisabled** if you want to disable sending events to an event hub. 
+
+    :::image type="content" source="./media/configure-event-hub-properties/properties-page.png" alt-text="Screenshot showing the Properties page for an event hub.":::
+
+
 
 ## Configure partition count
 The **Properties** page allows you to see the number of partitions in an event hub for event hubs in all tiers. It allows you to update the partition count for event hubs in a premium or dedicated tier. For other tiers, you can only specify the partition count at the time of creating an event hub. To learn about partitions in Event Hubs, see [Scalability](event-hubs-scalability.md#partitions)
