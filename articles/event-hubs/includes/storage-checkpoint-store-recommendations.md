@@ -16,4 +16,9 @@ Follow these recommendations when using Azure Blob Storage as a checkpoint store
 - Don't use the container for anything else, and don't use the storage account for anything else.
 - Storage account should be in the same region as the deployed application is located in. If the application is on-premises, try to choose the closest region possible.
 
-On the **Storage account** page in the Azure portal, in the **Blob service** section, ensure **Soft delete**, **Versioning**, and **Hierarchical namespace** settings are disabled. 
+On the **Storage account** page in the Azure portal, in the **Blob service** section, ensure that the following settings are disabled. 
+
+- Hierarchical namespace
+- Blob soft delete
+- Versioning
+
