@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Post Bare Metal machine(BMM) Cordon and Restart, VMs show up as error on Portal. Power and Restart doesn’t work anymore for Azure Operator Nexus
-description: Troubleshoot Post Bare Metal machine(BMM) Cordon and restart, VMs show up as error on Portal. Power & Restart doesn’t work anymore.
+title: Troubleshoot Post Bare Metal machine(BMM) Cordon and Restart, VMs show up as error on portal. Power and Restart doesn’t work anymore for Azure Operator Nexus
+description: Troubleshoot Post Bare Metal machine(BMM) Cordon and restart, VMs show up as error on portal. Power & Restart doesn’t work anymore.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
