@@ -45,7 +45,7 @@ Consult your system or network administrator to obtain the IP address prefix in 
 
 ## Static configuration
 
-Static configuration is recommended for Arc resource bridge because the resource bridge needs three static IPs in the same subnet for the control plane, appliance VM, and reserved appliance VM. 
+Static configuration is recommended for Arc resource bridge, because the resource bridge needs three static IPs in the same subnet for the control plane, appliance VM, and reserved appliance VM. 
 
 Not Recommended: If using DHCP, reserve those IP addresses, ensuring the IPs are outside of the assignable DHCP range of IPs (i.e. the control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP).
 
