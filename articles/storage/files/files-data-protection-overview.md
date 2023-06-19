@@ -11,11 +11,11 @@ ms.subservice: files
 
 # Azure Files data protection overview
 
-Azure Files gives you many tools to protect your data, including soft delete, share snapshots, Azure Backup, and Azure File Sync. This article describes how to protect your data in Azure Files, as well as the concepts and processes involved with backup and recovery of Azure file shares.
+Azure Files gives you many tools to protect your data, including soft delete, share snapshots, Azure Backup, and Azure File Sync. This article describes how to protect your data in Azure Files, and the concepts and processes involved with backup and recovery of Azure file shares.
 
 ## Why you should protect your data
 
-For Azure Files, data protection refers to protecting the storage account, file shares, and data within them from being deleted or modified, or for restoring data after it's been deleted or modified.
+For Azure Files, data protection refers to protecting the storage account, file shares, and data within them from being deleted or modified, and for restoring data after it's been deleted or modified.
 
 There are several reasons why you should protect your file share data.
 
@@ -25,7 +25,7 @@ There are several reasons why you should protect your file share data.
 - **Long-term retention:** Comply with data retention requirements.
 - **Business continuity:** Prepare your infrastructure to be highly available for critical workloads.
 
-## Backup and restore Azure file shares
+## Back up and restore Azure file shares
 You can configure [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) to back up your file shares using the Azure portal, Azure PowerShell, Azure CLI, or REST API. You can also [use Azure File Sync](#use-azure-file-sync-for-hybrid-cloud-backups) to back up on-premises file server data on an Azure file share.
 
 # [Azure portal](#tab/portal)
@@ -68,7 +68,7 @@ Azure Files offers multiple redundancy options, including geo-redundancy, to hel
 ## Disaster recovery and failover
 In the case of a disaster or unplanned outage, restoring access to file share data is usually critical to keeping the business operational. Depending on the criticality of the data hosted in your file shares, you might need a disaster recovery strategy that includes failing your Azure file shares over to a secondary region.
 
-Azure Files offers customer-managed failover in the event that the data center in the primary region becomes unavailable.
+Azure Files offers customer-managed failover if the data center in the primary region becomes unavailable.
 
 ## Prevent accidental deletion of storage accounts and file shares
 
@@ -87,25 +87,26 @@ For more information, see [Apply an Azure Resource Manager lock to a storage acc
 
 Soft delete works on a file share level to protect Azure file shares against accidental deletion. If a share with soft delete enabled is deleted, it moves to a soft deleted state internally and can be retrieved until the retention period expires. Azure file shares are still billed on the used capacity when they're soft deleted.
 
-For more information, see [Enable soft delete on Azure file shares](storage-files-enable-soft-delete) and [Prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
+For more information, see [Enable soft delete on Azure file shares](storage-files-enable-soft-delete.md) and [Prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
 
 ## Share snapshots
 
 File share snapshots are point-in-time copies of your Azure file share that you can take manually or automatically via Azure Backup. You can then restore individual files from these snapshots. You can take up to 200 snapshots per file share.
 
-Snapshots are incremental in nature, capturing only the changes since the last snapshot. That means they're space and cost efficient, and you're billed based on the differential storage utilization of each snapshot. This makes it practical to have multiple recovery points to cater low RPO requirements.
+Snapshots are incremental in nature, capturing only the changes since the last snapshot. That means they're space and cost efficient. You're billed on the differential storage utilization of each snapshot, making it practical to have multiple recovery points to cater low RPO requirements.
 
-For more information, see [Overview of share snapshots for Azure Files](storage-snapshots-files).
+For more information, see [Overview of share snapshots for Azure Files](storage-snapshots-files.md).
 
 ## Use Azure File Sync for hybrid cloud backups
 
 Using Azure File Sync with Azure Backup is an easy solution for hybrid cloud backups from on-premises to cloud. Azure File Sync keeps the files in sync and centralized.
 
-:::image type="content" source="media/files-data-protection-overview/azure-file-sync-with-azure-backup.png" alt-text="Architecture diagram for using Azure File Sync along with Azure Backup to back up multiple file servers.":::
+:::image type="content" source="media/files-data-protection-overview/azure-file-sync-with-azure-backup.png" alt-text="Architecture diagram for using Azure File Sync along with Azure Backup to back up multiple file servers." border="false":::
 
-This method simplifies disaster recovery and gives you multiple options. You can recover single files or directories, or perform a rapid restore of your entire file share. Simply bring up a new server on the primary and point it to the centralized Azure file share where it can access the data. Over time, files will be locally cached or tiered to the cloud based on Azure File Sync settings.
+This method simplifies disaster recovery and gives you multiple options. You can recover single files or directories, or perform a rapid restore of your entire file share. Just bring up a new server on the primary and point it to the centralized Azure file share where it can access the data. Over time, files will be locally cached or tiered to the cloud based on Azure File Sync settings.
 
 ## See also
 
 - [Azure Files redundancy](files-redundancy.md)
-- [Azure Files disaster recovery and failover](storage-initiate-account-failover.md)
+- [Azure Files disaster recovery and failover](../common/storage-initiate-account-failover.md)
+
