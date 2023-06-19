@@ -36,32 +36,27 @@ The migration procedure described in this article assumes you have:
 If you have an existing custom table to which you currently send data using the Data Collector API, you can: 
 
 - Migrate the table to continue ingesting data into the same table using the Log Ingestion API. 
-- Maintain the existing table and data and set up a new table into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready.
+- Maintain the existing table and data and set up a new table into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready. 
 
-This table summarizes the advantages and limitations of each option:
+    This is the preferred option, especially if you to need to make changes to the existing table. Changes to existing data types and multiple multiple schema changes to existing Data Collector API custom tables can lead to errors.
 
-|Table migration|Side-by-side implementation|
-|-|-|
-|Reuse existing table name.|Set the new table name freely.|
-|Column naming options: <br>- Use new column names and define a transformation to direct incoming data to the newly named column.<br>- Continue using old names.|Adjust integrations, dashboards, and so on can be adjusted before switching to the new table. |
-|One-off table migration. Not possible to roll back a migrated table. |Migration can be done 'per table'|
-|After table migration:<br>- You can continue to ingest data using the HTTP Data Collector API with existing columns, except custom columns.<br>- You can ingest data into new columns using the Log Ingestion API only.|Data in the old table is available until the end of retention period.|
+This table summarizes considerations to keep in mind for each option:
+
+||Table migration|Side-by-side implementation|
+|-|-|-|
+|**Table and column naming**|Reuse existing table name.<br>Column naming options: <br>- Use new column names and define a transformation to direct incoming data to the newly named column.<br>- Continue using old names.|Set the new table name freely.<br>Need to adjust integrations, dashboards, and alerts before switching to the new table.|
+|**Migration procedure**|One-off table migration. Not possible to roll back a migrated table. |Migration can be done gradually, per table.|
+|**Following migration**|You can continue to ingest data using the HTTP Data Collector API with existing columns, except custom columns.<br>Ingest data into new columns using the Log Ingestion API only.|
+ Data in the old table is available until the end of retention period.<br>When you first set up a new table or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.|
   
 To convert a table that uses the Data Collector API to data collection rules and the Log Ingestion API, issue this API call against the table:  
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-12-01-preview
 ```
-
-
-This is the preferred option, especially if you to need to make changes to the existing table. Changes to existing data types and multiple multiple schema changes to existing Data Collector API custom tables can lead to internal server error 500.
-
-> [!NOTE]
-> When you first set up a pipeline or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.
 This call is idempotent, so it has no effect if the table has already been converted.    
 
-> [!NOTE] 
-> This API call enables all DCR-based custom logs features on the table. The Data Collector API will continue to ingest data into existing columns, but won't create any new columns. Any previously defined [custom fields](../logs/custom-fields.md) will stop populating. Another way to migrate an existing table to using data collection rules, but not necessarily the Log Ingestion API is applying a [workspace transformation](../logs/tutorial-workspace-transformations-portal.md) to the table.
+The API call enables all DCR-based custom logs features on the table. The Data Collector API will continue to ingest data into existing columns, but won't create any new columns. Any previously defined [custom fields](../logs/custom-fields.md) will stop populating. Another way to migrate an existing table to using data collection rules, but not necessarily the Log Ingestion API is applying a [workspace transformation](../logs/tutorial-workspace-transformations-portal.md) to the table.
 
 > [!IMPORTANT]
 > - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
