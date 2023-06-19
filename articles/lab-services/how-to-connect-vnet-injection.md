@@ -12,7 +12,7 @@ ms.date: 06/16/2023
 
 # Connect a lab plan to a virtual network with advanced networking
 
-This article describes how to connect a lab plan to a virtual network with Azure Lab Services advanced networking. With advanced networking, you have more control over the virtual network configuration of your labs. For example, to connect to on-premises resources such as licensing servers, or to use user-defined routes (UDRs). Learn more about the [supported networking scenarios and topologies for advanced networking](https://techcommunity.microsoft.com/t5/azure-lab-services-blog/network-architectures-and-topologies-with-lab-plans/ba-p/3781597#M130).
+This article describes how to connect a lab plan to a virtual network with Azure Lab Services advanced networking. With advanced networking, you have more control over the virtual network configuration of your labs. For example, to connect to on-premises resources such as licensing servers, or to use user-defined routes (UDRs). Learn more about the [supported networking scenarios and topologies for advanced networking](./concept-lab-services-supported-networking-scenarios.md).
 
 Advanced networking for lab plans replaces [Azure Lab Services virtual network peering](how-to-connect-peer-virtual-network.md) that is used with lab accounts.
 
@@ -160,7 +160,7 @@ To create a lab plan with advanced networking in the Azure portal:
 
 It's recommended that you use the default configuration settings for the virtual network and subnet when you use advanced networking in Azure Lab Services.
 
-For specific networking scenarios, you might need to update the networking configuration. Learn more about the [supported networking architectures and topologies in Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services-blog/network-architectures-and-topologies-with-lab-plans/ba-p/3781597#M130) and the corresponding network configuration.
+For specific networking scenarios, you might need to update the networking configuration. Learn more about the [supported networking architectures and topologies in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md) and the corresponding network configuration.
 
 You can modify the virtual network settings after you create the lab plan with advanced networking. However, when you change the [DNS settings on the virtual network](/azure/virtual-network/manage-virtual-network#change-dns-servers), you need to restart any running lab virtual machines. If the lab VMs are stopped, they'll automatically receive the updated DNS settings when they start.
 

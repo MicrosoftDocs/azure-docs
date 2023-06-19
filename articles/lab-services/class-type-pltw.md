@@ -78,7 +78,7 @@ For more information, see [Set up a license server as a shared resource](./how-t
 
 Once you have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md).
 
-After you set up a lab plan, create a separate lab for each PLTW class session that your school offers. We also recommend that you create separate images for each type of PLTW class. For more information about how to structure your labs and images, see the blog post [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
+After you set up a lab plan, create a separate lab for each PLTW class session that your school offers. We also recommend that you create separate images for each type of PLTW class. For more information about how to structure your labs and images, see [Moving from a Physical Lab to Azure Lab Services](./concept-migrating-physical-labs.md).
 
 ### Lab plan settings
 
