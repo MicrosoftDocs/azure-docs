@@ -8,7 +8,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: article
-ms.date: 5/1/2023
+ms.date: 06/19/2023
 ms.author: greglin
 ---
 
@@ -23,7 +23,7 @@ BackendTLSPolicy is the schema for the BackendTLSPolicys API
 | Field	| Description |
 | ------- | ------------------------- |
 | `metadata`<br/>Kubernetes meta/v1.ObjectMeta | (Optional)<br/>Object's metadata.<br/><br/>Refer to the Kubernetes API documentation for the fields of the metadata field. |
-| `spec`<br/>BackendTLSPolicySpec	| Spec is the BackendTLSPolicy specification.<br/><br/><table><tr><td><code>targetRef</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference" rel="nofollow">Gateway API.PolicyTargetReference</a></em><td><p dir="auto">TargetRef identifies an API object to apply policy to.<tr><td><code>override</code><br><em><a href="#networking.azure.io/v1alpha1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a></em><td><em>(Optional)</em><p dir="auto">Override defines policy configuration that should override policy configuration attached below the targeted resource in the hierarchy.<tr><td><code>default</code><br><em><a href="#networking.azure.io/v1alpha1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a></em><td><em>(Optional)</em><p dir="auto">Default defines default policy configuration for the targeted resource.</table> |
+| `spec`<br/>BackendTLSPolicySpec	| Spec is the BackendTLSPolicy specification.<br/><br/><table><tr><td><code>targetRef</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference" rel="nofollow">Gateway API.PolicyTargetReference</a></em><td><p dir="auto">TargetRef identifies an API object to apply policy to.<tr><td><code>override</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#networking.azure.io/v1alpha1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a></em><td><em>(Optional)</em><p dir="auto">Override defines policy configuration that should override policy configuration attached below the targeted resource in the hierarchy.<tr><td><code>default</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#networking.azure.io/v1alpha1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a></em><td><em>(Optional)</em><p dir="auto">Default defines default policy configuration for the targeted resource.</table> |
 | `status`<br/>BackendTLSPolicyStatus	| Status defines the current state of BackendTLSPolicy. |
 
 ### BackendTLSPolicyConditionReason (string alias)
