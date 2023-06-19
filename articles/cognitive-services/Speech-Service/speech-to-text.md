@@ -1,7 +1,7 @@
 ---
 title: Speech to text overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: Get an overview of the benefits and capabilities of the speech to text feature of the Speech Service.
+description: Get an overview of the benefits and capabilities of the speech to text feature of the Speech service.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
