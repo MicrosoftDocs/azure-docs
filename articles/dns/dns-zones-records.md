@@ -73,7 +73,7 @@ This restriction only applies to the NS record set at the zone apex. Other NS re
 
 ### SOA records
 
-A SOA record set gets created automatically at the apex of each zone (name = \@), and gets deleted automatically when the zone gets deleted. SOA records cannot be created or deleted separately.
+A SOA record set gets created automatically at the apex of each zone (name = '\@'), and gets deleted automatically when the zone gets deleted. SOA records cannot be created or deleted separately.
 
 You can modify all properties of the SOA record except for the `host` property. This property gets pre-configured to refer to the primary name server name provided by Azure DNS.
 
