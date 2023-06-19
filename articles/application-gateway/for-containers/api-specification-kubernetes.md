@@ -1,8 +1,8 @@
 ---
 
-title: Traffic Controller API Specification for Kubernetes
+title: Application Gateway for Containers API Specification for Kubernetes
 titlesuffix: Azure Application Load Balancer
-description: This article provides documentation for Traffic Controller's API specification for Kubernetes.
+description: This article provides documentation for Application Gateway for Containers's API specification for Kubernetes.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
@@ -12,7 +12,7 @@ ms.date: 06/19/2023
 ms.author: greglin
 ---
 
-# Traffic Controller API Specification for Kubernetes
+# Application Gateway for Containers API Specification for Kubernetes
 
 ## networking.azure.io/v1alpha1 API
 This document defines each of the resource types for `networking.azure.io/v1alpha1`.

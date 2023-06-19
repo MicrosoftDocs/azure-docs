@@ -1,8 +1,8 @@
 ---
 
-title: Backend MTLS with Traffic Controller
+title: Backend MTLS with Application Gateway for Containers
 titlesuffix: Azure Application Load Balancer
-description: Learn how to configure Traffic Controller with support for backend MTLS authentication.
+description: Learn how to configure Application Gateway for Containers with support for backend MTLS authentication.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
@@ -12,7 +12,7 @@ ms.date: 5/1/2023
 ms.author: greglin
 ---
 
-# Backend MTLS with Traffic Controller
+# Backend MTLS with Application Gateway for Containers
 
 This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
@@ -20,14 +20,14 @@ This document helps set up an example application that uses the following resour
 - [BackendTLSPolicy](api-specification-kubernetes.md#backendtlspolicy) - creating a backend TLS policy that has a client and CA certificate for the backend service referenced in the HTTPRoute
 
 ## Prerequisites
-Ensure you have set up your Traffic Controller and ALB Controller following the [Quickstart guide](quickstart-create-traffic-controller.md).
+Ensure you have set up your Application Gateway for Containers and ALB Controller following the [Quickstart guide](quickstart-create-traffic-controller.md).
 
 Set the following environment variables
 ```bash
-# This may be omitted if you are in the same shell session as where you created the Traffic Controller deployment
-RESOURCE_GROUP='<name of the resource group where Traffic Controller is deployed>'
-TRAFFIC_CONTROLLER_NAME='<name of the Traffic Controller resource>'
-FRONTEND_NAME='<name of the Frontend resource of the Traffic Controller>'
+# This may be omitted if you are in the same shell session as where you created the Application Gateway for Containers deployment
+RESOURCE_GROUP='<name of the resource group where Application Gateway for Containers is deployed>'
+TRAFFIC_CONTROLLER_NAME='<name of the Application Gateway for Containers resource>'
+FRONTEND_NAME='<name of the Frontend resource of the Application Gateway for Containers>'
 
 # Get the frontend public IP address to access the system
 publicIPAddressId=$(az resource show --namespace Microsoft.ServiceNetworking --resource-type frontends --resource-group $RESOURCE_GROUP --name $FRONTEND_NAME --parent "trafficControllers/$TRAFFIC_CONTROLLER_NAME" --query 'properties.publicIPAddress.id' -o tsv)
@@ -141,4 +141,4 @@ Curling this IP should return responses from the backend as configured on the HT
 curl --insecure https://$ip/
 ```
 
-Congratulations, you have installed ALB controller, deployed a backend application and routed traffic to the application via the ingress on Traffic Controller.
+Congratulations, you have installed ALB controller, deployed a backend application and routed traffic to the application via the ingress on Application Gateway for Containers.

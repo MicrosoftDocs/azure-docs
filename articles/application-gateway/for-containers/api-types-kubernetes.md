@@ -1,8 +1,8 @@
 ---
 
-title: Traffic Controller API Types for Kubernetes
+title: Application Gateway for Containers API Types for Kubernetes
 titlesuffix: Azure Application Load Balancer
-description: This article provides documentation for Traffic Controller's API Types for Kubernetes.
+description: This article provides documentation for Application Gateway for Containers's API Types for Kubernetes.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
@@ -12,10 +12,10 @@ ms.date: 5/1/2023
 ms.author: greglin
 ---
 
-# Traffic Controller API Types for Kubernetes
+# Application Gateway for Containers API Types for Kubernetes
 
 ## API Types
-The following API types are supported by Traffic Controller.
+The following API types are supported by Application Gateway for Containers.
 
 ### BackendTLSPolicy
 

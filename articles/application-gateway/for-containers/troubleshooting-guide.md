@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot Traffic Controller
+title: Troubleshoot Application Gateway for Containers
 titlesuffix: Azure Application Load Balancer
-description: Learn how to troubleshoot common issues with Traffic Controller
+description: Learn how to troubleshoot common issues with Application Gateway for Containers
 services: application-gateway
 author: greglin
 ms.service: application-gateway
@@ -11,15 +11,15 @@ ms.date: 5/1/2023
 ms.author: greglin
 ---
 
-# Troubleshooting in Traffic Controller
+# Troubleshooting in Application Gateway for Containers
 
-Learn how to troubleshoot common problems in Traffic Controller.
+Learn how to troubleshoot common problems in Application Gateway for Containers.
 
 ## Configuration Errors
 
-### Traffic Controller returns 500 status code
+### Application Gateway for Containers returns 500 status code
 
-Scenarios in which you would notice a 500-error code on Traffic Controller are as follows:
+Scenarios in which you would notice a 500-error code on Application Gateway for Containers are as follows:
 1. __Invalid backend Entries__ : A backend is defined as invalid in the following scenarios:
     1. It refers to an unknown or unsupported kind of resource. In this case, the HTTPRoute's status has a condition with reason set to `InvalidKind` and the message explains which kind of resource is unknown or unsupported.
     1. It refers to a resource that doesn't exist. In this case, the HTTPRoute's status has a condition with reason set to `BackendNotFound` and the message explains that the resource doesn't exist.
@@ -32,7 +32,7 @@ Scenarios in which you would notice a 500-error code on Traffic Controller are a
 ### Kubernetes Gateway object fails to get token from credential chain
 
 #### Symptoms
-No changes to HttpRoutes are being applied to Traffic Controller.
+No changes to HttpRoutes are being applied to Application Gateway for Containers.
 
 The following error message is returned on the Kubernetes Gateway object and no changes to HttpRoutes
 
@@ -66,4 +66,4 @@ status:
 ```
 
 #### Solution
-Ensure the federated credentials of the managed identity for the ALB Controller pod to make changes to Traffic Controller are configured in Azure. Instructions on how to configure federated credentials can be found in the [Quickstart guide](quickstart-create-traffic-controller.md#install-alb-controller).
+Ensure the federated credentials of the managed identity for the ALB Controller pod to make changes to Application Gateway for Containers are configured in Azure. Instructions on how to configure federated credentials can be found in the [Quickstart guide](quickstart-create-traffic-controller.md#install-alb-controller).

@@ -2,15 +2,15 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Traffic Controller?
+  - name: What is Application Gateway for Containers?
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Create Traffic Controller
+  - name: Create Application Gateway for Containers
     href: quickstart-create-traffic-controller.md
 - name: Concepts
   items:
-  - name: How Traffic Controller works
+  - name: How Application Gateway for Containers works
     href: concepts-how-traffic-controller-works.md
   - name: Diagnostic Logs
     href: diagnostics.md

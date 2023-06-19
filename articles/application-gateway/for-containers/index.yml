@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Traffic Controller documentation
-summary: Learn how to create Traffic Controllers. This documentation helps you plan, deploy, and manage web traffic to your container workloads.
+title: Azure Application Gateway for Containers documentation
+summary: Learn how to create Application Gateway for Containerss. This documentation helps you plan, deploy, and manage web traffic to your container workloads.
 
 metadata:
-  title: Azure Traffic Controller documentation
-  description: Learn about Azure Traffic Controller, a web traffic load balancer that enables you to manage traffic to your container workloads.
+  title: Azure Application Gateway for Containers documentation
+  description: Learn about Azure Application Gateway for Containers, a web traffic load balancer that enables you to manage traffic to your container workloads.
   services: application-gateway
   ms.service: application-gateway
   ms.subservice: traffic-controller
@@ -20,11 +20,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Learn about Traffic Controller
+  - title: Learn about Application Gateway for Containers
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Traffic Controller?
+          - text: What is Azure Application Gateway for Containers?
             url: overview.md
       - linkListType: concept
         links:
@@ -36,11 +36,11 @@ landingContent:
             url: https://azure.microsoft.com/updates/?category=networking&query=Traffic%20Controller
             
   # Card
-  - title: Deploy Traffic Controller
+  - title: Deploy Application Gateway for Containers
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Direct web traffic with Azure Traffic Controller
+          - text: Direct web traffic with Azure Application Gateway for Containers
             url: quickstart-create-traffic-controller.md
 
   # Card
@@ -54,7 +54,7 @@ landingContent:
             url: how-to-backend-mtls.md
 
 # Card
-  - title: Traffic Controller Kubernetes Reference
+  - title: Application Gateway for Containers Kubernetes Reference
     linkLists:
       - linkListType: concept
         links:
@@ -64,11 +64,11 @@ landingContent:
             url: api-types-kubernetes.md
 
 # Card
-  - title: Troubleshoot Traffic Controller
+  - title: Troubleshoot Application Gateway for Containers
     linkLists:
       - linkListType: overview
         links:
-          - text: Troubleshoot Traffic Controller
+          - text: Troubleshoot Application Gateway for Containers
             url: troubleshooting-guide.md
           - text: Diagnostic Logs
             url: diagnostics.md

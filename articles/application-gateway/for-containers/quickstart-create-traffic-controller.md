@@ -1,8 +1,8 @@
 ---
 
-title: 'Quickstart: Create Traffic Controller'
+title: 'Quickstart: Create Application Gateway for Containers'
 titlesuffix: Azure Application Load Balancer
-description: In this quickstart, you learn how to provision Traffic Controller.
+description: In this quickstart, you learn how to provision Application Gateway for Containers.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
@@ -12,13 +12,13 @@ ms.date: 5/1/2023
 ms.author: greglin
 ---
 
-# Quickstart: Create a Traffic Controller
+# Quickstart: Create a Application Gateway for Containers
 
-This document provides instructions on how to deploy the 3 types of resources (Traffic Controller, Association, and Frontend) needed for Traffic Controller to work with your AKS workload, and how to install ALB Controller on your AKS cluster to control the behavior of the Traffic Controller.
+This document provides instructions on how to deploy the 3 types of resources (Application Gateway for Containers, Association, and Frontend) needed for Application Gateway for Containers to work with your AKS workload, and how to install ALB Controller on your AKS cluster to control the behavior of the Application Gateway for Containers.
 
 ## Prerequisites
 
-You need to complete the following tasks prior to deploying Traffic Controller on Azure and installing ALB Controller on your cluster:
+You need to complete the following tasks prior to deploying Application Gateway for Containers on Azure and installing ALB Controller on your cluster:
 
 1. Prepare your Azure subscription and your `az-cli` client.
 
@@ -42,11 +42,11 @@ You need to complete the following tasks prior to deploying Traffic Controller o
 
 1. **(Optional)** Create an AKS cluster for your workload.
 
-	If you have an existing AKS cluster for running your workload in one of the regions where Traffic Controller is available for preview, you may skip ahead to the next step.
+	If you have an existing AKS cluster for running your workload in one of the regions where Application Gateway for Containers is available for preview, you may skip ahead to the next step.
 
 	> **Note**
 	>
-	> The AKS cluster needs to be in the following regions where Traffic Controller is available for Private Preview.
+	> The AKS cluster needs to be in the following regions where Application Gateway for Containers is available for Private Preview.
 	>
 	> - North Central US
 	> - North Europe
@@ -69,7 +69,7 @@ You need to complete the following tasks prior to deploying Traffic Controller o
 		--generate-ssh-key
 	```
 
-2. Delegate a Subnet in the AKS Virtual Network to the Traffic Controller Service.
+2. Delegate a Subnet in the AKS Virtual Network to the Application Gateway for Containers Service.
 
 	Once you have an AKS cluster, identify the Virtual Network to which the agent pool is connected using the following commands:
 
@@ -83,7 +83,7 @@ You need to complete the following tasks prior to deploying Traffic Controller o
 	echo $vnetId
 	```
 
-	Once the Virtual Network has been identified, create a new Subnet with at least 120 available addresses and delegate it to the Traffic Controller service with the following command:
+	Once the Virtual Network has been identified, create a new Subnet with at least 120 available addresses and delegate it to the Application Gateway for Containers service with the following command:
 
 	```bash
 	subnetAddressPrefix='<an address space under the vnet that has at least 120 available addresses (/25 or smaller cidr prefix)>'
@@ -106,9 +106,9 @@ You need to complete the following tasks prior to deploying Traffic Controller o
 
 	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
 
-## Deploy Traffic Controller
+## Deploy Application Gateway for Containers
 
-1. The following commands deploy Traffic Controller (along with the Association and Frontend resources) using an [ARM template](./templates/traffic-controller.template.json).
+1. The following commands deploy Application Gateway for Containers (along with the Association and Frontend resources) using an [ARM template](./templates/traffic-controller.template.json).
 
 	```bash
 	TRAFFIC_CONTROLLER_NAME='traffic-controller'
@@ -125,16 +125,16 @@ You need to complete the following tasks prior to deploying Traffic Controller o
 		--parameters "mcResourceGroup=$mcResourceGroup"
 	```
 
-2. Once the deployment is successful, you may verify the creation of the Traffic Controller resources with the following commands:
+2. Once the deployment is successful, you may verify the creation of the Application Gateway for Containers resources with the following commands:
 
 	```bash
-	# Verify the Traffic Controller
+	# Verify the Application Gateway for Containers
 	az resource show --ids $(az resource list --resource-type 'Microsoft.ServiceNetworking/trafficControllers' --resource-group $RESOURCE_GROUP --query '[].id' -o tsv)
 
-	# Verify the Traffic Controller Association
+	# Verify the Application Gateway for Containers Association
 	az resource show --ids $(az resource list --resource-type 'Microsoft.ServiceNetworking/trafficControllers/associations' --resource-group $RESOURCE_GROUP --query '[].id' -o tsv)
 
-	# Verify the Traffic Controller Frontend
+	# Verify the Application Gateway for Containers Frontend
 	az resource show --ids $(az resource list --resource-type 'Microsoft.ServiceNetworking/trafficControllers/frontends' --resource-group $RESOURCE_GROUP --query '[].id' -o tsv)
 	```
 
@@ -189,11 +189,11 @@ You need to complete the following tasks prior to deploying Traffic Controller o
     kubectl get applicationlbparam
     ```
 
-## Link your ALB Controller to Traffic Controller
+## Link your ALB Controller to Application Gateway for Containers
 
-Now that you have successfully installed an ALB Controller on your cluster, you can link it to an existing Traffic Controller by leveraging the GatewayClass and ApplicationLbParam on the cluster.
+Now that you have successfully installed an ALB Controller on your cluster, you can link it to an existing Application Gateway for Containers by leveraging the GatewayClass and ApplicationLbParam on the cluster.
 
-Update the ApplicationLbParam to contain the resource ID of the traffic controller you wish to associate with your ALB Controller.
+Update the ApplicationLbParam to contain the resource ID of the Application Gateway for Containers you wish to associate with your ALB Controller.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -218,9 +218,9 @@ EOF
 
 Congratulations, you have installed ALB Controller on your cluster!
 
-## Uninstall Traffic Controller and ALB Controller
+## Uninstall Application Gateway for Containers and ALB Controller
 
-1. To delete the Traffic Controller, you may simply delete the Resource Group containing the Traffic Controller resources:
+1. To delete the Application Gateway for Containers, you may simply delete the Resource Group containing the Application Gateway for Containers resources:
 
 	```bash
 	az group delete --resource-group $RESOURCE_GROUP

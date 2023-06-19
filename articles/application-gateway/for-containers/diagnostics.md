@@ -1,7 +1,7 @@
 ---
-title: Diagnostic Logs for Traffic Controller
+title: Diagnostic Logs for Application Gateway for Containers
 titlesuffix: Azure Application Load Balancer
-description: Learn how to enable access logs for Traffic Controller
+description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
 author: greglin
 ms.service: application-gateway
@@ -11,22 +11,22 @@ ms.date: 5/1/2023
 ms.author: greglin
 ---
 
-# Diagnostic logs for Traffic Controller
+# Diagnostic logs for Application Gateway for Containers
 
-Learn how to troubleshoot common problems in Traffic Controller.
+Learn how to troubleshoot common problems in Application Gateway for Containers.
 
-You can monitor Azure Traffic Controller resources in the following ways:
+You can monitor Azure Application Gateway for Containers resources in the following ways:
 
 * Logs: Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
-* Metrics: Traffic Controller has several metrics that help you verify your system is performing as expected.
+* Metrics: Application Gateway for Containers has several metrics that help you verify your system is performing as expected.
 
 ## Diagnostic logs
 
-You can use different types of logs in Azure to manage and troubleshoot Traffic Controllers. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/logs/data-platform-logs.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot Application Gateway for Containerss. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/logs/data-platform-logs.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
 * **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
-* **Access log**: You can use this log to view Traffic Controller access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. The data may be stored in a storage account, log analytics workspace, or event hub that is specified at time of enable logging.
+* **Access log**: You can use this log to view Application Gateway for Containers access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. The data may be stored in a storage account, log analytics workspace, or event hub that is specified at time of enable logging.
 
 ### Configure access log
 
@@ -34,5 +34,5 @@ You can use different types of logs in Azure to manage and troubleshoot Traffic 
 
 ### Access log format
 
-Each access of Traffic Controller is logged in JSON format as shown below.
+Each access of Application Gateway for Containers is logged in JSON format as shown below.
 
