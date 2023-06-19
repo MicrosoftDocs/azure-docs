@@ -63,7 +63,7 @@ In this article, you'll:
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **Create a new definition**, select **OpenAPI specification**.
 
-    :::image type="content" source="./media/import-api-from-oas/oas-api.png" alt-text="OpenAPI specifiction":::
+    :::image type="content" source="./media/import-api-from-oas/oas-api.png" alt-text="OpenAPI specification":::
 
 1. Click **Select a file**, and select the `openapi-spec.json` file that you saved locally in a previous step.
 
