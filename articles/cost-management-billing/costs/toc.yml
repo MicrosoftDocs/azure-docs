@@ -66,7 +66,7 @@
       - name: Use built-in views
         href: cost-analysis-built-in-views.md
       - name: Customize views
-        href: cost-analysis-built-in-views.md
+        href: customize-cost-analysis-views.md
       - name: Save and share customized views
         href: save-share-views.md
       - name: Identify cost anomalies and unexpected charges
