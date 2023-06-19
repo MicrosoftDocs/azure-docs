@@ -11,16 +11,17 @@ ms.subservice: call-automation
 ms.custom: mode-other
 ---
 
-## Sample code
-
-Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation/callautomationQuickStart/CallAutomation_OutboundCalling)
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
+
+## Sample code
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation/callautomationQuickStart/CallAutomation_OutboundCalling). Install Git on your machine and use the clone command: `git clone https://github.com/Azure-Samples/Communication-Services-dotnet-quickstarts.git`
+
+Navigate to `CallAutomation_OutboundCalling` folder and open `CallAutomation_OutboundCalling.sln` file.
 
 ## Setup and host your Azure DevTunnel
 

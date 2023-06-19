@@ -11,10 +11,6 @@ ms.subservice: call-automation
 ms.custom: mode-other
 ---
 
-## Sample code
-
-Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling)
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -24,6 +20,10 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 - [Java Development Kit (JDK) version 11 or above](/azure/developer/java/fundamentals/java-jdk-install)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
+## Sample code
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation/callautomationQuickStart/CallAutomation_OutboundCalling). Install Git on your machine and use the clone command: `git clone https://github.com/Azure-Samples/Communication-Services-dotnet-quickstarts.git`
+
+Navigate to `CallAutomation_OutboundCalling` folder and open `CallAutomation_OutboundCalling.sln` file.
 
 ## Setup and host your Azure DevTunnel
 

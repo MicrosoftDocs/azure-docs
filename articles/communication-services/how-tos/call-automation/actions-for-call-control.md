@@ -19,7 +19,7 @@ Call Automation uses a REST API interface to receive requests for actions and pr
 Call Automation supports various other actions to manage call media and recording that aren't included in this guide.
 
 > [!NOTE]
-> Call Automation currently doesn't support [Rooms](../rooms/room-concept.md) calls.
+> Call Automation currently doesn't support [Rooms](../../concepts/rooms/room-concept.md) calls.
 
 As a prerequisite, we recommend you to read these articles to make the most of this guide:
 
