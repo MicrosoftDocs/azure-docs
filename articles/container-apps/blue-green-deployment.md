@@ -372,9 +372,9 @@ After running that command the traffic section of the app will look as below. Th
 }
 ```
 
-## Rollback the deployment in case of problems
+## Roll back the deployment in case of problems
 
-If, after running in production, the new revision found to have bugs then the app can be rolled back to the previous good state by sending 100% of traffic to the old version in the `blue` revision and designating the `blue` revision as the production revision again:
+If after running in production, the new revision found to have bugs then the app can be rolled back to the previous good state by sending 100% of traffic to the old version in the `blue` revision and designating the `blue` revision as the production revision again:
 
 ::: zone pivot="azure-cli"
 
