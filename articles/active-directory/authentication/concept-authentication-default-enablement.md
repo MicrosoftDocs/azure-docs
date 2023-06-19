@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/12/2023
+ms.date: 06/19/2023
 
 ms.author: justinha
 author: mjsantani
@@ -39,9 +39,6 @@ Number matching is a good example of protection for an authentication method tha
 
 As MFA fatigue attacks rise, number matching becomes more critical to sign-in security. As a result, Microsoft will change the default behavior for push notifications in Microsoft Authenticator. 
 
->[!NOTE]
->Number matching will begin to be enabled for all users of Microsoft Authenticator starting May 08, 2023.
-
 ## Microsoft managed settings
 
 In addition to configuring Authentication methods policy settings to be either **Enabled** or **Disabled**, IT admins can configure some settings in the Authentication methods policy to be **Microsoft managed**. A setting that is configured as **Microsoft managed** allows Azure AD to enable or disable the setting. 
@@ -56,7 +53,7 @@ The following table lists each setting that can be set to Microsoft managed and 
 
 | Setting                                                                                         | Configuration |
 |-------------------------------------------------------------------------------------------------|---------------|
-| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Disabled      |
+| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Enabled       |
 | [Location in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)           | Disabled      |
 | [Application name in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)   | Disabled      |
 | [System-preferred MFA](concept-system-preferred-multifactor-authentication.md)                  | Disabled      |
