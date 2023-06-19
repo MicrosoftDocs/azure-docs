@@ -1,5 +1,5 @@
 ---
-title: Multi-device Conversation overview - Speech Service
+title: Multi-device Conversation overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: Multi-device conversation makes it easy to create a speech or text conversation between multiple clients and coordinate the messages that are sent between them.
 services: cognitive-services
