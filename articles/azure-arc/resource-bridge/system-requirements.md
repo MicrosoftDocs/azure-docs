@@ -181,7 +181,7 @@ The following example shows valid configuration values that can be passed during
 
    When deploying Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the following configurations must be applied:
 
-- Arc resource bridge and AKS-HCI should share the same 'vswitchname' and be in the same subnet, sharing the same value for the parameter, `ipaddressprefix` .
+- Arc resource bridge and AKS-HCI should share the same `vswitchname` and be in the same subnet, sharing the same value for the parameter, `ipaddressprefix` .
 
 - The IP address prefix (subnet) must contain enough IP addresses for both the Arc resource bridge and AKS-HCI.
 
