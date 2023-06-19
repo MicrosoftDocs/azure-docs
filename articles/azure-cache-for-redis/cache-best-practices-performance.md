@@ -102,7 +102,7 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 ### Standard tier
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
-| --- | --- | --- | --- | --- | --- |
+| --- | ---:| ---:| ---:| ---:| ---:|
 | C0 | 250 MB | Shared | 100 |  15,000 |   7,500 |
 | C1 |   1 GB | 1      | 500 |  38,000 |  20,720 |
 | C2 | 2.5 GB | 2      | 500 |  41,000 |  37,000 |
@@ -113,7 +113,7 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 
 ### Premium tier
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
-| --- | --- | --- | --- | --- | --- |
+| --- | ---| ---:|---:| ---:| ---:|
 | P1 |   6 GB |  2 | 1,500 | 180,000 | 172,000 |
 | P2 |  13 GB |  4 | 3,000 | 350,000 | 341,000 |
 | P3 |  26 GB |  4 | 3,000 | 350,000 | 341,000 |
@@ -130,7 +130,7 @@ The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Ent
 **Enterprise Cluster Policy**
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
-| --- | --- | --- | --- | --- | --- |
+|:---:| --- | ---:|---:| ---:| ---:|
 | E10 |  12 GB |  4 | 4,000 | 300,000 | 200,000 |
 | E20 |  25 GB |  4 | 4,000 | 550,000 | 390,000 |
 | E50 |  50 GB |  8 | 8,000 | 950,000 | 530,000 |
@@ -142,7 +142,7 @@ The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Ent
 **OSS Cluster Policy**
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
-| --- | --- | --- | --- | --- | --- |
+|:---:| --- | ---:|---:| ---:| ---:|
 | E10 |  12 GB |  4 | 4,000 | 1,300,000 | 800,000 |
 | E20 |  25 GB |  4 | 4,000 | 1,000,000 | 710,000 |
 | E50 |  50 GB |  8 | 8,000 | 2,000,000 | 950,000 |
@@ -160,14 +160,14 @@ The following tables show the GET requests per second at different capacities, u
 **Scaling out - Enterprise cluster policy**
 
 | Instance | Capacity 2 | Capacity 4 | Capacity 6 |
-| --- | --- | --- | --- |
+|:---:| ---:| ---:| ---:|
 | E10 | 200,000 | 530,000 | 570,000 |
 | E20 | 390,000 | 520,000 | 580,000 |
 | E50 | 530,000 | 580,000 | 580,000 |
 | E100 | 580,000 | 580,000 | 580,000 |
 
 | Instance | Capacity 3 | Capacity 9 |
-| --- | --- | --- |
+|:---:| ---:| ---:|
 | F300 | 310,000 | 530,000 |
 | F700 | 350,000 | 550,000 |
 | F1500 | 360,000 | 550,000 |
@@ -175,15 +175,14 @@ The following tables show the GET requests per second at different capacities, u
 **Scaling out - OSS cluster policy**
 
 | Instance | Capacity 2 | Capacity 4 | Capacity 6 |
-| --- | --- | --- | --- |
+|:---:| ---:| ---:| ---:|
 | E10 | 800,000 | 720,000 | 1,280,000 |
 | E20 | 710,000 | 950,000 | 1,250,000 |
 | E50 | 950,000 | 1,260,000 | 1,300,000 |
 | E100 | 960,000 | 1,840,000 | 1,930,000|
 
 | Instance | Capacity 3 | Capacity 9 |
-| --- | --- | --- |
-| F300 | 610,000 | 970,000 |
+|:---:| F300 | 610,000 | 970,000 |
 | F700 | 680,000 | 1,280,000 |
 | F1500 | 620,000 | 1,850,000 |
 
