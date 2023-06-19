@@ -30,6 +30,8 @@
     href: tutorial-investigate-security-recommendations.md
   - name: Investigate security alerts
     href: tutorial-investigate-security-alerts.md
+  - name: Analyze an IoT/OT firmware image
+    href: tutorial-analyze-firmware.md    
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support 
@@ -49,6 +51,8 @@
   - name: Micro agent linux dependencies
     displayName: linux, micro agent, agent
     href: concept-micro-agent-linux-dependencies.md
+  - name: Firmware security analysis
+    href: overview-firmware-analysis.md
   - name: Security alerts
     items:
     - name: Micro agent security alerts 
