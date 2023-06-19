@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Application Gateway for Containers documentation
-summary: Learn how to create Application Gateway for Containerss. This documentation helps you plan, deploy, and manage web traffic to your container workloads.
+summary: Learn how to create Application Gateway for Containers. This documentation helps you plan, deploy, and manage web traffic to your container workloads.
 
 metadata:
   title: Azure Application Gateway for Containers documentation
@@ -33,7 +33,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Traffic%20Controller
+            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway%20for%20Containers
             
   # Card
   - title: Deploy Application Gateway for Containers
