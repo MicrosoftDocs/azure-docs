@@ -25,9 +25,9 @@ In addition, Microsoft Defender for Resource Manager provides visibility to acti
 
 For example: "Azure Resource Manager operation from suspicious proxy IP address - **delegated access"**.
 
-The delegated access in this alert refers to access via Azure Lighthouse or via delegated admin partners.
+The “delegated access” indication refers to access via [Azure Lighthouse](/azure/lighthouse/overview) or via [delegated admin partners](/partner-center/dap-faq). 
 
-The delegated access in this alert refers to access via Azure Lighthouse or via delegated admin partners.
+Alerts with the delegated access indication also include customized description and remediation steps.
 
 Learn more about [Azure Activity log](../azure-monitor/essentials/activity-log.md).
 
