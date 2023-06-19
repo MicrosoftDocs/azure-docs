@@ -30,8 +30,7 @@ Azure Files offers different redundancy options to protect your data from planne
 
 Azure Files supports account failover for standard storage accounts configured with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) for protection against regional outages. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoint.
 
-> [!WARNING]
-> GRS and GZRS still carry a risk of data loss. Data is copied to the secondary region asynchronously, meaning there is a delay between when data written to the primary region is written to the secondary region. In the event of an outage, write operations to the primary endpoint that haven't yet been copied to the secondary endpoint will be lost.
+GRS and GZRS still carry a [risk of data loss](#anticipate-data-loss) because data is copied to the secondary region asynchronously, meaning there's a delay before a write to the primary region is copied to the secondary region. In the event of an outage, write operations to the primary endpoint that haven't yet been copied to the secondary endpoint will be lost. This means a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is the RPO. Azure Files typically has an RPO of 15 minutes or less, although there's currently no SLA on how long it takes to replicate data to the secondary region.
 
 ## Design for high availability
 
@@ -42,6 +41,8 @@ It's important to design your application for high availability from the start. 
 - [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md): Design guidance for building applications to take advantage of geo-redundant storage.
 
 We also recommend that you design your application to prepare for the possibility of write failures. Your application should expose write failures in a way that alerts you to the possibility of an outage in the primary region.
+
+As a best practice, design your application to check the [Last Sync Time property](#check-the-last-sync-time-property) to evaluate expected data loss. For example, if you're logging all write operations, then you can compare the time of your last write operations to the last sync time to determine which writes haven't been synced to the secondary.
 
 ## Track outages
 
@@ -79,17 +80,21 @@ Write access is restored for geo-redundant accounts once the DNS entry has been 
 > [!CAUTION]
 > An account failover usually involves some data loss. It's important to understand the implications of initiating an account failover.
 
-Because data is written asynchronously from the primary region to the secondary region, there's always a delay before a write to the primary region is copied to the secondary region. If the primary region becomes unavailable, the most recent writes may not yet have been copied to the secondary region.
+Because data is written asynchronously from the primary region to the secondary region, if the primary region becomes unavailable, the most recent writes might not yet have been copied to the secondary region.
 
 When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. The new primary region is configured to be locally redundant after the failover.
 
-All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary is lost permanently.
+All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary will be lost permanently.
 
-The **Last Sync Time** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. All data written prior to the last sync time is available on the secondary, while data written after the last sync time may not have been written to the secondary and may be lost. Use this property in the event of an outage to estimate the amount of data loss you may incur by initiating an account failover.
+### Check the Last Sync Time property
 
-As a best practice, design your application so that you can use the last sync time to evaluate expected data loss. For example, if you're logging all write operations, then you can compare the time of your last write operations to the last sync time to determine which writes haven't been synced to the secondary.
+The **Last Sync Time (LST)** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. All data written prior to the last sync time is available on the secondary, while data written after the last sync time may not have been written to the secondary and might be lost. Use this property in the event of an outage to estimate the amount of data loss you might incur by initiating an account failover.
 
-For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](../common/last-sync-time-get.md).
+To ensure file shares are in a consistent state when a failover occurs, a system snapshot is created in the primary region every 15 minutes and is replicated to the secondary region. When a failover occurs to the secondary region, the share state will be based on the latest system snapshot in the secondary region. If a failure happens in the primary region, the secondary region is likely behind the primary region, as all writes to the primary won't yet have been replicated to the secondary. Due to geo-lag or other issues, the latest system snapshot in the secondary region might be older than 15 minutes.
+
+All write operations written to the primary region prior to the LST have been successfully replicated to the secondary region, meaning that they're available to be read from the secondary. Any write operations written to the primary region after the last sync time might or might not have been replicated to the secondary region, meaning that they might not be available for read operations.
+
+You can query the value of the **Last Sync Time** property using Azure PowerShell, Azure CLI, or the client library. The **Last Sync Time** property is a GMT date/time value. For more information, see [Check the Last Sync Time property for a storage account](../common/last-sync-time-get.md).
 
 ### Use caution when failing back to the original primary
 
