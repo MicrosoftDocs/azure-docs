@@ -30,7 +30,7 @@ You can define configuration for Azure Static Web Apps in the _staticwebapp.conf
 
 ## File location
 
-The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./build-configuration.md). However, the file may be placed in any subfolder within the folder set as the `app_location`.
+The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./build-configuration.md). However, the file may be placed in any subfolder within the folder set as the `app_location` or a specific folder set at `config_file_location`. 
 
 See the [example configuration](#example-configuration-file) file for details.
 
