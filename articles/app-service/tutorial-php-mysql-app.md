@@ -290,7 +290,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
         1. Select the **General settings** tab.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-generate-db-schema-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-php-mysql-app/azure-portal-generate-db-schema-1.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-change-site-root-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-php-mysql-app/azure-portal-change-site-root-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -301,7 +301,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
         The command replaces the Nginx configuration file in the PHP container and restarts Nginx. This configuration ensures that the same change is made to the container each time it starts.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-generate-db-schema-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-php-mysql-app/azure-portal-generate-db-schema-2.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-change-site-root-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-php-mysql-app/azure-portal-change-site-root-2.png":::
     :::column-end:::
 :::row-end:::
 
@@ -431,19 +431,6 @@ Most of the time taken by the two-job process is spent uploading and download ar
 <a name="next"></a>
 
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a secure-by-default PHP and MySQL app in Azure
-> * Configure connection secrets to MySQL using app settings
-> * Deploy application code using GitHub Actions
-> * Update and redeploy the app
-> * Run database migrations securely
-> * Stream diagnostic logs from Azure
-> * Manage the app in the Azure portal
-
-Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
 > [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
