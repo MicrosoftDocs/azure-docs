@@ -171,6 +171,7 @@ You can modify the virtual network settings after you create the lab plan with a
 > - Change the subnet address range when there are virtual machines created (template VM or lab VMs).
 > - Change the DNS label on the public IP address. This causes the **Connect** button for lab VMs to stop working.
 > - Change the [frontend IP configuration](/azure/load-balancer/manage#add-frontend-ip-configuration) on the Azure load balancer. This causes the **Connect** button for lab VMs to stop working.
+> - Change the FQDN on the public IP address.
 > - Use a route table with a default route for the subnet (forced-tunneling). This causes users to lose connectivity to their lab.
 > - The use of Azure Firewall or Azure Bastion is not supported.
 
