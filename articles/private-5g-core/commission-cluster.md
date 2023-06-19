@@ -24,6 +24,7 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 - You will need Owner permission on the resource group for your Azure Stack Edge resource.
     > [!NOTE]
     > Make a note of the Azure Stack Edge's resource group. The AKS cluster and custom location, created in this procedure, must belong to this resource group.
+- Review [Azure Stack Edge virtual machine sizing](azure-stack-edge-virtual-machine-sizing.md#azure-stack-edge-virtual-machine-sizing) to ensure your ASE has enough space available to commission the cluster.
 
 ## Enter a minishell session
 
@@ -191,8 +192,6 @@ The page should now look like the following image:
 Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
 
 If you're running other VMs on your Azure Stack Edge, we recommend that you stop them now, and start them again once the cluster is deployed. The cluster requires access to specific CPU resources that running VMs may already be using.
-
-Review [Azure Stack Edge virtual machine sizing](azure-stack-edge-virtual-machine-sizing.md#azure-stack-edge-virtual-machine-sizing) to ensure you use the correct memory sizing for the cluster.
 
 1. To deploy the cluster, select the **Kubernetes** option and then select the **Add** button to configure the cluster.
 
