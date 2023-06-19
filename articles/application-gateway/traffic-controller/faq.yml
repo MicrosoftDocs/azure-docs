@@ -7,7 +7,7 @@ metadata:
   ms.service: application-gateway
   ms.subservice: traffic-controller
   ms.topic: article
-  ms.date: 05/18/2023
+  ms.date: 06/12/2023
   ms.author: greglin
     
 title: Frequently asked questions about Traffic Controller
@@ -18,6 +18,9 @@ sections:
     questions:
       - question: What is Traffic Controller?
         answer: Traffic Controller offers various layer 7 load-balancing capabilities for your container applications. This service is highly available, scalable, and fully managed by Azure.
+
+      - question: Where does Application Gateway for Containers store customer data?
+        answer: Application Gateway for Containers doesn't store customer data out of the region it's deployed in.
 
   - name: Performance
     questions:
@@ -35,7 +38,7 @@ sections:
   - name: Configuration - ALB Controller
     questions:
       - question: Is it supported to install multiple ALB Controllers on the same Kubernetes cluster?
-        answer: It is possible to install multiple ALB Controllers on the same cluster, however this is not recommended or supported as it is not possible to partition gateways, routes, services, etc.
+        answer: It's possible to install multiple ALB Controllers on the same cluster, however this is not recommended or supported as it's not possible to partition gateways, routes, services, etc.
 
       - question: Is it supported to increase the number of pods/replicas for ALB Controller?
         answer: No.  Only one pod/replica of ALB Controller should be running at any given time.
