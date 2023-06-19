@@ -1,6 +1,6 @@
 ---
-title:  Enable Permissions Management in your organization
-description: How to enable Permissions Management in your organization.
+title:  Enable Microsoft Entra Permissions Management in your organization
+description: How to enable Microsoft Entra Permissions Management in your organization.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
-# Enable Permissions Management in your organization
+# Enable Microsoft Entra Permissions Management in your organization
 
-This article describes how to enable Permissions Management in your organization. Once you've enabled Permissions Management, you can connect it to your Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) platforms.
+This article describes how to enable Microsoft Entra Permissions Management in your organization. Once you've enabled Permissions Management, you can connect it to your Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) platforms.
 
 > [!NOTE]
 > To complete this task, you must have *Microsoft Entra Permissions Management Administrator* permissions. You can't enable Permissions Management as a user from another tenant who has signed in via B2B or via Azure Lighthouse.
@@ -60,6 +60,6 @@ Use the **Data Collectors** dashboard in Permissions Management to configure dat
 
 ## Next steps
 
-- For an overview of Permissions Management, see [What's Permissions Management?](overview.md)
+- For an overview of Permissions Management, see [What's Microsoft Entra Permissions Management?](overview.md)
 - For a list of frequently asked questions (FAQs) about Permissions Management, see [FAQs](faqs.md).
 - For information on how to start viewing information about your authorization system in Permissions Management, see [View key statistics and data about your authorization system](ui-dashboard.md).

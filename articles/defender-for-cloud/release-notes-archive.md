@@ -2050,7 +2050,7 @@ Learn more in:
 
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 - [Tutorial: Improve your regulatory compliance](regulatory-compliance-dashboard.md)
-- [FAQ - Regulatory compliance dashboard](regulatory-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
+- [FAQ - Regulatory compliance dashboard](faq-regulatory-compliance.yml)
 
 ### Four new recommendations related to guest configuration (in preview)
 
@@ -2676,7 +2676,7 @@ Learn which recommendations are in each security control in [Security controls a
 
 ### Recommendations page has new filters for environment, severity, and available responses
 
-Azure Security Center monitors all connected resources and generates security recommendations. Use these recommendations to strengthen your hybrid cloud posture and track compliance with the policies and standards relevant to your organization, industry, and country.
+Azure Security Center monitors all connected resources and generates security recommendations. Use these recommendations to strengthen your hybrid cloud posture and track compliance with the policies and standards relevant to your organization, industry, and country/region.
 
 As Security Center continues to expand its coverage and features, the list of security recommendations is growing every month. For example, see [29 preview recommendations added to increase coverage of Azure Security Benchmark](release-notes-archive.md#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
 
