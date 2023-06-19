@@ -131,7 +131,7 @@ Reserved appliance VM IP requirements:
    
 The following example shows valid configuration values that can be passed during configuration file creation for Arc resource bridge. It is strongly recommended to use static IP addresses when deploying Arc resource bridge. 
 
-   Notice that the IP addresses for the Gateway, Control Plane, appliance VM and DNS server (for internal resolution) are within the IP address prefix - this key detail ensures the successful deployment of the appliance VM.
+   Notice that the IP addresses for the gateway, control plane, appliance VM and DNS server (for internal resolution) are within the IP address prefix. This key detail helps ensure successful deployment of the appliance VM.
 
    IP Address Prefix (CIDR format): 192.168.0.0/29
 
