@@ -86,7 +86,7 @@ Arc resource bridge reserves an additional IP address to be used for the applian
 
 The reserved appliance VM IP is assigned an IP address via the `k8snodeippoolend` parameter in the `az arcappliance createconfig` command. This IP address may be referred to as End Range IP, RB IP End, or VM IP 2.
 
-The reserved appliance VM IP is the ending IP address for the appliance VM IP pool range. If specifying an IP pool range larger than 2 IP addresses, the additional IPs are reserved.
+The reserved appliance VM IP is the ending IP address for the appliance VM IP pool range. If specifying an IP pool range larger than two IP addresses, the additional IPs are reserved.
 
 Reserved appliance VM IP requirements:  
 
