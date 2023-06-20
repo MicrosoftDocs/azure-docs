@@ -459,7 +459,7 @@ const msalConfig = {
 
 [!INCLUDE [active-directory-b2c-app-integration-logging](../../includes/active-directory-b2c-app-integration-logging.md)]
 
-To configure Angular [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/logging.md), in *src/app/auth-config.ts*, configure the following keys:
+To configure Angular [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/logging.md), in *src/app/auth-config.ts*, configure the following keys:
 
 - `loggerCallback` is the logger callback function. 
 - `logLevel` lets you specify the level of logging. Possible values: `Error`, `Warning`, `Info`, and `Verbose`.
