@@ -36,7 +36,7 @@ For the best performance for production workloads of Oracle Database on Azure, b
 ## Deploy Oracle VM images on Microsoft Azure
 This section covers information about Oracle solutions based on virtual machine (VM) images published by Oracle in the Azure Marketplace.
 To get a list of currently available Oracle images, run the following command using
-Azure CLI or Azure Cloudshell
+Azure CLI or Azure Cloud Shell
 
 ``az vm image list --publisher oracle --output table –all``
 

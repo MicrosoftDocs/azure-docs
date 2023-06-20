@@ -96,7 +96,7 @@ Each of these options has advantages or disadvantages in the areas of capacity, 
 
 <sup>11</sup> [ANF calculator](https://anftechteam.github.io/calc/) is useful for quick pricing calculations.
 
-## next steps
+## Next steps
 [Storage options for oracle on Azure VMs](oracle-storage.md)
 
 
