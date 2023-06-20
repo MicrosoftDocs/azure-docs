@@ -41,8 +41,8 @@ Learn more about the [shared responsibility model for sustainability](/azure/arc
 
     There are two main approaches to hardware efficiency:
 
-    1. For end-user devices, it's extending hardware lifespan.
-    2. For cloud computing, it's increasing resource utilization.
+    - For end-user devices, it's extending hardware lifespan.
+    - For cloud computing, it's increasing resource utilization.
 
 * **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
