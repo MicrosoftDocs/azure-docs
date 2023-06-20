@@ -37,7 +37,7 @@ This TLS certificate migration is critical for the security of our customers and
 
 As of June 2023 the extension request process is closed for IoT Hub customers.
 
-For IoT Central customers who absolutely can't have their devices updated by the end of June 2023, [fill out this form](https://aka.ms/BaltimoreAllowCentral) with the details of your extension request, and then [email us](mailto:iot-ca-updates@microsoft.com?subject=Requesting%20extension%20for%20Baltimore%20migration) with a message that indicates you've completed the form, along with your company name. We can flag the specific IoT Central apps to be migrated later in the rollout window.
+IoT Central applications are scheduled for migration between June 15th and October 15th, 2023. For IoT Central customers who absolutely can't have their devices ready for migration by June 2023, [fill out this form](https://aka.ms/BaltimoreAllowCentral) before August 15, 2023 with the details of your extension request, and then [email us](mailto:iot-ca-updates@microsoft.com?subject=Requesting%20extension%20for%20Baltimore%20migration) with a message that indicates you've completed the form, along with your company name. We can flag the specific IoT Central apps to be migrated on the requested extension date.
 
 > [!NOTE]
 > We are collecting this information to help with the Baltimore migration. We will hold onto this information until October 15th, 2023, when this migration is slated to complete. If you would like us to delete this information, please [email us](mailto:iot-ca-updates@microsoft.com) and we can assist you. For any additional questions about the Microsoft privacy policy, see the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
