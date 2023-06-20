@@ -98,7 +98,7 @@ The `search_experiments()` method available since Mlflow 2.0 allows searching ex
 
 ## Query and search runs on experiments
 
-MLflow allows searching runs inside of any experiment, including multiple experiments at the same time. The method `mlflow.search_runs()` accepts the argument `experiment_ids` and `experiment_name` to indicate on which experiments you want to search.
+MLflow allows searching runs inside of any experiment, including multiple experiments at the same time. The method `mlflow.search_runs()` accepts the argument `experiment_ids` and `experiment_name` to indicate on which experiments you want to search. You can also indicate `search_all_experiments=True` if you want to search across all the experiments in the workspace:
 
 * By experiment name:
 
@@ -112,16 +112,13 @@ MLflow allows searching runs inside of any experiment, including multiple experi
     mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ])
     ```
 
-> [!TIP]
-> Notice that `experiment_ids` supports providing an array of experiments, so you can search runs across multiple experiments if required. This may be useful in case you want to compare runs of the same model when it is being logged in different experiments (by different people, different project iterations, etc).
-
-The method `search_runs()` requires indicating the experiment name or ID you want to search runs in. You can also indicate `search_all_experiments=True` if you want to search across all the experiments in the workspace:
-
 * Search across all experiments in the workspace:
 
     ```python
     mlflow.search_runs(filter_string="params.num_boost_round='100'", search_all_experiments=True)
     ``` 
+
+Notice that `experiment_ids` supports providing an array of experiments, so you can search runs across multiple experiments if required. This may be useful in case you want to compare runs of the same model when it is being logged in different experiments (by different people, different project iterations, etc).
 
 > [!IMPORTANT]
 > If `experiment_ids`, `experiment_names`, or `search_all_experiments` are not indicated, then MLflow will search by default in the current active experiment. You can set the active experiment using `mlflow.set_experiment()`
