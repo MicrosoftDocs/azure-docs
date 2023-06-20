@@ -110,7 +110,7 @@ The conversation analysis authoring API enables you to author custom models and 
 * [Conversational language understanding](../conversational-language-understanding/quickstart.md?pivots=rest-api)
 * [Orchestration workflow](../orchestration-workflow/quickstart.md?pivots=rest-api)
 
-As you use this API in your application, see the [reference documentation](/rest/api/language/2022-05-01/conversational-analysis-authoring) for additional information.
+As you use this API in your application, see the [reference documentation](/rest/api/language/2023-04-01/conversational-analysis-authoring) for additional information.
 
 ### Conversation analysis runtime API
 
