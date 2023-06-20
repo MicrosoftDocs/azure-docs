@@ -8,7 +8,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: how-to
-ms.date: 5/1/2023
+ms.date: 6/20/2023
 ms.author: greglin
 ---
 
@@ -40,12 +40,12 @@ Apply the following deployment.yaml file on your cluster:
 kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
 ```
 
-This creates the following on your cluster:
-- a namespace called `test-infra`
-- 1 service called `mtls-app` in the `test-infra` namespace
-- 1 deployment called `mtls-app` in the `test-infra` namespace
-- 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
-- 4 secrets called `backend.com`, `frontend.com` `gateway-client-cert` and `ca.bundle` in the `test-infra` namespace
+This command creates the following on your cluster:
+- A namespace called `test-infra`
+- One service called `mtls-app` in the `test-infra` namespace
+- One deployment called `mtls-app` in the `test-infra` namespace
+- One config map called `mtls-app-nginx-cm` in the `test-infra` namespace
+- Four secrets called `backend.com`, `frontend.com` `gateway-client-cert` and `ca.bundle` in the `test-infra` namespace
 
 ## Deploy the required gateway api objects
 
@@ -78,7 +78,7 @@ This creates the following on your cluster:
     EOF
     ```
 
-    Once the gateway object has been created check the status on the object to ensure that the gateway is valid and the listener is ready. Verify that the address assigned to the gateway is the resource ID of your public IP Address
+    Once the gateway object has been created check the status on the object to ensure that the gateway is valid, and the listener is ready. Verify that the address assigned to the gateway is the resource ID of your public IP Address
 
 2. Create an HTTPRoute
     ```bash
@@ -134,7 +134,7 @@ This creates the following on your cluster:
 
 ## Test access to the application
 
-Now we're ready to send some traffic to our sample application, via the public IP Address. Use the command below to get the IP address
+Now we're ready to send some traffic to our sample application, via the public IP Address. Use the following command to get the IP address:
 
 Curling this IP should return responses from the backend as configured on the HTTPRoute.
 ```bash

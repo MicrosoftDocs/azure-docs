@@ -19,12 +19,12 @@ Application Gateway for Containers is made up of three components:
 - Frontends
 - Associations
 
-The following dependencies are also referenced in an Application Gateway for Containers deployment
+The following dependencies are also referenced in an Application Gateway for Containers deployment:
 - Private IP address
 - Subnet Delegation
 - User-assigned Managed Identity
 
-:::image type="content" source="./media/concepts-how-traffic-controller-works/application-gateway-for-containers-kubernetes-conceptual.png" alt-text="Diagram depicting traffic from the Internet ingressing into Application Gateway for Containers and being sent to backend pods in AKS.":::
+![Diagram depicting traffic from the Internet ingressing into Application Gateway for Containers and being sent to backend pods in AKS.](./media/concepts-how-traffic-controller-works/application-gateway-for-containers-kubernetes-conceptual.png)
 
 ## Application Gateway for Containers Concepts
 
@@ -32,23 +32,23 @@ The following dependencies are also referenced in an Application Gateway for Con
 - Application Gateway for Containers is a parent resource that deploys the control plane
 - The control plane is what orchestrates date plane proxy configuration based on customer intent.
 - Application Gateway for Containers has two child resources; associations and frontends
-  - Child resources are exclusive to only their parent Application Gateway for Containers and may not be referenced by additional Application Gateway for Containerss
+  - Child resources are exclusive to only their parent Application Gateway for Containers and may not be referenced by additional Application Gateway for Containers
 
 ### Application Gateway for Containers Frontends
 - An Application Gateway for Containers Frontend defines the entry point client traffic should be received by a given Application Gateway for Containers
-   - A frontend can't be associated to multiple Application Gateway for Containerss
+   - A frontend can't be associated to multiple Application Gateway for Containers
    - Each frontend provides a unique FQDN that can be referenced by a customer's CNAME record 
    - Private IP addresses are currently unsupported
 - A single Application Gateway for Containers can support multiple Frontends
 
 ### Application Gateway for Containers Association
 - An Application Gateway for Containers Association defines a connection point into a virtual network.  An association is a 1:1 mapping of an association resource to an Azure Subnet that has been delegated.
-- Application Gateway for Containerss are designed to allow for multiple associations
+- Application Gateway for Containers are designed to allow for multiple associations
    - The current number of associations is currently limited to 1
 - During creation of an association, the underlying data plane is provisioned and connected to a subnet within the defined virtual network's subnet
 - Each association should assume at least 256 addresses are available in the subnet at time of provisioning.
    - A minimum /24 subnet mask for new deployment, assuming nothing has been provisioning in the subnet).
-      - If n number of Application Gateway for Containerss are provisioned, with the assumption each Application Gateway for Containers contains one association, and the desired is to share the same subnet, the available required addresses should be n*256.
+      - If n number of Application Gateway for Containers are provisioned, with the assumption each Application Gateway for Containers contains one association, and the desired is to share the same subnet, the available required addresses should be n*256.
    - All Application Gateway for Containers association resources should match the same region as the Application Gateway for Containers parent resource
 
 ## Azure / General concepts

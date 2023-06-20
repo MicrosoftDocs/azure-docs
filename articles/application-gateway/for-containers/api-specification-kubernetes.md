@@ -23,7 +23,7 @@ BackendTLSPolicy is the schema for the BackendTLSPolicys API
 | Field	| Description |
 | ------- | ------------------------- |
 | `metadata`<br/>Kubernetes meta/v1.ObjectMeta | (Optional)<br/>Object's metadata.<br/><br/>Refer to the Kubernetes API documentation for the fields of the metadata field. |
-| `spec`<br/>BackendTLSPolicySpec	| Spec is the BackendTLSPolicy specification.<br/><br/><table><tr><td><code>targetRef</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference" rel="nofollow">Gateway API.PolicyTargetReference</a></em><td><p dir="auto">TargetRef identifies an API object to apply policy to.<tr><td><code>override</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#networking.azure.io/v1alpha1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a></em><td><em>(Optional)</em><p dir="auto">Override defines policy configuration that should override policy configuration attached below the targeted resource in the hierarchy.<tr><td><code>default</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#networking.azure.io/v1alpha1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a></em><td><em>(Optional)</em><p dir="auto">Default defines default policy configuration for the targeted resource.</table> |
+| `spec`<br/>BackendTLSPolicySpec	| Spec is the BackendTLSPolicy specification.<br/><br/><table><tr><td><code>targetRef</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference" rel="nofollow">Gateway API.PolicyTargetReference</a></em><td><p dir="auto">*TargetRef* identifies an API object to apply policy to.<tr><td><code>override</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#networking.azure.io/v1alpha1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a></em><td><em>(Optional)</em><p dir="auto">*Override* defines policy configuration that should override policy configuration attached below the targeted resource in the hierarchy.<tr><td><code>default</code><br><em><a href="https://gateway-api.sigs.k8s.io/references/spec/#networking.azure.io/v1alpha1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a></em><td><em>(Optional)</em><p dir="auto">*Default* defines default policy configuration for the targeted resource.</table> |
 | `status`<br/>BackendTLSPolicyStatus	| Status defines the current state of BackendTLSPolicy. |
 
 ### BackendTLSPolicyConditionReason (string alias)
@@ -57,9 +57,9 @@ BackendTLSPolicyConfig defines the policy specification for the Backend TLS Poli
 | Field | Description |
 | ------- | ------------------------- |
 | `CommonTLSPolicy`<br/>CommonTLSPolicy | (Members of CommonTLSPolicy are embedded into this type.) |
-| `sni`<br/>string | (Optional)<br/>Sni is the server name to use for the TLS connection to the backend. |
-| `ports`<br/>[]BackendTLSPolicyPort | Ports specifies the list of ports where the policy is applied. |
-| `clientCertificateRef`<br/>Gateway API.SecretObjectReference	| (Optional)<br/>ClientCertificateRef is the reference to the client certificate to use for the TLS connection to the backend. |
+| `sni`<br/>string | (Optional)<br/>*SNI* is the server name to use for the TLS connection to the backend. |
+| `ports`<br/>[]BackendTLSPolicyPort | *Ports* specifies the list of ports where the policy is applied. |
+| `clientCertificateRef`<br/>Gateway API.SecretObjectReference	| (Optional)<br/>*ClientCertificateRef* is the reference to the client certificate to use for the TLS connection to the backend. |
 
 ### BackendTLSPolicyPort
 (Appears on:BackendTLSPolicyConfig)
@@ -77,9 +77,9 @@ BackendTLSPolicySpec defines the desired state of BackendTLSPolicy
 
 | Field | Description |
 | ------- | ------------------------- |
-| `targetRef`<br/>Gateway API.PolicyTargetReference | TargetRef identifies an API object to apply policy to. |
-| `override`<br/>BackendTLSPolicyConfig | (Optional)<br/>Override defines policy configuration that should override policy configuration attached below the targeted resource in the hierarchy. |
-| `default`<br/>BackendTLSPolicyConfig | (Optional)<br/>Default defines default policy configuration for the targeted resource. |
+| `targetRef`<br/>Gateway API.PolicyTargetReference | *TargetRef* identifies an API object to apply policy to. |
+| `override`<br/>BackendTLSPolicyConfig | (Optional)<br/>*Override* defines policy configuration that should override policy configuration attached below the targeted resource in the hierarchy. |
+| `default`<br/>BackendTLSPolicyConfig | (Optional)<br/>*Default* defines default policy configuration for the targeted resource. |
 
 ### BackendTLSPolicyStatus
 (Appears on:BackendTLSPolicy)
@@ -88,7 +88,7 @@ BackendTLSPolicyStatus defines the observed state of BackendTLSPolicy.
 
 | Field | Description |
 | ------- | ------------------------- |
-| `conditions`<br/>[]Kubernetes meta/v1.Condition | (Optional)<br/>Conditions describe the current conditions of the BackendTLSPolicy.<br/><br/>Implementations should prefer to express BackendTLSPolicy conditions using the BackendTLSPolicyConditionType and BackendTLSPolicyConditionReason constants so that operators and tools can converge on a common vocabulary to describe BackendTLSPolicy state.<br/><br/>Known condition types are:<br/>- "Accepted"<br/>-"Ready" |
+| `conditions`<br/>[]Kubernetes meta/v1.Condition | (Optional)<br/>*Conditions* describe the current conditions of the BackendTLSPolicy.<br/><br/>Implementations should prefer to express BackendTLSPolicy conditions using the BackendTLSPolicyConditionType and BackendTLSPolicyConditionReason constants so that operators and tools can converge on a common vocabulary to describe BackendTLSPolicy state.<br/><br/>Known condition types are:<br/>- "Accepted"<br/>-"Ready" |
 
 
 ### CommonTLSPolicy
@@ -98,7 +98,7 @@ CommonTLSPolicy is the schema for the CommonTLSPolicy API
 
 | Field | Description |
 | ------- | ------------------------- |
-| `verify`<br/>CommonTLSPolicyVerify | _(Optional)_ Verify provides the options to verify the backend certificate |
+| `verify`<br/>CommonTLSPolicyVerify | _(Optional)_ *Verify* provides the options to verify the backend certificate |
 
 ### CommonTLSPolicyVerify
 (Appears on:CommonTLSPolicy)
@@ -107,5 +107,5 @@ CommonTLSPolicyVerify defines the schema for the CommonTLSPolicyVerify API
 
 | Field | Description |
 | ------------------------- | ------- |
-| `caCertificateRef`<br/> Gateway API.SecretObjectReference | CaCertificateRef is the CA certificate used to verify peer certificate of the backend. |
-| `subjectAltName`<br/>_string_ | SubjectAltName is the subject alternative name used to verify peer certificate of the backend. |
+| `caCertificateRef`<br/> Gateway API.SecretObjectReference | *CaCertificateRef* is the CA certificate used to verify peer certificate of the backend. |
+| `subjectAltName`<br/>_string_ | *SubjectAltName* is the subject alternative name used to verify peer certificate of the backend. |
