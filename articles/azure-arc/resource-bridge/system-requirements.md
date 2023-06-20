@@ -178,7 +178,7 @@ Arc resource bridge uses a MOC login credential called [KVA token](/azure-stack/
    
 To use AKS and Arc resource bridge together on Azure Stack HCI, AKS must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS can't be deployed unless you delete Arc resource bridge first. Once AKS is deployed to Azure Stack HCI, you can deploy Arc resource bridge.
 
-When deploying Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the following configurations must be applied:
+When you deploy Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the following configurations must be applied:
 
 - Arc resource bridge and AKS-HCI should share the same `vswitchname` and be in the same subnet, sharing the same value for the parameter, `ipaddressprefix` .
 
