@@ -4,13 +4,13 @@ description: Learn how Azure App Service helps you develop and host web applicat
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 07/21/2021
+ms.date: 06/14/2023
 ms.custom: UpdateFrequency3
 ---
 
 # App Service overview
 
-*Azure App Service* is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and [Linux](#app-service-on-linux)-based environments.
+*Azure App Service* is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Node.js, PHP, and Python. Applications run and scale with ease on both Windows and [Linux](#app-service-on-linux)-based environments.
 
 App Service adds the power of Microsoft Azure to your application, such as security, load balancing, autoscaling, and automated management. Additionally, you can take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps, GitHub, Docker Hub, and other sources, package management, staging environments, custom domain, and TLS/SSL certificates.
 
@@ -50,10 +50,6 @@ If you need to create another web app with an outdated runtime version that is n
 
 ### Limitations
 
-> [!NOTE]
-> Linux and Windows App Service plans can now share resource groups. This limitation has been lifted from the platform and existing resource groups have been updated to support this.
->
-
 * App Service on Linux is not supported on [Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) pricing tier.
 * The Azure portal shows only features that currently work for Linux apps. As features are enabled, they're activated on the portal.
 * When deployed to built-in images, your code and content are allocated a storage volume for web content, backed by Azure Storage. The disk latency of this volume is higher and more variable than the latency of the container filesystem. Apps that require heavy read-only access to content files may benefit from the custom container option, which places files in the container filesystem instead of on the content volume.
@@ -61,6 +57,9 @@ If you need to create another web app with an outdated runtime version that is n
 ## Next steps
 
 Create your first web app.
+
+> [!div class="nextstepaction"]
+> [Getting started)](getting-started.md)
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)

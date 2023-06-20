@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
-ms.date: 07/28/2022
+ms.date: 06/14/2023
 ---
 
 # Enable Microsoft Defender for SQL servers on machines
@@ -123,30 +123,6 @@ To view alerts:
 
     [Learn more about managing and responding to alerts](managing-and-responding-alerts.md).
 
-## FAQ - Microsoft Defender for SQL servers on machines
-
-### If I enable this Microsoft Defender plan on my subscription, are all SQL servers on the subscription protected?
-
-No. To defend a SQL Server deployment on an Azure virtual machine, or a SQL Server running on an Azure Arc-enabled machine, Defender for Cloud requires:
-
-- a Log Analytics agent on the machine
-- the relevant Log Analytics workspace to have the Microsoft Defender for SQL solution enabled
-
-The subscription *status*, shown in the SQL server page in the Azure portal, reflects the default workspace status and applies to all connected machines. Only the SQL servers on hosts with a Log Analytics agent reporting to that workspace are protected by Defender for Cloud.
-
-### Is there a performance effect from deploying Microsoft Defender for Azure SQL on machines?
-
-The focus of **Microsoft Defender for SQL on machines** is obviously security. But we also care about your business and so we've prioritized performance to ensure the minimal effect on your SQL servers.
-
-The service has a split architecture to balance data uploading and speed with performance:
-
-- Some of our detectors, including an [extended events trace](/azure/azure-sql/database/xevent-db-diff-from-svr) named `SQLAdvancedThreatProtectionTraffic`, run on the machine for real-time speed advantages.
-- Other detectors run in the cloud to spare the machine from heavy computational loads.
-
-Lab tests of our solution showed CPU usage averaging 3% for peak slices, comparing it against benchmark loads. An analysis of our current user data shows a negligible effect on CPU and memory usage.
-
-Of course, performance always varies between environments, machines, and loads. The statements and numbers above are provided as a general guideline, not a guarantee for any individual deployment.
-
 ## Next steps
 
 For related information, see these resources:
@@ -155,3 +131,4 @@ For related information, see these resources:
 - [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
+- Check out [common questions](faq-defender-for-databases.yml) about Defender for Databases.

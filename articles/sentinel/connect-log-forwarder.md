@@ -26,13 +26,19 @@ Using the link provided below, you will run a script on the designated machine t
     - listening for Syslog messages from your security solutions on TCP port 514
     - forwarding only the messages it identifies as CEF to the Log Analytics agent on localhost using TCP port 25226
 
-For information about deploying Syslog and/or CEF logs with the Azure Monitor Agent, review the [options for streaming logs in the CEF and Syslog format to Microsoft Sentinel](connect-cef-syslog-options.md).
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md). 
+>
+> For information about deploying Syslog and/or CEF logs with the Azure Monitor Agent, review the [options for streaming logs in the CEF and Syslog format to Microsoft Sentinel](connect-cef-syslog-options.md).
  
 ## Prerequisites
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
 Install the product solution from the **Content Hub** in Microsoft Sentinel. If the product isn't listed, install the solution for **Common Event Format**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
+> [!IMPORTANT]
+> Operating system versions may have different support dates and lifecycles. We recommend that you check the official documentation of each distribution for the most accurate and up-to-date support and end of life dates.
 
 Your machine must meet the following requirements:
 
@@ -46,11 +52,11 @@ Your machine must meet the following requirements:
 - **Operating system**
 
     - CentOS 7 and 8 (not 6), including minor versions (64-bit/32-bit)
-    - Amazon Linux 2017.09 and Amazon Linux 2 (64-bit only)
+    - Amazon Linux 2 (64-bit only)
     - Oracle Linux 7, 8 (64-bit/32-bit)
     - Red Hat Enterprise Linux (RHEL) Server 7 and 8 (not 6), including minor versions (64-bit/32-bit)
     - Debian GNU/Linux 8 and 9 (64-bit/32-bit)
-    - Ubuntu Linux 14.04 LTS and 16.04 LTS (64-bit/32-bit), 18.04 LTS (64-bit only), and 20.04 LTS (64-bit only)
+    - Ubuntu Linux 20.04 LTS (64-bit only)
     - SUSE Linux Enterprise Server 12, 15 (64-bit only)
 
 - **Daemon versions**
