@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 To send events from Azure Event Hubs to Azure Monitor Logs, you need these resources, all in the same region:
 
 - [Log Analytics workspace](../logs/quick-create-workspace.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
+- Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster) or to have a [commitment tier](../logs/cost-logs.md#commitment-tiers).
 - [Event Hubs namespace](/azure/event-hubs/event-hubs-features#namespace) that permits public network access. Private Link and Network Security Perimeters (NSP) are currently not supported.
 - [Event hub](/azure/event-hubs/event-hubs-create) with events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
@@ -119,9 +119,10 @@ To create a custom table into which to ingest events, in the Azure portal:
     ```
 
 > [!IMPORTANT]
-> When creating a custom table, follow these naming guidelines:
-> * Custom table names must have the `_CL` suffix.
-> * Column names can consist of alphanumeric characters and the characters `_` and `-`. They must start with a letter. 
+> - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
+> - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
+> - Custom columns you add to an Azure table must have the suffix `_CF`.
+> - If you update the table schema in your Log Analytics workspace, you must also update the input stream definition in the data collection rule to ingest data into new or modified columns.
 
 ## Create a data collection endpoint
 
