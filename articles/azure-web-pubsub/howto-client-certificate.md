@@ -31,7 +31,7 @@ We enable client certificate authentication via the property `tls.clientCertEnab
 
 We configure an event handler for `connect` event so we can validate client thumbprint. Also note that `anonymousConnectPolicy` needs to be set to `allow` so clients no longer need to send access tokens. 
 
-### [Bicep](#tab/bicep)
+### Bicep
 
 ```bicep
 param name string
@@ -73,7 +73,7 @@ resource hub 'Microsoft.SignalRService/WebPubSub/hubs@2023-03-01-preview' = {
 }
 ```
 
-### [ARM](#tab/arm)
+### ARM
 
 ```json
 {
@@ -144,7 +144,7 @@ You can validate incoming client certificate via its SHA-1 thumbprint in the `co
 
 Here are sample function codes to implement validation logic.
 
-### [JavaScript](#tab/javascript)
+### JavaScript
 
 ```javascript
 module.exports = async function (context, req) {
