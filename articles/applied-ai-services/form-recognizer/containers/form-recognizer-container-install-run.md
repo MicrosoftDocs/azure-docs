@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 06/19/2023
 ms.author: lajanuar
 ---
 
@@ -248,7 +248,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5050"
+      - "5000:5000"
   azure-cognitive-service-layout:
      container_name: azure-cognitive-service-layout
      image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -310,8 +310,8 @@ services:
         - billing={FORM_RECOGNIZER_ENDPOINT_URI}
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
-  ports:
-      - "5000:5050"
+    ports:
+      - "5000:5000"
   azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -343,7 +343,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-          - "5000:5050"
+          - "5000:5000"
     azure-cognitive-service-read:
       container_name: azure-cognitive-service-read
       image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
@@ -366,7 +366,7 @@ The following code sample is a self-contained `docker compose`  example to run t
 ```yml
 version: "3.9"
 services:
-  azure-cognitive-service-receipt:
+  azure-cognitive-service-id-document:
       container_name: azure-cognitive-service-id-document
       image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document-3.0
       environment:
@@ -375,7 +375,7 @@ services:
           - apiKey={FORM_RECOGNIZER_KEY}
           - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
       ports:
-          - "5000:5050"
+          - "5000:5000"
   azure-cognitive-service-read:
       container_name: azure-cognitive-service-read
       image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
@@ -757,7 +757,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5050"
+      - "5000:5000"
     networks:
       - ocrvnet
   azure-cognitive-service-layout:
@@ -797,7 +797,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5050"
+      - "5000:5000"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -837,7 +837,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5050"
+      - "5000:5000"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -877,7 +877,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5050"
+      - "5000:5000"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
