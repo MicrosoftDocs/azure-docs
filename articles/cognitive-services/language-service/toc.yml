@@ -323,7 +323,7 @@ items:
     - name: Runtime prediction API
       items:
       - name: REST API
-        href: https://aka.ms/clu-runtime-api
+        href: /rest/api/language/2023-04-01/conversation-analysis-runtime/analyze-conversation
       - name: SDK
         items:
         - name: C#
@@ -710,7 +710,7 @@ items:
     - name: Runtime prediction API
       items:
       - name: REST API
-        href: https://aka.ms/clu-runtime-api
+        href: /rest/api/language/2023-04-01/conversation-analysis-runtime/analyze-conversation
       - name: SDK
         items:
         - name: C#
