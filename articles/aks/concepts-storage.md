@@ -2,7 +2,7 @@
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims.
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 06/20/2023
 
 ---
 
@@ -26,6 +26,17 @@ This article introduces the core concepts that provide storage to your applicati
 
 ![Storage options for applications in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-options.png)
 
+## Ephemeral OS disk
+
+By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss when the VM is relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks. These drawbacks include, but aren't limited to, slower node provisioning and higher read/write latency.
+
+By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. With this configuration, you get lower read/write latency, together with faster node scaling and cluster upgrades.
+
+> [!NOTE]
+> When you don't explicitly request [Azure managed disks][azure-managed-disks] for the OS, AKS defaults to ephemeral OS if possible for a given node pool configuration.
+
+Size requirements and recommendations for ephemeral OS disks are available in the [Azure VM documentation][azure-vm-ephemeral-os-disks].
+
 ## Volumes
 
 Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches available to them for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
@@ -33,7 +44,7 @@ Kubernetes typically treats individual pods as ephemeral, disposable resources. 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure Disk][disks-types], [Azure Files][storage-files-planning], [Azure NetApp Files][azure-netapp-files-service-levels], or [Azure Blobs][storage-account-overview].
 
 > [!NOTE]
-> Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
+> Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some high perfomance VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
 
 To help determine best fit for your workload between Azure Files and Azure NetApp Files, review the information provided in the article [Azure Files and Azure NetApp Files comparison][azure-files-azure-netapp-comparison].
 
@@ -245,6 +256,8 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 
 <!-- INTERNAL LINKS -->
 [disks-types]: ../virtual-machines/disks-types.md
+[azure-managed-disks]: ../virtual-machines/managed-disks-overview.md
+[azure-vm-ephemeral-os-disks]: ../virtual-machines/ephemeral-os-disks.md
 [storage-files-planning]: ../storage/files/storage-files-planning.md
 [azure-netapp-files-service-levels]: ../azure-netapp-files/azure-netapp-files-service-levels.md
 [storage-account-overview]: ../storage/common/storage-account-overview.md
