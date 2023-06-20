@@ -6,6 +6,8 @@ items:
   items:   
     - name: What is Azure Active Directory for customers?  
       href: overview-customers-ciam.md 
+    - name: Demo overview
+      href: overview-solutions-customers.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -110,6 +112,9 @@ items:
                     href: how-to-web-app-node-sign-in-sign-in-out.md
                   - name: Use client certificate
                     href: how-to-web-app-node-use-certificate.md 
+                  - name: Use role-based access control
+                    href: how-to-web-app-role-based-access-control.md 
+                    displayName: rbac, roles claim, groups claim
               - name: Sign in users and call an API
                 items:
                   - name: Overview
@@ -220,6 +225,7 @@ items:
             href: how-to-facebook-federation-customers.md
       - name: Use application roles to manage access
         href: how-to-use-app-roles-customers.md
+        displayName: rbac, roles claim, groups claim
     - name: Customize
       items:
         - name: Customize branding
