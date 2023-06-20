@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python, ignite-2022
 
 # Query & compare experiments and runs with MLflow
 
-Experiments and runs in Azure Machine Learning can be queried using MLflow. You don't need to install any specific SDK to manage what happens inside of a training job, creating a more seamless transition between local runs and the cloud by removing cloud-specific dependencies. In this article, you'll learn how to query and compare experiments and runs in your workspace using Azure Machine Learning and MLflow SDK in Python.
+Experiments and jobs (or runs) in Azure Machine Learning can be queried using MLflow. You don't need to install any specific SDK to manage what happens inside of a training job, creating a more seamless transition between local runs and the cloud by removing cloud-specific dependencies. In this article, you'll learn how to query and compare experiments and runs in your workspace using Azure Machine Learning and MLflow SDK in Python.
 
 MLflow allows you to:
 
@@ -28,15 +28,19 @@ See [Support matrix for querying runs and experiments in Azure Machine Learning]
 > [!NOTE]
 > The Azure Machine Learning Python SDK v2 does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure Machine Learning.
 
+### REST API
+
+Query and searching experiments and runs is also available using the MLflow REST API. See [Using MLflow REST with Azure Machie Learning](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/using-rest-api/using_mlflow_rest_api.ipynb) for an example about how to consume it.
+
 ### Prerequisites
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
 ## Query experiments
 
-Use MLflow to search for experiments inside of your workspace.
+Use MLflow to search for experiments inside of your workspace. See the following examples:
 
-* Get all the active experiments:
+* Get all active experiments:
 
     ```python
     mlflow.search_experiments()
@@ -67,7 +71,7 @@ Use MLflow to search for experiments inside of your workspace.
 
 ### Searching experiments
 
-The `search_experiments()` method available since Mlflow 2.0 allows searching experiment matching a criteria using `filter_string`. The following query retrieves three experiments with different IDs.
+The `search_experiments()` method available since Mlflow 2.0 allows searching experiment matching a criteria using `filter_string`.
 
 * Retireve multiple experiments based on their IDs:
 
@@ -94,13 +98,7 @@ The `search_experiments()` method available since Mlflow 2.0 allows searching ex
 
 ## Query and search runs on experiments
 
-MLflow allows searching runs inside of any experiment, including multiple experiments at the same time. By default, MLflow returns the data in Pandas `Dataframe` format, which makes it handy when doing further processing our analysis of the runs. Returned data includes columns with:
-
-- Basic information about the run.
-- Parameters with column's name `params.<parameter-name>`.
-- Metrics (last logged value of each) with column's name `metrics.<metric-name>`.
-
-### Getting all the runs from an experiment
+MLflow allows searching runs inside of any experiment, including multiple experiments at the same time. The method `mlflow.search_runs()` accepts the argument `experiment_ids` and `experiment_name` to indicate on which experiments you want to search.
 
 * By experiment name:
 
@@ -114,11 +112,27 @@ MLflow allows searching runs inside of any experiment, including multiple experi
     mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ])
     ```
 
-    > [!TIP]
-    > Notice that `experiment_ids` supports providing an array of experiments, so you can search runs across multiple experiments if required. This may be useful in case you want to compare runs of the same model when it is being logged in different experiments (by different people, different project iterations, etc). You can also use `search_all_experiments=True` if you want to search across all the experiments in the workspace.
-    
-    > [!NOTE]
-    > All metrics and parameters are also returned when queryng runs. However, for metrics containing multiple values (for instance, a loss curve, or a PR curve), only the last value of the metric is returned. If you want to retrieve all the values of a given metric, uses `mlflow.get_metric_history` method. See [Getting params and metrics from a run](#getting-params-and-metrics-from-a-run) for an example.
+> [!TIP]
+> Notice that `experiment_ids` supports providing an array of experiments, so you can search runs across multiple experiments if required. This may be useful in case you want to compare runs of the same model when it is being logged in different experiments (by different people, different project iterations, etc).
+
+The method `search_runs()` requires indicating the experiment name or ID you want to search runs in. You can also indicate `search_all_experiments=True` if you want to search across all the experiments in the workspace:
+
+* Search across all experiments in the workspace:
+
+    ```python
+    mlflow.search_runs(filter_string="params.num_boost_round='100'", search_all_experiments=True)
+    ``` 
+
+> [!IMPORTANT]
+> If `experiment_ids`, `experiment_names`, or `search_all_experiments` are not indicated, then MLflow will search by default in the current active experiment. You can set the active experiment using `mlflow.set_experiment()`
+
+By default, MLflow returns the data in Pandas `Dataframe` format, which makes it handy when doing further processing our analysis of the runs. Returned data includes columns with:
+
+- Basic information about the run.
+- Parameters with column's name `params.<parameter-name>`.
+- Metrics (last logged value of each) with column's name `metrics.<metric-name>`.
+
+All metrics and parameters are also returned when quering runs. However, for metrics containing multiple values (for instance, a loss curve, or a PR curve), only the last value of the metric is returned. If you want to retrieve all the values of a given metric, uses `mlflow.get_metric_history` method. See [Getting params and metrics from a run](#getting-params-and-metrics-from-a-run) for an example.
 
 ### Ordering runs
 
@@ -224,15 +238,12 @@ When filtering runs by status, notice that MLflow uses a different convention to
 | Failed | `FAILED` | The job/run has completed with errors. |
 | Canceled | `KILLED` | The job/run has been canceled or killed by the user/system. |
 
-### Searching runs across experiments
-
-The method `search_runs` require you to indicate the experiment name or ID you want to search runs in. However, if you want to query runs across multiple experiments, you can indicate the argument `search_all_experiments=True` to expand the search.
+Example:
 
 ```python
-mlflow.search_runs(filter_string="params.num_boost_round='100'", search_all_experiments=True)
-``` 
-
-Notice that if `search_all_experiments` is not indicated and no experiment ID or name is indicated, the search is performed in the current active experiment (the one indicated in `mlflow.set_experiment()` method).
+mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], 
+                   filter_string="attributes.status = 'Failed'")
+```
   
 ## Getting metrics, parameters, artifacts and models
 
