@@ -37,7 +37,7 @@ If you're using the scenario of sharing the DR target with a QA system in one VM
 - Delta_datashipping might require drastically less memory without the preload option than logreplay could require. See chapter 4.3 of the SAP document [How To Perform System Replication for SAP HANA](https://www.sap.com/documents/2017/07/606a676e-c97c-0010-82c7-eda71af511fa.html)
 - The memory requirement of logreplay operation mode without preload isn't deterministic and depends on the columnstore structures loaded. In extreme cases, you might require 50% of the memory of the primary instance. The memory for logreplay operation mode is independent on whether you chose to have the data preloaded set or not.
 
-![Diagram of two VMs over two regions](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.png).
+![Diagram of two VMs over two regions.](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.png)
 
 > [!NOTE]
 > In this configuration, you can't provide an RPO=0 because your HANA system replication mode is asynchronous. If you need to provide an RPO=0, this configuration isn't the configuration of choice.
@@ -54,13 +54,13 @@ A combination of availability within and across regions might be driven by these
 
 In these cases, you can set up what SAP calls an [SAP HANA multi-tier system replication configuration](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) by using HANA system replication. The architecture would look like:
 
-![Diagram of three VMs over two regions](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.png).
+![Diagram of three VMs over two regions.](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.png)
 
 SAP introduced [multi-target system replication](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) with HANA 2.0 SPS3. Multi-target system replication brings some advantages in update scenarios. For example, the DR site (Region 2) isn't impacted when the secondary HA site is down for maintenance or updates.
 You can find out more about HANA multi-target system replication at the [SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
 Possible architecture with multi-target replication would look like:
 
-![Diagram of three VMs over two regions multi-target](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.png).
+![Diagram of three VMs over two regions multi-target.](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.png)
 
 If the organization has requirements for high availability readiness in the second(DR) Azure region, then the architecture would look like:
 
