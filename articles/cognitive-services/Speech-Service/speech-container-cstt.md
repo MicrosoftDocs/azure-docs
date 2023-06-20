@@ -194,17 +194,17 @@ If you have been approved to run the container disconnected from the internet, t
 
 In order to prepare and configure a disconnected custom speech to text container you will need two separate speech resources:
 
-- A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This is used to train, download, and configure your custom speech models for use in your container.
-- An Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
+- A regular Azure Cognitive Services Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This is used to train, download, and configure your custom speech models for use in your container.
+- An Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
 
 Follow these steps to download and run the container in disconnected environments. 
-1. [Download a model for the disconnected container](#download-a-model-for-the-disconnected-container). For this step, use a regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
-1. [Download the disconnected container license](#download-the-disconnected-container-license). For this step, use an Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
-1. [Run the disconnected container for service](#run-the-disconnected-container). For this step, use an Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+1. [Download a model for the disconnected container](#download-a-model-for-the-disconnected-container). For this step, use a regular Azure Cognitive Services Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
+1. [Download the disconnected container license](#download-the-disconnected-container-license). For this step, use an Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+1. [Run the disconnected container for service](#run-the-disconnected-container). For this step, use an Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
 ### Download a model for the disconnected container
 
-For this step, use a regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
+For this step, use a regular Azure Cognitive Services Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
 
 [!INCLUDE [Custom speech container run](includes/containers-cstt-common-run.md)]
 
@@ -223,7 +223,7 @@ You can only use a license file with the appropriate container and model that yo
 | `{API_KEY}` | The key for your Speech resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
 
-For this step, use an Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+For this step, use an Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
 ```bash
 docker run --rm -it -p 5000:5000 \ 
@@ -256,7 +256,7 @@ Wherever the container is run, the license file must be mounted to the container
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
 | `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.<br/><br/>For example: `/path/to/output/directory` |
 
-For this step, use an Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+For this step, use an Azure Cognitive Services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 

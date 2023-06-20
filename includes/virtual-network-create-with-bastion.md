@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-## Create virtual network and bastion host
+## Create a virtual network and bastion host
 
 The following procedure creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
 
@@ -52,8 +52,10 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
 1. On the Security tab, next to **BastionHost**, select **Enable**.
 
+    Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](../articles/bastion/bastion-overview.md)
+
     >[!NOTE]
-    >Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see Azure Bastion.
+    >[!INCLUDE [Pricing](bastion-pricing.md)]
 
 1. Enter or select the following information:
 
