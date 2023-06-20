@@ -67,9 +67,9 @@ CALLBACK_URI_HOST = "<CALLBACK_URI_HOST_WITH_PROTOCOL>"
 
 ## Make an outbound call
 
-To make the outbound call from ACS, first you will provide the phone number you want to receive the call. To make it simple, you can update the `target_phone_number` with a phone number in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+To make the outbound call from ACS, first you provide the phone number you want to receive the call. To make it simple, you can update the `target_phone_number` with a phone number in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
-The code below will make an outbound call using the target_phone_number you've provided: 
+Make an outbound call using the target_phone_number you've provided: 
 
 ```python
 target_participant = PhoneNumberIdentifier(TARGET_PHONE_NUMBER)
@@ -123,7 +123,7 @@ call_connection_client.start_recognizing_media(input_type=RecognizeInputType.DTM
 
 ## Recognize DTMF Events
 
-When the telephony endpoint selects a DTMF tone, ACS Call Automation will trigger the webhook we have setup and notify us with the `RECOGNIZE_COMPLETED_EVENT` event. This gives us the ability to respond to a specific DTMF tone and trigger an action. 
+When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the webhook we have set up and notify us with the `RECOGNIZE_COMPLETED_EVENT` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
 
 ```python
 event = CloudEvent.from_dict(event_dict)

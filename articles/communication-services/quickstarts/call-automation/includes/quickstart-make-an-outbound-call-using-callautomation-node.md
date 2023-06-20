@@ -27,7 +27,7 @@ Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a c
 
 ## Set up the environment
 
-Download the sample code and navigate to the project directory and run the `npm` command that installs the necessary dependencies and setup your developer environment.
+Download the sample code and navigate to the project directory and run the `npm` command that installs the necessary dependencies and set up your developer environment.
 
 ```bash
 npm install
