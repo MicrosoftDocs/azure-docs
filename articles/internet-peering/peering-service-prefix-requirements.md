@@ -84,4 +84,4 @@ If you're a Peering Service customer, contact your Peering Service provider abou
 
 * [Azure Internet peering for Peering Service walkthrough](walkthrough-peering-service-all.md).
 * [Azure Internet peering for Communications Services walkthrough](walkthrough-communications-services-partner.md)
-* [Peering Service customer walkthrough](walkthrough-peering-services-customer.md)
+* [Peering Service customer walkthrough](walkthrough-peering-service-customer.md)
