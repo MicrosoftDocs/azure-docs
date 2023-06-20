@@ -5,7 +5,7 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
-ms.date: 05/31/2023
+ms.date: 06/19/2023
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -122,6 +122,9 @@ Enable replication as follows:
 
  
 14. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+
+   > [!NOTE]
+   > If there is a connectivity issue with Azure or if the appliance services are down for more than 90 minutes, the active replication cycles for replicating servers are reset to 0% and the respective cycle runs from the beginning.  
 
 > [!NOTE]
 > You can update replication settings any time before replication starts (**Manage** > **Replicating machines**). You can't change settings after replication starts.
