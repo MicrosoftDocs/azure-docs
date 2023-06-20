@@ -12,11 +12,19 @@ Container Insights now defaults to managed identity authentication. This secure 
 
 ## How to enable
 
-Click on the relevant tab for instructions to enable Managed identity authentication on existing clusters.  
+Click on the relevant tab for instructions to enable Managed identity authentication on your clusters.  
 
 ## [Azure portal](#tab/portal-azure-monitor)
 
-No action is needed when creating a cluster from the Portal. However, it isn't possible to switch to Managed Identity authentication from the Azure portal. Customers must use command line tools to migrate. See other tabs for migration instructions and templates.
+When creating a new cluster from the Azure portal: On the **Integrations** tab, first check the box for *Enable Container Logs*, then check the box for *Use managed identity*.  
+
+:::image type="content" source="./media/container-insights-authentication/aks-cluster-creation.png" alt-text="Screenshot that shows the checkbox to select." lightbox="media/container-insights-authentication/aks-cluster-creation.png":::
+
+For existing clusters, you can switch to Managed Identity authentication from the *Monitor settings* panel: Navigate to your AKS cluster, scroll through the menu on the left till you see the **Monitoring** section, there click on the **Insights** tab. In the Insights tab, click on the *Monitor Settings* option and check the box for *Use managed identity*
+
+:::image type="content" source="./media/container-insights-authentication/monitor-settings.png" alt-text="Screenshot that shows the settings panel." lightbox="media/container-insights-authentication/monitor-settings.png":::
+
+If you don't see the *Use managed identity* option, you are using an SPN cluster. In that case, you must use command line tools to migrate. See other tabs for migration instructions and templates.
 
 ## [Azure CLI](#tab/cli)
 
@@ -82,13 +90,13 @@ az account set --subscription "Subscription Name"
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.bicep --parameters ./existingClusterParam.json
 ```
 
-For new aks cluster:
+For new AKS cluster:
 Replace and use the managed cluster resources in this [guide](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-bicep?tabs=azure-cli)
 
 
 ## [Terraform](#tab/terraform)
 
-**Enable Monitoring with MSI without syslog for new aks cluster**
+**Enable Monitoring with MSI without syslog for new AKS cluster**
 
 1.	Download Terraform template for enable monitoring msi with syslog enabled:
 https://aka.ms/enable-monitoring-msi-terraform
@@ -105,7 +113,7 @@ https://aka.ms/enable-monitoring-msi-terraform
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
 
-**Enable Monitoring with MSI with syslog for new aks cluster** 
+**Enable Monitoring with MSI with syslog for new AKS cluster** 
 1.	Download Terraform template for enable monitoring msi with syslog enabled:
 https://aka.ms/enable-monitoring-msi-syslog-terraform
 2.	Adjust the azurerm_kubernetes_cluster resource in main.tf based on what cluster settings you're going to have
@@ -121,7 +129,7 @@ https://aka.ms/enable-monitoring-msi-syslog-terraform
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
 
-**Enable Monitoring with MSI for existing aks cluster:**
+**Enable Monitoring with MSI for existing AKS cluster:**
 1.	Import the existing cluster resource first with this command: ` terraform import azurerm_kubernetes_cluster.k8s <aksResourceId>`
 2.	Add the oms_agent add-on profile to the existing azurerm_kubernetes_cluster resource.
 ```
