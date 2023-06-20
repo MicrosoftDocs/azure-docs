@@ -74,7 +74,7 @@ To create an event hub within the namespace, do the following actions:
       :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub4.png" lightbox="./media/event-hubs-quickstart-portal/create-event-hub4.png" alt-text="Screenshot of the selection of Add event hub button on the command bar.":::
 1. Type a name for your event hub, then select **Review + create**.
    
-      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub5.png" alt-text="Screenshot of the Create event bub page.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub5.png" alt-text="Screenshot of the Create event hub page.":::
 
     The **partition count** setting allows you to parallelize consumption across many consumers. For more information, see [Partitions](event-hubs-scalability.md#partitions).
 
