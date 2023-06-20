@@ -290,6 +290,51 @@ After you confirm that your code compiles and that your logic app project contai
 
 You can deploy your custom code in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the logic app project's **lib/custom/net472** folder before you deploy. For more information, see [Deploy Standard workflows from Visual Studio Code to Azure](create-single-tenant-workflows-visual-studio-code.md#deploy-azure).
 
+## Troubleshoot problems
+
+### Action information pane error
+
+On the workflow designer, when you select the built-in action named **Call a local function in this logic app*, the action's information pane shows the following message:
+
+`Failed to retrieve dynamic inputs. Error details: `
+
+In this scenario, examine your logic app project to check whether the **LogicApp\lib\custom** folder is empty. If empty, from the **Terminal** menu, select **Run Task** > **build Functions**.
+
+### No process with the specified name is currently running
+
+If you get this error message when you run your workflow, you likely have the debugger process attached to .NET Functions, rather than to your logic app.
+
+To fix this problem, from the **Run and Debug** list, select **Attach to logic app (LogicApp)**, and then select **Play** (green triangle).
+
+### Package not imported correctly
+
+If the Output window shows an error similar to the following message, make sure that you have .NET 6.0 installed. If you have this version installed, try uninstalling and then reinstalling.
+
+`C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.targets(83,5): warning : The ExtensionsMetadataGenerator package was not imported correctly. Are you missing 'C:\Users\yourUserName\.nuget\packages\microsoft.azure.webjobs.script.extensionsmetadatagenerator\4.0.1\build\Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator.targets' or 'C:\Users\yourUserName\.nuget\packages\microsoft.azure.webjobs.script.extensionsmetadatagenerator\4.0.1\build\Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator.props'? [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj] WeatherForecast -> C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\\bin\Debug\net472\WeatherForecast.dll C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.Build.targets(32,5): error : It was not possible to find any compatible framework version [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj] C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.Build.targets(32,5): error : The specified framework 'Microsoft.NETCore.App', version '6.0.0' was not found. [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj] C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.Build.targets(32,5): error : - Check application dependencies and target a framework version installed at: [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj]`
+
+### Build failures
+
+If your function doesn't include variables, and you build your code, the Output window might show the following error messages:
+
+`C:\Users\yourUserName\...\custom-code-project\Function\func.cs (24,64): error CS1031: Type expected [C:\Users\yourUserName\...\custom-code-project\Function\func.csproj]`<br>
+`C:\Users\yourUserName\...\custom-code-project\Function\func.cs (24,64): error CS1001: Identifier expected [C:\Users\yourUserName\...\custom-code-project\Function\func.csproj]`
+
+`Build FAILED.`
+
+`C:\Users\yourUserName\...\custom-code-project\Function\func.cs (24,64): error CS1031: Type expected [C:\Users\yourUserName\...\custom-code-project\Function\func.csproj]`<br>
+`C:\Users\yourUserName\...\custom-code-project\Function\func.cs (24,64): error CS1001: Identifier expected [C:\Users\yourUserName\...\custom-code-project\Function\func.csproj]`
+
+`0 Warning(s)`<br>
+`2 Error(s)`
+
+To fix this problem, in your code's `Run` method, append the following parameter:
+
+`string parameter1 = null`
+
+The following example shows how the `Run` method signature appears:
+
+`public static Task<Weather> Run([WorkflowActionTrigger] int zipCode, string temperatureScale, string parameter1 = null)`
+
 ## Next steps
 
 [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
