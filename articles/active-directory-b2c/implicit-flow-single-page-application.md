@@ -260,4 +260,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## Next steps
 
-See the code sample: [Sign-in with Azure AD B2C in a JavaScript SPA](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c).
+See the code sample: [Sign-in with Azure AD B2C in a JavaScript SPA](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-browser-samples/VanillaJSTestApp2.0/app/b2c).
