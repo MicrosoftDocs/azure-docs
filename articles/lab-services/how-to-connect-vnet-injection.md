@@ -7,7 +7,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 06/20/2023
 ---
 
 # Connect a lab plan to a virtual network with advanced networking
@@ -23,21 +23,20 @@ Follow these steps to configure advanced networking for your lab plan:
 1. Create a lab plan with advanced networking to associate it with the virtual network subnet.
 1. (Optional) Configure your virtual network. 
 
-You can only connect a lab plan when you create the lab plan. You can't configure advanced networking after the lab plan was created.
+Advanced networking can only be enabled when creating a lab plan.  Advanced networking is not a setting that can be updated later.
 
 The following diagram shows an overview of the Azure Lab Services advanced networking configuration. The lab template and lab virtual machines are assigned an IP address in your subnet, and the network security group allows lab users to connect to the lab VMs by using RDP or SSH.
 
 :::image type="content" source="./media/how-to-connect-vnet-injection/lab-services-advanced-networking-overview.png" alt-text="Diagram that shows an overview of the advanced networking configuration in Azure Lab Services.":::
 
 > [!NOTE]
-> If your organization needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
+> If your organization needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software. For more information, read guidance on [content filtering in the supported networking scenarios](./concept-lab-services-supported-networking-scenarios.md).
 
 ## Prerequisites
-
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your Azure account has the [network contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role assigned.
-- An Azure virtual network and subnet in the same Azure region as the lab plan. Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
-- For on-premises connectivity using a [Virtual Network Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways), the gateway, virtual network, network security group, and the lab plan must all be in the same Azure region.
+- Your Azure account has the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network.
+- An Azure virtual network and subnet in the same Azure region as where you create the lab plan. Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
+- The subnet has enough free IP addresses for the template VMs and lab VMs for all labs (each lab uses 512 IP addresses) in the lab plan.
 
 ## 1. Delegate the virtual network subnet
 
@@ -66,7 +65,9 @@ Follow these steps to delegate your subnet for use with a lab plan:
 
 ## 2. Configure a network security group
 
-When you connect your lab plan to a virtual network, you need to configure a network security group (NSG) to allow inbound RDP/SSH traffic from the user's computer to the template virtual machine and the lab virtual machines.
+When you connect your lab plan to a virtual network, you need to configure a network security group (NSG) to allow inbound RDP/SSH traffic from the user's computer to the template virtual machine and the lab virtual machines. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. 
+
+The rules of an NSG can be changed at any time, and changes are applied to all associated instances. It might take up to 10 minutes for the NSG changes to be effective.
 
 > [!IMPORTANT]
 > If you don't configure a network security group, you won't be able to access the lab template VM and lab VMs via RDP or SSH.
@@ -77,6 +78,10 @@ The network security group configuration for advanced networking consists of two
 1. Associate the network security group with the virtual network subnet
 
 [!INCLUDE [nsg intro](../../includes/virtual-networks-create-nsg-intro-include.md)]
+
+You can use an NSG to control traffic to one or more virtual machines (VMs), role instances, network adapters (NICs), or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.
+
+For more information about NSGs, visit [what is an NSG](../articles/virtual-network/network-security-groups-overview.md).
 
 ### Create a network security group to allow traffic
 
@@ -125,8 +130,6 @@ Next, associate the NSG with the virtual network subnet to apply the traffic rul
 
 1. Select **OK** to associate the virtual network subnet with the network security group.
 
-    Lab users and lab managers can now connect to their lab virtual machines or lab template virtual machine by using RDP or SSH.
-
 ## 3. Create a lab plan with advanced networking
 
 Now that you've configured the subnet and network security group, you can create the lab plan with advanced networking. When you create a new lab on the lab plan, Azure Lab Services creates the lab template and lab virtual machines in the virtual network subnet.
@@ -148,11 +151,13 @@ To create a lab plan with advanced networking in the Azure portal:
 
 1. For **Virtual network**, select your virtual network. For **Subnet**, select your virtual network subnet.
 
-    If your virtual network doesn't appear in the list, verify that the lab plan is in the same Azure region as the virtual network.
+    If your virtual network doesn't appear in the list, verify that the lab plan is in the same Azure region as the virtual network, that you've [delegated the subnet to Azure Lab Services](#1-delegate-the-virtual-network-subnet), and that your [Azure account has the necessary permissions](#prerequisites).
 
 	:::image type="content" source="./media/how-to-connect-vnet-injection/create-lab-plan-advanced-networking.png" alt-text="Screenshot of the Networking tab of the Create a lab plan wizard.":::
 
 1. Select **Review + Create** to create the lab plan with advanced networking.
+
+    Lab users and lab managers can now connect to their lab virtual machines or lab template virtual machine by using RDP or SSH.
 
     When you create a new lab, all virtual machines are created in the virtual network and assigned an IP address within the subnet range.
 
