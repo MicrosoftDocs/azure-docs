@@ -474,7 +474,7 @@ created_monitor = poller.result()
 1. Enter a name for Feature Attribution Drift signal. Feature attribution drift currently requires a few additional steps:
 1. Configure your data assets for Feature Attribution Drift
    
-   A) In your model creation wizard, add your custom data asset from Model Data Collector called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
+   A) In your model creation wizard, add your custom data asset from your [custom Model Data Collector score.py ](articles/machine-learning/how-to-collect-production-data.md )called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
    
    C) Specify your training reference dataset that will be used to train your explainer. Without it, you won't be able to specify your data asset in the wizard.
    ![image](https://github.com/buchananwp/azure-docs/assets/8934290/bb919691-df07-43cd-865b-95742d943da9)
