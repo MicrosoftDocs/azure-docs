@@ -166,7 +166,7 @@ You can modify any or all of these attributes in the downloaded file. For exampl
    :::image type="content" source="media/how-to-customize-languages-customers/customized-attributes.png" alt-text="Screenshot of the modified sign-up page attributes.":::
 
 > [!IMPORTANT] 
-> In the customer tenant, we have two options to add custom text to the sign-up and sign-in experience. The function is available under each user flow during language customization and under [Company Branding](https://github.com/csmulligan/entra-previews/blob/PP3/docs/PP3_Customize%20CIAM%20neutral%20branding.md#customize-the-neutral-default-authentication-experience-for-the-ciam-tenant). Although we have to ways to customize strings (via Company branding and via User flows), both ways modify the same JSON file. The most recent change made either via User flows or via Company branding will always override the previous one.
+> In the customer tenant, we have two options to add custom text to the sign-up and sign-in experience. The function is available under each user flow during language customization and under [Company Branding](https://learn.microsoft.com/en-us/azure/active-directory/external-identities/customers/how-to-customize-branding-customers). Although we have to ways to customize strings (via Company branding and via User flows), both ways modify the same JSON file. The most recent change made either via User flows or via Company branding will always override the previous one.
 
 ## Right-to-left language support
 
