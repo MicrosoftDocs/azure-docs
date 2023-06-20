@@ -246,7 +246,7 @@ Follow these steps:
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Backup vault](backup-vault-overview.md#create-backup-vault) or choose an existing Backup vault, and then enable Cross Region Restore by going to **Properties** > **Cross Region Restore (Preview)**, and choose **Enable**.
+1. [Create a new Backup vault](create-manage-backup-vault.md#create-backup-vault) or choose an existing Backup vault, and then enable Cross Region Restore by going to **Properties** > **Cross Region Restore (Preview)**, and choose **Enable**.
 
    :::image type="content" source="./media/backup-vault-overview/enable-cross-region-restore-for-postgresql-database.png" alt-text="Screenshot shows how to enable Cross Region Restore for PostgreSQL database." lightbox="./media/backup-vault-overview/enable-cross-region-restore-for-postgresql-database.png":::
 
