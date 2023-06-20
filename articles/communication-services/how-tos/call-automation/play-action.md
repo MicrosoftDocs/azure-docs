@@ -7,14 +7,12 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: kpunjabi
-ms.custom: public_preview, devx-track-extended-java
+ms.custom: devx-track-extended-java
 services: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Customize voice prompts to users with Play action
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This guide will help you get started with playing audio files to participants by using the play action provided through Azure Communication Services Call Automation SDK.
 

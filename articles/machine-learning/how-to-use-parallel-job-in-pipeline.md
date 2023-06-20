@@ -158,7 +158,7 @@ Sample code to set two attributes:
 > If you want to parse arguments in Init() or Run(mini_batch) function, use "parse_known_args" instead of "parse_args" for avoiding exceptions. See the [iris_score](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/iris_score.py) example for entry script with argument parser.
 
 > [!IMPORTANT]
-> If you use `mltable` as your major input data, you need to install 'mltable' library into your environment. See the line 9 of this [conda file](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/parallel/1a_oj_sales_prediction/src/parallel_train/conda.yml) example.
+> If you use `mltable` as your major input data, you need to install 'mltable' library into your environment. See the line 9 of this [conda file](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/parallel/1a_oj_sales_prediction/src/parallel_train/conda.yaml) example.
 
 ### Consider automation settings
 
