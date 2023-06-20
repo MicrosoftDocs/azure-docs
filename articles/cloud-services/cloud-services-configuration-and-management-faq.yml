@@ -127,7 +127,7 @@ sections:
           $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
           Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
           ```
-          Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment), you can set each location value.
+          Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment), you can set each location value.
           
           Ability to monitor metrics at the instance level. More monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
           
