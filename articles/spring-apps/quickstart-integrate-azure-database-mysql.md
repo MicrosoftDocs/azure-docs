@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Integrate with Azure Database for MySQL"
 description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database with only one command.
-author: mcleanbyron
-ms.author: mcleans
+author: karlerickson
+ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 08/28/2022
@@ -36,11 +36,11 @@ An Azure account with an active subscription. [Create an account for free](https
        --admin-password '<admin-password>'
    ```
 
-    > [!NOTE]
-    > Standard_B1ms SKU is used by default. Refer to [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/) for pricing details.
+   > [!NOTE]
+   > The `Standard_B1ms` SKU is used by default. For pricing details, see [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
 
-    > [!TIP]
-    > Password should be at least eight characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
+   > [!TIP]
+   > The password should be at least eight characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
 
 ## Connect your application to the MySQL database
 
@@ -53,37 +53,37 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 
 1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ServiceLinker
-    ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.ServiceLinker
+   ```
 
 1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below with your own information. Use single quotes around the value for MySQL server `secret`.
 
-    | Setting                   | Description                                                                                  |
----------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-    | `--connection`            | The name of the connection that identifies the connection between your app and target service. |
-    | `--resource-group`        | The name of the resource group that contains the app hosted by Azure Spring Apps.            |
-    | `--service`               | The name of the Azure Spring Apps resource.                                                  |
-    | `--app`                   | The name of the application hosted by Azure Spring Apps that connects to the target service. |
-    | `--target-resource-group` | The name of the resource group with the storage account.                                     |
-    | `--server`                | The MySQL server you want to connect to                                                      |
-    | `--database`              | The name of the database you created earlier.                                                |
-    | `--secret name= secret=`  | The MySQL server username and password.                                                      |
+   | Setting                   | Description                                                                                    |
+   |---------------------------|------------------------------------------------------------------------------------------------|
+   | `--connection`            | The name of the connection that identifies the connection between your app and target service. |
+   | `--resource-group`        | The name of the resource group that contains the app hosted by Azure Spring Apps.              |
+   | `--service`               | The name of the Azure Spring Apps resource.                                                    |
+   | `--app`                   | The name of the application hosted by Azure Spring Apps that connects to the target service.   |
+   | `--target-resource-group` | The name of the resource group with the storage account.                                       |
+   | `--server`                | The MySQL server you want to connect to                                                        |
+   | `--database`              | The name of the database you created earlier.                                                  |
+   | `--secret name= secret=`  | The MySQL server username and password.                                                        |
 
-    ```azurecli-interactive
-    az spring connection create mysql-flexible \
-        --connection <mysql-connection-name-for-app> \
-        --resource-group <Azure-Spring-Apps-resource-group-name> \
-        --service <Azure-Spring-Apps-resource-name> \
-        --app <app-name> \
-        --target-resource-group <mySQL-server-resource-group> \
-        --server <server-name> \
-        --database <database-name> \
-        --secret name=<username> secret='<secret>'
-    ```
+   ```azurecli-interactive
+   az spring connection create mysql-flexible \
+       --resource-group <Azure-Spring-Apps-resource-group-name> \
+       --service <Azure-Spring-Apps-resource-name> \
+       --app <app-name> \
+       --connection <mysql-connection-name-for-app> \
+       --target-resource-group <mySQL-server-resource-group> \
+       --server <server-name> \
+       --database <database-name> \
+       --secret name=<username> secret='<secret>'
+   ```
 
-    > [!TIP]
-    > If the `az spring` command isn't recognized by the system, check that you have installed the Azure Spring Apps extension by running `az extension add --name spring`.
+   > [!TIP]
+   > If the `az spring` command isn't recognized by the system, check that you have installed the Azure Spring Apps extension by running `az extension add --name spring`.
 
 ### [Portal](#tab/azure-portal)
 
@@ -95,16 +95,16 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 
 1. Select or enter the following settings in the table.
 
-    | Setting                   | Example                        | Description                                                                                                                                                                      |
-    |--------------------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Service type**          | *DB for MySQL flexible server* | Select DB for MySQL flexible server as your target service                                                                                                                       |
-    | **Connection name**       | *mysql_9e8af*                  | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name. |
-    | **Subscription**          | *My Subscription*              | The subscription that contains your target service. The default value is the subscription that contains the app deployed to Azure Spring Apps.                                   |
-    | **MySQL flexible server** | *MySQL80*                      | Select the MySQL flexible server you want to connect to.                                                                                                                         |
-    | **MySQL database**        | *petclinic*                    | Select the database you created earlier.                                                                                                                                         |
-    | **Client type**           | *SpringBoot*                   | Select the application stack that works with the target service you selected.                                                                                                    |
+   | Setting                   | Example                        | Description                                                                                                                                                                      |
+   |---------------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | **Service type**          | *DB for MySQL flexible server* | Select DB for MySQL flexible server as your target service                                                                                                                       |
+   | **Connection name**       | *mysql_9e8af*                  | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name. |
+   | **Subscription**          | *My Subscription*              | The subscription that contains your target service. The default value is the subscription that contains the app deployed to Azure Spring Apps.                                   |
+   | **MySQL flexible server** | *MySQL80*                      | Select the MySQL flexible server you want to connect to.                                                                                                                         |
+   | **MySQL database**        | *petclinic*                    | Select the database you created earlier.                                                                                                                                         |
+   | **Client type**           | *SpringBoot*                   | Select the application stack that works with the target service you selected.                                                                                                    |
 
-    :::image type="content" source="./media\quickstart-integrate-azure-database-mysql\basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the basics tab in Service Connector.":::
+   :::image type="content" source="./media\quickstart-integrate-azure-database-mysql\basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the basics tab in Service Connector.":::
 
 1. Select **Next: Authentication** to select the authentication type. Then select **Connection string > Database credentials** and enter your database username and password.
 
@@ -142,7 +142,7 @@ Username and password validated.      success
 > [!TIP]
 > To get more details about the connection between your services, remove `--output table` from the above command.
 
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 Azure Spring Apps connections are displayed under **Settings > Service Connector**. Select **Validate** to check your connection status, and select **Learn more** to review the connection validation details.
 
