@@ -240,7 +240,7 @@ items:
       - name: Manage Teams calling
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
-        href: how-tos/calling-sdk/lobby-admit-and-reject.md
+        href: how-tos/calling-sdk/lobby.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
