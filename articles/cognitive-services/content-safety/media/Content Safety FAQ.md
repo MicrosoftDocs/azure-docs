@@ -22,3 +22,18 @@ A: Microsoft recommends that customers who are using Azure Content Moderator mig
 * Azure AI Content Safety supports multilingual content moderation in English, Japanese, German, Spanish, French, Portuguese, Italian, and Chinese.
 
 * Azure AI Content Safety enables responsible AI practices by monitoring both user-generated and generative AI content.
+  
+
+### Q:How does billing for the Azure AI Content Safety work? 
+
+A: In the S tier, there are two types of APIs, For the Text API, the service is billed for the amount of Text Records submitted to the service. For the Image API, the service is billed for the amount of images submitted to the service. 
+
+
+### Q: What constitutes a Text Record in the S Tier? 
+
+A: A text record in the S tier contains up to 1,000 characters as measured by Unicode code points. If an input text into the Content Safety API is more than 1,000 characters, it counts as one text record for each unit of 1,000 characters. For instance, if an input text sent to the API contains 7,500 characters, it would count as 8 text records. If an input text sent to the API contains 500 characters, it would count as 1 text record.  
+
+
+### Q: What happens if I exceed the transaction limit on my free tier for Azure AI Content Safety ? 
+
+A: Usage is throttled if the transaction limit is reached on the Free tier. Customers cannot accrue overages on the free tier. 
