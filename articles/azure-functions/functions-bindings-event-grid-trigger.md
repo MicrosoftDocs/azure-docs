@@ -293,7 +293,7 @@ $eventGridEvent | Out-String | Write-Host
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-The following example shows an Event Grid trigger binding and a Python function that uses the binding. The example depends on whether you use the [v1 or v2 Python programming model](../articles/azure-functions/functions-reference-python.md).
+The following example shows an Event Grid trigger binding and a Python function that uses the binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
 
