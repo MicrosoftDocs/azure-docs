@@ -12,7 +12,7 @@
 
 ## Create a NAT gateway
 
-Before you deploy the NAT gateway resource and the other resources, a resource group is required to contain the resources deployed. In the following steps, you'll create a resource group, NAT gateway resource, and a public IP address. You can use one or more public IP address resources, public IP prefixes, or both. 
+Before you deploy the NAT gateway resource and the other resources, a resource group is required to contain the resources deployed. In the following steps, you create a resource group, NAT gateway resource, and a public IP address. You can use one or more public IP address resources, public IP prefixes, or both. 
 
 For information about public IP prefixes and a NAT gateway, see [Manage NAT gateway](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-prefix).
 
@@ -81,7 +81,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Subnet name | Enter **subnet-1**. |
     | Subnet address range | Enter **10.0.0.0/24**. |
     | NAT GATEWAY |  |
-    | NAT gatway | Select **nat-gateway**
+    | NAT gateway | Select **nat-gateway**
 
 1. Select **Add**.
 

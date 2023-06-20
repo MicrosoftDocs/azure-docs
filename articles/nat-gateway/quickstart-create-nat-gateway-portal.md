@@ -12,7 +12,7 @@ ms.custom: template-quickstart, FY23 content-maintenance
 
 # Quickstart: Create a NAT gateway using the Azure portal
 
-This quickstart shows you how to use the Azure NAT Gateway service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
+In this quickstart, learn how to create a NAT gateway by using the Azure portal. The NAT Gateway service provides outbound connectivity for virtual machines in Azure.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ This quickstart shows you how to use the Azure NAT Gateway service. You'll creat
 
 ## Test NAT gateway
 
-In this section, you'll test the NAT gateway. You'll first discover the public IP of the NAT gateway. You'll then connect to the test virtual machine and verify the outbound connection through the NAT gateway.
+In this section, you test the NAT gateway. You first discover the public IP of the NAT gateway. You then connect to the test virtual machine and verify the outbound connection through the NAT gateway.
     
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
