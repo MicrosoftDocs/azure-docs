@@ -73,7 +73,8 @@ For AKS clusters, see the new [Network Observability add-on for AKS](https://tec
 ## Fleet Architect
 The Fleet Architect is similar to the cluster administrator but is responsible for multiple clusters. They need visibility across the entire environment and must perform administrative tasks at scale. 
 
-**How do I manage clusters at scale?**
+**How can I monitor the health of multiple clusters?**<br>
+Open **Containers** from the **Monitor** menu in the Azure portal to view the status of all your clustered monitored by Container insights.
 
 **How can I monitor overall patch status of the clusters?**<br>
 This information is available in the Activity log. 
@@ -87,10 +88,6 @@ AzureActivity
 | order by TimeGenerated desc
 ```
 
-**How can I monitor the health of multiple clusters?**<br>
-Use either workbooks in Container insights or dashboards in Grafana.
-
-
 **How can I ensure that developers are following best practices?**
 
 **How can I discover application inventory in the fleet with version and stage?**
@@ -98,7 +95,8 @@ Use either workbooks in Container insights or dashboards in Grafana.
 
 ## Network Engineer
 
-**How do I know if my network is configured correctly and there is no data exfiltration happening?**
+**How do I know if my network is configured correctly and there's no data exfiltration?**
+Use Network Watcher to collect flow logs and traffic analytics to visualize.
 
 **Which public IPs are being used/consumed to share with a Security Engineer to help enforce there are no unnecessary public IPs being exposed?**
 
