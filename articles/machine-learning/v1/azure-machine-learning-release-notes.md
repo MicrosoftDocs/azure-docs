@@ -54,7 +54,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-train-automl-runtime**
     + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
   + **mltable**
-    + Additional encoding variants like `utf-8` are now supported when loading MLTable files.
+    + More encoding variants like `utf-8` are now supported when loading MLTable files.
     + Replaces all user caused errors in MLTable & FSSpec with a custom UserErrorException imported from azureml-dataprep.
 
 ## 2023-04-10
@@ -97,7 +97,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
       + **azureml-contrib-automl-dnn-forecasting**
         + Nonscalar metrics for TCNForecaster will now reflect values from the last epoch.
         + Forecast horizon visuals for train-set and test-set are now available while running the TCN training experiment.
-        + Runs will not fail anymore because of "Failed to calculate TCN metrics" error. The warning message that says "Forecast Metric calculation resulted in error, reporting back worst scores" will still be logged. Instead we raise exception when we face inf/nan validation loss for more than two times consecutively with a message "Invalid Model, TCN training didn't converge.". The customers need be aware of the fact that loaded models may return nan/inf values as predictions while inferencing after this change.
+        + Runs won't fail anymore because of "Failed to calculate TCN metrics" error. The warning message that says "Forecast Metric calculation resulted in error, reporting back worst scores" will still be logged. Instead we raise exception when we face inf/nan validation loss for more than two times consecutively with a message "Invalid Model, TCN training didn't converge.". The customers need be aware of the fact that loaded models may return nan/inf values as predictions while inferencing after this change.
       + **azureml-core**
         + Azure Machine Learning workspace creation makes use of Log Analytics Based Application Insights in preparation for deprecation of Classic Application Insights. Users wishing to use Classic Application Insights resources can still specify their own to bring when creating an Azure Machine Learning workspace.
       + **azureml-interpret**
@@ -183,7 +183,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.45.0 
   + **azureml-automl-runtime**
-    + Fixed a bug where the sample_weight column was not properly validated.
+    + Fixed a bug where the sample_weight column wasn't properly validated.
     + Added rolling_forecast() public method to the forecasting pipeline wrappers for all supported forecasting models. This method replaces the deprecated rolling_evaluation() method.
     + Fixed an issue where AutoML Regression tasks may fall back to train-valid split for model evaluation, when CV would have been a more appropriate choice.
   + **azureml-core**
@@ -271,7 +271,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 **Breaking change warning**
 
-This breaking change comes from the June release of `azureml-inference-server-http`. In the `azureml-inference-server-http` June release (v0.9.0), Python 3.6 support is dropped. Since `azureml-defaults` depends on `azureml-inference-server-http`, this change is propagated to `azureml-defaults`. If you are not using `azureml-defaults` for inference, feel free to use `azureml-core` or any other Azure Machine Learning SDK packages directly instead of install `azureml-defaults`.
+This breaking change comes from the June release of `azureml-inference-server-http`. In the `azureml-inference-server-http` June release (v0.9.0), Python 3.6 support is dropped. Since `azureml-defaults` depends on `azureml-inference-server-http`, this change is propagated to `azureml-defaults`. If you aren't using `azureml-defaults` for inference, feel free to use `azureml-core` or any other Azure Machine Learning SDK packages directly instead of install `azureml-defaults`.
 
   + **azureml-automl-dnn-nlp**
     + Turning on long range text feature by default.
@@ -378,7 +378,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
 ### Azure Machine Learning SDK for Python v1.37.0
 + **Breaking changes**
   + **azureml-core**
-    + Starting in version 1.37.0, Azure Machine Learning SDK uses MSAL as the underlying authentication library. MSAL uses Azure Active Directory (Azure AD) v2.0 authentication flow to provide more functionality and increases security for token cache. For more details, see [Overview of the Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md).
+    + Starting in version 1.37.0, Azure Machine Learning SDK uses MSAL as the underlying authentication library. MSAL uses Azure Active Directory (Azure AD) v2.0 authentication flow to provide more functionality and increases security for token cache. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md).
     + Update AML SDK dependencies to the latest version of Azure Resource Management Client Library for Python (azure-mgmt-resource>=15.0.0,<20.0.0) & adopt track2 SDK.
     + Starting in version 1.37.0, azure-ml-cli extension should be compatible with the latest version of Azure CLI >=2.30.0.
     + When using Azure CLI in a pipeline, like as Azure DevOps, ensure all tasks/stages are using versions of Azure CLI above v2.30.0 for MSAL-based Azure CLI. Azure CLI 2.30.0 is not backward compatible with prior versions and throws an error when using incompatible versions. To use Azure CLI credentials with Azure Machine Learning SDK, Azure CLI should be installed as pip package.
@@ -574,7 +574,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
     + Changed default AML Compute node scale down time from 120 seconds to 1800 seconds
     + Updated default troubleshooting link displayed on the portal for troubleshooting failed runs to: https://aka.ms/azureml-run-troubleshooting
   + **azureml-automl-runtime**
-    + Data Cleaning: Samples with target values in [None, "", "nan", np.nan] will be dropped prior to featurization and/or model training
+    + Data Cleaning: Samples with target values in [None, "", "nan", np.nan] is dropped prior to featurization and/or model training
   + **azureml-interpret**
     + Prevent flush task queue error on remote Azure Machine Learning runs that use ExplanationClient by increasing timeout
   + **azureml-pipeline-core**
@@ -891,7 +891,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
   + [Variable Explorer](../how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Explore the contents of variables and data frames in a pop-up panel. Users can easily check data type, size, and contents.
   + [Table of Content](../how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Navigate to sections of your notebook, indicated by Markdown headers.
   + Export your Notebook as Latex/HTML/Py. Create easy-to-share notebook files by exporting to LaTex, HTML, or .py
-  + Intellicode. ML-powered results provides an enhanced [intelligent autocompletion experience](/visualstudio/intellicode/overview).
+  + Intellicode. ML-powered results provide an enhanced [intelligent autocompletion experience](/visualstudio/intellicode/overview).
 
 + **Bug fixes and improvements**
   + Improved page load times
@@ -1042,10 +1042,10 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning SDK for Python v1.18.0
 + **Bug fixes and improvements**
   + **azureml-automl-core**
-    +  Improved handling of short time series by allowing padding them with gaussian noise.
+    +  Improved handling of short time series by allowing padding them with Gaussian noise.
   + **azureml-automl-runtime**
     + Throw ConfigException if a DateTime column has OutOfBoundsDatetime value
-    + Improved handling of short time series by allowing padding them with gaussian noise.
+    + Improved handling of short time series by allowing padding them with Gaussian noise.
     + Making sure that each text column can use char-gram transform with the n-gram range based on the length of the strings in that text column
     + Providing raw feature explanations for best mode for AutoML experiments running on user's local compute
   + **azureml-core**
@@ -1062,11 +1062,11 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
     + This change allows an empty string to be used as a value for a script_param
   + **azureml-train-automl-client**
-    +  Improved handling of short time series by allowing padding them with gaussian noise.
+    +  Improved handling of short time series by allowing padding them with Gaussian noise.
   + **azureml-train-automl-runtime**
     + Throw ConfigException if a DateTime column has OutOfBoundsDatetime value
     + Added support for providing raw feature explanations for best model for AutoML experiments running on user's local compute
-    + Improved handling of short time series by allowing padding them with gaussian noise.
+    + Improved handling of short time series by allowing padding them with Gaussian noise.
   + **azureml-train-core**
     + This change allows an empty string to be used as a value for a script_param
   + **azureml-train-restclients-hyperdrive**
@@ -1305,7 +1305,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + AutoML raises a new error code from dataprep when content is modified while being read.
   + **azureml-automl-runtime**
     + Added alerts for the user when data contains missing values but featurization is turned off.
-    + Fixed child run failures when data contains nan and featurization is turned off.
+    + Fixed child runs failures when data contains nan and featurization is turned off.
     + AutoML raises a new error code from dataprep when content is modified while being read.
     + Updated normalization for forecasting metrics to occur by grain.
     + Improved calculation of forecast quantiles when lookback features are disabled.
