@@ -248,10 +248,10 @@ Container logs for AKS are stored in [the ContainerLogV2 table](./container-insi
 
 ```kusto
 ContainerLogV2
-| where _ResourceId =~ "clusterResourceId"
-| where PodNamespace == "podNameSpace"
-| where PodName == "podName"
-| where ContainerName == "containerName"
+| where _ResourceId =~ "clusterResourceID" //update with resource ID
+| where PodNamespace == "podNameSpace" //update with target namespace
+| where PodName == "podName" //update with target pod
+| where ContainerName == "containerName" //update with target container
 | project TimeGenerated, Computer, ContainerId, LogMessage, LogSource
 ```
 
@@ -259,11 +259,11 @@ ContainerLogV2
 
 ``` kusto
 let KubePodInv = KubePodInventory
-| where _ResourceId =~ "clusterResourceId"
-| where Namespace == "deploymentNamespace"
+| where _ResourceId =~ "clusterResourceID" //update with resource ID
+| where Namespace == "deploymentNamespace" //update with target namespace
 | where ControllerKind == "ReplicaSet"
 | extend deployment = reverse(substring(reverse(ControllerName), indexof(reverse(ControllerName), "-") + 1))
-| where deployment == "deploymentName"
+| where deployment == "deploymentName" //update with target deployment
 | extend ContainerId = "ContainerID"
 | summarize arg_max(TimeGenerated, *)  by deployment, ContainerId, PodStatus, ContainerStatus
 | project deployment, ContainerId, PodStatus, ContainerStatus;
@@ -273,8 +273,8 @@ KubePodInv
 (
     ContainerLogV2
   | where TimeGenerated >= startTime and TimeGenerated < endTime
-  | where PodNamespace == "deploymentNamespace"
-  | where PodName startswith "deploymentName"
+  | where PodNamespace == "deploymentNamespace" //update with target namespace
+  | where PodName startswith "deploymentName" //update with target deployment
 ) on ContainerId
 | project TimeGenerated, deployment, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
 
@@ -285,8 +285,8 @@ KubePodInv
 ``` kusto
     let KubePodInv = KubePodInventory
     | where TimeGenerated >= startTime and TimeGenerated < endTime
-    | where _ResourceId =~ "clustereResourceId"
-    | where Namespace == "podNamespace"
+    | where _ResourceId =~ "clustereResourceID" //update with resource ID
+    | where Namespace == "podNamespace" //update with target namespace
     | where PodStatus == "Failed"
     | extend ContainerId = "ContainerID"
     | summarize arg_max(TimeGenerated, *)  by  ContainerId, PodStatus, ContainerStatus
@@ -297,7 +297,7 @@ KubePodInv
     (
         ContainerLogV2
     | where TimeGenerated >= startTime and TimeGenerated < endTime
-    | where PodNamespace == "podNamespace"
+    | where PodNamespace == "podNamespace" //update with target namespace
     ) on ContainerId
     | project TimeGenerated, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
 
@@ -314,7 +314,7 @@ The required tables for this chart include Perf and KubeNodeInventory.
 ```kusto
  let trendBinSize = 5m;
  let MaxListSize = 1000;
- let clusterId = 'clusterResourceID';
+ let clusterId = 'clusterResourceID'; //update with resource ID
  let clusterIdToken = strcat(clusterId, "/");
  
  let materializedPerfData = materialize(Perf 
@@ -352,7 +352,7 @@ The required tables for this chart include KubeNodeInventory.
 ```kusto
  let trendBinSize = 5m;
  let maxListSize = 1000;
- let clusterId = 'clusterResourceID';
+ let clusterId = 'clusterResourceID'; //update with resource ID
  
  let rawData = KubeNodeInventory 
 | where ClusterId =~ clusterId 
@@ -379,7 +379,7 @@ The required tables for this chart include KubePodInventory.
 ```kusto
  let trendBinSize = 5m;
  let maxListSize = 1000;
- let clusterId = 'clusterResourceID';
+ let clusterId = 'clusterResourceID'; //update with resource ID
  
  let rawData = KubePodInventory 
 | where ClusterId =~ clusterId 
@@ -423,12 +423,12 @@ The required tables for this chart include KubePodInventory and Perf.
 
  let startRestart = KubePodInventoryTable 
 | summarize arg_min(TimeGenerated, *) by Node, ContainerInstance 
-| where ClusterId =~ 'clusterResourceID' 
+| where ClusterId =~ 'clusterResourceID' //update with resource ID
 | project Node, ContainerInstance, InstanceName = strcat(ClusterId, '/', ContainerInstance), StartRestart = Restarts;
 
  let IdentityTable = KubePodInventoryTable 
 | summarize arg_max(TimeGenerated, *) by Node, ContainerInstance 
-| where ClusterId =~ 'clusterResourceID' 
+| where ClusterId =~ 'clusterResourceID' //update with resource ID
 | project ClusterName, Namespace, ServiceName, ControllerName, Node, Pod, ContainerInstance, InstanceName = strcat(ClusterId, '/', ContainerInstance), ContainerID, ReadySinceNow, Restarts, Status = iff(Status =~ 'running', 0, iff(Status=~'waiting', 1, iff(Status =~'terminated', 2, 3))), ContainerStatusReason, ControllerKind, Containers = 1, ContainerName = tostring(split(ContainerInstance, '/')[1]), PodStatus, LastPodInventoryTimeGenerated = TimeGenerated, ClusterId;
 
  let CachedIdentityTable = IdentityTable;
@@ -497,7 +497,7 @@ The required tables for this chart include KubePodInventory and Perf.
 | where isnotempty(ClusterName) 
 | where isnotempty(Namespace) 
 | extend Node = Computer 
-| where ClusterId =~ 'clusterResourceID' 
+| where ClusterId =~ 'clusterResourceID' //update with resource ID
 | project TimeGenerated, ClusterId, ClusterName, Namespace, ServiceName, Node = Computer, ControllerName, Pod = Name, ContainerInstance = ContainerName, ContainerID, InstanceName, PerfJoinKey = strcat(ClusterId, '/', ContainerName), ReadySinceNow = format_timespan(endDateTime - ContainerCreationTimeStamp, 'ddd.hh:mm:ss.fff'), Restarts = ContainerRestartCount, Status = ContainerStatus, ContainerStatusReason = columnifexists('ContainerStatusReason', ''), ControllerKind = ControllerKind, PodStatus, ControllerId = strcat(ClusterId, '/', Namespace, '/', ControllerName);
 
 let podStatusRollup = primaryInventory 
@@ -515,7 +515,7 @@ let filteredPerformance = Perf
 | where TimeGenerated >= startDateTime 
 | where TimeGenerated < endDateTime 
 | where ObjectName == 'K8SContainer' 
-| where InstanceName startswith 'clusterResourceID' 
+| where InstanceName startswith 'clusterResourceID' //update with resource ID
 | project TimeGenerated, CounterName, CounterValue, InstanceName, Node = Computer ;
 
 let metricByController = filteredPerformance 
@@ -586,7 +586,7 @@ The required tables for this chart include KubeNodeInventory, KubePodInventory, 
 | where TimeGenerated < endDateTime 
 | where TimeGenerated >= startDateTime 
 | project ClusterName, ClusterId, Node = Computer, TimeGenerated, Status, NodeName = Computer, NodeId = strcat(ClusterId, '/', Computer), Labels 
-| where ClusterId =~ 'clusterResourceID';
+| where ClusterId =~ 'clusterResourceID'; //update with resource ID
 
  let materializedPerf = Perf 
 | where TimeGenerated < endDateTime 
@@ -599,7 +599,7 @@ The required tables for this chart include KubeNodeInventory, KubePodInventory, 
 | where TimeGenerated >= startDateTime 
 | where isnotempty(ClusterName) 
 | where isnotempty(Namespace) 
-| where ClusterId =~ 'clusterResourceID';
+| where ClusterId =~ 'clusterResourceID'; //update with resource ID
 
  let inventoryOfCluster = materializedNodeInventory 
 | summarize arg_max(TimeGenerated, Status) by ClusterName, ClusterId, NodeName, NodeId;
