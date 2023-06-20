@@ -473,10 +473,6 @@ items:
       href: samples/chat-hero-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
-  - name: Phone calling
-    items:
-    - name: Appointment reminder sample
-      href: samples/call-automation-appointment-reminder.md
 - name: Concepts 
   items:
   - name: Identity
