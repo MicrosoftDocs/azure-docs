@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 05/22/2023
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
 ---
 
@@ -225,6 +225,8 @@ After you confirm that your code compiles and that your logic app project contai
 1. Select the action named **Call a local function in this logic app**.
 
    The action's information pane opens to the right.
+
+   :::image type="content" source="media/create-run-custom-code-functions/default-workflow.png" alt-text="Screenshot shows Visual Studio Code, workflow designer, and default workflow with trigger and actions.":::
 
 1. Review and confirm that the **Function name** parameter value is set to the function that you want to run. Review or change any other parameter values that your function uses.
 
