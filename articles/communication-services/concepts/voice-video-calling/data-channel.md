@@ -47,8 +47,8 @@ File sharing represents another common use cases for the Data Channel API.
 In a peer-to-peer call scenario, the Data Channel connection works on a peer-to-peer basis.
 This setup offers an efficient method for file transfer, taking full advantage of the direct, peer-to-peer connection to enhance speed and reduce latency.
 
-In a group call scenario, files can still be shared among participants.
-Additionally, broadcasting the file content to all participants can be achieved by setting an empty participant list.
+In a group call scenario, files can still be shared among participants. However, there are better ways, such as Azure Storage or Azure Files.
+Additionally, broadcasting the file content to all participants in a call can be achieved by setting an empty participant list.
 However, it's important to keep in mind that, in additional to bandwidth limitations,
 there are further restrictions imposed during a group call when broadcasting messages, such as packet rate and back pressure from the receive bitrate.
 
@@ -118,7 +118,7 @@ For instance, consider a scenario where a sender sends three messages. Initially
 ## Limitations
 
 ### Message size
-The maximum allowable size for a single message is 64KB. If you need to send data larger than this limit, you will need to divide the data into multiple messages.
+The maximum allowable size for a single message is 32KB. If you need to send data larger than this limit, you will need to divide the data into multiple messages.
 
 ### Participant list
 The maximum number of participants in a list is limited to 64. If you want to specify more participants, you will need to manage participant list on your own. For example, if you want to send a message to 50 participants, you can create two different channels, each with 25 participants in their recipient lists.
