@@ -59,6 +59,8 @@
       href: howto-precertification.md
     - name: Tracking asynchronous operations
       href: howto-track-async-operations-cli.md
+    - name: Cluster Upgrades
+      href: howto-cluster-runtime-upgrade.md
 - name: Troubleshooting
   items:
     - name: Troubleshoot Bare Metal Machine
@@ -69,6 +71,8 @@
       href: troubleshoot-isolation-domain.md
     - name: Troubleshoot Internet host virtual machine
       href: troubleshoot-internet-host-virtual-machine.md
+    - name: Troubleshoot BMM reboot issues
+      href: troubleshoot-bmm-node-reboot.md
 - name: Sample Deployment
   items:
     - name: VNF Deployment

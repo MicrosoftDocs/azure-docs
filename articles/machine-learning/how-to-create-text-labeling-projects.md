@@ -10,6 +10,7 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.date: 02/08/2023
 ms.custom: data4ml, ignite-fall-2021
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Set up a text labeling project and export labels
@@ -263,15 +264,25 @@ To export the labels, on the **Project details** page of your labeling project, 
 
 For all project types except **Text Named Entity Recognition**, you can export label data as:
 
+:::moniker range="azureml-api-1"
 * A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
 * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+:::moniker-end
+:::moniker range="azureml-api-2"
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
 * An [Azure MLTable data asset](./how-to-mltable.md). 
+:::moniker-end
 
 For **Text Named Entity Recognition** projects, you can export label data as:
 
+:::moniker range="azureml-api-1"
 * An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md).
+* A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run. Azure Machine Learning creates the CoNLL file in a folder inside*Labeling/export/conll*. 
+:::moniker-end
+:::moniker range="azureml-api-2"
 * An [Azure MLTable data asset](./how-to-mltable.md).
 * A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run. Azure Machine Learning creates the CoNLL file in a folder inside*Labeling/export/conll*. 
+:::moniker-end
 
 When you export a CSV or CoNLL file, a notification appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
 
