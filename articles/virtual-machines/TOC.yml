@@ -138,7 +138,7 @@
   - name: SAP on Azure
     href: ../sap/index.yml
   - name: Oracle
-    href: ./workloads/oracle/oracle-database-quick-create.md
+    href: ./workloads/oracle/index.yml
   - name: Azure for Gaming
     href: /gaming/azure/
   - name: Elasticsearch
