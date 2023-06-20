@@ -1,23 +1,19 @@
 ---
 title: Call Automation overview
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Azure Communication Services Call Automation.
+description: Learn about Azure Communication Services Call Automation API.
 author: ashwinder
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 06/19/2023
 ms.author: askaur
-ms.custom: public_preview
 ---
 # Call Automation Overview
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Azure Communication Services(ACS) Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. The SDKs, available for .NET and Java, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
+Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. The SDKs, available in C#, Java, JavaScript and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
 
 > [!NOTE]
-> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making or redirecting a call to a Teams user or adding them to a call using Call Automation aren't supported.
 > Call Automation currently doesn't support [Rooms](../rooms/room-concept.md) calls.
 
 ## Common use cases
