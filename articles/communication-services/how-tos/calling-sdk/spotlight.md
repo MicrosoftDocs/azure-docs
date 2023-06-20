@@ -39,25 +39,6 @@ Since the video stream resolution of a participant is increased when spotlighted
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-Communication Services or Microsoft 365 users can call the spotlight APIs based on role type and conversation type
-
-**In a one to one call or group call scenario, the following APIs are supported for both Communication Services and Microsoft 365 users**
-
-|APIs| Organizer | Presenter | Attendee |
-|----------------------------------------------|--------|--------|--------|
-| startSpotlight | ✔️ | ✔️  | ✔️ |
-| stopSpotlight | ✔️ | ✔️ | ✔️ |
-| stopAllSpotlight |  ✔️ | ✔️ | ✔️ |
-| getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
-
-**For meeting scenario the following APIs are supported for both Communication Services and Microsoft 365 users**
-
-|APIs| Organizer | Presenter | Attendee |
-|----------------------------------------------|--------|--------|--------|
-| startSpotlight | ✔️ | ✔️  |  |
-| stopSpotlight | ✔️ | ✔️ | ✔️ |
-| stopAllSpotlight |  ✔️ | ✔️ |  |
-| getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
