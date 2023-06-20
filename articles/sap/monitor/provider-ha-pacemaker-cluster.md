@@ -71,7 +71,7 @@ For RHEL-based Pacemaker clusters, also install [PMProxy](https://access.redhat.
 
 ## Prerequisites to enable secure communication
 
-To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps in [this article](https://github.com/ClusterLabs/ha_cluster_exporter#tls-and-basic-authentication)
+To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps in [this article](https://github.com/ClusterLabs/ha_cluster_exporter#tls-and-basic-authentication).
 
 ## Create a provider for Azure Monitor for SAP solutions
 
