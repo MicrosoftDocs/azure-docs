@@ -269,7 +269,7 @@ create_monitor:
          dataset:
             input_dataset:
                path: azureml:my_model_production_data:1
-               type: mltable
+               type: uri_folder
             dataset_context: model_inputs_outputs
       baseline_dataset:
         input_dataset:
@@ -384,8 +384,8 @@ advanced_data_quality = DataQualitySignal(
 monitor_target_data = TargetDataset(
     dataset=MonitorInputData(
         input_dataset=Input(
-            type="mltable",
-            path="azureml:my_model_production_input_output_data:1"
+            type="uri_folder",
+            path="azureml:endpoint_name-deployment_name-model_inputs_outputs:1"
         ),
         dataset_context=MonitorDatasetContext.MODEL_INPUTS_OUTPUTS,
     )
@@ -474,14 +474,12 @@ created_monitor = poller.result()
 1. Enter a name for Feature Attribution Drift signal. Feature attribution drift currently requires a few additional steps:
 1. Configure your data assets for Feature Attribution Drift
    
-   A) In your model creation wizard, add your custom data asset from your [custom Model Data Collector score.py ](articles/machine-learning/how-to-collect-production-data.md )called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
+   A) In your model creation wizard, add your custom data asset from your [custom Model Data Collector score.py ](articles/machine-learning/how-to-collect-production-data.md) called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
    
-   C) Specify your training reference dataset that will be used to train your explainer. Without it, you won't be able to specify your data asset in the wizard.
+   B) Specify your training reference dataset that will be used to train your explainer, and select your target column name 
    ![image](https://github.com/buchananwp/azure-docs/assets/8934290/bb919691-df07-43cd-865b-95742d943da9)
 
-   D) Select the target column name.
-
-   E) Confirm your parameters are correct
+   C) Confirm your parameters are correct
    ![image](https://github.com/buchananwp/azure-docs/assets/8934290/3d74a938-b8cf-4455-8ff9-cf11b6a937b9)
 
    
