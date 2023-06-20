@@ -296,7 +296,7 @@ export class AppRoutingModule { }
 In this section, you add the sign-in and sign-out buttons to the *app* component. In the *src/app* folder, open the *app.component.ts* file and make the following changes:
 
 1. Import the required components.
-1. Change the class to implement the [OnInit method](https://angular.io/api/core/OnInit). The `OnInit` method subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/events.md) `inProgress$` observable event. Use this event to know the status of user interactions, particularly to check that interactions are completed. 
+1. Change the class to implement the [OnInit method](https://angular.io/api/core/OnInit). The `OnInit` method subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/events.md) `inProgress$` observable event. Use this event to know the status of user interactions, particularly to check that interactions are completed. 
 
    Before interactions with the MSAL account object, check that the `InteractionStatus` property returns `InteractionStatus.None`. The `subscribe` event calls the `setLoginDisplay` method to check if the user is authenticated.
 1. Add class variables.
@@ -449,7 +449,7 @@ The *home.component* file demonstrates how to check if the user is authenticated
 
 The code:
 
-1. Subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/events.md) `msalSubject$` and `inProgress$` observable events. 
+1. Subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/events.md) `msalSubject$` and `inProgress$` observable events. 
 1. Ensures that the `msalSubject$` event writes the authentication result to the browser console.
 1. Ensures that the `inProgress$` event checks if a user is authenticated. The `getAllAccounts()` method returns one or more objects.
 
@@ -514,7 +514,7 @@ The *profile.component* file demonstrates how to access the user's ID token clai
 The code:
 
 1. Imports the required components.
-1. Subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/events.md) `inProgress$` observable event. The event loads the account and reads the ID token claims.
+1. Subscribes to the [MSAL MsalBroadcastService](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/events.md) `inProgress$` observable event. The event loads the account and reads the ID token claims.
 1. Ensures that the `checkAndSetActiveAccount` method checks and sets the active account. This action is common when the app interacts with multiple Azure AD B2C user flows or custom policies.
 1. Ensures that the `getClaims` method gets the ID token claims from the active MSAL account object. The method then adds the claims to the `dataSource` array. The array is rendered to the user with the component's template binding.
 
