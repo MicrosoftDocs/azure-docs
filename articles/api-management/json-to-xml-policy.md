@@ -23,7 +23,7 @@ The `json-to-xml` policy converts a request or response body from JSON to XML.
     consider-accept-header="true | false" 
     parse-date="true | false" 
     namespace-separator="separator character"
-    namespace-prefix="namepsace prefix"
+    namespace-prefix="namespace prefix"
     attribute-block-name="name" />
 ```
 
