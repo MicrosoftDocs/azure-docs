@@ -9,17 +9,17 @@ ms.date: 06/20/2023
 
 The sustainable software engineering principles are a set of competencies to help you define, build, and run sustainable applications. The overall goal is to reduce the carbon footprint in every aspect of your application. The Azure Well-Architected Framework guidance for sustainability aligns with the [The Principles of Sustainable Software Engineering](https://principles.green/) from the [Green Software Foundation](https://greensoftware.foundation/) and provides an overview of the principles of sustainable software engineering.
 
-Sustainable software engineering is a shift in priorities and focus. In many cases, the way most software is designed and run highlights fast performance and low latency. Sustainable software engineering focuses on reducing as much carbon emission as possible. Consider the following:
+Sustainable software engineering is a shift in priorities and focus. In many cases, the way most software is designed and run highlights fast performance and low latency. Sustainable software engineering focuses on reducing as much carbon emission as possible.
 
 * Applying sustainable software engineering principles can give you faster performance or lower latency, such as lowering total network traversal.
 * Reducing carbon emissions may cause slower performance or increased latency, such as delaying low-priority workloads.
 
-The guidance found in this article is focused on services you're building or operating on Azure with Azure Kubernetes Service (AKS) and includes design and configuration checklists, recommended design practices, and configuration options. Before applying sustainable software engineering principles to your application, review the priorities, needs, and trade-offs of your application.
+The following guidance focuses on services you're building or operating on Azure with Azure Kubernetes Service (AKS). This article includes design and configuration checklists, recommended design practices, and configuration options. Before applying sustainable software engineering principles to your application, review the priorities, needs, and trade-offs of your application.
 
 ## Prerequisites
 
 * Understanding the Well-Architected Framework sustainability guidance can help you produce a high quality, stable, and efficient cloud architecture. We recommend that you start by reading more about [sustainable workloads](/azure/architecture/framework/sustainability/sustainability-get-started) and reviewing your workload using the [Microsoft Azure Well-Architected Review](https://aka.ms/assessments) assessment.
-* Having clearly defined business requirements is crucial when building applications, as they might have a direct impact on both cluster and workload architectures and configurations. When building or updating existing applications, review the Well-Architected Framework sustainability design areas, alongside your application's holistic lifecycle.
+* It's crucial you have clearly defined business requirements when building applications, as they might have a direct impact on both cluster and workload architectures and configurations. When building or updating existing applications, review the Well-Architected Framework sustainability design areas, alongside your application's holistic lifecycle.
 
 ## Understanding the shared responsibility model
 
@@ -35,7 +35,7 @@ Learn more about the [shared responsibility model for sustainability](/azure/arc
 
 * **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
-    One way to increase energy efficiency is to run the application on as few servers as possible, with the servers running at the highest utilization rate, also increasing hardware efficiency.
+    One way to increase energy efficiency is to run the application on as few servers as possible with the servers running at the highest utilization rate, also increasing hardware efficiency.
 
 * **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible.
 
@@ -57,11 +57,11 @@ Before reviewing the detailed recommendations in each of the design areas, we re
 | [Design for independent scaling of logical components](#design-for-independent-scaling-of-logical-components) | ✔️ |  |
 | [Design for event-driven scaling](#design-for-event-driven-scaling) | ✔️ |  |
 | [Aim for stateless design](#aim-for-stateless-design) | ✔️ |  |
-| [Enable cluster and node auto-updates](#enable-cluster-and-node-auto-updates) |  | ✔️ |
+| [Enable cluster and node autoupdates](#enable-cluster-and-node-auto-updates) |  | ✔️ |
 | [Install supported add-ons and extensions](#install-supported-add-ons-and-extensions) | ✔️ | ✔️ |
 | [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
 | [Use energy efficient hardware](#use-energy-efficient-hardware) |  | ✔️ |
-| [Match the scalability needs and utilize auto-scaling and bursting capabilities](#match-the-scalability-needs-and-utilize-auto-scaling-and-bursting-capabilities) |  | ✔️ |
+| [Match the scalability needs and utilize autoscaling and bursting capabilities](#match-the-scalability-needs-and-utilize-auto-scaling-and-bursting-capabilities) |  | ✔️ |
 | [Turn off workloads and node pools outside of business hours](#turn-off-workloads-and-node-pools-outside-of-business-hours) | ✔️ | ✔️ |
 | [Delete unused resources](#delete-unused-resources) | ✔️ | ✔️ |
 | [Tag your resources](#tag-your-resources) | ✔️ | ✔️ |
@@ -87,7 +87,7 @@ A microservice architecture may reduce the compute resources required, as it all
 
 ### Design for event-driven scaling
 
-Scaling your workload based on relevant business metrics, such as HTTP requests, queue length, and cloud events, can help reduce its resource utilization and carbon emissions.
+When you scale your workload based on relevant business metrics, such as HTTP requests, queue length, and cloud events, you can help reduce resource utilization and carbon emissions.
 
 * Use [Keda](https://keda.sh/) when building event-driven applications to allow scaling down to zero when there's no demand.
 
@@ -101,11 +101,11 @@ Removing state from your design reduces the in-memory or on-disk data required b
 
 Explore this section to learn how to make better informed platform-related decisions around sustainability.
 
-### Enable cluster and node auto-updates
+### Enable cluster and node autoupdates
 
 An up-to-date cluster avoids unnecessary performance issues and ensures you benefit from the latest performance improvements and compute optimizations.
 
-* Enable [cluster auto-upgrade](./auto-upgrade-cluster.md) and [apply security updates to nodes automatically using GitHub Actions](./node-upgrade-github-actions.md) to ensure your cluster has the latest improvements.
+* Enable [cluster autoupgrade](./auto-upgrade-cluster.md) and [apply security updates to nodes automatically using GitHub Actions](./node-upgrade-github-actions.md) to ensure your cluster has the latest improvements.
 
 ### Install supported add-ons and extensions
 
@@ -126,11 +126,11 @@ Ampere's Cloud Native Processors are uniquely designed to meet both the high per
 
 * Evaluate if nodes with [Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads.
 
-### Match the scalability needs and utilize auto-scaling and bursting capabilities
+### Match the scalability needs and utilize autoscaling and bursting capabilities
 
-An oversized cluster doesn't maximize utilization of compute resources and can lead to a waste of energy. Separate your applications into different node pools to allow for cluster right-sizing and independent scaling according to the application requirements. As you run out of capacity in your AKS cluster, grow from AKS to ACI to scale out additional pods to serverless nodes and ensure your workload uses all the allocated resources efficiently.
+An oversized cluster doesn't maximize utilization of compute resources and can lead to a waste of energy. Separate your applications into different node pools to allow for cluster right-sizing and independent scaling according to the application requirements. As you run out of capacity in your AKS cluster, grow from AKS to ACI to scale out extra pods to serverless nodes and ensure your workload uses all the allocated resources efficiently.
 
-* Size your cluster to match the scalability needs of your application and [use cluster autoscaler](./cluster-autoscaler.md) with [virtual nodes](./virtual-nodes.md) to rapidly scale and maximize compute resource utilization.
+* Size your cluster to match the scalability needs of your application. Use the [cluster autoscaler](./cluster-autoscaler.md) with [virtual nodes](./virtual-nodes.md) to rapidly scale and maximize compute resource utilization.
 * You can also [enforce resource quotas](./operator-best-practices-scheduler.md#enforce-resource-quotas) at the namespace level and [scale user node pools to zero](./scale-cluster.md?tabs=azure-cli#scale-user-node-pools-to-0) when there's no demand.
 
 ### Turn off workloads and node pools outside of business hours
@@ -176,13 +176,14 @@ Explore this section to learn how to enhance and optimize network efficiency to 
 
 The distance from a data center to users has a significant impact on energy consumption and carbon emissions. Shortening the distance a network packet travels improves both your energy and carbon efficiency.
 
-* Review your application requirements and [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview) to choose a region that is the closest to the majority of where the network packets are going.
+* Review your application requirements and [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview) to choose a region closest to where most network packets are going.
 
 ### Reduce network traversal between nodes
 
 Placing nodes in a single region or a single availability zone reduces the physical distance between the instances. However, for business critical workloads, you need to ensure your cluster is spread across multiple availability zones, which may result in more network traversal and increase in your carbon footprint.
 
-* Consider deploying your nodes within a [proximity placement group](../virtual-machines/co-location.md) to reduce the network traversal by ensuring your compute resources are physically located close to each other. For critical workloads configure [proximity placement groups with availability zones](./reduce-latency-ppg.md#configure-proximity-placement-groups-with-availability-zones).
+* Consider deploying your nodes within a [proximity placement group](../virtual-machines/co-location.md) to reduce the network traversal by ensuring your compute resources are physically located close to each other.
+* For critical workloads, configure [proximity placement groups with availability zones](./reduce-latency-ppg.md#configure-proximity-placement-groups-with-availability-zones).
 
 ### Evaluate using a service mesh
 
@@ -211,11 +212,11 @@ Explore this section to learn more about the recommendations leading to a sustai
 
 Transport Layer Security (TLS) ensures that all data passed between the web server and web browsers remain private and encrypted. However, terminating and re-establishing TLS increases CPU utilization and might be unnecessary in certain architectures. A balanced level of security can offer a more sustainable and energy efficient workload, while a higher level of security may increase the compute resource requirements.
 
-* Review the information on TLS termination when using [Application Gateway](../application-gateway/ssl-overview.md) or [Azure Front Door](../application-gateway/ssl-overview.md). Consider if you can terminate TLS at your border gateway and continue with non-TLS to your workload load balancer and onwards to your workload.
+* Review the information on TLS termination when using [Application Gateway](../application-gateway/ssl-overview.md) or [Azure Front Door](../application-gateway/ssl-overview.md). Determine whether you can terminate TLS at your border gateway, and continue with non-TLS to your workload load balancer and workload.
 
 ### Use cloud native network security tools and controls
 
-Azure Font Door and Application Gateway help manage traffic from web applications, while Azure Web Application Firewall provides protection against OWASP top 10 attacks and load shedding bad bots at the network edge. These capabilities help remove unnecessary data transmission and reduce the burden on the cloud infrastructure with lower bandwidth and less infrastructure requirements.
+Azure Front Door and Application Gateway help manage traffic from web applications, while Azure Web Application Firewall provides protection against OWASP top 10 attacks and load shedding bad bots at the network edge. These capabilities help remove unnecessary data transmission and reduce the burden on the cloud infrastructure with lower bandwidth and fewer infrastructure requirements.
 
 * Use [Application Gateway Ingress Controller (AGIC) in AKS](/azure/architecture/example-scenario/aks-agic/aks-agic) to filter and offload traffic at the network edge from reaching your origin to reduce energy consumption and carbon emissions.
 
@@ -224,7 +225,7 @@ Azure Font Door and Application Gateway help manage traffic from web application
 Many attacks on cloud infrastructure seek to misuse deployed resources for the attacker's direct gain leading to an unnecessary spike in usage and cost. Vulnerability scanning tools help minimize the window of opportunity for attackers and mitigate any potential malicious usage of resources.
 
 * Follow recommendations from [Microsoft Defender for Cloud](/security/benchmark/azure/security-control-vulnerability-management).
-* Run automated vulnerability scanning tools, such as [Defender for Containers](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md), to avoid unnecessary resource usage by identifying vulnerabilities in your images and minimizing the window of opportunity for attackers.
+* Run automated vulnerability scanning tools, such as [Defender for Containers](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md), to avoid unnecessary resource usage. These tools help identify vulnerabilities in your images and minimize the window of opportunity for attackers.
 
 ## Next steps
 
