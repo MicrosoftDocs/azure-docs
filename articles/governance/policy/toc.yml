@@ -63,6 +63,9 @@
   - name: "Add user assign identities to virtual machines"
     displayName: remediate, identity, user assign, virtual machines, monitoring agent
     href: ./tutorials/modify-virtual-machine-identity.md
+  - name: Disallow resource types
+    displayName: assign, definition, resource, type, exclusion, allow, disallow
+    href: ./tutorials/disallowed-resources.md
 - name: Samples
   items:
   - name: Index
