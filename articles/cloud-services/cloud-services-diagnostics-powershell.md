@@ -112,7 +112,7 @@ Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## Remove diagnostics extension
-To turn off diagnostics on a cloud service, you can use the [Remove-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/remove-azureservicediagnosticsextension) cmdlet.
+To turn off diagnostics on a cloud service, you can use the [Remove-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension) cmdlet.
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
