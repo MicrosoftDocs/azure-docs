@@ -135,10 +135,7 @@ When you create a function app in the [Azure portal](https://portal.azure.com), 
     | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. You should create a resource group because there are [known limitations when creating new function apps in an existing resource group](functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     | **Do you want to deploy code or container image?**| Container image | Deploy a containerized function app from a registry. To create a function app in registry, see [Create a function app in a local container](functions-create-container-registry.md). |
-    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. In-portal editing is only available for JavaScript, PowerShell, TypeScript, and C# script. C# class library, Java, and Python functions must be [developed locally](functions-develop-local.md#local-development-environments).  |
-    |**Version**| Version number | Choose the version of your installed runtime. |
     |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. |
-    |**Operating system**| Linux | Container deployment is only supported on Linux. |
 ::: zone-end
 :::zone pivot="azure-functions"
 4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. 
