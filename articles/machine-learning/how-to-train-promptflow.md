@@ -3,8 +3,8 @@ title: Train and Deploy Large Language Models with Azure Machine Learning prompt
 titleSuffix: Azure Machine Learning
 description: Set up connections and runtimes to run Prompt Flow models
 services: machine-learning
-ms.author: Bala
-author: vijetajo
+ms.author: balapv
+author: balapv
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
