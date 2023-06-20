@@ -91,8 +91,6 @@ In the previous section, you registered the prefix and generated the prefix key.
 
 In this section, you activate the prefix:
 
-**Prefix Activation**
-
 1. In the search box at the top of the portal, enter *peering service*. Select **Peering Services** in the search results. 
 
     :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal.":::
