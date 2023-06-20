@@ -125,7 +125,7 @@ def run(data):
   # collect outputs data, pass in correlation_context so inputs and outputs data can be correlated later
   outputs_collector.collect(output_df, context)
 
-  # collect both your inputs and output, pass in correlation_context so inputs and outputs data can be correlated later
+  # collect both your inputs and output, retaining the correlation_context  - this is used for Feature Attribution Drift 
   inputs_outputs_collector.collect(input_df, output_df, context)
   
   return output_df.to_dict()
