@@ -7,7 +7,7 @@ metadata:
   manager: amycolannino
   ms.service: network-access
   ms.topic: faq
-  ms.date: 04/11/2023
+  ms.date: 06/20/2023
   ms.custom: references_regions
 title: Global Secure Access Frequently Asked Questions (FAQ).
 summary: |
@@ -32,20 +32,17 @@ sections:
   - name: Applications
     questions:
         - question: |
-             I was prompted for admin consent when trying to access private resources using Private Access. What should I do?
+            I was prompted for admin consent when trying to access private resources using Private Access. What should I do?
           answer: |
-            1. Add Global Administrator to the Quick Access app.
-            2. When prompted for administrator consent, sign-in as Global Administrator and accept the consent.
-            3. Select the Consent for my entire org checkbox.
-            4. Add the Microsoft Entra Private Access client service principal (760282b4-0cfc-4952-b467-c8e0298fee16) as a Client ID in the Expose an API page (with checkbox for user-impersonation selected).      
+            Add the Microsoft Entra Private Access client service principal (760282b4-0cfc-4952-b467-c8e0298fee16) as a Client ID in the "Expose an API" page. Be sure the "user-impersonation" checkbox is selected.
         - question: |
-              I can't access an internal resource using the hostname or FQDN when IP is configured in Quick Access.
+            I can't access an internal resource using the hostname or FQDN when IP is configured in Quick Access.
           answer: |
             Private DNS is currently not supported. Specify the Hostname or FQDN being used to access the internal resource in the Quick Access configuration along with the respective port.
         - question: |
-              I tried to delete and reinstall my Quick Access app to resolve an issue, but the issue persists.
+            My Quick Access app isn't working as expected.  
           answer: |
-            Submit a support request.
+            Delete and reinstall the Quick Access app. If the issue persists, submit a support request.
 
 additionalContent: |
     ## Next steps

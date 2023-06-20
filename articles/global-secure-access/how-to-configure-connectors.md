@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 06/20/2023
 ms.service: network-access
 ms.custom: 
 
@@ -37,7 +37,7 @@ To use Private Access, install a connector on each Windows server you're using f
 
 ## Things to know
 
-If you've previously installed a connector, reinstall to get the latest version. To see information about previously released versions and what changes they include, see [Application Proxy: Version Release History](../active-directory/app-proxy/application-proxy-release-version-history.md).
+If you've previously installed a connector, reinstall it to get the latest version. When upgrading, uninstall the existing connector and delete any related folders. To see information about previously released versions and what changes they include, see [Application Proxy: Version Release History](../active-directory/app-proxy/application-proxy-release-version-history.md).
 
 If you choose to have more than one Windows server for your on-premises applications, you need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](../active-directory/app-proxy/application-proxy-connector-groups.md).
 

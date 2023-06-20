@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 06/20/2023
 ms.service: network-access
 ms.custom: 
 
@@ -29,6 +29,10 @@ To manage App Proxy connector groups, which is required for per-app access, you 
 - A Microsoft Entra ID Premium P1/P2 license
 - An **Application Administrator** role in Microsoft Entra ID
 
+### Known limitations
+
+- Avoid overlapping app segments between Quick Access and per-app access.
+- Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet.
 ## Setup overview
 
 To configure per-app access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
