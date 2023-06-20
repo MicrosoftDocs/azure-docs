@@ -125,8 +125,12 @@ def run(data):
   # collect outputs data, pass in correlation_context so inputs and outputs data can be correlated later
   outputs_collector.collect(output_df, context)
 
+  # create a dataframe with inputs/outputs joined - this creates a URI folder (not mltable) 
+  # input_output_df = input_df.merge(output_df, context)
+  input_output_df = input_df.join(output_df)
+
   # collect both your inputs and output, retaining the correlation_context  - this is used for Feature Attribution Drift 
-  inputs_outputs_collector.collect(input_df, output_df, context)
+  inputs_outputs_collector.collect(input_output_df, context)
   
   return output_df.to_dict()
   
