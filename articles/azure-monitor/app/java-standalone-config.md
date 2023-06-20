@@ -348,6 +348,53 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 }
 ```
 
+## Browser SDK Loader (preview)
+
+This feature automatically injects the [Browser SDK Loader](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
+
+For example, when your java application returns a response like:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+Then it will be automatically modified to return:
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript">
+    !function(v,y,T){var S=v.location,k="script"
+    <!-- Removed for brevity -->
+    connectionString: "YOUR_CONNECTION_STRING"
+    <!-- Removed for brevity --> }});
+    </script>
+    <title>Title</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+The script is aiming at helping customers to track the web user data, and sent the collecting server-side telemetry back to users' Azure portal. Details can be found at [ApplicationInsights-JS](https://github.com/microsoft/ApplicationInsights-JS)
+
+If you want to enable this feature, add the below configuration option:
+
+```json
+"preview": {
+  "browserSdkLoader": {
+     "enabled": true
+   }
+}
+```
+
 ## Telemetry processors (preview)
 
 You can use telemetry processors to configure rules that are applied to request, dependency, and trace telemetry. For example, you can:
