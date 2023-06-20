@@ -103,7 +103,7 @@ Other hosting and deployment methods:
 - Deploying [Azure Kubernetes Service (AKS) cluster on top of Azure Industrial IoT Platform created by deployment script and adding Azure Industrial IoT components into the cluster](https://github.com/Azure/Industrial-IoT/blob/main/docs/deploy/howto-add-aks-to-ps1.md).
 
 References:
-- [Deploying Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/tree/main/docs/deploy)
+- [Deploying Azure Industrial IoT Platform](/azure/industrial-iot/tutorial-deploy-industrial-iot-platform)
 - [How to deploy platform into AKS](/azure/aks/learn/quick-kubernetes-deploy-cli)
 
 
