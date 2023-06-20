@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 06/20/2023
 ms.author: maquaran
 ms.devlang: csharp, java
 ms.custom: devx-track-java, devx-track-extended-java
@@ -162,7 +162,7 @@ Following are implications of how the parallel queries would behave for differen
 
 ## Tune the page size
 
-When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large.
 
 > [!NOTE] 
 > The `MaxItemCount` property shouldn't be used just for pagination. Its main use is to improve the performance of queries by reducing the maximum number of items returned in a single page. 
