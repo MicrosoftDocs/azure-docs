@@ -194,7 +194,7 @@ You can use [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)
 If you've installed SAP IQ as a highly available system where SAP IQ binaries and database files are on an Azure shared disk (Windows only) or on a network drive like Azure NetApp Files (Linux only), you need to identify:
 
 - Whether you need the same highly available SAP IQ system on the DR site.
-- Whether a standalone SAP IQ instance will suffice your business requirements.
+- Whether a standalone SAP IQ instance will suffice for your business requirements.
   
 If you need a standalone SAP IQ instance on a DR site, you can use [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) to replicate a primary SAP IQ virtual machine in the secondary region. It replicates the servers and all the local attached managed disks to the secondary region, but it won't replicate an Azure shared disk or a network drive like Azure NetApp Files.
   

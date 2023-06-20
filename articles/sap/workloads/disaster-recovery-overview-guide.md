@@ -61,7 +61,7 @@ The following reference architecture shows typical SAP NetWeaver system running 
 
 Organizations should plan and design a DR strategy for their entire IT landscape. Usually SAP systems running in production environment are integrated with different services and interfaces like Active directory, DNS, third-party application, and so on. So you must include the non-SAP systems and other services in your disaster recovery planning as well. This document focuses on the recovery planning for SAP applications. But you can expand the size and scope of the DR planning for dependent components to fit your requirements.
 
-[![Disaster Recovery reference architecture for SAP workload](media/disaster-recovery/disaster-recovery-reference-architecture.png)](media/disaster-recovery/disaster-recovery-reference-architecture.png#lighbox)
+[![Disaster Recovery reference architecture for SAP workload](media/disaster-recovery/disaster-recovery-reference-architecture.png)](media/disaster-recovery/disaster-recovery-reference-architecture.png#lightbox)
 
 ## Infrastructure components of DR solution for SAP workload
 

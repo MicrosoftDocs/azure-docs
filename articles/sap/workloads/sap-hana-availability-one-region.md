@@ -43,7 +43,7 @@ A health check functionality monitors the health of every VM that's hosted on an
 With the host and VM monitoring provided by Azure, Azure VMs that experience host issues are automatically restarted on a healthy Azure host.
 
 > [!IMPORTANT]
-> Azure service healing will not restart Linux VMs where the guest OS is in a kernel panic state. The default settings of the commonly used Linux releases, are not automatically restarting VMs or server where the Linux kernel is in panic state. Instead the default foresees to keep the OS in kernel panic state to be able to attach a kernel debugger to analyze. Azure is honoring that behavior by not automatically restarting a VM with the guest OS in a such a state. Assumption is that such occurrences are extremely rare. You could overwrite the default behavior to enable a restart of the VM. To change the default behavior enable the parameter 'kernel.panic' in /etc/sysctl.conf. The time you set for this parameter is in seconds. Common recommended values are to wait for 20-30 seconds before triggering the reboot through this parameter. For more information, see [sysctl.conf](https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf).
+> Azure service healing will not restart Linux VMs where the guest OS is in a kernel panic state. The default settings of the commonly used Linux releases, are not automatically restarting VMs or server where the Linux kernel is in panic state. Instead the default foresees to keep the OS in kernel panic state to be able to attach a kernel debugger to analyze. Azure is honoring that behavior by not automatically restarting a VM with the guest OS in such a state. Assumption is that such occurrences are extremely rare. You could overwrite the default behavior to enable a restart of the VM. To change the default behavior enable the parameter 'kernel.panic' in /etc/sysctl.conf. The time you set for this parameter is in seconds. Common recommended values are to wait for 20-30 seconds before triggering the reboot through this parameter. For more information, see [sysctl.conf](https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf).
 
 The second feature that you rely on in this scenario is the fact that the HANA service that runs in a restarted VM starts automatically after the VM reboots. You can set up [HANA service auto restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) through the watchdog services of the various HANA services.
 
@@ -64,7 +64,7 @@ High availability architectures based on standby node or HANA System Replication
 
 To ensure the availability of the HANA system within a specific region, you have the option to configure two VMs across the availability zones of the region or within the region. To achieve this objective, you can configure the VMs using flexible scale set, availability zones or availability set deployment option. The base setup in Azure would look like:
 
-![Diagram of two VMs with all layers](./media/sap-hana-availability-one-region/two_vm_all_shell.png)
+![Diagram of two VMs with all layers](./media/sap-hana-availability-one-region/two_vm_all_shell.png).
 
 To illustrate the different SAP HANA availability scenarios, a few of the layers in the diagram are omitted. The diagram shows only layers that depict VMs, hosts, Availability Sets, and Azure regions. Azure Virtual Network instances, resource groups, and subscriptions don't play a role in the scenarios described in this section.
 
@@ -74,7 +74,7 @@ One of the most rudimentary setups is to use backups. In particular, you might h
 
 The architecture looks like:
 
-![Diagram that shows the architecture of two VMs with storage replication.](./media/sap-hana-availability-one-region/two_vm_storage_replication.png)
+![Diagram that shows the architecture of two VMs with storage replication.](./media/sap-hana-availability-one-region/two_vm_storage_replication.png).
 
 This setup isn't well suited to achieving great Recovery Point Objective (RPO) and Recovery Time Objective (RTO) times. RTO times especially would suffer due to the need to fully restore the complete database by using the copied backups. However, this setup is useful for recovering from unintended data deletion on the main instances. With this setup, at any time, you can restore to a certain point in time, extract the data, and import the deleted data into your main instance. Hence, it might make sense to use a backup copy method in combination with other high-availability functionality.
 
@@ -93,7 +93,7 @@ In this scenario, you use SAP HANA system replication to move data in a synchron
 
 The scenario looks like:
 
-![Diagram of two VMs with storage replication](./media/sap-hana-availability-one-region/two_vm_HSR_sync_nopreload.png)
+![Diagram of two VMs with storage replication](./media/sap-hana-availability-one-region/two_vm_HSR_sync_nopreload.png).
 
 > [!NOTE]
 > Even if you don't use data preload in the HANA system replication target, you need at least 64 GB of memory. You also need enough memory in addition to 64 GB to keep the rowstore data in the memory of the target instance.
@@ -110,7 +110,7 @@ From an SAP HANA perspective, the replication mode that's used is synced and an 
 
 The overall configuration looks like:
 
-![Diagram of two VMs with storage replication and failover](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.png)
+![Diagram of two VMs with storage replication and failover](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.png).
 
 You might choose this solution because it enables you to achieve an RPO=0 and a low RTO. Configure the SAP HANA client connectivity so that the SAP HANA clients use the virtual IP address to connect to the HANA system replication configuration. Such a configuration eliminates the need to reconfigure the application if a failover to the secondary node occurs. In this scenario, the Azure VM SKUs for the primary and secondary VMs must be the same.
 
