@@ -19,6 +19,8 @@ By configuring Quick Access and enabling Microsoft Entra Private Access, you can
 
 Quick Access can be a quick and easy way to replace your VPN to allow secure access to your internal resources with an easy-one time configuration, using the secure capabilities of Conditional Access.
 
+## How it works
+
 With Connectors, you can isolate apps per network and connector. 
 
 ## Next steps
