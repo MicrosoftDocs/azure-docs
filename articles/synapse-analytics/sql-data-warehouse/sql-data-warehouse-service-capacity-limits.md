@@ -6,8 +6,8 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 2/19/2020
-ms.author: martinle
+ms.date: 6/20/2023
+ms.author: dhsundar
 ms.reviewer: wiassaf
 
 ms.custom: azure-synapse
