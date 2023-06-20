@@ -92,11 +92,11 @@ Use the following steps to create an Azure Spring Apps service instance.
 1. Use the following commands to define variables for this quickstart with the names of your resources and desired settings:
 
    ```azurecli-interactive
-   LOCATION="<region>"
-   RESOURCE_GROUP="<resource-group-name>"
-   MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-   SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
-   APP_NAME="<Spring-app-name>"
+   export LOCATION="<region>"
+   export RESOURCE_GROUP="<resource-group-name>"
+   export MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+   export SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
+   export APP_NAME="<Spring-app-name>"
    ```
 
 1. Use the following command to create a resource group:
@@ -120,7 +120,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 1. Use the following command to create a variable to store the environment resource ID:
 
    ```azurecli-interactive
-   MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
+   export MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
        --resource-group ${RESOURCE_GROUP} \
        --name ${MANAGED_ENVIRONMENT} \
        --query id \

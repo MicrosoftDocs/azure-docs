@@ -103,8 +103,6 @@
         items:
         - name: What is MSIX app attach?
           href: what-is-app-attach.md
-        - name: Glossary
-          href: app-attach-glossary.md
         - name: FAQ
           href: app-attach-faq.yml
       - name: Microsoft Teams supported features
