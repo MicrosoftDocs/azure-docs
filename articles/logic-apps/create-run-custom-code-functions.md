@@ -228,7 +228,7 @@ After you confirm that your code compiles and that your logic app project contai
 
    :::image type="content" source="media/create-run-custom-code-functions/default-workflow.png" alt-text="Screenshot shows Visual Studio Code, workflow designer, and default workflow with trigger and actions.":::
 
-1. Review and confirm that the **Function name** parameter value is set to the function that you want to run. Review or change any other parameter values that your function uses.
+1. Review and confirm that the **Function Name** parameter value is set to the function that you want to run. Review or change any other parameter values that your function uses.
 
 ## Debug your code and workflow
 
