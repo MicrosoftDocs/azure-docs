@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 06/20/2023
 ms.author: cnwankwo
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-windiows.md)]
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
 Spotlight is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
