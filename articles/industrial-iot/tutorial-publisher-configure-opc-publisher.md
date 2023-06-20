@@ -42,7 +42,7 @@ To persist the security configuration of OPC Publisher, the certificate store mu
 
 ## Configuration via Configuration File
 
-The simplest way to configure OPC Publisher is via a configuration file. An example configuration file and format documentation are provided in the file [`publishednodes.json`](https://raw.githubusercontent.com/Azure/Industrial-IoT/main/components/opc-ua/src/Microsoft.Azure.IIoT.OpcUa.Edge.Publisher/tests/Engine/publishednodes.json) in this repository.
+The simplest way to configure OPC Publisher is via a configuration file. An example configuration file and format documentation are provided in the file [`publishednodes.json`](https://raw.githubusercontent.com/Azure/Industrial-IoT/main/src/Azure.IIoT.OpcUa.Publisher/tests/Publisher/publishednodes.json) in this repository.
 Configuration file syntax has changed over time. OPC Publisher still can read old formats, but converts them into the latest format when writing the file.
 
 A basic configuration file looks like this:
