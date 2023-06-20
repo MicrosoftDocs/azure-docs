@@ -129,7 +129,7 @@ def run(data):
   # input_output_df = input_df.merge(output_df, context)
   input_output_df = input_df.join(output_df)
 
-  # collect both your inputs and output, retaining the correlation_context  - this is used for Feature Attribution Drift 
+  # collect both your inputs and output  
   inputs_outputs_collector.collect(input_output_df, context)
   
   return output_df.to_dict()
