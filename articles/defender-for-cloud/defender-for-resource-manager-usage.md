@@ -25,7 +25,7 @@ Microsoft Defender for Resource Manager provides visibility into activity that c
 
 `Delegated access` refers to access with [Azure Lighthouse](/azure/lighthouse/overview) or with [Delegated administration privileges](/partner-center/dap-faq). 
 
-Alerts with the delegated access indication also include customized description and remediation steps.
+Alerts that show `Delegated access` also include a customized description and remediation steps.
 
 Learn more about [Azure Activity log](../azure-monitor/essentials/activity-log.md).
 
