@@ -13,7 +13,7 @@ ms.custom: ignite-2022
 
 # Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
 
-[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
+[!INCLUDE[NoSQL,MongoDB](includes/appliesto-nosql-mongodb.md)]
 
 > [!NOTE]
 > This article is about role-based access control for data plane operations in Azure Cosmos DB. If you are using management plane operations, see [role-based access control](role-based-access-control.md) applied to your management plane operations article.
@@ -487,7 +487,7 @@ This section includes frequently asked questions about role-based access control
 
 ### Which Azure Cosmos DB APIs support role-based access control?
 
-Only the API for NoSQL is currently supported.
+NoSQL and MongoDB(public preview)
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 
