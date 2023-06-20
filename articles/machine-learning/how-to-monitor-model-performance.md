@@ -385,9 +385,9 @@ monitor_target_data = TargetDataset(
     dataset=MonitorInputData(
         input_dataset=Input(
             type="mltable",
-            path="azureml:my_model_production_data:1"
+            path="azureml:my_model_production_input_output_data:1"
         ),
-        dataset_context=MonitorDatasetContext.MODEL_INPUTS,
+        dataset_context=MonitorDatasetContext.MODEL_INPUTS_OUTPUTS,
     )
 )
 monitor_baseline_data = MonitorInputData(
@@ -398,7 +398,7 @@ monitor_baseline_data = MonitorInputData(
     target_column_name="fraud_detected",
     dataset_context=MonitorDatasetContext.TRAINING,
 )
-metric_thresholds = FeatureAttributionDriftMetricThreshold(threshold=0.05)
+metric_thresholds = FeatureAttributionDriftMetricThreshold(threshold=0.9)
 
 feature_attribution_drift = FeatureAttributionDriftSignal(
     target_dataset=monitor_target_data,
