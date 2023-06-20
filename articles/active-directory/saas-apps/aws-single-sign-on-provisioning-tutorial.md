@@ -170,9 +170,9 @@ Once you've configured provisioning, use the following resources to monitor your
 With PIM for Groups, you can provide just-in-time access to groups in Amazon Web Services and reduce the number of users that have permanent access to priviliged groups in AWS. 
 
 **Configure provisioning**
-1. Create an enterprise application and configure it for provisioning as described in the tutorial above. 
+1. Add AWS IAM Identity Center to your tenant and configure it for provisioning as described in the tutorial above. 
 1. Create a group that will provide all users access to the application and assign the group to the application. 
-1. Assign your test user as a direct member of the froup created in step 2, or provide them access to the group through an access package. This group can be used for persistent, non-admin access in AWS.
+1. Assign your test user as a direct member of the group created in step 2, or provide them access to the group through an access package. This group can be used for persistent, non-admin access in AWS.
 1. Use on-demand provisioning to provision the group created in step 1 into your application. At this point the group does not have any active members so this will simply create the group object in AWS.
 1. Sign-in to AWS and assign the group to the necessary role / permissions in  AWS.
 
@@ -183,7 +183,7 @@ With PIM for Groups, you can provide just-in-time access to groups in Amazon Web
 1. Assign your test user as [eligible for the group in PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
 
 
-Now any end user that was made eligible for the group in step 3 can not get JIT access to the group in AWS by following the steps outlined [here](https://learn.microsoft.com/en-us/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
+Now any end user that was made eligible for the group in step 3 can get JIT access to the group in AWS by following the steps outlined [here](https://learn.microsoft.com/en-us/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
 
 ## Troubleshooting Tips
 
