@@ -21,7 +21,7 @@ Internet peering provides highly reliable and QoS (Quality of Service) enabled i
 
 The following flowchart summarizes the process to onboard to Peering Services
 
-:::image type="content" source="media/oconboarding-azure-maps-highres.png" alt-text="Onboarding process for Peering Services" :::
+:::image type="content" source="media/walkthrough-peering-services-partner/peering-services-partner-onboarding-flowchart.png" alt-text="Flowchart summarizing the onboarding process for Peering Services partners" :::
 
 ## Technical Requirements
 The technical requirements to establish direct interconnect for Peering Services are as following:

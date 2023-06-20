@@ -34,11 +34,10 @@ In this section, you activate the prefix:
 
     :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
 
-1. In the **Configuration** tab, provide details on the location, provider and primary and backup interconnect locations. If the backup location is set to **None**, the traffic will fail over to the internet. 
+1. In the **Configuration** tab, provide details on the location, provider and primary and backup interconnect locations. If the backup location is set to **None**, the traffic will fail over to the internet.
 
     > [!NOTE]
-    > - If you're an Operator Connect partner, your organization is available as a **Provider**.
-    > - The prefix key should be the same as the one obtained in the [Register the prefix](#register-the-prefix) step. 
+    > - The prefix key should be the same as the one obtained from your Peering Service provider. 
 
     :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-configuration.png" alt-text="Screenshot shows the Configuration tab of creating a Peering Service connection in the Azure portal."::: 
 
