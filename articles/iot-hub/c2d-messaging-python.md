@@ -28,7 +28,7 @@ This article shows you how to:
 
 At the end of this article, you run two Python console apps:
 
-* **SimulatedDevice.py**: a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), which connects to your IoT hub and receives cloud-to-device messages.
+* **SimulatedDevice.py**: simulates a device that connects to your IoT hub and receives cloud-to-device messages.
 
 * **SendCloudToDeviceMessage.py**: sends cloud-to-device messages to the simulated device app through IoT Hub.
 
@@ -70,7 +70,7 @@ In this section, you create a Python console app to simulate a device and receiv
     RECEIVED_MESSAGES = 0
     ```
 
-1. Add the following code to **SimulatedDevice.py** file. Replace the `{deviceConnectionString}` placeholder value with the device connection string for the device you created in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart:
+1. Add the following code to **SimulatedDevice.py** file. Replace the `{deviceConnectionString}` placeholder value with the connection string for the registered device in [Prerequisites](#prerequisites):
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
