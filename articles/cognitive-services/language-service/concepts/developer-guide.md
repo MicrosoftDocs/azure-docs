@@ -131,7 +131,7 @@ The text analysis authoring API enables you to author custom models and create/m
 * [Custom named entity recognition](../custom-named-entity-recognition/quickstart.md?pivots=rest-api)
 * [Custom text classification](../custom-text-classification/quickstart.md?pivots=rest-api)
 
-As you use this API in your application, see the [reference documentation](/rest/api/language/2022-05-01/text-analysis-authoring) for additional information.
+As you use this API in your application, see the [reference documentation](/rest/api/language/2023-04-01/text-analysis-authoring) for additional information.
 
 ### Text analysis runtime API
 
