@@ -66,7 +66,7 @@ While both extensions and custom security attributes can be used to extend objec
 | Supported objects | Depends on the extension type | Users and service principals |
 | Restricted access | No. Anyone with permissions to read the object can read the extension data. | Yes. Read and write access is restricted through a separate set of permissions and RBAC. |
 | When to use | Store data to be used by an application <br/> Store non-sensitive data | Store sensitive data <br/> Use for authorization scenarios |
-| License requirements | Available with the basic license | Basic capabilities are available with an Azure AD Premium P1 license |
+| License requirements | Available in all editions of Azure AD | Requires an Azure AD Premium P1 or P2 license |
 
 For more information about working with extensions, see [Add custom data to resources using extensions](/graph/extensibility-overview).
 
