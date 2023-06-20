@@ -10,7 +10,7 @@ ms.author: cherylmc
 
 ---
 
-# Configure Bastion for Kerberos authentication using the Azure portal (Preview)
+# Configure Bastion for Kerberos authentication using the Azure portal
 
 This article shows you how to configure Azure Bastion to use Kerberos authentication. Kerberos authentication can be used with both the Basic and the Standard Bastion SKUs. For more information about Kerberos authentication, see the [Kerberos authentication overview](/windows-server/security/kerberos/kerberos-authentication-overview). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
@@ -20,6 +20,8 @@ This article shows you how to configure Azure Bastion to use Kerberos authentica
 * VMs migrated from on-premises to Azure are not currently supported for Kerberos. 
 * Cross-realm authentication is not currently supported for Kerberos. 
 * Changes to DNS server are not currently supported for Kerberos. After making any changes to DNS server, you will need to delete and re-create the Bastion resource.
+* If additional DC (domain controllers) are added, Bastion will only recognize the first DC.
+* If additional DCs are added for different domains, the added domains cannot successfully authenticate with Kerberos
 
 ## Prerequisites
 
