@@ -5,7 +5,7 @@ description: How to enable client certificate authentication for Azure Web PubSu
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 06/0/2023
+ms.date: 06/20/2023
 ms.author: dayshen
 ---
 
@@ -25,7 +25,7 @@ You can restrict access to your Azure Web PubSub Service by enabling different t
 
 ## Deploy Azure Web PubSub Service
 
-Suppose you're going to use a function called `func-client-cert` as event handler to process `connect` events. Clients connects to a hub called `echo`. Here are the Bicep/ARM templates to deploy an Azure Web PubSub service with client certificate authentication enabled and event handlers configured.
+Suppose you're going to use a function called `func-client-cert` as event handler to process `connect` events. Clients connect to a hub called `echo`. Here are the Bicep/ARM templates to deploy an Azure Web PubSub service with client certificate authentication enabled and event handlers configured.
 
 We enable client certificate authentication via the property `tls.clientCertEnabled`.
 
@@ -142,7 +142,7 @@ resource hub 'Microsoft.SignalRService/WebPubSub/hubs@2023-03-01-preview' = {
 
 You can validate incoming client certificate via its SHA-1 thumbprint in the `connect` event. The value is available in `clientCertificates` field. See [CloudEvents HTTP extension for event handler](reference-cloud-events.md#connect).
 
-Here are sample function code to implement validation logic.
+Here are sample function codes to implement validation logic.
 
 ### [JavaScript](#tab/javascript)
 
@@ -180,7 +180,7 @@ In case you want to rotate the certificate, you can update your event handler co
 
 ## Missing client certificate
 
-Azure Web PubSub Service doesn't abort TLS handshake when clients do not provide client certificate. It's up to event handler to decide whether to accept or reject a connection without client certificate.
+Azure Web PubSub Service doesn't abort TLS handshake when clients don't provide client certificate. It's up to event handler to decide whether to accept or reject a connection without client certificate.
 
 ## Next steps
 
