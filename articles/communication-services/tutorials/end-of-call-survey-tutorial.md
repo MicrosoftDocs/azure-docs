@@ -109,7 +109,7 @@ The API will return the following error messages if data validation fails or the
   - videoRating.score
   - ScreenshareRating.score
 
-- \${propertyName\}: \${rating.score\} should be between \${rating.scale?.lowerBound\} and \${rating.scale?.upperBound\}.
+- \${propertyName\}: \${rating.score\} should be between \${rating.scale?.lowerBound\} and \${rating.scale?.upperBound\}. 
 
 - \{propertyName\}: \{rating.score\} should be between \{rating.scale?.lowerBound\} and \{rating.scale?.upperBound\}. 
 
