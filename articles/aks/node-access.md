@@ -23,46 +23,49 @@ You also need the Azure CLI version 2.0.64 or later installed and configured. Ru
 
 ## Create an interactive shell connection to a Linux node
 
-To create an interactive shell connection to a Linux node, use the `kubectl debug` command to run a privileged container on your node. To list your nodes, use the `kubectl get nodes` command:
+To create an interactive shell connection to a Linux node, use the `kubectl debug` command to run a privileged container on your node.
 
-```bash
-kubectl get nodes -o wide
-```
+1. To list your nodes, use the `kubectl get nodes` command:
 
-The following example resembles output from the command:
+    ```bash
+    kubectl get nodes -o wide
+    ```
+    
+    The following example resembles output from the command:
+    
+    ```output
+    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE
+               KERNEL-VERSION      CONTAINER-RUNTIME
+    aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
+    aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
+    aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1787     containerd://1.6.21+azure
+    ```
 
-```output
-NAME                                STATUS   ROLES   AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
-aks-nodepool1-12345678-vmss000000   Ready    agent   13m     v1.19.9   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
-aks-nodepool1-12345678-vmss000001   Ready    agent   13m     v1.19.9   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
-aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.67   <none>        Windows Server 2019 Datacenter   10.0.17763.1935    docker://19.3.1
-```
+2. Use the `kubectl debug` command to run a container image on the node to connect to it. The following command starts a privileged container on your node and connects to it.
 
-Use the `kubectl debug` command to run a container image on the node to connect to it. The following command starts a privileged container on your node and connects to it.
-
-```bash
-kubectl debug node/aks-nodepool1-12345678-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
-```
-
-The following example resembles output from the command:
-
-```output
-Creating debugging pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx with container debugger on node aks-nodepool1-12345678-vmss000000.
-If you don't see a command prompt, try pressing enter.
-root@aks-nodepool1-12345678-vmss000000:/#
-```
-
-This privileged container gives access to the node.
-
-> [!NOTE]
-> You can interact with the node session by running `chroot /host` from the privileged container.
+    ```bash
+    kubectl debug node/aks-nodepool1-37663765-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
+    ```
+    
+    The following example resembles output from the command:
+    
+    ```output
+    Creating debugging pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx with container debugger on node aks-nodepool1-37663765-vmss000000.
+    If you don't see a command prompt, try pressing enter.
+    root@aks-nodepool1-37663765-vmss000000:/#
+    ```
+    
+    This privileged container gives access to the node.
+    
+    > [!NOTE]
+    > You can interact with the node session by running `chroot /host` from the privileged container.
 
 ### Remove Linux node access
 
 When done, `exit` the interactive shell session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
 
 ```bash
-kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
+kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 
 ## Create the SSH connection to a Windows node
@@ -87,15 +90,15 @@ The following example resembles output from the command:
 
 ```output
 NAME                                                    READY   STATUS    RESTARTS   AGE
-node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx   1/1     Running   0          21s
+node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx   1/1     Running   0          21s
 ```
 
-In the above example, *node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx* is the name of the pod started by `kubectl debug`.
+In the above example, *node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx* is the name of the pod started by `kubectl debug`.
 
 Use the `kubectl port-forward` command to open a connection to the deployed pod:
 
 ```bash
-kubectl port-forward node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx 2022:22
+kubectl port-forward node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx 2022:22
 ```
 
 The following example resembles output from the command:
@@ -117,7 +120,7 @@ The following example resembles output from the command:
 
 ```output
 NAME                                STATUS   ROLES   AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
-aks-nodepool1-12345678-vmss000000   Ready    agent   13m     v1.19.9   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aks-nodepool1-37663765-vmss000000   Ready    agent   13m     v1.19.9   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
 aks-nodepool1-12345678-vmss000001   Ready    agent   13m     v1.19.9   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
 aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.67   <none>        Windows Server 2019 Datacenter   10.0.17763.1935    docker://19.3.1
 ```
@@ -205,7 +208,7 @@ If you didn't create your AKS cluster using the Azure CLI and the `--generate-ss
 When done, `exit` the SSH session, stop any port forwarding, and then `exit` the interactive container session. After the interactive container session closes, delete the pod used for SSH access using the `kubectl delete pod` command.
 
 ```bash
-kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
+kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 
 ## Update SSH key on an existing AKS cluster (preview)
