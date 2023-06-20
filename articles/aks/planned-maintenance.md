@@ -5,8 +5,8 @@ description: Learn how to use Planned Maintenance to schedule and control cluste
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 01/17/2023
-ms.author: qpetraroia
-author: qpetraroia
+ms.author: nickoman
+author: nickomang
 ---
 
 # Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster (preview)
