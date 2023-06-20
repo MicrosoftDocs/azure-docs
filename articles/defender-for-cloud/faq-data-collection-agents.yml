@@ -207,6 +207,8 @@ sections:
           [4]: ./media/platform-migration-faq/use-another-workspace.png
 
 
+  - name: Agentless
+    questions:
       - question: |
           Which data is collected from snapshots?
         answer: |

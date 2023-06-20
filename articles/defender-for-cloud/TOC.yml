@@ -21,8 +21,8 @@
     - name: Common questions about permissions
       displayName: permissions, common questions
       href: faq-permissions.yml
-    - name: Common questions about data collection, agents and workspaces
-      displayName: data collection, agents, workspaces, common questions
+    - name: Common questions about data collection, agents, agentless and workspaces
+      displayName: data collection, agents, workspaces, common questions, agentless
       href: faq-data-collection-agents.yml
     - name: Common questions about regulatory compliance
       displayName: regulatory, compliance, regulatory compliance, common questions
