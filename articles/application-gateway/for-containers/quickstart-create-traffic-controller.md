@@ -12,7 +12,7 @@ ms.date: 5/1/2023
 ms.author: greglin
 ---
 
-# Quickstart: Create a Application Gateway for Containers
+# Quickstart: Create an Application Gateway for Containers
 
 This document provides instructions on how to deploy the 3 types of resources (Application Gateway for Containers, Association, and Frontend) needed for Application Gateway for Containers to work with your AKS workload, and how to install ALB Controller on your AKS cluster to control the behavior of the Application Gateway for Containers.
 

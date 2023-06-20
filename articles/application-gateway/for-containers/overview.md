@@ -81,4 +81,4 @@ To learn what's new with Application Gateway for Containers, see [Azure updates]
 ## Next steps
 
 - [Concepts: How Application Gateway for Containers works](concepts-how-traffic-controller-works.md)
-- [Quickstart: Create a Application Gateway for Containers](quickstart-create-traffic-controller.md)
+- [Quickstart: Create an Application Gateway for Containers](quickstart-create-traffic-controller.md)
