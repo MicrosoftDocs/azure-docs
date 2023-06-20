@@ -13,7 +13,7 @@ ms.date: 06/05/2023
 
 # Tutorial: Sign in users in .NET MAUI shell app
 
-This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) shell and run the app on the Android platform.
+This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) and run the shell app on the Android platform.
 
 In this tutorial, you learn how to:
 
@@ -28,6 +28,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - [Tutorial: Create a .NET MAUI shell app, add MSALClient, and include an image resource](tutorial-mobile-app-maui-sign-in-prepare-app.md)
+- [Tutorial: Register and configure .NET MAUI mobile app in a customer tenant](tutorial-mobile-app-maui-sign-in-prepare-tenant.md)
 
 ## Add sign-in and sign-out code
 
@@ -67,9 +68,9 @@ The next step is to add the code for the button's `Clicked` event.
 
    :::code language="csharp" source="~/ms-identity-ciam-dotnet-tutorial/1-Authentication/2-sign-in-maui/Views/MainView.xaml.cs" :::
 
-The `MainView` class is a content page responsible for displaying the main view of the app. In the constructor, it retrieves the cached user account using the `MSALClientHelper` from the `PublicClientSingleton` instance and enables the sign-in button, if no cached user account is found. 
-
-When the sign-in button is clicked, it calls the `AcquireTokenSilentAsync` method to acquire a token silently and navigates to the `claimsview` page using the `Shell.Current.GoToAsync` method. Additionally, the `OnBackButtonPressed` method is overridden to return true, indicating that the back button is disabled for this view.
+   The `MainView` class is a content page responsible for displaying the main view of the app. In the constructor, it retrieves the cached user account using the `MSALClientHelper` from the `PublicClientSingleton` instance and enables the sign-in button, if no cached user account is found. 
+    
+   When the sign-in button is clicked, it calls the `AcquireTokenSilentAsync` method to acquire a token silently and navigates to the `claimsview` page using the `Shell.Current.GoToAsync` method. Additionally, the `OnBackButtonPressed` method is overridden to return true, indicating that the back button is disabled for this view.
 
 ### Add claims view page
 

@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 1. In the start window of Visual Studio 2022, select **Create a new project**.
 1. In the **Create a new project** window, select **MAUI** in the All project types drop-down, select the **.NET MAUI App** template, and select **Next**.
 1. In the **Configure your new project** window, **Project name** must be set to _SignInMaui_. Update the **Solution name**  to _sign-in-maui_ and select **Next**.
-1. In the **Additional information** window, choose .NET 7.0 and select **Create**.
+1. In the **Additional information** window, choose **.NET 7.0** and select **Create**.
 
 Wait for the project to be created and its dependencies to be restored.
 
