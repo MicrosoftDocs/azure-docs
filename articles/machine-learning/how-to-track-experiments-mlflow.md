@@ -90,7 +90,7 @@ The `search_experiments()` method available since Mlflow 2.0 allows searching ex
     mlflow.search_experiments(filter_string=f"creation_time > {int(dt.timestamp())}")
     ```
 
-* Retriev eall experiments with a given tag:
+* Retrieve all experiments with a given tag:
 
     ```python
     mlflow.search_experiments(filter_string=f"tags.framework = 'torch'")
@@ -341,7 +341,7 @@ child_runs = mlflow.search_runs(
 
 ## Compare jobs and models in Azure Machine Learning studio (preview)
 
-To compare and evaluate the quality of your jobs and models in Azure Machine Learning Studio, use the [preview panel](./how-to-enable-preview-features.md) to enable the feature. Once enabled, you can compare the parameters, metrics, and tags between the jobs and/or models you selected.
+To compare and evaluate the quality of your jobs and models in Azure Machine Learning studio, use the [preview panel](./how-to-enable-preview-features.md) to enable the feature. Once enabled, you can compare the parameters, metrics, and tags between the jobs and/or models you selected.
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
