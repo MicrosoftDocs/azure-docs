@@ -16,7 +16,7 @@ This article describes how to replicate, failover, and failback Azure virtual ma
 
 > [!NOTE]
 >
-> - Support for Zone to Zone disaster recovery is currently limited to the following regions: Southeast Asia, East Asia, Japan East, Korea Central, Australia East, India Central, China North 3, UK South, West Europe, North Europe, Germany West Central, Norway East, France Central, Switzerland North, Sweden Central (Managed Access), South Africa North, Canada Central, US Gov Virginia, Central US, South Central US, East US, East US 2, West US 2, Brazil South, West US 3 and UAE North.
+> - Support for Zone to Zone disaster recovery is currently limited to the following regions: Southeast Asia, East Asia, Japan East, Korea Central, Australia East, India Central, China North 3, Qatar Central, UK South, West Europe, North Europe, Germany West Central, Norway East, France Central, Switzerland North, Sweden Central (Managed Access), South Africa North, Canada Central, US Gov Virginia, Central US, South Central US, East US, East US 2, West US 2, Brazil South, West US 3 and UAE North.
 >
 >
 > - Site Recovery does not move or store customer data out of the region in which it is deployed when the customer is using Zone to Zone Disaster Recovery. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
