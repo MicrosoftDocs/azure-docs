@@ -24,7 +24,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.52.0
   + **azureml-automl-dnn-vision**
-    + The mlflow signature for the runtime (legacy) automl models has changed to accept binary inputs. This enables batch inferencing. The predict function is backwards compatible so users can still send base64 strings as input. The output from the predict function has changed to remove the temporary file name as well as the empty visualizations and attributions key when model explainability is n...
+    + The mlflow signature for the runtime (legacy) automl models has changed to accept binary inputs. This enables batch inferencing. The predict function is backwards compatible so users can still send base64 strings as input. The output from the predict function has changed to remove the temporary file name and the empty visualizations and attributions key when model explainability is n...
   + **azureml-contrib-automl-dnn-forecasting**
     + Fixed a bug that caused failures during distributed TCN training when the data consists of a single time series.
   + **azureml-interpret**
