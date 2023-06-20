@@ -18,7 +18,7 @@ This article explains how to quickly create a Cloud Services container using Azu
 
 1. Install the Microsoft Azure PowerShell cmdlet from the [Azure PowerShell downloads](https://aka.ms/webpi-azps) page.
 2. Open the PowerShell command prompt.
-3. Use the [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount) to sign in.
+3. Use the [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount) to sign in.
 
    > [!NOTE]
    > For further instruction on installing the Azure PowerShell cmdlet and connecting to your Azure subscription, refer to [How to install and configure Azure PowerShell](/powershell/azure/).
