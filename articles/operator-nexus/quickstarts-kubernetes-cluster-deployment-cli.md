@@ -54,9 +54,9 @@ To define these variables, use the following set commands and replace the exampl
 RESOURCE_GROUP="myResourceGroup"
 LOCATION="$(az group show --name $RESOURCE_GROUP --query location | tr -d '\"')"
 SUBSCRIPTION_ID="$(az account show -o tsv --query id)"
-CUSTOM_LOCATION="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
-CSN_ARM_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
-CNI_ARM_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
+CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
+CSN_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
+CNI_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
 AAD_ADMIN_GROUP_OBJECT_ID="00000000-0000-0000-0000-000000000000"
 CLUSTER_NAME="myNexusAKSCluster"
 K8S_VERSION="v1.24.9"
@@ -116,7 +116,7 @@ You can also use the default values for some of the variables, as shown in the f
 
 ```bash
 RESOURCE_GROUP="myResourceGroup"
-CUSTOM_LOCATION="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
+CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
 CLUSTER_NAME="myNexusAKSCluster"
 AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-2"
 AGENT_POOL_VM_SIZE="NC_M4_v1"
