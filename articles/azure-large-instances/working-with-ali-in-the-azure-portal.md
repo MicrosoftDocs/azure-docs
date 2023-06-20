@@ -30,47 +30,27 @@ You'll need to list your subscription in the Azure portal and then double-click 
 2. On the Azure portal menu, select All services.
 3. In the All services box, enter subscription, and then select Subscriptions.
 4. Select the subscription from the subscription list.
-5. Select Resource providers and enter BareMetalInfrastructure into search. The resource provider should be Registered, as the image shows. 
+5. Select **Resource providers** and type **BareMetalInfrastructure** in the search box. The resource provider should be Registered, as the image shows. 
 
-:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png" alt-text="Networking diagram of ALI for Epic diagram." border="false":::
+:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png"  border="false":::
 
-:::image type="content" source="register-resource-provider-azure-portal.png" alt-text="Networking diagram of ALI for Epic diagram." border="false":::
+:::image type="content" source="register-resource-provider-azure-portal.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="register-resource-provider-azure-portal.png"  border="false":::
 
-lightbox="media/ali-netapp-with-cvo/end-to-end-solution-architecture.png" 
-
-baremetal-infrastructure\media\connect-baremetal-infrastructure\register-resource-provider-azure-portal.png
-
-A screenshot of a computer
-
-Description automatically generated with medium confidence 
+> [!Note]
+> If the resource provider isn't registered, select Register. 
 
  
 
- Note 
+### Azure CLI 
 
- 
+To begin using Azure CLI
 
-If the resource provider isn't registered, select Register. 
+ Use the Bash environment in Azure Cloud Shell. 
+For more information, see [Quickstart for Bash in Azure Cloud Shells](../cloud-shell/quickstart.md). 
 
- 
-
-Azure CLI 
-
- 
-
-To begin using Azure CLI: 
-
- 
-
-Use the Bash environment in Azure Cloud Shell. For more information, see Quickstart for Bash in Azure Cloud Shell. 
-
- 
-
- 
-
- 
-
-If you prefer to run CLI reference commands locally, install the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see How to run the Azure CLI in a Docker container. 
+If you prefer to run CLI reference commands locally, install the Azure CLI. 
+If you're running on Windows or macOS, consider running Azure CLI in a Docker container.
+ For more information, see How to run the Azure CLI in a Docker container. 
 
  
 
@@ -100,41 +80,26 @@ For more information about resource providers, see Azure resource providers and 
 
  
 
-ALI in the Azure portal 
+### ALI in the Azure portal 
 
-When you submit a Azure Large Iinstance deployment request, specify the Azure subscription you're connecting to the ALI. Use the same subscription you use to deploy the application layer that works against the ALI. 
+When you submit a Azure Large Instance deployment request, specify the Azure subscription you're connecting to the ALI implementation.
+Use the same subscription you use to deploy the application layer that works against the ALI.
 
+ During the deployment of your ALI, a new [Azure resource group](../azure-resource-manager/management/manage-resources-portal.md) is created in the Azure subscription you used in the deployment request.
+This new resource group lists the ALI you've deployed in that subscription.
+
+#### Portal
+
+1. In the Azure portal, in the BareMetal subscription, select **Resource groups**.
+
+   :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Screenshot showing the list of Resource groups." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png"  border="false":::
+
+1. In the list, locate the new resource group.
  
+   :::image type="content" source="media/connect-baremetal-infrastructure/filter-resource-groups.png" alt-text="Screenshot showing the BareMetal instance in a filtered Resource groups list." lightbox="media/connect-baremetal-infrastructure/filter-resource-groups.png" lightbox="../media/connect-baremetal-infrastructure/filter-resource-groups.png"  border="false":::
 
-During the deployment of your ALI, a new Azure resource group is created in the Azure subscription you used in the deployment request. This new resource group lists ALI you've deployed in that subscription. 
-
- 
-
-Portal 
-
- 
-
-In the Azure portal, in the BareMetal ALI subscription, select Resource groups. 
-
- 
-
-A screenshot of a computer
-
-Description automatically generated with medium confidence 
-
-In the list, locate the new resource group. 
-
- 
-
-A screenshot of a computer
-
-Description automatically generated with low confidence 
-
- 
-
- 
-
-Select the new resource group to view its details. The image shows one Azure Large Instance deployed. 
+1. In the list, locate the new resource group.
+1. Select the new resource group to view its details. The image shows one Azure Large Instance deployed. 
 
  
 
