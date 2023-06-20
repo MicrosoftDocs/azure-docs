@@ -34,7 +34,7 @@ When reading a compressed file, either as a zip or a KMZ, it will be unzipped an
 
 The result from the read function is a `SpatialDataSet` object. This object extends the GeoJSON FeatureCollection class. It can easily be passed into a `DataSource` as-is to render its features on a map. The `SpatialDataSet` not only contains feature information, but it may also include KML ground overlays, processing metrics, and other details as outlined in the following table.
 
-| Property name | Type | Description | 
+| Property name | Type | Description |
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Bounding box of all the data in the data set. |
 | `features` | `Feature[]` | GeoJSON features within the data set. |
@@ -46,12 +46,13 @@ The result from the read function is a `SpatialDataSet` object. This object exte
 
 ## Examples of reading spatial data
 
-The following code shows how to read a spatial data set, and render it on the map using the `SimpleDataLayer` class. The code uses a GPX file pointed to by a URL.
+The [Load spatial data] sample shows how to read a spatial data set, and render it on the map using the `SimpleDataLayer` class. The code uses a GPX file pointed to by a URL. See [Load spatial data source] to view the source code.
 
-<br/>
+:::image type="content" source="./media/spatial-io-read-write-spatial-data/load-spatial-data.png"alt-text="A screenshot that shows the snap grid on map.":::
 
-<iframe height='500' scrolling='no' title='Load Spatial Data Simple' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>Load Spatial Data Simple</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!--------------------------------------------------
+<iframe height='500' scrolling='no' title='Load Spatial Data Simple' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>Load Spatial Data Simple</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+--------------------------------------------------->
 
 The next code demo shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays, which will be in the form of an `ImageLyaer` or `OgcMapLayer`. These overlays must be added on the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded to the maps resources before the features are loaded.
 
@@ -175,9 +176,10 @@ Learn more about the classes and methods used in this article:
 
 [Supported data format details](spatial-io-supported-data-format-details.md)
 
-
 ## Next steps
 
 See the following articles for more code samples to add to your maps:
 
 [Add an OGC map layer](spatial-io-add-ogc-map-layer.md)
+[Load spatial data]: https://samples.azuremaps.com/spatial-io-module/load-spatial-data-(simple)
+[Load spatial data source]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Load%20spatial%20data%20(simple)/Load%20spatial%20data%20(simple).html
