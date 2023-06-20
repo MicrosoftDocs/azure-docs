@@ -57,11 +57,11 @@ Before reviewing the detailed recommendations in each of the design areas, we re
 | [Design for independent scaling of logical components](#design-for-independent-scaling-of-logical-components) | ✔️ |  |
 | [Design for event-driven scaling](#design-for-event-driven-scaling) | ✔️ |  |
 | [Aim for stateless design](#aim-for-stateless-design) | ✔️ |  |
-| [Enable cluster and node autoupdates](#enable-cluster-and-node-auto-updates) |  | ✔️ |
+| [Enable cluster and node autoupdates](#enable-cluster-and-node-autoupdates) |  | ✔️ |
 | [Install supported add-ons and extensions](#install-supported-add-ons-and-extensions) | ✔️ | ✔️ |
 | [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
 | [Use energy efficient hardware](#use-energy-efficient-hardware) |  | ✔️ |
-| [Match the scalability needs and utilize autoscaling and bursting capabilities](#match-the-scalability-needs-and-utilize-auto-scaling-and-bursting-capabilities) |  | ✔️ |
+| [Match the scalability needs and utilize autoscaling and bursting capabilities](#match-the-scalability-needs-and-utilize-autoscaling-and-bursting-capabilities) |  | ✔️ |
 | [Turn off workloads and node pools outside of business hours](#turn-off-workloads-and-node-pools-outside-of-business-hours) | ✔️ | ✔️ |
 | [Delete unused resources](#delete-unused-resources) | ✔️ | ✔️ |
 | [Tag your resources](#tag-your-resources) | ✔️ | ✔️ |
