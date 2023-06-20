@@ -38,7 +38,7 @@ For the list of authentication parsers Microsoft Sentinel provides refer to the 
 When implementing custom parsers for the Authentication information model, name your KQL functions using the following syntax:
 
 - `vimAuthentication<vendor><Product>` for filtering parsers
-- `ASiAuthentication<vendor><Product>` for parameter-less parsers
+- `ASimAuthentication<vendor><Product>` for parameter-less parsers
 
 For information on adding your custom parsers to the unifying parser, refer to [Managing ASIM parsers](normalization-manage-parsers.md).
 
@@ -112,13 +112,8 @@ The following list mentions fields that have specific guidelines for authenticat
 | <a name ="eventresultdetails"></a>**EventResultDetails**         | Recommended   | String |  The details associated with the event result. This field is typically populated when the result is a failure.<br><br>Allowed values include: <br> - `No such user or password`. This value should be used also when the original event reports that there is no such user, without reference to a password.<br> - `No such user`<br> - `Incorrect password`<br> - `Incorrect key`<br>-	`Account expired`<br>-	`Password expired`<br>-	`User locked`<br>-	`User disabled`<br> - `Logon violates policy`. This value should be used when the original event reports, for example: MFA required, logon outside of working hours, conditional access restrictions, or too frequent attempts.<br>-	`Session expired`<br>-	`Other`<br><br>The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)|
 | **EventSubType**    | Optional    | String     |   The sign-in type. Allowed values include:<br> - `System`<br> - `Interactive`<br> - `RemoteInteractive`<br> - `Service`<br> - `RemoteService`<br> - `Remote` - Use when the type of remote sign-in is unknown.<br> - `AssumeRole` - Typically used when the event type is `Elevate`. <br><br>The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype). |
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1.3`         |
-| **EventSchema** | Optional | String | The name of the schema documented here is **Authentication**. |
+| **EventSchema** | Mandatory | String | The name of the schema documented here is **Authentication**. |
 | **Dvc** fields| -      | -    | For authentication events, device fields refer to the system reporting the event. |
-
-
-> [!IMPORTANT]
-> The `EventSchema` field is currently optional but will become Mandatory on July 1st 2022.
->
 
 #### All common fields
 

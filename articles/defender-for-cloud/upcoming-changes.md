@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 06/07/2023
+ms.date: 06/14/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
+| [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 
 ### Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
 
@@ -48,7 +49,7 @@ The `Key Vaults should have purge protection enabled` recommendation is deprecat
 |--|--|--|--|
 | [Key vaults should have deletion protection enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)| A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period. | audit, deny, disabled | [2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
-See the [full index of Azure Policy built-in policy definitions for Key Vault](https://learn.microsoft.com/azure/key-vault/policy-reference).
+See the [full index of Azure Policy built-in policy definitions for Key Vault](../key-vault/policy-reference.md)
 
 ### Changes to the Defender for DevOps recommendations environment source and resource ID
 
@@ -147,6 +148,32 @@ Existing customers of Defender for Key-Vault, Defender for Azure Resource Manage
 
 For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h) 
 
+
+### Change to the Log Analytics daily cap
+
+Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defender for Cloud security events are currently not supported in those exclusions.
+
+Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the below set of data types: 
+
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- Update
+- UpdateSummary 
+- CommonSecurityLog
+- Syslog
+
+At that time, all billable data types will be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion.
+
+Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor/logs/daily-cap.md#workspaces-with-microsoft-defender-for-cloud)
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Microsoft Defender for Cloud FAQ - data collection and agents
-  description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
+  description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud. Data collection agents are a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
   author: elkrieger
   ms.author: elkrieger
@@ -27,9 +27,9 @@ sections:
       - question: |
           What happens when data collection is enabled?
         answer: |
-          When automatic provisioning is enabled, Defender for Cloud provisions the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Log Analytics agent extension](../azure-monitor/agents/log-analytics-agent.md#installation-options). 
+          When automatic provisioning is enabled, Defender for Cloud uses the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Log Analytics agent extension](../azure-monitor/agents/log-analytics-agent.md#installation-options). 
           
-          The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Defender for Cloud's detection services. For more information on the details recorded for each new process, see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
+          The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM get recorded by the EventLog and monitored by Defender for Cloud's detection services. For more information on the details recorded for each new process, see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
           
           The agent also enables data collection for [Adaptive application controls](adaptive-application-controls.md), Defender for Cloud configures a local AppLocker policy in Audit mode to allow all applications. This policy causes AppLocker to generate events, which are then collected and used by Defender for Cloud. It's important to note that this policy isn't configured on any machines on which there's already a configured AppLocker policy. 
           
@@ -72,9 +72,7 @@ sections:
           
           Learn more about the [data collected by the Log Analytics agent](monitoring-components.md#log-analytics-agent).
           
-          
-          
-          
+
       - question: |
           What qualifies a VM for automatic provisioning of the Log Analytics agent installation?
         answer: |
@@ -109,7 +107,7 @@ sections:
           For a full list of the security events collected by the agent, see [What event types are stored for the "Common" and "Minimal" security events settings?](working-with-log-analytics-agent.md#what-event-types-are-stored-for-common-and-minimal).
           
           > [!IMPORTANT]
-          > For some services, such as Azure Firewall, logging for a resource that produces a lot of logs can consume a lot of storage in your Log Analytics workspace. Make sure you use verbose logging only when necessary.
+          > For some services, such as Azure Firewall, logging for a resource that produces numerous logs can consume storage in your Log Analytics workspace. Make sure you use verbose logging only when necessary.
           
           
       - question: |
@@ -176,20 +174,20 @@ sections:
           
           For custom user workspaces, you need to install the "Security" or "SecurityCenterFree" solution on it so that Defender for Cloud can process events from VMs and computers reporting to that workspace.
           
-          For Linux machines, agent multi-homing isn't yet supported. If an existing agent installation is detected, Defender for Cloud doesn't automatically provision an agent or change the machine's configuration.
+          For Linux machines, agent multi-homing isn't yet supported. If an existing agent installation is detected, Defender for Cloud doesn't automatically uses an agent or change the machine's configuration.
           
-          For existing machines on subscriptions onboarded to Defender for Cloud before March 17 2019, agent multi-homing isn't yet supported. If an existing agent installation is detected, Defender for Cloud doesn't automatically provision an agent or change the machine's configuration. For these machines, see the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines
+          For existing machines on subscriptions onboarded to Defender for Cloud before March 17 2019, agent multi-homing isn't yet supported. If an existing agent installation is detected, Defender for Cloud doesn't automatically use an agent or change the machine's configuration. For these machines, see the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines
           
           For more information, see the next section [What happens if a System Center Operations Manager or OMS direct agent is already installed on my VM?](#what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm-)
           
       - question: |
           What if a System Center Operations Manager agent is already installed on my VM?
         answer: |
-          Defender for Cloud implements an Azure Policy that does not allow the Log Analytics agent to be installed while the System Center Operations Manager Agent in installed on the machine. Both the agents have the ability to multi-home and report to the System Center Operations Manager and the Log Analytics workspace. Note that the Operations Manager agent and Log Analytics agent share common run-time libraries. Note - If version 2012 of the Operations Manager agent is installed, do not turn on automatic provisioning (manageability capabilities can be lost when the Operations Manager server is also version 2012).
+          Defender for Cloud implements an Azure Policy that doesn't allow the Log Analytics agent to be installed while the System Center Operations Manager Agent in installed on the machine. Both the agents have the ability to multi-home and report to the System Center Operations Manager and the Log Analytics workspace. The Operations Manager agent and Log Analytics agent share common run-time libraries. Note - If version 2012 of the Operations Manager agent is installed, don't turn on automatic provisioning (manageability capabilities can be lost when the Operations Manager server is also version 2012).
           
           
       - question: |
-          What is the impact of removing these extensions?
+          What is the effect of removing these extensions?
         answer: |
           If you remove the Microsoft Monitoring Extension, Defender for Cloud isn't able to collect security data from the VM and some security recommendations and alerts are unavailable. Within 24 hours, Defender for Cloud determines that the VM is missing the extension and reinstalls the extension.
           
@@ -211,7 +209,7 @@ sections:
           
             1. Turn off the extension you want to stop being automatically provisioned.
         
-                :::image type="content" source="media/enable-data-collection/turn-off-agent.png" alt-text="Screenshot showing how to turn-off specific agent." lightbox="media/enable-data-collection/turn-off-agent.png":::
+                :::image type="content" source="media/enable-data-collection/turn-off-agent.png" alt-text="Screenshot showing how to turn off specific agent." lightbox="media/enable-data-collection/turn-off-agent.png":::
           
             1. Select **Save**.
           
@@ -222,7 +220,7 @@ sections:
           > [!NOTE]
           > Be sure to review sections [What are the implications of opting out?](#what-are-the-implications-of-opting-out-of-automatic-provisioning-) and [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning-) if you choose to opt out of automatic provisioning.
           
-          You may want to opt out of automatic provisioning if the following applies to you:
+          You may want to opt out of automatic provisioning if these scenarios apply to you:
           
           - Automatic agent installation by Defender for Cloud applies to the entire subscription. You can't apply automatic installation to a subset of VMs. If there are critical VMs that can't be installed with the Log Analytics agent, then you should opt out of automatic provisioning.
           - Installation of the Log Analytics agent extension updates the agent's version. This applies to a direct agent and a System Center Operations Manager agent (in the latter, the Operations Manager and Log Analytics agent share common runtime libraries - which is updated in the process). If the installed Operations Manager agent is version 2012 and is upgraded, manageability capabilities can be lost when the Operations Manager server is also version 2012. Consider opting out of automatic provisioning if the installed Operations Manager agent is version 2012.
@@ -268,7 +266,7 @@ sections:
              ![Remove the agent](./media/platform-migration-faq/remove-the-agent.png)
           
           > [!NOTE]
-          > If a Linux VM already has a non-extension OMS agent, removing the extension removes the agent as well and you have to reinstall it.
+          > If a Linux VM already has a nonextension OMS agent, removing the extension removes the agent as well and you have to reinstall it.
           
         
       - question: |
@@ -279,9 +277,9 @@ sections:
           
           
       - question: |
-          Does the Log Analytics agent impact the performance of my servers?
+          Does the Log Analytics agent affect the performance of my servers?
         answer: |
-          The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](defender-for-cloud-planning-and-operations-guide.md#data-collection-and-storage).
+          The agent consumes a nominal amount of system resources and should have little effect on the performance. For more information on performance effect and the agent and extension, see the [planning and operations guide](defender-for-cloud-planning-and-operations-guide.md#data-collection-and-storage).
 
           
           <!--Image references-->
@@ -320,3 +318,26 @@ sections:
           I already have security solution on my workspaces. What are the billing implications?
         answer: |
           The Security & Audit solution is used to enable **Microsoft Defender for Servers**. If the Security & Audit solution is already installed on a workspace, Defender for Cloud uses the existing solution. There's no change in billing.
+
+
+      - question: |
+          Which data is collected from snapshots?
+        answer: |
+          Agentless scanning collects data similar to the data an agent collects to perform the same analysis. Raw data, PIIs or sensitive business data isn't collected, and only metadata results are sent to Defender for Cloud.
+
+
+      - question: |
+          What are the costs related to agentless scanning?
+        answer: |
+          Agentless scanning is included in Defender Cloud Security Posture Management (CSPM) and Defender for Servers P2 plans. No other costs incur to Defender for Cloud when enabling it.
+
+          > [!NOTE]
+          > AWS charges for retention of disk snapshots. The Defender for Cloud scanning process actively tries to minimize the period during which a snapshot is stored in your account (typically up to a few minutes). AWS may charge an overhead cost for the disk snapshots storage. Check with AWS to see what costs apply to you.
+
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn about how Defender for Cloud collects data](monitoring-components.md)
+  

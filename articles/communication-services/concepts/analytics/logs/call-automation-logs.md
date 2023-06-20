@@ -18,17 +18,17 @@ Azure Communication Services offers logging capabilities that you can use to mon
 
 ## Prerequisites
 
-Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
+Azure Communication Services provides monitoring and analytics features via [Azure Monitor Logs overview](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
   * Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
   * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
   * A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to five diagnostic settings.
 
 > [!IMPORTANT]
-> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send call automation data to one of these options your survey data will not be stored and will be lost
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send call automation data to one of these options your survey data will not be stored and will be lost.
 The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 > [!NOTE]
-> Under diagnostic setting name please select “Operation call automation logs” and “Call Automation Events summary logs” to enable the logs for end of call automation logs.
+> Under the diagnostic setting name please select “Operation call automation logs” and “Call Automation Events summary logs” to enable the logs for call automation logs.
  
  :::image type="content" source="..\media\log-analytics\call-automation-log.png" alt-text="Screenshot of diagnostic settings for call automation.":::
 
@@ -44,29 +44,29 @@ Communication Services offers the following types of logs that you can enable:
 ## Usage logs schema
 
 | Property | Description |
-| -------- | ---------------|
-| `Timestamp` | The timestamp (UTC) of when the log was generated. |
-| `Operation Name` | The operation associated with log record. |
-| `Operation Version` | The `api-version` associated with the operation, if the operationName was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
-| `Category` | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
-| `Correlation ID` | The ID for correlated events. Can be used to identify correlated events between multiple tables. |
-| `Properties` | Other data applicable to various modes of Communication Services. |
-| `Record ID` | The unique ID for a given usage record. |
-| `Usage Type` | The mode of usage. (for example, Chat, PSTN, NAT, etc.) |
-| `Unit Type` | The type of unit that usage is based off for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
-| `Quantity` | The number of units used or consumed for this record. |
+| ----------------------- | ---------------|
+| `Timestamp`             | The timestamp (UTC) of when the log was generated. |
+| `OperationName`        | The operation associated with the log record. |
+| `OperationVersion`     | The `api-version` associated with the operation, if the operationName was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| `Category`              | The log category of the event. The category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
+| `CorrelationID`        | The ID for correlated events. Can be used to identify correlated events between multiple tables. |
+| `Properties`            | Other data applicable to various modes of Communication Services. |
+| `RecordID`             | The unique ID for a given usage record. |
+| `UsageType`            | The mode of usage. (for example, Chat, PSTN, NAT, etc.) |
+| `UnitType`             | The type of unit that usage is based on for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
+| `Quantity`              | The number of units used or consumed for this record. |
 
 ## Call Automation operational logs
 
 | Property | Description |
 | -------- | ---------------|
 | `TimeGenerated` | The timestamp (UTC) of when the log was generated. |
-| `OperationName` | The operation associated with log record. |
+| `OperationName` | The operation associated with the log record. |
 | `CorrelationID` | The identifier to identify a call and correlate events for a unique call.  |
 | `OperationVersion` | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
-| `Category` | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
+| `Category` | The log category of the event. The category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
 | `ResultType` | The status of the operation. |
-| `ResultSignature` | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
+| `ResultSignature` | The sub-status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
 | `DurationMs` | The duration of the operation in milliseconds. |
 | `CallerIpAddress` | The caller IP address, if the operation corresponds to an API call that would come from an entity with a publicly available IP address. |
 | `Level` | The severity level of the event. |
@@ -76,8 +76,8 @@ Communication Services offers the following types of logs that you can enable:
 | `SDKVersion` | SDK version used for the request. |
 | `SDKType` | The SDK type used for the request. |
 | `ParticipantId` | ID to identify the call participant that made the request. |
-| `SubOperationName` | Used to identify the sub type of media operation (play, recognize) |
-|`operationID`| it represents the operation ID used to correlate asynchronous events| 
+| `SubOperationName` | Used to identify the subtype of media operation (play, recognize) |
+|`operationID`| It represents the operation ID used to correlate asynchronous events| 
 
 **Examples**
 
@@ -107,17 +107,17 @@ Communication Services offers the following types of logs that you can enable:
 
 | Property | Description |
 | -------- | ---------------|
-| `TimeGenerated` | it represents the timestamp (UTC) of the event|
+| `TimeGenerated` | It represents the timestamp (UTC) of the event|
 |`level`| It represents the severity level of the event. Must be one of Informational, Warning, Error, or Critical.   |
-|`resourceId`| it represents the resource ID of the resource that emitted the event |
-|`durationMs`| it represents the duration of the operation in milliseconds |
+|`resourceId`| Represents the resource ID of the resource that emitted the event |
+|`durationMs`| Represents the duration of the operation in milliseconds |
 |`callerIpAddress`| |
 |`correlationId`| Skype Chain ID   |
 |`operationName`| The name of the operation represented by this event|
 |`operationVersion`
 | `resultType`| The status of the event. Typical values include Completed, Canceled, Failed|
-| `resultSignature`| The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call|
-|`operationId`| it represents the operation ID used to correlate asynchronous events|
+| `resultSignature`| The sub-status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call|
+|`operationId`| It represents the operation ID used to correlate asynchronous events|
 |`recognizePromptSubOperationName`|A subtype of the operation. Potential values: File, TextToSpeech, SSML, etc.|
 | `playInLoop`| True if looping was requested for the Play operation, else otherwise|
 |`playToParticipant`| True if the Play operation had a target. False if it was a play to all operation|

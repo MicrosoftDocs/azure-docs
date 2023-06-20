@@ -103,9 +103,9 @@ The web app sample in this tutorial uses the [express-session](https://www.npmjs
 
 ## Add app registration details
 
-1. Create an *.env* file in the root of your project folder. Then add the following code:
+1. Create an *.env.dev* file in the root of your project folder. Then add the following code:
 
-:::code language="text" source="~/ms-identity-node/App/.env":::
+:::code language="text" source="~/ms-identity-node/App/.env.dev":::
 
 Fill in these details with the values you obtain from Azure app registration portal:
 
@@ -133,11 +133,15 @@ Fill in these details with the values you obtain from Azure app registration por
 
 ## Add code for user sign-in and token acquisition
 
-1. Create a new file named *auth.js* under the *routes* folder and add the following code there:
+1. Create a new folder named *auth*, and add a new file named *AuthProvider.js* under it. This will contain the **AuthProvider** class, which encapsulates the necessary authentication logic using MSAL Node. Add the following code there:
+
+:::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js":::
+
+1. Next, create a new file named *auth.js* under the *routes* folder and add the following code there:
 
 :::code language="js" source="~/ms-identity-node/App/routes/auth.js":::
 
-2. Next, update the *index.js* route by replacing the existing code with the following code snippet:
+2. Update the *index.js* route by replacing the existing code with the following code snippet:
 
 :::code language="js" source="~/ms-identity-node/App/routes/index.js":::
 

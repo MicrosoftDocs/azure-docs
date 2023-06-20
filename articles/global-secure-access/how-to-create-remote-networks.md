@@ -168,7 +168,7 @@ Associating a traffic forwarding profile to your remote network using the Micros
 1. Select the API version to **beta**. 
 1. Enter the query:
     ```
-    GET https://graph.microsoft.com/beta/networkaccess/connectivity/forwardingprofiles 
+    GET https://graph.microsoft.com/beta/networkaccess/forwardingprofiles 
     ```
 1. Select **Run query**. 
 1. Find the ID of the desired traffic forwarding profile. 

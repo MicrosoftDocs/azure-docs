@@ -58,3 +58,10 @@ sections:
       - question: How soon can we receive alerts on anomalous APIs? 
         answer: APIs are assessed against their behavior studying traffic for the past 30 days. The alerts on anomalous APIs may be generated sooner if the API receives significant traffic for the ML models to learn traffic behavior. 
 
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn about Defender for APIs](defender-for-apis-introduction.md)
+  

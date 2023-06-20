@@ -77,6 +77,17 @@ Below is an example of an advanced filter on an Event Grid subscription watching
 
 Since the `IncomingCall` notification doesn't have a specific destination other than the Event Grid subscription you've created, you're free to associate any particular number to any endpoint in Azure Communication Services. For example, if you acquired a PSTN phone number of `+14255551212` and want to assign it to a user with an identity of `375f0e2f-e8db-4449-9bf7-2054b02e42b4` in your application, you'll maintain a mapping of that number to the identity. When an `IncomingCall` notification is sent matching the phone number in the **to** field, you'll invoke the `Redirect` API and supply the identity of the user. In other words, you maintain the number assignment within your application and route or answer calls at runtime.
 
+## Best Practices
+1. Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. If you are facing issues with receiving events, ensure the webhook configured is verified by handling `SubscriptionValidationEvent`. For more information, see this [guide](../../../event-grid/webhook-event-delivery.md).  
+2. Upon the receipt of an incoming call event, if your application does not respond back with 200Ok to Event Grid in time, Event Grid will use exponential backoff retry to send the again. However, an incoming call only rings for 30 seconds, and acting on a call after that will not work. To avoid retries for expired or stale calls, we recommend setting the retry policy as - Max Event Delivery Attempts to 2 and Event Time to Live to 1 minute. These settings can be found under Additional Features tab of the event subscription. Learn more about retries [here](../../../event-grid/delivery-and-retry.md).
+
+3. We recommend you to enable logging for your Event Grid resource to monitor events that failed to deliver. Navigate to the system topic under Events tab of your Communication resource and enable logging from the Diagnostic settings. Failure logs can be found in 'AegDeliveryFailureLogs' table.
+
+    ```sql 
+    AegDeliveryFailureLogs
+    | limit 10 
+    | where Message has "incomingCall"
+    ```
+
 ## Next steps
-- [Build a Call Automation application](../../quickstarts/call-automation/callflows-for-customer-interactions.md) to simulate a customer interaction.
-- [Redirect an inbound PSTN call](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md) to your resource.
+- Try out the quickstart to [place an outbound call](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).

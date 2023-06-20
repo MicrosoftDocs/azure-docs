@@ -46,7 +46,7 @@ items:
   - name: Traffic forwarding profiles
     expanded: false
     items:
-      - name: Traffic forwarding profiles
+      - name: About traffic forwarding profiles
         href: concept-traffic-forwarding.md
       - name: Manage the Microsoft 365 profile
         href: how-to-manage-microsoft-365-profile.md
@@ -68,7 +68,7 @@ items:
         href: concept-global-secure-access-logs-monitoring.md
       - name: Network traffic dashboard
         href: concept-traffic-dashboard.md
-      - name: Audit logs
+      - name: Global Secure Access Audit logs
         href: how-to-access-audit-logs.md
       - name: Traffic logs
         href: how-to-view-traffic-logs.md
@@ -79,5 +79,7 @@ items:
   items:
   - name: Remote network valid configurations
     href: reference-remote-network-configurations.md
+  - name: Supported locations
+    href: reference-supported-locations.md
   - name: FAQs
     href: resource-faq.yml

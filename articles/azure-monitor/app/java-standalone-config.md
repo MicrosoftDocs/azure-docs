@@ -350,7 +350,7 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 
 ## Telemetry processors (preview)
 
-Yu can use telemetry processors to configure rules that are applied to request, dependency, and trace telemetry. For example, you can:
+You can use telemetry processors to configure rules that are applied to request, dependency, and trace telemetry. For example, you can:
 
  * Mask sensitive data.
  * Conditionally add custom dimensions.

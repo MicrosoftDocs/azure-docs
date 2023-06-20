@@ -77,6 +77,7 @@ For more information about authentication and authorization in the Microsoft ide
 * To learn about the basic concepts of authentication and authorization, see [Authentication vs. authorization](authentication-vs-authorization.md).
 * To learn how access tokens, refresh tokens, and ID tokens are used in authentication and authorization, see [Security tokens](security-tokens.md).
 * To learn about the sign-in flow of web, desktop, and mobile apps, see [App sign-in flow](app-sign-in-flow.md).
+* To learn about proper authorization using token claims, see [Secure applications and APIs by validating claims](./claims-validation.md)
 
 For more information about the application model, see the following articles:
 

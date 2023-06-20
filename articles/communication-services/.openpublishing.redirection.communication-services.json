@@ -135,6 +135,16 @@
         "redirect_document_id": false
       },
       {
+        "source_path_from_root": "/articles/communication-services/quickstarts/call-automation/redirect-inbound-telephony-calls.md",
+        "redirect_url": "/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/call-automation/callflows-for-customer-interactions.md",
+        "redirect_url": "/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call",
+        "redirect_document_id": false
+      },
+      {
         "source_path_from_root": "/articles/communication-services/quickstarts/identity/quick-create-identity.md",
         "redirect_url": "/azure/communication-services/quickstarts/identity/access-tokens",
         "redirect_document_id": false

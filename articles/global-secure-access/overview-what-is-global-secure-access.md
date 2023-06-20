@@ -18,7 +18,7 @@ Microsoft Entra Internet Access and Microsoft Entra Private Access comprise Micr
 
 Microsoft Entra Internet Access and Microsoft Entra Private Access are uniquely built as a solution that converges network, identity, and endpoint access controls so you can secure access to any app or resource, from anywhere. With the addition of these Global Secure Access products, Microsoft Entra simplifies access policy management and enables access orchestration for employees, business partners, and digital workloads. You can continuously monitor and adjust user access in real time if permissions or risk level changes.
 
-The Global Secure Access features streamline the roll-out and management of the access control capabilities with a unified portal. These features are delivered from one of the largest global private networks, spanning 140+ countries and 190+ network edge locations, enabling organizations to optimally connect users and devices to public and private resources seamlessly and securely. The Global Secure Access features are currently supported in North America and Europe regions. 
+The Global Secure Access features streamline the roll-out and management of the access control capabilities with a unified portal. These features are delivered from one of the largest global private networks, spanning 140+ countries and 190+ network edge locations, enabling organizations to optimally connect users and devices to public and private resources seamlessly and securely. For a list of the currently supported locations, see [Global Secure Access supported locations article](reference-supported-locations.md).
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)] 
 
