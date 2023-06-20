@@ -6,7 +6,7 @@ author: normesta
 
 ms.topic: how-to
 ms.author: normesta
-ms.date: 06/15/2023
+ms.date: 06/20/2023
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---
@@ -177,9 +177,9 @@ Whichever option you choose, after you've migrated and verified that all your wo
 
 If the migration completes successfully, then a container named **gen1** will be created in the Gen2-enabled account, and all data from the Gen1 account will be copied to this new **gen1** container. In order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
 
-If the migration doesn't complete successfully, a message appears which states that the migration is stalled due to incompatibilities.  This message can appear if the Gen2-enabled account was previously used or when files and directories in the Gen1 account use incompatible naming conventions.
+If the migration doesn't complete successfully, a message appears which states that the migration is stalled due to incompatibilities. If you would like assistance with the next step, then please contact [Microsoft Support](https://go.microsoft.com/fwlink/?linkid=2228816). This message can appear if the Gen2-enabled account was previously used or when files and directories in the Gen1 account use incompatible naming conventions. 
 
-To prevent a migration from stalling, ensure that you're using a fresh, newly created storage account that has no history of use. Avoid migrating to a previously used account or an account in which containers have been deleted to make the account empty. In your Gen1 account, ensure that you rename any file or directory names that contain only spaces or tabs, end with a `.`, contain a `:`, or contain multiple forward slashes (`//`).
+Before contacting support, ensure that you're using a fresh, newly created storage account that has no history of use. Avoid migrating to a previously used account or an account in which containers have been deleted to make the account empty. In your Gen1 account, ensure that you rename any file or directory names that contain only spaces or tabs, end with a `.`, contain a `:`, or contain multiple forward slashes (`//`). 
 
 ## Step 7: Migrate workloads and applications
 
