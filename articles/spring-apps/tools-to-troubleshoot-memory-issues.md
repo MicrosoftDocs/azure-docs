@@ -23,6 +23,16 @@ This article describes various tools that are useful for troubleshooting Java me
 
 The following sections describe resource health alerts and diagnostics available through the Azure portal.
 
+### Resource health
+
+You can monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](monitor-app-lifecycle-events.md).
+
+Resource health sends alerts about app restart events due to container out-of-memory (OOM) issues. For more information, see [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
+
+The following screenshot shows an app resource health alert indicating an OOM issue.
+
+:::image type="content" source="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Resource Health page with OOM message highlighted." lightbox="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png":::
+
 ### Diagnose and solve problems
 
 Azure Spring Apps diagnostics is an interactive experience to troubleshoot your app without configuration. For more information, see [Self-diagnose and solve problems in Azure Spring Apps](how-to-self-diagnose-solve.md).
@@ -34,16 +44,6 @@ In the Azure portal, you can find **Memory Usage** under **Diagnose and solve pr
 **Memory Usage** provides a simple diagnosis for app memory usage, as shown in the following screenshot.
 
 :::image type="content" source="media/tools-to-troubleshoot-memory-issues/diagnose-solve-problem-example.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Memory Usage page." lightbox="media/tools-to-troubleshoot-memory-issues/diagnose-solve-problem-example.png":::
-
-### Resource health
-
-You can monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](monitor-app-lifecycle-events.md).
-
-Resource health sends alerts about app restart events due to container out-of-memory (OOM) issues. For more information, see [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
-
-The following screenshot shows an app resource health alert indicating an OOM issue.
-
-:::image type="content" source="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Resource Health page with OOM message highlighted." lightbox="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png":::
 
 ### Metrics
 
@@ -80,6 +80,10 @@ These two metrics are for observing Java garbage collection (GC). For more infor
 - `jvm.gc.memory.allocated` is the amount of increase in the size of the young generation memory pool after one GC and before the next. This value reflects minor GC.
 
 - `jvm.gc.memory.promoted` is the amount of increase in the size of the old generation memory pool after GC. This value reflects full GC.
+
+You can find this feature on the Azure portal, as shown in the following screenshot. You can choose specific metrics and add filters for a specific app, deployment, or instance. You can also apply splitting.
+
+:::image type="content" source="media/tools-to-troubleshoot-memory-issues/metrics-example.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Metrics page." lightbox="media/tools-to-troubleshoot-memory-issues/metrics-example.png":::
 
 ## Further debugging
 
