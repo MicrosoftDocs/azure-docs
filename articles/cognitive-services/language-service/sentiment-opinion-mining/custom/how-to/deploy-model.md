@@ -101,4 +101,5 @@ When unassigning or removing a deployment resource from a project, you will also
 
 ## Next steps
 
-After you have a deployment, you can use it to [extract entities](call-api.md) from text.
+* [Sentiment analysis overview](../../overview.md)
+<!--After you have a deployment, you can use it to [extract entities](call-api.md) from text.-->
