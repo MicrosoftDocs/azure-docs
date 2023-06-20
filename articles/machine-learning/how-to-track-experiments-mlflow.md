@@ -381,7 +381,7 @@ The MLflow SDK exposes several methods to retrieve runs, including options to co
 | Renaming experiments | **&check;** |  |
 
 > [!NOTE]
-> - <sup>1</sup> Check the section [Query and search runs inside an experiment](#query-and-search-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure Machine Learning.
+> - <sup>1</sup> Check the section [Ordering runs](#ordering-runs) for instructions and examples on how to achieve the same functionality in Azure Machine Learning.
 > - <sup>2</sup> `!=` for tags not supported.
 
 ## Next steps
