@@ -18,6 +18,8 @@
     href: walkthrough-direct-all.md
   - name: Exchange peering walkthrough
     href: walkthrough-exchange-all.md
+  - name: Peering Service customer walkthrough
+    href: walkthrough-peering-services-customer.md
   - name: Peering Service partner walkthrough
     href: walkthrough-peering-service-all.md
   - name: Communications Services partner walkthrough
