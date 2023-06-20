@@ -96,10 +96,10 @@ Use the following table to find which API versions are supported by each feature
 
 | Feature                                             | Supported versions                                                  | Latest Generally Available version | Latest preview version |
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
-| Custom text classification                  | `2022-05-01`, `2022-10-01-preview`                                        |      `2022-05-01`            |            |
-| Conversational language understanding       | `2022-05-01`, `2022-10-01-preview`                                        |      `2022-05-01`            |            |
-| Custom named entity recognition             | `2022-05-01`, `2022-10-01-preview`                                        |      `2022-05-01`            |            |
-| Orchestration workflow                      | `2022-05-01`, `2022-10-01-preview`                                        |      `2022-05-01`            |            |
+| Custom text classification                  | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                        |      `2022-05-01`            | `2022-10-01-preview`           |
+| Conversational language understanding       | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                        |      `2023-04-01`            | `2022-10-01-preview`           |
+| Custom named entity recognition             | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                        |      `2023-04-01`            |  `2022-10-01-preview`          |
+| Orchestration workflow                      | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                        |      `2023-04-01`            |   `2022-10-01-preview`         |
 
 ## Next steps
 
