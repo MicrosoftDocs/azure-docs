@@ -140,7 +140,9 @@
       - name: Manage environments in studio
         displayName: environments, studio, create, edit
         href: how-to-manage-environments-in-studio.md
-      # v1
+  # v1
+  - name: Manage environments
+    items:
       - name: Set up software environments CLI (v1)
         href: ./v1/how-to-use-environments.md
       - name: Set input & output directories
@@ -149,7 +151,7 @@
       - name: Use private Python packages
         displayName: pip, Conda, anaconda
         href: ./v1/how-to-use-private-python-packages.md
-      # end v1
+  # end v1
   - name: Azure Machine Learning CLI and Python SDK
     href: concept-v2.md
   - name: Manage environments with SDK and CLI (v2)
