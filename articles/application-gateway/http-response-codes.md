@@ -38,6 +38,12 @@ HTTP 307 responses are presented when a redirection rule is specified with the *
 
 400-499 response codes indicate an issue that is initiated from the client. These issues can range from the client initiating requests to an unmatched hostname, request timeout, unauthenticated request, malicious request, and more.
 
+Azure AppGW collects metrics which captures the distribution of 4xx/5xx status codes and we have logging mechanism which captures the response code along with URI , client IP etc. Metrics and logging will enable to troubleshoot further. There has been instances where clients receive 4xx response codes not from AppGW , however from other proxies which sits in between client and AppGW ( CDN , Authentication provider etc). Hence checking the metrics and logging for 4xx error codes will enable faster troubleshooting 
+
+Please refer to the below link for the same
+https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku
+https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging
+
 #### 400 – Bad Request
 
 HTTP 400 response codes are commonly observed when:
@@ -73,16 +79,21 @@ For more information about troubleshooting mutual authentication, see [Error cod
 
 #### 401 – Unauthorized
 
-An HTTP 401 unauthorized response can be returned when the backend pool is configured with [NTLM](/windows/win32/secauthn/microsoft-ntlm?redirectedfrom=MSDN) authentication.
+An HTTP 401 unauthorized response will be returned to the client if the client is not authorized to access the resource. There are several reasons for 401 to be returned. Below are the few reasons with possible options to resolve the same
+ - if the client has access then it could be due to outdated browser cache. Way to resolve is clear the browser cache and try accessing the application
+
+An HTTP 401 unauthorized response can be returned to AppGW probe request if the backend pool is configured with [NTLM](/windows/win32/secauthn/microsoft-ntlm?redirectedfrom=MSDN) authentication. If that is the case then the backend will be marked as healthy. 
 There are several ways to resolve this:
 - Allow anonymous access on backend pool.
-- Configure the probe to send the request to another "fake" site that doesn't require NTLM.
-- Not recommended, as this will not tell us if the actual site behind the application gateway is active or not.
+- Configure the probe to send the request to another "fake" site that doesn't require NTLM.Not recommended, as this will not tell us if the actual site behind the application gateway is active or not.
 - Configure application gateway to allow 401 responses as valid for the probes: [Probe matching conditions](/azure/application-gateway/application-gateway-probe-overview).
 
 #### 403 – Forbidden
 
 HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client is presented a 403 forbidden response.
+Below are additional reasons for clients receiving 403 response
+ If customer is using AppService as backend and if it is configured to allow access only from AppGW then 403 can returned by AppServices. This typically happens due to redirects/href links point directly to appservices instead of pointing at appgw IP address. 
+ If the customer is accessing storage blog and if the appgw and storage endpoint is in different region then 403 will be returned if the appgw's public IP is not whitelisted ( https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-an-internet-ip-range)
 
 #### 404 – Page not found
 
