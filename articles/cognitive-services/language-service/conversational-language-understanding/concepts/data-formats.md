@@ -103,7 +103,7 @@ If you're [importing a project](../how-to/create-project.md#import-project) into
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-|`{API-VERSION}`     | The [version](../../../concepts/model-lifecycle.md#api-versions) of the API you are calling. | `2023-04-01` |
+|`{API-VERSION}`     | The [version](../../concepts/model-lifecycle.md#api-versions) of the API you are calling. | `2023-04-01` |
 |`confidenceThreshold`|`{CONFIDENCE-THRESHOLD}`|This is the threshold score below which the intent will be predicted as [none intent](none-intent.md). Values are from `0` to `1`|`0.7`|
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `EmailApp` |
 | `multilingual` | `true`| A boolean value that enables you to have utterances in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [Language support](../language-support.md#multi-lingual-option) for more information about supported language codes.  | `true`|
