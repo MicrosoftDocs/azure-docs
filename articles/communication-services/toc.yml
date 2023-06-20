@@ -128,10 +128,10 @@ items:
     items:
     - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
-    - name: Add outbound phone calling to your app
-      href: quickstarts/telephony/pstn-call.md
     - name: Make an outbound call
       href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
+    - name: Add outbound phone calling to your app
+      href: quickstarts/telephony/pstn-call.md
     - name: Configure direct routing
       href: quickstarts/telephony/voice-routing-sdk-config.md
   - name: Email
@@ -473,10 +473,6 @@ items:
       href: samples/chat-hero-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
-  - name: Phone calling
-    items:
-    - name: Appointment reminder sample
-      href: samples/call-automation-appointment-reminder.md
 - name: Concepts 
   items:
   - name: Identity
