@@ -10,7 +10,7 @@ author: balapv
 ms.author: balapv
 ms.date: 09/23/2022
 ms.reviewer: sgilley
-ms.custom: devplatv2, ignite-2022
+ms.custom: devplatv2, ignite-2022, devx-track-python
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 

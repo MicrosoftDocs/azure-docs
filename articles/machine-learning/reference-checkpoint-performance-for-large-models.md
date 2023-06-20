@@ -77,7 +77,6 @@ With Nebula you can:
 * An Azure Machine Learning compute target. See [Manage training & deploy computes](./how-to-create-attach-compute-studio.md) to learn more about compute target creation
 * A training script that uses **PyTorch**.
 * ACPT-curated (Azure Container for PyTorch) environment. See [Curated environments](resource-curated-environments.md#azure-container-for-pytorch-acpt) to obtain the ACPT image. Learn how to [use the curated environment](./how-to-use-environments.md)
-* An Azure Machine Learning script run configuration file. If you don't have one, you can follow [this resource](./v1/how-to-set-up-training-targets.md)
 
 ## How to Use Nebula
 

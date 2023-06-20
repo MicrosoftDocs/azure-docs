@@ -9,7 +9,7 @@ ms.author: joburges
 author: ssalgadodev
 ms.date: 08/15/2022
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, devx-track-python, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 
@@ -152,5 +152,4 @@ You can address the error by increasing the value of `memory_gb` in `deployment_
 Learn more about deployment:
 
 * [How to troubleshoot remote deployments](how-to-troubleshoot-deployment.md)
-* [Azure Machine Learning inference HTTP Server](../how-to-inference-server-http.md)
-* [How to run and debug experiments locally](../how-to-debug-visual-studio-code.md)
+* [How to run and debug experiments locally](how-to-debug-visual-studio-code.md)
