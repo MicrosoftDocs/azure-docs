@@ -52,9 +52,11 @@ items:
         href: how-to-manage-microsoft-365-profile.md
       - name: Manage the Private Access profile
         href: how-to-manage-private-access-profile.md
-  - name: Applications
+  - name: Private access traffic
     expanded: false
     items:
+      - name: About Private access traffic
+        href: how-to-configure-quick-access.m
       - name: Configure quick access
         href: how-to-configure-quick-access.md 
       - name: Configure per-app access
