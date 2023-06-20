@@ -10,7 +10,7 @@ ms.custom: data4ml, ignite-2022
 ms.author: xunwan
 author: SturgeonMi
 ms.reviewer: franksolomon
-ms.date: 06/02/2023
+ms.date: 06/20/2023
 ---
 
 # Create and manage data assets
@@ -376,6 +376,144 @@ ml_client.data.create_or_update(my_data)
 
 > [!IMPORTANT]
 > Currently, the Studio UI has limited functionality for the creation of Table (`MLTable`) typed assets. We recommend that you use the Python SDK to author and create Table (`MLTable`) typed data assets.
+
+---
+
+### Creating data assets from job outputs
+
+You can create a data asset from an Azure Machine Learning job by setting the `name` parameter in the output. In this example, you submit a job that copies data from a public blob store to your default Azure Machine Learning Datastore and creates a data asset called `job_output_titanic_asset`.
+
+# [Python SDK](#tab/Python-SDK)
+
+```python
+from azure.ai.ml import command, Input, Output, MLClient
+from azure.ai.ml.constants import AssetTypes, InputOutputModes
+from azure.identity import DefaultAzureCredential
+
+# Set your subscription, resource group and workspace name:
+subscription_id = "<SUBSCRIPTION_ID>"
+resource_group = "<RESOURCE_GROUP>"
+workspace = "<AML_WORKSPACE_NAME>"
+
+# connect to the AzureML workspace
+ml_client = MLClient(
+    DefaultAzureCredential(), subscription_id, resource_group, workspace
+)
+
+# ==============================================================
+# Set the input and output URI paths for the data. Supported paths include:
+# local: `./<path>
+# Blob: wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>
+# ADLS: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
+# Data Asset: azureml:<my_data>:<version>
+# As an example, we set the input path to a file on a public blob container
+# As an example, we set the output path to a folder in the default datastore
+# ==============================================================
+input_path = "wasbs://data@azuremlexampledata.blob.core.windows.net/titanic.csv"
+output_path = "azureml://datastores/workspaceblobstore/paths/quickstart-output/titanic.csv"
+
+# ==============================================================
+# What type of data are you pointing to?
+# AssetTypes.URI_FILE (a specific file)
+# AssetTypes.URI_FOLDER (a folder)
+# AssetTypes.MLTABLE (a table)
+# The path we set above is a specific file
+# ==============================================================
+data_type = AssetTypes.URI_FILE
+
+# ==============================================================
+# Set the input mode. The most commonly-used modes:
+# InputOutputModes.RO_MOUNT
+# InputOutputModes.DOWNLOAD
+# Set the mode to Read Only (RO) to mount the data
+# ==============================================================
+input_mode = InputOutputModes.RO_MOUNT
+
+# ==============================================================
+# Set the output mode. The most commonly-used modes:
+# InputOutputModes.RW_MOUNT
+# InputOutputModes.UPLOAD
+# Set the mode to Read Write (RW) to mount the data
+# ==============================================================
+output_mode = InputOutputModes.RW_MOUNT
+
+# ==============================================================
+# Set a data asset name for the output
+# ==============================================================
+data_asset_name = "job_output_titanic_asset"
+
+# Set the input and output for the job:
+inputs = {
+    "input_data": Input(type=data_type, path=input_path, mode=input_mode)
+}
+
+outputs = {
+    "output_data": Output(type=data_type, path=output_path, mode=output_mode, name = data_asset_name)
+}
+
+# This command job copies the data to your default Datastore
+job = command(
+    command="cp ${{inputs.input_data}} ${{outputs.output_data}}",
+    inputs=inputs,
+    outputs=outputs,
+    environment="azureml://registries/azureml/environments/sklearn-1.1/versions/4",
+    compute="cpu-cluster",
+)
+
+# Submit the command
+ml_client.jobs.create_or_update(job)
+```
+
+# [Azure CLI](#tab/cli)
+
+Create a job specification YAML file (`<file-name>.yml`):
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+
+# path: Set the URI path for the data. Supported paths include
+# local: `./<path>
+# Blob: wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>
+# ADLS: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
+# Data Asset: azureml:<my_data>:<version>
+
+# type: What type of data are you pointing to?
+# uri_file (a specific file)
+# uri_folder (a folder)
+# mltable (a table)
+
+# mode: Set INPUT mode:
+# ro_mount (read-only mount)
+# download (download from storage to node)
+# mode: Set the OUTPUT mode
+# rw_mount (read-write mount)
+# upload (upload data from node to storage)
+
+type: command
+command: cp ${{inputs.input_data}} ${{outputs.output_data}}
+compute: azureml:cpu-cluster
+environment: azureml://registries/azureml/environments/sklearn-1.1/versions/4
+inputs:
+  input_data:
+    mode: ro_mount
+    path: azureml:wasbs://data@azuremlexampledata.blob.core.windows.net/titanic.csv
+    type: uri_file
+outputs:
+  output_data:
+    mode: rw_mount
+    path: azureml://datastores/workspaceblobstore/paths/quickstart-output/titanic.csv
+    type: uri_file
+    name: job_output_titanic_asset
+    
+```
+
+Next, submit the job using the CLI:
+
+```azurecli
+az ml job create --file <file-name>.yml
+```
 
 ---
 
