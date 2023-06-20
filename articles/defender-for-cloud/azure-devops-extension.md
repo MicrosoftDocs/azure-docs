@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
-ms.date: 05/01/2023
+ms.date: 06/20/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -96,30 +96,15 @@ If you don't have access to install the extension, you must request access from 
     pool:
       vmImage: 'windows-latest'
     steps:
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 3.1.x
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 5.0.x
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 6.0.x
     - task: MicrosoftSecurityDevOps@1
       displayName: 'Microsoft Security DevOps'
     ```
-
-> [!Note] 
-> The MicrosoftSecurityDevOps build task depends on .NET 6. The CredScan analyzer depends on .NET 3.1. See more [here](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops).
 
 9. To commit the pipeline, select **Save and run**.
 
 The pipeline will run for a few minutes and save the results.
 
-> [!Note] 
+> [!NOTE]
 > Install the SARIF SAST Scans Tab extension on the Azure DevOps organization in order to ensure that the generated analysis results will be displayed automatically under the Scans tab.
 
 ## Learn more

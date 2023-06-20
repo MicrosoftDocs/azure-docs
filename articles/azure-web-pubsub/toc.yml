@@ -88,6 +88,8 @@
               href: howto-authorize-from-managed-identity.md
             - name: Disable local authentication
               href: howto-disable-local-auth.md
+        - name: Configure client certificate authentication
+          href: howto-client-certificate.md
         - name: Custom domain
           href: howto-custom-domain.md
     - name: Scale
