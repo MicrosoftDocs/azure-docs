@@ -26,6 +26,9 @@ By default, the HDInsight resource provider uses an *inbound* connection to the 
 
 In this configuration, without an inbound connection, there's no need to configure inbound service tags in the network security group. There's also no need to bypass the firewall or network virtual appliance via user-defined routes.
 
+> [!NOTE]
+> Implementations in Microsoft Azure Government may still require the inbound service tags in the network security group and user defined routes.
+
 After you create your cluster, set up proper DNS resolution by adding DNS records that are needed for your restricted HDInsight cluster. The following canonical name DNS record (CNAME) is created in the Azure-managed public DNS zone: `azurehdinsight.net`.
 
 ```dns
