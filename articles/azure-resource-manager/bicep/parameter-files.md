@@ -327,7 +327,7 @@ For more information, see [Deploy resources with Bicep and Azure PowerShell](./d
 
 ## Parameter precedence
 
-You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence.
+You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence. This feature hasn't been implemented for Bicep parameters file.  
 
 It's possible to use an external parameters file, by providing the URI to the file. When you use an external parameters file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
 
