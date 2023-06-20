@@ -79,7 +79,7 @@ A user that should only be validating and reviewing the Language apps, typically
          * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
       All the Batch Testing Web APIs
          *[Language Runtime CLU APIs](/rest/api/language/2023-04-01/conversation-analysis-runtime)
-         *[Language Runtime Text Analysis APIs](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
+         *[Language Runtime Text Analysis APIs](/rest/api/language/2023-04-01/text-analysis-runtime/analyze-text)
     :::column-end:::
 :::row-end:::
 
