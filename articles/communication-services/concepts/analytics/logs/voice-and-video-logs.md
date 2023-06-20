@@ -558,4 +558,4 @@ The `participantEndReason` property contains a value from the set of Calling SDK
 
 ## Next steps
 
-- [Voice and video insights](/azure/communication-services/concepts/analytics/insights/voice-and-video-insights)
+- Learn about the [insights dashboard to monitor Voice Calling and Video Calling logs and metrics](/azure/communication-services/concepts/analytics/insights/voice-and-video-insights).
