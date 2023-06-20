@@ -70,11 +70,11 @@ A user that should only be validating and reviewing the Language apps, typically
     :::column span="":::
       All GET APIs under: 
         * [Language authoring conversational language understanding APIs](/rest/api/language/2023-04-01/conversational-analysis-authoring)
-        * [Language authoring text analysis APIs](/rest/api/language/2022-05-01/text-analysis-authoring)
+        * [Language authoring text analysis APIs](/rest/api/language/2023-04-01/text-analysis-authoring)
         * [Question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
       Only `TriggerExportProjectJob` POST operation under: 
-         * [Language authoring conversational language understanding export API](/rest/api/language/2022-05-01/text-analysis-authoring/export)
-         * [Language authoring text analysis export API](/rest/api/language/2022-05-01/text-analysis-authoring/export)
+         * [Language authoring conversational language understanding export API](/rest/api/language/2023-04-01/text-analysis-authoring/export)
+         * [Language authoring text analysis export API](/rest/api/language/2023-04-01/text-analysis-authoring/export)
       Only Export POST operation under: 
          * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
       All the Batch Testing Web APIs
@@ -106,7 +106,7 @@ A user that is responsible for building and modifying an application, as a colla
       * All APIs under Language reader
       * All POST, PUT and PATCH APIs under:
          * [Language conversational language understanding APIs](/rest/api/language/2023-04-01/conversational-analysis-authoring)
-         * [Language text analysis APIs](/rest/api/language/2022-05-01/text-analysis-authoring)
+         * [Language text analysis APIs](/rest/api/language/2023-04-01/text-analysis-authoring)
          * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
           Except for
           * Delete deployment
@@ -141,7 +141,7 @@ These users are the gatekeepers for the Language applications in production envi
     :::column span="":::
       All APIs available under:
         * [Language authoring conversational language understanding APIs](/rest/api/language/2023-04-01/conversational-analysis-authoring)
-        * [Language authoring text analysis APIs](/rest/api/language/2022-05-01/text-analysis-authoring)
+        * [Language authoring text analysis APIs](/rest/api/language/2023-04-01/text-analysis-authoring)
         * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
          
     :::column-end:::
