@@ -4,7 +4,7 @@ description: This article shows you how to use Microsoft Sentinel with Azure Web
 services: web-application-firewall
 author: TreMansdoerfer
 ms.service: web-application-firewall
-ms.date: 08/16/2022
+ms.date: 06/19/2023
 ms.author: victorh
 ms.topic: how-to
 ---
@@ -68,11 +68,17 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
 
 1. Select an already active workspace or create a new workspace. 
 
-1. On the left side panel under **Configuration** select **Data Connectors**.
+1. In Microsoft Sentinel, under **Content management**, select **Content hub**.
+ 
+1. Find and select the **Azure Web Application Firewall** solution.
 
-1. Search for **Azure web application firewall** and select **Azure web application firewall (WAF)**. Select **Open connector** page on the bottom right.
+1. On the toolbar at the top of the page, select **Install/Update**.
 
-   :::image type="content" source="media//waf-sentinel/data-connectors.png" alt-text="Data connectors":::
+1. In Microsoft Sentinel, on the left-hand side under **Configuration**, select **Data Connectors**.
+
+1. Search for and select **Azure Web Application Firewall (WAF)**. Select **Open connector page** on the bottom right.
+
+   :::image type="content" source="media//waf-sentinel/web-application-firewall-data-connector.png" alt-text="Screenshot of the data connector in Microsoft Sentinel.":::
 
 1. Follow the instructions under **Configuration** for each WAF resource that you want to have log analytic data for if you haven't done so previously.
 
