@@ -36,6 +36,29 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need these resou
 - [Event Hubs namespace](/azure/event-hubs/event-hubs-features#namespace) that permits public network access. Private Link and Network Security Perimeters (NSP) are currently not supported.
 - [Event hub](/azure/event-hubs/event-hubs-create) with events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
+## Supported regions
+
+Azure Monitor currently supports ingestion from Event Hubs in these regions:
+
+|	Americas	|	Europe	|	Middle East	|	Africa	|	Asia Pacific	|
+|	-	|	-	|	-	|	-	|	-	|
+|	Brazil South	|	France Central	|	Qatar Central	|	South Africa North	|	Australia Central	|
+|	Brazil Southeast	|	France South	|	UAE Central	|	South Africa West	|	Australia Central 2	|
+|	Canada Central	|	Germany North	|	UAE North	|		|	Australia East	|
+|	Canada East	|	Germany West Central	|		|		|	Central India	|
+|	Central US	|	North Europe	|		|		|	East Asia	|
+|	Central US EUAP	|	Norway East	|		|		|	Japan East	|
+|	East US	|	Norway West	|		|		|	Japan West	|
+|	East US 2	|	Poland Central	|		|		|	Jio India Central	|
+|	East US 2 EUAP	|	Sweden Central	|		|		|	Jio India West	|
+|	North Central US	|	Sweden South	|		|		|	South India	|
+|	South Central US	|	Switzerland North	|		|		|		|
+|	West Central US	|	Switzerland West	|		|		|		|
+|	West US	|	UK South	|		|		|		|
+|	West US 2	|	UK West	|		|		|		|
+|	West US 3	|	West Europe	|		|		|		|
+
+
 ## Collect required information
 
 You'll need your subscription ID, resource group name, workspace name, workspace resource ID, and event hub resource ID in subsequent steps:
