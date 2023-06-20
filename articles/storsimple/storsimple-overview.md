@@ -119,6 +119,10 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 **Step 3.3** - You must now look at the back plane of the device. After the two controllers are shut down, the status LEDs on both the controllers should be blinking red. To turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This turns off the device.
 
+## Create a support ticket with Microsoft Support
+
+new content...
+
 ## Next steps
 
 - [StorSimple 8000 series copy utility documentation](https://aka.ms/storsimple-copy-utility-docs).
