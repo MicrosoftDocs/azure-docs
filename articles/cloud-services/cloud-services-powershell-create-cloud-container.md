@@ -45,5 +45,5 @@ Get-help New-AzureService
 
 ### Next steps
 
-* To manage the cloud service deployment, refer to the [Get-AzureService](/powershell/module/servicemanagement/azure/Get-AzureService), [Remove-AzureService](/powershell/module/servicemanagement/azure.service/Remove-AzureService), and [Set-AzureService](/powershell/module/servicemanagement/azure.service/set-azureservice) commands. You may also refer to [How to configure cloud services](cloud-services-how-to-configure-portal.md) for further information.
+* To manage the cloud service deployment, refer to the [Get-AzureService](/powershell/module/servicemanagement/azure/Get-AzureService), [Remove-AzureService](/powershell/module/servicemanagement/azure/Remove-AzureService), and [Set-AzureService](/powershell/module/servicemanagement/azure.service/set-azureservice) commands. You may also refer to [How to configure cloud services](cloud-services-how-to-configure-portal.md) for further information.
 * To publish your cloud service project to Azure, refer to the  **PublishCloudService.ps1** code sample from [archived cloud services repository](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).
