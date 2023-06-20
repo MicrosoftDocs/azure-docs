@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam;b2b
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 06/20/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -50,7 +50,7 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
    > [!NOTE]
    > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
 1. Select **Save changes** at the bottom of the page.
-1. To make your Facebook application available to Azure AD, from the menu, select **Go live**. Follow all of the steps listed to complete all of the requirements. You'll likely need to complete your business verification to verify your identity as a business entity or organization, or as a person. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).
+1. At this point, only Facebook application owners can sign in. Because you registered the app, you can sign in with your Facebook account. To make your Facebook application available to your users, from the menu, select **Go live**. Follow all of the steps listed to complete all requirements. You'll likely need to complete the business verification to verify your identity as a business entity or organization. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).
 
 ## Configure Facebook federation in Azure AD for customers
 
