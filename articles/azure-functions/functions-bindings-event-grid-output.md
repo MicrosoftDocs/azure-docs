@@ -390,7 +390,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows a trigger binding and a Python function that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`. The example depends on whether you use the [v1 or v2 Python programming model](../articles/azure-functions/functions-reference-python.md). 
+The following example shows a trigger binding and a Python function that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md). 
 
 # [v2](#tab/python-v2)
 
