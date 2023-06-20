@@ -61,7 +61,7 @@ These signals include:
 - Real-time and calculated risk detection
    - Signals integration with [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) allows Conditional Access policies to identify and remediate risky users and sign-in behavior.
 - [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)
-   - Enables user application access and sessions to be monitored and controlled in real time, increasing visibility and control over access to and activities done within your cloud environment.
+   - Enables user application access and sessions to be monitored and controlled in real time. This integration increases visibility and control over access to and activities done within your cloud environment.
 
 ## Common decisions
 
@@ -94,7 +94,7 @@ Administrators can create policies from scratch or start from a template policy 
 
 ## Administrator experience
 
-Administrators with the Conditional Access Administrator role can manage policies in Azure AD. 
+Administrators with the [Conditional Access Administrator](../roles/permissions-reference#conditional-access-administrator.md) role can manage policies in Azure AD. 
 
 Conditional Access is found in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access**.
 
@@ -112,7 +112,7 @@ Risk-based policies require access to [Identity Protection](../identity-protecti
 
 Other products and features that may interact with Conditional Access policies require appropriate licensing for those products and features.
 
-When licenses required for Conditional Access expire, policies aren't automatically disabled or deleted so customers can migrate away from Conditional Access policies without a sudden change in their security posture. Remaining policies can be viewed and deleted, but no longer updated. 
+When licenses required for Conditional Access expire, policies aren't automatically disabled or deleted. This grants customers the ability to migrate away from Conditional Access policies without a sudden change in their security posture. Remaining policies can be viewed and deleted, but no longer updated. 
 
 [Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) help protect against identity-related attacks and are available for all customers.  
 
