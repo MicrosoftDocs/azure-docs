@@ -162,9 +162,9 @@ sections:
 
           The following table describes the minimum and recommended allocation of resources
           | Container | Minimum | Recommended |Speech Model|
-          |-----------|---------|-------------| -------- |
-          | Speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
-
+          |-----------|---------|-------------|------------|
+          | Speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory | +4 to 8 GB memory |
+          
           > [!NOTE]
           > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
           > For example, speech to text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech models (see above table).
@@ -174,9 +174,9 @@ sections:
 
           The following table describes the minimum and recommended allocation of resources
           | Container | Minimum | Recommended |Speech Model|
-          |-----------|---------|-------------| -------- |
-          | Custom speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
-         
+          |-----------|---------|-------------|------------|
+          | Custom speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory | +4 to 8 GB memory |
+          
           > [!NOTE]
           > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
           > For example, speech to text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech models (see above table).
@@ -188,7 +188,7 @@ sections:
           | Container | Minimum | Recommended |
           |-----------|---------|-------------|
           | Neural text to speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
-
+          
           > [!NOTE]
           > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
           > Also, the first run of either container might take longer because models are being paged into memory.
@@ -199,7 +199,7 @@ sections:
           | Container | Minimum | Recommended |
           |-----------|---------|-------------|
           | Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |
-
+          
           > [!NOTE]
           > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
           > Also, the first run of either container might take longer because models are being paged into memory.
