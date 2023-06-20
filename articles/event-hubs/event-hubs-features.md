@@ -73,7 +73,8 @@ architectural philosophy here's that historic data needs richer indexing and
 more direct access than the real-time eventing interface that Event Hubs or
 Kafka provide. Event stream engines aren't well suited to play the role of data
 lakes or long-term archives for event sourcing. 
- 
+
+
 
 > [!NOTE]
 > Event Hubs is a real-time event stream engine and is not designed to be used instead of a database and/or as a 

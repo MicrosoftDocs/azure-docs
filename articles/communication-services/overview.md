@@ -30,7 +30,7 @@ In addition to REST APIs, [Azure Communication Services client libraries](./conc
 
 Scenarios for Azure Communication Services include:
 
-- **Business to Consumer (B2C).** Employees and services engage external customers using voice, video, and text chat in browser and native apps. An organization can send and receive SMS messages, or [operate an interactive voice response system (IVR)](https://github.com/microsoft/botframework-telephony/blob/main/EnableTelephony.md) using a phone number you acquire through Azure. [Integration with Microsoft Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md) can be used to connect consumers to Teams meetings hosted by employees; ideal for remote healthcare, banking, and product support scenarios where employees might already be familiar with Teams.
+- **Business to Consumer (B2C).** Employees and services engage external customers using voice, video, and text chat in browser and native apps. An organization can send and receive SMS messages, or [operate an interactive voice response system (IVR)](./concepts/call-automation/call-automation.md) using Call Automation and a phone number you acquire through Azure. [Integration with Microsoft Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md) can be used to connect consumers to Teams meetings hosted by employees; ideal for remote healthcare, banking, and product support scenarios where employees might already be familiar with Teams.
 - **Consumer to Consumer (C2C).** Build engaging consumer-to-consumer interaction with voice, video, and rich text chat. Any type of user interface can be built on Azure Communication Services SDKs, or use complete application samples and an open-source UI toolkit to help you get started quickly.
 
 To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com/watch?v=apBX7ASurgM) or the resources linked next.
@@ -53,6 +53,7 @@ After creating a Communication Services resource you can start building client s
 |**[Create your first user access token](./quickstarts/identity/access-tokens.md)**|User access tokens authenticate clients against your Azure Communication Services resource. These tokens are provisioned and reissued using  Communication Services Identity APIs and SDKs.|
 |**[Get started with voice and video calling](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services allows you to add voice and video calling to your browser or native apps using the Calling SDK. |
 |**[Add telephony calling to your app](./quickstarts/telephony/pstn-call.md)**|With Azure Communication Services, you can add telephony calling capabilities to your application.|
+| **[Make an outbound call from your app](./quickstarts/call-automation/quickstart-make-an-outbound-call.md)**| Azure Communication Services Call Automation allows you to make an outbound call with an interactive voice response system using Call Automation SDKs and REST APIs.|
 |**[Join your calling app to a Teams meeting](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.|
 |**[Get started with chat](./quickstarts/chat/get-started.md)**|The Azure Communication Services Chat SDK is used to add rich real-time text chat into your applications.|
 |**[Connect a Microsoft Bot to a phone number](https://github.com/microsoft/botframework-telephony)**|Telephony channel is a channel in Microsoft Bot Framework that enables the bot to interact with users over the phone. It uses the power of Microsoft Bot Framework combined with the Azure Communication Services and the Azure Speech Services.  |
@@ -78,6 +79,7 @@ Learn more about the Azure Communication Services SDKs with the resources listed
 |---                                    |---                                   |
 |**[SDK libraries and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by an SDK. You can decide which SDK libraries to use based on your real-time communication needs.|
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
+|**[Call Automation overview](./concepts/call-automation/call-automation.md)**|Review the Communication Services Call Automation SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
 |**[SMS SDK overview](./concepts/sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
 |**[Email SDK overview](./concepts/email/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
