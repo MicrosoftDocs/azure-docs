@@ -121,7 +121,7 @@ OPC Publisher implements the following [IoT Hub Direct Methods](../iot-hub/iot-h
 >[!NOTE]
 > This feature is only available in version 2.6 and above of OPC Publisher.
 
-A cloud-based, companion microservice with a REST interface is described and available [here](https://github.com/Azure/Industrial-IoT/blob/main/docs/services/publisher.md). It can be used to configure OPC Publisher via an OpenAPI-compatible interface, for example through Swagger.
+A cloud-based, companion microservice with a REST interface is described and available [here](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher). It can be used to configure OPC Publisher via an OpenAPI-compatible interface, for example through Swagger.
 
 ## Configuration of the simple JSON telemetry format via Separate Configuration File
 
