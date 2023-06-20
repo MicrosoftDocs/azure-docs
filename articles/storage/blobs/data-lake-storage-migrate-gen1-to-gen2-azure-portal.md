@@ -156,7 +156,7 @@ Whichever option you choose, after you've migrated and verified that all your wo
    > [!div class="mx-imgBorder"]
    > ![Consent checkbox](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration..
+   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of progress bar when performing a complete migration.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-progress.png)
