@@ -779,17 +779,17 @@
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
       href: ./v1/how-to-deploy-and-where.md
       - name: Deployment targets
-      items:
-        - name: Deploy locally
-          href: ./v1/how-to-deploy-local.md
-        - name: Deploy locally on compute instance
-          href: ./v1/how-to-deploy-local-container-notebook-vm.md
-        - name: GPU inference
-          href: ./v1/how-to-deploy-inferencing-gpus.md
-        - name: Azure Cognitive Search
-          href: ./v1/how-to-deploy-model-cognitive-search.md
-        - name: FPGA inference
-          href: ./v1/how-to-deploy-fpga-web-service.md
+        items:
+          - name: Deploy locally
+            href: ./v1/how-to-deploy-local.md
+          - name: Deploy locally on compute instance
+            href: ./v1/how-to-deploy-local-container-notebook-vm.md
+          - name: GPU inference
+            href: ./v1/how-to-deploy-inferencing-gpus.md
+          - name: Azure Cognitive Search
+            href: ./v1/how-to-deploy-model-cognitive-search.md
+          - name: FPGA inference
+            href: ./v1/how-to-deploy-fpga-web-service.md
     - name: Hyperparameter tuning a model (v1)
       displayName: azurecli, AzureML
       href: ./v1/how-to-tune-hyperparameters.md
