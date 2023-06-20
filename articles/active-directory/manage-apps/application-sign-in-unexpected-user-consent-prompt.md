@@ -44,6 +44,8 @@ Further prompts can be expected in various scenarios:
    > [!NOTE]
    > Following Microsoft's recommendations and best practices, many organizations have disabled or limited users' permission to grant consent to apps. If an application forces users to grant consent every time they sign in, most users will be blocked from using these applications even if an administrator grants tenant-wide admin consent. If you encounter an application which is requiring user consent even after admin consent has been granted, check with the app publisher to see if they have a setting or option to stop forcing user consent on every sign in.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Troubleshooting steps
 
 ### Compare permissions requested and granted for the applications

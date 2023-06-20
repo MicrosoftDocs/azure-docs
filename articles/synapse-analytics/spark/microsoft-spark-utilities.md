@@ -10,7 +10,7 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer:
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-python
 ---
 
 # Introduction to Microsoft Spark Utilities

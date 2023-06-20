@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 04/20/2023
 ms.author: cwerner
 ms.reviewer: jmprieur
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
 
@@ -167,9 +167,9 @@ In the Azure portal, the reply URIs that you register on the **Authentication** 
 
 # [Node.js](#tab/nodejs)
 
-Here, the configuration parameters reside in *.env* as environment variables:
+Here, the configuration parameters reside in *.env.dev* as environment variables:
 
-:::code language="text" source="~/ms-identity-node/App/.env":::
+:::code language="text" source="~/ms-identity-node/App/.env.dev":::
 
 These parameters are used to create a configuration object in *authConfig.js* file, which will eventually be used to initialize MSAL Node:
 
@@ -183,15 +183,12 @@ For simplicity in this article, the client secret is stored in the configuration
 
 The configuration parameters are set in *.env* as environment variables:
 
-```bash
-CLIENT_ID=<client id>
-CLIENT_SECRET=<client secret>
-TENANT_ID=<tenant id>
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/.env.sample" highlight="4,5,10":::
+
 
 Those environment variables are referenced in *app_config.py*:
 
-:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py" highlight="4,6,9":::
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py" highlight="4,6,10":::
 
 The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a *.gitignore* file that prevents the *.env* file from being checked in.
 

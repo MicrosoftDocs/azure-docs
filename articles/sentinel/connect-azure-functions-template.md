@@ -3,9 +3,8 @@ title: Use Azure Functions to connect Microsoft Sentinel to your data source | M
 description: Learn how to configure data connectors that use Azure Functions to get data from data sources into Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 06/05/2023
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Use Azure Functions to connect Microsoft Sentinel to your data source
@@ -13,9 +12,6 @@ ms.custom: ignite-fall-2021
 You can use [Azure Functions](../azure-functions/functions-overview.md), in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to the REST API endpoints of your compatible data sources. Azure Function Apps then allow you to connect Microsoft Sentinel to your data source's REST API to pull in logs.
 
 This article describes how to configure Microsoft Sentinel for using Azure Function Apps. You may also need to configure your source system, and you can find vendor- and product-specific information links in each data connector's page in the portal, or the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
-
-
-
 
 > [!NOTE]
 > - Once ingested in to Microsoft Sentinel, data is stored in the geographic location of the workspace in which you're running Microsoft Sentinel.
@@ -37,6 +33,8 @@ Make sure that you have the following permissions and credentials before using A
 - You will also need credentials for accessing the product's API - either a username and password, a token, a key, or some other combination. You may also need other API information such as an endpoint URI.
 
     For more information, see the documentation for the service you're connecting to and the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
+
+- Install the solution that contains your Azure Functions-based connector from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Configure and connect your data source
 

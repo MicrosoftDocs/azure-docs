@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 05/22/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -15,6 +15,8 @@ ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
 ms.custom: engagement-fy23
+
+# Customer intent: As a tenant administrator, I want to learn how to use dynamic groups with B2B collaboration. 
 ---
 
 # Create dynamic groups in Azure Active Directory B2B collaboration
@@ -74,5 +76,5 @@ The following image shows the rule syntax for a dynamic group modified to includ
 ## Next steps
 
 - [B2B collaboration user properties](user-properties.md)
-- [Adding a B2B collaboration user to a role](./add-users-administrator.md)
+- [Reset redemptions status](reset-redemption-status.md)
 - [Conditional Access for B2B collaboration users](authentication-conditional-access.md)

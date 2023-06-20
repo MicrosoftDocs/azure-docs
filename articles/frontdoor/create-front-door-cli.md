@@ -13,6 +13,8 @@ ms.custom: devx-track-azurecli
 
 In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using  Azure CLI. You'll create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]

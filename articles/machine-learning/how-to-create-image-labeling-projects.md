@@ -10,6 +10,7 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.date: 02/08/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Set up an image labeling project and export labels
@@ -262,7 +263,7 @@ View and change details of your project. On this tab, you can:
 
 ### Vision Studio tab
 
-If your project was created from [Cognitive Services Vision Studio](../cognitive-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
+If your project was created from [Vision Studio](../cognitive-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
 
 ### Access for labelers
 
@@ -282,14 +283,28 @@ To export the labels, on the **Project details** page of your labeling project, 
 
 You can export an image label as:
 
-* A [COCO format](http://cocodataset.org/#format-data) file. The COCO file is created in the default blob store of the Machine Learning workspace in a folder in *Labeling/export/coco*. 
-* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+:::moniker range="azureml-api-1"
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
+* A [COCO format](http://cocodataset.org/#format-data) file. Azure Machine Learning creates the COCO file in a folder inside *Labeling/export/coco*. 
+* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md).
+:::moniker-end
+:::moniker range="azureml-api-2"
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
+* A [COCO format](http://cocodataset.org/#format-data) file. Azure Machine Learning creates the COCO file in a folder inside *Labeling/export/coco*. 
+* An [Azure MLTable data asset](./how-to-mltable.md).
+:::moniker-end
 
-Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
+When you export a CSV or COCO file, a notification appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
+
+:::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
+
+Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
 
 :::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
 
+:::moniker range="azureml-api-1"
 After you export your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models that are trained on your labeled data. Learn more at [Set up AutoML to train computer vision models by using Python](how-to-auto-train-image-models.md).
+:::moniker-end
 
 ## Troubleshoot issues
 

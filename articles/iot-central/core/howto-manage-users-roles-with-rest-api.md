@@ -1,9 +1,9 @@
 ---
-title: Use the REST API to manage users and roles in Azure IoT Central
-description: How to use the IoT Central REST API to manage users and roles in an application
+title: Manage users and roles with the Azure IoT Central REST API
+description: How to use the IoT Central REST API to manage users and roles in an application and control access to resources
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/16/2022
+ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -186,7 +186,7 @@ The response to this request looks like the following example. The role value id
 }
 ```
 
-You can also add a service principal user which is useful if you need to use service principal authentication for REST API calls. To learn more, see [Add or update a service principal user](/rest/api/iotcentral/2022-07-31dataplane/users/create#add-or-update-a-service-principal-user).
+You can also add a service principal user that's useful if you need to use service principal authentication for REST API calls. To learn more, see [Add or update a service principal user](/rest/api/iotcentral/2022-07-31dataplane/users/create#add-or-update-a-service-principal-user).
 
 ### Change the role of a user
 

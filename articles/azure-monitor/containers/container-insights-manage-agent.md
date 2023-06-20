@@ -91,7 +91,7 @@ To reenable discovery of the environmental variables, apply the same process you
 ```  
 ## Semantic version update of container insights agent version
 
-Container Insights has shifted the image version and naming convention to [semver format] (https://semver.org/). SemVer helps developers keep track of every change made to a software during its development phase and ensures that the software versioning is consistent and meaningful. The old version was in format of ciprod<timestamp>-<commitId> and win-ciprod<timestamp>-<commitId>, our first image versions using the Semver format are 3.1.4 for Linux and win-3.1.4 for Windows. 
+Container Insights has shifted the image version and naming convention to [semver format] (https://semver.org/). SemVer helps developers keep track of every change made to a software during its development phase and ensures that the software versioning is consistent and meaningful. The old version was in format of ciprod\<timestamp\>-\<commitId\> and win-ciprod\<timestamp\>-\<commitId\>, our first image versions using the Semver format are 3.1.4 for Linux and win-3.1.4 for Windows. 
 
 Semver is a universal software versioning schema which is defined in the format MAJOR.MINOR.PATCH, which follows the following constraints: 
 

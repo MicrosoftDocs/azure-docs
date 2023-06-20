@@ -1,24 +1,25 @@
 ---
-title: Enable Caching for ACR with authentication - Azure CLI
-description: Learn how to enable Caching for ACR with authentication using Azure CLI.
+title: Enable Cache ACR with authentication - Azure CLI
+description: Learn how to enable Cache ACR with authentication using Azure CLI.
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.custom: devx-track-azurecli
+ms.date: 06/17/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Caching for ACR (Preview) with authentication - Azure CLI
+# Enable Cache ACR (Preview) with authentication - Azure CLI
 
-This article is part five of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md), you learn how to enable Caching for ACR feature by using the Azure CLI. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR feature with authentication by using Azure portal. 
+This article is part five of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Cache ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Cache ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md), you learn how to enable Cache ACR feature by using the Azure CLI. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Cache ACR feature with authentication by using Azure portal. 
 
-This article walks you through the steps of enabling Caching for ACR with authentication by using the Azure CLI. You have to use the Credential set to make an authenticated pull or to access a private repository.
+This article walks you through the steps of enabling Cache ACR with authentication by using the Azure CLI. You have to use the Credential set to make an authenticated pull or to access a private repository.
 
 ## Prerequisites
 
-* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
+* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.46.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
 * You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 * You can set and retrieve secrets from your Key Vault. Learn more about [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret]
 
-## Configure Caching for ACR (preview) with authentication - Azure CLI
+## Configure Cache ACR (preview) with authentication - Azure CLI
 
 ### Create a Credential Set - Azure CLI
 
@@ -109,7 +110,13 @@ Before configuring a Credential Set, you have to create and store secrets in the
 
 ### Pull your Image
 
-1. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
+1. Pull the image from your cache using the Docker command by the registry login server name, repository name, and its desired tag.
+
+    - For example, to pull the image from the repository `hello-world` with its desired tag `latest` for a given registry login server `myregistry.azurecr.io`.
+
+    ```azurecli-interactive
+     docker pull myregistry.azurecr.io/hello-world:latest
+    ```
 
 ## Clean up the resources
 

@@ -7,7 +7,7 @@ ms.author: kevinguo
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 03/13/2023
-ms.custom: mode-ui
+ms.custom: mode-ui, devx-track-azurecli, devx-track-bicep
 zone_pivot_groups: azure-web-pubsub-create-resource-methods
 ---
 # Create a Web PubSub resource

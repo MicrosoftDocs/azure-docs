@@ -2,7 +2,7 @@
 title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
 ms.date: 03/11/2023
 ---
 
@@ -139,28 +139,28 @@ az aks nodepool add \
     --node-vm-size Standard_D2pds_v5
 ```
 
-### Add a Mariner node pool
+### Add an Azure Linux node pool
 
-Mariner is an open-source Linux distribution available as an AKS container host. It provides high reliability, security, and consistency. Mariner only includes the minimal set of packages needed for running container workloads, which improves boot times and overall performance.
+The Azure Linux container host for AKS is an open-source Linux distribution available as an AKS container host. It provides high reliability, security, and consistency. It only includes the minimal set of packages needed for running container workloads, which improves boot times and overall performance.
 
-You can add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
+You can add an Azure Linux node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku AzureLinux`.
 
 ```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
-    --name marinerpool \
-    --os-sku mariner
+    --name azurelinuxpool \
+    --os-sku AzureLinux
 ```
 
-### Migrate Ubuntu nodes to Mariner
+### Migrate Ubuntu nodes to Azure Linux
 
-Use the following instructions to migrate your Ubuntu nodes to Mariner nodes.
+Use the following instructions to migrate your Ubuntu nodes to Azure Linux nodes.
 
-1. Add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
+1. Add a Azure Linux node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku AzureLinux`.
 
 > [!NOTE]
-> When adding a new Mariner node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
+> When adding a new Azure Linux node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
 
 2. [Cordon the existing Ubuntu nodes][cordon-and-drain].
 3. [Drain the existing Ubuntu nodes][drain-nodes].

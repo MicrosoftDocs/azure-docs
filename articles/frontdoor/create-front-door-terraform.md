@@ -15,6 +15,8 @@ ms.custom: devx-track-terraform
 
 This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
 
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
+
 The steps in this article were tested with the following Terraform and Terraform provider versions:
 
 - [Terraform v1.3.2](https://releases.hashicorp.com/terraform/)

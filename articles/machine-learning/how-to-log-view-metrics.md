@@ -17,9 +17,6 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
-> * [v1](./v1/how-to-log-view-metrics.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current)](how-to-log-view-metrics.md)
 
 Azure Machine Learning supports logging and tracking experiments using [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). You can log models, metrics, parameters, and artifacts with MLflow as it supports local mode to cloud portability. 
 
@@ -35,9 +32,6 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 > [!TIP]
 > This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
-
-> [!TIP]
-> For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](how-to-track-designer-experiments.md).
 
 ## Prerequisites
 

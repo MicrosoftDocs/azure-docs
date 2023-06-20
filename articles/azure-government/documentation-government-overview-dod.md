@@ -7,7 +7,7 @@ ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions
 recommendations: false
-ms.date: 05/06/2023
+ms.date: 05/09/2023
 ---
 
 # Department of Defense (DoD) in Azure Government
@@ -20,7 +20,7 @@ Azure Government offers the following regions to DoD mission owners and their pa
 
 |Regions|Relevant authorizations|# of IL5 PA services|
 |------|------|------|
-|US Gov Arizona </br> US Gov Texas </br> US Gov Virginia|FedRAMP High, DoD IL4, DoD IL5|145|
+|US Gov Arizona </br> US Gov Texas </br> US Gov Virginia|FedRAMP High, DoD IL4, DoD IL5|150|
 |US DoD Central </br> US DoD East|DoD IL5|60|
 
 Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (**US Gov regions**) are intended for US federal (including DoD), state, and local government agencies, and their partners. Azure Government regions US DoD Central and US DoD East (**US DoD regions**) are reserved for exclusive DoD use. Separate DoD IL5 PAs are in place for US Gov regions vs. US DoD regions. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).

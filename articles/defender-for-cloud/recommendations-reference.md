@@ -1,11 +1,11 @@
 ---
 title: Reference table for all Microsoft Defender for Cloud recommendations 
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your resources.
-author: memildin
+author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
 ms.date: 01/24/2023
-ms.author: memildin
+ms.author: dacurwin
 ms.custom: generated
 ---
 # Security recommendations - a reference guide
@@ -88,8 +88,6 @@ impact on your secure score.
 (Preview) API Management minimum API version should be set to 2019-12-01 or higher|To prevent service secrets from being shared with read-only users, the minimum API version should be set to 2019-12-01 or higher.|Medium
 (Preview) API Management calls to API backends should be authenticated|Calls from API Management to backends should use some form of authentication, whether via certificates or credentials. Does not apply to Service Fabric backends.|Medium
 
-
-
 ## Deprecated recommendations
 
 |Recommendation|Description & related policy|Severity|
@@ -100,6 +98,11 @@ impact on your secure score.
 |Install Azure Security Center for IoT security module to get more visibility into your IoT devices|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|
 |Your machines should be restarted to apply system updates|Restart your machines to apply the system updates and secure the machine from vulnerabilities. (Related policy: System updates should be installed on your machines)|Medium|
 |Monitoring agent should be installed on your machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to. (No related policy)|High|
+|Java should be updated to the latest version for web apps|Periodically, newer versions are released for Java software either due to security flaws or to include additional functionality.<br>Using the latest Java version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Java version' is the latest, if used as a part of the Web app) |Medium |
+|Python should be updated to the latest version for function apps |Periodically, newer versions are released for Python software either due to security flaws or to include additional functionality.<br>Using the latest Python version for function apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Python version' is the latest, if used as a part of the Function app) |Medium |
+|Python should be updated to the latest version for web apps |Periodically, newer versions are released for Python software either due to security flaws or to include additional functionality.<br>Using the latest Python version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Python version' is the latest, if used as a part of the Web app) |Medium |
+|Java should be updated to the latest version for function apps |Periodically, newer versions are released for Java software either due to security flaws or to include additional functionality.<br>Using the latest Java version for function apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Java version' is the latest, if used as a part of the Function app) |Medium |
+|PHP should be updated to the latest version for web apps |Periodically, newer versions are released for PHP software either due to security flaws or to include additional functionality.<br>Using the latest PHP version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'PHP version' is the latest, if used as a part of the WEB app) |Medium |
 ||||
 
 ## Next steps

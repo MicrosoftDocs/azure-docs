@@ -103,6 +103,8 @@
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Connectivity between virtual networks
     href: virtual-network-connectivity-guidance.md
+  - name: Planned maintenance guidance
+    href: planned-maintenance.md
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
   - name: BGP communities
@@ -225,6 +227,8 @@
       href: expressroute-nat.md
   - name: Troubleshoot
     items:
+    - name: Obtain correlation ID
+      href: get-correlation-id.md
     - name: Verifying ExpressRoute connectivity
       href: expressroute-troubleshooting-expressroute-overview.md
     - name: Resolving network performance issues

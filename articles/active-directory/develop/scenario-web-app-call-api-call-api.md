@@ -34,7 +34,7 @@ When you use *Microsoft.Identity.Web*, you have three usage options for calling 
 
 #### Option 1: Call Microsoft Graph with the SDK
 
-You want to call Microsoft Graph. In this scenario, you've added `AddMicrosoftGraph` in *Startup.cs* as specified in [Code configuration](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph), and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
+You want to call Microsoft Graph. In this scenario, In this scenario, you've added the **Microsoft.Identity.Web.GraphServiceClient** NuGet package and added `.AddMicrosoftGraph()` in *Startup.cs* as specified in [Code configuration](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph), and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
 
 ```csharp
 [Authorize]
@@ -50,10 +50,10 @@ public class IndexModel : PageModel
 
  public async Task OnGet()
  {
-  var user = await _graphServiceClient.Me.Request().GetAsync();
+  var user = await _graphServiceClient.Me.GetAsync();
   try
   {
-   using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+   using (var photoStream = await _graphServiceClient.Me.Photo.Content.GetAsync())
    {
     byte[] photoByte = ((MemoryStream)photoStream).ToArray();
     ViewData["photo"] = Convert.ToBase64String(photoByte);
@@ -89,7 +89,7 @@ public class TodoListController : Controller
 
   public async Task<ActionResult> Details(int id)
   {
-    var value = await _downstreamApi.CallWebApiForUserAsync(
+    var value = await _downstreamApi.CallApiForUserAsync(
       ServiceName,
       options =>
       {
@@ -106,7 +106,7 @@ The `CallWebApiForUserAsync` also has strongly typed generic overrides that enab
     // GET: TodoList/Details/5
     public async Task<ActionResult> Details(int id)
     {
-        var value = await _downstreamApi.CallWebApiForUserAsync<object, Todo>(
+        var value = await _downstreamApi.CallApiForUserAsync<object, Todo>(
             ServiceName,
             null,
             options =>
@@ -179,10 +179,10 @@ public class HomeController : Controller
  public async Task GetIndex()
  {
   var graphServiceClient = this.GetGraphServiceClient();
-  var user = await graphServiceClient.Me.Request().GetAsync();
+  var user = await graphServiceClient.Me.GetAsync();
   try
   {
-   using (var photoStream = await graphServiceClient.Me.Photo.Content.Request().GetAsync())
+   using (var photoStream = await graphServiceClient.Me.Photo.Content.GetAsync())
    {
     byte[] photoByte = ((MemoryStream)photoStream).ToArray();
     ViewData["photo"] = Convert.ToBase64String(photoByte);
@@ -210,7 +210,7 @@ public class TodoListController : Controller
   public async Task<ActionResult> Details(int id)
   {
     var downstreamApi = this.GetDownstreamApi();
-    var value = await downstreamApi.CallWebApiForUserAsync(
+    var value = await downstreamApi.CallApiForUserAsync(
       ServiceName,
       options =>
       {
@@ -221,14 +221,14 @@ public class TodoListController : Controller
 }
 ```
 
-The `CallWebApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method receives a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
+The `CallApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method receives a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
 
 ```csharp
     // GET: TodoList/Details/5
     public async Task<ActionResult> Details(int id)
     {
         var downstreamApi = this.GetDownstreamApi();
-        var value = await downstreamApi.CallWebApiForUserAsync<object, Todo>(
+        var value = await downstreamApi.CallApiForUserAsync<object, Todo>(
             ServiceName,
             null,
             options =>
@@ -294,6 +294,12 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
     return responseObject.toString();
 }
 ```
+
+# [Node.js](#tab/nodejs)
+
+After successfully retrieving a token, the code uses the **axios** package to query the API endpoint and retrieve a JSON result.
+
+:::code language="js" source="~/ms-identity-node/App/fetch.js" range="8-28":::
 
 # [Python](#tab/python)
 

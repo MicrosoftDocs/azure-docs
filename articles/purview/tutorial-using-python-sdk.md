@@ -4,9 +4,9 @@ description: This tutorial describes how to use the Microsoft Purview Python SDK
 author: raliouat
 ms.author: raoufaliouat
 ms.service: purview
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 05/27/2022
-
 # Customer intent: I can use the scanning and catalog Python SDKs to perform CRUD operations on data sources and scans, trigger scans and also to search the catalog.
 ---
 
@@ -126,7 +126,7 @@ In this section, you learn how to instantiate:
 * A catalog client useful to interact with the catalog through searching, browsing the discovered assets, identifying the sensitivity of your data, etc.
 * An administration client is useful for interacting with the Microsoft Purview Data Map itself, for operations like listing collections.
 
-First you need to authenticate to your Azure Active Directory. For this, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+First you need to authenticate to your Azure Active Directory. For this, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
 
 
 1.	Start with required import statements: our three clients, the credentials statement, and an Azure exceptions statement.
@@ -731,4 +731,3 @@ except HttpResponseError as e:
 > [!div class="nextstepaction"]
 > [Learn more about the Python Microsoft Purview Scanning Client](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-purview-scanning/1.0.0b2/index.html)
 > [Learn more about the Python Microsoft Purview Catalog Client](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-purview-catalog/1.0.0b2/index.html)
-

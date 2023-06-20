@@ -33,7 +33,7 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
         - [Windows 10 FOD Disk 1 ISO (version 2004 or later)](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - Inbox Apps ISO:
-        - [Windows 10 Inbox Apps ISO (version 21H1 or later)](https://software-download.microsoft.com/download/sg/19041.928.210407-2138.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+        - [Windows 10 Inbox Apps ISO (version 21H1 or later)](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/19041.3031.230508-1728.vb_release_svc_prod3_amd64fre_InboxApps.iso)
      
      - If you use Local Experience Pack (LXP) ISO files to localize your images, you'll also need to download the appropriate LXP ISO for the best language experience. Use the information in [Adding languages in Windows 10: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out which of the following LXP ISOs is right for you:
           - [Windows 10, version 2004 or later 01C 2021 LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)

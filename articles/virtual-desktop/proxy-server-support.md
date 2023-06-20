@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 08/08/2022
 ms.author: helohr
-ms.reviewer: denisgun
 manager: femila
 ---
 
@@ -29,8 +28,8 @@ In summary, we don't recommend using proxy servers on Azure Virtual Desktop beca
 
 If your organization's network and security policies require proxy servers for web traffic, you can configure your environment to bypass Azure Virtual Desktop connections while still routing the traffic through the proxy server. However, each organization's policies are unique, so some methods may work better for your deployment than others. Here are some configuration methods you can try to prevent performance and reliability loss in your environment:
 
-- Azure service tags on the Azure firewall
-- Proxy server bypass using Proxy Auto Configuration (.PAC) files
+- Azure service tags with Azure Firewall
+- Proxy server bypass using Proxy Auto Configuration (`.PAC`) files
 - Bypass list in the local proxy configuration
 - Using proxy servers for per-user configuration
 - Using RDP Shortpath for the RDP connection while keeping the service traffic over the proxy
@@ -61,9 +60,9 @@ Azure Virtual Desktop components on the session host run in the context of their
 
 Proxy servers have capacity limits. Unlike regular HTTP traffic, RDP traffic has long running, chatty connections that are bi-directional and consume lots of bandwidth. Before you set up a proxy server, talk to your proxy server vendor about how much throughput your server has. Also make sure to ask them how many proxy sessions you can run at one time. After you deploy the proxy server, carefully monitor its resource use for bottlenecks in Azure Virtual Desktop traffic.
 
-### Proxy servers and  Teams optimization
+### Proxy servers and Microsoft Teams media optimization
 
-Azure Virtual Desktop doesn't support proxy servers for Teams optimization.
+Azure Virtual Desktop doesn't support proxy servers with [media optimization for Microsoft Teams](teams-on-avd.md).
 
 ## Session host configuration recommendations
 
@@ -79,7 +78,7 @@ To configure your network to use DNS resolution for WPAD, follow the instruction
 
 You can set a device-wide proxy or Proxy Auto Configuration (.PAC) file that applies to all interactive, Local System, and Network Service users with the [Network Proxy CSP](/windows/client-management/mdm/networkproxy-csp). 
 
-In addition you will need to set a proxy for the Windows services *RDAgent* and *Remote Desktop Services*. RDAgent runs with the account *Local System* and Remote Desktop Services runs with the account *Network Service*. You can set a proxy for these accounts by running the following commands, changing the placeholder value for `<server>` with your own address:
+In addition you will need to set a proxy for the Windows services *RDAgent* and *Remote Desktop Services*. RDAgent runs with the account *Local System* and Remote Desktop Services runs with the account *Network Service*. You can set a proxy for these accounts by running the following commands from an elevated command prompt, changing the placeholder value for `<server>` with your own address:
 
 ```console
 bitsadmin /util /setieproxy LOCALSYSTEM AUTOSCRIPT http://<server>/proxy.pac

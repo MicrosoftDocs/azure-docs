@@ -148,6 +148,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
 
+      > [!NOTE]
+      > Schema Discovery feature is enabled for this application.
+      
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Templafy**.
 
 	![Templafy OpenID Connect Group Mappings](media/templafy-openid-connect-provisioning-tutorial/group-mapping.png)
@@ -159,6 +162,9 @@ This section guides you through the steps to configure the Azure AD provisioning
       |displayName|String|&check;|
       |members|Reference|
       |externalId|String|      
+
+      > [!NOTE]
+      > Schema Discovery feature is enabled for this application.
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -182,6 +188,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Change log
+
+* 05/04/2023 - Added support for **Schema Discovery**.
 
 ## Additional resources
 
