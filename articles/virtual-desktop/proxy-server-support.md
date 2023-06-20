@@ -29,7 +29,7 @@ In summary, we don't recommend using proxy servers on Azure Virtual Desktop beca
 If your organization's network and security policies require proxy servers for web traffic, you can configure your environment to bypass Azure Virtual Desktop connections while still routing the traffic through the proxy server. However, each organization's policies are unique, so some methods may work better for your deployment than others. Here are some configuration methods you can try to prevent performance and reliability loss in your environment:
 
 - Azure service tags with Azure Firewall
-- Proxy server bypass using Proxy Auto Configuration (.PAC) files
+- Proxy server bypass using Proxy Auto Configuration (`.PAC`) files
 - Bypass list in the local proxy configuration
 - Using proxy servers for per-user configuration
 - Using RDP Shortpath for the RDP connection while keeping the service traffic over the proxy
