@@ -59,6 +59,12 @@
     href: cache-web-app-cache-aside-leaderboard.md
   - name: Deploy a machine learning model 
     href: cache-ml.md
+  - name: Use Azure Functions
+    items:
+    - name: Create a simple Function app for Redis triggers 
+      href: cache-tutorial-functions-getting-started.md
+    - name: Create a serverless and event-driven
+      href: cache-tutorial-write-behind.md
 - name: Samples
   items:
   - name: PowerShell samples
