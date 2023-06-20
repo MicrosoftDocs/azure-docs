@@ -54,6 +54,7 @@ If you’re using the following supported SDKs, you can configure the JavaScript
    |	:---	|	:---	|
    | ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
    | Node.js | [Automatic web Instrumentation](./nodejs.md#automatic-web-instrumentationpreview) |
+   | Java | [Browser SDK Loader](./java-standalone-config.md#browser-sdk-loader-preview) |
 
 For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
 

@@ -359,6 +359,9 @@ The column names used here are for example only. The column names for your log w
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 
+## Troubleshooting Tool
+Use the [Asure monitor troubleshooter tool](use-azure-monitor-agent-troubleshooter.md) to look for common issues and share results with Microsoft.
+
 ### Check if any custom logs have been received
 Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If records aren't returned, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data from your tables to be uploaded.  Only new data will be uploaded any log file last written to prior to the DCR rules being created won't be uploaded.
 
@@ -450,13 +453,6 @@ while ($true)
 
 ```
 
-### Share logs with Microsoft
-If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
-
-1. Open an elevated PowerShell window.
-2. Change to directory `C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\`.
-3. Execute the script: `.\CollectAMALogs.ps1`.
-4. Share the `AMAFiles.zip` file generated on the desktop.
 
 
 ## Next steps
