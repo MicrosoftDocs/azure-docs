@@ -14,7 +14,7 @@
 
 Before you deploy the NAT gateway resource and the other resources, a resource group is required to contain the resources deployed. In the following steps, you create a resource group, NAT gateway resource, and a public IP address. You can use one or more public IP address resources, public IP prefixes, or both. 
 
-For information about public IP prefixes and a NAT gateway, see [Manage NAT gateway](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-prefix).
+For information about public IP prefixes and a NAT gateway, see [Manage NAT gateway](../articles/nat-gateway/manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-prefix).
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
@@ -33,7 +33,7 @@ For information about public IP prefixes and a NAT gateway, see [Manage NAT gate
     | Availability Zone | Select **No Zone**. |
     | TCP idle timeout (minutes) | Enter **10**. |
 
-    For information about availability zones and NAT gateway, see [NAT gateway and availability zones](./nat-availability-zones.md).
+    For information about availability zones and NAT gateway, see [NAT gateway and availability zones](../articles/nat-gateway/nat-availability-zones.md).
 
 1. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
 
