@@ -486,7 +486,7 @@ created_monitor = poller.result()
 
    
 1. Adjust the data window size according to your business case.
-1.  Adjust the threshold according to your need.
+1. Adjust the threshold according to your need.
 1. Select **Save** to return to the "Select monitoring signals" section.
 1. If you're done with editing or adding signals, select **Next**.
 
