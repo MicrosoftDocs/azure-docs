@@ -94,11 +94,11 @@ The `decompile-params` command decompile a JSON parameters file to a _.biceppara
 bicep decompile-params azuredeploy.parameters.json --bicep-file ./dir/main.bicep
 ```
 
-This command decompiles a _azuredeploy.parameters.json_ parameters file into a _azuredeploy.parameters.bicepparam_ file. `-bicep-file` specifies the path to the Bicep file (relative to the .bicepparam file) that will be referenced in the `using` declaration.
+This command decompiles a _azuredeploy.parameters.json_ parameters file into a _azuredeploy.parameters.bicepparam_ file. `-bicep-file` specifies the path to the Bicep file (relative to the .bicepparam file) that is referenced in the `using` declaration.
 
 ## generate-params
 
-The `generate-params` command builds a parameters file from the given Bicep file, updates if there is an existing parameters file.
+The `generate-params` command builds a parameters file from the given Bicep file, updates if there's an existing parameters file.
 
 ```azurecli
 bicep generate-params main.bicep --output-format bicepparam --include-params all
