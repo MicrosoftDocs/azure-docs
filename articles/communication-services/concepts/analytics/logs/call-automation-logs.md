@@ -148,3 +148,7 @@ Here's an example of a Call Automation media summary log:
 }
 
 ````
+
+## Next steps
+
+- [Call Automation insights](/azure/communication-services/concepts/analytics/insights/call-automation-insights)
