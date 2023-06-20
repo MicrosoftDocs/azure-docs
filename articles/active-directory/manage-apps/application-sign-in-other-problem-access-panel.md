@@ -64,6 +64,8 @@ Access to My Apps can be blocked due to a problem with the user’s account. Fol
 - [Check a user’s assigned licenses](#check-a-users-assigned-licenses)
 - [Assign a user a license](#assign-a-user-a-license)
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ### Check if a user account exists in Azure Active Directory
 
 To check if a user’s account is present, follow these steps:

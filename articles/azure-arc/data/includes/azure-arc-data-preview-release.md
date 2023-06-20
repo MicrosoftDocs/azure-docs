@@ -5,13 +5,10 @@ ms.service: azure-arc
 ms.topic: include
 ms.date: 05/02/2023
 ---
-<!--
 
 At this time, a test or preview build is not available for the next release.
 
--->
-
-
+<!--
 June 2023 preview release is now available.
 
 |Component|Value|
@@ -42,3 +39,5 @@ June 2023 preview release is now available.
 ### Release notes
 
 - Arc SQL Server | Host Configuration | Support for being able to view your SQL Server Configuration is now available. This includes being able to view SQL Server instances and modify host level properties like license type and have the ability to skip instances.
+
+-->

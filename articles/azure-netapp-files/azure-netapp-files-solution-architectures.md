@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/09/2023
+ms.date: 06/12/2023
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -57,6 +57,7 @@ This section provides references for solutions for Linux OSS applications and da
 ### Product Lifecycle Management
 
 * [Use Teamcenter PLM with Azure NetApp Files](/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files)
+* [Siemens Teamcenter baseline architecture](/azure/architecture/example-scenario/manufacturing/teamcenter-baseline)
 
 ### Machine Learning
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)

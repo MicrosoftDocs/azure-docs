@@ -3351,11 +3351,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/workloads/oracle/index.md",
-            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-considerations",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/workloads/oracle/oracle-backup-recovery.md",
             "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
             "redirect_document_id": false

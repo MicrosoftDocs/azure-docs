@@ -44,7 +44,7 @@ To get a v1.0 token, use [ADAL](../active-directory/azuread-dev/active-directory
 - client_secret: {Client secret of Azure AD App}
 - resource: `"https://management.azure.com/"`
 
-To get a v2.0 token, use Microsoft Authentication Library [MSAL](../active-directory/develop/msal-overview.md) or can send requests to the REST API in the following format:
+To get a v2.0 token, use Microsoft Authentication Library [MSAL](../active-directory/develop/msal-overview.md) or send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
 - Headers for using Azure AD App:
 - grant_type: "client_credentials"

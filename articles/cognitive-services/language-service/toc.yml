@@ -125,8 +125,6 @@ items:
       href: concepts/custom-features/project-versioning.md
   - name: Tutorials
     items:
-    - name: Enrich a Cognitive Search index 
-      href: custom-text-classification/tutorials/cognitive-search.md
     - name: Triage incoming emails with power automate
       href: custom-text-classification/tutorials/triage-email.md
   - name: Reference
@@ -220,10 +218,6 @@ items:
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
-  - name: Tutorials
-    items:
-      - name: Enrich a Cognitive Search index with custom entities
-        href: custom-named-entity-recognition/tutorials/cognitive-search.md
   - name: Concepts
     items:
       - name: Evaluation metrics
@@ -329,7 +323,7 @@ items:
     - name: Runtime prediction API
       items:
       - name: REST API
-        href: https://aka.ms/clu-runtime-api
+        href: /rest/api/language/2023-04-01/conversation-analysis-runtime/analyze-conversation
       - name: SDK
         items:
         - name: C#
@@ -370,8 +364,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -451,8 +445,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -537,8 +531,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -617,8 +611,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -716,7 +710,7 @@ items:
     - name: Runtime prediction API
       items:
       - name: REST API
-        href: https://aka.ms/clu-runtime-api
+        href: /rest/api/language/2023-04-01/conversation-analysis-runtime/analyze-conversation
       - name: SDK
         items:
         - name: C#
@@ -768,8 +762,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -967,8 +961,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -1055,8 +1049,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: Text analysis runtime API (v2022-05-01)
-          href: /rest/api/language/2022-05-01/text-analysis-runtime
+        - name: Text analysis runtime API (v2023-04-01)
+          href: https://go.microsoft.com/fwlink/?linkid=2239169
         - name: Text analysis runtime API (v2022-10-01-preview)
           href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
         - name: Previous versions
@@ -1143,16 +1137,18 @@ items:
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
         - name: Python
           href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
-- name: Summarization (preview)
+- name: Summarization
   items:
-  - name: Prebuilt (preview)
+  - name: Summarization overview
+    href: summarization/overview.md
+  - name: Summarization region support
+    href: summarization/region-support.md
+  - name: Summarization language support
+    href: summarization/language-support.md
+  - name: Prebuilt
     items:
-    - name: Summarization overview
-      href: summarization/overview.md
     - name: Summarization quickstart
       href: summarization/quickstart.md
-    - name: Summarization language support
-      href: summarization/language-support.md
     - name: How-to guides
       items:
       - name: Call the document summarization API
@@ -1185,19 +1181,19 @@ items:
       - name: Document summarization
         items:
           - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
           - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
       - name: Conversation summarization
         items:
         - name: .NET
-          href: /dotnet/api/overview/azure/ai.language.conversations-readme
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme?view=azure-dotnet&preserve-view=true
         - name: Python
-          href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview
+          href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python
   - name: Custom (preview)
     items:
     - name: Custom summarization quickstart

@@ -19,7 +19,7 @@ ms.custom: UpdateFrequency5, cliv1, event-tier1-build-2022, ignite-2022
 [!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
 
-All articles in this section document the use of the first version of Azure Machine Learning Python SDK (v1) or Azure CLI ml extension (v1).  
+All articles in this section document the use of the first version of Azure Machine Learning Python SDK (v1) or Azure CLI ml extension (v1). For information on the current SDK and CLI, see [Azure Machine Learning SDK and CLI v2](../concept-v2.md).
 
 ## SDK v1
 

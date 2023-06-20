@@ -365,7 +365,7 @@ The following JSON snippet demonstrates how to configure these properties.
 ```
 
 > [!WARNING]
-> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app. Instead [configure a custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).
+> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app. Instead [configure a custom signing key](/graph/application-saml-sso-configure-api#option-2-create-a-custom-signing-certificate).
 
 ## Step 4. Assign a custom claims provider to your app
 

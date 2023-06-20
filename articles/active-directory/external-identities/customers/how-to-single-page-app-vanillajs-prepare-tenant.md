@@ -9,29 +9,27 @@ ms.author: owenrichards
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: tutorial
-ms.date: 05/25/2023
+ms.date: 06/09/2023
 
-#Customer intent: As a developer, I want to learn how to configure a Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
+#Customer intent: As a developer, I want to learn how to configure a vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Tutorial: Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app (SPA)
+# Tutorial: Prepare your customer tenant to authenticate a vanilla JavaScript single-page app
 
-This tutorial series demonstrates how to build a Vanilla JavaScript single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
+This tutorial series demonstrates how to build a vanilla JavaScript single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
 
 In this tutorial, you'll;
 
 > [!div class="checklist"]
-> * Register a web application in the Microsoft Entra admin center, and record its identifiers
-> * Create a client secret for the web application
+> * Register a SPA in the Microsoft Entra admin center, and record its identifiers
 > * Define the platform and URLs
-> * Grant permissions to the web application to access the Microsoft Graph API
+> * Grant permissions to the SPA to access the Microsoft Graph API
 > * Create a sign in and sign out user flow in the Microsoft Entra admin center
-> * Associate your web application with the user flow
+> * Associate your SPA with the user flow
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 - This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
 
     * Application administrator

@@ -71,31 +71,64 @@ Gen2 VMs are supported on Linux. Gen2 VMs on Windows are supported for WS2022 on
   * If your Kubernetes version is greater than 1.25, you only need to set the `vm_size` to get the generation 2 node pool. You can still use WS2019 generation 1 if you define that in the `os_sku`.
   * If your Kubernetes version less than 1.25, you can set the `os_sku` to WS2022 and set the `vm_size` to generation 2 to get the generation 2 node pool.
 
-Follow the Azure CLI commands to use generation 2 VMs on Windows:
+#### Install the aks-preview Azure CLI extension
 
-```azurecli
-# Sample command
+* Install or update the aks-preview Azure CLI extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
 
-az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np 
---kubernetes-version 1.23.5 --node-vm-size Standard_D32_v4 --os-type Windows --os_sku Windows2022 
+    ```azurecli
+    # Install the aks-preview extension
+    az extension add --name aks-preview
 
-# Default command
+    # Update to the latest version of the aks-preview extension
+    az extension update --name aks-preview
+    ```
 
-az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --os-type Windows --kubernetes-version 1.23.5
+#### Register the AKSWindows2022Gen2Preview feature flag
 
-```
+1. Register the AKSWindows2022Gen2Preview feature flag using the [`az feature register`][az-feature-register] command.
 
-To determine if you're on generation 1 or generation 2, run the following command from the nodepool level and check that the `nodeImageVersion` contains `gen2`:
+    ```azurecli-interactive
+    az feature register --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
+    ```
 
-```azurecli
-az aks nodepool show
-```
+    It takes a few minutes for the status to show *Registered*.
 
-To determine available generation 2 VM sizes, run the following command:
+2. Verify the registration using the [`az feature show`][az-feature-show] command.
 
-```azurecli
-az vm list -skus -l $region
-```
+    ```azurecli-interactive
+    az feature show --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
+    ```
+
+3. When the status reflects *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli-interactive
+    az provider register --namespace "Microsoft.ContainerService"
+    ```
+
+#### Add a Windows node pool with a generation 2 VM
+
+* Add a node pool with generation 2 VMs on Windows using the [`az aks nodepool add`][az-aks-nodepool-add] command.
+
+    ```azurecli
+    # Sample command
+    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np 
+    --kubernetes-version 1.23.5 --node-vm-size Standard_D32_v4 --os-type Windows --os-sku Windows2022
+
+    # Default command
+    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --os-type Windows --kubernetes-version 1.23.5
+    ```
+
+* Determine whether you're on generation 1 or generation 2 using the [`az aks nodepool show`][az-aks-nodepool-show] command, and check that the `nodeImageVersion` contains `gen2`.
+
+    ```azurecli
+    az aks nodepool show
+    ```
+
+* Check available generation 2 VM sizes using the [`az vm list`][az-vm-list] command.
+
+    ```azurecli
+    az vm list -skus -l $region
+    ```
 
 For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
@@ -526,3 +559,7 @@ az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestric
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [baseline-reference-architecture-aks]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
 [whatis-nrg]: ./concepts-clusters-workloads.md#node-resource-group
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-nodepool-show]: /cli/azure/aks/nodepool#az_aks_nodepool_show
+[az-vm-list]: /cli/azure/vm#az_vm_list

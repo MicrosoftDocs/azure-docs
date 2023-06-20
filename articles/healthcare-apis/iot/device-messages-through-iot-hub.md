@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 05/16/2023
+ms.date: 06/19/2023
 ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
@@ -23,7 +23,7 @@ For enhanced workflows and ease of use, you can use the MedTech service to recei
 > [!TIP]
 > To learn how the MedTech service transforms and persists device data into the FHIR service as FHIR Observations, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
-In this tutorial, you learn how to:
+In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Open an ARM template in the Azure portal.
