@@ -83,13 +83,20 @@ Please see our [documentation on vector index size](./vector-search-index-size.m
 | Basic | 2                  | 0.5                                        | 115 million                  |
 | S1    | 25                 | 1                                          | 235 million                  |
 | S2    | 100                | 6                                          | 1,400 million                |
-| S3    | 200                | 12                                         | 2,801 million                |
-| L1    | 1,000              | 12                                         | 3,221 million                |
-| L2    | 2,000              | 36                                         | 9,664 million                |
+| S3    | 200                | 12                                         | 2,800 million                |
+| L1    | 1,000              | 12                                         | 2,800 million                |
+| L2    | 2,000              | 36                                         | 8,400 million                |
 
 ### Services created after 2023-07-01 in supported regions
 
-tbd
+| SKU   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| ----- | ------------------ | ------------------------------------------ | ---------------------------- |
+| Basic | 2                  | 1                                          | 235 million                  |
+| S1    | 25                 | 3                                          | 700 million                  |
+| S2    | 100                | 12                                         | 2,800 million                |
+| S3    | 200                | 36                                         | 8,400 million                |
+| L1    | 1,000              | 12                                         | 2,800 million                |
+| L2    | 2,000              | 36                                         | 8,400 million                |
 
 ## Indexer limits
 
