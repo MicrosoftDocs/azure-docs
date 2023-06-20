@@ -88,7 +88,7 @@ In addition to the features listed above, additional Microsoft Entra features fr
 |Auditing|Admins can be alerted of creation of admin accounts.|[Microsoft Entra PIM alerts](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
 
 ## License requirements
-[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Getting started
 

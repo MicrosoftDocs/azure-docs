@@ -29,23 +29,11 @@ To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD)
 
 ## Valid licenses
 
-You will need an Microsoft Entra Premuim P2 or Microsoft Entra ID Governance license to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Microsoft Entra Premuim P2 or Microsoft Entra ID Governance edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. 
+You will need Microsoft Entra ID Governance licenses to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles with an Microsoft Entra Premuim P2 or Microsoft Entra ID Governance edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. 
 
 ## Licenses you must have
+Ensure that your tenant has Microsoft Entra ID Governance licenses for all users whose identities or access is governed or who interact with an identity governance feature.
 
-Ensure that your directory has Microsoft Entra Premuim P2 or Microsoft Entra ID Governance licenses for the following categories of users:
-
-- Users with eligible and/or time-bound assignments to Azure AD or Azure roles managed using PIM
-- Users with eligible and/or time-bound assignments as members or owners of PIM for Groups
-- Users able to approve or reject activation requests in PIM
-- Users assigned to an access review
-- Users who perform access reviews
-
-Microsoft Entra Premuim P2 or Microsoft Entra ID Governance licenses are **not** required for the following tasks:
-
-- No licenses are required for users who set up PIM, configure policies, receive alerts, and set up access reviews.
-
-For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
 
 ## Example license scenarios
 

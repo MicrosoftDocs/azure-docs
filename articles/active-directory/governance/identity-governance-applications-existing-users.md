@@ -26,7 +26,7 @@ ms.collection: M365-identity-device-management
 There are three common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application before you use the application with a Microsoft Entra identity governance feature such as [access reviews](access-reviews-application-preparation.md).
 
 ## License requirements
-[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/aactive-directory-entra-governance-license.md)]
 
 ### Application migrated to Azure AD after using its own identity provider
 
