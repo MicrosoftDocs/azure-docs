@@ -63,7 +63,7 @@ When creating a community gallery, you will need to provide contact information 
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
-- Legal agreement URL
+- Legal agreement URL (Do not put secrets, passwords, SASURI etc. in legal agreement URL field)
 
 Information from your image definitions will also be publicly available, like what you provide for **Publisher**, **Offer**, and **SKU**.
 
