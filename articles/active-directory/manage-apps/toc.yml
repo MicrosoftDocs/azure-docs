@@ -33,7 +33,7 @@
     - name: Export secrets and certs (enterprise apps)
       href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
     - name: Export expiring secrets and certs
-      href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+      href: /azure/active-directory/manage-apps/scripts/powershell-export-apps-with-expiring-secrets
     - name: Export secrets and certs expiring beyond required date
       href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
   - name: Concepts

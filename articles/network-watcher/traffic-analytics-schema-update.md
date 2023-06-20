@@ -1,26 +1,26 @@
 ﻿---
 title: Traffic analytics schema update - March 2020
 titleSuffix: Azure Network Watcher
-description: Sample queries with new fields in the Traffic Analytics schema. Use these three examples to replace the deprecated fields with the new ones.
+description: Learn how to use queries to replace the deprecated fields in the Traffic Analytics schema with the new ones.
 services: network-watcher
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment, engagement-fy23
 ms.workload: infrastructure-services
-ms.date: 06/20/2022
-ms.author: halkazwini
+ms.date: 06/20/2023
+ms.custom: template-how-to, kr2b-contr-experiment, engagement-fy23
 ---
 
-# Sample queries with new fields in the Traffic Analytics schema (March 2020 schema update)
+# Use sample queries to replace deprecated fields in traffic analytics schema (March 2020 schema update)
 
-The [Traffic Analytics log schema](./traffic-analytics-schema.md) includes the following new fields:
+The [Traffic analytics log schema](./traffic-analytics-schema.md) includes the following new fields:
 
 - `SrcPublicIPs_s`
 - `DestPublicIPs_s`
 - `NSGRule_s`
 
-The new fields provide information about source and destination IPs, and they simplify queries.
+The new fields provide information about source and destination IP addresses, and they simplify queries.
 
 The following older fields will be deprecated in future:
 
@@ -34,9 +34,9 @@ The following older fields will be deprecated in future:
 - `PublicIPs_s`
 - `FlowCount_d`
 
-The following three examples show how to replace the old fields with the new ones.
+The following three examples show you how to replace the old fields with the new ones.
 
-## Example 1: VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s, and PublicIPs_s fields
+## Example 1: `VMIP_s`, `Subscription_g`, `Region_s`, `Subnet_s`, `VM_s`, `NIC_s`, and `PublicIPs_s` fields
 
 The schema doesn't have to infer source and destination cases from the `FlowDirection_s` field for AzurePublic and ExternalPublic flows. It can also be inappropriate to use the `FlowDirection_s` field for a network virtual appliance.
 
@@ -83,7 +83,7 @@ SourcePublicIPsAggregated = iif(isnotempty(SrcPublicIPs_s), SrcPublicIPs_s, "N/A
 DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A")
 ```
 
-## Example 2: NSGRules_s field
+## Example 2: `NSGRules_s` field
 
 The old field used the following format:
 
@@ -91,7 +91,7 @@ The old field used the following format:
 <Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 ```
 
-The schema no longer aggregates data across a network security group (NSG). In the updated schema, `NSGList_s` contains only one NSG. Also, `NSGRules` contains only one rule. The complicated formatting has been removed here and in other fields, as shown in the following example.
+The schema no longer aggregates data across a network security group (NSG). In the updated schema, `NSGList_s` contains only one network security group. Also, `NSGRules` contains only one rule. The complicated formatting has been removed here and in other fields, as shown in the following example.
 
 Previous Kusto query:
 
@@ -120,9 +120,9 @@ FlowStatus = FlowStatus_s,
 FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d
 ```
 
-## Example 3: FlowCount_d field
+## Example 3: `FlowCount_d` field
 
-Because the schema doesn't club data across the NSG, the `FlowCount_d` is simply:
+Because the schema doesn't club data across the network security group, the `FlowCount_d` is simply:
 
 `AllowedInFlows_d` + `DeniedInFlows_d` + `AllowedOutFlows_d` + `DeniedOutFlows_d`
 
@@ -139,5 +139,5 @@ Depending on the conditions, it's clear which of the four fields is populated.
 
 ## Next steps
 
-- To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.yml).
-- To see details about functionality, see [Traffic Analytics documentation](traffic-analytics.md).
+- To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
+- To learn more about functionality, see [Traffic analytics overview](traffic-analytics.md).

@@ -3,16 +3,19 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/05/2023
+ms.date: 06/20/2023
 ---
 
 # Create parameters files for Bicep deployment
 
 Rather than passing parameters as inline values in your script, you can use a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
 
+> [!NOTE]
+> The Bicep parameters file is only supported in Bicep CLI version 0.18.4 or newer.
+
 A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the `using` statement within the Bicep parameters file. For more information, see [Bicep parameters file](#parameters-file).
 
-jgao: list the versions for supporting Bicep parameters file. You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file.
+You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file.  See [build-params](./bicep-cli.md#build-params).
 
 ## Parameters file
 
@@ -324,7 +327,7 @@ For more information, see [Deploy resources with Bicep and Azure PowerShell](./d
 
 ## Parameter precedence
 
-You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence.
+You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence. This feature hasn't been implemented for Bicep parameters file.  
 
 It's possible to use an external parameters file, by providing the URI to the file. When you use an external parameters file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
 
