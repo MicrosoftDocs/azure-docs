@@ -410,6 +410,8 @@
         href: knowledge-store-connect-power-bi.md
   - name: Vectors
     items:
+    - name: Vector search concepts
+      href: vector-search-concepts.md
     - name: Create a vector index
       href: vector-search-how-to-create-index.md
     - name: Generate embeddings
