@@ -15,7 +15,7 @@ Kubernetes doesn't provide a network interface system by default. Instead, [netw
 
 The supported plugins meet most networking needs in Kubernetes. However, advanced AKS users might want the same CNI plugin used in on-premises Kubernetes environments or to use advanced functionalities available in other CNI plugins.
 
-This article shows how to deploy an AKS cluster with no CNI plugin pre-installed, which allows you to install any third-party CNI plugin that works in Azure.
+This article shows how to deploy an AKS cluster with no CNI plugin preinstalled. From there, you can then install any third-party CNI plugin that works in Azure.
 
 ## Support
 
@@ -33,9 +33,9 @@ Support is still provided for non-CNI-related issues.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * The subnet assigned to the AKS node pool can't be a [delegated subnet](../virtual-network/subnet-delegation-overview.md).
-* AKS doesn't apply Network Security Groups (NSGs) to its subnet or modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic within the node CIDR range. For more details, see [Network security groups][aks-network-nsg].
+* AKS doesn't apply Network Security Groups (NSGs) to its subnet or modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic within the node CIDR range. For more information, see [Network security groups][aks-network-nsg].
 
-## Create an AKS cluster with no CNI plugin pre-installed
+## Create an AKS cluster with no CNI plugin preinstalled
 
 # [Azure CLI](#tab/azure-cli)
 
