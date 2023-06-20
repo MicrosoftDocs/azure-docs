@@ -25,13 +25,17 @@ const lobby = call.lobby;
 To know who is in the lobby, you could get the `lobbyParticipants` collection from `Lobby` object. It's a collection of `RemoteParticipant` object with `InLobby` state. To get the `lobbyParticipants` collection:
 
 ```js
-const lobby = call.lobby; 
 let lobbyParticipants = lobby.lobbyParticipants; // [remoteParticipant, remoteParticipant....]
 ```
 
 ### Get identifier for a remote participant
 Before admit or reject participant from lobby, you could get the identifier for a remote participant:
 ```js
+if(lobbyParticipants.length !== 0){
+    let remoteParticipant = lobbyParticipants[0];
+}
+//You could get the identifier from the lobbyParticipants collection
+//You could also get the identifier from the lobbyParticipantsUpdated event
 const identifier = remoteParticipant.identifier;
 ```
 
@@ -48,7 +52,6 @@ They're the async APIs, to verify results can be used `lobbyParticipantsUpdated`
 
 You can admit or reject from lobby by calling the method `admit` and `reject`. The method accepts identifiers `MicrosoftTeamsUserIdentifier`, `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `UnknownIdentifier` as input. You can also admit all users from the lobby by calling the method `admitAll`. 
 ```js
-const lobby = call.lobby; 
 //admit
 await lobby.admit(identifier);
 //reject
