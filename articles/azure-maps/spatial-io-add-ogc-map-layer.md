@@ -54,7 +54,7 @@ The [OGC map layer] sample shows how to overlay an OGC map layer on the map.
 ---------------------------------------------->
 ## OGC map layer options
 
-The [OGC map layer options] sample demonstrates the different OGC map layer options. You can select the code pen button at the top-right corner to edit the code pen.
+The [OGC map layer options] sample demonstrates the different OGC map layer options.
 
 :::image type="content" source="./media/spatial-io-add-ogc-map-layer/ogc-map-layer-options.png"alt-text="A screenshot that shows a map along with the OGC map layer options.":::
 
