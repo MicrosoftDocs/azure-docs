@@ -471,11 +471,18 @@ created_monitor = poller.result()
 
 1. Select **Add** to add another signal.
 1. In the "Add Signal" screen, select the **Feature Attribution Drift** panel.
-1. Enter a name for Feature Attribution Drift signal.
+1. Enter a name for Feature Attribution Drift signal. Feature attribution drift currently requires a few additional steps: 
+   
+   A) Specify a custom data asset called 'model inputs and outputs' of 'mltable' type
+   
+   B) Add your custom data asset called 'model inputs and outputs' which combines your joined model inputs and outputs. This will be streamlined in coming iterations.
+   
+   C) Select the training data as the baseline/reference dataset, which is used to train your explainer.
+   
+   D) Select the target column name (without this, you won't be able to select the appropriate data asset)
+   
 1. Adjust the data window size according to your business case.
-1. Select the training data as the baseline dataset. 
-1. Select the target column name.
-1. Adjust the threshold according to your need.
+1.  Adjust the threshold according to your need.
 1. Select **Save** to return to the "Select monitoring signals" section.
 1. If you're done with editing or adding signals, select **Next**.
 
