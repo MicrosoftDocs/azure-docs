@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 # Import and export IoT Hub device identities in bulk
 
-Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry, using the ImportExportDeviceSample sample included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main). To see a working sample in C# and learn how you can use this capability when migrating an IoT hub to a different region, see [How to migrate an IoT Hub using Azure Resource Manager templates](migrate-hub-arm.md).
+Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry, using the ImportExportDeviceSample sample included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main). For more information about how you can use this capability when migrating an IoT hub to a different region, see [How to migrate an IoT Hub using Azure Resource Manager templates](migrate-hub-arm.md).
 
 > [!NOTE]
 > IoT Hub has recently added virtual network support in a limited number of regions. This feature secures import and export operations and eliminates the need to pass keys for authentication.  Initially, virtual network support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about virtual network support and the API calls to implement it, see [IoT Hub Support for virtual networks](virtual-network-support.md).
@@ -89,7 +89,7 @@ while (true)
 
 ## Device import/export job limits
 
-Only 1 active device import or export job is allowed at a time for all IoT Hub tiers. IoT Hub also has limits for rate of jobs operations. To learn more, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+Only one active device import or export job is allowed at a time for all IoT Hub tiers. IoT Hub also has limits for rate of jobs operations. To learn more, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Export devices
 
@@ -254,33 +254,33 @@ You can use the **ImportDevicesAsync** method to perform the following bulk oper
 * Bulk deletions of existing devices
 * Bulk status changes (enable or disable devices)
 * Bulk assignment of new device authentication keys
-* Bulk auto-regeneration of device authentication keys
+* Bulk automatic regeneration of device authentication keys
 * Bulk update of twin data
 
 You can perform any combination of the preceding operations within a single **ImportDevicesAsync** call. For example, you can register new devices and delete or update existing devices at the same time. When used along with the **ExportDevicesAsync** method, you can completely migrate all your devices from one IoT hub to another.
 
-If the import file includes twin metadata, then this metadata overwrites the existing twin metadata. If the import file does not include twin metadata, then only the `lastUpdateTime` metadata is updated using the current time.
+If the import file includes twin metadata, then this metadata overwrites the existing twin metadata. If the import file doesn't include twin metadata, then only the `lastUpdateTime` metadata is updated using the current time.
 
 Use the optional **importMode** property in the import serialization data for each device to control the import process per-device. The **importMode** property has the following options:
 
 | importMode | Description |
 | --- | --- |
-| **Create** |If a device does not exist with the specified **ID**, it is newly registered. If the device already exists, an error is written to the log file. |
-| **CreateOrUpdate** |If a device does not exist with the specified **ID**, it is newly registered. If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
-| **CreateOrUpdateIfMatchETag** |If a device does not exist with the specified **ID**, it is newly registered. If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. If there is an **ETag** mismatch, an error is written to the log file. |
-| **Delete** |If a device already exists with the specified **ID**, it is deleted without regard to the **ETag** value. If the device does not exist, an error is written to the log file. |
-| **DeleteIfMatchETag** |If a device already exists with the specified **ID**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. If there is an ETag mismatch, an error is written to the log file. |
-| **Update** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. If the device does not exist, an error is written to the log file. |
-| **UpdateIfMatchETag** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is an **ETag** match. If the device does not exist or there is an **ETag** mismatch, an error is written to the log file. |
+| **Create** |If a device doesn't exist with the specified **ID**, it's newly registered. If the device already exists, an error is written to the log file. |
+| **CreateOrUpdate** |If a device doesn't exist with the specified **ID**, it's newly registered. If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
+| **CreateOrUpdateIfMatchETag** |If a device doesn't exist with the specified **ID**, it's newly registered. If the device already exists, existing information is overwritten with the provided input data only if there's an **ETag** match. If there's an **ETag** mismatch, an error is written to the log file. |
+| **Delete** |If a device already exists with the specified **ID**, it's deleted without regard to the **ETag** value. If the device doesn't exist, an error is written to the log file. |
+| **DeleteIfMatchETag** |If a device already exists with the specified **ID**, it's deleted only if there's an **ETag** match. If the device doesn't exist, an error is written to the log file. If there's an ETag mismatch, an error is written to the log file. |
+| **Update** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. If the device doesn't exist, an error is written to the log file. |
+| **UpdateIfMatchETag** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data only if there's an **ETag** match. If the device doesn't exist or there's an **ETag** mismatch, an error is written to the log file. |
 | **UpdateTwin** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the twin's **ETag** value. |
-| **UpdateTwinIfMatchETag** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is a match on the twin's **ETag** value. The twin's **ETag**, is processed independently from the device's **ETag**. If there is a mismatch with the existing twin's **ETag**, an error is written to the log file. |
+| **UpdateTwinIfMatchETag** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data only if there's a match on the twin's **ETag** value. The twin's **ETag** is processed independently from the device's **ETag**. If there's a mismatch with the existing twin's **ETag**, an error is written to the log file. |
 
 > [!NOTE]
-> If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
+> If the serialization data doesn't explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
 
 ## Import troubleshooting
 
-Using an import job to create devices may fail with a quota issue when it is close to the device count limit of the IoT hub. This can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota.”
+Using an import job to create devices may fail with a quota issue when it's close to the device count limit of the IoT hub. This failure can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota.”
 
 If you get this error, you can use the following query to return the total number of devices registered on your IoT hub:
 
@@ -290,7 +290,7 @@ SELECT COUNT() as totalNumberOfDevices FROM devices
 
 For information about the total number of devices that can be registered to an IoT hub, see [IoT Hub limits](iot-hub-devguide-quotas-throttling.md#other-limits).
 
-If there's still quota available, you can examine the job output blob for devices that failed with the **IotHubQuotaExceeded (403002)** error. You can then try adding these devices individually to the IoT hub. For example, you can use the **AddDeviceAsync** or **AddDeviceWithTwinAsync** methods. Don't try to add the devices using another job as you'll likely encounter the same error.
+If there's still quota available, you can examine the job output blob for devices that failed with the **IotHubQuotaExceeded (403002)** error. You can then try adding these devices individually to the IoT hub. For example, you can use the **AddDeviceAsync** or **AddDeviceWithTwinAsync** methods. Don't try to add the devices using another job as you may likely encounter the same error.
 
 ## Import devices example – bulk device provisioning
 
