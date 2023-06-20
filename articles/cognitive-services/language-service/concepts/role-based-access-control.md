@@ -69,7 +69,7 @@ A user that should only be validating and reviewing the Language apps, typically
     :::column-end:::
     :::column span="":::
       All GET APIs under: 
-        * [Language authoring conversational language understanding APIs](/rest/api/language/2022-05-01/conversational-analysis-authoring)
+        * [Language authoring conversational language understanding APIs](/rest/api/language/2023-04-01/conversational-analysis-authoring)
         * [Language authoring text analysis APIs](/rest/api/language/2022-05-01/text-analysis-authoring)
         * [Question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
       Only `TriggerExportProjectJob` POST operation under: 
@@ -105,7 +105,7 @@ A user that is responsible for building and modifying an application, as a colla
     :::column span="":::
       * All APIs under Language reader
       * All POST, PUT and PATCH APIs under:
-         * [Language conversational language understanding APIs](/rest/api/language/2022-05-01/conversational-analysis-authoring)
+         * [Language conversational language understanding APIs](/rest/api/language/2023-04-01/conversational-analysis-authoring)
          * [Language text analysis APIs](/rest/api/language/2022-05-01/text-analysis-authoring)
          * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
           Except for
@@ -140,7 +140,7 @@ These users are the gatekeepers for the Language applications in production envi
     :::column-end:::
     :::column span="":::
       All APIs available under:
-        * [Language authoring conversational language understanding APIs](/rest/api/language/2022-05-01/conversational-analysis-authoring)
+        * [Language authoring conversational language understanding APIs](/rest/api/language/2023-04-01/conversational-analysis-authoring)
         * [Language authoring text analysis APIs](/rest/api/language/2022-05-01/text-analysis-authoring)
         * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
          
