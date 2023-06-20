@@ -1,13 +1,12 @@
 ---
-title:  Read and write spatial data | Microsoft Azure Maps
+title:  Read and write spatial data
+titleSuffix:  Microsoft Azure Maps
 description: Learn how to read and write data using the Spatial IO module, provided by Azure Maps Web SDK.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 03/01/2020
-ms.topic: conceptual
+author: dubiety
+ms.author: yuchungchen
+ms.date: 06/21/2023
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom:
-#Customer intent: As an Azure Maps web sdk user, I want to read and write spatial data so that I can use data for map rendering.
 ---
 
 # Read and write spatial data
