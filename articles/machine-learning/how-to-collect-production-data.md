@@ -74,6 +74,7 @@ First, you'll need to add custom logging code to your scoring script (`score.py`
     global inputs_collector, outputs_collector
     inputs_collector = Collector(name='model_inputs')          
     outputs_collector = Collector(name='model_outputs')
+    inputs_outputs_collector = Collector(name='model_inputs_outputs')
     ```
 
     By default, Azure Machine Learning raises an exception if there's a failure during data collection. Optionally, you can use the `on_error` parameter to specify a function to run if logging failure happens. For instance, using the `on_error` parameter in the following code, Azure Machine Learning logs the error rather than throwing an exception:
@@ -106,6 +107,7 @@ def init():
   # instantiate collectors with appropriate names, make sure align with deployment spec
   inputs_collector = Collector(name='model_inputs')                    
   outputs_collector = Collector(name='model_outputs')
+  inputs_outputs_collector = Collector(name='model_inputs_outputs') #note: this is used to enable Feature Attribution Drift
 
 def run(data): 
   # json data: { "data" : {  "col1": [1,2,3], "col2": [2,3,4] } }
@@ -122,6 +124,9 @@ def run(data):
 
   # collect outputs data, pass in correlation_context so inputs and outputs data can be correlated later
   outputs_collector.collect(output_df, context)
+
+  # collect both your inputs and output, pass in correlation_context so inputs and outputs data can be correlated later
+  inputs_outputs_collector.collect(input_df, output_df, context)
   
   return output_df.to_dict()
   
