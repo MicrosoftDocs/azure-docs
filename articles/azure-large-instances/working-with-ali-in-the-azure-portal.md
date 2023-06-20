@@ -88,7 +88,7 @@ Use the same subscription you use to deploy the application layer that works aga
  During the deployment of your ALI, a new [Azure resource group](../azure-resource-manager/management/manage-resources-portal.md) is created in the Azure subscription you used in the deployment request.
 This new resource group lists the ALI you've deployed in that subscription.
 
-#### Portal
+### [Portal](#tab/azure-portal)
 
 1. In the Azure portal, in the BareMetal subscription, select **Resource groups**.
 
@@ -96,94 +96,64 @@ This new resource group lists the ALI you've deployed in that subscription.
 
 1. In the list, locate the new resource group.
  
-   :::image type="content" source="media/connect-baremetal-infrastructure/filter-resource-groups.png" alt-text="Screenshot showing the BareMetal instance in a filtered Resource groups list." lightbox="media/connect-baremetal-infrastructure/filter-resource-groups.png" lightbox="../media/connect-baremetal-infrastructure/filter-resource-groups.png"  border="false":::
+   :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png" alt-text="Screenshot showing the BareMetal instance in a filtered Resource groups list." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png"  border="false":::
 
 1. In the list, locate the new resource group.
 1. Select the new resource group to view its details. The image shows one Azure Large Instance deployed. 
 
- 
+### [Azure CLI](#tab/azure-cli)
 
-Azure CLI 
+To see all your ALI instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az-baremetalinstance-list) command for your resource group:
 
- 
+```azurecli
+az baremetalinstance list --resource-group DSM05A-T550 –output table
+```
 
-To see all your ALI, run the az baremetalinstance list command for your resource group: 
+> [!TIP]
+> The `--output` parameter is a global parameter, available for all commands. The **table** value presents output in a friendly format. For more information, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).
+> [!Note] 
+> If you deployed several ALI tenants under the same Azure subscription, you will see multiple Azure resource groups.
 
- 
+## View the attributes of a single instance
 
-az baremetalinstance list --resource-group DSM05A-T550 –output table 
+You can view the details of a single instance.
 
- 
-
-Tip 
-
- 
-
-The --output parameter is a global parameter, available for all commands. The table value presents output in a friendly format. For more information, see Output formats for Azure CLI commands. 
-
- 
-
- Note 
-
- 
-
-If you deployed several ALI tenants under the same Azure subscription, you will see multiple Azure resource groups. 
-
- 
-
- 
-
-View the attributes of a single instance 
-
-You can view the details of a single instance through Azure Portal or CLI. 
-
- 
-
-Portal 
+### [Portal](#tab/azure-portal)
 
 In the list of BareMetal instancesALI, select the single instance you want to view. 
 
- 
 
-A close-up of a computer screen
-
-Description automatically generated with low confidence 
+:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot showing the ALI instance attributes of a single instance." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
 
  
 
-The attributes in the image don't look much different than the Azure virtual machine (VM) attributes. On the left, you'll see the Resource group, Azure region, and subscription name and ID. If you assigned tags, you'll see them here as well. By default, the ALI BareMetal instances don't have tags assigned. 
+The attributes in the image don't look much different than the Azure virtual machine (VM) attributes.
+On the left, you see the Resource group, Azure region, and subscription name and ID. 
+If you assigned tags, you see them here as well.
+By default, the ALI instances don't have tags assigned.
+
+On the right, you see the name of the ALI instance, operating system (OS), IP address, and SKU that shows the number of CPU threads and memory. You also see the power state and hardware version (revision of the ALI instance stamp).
+The power state indicates whether the hardware unit is powered on or off. The operating system details, however, don't indicate whether it's up and running. 
+
+Also on the right side, you find the  [Azure proximity placement group's name](../virtual-machines/co-location.md).
+The placement group's name is created automatically for each deployed ALI instance. 
+Reference the proximity placement group when you deploy the Azure VMs that host the application layer. 
+Use the proximity placement group associated with the ALI instance to ensure the Azure VMs are deployed close to the ALI instance. 
 
  
 
-On the right, you'll see the name of the Azure Large InstanceBareMetal instance, operating system (OS), IP address, and SKU that shows the number of CPU threads and memory. You'll also see the power state and hardware version (revision of the Azure Large InstanceBareMetal instance stamp). The power state indicates whether the hardware unit is powered on or off. The operating system details, however, don't indicate whether it's up and running. 
+### [Azure CLI](#tab/azure-cli)
 
+To see details of an ALI instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
  
 
- 
+```azurecli
+az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
+```
 
-Also on the right side, you'll find the Azure proximity placement group's name. The placement group's name is created automatically for each deployed BareMetal instance. Reference the proximity placement group when you deploy the Azure VMs that host the application layer. Use the proximity placement group associated with the BareMetal instance to ensure the Azure VMs are deployed close to the BareMetal instance. 
+If you're uncertain of the instance name, run the az baremetalinstance list command as previously described.
 
- 
-
- 	Azure CLI 
-
- 
-
-To see details of a Azure Large Instance, run the az baremetalinstance show command: 
-
- 
-
-az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01 
-
- 
-
-If you're uncertain of the instance name, run the az baremetalinstance list command, described above. 
-
- 
-
- 
-
-Check activities of a single instance 
+## Check activities of a single instance 
 
  
 
