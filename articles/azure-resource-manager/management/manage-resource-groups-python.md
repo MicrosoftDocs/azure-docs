@@ -13,7 +13,7 @@ content_well_notification:
 
 Learn how to use Python with [Azure Resource Manager](overview.md) to manage your Azure resource groups.
 
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
+<!--[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]-->
 
 ## Prerequisites
 
