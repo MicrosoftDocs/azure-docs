@@ -14,7 +14,7 @@ ms.date: 06/29/2023
 
 When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes are restricted by the available memory for your SKU that's reserved for vector search.
 
-We enforce a vector index size quota **for every partition** in your search service. This is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded will fail. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+We enforce a vector index size quota **for every partition** in your search service. Each additional partition will increase the available vector index size quota. This is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded will fail. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
 ## Factors affecting vector index size
 
@@ -26,23 +26,25 @@ There are three major components that affect the size of your internal vector in
 
 ### Raw size of the data
 
-Each vector is a data structure, commonly an array, where each element has a primitive data type, commonly single- or double-precision floating-point numbers. These data structures require physical disk space to store. In this article, we'll refer to this as the **"raw size"** of your data. This will form the basis for estimating the size requirements of your vector documents.
+Each vector is simply an array of numbers. We currently support single-precision floating-point numbers, which we call `Edm.Single`. These data structures require storage, which we'll refer to as the **"raw size"** of your data. We'll use this to estimate the vector index size requirements of your vector fields.
 
-The size of one vector is affected by the dimensionality, also known as the length of the array. Each element of the array requires a fixed number of bytes on disk. Multiply the size of one vector by the number of documents containing that vector field to obtain the _raw size_.
+The storage size of one vector is determined by its dimensionality. Multiply the size of one vector by the number of documents containing that vector field to obtain the _raw size_: 
 
-**To estimate the vector index size for your vector data**, first calculate the _raw size_ of the vectors on disk using this formula for **each vector field**: `(number of documents) * (dimensions of vector field) * (size of data type)`. For `Edm.Single`, the data type is single-precision floats (4 bytes).
+`raw size = (number of documents) * (dimensions of vector field) * (size of data type)`
+
+For `Edm.Single`, the size of the data type is 4 bytes.
 
 ### Overhead from the selected algorithm
 
 Each approximate-nearest-neighbor algorithm creates additional data structures in memory to enable efficient searching. These consume additional space within memory. 
 
-For HNSW algorithm, this overhead is between 10% to 20%. This overhead increases with larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction.
+**For HNSW algorithm, this overhead is between 10% to 20%.** This overhead increases with larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction.
 
 ### Overhead from deleting or updating documents within the index
 
-When a vector document is either deleted or updated (updates are internally represented as a delete and insert operation), the underlying document is marked as deleted and skipped during subsequent queries. As new documents are indexed and the vector index grows, the system cleans up these deleted documents and reclaims the resources. This means that there may be a lag between deleting documents and the underlying resources being freed. 
+When a document with a vector field is either deleted or updated (updates are internally represented as a delete and insert operation), the underlying document is marked as deleted and skipped during subsequent queries. As new documents are indexed and the internal vector index grows, the system cleans up these deleted documents and reclaims the resources. This means you will likely observe a lag between deleting documents and the underlying resources being freed.
 
-We refer to this as the "deleted documents ratio". Since the deleted documents ratio depends on the indexing characteristics of your service, there's no universal heuristic to estimate this parameter. We observe that half of our customers have a deleted documents ratio less than 10%.
+We refer to this as the "deleted documents ratio". Since the deleted documents ratio depends on the indexing characteristics of your service, there's no universal heuristic to estimate this parameter. We observe that half of our customers have a deleted documents ratio less than 10%. If you tend to perform high-frequency deletions or updates, then you may observe a higher deleted documents ratio.
 
 This is another factor impacting the size of your vector index.
 
@@ -50,12 +52,14 @@ This is another factor impacting the size of your vector index.
 
 To estimate the total size of your vector index, use the following calculation:
 
-**(raw_size) * (1 + algorithm_overhead) * (1 + deleted_docs_ratio)**
+**`(raw_size) * (1 + algorithm_overhead in percent) * (1 + deleted_docs_ratio in percent)`**
 
-For example, using the most popular Azure OpenAI model, `text-embedding-ada-002` with 1,536 dimensions means one document would consume 1,536 Edm.Singles, or 6,144 bytes since each single-precision floating point number is 4 bytes. 100 documents with a single, 1,536-dimensional vector field would consume in total 100 docs x 1536 floats/doc = 153,600 floats, or 614,400 bytes. 1,000 documents with two 768-dimensional vector fields, consume 1000 docs x 2 fields x 768 floats/doc = 1,536,000 floats, or 6,144,000 bytes. This is the **raw_size**.
+For example, to calculate the **raw_size**, let's assume you're using a popular Azure OpenAI model, `text-embedding-ada-002` with 1,536 dimensions. This means one document would consume 1,536 `Edm.Single` (floats), or 6,144 bytes since each `Edm.Single` is 4 bytes. 1,000 documents with a single, 1,536-dimensional vector field would consume in total 100 docs x 1536 floats/doc = 1,536,000 floats, or 6,144,000 bytes.
 
-We'll multiply by a HNSW algorithm overhead of 10% and a deleted document ratio of 10%: `6.144 MB * (1 + 0.10) * (1 + 0.10) = 7.434 MB`.
+If you have multiple vector fields, you'll need to perform this calculation for each vector field within your index and add them all together. For example, 1,000 documents with **two** 1,536-dimensional vector fields, consume 1000 docs x **2 fields** x 1536 floats/doc x 4 bytes/float = 12,288,000 bytes. 
+
+To obtain the **vector index size**, multiply this **raw_size** by the **algorithm overhead** and **deleted document ratio**. If your algorithm overhead for your chosen HNSW parameters is 10% and your deleted document ratio is 10%, then we get: `6.144 MB * (1 + 0.10) * (1 + 0.10) = 7.434 MB`.
 
 ## Storage vs. vector index size quotas
 
-The storage and vector index size quotas are not separate quotas; vector indexes consume the same underlying storage quota. For example, if your storage quota is exhausted but there is remaining vector quota, you won't be able to index any more documents, regardless if they're vector documents, until you scale up in partitions to increase storage quota or delete documents (either text or vector) to reduce storage usage. Similarly, if vector quota is exhausted but there is remaining storage quota, further indexing attempts will fail until vector quota is freed, either by deleting some vector documents or by scaling up in partitions.
+The storage and vector index size quotas are not separate quotas; vector indexes will contribute to storage usage. For example, if your storage quota is exhausted but there is remaining vector quota, you won't be able to index any more documents, regardless if they're vector documents, until you scale up in partitions to increase storage quota or delete documents (either text or vector) to reduce storage usage. Similarly, if vector quota is exhausted but there is remaining storage quota, further indexing attempts will fail until vector quota is freed, either by deleting some vector documents or by scaling up in partitions.

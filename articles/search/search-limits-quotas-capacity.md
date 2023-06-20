@@ -68,7 +68,11 @@ When estimating document size, remember to consider only those fields that can b
 
 ## Vector index size limits
 
-The size of all of your vector fields in memory is restricted based on the reserved memory for the chosen SKU. This limit is calculated **per partition** and is a hard limit to ensure the service is healthy. The table below describes the vector index size quota per partition across our SKUs.
+When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes are restricted by the available memory for your SKU that's reserved for vector search.
+
+We enforce a vector index size quota **for every partition** in your search service. Each additional partition will increase the available vector index size quota. This is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded will fail. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+
+The table below describes the vector index size quota per partition across our SKUs.
 
 Please see our [documentation on vector index size](./vector-search-index-size.md) for more details.
 

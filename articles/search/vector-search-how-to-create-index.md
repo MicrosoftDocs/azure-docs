@@ -10,20 +10,20 @@ ms.topic: how-to
 ms.date: 06/29/2023
 ---
 
-# Create or Update Index (Preview REST API)
+# Create or Update Index for Vector Search (Preview REST API)
 
 **API Version: 2023-07-01-Preview**
 
-This article supplements [Create or Update Index (preview API)](https://learn.microsoft.com/rest/api/searchservice/preview-api/create-or-update-index) on [learn.microsoft.com](https://learn.microsoft.com) with content created for vector search scenarios. Limiting the amount of information makes it easier to find the new additions. 
+This article supplements [Create or Update Index (Preview API)](https://learn.microsoft.com/rest/api/searchservice/preview-api/create-or-update-index) on [learn.microsoft.com](https://learn.microsoft.com) with content created for vector search scenarios. It focuses on the new additions that enable vector search.
 
-**2023-07-01-preview** adds:
+**2023-07-01-Preview** adds:
 
-+ [**vectorConfiguration**](#vectorsearch) used for configuring a vector search algorithm.
-+ [**Collection(Edm.Single)**](#fields) data type, required for a vector field.
-+ [**dimensions**](#field) property, required for a vector field.
-+ [**vectorSearchConfiguration**](#field) property, required for a vector field.
++ [**algorithmConfigurations**](#vectorsearch) used for selecting a vector search algorithm type and configuring parameters.
++ [**Collection(Edm.Single)**](#fields) data type, required for a vector field. This represents a single-precision floating-point number as the primitive type.
++ [**dimensions**](#fields) property, required for a vector field. This represents the dimensionality of your vector embeddings.
++ [**vectorSearchConfiguration**](#fields) property, required for a vector field. This selects the algorithm configuration you specified.
 
-To use vector search, you have to create a new index. An update won't be sufficient.
+Both new and existing indexes support vector search. However, there is a small subset of old services that do not support vector search. In this case, a new search service must be created to use it. Updating an existing index to add vector fields requires `allowIndexDowntime` query parameter (see below).
 
 An [index](https://learn.microsoft.com/azure/search/search-what-is-an-index) specifies the index schema, including the fields collection (field names, data types, and attributes), but also additional constructs (vector configuration, semantic search configuration, and CORS configuration) that define other search behaviors.
 
@@ -44,16 +44,16 @@ POST https://[servicename].search.windows.net/indexes?api-version=2023-07-01-pre
 | service name | Required. Set this to the unique, user-defined name of your search service. |
 | index name  | Required on the URI if using PUT. The name must be lower case, start with a letter or number, have no slashes or dots, and be fewer than 128 characters. Dashes can't be consecutive.  |
 | api-version | Required. Use 2023-07-01-preview for this preview. |
-| allowIndexDowntime | Optional. False by default. Set to true for certain updates, such as adding or modifying an analyzer, tokenizer, token filter, char filter, or similarity property. The index is taken offline for the duration of the update, usually no more than several seconds. |
+| allowIndexDowntime | Optional. False by default. Set to true for certain updates, such as adding or modifying an analyzer, tokenizer, token filter, char filter, or similarity property. The index is taken offline for the duration of the update, usually no more than several seconds. **This parameter is required to be true when adding vector fields to an existing index.** |
 
 ## Request Headers
 
  The following table describes the required and optional request headers.  
 
-|Fields              |Description      |  
-|--------------------|-----------------|  
-|Content-Type|Required. Set this to `application/json`|  
-|api-key|Optional if you're using [Azure roles](https://learn.microsoft.com//azure/search/search-security-rbac) and a bearer token is provided on the request, otherwise a key is required. An api-key is a unique, system-generated string that authenticates the request to your search service. Create requests must include an `api-key` header set to your admin key (as opposed to a query key). See [Connect to Cognitive Search using key authentication](https://learn.microsoft.com//azure/search/search-security-api-keys) for details.|
+|Fields              | Description      |  
+|--------------------|------------------|  
+|Content-Type        | Required. Set this to `application/json`|  
+|api-key             | Optional if you're using [Azure roles](https://learn.microsoft.com//azure/search/search-security-rbac) and a bearer token is provided on the request, otherwise a key is required. An api-key is a unique, system-generated string that authenticates the request to your search service. Create requests must include an `api-key` header set to your admin key (as opposed to a query key). See [Connect to Cognitive Search using key authentication](https://learn.microsoft.com//azure/search/search-security-api-keys) for details.|
 
 ## Request Body
 
@@ -61,7 +61,7 @@ The body of the request contains a schema definition, which includes the list of
 
 The following JSON is a high-level representation of a schema that supports vector search. A schema requires a key field, and that key field can be searchable, filterable, sortable, and facetable. 
 
-A vector search field is of type `Collection(Edm.Single)`. Because vector fields are not textual, a vector fields can't be used as a key, and it doesn't accept analyzers, normalizers, suggesters, or synonyms. It must have a "dimensions" property and an "vectorSearchConfiguration" property.
+A vector search field is of type `Collection(Edm.Single)`. Because vector fields are not textual, a vector fields can't be used as a key, and it doesn't accept analyzers, normalizers, suggesters, or synonyms. It must have a "dimensions" property and an "vectorSearchConfiguration" property. Vector fields must be searchable, and cannot be set as filterable, sortable, nor facetable. Retrievable cannot be changed on an existing vector field.
 
 A schema that supports vector search can also support keyword search. Other non-vector fields in the index can use the analyzers, synonyms, and scoring profiles that you include in your index. For more information about parts of the schema not covered in this article., see [Create or Update Index (preview API)](https://learn.microsoft.com/rest/api/searchservice/preview-api/create-or-update-index).
 
@@ -71,7 +71,7 @@ A schema that supports vector search can also support keyword search. Other non-
   "description": (optional) "Description of the index",  
   "fields": [
     {  
-      "name": "name_of_a_required_document_key_field",  
+      "name": "name_of_document_key_field",  
       "type": "Edm.String",  
       "searchable": true (default where applicable) | false 
       
@@ -84,7 +84,7 @@ A schema that supports vector search can also support keyword search. Other non-
     {  
       "name": "name_of_vector_field",  
       "type": "Collection(Edm.Single)",  
-      "searchable": true (default where applicable) | false
+      "searchable": true (default where applicable)
       "filterable": false,  
       "sortable": false,  
       "facetable": false,  
@@ -95,12 +95,12 @@ A schema that supports vector search can also support keyword search. Other non-
       "indexAnalyzer": "",
       "normalizer": "",
       "synonymMaps": "",
-      "dimensions": integer,
+      "dimensions": integer such as 1536,
       "vectorSearchConfiguration": "name of vectorSearch configuration"
     }
   ],
   "semantic": (optional) { },
-  "vectorSearch": (optional) { },
+  "vectorSearch": (normally optional, but required for vector search) { },
   "normalizers":(optional) [ ... ],
   "analyzers":(optional) [ ... ],
   "charFilters":(optional) [ ... ],
@@ -117,10 +117,10 @@ A schema that supports vector search can also support keyword search. Other non-
 |Property|Description|  
 |--------------|-----------------|  
 |name|Required. The name of the index. An index name must only contain lowercase letters, digits or dashes, cannot start or end with dashes and is limited to 128 characters.|  
-|[fields](#bkmk_indexAttrib)| A collection of fields for this index, where each field has a name, a data type that conforms to the Entity Data Model (EDM), and attributes that define allowable actions on that field. The fields collection must have one field of type `Edm.String` with "key" set to "true". This field represents the unique identifier, sometimes called the document ID, for each document stored with the index. <br><br>Vector fields must be of type "Collection(Edm.Single") used to store floating point or single precision values. Vector fields have a "dimensions" property that holds the number of output dimensions supported by the machine learning model used to generate embeddings. For example, if you're using text-embedding-ada-002, the maximum number of output dimensions is 1536 per [this document](https://platform.openai.com/docs/guides/embeddings/second-generation-models). The "algorithmConfiguration" is set to the name of the "vectorSearch" configuration in your index. You can define multiple in the index, and then specify one per field. |
+|[fields](#bkmk_indexAttrib)| A collection of fields for this index, where each field has a name, a data type that conforms to the Entity Data Model (EDM), and attributes that define allowable actions on that field. The fields collection must have one field of type `Edm.String` with "key" set to "true". This field represents the unique identifier, sometimes called the document ID, for each document stored with the index. <br><br>Vector fields must be of type "Collection(Edm.Single"), which represents single-precision floating-point numbers. Vector fields have a "dimensions" property that sets the output dimensions of the machine learning model used to generate embeddings. For example, if you're using OpenAI's `text-embedding-ada-002`, the output dimensions is 1,536 [as referenced in this document](https://platform.openai.com/docs/guides/embeddings/second-generation-models). The "vectorSearchConfiguration" is set to the name of the "vectorSearch" configuration in your index. You can define multiple configurations in the index, and then specify one per field. |
 | [corsOptions](#corsoptions) | Optional. Used for cross-origin queries to your index. | 
 | [semantic](#semantic) | Optional.  Defines the parameters of a search index that influence semantic search capabilities. A semantic configuration is required for semantic queries. For more information, see [Create a semantic query](https://learn.microsoft.com/azure/search/semantic-how-to-query-request).|
-| [vectorSearch](#vectorSearch) | Optional.  Defines the configuration properties for vector search. In this preview, configuration consists of one algorithm kind ("hnsw") that's used for query execution.|
+| [vectorSearch](#vectorSearch) | Optional. However, to configure your vector fields, this is a required object. Defines the configuration properties for vector search. In this preview, configuration consists of one algorithm kind ("hnsw") that's used for query execution.|
 
 ## Response
 
@@ -412,7 +412,6 @@ A vectorSearch configuration is a part of an index definition that's used to con
 + [Create a semantic configuration](https://learn.microsoft.com/azure/search/semantic-how-to-query-request)
 
 
-# Under construction
 
 <!-- Robert, for private preview, we relied on quickstarts and demos to explain how to get vectors into an index, but customers will expect to see a how-to from us that explains this basic task.  You would mention that vector generation isn't part of it, and link out to the other how-to. You'd emphasize that we don't have vector indexes, just vector fields in an index.  
 
