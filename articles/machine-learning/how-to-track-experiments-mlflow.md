@@ -36,7 +36,7 @@ Query and searching experiments and runs is also available using the MLflow REST
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
-## Query experiments
+## Query and search experiments
 
 Use MLflow to search for experiments inside of your workspace. See the following examples:
 
@@ -96,7 +96,7 @@ The `search_experiments()` method available since Mlflow 2.0 allows searching ex
     mlflow.search_experiments(filter_string=f"tags.framework = 'torch'")
     ```
 
-## Query and search runs on experiments
+## Query and search runs
 
 MLflow allows searching runs inside of any experiment, including multiple experiments at the same time. The method `mlflow.search_runs()` accepts the argument `experiment_ids` and `experiment_name` to indicate on which experiments you want to search. You can also indicate `search_all_experiments=True` if you want to search across all the experiments in the workspace:
 
