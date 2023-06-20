@@ -13,7 +13,7 @@ In this article, you'll learn how to migrate a Microsoft SQL Server Failover clu
 
 VMware HCX doesn't support migrating virtual machines with SCSI controllers in physical sharing mode attached to a virtual machine. However, you can overcome this limitation by performing the steps shown in this procedure and by using VMware HCX Cold Migration to move the different virtual machines that make up the cluster. 
 
-:::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png" alt-text="Diagram showing the architecture of SQL failover server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png":::
+:::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png" alt-text="Diagram showing the architecture of SQL failover server for Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png":::
 
 > [!NOTE]
 > This procedure requires a full shutdown of the cluster. Since the Microsoft SQL Server service will be unavailable during the migration, plan accordingly for the downtime period .  
