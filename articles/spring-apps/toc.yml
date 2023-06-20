@@ -81,6 +81,10 @@ items:
       href: quickstart-set-request-rate-limits-enterprise.md
     - name: Automate deployments
       href: quickstart-automate-deployments-github-actions-enterprise.md
+  - name: "Production-ready"
+    items:
+      - name: Diagnosis and investigate issues
+        href: tutorial-diagnosis-and-investigate-issues.md
 - name: Concepts
   items:
   - name: App and deployment
