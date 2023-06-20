@@ -270,17 +270,17 @@ create_monitor:
             input_dataset:
                path: azureml:my_model_production_data:1
                type: mltable
-            dataset_context: model_inputs
+            dataset_context: model_inputs_outputs
       baseline_dataset:
         input_dataset:
           path: azureml:my_model_training_data:1
           type: mltable
-        dataset_context: model_inputs
+        dataset_context: training
         target_column_name: fraud_detected
       model_type: classification
       # if no metric_thresholds defined, use the default metric_thresholds
       metric_thresholds:
-         threshold: 0.05
+         threshold: 0.9
   
   alert_notification:
     emails:
