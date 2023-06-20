@@ -19,7 +19,7 @@ This article describes how to create a custom image in the Azure portal. You can
 
 [!INCLUDE [devtest-lab-upload-vhd-options](../../includes/devtest-lab-upload-vhd-options.md)]
 
-## Azure portal instructions
+## Create custom images for Azure DevTest Labs in Azure portal
 
 To create a custom image from a VHD file in DevTest Labs in the Azure portal, follow these steps:
 
