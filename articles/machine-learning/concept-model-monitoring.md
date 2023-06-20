@@ -51,7 +51,7 @@ Azure Machine Learning model monitoring (preview) supports the following list of
 | Data quality | Data quality tracks the data integrity of a model's input by comparing it to the model's training data or recent past production data. The data quality checks include checking for null values, type mismatch, or out-of-bounds of values. | Null value rate, data type error rate, out-of-bounds rate | Classification (tabular data), Regression (tabular data) | production data - model inputs | Recent past production data or training data |
 | Feature attribution drift | Feature attribution drift tracks the importance or contributions of features to prediction outputs in production by comparing it to feature importance at training time | Normalized discounted cumulative gain | Classification (tabular data), Regression (tabular data) | Production data - model inputs & outputs (*see Note: user-joined) | Training data (required) |
 
-* Note: For Feature Attribution Drift (Preview), user must create a custom data asset of type 'mltable' that contains joined inputs and outputs 
+* Note: For Feature Attribution Drift (during Preview), the user must create a custom data asset of type 'mltable' that contains joined inputs and outputs 
   
 ## How model monitoring works in Azure Machine Learning
 
