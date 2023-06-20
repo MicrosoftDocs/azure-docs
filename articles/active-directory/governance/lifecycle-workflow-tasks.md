@@ -253,6 +253,56 @@ For Microsoft Graph, the parameters for the **Generate Temporary Access Pass and
 
 ```
 
+### Send email to notify manager of user move
+
+When a user moves within your organization Lifecycle Workflows allow you to send an email to the users manager notifying them of the move. You're also able to customize the email that is sent to the user's manager.
+
+:::image type="content" source="media/lifecycle-workflow-task/notify-user-move-task.png" alt-text="Screenshot of the notify manager of user move task.":::
+
+The Azure AD prerequisite to run the **Send email to notify manager of user move** task are:
+
+- A populated manager attribute for the user.
+- A populated manager's mail attribute for the user.
+
+For Microsoft Graph the parameters for the **Send email to notify manager of user move** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  Mover      |
+|displayName     |  Send email to notify manager of user move (Customizable by user)       |
+|description     |  Send email to notify user’s manager of user move (Customizable by user)        |
+|taskDefinitionId     |   aab41899-9972-422a-9d97-f626014578b7      |
+
+```Example for usage within the workflow
+{
+            "category": "mover",
+            "continueOnError": true,
+            "displayName": "Send email to notify manager of user move",
+            "description": "Send email to notify user’s manager of user move",
+            "isEnabled": true,
+            "taskDefinitionId": "aab41899-9972-422a-9d97-f626014578b7",
+            "arguments": [
+                {
+                "name": "cc",
+                "value": "b47471b9-af8f-4a5a-bfa2-b78e82398f6e, a7a23ce0-909b-40b9-82cf-95d31f0aaca2"
+                },
+                {
+                "name": "customSubject",
+                "value": "Reminder that {{userDisplayName}} has moved."
+                },
+                {
+                "name": "customBody",
+                "value": "Hello {{managerDisplayName}}. \nThis is a reminder that {{userDisplayName}} has moved roles in the organization."
+                },
+                {
+                "name": "locale",
+                "value": "en-us"
+                },
+    ]
+}
+
+```
+
 ### Request user access package assignment
 
 Allows you to request an access package assignment for users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
