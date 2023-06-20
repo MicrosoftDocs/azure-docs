@@ -2,7 +2,7 @@
 title: Alert validation in Microsoft Defender for Cloud
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 06/19/2023
+ms.date: 06/20/2023
 ms.author: dacurwin
 author: dcurwin
 ---
@@ -90,7 +90,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 - Ensure the Defender for Containers plan is enabled.
 - **ARC only** - Ensure the Defender extension is installed.
-- **EKS or GKE only** - Ensure the default audit log collection auto-provisioning options are enabled.
+- **EKS or GKE only** - Ensure the default audit log collection autoprovisioning options are enabled.
 
 **To simulate a Kubernetes control plane security alert**:
 
@@ -100,7 +100,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
     kubectl get pods --namespace=asc-alerttest-662jfi039n
     ```
 
-    You'll get the following response: `No resource found`.
+    You get the following response: `No resource found`.
 
 1. Wait 30 minutes.
 
@@ -191,7 +191,7 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
 
 ## Testing AppServices alerts
 
-To simulate an app services EICAR alert:
+**To simulate an app services EICAR alert:**
 
 1. Find the HTTP endpoint of the website either by going into Azure portal blade for the App Services website or using the custom DNS entry associated with this website. (The default URL endpoint for Azure App Services website has the suffix `https://XXXXXXX.azurewebsites.net`). The website should be an existing website and not one that was created just prior to the alert simulation. 
 1. Browse to the website URL and add to it the following fixed suffix: `/This_Will_Generate_ASC_Alert`. The URL should look like this: `https://XXXXXXX.azurewebsites.net/This_Will_Generate_ASC_Alert`. It might take some time for the alert to be generated (~1.5 hours).
@@ -203,9 +203,9 @@ To simulate an app services EICAR alert:
 1. After finishing creating the Key Vault and the secret, go to a VM that has Internet access and [download the TOR Browser](https://www.torproject.org/download/).
 1. Install the TOR Browser on your VM.
 1. Once you finished the installation, open your regular browser, logon to the Azure portal, and access the Key Vault page. Select the URL highlighted below and copy the address.
-1. Open TOR and paste this URL (you will need to authenticate again to access the Azure Portal).
-1. After finishing access, you can also click in the Secrets option in the left pane.
-1. In the TOR Browser, sign out from Azure Portal and close the browser.
+1. Open TOR and paste this URL (you need to authenticate again to access the Azure portal).
+1. After finishing access, you can also select the Secrets option in the left pane.
+1. In the TOR Browser, sign out from Azure portal and close the browser.
 1. After some time, Defender for Key Vault will trigger an alert with detailed information about this suspicious activity.
 
 ## Next steps
