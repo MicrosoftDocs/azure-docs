@@ -93,7 +93,7 @@ The groups claim value is the group's *objectId*. If a user is a member of multi
 
 ## Handle groups overage
 
-To ensure that the the size of the security token doesn’t exceed the HTTP header size limit, Azure AD for customers limits the number of object IDs that it includes in the *groups* claim. The overage limit is **150 for SAML tokens and 200 for JWT tokens**. It's possible to exceed this limit if a user belongs to many groups, and you request for all the groups. 
+To ensure that the size of the security token doesn’t exceed the HTTP header size limit, Azure AD for customers limits the number of object IDs that it includes in the *groups* claim. The overage limit is **150 for SAML tokens and 200 for JWT tokens**. It's possible to exceed this limit if a user belongs to many groups, and you request for all the groups. 
 
 ### Detect group overage in your source code 
 
