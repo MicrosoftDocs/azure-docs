@@ -50,6 +50,10 @@ The latest generation of VM series doesn't have a dedicated cache, but only temp
 * If you select [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) SKU with 100 GiB OS disk, this VM size supports ephemeral OS
 and has 150 GiB of temporary storage. If you don't specify the OS disk type, by default Azure provisions an ephemeral OS disk to the node pool.
 
+### Customer Managed key
+
+You can manage encryption for your ephemeral OS disk with your own keys on an AKS cluster. For more information, see [Azure ephemeral OS disks Customer Managed key][azure-disk-customer-managed-key].
+
 ## Volumes
 
 Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches available to them for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
@@ -289,3 +293,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-blob-csi]: azure-blob-csi.md
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
 [azure-files-azure-netapp-comparison]: ../storage/files/storage-files-netapp-comparison.md
+[azure-disk-customer-managed-key]: ../virtual-machines/ephemeral-os-disks.md#customer-managed-key
