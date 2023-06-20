@@ -9,6 +9,7 @@ ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 03/01/2023
 ms.custom: template-how-to
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Spotlight states
@@ -20,6 +21,10 @@ Since the video stream resolution of a participant is increased when spotlighted
 ::: zone-end
 
 ::: zone pivot="platform-android"
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
 
@@ -59,6 +64,10 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 ::: zone-end
 
 ::: zone pivot="platform-android"
+[!INCLUDE [Spotlight Client-side Android](./includes/spotlight/spotlight-android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
 [!INCLUDE [Spotlight Client-side Android](./includes/spotlight/spotlight-android.md)]
 ::: zone-end
 
