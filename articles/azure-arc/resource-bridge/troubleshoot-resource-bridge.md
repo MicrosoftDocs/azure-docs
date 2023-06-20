@@ -78,19 +78,20 @@ To resolve this problem, delete the resource bridge, register the providers, the
 
 ### Expired credentials in the appliance VM
 
-Arc resource bridge consists of an appliance VM that is deployed to the on-premise infrastructure. The appliance VM maintains a connection to the control center of the fabric using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the control center. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
+Arc resource bridge consists of an appliance VM that is deployed to the on-premise infrastructure. The appliance VM maintains a connection to the management endpoint of the on-premises infratructure using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the management endpoint. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
 
 To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
+
+
+## Networking issues
 
 ### Back-off pulling image error
 
 When trying to deploy Arc resource bridge, you may see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM can't reach the URL specified in the error. To resolve this issue, make sure the appliance VM meets system requirements, including internet access connectivity to [required allowlist URLs](network-requirements.md).
 
-## Networking issues
+### Not able to connect to URL
 
-### Restricted outbound connectivity
-
-If you are experiencing connectivity, check to make sure your network allows all of the firewall and proxy URLs that are required to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
+If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md). 
 
 ### .local not supported
 
