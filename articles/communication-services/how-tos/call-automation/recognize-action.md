@@ -7,14 +7,12 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: kpunjabi
-ms.custom: public_preview, devx-track-extended-java
+ms.custom: devx-track-extended-java
 services: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Gather user input with Recognize action
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 This guide will help you get started with recognizing DTMF input provided by participants through Azure Communication Services Call Automation SDK. 
 
