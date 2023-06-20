@@ -141,13 +141,21 @@ When you create a function app in the [Azure portal](https://portal.azure.com), 
     |**Operating system**| Linux | Container deployment is only supported on Linux. |
 ::: zone-end
 :::zone pivot="azure-functions"
-4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md). 
-::: zone-end
-:::zone pivot="container-apps"
-4. In **[Hosting options and plans](functions-scale.md)**, choose **Azure Container Apps Environment plan**. This creates a new **Azure Container Apps Environment** resource to host your function app container. By default, the environment is created in a Consumption plan without zone redundancy, to minimize costs. You can also choose an existing Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
+4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. 
+  
+    ![Portal create Basics tab for a containerized function app hosted in a Functions Premium plan.](media/functions-how-to-custom-container/function-app-create-container-functions-premium.png)
+
+    This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md).  
+::: zone-end  
+:::zone pivot="container-apps"    
+1. In **[Hosting options and plans](functions-scale.md)**, choose **Azure Container Apps Environment plan**. 
+ 
+    ![Portal create Basics tab for a containerized function app hosted in Azure Container Apps.](media/functions-how-to-custom-container/function-app-create-container-apps-hosting.png)
+
+    This creates a new **Azure Container Apps Environment** resource to host your function app container. By default, the environment is created in a Consumption plan without zone redundancy, to minimize costs. You can also choose an existing Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 ::: zone-end
 :::zone pivot="azure-functions,container-apps"
-5. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
+1. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
 
 6. Select the **Deployment** tab and unselect **Use quickstart image**. If you don't do this, the function app is deployed from the base image for your function app language.
 
