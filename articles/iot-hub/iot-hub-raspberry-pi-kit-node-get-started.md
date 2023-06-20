@@ -259,7 +259,7 @@ You can use the resources created in this topic with other tutorials and quickst
 
 1. From the left-hand menu in the Azure portal, select **All resources** and then select the IoT Hub you created. 
 1. At the top of the IoT Hub overview pane, click **Delete**.
-1. Enter your hub name and click **Delete** again to confirm permanently deleting the IoT Hub.
+1. Enter your hub name and click **Delete** again to confirm permanently deleting the IoT hub.
 
 ## Next steps
 

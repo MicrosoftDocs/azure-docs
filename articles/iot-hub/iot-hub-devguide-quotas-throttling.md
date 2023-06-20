@@ -12,7 +12,7 @@ ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Supp
 
 # IoT Hub quotas and throttling
 
-This article explains the quotas for an IoT Hub, and provides information to help you understand how throttling works.
+This article explains the quotas for an IoT hub, and provides information to help you understand how throttling works.
 
 Each Azure subscription can have at most 50 IoT hubs, and at most 1 Free hub.
 
