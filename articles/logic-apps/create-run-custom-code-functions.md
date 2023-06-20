@@ -294,7 +294,7 @@ You can deploy your custom code in the same way that you deploy your logic app p
 
 ### Action information pane error
 
-On the workflow designer, when you select the built-in action named **Call a local function in this logic app*, the action's information pane shows the following message:
+On the workflow designer, when you select the built-in action named **Call a local function in this logic app**, the action's information pane shows the following message:
 
 `Failed to retrieve dynamic inputs. Error details: `
 
