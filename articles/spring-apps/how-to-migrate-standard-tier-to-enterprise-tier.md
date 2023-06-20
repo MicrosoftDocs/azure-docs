@@ -1,7 +1,7 @@
 ---
 title: How to migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan
 titleSuffix: Azure Spring Apps Enterprise plan
-description: Shows you how to migrate an Azure Spring Apps Basic or Standard plan instance to Enterprise plan.
+description: Shows how to migrate an Azure Spring Apps Basic or Standard plan instance to Enterprise plan.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
@@ -27,11 +27,10 @@ This article uses the Pet Clinic sample apps as examples of how to migrate.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - [Git](https://git-scm.com/downloads).
-- An Azure resource group to contain the Azure Spring Apps Enterprise instance.
 
 ## Provision a service instance
 
-In the Enterprise plan, VMware Tanzu components replace the OSS Spring Cloud components to provide more feature support. Tanzu components are enabled on demand according to your needs. You can select the components you need before creating the service instance.
+In the Azure Spring Apps Enterprise plan, VMware Tanzu components replace the OSS Spring Cloud components to provide more feature support. Tanzu components are enabled on demand according to your needs. You can select the components you need before creating the Azure Spring Apps service instance.
 
 > [!NOTE]
 > To use Tanzu Components, you must enable them when you provision your Azure Spring Apps service instance. You can't enable them after provisioning at this time.
@@ -44,23 +43,22 @@ Use the following steps to provision an Azure Spring Apps service instance:
 1. In the top search box, search for *Azure Spring Apps*.
 1. Select **Azure Spring Apps** from the results and then select **Create**.
 1. On the **Create Azure Spring Apps** page, set your **Subscription**, **Resource group** and provide a **Name**.
-1. Optionally 
-1. For **Plan** select **Change**.
+1. For **Plan** in **Service Details**, select **Change**.
 
    :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/change-plan.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with the Change button highlighted in the plan section." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/change-plan.png":::
 
-1. On the **Choose your plan** page, choose **Enterprise** and then select **Select**.
+1. On the **Choose your plan** page, select the **Enterprise** row in theand then select **Select**.
 
    :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png":::
 
 1. Back on the **Create Azure Spring Apps** page, select the **Terms** checkbox to agree to the legal terms and privacy statements of the Enterprise plan offering in the Azure Marketplace.
 
-1. Select **Next: VMware Tanzu settings**.
-
    > [!NOTE]
    > All Tanzu components are enabled by default. Carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Apps instance, you can't enable or disable Tanzu components.
 
    :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with V M ware Tanzu Settings section showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png":::
+
+1. Select **Next: VMware Tanzu settings**.
 
 1. Select the **Application Insights** tab and then select **Enable Application Insights**. Review the following settings:
 
@@ -102,7 +100,7 @@ It takes about 5 minutes to finish the resource provisioning.
 
 1. Create a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can  only contain lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create a resource group and an Azure Spring Apps service instance using the following the command:
+1. Use the following command to create a resource group and an Azure Spring Apps service instance:
 
    ```azurecli
    az spring create \
@@ -276,7 +274,7 @@ Use the following steps to build locally:
 
    Compiling the project can take several minutes. When complete, you have individual JAR files for each service in its respective folder.
 
-1. Deploy the JAR files built in the previous step using the following commands:
+1. Use the following commands to deploy the JAR files built in the previous step:
 
    ```azurecli
    az spring app deploy \
@@ -316,7 +314,7 @@ The following table lists the APM providers available the plans.
 
 To check or update the current settings in Application Insights, use the following steps:
 
-### [Portal](#tab/azure-portal)
+### [Azure Portal](#tab/azure-portal)
 
 1. In your Azure Spring Apps Enterprise instance, select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
