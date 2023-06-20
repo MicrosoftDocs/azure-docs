@@ -105,7 +105,7 @@ Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagco
 ```
 
 ## Get current diagnostics extension configuration
-Use the [Get-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/get-azureservicediagnosticsextension) cmdlet to get the current diagnostics configuration for a cloud service.
+Use the [Get-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/get-azureservicediagnosticsextension) cmdlet to get the current diagnostics configuration for a cloud service.
 
 ```powershell
 Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
