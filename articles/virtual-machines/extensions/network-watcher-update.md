@@ -1,5 +1,5 @@
 ---
-title: Update the Network Watcher extension to the latest version 
+title: Update Network Watcher extension to the latest version 
 description: Learn how to update the Azure Network Watcher extension to the latest version.
 services: virtual-machines
 author: halkazwini
@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/25/2023
 ms.author: halkazwini
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-concept, engagement-fy23
+ms.custom: template-concept, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
-# Update the Network Watcher extension to the latest version
+# Update Azure Network Watcher extension to the latest version
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. The Network Watcher extension is used by features like connection monitor, connection monitor (preview), connection troubleshoot, and packet capture.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure virtual machine (VM) that has the Network Watcher extension installed.
 
 ## Latest version
@@ -243,4 +243,3 @@ If you have auto-upgrade set to true for the Network Watcher extension, reboot y
 ## Support
 
 If you need more help at any point in this article, see the Network Watcher extension documentation for [Linux](./network-watcher-linux.md) or [Windows](./network-watcher-windows.md). You can also contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
-

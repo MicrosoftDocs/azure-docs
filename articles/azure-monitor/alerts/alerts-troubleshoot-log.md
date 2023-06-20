@@ -3,7 +3,7 @@ title: Troubleshoot log alerts in Azure Monitor | Microsoft Docs
 description: Common issues, errors, and resolutions for log alert rules in Azure.
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 2/23/2022
+ms.date: 06/20/2023
 ms.reviewer: yalavi
 ---
 # Troubleshoot log alerts in Azure Monitor  
@@ -45,7 +45,7 @@ When you create a log alert rule with system-assigned managed identity, the iden
 
 [Metric measurement](alerts-unified-log.md#calculation-of-a-value) is a type of log alert that's based on summarized time series results. You can use these rules to group by columns to [split alerts](alerts-unified-log.md#split-by-alert-dimensions). If you're using the legacy Log Analytics API, splitting doesn't work as expected because it doesn't support grouping.
 
-You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-a-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API]](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch).
+You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-a-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API](./alerts-log-api-switch.md).
 
 ## Log alert fired unnecessarily
 

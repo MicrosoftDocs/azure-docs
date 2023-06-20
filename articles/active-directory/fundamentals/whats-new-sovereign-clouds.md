@@ -6,7 +6,7 @@ ms.author: owinfrey
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 05/31/2023
 ms.custom: template-concept 
 ---
 

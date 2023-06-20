@@ -5,7 +5,7 @@ description: Learn how to format your JSONL files for data consumption in automa
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-python
 ms.topic: reference
 ms.reviewer: ssalgado
 ms.author: rvadthyavath
@@ -17,9 +17,6 @@ ms.date: 09/09/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/reference-automl-images-schema-v1.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](reference-automl-images-schema.md)
 
 
 Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks during training and inference.
@@ -440,7 +437,7 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 > These settings are currently in public preview. They are provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!WARNING]
->  **Explainability** is supported only for **multi-class classification** and **multi-label classification**. While generating explanations on online endpoint, if you encounter timeout issues, use [batch scoring notebook](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass-batch-scoring) to generate explanations.
+>  **Explainability** is supported only for **multi-class classification** and **multi-label classification**. While generating explanations on online endpoint, if you encounter timeout issues, use [batch scoring notebook (SDK v1)](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass-batch-scoring) to generate explanations.
 
 In this section, we document the input data format required to make predictions and generate explanations for the predicted class/classes using a deployed model. There's no separate deployment needed for explainability. The same endpoint for online scoring can be utilized to generate explanations. We just need to pass some extra explainability related parameters in input schema and get either visualizations of explanations and/or attribution score matrices (pixel level explanations).
 
@@ -586,7 +583,7 @@ If `model_explainability`, `visualizations`, `attributions` are set to `True` in
 
 
 > [!WARNING]
-> While generating explanations on online endpoint, make sure to select only few classes based on confidence score in order to avoid timeout issues on the endpoint or use the endpoint with GPU instance type. To generate explanations for large number of classes in multi-label classification, refer to [batch scoring notebook](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass-batch-scoring).
+> While generating explanations on online endpoint, make sure to select only few classes based on confidence score in order to avoid timeout issues on the endpoint or use the endpoint with GPU instance type. To generate explanations for large number of classes in multi-label classification, refer to [batch scoring notebook (SDK v1)](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass-batch-scoring).
 
 ```json
 [

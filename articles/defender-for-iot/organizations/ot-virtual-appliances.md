@@ -61,6 +61,9 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**L100**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
 |**L60** [*](ot-appliance-sizing.md#l60) |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
 
+> [!NOTE]
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
+
 ## On-premises management console VM requirements
 
 An on-premises management console on a virtual appliance is supported for enterprise deployments with the following requirements:

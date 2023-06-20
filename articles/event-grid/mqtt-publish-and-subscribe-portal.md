@@ -95,7 +95,7 @@ If you don't already have a certificate, you can create a sample certificate usi
 1. Go to Topic spaces page under MQTT section.
 2. On the Topic spaces page, select **+ Topic space** on the toolbar.
 3. Provide a name for the topic space.  
-4. Select + Add topic template to add the topic template contosotopics/topic1.
+4. Select **+ Add topic template** to add the topic template contosotopics/topic1.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space.png" alt-text="Screenshot of topic space configuration.":::
 5. Select **Create** to create the topic space.
@@ -105,9 +105,9 @@ If you don't already have a certificate, you can create a sample certificate usi
 1. Go to Permission bindings page under MQTT section.
 2. On the Permission bindings page, select **+ Permission binding** on the toolbar.
 3. Configure the permission binding as follows:
-    1. Provide a name for the permission binding 
+    1. Provide a name for the permission binding.
     2. Select the client group name as $all.  
-    3. Select the Topic space name as Topicspace1.  
+    3. For Topic space name, select the topic space you created in the previous step.  
     4. Grant Publisher permission to the client group on the topic space.
 
         :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-1.png" alt-text="Screenshot showing creation of first permission binding.":::
@@ -123,27 +123,30 @@ If you don't already have a certificate, you can create a sample certificate usi
 1. For publish / subscribe MQTT messages, you can use any of your favorite tools.  For demonstration purpose, publish / subscribe is shown using MQTTX app, which can be downloaded from https://mqttx.app/.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-client.png" alt-text="Screenshot showing MQTTX app left rail to add new client.":::
-2. Configure client1 with  
+
+1. Configure client1 with  
     - Name as client-name-1 (this value can be anything)
     - Client ID as client1-sessionID1 (Client ID in CONNECT packet is used to identify the session ID for the client connection)
     - Username as client1-authnID (Username must match the client authentication name in client metadata)
-3. Update the host name to MQTT hostname from the Overview page of the namespace.
+
+1. Update the host name to MQTT hostname from the Overview page of the namespace.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/event-grid-namespace-overview.png" alt-text="Screenshot showing Event Grid namespace overview page, which has MQTT hostname.":::
 
-4. Toggle SSL/TLS to ON.
-5. You can leave the SSL Secure ON.
-6. Select Certificate as Self signed.
-7. Provide the path to client.cer.pem file for Client Certificate File.
-8. Provide the path to client.key.pem file for Client key file.
-9. Rest of the settings can be left with predefined default values.
+1. Update the port to 8883
+1. Toggle SSL/TLS to ON.
+1. Toggle SSL Secure to ON, to ensure service certificate validation.
+1. Select Certificate as Self signed.
+1. Provide the path to client.cer.pem file for Client Certificate File.
+1. Provide the path to client.key.pem file for Client key file.
+1. Rest of the settings can be left with predefined default values.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client1-configuration-1.png" alt-text="Screenshot showing client 1 configuration part 1 on MQTTX app.":::
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client1-configuration-2.png" alt-text="Screenshot showing client 1 configuration part 2 on MQTTX app.":::
 
-10. Select Connect to connect the client to the Event Grid MQTT service.
-11. Repeat the above steps to connect the second client “client2”, with corresponding authentication information as shown.
+1. Select Connect to connect the client to the Event Grid MQTT service.
+1. Repeat the above steps to connect the second client “client2”, with corresponding authentication information as shown.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app.":::
 

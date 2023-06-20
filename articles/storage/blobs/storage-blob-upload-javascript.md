@@ -52,8 +52,6 @@ The following example uploads a readable stream to blob storage with the [BlockB
 
 Transform the stream during the upload for data clean up.
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js" id="Snippet_Transform" :::
-
 The following code demonstrates how to use the function.
 
 ```javascript

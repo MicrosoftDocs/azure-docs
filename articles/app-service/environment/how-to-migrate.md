@@ -256,7 +256,7 @@ Once you've completed all of the above steps, you can start migration. Make sure
 
 When migration is complete, you'll have an App Service Environment v3, and all of your apps will be running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 
-If your migration included a custom domain suffix, for App Service Environment v3, the custom domain will no longer be shown in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously. 
+If your migration included a custom domain suffix, the domain was shown in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it is no longer shown there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously. 
 
 :::image type="content" source="./media/migration/custom-domain-suffix-app-service-environment-v3.png" alt-text="Screenshot that shows how to access custom domain suffix configuration for App Service Environment v3.":::
 

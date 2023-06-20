@@ -28,6 +28,8 @@ By default, granting tenant-wide admin consent to an application will allow all 
 
 Granting tenant-wide admin consent may revoke any permissions that had previously been granted tenant-wide for that application. Permissions that have previously been granted by users on their own behalf won't be affected.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 Granting tenant-wide admin consent requires you to sign in as a user that is authorized to consent on behalf of the organization.
@@ -41,7 +43,7 @@ To grant tenant-wide admin consent, you need:
 
 ## Grant tenant-wide admin consent in Enterprise apps
 
-You can grant tenant-wide admin consent through *Enterprise applications* if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Azure Active Directory](../develop/active-directory-how-applications-are-added.md).
+You can grant tenant-wide admin consent through the **Enterprise applications** panel if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Azure Active Directory](../develop/how-applications-are-added.md).
 
 :::zone pivot="portal"
 

@@ -2,8 +2,8 @@
 title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
-ms.topic: conceptual
-ms.date: 04/18/2023
+ms.topic: how-to
+ms.date: 06/13/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -372,7 +372,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 There are a few things to note after restoring a VM:
 
-- Extensions present during the backup configuration are installed, but not enabled. If you see an issue, reinstall the extensions.
+- Extensions present during the backup configuration are installed, but not enabled. If you see an issue, reinstall the extensions. In the case of disk replacement, reinstallation of extensions is not required.
 - If the backed-up VM had a static IP address, the restored VM will have a dynamic IP address to avoid conflict. You can [add a static IP address to the restored VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).
 - A restored VM doesn't have an availability set. If you use the restore disk option, then you can [specify an availability set](../virtual-machines/windows/tutorial-availability-sets.md) when you create a VM from the disk using the provided template or PowerShell.
 - If you use a cloud-init-based Linux distribution, such as Ubuntu, for security reasons the password is blocked after the restore. Use the VMAccess extension on the restored VM to [reset the password](/troubleshoot/azure/virtual-machines/reset-password). We recommend using SSH keys on these distributions, so you don't need to reset the password after the restore.
