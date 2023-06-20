@@ -56,12 +56,17 @@ await deviceManager.selectSpeaker(localSpeakers[0]);
 You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed.
 
 ```js
+// To start viewing local camera preview
 const cameras = await deviceManager.getCameras();
 const camera = cameras[0];
 const localVideoStream = new LocalVideoStream(camera);
 const videoStreamRenderer = new VideoStreamRenderer(localVideoStream);
 const view = await videoStreamRenderer.createView();
 htmlElement.appendChild(view.target);
+
+// To stop viewing local camera preview
+view.dispose();
+htmlElement.removeChild(view.target);
 ```
 
 ### Request permission to camera and microphone
@@ -120,15 +125,13 @@ await call.startVideo(localVideoStream);
 After you successfully start sending video, a `LocalVideoStream` instance is added to the `localVideoStreams` collection on a call instance.
 
 ```js
-call.localVideoStreams[0] === localVideoStream;
+const localVideoStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'Video'} );
 ```
 
-To stop local video while on a call, pass the `localVideoStream` instance that's available in the `localVideoStreams` collection:
+To stop local video while on a call, pass the `localVideoStream` instance that's being used for video:
 
 ```js
 await call.stopVideo(localVideoStream);
-// or
-await call.stopVideo(call.localVideoStreams[0]);
 ```
 
 You can switch to a different camera device while a video is sending by invoking `switchSource` on a `localVideoStream` instance:
@@ -193,7 +196,24 @@ call.off('isScreenSharingOnChanged', () => {
 });
 ```
 
-## Render remote participant video streams
+### Local screen share preview
+
+You can use `VideoStreamRenderer` to begin rendering streams from your local screen share so you can see what you are sending as a screen sharing stream.
+```js
+// To start viewing local screen share preview
+await call.startScreenSharing();
+const localScreenSharingStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'ScreenSharing' });
+const videoStreamRenderer = new VideoStreamRenderer(localScreenSharingStream);
+const view = await videoStreamRenderer.createView();
+htmlElement.appendChild(view.target);
+
+// To stop viewing local screen share preview
+await call.stopScreenSharing();
+view.dispose();
+htmlElement.removeChild(view.target);
+```
+
+## Render remote participant video/screensharing streams
 
 To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
 
