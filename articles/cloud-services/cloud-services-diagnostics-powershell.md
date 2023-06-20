@@ -89,7 +89,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 ```
 
 ## Enable diagnostics extension on an existing Cloud Service
-You can use the [Set-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azureservicediagnosticsextension) cmdlet to enable or update diagnostics configuration on a Cloud Service that is already running.
+You can use the [Set-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/set-azureservicediagnosticsextension) cmdlet to enable or update diagnostics configuration on a Cloud Service that is already running.
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
