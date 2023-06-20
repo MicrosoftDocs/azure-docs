@@ -25,7 +25,7 @@ Learn how to configure TLS/SSL policy versions and cipher suites on Application 
 The `Get-AzApplicationGatewayAvailableSslOptions` cmdlet provides a listing of available pre-defined policies, available cipher suites, and protocol versions that can be configured. The following example shows an example output from running the cmdlet.
 
 > [!IMPORTANT]
-> For API versions >= 2023-02-01, the default TLS policy is set as AppGwSslPolicy20220101. Visit [TLS policy overview](./application-gateway-ssl-policy-overview.md#default-tls-policy) to know more.
+> The default TLS policy is set to AppGwSslPolicy20220101 for API versions 2023-02-01 or higher. Visit [TLS policy overview](./application-gateway-ssl-policy-overview.md#default-tls-policy) to know more.
 
 ```
 DefaultPolicy: AppGwSslPolicy20150501
