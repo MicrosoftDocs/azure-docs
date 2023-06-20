@@ -50,22 +50,6 @@ These installation instructions and a [downloadable sample configuration](https:
 
 The downloadable configuration is just an example. Modify it to suit your needs.
 
-### Supported Linux distributions
-
-LAD supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. The extension generally doesn't support third-party BYOL and BYOS images, like appliances.
-
-A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a minor version is specified, only that version is supported. If a plus sign (+) is appended, minor versions equal to or later than the specified version are supported.
-
-Supported distributions and versions:
-
-- Ubuntu 20.04, 18.04, 16.04, 14.04
-- CentOS 7, 6.5+
-- Oracle Linux 7, 6.4+
-- OpenSUSE 13.1+
-- SUSE Linux Enterprise Server 12
-- Debian 9, 8, 7
-- Red Hat Enterprise Linux (RHEL) 7, 6.7+
-
 ### Prerequisites
 
 * **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version, [Update the guest agent](./update-linux-agent.md).

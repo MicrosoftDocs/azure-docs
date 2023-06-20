@@ -51,7 +51,7 @@ Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifa
 
 In your POM file, add the following reference for the project. 
 
-**azure-communication-callingserver**
+**azure-communication-callautomation**
 
 Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
 
