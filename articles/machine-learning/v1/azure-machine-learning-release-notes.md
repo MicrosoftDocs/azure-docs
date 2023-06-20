@@ -9,7 +9,7 @@ ms.custom: UpdateFrequency5, event-tier1-build-2022, devx-track-python
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 05/20/2023
+ms.date: 06/26/2023
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -19,6 +19,19 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+
+## 2023-06-26
+
+### Azure Machine Learning SDK for Python v1.52.0
+  + **azureml-automl-dnn-vision**
+    + The mlflow signature for the runtime (legacy) automl models has changed to accept binary inputs. This enables batch inferencing. The predict function is backwards compatible so users can still send base64 strings as input. The output from the predict function has changed to remove the temporary file name as well as the empty visualizations and attributions key when model explainability is n...
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Fixed a bug that caused failures during distributed TCN training when the data consists of a single time series.
+  + **azureml-interpret**
+    + remove shap pin in azureml-interpret to update to latest in interpret-community
+  + **azureml-responsibleai**
+    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.28.0
+    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.27.0
 
 ## 2023-05-20
 
