@@ -13,11 +13,11 @@ ms.custom: template-how-to, engagement-fy23
 
 # Azure Internet peering for Peering Service walkthrough
 
-This section explains the steps a Peering Service Provider needs to follow to establish a Direct interconnect with Microsoft.
+In this article, you learn steps to establish a Direct interconnect between a Peering Service Provider and Microsoft.
 
-Azure Internet peering support Peering Service providers to establish direct interconnect with Microsoft at any of its edge sites (pop locations). The list of all the public edges sites is available in [PeeringDB](https://www.peeringdb.com/net/694).
+Internet peering support Peering Service providers to establish direct interconnect with Microsoft at any of its edge sites (pop locations). The list of all the public edges sites is available in [PeeringDB](https://www.peeringdb.com/net/694).
 
-The Azure Internet peering provides highly reliable and QoS (Quality of Service) enabled interconnect services to ensure high quality and performance centric services.
+Internet peering provides highly reliable and QoS (Quality of Service) enabled interconnect for Peering Services to ensure high quality and performance centric services.
 
 The following flowchart summarizes the process to onboard to Peering Services
 
@@ -36,93 +36,73 @@ The technical requirements to establish direct interconnect for Peering Services
 -	The Peer MUST NOT terminate peering on a device running a stateful firewall. 
 -	Microsoft will configure all the interconnect links as LAG (link bundles) by default, so, peer MUST support LACP (Link Aggregation Control Protocol) on the interconnect links.
 
-## Establishing Direct Interconnect with Microsoft for Peering Services.
+## Establish Direct Interconnect with Microsoft for Peering Service
 
-To establish a direct interconnect using Azure Internet peering, follow these steps:
+To establish a direct interconnect with Microsoft using Internet peering, follow the following steps:
 
-**1.	Associate Peer public ASN to the Azure Subscription:**
+1. **Associate Peer public ASN to the Azure Subscription:** [Associate peer ASN to Azure subscription using the Azure portal](./howto-subscription-association-portal.md). If the Peer has already associated a public ASN to Azure subscription, go to the next step.
 
-In case Peer already associated public ASN to Azure subscription, ignore this step.
+2. **Create Direct peering connection for Peering Service:** [Create a Direct peering using the portal](./howto-direct-portal.md), and make sure you meet high-availability.requirement. In the **Configuration** tab of **Create a Peering**, select the following options:
 
-[Associate peer ASN to Azure subscription using the portal - Azure | Microsoft Docs](./howto-subscription-association-portal.md)
+    | Setting | Value |
+    | --- | --- |
+    | Peering type | Select **Direct**. |
+    | Microsoft network | Select **8075**. |
+    | SKU | Select **Premium Free**. |
 
-The next step is to create a Direct peering connection for Peering Service.
+    In **Direct Peering Connection**, select following options:
 
-> [!NOTE]
-> Once ASN association is approved, email us at peeringservice@microsoft.com with your ASN and subscription ID to associate your subscription with Peering Services. 
+    | Setting | Value |
+    | --- | --- |
+    | Session Address provider | Select **Microsoft**. |
+    | Use for Peering Services | Select **Enabled**. |
 
-**2.	Create Direct peering connection for Peering Service:**
+    > [!NOTE] 
+    > When activating Peering Service, ignore the following message: *Do not enable unless you have contacted peering@microsoft.com about becoming a MAPS provider.*
 
-Follow the instructions to [Create or modify a Direct peering using the portal](./howto-direct-portal.md)
-
-Ensure it meets high-availability requirement.
-
-Ensure you're selecting following options on “Create a Peering” Page:
-
-Peering Type:	**Direct**
-
-Microsoft Network:	**AS8075**
-
-SKU: 		**Premium Free**
-
-
-Under “Direct Peering Connection Page” select following options:
-
-Session Address provider:	**Microsoft**
-
-Use for Peering Services: 	**Enabled**
-
-> [!NOTE] 
-> Ignore the following message while selecting for activating for Peering Services.
-> *Do not enable unless you have contacted peering@microsoft.com about becoming a MAPS provider.*
-
-**3.	Register your prefixes for Optimized Routing**
-
-For optimized routing for your Peering Services infrastructure prefixes, you should register all your prefixes with your peering interconnects.
-
-Ensure that the prefixes registered are being announced over the direct interconnects established in that location.
-If the same prefix is announced in multiple peering locations, it's sufficient to register them with just one of the peerings in order to retrieve the unique prefix keys after validation.
-
-> [!NOTE] 
-> The Connection State of your peering connections must be Active before registering any prefixes.
-
-**Prefix Registration**
+## Register the prefix
 
 1. If you're an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
 
-:::image type="content" source="media/walkthrough-communications-services-partner/registered-prefixes-under-direct-peering.png" alt-text="Screenshot of registered prefixes tab under a peering enabled for Peering Service." :::
+   :::image type="content" source="./media/walkthrough-communications-services-partner/registered-prefixes-under-direct-peering.png" alt-text="Screenshot of registered prefixes tab under a peering enabled for Peering Service." :::
 
 2. Register prefixes to access the activation keys.
 
-:::image type="content" source="media/walkthrough-communications-services-partner/registered-prefixes-blade.png" alt-text="Screenshot of registered prefixes blade with a list of prefixes and keys." :::
+   :::image type="content" source="./media/walkthrough-communications-services-partner/registered-prefixes-blade.png" alt-text="Screenshot of registered prefixes blade with a list of prefixes and keys." :::
 
-:::image type="content" source="media/walkthrough-communications-services-partner/registered-prefix-example.png" alt-text="Screenshot showing a sample prefix being registered." :::
+   :::image type="content" source="./media/walkthrough-communications-services-partner/registered-prefix-example.png" alt-text="Screenshot showing a sample prefix being registered." :::
 
-:::image type="content" source="media/walkthrough-communications-services-partner/prefix-after-registration.png" alt-text="Screenshot of registered prefixes blade showing a new prefix added." :::
+   :::image type="content" source="./media/walkthrough-communications-services-partner/prefix-after-registration.png" alt-text="Screenshot of registered prefixes blade showing a new prefix added." :::
 
-**Prefix Activation**
+## Activate the prefix
 
-In the previous steps, you registered the prefix and generated the prefix key. The prefix registration DOES NOT activate the prefix for optimized routing. It won't allow for the acceptance of <\/24 prefixes. These require prefix activation and alignment to the OC partner and the appropriate interconnect location to ensure cold potato routing.
+In the previous section, you registered the prefix and generated the prefix key. The prefix registration DOES NOT activate the prefix for optimized routing (and doesn't accept <\/24 prefixes). Prefix activation, alignment to the right OC partner, and appropriate interconnect location are requirements for optimized routing (to ensure cold potato routing).
 
-Instructions to activate the prefix:
+In this section, you activate the prefix:
 
-1. Look for “Peering Services” resource 
+1. In the search box at the top of the portal, enter *peering service*. Select **Peering Services** in the search results. 
 
-:::image type="content" source="media/walkthrough-communications-services-partner/peering-service-search.png" alt-text="Screenshot on searching for Peering Service on Azure portal." :::
-  
-:::image type="content" source="media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot of a list of existing peering services." :::
+    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal.":::
 
-2. Create a new Peering Service resource
+1. Select **+ Create** to create a new Peering Service connection.
 
-:::image type="content" source="media/walkthrough-communications-services-partner/create-peering-service.png" alt-text="Screenshot showing how to create a new peering service." :::
+    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot shows the list of existing Peering Service connections in the Azure portal.":::
 
-3. Provide details on the location, provider and primary and backup interconnect location. If backup location is set to “none”, the traffic fails over the internet. 
+1. In the **Basics** tab, enter or select your subscription, resource group, and Peering Service connection name.
 
-If you are an Operator Connect partner, you would be able to see yourself as the provider. The prefix key should be the same as the one obtained in the "Prefix Registration" step. 
+    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
 
-:::image type="content" source="media/walkthrough-communications-services-partner/peering-service-properties.png" alt-text="Screenshot of the fields to be filled to create a peering service." :::
+1. In the **Configuration** tab, provide details on the location, provider and primary and backup interconnect locations. If the backup location is set to **None**, the traffic will fail over to the internet. 
 
-:::image type="content" source="media/walkthrough-communications-services-partner/peering-service-deployment.png" alt-text="Screenshot showing the validation of peering service resource before deployment." :::
+    > [!NOTE]
+    > - If you're an Operator Connect partner, your organization is available as a **Provider**.
+    > - The prefix key should be the same as the one obtained in the [Register the prefix](#register-the-prefix) step. 
+
+    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-configuration.png" alt-text="Screenshot shows the Configuration tab of creating a Peering Service connection in the Azure portal."::: 
+
+1. Select **Review + create**.
+
+1. Review the settings, and then select **Create**.
 
 ## FAQs:
 
@@ -140,7 +120,7 @@ If you are an Operator Connect partner, you would be able to see yourself as the
 
 **Q.**	What Microsoft routes will we receive over these interconnects?
 
-**A.** Microsoft announces all of Microsoft's public service prefixes over these interconnects. This announcement ensures not only communications but other cloud services are accessible from the same interconnect.
+**A.** Microsoft announces all of Microsoft's public service prefixes over these interconnects. This announcement ensures communications and other cloud services are accessible from the same interconnect.
 
 **Q.**   Are there any AS path constraints?
 
