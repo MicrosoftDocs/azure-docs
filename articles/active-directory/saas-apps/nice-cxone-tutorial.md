@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Identifier** |
     |----------|
-    | `https://cxone.niceincontact,com/<guid>` |
+    | `https://cxone.niceincontact.com/<guid>` |
     | `https://cxone-gov.niceincontact.com/<guid>` |
 
     b. In the **Reply URL** textbox, type a URL using one of the following patterns:

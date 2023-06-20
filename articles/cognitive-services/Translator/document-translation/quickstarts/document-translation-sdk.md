@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: build-2023, devx-track-dotnet, devx-track-python
 ms.topic: reference
-ms.date: 06/14/2023
+ms.date: 06/19/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-document-sdk
 ---

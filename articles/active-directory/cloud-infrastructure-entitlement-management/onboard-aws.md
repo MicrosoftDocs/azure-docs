@@ -1,6 +1,6 @@
 ---
-title:  Onboard an Amazon Web Services (AWS) account on Permissions Management
-description: How to onboard an Amazon Web Services (AWS) account on Permissions Management.
+title:  Onboard an Amazon Web Services (AWS) account to Permissions Management
+description: How to onboard an Amazon Web Services (AWS) account to Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
 # Onboard an Amazon Web Services (AWS) account
 
-This article describes how to onboard an Amazon Web Services (AWS) account on Permissions Management.
+This article describes how to onboard an Amazon Web Services (AWS) account in Microsoft Entra Permissions Management.
 
 > [!NOTE]
-> A *global administrator* or *root user* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
+> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Microsoft Entra Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
 ## Explanation
 
@@ -30,8 +30,6 @@ There are several moving parts across AWS and Azure, which are required to be co
 * An AWS OIDC role
 * An AWS Cross Account role assumed by OIDC role
  
-
-<!-- diagram from gargi -->
 
 ## Onboard an AWS account
 
