@@ -23,7 +23,7 @@ Security alerts from Microsoft Defender for Resource Manager are based on threat
 
 In addition, Microsoft Defender for Resource Manager provides visibility to activity from third party service providers with delegated access, as an enrichment for the Resource manager alerts.
 
-The “delegated access” indication refers to access via [Azure Lighthouse](/azure/lighthouse/overview) or via [delegated admin partners](/partner-center/dap-faq). 
+`Delegated access` refers to access with [Azure Lighthouse](/azure/lighthouse/overview) or with [Delegated administration privileges](/partner-center/dap-faq). 
 
 Alerts with the delegated access indication also include customized description and remediation steps.
 
