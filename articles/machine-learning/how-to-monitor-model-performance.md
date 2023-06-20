@@ -474,12 +474,12 @@ created_monitor = poller.result()
 1. Enter a name for Feature Attribution Drift signal. Feature attribution drift currently requires a few additional steps:
 1. Configure your data assets for Feature Attribution Drift
    
-   A) In your model creation wizard, add your custom data asset from your [custom Model Data Collector score.py ](articles/machine-learning/how-to-collect-production-data.md) called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
+   A.) In your model creation wizard, add your custom data asset from your [custom Model Data Collector score.py ](articles/machine-learning/how-to-collect-production-data.md) called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
    
-   B) Specify your training reference dataset that will be used to train your explainer, and select your target column name 
+   B.) Specify your training reference dataset that will be used in the feature attribution drift component, and select your 'target column name' field 
    ![image](https://github.com/buchananwp/azure-docs/assets/8934290/bb919691-df07-43cd-865b-95742d943da9)
 
-   C) Confirm your parameters are correct
+   C.) Confirm your parameters are correct
    ![image](https://github.com/buchananwp/azure-docs/assets/8934290/3d74a938-b8cf-4455-8ff9-cf11b6a937b9)
 
    
@@ -491,7 +491,6 @@ created_monitor = poller.result()
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-add-signal.png" alt-text="Screenshot showing settings for adding signals." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-add-signal.png":::
 
 1. In the "Notification" screen, enable alert notification for each signal.
-1. (Optional) Enable "Azure Monitor" for all metrics to be sent to Azure Monitor.
 1. Select **Next**.
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-notification.png" alt-text="Screenshot of settings on the notification screen." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-notification.png":::
