@@ -2,7 +2,7 @@
 title: What's new with Azure Connected Machine agent
 description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 05/08/2023
+ms.date: 06/20/2023
 ms.custom: references_regions
 ---
 
@@ -18,15 +18,19 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.31 - June 2023
 
-Download for [Windows](https://download.microsoft.com/download/e/b/2/eb2f2d87-6382-463e-9d01-45b40c93c05b/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/2/6/e/26e2b001-1364-41ed-90b0-1340a44ba409/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Known issue
 
-You may encounter error `AZCM0026: Network Error` accompanied by a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. At this time, Microsoft recommends using [agent version 1.30](#version-131---june-2023) in networks that require a proxy server. Microsoft has also reverted the agent download URL [aka.ms/AzureConnectedMachineAgent](https://aka.ms/AzureConnectedMachineAgent) to agent version 1.30 to allow existing installation scripts to succeed.
+The first release of agent version 1.31 had a known issue affecting customers using proxy servers. The issue is indicated by the  `AZCM0026: Network Error` and a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. A newer version of agent 1.31 was released on June 14, 2023 that addresses this issue.
 
-If you've already installed agent version 1.31 and are seeing the error message above, [uninstall the agent](manage-agent.md#uninstall-from-control-panel) and run your installation script again. You do not need to downgrade to agent 1.30 if your agent is connected to Azure.
+To check if you're running the latest version of the Azure connected machine agent, navigate to the server in the Azure portal or run `azcmagent show` from a terminal on the server itself and look for the "Agent version." The table below shows the version numbers for the first and patched releases of agent 1.31.
 
-Microsoft will update the release notes when this issue is resolved.
+| Package type | Version number with proxy issue | Version number of patched agent |
+| ------------ | ------------------------------- | ------------------------------- |
+| Windows | 1.31.02347.1069 | 1.31.02356.1083 |
+| RPM-based Linux | 1.31.02347.957 | 1.31.02356.970 |
+| DEB-based Linux | 1.31.02347.939 | 1.31.02356.952 |
 
 ### New features
 

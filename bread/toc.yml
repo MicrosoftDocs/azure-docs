@@ -1059,7 +1059,7 @@
     items:
       - name: Workloads
         tocHref: /azure/virtual-machines/workloads/
-        topicHref: /azure/virtual-machines/workloads/workloads
+        topicHref: /azure/virtual-machines/workloads/workloads/
         items:
           - name: Azure VMs for SAP workloads
             tocHref: /azure/virtual-machines/workloads/sap/
@@ -1069,7 +1069,7 @@
             topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
           - name: Oracle
             tocHref: /azure/virtual-machines/workloads/oracle/
-            topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
+            topicHref: /azure/virtual-machines/workloads/oracle/index
           - name: Mainframe rehosting
             tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
             topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
