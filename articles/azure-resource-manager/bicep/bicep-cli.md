@@ -3,7 +3,7 @@ title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 06/15/2023
+ms.date: 06/20/2023
 ---
 
 # Bicep CLI commands
@@ -140,21 +140,36 @@ The command returns an array of available versions.
 
 ```azurecli
 [
-  "v0.4.1",
-  "v0.3.539",
-  "v0.3.255",
-  "v0.3.126",
-  "v0.3.1",
-  "v0.2.328",
-  "v0.2.317",
-  "v0.2.212",
-  "v0.2.59",
-  "v0.2.14",
-  "v0.2.3",
-  "v0.1.226-alpha",
-  "v0.1.223-alpha",
-  "v0.1.37-alpha",
-  "v0.1.1-alpha"
+  "v0.18.4",
+  "v0.17.1",
+  "v0.16.2",
+  "v0.16.1",
+  "v0.15.31",
+  "v0.14.85",
+  "v0.14.46",
+  "v0.14.6",
+  "v0.13.1",
+  "v0.12.40",
+  "v0.12.1",
+  "v0.11.1",
+  "v0.10.61",
+  "v0.10.13",
+  "v0.9.1",
+  "v0.8.9",
+  "v0.8.2",
+  "v0.7.4",
+  "v0.6.18",
+  "v0.6.11",
+  "v0.6.1",
+  "v0.5.6",
+  "v0.4.1318",
+  "v0.4.1272",
+  "v0.4.1124",
+  "v0.4.1008",
+  "v0.4.613",
+  "v0.4.451",
+  "v0.4.412",
+  "v0.4.63"
 ]
 ```
 
