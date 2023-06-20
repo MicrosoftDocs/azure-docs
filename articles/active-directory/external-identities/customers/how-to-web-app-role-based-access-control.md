@@ -59,7 +59,7 @@ class AuthProvider {
         
             //Check roles
             if (roles && roles.includes("Orders.Manager")) {
-                //This user can view the the ID token claims page.
+                //This user can view the ID token claims page.
                 res.redirect('/id');
             }
             
