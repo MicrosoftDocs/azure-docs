@@ -6,9 +6,8 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 04/10/2023
-ms.author: kegorman
- 
+ms.date: 6/13/2023
+ms.author: jacobjaygbay
 ---
 # Reference architectures for Oracle Database Enterprise Edition on Azure
 

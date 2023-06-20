@@ -7,13 +7,11 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: FAGHAFFA
-ms.date: 04/26/2023
+ms.date: 06/19/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Rooms overview
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services provides a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
 

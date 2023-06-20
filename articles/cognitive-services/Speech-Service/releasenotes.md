@@ -1,5 +1,5 @@
 ---
-title: What's new - Speech Service
+title: What's new - Speech service
 titleSuffix: Azure Cognitive Services
 description: Find out about new releases and features for the Azure Cognitive Service for Speech.
 services: cognitive-services

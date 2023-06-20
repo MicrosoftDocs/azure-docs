@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data 
+  title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data
   description: Contains frequently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
   services: databox
   author: alkohli
@@ -254,6 +254,8 @@ sections:
           Can I use multiple storage accounts with Data Box Disks?
         answer: |
           No. Only one storage account, general or classic, is currently supported with Data Box Disks. Both hot and cool blob are supported.
+          > [!Note]
+          > Classic storage accounts will not be supported starting **August 1, 2023**.
 
       - question: |
           What is the toolset available for my data with Data Box Disks?
