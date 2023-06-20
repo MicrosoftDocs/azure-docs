@@ -1,0 +1,92 @@
+---
+title: Quickstart - Set up a tenant
+description: In this quickstart, you learn how to create a customer tenant.
+services: active-directory
+author: csmulligan
+manager: CelesteDG
+ms.service: active-directory
+ms.workload: identity
+ms.subservice: ciam
+ms.topic: quickstart
+ms.date: 06/19/2023
+ms.author: cmulligan
+ms.custom: it-pro
+
+#Customer intent: As a dev, devops, or IT admin, I want to create a tenant.
+---
+# Quickstart: Create a customer identity and access management (CIAM) tenant (preview)
+
+Azure Active Directory (Azure AD) offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. You'll need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+
+In this quickstart, you'll learn how to create a customer tenant if you already have an Azure subscription. If you don't have an Azure subscription, you can create a customer tenant free trial. For more information about the free trial, see [Set up a free trial](quickstart-trial-setup.md).
+
+## Prerequisites
+
+- An Azure subscription. If you don't have one, create a <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">free account</a> before you begin.
+- An Azure account that's been assigned at least the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role scoped to the subscription or to a resource group within the subscription.
+
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
+
+## Create a new customer tenant  
+
+1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. From the left menu, select **Azure Active Directory** > **Overview**.
+1. Select the **Manage tenants** on the top of the page.
+1. Select **Create**.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/create-tenant.png" alt-text="Screenshot of the create tenant option.":::
+
+1. Select **Customer**, and then **Continue**. If you filtered the list of tenants by **Tenant type**: **Customer** in the previous step, this step will be skipped.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/select-tenant-type.png" alt-text="Screenshot of the select tenant type screen.":::
+
+1. Select **Use Azure Subscription**. If you're creating a customer tenant for the first time, you have the option to create a trial tenant that doesn't require an Azure subscription. For more information about the free trial, see [Set up a free trial](quickstart-trial-setup.md).
+ 
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/create-first-customer-tenant.png" alt-text="Screenshot of the two customer tenant options available during the initial CIAM tenant creation.":::
+
+1. On the **Basics** tab, in the **Create a tenant for customers** page, enter the following information:
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/add-basics-to-customer-tenant.png" alt-text="Screenshot of the Basics tab.":::
+
+    - Type your desired **Tenant Name** (for example *Contoso Customers*).
+
+    - Type your desired **Domain Name** (for example *Contosocustomers*).
+
+    - Select your desired **Location**. This selection can't be changed later.
+
+1. Select **Next: Add a subscription**.  
+
+1. On the **Add a subscription** tab, enter the following information:
+
+   - Next to **Subscription**, select your subscription from the menu.
+
+   - Next to **Resource group**, select a resource group from the menu. If there are no available resource groups, select **Create new**, add a name, and then select **OK**.
+
+   - If **Resource group location** appears, select the geographic location of the resource group from the menu.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/add-subscription.png" alt-text="Screenshot that shows the subscription settings.":::
+
+1. Select **Next: Review + Create**. If the information that you entered is correct, select **Create**. The tenant creation process can take up to 30 minutes. You can monitor the progress of the tenant creation process in the **Notifications** pane. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-successfully-created.png" alt-text="Screenshot that shows the link to the new customer tenant.":::
+
+## Clean up resources
+
+If you're not going to continue to use this tenant, you can delete it using the following steps:
+
+1. Ensure that you're signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure portal. Switch to the target directory if needed.
+1. From the left menu, select **Azure Active Directory** > **Overview**.
+1. Select the **Manage tenants** on the top of the page.
+1. Select the tenant that you want to delete and then select **Delete**.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/delete-tenant.png" alt-text="Screenshot that shows how to delete the customer tenant.":::
+
+1. You might need to complete required actions before you can delete the tenant. For example, you might need to delete all user flows in the tenant. If you're ready to delete the tenant, select **Delete**.
+
+The tenant and its associated information are deleted.
+
+
+## Next steps
+- [Customize the sign-in experience](how-to-customize-branding-customers.md) 
+- [Register an app](how-to-register-ciam-app.md)
+- [Create user flows](how-to-user-flow-sign-up-sign-in-customers.md)
