@@ -46,26 +46,6 @@ Exchange hybrid capability allows for the coexistence of Exchange mailboxes both
 
 ---
 
-### General Availability - Custom Extensions in Entitlement Management 
-
-**Type:** New feature   
-**Service category:** Entitlement Management                       
-**Product capability:** Entitlement Management                
-
-Custom Extensions in Entitlement Management are now general available. For more information, see: ADD LINK
-
----
-
-### General Availability - Lifecycle Workflows
-
-**Type:** New feature   
-**Service category:** Lifecycle Workflows                        
-**Product capability:** Identity Governance               
-
-Lifecycle Workflows is now general available within Microsoft Entra ID Governance. For more information, see: ADD LINK
-
----
-
 ### Public Preview - New provisioning connectors in the Azure AD Application Gallery - June 2023
 
 **Type:** New feature   
