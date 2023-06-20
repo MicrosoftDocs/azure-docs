@@ -6,7 +6,6 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 02/08/2021
 ms.custom: engagement-fy23, devx-track-arm-template
 ms.author: halkazwini
@@ -366,7 +365,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * Test Groups
 	* name - Name your test group.
 	* testConfigurations - Test Configurations based on which source endpoints connect to destination endpoints
-	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and nonAzure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
+	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and non-Azure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
 	* destinations -  Choose from endpoints created above. You can monitor connectivity to Azure VMs or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
 	* disable - Use this field to disable monitoring for all sources and destinations that the test group specifies.
 
