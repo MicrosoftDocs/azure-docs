@@ -27,7 +27,7 @@ The Data Channel API enables real-time messaging during audio and video calls. W
 1. Real-time Messaging: The Data Channel API enables users to instantly send and receive messages during an ongoing audio or video call, promoting smooth and efficient communication. In group call scenarios, messages can be sent to a single participant, a specific set of participants, or all participants within the call. This flexibility enhances communication and collaboration among users during group interactions.
 2. Unidirectional Communication: Unlike bidirectional communication, the Data Channel API is designed for unidirectional communication. It employs distinct objects for sending and receiving messages: the DataChannelSender object for sending and the DataChannelReceiver object for receiving. This separation simplifies message management in group calls, leading to a more streamlined user experience.
 3. Binary Data Support: The API supports the sending and receiving of binary data, permitting the exchange of diverse data types, such as text, images, and files. Note that text messages must be serialized into a byte buffer before they can be transmitted.
-4. Sender Options: The Data Channel API provides three configurable options when creating a sender object, including Reliability, Priority, and Bitrate. These options will enable the configuration of a channel to meet specific needs for different use cases. 
+4. Sender Options: The Data Channel API provides three configurable options when creating a sender object, including Reliability, Priority, and Bitrate. These options enable the configuration of a channel to meet specific needs for different use cases.
 5. Security: All messages exchanged between a client and the other endpoint are encrypted, ensuring the privacy and security of users' data.
 
 ## Common use cases
@@ -37,7 +37,7 @@ These are two common use cases:
 ### Messaging between participants in a call
 
 The Data Channel API enables the transmission of binary type messages among call participants.
-With appropriate serialization in the application, it can deliver a variety of message types, extending beyond mere chat texts.
+With appropriate serialization in the application, it can deliver various message types, extending beyond mere chat texts.
 Although other messaging libraries may offer similar functionality, the Data Channel API offers the advantage of low-latency communication.
 Moreover, by removing the need for maintaining a separate participant list, user management is simplified.
 
@@ -61,23 +61,26 @@ The decoupling of sender and receiver objects simplifies message handling in gro
 
 ### Channel
 Every Data Channel message is associated with a specific channel identified by `channelId`.
-It's important to clarify that this channelId is not related to the id property in the WebRTC Data Channel.
+It's important to clarify that this channelId isn't related to the id property in the WebRTC Data Channel.
 This channelId can be utilized to differentiate various application uses, such as using 100 for chat messages and 101 for image transfers.
 
 The channelId is assigned during the creation of a DataChannelSender object,
 and can be either user-specified or determined by the SDK if left unspecified.
 
 The valid range of a channelId lies between 1 and 65535. If a channelId 0 is provided,
-or if no channelId is provided, the SDK will assign an available channelId from within the valid range.
+or if no channelId is provided, the SDK assigns an available channelId from within the valid range.
 
 ### Reliability
 Upon creation, a channel can be configured to be one of the two Reliability options: `lossy` or `durable`.
 
-A `lossy` channel means the order of messages is not guranteed and a message can be silently dropped when sending fails. It generally affords a faster data transfer speed. 
+A `lossy` channel means the order of messages isn't guaranteed and a message can be silently dropped when sending fails. It generally affords a faster data transfer speed.
 
-A `durable` channel means the SDK will guarantee a lossless and ordered message delivery. In cases when a message cannot be delivered, an exception will be thrown by the SDK.
+A `durable` channel means the SDK guarantees a lossless and ordered message delivery. In cases when a message can't be delivered, an exception will be thrown by the SDK.
+In the Web SDK, the durability of the channel is ensured through a reliable SCTP connection. However, it doesn't imply that message will not be lost in an end-to-end manner.
+In the context of a group call, it signifies the prevention of message loss between the sender and server.
+In a peer-to-peer call, it denotes reliable transmission between the sender and remote endpoint.
 
-Note: In the current Web SDK implementation, data transmission is done through a reliable WebRTC Data Channnel connection for both `lossy` and `durable` channels. However, in the Native SDK implementation, the underlying connection is not fully reliable, thus `durable` only means best-effort reliability.  
+Note: In the current Web SDK implementation, data transmission is done through a reliable WebRTC Data Channel connection for both `lossy` and `durable` channels. However, in the Native SDK implementation, the underlying connection isn't fully reliable, thus `durable` only means best-effort reliability.
 
 ### Priority
 Upon creation, a channel can be configured to be one of the two Priority options: `normal` or `high`.
@@ -89,7 +92,7 @@ For the Web SDK, priority settings are only compared among channels on the sende
 ### Bitrate
 When creating a channel, a desirable bitrate can be specified for bandwidth allocation.
 
-This Bitrate property is to notify the SDK of the expected bandwidth requirement for a particular use case. Although the SDK generally cannot match the exact bitrate, it will try to accommondate the request. 
+This Bitrate property is to notify the SDK of the expected bandwidth requirement for a particular use case. Although the SDK generally can't match the exact bitrate, it will try to accommodate the request.
 
 
 ### Session
@@ -111,26 +114,26 @@ In instances where the session of a receiver object is closed and no new session
 Considering that the receiver object will close if it doesn't receive messages for more than two minutes. We suggest that the application periodically sends keep-alive messages from the sender's side to maintain the active status of the receiver object.
 
 ### Sequence number
-The sequence number is a 32 bit unsigned integer included in the Data Channel message to indicate the order of messages within a channel. It's important to note this number is generated from the sender's perspective. Consequently, a receiver may notice a gap in the sequence numbers if the sender alters the recipients during sending messages.
+The sequence number is a 32-bit unsigned integer included in the Data Channel message to indicate the order of messages within a channel. It's important to note this number is generated from the sender's perspective. Consequently, a receiver may notice a gap in the sequence numbers if the sender alters the recipients during sending messages.
 
 For instance, consider a scenario where a sender sends three messages. Initially, the recipients are Participant A and Participant B. After the first message, the sender changes the recipient to Participant B, and before the third message, the recipient is switched to participant A. In this case, Participant A will receive two messages with sequence numbers 1 and 3. However, this doesn't signify a message loss but only reflects the change in the recipients by the sender.
 
 ## Limitations
 
 ### Message size
-The maximum allowable size for a single message is 32KB. If you need to send data larger than this limit, you will need to divide the data into multiple messages.
+The maximum allowable size for a single message is 32 KB. If you need to send data larger than this limit, you'll need to divide the data into multiple messages.
 
 ### Participant list
-The maximum number of participants in a list is limited to 64. If you want to specify more participants, you will need to manage participant list on your own. For example, if you want to send a message to 50 participants, you can create two different channels, each with 25 participants in their recipient lists.
-Please note that when calculating the limit, two endpoints with the same participant identifier will be counted as separate entities.
+The maximum number of participants in a list is limited to 64. If you want to specify more participants, you'll need to manage participant list on your own. For example, if you want to send a message to 50 participants, you can create two different channels, each with 25 participants in their recipient lists.
+Note that when calculating the limit, two endpoints with the same participant identifier will be counted as separate entities.
 As an alternative, you could opt for broadcasting messages. However, be aware that certain restrictions apply when broadcasting messages.
 
 ### Rate limiting
-There is a limit on the overall send bitrate, currently set at 500 Kbps.
+There's a limit on the overall send bitrate, currently set at 500 Kbps.
 However, when broadcasting messages, the send bitrate limit is dynamic and depends on the receive bitrate.
-In the current implementation, the send bitrate limit is calcualted as the maximum send bitrate (500 Kbps) minus 80% of the receive bitrate.
+In the current implementation, the send bitrate limit is calculted as the maximum send bitrate (500 Kbps) minus 80% of the receive bitrate.
 
-Furthermore, we also enforce a packet rate resitriction when sending broadcast messages.
+Furthermore, we also enforce a packet rate restriction when sending broadcast messages.
 The current limit is set at 80 packets per second, where every 1200 bytes in a message is counted as one packet.
 These measures are in place to prevent flooding when a significant number of participants in a group call are broadcasting messages.
 
