@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use ChatGPT via the Azure AI Studio'
+title: 'Quickstart: Use ChatGPT via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI Service
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure AI Studio. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -24,17 +24,17 @@ keywords:
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
-## Go to Azure AI Studio
+## Go to Azure OpenAI Studio
 
-Navigate to Azure AI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
+Navigate to Azure OpenAI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-From the Azure AI Studio landing page, select **Chat playground**.
+From the Azure OpenAI Studio landing page, select **Chat playground**.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure AI Studio landing page with Chat playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
+:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with Chat playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
 
 ## Playground
 
-Start exploring OpenAI capabilities with a no-code approach through the Azure AI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities.
+Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities.
 
 :::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the Chat playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
 
@@ -114,6 +114,8 @@ If you examine the sample from **View code** you'll notice some unique tokens th
 The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response. You can also use the **Show raw syntax** toggle button to display these tokens within the chat session panel.
 
 The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the `gpt-35-turbo` model effectively.
+
+[!INCLUDE [deploy-web-app](deploy-web-app.md)]
 
 ## Clean up resources
 
