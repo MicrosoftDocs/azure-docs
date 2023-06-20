@@ -47,7 +47,7 @@ Custom policy definitions are written in JSON. To learn more about creating a cu
 
 Once you create your custom policy definition, see [Assign a policy definition][custom-policy-tutorial-assign] for a step-by-step walkthrough of assigning the policy to your Kubernetes cluster.
 
-## Validate a Azure Policy is running
+## Validate an Azure Policy is running
 
 - Confirm the policy assignments are applied to your cluster using the following `kubectl get` command.
 
@@ -79,7 +79,7 @@ Once you create your custom policy definition, see [Assign a policy definition][
 
 ### Validate rejection of a privileged pod
 
-We'll first test what happens when you schedule a pod with the security context of `privileged: true`. This security context escalates the pod's privileges. The initiative disallows privileged pods, so the request is denied, which results in the deployment being rejected.
+Let's first test what happens when you schedule a pod with the security context of `privileged: true`. This security context escalates the pod's privileges. The initiative disallows privileged pods, so the request is denied, which results in the deployment being rejected.
 
 1. Create a file named `nginx-privileged.yaml` and paste in the following YAML manifest.
 
@@ -112,7 +112,7 @@ We'll first test what happens when you schedule a pod with the security context 
 
 ### Test creation of an unprivileged pod
 
-In the previous example, the container image automatically tried to use root to bind NGINX to port 80. This request was denied by the policy initiative, so the pod fails to start. We'll now try running that same NGINX pod without privileged access.
+In the previous example, the container image automatically tried to use root to bind NGINX to port 80. The policy initiative denies this request, so the pod fails to start. Now, let's try running that same NGINX pod without privileged access.
 
 1. Create a file named `nginx-unprivileged.yaml` and paste in the following YAML manifest.
 
@@ -139,14 +139,14 @@ In the previous example, the container image automatically tried to use root to 
     kubectl get pods
     ```
 
-    Your output should be similar to the following example output, which shows he pod is successfully scheduled and has a status of *Running*:
+    Your output should be similar to the following example output, which shows the pod is successfully scheduled and has a status of *Running*:
 
     ```output
     NAME                 READY   STATUS    RESTARTS   AGE
     nginx-unprivileged   1/1     Running   0          18s
     ```
 
-    This example shows the baseline initiative affecting only deployments which violate policies in the collection. Allowed deployments continue to function.
+    This example shows the baseline initiative affecting only the deployments that violate policies in the collection. Allowed deployments continue to function.
 
 4. Delete the NGINX unprivileged pod using the [`kubectl delete`][kubectl-delete] command and specify the name of your YAML manifest.
 
@@ -168,7 +168,7 @@ You can remove the baseline initiative in the Azure portal using the following s
 For more information about how Azure Policy works, see the following articles:
 
 - [Azure Policy overview][azure-policy]
-- [Azure Policy initiatives and polices for AKS][aks-policies]
+- [Azure Policy initiatives and policies for AKS][aks-policies]
 - Remove the [Azure Policy add-on][azure-policy-addon-remove].
 
 <!-- LINKS - external -->
