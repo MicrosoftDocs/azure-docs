@@ -161,8 +161,9 @@ sections:
           # [Speech-to-text](#tab/stt)
 
           The following table describes the minimum and recommended allocation of resources
-          | Container | Minimum | Recommended |Speech Model|
-          |-----------|---------|-------------|------------|
+          
+          | Container | Minimum | Recommended | Speech Model |
+          |-----------|---------|-------------|--------------|
           | Speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory | +4 to 8 GB memory |
           
           > [!NOTE]
@@ -173,8 +174,9 @@ sections:
           # [Custom Speech-to-text](#tab/cstt)
 
           The following table describes the minimum and recommended allocation of resources
-          | Container | Minimum | Recommended |Speech Model|
-          |-----------|---------|-------------|------------|
+          
+          | Container | Minimum | Recommended | Speech Model |
+          |-----------|---------|-------------|--------------|
           | Custom speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory | +4 to 8 GB memory |
           
           > [!NOTE]
@@ -185,6 +187,7 @@ sections:
           # [Neural Text-to-speech](#tab/tts)
 
           The following table describes the minimum and recommended allocation of resources
+          
           | Container | Minimum | Recommended |
           |-----------|---------|-------------|
           | Neural text to speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
@@ -196,6 +199,7 @@ sections:
           # [Speech language identification](#tab/lid)
 
           The following table describes the minimum and recommended allocation of resources
+          
           | Container | Minimum | Recommended |
           |-----------|---------|-------------|
           | Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |
