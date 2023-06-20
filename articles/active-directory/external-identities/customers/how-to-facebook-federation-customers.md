@@ -6,7 +6,7 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: ciam;b2b
+ms.subservice: ciam
 ms.topic: how-to
 ms.date: 06/20/2023
 ms.author: mimart
