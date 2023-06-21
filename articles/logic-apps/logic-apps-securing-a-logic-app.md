@@ -858,7 +858,7 @@ In the Azure portal, IP address restriction affects both triggers *and* actions,
 
 1. Create one or more rules to either **Allow** or **Deny** requests from specific IP ranges. You can also use the HTTP header filter settings and forwarding settings.
 
-   For more information, see [Blocking inbound iP addresses in Azure Logic Apps (Standard)](https://www.serverlessnotes.com/docs/block-inbound-ip-addresses-in-azure-logic-apps-standard).
+   For more information, see [Blocking inbound IP addresses in Azure Logic Apps (Standard)](https://www.serverlessnotes.com/docs/block-inbound-ip-addresses-in-azure-logic-apps-standard).
 
 <a name="restrict-inbound-ip-template"></a>
 
