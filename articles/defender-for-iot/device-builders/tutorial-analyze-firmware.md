@@ -64,7 +64,7 @@ If this is your first interaction with **Firmware analysis,** then you'll need t
     
 ## View firmware analysis results
 
-The analysis time will vary based on the size of the firmware image and the number of files discovered in the image. While the analysis is taking place, the status will say "Extracting" and then "Analysis".  When the status is "Ready", you can see the firmware analysis results.
+The analysis time will vary based on the size of the firmware image and the number of files discovered in the image. While the analysis is taking place, the status will say *Extracting* and then *Analysis*.  When the status is *Ready*, you can see the firmware analysis results.
 
 1. Sign into the Azure portal and go to Microsoft Defender for IoT > **Firmware analysis**.
 
