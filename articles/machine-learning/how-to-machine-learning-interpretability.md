@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lgayhardt
-ms.custom: responsible-ml, mktng-kw-nov2021, event-tier1-build-2022, build-2023
+ms.custom: responsible-ml, mktng-kw-nov2021, event-tier1-build-2022, build-2023, devx-track-python
 ms.date: 11/04/2022
 ---
 
@@ -143,4 +143,4 @@ You can run the explanation remotely on Azure Machine Learning Compute and log t
 * Learn how to generate the Responsible AI dashboard via [CLI v2 and SDK v2](how-to-responsible-ai-dashboard-sdk-cli.md) or the [Azure Machine Learning studio UI](how-to-responsible-ai-dashboard-ui.md).
 * Explore the [supported interpretability visualizations](how-to-responsible-ai-dashboard.md#feature-importances-model-explanations) of the Responsible AI dashboard.
 * Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
-* Learn how to enable [interpretability for automated machine learning models](./v1/how-to-machine-learning-interpretability-automl.md).
+* Learn how to enable [interpretability for automated machine learning models (SDK v1)](./v1/how-to-machine-learning-interpretability-automl.md).

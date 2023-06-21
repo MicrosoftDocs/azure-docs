@@ -173,14 +173,14 @@ It's important to make sure the incoming and outgoing configurations are exactly
 
 This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by default. To enable it, use `distributedTracingMode` config. AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
 
-- **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#enable-application-insights)**
+- **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#get-started)**
 
    Add the following configuration:
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
 
-- **[SDK Loader Script-based setup](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights)**
+- **[JavaScript (Web) SDK Loader Script-based setup](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started)**
 
    Add the following configuration:
   ```

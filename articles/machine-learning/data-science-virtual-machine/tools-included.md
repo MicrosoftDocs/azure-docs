@@ -10,7 +10,7 @@ author: jesscioffi
 ms.author: jcioffi
 ms.topic: reference
 ms.date: 06/23/2022
-ms.custom: contperf-fy20q4, ignite-2022
+ms.custom: contperf-fy20q4, ignite-2022, devx-track-python
 ---
 
 # What tools are included on the Azure Data Science Virtual Machine?

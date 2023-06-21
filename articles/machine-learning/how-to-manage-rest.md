@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/14/2022
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom:
 ---
 
 # Create, run, and delete Azure Machine Learning resources using REST

@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 05/23/2023
+ms.date: 06/13/2023
 ms.custom: template-quickstart, ignite-2022
 ---
 

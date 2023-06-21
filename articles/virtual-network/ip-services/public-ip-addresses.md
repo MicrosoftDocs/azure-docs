@@ -40,6 +40,8 @@ The following resources can be associated with a public IP address:
 
 * Route Servers
 
+* Api Management
+
 For Virtual Machine Scale Sets, use [Public IP Prefixes](public-ip-address-prefix.md).
 
 ## At-a-glance
@@ -57,6 +59,7 @@ The following table shows the property a public IP can be associated to a resour
 | Azure Firewall | Front-end configuration | No | Yes | No | No |
 | Bastion Host | Public IP configuration | No | Yes | No | No |
 | Route Server | Front-end configuration | No | Yes | No | No |
+| Api Management | Front-end configuration | No | Yes | No | No |
 
 ## IP address version
 

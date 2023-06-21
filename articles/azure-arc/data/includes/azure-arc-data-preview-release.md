@@ -5,18 +5,15 @@ ms.service: azure-arc
 ms.topic: include
 ms.date: 05/02/2023
 ---
-<!--
 
 At this time, a test or preview build is not available for the next release.
 
--->
-
-
-June 2023 test release is now available.
+<!--
+June 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.20.0_2023-06-13`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|
@@ -41,5 +38,6 @@ June 2023 test release is now available.
 
 ### Release notes
 
-- Arc SQL Server | Least privilege authentication and authorization on Windows
 - Arc SQL Server | Host Configuration | Support for being able to view your SQL Server Configuration is now available. This includes being able to view SQL Server instances and modify host level properties like license type and have the ability to skip instances.
+
+-->

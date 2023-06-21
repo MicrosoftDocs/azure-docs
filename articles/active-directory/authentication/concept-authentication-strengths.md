@@ -208,7 +208,7 @@ In external user scenarios, the authentication methods that can satisfy authenti
 |SMS as second factor                         | &#x2705;        | &#x2705; |
 |Voice call                                   | &#x2705;        | &#x2705; |
 |Microsoft Authenticator push notification    | &#x2705;        | &#x2705; |
-|Microsoft Authenticator phone sign-in        | &#x2705;        | &#x2705; |
+|Microsoft Authenticator phone sign-in        | &#x2705;        |          |
 |OATH software token                          | &#x2705;        | &#x2705; |
 |OATH hardware token                          | &#x2705;        |          |
 |FIDO2 security key                           | &#x2705;        |          |

@@ -1,6 +1,6 @@
 ---
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
-description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims
+description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims.
 ms.topic: conceptual
 ms.date: 04/26/2023
 
@@ -15,14 +15,14 @@ Multiple pods may need to:
 * Share the same data volumes.
 * Reattach data volumes if the pod is rescheduled on a different node.
 
-Finally, you might need to collect and store sensitive data or application configuration information into pods.
+You also might need to collect and store sensitive data or application configuration information into pods.
 
 This article introduces the core concepts that provide storage to your applications in AKS:
 
-- [Volumes](#volumes)
-- [Persistent volumes](#persistent-volumes)
-- [Storage classes](#storage-classes)
-- [Persistent volume claims](#persistent-volume-claims)
+* [Volumes](#volumes)
+* [Persistent volumes](#persistent-volumes)
+* [Storage classes](#storage-classes)
+* [Persistent volume claims](#persistent-volume-claims)
 
 ![Storage options for applications in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-options.png)
 
@@ -30,10 +30,10 @@ This article introduces the core concepts that provide storage to your applicati
 
 Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches available to them for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
 
-Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: [Azure Disk][disks-types], [Azure Files][storage-files-planning], [Azure NetApp Files][azure-netapp-files-service-levels], or [Azure Blobs][storage-account-overview].
+Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure Disk][disks-types], [Azure Files][storage-files-planning], [Azure NetApp Files][azure-netapp-files-service-levels], or [Azure Blobs][storage-account-overview].
 
 > [!NOTE]
-> Depending on the VM SKU that's being used, the Azure Disk CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
+> Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
 
 To help determine best fit for your workload between Azure Files and Azure NetApp Files, review the information provided in the article [Azure Files and Azure NetApp Files comparison][azure-files-azure-netapp-comparison].
 
@@ -147,7 +147,7 @@ metadata:
   name: managed-premium-retain
 provisioner: disk.csi.azure.com
 parameters:
-  skuName: Premium_LRS
+  skuName: Premium_ZRS
 reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true

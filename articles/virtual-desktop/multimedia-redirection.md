@@ -119,11 +119,11 @@ You can install the multimedia redirection extension using Group Policy, either 
    
    - To configure it locally, open the **Local Group Policy Editor** on the session host.
 
-1. Go to **Computer Configuration** > **Administrative Templates** > **Microsoft Edge** > **Extensions**.
+1. Go to **Computer Configuration** > **Administrative Templates** > **Google** > **Google Chrome** > **Extensions**.
 
-1. Open the policy setting **Configure extension management settings** and set it to **Enabled**.
+1. Open the policy setting **Extension management settings** and set it to **Enabled**.
 
-1. In the field for **Configure extension management settings**, enter the following:
+1. In the field for **Extension management settings**, enter the following:
 
    ```json
    { "lfmemoeeciijgkjkgbgikoonlkabmlno": { "installation_mode": "force_installed", "update_url": "https://clients2.google.com/service/update2/crx" } }

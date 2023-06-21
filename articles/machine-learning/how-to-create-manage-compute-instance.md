@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create and manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: how-to
 author: jesscioffi
@@ -17,9 +17,6 @@ ms.date: 12/28/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [v1](v1/how-to-create-manage-compute-instance.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-create-manage-compute-instance.md)
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace. 
 
@@ -118,18 +115,23 @@ Where the file *create-instance.yml* is:
   
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
-### Enable SSH access
+---
 
-SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+## Enable SSH access
+
+SSH access is disabled by default.  SSH access can't be enabled or disabled after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
 [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+
+### Set up an SSH key later
+
+Although SSH cannot be enabled or disabled after creation, you do have the option to set up an SSH key later on an SSH-enabled compute instance. This allows you to set up the SSH key post-creation. To do this, select to enable SSH on your compute instance, and select to "Set up an SSH key later" as the SSH public key source. After the compute instance is created, you can visit the Details page of your compute instance and click to edit your SSH keys. From there, you will be able to add your SSH key.
+
+An example of a common use case for this is when creating a compute instance on behalf of another user (see [Create on behalf of](#create-on-behalf-of)) When provisioning a compute instance on behalf of another user, you can enable SSH for the new compute instance owner by selecting "Set up an SSH key later". This allows for the new owner of the compute instance to set up their SSH key for their newly owned compute instance once it has been created and assigned to them following the steps above.
 
 ### Connect with SSH
 
 [!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
-
-
----
 
 ## Create on behalf of
 
@@ -165,7 +167,7 @@ A compute instance is considered inactive if the below conditions are met:
 * No active Jupyter terminal sessions
 * No active Azure Machine Learning runs or experiments
 * No SSH connections
-* No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
+* No VS Code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS Code detects no activity for 3 hours. 
 * No custom applications are running on the compute
 
 A compute instance will not be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. 
@@ -499,7 +501,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
-You can create compute instance with managed identity from Azure Machine Learning Studio:
+You can create compute instance with managed identity from Azure Machine Learning studio:
 
 1.    Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
 1.    Select **Next: Advanced Settings**.
@@ -516,16 +518,6 @@ client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
 credential = ManagedIdentityCredential(client_id=client_id)
 ml_client = MLClient(credential, sub_id, rg_name, ws_name)
 data = ml_client.data.get(name=data_name, version="1")
-```
-
-You can also use SDK V1:
-
-```python
-from azureml.core.authentication import MsiAuthentication
-from azureml.core import Workspace
-client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
-auth = MsiAuthentication(identity_config={"client_id": client_id})
-workspace = Workspace.get("chrjia-eastus", auth=auth, subscription_id="381b38e9-9840-4719-a5a0-61d9585e1e91", resource_group="chrjia-rg", location="East US")
 ```
 
 You can use V2 CLI to create a compute instance with assign system-assigned managed identity:
@@ -654,6 +646,8 @@ Access the custom applications that you set up in studio:
 > It might take a few minutes after setting up a custom application until you can access it via the links above. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
 
 ## Manage
+
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
 Start, stop, restart, and delete a compute instance. A compute instance doesn't automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you'll still be billed for disk, public IP, and standard load balancer. 
 

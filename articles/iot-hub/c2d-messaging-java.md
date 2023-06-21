@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/30/2023
-ms.custom: [amqp, mqtt, devx-track-java]
+ms.custom: [amqp, mqtt, devx-track-java, devx-track-extended-java]
 ---
 
 # Send cloud-to-device messages with IoT Hub (Java)

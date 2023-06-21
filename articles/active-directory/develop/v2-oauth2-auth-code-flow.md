@@ -146,7 +146,7 @@ The following table describes the various error codes that can be returned in th
 
 ### Request an ID token as well or hybrid flow
 
-To learn who the user is before redeeming an authorization code, it's common for applications to also request an ID token when they request the authorization code. This approach is called the *hybrid flow* because it mixes the implicit grant with the authorization code flow.
+To learn who the user is before redeeming an authorization code, it's common for applications to also request an ID token when they request the authorization code. This approach is called the *hybrid flow* because it mixes OIDC with the OAuth2 authorization code flow.
 
 The hybrid flow is commonly used in web apps to render a page for a user without blocking on code redemption, notably in [ASP.NET](quickstart-v2-aspnet-core-webapp.md). Both single-page apps and traditional web apps benefit from reduced latency in this model.
 
