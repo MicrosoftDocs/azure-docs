@@ -29,11 +29,11 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
 ```azurecli-interactive
-RESOURCE_GROUP=<event-driven-app-resource-group-name>
-LOCATION=<desired-region>
-SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
-AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
-APP_NAME=<event-driven-app-name>
+export RESOURCE_GROUP=<event-driven-app-resource-group-name>
+export LOCATION=<desired-region>
+export SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
+export AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
+export APP_NAME=<event-driven-app-name>
 ```
 
 ### 3.2. Create a new resource group
