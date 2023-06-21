@@ -1,6 +1,6 @@
 ---
 title: Azure ECas_cc_v5 and ECads_cc_v5-series
-description: Specifications for Azure Confidential Computing's Azure ECas_cc_v5 and ECads_cc_v5-series confidential virtual machines. 
+description: Specifications for Azure Confidential Computing's Azure ECas_cc_v5 and ECads_cc_v5-series confidential computing capable virtual machines. 
 author: ananyagarg
 ms.author: ananyagarg
 ms.reviewer: mimckitt
@@ -38,7 +38,7 @@ The ECas_cc_v5-series sizes offer a combination of vCPU and memory for most prod
 [Premium Storage caching](premium-storage-performance.md): Supported <br>
 [Live Migration](maintenance-and-updates.md): Supported <br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
-[VM Generation Support](generation-2.md): Generation 1 and 2 <br>
+[VM Generation Support](generation-2.md): Generation 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
