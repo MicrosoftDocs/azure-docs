@@ -40,11 +40,7 @@ To enable the Private access traffic forwarding profile, we recommend you first 
 
 You can also configure per-app access to your private resources. This process is similar to configuring Quick Access, but per-app access provides the option to enable or disable the per-app access without impacting the FQDNs and IP addresses included in Quick Access.
 
-To manage the details included in the Private access traffic forwarding policy:
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
-1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
-1. Select the **View** link for **Private access policies**. 
+To manage the details included in the Private access traffic forwarding policy, select the **View** link for **Private access policies**. 
 
 :::image type="content" source="media/how-to-manage-private-access-profile/private-access-profile-link.png" alt-text="Screenshot of the Private access profile, with the view applications link highlighted." lightbox="media/how-to-manage-private-access-profile/private-access-profile-expanded.png":::
 
@@ -54,11 +50,17 @@ Details of your Quick Access and enterprise apps for Private access are displaye
 
 ## Linked Conditional Access policies
 
-Conditional Access policies can be applied to your Quick Access and Private Access applications. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
+[Conditional Access policies](../active-directory/conditional-access/overview.md) are created and applied to the traffic forwarding profile in the Conditional Access area of Microsoft Entra ID. For example, you can create a policy that requires multifactor authentication to access private resources.
 
-Conditional Access policies are created and applied to the Quick Access application in the **Protection** area of Microsoft Entra ID. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
+If you see "None" in the **Linked Conditional Access policies** section, there isn't a Conditional Access policy linked to the traffic forwarding profile. To create a Conditional Access policy, see [Universal Conditional Access through Global Secure Access.](how-to-target-resource.md).
 
 ![Screenshot of the linked Conditional Access policies area of Private Access.](media/how-to-manage-private-access-profile/private-access-conditional-access-policies.png)
+
+### Edit an existing Conditional Access policy
+
+1. Select the **View** link for **Linked Conditional Access policies**.
+1. Select a policy from the list. The details of the policy open in Conditional Accesss. 
+
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

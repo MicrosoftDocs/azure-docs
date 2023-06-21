@@ -33,11 +33,7 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 ## Microsoft 365 traffic policies
 
-To manage the details included in the Microsoft 365 traffic forwarding policy:
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
-1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
-1. Select the **View** link for **Microsoft 365 traffic policies**. 
+To manage the details included in the Microsoft 365 traffic forwarding policy, select the **View** link for **Microsoft 365 traffic policies**. 
 
 :::image type="content" source="media/how-to-manage-microsoft-365-profile/microsoft-365-traffic-policies.png" alt-text="Screenshot of the Private access profile, with the view applications link highlighted." lightbox="media/how-to-manage-microsoft-365-profile/microsoft-365-traffic-policies-expanded.png":::
 
@@ -57,19 +53,18 @@ If the Microsoft 365 profile isn't enabled, or a specific FQDN or IP address byp
 
 ## Linked Conditional Access policies
 
-Conditional Access policies are created and applied to the traffic forwarding profile in the Conditional Access area of Microsoft Entra ID. For example, you can create a policy that requires using compliant devices when accessing Microsoft 365 services.
-
-For more information on Conditional Access, see the [Conditional Access overview](../active-directory/conditional-access/overview.md).
+[Conditional Access policies](../active-directory/conditional-access/overview.md) are created and applied to the traffic forwarding profile in the Conditional Access area of Microsoft Entra ID. For example, you can create a policy that requires using compliant devices when accessing Microsoft 365 services.
 
 If you see "None" in the **Linked Conditional Access policies** section, there isn't a Conditional Access policy linked to the traffic forwarding profile. To create a Conditional Access policy, see [Universal Conditional Access through Global Secure Access.](how-to-target-resource.md).
-
-![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-manage-microsoft-365-profile/microsoft-365-conditional-access-policy-link.png)
 
 ### Edit an existing Conditional Access policy
 
 If the traffic forwarding profile has a linked Conditional Access policy, you can view and edit that policy.
 
 1. Select the **View** link for **Linked Conditional Access policies**.
+
+    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-manage-microsoft-365-profile/microsoft-365-conditional-access-policy-link.png)
+
 1. Select a policy from the list. The details of the policy open in Conditional Accesss. 
 
     ![Screenshot of the applied Conditional Access policies.](media/how-to-manage-microsoft-365-profile/conditional-access-applied-policies.png)
