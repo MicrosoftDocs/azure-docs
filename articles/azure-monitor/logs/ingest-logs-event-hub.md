@@ -453,6 +453,11 @@ Evaluate whether you still need these resources. Delete the resources you don't 
 
 To stop ingesting data from the event hub, [delete all data collection rule associations](/rest/api/monitor/data-collection-rule-associations/delete) related to the event hub, or [delete the data collection rules](/rest/api/monitor/data-collection-rules/delete) themselves. These actions also reset event hub [checkpointing](/azure/event-hubs/event-hubs-features#checkpointing). 
 
+## Known issues and limitations
+
+- If you transfer a subscription between Azure AD directories, you need to follow the steps described in [Known issues with managed identities for Azure resources](/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories) to continue ingesting data.
+- You can ingest messages of up to 64 KB from Event Hubs to Azure Monitor Logs.
+
 ## Next steps
 
 Learn more about to:
