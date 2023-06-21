@@ -40,11 +40,7 @@ To configure the above architecture, we'll use the following P2S VPN logs and Po
 
 1. [Create an Azure function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app) and select **PowerShell Core** as your runtime stack
 1. [Assign system assigned managed identity to the function app](/azure-functions/functions-identity-access-azure-sql-with-managed-identity.md#enable-system-assigned-managed-identity-on-azure-function)
-1. Select on **Configuration** under **Settings** in the left panel.
-1. Select on **+ New application setting**. 
-:::image type="content" source="./media/monitor-point-to-site-connections/add-application-setting.png" alt-text="Screenshot shows the tab of adding an application setting." lightbox="./media/monitor-point-to-site-connections/add-application-setting.png":::
- 
-1. Create the following 7 entries by inputting the **Name** and **Value**, then select **OK** after each value..
+1. [Create an application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md) with the following 7 entries by inputting the **Name** and **Value** and then select **OK** after each value.
 
    | Name | Value|
    |---|---|
@@ -54,18 +50,7 @@ To configure the above architecture, we'll use the following P2S VPN logs and Po
    |"tenantname" | your tenant ID |
    | "vpngw"|This name is something like \<guid>-eastus-ps2-gw. You can get this from the vWAN HUB User VPN settings. |
 
-1. Select **Save**.
-
-1. Select on **Functions** in the left panel and select **+ Create**.
-
-1. Fill in the fields.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/creating-function.png" alt-text="Screenshot shows the page when creating a function." lightbox="./media/monitor-point-to-site-connections/creating-function.png":::
-
-   * **Development Environment**: Develop in portal
-   * **Template**: Timer Trigger
-   * **New Function**: Choose a name for the Function 
-   * **Schedule**: Enter a cron expression of the format '{second} {minute} {hour} {day} {month} {day of the week}' to specify the schedule
+1. [Create a timer triggered function](../azure-functions/functions-create-scheduled-function.md#create-a-timer-triggered-function)
 
 1. Select **Code + Test** in the left panel, and type the following code in the **run.ps1** file. Select **Save**.
 
