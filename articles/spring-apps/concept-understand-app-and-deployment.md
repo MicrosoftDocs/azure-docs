@@ -52,6 +52,60 @@ The following features/properties are defined on Deployment level, and will be e
 | Environment</br>Variables | Setting environment variables |
 | Runtime</br>Version | Java 8/Java 11|
 
+## Environment
+Azure Spring Apps mounts some readonly yaml files in the runtime environment that contain the Azure context of the deployment. The paths of these yaml files are:
+
+`/etc/azure-spring-cloud/context/azure-spring-apps.yml`
+```yaml
+AZURE_SPRING_APPS:
+    SUBSCRIPTION_ID:  <your-azure-subscription-id>
+    RESOURCE_GROUP: <your-resource-group-name>
+    NAME: <your-azure-spring-apps-name>
+```
+
+`/etc/azure-spring-cloud/context/azure-spring-apps-deployment.yml`
+```yaml
+AZURE_SPRING_APPS:
+    APP:
+       NAME: <your-app-name>
+    DEPLOYMENT:
+       NAME: <your-deployment-name>
+       ACTIVE: true # true if the deployment is in production, false if in staging
+```
+
+If your app is a Spring Boot app, these two file paths will be added to the `SPRING_CONFIG_ADDITIONAL_LOCATION` environment variable. This way, your app can load these properties as configurations and use them in your code. For example, you can use the `@ConfigurationProperties` annotation to bind the yaml properties to a Java class. The following code snippet shows how to create a `@Configuration` class that represents the Azure context.
+
+```java
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+
+@Configuration
+@ConfigurationProperties(prefix = "azure-spring-apps")
+@Data
+public class AzureSpringAppsContext {
+
+    private String subscriptionId;
+    private String resourceGroup;
+    private String name;
+
+    private AppContext app;
+    private DeploymentContext deployment;
+
+    @Data
+    public static class AppContext {
+        private String name;
+    }
+
+    @Data
+    public static class DeploymentContext {
+        private String name;
+        private boolean active;
+    }
+}
+```
+
 ## Restrictions
 
 * **An App must have one production Deployment**: Deleting a production Deployment is blocked by the API. It should be swapped to staging before deleting.
