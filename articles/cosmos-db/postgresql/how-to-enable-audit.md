@@ -39,7 +39,7 @@ Using the [Azure portal](https://portal.azure.com):
  1. Search for the `shared_preload_libraries` parameter.
  1. Select **pgaudit** and save the changes. Your Azure Cosmos DB for PostgreSQL cluster will be restarted.
    
-    ![Screenshot of shared preload libraries in Azure portal.](media/howto-enable-pgaudit/shared-preload-libraries.png)
+    [![Screenshot of shared preload libraries in Azure portal.](media/howto-enable-pgaudit/shared-preload-libraries.png)](media/howto-enable-pgaudit/shared-preload-libraries-expanded.png#lightbox)
 
  1. You can check that **pgaudit** is loaded in shared_preload_libraries by executing following query in psql:
       ```SQL
@@ -75,8 +75,7 @@ Using the [Azure portal](https://portal.azure.com):
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `pgaudit` parameters.
    4. Pick appropriate settings parameter to edit. For example, to start logging set `pgaudit.log` to `WRITE`
-
-      ![Screenshot of audit parameters in Azure portal.](media/howto-enable-pgaudit/audit-parameters.png)
+            [ ![Screenshot of audit parameters in Azure portal.](media/howto-enable-pgaudit/audit-parameters.png)](media/howto-enable-pgaudit/shared-preload-libraries-expanded.png#lightbox)
 
    5. Select **Save** button to save changes
 
