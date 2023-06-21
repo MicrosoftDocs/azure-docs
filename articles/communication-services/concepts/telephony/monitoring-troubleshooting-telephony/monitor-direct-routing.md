@@ -1,7 +1,7 @@
 ---
 title: "Monitor Azure Communication Services direct routing"
 ms.author: bobazile
-ms.date: 06/11/2023
+ms.date: 06/19/2023
 author: boris-bazilevskiy
 manager: rcole
 audience: ITPro
@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 description: Learn how to monitor Azure Communication Services direct routing configuration, including Session Border Controllers, cloud components, and Telecom trunks.
 ---
 
-# Monitor Direct Routing
+# Monitor direct routing
 
 This article describes how to monitor your direct routing configuration.
 
@@ -34,7 +34,7 @@ Here's an example of the configuration:
 
 ![[SIP options configuration example.](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png)](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png#lightbox)
 
-When an ACS app makes a call to number +1 425 \<any seven digits>, direct routing evaluates the route. There are two SBCs in the route: `sbc.contoso.com` and `sbc2.contoso.com`. Both SBCs have equal priority in the route. Before picking an SBC, the routing mechanism evaluates the health of each SBC, based on when the SBC sent the SIP OPTIONS last time.
+When an Azure Communication Services SDK app makes a call to number +1 425 \<any seven digits>, direct routing evaluates the route. There are two SBCs in the route: `sbc.contoso.com` and `sbc2.contoso.com`. Both SBCs have equal priority in the route. Before picking an SBC, the routing mechanism evaluates the health of each SBC, based on when the SBC sent the SIP OPTIONS last time.
 
 An SBC is considered healthy if statistics at the moment of sending the call shows that the SBC sends OPTIONS every minute.  
 
@@ -48,9 +48,9 @@ Direct routing takes the regular interval OPTIONS three times (the regular inter
 
 If the SBC in the example sent OPTIONS at any period between 11:12 AM and 11:15 AM (the time the call was made), it's considered healthy. If not, the SBC is demoted from the route.
 
-Demotion means that the SBC isn't tried first. For example, we have sbc1.contoso.com and sbc2.contoso.com with equal priority.  
+Demotion means that the SBC isn't tried first. For example, we have `sbc.contoso.com` and `sbc2.contoso.com` with equal priority.  
 
-If sbc1.contoso.com doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, sbc2.contoso.com tries for the call. If sbc2.contoso.com can't deliver the call, the sbc1.contoso.com (demoted) is tried again before a failure is generated. 
+If `sbc1.contoso.com` doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, `sbc2.contoso.com` tries for the call. If `sbc2.contoso.com` can't deliver the call, the `sbc1.contoso.com` (demoted) is tried again before a failure is generated. 
 
 If two (or more) SBCs in one route are considered healthy and equal, Fisher-Yates shuffle is applied to distribute the calls between the SBCs.
 

@@ -1,7 +1,7 @@
 ---
 title: "Troubleshoot Azure Communication Services direct routing TLS certificate and SIP OPTIONS issues"
 ms.author: bobazile
-ms.date: 06/11/2023
+ms.date: 06/19/2023
 author: boris-bazilevskiy
 manager: rcole
 audience: ITPro

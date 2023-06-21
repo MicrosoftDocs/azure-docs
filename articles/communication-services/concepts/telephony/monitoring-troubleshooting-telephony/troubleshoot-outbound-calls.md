@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Communication Services direct routing outbound calls issues
 description: Learn how to troubleshoot Azure Communication Services direct routing potential issues that affect outbound calls.
-ms.date: 06/11/2023
+ms.date: 06/19/2023
 author: boris-bazilevskiy
 ms.author: bobazile
 manager: rcole
@@ -75,15 +75,15 @@ Contact the SBC vendor support to fix the issue.
 
 ## Some users are unable to make calls
 
-If the connection between the Microsoft and the SBC is working correctly, but some users or applications can't make calls, the issue might be an incorrect scope of an ACS access token
+If the connection between the Microsoft and the SBC is working correctly, but some users or applications can't make calls, the issue might be an incorrect scope of an Azure Communication Services access token
 
 ### Cause 1
 
-ACS access token was created with a chat scope.
+Azure Communication Services access token was created with a chat scope.
 
 ### Resolution 1
 
-Make sure that all the ACS access tokens that are used for making calls are generated [with a `voip` scope](../../identity-model.md#access-tokens).
+Make sure that all the Azure Communication Services access tokens that are used for making calls are generated [with a `voip` scope](../../identity-model.md#access-tokens).
 
 ### Cause 2
 
