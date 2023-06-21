@@ -185,7 +185,7 @@ After you deploy the VMs for your SAP system, create a load balancer. Use VMs cr
 
 The instructions in this section are only applicable, if using Azure NetApp Files volumes with NFSv4.1 protocol. Perform the configuration on all VMs, where Azure NetApp Files NFSv4.1 volumes will be mounted.  
 
-1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, i.e. **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
+1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
 
     > [!IMPORTANT]
     > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **`defaultv4iddomain.com`**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
@@ -415,7 +415,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-QAS_ASCS
    ```
 
-   Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
+   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
 
    ```bash
    sudo pcs status
@@ -676,10 +676,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    > [!NOTE]
    > The higher timeouts, suggested when using NFSv4.1 are necessary due to protocol-specific pause, related to NFSv4.1 lease renewals.
-   > For more information see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf).  
+   > For more information, see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf).  
    > The timeouts in the above configuration are just examples and may need to be adapted to the specific SAP setup.
 
-   Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
+   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
 
     ```bash
     sudo pcs status
@@ -743,7 +743,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 Some databases require that the database instance installation is executed on an application server. Prepare the application server virtual machines to be able to use them in these cases.  
 
-The steps bellow assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) are not needed.  
+The steps bellow assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) aren't needed.  
 
 The following items are prefixed with either **[A]** - applicable to both PAS and AAS, **[P]** - only applicable to PAS or **[S]** - only applicable to AAS.  
 
@@ -1194,7 +1194,7 @@ Follow these steps to install an SAP application server.
    [root@anftstsapcl2 ~]# pgrep -f enqr.sapQAS | xargs kill -9
    ```
 
-   If you only run the command once, `sapstart` will restart the process. If you run it often enough, `sapstart` will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
+   If you only run the command once, `sapstart` will restart the process. If you run it often enough, `sapstart` will not restart the process, and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
 
    ```bash
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
