@@ -40,7 +40,7 @@ In this quickstart, you'll learn how to create a tenant with customer configurat
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/select-tenant-type.png" alt-text="Screenshot of the select tenant type screen.":::
 
-1. Select **Use Azure Subscription**. If you're creating a tenant with customer configurations for the first time, you have the option to create a trial tenant that doesn't require an Azure subscription. For more information about the free trial, see [Set up a free trial](quickstart-trial-setup.md).
+1. Select **Use an Azure Subscription**. If you're creating a tenant with customer configurations for the first time, you have the option to create a trial tenant that doesn't require an Azure subscription. For more information about the free trial, see [Set up a free trial](quickstart-trial-setup.md).
  
     :::image type="content" source="media/how-to-create-customer-tenant-portal/create-first-customer-tenant.png" alt-text="Screenshot of the two tenants with customer configurations options available during the initial tenant creation.":::
 
