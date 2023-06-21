@@ -84,7 +84,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificate-base64-download.png)
+	![Screenshot shows the Certificate download link.](common/certificate-base64-download.png)
 
 1. On the **Set up ThreatQ Platform** section, copy the appropriate URL(s) based on your requirement.
 
