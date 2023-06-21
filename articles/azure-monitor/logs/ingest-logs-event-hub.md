@@ -281,7 +281,7 @@ To create a data collection rule in the Azure portal:
     - **Data Collection Rule Name** - Give the rule a name.
     - **Workspace Resource ID** - See [Collect required information](#collect-required-information). 
     - **Endpoint Resource ID** - Generated when you [create the data collection endpoint](#create-a-data-collection-endpoint).
-    - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name must end with the suffix *_CL*. 
+    - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name must end with the suffix *_CL*. If you're ingesting data to an Azure table, enter the table name without the suffix.  
     - **Consumer Group** - By default, the consumer group is set to `$Default`. If needed, change the value to set a different [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups). 
 
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule set up in this tutorial.":::
