@@ -161,7 +161,7 @@ This article assumes that:
 
 ### Prepare for SAP NetWeaver Installation
 
-1. Add configuration for the newly deployed system (that is, `NW2` and `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#deploy-linux-manually-via-azure-portal). Adjust the IP addresses, health probe ports, and load-balancing rules for your configuration.  
+1. Add configuration for the newly deployed system (that is, `NW2` and `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#deploy-azure-load-balancer-via-azure-portal). Adjust the IP addresses, health probe ports, and load-balancing rules for your configuration.  
 
 2. **[A]** Set up name resolution for the more SAP systems. You can either use DNS server or modify */etc/hosts* on all nodes. This example shows how to use the */etc/hosts* file.  Adapt the IP addresses and the host names to your environment.
 
@@ -577,7 +577,7 @@ This article assumes that:
 
 Complete your SAP installation by:
 
-* [Preparing your SAP NetWeaver application servers](./high-availability-guide-rhel-netapp-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7).
+* [Preparing your SAP NetWeaver application servers](./high-availability-guide-rhel-netapp-files.md#sap-netweaver-application-server-preparation).
 * [Installing a DBMS instance](./high-availability-guide-rhel-netapp-files.md#install-database).
 * [Installing A primary SAP application server](./high-availability-guide-rhel-netapp-files.md#sap-netweaver-application-server-installation).
 * Installing one or more other SAP application instances.
