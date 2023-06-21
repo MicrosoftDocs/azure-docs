@@ -10,31 +10,16 @@ ms.date: 06/16/2023
 
 # Get ready for the next enhancement in Microsoft Purview
 
+>[!NOTE]
+>This new experience will be available within the next few weeks. Account owners and root collection admins will receive an email when it has been made available for your organization.
+
 You spoke, we listened! Get ready for your next Microsoft Purview enhancement. We're rolling this new experience out to our customers to try. When it's available for your organization, your account owners and root collection admins will receive an email, and can follow these steps to enable the new experience!
 
 The new experience is an enhancement to the current Microsoft Purview, and doesn't impact your information already stored in Microsoft Purview or your ability to use our APIs.
 
 ## How can you use our new experience?
 
-If you're an account owner or root collection admin, you can upgrade your Microsoft Purview account to the new experience from:
-
-- [Microsoft Purview Accounts in the Azure portal](https://portal.azure.com/#browse/Microsoft.Purview%2FAccounts)
-
-    :::image type="content" source="./media/account-upgrades/upgrade-notification-single-account.png" alt-text="Screenshot showing the notification for the new portal highlighted to indicate selection.":::
-
-- [Classic Microsoft Purview portal](https://ms.web.purview.azure.com/)
-
-    :::image type="content" source="./media/account-upgrades/portal-upgrade-account.png" alt-text="Screenshot showing the upgrade account option in the Microsoft Purview governance portal.":::
-
-- Your upgrade notification email
-
-    :::image type="content" source="./media/account-upgrades/email-upgrade-account.png" alt-text="Screenshot showing the upgrade account option in the Microsoft Purview account upgrade email.":::
-
-- New Microsoft Purview portal (coming soon!)
-
-## Upgrade
-
-The new experience is already automatically available, but getting started with it depends on your organization's current structure.
+The new experience is automatically available once your organization has been enabled, but getting started with it depends on your organization's current structure.
 Follow one of these guides below:
 
 - [You only have one Microsoft Purview account](#one-microsoft-purview-account)
@@ -52,6 +37,7 @@ To access it, you can either:
 
 - Select the note at the top of the Microsoft Purview accounts page.
 - Select the toggle in the Microsoft Purview governance portal.
+    :::image type="content" source="./media/account-upgrades/switch.png" alt-text="Screenshot of the toggle to switch to the new experience.":::
 
 #### Your region doesn't map to an available region
 
@@ -59,10 +45,10 @@ To access it, you can either:
 
 1. If your account is in a different region than your tenant, an admin needs to confirm set up.
 
-    :::image type="content" source="./media/account-upgrades/different-region.png" alt-text="Screenshot showing the different region confirmation pop up window.":::
+    :::image type="content" source="./media/account-upgrades/different-region.png" alt-text="Screenshot showing the different region confirmation pop-up window.":::
 
     >[!NOTE]
-    >If you want to use a different region, you will either need to cancel and wait for more regions to be available, or cancel and create a new Microsoft Purview account in one of the [available regions](#regions).
+    >If you want to use a different region, you will either need to cancel and wait for upcoming region related features, or cancel and create a new Microsoft Purview account in one of the [available regions](#regions).
 1. After confirmation, the new portal will launch.
 1. You can take the tour and begin exploring the new Microsoft Purview experience!
 
@@ -84,7 +70,7 @@ To access it, you can either:
     :::image type="content" source="./media/account-upgrades/selected-account-different-region.png" alt-text="Screenshot of confirmation for selecting an account in a region that's different from your tenant region.":::
 
     >[!NOTE]
-    >If you want to use a different region, you will either need to cancel and select or create a different Microsoft Purview account, or cancel wait for more [regions](#regions) to be available.
+    >If you want to use a different [region](#regions), you will either need to cancel and select or create a different Microsoft Purview account, or cancel and wait for upcoming region related features.
 1. After confirmation, the new portal will launch.
 1. You can take the tour and begin exploring the new Microsoft Purview experience!
 
