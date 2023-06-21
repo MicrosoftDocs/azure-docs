@@ -48,36 +48,36 @@ You can use Azure Resource Group Deployment task or Azure CLI task to deploy a B
 
 1. Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure Resource Manager Template Deployment task](/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
 
-  ```yml
-  trigger:
-  - main
+    ```yml
+    trigger:
+    - main
 
-  name: Deploy Bicep files
+    name: Deploy Bicep files
 
-  variables:
-    vmImageName: 'ubuntu-latest'
+    variables:
+      vmImageName: 'ubuntu-latest'
 
-    azureServiceConnection: '<your-connection-name>'
-    resourceGroupName: 'exampleRG'
-    location: '<your-resource-group-location>'
-    templateFile: './main.bicep'
-  pool:
-    vmImage: $(vmImageName)
+      azureServiceConnection: '<your-connection-name>'
+      resourceGroupName: 'exampleRG'
+      location: '<your-resource-group-location>'
+      templateFile: './main.bicep'
+    pool:
+      vmImage: $(vmImageName)
 
-  steps:
-  - task: AzureResourceManagerTemplateDeployment@3
-    inputs:
-      deploymentScope: 'Resource Group'
-      azureResourceManagerConnection: '$(azureServiceConnection)'
-      action: 'Create Or Update Resource Group'
-      resourceGroupName: '$(resourceGroupName)'
-      location: '$(location)'
-      templateLocation: 'Linked artifact'
-      csmFile: '$(templateFile)'
-      overrideParameters: '-storageAccountType Standard_LRS'
-      deploymentMode: 'Incremental'
-      deploymentName: 'DeployPipelineTemplate'
-  ```
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: '$(azureServiceConnection)'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: '$(resourceGroupName)'
+        location: '$(location)'
+        templateLocation: 'Linked artifact'
+        csmFile: '$(templateFile)'
+        overrideParameters: '-storageAccountType Standard_LRS'
+        deploymentMode: 'Incremental'
+        deploymentName: 'DeployPipelineTemplate'
+    ```
 
 1. Update the values of `azureServiceConnection` and `location`.
 1. Verify you have a `main.bicep` in your repo, and the content of the Bicep file.
@@ -87,34 +87,34 @@ You can use Azure Resource Group Deployment task or Azure CLI task to deploy a B
 
 1. Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2):
 
-  ```yml
-  trigger:
-  - main
+    ```yml
+    trigger:
+    - main
 
-  name: Deploy Bicep files
+    name: Deploy Bicep files
 
-  variables:
-    vmImageName: 'ubuntu-latest'
+    variables:
+      vmImageName: 'ubuntu-latest'
 
-    azureServiceConnection: '<your-connection-name>'
-    resourceGroupName: 'exampleRG'
-    location: '<your-resource-group-location>'
-    templateFile: 'main.bicep'
-  pool:
-    vmImage: $(vmImageName)
+      azureServiceConnection: '<your-connection-name>'
+      resourceGroupName: 'exampleRG'
+      location: '<your-resource-group-location>'
+      templateFile: 'main.bicep'
+    pool:
+      vmImage: $(vmImageName)
 
-  steps:
-  - task: AzureCLI@2
-    inputs:
-      azureSubscription: $(azureServiceConnection)
-      scriptType: bash
-      scriptLocation: inlineScript
-      useGlobalConfig: false
-      inlineScript: |
-        az --version
-        az group create --name $(resourceGroupName) --location $(location)
-        az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
-  ```
+    steps:
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: $(azureServiceConnection)
+        scriptType: bash
+        scriptLocation: inlineScript
+        useGlobalConfig: false
+        inlineScript: |
+          az --version
+          az group create --name $(resourceGroupName) --location $(location)
+          az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
+    ```
 
   To override the parameters, update the last line of `inlineScript` to:
 
