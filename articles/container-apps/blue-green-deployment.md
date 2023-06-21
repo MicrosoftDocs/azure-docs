@@ -197,7 +197,7 @@ export GREEN_COMMIT_ID=sha1c6f1515
 # create a new app with a blue revision
 az deployment group create \
     --name createapp-$BLUE_COMMIT_ID \
-    --resource-group openai-capps-rg \
+    --resource-group $RESOURCE_GROUP \
     --template-file main.bicep \
     --parameters appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
     --query properties.outputs.fqdn
