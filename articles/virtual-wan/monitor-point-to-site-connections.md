@@ -16,113 +16,31 @@ This section documents how to create an Azure Workbook that shows relevant data 
 
 ## Before you begin
 
-To complete the steps in this article, you need to have a virtual WAN,  a hub, and a User VPN Gateway. To create these resources, follow the steps in this article: [Create virtual WAN, a hub, and a gateway](virtual-wan-point-to-site-portal.md)
+To complete the steps in this article, you need to have a Virtual WAN, a virtual hub, and a User VPN Gateway. To create these resources, follow the steps in this article: [Create Virtual WAN, virtual hub, and a gateway](virtual-wan-point-to-site-portal.md)
 
 ## Workbook solution architecture
 
-When you work with Azure Virtual WAN and look at metrics, it’s most often done from within the context of an Azure workbook. In this solution, we'll use what's already available in Azure workbook and enrich it with more details, especially about active connections.
-
-* **AzureDiagnostics:** These logs are received by enabling P2S Debugging through Azure Monitor debug settings and enabling the following logs: GatewayDiagnosticLog, IKEDiagnosticLog, P2SDiagnosticLog, AllMetrics. Some logs are noisy and costly regarding Log Analytics cost, specially IKEDiagnostics.
-
-* **Get-AzP2sVpnGatewayDetailedConnectionHealth:** This is a PowerShell command (running in a function app) to get active sessions details. This command only supports storing data in a storage account based on a SAS Key.
-
-The following figure shows the involved components in the suggested solution:
-
    :::image type="content" source="./media/monitor-point-to-site-connections/workbook-architecture.png" alt-text="Screenshot shows workbook architecture.":::
 
-The VPN service is running in the Azure vWAN P2S VPN gateway. It has associated metrics and debugs settings that can be read from within an Azure workbook. To get the extra information that the PowerShell command can provide, we choose to execute this command in an Azure function app. From the function app, we store the output in an Azure storage account.
+To configure the above architecture, we'll use the following P2S VPN logs and PowerShell command. 
 
-The output stored in the storage account is fetched from within the workbook by using a special function called "externaldata".
+* **AzureDiagnostics:** These logs are received by creating a diagnostic setting for the User VPN Gateway and enabling the following logs: GatewayDiagnosticLog, IKEDiagnosticLog, P2SDiagnosticLog, and AllMetrics. 
 
-## Create Azure storage account
+* **Get-AzP2sVpnGatewayDetailedConnectionHealth:** This is a PowerShell command (running in a function app) to get active sessions details. This command only supports storing data in a storage account based on a SAS Key, and it provides additional details about active P2S VPN connections. 
 
-1. In the portal, in the **Search resources** bar, type **Storage accounts**.
+## Create Azure storage account and upload blob
 
-1. Select **Storage accounts** from the results. On the Storage accounts page, select **+ Create** to open the **Create a storage account** page.
-
-1. On the **Create WAN** page, on the **Basics** tab, fill in the fields. Modify the example values to apply to your environment.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/storage-account-basics.png" alt-text="Screenshot shows the basics section of creating a storage account.":::
-
-   * **Subscription**: Select the subscription that you want to use
-   * **Resource group**: Create new or use existing
-   * **Storage account name**: Type the name you want to call your storage account
-   * **Region**: Select a region for your storage account
-   * **Performance**: Standard or Premium. **Standard** is adequate for our monitoring purposes
-   * **Redundancy**: Choose between Locally redundant storage, Geo-redundant storage, Zone-redundant storage, and Geo-zone-redundant storage
-
-   After you finish filling out the fields, at the bottom of the page, select **Next: Advanced>**.
-
-1. On the **Advanced** page, fill out the following fields.
-
-    :::image type="content" source="./media/monitor-point-to-site-connections/storage-account-advanced.png" alt-text="Screenshot shows advanced section of creating a storage account.":::
-
-    * **Require secure transfer for REST API operations**: Choose **Enabled**.
-    * **Enable blob public access**: Choose **Disabled**.
-    * **Enable storage account key access**: Choose **Enabled**.
-    * **Default to Azure Active Directory authorization in the Azure portal**: Choose **Enabled**.
-    * **Minimum TLS version**: Choose **Version 1.2**.
-
-1. Select **Review + create** at the bottom to run validation.
-
-1. Once validation passes, select **Create** to create the storage account.
-
-## Create container
-
-1. Once the deployment is complete, go to the resource.
-1. On the left panel, select **Containers** under **Data storage**.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/container-create.png" alt-text="Screenshot shows the initial container page." lightbox="./media/monitor-point-to-site-connections/container-create.png":::
-1. Select **+ Container** to create a new container.
-1. Type a **Name** for your container and select **Create**.
-
-## Create and upload blob to container
-
-1. On your computer, open a text editor application such as **Notepad**.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/notepad.png" alt-text="Screenshot shows how to open notepad.":::
-1. Leave the text file empty and select **File -> Save As**.
-1. Save the empty text file with a name of your choice followed by the **.json** extension.
-
-    :::image type="content" source="./media/monitor-point-to-site-connections/empty-json.png" alt-text="Screenshot shows how to save json file." lightbox="./media/monitor-point-to-site-connections/empty-json.png" :::
-1. Go back to the **Containers** section in portal.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/container-after.png" alt-text="Screenshot shows the container section after creating new container." lightbox="./media/monitor-point-to-site-connections/container-after.png" :::
-1. Select on the second row, which corresponds to the container you created (not $logs).
-1. If you see this red warning message saying ""**You do not have permission...**"", then select **Switch to Access key** as your authentication method. This is located right below the red warning box.
-1. Select **Upload**.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/specific-container.png" alt-text="Screenshot shows the specific container that was created by user." lightbox="./media/monitor-point-to-site-connections/specific-container.png" :::
-1. Select the file corresponding to your empty JSON file on your machine and select **Upload**.
-1. After the file gets uploaded, select on the JSON file and navigate to the **Generate SAS** tab.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/generate-sas.png" alt-text="Screenshot shows the Generate SAS field for blob." lightbox="./media/monitor-point-to-site-connections/generate-sas.png":::
-1. Under **Signing method**, choose **Account key**.
-1. Under **Permissions**, give the key the following permissions: **Read, Add, Create, and Write**.
-1. Choose an **Expiry** date and time for the key.
-1. Select **Generate SAS token and URL**.
-1. Copy down the **Blob SAS token** and **Blob SAS URL** to a secure location.
+1. [Create Azure storage account](../storage/common/storage-account-create.md).
+1. [Create container and upload a blob to the container](../storage/blobs/storage-quickstart-blobs-portal.md)
+    1. Your blob should be an empty text file with .json extension
+    1. When uploading the blob, give your **Account Key** the following permissions: **Read, Add, Create, and Write**.
+    1. Make sure to copy down the **Blob SAS token** and **Blob SAS URL** to a secure location.
 
 ## Create Azure function app
 
-1. In the portal, in the **Search resources** bar, type **Function App**.
-
-1. Select **Function App** from the results. On the Function App page, select **+ Create** to open the **Create Function App** page.
-
-1. On the **Create WAN** page, on the **Basics** tab, fill in the fields. Modify the example values to apply to your environment.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/function-app-basics.png" alt-text="Screenshot shows the basics tab of function app.":::
-
-   * **Subscription**: Select the subscription that you want to use
-   * **Resource group**: Create new or use existing
-   * **Function App name**: Choose a name for Function App
-   * **Publish**: Select **Code**
-   * **Runtime stack**: Select **PowerShell Core**
-   * **Version**: Choose 7.0 (or your preferred version)
-   * **Region**: Choose your preferred region
-
-1. The remaining tabs are optional to change, so you can select **Review + create** and then select **Create** when validation passes.
-1. Go to the **Function App** resource.
+1. Create an [Azure function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app)
+    1. Select **PowerShell Core** as your runtime stack
+1. Once created, navigate to the **Function App** resource.
 1. Select on **Identity** under **Settings** in the left panel. Toggle the **Status** button to **On** for **System assigned** and select **Save**.
 
    :::image type="content" source="./media/monitor-point-to-site-connections/function-app-identity.png" alt-text="Screenshot shows the identity tab of function app.":::
