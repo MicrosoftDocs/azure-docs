@@ -16,8 +16,13 @@ When you use Azure Active Directory (Azure AD) authentication, authorization is 
 
 The following roles are available in Azure subscriptions by default:
 
-- **Azure App Configuration Data Owner**: This role provides full access to all operations.
-- **Azure App Configuration Data Reader**: This role enables read operations.
+- **Azure App Configuration Data Owner**: This role provides full access to all operations. It permits the following actions:
+  * Microsoft.AppConfiguration/configurationStores/*/read
+  * Microsoft.AppConfiguration/configurationStores/*/write
+  * Microsoft.AppConfiguration/configurationStores/*/delete
+  * Microsoft.AppConfiguration/configurationStores/*/action
+- **Azure App Configuration Data Reader**: This role enables read operations. It permits the following actions:
+  * Microsoft.AppConfiguration/configurationStores/*/read
 
 ## Actions
 

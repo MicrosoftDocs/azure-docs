@@ -42,7 +42,7 @@ This article applies to API version 2022-11-01-preview.
     "items_count": [number],
     "tags": [object with string properties],
     "retention_period": [number, timespan in seconds],
-    "expires": [datetime ISO 8601, nullable]
+    "expires": [datetime ISO 8601]
 }
 ```
 
@@ -92,8 +92,7 @@ Link: </kv?snapshot=prod-2023-03-20&api-version={api-version}>; rel="items"
     "t1": "value1",
     "t2": "value2"
   },
-  "retention_period": 7776000,
-  "expires": null
+  "retention_period": 7776000
 }
 ```
 
@@ -313,8 +312,7 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
     "t1": "value1",
     "t2": "value2"
   },
-  "retention_period": 2592000,
-  "expires": null
+  "retention_period": 2592000
 }
 ```
 
@@ -480,7 +478,6 @@ Content-Type: application/vnd.microsoft.appconfig.snapshot+json; charset=utf-8
   "name": "{name}",
   "status": "ready",
   ...
-  "expires": null
 }
 ```
 
