@@ -16,12 +16,13 @@ ms.subservice: calling
 
 <img src='../media/click-to-call/Sample-app-splash.png' width='1000' alt='Home page of click to call sample app'>
 
-This project is aimed to teach developers on how to create a Click to Call experience using the Azure Communication UI Library.
+This project aims to guide developers on creating a seamless Click to Call experience using the Azure Communication UI Library.
 
-Depending on your needs, you might need to create an experience for your customers to be able to get a hold of you with minimal set up on their part.
-Click to call is a concept that is meant for allowing instant interaction, whether that is reaching out to customer support, having a quick call with your financial advisor, or other customer facing teams. The goal of this tutorial is to help you make you one click away from your customers.
+As per your requirements, you may need to offer your customers an easy way to reach out to you without any complex setup.
 
-If you want to try it out, download the code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/dmceachernmsft/c2c-tutorial/ui-library-click-to-call).
+Click to call is a simple yet effective concept that facilitates instant interaction with, customer support, financial advisor, and other customer-facing teams. The goal of this tutorial is to assist you in making interactions with your customers just a click away.
+
+If you wish to try it out, you can download the code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/dmceachernmsft/c2c-tutorial/ui-library-click-to-call).
 
 Following this tutorial will:
 
@@ -63,7 +64,7 @@ Then you need to update the dependency array in the `package.json` to include so
 ```json
 "@azure/communication-calling": "1.13.2-beta.1",
 "@azure/communication-chat": "1.3.2-beta.2",
-"@azure/communication-react": "1.5.2-beta.1",
+"@azure/communication-react": "1.6.1-beta.1",
 "@azure/communication-calling-effects": "1.0.1",
 "@fluentui/react-icons": "~2.0.203",
 ```
@@ -169,7 +170,7 @@ function App() {
 
 export default App;
 ```
-In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>` these new icons will be used inside the widget component that we are creating later.
+In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons will be used inside the widget component that we are creating later.
 
 ### Running the App
 

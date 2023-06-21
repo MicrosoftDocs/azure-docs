@@ -14,14 +14,14 @@ ms.subservice: calling
 ---
 # Part 1 Creating Your Widget
 
-To get started, we're going to make a new component. This component is the widget that you use to start your calling experience.
+To begin, we're going to make a new component. This component will serve as the widget for initiating the calling experience.
 
-We are using our own widget setup for this tutorial but you can expand the functionality to do more here. For us, we have the widget perform the following actions:
-- Display a custom logo, this can be replaced with another image or branding of your choosing. Feel free to download the image from the code if you would like to use our image.
-- Let the user decide if they want to have video in the call.
+While we will be using our own widget setup in this tutorial, you can adapt the functionality suit your needs. Our widget will perform the following actions:
+- Display a custom logo. This can be subsituted with an image or branding of your choice. You may download our image from the completed code if desired.
+- Allow the user to select whether or not to include video in the call.
 - Have the user consent to the call possible being recorded.
 
-First, we're going to make a new directory `src/components` and in this directory we're going to make a new file called `ClickToCallComponent.tsx`. let's set up the widget component with the following imports:
+Our first step will be to create a new directory called `src/components`. Within this directory, we're going to create a new file named `ClickToCallComponent.tsx`. We'll then proceed to set up the widget component with the following imports:
 
 `ClickToCallComponent.tsx`
 ```ts
@@ -178,7 +178,7 @@ export const ClickToCallComponent = (
 
 ### Time For Some Styles
 
-Once you have your component, you need some styles to give it some looks. For this we create a new folder `src/styles` here we create a new file called `ClickToCallComponent.styles.ts` and we add the following styles.
+After creating the component, we'll need to add some styles to give it a visually appealing look. To do this, we'll create a new folder named `src/styles`. Within this folder we'll create a new file called `ClickToCallComponent.styles.ts` and add the following styles.
 
 `src/styles/ClickToCallComponent.styles.ts`
 
@@ -277,7 +277,7 @@ export const collapseButtonStyles: IButtonStyles = {
 };
 ```
 
-These styles should already be added to the widget as seen in the snippet earlier. If you added the snippet as is, these styles just need importing into the `ClickToCallComponent.tsx` file.
+Provided the required styles have been added to the widget as seen in the snippet earlier, importing them into the `ClickToCallComponent.tsx` file is the next.
 
 `ClickToCallComponent.tsx`
 ```ts
@@ -412,7 +412,7 @@ export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
 ```
 This page has some general information on it for what our calling experiences can currently do. We can also see that it's adding the widget component that we created earlier.
 
-Once we have this we need to add the new view to the root of the app `App.tsx` by updating our existing `'click-to-call'` case:
+To integrate the widget screen, we simply update the existing `'click-to-call'` case in the root of the app `App.tsx`, by adding the new view.
 
 `App.tsx`
 ```ts
@@ -437,15 +437,15 @@ import { ClickToCallScreen } from './views/ClickToCallScreen';
     
 ```
 
-Then if you have done this and set the arguments we defined in `App.tsx` you should see this when the app is running with `npm run start`:
+Once you have set the arguments defined in `App.tsx`, run the app with `npm run start` to see the changes:
 
 <img src='../media/click-to-call/Sample-app-splash.png' width='800' alt='click to call sample app home page widget closed'>
 
-Then when you action the widget button you should see:
+Then when you action the widget button, you should see:
 
 <img src='../media/click-to-call/Sample-app-widget-open.png' width='800' alt='click to call sample app home page widget open'>
 
-Yay! We have made the control surface for the widget! Next we talk about what we need to add to make this widget start a call in a new window.
+Yay! We have made the control surface for the widget! Next, we'll discuss what we need to add to make this widget start a call in a new window.
 
 > [!div class="nextstepaction"]
 > [Part 2: Creating a new window calling experience](./click-to-call-tutorial-part-2-creating-new-window-experience.md)

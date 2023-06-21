@@ -119,28 +119,12 @@ export const SameOriginCallScreen = (props: {
 };
 ```
 
-For our `CallComposite`, we have some configuration to do for Click to Call. Depending on your use case, we have a number of customizations that can change the user experience. This sample chooses to hide the local video tile, camera, and screen sharing controls if the user opts out of video for their call. We also in addition to these configurations on the `CallComposite` use the `afterCreate` function defined in the snippet we auto join the call. This bypasses the configuration screen and drop the user into the call with their mic live, as well auto close the window when the call ends. Just remove the call to `adapter.join(true);` from the `afterCreate` function and the configuration screen shows as normal. Next let's talk about how to get this screen the information once we have our `CallComposite` configured.
+To configure Click to Call in our `CallComposite`, we need to make some changes. Depending on your use case, we have a number of customizations that can change the user experience. This sample chooses to hide the local video tile, camera, and screen sharing controls if the user opts out of video for their call. In addition to these configurations on the `CallComposite`, we use the `afterCreate` function defined in the snippet to automatically join the call. This bypasses the configuration screen and drop the user into the call with their mic live, as well auto close the window when the call ends. Just remove the call to `adapter.join(true);` from the `afterCreate` function and the configuration screen shows as normal. Next let's talk about how to get this screen the information once we have our `CallComposite` configured.
 
 To make sure we are passing around data correctly, let's create some handlers to send post messages between the parent window and child window to signal that we want some information. See diagram:
 
-```mermaid
-graph LR
-  child[Child Window]
-  parent[Parent Window]
-  
+<img src='../media/click-to-call/mermaid-charts-window-messaging.png' width='400' alt='click to call sample app home page with calling experience in new window'>
 
-  child -->|1. Args please| parent
-  
-```
-
-```mermaid
-graph LR
-  child[Child Window]
-  parent[Parent Window]
-  
-
-  parent --> |2. Adapter args| child
-```
 This flow illustrates that if the child window has spawned it needs to ask for the arguments. This behavior has to do with React and that if the parent window just sends a message right after creation, the call adapter arguments needed are lost when the application mounts. The adapter arguments are lost because in the new window the listener is not set yet until after a render pass completes. More on where these event handlers are made to come.
 
 Now we want to update the splash screen we created earlier. First we add a reference to the new child window that we create.
@@ -200,9 +184,9 @@ Next we add a `useEffect` hook that is creating an event handler listening for n
     
 ```
 
-This handler listens for events from the child window. (**NOTE: make sure that if the origin of the message is not from your app then return**) If the child window asks for arguments, we send it the arguments needed to construct a `AzureCommunicationsCallAdapter`.
+This handler listens for events from the child window. (**NOTE: make sure that if the origin of the message is not from your app then return**) If the child window asks for arguments, we send it with the arguments needed to construct a `AzureCommunicationsCallAdapter`.
 
-Finally on this screen let's add the `startNewWindow` handler to the widget so that it knows to create the new window.
+Finally on this screen, let's add the `startNewWindow` handler to the widget so that it knows to create the new window.
 
 `ClickToCallScreen.tsx`
 ```ts
@@ -226,9 +210,9 @@ Finally on this screen let's add the `startNewWindow` handler to the widget so t
     
 ```
 
-Next we need to make sure that our application can listen for and ask for the messages from what would be the parent window. First to start, you might recall that we added a new query parameter to the URL of the application `newSession=true`. To use this and have our app look for that in the URL, we need to create a utility function to parse out that parameter. Once we do that, use it to make our application behave differently when it's received.
+Next, we need to make sure that our application can listen for and ask for the messages from what would be the parent window. First to start, you might recall that we added a new query parameter to the URL of the application `newSession=true`. To use this and have our app look for that in the URL, we need to create a utility function to parse out that parameter. Once we do that, use it to make our application behave differently when it's received.
 
-To do that let's add a new folder `src/utils` and in this folder, we add the file `AppUtils.ts`. In this file let's put the following function:
+To do that, let's add a new folder `src/utils` and in this folder, we add the file `AppUtils.ts`. In this file let's put the following function:
 
 `AppUtils.ts`
 ```ts
@@ -242,9 +226,9 @@ export const getStartSessionFromURL = (): boolean | undefined => {
 };
 ```
 
-This function will take a look into our applications URL and see if the param we're looking for is there. You can also stick some other parameters in there
+This function will look into our application's URL and see if the parameters we're looking for is there. You can also stick some other parameters in there.
 
-As well we'll want to add a new type in here to track the different pieces needed to create a `AzureCommunicationCallAdapter`. This type can also be simplified if you are using our calling stateful client, this approach won't be covered in this tutorial though.
+As well, we'll want to add a new type in here to track the different pieces needed to create a `AzureCommunicationCallAdapter`. This type can also be simplified if you are using our calling stateful client, this approach won't be covered in this tutorial though.
 
 `AppUtils.ts`
 ```ts
@@ -280,7 +264,7 @@ import { AdapterArgs, getStartSessionFromURL } from './utils/AppUtils';
 
 ```
 
-Following this we want to add some state to make sure that we're tracking the new args for the adapter. We pass these arguments to the `SameOriginCallScreen.tsx` that we made earlier so it can construct an adapter. As well state to track whether the user wants to use video controls or not.
+Following this, we want to add some state to make sure that we're tracking the new arguments for the adapter. We pass these arguments to the `SameOriginCallScreen.tsx` that we made earlier so it can construct an adapter. As well state to track whether the user wants to use video controls or not.
 
 `App.tsx`
 ```ts
@@ -322,7 +306,7 @@ import { CommunicationIdentifier } from '@azure/communication-common';
   }, []);
 
 ```
-Next we want to add two more `useEffect` hooks to `App.tsx` these two hooks will
+Next, we want to add two more `useEffect` hooks to `App.tsx`. These two hooks will:
 - Ask the parent window of the application for arguments for the `AzureCommunicationCallAdapter`, we use the `window.opener` reference provided since this hook checks to see if it's the child window.
 - Checks to see if we have the arguments appropriately set from the event listener fetching the arguments from the post message to start a call and change the app page to be the call screen.
 
@@ -346,7 +330,7 @@ Next we want to add two more `useEffect` hooks to `App.tsx` these two hooks will
   }, [adapterArgs]);
 
 ```
-Finally once we have done that we want to add the new screen that we made earlier to the template as well. We also want to make sure that we do not show the Click to call screen if the `startSession` parameter is found. Using this parameter this way avoids a flash for the user.
+Finally, once we have done that, we want to add the new screen that we made earlier to the template as well. We also want to make sure that we do not show the Click to call screen if the `startSession` parameter is found. Using this parameter this way avoids a flash for the user.
 
 `App.tsx`
 ```ts
@@ -394,7 +378,7 @@ import { SameOriginCallScreen } from './views/NewWindowCallScreen';
   }
 
 ```
-Now when the application runs in a new window, it sees that it's supposed to start a call so it will:
+Now, when the application runs in a new window, it sees that it's supposed to start a call so it will:
 - Ask for the different Adapter arguments from the parent window
 - Make sure that the adapter arguments are set appropriately and start a call
 
