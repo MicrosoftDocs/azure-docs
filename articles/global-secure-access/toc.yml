@@ -56,7 +56,7 @@ items:
     expanded: false
     items:
       - name: About Private access traffic
-        href: how-to-configure-quick-access.m
+        href: how-to-configure-quick-access.md
       - name: Configure quick access
         href: how-to-configure-quick-access.md 
       - name: Configure per-app access
