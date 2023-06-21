@@ -338,11 +338,7 @@ If the peak rate of writes to the cache isn't very high, then this extra perform
 | P3           | 32 per shard   |
 | P4           | 40 per shard   |
 
-When clustering is enabled, each shard in the cache has its own set of page blobs, as indicated in the previous table. For example, a P2 cache with three shards distributes its AOF file across 48 page blobs:
-
-- 16 blobs per shard
-- with three shards spread across the primary and secondary storage accounts
-- each with 24 blobs.
+When clustering is enabled, each shard in the cache has its own set of page blobs, as indicated in the previous table. For example, a P2 cache with three shards distributes its AOF file across 48 page blobs: sixteen blobs per shard, with three shards.
 
 After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files. Set operations, sent to the cache during the rewrite, append to the second set. A backup is temporarily stored during rewrites if there's a failure. The backup is promptly deleted after a rewrite finishes. If soft delete is turned on for your storage account, the soft delete setting applies and existing backups continue to stay in the soft delete state.
 
