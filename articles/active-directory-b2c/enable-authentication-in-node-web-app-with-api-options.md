@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 02/10/2022
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.custom: b2c-support, devx-track-js
 ---
 
 # Enable Node.js web API authentication options using Azure Active Directory B2C
@@ -179,4 +179,3 @@ The following code snippet demonstrates how to configure MSAL logging:
 ## Next steps
 
 Learn more about [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md).
-

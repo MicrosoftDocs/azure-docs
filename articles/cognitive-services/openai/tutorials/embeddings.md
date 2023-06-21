@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
-ms.date: 04/25/2023
+ms.date: 06/14/2023
 author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
 recommendations: false

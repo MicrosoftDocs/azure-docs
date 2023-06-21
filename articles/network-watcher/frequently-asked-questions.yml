@@ -98,7 +98,7 @@ sections:
       - question: |
           How can I manage the Network Watcher Resource? 
         answer: |
-          The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. Customers don't need to manage it. Operations like move aren't supported on the resource. However, [the resource can be deleted](./network-watcher-create.md#delete-a-network-watcher-using-the-azure-portal). 
+          The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. Customers don't need to manage it. Operations like move aren't supported on the resource. However, [the resource can be deleted](./network-watcher-create.md#disable-network-watcher-for-your-region). 
           
   - name: Service availability and redundancy 
     questions:

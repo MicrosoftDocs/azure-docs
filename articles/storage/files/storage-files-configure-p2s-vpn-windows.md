@@ -25,7 +25,7 @@ The article details the steps to configure a Point-to-Site VPN on Windows (Windo
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
-- The most recent version of the Azure PowerShell module. For more information on how to install the Azure PowerShell, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps) and select your operating system. If you prefer to use the Azure CLI on Windows, you may, however the instructions below are presented for Azure PowerShell.
+- The most recent version of the Azure PowerShell module. For more information on how to install the Azure PowerShell, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell) and select your operating system. If you prefer to use the Azure CLI on Windows, you may, however the instructions below are presented for Azure PowerShell.
 
 - An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
 

@@ -53,7 +53,7 @@
   - name: Approve
     items:
     - name: Azure AD roles
-      href: azure-ad-pim-approval-workflow.md
+      href: pim-approval-workflow.md
     - name: Azure roles
       href: pim-resource-roles-approval-workflow.md
     - name: Groups
@@ -93,11 +93,11 @@
     - name: Azure AD roles and Azure resource roles
       items:
       - name: Create an access review
-        href: pim-create-azure-ad-roles-and-resource-roles-review.md
+        href: pim-create-roles-and-resource-roles-review.md
       - name: Perform an access review
-        href: pim-perform-azure-ad-roles-and-resource-roles-review.md
+        href: pim-perform-roles-and-resource-roles-review.md
       - name: Complete an access review
-        href: pim-complete-azure-ad-roles-and-resource-roles-review.md
+        href: pim-complete-roles-and-resource-roles-review.md
   - name: Discovery & Insights for Azure AD roles
     href: pim-security-wizard.md
   - name: Elevate access to manage Azure subscriptions

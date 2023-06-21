@@ -45,11 +45,30 @@ This list refers to the list of regions where the *metadata* for the host pool w
 
 ## Prerequisites
 
-Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required. In addition, you'll need:
+Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required, such as operating systems, virtual networks, and identity providers. Select the relevant tab for your scenario.
 
-- An Azure account with an active subscription.
+# [Portal](#tab/portal)
 
-- The account must have the following built-in role-based access control (RBAC) roles on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
+In addition, you'll need:
+
+- The Azure account you use must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
+
+   | Resource type | RBAC role(s) |
+   |--|--|
+   | Host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
+   | Workspace | [Desktop Virtualization Workspace Contributor](rbac.md#desktop-virtualization-workspace-contributor) |
+   | Application group | [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
+   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
+
+- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as it's required by [PowerShell DSC](/powershell/dsc/overview).
+
+# [Azure CLI](#tab/cli)
+
+In addition, you'll need:
+
+- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
 
    | Resource type | RBAC role |
    |--|--|
@@ -60,7 +79,32 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
-- If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+- If you want to use Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+
+> [!IMPORTANT]
+> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+
+# [Azure PowerShell](#tab/powershell)
+
+In addition, you'll need:
+
+- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
+
+   | Resource type | RBAC role |
+   |--|--|
+   | Host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
+   | Workspace | [Desktop Virtualization Workspace Contributor](rbac.md#desktop-virtualization-workspace-contributor) |
+   | Application group | [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
+   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
+
+- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+
+> [!IMPORTANT]
+> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+
+---
 
 ## Create a host pool
 

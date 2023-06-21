@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to customize apps running in Azure Spring Apps with health probes and graceful termination periods.
 

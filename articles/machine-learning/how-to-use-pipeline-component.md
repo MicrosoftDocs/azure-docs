@@ -10,7 +10,7 @@ author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
 ms.date: 04/12/2023
-ms.custom: sdkv2, cliv2, 
+ms.custom: sdkv2, cliv2, devx-track-python
 ---
 
 # How to use pipeline component to build nested pipeline job (V2) (preview)
@@ -87,6 +87,8 @@ After submitted pipeline job, you can go to pipeline job detail page to change p
 - [pipeline_with_train_eval_pipeline_component](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1j_pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component/pipeline_with_train_eval_pipeline_component.ipynb)
 
 ## Next steps
+
 - [YAML reference for pipeline component](reference-yaml-component-pipeline.md)
 - [Track an experiment](how-to-log-view-metrics.md)
 - [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
+- [Deploy a pipeline with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)

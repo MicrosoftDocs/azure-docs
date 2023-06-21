@@ -81,6 +81,13 @@ In this section, you'll create a virtual network for the load balancer, NAT gate
 1. Select the **Review + create** tab or select the **Review + create** button.
 
 1. Select **Create**.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
+
 ## Create NAT gateway
 
 In this section, you'll create a NAT gateway and assign it to the subnet in the virtual network you created previously.

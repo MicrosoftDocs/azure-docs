@@ -29,7 +29,7 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -272,7 +272,7 @@ To create an account with Azure DNS zone endpoints (preview), follow these steps
 
 1. Close and reopen the PowerShell console.
 
-1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-azure-powershell).
 
     ```azurepowershell
     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 4.4.2-preview -AllowClobber -AllowPrerelease -Force

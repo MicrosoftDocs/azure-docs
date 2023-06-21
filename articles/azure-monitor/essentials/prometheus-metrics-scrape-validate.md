@@ -1,5 +1,5 @@
 ---
-title: Create, validate and troubleshoot custom configuration file for Prometheus metrics in Azure Monitor (preview)
+title: Create, validate and troubleshoot custom configuration file for Prometheus metrics in Azure Monitor
 description: Describes how to create custom configuration file Prometheus metrics in Azure Monitor and use validation tool before applying to Kubernetes cluster.
 ms.topic: conceptual
 ms.custom: ignite-2022
@@ -7,7 +7,7 @@ ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Create and validate custom configuration file for Prometheus metrics in Azure Monitor (preview)
+# Create and validate custom configuration file for Prometheus metrics in Azure Monitor
 
 In addition to the default scrape targets that Azure Monitor Prometheus agent scrapes by default, use the following steps to provide more scrape config to the agent using a configmap. The Azure Monitor Prometheus agent doesn't understand or process operator [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for scrape configuration, but instead uses the native Prometheus configuration as defined in [Prometheus configuration](https://aka.ms/azureprometheus-promioconfig-scrape).
 

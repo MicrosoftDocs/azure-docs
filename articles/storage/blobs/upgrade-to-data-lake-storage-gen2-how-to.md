@@ -22,7 +22,7 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 1. Review feature support
 
-   You're account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any of those unsupported features in your account, make sure to disable them before you begin the upgrade.
+   Your account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any of those unsupported features in your account, make sure to disable them before you begin the upgrade.
 
    > [!NOTE]
    > Blob soft delete is not yet supported by the upgrade process. Make sure to disable blob soft delete and then allow all soft-delete blobs to expire before you upgrade the account.
@@ -92,7 +92,7 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 1. Open a Windows PowerShell command window.
 
-2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 

@@ -84,7 +84,7 @@ Sometimes errors can occur because of the parallel execution of multiple maps an
 
 ## View quota management for HDInsight
 
-View a granular level and categorization of the quota at a VM at family level. View the current quota and how much quota is remaining for a region at a VM family level. 
+View a granular level and categorization of the quota at a VM family level. View the current quota and how much quota is remaining for a region at a VM family level. 
 
 > [!NOTE]
 > This feature is currently available on HDInsight 4.x and 5.x for East US EUAP region. Other regions to follow subsequently.

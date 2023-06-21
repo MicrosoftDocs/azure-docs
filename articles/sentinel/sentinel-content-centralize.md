@@ -25,9 +25,19 @@ To centralize all OOTB content, we're planning to retire the gallery-only conten
 
 To facilitate this transition, we're publishing a central tool to reinstate **IN USE** retired templates from corresponding content hub solutions.
 
+## Data connector page change
+
+All data connectors are now part of a solution. Previously, in order to promote dashboard visualizations (now called workbooks) and provide sample KQL queries, we included a few of these items on a **Next Steps** tab of the data connector page. We have deprecated the **Next Steps** portion of the data connector page in favor of the new *solution* content behavior where all the solution components are managed alongside the data connector. 
+
+The key to experiencing the updated behavior is to start in **Content hub (Preview)**. For a comparison of the previous behavior with the new experience, examine the **Azure Activity** data connector. After installing the solution from content hub and selecting **Manage**, the entire solution is available for inspection. If you want a visualization of the Azure Activity data connector, view the template for the workbook. If you want to see KQL queries, start with the data table. For advanced queries, look to the analytics rules and hunting queries.
+
+For more information on the new solution content behavior, see [Discover and deploy OOTB content](sentinel-solutions-deploy.md#enable-content-items-in-a-solution).
+
+If there was a particular sample query for a third party data connector you are looking for, we still publish them in our **All connectors** index. For example, here are the sample queries for the [Jamf Protect connector](data-connectors/jamf-protect.md).
+
 ## Microsoft Sentinel GitHub changes
 
-Microsoft Sentinel has an official [GitHub repository](https://github.com/Azure/Azure-Sentinel) for community contributions that are vetted by Microsoft and the community. It's the source for most of the content items in the content hub.
+Microsoft Sentinel has an official [GitHub repository](https://github.com/Azure/Azure-Sentinel) for community contributions vetted by Microsoft and the community. It's the source for most of the content items in the content hub.
 
 For consistent discovery of this content, the OOTB content centralization changes have already been extended to the Microsoft Sentinel GitHub repo:
 
@@ -41,7 +51,9 @@ These changes to the content hub and the Microsoft Sentinel GitHub repo will com
 > [!IMPORTANT]
 > The following timeline is tentative and subject to change.
 
-The centralization change in the Microsoft Sentinel portal is expected to go live in all Microsoft Sentinel workspaces in Q2 2023. The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solution content has been moved to the *Solutions* folder.  
+The centralization change in the Microsoft Sentinel portal is expected to go live in all Microsoft Sentinel workspaces in Q2 2023. The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solution content has been moved to the *Solutions* folder.
+
+The change to the **Next Steps** tab has already been completed. 
 
 ## Scope of change
 

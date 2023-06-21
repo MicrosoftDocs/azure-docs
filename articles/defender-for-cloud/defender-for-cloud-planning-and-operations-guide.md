@@ -24,7 +24,7 @@ This guide provides the background for how Defender for Cloud fits into your org
 In the next section, you'll learn how to plan for each one of those areas and apply those recommendations based on your requirements.
 
 > [!NOTE]
-> Read [Defender for Cloud frequently asked questions (FAQ)](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
+> Read [Defender for Cloud common questions](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
 
 ## Security roles and access controls
 
@@ -114,6 +114,7 @@ When planning access control using Azure Role-based access control for Defender 
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
 
 ## Security policies and recommendations
+
 A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Defender for Cloud, you can define policies for your Azure subscriptions, which can be tailored to the type of workload or the sensitivity of data.
 
 Defenders for Cloud policies contain the following components:
@@ -151,7 +152,7 @@ When automatic provisioning is enabled in the security policy, the [data collect
 If at some point you want to disable Data Collection, you can turn it off in the security policy. However, because the Log Analytics agent may be used by other Azure management and monitoring services, the agent won't be uninstalled automatically when you turn off data collection in Defender for Cloud. You can manually uninstall the agent if needed.
 
 > [!NOTE]
-> To find a list of supported VMs, read the [Defender for Cloud frequently asked questions (FAQ)](faq-vms.yml).
+> To find a list of supported VMs, read the [Defender for Cloud common questions](faq-vms.yml).
 
 ### Workspace
 
@@ -177,6 +178,7 @@ If your agent reports to a workspace other than the **default** workspace, any D
 Defender for Cloud can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboard non-Azure computers](quickstart-onboard-machines.md) for more information on how to onboard non-Azure resources.
 
 ## Ongoing security monitoring
+
 After initial configuration and application of Defender for Cloud recommendations, the next step is considering Defender for Cloud operational processes.
 
 The Defender for Cloud Overview provides a unified view of security across all your Azure resources and any non-Azure resources you've connected. This example shows an environment with many issues to resolve:
@@ -196,14 +198,13 @@ Most Azure environments are dynamic, with resources regularly being created, spu
 
 When you add new resources (VMs, SQL DBs) to your Azure environment, Defender for Cloud automatically discovers these resources and begins to monitor their security, including PaaS web roles and worker roles. If Data Collection is enabled in the [Security Policy](tutorial-security-policy.md), more monitoring capabilities are enabled automatically for your virtual machines.
 
-You should also regularly monitor existing resources for configuration changes that could have created security risks, drift from recommended baselines, and security alerts. 
+You should also regularly monitor existing resources for configuration changes that could have created security risks, drift from recommended baselines, and security alerts.
 
 ### Hardening access and applications
 
 As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you're reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.md) access feature to hardening access to your VMs.
 
 You can use [adaptive application controls](adaptive-application-controls.md) to limit which applications can run on your VMs located in Azure. Among other benefits, adaptive application controls help harden your VMs against malware. With the help of machine learning, Defender for Cloud analyzes processes running in the VM to help you create allowlist rules.
-
 
 ## Incident response
 
@@ -238,9 +239,10 @@ Once you identify the compromised system, you can run a [workflow automation](wo
 > Read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.md) for more information on how to use Defender for Cloud capabilities to assist you during your Incident Response process.
 
 ## Next steps
+
 In this document, you learned how to plan for Defender for Cloud adoption. Learn more about Defender for Cloud:
 
 - [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.md)
 - [Monitoring partner solutions with Defender for Cloud](./partner-integration.md) - Learn how to monitor the health status of your partner solutions.
-- [Defender for Cloud FAQ](faq-general.yml) - Find frequently asked questions about using the service.
+- [Defender for Cloud common questions](faq-general.yml) - Find frequently asked questions about using the service.
 - [Azure Security blog](/archive/blogs/azuresecurity/) - Read blog posts about Azure security and compliance.

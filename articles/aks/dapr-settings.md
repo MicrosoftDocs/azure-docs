@@ -4,7 +4,8 @@ description: Learn how to configure the Dapr extension specifically for your Azu
 author: hhunter-ms
 ms.author: hannahhunter
 ms.topic: article
-ms.date: 01/09/2023
+ms.custom: build-2023
+ms.date: 06/08/2023
 ---
 
 # Configure the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
@@ -51,7 +52,7 @@ If no configuration-settings are passed, the Dapr configuration defaults to:
 
 For a list of available options, see [Dapr configuration][dapr-configuration-options].
 
-## Limiting the extension to certain nodes
+## Limit the extension to certain nodes
 
 In some configurations, you may only want to run Dapr on certain nodes. You can limit the extension by passing a `nodeSelector` in the extension configuration. If the desired `nodeSelector` contains `.`, you must escape them from the shell and the extension. For example, the following configuration will install Dapr to only nodes with `topology.kubernetes.io/zone: "us-east-1c"`:
 
@@ -81,6 +82,37 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings "global.daprControlPlaneOs=linux” \
 --configuration-settings "global.daprControlPlaneArch=amd64”
 ```
+
+## Install Dapr in multiple availability zones while in HA mode
+
+By default, the placement service uses a storage class of type `standard_LRS`. It is recommended to create a `zone redundant storage class` while installing Dapr in HA mode across multiple availability zones. For example, to create a `zrs` type storage class: 
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: custom-zone-redundant-storage
+provisioner: disk.csi.azure.com
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  storageaccounttype: Premium_ZRS
+```
+
+When installing Dapr, use the above storage class: 
+
+```azurecli
+az k8s-extension create --cluster-type managedClusters  
+--cluster-name XXX  
+--resource-group XXX  
+--name XXX  
+--extension-type Microsoft.Dapr  
+--auto-upgrade-minor-version XXX  
+--version XXX  
+--configuration-settings "dapr_placement.volumeclaims.storageClassName=custom-zone-redundant-storage"
+```
+
 ## Configure the Dapr release namespace
 
 You can configure the release namespace. The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. Include the cluster `--scope` to redefine the namespace.
@@ -157,9 +189,9 @@ If you want to use an outbound proxy with the Dapr extension for AKS, you can do
    - `NO_PROXY`
 1. [Installing the proxy certificate in the sidecar](https://docs.dapr.io/operations/configuration/install-certificates/).
 
-## Using Mariner-based images
+## Using Azure Linux-based images
 
-From Dapr version 1.8.0, you can use Mariner images with the Dapr extension. To use them, set the`global.tag` flag:
+From Dapr version 1.8.0, you can use Azure Linux images with the Dapr extension. To use them, set the`global.tag` flag:
 
 ```azurecli
 az k8s-extension upgrade --cluster-type managedClusters \
@@ -167,11 +199,11 @@ az k8s-extension upgrade --cluster-type managedClusters \
 --resource-group myResourceGroup \
 --name dapr \
 --extension-type Microsoft.Dapr \
---set global.tag=1.10.0-mariner
+--set global.tag=1.10.0-AzureLinux
 ```
 
-- [Learn more about using Mariner-based images with Dapr.][dapr-mariner]
-- [Learn more about deploying Mariner on AKS.][aks-mariner]
+- [Learn more about using AzureLinux-based images with Dapr][dapr-azurelinux].
+- [Learn more about deploying AzureLinux on AKS][aks-azurelinux].
 
 
 ## Disable automatic CRD updates
@@ -216,7 +248,7 @@ Once you have successfully provisioned Dapr in your AKS cluster, try deploying a
 [install-cli]: /cli/azure/install-azure-cli
 [dapr-migration]: ./dapr-migration.md
 [dapr-settings]: ./dapr-settings.md
-[aks-mariner]: ./cluster-configuration.md#mariner-os
+[aks-azurelinux]: ./cluster-configuration.md#azure-linux-container-host-for-aks
 
 
 <!-- LINKS EXTERNAL -->
@@ -230,4 +262,4 @@ Once you have successfully provisioned Dapr in your AKS cluster, try deploying a
 [dapr-supported-version]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
 [dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
 [supported-cloud-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
-[dapr-mariner]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/#using-mariner-based-images
+[dapr-azurelinux]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/#using-azurelinux-based-images

@@ -14,7 +14,7 @@ ms.author: eur
 
 # Pronunciation with SSML
 
-You can use Speech Synthesis Markup Language (SSML) with text-to-speech to specify how the speech is pronounced. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
+You can use Speech Synthesis Markup Language (SSML) with text to speech to specify how the speech is pronounced. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
 
 Refer to the sections below for details about how to use SSML elements to improve pronunciation. For more information about SSML syntax, see [SSML document structure and events](speech-synthesis-markup-structure.md).
 
@@ -32,7 +32,7 @@ Usage of the `phoneme` element's attributes are described in the following table
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
 | `alphabet` | The phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`sapi` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; See [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li><li>`x-sampa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md#map-x-sampa-to-ipa)</li></ul><br>The alphabet applies only to the `phoneme` in the element. | Optional |
-| `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text-to-speech rejects the entire SSML document and produces none of the speech output specified in the document.<br/><br/>For `ipa`, to stress one syllable by placing stress symbol before this syllable, you need to mark all syllables for the word. Or else, the syllable before this stress symbol will be stressed. For `sapi`, if you want to stress one syllable, you need to place the stress symbol after this syllable, whether or not all syllables of the word are marked.| Required |
+| `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text to speech rejects the entire SSML document and produces none of the speech output specified in the document.<br/><br/>For `ipa`, to stress one syllable by placing stress symbol before this syllable, you need to mark all syllables for the word. Or else, the syllable before this stress symbol will be stressed. For `sapi`, if you want to stress one syllable, you need to place the stress symbol after this syllable, whether or not all syllables of the word are marked.| Required |
 
 ### phoneme examples
 
@@ -83,7 +83,7 @@ You can define how single entities (such as company, a medical term, or an emoji
 > [!NOTE]
 > For a list of locales that support custom lexicon, see footnotes in the [language support](language-support.md?tabs=tts) table.
 > 
-> The `lexicon` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
+> The `lexicon` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text to speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 Usage of the `lexicon` element's attributes are described in the following table.
 
@@ -119,7 +119,7 @@ To define how multiple entities are read, you can define them in a custom lexico
 Here are some limitations of the custom lexicon file:
 
 - **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100-KB limit, the synthesis request fails.
-- **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text-to-speech when it's first loaded. The lexicon with the same URI won't be reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
+- **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text to speech when it's first loaded. The lexicon with the same URI won't be reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
 
 The supported elements and attributes of a custom lexicon XML file are described in the [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/). Here are some examples of the supported elements and attributes:
 
@@ -302,7 +302,7 @@ The MathML entities aren't supported by XML syntax, so you must use the correspo
 
 ### MathML examples
 
-The text-to-speech output for this example is "a squared plus b squared equals c squared".
+The text to speech output for this example is "a squared plus b squared equals c squared".
 
 ```xml
 <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'><voice name='en-US-JennyNeural'><math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>

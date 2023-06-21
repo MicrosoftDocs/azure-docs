@@ -1,7 +1,7 @@
 ---
 title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
-ms.custom: vs-azure, vscode-azure-extension-update-not-needed
+ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023
 ms.topic: conceptual
 ms.date: 05/18/2022
 ---
@@ -19,7 +19,7 @@ The following table describes the available deployment methods for your Function
 | Deployment&nbsp;type | Methods | Best for... |
 | -- | -- | -- |
 | Tools-based |	&bull;&nbsp;[Visual&nbsp;Studio&nbsp;Code&nbsp;publish](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Visual Studio publish](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Core Tools publish](functions-run-local.md#publish) | Deployments during development and other ad hoc deployments. Deployments are managed locally by the tooling. |
-| App Service-managed| &bull;&nbsp;[Deployment&nbsp;Center&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Container&nbsp;deployments](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Continuous deployment (CI/CD) from source control or from a container registry. Deployments are managed by the App Service platform (Kudu).|
+| App Service-managed| &bull;&nbsp;[Deployment&nbsp;Center&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Container&nbsp;deployments](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) |  Continuous deployment (CI/CD) from source control or from a container registry. Deployments are managed by the App Service platform (Kudu).|
 | External pipelines|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[GitHub Actions](functions-how-to-github-actions.md) | Production and Azure pipelines that include additional validation, testing, and other actions be run as part of an automated deployment. Deployments are managed by the pipeline. |
 
 While specific Functions deployments use the best technology based on their context, most deployment methods are based on [zip deployment](#zip-deploy).
@@ -131,16 +131,18 @@ Use zip deploy to push a .zip file that contains your function app to Azure. Opt
 
 ### Docker container
 
-You can deploy a Linux container image that contains your function app.
+You can deploy a function app running in a Linux container.
 
->__How to use it:__ Create a Linux function app in the Premium or Dedicated plan and specify which container image to run from. You can do this in two ways:
+>__How to use it:__ Create your functions in a Linux container then deploy the container to a Premium or Dedicated plan in Azure Functions or another container host. Use the [Azure Functions Core Tools](functions-run-local.md#) to create a Dockerfile for your project that you use to build a containerized function app. You can use the container in the following deployments: 
 >
->+ Create a Linux function app on an Azure App Service plan in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted.
->+ Create a Linux function app on an App Service plan by using the Azure CLI. To learn how, see [Create a function on Linux by using a custom image](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
+>+ Deploy to Azure Functions resources you create in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted. Requires either [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. 
+>+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
+>+ Deploy to Azure Container Apps (preview). To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
+>+ Deploy to Azure Arc (preview). To learn how, see [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
+>+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
 >
->To deploy to a Kubernetes cluster as a custom container, in [Azure Functions Core Tools](functions-run-local.md), use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command.
 
->__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs. This deployment mechanism is available only for Functions running on Linux.
+>__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs and where the container is hosted. This deployment mechanism is available only for functions running on Linux.
 
 >__Where app content is stored:__ App content is stored in the specified container registry as a part of the image.
 

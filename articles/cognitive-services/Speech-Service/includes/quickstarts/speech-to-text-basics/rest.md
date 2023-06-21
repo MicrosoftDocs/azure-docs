@@ -75,7 +75,7 @@ You should receive a response similar to what is shown here. The `DisplayText` s
 }
 ```
 
-For more information, see [speech-to-text REST API for short audio](../../../rest-speech-to-text-short.md).
+For more information, see [Speech to text REST API for short audio](../../../rest-speech-to-text-short.md).
 
 ## Clean up resources
 

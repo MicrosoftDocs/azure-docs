@@ -61,9 +61,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 ### Option 1: Call Microsoft Graph
 
-To call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in the API actions. To expose Microsoft Graph:
+To call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in the API actions. 
 
-1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to the project.
+>[!NOTE] 
+> There is an ongoing issue for Microsoft Graph SDK v5+. For more information, refer to the [GitHub issue](https://github.com/AzureAD/microsoft-identity-web/issues/2097).
+
+To expose Microsoft Graph:
+
+1. Add the [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) NuGet package to the project.
 1. Add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in *Program.cs*. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
 ```csharp
@@ -136,7 +141,7 @@ Your web app needs to acquire a token for the downstream API, *Microsoft.Identit
 
 If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
 
-1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
+1. Add the [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) NuGet package to your project.
 1. Add `.AddMicrosoftGraph()` to the service collection in the *Startup.Auth.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
    ```csharp

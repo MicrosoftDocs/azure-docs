@@ -10,7 +10,7 @@ ms.date: 03/16/2023
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB

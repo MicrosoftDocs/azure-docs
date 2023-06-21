@@ -3,7 +3,7 @@ title: "NXLog AIX Audit connector for Microsoft Sentinel"
 description: "Learn how to install the connector NXLog AIX Audit to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,7 +18,7 @@ The NXLog [AIX Audit](https://nxlog.co/documentation/nxlog-user-guide/im_aixaudi
 | --- | --- |
 | **Log Analytics table(s)** | AIX_Audit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/community-forum/t/819-support-tickets) |
+| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
 
 ## Query samples
 

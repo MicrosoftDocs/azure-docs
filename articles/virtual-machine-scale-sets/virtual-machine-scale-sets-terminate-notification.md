@@ -67,7 +67,7 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 The above block specifies a timeout delay of 5 minutes (as indicated by *PT5M*) for any terminate operation on all instances in your scale set. The field *notBeforeTimeout* can take any value between 5 and 15 minutes in ISO 8601 format. You can change the default timeout for the terminate operation by modifying the *notBeforeTimeout* property under *terminateNotificationProfile* described above.
 
-After enabling *scheduledEventsProfile* on the scale set model and setting the *notBeforeTimeout*, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) to reflect the changes.
+After enabling *scheduledEventsProfile* on the scale set model and setting the *notBeforeTimeout*, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-policy.md) to reflect the changes.
 
 > [!NOTE]
 >Terminate notifications on scale set instances can only be enabled with API version 2019-03-01 and above
@@ -98,7 +98,7 @@ Update-AzVmss `
 ```
 The above example enables terminate notifications on an existing scale set and sets a 15-minute timeout for the terminate event.
 
-After enabling scheduled events on the scale set model and setting the timeout, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) to reflect the changes.
+After enabling scheduled events on the scale set model and setting the timeout, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-policy.md) to reflect the changes.
 
 ### Azure CLI 2.0
 
@@ -199,7 +199,7 @@ If you're not getting any **Terminate** events through Scheduled Events, then ch
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### Getting Terminate event with incorrect NotBefore time  
-After enabling *scheduledEventsProfile* on the scale set model and setting the *notBeforeTimeout*, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) to reflect the changes.
+After enabling *scheduledEventsProfile* on the scale set model and setting the *notBeforeTimeout*, update the individual instances to the [latest model](virtual-machine-scale-sets-upgrade-policy.md) to reflect the changes.
 
 ## Next steps
 Learn how to [deploy your application](virtual-machine-scale-sets-deploy-app.md) on Virtual Machine Scale Sets.

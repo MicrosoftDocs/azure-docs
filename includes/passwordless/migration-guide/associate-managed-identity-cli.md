@@ -1,3 +1,6 @@
+---
+ms.custom: devx-track-azurecli
+---
 Use the following Azure CLI commands to associate an identity with your app:
 
 Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.

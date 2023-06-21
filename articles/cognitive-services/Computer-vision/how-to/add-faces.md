@@ -60,15 +60,8 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## Step 2: Authorize the API call
 
-When you use a client library, you must pass your key to the constructor of the **FaceClient** class. For example:
+When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/identity-client-library?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
 
-```csharp
-private readonly IFaceClient faceClient = new FaceClient(
-    new ApiKeyServiceClientCredentials("<SubscriptionKey>"),
-    new System.Net.Http.DelegatingHandler[] { });
-```
-
-To get the key, go to the Azure Marketplace from the Azure portal. For more information, see [Subscriptions](https://www.microsoft.com/cognitive-services/sign-up).
 
 ## Step 3: Create the PersonGroup
 

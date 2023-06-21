@@ -11,7 +11,7 @@ ms.author: cweining
 Visual Studio 16.4 supports using the Az PowerShell module in the template deployment script. However, Visual Studio doesn't automatically install that module. To use the Az module, you need to take four steps:
 
 1. [Uninstall AzureRM module](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
-1. [Install Az module](/powershell/azure/install-az-ps)
+1. [Install Az module](/powershell/azure/install-azure-powershell)
 1. Update Visual Studio to 16.4
 1. Update the deployment script in your project.
 

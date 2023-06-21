@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account 
 description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account using an ARM Template.
 author: whhender
 ms.author: whhender
-ms.date: 04/05/2022
+ms.date: 05/18/2023
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-arm, devx-track-arm-template
@@ -43,6 +43,44 @@ The following resources are defined in the template:
 The template performs the following tasks:
 
 * Creates a Microsoft Purview account in a specified resource group.
+
+## Customize network settings for your account
+
+When you're deploying your ARM template, you can also use the following settings in the template to manage your public network access settings:
+
+- **Enabled for all networks**
+    `"publicNetworkAccess": "Enabled",
+      "managedResourcesPublicNetworkAccess": "Enabled" `
+ - **Disabled for ingestion only (Preview)**
+    `"publicNetworkAccess": "Enabled",
+      "managedResourcesPublicNetworkAccess": "Disabled" `
+ - **Disabled from all networks**
+    `"publicNetworkAccess": "Disables",
+      "managedResourcesPublicNetworkAccess": "Disabled" `
+      
+For example:
+`
+"resources": [
+    {
+      "type": "Microsoft.Purview/accounts",
+      "apiVersion": "2021-12-01",
+      "name": "[parameters('purviewName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard",
+        "capacity": 1
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "publicNetworkAccess": "Enabled",
+        "managedResourcesPublicNetworkAccess": "Enabled"
+        "managedResourceGroupName": "[format('managed-rg-{0}', parameters('purviewName'))]"
+      }
+    }
+  ]
+`
 
 ## Open Microsoft Purview governance portal
 

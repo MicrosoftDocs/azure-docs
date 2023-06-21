@@ -92,7 +92,7 @@ There should be an existing sync rule that is enabled and configured to export u
     | Connector Object Type |**user** |
     | MV attribute |**userCertificate** |
 
-3. If you are using OOB (out-of-box) sync rules to Azure AD connector to export userCertficiate attribute for User objects, you should get back the *“Out to AAD – User ExchangeOnline”* rule.
+3. If you are using OOB (out-of-box) sync rules to Azure AD connector to export userCertificate attribute for User objects, you should get back the *“Out to AAD – User ExchangeOnline”* rule.
 4. Note down the **precedence** value of this sync rule.
 5. Select the sync rule and click **Edit**.
 6. In the *“Edit Reserved Rule Confirmation”* pop-up dialog, click **No**. (Don’t worry, we are not going to make any change to this sync rule).

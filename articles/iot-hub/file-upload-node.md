@@ -223,6 +223,13 @@ In this section, you create a Node.js console app that receives file upload noti
             receiver.on('message', function (msg) {
               console.log('File upload from device:')
               console.log(msg.getData().toString('utf-8'));
+              receiver.complete(msg, function (err) {
+                if (err) {
+                  console.error('Could not finish the upload: ' + err.message);
+                } else {
+                  console.log('Upload complete');
+                }
+              });
             });
           }
         });
