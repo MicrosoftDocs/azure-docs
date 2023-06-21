@@ -104,4 +104,3 @@ Once the image is deleted, there's no way to retrieve the image or the associate
 
 For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md)
 
-[def]: https://learn.microsoft.com/azure/defender-for-iot/organizations/roles-azure
