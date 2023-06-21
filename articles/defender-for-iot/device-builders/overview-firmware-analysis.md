@@ -30,7 +30,7 @@ Defender for IoT can analyze your firmware for common weaknesses and vulnerabili
 
 - **SSL certificate analysis**: Reveal expired and revoked TLS/SSL certificates.
 
-- **Public & Private Key Analysis**: Verify the public and private cryptographic keys discovered in the firmware are necessary and not accidental.
+- **Public and private key analysis**: Verify that the public and private cryptographic keys discovered in the firmware are necessary and not accidental.
 
 - **Password Hash Extraction**: Ensure user account password hashes use secure cryptographic algorithms.  
 
