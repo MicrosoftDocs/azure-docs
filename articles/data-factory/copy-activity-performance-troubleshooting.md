@@ -218,9 +218,9 @@ Activity execution time varies when the dataset is based on different Integratio
     - To copy large excel file (>100 MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
     
 
-### The OOM Issue of large JSON/Excel/XML files
+### The OOM Issue of reading large JSON/Excel/XML files
 
-- **Symptoms**: When you read large JSON/Excel/XML files in Azure Data Factory, you meet the out of memory (OOM) issue during the activity execution.
+- **Symptoms**: When you read large JSON/Excel/XML files, you meet the out of memory (OOM) issue during the activity execution.
 
 - **Cause**:
 
@@ -231,7 +231,7 @@ Activity execution time varies when the dataset is based on different Integratio
     - **For large JSON files**:
     The OOM issue of reading large JSON files is by design when the JSON file is a single object.
 
-- **Recommendation**: Apply one of following options to solve your issue.
+- **Recommendation**: Apply one of the following options to solve your issue.
 
     - **Option-1**: Register an online self-hosted integration runtime with powerful machine (high CPU/memory) to read data from your large file through your copy activity.
     - **Option-2**: Use optimized memory and big size cluster (for example, 48 cores) to read data from your large file through the mapping data flow activity.
