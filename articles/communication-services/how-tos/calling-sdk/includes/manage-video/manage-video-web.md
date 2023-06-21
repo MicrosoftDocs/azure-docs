@@ -196,8 +196,9 @@ call.off('isScreenSharingOnChanged', () => {
 });
 ```
 
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+Local screen share preview is in public preview and available as part of version 1.15.1-beta.1+.
 ### Local screen share preview
-
 You can use `VideoStreamRenderer` to begin rendering streams from your local screen share so you can see what you are sending as a screen sharing stream.
 ```js
 // To start viewing local screen share preview
@@ -207,10 +208,20 @@ const videoStreamRenderer = new VideoStreamRenderer(localScreenSharingStream);
 const view = await videoStreamRenderer.createView();
 htmlElement.appendChild(view.target);
 
-// To stop viewing local screen share preview
+// To stop viewing local screen share preview, stop screen sharing and then dispose the screen share preview
 await call.stopScreenSharing();
 view.dispose();
 htmlElement.removeChild(view.target);
+
+// Screen sharing can also be stoped by clicking on the native browser's "Stop sharing" button.
+// The isScreenSharingOnChanged event will be triggered where you can check the value of call.isScreenSharingOn.
+// If the value is false, then that means screen sharing is turned off and so we can go ahead and dispose the screen share preview. 
+call.on('isScreenSharingOnChanged', () => {
+    if (!call.isScreenSharingOn) {
+        view.dispose();
+        htmlElement.removeChild(view.target);
+    }
+});
 ```
 
 ## Render remote participant video/screensharing streams
