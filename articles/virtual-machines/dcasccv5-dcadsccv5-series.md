@@ -1,6 +1,6 @@
 ---
 title: Azure DCas_cc_v5 and DCads_cc_v5-series
-description: Specifications for Azure Confidential Computing's Azure DCas_cc_v5 and DCads_cc_v5-series confidential virtual machines. 
+description: Specifications for Azure Confidential Computing's Azure DCas_cc_v5 and DCads_cc_v5-series confidential computing capable virtual machines. 
 author: ananyagarg
 ms.author: ananyagarg
 ms.reviewer: mimckitt
