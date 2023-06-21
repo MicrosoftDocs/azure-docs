@@ -3,7 +3,7 @@ title: Back up Azure NetApp Files datastores and VMs using Cloud Backup (preview
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 05/10/2023
+ms.date: 06/20/2023
 ---
 
 # Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines (preview)
@@ -14,7 +14,9 @@ From the VMware vSphere client, you can back up datastores and Virtual Machines 
 
 Before you back up your Azure NetApp Files datastores, you must add your Azure and Azure NetApp Files cloud subscriptions.
 
-### Prerequisites 
+### Prerequisites
+
+You must have [enabled Azure VMware Solution's managed source NAT (SNAT)](../azure-vmware/enable-managed-snat-for-workloads.md) for outbound internet access.
 
 You must have sufficient permissions to [Create an Azure AD app and service principal](../active-directory/develop/howto-create-service-principal-portal.md) within your Azure AD tenant and assign to the application a role in your Azure subscription. You can use the built-in role of "contributor" or you can create a custom role with only the required permissions:
 
