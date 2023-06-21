@@ -6,7 +6,7 @@ ms.date: 06/15/2023
 #Customer intent: As a device builder, I want to understand how firmware analysis can help secure my IoT/OT devices and products.
 ---
 
-# Firmware Analysis for device builders
+# Firmware analysis for device builders
 
 Just like computers have operating systems, IoT devices have firmware, and it's the firmware that runs and controls IoT devices. For IoT device builders, security is a near-universal concern as IoT devices have traditionally lacked basic security measures.
 
