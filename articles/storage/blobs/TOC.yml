@@ -845,8 +845,6 @@ items:
           items:
           - name: Upload blobs
             href: storage-blob-upload-typescript.md
-          - name: Get blob URL
-            href: storage-blob-get-url-typescript.md
           - name: Download blobs
             href: storage-blob-download-typescript.md
           - name: Copy blobs
@@ -867,6 +865,8 @@ items:
             href: storage-blob-lease-typescript.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-typescript.md
+          - name: Get blob URL
+            href: storage-blob-get-url-typescript.md
           - name: Use access tiers
             href: storage-blob-use-access-tier-typescript.md
       - name: Python
