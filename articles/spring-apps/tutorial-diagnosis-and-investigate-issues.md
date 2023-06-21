@@ -32,7 +32,7 @@ you can use Log Analytics diagnosis your application with variously log queries,
   1. Make sure that the applications that need to link to the database have activated the mysql file through the environment variable:
      - On the **Configuration** page, select **Environment variables** tab page, enter `SPRING_PROFILES_ACTIVE` for **Key**, enter `mysql` for **Value**, then select **Save**
 
-     :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/app-config-env.png" alt-text="Screenshot of Azure portal showing config env for Azure Spring Apps instance" lightbox="../../media/tutorial-diagnosis-and-investigate-issues/app-config-env.png":::
+     :::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/app-config-env.png" alt-text="Screenshot of Azure portal showing config env for Azure Spring Apps instance" lightbox="media/tutorial-diagnosis-and-investigate-issues/app-config-env.png":::
 
      - Repeat the configuration steps of `customers-service` above to configure the following applications:
      
@@ -40,6 +40,8 @@ you can use Log Analytics diagnosis your application with variously log queries,
          - `visits-service`
 
   1. Make sure that applications `customers-service`, `vets-service` and `visits-service` are all configured with a validated service connector linking to MySQL.
+
+[!INCLUDE [diagnosis-and-investigate-issues-with-basic-standard-plan](includes/tutorial-diagnosis-and-investigate-issues/diagnosis-and-investigate-issues-with-basic-standard-plan.md)]
 
 ## 6. Monitor your application with the dashboard
 
