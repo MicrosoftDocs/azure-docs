@@ -47,7 +47,7 @@ The managed virtual network is preconfigured with [required default rules](#list
 |---|---|---|
 |Isolation Mode| &#x2022; Allow internet outbound<br>&#x2022; Allow only approved outbound||
 |Compute|&#x2022; [Compute Instance](concept-compute-instance.md)<br>&#x2022; [Compute Cluster](how-to-create-attach-compute-cluster.md)<br>&#x2022; [Serverless](how-to-use-serverless-compute.md)<br>&#x2022; [Serverless spark](apache-spark-azure-ml-concepts.md)|&#x2022; New managed online endpoint creation<br>&#x2022; Migration of existing managed online endpoint<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless|
-|Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag|&#x2022; FQDN|
+|Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag|&#x2022; FQDN| 
 
 ## Prerequisites
 
