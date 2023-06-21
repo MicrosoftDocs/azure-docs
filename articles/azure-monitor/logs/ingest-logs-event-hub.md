@@ -451,7 +451,7 @@ In this tutorial, you created the following resources:
 
 Evaluate whether you still need these resources. Delete the resources you don't need individually, or delete all of these resources at once by deleting the resource group. Resources you leave running can cost you money.
 
-To stop ingesting data from the event hub, delete all data collection rule associations related to the event hub, or delete the data collection rules themselves. These actions also reset event hub [checkpointing](/azure/event-hubs/event-hubs-features#checkpointing). 
+To stop ingesting data from the event hub, [delete all data collection rule associations](/rest/api/monitor/data-collection-rule-associations/delete) related to the event hub, or [delete the data collection rules](/rest/api/monitor/data-collection-rules/delete) themselves. These actions also reset event hub [checkpointing](/azure/event-hubs/event-hubs-features#checkpointing). 
 
 ## Next steps
 
