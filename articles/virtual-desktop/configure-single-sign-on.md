@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 06/23/2023
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop using Azure AD Authentication
@@ -17,7 +17,7 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article will walk you through the process of configuring single sign-on (SSO) using Azure Active Directory (Azure AD) authentication for Azure Virtual Desktop (preview). When you enable SSO, you can use passwordless authentication and third-party Identity Providers that federate with Azure AD to sign in to your Azure Virtual Desktop and Remote Applications. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Azure AD-based resources inside the session.
+This article will walk you through the process of configuring single sign-on (SSO) using Azure Active Directory (Azure AD) authentication for Azure Virtual Desktop (preview). When you enable SSO, you can use passwordless authentication and third-party Identity Providers that federate with Azure AD to sign in to your Azure Virtual Desktop resources. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Azure AD-based resources inside the session.
 
 For information on using passwordless authentication within the session, see [In-session passwordless authentication (preview)](authentication.md#in-session-passwordless-authentication-preview).
 
@@ -37,39 +37,57 @@ Session hosts must be Azure AD-joined or [Hybrid Azure AD-Joined](../active-dire
 > [!NOTE]
 > Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services or Active Directory only joined session hosts.
 
-You must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object) when your session host is:
-
-- Hybrid Azure AD-joined. Azure AD Kerberos is needed to complete the authentication to the domain controller.
-- Azure AD-joined and your environment contains Active Directory Domain Controllers. Azure AD Kerberos is required in this case for users to access on-premises resources, like SMB shares, and Windows-integrated authentication to websites.
-  
 Clients currently supported:
 
 - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Azure AD.
 - [Web client](users/connect-web.md).
 - [macOS client](users/connect-macos.md) version 10.8.2 or later.
 
-## Enable single sign-on
+## Things to know before enabling single sign-on
 
-To enable SSO on your host pool, you must [customize an RDP property](customize-rdp-properties.md). You can find the **Azure AD Authentication** property under the **Connection information** tab in the Azure portal or set the **enablerdsaadauth** property to **1** using PowerShell.
-
-> [!IMPORTANT]
-> If you enable SSO on your Hybrid Azure AD-joined VMs before you [create a Kerberos server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object), you'll either see an error message saying the specific log on session doesn't exist or SSO will not work and you'll see a standard authentication dialog for the session host. In both cases, create the Kerberos server object before trying again.
+Before enabling single sign-on, review the following information for using SSO in your environment.
 
 ### Allow remote desktop connection dialog
 
 When enabling single sign-on, you'll currently be prompted to authenticate to Azure AD and allow the Remote Desktop connection when launching a connection to a new host. Azure AD remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
-
-### Using an Active Directory domain admin account with single sign-on
-
-In environments with an Active Directory (AD) and Hybrid user accounts, the default security policy doesn't grant Azure AD permission to sign in high privilege accounts to on-premises resources. This will prevent domain admin accounts from signing in to Hybrid Azure AD-joined hosts and from accessing on-prem resources from Azure AD-joined hosts.
-
-To unblock the accounts, use **Active Directory Users and Computers** to modify the *msDS-NeverRevealGroup* property of the *Azure AD Kerberos Computer object (CN=AzureADKerberos,OU=Domain Controllers,\<domain-DN>)*.
 
 ### Disconnection when the session is locked
 
 When SSO is enabled, you sign in to Windows using an Azure AD authentication token, which provides support for passwordless authentication to Windows. The Windows lock screen in the remote session doesn't support Azure AD authentication tokens or passwordless authentication methods like FIDO keys. The lack of support for these authentication methods means that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they've been disconnected.
 
 Disconnecting the session also ensures that when the connection is relaunched after a period of inactivity, Azure AD reevaluates the applicable conditional access policies.
+
+### Using an Active Directory domain admin account with single sign-on
+
+In environments with an Active Directory (AD) and Hybrid user accounts, the default Password Replication Policy on Read-only Domain Controllers denies password replication for members of Domain Admins and Administrators groups. This will prevent these admin accounts from signing in to Hybrid Azure AD-joined hosts and may keep prompting them to enter their credentials. It will also prevent admin accounts from accessing on-prem resources that leverage Kerberos authentication from Azure AD-joined hosts.
+
+To allow these accounts to connect when single sign-on is enabled:
+
+1. Open the **Active Directory Users and Computers** MMC plug-in.
+1. Navigate to the **Domain Controllers** folder for your tenant.
+1. Find the **AzureADKerberos** object and open its properties dialog.
+1. Navigate to the **Password Replication Policy** tab.
+1. Change the policy for **Domain Admins** from *Deny* to *Allow*.
+1. Delete the policy for **Administrators**. The Domain Admins group is a member of the Administrators group, so denying replication for Administrators also denies it for Domain Admins.
+1. Save your changes by clicking **OK**.
+
+## Enable single sign-on
+
+Follow the steps in this section to enable single sign-on in your environment.
+
+### Create a Kerberos Server object
+
+You must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object) when your session host is:
+
+- Hybrid Azure AD-joined. The Kerberos Server object is needed to complete the authentication to the domain controller.
+- Azure AD-joined and your environment contains Active Directory Domain Controllers. Azure AD Kerberos is required in this case for users to access on-premises resources, like SMB shares, and Windows-integrated authentication to websites.
+
+> [!IMPORTANT]
+> If you enable SSO on your Hybrid Azure AD-joined VMs before you create a Kerberos server object, you'll either see an error message saying the specific log on session doesn't exist or SSO will not work and you'll see a standard authentication dialog for the session host. In both cases, create the Kerberos server object before trying again.
+
+### Configure your host pool
+
+To enable SSO on your host pool, you must [customize an RDP property](customize-rdp-properties.md). You can find the **Azure AD single sign-on** property under the **Connection information** tab in the Azure portal or set the **enablerdsaadauth** property to **1** using PowerShell.
 
 ## Next steps
 
