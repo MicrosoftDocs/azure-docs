@@ -72,7 +72,7 @@ To enable this architecture, each AKS deployment spans two resource groups:
 2. The second resource group, known as the *node resource group*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. By default, the node resource group has a name like *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatically deletes the node resource group whenever you delete the cluster. You should only use this cluster for resources that share the cluster's lifecycle.
 
    > [!NOTE]
-   > Modifying any resource under the node resource group in the AKS cluster is an unsupported action, which will cause failures in your cluster operations. An alternative to prevent changes from being made to the Node Resource Group, you can [block users from modifying resources](./cluster-configuration.md#fully-managed-resource-group-preview) managed by the AKS cluster.
+   > Modifying any resource under the node resource group in the AKS cluster is an unsupported action, which will cause failures in your cluster operations. An alternative to prevent changes from being made to the Node Resource Group, you can [block users from modifying resources](cluster-configuration.md#fully-managed-resource-group-preview) managed by the AKS cluster.
 
 ## Can I provide my own name for the AKS node resource group?
 
