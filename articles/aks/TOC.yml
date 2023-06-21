@@ -40,6 +40,8 @@
         - name: Use ARM template
           displayName: Resource Manager
           href: learn/quick-kubernetes-deploy-rm-template.md
+        - name: Use Terraform
+          href: learn/quick-kubernetes-deploy-terraform.md
     - name: Deploy a Windows-based AKS Cluster
       items:
         - name: Use the Azure CLI
@@ -105,6 +107,8 @@
       href: concepts-identity.md
     - name: Networking
       href: concepts-network.md
+    - Name: Network observability
+      href: network-observability-overview.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -287,9 +291,6 @@
               href: resize-node-pool.md
         - name: Use the Azure Linux container host for AKS
           href: use-azure-linux.md
-        - name: Deploy AKS with Terraform
-          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
-          maintainContext: true
         - name: Azure portal Kubernetes resource view
           href: kubernetes-portal.md
         - name: Use tags
@@ -471,6 +472,12 @@
               href: load-balancer-standard.md
             - name: Use kube-proxy configuration (IPVS)
               href: configure-kube-proxy.md
+        - name: Network Observability
+          items:
+          - name: Setup of Network Observability - BYO
+            href: network-observability-byo-cli.md
+          - name: Setup of Network Observability - Azure Managed
+            href: network-observability-managed-cli.md
         - name: Security
           items:
             - name: Use API Server VNet Integration

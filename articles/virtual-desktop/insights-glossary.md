@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/26/2022
+ms.date: 06/14/2022
 ms.author: helohr
 manager: femila
 ---
@@ -119,10 +119,6 @@ The following table lists the recommended performance counters and time interval
 |RemoteFX Network(\*)\\Current TCP RTT|30 seconds|
 |RemoteFX Network(\*)\\Current UDP Bandwidth|30 seconds|
 
-To learn more about how to read performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
-
-To learn more about input delay performance counters, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
-
 ## Potential connectivity issues
 
 Potential connectivity issues shows the hosts, users, published resources, and clients with a high connection failure rate. Once you choose a "report by" filter, you can evaluate the issue's severity by checking the values in these columns:
@@ -218,7 +214,11 @@ core. Knowing how many users are active will help you efficiently resource and s
 
 ## Windows Event Logs
 
-Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+> [!IMPORTANT]
+> Azure Virtual Desktops Insights support for the Azure Monitor Agent is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Windows Event Logs are data sources collected by either the Log Analytics agents or the Azure Monitor Agent (preview) on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 The following table lists the required Windows Event Logs for Azure Virtual Desktop Insights:
 
@@ -230,8 +230,6 @@ The following table lists the required Windows Event Logs for Azure Virtual Desk
 |System|Error and Warning|
 | Microsoft-FSLogix-Apps/Operational|Error, Warning, and Information|
 |Microsoft-FSLogix-Apps/Admin|Error, Warning, and Information|
-
-To learn more about Windows Event Logs, see [Windows Event records properties](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).
 
 ## Next steps
 

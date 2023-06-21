@@ -84,6 +84,8 @@ landingContent:
             url: ./learn/quick-kubernetes-deploy-portal.md
           - text: Resource Manager template
             url: ./learn/quick-kubernetes-deploy-rm-template.md
+          - text: Terraform
+            url: ./learn/quick-kubernetes-deploy-terraform.md
 
   # Card
   - title: Develop and debug applications

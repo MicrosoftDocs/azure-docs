@@ -155,5 +155,5 @@ See the following articles for more code samples to add to your maps:
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
 
-[Bubble Layer Options]: https://samples.azuremaps.com/?search=bubble&sample=bubble-layer-options
+[Bubble Layer Options]: https://samples.azuremaps.com/bubble-layer/bubble-layer-options
 [bubble layer]: /javascript/api/azure-maps-control/atlas.layer.bubblelayer

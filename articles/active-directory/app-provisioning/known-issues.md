@@ -47,9 +47,7 @@ In addition, users that are enabled for SMS sign-in cannot be synchronized throu
 
 Provisioning manager attributes isn't supported.
 
-### Universal people search
-
-It's possible for synchronized users to appear in the global address list (GAL) of the target tenant for people search scenarios, but it isn't enabled by default. In attribute mappings for a configuration, you must update the value for the **showInAddressList** attribute. Set the mapping type as constant with a default value of `True`. For any newly created B2B collaboration users, the showInAddressList attribute will be set to true and they'll appear in people search scenarios. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings).
+### Updating the showInAddressList property fails
 
 For existing B2B collaboration users, the showInAddressList attribute will be updated as long as the B2B collaboration user doesn't have a mailbox enabled in the target tenant. If the mailbox is enabled in the target tenant, use the [Set-MailUser](/powershell/module/exchange/set-mailuser) PowerShell cmdlet to set the HiddenFromAddressListsEnabled property to a value of $false.
 
