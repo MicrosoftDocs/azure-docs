@@ -12,7 +12,7 @@ ms.date: 06/29/2023
 
 # Vector index size
 
-When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes are restricted by the available memory for your SKU that's reserved for vector search.
+When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes are restricted by the memory reserved for vector search for your service's SKU.
 
 We enforce a vector index size quota **for every partition** in your search service. Each additional partition will increase the available vector index size quota. This is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded will fail. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
@@ -38,7 +38,7 @@ For `Edm.Single`, the size of the data type is 4 bytes.
 
 Each approximate-nearest-neighbor algorithm creates additional data structures in memory to enable efficient searching. These consume additional space within memory. 
 
-**For HNSW algorithm, this overhead is between 10% to 20%.** This overhead increases with larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction.
+**For HNSW algorithm, this overhead is between 5% to 20%.** This overhead is lower for higher dimensionality values because the additional data structures consume relatively fixed size but the total size of each vector increased. This overhead is higher for larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction.
 
 ### Overhead from deleting or updating documents within the index
 
