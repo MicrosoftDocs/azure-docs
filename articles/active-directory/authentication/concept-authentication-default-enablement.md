@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 06/21/2023
 
 ms.author: justinha
 author: mjsantani
@@ -53,7 +53,7 @@ The following table lists each setting that can be set to Microsoft managed and 
 
 | Setting                                                                                         | Configuration |
 |-------------------------------------------------------------------------------------------------|---------------|
-| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Enabled       |
+| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Enabled for SMS and voice call users with trial subscriptions, and soon to be enabled for SMS and voice call users with paid subscriptions.      |
 | [Location in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)           | Disabled      |
 | [Application name in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)   | Disabled      |
 | [System-preferred MFA](concept-system-preferred-multifactor-authentication.md)                  | Disabled      |
