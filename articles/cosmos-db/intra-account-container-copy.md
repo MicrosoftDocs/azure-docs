@@ -15,25 +15,27 @@ ms.custom: references_regions, ignite-2022, build-2023
 
 [!INCLUDE[NoSQL, Cassandra, MongoDB](includes/appliesto-nosql-mongodb-cassandra.md)]
 
-You can perform offline container copy within an Azure Cosmos DB account using container copy jobs.
+You can perform offline container copy within an Azure Cosmos DB account by using container copy jobs.
 
-You may need to copy data within your Azure Cosmos DB account if you want to achieve any of these scenarios:
+You might need to copy data within your Azure Cosmos DB account if you want to achieve any of these scenarios:
 
 * Copy all items from one container to another.
-* Change the [granularity at which throughput is provisioned - from database to container](set-throughput.md) and vice-versa.
+* Change the [granularity at which throughput is provisioned, from database to container](set-throughput.md) and vice versa.
 * Change the [partition key](partitioning-overview.md#choose-partitionkey) of a container.
 * Update the [unique keys](unique-keys.md) for a container.
 * Rename a container/database.
 * Adopt new features that are only supported on new containers.
 
-Intra-account container copy jobs can be [created and managed using CLI commands](how-to-container-copy.md).
+Intra-account container copy jobs can be [created and managed by using CLI commands](how-to-container-copy.md).
 
 ## Get started
 
 ### NoSQL and Cassandra API
+
 To get started with intra-account offline container copy for NoSQL and Cassandra API accounts, register for **"Intra-account offline container copy (Cassandra & NoSQL)"** preview feature flag from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all Cassandra and API for NoSQL accounts in the subscription.
 
 ### API for MongoDB
+
 To get started with intra-account offline container copy for Azure Cosmos DB for MongoDB accounts, register for **"Intra-account offline container copy (MongoDB)"** preview feature flag from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all API for MongoDB accounts in the subscription.
 
 ## How to do container copy?
