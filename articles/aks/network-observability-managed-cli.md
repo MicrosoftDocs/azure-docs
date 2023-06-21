@@ -182,7 +182,7 @@ Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and 
 az aks update \
     --name myAKSCluster \
     --resource-group myResourceGroup \
-    --enable-azuremonitormetrics \
+    --enable-azure-monitor-metrics \
     --azure-monitor-workspace-resource-id $azuremonitorId \
     --grafana-resource-id $grafanaId
 ```
@@ -192,7 +192,7 @@ az aks update \
 ## Get cluster credentials 
 
 ```azurecli-interactive
-az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
+az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 ```
 
 
