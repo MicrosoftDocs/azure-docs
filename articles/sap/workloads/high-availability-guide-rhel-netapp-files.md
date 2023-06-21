@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/25/2023
+ms.date: 06/21/2023
 ms.author: radeltch
 ---
 
