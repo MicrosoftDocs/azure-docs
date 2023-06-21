@@ -116,13 +116,13 @@ You can use Azure Resource Group Deployment task or Azure CLI task to deploy a B
           az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
     ```
 
-  To override the parameters, update the last line of `inlineScript` to:
+    To override the parameters, update the last line of `inlineScript` to:
 
-  ```bicep
-  az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters storageAccountType='Standard_GRS' location='eastus'
-  ```
+    ```bicep
+    az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters storageAccountType='Standard_GRS' location='eastus'
+    ```
 
-  For the descriptions of the task inputs, see [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2). When using the task on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`.
+    For the descriptions of the task inputs, see [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2). When using the task on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`.
 
 1. Update the values of `azureServiceConnection` and `location`.
 1. Verify you have a `main.bicep` in your repo, and the content of the Bicep file.
