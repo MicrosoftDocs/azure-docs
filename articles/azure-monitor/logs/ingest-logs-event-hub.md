@@ -327,13 +327,15 @@ To find the `<identity_resource_Id>` value, navigate to your user-assigned manag
 
 ### Ingest log data into an Azure table (optional)
 
-To ingest data into a [supported Azure table](../logs/logs-ingestion-api-overview.md#supported-tables), in the data collection rule, change `outputStream`: 
+To ingest data into a [supported Azure table](../logs/logs-ingestion-api-overview.md#supported-tables): 
 
-From: `"outputStream": "[concat('Custom-', parameters('tableName'))]"`
+1. In the data collection rule, change `outputStream`: 
 
-To: `"outputStream": "outputStream": "[concat(Microsoft-', parameters('tableName'))]"`
-
-
+    From: `"outputStream": "[concat('Custom-', parameters('tableName'))]"`
+    
+    To: `"outputStream": "outputStream": "[concat(Microsoft-', parameters('tableName'))]"`
+    
+1. In `transformKql`, [define a transformation](../essentials/data-collection-transformations-structure.md#transformation-structure) that sends the ingested data into the target columns in the destination Azure table.
 ## Grant the event hub permission to the data collection rule
 
 With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub, or Event Hubs namespace, permission to send events to the data collection rule and data collection endpoint you created. When you grant the permissions to the Event Hubs namespace, all event hubs within the namespace inherit the permissions. 
