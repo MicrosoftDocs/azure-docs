@@ -14,38 +14,82 @@ Description goes here.
 
 To learn more about Storage Task conditions, see [Storage Task conditions and operations](storage-task-conditions-operations.md)
 
-## Add or edit conditions
+## Open the conditions editor
 
-Include guidance for these types of things:
+Where to find the Conditions option.
+A quick tour of the Visual Builder and the Code editor.
+The presence of at least one condition and one operation
 
-- Using the editor to define conditions
-- Nesting and grouping conditions
-- What types of properties are available
-- Constraints such as naming values and wildcards
+## Define conditions
+
+Some sort of intro here. What is a condition. Maybe explain the anatomy of a condition.
+
+### Add and remove conditions
+
+Use the Add button and the delete icon.
+Use And/or operators
+
+### Edit a condition
+
+Choosing a property, operator, and property value for each condition. Perhaps site some examples. Explain or and and
+Show screenshot of multiple conditions.
+
+### Change the order of conditions
+
+Using the move up and move down clause.
+Explain the impact on condition processing.
+Show Screenshot of the move up button and screenshot of results on conditions.
+Explain some constraints
+
+### Group and ungroup conditions
+
+Explain the impact of grouping and ungrouping. Why would you do this and what would happen.
+Show use of grouping button and impact of doing that
+Show screenshot of grouping
+Explain some constraints.
+
+## Define operations
+
+Define an operation. Maybe explain the anatomy of an operation.
+
+### Add and remove operations
+
+Use the add new operation button
+Use the delete operation.
+
+### Edit an operation
+
+Choosing operations and parameters.
+Show screenshot typical operations.
+
+### Change the order of operations
+
+Using up and down buttons.
+Explain the impact of reordering.
+Show screenshot of reordering
+
+### Grouping and ungrouping operations
+
+Explain the impact of grouping and ungrouping. Why would you do this and what would happen.
+Show use of grouping button and impact of doing that
+Show screenshot of grouping
+Explain some constraints.
+
+### Deleting sections
+
+What does this involve
+
+## Use the Code view
+
+What to put here?
 
 ## Preview results
 
 You can see how the task will impact an account by previewing that result. Then, you can make tweaks and changes before deploying the task. Previewing results does not incur charges.
 
-#### [Portal](#tab/azure-portal)
-
 Open preview by using the Azure portal.
 Column sorting and various other preview settings.
 Receiving and then addressing validation errors.
-
-#### [PowerShell](#tab/powershell)
-
-Generate a preview by using PowerShell.
-Column sorting and various other preview settings.
-Receiving and then addressing validation errors.
-
-#### [Azure CLI](#tab/azure-cli)
-
-Generate a preview by using Azure CLI.
-Column sorting and various other preview settings.
-Receiving and then addressing validation errors.
-
----
 
 ## Fix validation errors
 
