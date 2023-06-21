@@ -93,7 +93,7 @@ The previous examples demonstrated how to customize drawing options while instan
 
 The [Drawing manager options] can be used to test out customization of all options for the drawing manager using the `setOptions` function.
 
-:::image type="content" source="./media/set-drawing-options/drawing-manager-options.png"alt-text="A screenshot of a map showing central park in New York City where the drawing manager is demonstrated by drawing line.":::
+:::image type="content" source="./media/set-drawing-options/drawing-manager-options.png"alt-text="A screenshot of a map showing Seattle with an area to the left of the map showing the drawing manager options that can be set, updating immediately in the map.":::
 
 <!------------------------------
 <iframe height="685" title="Customize drawing manager" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Get shape data</a> by Azure Maps
