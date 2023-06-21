@@ -21,7 +21,6 @@ Before you begin, verify that:
 - The Microsoft Sentinel solution is enabled. 
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
 - [Microsoft Dynamics 365 Finance version 10.0.33 or above](/dynamics365/finance/get-started/whats-new-changed-changed-10-0-33) is enabled and you have administrative access to the monitored environments.  
-- You have the Microsoft Sentinel Contributor role.
 - You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites`, `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
 - You can create [Data Collection Rules/Endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) with the permissions: 
     - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`.
@@ -47,17 +46,12 @@ Before you begin, verify that:
 
 1. Navigate to the **Microsoft Sentinel** service.
 1. Select **Content hub**, and in the search bar, search for *F&O*.
-1. Select **Microsoft Sentinel solution for D365 F&O**.
+1. Select **Dynamics 365 F&O**.
 1. Select **Install**.
-
-    Image - TBD
 
     For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](../sentinel-solutions-deploy.md).
 
 1. Select **Create**.
-
-   Image - TBD
-
 1. Select the resource group and the Sentinel workspace in which you want to deploy the solution. 
 1. Select **Next** until you pass validation and select **Create**.
 1. Once the solution deployment is complete, return to your Sentinel workspace and select **Data connectors**. 
