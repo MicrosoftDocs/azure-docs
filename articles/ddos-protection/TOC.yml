@@ -70,7 +70,7 @@
 - name: How-to guides
   items:
     - name: Migrate DDoS Protection tiers
-      href: ddos-migrate-ddos-protection-tiers.md
+      href: ddos-switch-ddos-protection-sku.md
     - name: Configure Monitoring and Logging
       items:
         - name: Configure Log Analytics workspace 
