@@ -53,13 +53,13 @@ The following table lists each setting that can be set to Microsoft managed and 
 
 | Setting                                                                                         | Configuration |
 |-------------------------------------------------------------------------------------------------|---------------|
-| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Enabled for SMS and voice call users with trial subscriptions, and soon to be enabled for SMS and voice call users with paid subscriptions.      |
+| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Beginning in July, 2023, enabled for SMS and voice call users with trial subscriptions, and soon after to be enabled for SMS and voice call users with paid subscriptions.      |
 | [Location in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)           | Disabled      |
 | [Application name in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)   | Disabled      |
 | [System-preferred MFA](concept-system-preferred-multifactor-authentication.md)                  | Disabled      |
 | [Authenticator Lite](how-to-mfa-authenticator-lite.md)                                          | Disabled      |  
 
-As threat vectors change, Azure AD may announce default protection for a **Microsoft managed** setting in [release notes](../fundamentals/whats-new.md) and on commonly read forums like [Tech Community](https://techcommunity.microsoft.com/). 
+As threat vectors change, Azure AD may announce default protection for a **Microsoft managed** setting in [release notes](../fundamentals/whats-new.md) and on commonly read forums like [Tech Community](https://techcommunity.microsoft.com/). For example, see our blog post [It's Time to Hang Up on Phone Transports for Authentication](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752) for more information about the need to move away from using SMS and voice calls, which led to default enablement for the resgistration campaign to help users to set up Authenticator for modern authentication.
 
 ## Next steps
 
