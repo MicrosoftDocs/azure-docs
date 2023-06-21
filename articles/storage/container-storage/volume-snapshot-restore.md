@@ -4,7 +4,7 @@ description: Take a point-in-time snapshot of a persistent volume and restore it
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/05/2023
+ms.date: 06/21/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -116,7 +116,7 @@ Now you can create a new persistent volume claim that uses the volume snapshot a
          apiGroup: snapshot.storage.k8s.io
    ```
 
-1. Apply the YAML manifest file to create the volume snapshot.
+1. Apply the YAML manifest file to create the PVC.
    
    ```azurecli-interactive
    kubectl apply -f acstor-pvc-restored.yaml
