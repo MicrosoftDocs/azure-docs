@@ -6,6 +6,8 @@
     href: site-recovery-overview.md
   - name: What's new in Site Recovery
     href: site-recovery-whats-new.md
+   - name: FAQ
+    href: site-recovery-whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -119,8 +121,10 @@
       href: migrate-tutorial-aws-azure.md
 - name: Concepts
   items:
-  - name: Common questions about Site Recovery
-    href: site-recovery-faq.yml
+  - name: Common questions
+    items:
+    - name: Azure VM disaster recovery
+      href: azure-to-azure-common-questions.md
   - name: About Backup center
     items:
     - name: Backup center overview
