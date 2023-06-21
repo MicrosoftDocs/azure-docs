@@ -169,7 +169,7 @@
         href: network-watcher-intrusion-detection-open-source-tools.md
       - name: Visualize network traffic patterns using open source tools
         href: network-watcher-using-open-source-tools.md
-  - name: Flow logging
+  - name: Log network traffic
     items:
     - name: Manage NSG flow logs
       items:
