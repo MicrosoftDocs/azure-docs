@@ -43,18 +43,70 @@ you can use Log Analytics diagnosis your application with variously log queries,
 
 [!INCLUDE [diagnosis-and-investigate-issues-with-basic-standard-plan](includes/tutorial-diagnosis-and-investigate-issues/diagnosis-and-investigate-issues-with-basic-standard-plan.md)]
 
-## 6. Monitor your application with the dashboard
+## 6. Diagnosis your application with Log Analytics
+
+This section provides samples of querying your application logs, and special issues can be queried through the custom [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
+
+To review a list of application logs from Azure Spring Apps, sorted by time with the most recent logs shown first, run the following query:
+
+```sql
+AppPlatformLogsforSpring
+| project TimeGenerated , ServiceName , AppName , InstanceName , Log
+| sort by TimeGenerated desc
+```
+
+:::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/show-application-logs.png" alt-text="Screenshot of Azure portal showing application logs for Azure Spring Apps instance" lightbox="media/tutorial-diagnosis-and-investigate-issues/show-application-logs.png":::
 
 
-## 7. Diagnosis your application with Log Analytics
-### 8.1. Log query
+To review a list of error logs from Azure Spring Apps, replace the wrong keyword and which you are looking for, run the following query:
 
-## 8. Investigate production issues with Application Insights
-### 8.1. Investigate request performance issues
-#### 8.2. Investigate request failures
+```sql
+AppPlatformLogsforSpring
+| where AppName == "customers-service"
+| where Log contains "root cause"
+| project-keep InstanceName, Log
+```
+
+:::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/show-error-logs.png" alt-text="Screenshot of Azure portal showing error logs for Azure Spring Apps instance" lightbox="media/tutorial-diagnosis-and-investigate-issues/show-error-logs.png":::
+
+## 7. Investigate production issues with Application Insights
+
+This section demonstrates how to investigate specific request failures and performance issues, see more details in [Application Map in Application Insights](../azure-monitor/app/app-map.md).
+
+### 7.1. Investigate request failures
+
+1. Go to the Azure Spring Apps instance overview page.
+
+1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page, and select **Failures** in the left navigational menu.
+
+   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-failures.png" alt-text="Screenshot of the Azure portal with failures.":::
+
+1. Select the `PUT` request with the most failed requests, select **1 Samples** to drill into the details, and then select the suggested sample in the right panel.
+
+   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-failure-suggested-sample.png" alt-text="Screenshot of the Azure portal with failure suggested sample.":::
+
+1. On the **End-to-end transaction details** page, then you can view the full call stack strace in the right panel.
+
+   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-e2e-exception.png" alt-text="Screenshot of the Azure portal with failure exception.":::
+
+### 7.2. Investigate request performance issues
+
+1. Go to the Azure Spring Apps instance overview page.
+
+1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page, and select **Performance** in the left navigational menu.
+
+   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-performance.png" alt-text="Screenshot of the Azure portal with performance.":::
+
+1. Select the slowest `GET /api/gateway/owners/{ownerId}` request, select **3 Samples** to drill into the details, and then select the suggested sample in the right panel.
+
+   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal with performance suggested sample.":::
+
+1. On the **End-to-end transaction details** page, then you can view the full call stack strace in the right panel, and you can see the processing logic that takes the longest.
+
+   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-e2e-performance.png" alt-text="Screenshot of the Azure portal with failure exception.":::
 
 [!INCLUDE [clean-up-resources-portal](includes/tutorial-diagnosis-and-investigate-issues/clean-up-resources.md)]
 
-## 10. Next steps
+## 9. Next steps
 [Set up a staging environment](../spring-apps/how-to-staging-environment.md)
 [Custom domain and enable the HTTPS](../spring-apps/tutorial-custom-domain-and-enable-https.md)
