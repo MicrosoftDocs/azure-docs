@@ -171,8 +171,8 @@ To create a data collection rule in the Azure portal:
        - `Properties` - User properties from the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
     
     - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and the stream to which you ingest the data.
-    - `destinations` - Specifies all of the destinations where the data will be sent. We currently support a single Log Analytics workspace.
-    - `dataFlows` - Matches the stream with the destination workspace and specifies the transformation query and the destination table.
+    - `destinations` - Specifies all of the destinations where the data will be sent. You can send the data to one or more Log Analytics workspaces.
+    - `dataFlows` - Matches the stream with the destination workspace and specifies the transformation query and the destination table. In our example, we ingest data to the custom table we created previously. You can also [ingest into a supported Azure table](#ingest-log-data-into-an-azure-table-optional). 
     - `transformKql` - Specifies a transformation to apply to the incoming data (stream declaration) before it's sent to the workspace. In our example, we set `transformKql` to `source`, which doesn't modify the data from the source in any way, because we're mapping incoming data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a table with a different schema or to filter data before ingestion, [define a data collection transformation](../essentials/data-collection-transformations.md).
 
     ```json
@@ -324,6 +324,16 @@ with:
 To find the `<identity_resource_Id>` value, navigate to your user-assigned managed identity resource in the Azure portal, select **JSON** to open the **Resource JSON** screen and copy the managed identity's **Resource ID**. 
 
 :::image type="content" source="media/ingest-logs-event-hub/managed-identity-resource-id.png" lightbox="media/ingest-logs-event-hub/managed-identity-resource-id.png" alt-text="Screenshot showing Resource JSON screen with the managed identity resource ID highlighted.":::
+
+### Ingest log data into an Azure table (optional)
+
+To ingest data into a [supported Azure table](../logs/logs-ingestion-api-overview.md#supported-tables), in the data collection rule, change `outputStream`: 
+
+From: `"outputStream": "[concat('Custom-', parameters('tableName'))]"`
+
+To: `"outputStream": "outputStream": "[concat(Microsoft-', parameters('tableName'))]"`
+
+
 ## Grant the event hub permission to the data collection rule
 
 With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub, or Event Hubs namespace, permission to send events to the data collection rule and data collection endpoint you created. When you grant the permissions to the Event Hubs namespace, all event hubs within the namespace inherit the permissions. 
