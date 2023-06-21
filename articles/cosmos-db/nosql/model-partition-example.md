@@ -9,7 +9,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/27/2023
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # How to model and partition data on Azure Cosmos DB using a real-world example

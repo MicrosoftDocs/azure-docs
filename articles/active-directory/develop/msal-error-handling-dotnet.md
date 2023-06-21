@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 01/25/2023
 ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-dotnet
 ---
 # Handle errors and exceptions in MSAL.NET
 

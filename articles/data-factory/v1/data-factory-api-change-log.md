@@ -6,6 +6,7 @@ ms.author: weetok
 ms.reviewer: jonburchel
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: devx-track-dotnet
 ms.topic: conceptual
 robots: noindex
 ms.date: 04/12/2023

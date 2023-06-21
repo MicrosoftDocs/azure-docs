@@ -7,8 +7,7 @@ ms.date: 01/04/2022
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, mode-api, mvc, seo-java-august2019, seo-java-september2019
-
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, mode-api, mvc, seo-java-august2019, seo-java-september2019, devx-track-extended-java
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java

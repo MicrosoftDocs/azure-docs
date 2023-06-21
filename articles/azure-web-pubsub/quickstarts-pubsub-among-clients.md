@@ -7,7 +7,7 @@ ms.author: kevinguo
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 04/12/2023
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom: mode-api
 ms.devlang: azurecli
 ---
 # Publish/subscribe among clients

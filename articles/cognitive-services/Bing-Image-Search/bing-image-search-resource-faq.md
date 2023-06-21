@@ -7,6 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
+ms.custom: devx-track-js
 ms.topic: conceptual
 ms.date: 01/05/2022
 ms.author: aahi

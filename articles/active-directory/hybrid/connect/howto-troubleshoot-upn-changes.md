@@ -74,7 +74,7 @@ If the userPrincipalName attribute value doesn't correspond to a verified domain
 
 Use our best practices to test bulk UPN changes. Have a tested roll-back plan for reverting UPNs if issues can't be resolved. After your pilot is running, target small user sets, with organizational roles, and sets of apps or devices. This process helps you understand the user experience. Include this information in your communications to stakeholders and users.
 
-Learn more: [Azure Active Directory deployment plans](../../fundamentals/active-directory-deployment-plans.md)
+Learn more: [Azure Active Directory deployment plans](../../fundamentals/deployment-plans.md)
 
 Create a procedure to change UPNs for individual users. We recommend a procedure that includes documentation about known issues and workarounds.
 

@@ -3,14 +3,15 @@ title: Use the Required URL Check tool for Azure Virtual Desktop
 description: The Required URL Check tool enables you to check your session host virtual machines can access the required URLs to ensure Azure Virtual Desktop works as intended.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 06/20/2023
 ms.author: daknappe
-manager: femila
 ---
 
 # Required URL Check tool
 
-In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. You can find the list of URLs in [Required URL list](safe-url-list.md). The Required URL Check tool will validate these URLs and show whether your session host VMs can access them. If not, then the tool will list the inaccessible URLs so you can unblock them and then retest, if needed.
+In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. You can find the list of URLs in [Required URL list](safe-url-list.md).
+
+The Required URL Check tool will validate these URLs and show whether your session host VMs can access them. If not, then the tool will list the inaccessible URLs so you can unblock them and then retest, if needed.
 
 > [!NOTE]
 > - You can only use the Required URL Check tool for deployments in the Azure public cloud, it does not check access for sovereign clouds.
@@ -20,9 +21,13 @@ In order to deploy and make Azure Virtual Desktop available to your users, you m
 
 You need the following things to use the Required URL Check tool:
 
-- Your session host VM must have a .NET 4.6.2 framework
-- RDAgent version 1.0.2944.400 or higher
-- The `WVDAgentUrlTool.exe` file must be in the same folder as the `WVDAgentUrlTool.config` file
+- A session host VM.
+
+- Your session host VM must have .NET 4.6.2 framework installed.
+
+- RDAgent version 1.0.2944.400 or higher on your session host VM. The Required URL Check tool (`WVDAgentUrlTool.exe`) is included in the same installation folder, for example `C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200`.
+
+- The `WVDAgentUrlTool.exe` file must be in the same folder as the `WVDAgentUrlTool.config` file.
 
 ## Use the Required URL Check tool
 
@@ -32,13 +37,13 @@ To use the Required URL Check tool:
 
 1. Run the following command to change the directory to the same folder as the current build agent (RDAgent_1.0.2944.1200 in this example):
 
-    ```console
+    ```cmd
     cd "C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200"
     ```
 
-1. Run the following command:
+1. Run the following command to run the Required URL Check tool:
 
-    ```console
+    ```cmd
     WVDAgentUrlTool.exe
     ```
  
@@ -55,3 +60,7 @@ To use the Required URL Check tool:
     > ![Screenshot of accessible URLs output.](media/access.png)
 
 1. You can repeat these steps on your other session host VMs, particularly if they are in a different Azure region or use a different virtual network.
+
+## Next steps
+
+For more information about network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md)

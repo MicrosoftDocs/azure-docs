@@ -6,7 +6,7 @@ ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
 ms.date: 09/10/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 <!-- 

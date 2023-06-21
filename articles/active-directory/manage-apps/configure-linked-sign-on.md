@@ -26,6 +26,8 @@ Some common scenarios where linked-based SSO is valuable include:
 - Add deep links to specific web pages that you want to appear on your user's access pages.
 - Add a link to an application that doesn't require authentication. The linked option doesn't provide sign-on functionality through Azure AD credentials, but you can still use some of the other features of enterprise applications. For example, you can use audit logs and add a custom logo and application name.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To configure linked-based SSO in your Azure AD tenant, you need:

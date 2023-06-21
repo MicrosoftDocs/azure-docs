@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 05/28/2023
+ms.date: 06/04/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -15,7 +15,7 @@ ms.reviewer: priyamishra
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Date list was last updated: 05/28/2023.
+Date list was last updated: 06/04/2023.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface).  
 
@@ -1383,7 +1383,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IntegrationRuntimeAvailableMemory |Yes |Integration runtime available memory |Bytes |Average |Integration runtime available memory |IntegrationRuntimeName, NodeName |
 |IntegrationRuntimeAvailableNodeNumber |Yes |Integration runtime available node count |Count |Average |Integration runtime available node count |IntegrationRuntimeName |
 |IntegrationRuntimeAverageTaskPickupDelay |Yes |Integration runtime queue duration |Seconds |Average |Integration runtime queue duration |IntegrationRuntimeName |
+|IntegrationRuntimeCopyAvailableCapacityPercentage |Yes |Integration runtime copy available capacity percentage |Percent |Maximum |Integration runtime copy available capacity percentage |IntegrationRuntimeName |
+|IntegrationRuntimeCopyCapacityUtilization |Yes |Integration runtime copy capacity utilization |Percent |Maximum |Integration runtime copy capacity utilization |IntegrationRuntimeName |
+|IntegrationRuntimeCopyWaitingQueueLength |Yes |Integration runtime copy waiting queue length |Count |Average |Integration runtime copy waiting queue length |IntegrationRuntimeName |
 |IntegrationRuntimeCpuPercentage |Yes |Integration runtime CPU utilization |Percent |Average |Integration runtime CPU utilization |IntegrationRuntimeName, NodeName |
+|IntegrationRuntimeExternalAvailableCapacityPercentage |Yes |Integration runtime external available capacity percentage |Percent |Maximum |Integration runtime external available capacity percentage |IntegrationRuntimeName |
+|IntegrationRuntimeExternalCapacityUtilization |Yes |Integration runtime external capacity utilization |Percent |Maximum |Integration runtime external capacity utilization |IntegrationRuntimeName |
+|IntegrationRuntimeExternalWaitingQueueLength |Yes |Integration runtime external waiting queue length |Count |Average |Integration runtime external waiting queue length |IntegrationRuntimeName |
+|IntegrationRuntimePipelineAvailableCapacityPercentage |Yes |Integration runtime pipeline available capacity percentage |Percent |Maximum |Integration runtime pipeline available capacity percentage |IntegrationRuntimeName |
+|IntegrationRuntimePipelineCapacityUtilization |Yes |Integration runtime pipeline capacity utilization |Percent |Maximum |Integration runtime pipeline capacity utilization |IntegrationRuntimeName |
+|IntegrationRuntimePipelineWaitingQueueLength |Yes |Integration runtime pipeline waiting queue length |Count |Average |Integration runtime pipeline waiting queue length |IntegrationRuntimeName |
 |IntegrationRuntimeQueueLength |Yes |Integration runtime queue length |Count |Average |Integration runtime queue length |IntegrationRuntimeName |
 |MaxAllowedFactorySizeInGbUnits |Yes |Maximum allowed factory size (GB unit) |Count |Maximum |Maximum allowed factory size (GB unit) |No Dimensions |
 |MaxAllowedResourceCount |Yes |Maximum allowed entities count |Count |Maximum |Maximum allowed entities count |No Dimensions |
@@ -3604,13 +3613,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SubmissionsOutstanding |No |Outstanding Submissions |Count |Average |The average number of outstanding submissions that are queued for processing. |Region |
 |SubmissionsSucceeded |No |Successful Submissions / Hr |Count |Maximum |The number of successful submissions / Hr. |Region |
 
-## Microsoft.SecurityDetonation/SecurityDetonationChambers  
-<!-- Data source : arm-->
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|% Processor Time |Yes |% CPU |Percent |Average |Percent CPU utilization |No Dimensions |
-
 ## Microsoft.ServiceBus/Namespaces  
 <!-- Data source : naam-->
 
@@ -4145,6 +4147,15 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WarmStorageMaxProperties |Yes |Warm Storage Max Properties |Count |Maximum |Maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU |No Dimensions |
 |WarmStorageUsedProperties |Yes |Warm Storage Used Properties  |Count |Maximum |Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU |No Dimensions |
 
+## Microsoft.VoiceServices/CommunicationsGateways  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ActiveCallFailures |No |Active Call Failures |Percent |Average |Percentage of active call failures |Region |
+|ActiveCalls |No |Active Calls |Count |Average |Count of the total number of active calls (signaling sessions) |Region |
+|ActiveEmergencyCalls |No |Active Emergency Calls |Count |Average |Count of the total number of active emergency calls |Region |
+
 ## Microsoft.Web/containerapps  
 <!-- Data source : naam-->
 
@@ -4418,4 +4429,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Sun May 28 2023 17:43:46 GMT+0300 (Israel Daylight Time)-->
+<!--Gen Date:  Sun Jun 04 2023 10:14:09 GMT+0300 (Israel Daylight Time)-->

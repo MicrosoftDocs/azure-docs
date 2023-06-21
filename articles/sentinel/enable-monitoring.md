@@ -15,6 +15,17 @@ To get health data from the *SentinelHealth* data table, or to get auditing info
 
 This article instructs you how to turn on these features.
 
+To implement the health and audit feature using API (Bicep/ARM/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings).
+
+To configure the retention time for your audit and health events, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
+
+> [!IMPORTANT]
+>
+> The *SentinelHealth* and *SentinelAudit* data tables are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
+## Data tables and resource types
+
 When the feature is turned on, the *SentinelHealth* and *SentinelAudit* data tables are created at the first event generated for the selected resources.
 
 The following resource types are currently supported for health monitoring:
@@ -26,14 +37,6 @@ The following resource types are currently supported for health monitoring:
     > When monitoring playbook health, you'll also need to collect Azure Logic Apps diagnostic events from your playbooks in order to get the full picture of your playbook activity. See [**Monitor the health of your automation rules and playbooks**](monitor-automation-health.md) for more information.
 
 Only the analytics rule resource type is currently supported for auditing.
-
-
-To configure the retention time for your audit and health events, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
-
-> [!IMPORTANT]
->
-> The *SentinelHealth* and *SentinelAudit* data tables are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Turn on auditing and health monitoring for your workspace
 

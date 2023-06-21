@@ -4,6 +4,7 @@ description: Learn how to enable the Top flows and Flow trace logs in Azure Fire
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/12/2023
 ms.author: victorh 
@@ -25,7 +26,7 @@ It's suggested to activate Top flows logs only when troubleshooting a specific i
 
 ### Prerequisites
 
-- Enable [structured logs](firewall-structured-logs.md#enabledisable-structured-logs)
+- Enable [structured logs](firewall-structured-logs.md#enable-structured-logs)
 - Use the Azure Resource Specific Table format in [Diagnostic Settings](firewall-diagnostics.md#enable-diagnostic-logging-through-the-azure-portal).
 
 ### Enable the log
@@ -89,7 +90,7 @@ The following additional properties can be added:
 
 ### Prerequisites
 
-- Enable [structured logs](firewall-structured-logs.md#enabledisable-structured-logs)
+- Enable [structured logs](firewall-structured-logs.md#enable-structured-logs)
 - Use the Azure Resource Specific Table format in [Diagnostic Settings](firewall-diagnostics.md#enable-diagnostic-logging-through-the-azure-portal).
 
 ### Enable the log

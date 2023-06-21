@@ -7,7 +7,7 @@ ms.date: 8/6/2019
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # How to use image templates
@@ -551,8 +551,8 @@ See the following articles for more code samples where image templates can be us
 > [Add HTML Makers](map-add-bubble-layer.md)
 
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Symbol layer with built-in icon template]: https://samples.azuremaps.com/?search=symbol%20layer&sample=symbol-layer-with-built-in-icon-template
-[Line layer with built-in icon template]: https://samples.azuremaps.com/?search=template&sample=line-layer-with-built-in-icon-template
-[Fill polygon with built-in icon template]: https://samples.azuremaps.com/?search=template&sample=fill-polygon-with-built-in-icon-template
-[HTML Marker with built-in icon template]: https://samples.azuremaps.com/?search=template&sample=html-marker-with-built-in-icon-template
-[Add custom icon template to atlas namespace]: https://samples.azuremaps.com/?search=template&sample=add-custom-icon-template-to-atlas-namespace
+[Symbol layer with built-in icon template]: https://samples.azuremaps.com/symbol-layer/symbol-layer-with-built-in-icon-template
+[Line layer with built-in icon template]: https://samples.azuremaps.com/line-layer/line-layer-with-built-in-icon-template
+[Fill polygon with built-in icon template]: https://samples.azuremaps.com/polygons/fill-polygon-with-built-in-icon-template
+[HTML Marker with built-in icon template]: https://samples.azuremaps.com/html-markers/html-marker-with-built-in-icon-template
+[Add custom icon template to atlas namespace]: https://samples.azuremaps.com/map/add-custom-icon-template-to-atlas-namespace

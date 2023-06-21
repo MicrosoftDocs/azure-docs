@@ -562,7 +562,7 @@ In Linux, you might receive an error message that resembles the following:
 
 You've reached the upper limit of concurrent open handles that are allowed for a file or directory.
 
-There is a quota of 2,000 open handles on a single file or directory. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
+Azure Files supports 10,000 open handles on the root directory and 2,000 open handles per file and directory within the share.
 
 #### Solution
 
