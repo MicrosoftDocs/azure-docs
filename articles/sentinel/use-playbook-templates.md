@@ -3,7 +3,7 @@ title: Create and customize Microsoft Sentinel playbooks from templates | Micros
 description: This article shows how to create playbooks from and work with playbook templates, to customize them to fit your needs.
 author: yelevin
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 06/21/2023
 ms.author: yelevin
 ---
 
