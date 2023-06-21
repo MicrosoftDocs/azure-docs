@@ -2,7 +2,7 @@
 title: Common Issues - Chef Exceptions
 description: Azure CycleCloud common issue - Chef Exceptions
 author: adriankjohnson
-ms.date: 06/202023
+ms.date: 06/20/2023
 ms.author: adjohnso
 ms.topic: conceptual
 ms.service: cyclecloud
