@@ -6,14 +6,14 @@ author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/25/2023
+ms.date: 06/21/2023
 ms.author: greglin
 ms.custom: template-concept, engagement-fy23
 ---
 
 # Traffic Manager endpoint monitoring
 
-Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. Endpoint monitoring is enabled by default. To disable monitoring, see [Enable or disable health checks](#enable-or-disable-health-checks-preview).
+Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. Endpoint monitoring is enabled by default. To disable monitoring, see [Enable or disable health checks](#enable-or-disable-health-checks).
 
 ## Configure endpoint monitoring
 
@@ -161,12 +161,9 @@ For more information, see [Traffic Manager traffic-routing methods](traffic-mana
 
 For more information about troubleshooting failed health checks, see [Troubleshooting degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
-## Enable or disable health checks (Preview)
+## Enable or disable health checks
 
 Azure Traffic Manager also enables you to configure endpoint **Health Checks** to be enabled or disabled. To disable monitoring, choose the option to **Always serve traffic**.
-
-> [!IMPORTANT]
-> The Always Serve function is in public preview. To access this preview, use the [API version 2022-04-01-preview](https://ms.portal.azure.com/?feature.canmodifystamps=true&feature.trafficmanageralwaysserve=true) link. 
 
 There are two available settings for **Health Checks**:
 
@@ -178,11 +175,10 @@ There are two available settings for **Health Checks**:
 When **Always serve traffic** is selected, monitoring is bypassed and traffic is always sent to an endpoint. The [endpoint monitor status](#endpoint-monitor-status) displayed will be **Unmonitored**. 
 
 To enable Always Serve:
-1. Use the [API version 2022-04-01-preview](https://ms.portal.azure.com/?feature.canmodifystamps=true&feature.trafficmanageralwaysserve=true) link to access the portal.
-2. Select **Endpoints** in the **Settings** section of your Traffic Manager profile blade. 
-3. Select the endpoint that you want to configure.
-4. Under **Health Checks**, choose **Always serve traffic**.
-5. Select **Save**.
+1. Select **Endpoints** in the **Settings** section of your Traffic Manager profile blade. 
+2. Select the endpoint that you want to configure.
+3. Under **Health Checks**, choose **Always serve traffic**.
+4. Select **Save**.
 
 See the following example:
 
