@@ -14,7 +14,7 @@ ms.reviewer: shseth
 The Internet Information Service (IIS) logs data to the local disk of Windows machines. This article explains how to collect IIS logs from monitored machines with [Azure Monitor Agent](azure-monitor-agent-overview.md) by creating a data collection rule (DCR). 
 
 ## Prerequisites
-To complete this procedure, you need:
+To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
