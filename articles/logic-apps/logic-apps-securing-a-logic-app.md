@@ -270,7 +270,7 @@ In the underlying trigger or action definition, add or update the `runtimeConfig
 
 If you deploy across different environments, consider parameterizing the values in your workflow definition that vary based on those environments. That way, you can avoid hard-coded data by using an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to deploy your logic app, protect sensitive data by defining secured parameters, and pass that data as separate inputs through the [template's parameters](../azure-resource-manager/templates/parameters.md) by using a [parameter file](../azure-resource-manager/templates/parameter-files.md).
 
-For example, if you authenticate HTTP actions with [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To help secure parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For example, if you authenticate HTTP actions with [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app workflow, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To help secure parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > If you use a parameter in a request header or body, that parameter might be visible when you view your logic app's
@@ -292,9 +292,9 @@ For example, if you use secrets, you can define and use secured template paramet
 
 <a name="secure-parameters-workflow"></a>
 
-### Secure parameters in workflow definitions
+### Secure parameters in workflow definitions (Consumption workflow)
 
-To protect sensitive information in your logic app's workflow definition, use secured parameters so this information isn't visible after you save your logic app. For example, suppose you have an HTTP action requires basic authentication, which uses a username and password. In the workflow definition, the `parameters` section defines the `basicAuthPasswordParam` and `basicAuthUsernameParam` parameters by using the `securestring` type. The action definition then references these parameters in the `authentication` section.
+To protect sensitive information in your logic app's workflow definition, use secured parameters so this information isn't visible after you save your logic app workflow. For example, suppose you have an HTTP action requires basic authentication, which uses a username and password. In the workflow definition, the `parameters` section defines the `basicAuthPasswordParam` and `basicAuthUsernameParam` parameters by using the `securestring` type. The action definition then references these parameters in the `authentication` section.
 
 ```json
 "definition": {
@@ -338,9 +338,9 @@ To protect sensitive information in your logic app's workflow definition, use se
 
 <a name="secure-parameters-deployment-template"></a>
 
-### Secure parameters in Azure Resource Manager templates
+### Secure parameters in Azure Resource Manager templates (Consumption workflow)
 
-A [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) for a logic app has multiple `parameters` sections. To protect passwords, keys, secrets, and other sensitive information, define secured parameters at the template level and workflow definition level by using the `securestring` or `secureobject` type. You can then store these values in [Azure Key Vault](../key-vault/general/overview.md) and use the [parameter file](../azure-resource-manager/templates/parameter-files.md) to reference the key vault and secret. Your template then retrieves that information at deployment. For more information, review [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
+A [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) for a logic app resource and workflow has multiple `parameters` sections. To protect passwords, keys, secrets, and other sensitive information, define secured parameters at the template level and workflow definition level by using the `securestring` or `secureobject` type. You can then store these values in [Azure Key Vault](../key-vault/general/overview.md) and use the [parameter file](../azure-resource-manager/templates/parameter-files.md) to reference the key vault and secret. Your template then retrieves that information at deployment. For more information, review [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
 This list includes more information about these `parameters` sections:
 
@@ -348,7 +348,7 @@ This list includes more information about these `parameters` sections:
 
 * Inside your logic app's resource definition, but outside your workflow definition, a `parameters` section specifies the values for your workflow definition's parameters. In this section, you can assign these values by using template expressions that reference your template's parameters. These expressions are evaluated at deployment.
 
-* Inside your workflow definition, a `parameters` section defines the parameters that your logic app uses at runtime. You can then reference these parameters inside your logic app's workflow by using workflow definition expressions, which are evaluated at runtime.
+* Inside your workflow definition, a `parameters` section defines the parameters that your logic app workflow uses at runtime. You can then reference these parameters inside your logic app's workflow by using workflow definition expressions, which are evaluated at runtime.
 
 This example template that has multiple secured parameter definitions that use the `securestring` type:
 
@@ -850,18 +850,29 @@ In the Azure portal, IP address restriction affects both triggers *and* actions,
 
 ##### Standard workflows
 
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+
+1. On the logic app menu, under **Settings**, select **Networking**.
+
+1. In the **Inbound Traffic** section, select **Access restriction**.
+
+1. Create one or more rules to either **Allow** or **Deny** requests from specific IP ranges. You can also use the HTTP header filter settings and forwarding settings.
+
+   For more information, see [Blocking inbound iP addresses in Azure Logic Apps (Standard)](https://www.serverlessnotes.com/docs/block-inbound-ip-addresses-in-azure-logic-apps-standard).
 
 <a name="restrict-inbound-ip-template"></a>
 
 #### [Resource Manager Template](#tab/azure-resource-manager)
 
+##### Consumption workflows 
+
 In your ARM template, specify the allowed inbound IP address ranges in your logic app's resource definition by using the `accessControl` section. In this section, use the `triggers`, `actions`, and the optional `contents` sections as appropriate by including the `allowedCallerIpAddresses` section with the `addressRange` property and set the property value to the allowed IP range in *x.x.x.x/x* or *x.x.x.x-x.x.x.x* format.
 
-* If your nested logic app uses the **Only other Logic Apps** option, which permits inbound calls only from other logic apps that use the built-in Azure Logic Apps action, set the `allowedCallerIpAddresses` property to an empty array (**[]**), and *omit* the `addressRange` property.
+* If your nested logic app workflow uses the **Only other Logic Apps** option, which permits inbound calls only from other logic app workflows that use the built-in Azure Logic Apps action, set the `allowedCallerIpAddresses` property to an empty array (**[]**), and *omit* the `addressRange` property.
 
-* If your nested logic app uses the **Specific IP ranges** option for other inbound calls, such as other logic apps that use the HTTP action, include the `allowedCallerIpAddresses` section, and set the `addressRange` property to the allowed IP range.
+* If your nested logic app workflow uses the **Specific IP ranges** option for other inbound calls, such as other logic app workflows that use the HTTP action, include the `allowedCallerIpAddresses` section, and set the `addressRange` property to the allowed IP range.
 
-This example shows a resource definition for a nested logic app that permits inbound calls only from logic apps that use the built-in Azure Logic Apps action:
+This example shows a logic app resource definition for a nested workflow that permits inbound calls only from other logic app workflows that use the built-in Azure Logic Apps action:
 
 ```json
 {
@@ -904,7 +915,7 @@ This example shows a resource definition for a nested logic app that permits inb
 }
 ```
 
-This example shows a resource definition for a nested logic app that permits inbound calls from logic apps that use the HTTP action:
+This example shows a logic app resource definition for a nested workflow that permits inbound calls from logic app workflows that use the HTTP action:
 
 ```json
 {
@@ -951,6 +962,108 @@ This example shows a resource definition for a nested logic app that permits inb
 }
 ```
 
+##### Standard workflows
+
+In your ARM template, specify the allowed inbound IP address ranges in your logic app's resource definition by using the `Microsoft.Web/sites/config` section. In this section, under `properties`, add the `ipSecurityRestrictions` section, and use the `ipAddress`, `action="Deny" | "Allow"`, `tag=Default`, `priority`, and `name="Ports"` sections to define a rule and set the `ipAddress` to the allowed IP range in *x.x.x.x/x* or *x.x.x.x-x.x.x.x* format, for example:
+
+```json
+{
+   "type": "Microsoft.Web/sites/config",
+   "apiVersion": "2022-09-01",
+   "name": "[concat(parameters('sites_My_Standard_Logic_App_name'), '/web')]",
+   "location": "West US",
+   "dependsOn": [
+      "[resourceId('Microsoft.Web/sites', parameters('sites_My_Standard_Logic_App_name'))]"
+   ],
+   "tags": {
+      "hidden-link: /app-insights-resource-id": "/subscriptions/{subscriptionID}/resourceGroups/Standard-RG/providers/Microsoft.Insights/components/My-Standard-Logic-App"
+   },
+   "properties": {
+      "numberOfWorkers": 1,
+      "defaultDocuments": [
+         "Default.htm",
+         "Default.html",
+         "Default.asp",
+         "index.htm",
+         "index.html",
+         "iisstart.htm",
+         "default.aspx",
+         "index.php"
+      ],
+      "netFrameworkVersion": "v6.0",
+      "requestTracingEnabled": false,
+      "remoteDebuggingEnabled": false,
+      "httpLoggingEnabled": false,
+      "acrUseManagedIdentityCreds": false,
+      "logsDirectorySizeLimit": 35,
+      "detailedErrorLoggingEnabled": false,
+      "publishingUsername": "$My-Standard-Logic-App",
+      "scmType": "None",
+      "use32BitWorkerProcess": false,
+      "webSocketsEnabled": false,
+      "alwaysOn": false,
+      "managedPipelineMode": "Integrated",
+      "virtualApplications": [
+         {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": false
+         }
+      ],
+      "loadBalancing": "LeastRequests",
+      "experiments": {
+         "rampUpRules": []
+      },
+      "autoHealEnabled": false,
+      "vnetRouteAllEnabled": false,
+      "vnetPrivatePortsCount": 0,
+      "publicNetworkAccess": "Enabled",
+      "cors": {
+         "supportCredentials": false
+      },
+      "localMySqlEnabled": false,
+      "managedServiceIdentityId": 3065,
+      "ipSecurityRestrictions": [
+         {
+            "ipAddress": "208.130.0.0/16",
+            "action": "Deny",
+            "tag": "Default",
+            "priority": 100,
+            "name": "Ports"
+         },
+         {
+            "ipAddress": "Any",
+            "action": "Deny",
+            "priority": 2147483647,
+            "name": "Deny all",
+            "description": "Deny all access"
+         }
+      ],
+      "ipSecurityRestrictionsDefaultAction": "Deny",
+      "scmIpSecurityRestrictions": [
+         {
+            "ipAddress": "Any",
+            "action": "Allow",
+            "priority": 2147483647,
+            "name": "Allow all",
+            "description": "Allow all access"
+         }
+      ],
+      "scmIpSecurityRestrictionsDefaultAction": "Allow",
+      "scmIpSecurityRestrictionsUseMain": false,
+      "http20Enabled": false,
+      "minTlsVersion": "1.2",
+      "scmMinTlsVersion": "1.2",
+      "ftpsState": "FtpsOnly",
+      "preWarmedInstanceCount": 1,
+      "functionAppScaleLimit": 0,
+      "functionsRuntimeScaleMonitoringEnabled": true,
+      "minimumElasticInstanceCount": 1,
+      "azureStorageAccounts": {}
+   }
+},
+```
+
 ---
 
 <a name="secure-outbound-requests"></a>
@@ -961,15 +1074,15 @@ Based on the target endpoint's capability, outbound calls sent by the [HTTP trig
 
 This list includes information about TLS/SSL self-signed certificates:
 
-* For Consumption logic apps in the multi-tenant Azure Logic Apps environment, HTTP operations don't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
+* For Consumption logic app workflows in the multi-tenant Azure Logic Apps environment, HTTP operations don't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
 
-* For Standard logic apps in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TLS/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
+* For Standard logic app workflows in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TLS/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
 
   If you want to use client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
 
-* For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Azure Logic Apps REST API, and install the public certificate at the `TrustedRoot` location.
+* For logic app workflows in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Azure Logic Apps REST API, and install the public certificate at the `TrustedRoot` location.
 
-Here are more ways that you can help secure endpoints that handle calls sent from your logic app:
+Here are more ways that you can help secure endpoints that handle calls sent from your logic app workflows:
 
 * [Add authentication to outbound requests](#add-authentication-outbound).
 
@@ -983,9 +1096,9 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
 
   * [Managed identity authentication](#managed-identity-authentication)
 
-* Restrict access from logic app IP addresses.
+* Restrict access from logic app workflow IP addresses.
 
-  All calls to endpoints from logic apps originate from specific designated IP addresses that are based on your logic apps' regions. You can add filtering that accepts requests only from those IP addresses. To get these IP addresses, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#firewall-ip-configuration).
+  All calls to endpoints from logic app workflows originate from specific designated IP addresses that are based on your logic apps' regions. You can add filtering that accepts requests only from those IP addresses. To get these IP addresses, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#firewall-ip-configuration).
 
 * Improve security for connections to on-premises systems.
 
@@ -1003,23 +1116,43 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
     > The connector shows only those API Management services where you have permissions to view and connect,
     > but doesn't show consumption-based API Management services.
 
-    1. In the workflow designer, enter `api management` in the search box. Choose the step based on whether you're adding a trigger or an action:<p>
+    Based on your logic app resource type, follow the corresponding steps:
 
-       * If you're adding a trigger, which is always the first step in your workflow, select **Choose an Azure API Management trigger**.
+    **Consumption workflows**
 
-       * If you're adding an action, select **Choose an Azure API Management action**.
+    1. On the workflow designer, under the search box, select **Built-in**. In the search box, find the built-in connector named **API Management**.
 
-       This example adds a trigger:
+    1. Based on whether you're adding a trigger or an action, select the following operation:
 
-       ![Add Azure API Management trigger](./media/logic-apps-securing-a-logic-app/select-api-management.png)
+       * Trigger: Select **Choose an Azure API Management trigger**.
+
+       * Action: Select **Choose an Azure API Management action**.
+
+       The following example adds a trigger:
+
+       ![Screenshot shows Azure portal, Consumption workflow designer, and Azure API Management trigger.](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png)
 
     1. Select your previously created API Management service instance.
 
-       ![Select API Management service instance](./media/logic-apps-securing-a-logic-app/select-api-management-service-instance.png)
+    1. Select the API operation to call.
 
-    1. Select the API call to use.
+       ![Screenshot shows Azure portal, Consumption workflow designer, and selected API to call.](./media/logic-apps-securing-a-logic-app/select-api-consumption.png)
 
-       ![Select existing API](./media/logic-apps-securing-a-logic-app/select-api.png)
+    **Standard workflows**
+
+    In Standard workflows, the **API Management** built-in connector provides only an action, not a trigger.
+
+    1. On the workflow designer, either at the end of your workflow or between steps, select **Add an action**.
+
+    1. After the **Add an action** pane opens, under the search box, from the **Runtime** list, select **In-App** to show only built-in connectors. Select the built-in action named **Call an Azure API Management API**.
+
+       ![Screenshot shows Azure portal, Standard workflow designer, and Azure API Management action.](./media/logic-apps-securing-a-logic-app/select-api-management-standard.png)
+
+    1. Select your previously created API Management service instance.
+
+    1. Select the API to call. If your connection is new, select **Create New**.
+
+       ![Screenshot shows Azure portal, Standard workflow designer, and selected API to call.](./media/logic-apps-securing-a-logic-app/select-api-standard.png)
 
 <a name="add-authentication-outbound"></a>
 
@@ -1042,7 +1175,6 @@ If the [Basic](../active-directory-b2c/secure-rest-api.md) option is available, 
 | **Authentication** | `type` | Yes | Basic | The authentication type to use |
 | **Username** | `username` | Yes | <*user-name*>| The user name for authenticating access to the target service endpoint |
 | **Password** | `password` | Yes | <*password*> | The password for authenticating access to the target service endpoint |
-||||||
 
 When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `Basic` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
@@ -1126,7 +1258,6 @@ On Request triggers, you can use [Azure Active Directory Open Authentication (Az
 | **Secret** | `secret` | Yes, but only for the "Secret" credential type | <*client-secret*> | The client secret for requesting authorization |
 | **Pfx** | `pfx` | Yes, but only for the "Certificate" credential type | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
 | **Password** | `password` | Yes, but only for the "Certificate" credential type | <*password-for-pfx-file*> | The password for accessing the PFX file |
-|||||
 
 When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ActiveDirectoryOAuth`, the credential type as `Secret`, and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
@@ -1229,7 +1360,6 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
    | **Authentication** | `type` | Yes | **Managed Identity** <br>or <br>`ManagedServiceIdentity` | The authentication type to use |
    | **Managed Identity** | `identity` | No | <*user-assigned-identity-ID*> | The user-assigned managed identity to use. **Note**: Don't include this property when using the system-assigned managed identity. |
    | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <p>For example, `https://storage.azure.com/` makes the [access tokens](../active-directory/develop/access-tokens.md) for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <p>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that this target resource ID *exactly matches* the value that Azure AD expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, review [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
-   ||||||
 
    When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. For example, this HTTP action definition specifies the authentication `type` as `ManagedServiceIdentity` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
@@ -1254,7 +1384,6 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
    |---------------------|----------|-------|-------------|
    | **Connection name** | Yes | <*connection-name*> ||
    | **Managed identity** | Yes | **System-assigned managed identity** <br>or <br> <*user-assigned-managed-identity-name*> | The authentication type to use |
-   |||||
 
 <a name="block-connections"></a>
 
