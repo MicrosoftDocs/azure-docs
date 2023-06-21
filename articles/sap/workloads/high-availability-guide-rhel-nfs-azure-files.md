@@ -97,7 +97,7 @@ The example configurations and installation commands use the following instance 
 
 This document assumes that you've already deployed an [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), subnet and resource group.
 
-1. Deploy your VMs. You can deploy VMs in availability sets, or in availability zones, if the Azure region supports these options. If you need additional IP addresses for your VMs, deploy and attach a second NIC. Don’t add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../load-balancer/load-balancer-multivip-overview.md#limitations).  
+1. Deploy your VMs. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload). You can deploy VMs in availability zones, if the Azure region supports zones, or in availability sets. If you need additional IP addresses for your VMs, deploy and attach a second NIC. Don’t add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../load-balancer/load-balancer-multivip-overview.md#limitations).  
  
 2. For your virtual IPs, deploy and configure an Azure [load balancer](../../load-balancer/load-balancer-overview.md). It's recommended to use a [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 

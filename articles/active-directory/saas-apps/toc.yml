@@ -3062,6 +3062,8 @@
         href: cornerstone-ondemand-provisioning-tutorial.md
       - name: CybSafe
         href: cybsafe-provisioning-tutorial.md
+      - name: Dagster Cloud
+        href: dagster-cloud-provisioning-tutorial.md
       - name: Documo
         href: documo-provisioning-tutorial.md
       - name: DocuSign

@@ -116,6 +116,6 @@ See the following articles for full code examples:
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
 
-[Map Events]: https://samples.azuremaps.com/?search=interact%20with&sample=map-events
-[Layer Events]: https://samples.azuremaps.com/?search=interact%20with&sample=layer-events
-[HTML marker layer events]: https://samples.azuremaps.com/?search=interact%20with&sample=html-marker-layer-events
+[Map Events]: https://samples.azuremaps.com/map/map-events
+[Layer Events]: https://samples.azuremaps.com/symbol-layer/symbol-layer-events
+[HTML marker layer events]: https://samples.azuremaps.com/html-markers/html-marker-layer-events

@@ -283,5 +283,5 @@ See code examples to add functionality to your app:
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
 
-[Multiple Maps]: https://samples.azuremaps.com/?search=multiple%20maps&sample=multiple-maps 
+[Multiple Maps]: https://samples.azuremaps.com/map/multiple-maps
 [Azure Maps Samples]: https://samples.azuremaps.com

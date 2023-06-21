@@ -189,13 +189,13 @@ items:
         - name: JavaScript
           items:
           - name: Get started
-            displayName: browser, client-side, SDK Loader Script
+            displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
-          - name: JavaScript SDK advanced topics
-            href: app/javascript-sdk-advanced.md
-          - name: Framework extensions
+          - name: JavaScript SDK configuration
+            href: app/javascript-sdk-configuration.md
+          - name: React, React Native, Angular
             href: app/javascript-framework-extensions.md
-          - name: Feature extensions (Click Analytics)
+          - name: Click Analytics Auto-Collection
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
@@ -1108,8 +1108,6 @@ items:
             href: logs/logs-data-export.md
           - name: Export with Logic Apps
             href: logs/logs-export-logic-app.md
-          - name: Query data with Azure Data Explorer
-            href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
     - name: Migrate from Splunk to Azure Monitor Logs
