@@ -13,10 +13,10 @@ ms.custom: references_regions
 
 Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases.
 
-## Latest updates - June 2023
+## Update - June 2023
 
 - Removed dependencies on service endpoints
-    - The addition of the [egress lockdown](concepts-egress-lockdown.md) feature provided access to key Azure resources through the ARO Private Link service, thus removing the need to access ACR and storage accounts through a service endpoint and leveraging a private endpoint instead. With this release, dependencies on service endpoints have been removed, and new clusters will not create service endpoints on VNets.
+    - The addition of the [egress lockdown](concepts-egress-lockdown.md) feature provided access to key Azure resources through the ARO Private Link service, thus removing the need to access ACR and storage accounts through a service endpoint and using a private endpoint instead. With this release, dependencies on service endpoints have been removed, and new clusters won't create service endpoints on VNets.
 
 ## Version 4.11 - February 2023
 
