@@ -2,7 +2,7 @@
 author: nikuklic
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/21/2022
+ms.date: 06/21/2023
 ms.author: nikuklic
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
@@ -48,7 +48,7 @@ Here's the code:
         Hang Up
       </button>
     </div>
-    <script src="./app.js"></script>
+    <script src="./app.js" type="module"></script>
   </body>
 </html>
 ```
