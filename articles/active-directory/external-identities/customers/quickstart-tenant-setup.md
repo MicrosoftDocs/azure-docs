@@ -76,7 +76,7 @@ If you're not going to continue to use this tenant, you can delete it using the 
 
 1. Ensure that you're signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure portal. Switch to the target directory if needed.
 1. From the left menu, select **Azure Active Directory** > **Overview**.
-1. Select the **Manage tenants** on the top of the page.
+1. Select **Manage tenants** at the top of the page.
 1. Select the tenant that you want to delete and then select **Delete**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/delete-tenant.png" alt-text="Screenshot that shows how to delete the tenant.":::
