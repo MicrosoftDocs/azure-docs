@@ -111,16 +111,15 @@ To deploy the template, follow these steps:
 
 1. Create a resource group.
 1. Create a virtual network.
-1. Create an availability set.  
-   Set the max update domain.
+1. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a virtual machine scale set with flexible orchestration.
 1. Create a load balancer (internal). We recommend [standard load balancer](../../load-balancer/load-balancer-overview.md).
    * Select the virtual network created in step 2.
 1. Create virtual machine 1.  
    Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the [Red Hat Enterprise Linux 7.4 for SAP HANA image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM).
-   Select the availability set created in step 3.
+   Select the scale set, availability zone or availability set created in step 3.
 1. Create virtual machine 2.  
    Use at least Red Hat Enterprise Linux 7.4 for SAP HANA. This example uses the [Red Hat Enterprise Linux 7.4 for SAP HANA image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM).
-   Select the availability set created in step 3.
+   Select the scale set, availability zone or availability set created in step 3 (not the same zone as in step 4).
 1. Add data disks.
 
 > [!IMPORTANT]
@@ -129,7 +128,7 @@ To deploy the template, follow these steps:
 > [!Note]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-1. To set up standard load balancer, follow these configuration steps:
+To set up standard load balancer, follow these configuration steps:
    1. First, create a front-end IP pool:
 
       1. Open the load balancer, select **frontend IP pool**, and select **Add**.
@@ -768,9 +767,9 @@ Be aware of the second virtual IP behavior, while testing a HANA cluster configu
 
 1. When you migrate **SAPHana_HN1_03** cluster resource to secondary site **hn1-db-1**, the second virtual IP will continue to run on the same site **hn1-db-1**. If you have set AUTOMATED_REGISTER="true" for the resource and HANA system replication is registered automatically on **hn1-db-0**, then your second virtual IP will also move to **hn1-db-0**.
 
-2. On testing server crash, second virtual IP resources (**secvip_HN1_03**) and azure load balancer port resource (**secnc_HN1_03**) will run on primary server alongside the primary virtual IP resources. So, till the time secondary server is down, application that are connected to read-enabled HANA database will connect to primary HANA database. The behavior is expected as you do not want applications that are connected to read-enabled HANA database to be inaccessible till the time secondary server is unavailable.
+2. On testing server crash, second virtual IP resources (**secvip_HN1_03**) and Azure load balancer port resource (**secnc_HN1_03**) will run on primary server alongside the primary virtual IP resources. So, till the time secondary server is down, application that are connected to read-enabled HANA database will connect to primary HANA database. The behavior is expected as you do not want applications that are connected to read-enabled HANA database to be inaccessible till the time secondary server is unavailable.
    
-3. During failover and fallback of second virtual IP address, it may happen that the existing connections on applications that uses second virtual IP to connect to the HANA database may get interrupted.
+3. During failover and fallback of second virtual IP address, it may happen that the existing connections on applications that use second virtual IP to connect to the HANA database may get interrupted.
 
 The setup maximizes the time that the second virtual IP resource will be assigned to a node where a healthy SAP HANA instance is running.
 

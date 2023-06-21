@@ -107,7 +107,7 @@ sections:
       - question: |
           How does vector search work in Azure Cognitive Search?
         answer: |
-          In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is "Collection(Edm.Single)", but other types of vector fields will be supported in the future, like Collection(Edm.Double) and Collection(Edm.Int32). Vector fields can be populated using an Indexer or by the Push API. 
+          In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is "Collection(Edm.Single)". Vector fields can be populated using an Indexer or by the Push API. 
           
           Vector queries can be issued standalone or in combination with other query types, including term queries and filters in the same search request.
 
@@ -117,20 +117,30 @@ sections:
           Today Cognitive Search doesn't perform vectorization. It's up to the application layer to pick the best model for the data and generate embeddings for the content that it indexes and for the queries.
 
       - question: |
-          Cognitive Search has features that are named "vector search" and "semantic search". How is vector search related to semantic search?
+          Cognitive Search has features that are named "vector search" and "semantic search". Is vector search related to semantic search?
         answer: |
-          The features aren't related, in the sense that you can use them independently.
+          Both "vector search" and "semantic search" are used to improve the relevance of your search results. However, they are orthogonal features, meaning you can use them independently or together. They both leverage deep neural networks (DNNs) to improve relevance, but the models and infrastructure are different for each feature. Please note for vector search, you need to create vector embeddings using a DNN and send the resulting vectors to us for indexing and querying.
 
-          * Vector search adds vectors as a new type of data and allows you to store and retrieve them efficiently. This opens a whole new set of scenarios that Cognitive Search can enable including multi-modal content retrieval, vector store for applications using Large Language Models (LLMs), recommendation systems, hybrid search scenarios, and more.
+          * Vector search adds vectors as a new type of data and allows you to store and retrieve them efficiently. With standalone vector search, you first use a DNN, such as a large language model (LLM), to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same DNN from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents. This opens a whole new set of scenarios that Cognitive Search can enable including multi-modal content retrieval, vector store for applications using Large Language Models (LLMs), recommendation systems, hybrid search scenarios, and more.
 
           * Semantic search works on the results retrieved by the search engine. Cognitive Search uses deep neural network models from Bing to re-rank to results retrieved by the search engine, increasing the relevance of results that are a closer semantic match to the query. Additionally, Semantic search has features such as answers, captions, and highlights.
 
           You can use vector search and semantic search together if the search request contains a text query - hybrid search. The search engine uses Reciprocal Rank Fusion to merge results from both vector and term queries before semantic search reranking is applied.
 
       - question: |
+          Does my search service support vector search?
+        answer: |
+          The majority of existing services will support vector search. If an index containing vector fields fails to be created, the underlying search service does not support vector search and a new service must be created. This may occur for a small subset of services created prior to 2019/01/01. **You must create or update indexes with vector fields using the 2023-07-01-Preview REST API. Your queries must also specify the preview REST API.**
+
+      - question: |
           Can I add vector search to an existing index?
         answer: |
-          No. You must create a new index using the 2023-07-01-preview REST API. Your queries must also specify the preview REST API. 
+          If your search service supports vector search, both existing and new indexes will support vector search. See "Does my search service support vector search?". **You must create or update indexes with vector fields using the 2023-07-01-Preview REST API. Your queries must also specify the preview REST API.**
+
+      - question: |
+          Why do I see different vector index size limits between my new search services and existing search services?
+        answer: |
+          We are rolling out improved vector index size limits worldwide for new search services, but we are still building out infrastructure capacity in certain regions. New search services created in supported regions will see increased vector index size limits. Unfortunately, we cannot migrate existing services to the new limits.
 
       - question: |
           How do I enable vector search on a search index?

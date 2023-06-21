@@ -469,8 +469,8 @@ See the following great articles for full code samples:
 > [!div class="nextstepaction"]
 > [Add a polygon layer](map-add-shape.md)
 
-[Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?search=popup&sample=reusing-popup-with-multiple-pins
+[Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/popups/reusing-popup-with-multiple-pins
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Customize a popup]: https://samples.azuremaps.com/?search=popup&sample=customize-a-popup
-[Reuse a popup template]: https://samples.azuremaps.com/?search=Reuse&sample=reuse-a-popup-template
-[Popup events]: https://samples.azuremaps.com/?search=Popup%20events&sample=popup-events
+[Customize a popup]: https://samples.azuremaps.com/popups/customize-a-popup
+[Reuse a popup template]: https://samples.azuremaps.com/popups/reuse-a-popup-template
+[Popup events]: https://samples.azuremaps.com/popups/popup-events
