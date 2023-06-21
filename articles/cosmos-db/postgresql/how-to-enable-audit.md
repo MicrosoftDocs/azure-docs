@@ -75,7 +75,7 @@ Using the [Azure portal](https://portal.azure.com):
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `pgaudit` parameters.
    4. Pick appropriate settings parameter to edit. For example, to start logging set `pgaudit.log` to `WRITE`
-            [ ![Screenshot of audit parameters in Azure portal.](media/howto-enable-pgaudit/audit-parameters.png)](media/howto-enable-pgaudit/shared-preload-libraries-expanded.png#lightbox)
+            [ ![Screenshot of audit parameters in Azure portal.](media/howto-enable-pgaudit/audit-parameters.png)](media/howto-enable-pgaudit/audit-parameters-expanded.png.png#lightbox)
 
    5. Select **Save** button to save changes
 
