@@ -1005,10 +1005,16 @@ items:
             href: sentiment-opinion-mining/custom/concepts/evaluation-metrics.md
       - name: How-to guides
         items:
+          - name: Design schema
+            href: sentiment-opinion-mining/custom/how-to/design-schema.md
+          - name: Label data
+            href: sentiment-opinion-mining/custom/how-to/label-data.md
           - name: Create projects
             href: sentiment-opinion-mining/custom/how-to/create-project.md
           - name: Train model
             href: sentiment-opinion-mining/custom/how-to/train-model.md
+          - name: Deploy model
+            href: sentiment-opinion-mining/custom/how-to/deploy-model.md
         
 - name: Text Analytics for health
   items:
