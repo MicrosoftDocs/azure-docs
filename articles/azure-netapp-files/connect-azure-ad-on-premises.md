@@ -22,7 +22,7 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     * The Azure NetApp Files should be mounted <!-- -->
     * Add the CIFS service provider name to the computer account created as part of the Azure NetApp Files volume. 
 
-## Create the Azure AD Kerberos application
+### Create the Azure AD Kerberos application
 
 1. In the Azure portal, navigate to Azure AD then **App Registrations**.
 1. Assign a **Name** and select the **Supported account type**. Select **Register**.
@@ -34,10 +34,10 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 
 1. Sign on to your on-premises environment.
 1. Create a local user and assign it administrator privileges. This user serves to connect to Azure AD. 
-1. Install [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+1. Install [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) using the Azure AD global administrator account.
 
     1. Configure SCP and synchronize. 
-    1. Verify the domain local user is synced in Azure AD users. 
+    1. Verify the domain local user is synced with Azure AD users. 
     <!-- how to ? -->
     >[!NOTE]
     >After the initial configuration, when you add a new local user, you must run the `Start-ADSyncSyncCycle` command in the Administrator PowerShell to synchronize the new user to Azure AD.
@@ -72,7 +72,7 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     Import-AzureADKerberosOnPremServicePrincipal -Domain $domain -DomainCredential $domainCred -CloudCredential $cloudCred -ServicePrincipalName $servicePrincipalName -ApplicationId $targetApplicationId 
     ```
 
-### Azure AD joined machine creation and mount to ANF Volume 
+### Create an Azure AD joined machine and mount to ANF Volume 
 
 1. Create two VMs in Azure NetApp Files: one registered to Azure AD and the other Azure AD-joined. 
     1. The **Azure AD-registered VM** facilitates access to the Azure AD-joined machine. Sign into the AD-registered VM using the credentials created during machine creation in the Azure portal:
