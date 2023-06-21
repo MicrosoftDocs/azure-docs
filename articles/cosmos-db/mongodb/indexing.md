@@ -111,9 +111,6 @@ However, the sequence of the paths in the compound index must exactly match the 
 
 `db.coll.find().sort({age:1,name:1})`
 
-> [!NOTE]
-> Compound indexes are only used in queries that sort results. For queries that have multiple filters that don't need to sort, create multipe single field indexes.
-
 ### Multikey indexes
 
 Azure Cosmos DB creates multikey indexes to index content stored in arrays. If you index a field with an array value, Azure Cosmos DB automatically indexes every element in the array.

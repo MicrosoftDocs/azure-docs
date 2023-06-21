@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create pipeline component deployment for Batch Endpoints
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 author: santiagxf
 ms.author: fasantia
 reviewer: msakande

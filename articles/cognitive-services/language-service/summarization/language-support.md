@@ -33,9 +33,9 @@ Use this article to learn which natural languages are supported by document and 
 | Spanish               | `es`          |                     |
 | Portuguese            | `pt`          |                     |
 
-# [Conversation summarization (preview)](#tab/conversation-summarization)
+# [Conversation summarization](#tab/conversation-summarization)
 
-## Languages supported by conversation summarization (preview)
+## Languages supported by conversation summarization
 
 Conversation summarization supports the following languages:
 
@@ -44,6 +44,14 @@ Conversation summarization supports the following languages:
 | English               | `en`          |                     |
 
 ---
+
+## Languages supported by custom summarization
+
+Custom summarization supports the following languages:
+
+| Language              | Language code |      Notes          |
+|-----------------------|---------------|---------------------|
+| English               | `en`          |                     |
 
 ## Next steps
 

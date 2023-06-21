@@ -10,7 +10,7 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/10/2021
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Tutorial: Use .NET and AI to generate searchable content from Azure blobs

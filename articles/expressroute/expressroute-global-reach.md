@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 06/06/2023
 ms.author: duau
 ms.custom: references_regions
 
@@ -46,6 +46,7 @@ ExpressRoute Global Reach is supported in the following places.
 * Netherlands
 * New Zealand
 * Norway
+* Poland
 * Singapore
 * South Africa (Johannesburg only)
 * Sweden

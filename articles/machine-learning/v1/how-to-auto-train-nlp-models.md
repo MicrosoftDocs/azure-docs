@@ -8,7 +8,7 @@ ms.author: wenxwei
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, devx-track-python
 ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
@@ -16,9 +16,6 @@ ms.date: 03/15/2022
 # Set up AutoML to train a natural language processing model with Python (preview)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
-> * [v1](how-to-auto-train-nlp-models.md)
-> * [v2 (current version)](../how-to-auto-train-nlp-models.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [preview disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
 

@@ -6,7 +6,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/30/2023
 ms.author: jomondi
@@ -71,7 +71,7 @@ You're successful in this phase when you:
 
 Deployment plans walk you through the business value, planning, implementation steps, and management of Azure AD solutions, including app migration scenarios. They bring together everything that you need to start deploying and getting value out of Azure AD capabilities. The deployment guides include content such as Microsoft recommended best practices, end-user communications, planning guides, implementation steps, test cases, and more.
 
-Many [deployment plans](../fundamentals/active-directory-deployment-plans.md) are available for your use, and we’re always making more!
+Many [deployment plans](../fundamentals/deployment-plans.md) are available for your use, and we’re always making more!
 
 ## Contact support
 

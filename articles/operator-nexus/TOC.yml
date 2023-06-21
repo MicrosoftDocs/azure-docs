@@ -31,8 +31,6 @@
       href: howto-platform-prerequisites.md
     - name: Network Fabric
       href: howto-configure-network-fabric.md
-    - name: Network Fabric Route Policy
-      href: how-to-route-policy.md
     - name: Cluster
       href: howto-configure-cluster.md
     - name: BareMetal Functions
@@ -47,6 +45,8 @@
       href: howto-baremetal-bmc-ssh.md
     - name: Isolation Domain
       href: howto-configure-isolation-domain.md
+    - name: Network Fabric Route Policy
+      href: how-to-route-policy.md      
     - name: AKS-Hybrid
       href: howto-hybrid-aks.md
     - name: Monitor AKS-Hybrid Cluster
@@ -59,12 +59,20 @@
       href: howto-precertification.md
     - name: Tracking asynchronous operations
       href: howto-track-async-operations-cli.md
+    - name: Cluster Upgrades
+      href: howto-cluster-runtime-upgrade.md
 - name: Troubleshooting
   items:
+    - name: Troubleshoot Bare Metal Machine
+      href: troubleshoot-reboot-reimage-replace.md
     - name: Troubleshoot AKS-Hybrid
       href: troubleshoot-aks-hybrid-cluster.md
     - name: Troubleshoot Isolation Domain
       href: troubleshoot-isolation-domain.md
+    - name: Troubleshoot Internet host virtual machine
+      href: troubleshoot-internet-host-virtual-machine.md
+    - name: Troubleshoot BMM reboot issues
+      href: troubleshoot-bmm-node-reboot.md
 - name: Sample Deployment
   items:
     - name: VNF Deployment

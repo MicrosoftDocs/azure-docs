@@ -2,7 +2,7 @@
 title: AKS-managed Azure Active Directory integration
 description: Learn how to configure Azure AD for your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
-ms.date: 05/10/2023
+ms.date: 06/09/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -132,8 +132,8 @@ Azure AD integrated clusters using a Kubernetes version newer than version 1.24 
     ```azurecli-interactive
     az aks get-credentials --format azure
     ```
-
-* If your Azure AD integrated clusters use a Kubernetes version older than 1.24, you need to convert the kubeconfig format manually.
+    
+* If your Azure AD integrated cluster uses Kubernetes version 1.24 or lower, you need to manually convert the kubeconfig format.
 
     ```azurecli-interactive
     export KUBECONFIG=/path/to/kubeconfig

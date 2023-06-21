@@ -16,6 +16,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using Azure PowerShell. You'll create this profile using two Web Apps as your origin. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

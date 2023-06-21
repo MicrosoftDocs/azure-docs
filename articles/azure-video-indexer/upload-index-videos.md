@@ -84,7 +84,7 @@ If you encounter any issues while uploading media files, try the following solut
 - If the **Upload** button is disabled, hover over the button and check for the indication of the problem. Try to refresh the page.
 
     If you're using a trial account, check if you have reached the account quota for daily count, daily duration, or total duration. To view your quota and usage, see the Account settings.
-- If the upload from URL failed, make sure that the URL is valid and accessible by Video Indexer. Make sure that the URL isn't from a streaming service such as YouTube. Make sure that the media file isn't encrypted, protected by DRM, corrupted, or damaged. Make sure that the media file format is supported by Video Indexer. For a list of supported formats, see [supported media formats](https://learn.microsoft.com/azure/azure-video-indexer/upload-index-videos?tabs=with-arm-account-account#supported-file-formats).
+- If the upload from URL failed, make sure that the URL is valid and accessible by Video Indexer. Make sure that the URL isn't from a streaming service such as YouTube. Make sure that the media file isn't encrypted, protected by DRM, corrupted, or damaged. Make sure that the media file format is supported by Video Indexer. For a list of supported formats, see [supported media formats](https://learn.microsoft.com/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
 - If the upload from file system failed, make sure that the file size isn't larger than 2 GB. Make sure that you have a stable internet connection.
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Configure the role claim for enterprise applications
+title: Configure the role claim
 description: Learn how to configure the role claim issued in the SAML token for enterprise applications in Azure Active Directory.
 services: active-directory
 author: davidmu1
@@ -9,14 +9,14 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 06/09/2023
 ms.author: davidmu
 ms.reviewer: jeedes
 ---
 
-# Configure the role claim issued in the SAML token
+# Configure the role claim
 
-In Azure Active Directory (Azure AD), you can customize the role claim in the access token that is received after an application is authorized. Use this feature if your application expects custom roles in the token returned by Azure AD. You can create as many roles as you need.
+You can customize the role claim in the access token that is received after an application is authorized. Use this feature if your application expects custom roles in the token. You can create as many roles as you need.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ In Azure Active Directory (Azure AD), you can customize the role claim in the ac
 - A user account that is assigned to the role. For more information, see [Quickstart: Create and assign a user account](../manage-apps/add-application-portal-assign-users.md).
 
 > [!NOTE]
-> This article explains how to create, update, or delete application roles on the service principal using APIs in Azure AD. To use the new user interface for App Roles, see [Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md).
+> This article explains how to create, update, or delete application roles on the service principal using APIs. To use the new user interface for App Roles, see [Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md).
 
 ## Locate the enterprise application
 
@@ -37,7 +37,7 @@ Use the following steps to locate the enterprise application:
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. After the application is selected, copy the object ID from the overview pane.
 
-    :::image type="content" source="media/active-directory-enterprise-app-role-management/record-objectid.png" alt-text="Screenshot that shows how to locate and record the object identifier for the application.":::
+    :::image type="content" source="media/enterprise-app-role-management/record-objectid.png" alt-text="Screenshot that shows how to locate and record the object identifier for the application.":::
 
 ## Add roles
 
@@ -105,7 +105,7 @@ Use the Microsoft Graph Explorer to add roles to an enterprise application.
     }
     ```
 
-    You can only add new roles after msiam_access for the patch operation. Also, you can add as many roles as your organization needs. Azure AD sends the value of these roles as the claim value in the SAML response. To generate the GUID values for the ID of new roles use the web tools, such as the [Online GUID / UUID Generator](https://www.guidgenerator.com/). The appRoles property should now represent what was in the request body of the query.
+    You can only add new roles after msiam_access for the patch operation. Also, you can add as many roles as your organization needs. The value of these roles is sent as the claim value in the SAML response. To generate the GUID values for the ID of new roles use the web tools, such as the [Online GUID / UUID Generator](https://www.guidgenerator.com/). The appRoles property should represent what was in the request body of the query.
 
 ## Edit attributes
 
@@ -119,7 +119,7 @@ Update the attributes to define the role claim that is included in the token.
 1. From the **Source attribute** list, select **user.assignedroles**.
 1. Select **Save**. The new **Role Name** attribute should now appear in the **Attributes & Claims** section. The claim should now be included in the access token when signing into the application.
 
-    :::image type="content" source="media/active-directory-enterprise-app-role-management/attributes-summary.png" alt-text="Screenshot that shows a display of the list of attributes and claims defined for the application.":::
+    :::image type="content" source="media/enterprise-app-role-management/attributes-summary.png" alt-text="Screenshot that shows a display of the list of attributes and claims defined for the application.":::
 
 ## Assign roles
 
@@ -131,7 +131,7 @@ After the service principal is patched with more roles, you can assign users to 
 1. Select **None Selected**, select the role from the list, and then select **Select**.
 1. Select **Assign** to assign the role to the user.
 
-    :::image type="content" source="media/active-directory-enterprise-app-role-management/assign-role.png" alt-text="Screenshot that shows how to assign a role to a user of an application.":::
+    :::image type="content" source="media/enterprise-app-role-management/assign-role.png" alt-text="Screenshot that shows how to assign a role to a user of an application.":::
 
 ## Update roles
 

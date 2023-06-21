@@ -74,12 +74,6 @@ In [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#pre
 | Service Bus    |         5.9.0          |
 | Azure Cosmos DB      |         4.1.0          |
 
-Additionally, target-based scaling is currently an **opt-in** feature with runtime scale monitoring. In order to use target-based scaling with the Premium plan when runtime scale monitoring is enabled, add the following app setting to your function app:
-
-|          App Setting          | Value |
-| ----------------------------- | ----- |
-|`TARGET_BASED_SCALING_ENABLED` |   1   |
-
 ## Dynamic concurrency support
 
 Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus or Storage queues, you can also enable [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target executions per instance_ value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
@@ -292,6 +286,10 @@ For **v2.x+** of the Storage extension, modify the `host.json` setting `batchSiz
     }
 }
 ```
+
+> [!NOTE]
+> **Scale efficiency:** For the storage queue extension, messages with [visibilityTimeout](/rest/api/storageservices/put-message#uri-parameters) are still counted in _event source length_ by the Storage Queue APIs. This can cause overscaling of your function app. Consider using Service Bus queues que scheduled messages, [limiting scale out](event-driven-scaling.md#limit-scale-out), or not using visibilityTimeout for your solution.
+
 
 ### Azure Cosmos DB
 

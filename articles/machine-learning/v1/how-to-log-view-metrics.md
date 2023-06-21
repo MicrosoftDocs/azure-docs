@@ -8,7 +8,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: UpdateFrequency5, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, event-tier1-build-2022, ignite-2022, devx-track-python
 ms.date: 10/26/2022
 ms.topic: how-to
 ---
@@ -17,9 +17,6 @@ ms.topic: how-to
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
-> * [v1](how-to-log-view-metrics.md)
-> * [v2](../how-to-log-view-metrics.md?view=azureml-api-2&preserve-view=true)
 
 Log real-time information using both the default Python logging package and Azure Machine Learning Python SDK-specific functionality. You can log locally and send logs to your workspace in the portal.
 
