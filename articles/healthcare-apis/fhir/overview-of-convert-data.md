@@ -1,12 +1,12 @@
 ---
 title: Overview of FHIR Converter - Azure Health Data Services
-description: Overview of how to use the $convert-data endpoint and custom converter templates to convert data to FHIR R4 in Azure Health Data Services.
+description: Overview of the FHIR Converter and $convert-data endpoint.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 06/16/2023
+ms.date: 06/21/2023
 ms.author: jasteppe
 ---
 
@@ -58,7 +58,13 @@ A `$convert-data` API call packages the health data for conversion inside a JSON
 > 1. Host your own copy of the templates in an Azure Container Registry instance.
 > 2. Register the templates to the FHIR service. 
 > 3. Use your registered templates in your API calls.
-> 4. Verify that the conversion behavior meets your requirements. 
+> 4. Verify that the conversion behavior meets your requirements.
+>
+> For more information on hosting your own templates, see [Host your own templates](deploy-and-configure-convert-data.md#host-your-own-templates) 
+
+The outcome of FHIR conversion is a FHIR bundle as a batch. 
+*	The FHIR bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/bundle.html).
+*	If you're trying to validate against a specific profile, you need to do some post processing by utilizing the FHIR [`$validate`](validation-against-profiles.md) operation.
 
 #### Sample request
 
@@ -118,11 +124,6 @@ To learn how to deploy and configure the FHIR Converter, see:
  
 >[!div class="nextstepaction"]
 >[Deploy and configure the FHIR Conveter](deploy-and-configure-convert-data.md)
-
-To learn how to troubleshoot the FHIR Converter, see:
- 
->[!div class="nextstepaction"]
->[Troubleshoot the FHIR Converter](troubleshoot-convert-data.md)
 
 To learn about the frequently asked questions (FAQs) for the FHIR Converter, see
  

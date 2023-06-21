@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 06/21/2022
 ms.author: jasteppe
 ---
 
@@ -21,8 +21,63 @@ In this article, learn how to deploy and configure the FHIR Converter using the 
 You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data.
 
 > [!NOTE]
-> The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported. 
+> The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported.
 
+The provided default templates can be used as a base starting point if needed, on top of which your customizations can be added. When making updates to the templates, consider following the below guidelines to avoid unintended conversion results. The template should be authored in a way such that it yields a valid structure for FHIR bundle resource. 
+
+For instance, the Liquid templates should have a format such as the following code:
+
+```json
+<liquid assignment line 1 >
+<liquid assignment line 2 >
+.
+.
+<liquid assignment line n >	          
+{
+    "resourceType": "Bundle",
+    "type": "xxx",
+    <...liquid code...>
+    "identifier":
+    {
+        "value":"xxxxx",
+    },
+    "id":"xxxx",
+    "entry": [
+	<...liquid code...>
+   ]
+}
+```
+
+The overall template follows the structure and expectations for a FHIR bundle resource, with the FHIR bundle JSON being at the root of the file. If you choose to add custom fields to the template that aren’t part of the FHIR specification for a bundle resource, the conversion request could still succeed. However, the converted result could potentially have unexpected output and wouldn't yield a valid FHIR bundle resource that can be persisted in the FHIR service as is.
+
+For example, consider the following code:
+
+```json
+<liquid assignment line 1 >
+<liquid assignment line 2 >
+.
+.
+<liquid assignment line n >	          
+{
+   “customfield_message”: “I will have a message here”,
+    “customfield_data”: {
+      "resourceType": "Bundle",
+      "type": "xxx",
+      <...liquid code...>
+      "identifier":
+      {
+        "value":"xxxxx",
+      },
+       "id":"xxxx",
+       "entry": [
+	  <...liquid code...>
+    ]
+  }
+}
+```
+
+In the example code, two example custom fields `customfield_message` and `customfield_data` that aren't FHIR properties per the specification and the FHIR bundle resource seem to be nested under `customfield_data` (that is, the FHIR bundle JSON isn't at the root of the file). This template doesn’t align with the expected structure around a FHIR bundle resource. As a result, the conversion request might succeed using the provided template. However, the returned converted result could potentially have unexpected output (due to certain post conversion processing steps being skipped). It wouldn't be considered a valid FHIR bundle (since it's nested and has non FHIR spec properties) and attempting to persist the result in your FHIR service would fail.
+ 
 ## Host your own templates
 
 We recommend that you host your own copy of templates in an Azure Container Registry instance. Hosting your own templates and using them for `$convert-data` operations involves the following six steps:
@@ -41,6 +96,12 @@ Read the [Introduction to container registries in Azure](../../container-registr
 ### Step 2: Push the templates to your Azure Container Registry instance
 
 After you create an Azure Container Registry instance, you can use the **FHIR Converter: Push Templates** command in the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to push your custom templates to your Azure Container Registry instance. Alternatively, you can use the [Template Management CLI tool](https://github.com/microsoft/FHIR-Converter/blob/main/docs/TemplateManagementCLI.md) for this purpose.
+
+To maintain different versions of custom templates in your ACR, you may push the image containing your custom templates into your ACR instance with different image tags. 
+* For more information about ACR registries, repositories, and artifacts, see [About registries, repositories, and artifacts](../../container-registry/container-registry-concepts.md).
+* For more information about image tag best practices, see [Recommendations for tagging and versioning container images](../../container-registry/container-registry-image-tag-version.md).
+
+To reference specific template versions in the API, be sure to use the exact image name and tag that contains the versioned template to be used. For the API parameter `templateCollectionReference`, use the appropriate image name + tag (for example: `<RegistryServer>/<imageName>:<imageTag>`).
 
 ### Step 3: Enable Azure Managed Identity in your FHIR service instance
 
