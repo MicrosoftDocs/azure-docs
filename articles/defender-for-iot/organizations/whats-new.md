@@ -761,7 +761,6 @@ Check out our new structure to follow through viewing devices and assets, managi
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
 - [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
-- [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
 
 > [!NOTE]
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!

@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using settings that you specify - Azure
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 06/05/2023
+ms.date: 06/08/2023
 ms.author: cherylmc
 
 ---
@@ -41,9 +41,7 @@ In this tutorial, you'll learn how to:
   * For Windows VMs - RDP (3389)
   * For Linux VMs - SSH (22)
 
- > [!NOTE]
- > The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
- >
+[!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
 
 ### <a name="values"></a>Example values
 

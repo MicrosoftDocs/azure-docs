@@ -1,7 +1,7 @@
 ---
 title: Render coverage
 titleSuffix: Microsoft Azure Maps
-description: Render coverage tables list the countries that support Azure Maps road tiles.
+description: Render coverage tables list the countries/regions that support Azure Maps road tiles.
 author: eriklindeman
 ms.author: eriklind
 ms.date: 03/23/2022
@@ -12,7 +12,7 @@ services: azure-maps
 
 # Azure Maps render coverage
 
-The render coverage tables below list the countries that support Azure Maps road tiles. Both raster and vector tiles are supported. At the lowest resolution, the entire world fits in a single tile. At the highest resolution, a single tile represents 38 square meters. You'll see more details about continents, regions, cities, and individual streets as you zoom in the map. For more information about tiles, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
+The render coverage tables below list the countries/regions that support Azure Maps road tiles. Both raster and vector tiles are supported. At the lowest resolution, the entire world fits in a single tile. At the highest resolution, a single tile represents 38 square meters. You'll see more details about continents, regions, cities, and individual streets as you zoom in the map. For more information about tiles, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
 ### Legend
 
@@ -76,11 +76,11 @@ The render coverage tables below list the countries that support Azure Maps road
 | Brunei         |    ✓     |
 | Cambodia       |    ✓     |
 | Guam           |    ✓     |
-| Hong Kong      |    ✓     |
+| Hong Kong Special Administrative Region     |    ✓     |
 | India          |    ✓     |
 | Indonesia      |    ✓     |
 | Laos           |    ✓     |
-| Macao          |    ✓     |
+| Macao Special Administrative Region         |    ✓     |
 | Malaysia       |    ✓     |
 | Myanmar        |    ✓     |
 | New Zealand    |    ✓     |

@@ -18,17 +18,23 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 The Speech SDK for C++ is available as a NuGet package. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
 
-The Speech SDK for C++ can be installed from the .NET CLI with the following `dotnet add` command:
+# [Terminal](#tab/dotnetcli)
+
+The Speech SDK for C# can be installed from the .NET CLI with the following `dotnet add` command:
 
 ```dotnetcli
 dotnet add package Microsoft.CognitiveServices.Speech
 ```
+
+# [PowerShell](#tab/powershell)
 
 The Speech SDK for C# can be installed with the following `Install-Package` command:
 
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
 ```
+
+---
 
 You can follow a guide below for additional options.
 

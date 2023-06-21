@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 02/02/2023
+ms.date: 06/08/2023
 keywords: 
 ---
 
@@ -43,21 +43,23 @@ This guide walks you through the Azure portal creation experience.
 
 ## Deploy a model
 
-Before you can generate text or inference, you need to deploy a model. You can select from one of several available models in Azure AI Studio.
-
-Davinci is the most capable model family and can perform any task the other models can perform and often with less instruction. For applications requiring a lot of understanding of the content, like summarization for a specific audience and creative content generation, Davinci is going to produce the best results.
+Before you can generate text or inference, you need to deploy a model. You can select from one of several available models in Azure OpenAI Studio.
 
 To deploy a model, follow these steps:
 
-1. Sign in to [Azure AI Studio](https://oai.azure.com).
-1. Select the subscription and OpenAI resource to work with. 
-1. Select **Manage deployments in your resource** > **Go to Deployments** under **Manage your deployments and models**. You might first need to scroll down on the landing page.
+1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
+2. Select the subscription and Azure OpenAI resource to work with.
+3. Under **Management** select **Deployments**.
+4. Select **Create new deployment**.
 
-    :::image type="content" source="../media/create-resource/deployment.png" alt-text="Screenshot of Azure AI Studio page with the 'Go to Deployments' button highlighted." lightbox="../media/create-resource/deployment.png":::
+    |Field|Description|
+    |--|--|
+    | Select a model | Model availability varies by region.For a list of available models per region, see [Model Summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability).|
+    | Deployment name | Choose a name carefully. The deployment name will be used in your code to call the model via the client libraries and REST API |
+    | Advanced Options| Content Filter - Assign a content filter to your deployment.<br> Tokens per Minute Rate Limit - Adjust the Tokens per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time via the [**Quotas**](../how-to/quota.md) menu |
 
-1. Select **Create new deployment** from the **Management** > **Deployments** page.
-1. Select a model from the drop-down. For getting started in the East US region, we recommend the `text-davinci-003` model. In other regions you should start with the `text-davinci-002` model. Some models are not available in all regions. For a list of available models per region, see [Model Summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability).
-1. Enter a model name to help you identify the model. Choose a name carefully. The model name will be used as the deployment name via OpenAI client libraries and API. 
-1. Select **Create** to deploy the model. 
+5. Select a model from the drop-down.
+6. Enter a deployment name to help you identify the model.
+7. For your first deployment leave the Advanced Options set to the defaults.
 
 The deployments table displays a new entry that corresponds to this newly created model. Your deployment status will move to succeeded when the deployment is complete and ready for use.

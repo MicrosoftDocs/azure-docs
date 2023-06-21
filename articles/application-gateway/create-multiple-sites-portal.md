@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/14/2022
+ms.date: 06/13/2023
 ms.author: greglin
 ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
@@ -61,11 +61,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
-    - **Subnet name** (application gateway subnet): The **Subnets** grid will show a subnet named *Default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
-
-    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
-
-    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.0.0.0/24, enter *10.0.1.0/24* for the address range of *myBackendSubnet*.
+    - **Subnet name** (application gateway subnet): The **Subnets** grid will show a subnet named *Default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
@@ -77,7 +73,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
-   > For the application gateway v2 SKU, you can only choose **Public** frontend IP configuration. Private frontend IP configuration is currently not enabled for this v2 SKU.
+   > For the application gateway v2 SKU, you can only choose **Public** frontend IP configuration. Use of a private frontend IP address configuration is currently in public preview. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
 
 2. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
@@ -128,10 +124,10 @@ On the **Configuration** tab, you'll connect the frontend and backend pools you 
 
 4. On the **Backend targets** tab, select **contosoPool** for the **Backend target**.
 
-5. For the **HTTP setting**, select **Add new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *contosoHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
+5. For the **Backend setting**, select **Add new** to add a new Backend setting. The Backend setting will determine the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *contosoSetting* for the **Backend settings name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
-7. Select **Add a routing rule** and add a similar rule, listener, backend target, and HTTP setting for Fabrikam.
+7. Select **Add a routing rule** and add a similar rule, listener, backend target, and backend setting for Fabrikam.
 
      :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Fabrikam rule":::
 
@@ -149,9 +145,17 @@ In this example, you'll use virtual machines as the target backend. You can eith
 
 To add backend targets, you'll:
 
-1. Create two new VMs, *contosoVM* and *fabrikamVM*, to be used as backend servers.
-2. Install IIS on the virtual machines to verify that the application gateway was created successfully.
-3. Add the backend servers to the backend pools.
+1. Add a backend subnet.
+2. Create two new VMs, *contosoVM* and *fabrikamVM*, to be used as backend servers.
+3. Install IIS on the virtual machines to verify that the application gateway was created successfully.
+4. Add the backend servers to the backend pools.
+
+### Add a backend subnet
+
+1. On the Azure portal, search for **virtual networks** and select **myVNet*.
+2. Under **Settings**, select **Subnets**.
+3. Select **+ Subnet** and in the **Add subnet** pane, enter *myBackendSubnet* for **Name** and accept *10.0.1.0/24* as the **Subnet address range**.
+4. Accept all other default settings and select **Save**.
 
 ### Create a virtual machine
 

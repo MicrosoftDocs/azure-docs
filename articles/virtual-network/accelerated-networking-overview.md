@@ -113,7 +113,7 @@ The following example shows a sample configuration drop-in for `networkd` on ope
 
 ```bash
 sudo mkdir -p /etc/systemd/network 
-sudo cat /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
+sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
 # Ignore SR-IOV interface on Azure, since it's transparently bonded 
 # to the synthetic interface 
 [Match] 
@@ -129,7 +129,7 @@ The following example shows a sample configuration drop-in for `networkd` on Ubu
 
 ```bash
 sudo mkdir -p /etc/systemd/network 
-sudo cat /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
+sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
 # Ignore SR-IOV interface on Azure, since it's transparently bonded 
 # to the synthetic interface 
 [Match] 

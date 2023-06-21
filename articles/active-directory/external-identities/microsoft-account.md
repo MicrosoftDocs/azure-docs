@@ -52,4 +52,4 @@ As of November 2020, new application registrations show up as unverified in the 
 ## Next steps
 
 - [Publisher verification overview](../develop/publisher-verification-overview.md)
-- [Add Azure Active Directory (Azure AD) as an identity provider for External Identities](azure-ad-account.md)
+- [Add Azure Active Directory (Azure AD) as an identity provider for External Identities](default-account.md)
