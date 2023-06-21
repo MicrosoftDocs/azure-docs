@@ -33,7 +33,7 @@ This sample configuration XML we've provided will do the following things:
 
    - Install Office from the Monthly Enterprise Channel and deliver updates from the Monthly Enterprise Channel.
    - Use the x64 architecture.
-   - Disable automatic updates.
+   - Disable automatic updates. Updates should be added to a custom image for your session hosts and redeployed regularly, or installed manually when no end users are signed in to a session host to avoid Office applications being in use. 
    - Remove any existing installations of Office and migrate their settings.
    - Enable shared computer activation.
 
