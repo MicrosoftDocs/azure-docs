@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/20/2023
+ms.date: 06/21/2023
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui, ignite-2022
@@ -19,8 +19,8 @@ Azure DNS Private Resolver enables you to query Azure DNS private zones from an 
 
 ## In this article: 
 
-- Two VNets are created: myvne4t and myvnet2.
-- An Azure DNS Private Resolver is created in the first VNet with an inbound endpoint at 10.10.0.4.
+- Two VNets are created: **myvnet** and **myvnet2**.
+- An Azure DNS Private Resolver is created in the first VNet with an inbound endpoint at **10.10.0.4**.
 - A DNS forwarding ruleset is created to be used with the private resolver.
 - The DNS forwarding ruleset is linked to the second VNet.
 - Example rules are added to the DNS forwarding ruleset.
