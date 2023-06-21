@@ -7,13 +7,11 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: FAGHAFFA
-ms.date: 04/26/2023
+ms.date: 06/19/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Rooms overview
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services provides a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
 
@@ -128,6 +126,19 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 - **CallEnded** is published when a room call ends.
 - **CallParticipantAdded** is published when a new participant joins a room call.
 - **CallParticipantRemoved** is published when a participant drops from a room call.
+
+## Deprecated Features
+
+Earlier public preview version of Rooms API supported two configurations for Rooms roster control, as follows:
+
+- An "Invite Only" room which only allows invited users to join the Rooms call.
+- An "Open Room" which is a less secure. In open rooms configuration, all Azure Communication Services users were allowed to join a call without being explicitly invited through the Room roster.
+
+The "Open Room" concept is now deprecated. Going forward, "Invite Only" rooms will be the only supported Room type.
+
+## Known Limitations
+
+- Azure Communication Services Call Automation capabilities currently do not support Rooms call.
 
 ## Next steps:
 - Use the [QuickStart to create, manage and join a room](../../quickstarts/rooms/get-started-rooms.md).

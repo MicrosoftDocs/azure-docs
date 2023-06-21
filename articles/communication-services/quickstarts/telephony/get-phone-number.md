@@ -66,6 +66,9 @@ In this quickstart you learned how to:
 > 
 > [!div class="nextstepaction"]
 > [Toll-free verification](../../concepts/sms/sms-faq.md#toll-free-verification)
-
+>
 > [!div class="nextstepaction"]
-> [Get started with calling](../voice-video-calling/getting-started-with-calling.md)
+> [Build workflow for outbound calls using the purchased phone numbers](../call-automation/quickstart-make-an-outbound-call.md)
+>
+> [!div class="nextstepaction"]
+> [Get started with calling in applications](../voice-video-calling/getting-started-with-calling.md)

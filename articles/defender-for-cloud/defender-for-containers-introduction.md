@@ -5,7 +5,7 @@ ms.topic: overview
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 06/12/2023
+ms.date: 06/14/2023
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -59,6 +59,7 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 Defender for Containers scans the containers in Azure Container Registry (ACR) and Amazon AWS Elastic Container Registry (ECR) to notify you if there are known vulnerabilities in your images. When the scan completes, Defender for Containers provides details for each vulnerability detected, a security classification for each vulnerability detected, and guidance on how to remediate issues and protect vulnerable attack surfaces.
 
 Learn more about:
+
 - [Vulnerability assessment for Azure Container Registry (ACR)](defender-for-containers-vulnerability-assessment-azure.md)
 - [Vulnerability assessment for Amazon AWS Elastic Container Registry (ECR)](defender-for-containers-vulnerability-assessment-elastic.md)
 
@@ -88,29 +89,6 @@ Defender for Containers also includes host-level threat detection with over 60 K
 
 Defender for Cloud monitors the attack surface of multicloud Kubernetes deployments based on the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/ctid/) in close partnership with Microsoft.
 
-## FAQ - Defender for Containers
-
-- [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
-- [Does Microsoft Defender for Containers support AKS clusters with virtual machines scale sets?](#does-microsoft-defender-for-containers-support-aks-clusters-with-virtual-machines-scale-sets)
-- [Does Microsoft Defender for Containers support AKS without scale set (default)?](#does-microsoft-defender-for-containers-support-aks-without-scale-set-default)
-- [Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?](#do-i-need-to-install-the-log-analytics-vm-extension-on-my-aks-nodes-for-security-protection)
-
-### What are the options to enable the new plan at scale?
-
-You can use the Azure Policy `Configure Microsoft Defender for Containers to be enabled`, to enable Defender for Containers at scale. You can also see all of the options that are available to [enable Microsoft Defender for Containers](defender-for-containers-enable.md).
-
-### Does Microsoft Defender for Containers support AKS clusters with virtual machines scale sets?
-
-Yes.
-
-### Does Microsoft Defender for Containers support AKS without scale set (default)?
-
-No. Only Azure Kubernetes Service (AKS) clusters that use Virtual Machine Scale Sets for the nodes is supported.
-
-### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
-
-No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension isn't needed and may result in extra charges.
-
 ## Learn More
 
 Learn more about Defender for Containers in the following blogs:
@@ -119,8 +97,9 @@ Learn more about Defender for Containers in the following blogs:
 - [Demonstrating Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-demonstrate-the-new-containers-features-in-microsoft/ba-p/3281172)
 
 The release state of Defender for Containers is broken down by two dimensions: environment and feature. So, for example:
-  - **Kubernetes data plane recommendations** for AKS clusters are GA
-  - **Kubernetes data plane recommendations** for EKS clusters are preview
+
+- **Kubernetes data plane recommendations** for AKS clusters are GA
+- **Kubernetes data plane recommendations** for EKS clusters are preview
 
   To view the status of the full matrix of features and environments, see [Microsoft Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
@@ -128,5 +107,5 @@ The release state of Defender for Containers is broken down by two dimensions: e
 
 In this overview, you learned about the core elements of container security in Microsoft Defender for Cloud. To enable the plan, see:
 
-> [!div class="nextstepaction"]
-> [Enable Defender for Containers](defender-for-containers-enable.md)
+- [Enable Defender for Containers](defender-for-containers-enable.md)
+- Check out [common questions](faq-defender-for-containers.yml) about Defender for Containers.

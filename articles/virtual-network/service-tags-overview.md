@@ -27,6 +27,7 @@ You can use service tags to achieve network isolation and protect your Azure res
 ![Network isolation of Azure services using service tags](./media/service-tags-overview/service_tags.png)
 
 ## Available service tags
+
 The following table includes all the service tags available for use in [network security group](./network-security-groups-overview.md#security-rules) rules.
 
 The columns indicate whether the tag:
@@ -147,15 +148,34 @@ The classic deployment model (before Azure Resource Manager) supports a small su
 | **Internet** | INTERNET |
 | **VirtualNetwork** | VIRTUAL_NETWORK |
 
+### Tags unsupported for user defined routes (UDR)
+
+The following is a list of tags currently unsupported for use with user defined routes (UDR).
+
+* AzurePlatformDNS
+
+* AzurePlatformIMDS
+
+* AzurePlatformLKM
+
+* VirtualNetwork
+
+* AzureLoadBalancer
+
+* Internet
 
 ## Service tags on-premises  
+
 You can obtain the current service tag and range information to include as part of your on-premises firewall configurations. This information is the current point-in-time list of the IP ranges that correspond to each service tag. You can obtain the information programmatically or via a JSON file download, as described in the following sections.
 
 ### Use the Service Tag Discovery API
+
 You can programmatically retrieve the current list of service tags together with IP address range details:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
+
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+
 - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 For example, to retrieve all the prefixes for the Storage Service Tag, you can use the following PowerShell cmdlets: 
@@ -173,25 +193,39 @@ $storage.Properties.AddressPrefixes
 > - You must be authenticated and have a role with read permissions for your current subscription. 
 
 ### Discover service tags by using downloadable JSON files 
+
 You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:
 
 - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
+
 - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)  
+
 - [Azure China 21Vianet](https://www.microsoft.com/download/details.aspx?id=57062) 
+
 - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 The IP address ranges in these files are in CIDR notation. 
 
 The following AzureCloud tags don't have regional names formatted according to the normal schema: 
+
 - AzureCloud.centralfrance (FranceCentral)
+
 - AzureCloud.southfrance (FranceSouth)
+
 - AzureCloud.germanywc (GermanyWestCentral)
+
 - AzureCloud.germanyn (GermanyNorth)
+
 - AzureCloud.norwaye (NorwayEast)
+
 - AzureCloud.norwayw (NorwayWest)
+
 - AzureCloud.switzerlandn (SwitzerlandNorth)
+
 - AzureCloud.switzerlandw (SwitzerlandWest)
+
 - AzureCloud.usstagee (EastUSSTG)
+
 - AzureCloud.usstagec (SouthCentralUSSTG)
 
 > [!TIP]
@@ -202,6 +236,6 @@ The following AzureCloud tags don't have regional names formatted according to t
 >
 > - When new IP addresses are added to service tags, they won't be used in Azure for at least one week. This gives you time to update any systems that might need to track the IP addresses associated with service tags.
 
-
 ## Next steps
+
 - Learn how to [create a network security group](tutorial-filter-network-traffic.md).
