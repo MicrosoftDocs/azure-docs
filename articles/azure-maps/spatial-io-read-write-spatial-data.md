@@ -79,7 +79,7 @@ atlas.io.read('https://nonCorsDomain.example.com/mySuperCoolData.xml', {
 
 ```
 
-The code snippet below shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns. Note that you must add a reference to the Azure Maps Spatial IO module.
+The following code snippet shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns. Note that you must add a reference to the Azure Maps Spatial IO module.
 
 ```javascript
 
