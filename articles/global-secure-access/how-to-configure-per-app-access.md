@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/20/2023
+ms.date: 06/21/2023
 ms.service: network-access
 ms.custom: 
 
@@ -115,7 +115,7 @@ You need to grant access to the app you created by assigning users and/or groups
 You can add or update the sites and apps included in your app at any time.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access**> **Enterprise applications**.
+1. Go to **Global Secure Access** > **Applications** > **Enterprise applications**.
 1. Search for and select your application.
 1. Select **Network access properties** from the side menu.
 1. To add a new site or app, select **Add  network access segment**.
@@ -136,7 +136,7 @@ Conditional Access policies for per-app access are configured at the application
 Once you have your app configured, your private resources added, users assigned to the app, you can enable the Private access traffic forwarding profile. You can enable the profile before configuring Quick Access, but without the app and profile configured, there's no traffic to forward.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Traffic forwarding**.
+1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
 1. Select the checkbox for **Private access profile**.
 
 ![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-configure-per-app-access/private-access-traffic-profile.png)

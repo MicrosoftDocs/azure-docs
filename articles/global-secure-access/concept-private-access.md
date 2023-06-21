@@ -27,15 +27,15 @@ Quick Access and per-app access are similar, but there are a few key concepts to
 
 ### Quick Access
 
-Quick Access is the primary group of FQDNs and IP addresses that you want to secure. As you're planning your Global Secure Access deployment, you should gather all of the private resources you want to secure. Review that list and determine which resources you always want to tunnel through the service. This primary group of FQDNs, IP addresses, and IP ranges is what you add to Quick Access.
+Quick Access is the primary group of FQDNs and IP addresses that you want to secure. As you're planning your Global Secure Access deployment, review your list of private resources and determine which resources you *always* want to tunnel through the service. This primary group of FQDNs, IP addresses, and IP ranges is what you add to Quick Access.
 
 ### Per-app access
 
 Per-app access can be configured if any of the following scenarios sound familiar:
 
 - I need to apply a different set of Conditional Access policies to a subset of users.
-- I have a few private resources that I want to secure, but they should have a different set of authorization policies.
-- I have a subset of private resources that I only want to secure for a specific timeframe.
+- I have a few private resources that I want to secure, but they should have a different set of access policies.
+- I have a subset of private resources that I only want to secure for a specific time frame.
 
 Per-app access provides a granular approach to securing your private resources. You can create multiple per-app access apps to secure different private resources. Paired with Conditional Access policies, you have a powerful yet fine-grained way to secure your private resources.
 
