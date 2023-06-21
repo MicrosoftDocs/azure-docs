@@ -132,7 +132,7 @@ Use Bicep syntax to declare [objects](./data-types.md#objects) and [arrays](./da
 
 Bicep parameters file has the file extension of `.bicepparam`.
 
-To deploy to different environments, you create more than one parameters file. When you name the parameters files, identify their use such as development and production. For example, use _main.dev.biceparam_ and _main.prod.json_ to deploy resources.
+To deploy to different environments, you create more than one parameters file. When you name the parameters files, identify their use such as development and production. For example, use _main.dev.bicepparam_ and _main.prod.bicepparam_ to deploy resources.
 
 # [JSON parameters file](#tab/JSON)
 
