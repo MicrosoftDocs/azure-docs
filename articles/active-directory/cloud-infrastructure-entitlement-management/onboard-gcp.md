@@ -65,7 +65,7 @@ There are several moving parts across GCP and Azure, which are required to be co
     Optionally, specify **G-Suite IDP Secret Name** and **G-Suite IDP User Email** to enable G-Suite integration.
 
 
-1. You can either download and run the script at this point or you can do it in the Google Cloud Shell.
+1. You can either download and run the script at this point or you can run it in the Google Cloud Shell.
 
 1. Select **Next** after successfully running the setup script. 
 
@@ -73,17 +73,18 @@ Choose from three options to manage GCP projects.
 
 #### Option 1: Automatically manage 
 
-The automatically manage option allows projects to be automatically detected and monitored without extra configuration. Steps to detect list of projects and onboard for collection:  
+The automatically manage option allows projects to be automatically detected and monitored without extra configuration. Requirements to detect list of projects and onboard for collection:  
 
-1. Firstly, grant **Viewer** and **Security Reviewer** role to service account created in previous step at organization, folder or project scope. 
+1. In GCP, you will need to grant **Viewer** and **Security Reviewer** role to service account created in previous step at a project, folder or organization. 
 
-To enable controller mode 'On' for any projects, add following roles to the specific projects:
-- Role Administrators
-- Security Admin 
+ > [!NOTE]
+ > To enable controller mode 'On' for any projects, add following roles to the specific projects:
+ > - Role Administrators
+ > - Security Admin 
 
-2. Once done, the steps are listed in the screen, which shows how to further configure in the GPC console, or programmatically with the gCloud CLI.
+2. The requred commands to be run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This can also be configure in the GPC console.
 
-3. Select **Next**.
+3. After granting the proper permissions, Select **Next**.
 
 #### Option 2: Enter authorization systems 
 You have the ability to specify only certain GCP member projects to manage and monitor with MEPM (up to 100 per collector). Follow the steps to configure these GCP member projects to be monitored: 
@@ -91,11 +92,12 @@ You have the ability to specify only certain GCP member projects to manage and m
 
     You can enter up to comma separated 100 GCP project IDs. 
 
-2. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell.
+2. You can choose to download and run the script at this point, or you can run it via Google Cloud Shell.
     
-    To enable controller mode 'On' for any projects, add following roles to the specific projects:
-    - Role Administrators
-    - Security Admin 
+ > [!NOTE]
+ > To enable controller mode 'On' for any projects, add following roles to the specific projects:
+ > - Role Administrators
+ > - Security Admin 
 
 3. Select **Next**.
 
@@ -105,10 +107,13 @@ This option detects all projects that are accessible by the Cloud Infrastructure
 
 1. Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope
 
-    To enable controller mode 'On' for any projects, add following roles to the specific projects:
-    - Role Administrators
-    - Security Admin 
-2.  Once done, the steps are listed in the screen to do configure manually in the GPC console, or programmatically with the gCloud CLI
+ > [!NOTE]
+ > To enable controller mode 'On' for any projects, add following roles to the specific projects:
+ > - Role Administrators
+ > - Security Admin 
+
+2.  Once done, the steps are listed in the screen to do configure manually in the GPC console, or programmatically via Google Cloud Shell.
+   
 3. Select **Next**.
 
 
