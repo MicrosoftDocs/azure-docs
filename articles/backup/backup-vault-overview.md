@@ -1,5 +1,5 @@
 ---
-title: Overview of Backup vaults
+title: Overview of the Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
 ms.date: 07/05/2023
