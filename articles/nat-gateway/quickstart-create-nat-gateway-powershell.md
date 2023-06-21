@@ -12,7 +12,7 @@ ms.custom: template-quickstart, devx-track-azurepowershell
 
 # Quickstart: Create a NAT gateway using Azure PowerShell
 
-In this quickstart, learn how to create a NAT gateway by using the Azure portal. The NAT Gateway service provides outbound connectivity for virtual machines in Azure.
+In this quickstart, learn how to create a NAT gateway by using PowerShell. The NAT Gateway service provides outbound connectivity for virtual machines in Azure.
 
 :::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart.":::
 
@@ -59,7 +59,7 @@ $ip = @{
     Location = 'eastus2'
     Sku = 'Standard'
     AllocationMethod = 'Static'
-    Zone = '1 2 3'
+    Zone = 1,2,3
 }
 $publicIP = New-AzPublicIpAddress @ip
 
@@ -106,7 +106,7 @@ $ip = @{
     Location = 'eastus2'
     Sku = 'Standard'
     AllocationMethod = 'Static'
-    Zone = '1 2 3'
+    Zone = 1,2,3
 }
 $publicip = New-AzPublicIpAddress @ip
 
@@ -120,9 +120,11 @@ $bastion = @{
     VirtualNetworkName = 'vnet-1'
     Sku = 'Basic'
 }
-New-AzBastion @bastion -AsJob
+New-AzBastion @bastion
 
 ```
+
+The bastion host can take several minutes to deploy. Wait for the bastion host to deploy before moving on to the next section.
 
 ## Virtual machine
 
