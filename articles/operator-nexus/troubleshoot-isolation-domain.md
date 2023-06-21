@@ -11,7 +11,7 @@ author: v-saambe
 
 # Troubleshoot Isolation Domain provisioning failures
 
-Follow these steps in order to gather the data needed to diagnose Isolation Domain creation or management issues by using the Azure Command Line Interface (AzCLI)
+Follow these steps in order to gather the data needed to diagnose Isolation Domain creation or management issues by using the Azure CLI.
 
 ## Prerequisites
 
