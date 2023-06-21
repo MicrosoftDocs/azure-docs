@@ -179,17 +179,17 @@ Modify the following command to include configuration details for the domain pro
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information
 Set-AzStorageAccount `
-        -ResourceGroupName "<your-resource-group-name-here>" `
-        -Name "<your-storage-account-name-here>" `
+        -ResourceGroupName "<your-resource-group-name>" `
+        -Name "<your-storage-account-name>" `
         -EnableActiveDirectoryDomainServicesForFile $true `
-        -ActiveDirectoryDomainName "<your-domain-dns-root-here>" `
-        -ActiveDirectoryNetBiosDomainName "<your-domain-dns-root-here>" `
-        -ActiveDirectoryForestName "<your-forest-name-here>" `
-        -ActiveDirectoryDomainGuid "<your-guid-here>" `
-        -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
+        -ActiveDirectoryDomainName "<your-domain-dns-root>" `
+        -ActiveDirectoryNetBiosDomainName "<your-domain-dns-root>" `
+        -ActiveDirectoryForestName "<your-forest-name>" `
+        -ActiveDirectoryDomainGuid "<your-guid>" `
+        -ActiveDirectoryDomainsid "<your-domain-sid>" `
         -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>" `
         -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name>" `
-        -ActiveDirectoryAccountType "<you-domain-object-account-type, the value could be 'Computer' or 'User', for AES256 must be 'Computer'>"
+        -ActiveDirectoryAccountType "<your-domain-object-account-type, the value could be 'Computer' or 'User'>"
 ```
 
 #### Enable AES-256 encryption (recommended)

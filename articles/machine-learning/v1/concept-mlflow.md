@@ -9,16 +9,13 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.custom: UpdateFrequency5, how-to, devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, how-to, sdkv1, event-tier1-build-2022
 ---
 
 # MLflow and Azure Machine Learning (v1)
 
 [!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning developer platform that you're using:"]
-> * [v1](concept-mlflow.md)
-> * [v2 (current version)](../concept-mlflow.md?view=azureml-api-2&preserve-view=true)
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLflow's tracking URI and logging API are collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api). This component of MLflow logs and tracks your training run metrics and model artifacts, no matter where your experiment's environment is--on your computer, on a remote compute target, on a virtual machine, or in an Azure Databricks cluster. 
 

@@ -18,16 +18,15 @@ With Static Web Apps, you have two options to integrate with Azure Front Door. Y
 
 Consider the advantages below to determine which option best suits your needs.
 
-Enterprise-grade edge provides:
-
+**Enterprise-grade edge provides:**
 * Zero configuration changes
 * No downtime
 * Automatically managed SSL certifications and custom domains
 
-A manual Azure Front Door setup gives you full control over the CDN configuration including the chance to:
-
+**A manual Azure Front Door setup gives you full control over the CDN configuration including the chance to:**
 * Limit traffic origin by origin
-* Add a web application firewall
+* Add a web application firewall (WAF)
+* Route across multiple applications
 * Use more advanced features of Azure Front Door
 
 In this tutorial, you learn to add Azure Front Door to your static web app.

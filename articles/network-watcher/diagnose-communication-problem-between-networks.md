@@ -19,7 +19,7 @@ Azure VPN gateway is a type of virtual network gateway that you can use to send 
 
 This tutorial helps you use Azure Network Watcher [VPN troubleshoot](network-watcher-troubleshoot-overview.md) capability to diagnose and troubleshoot a connectivity issue that's preventing two virtual networks from communicating with each other. These two virtual networks are connected via VPN gateways using VNet-to-VNet connections.
 
-You learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create virtual networks

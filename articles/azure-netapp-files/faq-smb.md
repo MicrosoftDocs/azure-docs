@@ -38,13 +38,11 @@ If you're using Azure NetApp Files with Azure Active Directory Domain Services, 
 
 ## How do the Netlogon protocol changes in the April 2023 Windows Update affect Azure NetApp Files? 
 
-The Windows April 2023 update will include a patch for Netlogon protocol changes, however these changes are not enforced at this time.
- 
-You should not modify the `RequireSeal` value to 2 at this time. Azure NetApp Files adds support for setting `RequireSeal` to 2 in May 2023.
+The Windows April 2023 updated included a patch for Netlogon protocol changes, which were not enforced at release. 
 
-The enforcement of setting `RequireSeal` value to 2 will occur by default with the June 2023 Azure update.
+The upgrades to the Azure NetApp File storage resource have been completed. The enforcement of setting `RequireSeal` value to 2 will occur by default with the June 2023 Azure update. No action is required regarding the June 13 enforcement phase.  
 
-For more information, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
+For more information about this update, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
 
 ## What versions of Windows Server Active Directory are supported?
 

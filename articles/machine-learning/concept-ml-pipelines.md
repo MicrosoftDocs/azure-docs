@@ -10,15 +10,18 @@ ms.author: lagayhar
 author: lgayhardt
 ms.reviewer: lagayhar
 ms.date: 05/10/2022
-ms.custom: devx-track-python, event-tier1-build-2022
+ms.custom: event-tier1-build-2022
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # What are Azure Machine Learning pipelines?
 
+:::moniker range="azureml-api-1"
 [!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
-
+:::moniker-end
+:::moniker range="azureml-api-2"
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+:::moniker-end
 
 An Azure Machine Learning pipeline is an independently executable workflow of a complete machine learning task. An Azure Machine Learning pipeline helps to standardize the best practices of producing a machine learning model, enables the team to execute at scale, and improves the model building efficiency.
 
@@ -48,7 +51,10 @@ Once the teams get familiar with pipelines and want to do more machine learning 
 
 Once a team has built a collection of machine learnings pipelines and reusable components, they could start to build the machine learning pipeline from cloning previous pipeline or tie existing reusable component together. At this stage, the team's overall productivity will be improved significantly.  
 
-Azure Machine Learning offers different methods to build a pipeline. For users who are familiar with DevOps practices, we recommend using [CLI](how-to-create-component-pipelines-cli.md). For data scientists who are familiar with python, we recommend writing pipeline using the [Azure Machine Learning SDK v1](v1/how-to-create-machine-learning-pipelines.md?view=azureml-api-1&preserve-view=true). For users who prefer to use UI, they could use the [designer to build pipeline by using registered components](how-to-create-component-pipelines-ui.md).
+Azure Machine Learning offers different methods to build a pipeline. For users who are familiar with DevOps practices, we recommend using [CLI](how-to-create-component-pipelines-cli.md). For data scientists who are familiar with python, we recommend writing pipeline using the [Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md). For users who prefer to use UI, they could use the [designer to build pipeline by using registered components](how-to-create-component-pipelines-ui.md).
+
+
+:::moniker-end
 
 <a name="compare"></a>
 ## Which Azure pipeline technology should I use?

@@ -1,6 +1,16 @@
 {
 	"redirections": [
         {
+            "source_path_from_root": "/articles/cognitive-services/language-service/custom-named-entity-recognition/tutorials/cognitive-search.md",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-classification/tutorials/cognitive-search.md",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/conversational-language-understanding/fail-over.md",
             "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/fail-over",
             "redirect_document_id": true
@@ -6085,9 +6095,29 @@
             "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator-rest-api",
             "redirect_document_id": true
         },
-        {     
+        {
             "source_path_from_root": "/articles/cognitive-services/Translator/request-limits.md",
             "redirect_url": "/azure/cognitive-services/Translator/service-limits",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/how-to-guides/use-client-sdks.md",
+            "redirect_url": "/azure/cognitive-services/Translator/document-translation/quickstarts/document-translation-sdk",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/quickstarts/get-started-with-rest-api.md",
+            "redirect_url": "/azure/cognitive-services/Translator/document-translation/quickstarts/document-translation-rest-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/quickstart-translator-rest-api.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-text-rest-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/quickstart-translator-sdk.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-text-sdk",
             "redirect_document_id": true
         }
     ]

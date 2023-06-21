@@ -1,5 +1,5 @@
 ---
-title: Boot integrity monitoring (guest attestation) overview
+title: Boot integrity monitoring overview
 description: How to use the guest attestation extension to secure boot your VM. How to handle traffic blocking.
 author: Howie425
 ms.author: howieasmerom
@@ -10,7 +10,7 @@ ms.date: 04/25/2023
 ms.custom: template-concept 
 ---
 
-# Boot integrity monitoring (guest attestation) overview
+# Boot integrity monitoring overview
 
 To help Trusted Launch better prevent malicious rootkit attacks on virtual machines, guest attestation through Microsoft Azure Attestation (MAA) endpoint is used to monitor the boot sequence integrity. This attestation is critical to provide validity of a platform’s states. If your [Azure Trusted Virtual Machines](trusted-launch.md) has Secure Boot and vTPM enabled and attestation extensions installed, Microsoft Defender for Cloud verifies that the status and boot integrity of your VM is set up correctly. To learn more about MDC integration, see the [trusted launch integration with Microsoft Defender for Cloud](trusted-launch.md#microsoft-defender-for-cloud-integration).
 
