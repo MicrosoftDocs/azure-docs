@@ -128,7 +128,7 @@ To create a custom table into which to ingest events, in the Azure portal:
 
 To collect data with a data collection rule, you need a data collection endpoint: 
 
-1. [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint). 
+1. [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint#create-a-data-collection-endpoint). 
 
     > [!IMPORTANT]
     > Create the data collection endpoint in the same region as your Log Analytics workspace.
@@ -458,5 +458,5 @@ To stop ingesting data from the event hub, [delete all data collection rule asso
 Learn more about to:
 
 - [Create a custom table](../logs/create-custom-table.md#create-a-custom-table).
-- [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint).
+- [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Update an existing data collection rule](../essentials/data-collection-rule-edit.md).
