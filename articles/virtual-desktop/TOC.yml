@@ -462,8 +462,14 @@
   items:
   - name: Azure CLI
     href: /cli/azure/desktopvirtualization
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/az.desktopvirtualization
+  - name: Bicep
+    href: /azure/templates/microsoft.desktopvirtualization/hostpools?pivots=deployment-language-bicep
+  - name: Azure Resource Manager (ARM) template
+    href: /azure/templates/microsoft.desktopvirtualization/hostpools?pivots=deployment-language-arm
+  - name: Terraform
+    href: /azure/templates/microsoft.desktopvirtualization/hostpools?pivots=deployment-language-terraform
   - name: REST API
     href: /rest/api/desktopvirtualization/
 - name: Resources
@@ -486,7 +492,7 @@
     href: https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum
   - name: Azure Virtual Desktop roadmap
     href: https://aka.ms/avdroadmap
-  - name: Azure Resource Manager templates
+  - name: Azure Resource Manager (ARM) templates
     href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates
   - name: Terraform samples
     href: /azure/developer/terraform/configure-azure-virtual-desktop

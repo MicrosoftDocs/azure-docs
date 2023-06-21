@@ -196,6 +196,7 @@ In this example:
 
 You should now be able to send DNS traffic to your DNS resolver and resolve records based on your forwarding rulesets, including:
 - Azure DNS private zones linked to the virtual network where the resolver is deployed.
+    - If a VNet is linked to the private zone itself, it doesn't need a rule for the private zone in the forwarding ruleset. Resources in the VNet can directly resolve the zone. However, in this example the second VNet is not linked to the private zone. It can still resolve the zone by using the forwarding ruleset. For more information about this design, see [Private Resolver Architecture](private-resolver-architecture.md).
 - Private DNS zones that are hosted on-premises.
 - DNS zones in the public internet DNS namespace.
 

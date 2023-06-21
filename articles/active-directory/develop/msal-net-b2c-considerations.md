@@ -159,7 +159,7 @@ MSAL.NET supports a [token cache](/dotnet/api/microsoft.identity.client.tokencac
 
 Currently, MSAL.NET needs two claims to build a token cache key:
 
-- `tid` (the Azure AD tenant ID)
+- `tid` (the tenant ID)
 - `preferred_username`
 
 Both of these claims may be missing in Azure AD B2C scenarios because not all social identity providers (Facebook, Google, and others) return them in the tokens they return to Azure AD B2C.
