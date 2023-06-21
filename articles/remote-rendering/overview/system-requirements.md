@@ -43,13 +43,6 @@ Even though the correct H265 codec might be installed, security properties on th
 * Meta Quest 2 (**Public Preview**)
 * Meta Quest Pro (**Public Preview**)
 
-> [!IMPORTANT]
-> **Support for Quest 2 and Quest Pro is currently in Public Preview**.
->
-> This functionality is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have limited capabilities. 
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ### Desktop Windows
 
 32-Bit Windows versions are not supported.
@@ -69,6 +62,26 @@ It's important to use the latest HEVC codec, as newer versions have significant 
 ### HoloLens 2
 
 Note that the [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.
+
+### Quest 2 and Quest Pro
+
+> [!IMPORTANT]
+> **Support for Quest 2 and Quest Pro is currently in Public Preview**.
+>
+> This functionality is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have limited capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Requirements and limitations:
+
+* The minimum supported Unity version is 2020.3.
+* Only Unity's [OpenXR](https://docs.unity3d.com/Manual/com.unity.xr.openxr.html) plugin is supported.
+* It is recommended to use Unity's Universal Render Pipeline (URP).
+* Only the Vulkan rendering API is supported. OpenGL support is not available.
+* The [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android) doesn't work for Quest devices.
+* When a Quest device goes to sleep and is woken up again, the remote content may not resume at all, or take a long time to recover.
+ 
+See the [Unity setup](../how-tos/unity/unity-setup.md) page for more details.
 
 ## Network
 
