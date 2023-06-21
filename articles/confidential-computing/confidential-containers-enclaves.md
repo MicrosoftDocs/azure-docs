@@ -51,9 +51,9 @@ You can deploy SCONE on Azure confidential computing nodes with AKS following th
 
 ### Anjuna
 
-[Anjuna](https://www.anjuna.io/) provides SGX platform software to run unmodified containers on AKS. For more information, see Anjuna's [documentation about functionality and sample applications](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
+[Anjuna](https://www.anjuna.io/) provides SGX platform software to run unmodified containers on AKS. For more information, see Anjuna's [documentation about functionality and sample applications](https://www.anjuna.io/partners/microsoft-azure).
 
-Get started with a sample Redis Cache and Python Custom Application [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
+Get started with a sample Redis Cache and Python Custom Application [here](https://www.anjuna.io/partners/microsoft-azure)
 
 ![Diagram of Anjuna's process, showing how containers are run on Azure confidential computing.](media/confidential-containers/anjuna-process-flow.png)
 
