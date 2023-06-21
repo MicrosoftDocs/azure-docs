@@ -52,7 +52,7 @@ items:
         href: how-to-manage-microsoft-365-profile.md
       - name: Manage the Private Access profile
         href: how-to-manage-private-access-profile.md
-  - name: Private access traffic
+  - name: Private access
     expanded: false
     items:
       - name: About Private access traffic
