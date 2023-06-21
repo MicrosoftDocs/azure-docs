@@ -131,6 +131,8 @@ If you're using the Azure Cognitive Search REST API to [push content to your sea
 
 To add health checks and failover capabilities for Azure Cognitive Search, you would typically use Azure Application Gateway or a load balancer in combination with Azure Traffic Manager. [Azure Application Gateway](/azure/application-gateway/overview) supports health probes, which can be configured to check the availability of specific backend services and perform load balancing accordingly.
 
+The architecture for this solution would consist of search-enabled client apps that connect to Application Gateway through Azure Traffic Manager, where each gateway endpoint connects to a backend search service in a specific region.
+
 ## Data residency
 
 When you deploy multiple search services in various geographic regions, your content is stored in your chosen region.
