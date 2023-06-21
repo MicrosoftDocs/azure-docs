@@ -12,7 +12,7 @@ You can monitor Azure services and applications by using [Grafana](https://grafa
 - [Azure Monitor Metrics](../essentials/data-platform-metrics.md) for numeric time series data from Azure resources.
 - [Azure Monitor Logs](../logs/data-platform-logs.md) for log and performance data from Azure resources that enables you to query by using the powerful Kusto Query Language (KQL). You can use Application Insights log queries to retrieve Application Insights log based metrics
 - [Azure Resource Graph](../../governance/resource-graph/overview.md) to quickly query and identify Azure resources across subscriptions.
-- Application Insights log based metrics to let you analyze the health of your monitored apps. You can use Application Insights log queries in Grafana to use the Application Insights log metrics data.
+- [Application Insights log based metrics](../essentials/app-insights-metrics.md) to let you analyze the health of your monitored apps. You can use Application Insights log queries in Grafana to use the Application Insights log metrics data.
  
 
 You can then display this performance and availability data on your Grafana dashboard.
@@ -37,7 +37,7 @@ To set up a local Grafana server, [download and install Grafana in your local en
 ## Sign in to Grafana
 
 > [!IMPORTANT]
-> The Internet Explorer browser and older Microsoft Edge browsers aren't compatible with Grafana. You must use a chromium-based browser including Microsoft Edge. For more information, see [Supported web browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
+> Internet Explorer and the older Microsoft Edge browsers aren't compatible with Grafana. You must use a chromium-based browser including Microsoft Edge. For more information, see [Supported web browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
 
 Sign in to Grafana by using the endpoint URL of your Azure Managed Grafana workspace or your server's IP address.
 
