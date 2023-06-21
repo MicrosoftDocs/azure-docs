@@ -322,7 +322,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #          : environment.
    ```
 
-
 1. **[A]** Add mount entries
 
    If using NFSv3:
