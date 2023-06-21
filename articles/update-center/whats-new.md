@@ -12,6 +12,12 @@ ms.date: 06/12/2023
 
 [Update management center](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update management center.
 
+## July 2023
+
+### Dynamic scoping (preview)
+
+You can now include virtual machines based on the scope and schedule updates at scale. You also have the flexibility to modify the scope and the patching requirements are applied at scale without any changes to your deployment schedule.
+
 ## May 2023
 
 ### Customized image support
