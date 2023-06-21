@@ -45,7 +45,7 @@ The following table lists authentication scenarios and the authentication soluti
 | Want Visual Studio integration? | ❌ | ❌ | ✅ |
 | Need single sign-on support in your IDE during local development? | ❌ | ❌ | ✅ |
 
-## Get started
+## Next steps
 
 To get started with built-in App Service authentication, read:
 - [Enable App Service built-in authentication](scenario-secure-app-authentication-app-service.md)
@@ -61,7 +61,4 @@ To get started with [Microsoft.Identity.Web](/entra/msal/dotnet/microsoft-identi
 - [Only allow authenticated user to access a web API](/azure/active-directory/develop/scenario-protected-web-api-overview)
 - [Sign in users to a Blazor Server app](/azure/active-directory/develop/tutorial-blazor-server)
 
-## Next steps
-
-- Learn more about [App Service built-in authentication and authorization](overview-authentication-authorization.md)
-- [Add built-in authentication to your web app running on App Service](scenario-secure-app-authentication-app-service.md)
+Learn more about [App Service built-in authentication and authorization](overview-authentication-authorization.md)
