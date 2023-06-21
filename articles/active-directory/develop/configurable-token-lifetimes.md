@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 06/21/2023
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1
 ms.reviewer: ludwignick, sreyanthmora
 ---
 # Configurable token lifetimes in the Microsoft identity platform (preview)
 
-You can specify the lifetime of an access, ID, or SAML token issued by the Microsoft identity platform. You can set token lifetimes for all apps in your organization or for a multi-tenant (multi-organization) application. We currently don't support configuring the token lifetimes for service principals or [managed identity service principals](../managed-identities-azure-resources/overview.md).
+You can specify the lifetime of an access, ID, or SAML token issued by the Microsoft identity platform. You can set token lifetimes for all apps in your organization or for a multi-tenant (multi-organization) application. We currently don't support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they're assigned.
 
@@ -124,9 +124,9 @@ These are the cmdlets in the [Microsoft Graph PowerShell SDK](/powershell/micros
 
 ### Manage policies
 
-You can use the following cmdlets to manage policies.
+You can use the following commands to manage policies.
 
-| Cmdlet | Description | 
+| Cmdlet | Description |
 | --- | --- |
 | [New-MgPolicyTokenLifetimePolicy](/powershell/module/microsoft.graph.identity.signins/new-mgpolicytokenlifetimepolicy) | Creates a new policy. |
 | [Get-MgPolicyTokenLifetimePolicy](/powershell/module/microsoft.graph.identity.signins/get-mgpolicytokenlifetimepolicy) | Gets all token lifetime policies or a specified policy. |
@@ -136,14 +136,21 @@ You can use the following cmdlets to manage policies.
 ### Application policies
 You can use the following cmdlets for application policies.</br></br>
 
-| Cmdlet | Description | 
+| Cmdlet | Description |
 | --- | --- |
 | [New-MgApplicationTokenLifetimePolicyByRef](/powershell/module/microsoft.graph.applications/new-mgapplicationtokenlifetimepolicybyref) | Links the specified policy to an application. |
 | [Get-MgApplicationTokenLifetimePolicyByRef](/powershell/module/microsoft.graph.applications/get-mgapplicationtokenlifetimepolicybyref) | Gets the policies that are assigned to an application. |
 | [Remove-MgApplicationTokenLifetimePolicyByRef](/powershell/module/microsoft.graph.applications/remove-mgapplicationtokenlifetimepolicybyref) | Removes a policy from an application. |
 
 ### Service principal policies
-Service principal policies are not supported.
+
+You can use the following Microsoft Graph REST API commands for service principal policies.</br></br>
+
+| Command | Description |
+| --- | --- |
+| [Assign tokenLifetimePolicy](/graph/api/application-post-tokenlifetimepolicies?view=graph-rest-1.0) | Specifiy the service principal object ID to link the specified policy to a service principal. |
+| [List assigned tokenLifetimePolicy](/graph/api/application-list-tokenlifetimepolicies?view=graph-rest-1.0) | Specify the service principal object ID to get the policies that are assigned to a service principal. |
+| [Remove tokenLifetimePolicy](/graph/api/application-delete-tokenlifetimepolicies?view=graph-rest-1.0) | Specifiy the service principal object ID to remove a policy from the service principal. |
 
 ## Next steps
 
