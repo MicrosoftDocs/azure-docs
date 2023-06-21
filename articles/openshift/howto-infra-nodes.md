@@ -33,7 +33,7 @@ The following infrastructure workloads don't incur OpenShift Container Platform 
 - Cluster-aggregated logging
 
 > [!IMPORTANT]
-> If workloads other than the allowable types are discovered on the infrastructure nodes, the Software License Agreement will be invalidated and the stability of the cluster may be compromised. 
+> If workloads other than the allowable types are discovered on the infrastructure nodes, the Service Level Agreement (SLA) will be invalidated and the stability of the cluster may be compromised. 
 
 ## Before you begin
 
@@ -48,7 +48,7 @@ In order for Azure VMs added to an ARO cluster to recognize as infrastructure no
 
 - The nodes must have an Azure tag of **node_role: infra**
 
-- Only workloads designed for infrastructure nodes are allowed. All other node types are considered worker nodes and will be charged a fee. This may also invalidate the Software License Agreement and compromise the stability of the cluster.
+- Only workloads designated for infrastructure nodes are allowed. All other workloads would deem these worker nodes and thus subject to the fee. This may also invalidate the Service Level Agreement and compromise the stability of the cluster.
 
 
 ## Creating infrastructure machine sets
@@ -59,7 +59,7 @@ In order for Azure VMs added to an ARO cluster to recognize as infrastructure no
 
     For example, replace `location: <REGION>` with `location: westus2`
 
-1. For help with the required syntax, see [Commands and values](#commands-and-values).
+1. For help filling out the required values, see [Commands and values](#commands-and-values).
 
 1. Create the machine set with the following command: `oc create -f <machine-set-filename.yaml>`
 
@@ -150,46 +150,66 @@ spec:
 
 Below are some common commands/values used when creating and executing the template.
 
+```
 List all machine sets:
     
-`oc get machineset -n openshift-machine-api`
-    
+oc get machineset -n openshift-machine-api
+```
+
+```
 Get details for a specific machine set:
     
-`oc get machineset <machineset_name> -n openshift-machine-api -o yaml`
-    
+oc get machineset <machineset_name> -n openshift-machine-api -o yaml
+```
+
+```
 Cluster resource group:
     
-`oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.resourceGroupName}'`
-    
+oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.resourceGroupName}'
+```
+
+```
 Network resource group:
     
-`oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.networkResourceGroupName}'`
-    
+oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.networkResourceGroupName}'
+```
+
+```
 Infrastructure ID:
     
-`oc get infrastructure cluster -o jsonpath='{.status.infrastructureName}'`
-    
+oc get infrastructure cluster -o jsonpath='{.status.infrastructureName}'
+```
+
+```
 Region:
     
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.location}'`
-    
+oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.location}'
+```
+
+```
 SKU:
     
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.sku}'`
-    
+oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.sku}'
+```
+
+```
 Subnet:
     
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.subnet}'`
-    
+oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.subnet}'
+```
+
+```
 Version:
     
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'`
-    
+oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'
+``` 
+
+```
 Vnet:
     
-`oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'`
-    
+oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'
+```
+
 ## Moving workloads to the new infrastructure nodes
 
 Use the instructions below to move your infrastructure workloads to the infrastructure nodes previously created.
