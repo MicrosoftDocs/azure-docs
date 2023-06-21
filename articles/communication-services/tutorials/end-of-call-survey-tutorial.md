@@ -109,19 +109,15 @@ The API will return the following error messages if data validation fails or the
   - videoRating.score
   - ScreenshareRating.score
 
-- \${propertyName\}: \${rating.score\} should be between \${rating.scale?.lowerBound\} and \${rating.scale?.upperBound\}.
+- \{propertyName\}: \{rating.score\} should be between \{rating.scale?.lowerBound\} and \{rating.scale?.upperBound\}.
 
-- \{propertyName\}: \{rating.score\} should be between \{rating.scale?.lowerBound\} and \{rating.scale?.upperBound\}. 
+- \{propertyName\}: \{rating.scale?.lowScoreThreshold\} should be between \{rating.scale?.lowerBound\} and \{rating.scale?.upperBound\}.
 
-- {propertyName}: {rating.score} should be between {rating.scale?.lowerBound} and {rating.scale?.upperBound}. 
-
-- $\{propertyName\}: $\{rating.scale?.lowScoreThreshold\} should be between $\{rating.scale?.lowerBound\} and $\{rating.scale?.upperBound\}.
-
-- $\{propertyName\} lowerBound: $\{rating.scale?.lowerBound\} and upperBound: $\{rating.scale?.upperBound\} should be between 0 and 100.
+- \{propertyName\} lowerBound: \{rating.scale?.lowerBound\} and upperBound: \{rating.scale?.upperBound\} should be between 0 and 100.
 
 - Please try again [ACS failed to submit survey, due to network or other error].
 
-We will return any error codes with a message.
+### We will return any error codes with a message.
 
 - Error code 400 (bad request) for all the error messages except one.
 
