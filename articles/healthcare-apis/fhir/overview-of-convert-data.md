@@ -62,10 +62,6 @@ A `$convert-data` API call packages the health data for conversion inside a JSON
 >
 > For more information on hosting your own templates, see [Host your own templates](deploy-and-configure-convert-data.md#host-your-own-templates) 
 
-The outcome of FHIR conversion is a FHIR bundle as a batch. 
-*	The FHIR bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/bundle.html).
-*	If you're trying to validate against a specific profile, you need to do some post processing by utilizing the FHIR [`$validate`](validation-against-profiles.md) operation.
-
 #### Sample request
 
 ```json
@@ -96,25 +92,29 @@ The outcome of FHIR conversion is a FHIR bundle as a batch.
 
 ```json
 {
-  "resourceType": "Bundle",
-  "type": "transaction",
-  "entry": [
-    {
-      "fullUrl": "urn:uuid:9d697ec3-48c3-3e17-db6a-29a1765e22c6",
-      "resource": {
-        "resourceType": "Patient",
-        "id": "9d697ec3-48c3-3e17-db6a-29a1765e22c6",
-        ...
-        ...
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "urn:uuid:9d697ec3-48c3-3e17-db6a-29a1765e22c6",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "9d697ec3-48c3-3e17-db6a-29a1765e22c6",
+          ...
+          ...
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Location/50becdb5-ff56-56c6-40a1-6d554dca80f0"
             }
-      "request": {
-        "method": "PUT",
-        "url": "Location/50becdb5-ff56-56c6-40a1-6d554dca80f0"
-      }
-    }
-  ]
+        }
+    ]
 }
 ```
+
+The outcome of FHIR conversion is a FHIR bundle as a batch. 
+*	The FHIR bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/bundle.html).
+*	If you're trying to validate against a specific profile, you need to do some post processing by utilizing the FHIR [`$validate`](validation-against-profiles.md) operation.
 
 ## Next steps
 
