@@ -13,6 +13,8 @@ ms.author: danlep
 
 Azure Front Door is a modern application delivery network platform providing a secure, scalable content delivery network (CDN), dynamic site acceleration, and global HTTP(s) load balancing for your global web applications. When used in front of API Management, Front Door can provide TLS offloading, end-to-end TLS, load balancing, response caching of GET requests, and a web application firewall, among other capabilities. For a full list of supported features, see [What is Azure Front Door?](../frontdoor/front-door-overview.md) 
 
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
+
 This article shows how to:
 
 * Set up an Azure Front Door Standard/Premium profile in front of a publicly accessible Azure API Management instance: either non-networked, or injected in a virtual network in [external mode](api-management-using-with-vnet.md). 

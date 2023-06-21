@@ -57,5 +57,5 @@ Learn how to use other features of the drawing tools module:
 > [!div class="nextstepaction"]
 > [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
 
-[Use a snapping grid]: https://samples.azuremaps.com/?search=Use%20a%20snapping%20grid&sample=use-a-snapping-grid
-[Snap grid options]: https://samples.azuremaps.com/?search=grid&sample=snap-grid-options
+[Use a snapping grid]: https://samples.azuremaps.com/drawing-tools-module/use-a-snapping-grid
+[Snap grid options]: https://samples.azuremaps.com/drawing-tools-module/snap-grid-options
