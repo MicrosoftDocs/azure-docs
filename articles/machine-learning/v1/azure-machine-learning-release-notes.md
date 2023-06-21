@@ -77,9 +77,9 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **Deprecate Python 3.7 as a supported runtime for SDK v1 packages**
     + On December 4, 2023, Azure Machine Learning will officially stop supporting Python 3.7 for SDK v1 packages and deprecate it as a supported runtime. For more details, please read our page on [Azure SDK for Python version support policy](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy)
     + As of the deprecation date of December 4, 2023, the Azure Machine Learning SDK v1 packages will no longer receive security patches and other updates for the Python 3.7 runtime.
-    + The current Python 3.7 versions for Azure Machine Learning SDK v1 will still function. However, in order to continue receiving security updates and remaining qualified for technical assistance, Azure Machine Learning strongly advises that you move your scripts and dependencies to a supported version of the Python runtime.
+    + The current Python 3.7 versions for Azure Machine Learning SDK v1 still functions. However, in order to continue receiving security updates and remaining qualified for technical assistance, Azure Machine Learning strongly advises that you move your scripts and dependencies to a supported version of the Python runtime.
     + As a runtime for Azure Machine Learning SDK v1 files, we advise using Python version 3.8 or later.
-    + Additionally, Python 3.7 based Azure Machine Learning SDK v1 packages will no longer be qualified for technical assistance.
+    + Additionally, Python 3.7 based Azure Machine Learning SDK v1 packages no longer qualifies for technical assistance.
     + Use Azure Machine Learning support to get in touch with us if you have any concerns.
 
 ## 2023-13-02
@@ -111,7 +111,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
         + azureml-sdk and azureml-train-automl-client now support Python version 3.10
       + **azureml-train-automl-runtime**
         + Clean up missing y before training
-        + Clean up nan or empty values of target column for non-streaming scenarios
+        + Clean up nan or empty values of target column for nonstreaming scenarios
         + Forecast horizon visuals for test-set are now available while running the training experiment.
       + **azureml-train-core**
         + Added the support to customer to provide custom run id for hyperdrive runs
@@ -412,7 +412,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
     + Submitting Reinforcement Learning runs that use simulators are no longer supported.
   + **azureml-core**
     + Added support for partitioned premium blob.
-    + Specifying non-public clouds for Managed Identity authentication is no longer supported.
+    + Specifying nonpublic clouds for Managed Identity authentication is no longer supported.
     + User can migrate AKS web service to online endpoint and deployment, which is managed by CLI (v2).
     + The instance type for training jobs on Kubernetes compute targets can now be set via a RunConfiguration property: run_config.kubernetescompute.instance_type.
   + **azureml-defaults**
@@ -438,7 +438,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
   + **azureml-contrib-fairness**
     + Improve error message on failed dashboard download
   + **azureml-core**
-    + Bug in specifying non-public clouds for Managed Identity authentication has been resolved.
+    + Bug in specifying nonpublic clouds for Managed Identity authentication has been resolved.
     + Dataset.File.upload_directory() and Dataset.Tabular.register_pandas_dataframe() experimental flags are now removed.
     + Experimental flags are now removed in partition_by() method of TabularDataset class.
   + **azureml-pipeline-steps**
@@ -641,7 +641,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
   + **azureml-automl-runtime**
     + Improved AutoML Scoring script to make it consistent with designer
     + Patch bug where forecasting with the Prophet model would throw a "missing column" error if trained on an earlier version of the SDK.
-    + Added the ARIMAX model to the public-facing, forecasting-supported model lists of the AutoML SDK. Here, ARIMAX is a regression with ARIMA errors and a special case of the transfer function models developed by Box and Jenkins. For a discussion of how the two approaches are different, see [The ARIMAX model muddle](https://robjhyndman.com/hyndsight/arimax/). Unlike the rest of the multivariate models that use auto-generated, time-dependent features (hour of the day, day of the year, and so on) in AutoML, this model uses only features that are provided by the user, and it makes interpreting coefficients easy.
+    + Added the ARIMAX model to the public-facing, forecasting-supported model lists of the AutoML SDK. Here, ARIMAX is a regression with ARIMA errors and a special case of the transfer function models developed by Box and Jenkins. For a discussion of how the two approaches are different, see [The ARIMAX model muddle](https://robjhyndman.com/hyndsight/arimax/). Unlike the rest of the multivariate models that use autogenerated, time-dependent features (hour of the day, day of the year, and so on) in AutoML, this model uses only features that are provided by the user, and it makes interpreting coefficients easy.
   + **azureml-contrib-dataset**
     + Updated documentation description with indication that libfuse should be installed while using mount.
   + **azureml-core**
@@ -1596,7 +1596,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
 
 + **New features**
   + **azureml-automl-runtime**
-    + AutoML Forecasting now supports customers forecast beyond the pre-specified max-horizon without retraining the model. When the forecast destination is farther into the future than the specified maximum horizon, the forecast() function still makes point predictions out to the later date using a recursive operation mode. For the illustration of the new feature, see the "Forecasting farther than the maximum horizon" section of "forecasting-forecast-function" notebook in [folder](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)."
+    + AutoML Forecasting now supports customers forecast beyond the prespecified max-horizon without retraining the model. When the forecast destination is farther into the future than the specified maximum horizon, the forecast() function still makes point predictions out to the later date using a recursive operation mode. For the illustration of the new feature, see the "Forecasting farther than the maximum horizon" section of "forecasting-forecast-function" notebook in [folder](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)."
   
   + **azureml-pipeline-steps**
     + ParallelRunStep is now released and is part of **azureml-pipeline-steps** package. Existing ParallelRunStep in **azureml-contrib-pipeline-steps** package is deprecated. Changes from public preview version:
@@ -2560,8 +2560,8 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
 ### Azure Machine Learning SDK for Python v1.0.65
 
   + **New features**
-    + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in Workspace's list of environment, with prefix "AzureML".
-    + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in [Workspace](/python/api/azureml-core/azureml.core.workspace%28class%29)'s list of environment, with prefix "AzureML".
+    + Added curated environments. These environments have been preconfigured with libraries for common machine learning tasks, and have been prebuild and cached as Docker images for faster execution. They appear by default in Workspace's list of environment, with prefix "AzureML".
+    + Added curated environments. These environments have been preconfigured with libraries for common machine learning tasks, and have been prebuild and cached as Docker images for faster execution. They appear by default in [Workspace](/python/api/azureml-core/azureml.core.workspace%28class%29)'s list of environment, with prefix "AzureML".
 
   + **azureml-train-automl**
   + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
