@@ -45,7 +45,7 @@ First you need to get your resource key and endpoint:
 
 ### Submit a Custom sentiment analysis task
 
-[!INCLUDE [submit a Custom sentiment analysis task using the REST API](../../includes/custom/rest-api/submit-task.md)]
+[!INCLUDE [submit a Custom sentiment analysis task using the REST API](../../includes/custom/rest-api/submit-task)]
 
 ### Get task results
 
