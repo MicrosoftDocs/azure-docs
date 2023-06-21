@@ -27,11 +27,11 @@ Use the following steps to create an Azure Spring Apps service instance.
 Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
 ```azurecli-interactive
-LOCATION="<region>"
-RESOURCE_GROUP="<resource-group-name>"
-MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
-APP_NAME="demo"
+export LOCATION="<region>"
+export RESOURCE_GROUP="<resource-group-name>"
+export MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+export SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
+export APP_NAME="demo"
 ```
 
 ### 3.2. Create a new resource group
