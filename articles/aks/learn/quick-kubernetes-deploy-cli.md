@@ -84,7 +84,7 @@ The following example creates a cluster named *myAKSCluster* with one node and e
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
     > [!NOTE]
-    > When you create a new cluster, AKS automatically creates a second resource group to store the AKS resources. Modifying any resource under the node resource group in the AKS cluster is an unsupported action, which will cause failures in your cluster operations. An alternative to prevent changes from being made to the Node Resource Group, you can [block users from modifying resources](https://learn.microsoft.com/en-us/azure/aks/cluster-configuration#fully-managed-resource-group-preview) managed by the AKS cluster. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
+    > When you create a new cluster, AKS automatically creates a second resource group to store the AKS resources. Modifying any resource under the node resource group in the AKS cluster is an unsupported action, which will cause failures in your cluster operations. An alternative to prevent changes from being made to the Node Resource Group, you can [block users from modifying resources](../cluster-configuration.md#fully-managed-resource-group-preview) managed by the AKS cluster. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
