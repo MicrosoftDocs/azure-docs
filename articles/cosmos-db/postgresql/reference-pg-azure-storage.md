@@ -21,14 +21,6 @@ You can create the extension by running:
 SELECT create_extension('azure_storage');
 ```
 
-> [!NOTE]
-> Syntax and options supported remains likewise to Postgres Native [COPY](https://www.postgresql.org/docs/current/sql-copy.html) command, with following exceptions:
->
-> - `FREEZE [ boolean ]`
-> - `HEADER MATCH`
->
-> `COPY TO` syntax is yet not supported.
-
 ## azure_storage.account_add
 Function allows adding access to a storage account.
 

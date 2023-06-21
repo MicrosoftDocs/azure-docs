@@ -34,6 +34,13 @@ Currently the extension supports the following file formats:
 |text|A file containing a single text value (for example, large JSON or XML)|
 
 > [!Note]
+> * Syntax and options supported remains likewise to Postgres Native [COPY](https://www.postgresql.org/docs/current/sql-copy.html) command, with following exceptions:
+>
+>   - `FREEZE [ boolean ]`
+>   - `HEADER MATCH`
+>
+> * `COPY TO` syntax is yet not supported.
+>
 > * `\COPY` is a `psql` based command and doesn't support Azure Blob Storage integration.
 >
 > * `\COPY` does allow performing import\export on the cluster but requires moving\copying files across the network.
