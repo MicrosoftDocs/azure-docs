@@ -26,19 +26,19 @@ You need a [Bicep file](./quickstart-create-bicep-use-visual-studio-code.md) tha
 
 1. From your Azure DevOps organization, select **Pipelines** and **Create pipeline**.
 
-  :::image type="content" source="./media/add-template-to-azure-pipelines/new-pipeline.png" alt-text="Screenshot of creating new pipeline.":::
+    :::image type="content" source="./media/add-template-to-azure-pipelines/new-pipeline.png" alt-text="Screenshot of creating new pipeline.":::
 
-1. Specify where your code is stored.
+1. Specify where your code is stored. This quickstart uses Azure Repos Git.
 
-  :::image type="content" source="./media/add-template-to-azure-pipelines/select-source.png" alt-text="Screenshot of selecting code source.":::
+    :::image type="content" source="./media/add-template-to-azure-pipelines/select-source.png" alt-text="Screenshot of selecting code source.":::
 
 1. Select the repository that has the code for your project.
 
-  :::image type="content" source="./media/add-template-to-azure-pipelines/select-repo.png" alt-text="Screenshot of selecting repository.":::
+    :::image type="content" source="./media/add-template-to-azure-pipelines/select-repo.png" alt-text="Screenshot of selecting repository.":::
 
 1. Select **Starter pipeline** for the type of pipeline to create.
 
-  :::image type="content" source="./media/add-template-to-azure-pipelines/select-pipeline.png" alt-text="Screenshot of selecting pipeline":::
+    :::image type="content" source="./media/add-template-to-azure-pipelines/select-pipeline.png" alt-text="Screenshot of selecting pipeline":::
 
 ## Deploy Bicep files
 
@@ -46,85 +46,87 @@ You can use Azure Resource Group Deployment task or Azure CLI task to deploy a B
 
 ### Use Azure Resource Manager Template Deployment task
 
-Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure Resource Manager Template Deployment task](/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
+1. Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure Resource Manager Template Deployment task](/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
 
-```yml
-trigger:
-- main
+  ```yml
+  trigger:
+  - main
 
-name: Deploy Bicep files
+  name: Deploy Bicep files
 
-variables:
-  vmImageName: 'ubuntu-latest'
+  variables:
+    vmImageName: 'ubuntu-latest'
 
-  azureServiceConnection: '<your-connection-name>'
-  resourceGroupName: 'exampleRG'
-  location: '<your-resource-group-location>'
-  templateFile: './main.bicep'
-pool:
-  vmImage: $(vmImageName)
+    azureServiceConnection: '<your-connection-name>'
+    resourceGroupName: 'exampleRG'
+    location: '<your-resource-group-location>'
+    templateFile: './main.bicep'
+  pool:
+    vmImage: $(vmImageName)
 
-steps:
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: '$(azureServiceConnection)'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: '$(resourceGroupName)'
-    location: '$(location)'
-    templateLocation: 'Linked artifact'
-    csmFile: '$(templateFile)'
-    overrideParameters: '-storageAccountType Standard_LRS'
-    deploymentMode: 'Incremental'
-    deploymentName: 'DeployPipelineTemplate'
-```
+  steps:
+  - task: AzureResourceManagerTemplateDeployment@3
+    inputs:
+      deploymentScope: 'Resource Group'
+      azureResourceManagerConnection: '$(azureServiceConnection)'
+      action: 'Create Or Update Resource Group'
+      resourceGroupName: '$(resourceGroupName)'
+      location: '$(location)'
+      templateLocation: 'Linked artifact'
+      csmFile: '$(templateFile)'
+      overrideParameters: '-storageAccountType Standard_LRS'
+      deploymentMode: 'Incremental'
+      deploymentName: 'DeployPipelineTemplate'
+  ```
 
-For the descriptions of the task inputs, see [Azure Resource Manager Template Deployment task](/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
-
-Select **Save**. The build pipeline automatically runs. Go back to the summary for your build pipeline, and watch the status.
+1. Update the values of `azureServiceConnection` and `location`.
+1. Verify you have a `main.bicep` in your repo, and the content of the Bicep file.
+1. Select **Save**. The build pipeline automatically runs. Go back to the summary for your build pipeline, and watch the status.
 
 ### Use Azure CLI task
 
-Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2):
+1. Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2):
 
-```yml
-trigger:
-- main
+  ```yml
+  trigger:
+  - main
 
-name: Deploy Bicep files
+  name: Deploy Bicep files
 
-variables:
-  vmImageName: 'ubuntu-latest'
+  variables:
+    vmImageName: 'ubuntu-latest'
 
-  azureServiceConnection: '<your-connection-name>'
-  resourceGroupName: 'exampleRG'
-  location: '<your-resource-group-location>'
-  templateFile: 'main.bicep'
-pool:
-  vmImage: $(vmImageName)
+    azureServiceConnection: '<your-connection-name>'
+    resourceGroupName: 'exampleRG'
+    location: '<your-resource-group-location>'
+    templateFile: 'main.bicep'
+  pool:
+    vmImage: $(vmImageName)
 
-steps:
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: $(azureServiceConnection)
-    scriptType: bash
-    scriptLocation: inlineScript
-    useGlobalConfig: false
-    inlineScript: |
-      az --version
-      az group create --name $(resourceGroupName) --location $(location)
-      az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
-```
+  steps:
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: $(azureServiceConnection)
+      scriptType: bash
+      scriptLocation: inlineScript
+      useGlobalConfig: false
+      inlineScript: |
+        az --version
+        az group create --name $(resourceGroupName) --location $(location)
+        az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
+  ```
 
-To override the parameters, update the last line of `inlineScript` to:
+  To override the parameters, update the last line of `inlineScript` to:
 
-```bicep
-az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters storageAccountType='Standard_GRS' location='eastus'
-```
+  ```bicep
+  az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters storageAccountType='Standard_GRS' location='eastus'
+  ```
 
-For the descriptions of the task inputs, see [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2). When using the task on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`.
+  For the descriptions of the task inputs, see [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2). When using the task on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`.
 
-Select **Save**. The build pipeline automatically runs. Go back to the summary for your build pipeline, and watch the status.
+1. Update the values of `azureServiceConnection` and `location`.
+1. Verify you have a `main.bicep` in your repo, and the content of the Bicep file.
+1. Select **Save**. The build pipeline automatically runs. Go back to the summary for your build pipeline, and watch the status.
 
 ## Clean up resources
 
