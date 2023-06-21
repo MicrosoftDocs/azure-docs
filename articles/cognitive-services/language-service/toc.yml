@@ -223,7 +223,7 @@ items:
     - name: Runtime prediction API
       items:
       - name: REST API
-        href: https://aka.ms/clu-runtime-api
+        href: /rest/api/language/2023-04-01/conversation-analysis-runtime/analyze-conversation
       - name: SDK
         items:
         - name: C#
@@ -712,7 +712,7 @@ items:
     - name: Runtime prediction API
       items:
       - name: REST API
-        href: https://aka.ms/clu-runtime-api
+        href: /rest/api/language/2023-04-01/conversation-analysis-runtime/analyze-conversation
       - name: SDK
         items:
         - name: C#
@@ -1141,16 +1141,18 @@ items:
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
           - name: Python
             href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
-- name: Summarization (preview)
+- name: Summarization
   items:
-  - name: Prebuilt (preview)
+  - name: Summarization overview
+    href: summarization/overview.md
+  - name: Summarization region support
+    href: summarization/region-support.md
+  - name: Summarization language support
+    href: summarization/language-support.md
+  - name: Prebuilt
     items:
-    - name: Summarization overview
-      href: summarization/overview.md
     - name: Summarization quickstart
       href: summarization/quickstart.md
-    - name: Summarization language support
-      href: summarization/language-support.md
     - name: How-to guides
       items:
       - name: Call the document summarization API
@@ -1183,19 +1185,19 @@ items:
       - name: Document summarization
         items:
           - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
           - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
       - name: Conversation summarization
         items:
         - name: .NET
-          href: /dotnet/api/overview/azure/ai.language.conversations-readme
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme?view=azure-dotnet&preserve-view=true
         - name: Python
-          href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview
+          href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python
   - name: Custom (preview)
     items:
     - name: Custom summarization quickstart

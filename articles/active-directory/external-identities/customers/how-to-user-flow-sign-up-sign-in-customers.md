@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 06/14/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -53,7 +53,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
    - **Email one-time passcode**: Allows new users to sign up and sign in using an email address as the sign-in name and email one-time passcode as their first-factor authentication method.
 
    > [!NOTE]
-   > Other identity providers will be listed here only after you set up federation with them. For example, if you set up federation with [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md), you'll be able to select them here ([learn more](concept-authentication-methods-customers.md)).
+   > The **Azure Active Directory Sign up** option is unavailable because although customers can sign up for a local account using an email from another Azure AD organization, Azure AD federation isn't used to authenticate them. **[Google](how-to-google-federation-customers.md)** and **[Facebook](how-to-facebook-federation-customers.md)** become available only after you set up federation with them. [Learn more about authentication methods and identity providers](concept-authentication-methods-customers.md).
 
    :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/create-user-flow-identity-providers.png" alt-text="Screenshot of Identity provider options on the Create a user flow page.":::
 

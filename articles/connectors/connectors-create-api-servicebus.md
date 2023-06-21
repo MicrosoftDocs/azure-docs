@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 06/13/2023
 ms.custom: engagement-fy23
 tags: connectors
 ---
@@ -56,6 +56,8 @@ The Service Bus connector has different versions, based on [logic app workflow t
   Each managed identity that accesses a *different* messaging entity should have a separate connection to that entity. If you use different Service Bus actions to send and receive messages, and those actions require different permissions, make sure to use different connections.
 
   For more information about managed identities, review [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+
+* By default, the Service Bus built-in connector operations are stateless. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
 ## Considerations for Azure Service Bus operations
 
@@ -280,6 +282,8 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
 #### Built-in connector trigger
 
+The built-in Service Bus connector is a stateless connector, by default. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md).
+
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
 1. On the designer, select **Choose an operation**.
@@ -435,6 +439,8 @@ The steps to add and use a Service Bus action differ based on whether you want t
 <a name="built-in-connector-action"></a>
 
 #### Built-in connector action
+
+The built-in Service Bus connector is a stateless connector, by default. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md).
 
 1. In the [Azure portal](https://portal.azure.com), and open your logic app workflow in the designer.
 

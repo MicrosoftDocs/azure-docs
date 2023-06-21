@@ -102,6 +102,8 @@ Don't run the application yet. You first need to run the receiver app and then t
 
 State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
 
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
+
 ### Go packages
 
 To receive the messages, get the Go packages for Event Hubs as shown in the following example. 

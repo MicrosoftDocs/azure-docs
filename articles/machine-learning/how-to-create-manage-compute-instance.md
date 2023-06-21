@@ -167,7 +167,7 @@ A compute instance is considered inactive if the below conditions are met:
 * No active Jupyter terminal sessions
 * No active Azure Machine Learning runs or experiments
 * No SSH connections
-* No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
+* No VS Code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS Code detects no activity for 3 hours. 
 * No custom applications are running on the compute
 
 A compute instance will not be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. 
@@ -501,7 +501,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
-You can create compute instance with managed identity from Azure Machine Learning Studio:
+You can create compute instance with managed identity from Azure Machine Learning studio:
 
 1.    Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
 1.    Select **Next: Advanced Settings**.
@@ -646,6 +646,8 @@ Access the custom applications that you set up in studio:
 > It might take a few minutes after setting up a custom application until you can access it via the links above. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
 
 ## Manage
+
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
 Start, stop, restart, and delete a compute instance. A compute instance doesn't automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you'll still be billed for disk, public IP, and standard load balancer. 
 
