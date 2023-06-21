@@ -17,6 +17,10 @@ keywords:
 
 ## June 2023
 
+### Use Azure OpenAI on your own data (preview)
+
+- [Azure OpenAI on your data](./concepts/use-your-data.md) is now available in preview, enabling you to chat with OpenAI models such as ChatGPT and GPT-4 and receive responses based on your data. 
+
 ### UK South
 
 - Azure OpenAI is now available in the UK South region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  

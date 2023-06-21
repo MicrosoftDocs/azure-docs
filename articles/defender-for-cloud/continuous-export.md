@@ -6,7 +6,7 @@ ms.author: dacurwin
 ms.topic: how-to
 ms.date: 06/19/2023
 ---
-# Continuously export Microsoft Defender for Cloud data
+# Continuously export Microsoft Defender for Cloud data 
 
 Microsoft Defender for Cloud generates detailed security alerts and recommendations. To analyze the information in these alerts and recommendations, you can export them to Azure Log Analytics, Event Hubs, or to another [SIEM, SOAR, or IT classic deployment model solution](export-to-siem.md). You can stream the alerts and recommendations as they're generated or define a schedule to send periodic snapshots of all of the new data.
 
@@ -173,9 +173,9 @@ To view the event schemas of the exported data types, visit the [Log Analytics t
 
 ## Export data to an Azure Event Hubs or Log Analytics workspace in another tenant
 
-You can export data to an Azure Event Hubs or Log Analytics workspace in a different tenant, without using [Azure Lighthouse](../lighthouse/overview.md). When collecting data into a tenant, you can analyze the data from one central location.
+You can **not** export data to an Azure Event Hubs or Log Analytics workspace in a different tenant, without using [Azure Lighthouse](../lighthouse/overview.md). When collecting data into a tenant, you can analyze the data from one central location.
 
-To export data to an Azure Event Hubs or Log Analytics workspace in a different tenant:
+To export data to an Azure Event Hubs or Log Analytics workspace in a different tenant **with Azure Lighthouse**:
 
 1. In the tenant that has the Azure Event Hubs or Log Analytics workspace, [invite a user](../active-directory/external-identities/what-is-b2b.md#easily-invite-guest-users-from-the-azure-portal) from the tenant that hosts the continuous export configuration.
 1. For a Log Analytics workspace: After the user accepts the invitation to join the tenant, assign the user in the workspace tenant one of these roles: Owner, Contributor, Log Analytics Contributor, Sentinel Contributor, Monitoring Contributor

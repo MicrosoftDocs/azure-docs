@@ -244,9 +244,11 @@ Example: Get all policy assignments at the **myMG** management group and Tenant 
 
   ```json
   {
-      "authorizationScopeFilter": "AtScopeAndAbove",
-      "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
-      "managementGroups": ["myMG"]
+    "options": {
+      "authorizationScopeFilter": "AtScopeAndAbove"
+    },
+    "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+    "managementGroups": ["myMG"]
   }
   ```
 
@@ -261,9 +263,11 @@ Example: Get all policy assignments at the **mySubscriptionId** subscription, ma
 
   ```json
   {
-      "authorizationScopeFilter": "AtScopeAndAbove",
-      "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
-      "subscriptions": ["mySubscriptionId"]
+    "options": {
+      "authorizationScopeFilter": "AtScopeAndAbove"
+    },
+    "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+    "subscriptions": ["mySubscriptionId"]
   }
   ```
 

@@ -13,7 +13,7 @@ ms.custom: template-howto
 ---
 
 
-# Trigger Logic Apps based on custom task extensions (preview)
+# Trigger Logic Apps based on custom task extensions
 
 Lifecycle Workflows can be used to trigger custom tasks via an extension to Azure Logic Apps. This can be used to extend the capabilities of Lifecycle Workflow beyond the built-in tasks. The steps for triggering a Logic App based on a custom task extension are as follows:
 
@@ -33,7 +33,7 @@ To use a custom task extension in your workflow, first a custom task extension m
 
 1. Select **Azure Active Directory** and then select **Identity Governance**. 
 
-1. In the left menu, select **Lifecycle Workflows (Preview)**. 
+1. In the left menu, select **Lifecycle Workflows**. 
 
 1. On the Lifecycle workflows screen, select **Custom task extension**. 
 
@@ -63,9 +63,9 @@ After you've created your custom task extension, you can now add it to a workflo
 
 To Add a custom task extension to a workflow, you'd do the following steps:
 
-1. In the left menu, select **Lifecycle workflows (Preview)**. 
+1. In the left menu, select **Lifecycle workflows**. 
 
-1. In the left menu, select **Workflows (Preview)**.
+1. In the left menu, select **Workflows**.
 
 1. Select the workflow that you want to add the custom task extension to.
 
@@ -81,5 +81,5 @@ To Add a custom task extension to a workflow, you'd do the following steps:
 
 ## Next steps
 
-- [Lifecycle workflow extensibility (Preview)](lifecycle-workflow-extensibility.md)
+- [Lifecycle workflow extensibility](lifecycle-workflow-extensibility.md)
 - [Manage Workflow Versions](manage-workflow-tasks.md)

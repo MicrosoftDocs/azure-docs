@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 06/19/2023
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, we explore using the MedTech service and the Azure Machine Learning Service.
+In this article, learn about using the MedTech service and the Azure Machine Learning Service.
 
 ## The MedTech service and Azure Machine Learning Service reference architecture
 
