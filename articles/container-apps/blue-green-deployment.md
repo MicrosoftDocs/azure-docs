@@ -15,25 +15,25 @@ zone_pivot_groups: azure-cli-bicep
 
 [Blue/Green Deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) is a software release strategy that aims to minimize downtime and reduce the risk associated with deploying new versions of an application. In a blue/green deployment, two identical environments, referred to as "blue" and "green," are set up.
 
-In the context of Azure Container Apps, the blue/green deployment release approach is enabled by using [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md) and [revision labels](revisions.md#revision-labels). 
+In the context of Azure Container Apps, the blue/green deployment release approach is enabled by using [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md), and [revision labels](revisions.md#revision-labels). 
 
 1. `Blue` revision: The revision labeled as `blue` represents the currently running and stable version of the application. It handles the production traffic, and users interact with it.
 
-1. `Green` revision: The revision labeled as `green` is a copy of the `blue` revision except it uses a newer version of the app code and possibly new set of env variables. It doesn't receive any production traffic initially but can be accessed by using label specific FQDN.
+1. `Green` revision: The revision labeled as `green` is a copy of the `blue` revision except it uses a newer version of the app code and possibly new set of environment variables. It doesn't receive any production traffic initially but can be accessed by using the label specific fully-qualified domain name (FQDN).
 
-1. Testing and Verification: The `green` revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing can involve various activities, including functional tests, performance tests, and compatibility checks.
+1. Testing and verification: The `green` revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing can involve various activities, including functional tests, performance tests, and compatibility checks.
 
-1. Traffic Switch: Once the `green` revision passes all the necessary tests, a traffic switch is performed so that the `green` revision starts serving production load. This switch is done in a controlled manner, ensuring a smooth transition.
+1. Traffic switch: Once the `green` revision passes all the necessary tests, a traffic switch is performed so that the `green` revision starts serving production load. This switch is done in a controlled manner, ensuring a smooth transition.
 
 1. Rollback: If problems occur in the `green` revision, you can revert the traffic switch, routing traffic back to the stable `blue` revision. This rollback ensures minimal impact on users if there are issues in the new version. The `green` revision can still be used for the next deployment.
 
 1. Role change: The roles of the blue/green revisions change after a successful deployment to the `green` revision. During the next release cycle, the `green` revision represents the stable production environment while the new version of the application code is deployed and tested in the `blue` revision.
 
-This article shows you how to implement blue/green deployment a container app. To run the following examples, you need a container app environment in which you can create a new app.
+This article shows you how to implement blue/green deployment in a container app. To run the following examples, you need a container app environment in which you can create a new app.
 
 ## Create a container app with multiple active revisions enabled
 
-The container app has to have the `configuration.activeRevisionsMode` property set to `multiple` in order to enable traffic splitting. To get deterministic revision names, the `template.revisionSuffix` configuration setting can be used. It can be set to some string value that uniquely identifies a release, for example a build number or a git commit short hash. For the following commands, some random commit hashes were generated.
+The container app must have the `configuration.activeRevisionsMode` property set to `multiple` to enable traffic splitting. To get deterministic revision names, the `template.revisionSuffix` configuration setting can be set to some string value that uniquely identifies a release, for example a build number or a git commit short hash. For the following commands, some random commit hashes were generated.
 
 ::: zone pivot="azure-cli"
 
@@ -259,7 +259,7 @@ The traffic section of the container app looks as follows. The revision with the
 }
 ```
 
-The newly deployed revision can be tested by using the label-specific FQND:
+The newly deployed revision can be tested by using the label-specific FQDN:
 
 ```azurecli
 #get the containerapp environment default domain
@@ -374,7 +374,7 @@ The traffic section of the container app looks as in the following example. The 
 
 ## Roll back the deployment if there were problems
 
-If after running in production, the new revision found to have bugs then the app can be rolled back to the previous good state by sending 100% of traffic to the old version in the `blue` revision and designating the `blue` revision as the production revision again:
+If after running in production, the new revision is found to have bugs then the app can be rolled back to the previous good state by sending 100% of traffic to the old version in the `blue` revision and designating the `blue` revision as the production revision again:
 
 ::: zone pivot="azure-cli"
 
