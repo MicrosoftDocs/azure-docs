@@ -87,11 +87,11 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 	```bash
 	subnetAddressPrefix='<an address space under the vnet that has at least 120 available addresses (/25 or smaller cidr prefix)>'
-	tcSubnetName='tc-subnet' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
+	albSubnetName='alb-subnet' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
 	az network vnet subnet create \
 		--resource-group $vnetResourceGroup \
 		--vnet-name $vnetName \
-		--name $tcSubnetName \
+		--name $albSubnetName \
 		--delegations 'Microsoft.ServiceNetworking/trafficControllers' \
 		--address-prefixes $subnetAddressPrefix
 	```
@@ -111,17 +111,17 @@ You need to complete the following tasks prior to deploying Application Gateway 
 1. The following commands deploy Application Gateway for Containers (along with the Association and Frontend resources) using an [ARM template](./templates/traffic-controller.template.json).
 
 	```bash
-	TRAFFIC_CONTROLLER_NAME='traffic-controller'
+	ALB_NAME='test-alb'
 	FRONTEND_NAME='frontend'
 
-	tcSubnetId=$(az network vnet subnet show --resource-group $vnetResourceGroup --vnet-name $vnetName --name $tcSubnetName --query id -o tsv)
+	albSubnetId=$(az network vnet subnet show --resource-group $vnetResourceGroup --vnet-name $vnetName --name $albSubnetName --query id -o tsv)
 	az deployment group create \
 		--resource-group $RESOURCE_GROUP \
-		--name 'sample-traffic-controller-deployment' \
+		--name 'sample-agfc-deployment' \
 		--template-uri 'https://trafficcontrollerdocs.blob.core.windows.net/templates/traffic-controller.template.json' \
-		--parameters "trafficControllerName=$TRAFFIC_CONTROLLER_NAME" \
+		--parameters "trafficControllerName=$ALB_NAME" \
 		--parameters "frontendName=$FRONTEND_NAME" \
-		--parameters "subnetId=$tcSubnetId" \
+		--parameters "subnetId=$albSubnetId" \
 		--parameters "mcResourceGroup=$mcResourceGroup"
 	```
 
@@ -140,15 +140,15 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 ## Install ALB Controller
 
-0. Prerequisites - Federate user assigned identity as Pod Identity to use in AKS cluster.
+1. Prerequisites - Federate user assigned identity as Pod Identity to use in AKS cluster.
 
     ```bash
 	AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
-    az identity federated-credential create --name "azure-application-lb-identity" \
-	    --identity-name "azure-application-lb-identity" \
+    az identity federated-credential create --name "azure-alb-identity" \
+	    --identity-name "azure-alb-identity" \
 		--resource-group $RESOURCE_GROUP \
 		--issuer "$AKS_OIDC_ISSUER" \
-		--subject "system:serviceaccount:azure-application-lb-system:gateway-controller-sa"
+		--subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
     ```
 
 1. Install ALB Controller
@@ -158,10 +158,10 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	```bash
 	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
 	helm upgrade \
-		--install alb-controller oci://mcr.microsoft.com/application-lb/charts/gateway-controller \
-		--create-namespace --namespace azure-application-lb-system \
-		--version '0.1.022981' \
-		--set gatewayController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-application-lb-identity --query clientId -o tsv)
+		--install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
+		--create-namespace --namespace azure-alb-system \
+		--version '0.2.023621' \
+		--set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
 	```
 
 ### Verify the ALB Controller installation
@@ -169,7 +169,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 1. Verify the ALB Controller pods are ready:
 
     ```bash
-    kubectl get pods -n azure-application-lb-system
+    kubectl get pods -n azure-alb-system
     ```
     You should see the following:
     - 1 alb-controller pod with status **Running** and 1/1 **Ready**
@@ -178,35 +178,13 @@ You need to complete the following tasks prior to deploying Application Gateway 
 2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
 
     ```bash
-    kubectl get gatewayclass azure-application-lb -o yaml
+    kubectl get gatewayclass azure-alb-external -o yaml
     ```
     You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been set up and that any gateway objects that reference this GatewayClass is managed by ALB Controller automatically.
 
-    You should also see that the gateway class has a parameterRef section that links this gateway class to an ApplicationLbParam of name `default`
-
-3. Verify an ApplicationLbParam called `default` is installed on your cluster:
-    ```bash
-    kubectl get applicationlbparam
-    ```
-
 ## Link your ALB Controller to Application Gateway for Containers
 
-Now that you have successfully installed an ALB Controller on your cluster, you can link it to an existing Application Gateway for Containers by leveraging the GatewayClass and ApplicationLbParam on the cluster.
-
-Update the ApplicationLbParam to contain the resource ID of the Application Gateway for Containers you wish to associate with your ALB Controller.
-
-```bash
-kubectl apply -f - <<EOF
-apiVersion: networking.azure.io/v1alpha1
-kind: ApplicationLbParam
-metadata:
-  name: default
-spec:
-  ipAddress:
-  subnetPrefix:
-  loadBalancerId: $(az resource show --resource-type 'Microsoft.ServiceNetworking/trafficControllers' -g $RESOURCE_GROUP -n $TRAFFIC_CONTROLLER_NAME --query id -o tsv)
-EOF
-```
+Now that you have successfully installed a ALB Controller on your cluster you can link it to an existing Application Gateway For Containers resource by defining a gateway object. You can specify the Application Gateway For Containers resource you wish for the gateway to connect to by adding the Frontend resource ID in the spec.Address section of the gateway object.
 
 > **Note**
 >
@@ -229,8 +207,7 @@ Congratulations, you have installed ALB Controller on your cluster!
 2. To uninstall ALB Controller and its resources from your cluster run the following commands:
 
 	```bash
-	helm uninstall alb-controller -n azure-application-lb-system
-	kubectl delete ns azure-application-lb-system
-	kubectl delete gatewayclass azure-application-lb
-	kubectl delete applicationlbparam default
+	 helm uninstall alb-controller -n azure-alb-system
+	 kubectl delete ns azure-alb-system
+ 	 kubectl delete gatewayclass azure-alb-external
 	```
