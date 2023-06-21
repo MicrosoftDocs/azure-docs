@@ -39,7 +39,7 @@ Updates in June include:
 
 June 21, 2023
 
- A new container recommendation in Defender CSPM powered by MDVM is released:
+ A new container recommendation in Defender CSPM powered by MDVM is released for preview:
 
 |Recommendation | Description | Assessment Key|
 |--|--|--| 
