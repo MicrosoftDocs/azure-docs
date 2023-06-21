@@ -37,7 +37,7 @@ Required permissions | For permissions required to apply an update, see [Azure A
 
 ## Retiring Azure AD Connect 1.x versions
 > [!IMPORTANT]
-> Action required: Synchronization will stop working on October 1, 2023, for any customers still running Azure AD Connect Sync V1.  Customers using cloud sync or Azure AD Connect V2 will remain fully operational with no action required.Read this [article](https://aka.ms/DecommissionAADConnectV1) for more information and next step guidance if an upgrade is required.
+> Action required: Synchronization will stop working on October 1, 2023, for any customers still running Azure AD Connect Sync V1.  Customers using cloud sync or Azure AD Connect V2 will remain fully operational with no action required. For more information and next step guidance, see [Decommission Azure AD Connect V1](https://aka.ms/DecommissionAADConnectV1) if an upgrade is required.
 
 ## Retiring Azure AD Connect 2.x versions
 > [!IMPORTANT]
