@@ -38,7 +38,7 @@ You need a [Bicep file](./quickstart-create-bicep-use-visual-studio-code.md) tha
 
 1. Select **Starter pipeline** for the type of pipeline to create.
 
-    :::image type="content" source="./media/add-template-to-azure-pipelines/select-pipeline.png" alt-text="Screenshot of selecting pipeline":::
+    :::image type="content" source="./media/add-template-to-azure-pipelines/select-pipeline.png" alt-text="Screenshot of selecting pipeline.":::
 
 ## Deploy Bicep files
 
