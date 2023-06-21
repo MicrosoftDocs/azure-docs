@@ -79,5 +79,5 @@ The high-level steps for the Azure Logic Apps integration are as follows:
 ## Next steps
 
 - [customTaskExtension resource type](/graph/api/resources/identitygovernance-customtaskextension?view=graph-rest-beta&preserve-view=true)
-- [Trigger Logic Apps based on custom task extensions (Preview)](trigger-custom-task.md)
-- [Configure a Logic App for Lifecycle Workflow use (Preview)](configure-logic-app-lifecycle-workflows.md)
+- [Trigger Logic Apps based on custom task extensions](trigger-custom-task.md)
+- [Configure a Logic App for Lifecycle Workflow use](configure-logic-app-lifecycle-workflows.md)
