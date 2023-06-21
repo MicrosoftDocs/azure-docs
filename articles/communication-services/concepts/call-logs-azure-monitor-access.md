@@ -13,14 +13,12 @@ ms.subservice: calling
 ---
 # Enable and Access Call Summary and Call Diagnostic Logs
 
-[!INCLUDE [Private Preview Notice](../includes/private-preview-include.md)]
-
 To access telemetry for Azure Communication Services Voice & Video resources, follow these steps.
 
 ## Enable logging
 1. First, you need to create a storage account for your logs. Go to [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) for instructions to complete this step. For more information, see [Storage account overview](../../storage/common/storage-account-overview.md) on the types and features of different storage options. If you already have an Azure storage account, go to Step 2.
  
-2. When you've created your storage account, next you need to enable logging by following the instructions in [Enable diagnostic logs in your resource](./analytics/enable-logging.md). You select the check boxes for the logs "CallSummaryPRIVATEPREVIEW" and "CallDiagnosticPRIVATEPREVIEW". 
+2. When you've created your storage account, next you need to enable logging by following the instructions in [Enable diagnostic logs in your resource](./analytics/enable-logging.md). You select the check boxes for the logs "CallSummary" and "CallDiagnostic". 
 
 3. Next, select the "Archive to a storage account" box and then select the storage account for your logs in the drop-down menu. The "Send to Analytics workspace" option isn't currently available for Private Preview of this feature, but it is made available when this feature is made public.
 
