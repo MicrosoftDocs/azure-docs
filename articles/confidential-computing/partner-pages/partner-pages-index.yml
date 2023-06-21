@@ -1,8 +1,7 @@
 ### YamlMime:Landing
 
-
 title: Azure confidential computing Parters
-summary: Azure confidential computing enables an ecosystem of partners that build on our privacy preserving infrastructure to provide additional capabilities for  customers. Learn more about our partners, their unique solutions to your use cases and links to get started with their Azure Marketplace solutions.
+summary: Azure confidential computing enables an ecosystem of partners that build on our privacy preserving infrastructure to provide additional capabilities for  customers. Learn more about our partners, their unique solutions to your use cases and links to get started with their Azure marketplace solutions.
 
 
 metadata:
@@ -15,13 +14,13 @@ metadata:
   ms.date: 06/19/2023
 
 
-landingContent:
 
-# productDirectory:
-#   title: Partners
-  # items:
+itemDirectory:
+  title: Partners
+  items:
     # Card
     - title: Anjuna
-      imageSrc: ../media/partner-pages-images/anjuna.jpg
+      summary: Easily add anomaly detection capabilities to your apps
+      imageSrc: media/partner-pages-images/anjuna.jpg
       url: anjuna.md
       href: 
