@@ -21,13 +21,13 @@ ms.custom: mode-other
 - [Visual Studio Code](https://code.visualstudio.com/download) installed
 
 ## Sample code
-Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation/callautomationQuickStart/CallAutomation_OutboundCalling). Install Git on your machine and use the clone command: `git clone https://github.com/Azure-Samples/Communication-Services-dotnet-quickstarts.git`
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/CallAutomation_OutboundCalling).
 
-Navigate to `CallAutomation_OutboundCalling` folder and open `CallAutomation_OutboundCalling.sln` file.
+Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a code editor.
 
 ## Set up the environment
 
-Download the sample code and navigate to the project directory and run the `npm` command that installs the necessary dependencies and setup your developer environment.
+Download the sample code and navigate to the project directory and run the `npm` command that installs the necessary dependencies and set up your developer environment.
 
 ```bash
 npm install
