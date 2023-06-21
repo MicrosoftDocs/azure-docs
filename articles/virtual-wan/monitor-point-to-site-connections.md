@@ -38,12 +38,8 @@ To configure the above architecture, we'll use the following P2S VPN logs and Po
 
 ## Create Azure function app
 
-1. Create an [Azure function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app)
-    1. Select **PowerShell Core** as your runtime stack
-1. Once created, navigate to the **Function App** resource.
-1. Select on **Identity** under **Settings** in the left panel. Toggle the **Status** button to **On** for **System assigned** and select **Save**.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/function-app-identity.png" alt-text="Screenshot shows the identity tab of function app.":::
+1. [Create an Azure function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app) and select **PowerShell Core** as your runtime stack
+1. [Assign system assigned managed identity to the function app](/azure-functions/functions-identity-access-azure-sql-with-managed-identity.md#enable-system-assigned-managed-identity-on-azure-function)
 1. Select on **Configuration** under **Settings** in the left panel.
 1. Select on **+ New application setting**. 
 :::image type="content" source="./media/monitor-point-to-site-connections/add-application-setting.png" alt-text="Screenshot shows the tab of adding an application setting." lightbox="./media/monitor-point-to-site-connections/add-application-setting.png":::
@@ -113,28 +109,15 @@ To configure the above architecture, we'll use the following P2S VPN logs and Po
 
 ## Create Azure Key Vault
 
-1. In the portal, in the **Search resources** bar, type **Key vaults**.
-
-1. Select **+ Create** from the results to open the **Create a key vault** page.
-
-1. On the **Basics** tab, fill in the fields. Modify the example values to apply to your environment.
-
-   :::image type="content" source="./media/monitor-point-to-site-connections/key-vault-basics.png" alt-text="Screenshot shows the basics section of creating a key vault.":::
-
-   * **Subscription**: Select the subscription that you want to use.
-   * **Resource group**: Create new or use existing.
-   * **Storage account name**: Type the name you want to call your key vault.
-   * **Region**: Select a region for your storage account.
-   * **Pricing tier**: Standard or Premium. **Standard** is adequate for our monitoring purposes.
-1. Select **Next: Access policy >**.
-1. Under **Permission model**, choose **Vault access policy**.
-1. Leave the options under **Resource access** as disabled.
-1. Under **Access policies**, select **+ Create**.
+1. Create [Azure Key Vault](../azure-functions/functions-identity-based-connections-tutorial.md#create-an-azure-key-vaults).
+    1. For **Permission model**, select **Vault access policy**.
+    2. Leave the options under **Resource access** as disabled.
+    3. Under **Access policies**, select **+ Create**.
 
    :::image type="content" source="./media/monitor-point-to-site-connections/create-access-policy-screen-1.png" alt-text="Screenshot shows first screen in creating access policy." lightbox="./media/monitor-point-to-site-connections/create-access-policy-screen-1.png" :::
-1. Select **Next** to go to the **Principal** tab. Type the name of your function app and select it.
-1. Select **Next** twice to get to the fourth tab: **Review + create** and select **Create** at the bottom.
-1. You should now see the newly created access policy under the **Access policies** section. Modifying the default values under the **Networking** tab is optional, so select **Review + create** in the bottom left corner.
+    1. Select **Next** to go to the **Principal** tab. Type the name of your function app and select it.
+    1. Select **Next** twice to get to the fourth tab: **Review + create** and select **Create** at the bottom.
+    1. You should now see the newly created access policy under the **Access policies** section. Modifying the default values under the **Networking** tab is optional, so select **Review + create** in the bottom left corner.
 1. Go to **Secrets** under **Objects** under the left panel of the key vault resource. Select **+ Generate/Import** and add secret as follows:
 
    * **Name**: sasuri
