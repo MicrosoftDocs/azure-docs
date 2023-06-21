@@ -94,13 +94,15 @@ Administrators can create policies from scratch or start from a template policy 
 
 ## Administrator experience
 
-Administrators with the [Conditional Access Administrator](../roles/permissions-reference#conditional-access-administrator.md) role can manage policies in Azure AD. 
+Administrators with the [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) role can manage policies in Azure AD. 
 
 Conditional Access is found in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access**.
 
 :::image type="content" source="media/overview/conditional-access-overview.png" alt-text="Screenshot of the Conditional Access overview page in the Azure portal." lightbox="media/overview/conditional-access-overview.png":::
 
-The **Overview** page provides a summary of policy state, users, devices, and applications as well as general and security alerts with suggestions. The **Coverage** page provides a synopsis of applications with and without Conditional Access policy coverage over the last seven days. The **Monitoring** page allows administrators to see a graph of sign-ins that can be filtered to see potential gaps in policy coverage.
+- The **Overview** page provides a summary of policy state, users, devices, and applications as well as general and security alerts with suggestions. 
+- The **Coverage** page provides a synopsis of applications with and without Conditional Access policy coverage over the last seven days. 
+- The **Monitoring** page allows administrators to see a graph of sign-ins that can be filtered to see potential gaps in policy coverage.
 
 ## License requirements
 
