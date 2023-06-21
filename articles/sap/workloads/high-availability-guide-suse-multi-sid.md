@@ -521,7 +521,7 @@ This documentation assumes that:
 
 Complete your SAP installation by:
 
-* [Preparing your SAP NetWeaver application servers](./high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7)
+* [Preparing your SAP NetWeaver application servers](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation)
 * [Installing a DBMS instance](./high-availability-guide-suse.md#install-database)
 * [Installing A primary SAP application server](./high-availability-guide-suse.md#sap-netweaver-application-server-installation)
 * Installing one or more additional SAP application instances

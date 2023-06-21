@@ -886,7 +886,7 @@ Follow these steps to install an SAP application server:
 
 1. **[A]** Prepare the application server.  
 
-   Follow the steps in [SAP NetWeaver application server preparation](high-availability-guide-suse-nfs-azure-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7).
+   Follow the steps in [SAP NetWeaver application server preparation](#prepare-the-sap-application-server).
 
 2. **[A]** Install a primary or additional SAP NetWeaver application server.
 
