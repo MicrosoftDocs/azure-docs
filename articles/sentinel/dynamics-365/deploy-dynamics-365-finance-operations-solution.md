@@ -35,7 +35,7 @@ Before you begin, verify that:
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information.":::
 
-1. To collect your environment URL, select **Login to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-fo-data-connector). For example: https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com. 
+1. To collect your environment URL, select **Login to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com. 
 
     > [!NOTE]
     > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 
@@ -62,8 +62,8 @@ Before you begin, verify that:
 
 In the connector page, make sure that you meet the required prerequisites and follow the configuration steps in the UI. During this process, you: 
 
-    - Deploy the ARM template (Function App). 
-    - Create a new security role in Finance and Operations and grant permissions to the Function App's managed identity. 
+- Deploy the ARM template (Function App). 
+- Create a new security role in Finance and Operations and grant permissions to the Function App's managed identity. 
 
 ### Enable auditing on the relevant Dynamics 365 Finance and Operations data tables 
 
@@ -110,7 +110,7 @@ To verify that log ingestion is working, you try to enable the **F&O – Bank ac
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png" alt-text="Screenshot of querying the query_FinanceOperationsActivity_CL_table to view the raw logs in Microsoft Sentinel." lightbox="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png"::: 
 
-1. Repeat this procedure (steps 1-5) to enable the rest of the [analytics rules provided with the solution](dynamics-365-finance-operations-security-content#built-in-analytics-rules.md).
+1. Repeat this procedure (steps 1-5) to enable the rest of the [analytics rules provided with the solution](dynamics-365-finance-operations-security-content.md#built-in-analytics-rules).
 
 ## Next steps
 
