@@ -153,7 +153,7 @@ For more information on all of these plans, check out the [Defender for Cloud pr
 
 **Estimated date for change: July 2023**
 
-The existing recommendation `Running container images should have vulnerability findings resolved (powered by Qualys)` is replaced by a new recommendation powered by MDVM:
+The recommendation `Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)` is set to be released as GA (General Availability):
 
 |Recommendation | Description | Assessment Key|
 |--|--|--| 
