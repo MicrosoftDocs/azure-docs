@@ -229,6 +229,19 @@ builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceO
 var app = builder.Build();
 ```
 
+You can customize additional sampling settings using the [SamplingPercentageEstimatorSettings](https://github.com/microsoft/ApplicationInsights-dotnet/blob/main/BASE/src/ServerTelemetryChannel/Implementation/SamplingPercentageEstimatorSettings.cs) class: 
+
+```csharp
+using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+
+telemetryProcessorChainBuilder.UseAdaptiveSampling(new SamplingPercentageEstimatorSettings
+{
+     MinSamplingPercentage = 0.01,
+     MaxSamplingPercentage = 100,
+     MaxTelemetryItemsPerSecond = 5
+ }, null, excludedTypes: "Dependency"); 
+```
+
 ### Configuring adaptive sampling for Azure Functions
 
 Follow instructions from [this page](../../azure-functions/configure-monitoring.md#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
