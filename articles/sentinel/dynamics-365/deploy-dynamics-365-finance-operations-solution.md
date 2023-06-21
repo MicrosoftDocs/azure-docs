@@ -26,9 +26,7 @@ Before you begin, verify that:
     - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`.
     - Assign the Monitoring Metrics Publisher role to the Azure Function. 
 
-## Set up the solution
-
-### Collect the environment URL from your Finance and Operations cloud environment
+## Collect the environment URL from your Finance and Operations cloud environment
 
 1. Open your Dynamics 365 project in [Microsoft Dynamics Lifecycle Services (LCS)](https://lcs.dynamics.com) and select the specific Finance and Operations environment you want to monitor with Microsoft Sentinel. 
 1. In the **Environment version information** section, make sure that you're using application release version 10.0.33 or above. 
@@ -42,7 +40,7 @@ Before you begin, verify that:
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-details.png" alt-text="Screenshot of the Finance and Operations environment details." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-details.png":::
 
-### Deploy the solution and enable the data connector
+## Deploy the solution and enable the data connector
 
 1. Navigate to the **Microsoft Sentinel** service.
 1. Select **Content hub**, and in the search bar, search for *F&O*.
@@ -54,33 +52,80 @@ Before you begin, verify that:
 1. Select **Create**.
 1. Select the resource group and the Sentinel workspace in which you want to deploy the solution. 
 1. Select **Next** until you pass validation and select **Create**.
+
+## Deploy the data connector 
+
 1. Once the solution deployment is complete, return to your Sentinel workspace and select **Data connectors**. 
 1. In the search bar, type *Dynamics 365 F&O*, and select **Dynamics 365 F&O (Using Azure Function)**. 
 1. Select **Open connector page**.
 
-## Deploy the data connector 
+In the connector page, make sure that you meet the required prerequisites and complete the following [configuration steps](#configure-the-data-connector).
 
-In the connector page, make sure that you meet the required prerequisites and follow the configuration steps in the UI. During this process, you: 
+## Configure the data connector
 
-- Deploy the ARM template (Function App). 
-- Create a new security role in Finance and Operations and grant permissions to the Function App's managed identity. 
+> [!NOTE]
+> This connector uses Azure Functions to connect to Dynamics Finance and Operations to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details. 
+
+### Deploy the Azure Resource Manager (ARM) template
+
+1. Select **Deploy to Azure**.
+1. Follow the installation wizard to complete deployment. 
+
+### Enable data collection
+
+To enable data collection, you create a new role in Finance and Operations with permissions to view the Database Log entity. The role is then assigned to a dedicated Finance and Operations user, mapped to the Azure Active Directory client ID of the Function App's system assigned managed identity.
+
+To collect the managed identity application ID from Azure Active Directory: 
+
+1. In the [Azure Active Directory portal](https://aad.portal.azure.com/), select **Enterprise Applications**.
+1. Change the application type filter to **Managed Identities**.
+1. Search for and open the Function App created in the [previous step](#deploy-the-azure-resource-manager-arm-template). Copy the Application ID and save it for later use. 
+
+### Create a role for data collection in Finance and Operations 
+
+1. In the Finance and Operations portal, navigate to **Workspaces > System administration**, and select **Security Configuration**.
+1. Under **Roles**, select **Create new** and give the new role a name, for example, *Database Log Viewer*.
+1. Select the new role from the list of roles, and select **Privileges** > **Add references**.
+1. Select **Database log Entity View** from the list of privileges. 
+1. Select **Unpublished objects**, and select **Publish all** to publish the role. 
+
+#### Create a user for data collection in Finance and Operations 
+
+1. In the Finance and Operations portal, navigate to **Modules > System administration**, and select **Users**.
+1. Create a new user and assign the role you [created in the previous step](#create-a-role-for-data-collection-in-finance-and-operations) to the user. 
+
+#### Register the managed identity in Finance and Operations
+
+1. In the Finance and Operations portal, navigate to **System administration > Setup > Azure Active Directory** applications.
+1. Create a new entry in the table: 
+    1. For the **Client Id**, type the application ID of the managed identity.
+    1. For the **Name**, type a name for the application. 
+    1. For the **User ID**, type the user ID created in the [previous step](#create-a-user-for-data-collection-in-finance-and-operations). 
 
 ### Enable auditing on the relevant Dynamics 365 Finance and Operations data tables 
 
-To enable the analytics rules provided with this solution, enable auditing for these tables:    
- 
-- All tables under **System**
-- The **Bank accounts** table under **Bank**
+> [!NOTE]
+> Before you enable auditing on Dynamics 365 F&O, review the [database logging recommended practices](/dynamics365/fin-ops-core/dev-itpro/sysadmin/configure-manage-database-log#database-logging-and-performance).
+
+The analytics rules currently provided with this solution monitor and detect threats based on logs sourced from these tables:  
+
+- All tables under **System**
+- The **Bank accounts** table under **Bank** 
+
+This screenshot shows the **System** and **Bank accounts** tables under **logging database changes**. To reach this dialog, follow the [enable auditing steps](#enable-auditing).
+
+If you're planning to use the analytics rules provided in this solution, enable auditing for the **System** and **Bank accounts** tables.
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables.png" alt-text="Screenshot of the selected Finance and Operations database tables to enable auditing." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables.png":::
 
-To enable auditing for these tables:
+#### Enable auditing 
 
-1. Review the [recommended practices for database logging](/dynamics365/fin-ops-core/dev-itpro/sysadmin/configure-manage-database-log#database-logging-and-performance).    
-1. Select **Modules** > **System Administration** > **Database log** > **Database log setup**.
-1. Select **New**, select **Next**, and select the tables you want to monitor. 
-1. Select **Next**. 
-1. To enable auditing on all fields of the selected tables, mark all four check marks to the right of the table names with empty field labels. To see the tables with empty field labels at the top, sort the table list by the field table in ascending order:
+To enable on any Finance and Operations tables you want to monitor: 
+
+1. In Finance and Operations, Select **Modules > System Administration > Database log > Database log setup**.
+1. Select **New** > **Next**, and select the tables you want to monitor. 
+1. Select **Next**.  
+1. To enable auditing on all fields of the selected tables, mark all four check marks to the right of the table names with empty field labels. To see the tables with empty field labels at the top, sort the table list by the field table in ascending order (A to Z):
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-changes.png" alt-text="Screenshot of configuring the selected Finance and Operations database tables." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-changes.png":::
 
