@@ -59,13 +59,11 @@ The following table describes the key attributes of a deployment:
 
 To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM template, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
 
-## Options for deploying models to online endpoints
+## Code and no-code options for model deployment
 
-Azure Machine Learning supports model deployment to online endpoints for coders and noncoders alike, by providing options for _no-code deployment_, _low-code deployment_, and _full-code deployment_.
+Azure Machine Learning supports model deployment to online endpoints for coders and noncoders alike, by providing options for _no-code deployment_, _low-code deployment_, and _Bring Your Own Container (BYOC) deployment_.
 
-### No-code model deployment
-
-**No-code** deployment provides out-of-box inferencing for common frameworks (for example, scikit-learn, TensorFlow, PyTorch, and ONNX) via MLflow and Triton. For no-code deployment, Azure Machine Learning requires that you provide:
+**No-code model deployment** provides out-of-box inferencing for common frameworks (for example, scikit-learn, TensorFlow, PyTorch, and ONNX) via MLflow and Triton. For no-code deployment, Azure Machine Learning requires that you provide:
 - A model folder or the name and version of the model, if it's already registered in your workspace. This model folder should contain:
     - ML model file connecting assets/schema for MLflow
     - model files
@@ -80,7 +78,7 @@ To learn more about no-code deployment for MLflow models, see [Deploy MLflow mod
 
 ### Low-code model deployment
 
-**Low-code** deployment in Azure Machine Learning allows you to provide minimal code along with your ML model for deployment. For low-code deployment, Azure Machine Learning requires that you provide:
+**Low-code model deployment** allows you to provide minimal code along with your ML model for deployment. For low-code deployment, Azure Machine Learning requires that you provide:
 - Model assets or the name and version of registered assets in your workspace. These assets should include:
     - model files
     - an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​
@@ -89,12 +87,7 @@ To learn more about no-code deployment for MLflow models, see [Deploy MLflow mod
 
 In turn, Azure Machine Learning uses the model assets you specified to create the container that runs in our managed infrastructure, providing all platform features of a managed online endpoint.​ ​To learn more about low-code deployment for ML models, see [Deploy an ML model with an online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints).
 
-> [!NOTE]
-> AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
-
-### Full-code or BYOC model deployment
-
-**Full-code** deployment or Bring Your Own Container (BYOC) option lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​. For BYOC deployment, Azure Machine Learning requires that you provide:
+**Bring Your Own Container (BYOC) deployment** lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​. For BYOC deployment, Azure Machine Learning requires that you provide:
 - an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container
 - Port and route path info for:​
     - liveness (to check if server is running)​
@@ -102,6 +95,17 @@ In turn, Azure Machine Learning uses the model assets you specified to create th
     - scoring (send scoring data here)
 
 In turn, Azure Machine Learning provides all the platform features for communicating with your container. To learn how to deploy with custom containers, see [Use a custom container to deploy a model to an online endpoint](/azure/machine-learning/how-to-deploy-custom-container).
+
+The following table summarizes key points about deployment options to online endpoints:
+
+|         |Summary  |Custom code  |Custom dependencies  |Custom base image    |
+|---------|---------|---------|---------|---------|
+|No-code  | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX via MLflow and Triton. | No | No | No |
+|Low-code | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks. You provide scoring script and/or Python dependencies.        |  Yes, bring your scoring script.     |   Yes, bring an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​.      |    No     |
+|BYOC     | You provide your complete stack via Azure Machine Learning's support for [custom images](/azure/machine-learning/how-to-deploy-custom-container?view=azureml-api-2&tabs=cli).       |  Yes, bring your scoring script.       |    Yes     |    Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container.    |
+
+> [!NOTE]
+> AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
 
 ## Local deployment and Visual Studio Code debugging
 
@@ -212,6 +216,8 @@ However [managed online endpoints](#managed-online-endpoints) also include out-o
 Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints support autoscaling through integration with the [Azure monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
 
 :::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Screenshot showing that autoscale flexibly provides between min and max instances, depending on rules.":::
+
+To learn how to configure autoscaling, see [How to autoscale online endpoints](how-to-autoscale-endpoints.md).
 
 ### Private endpoint support
 
