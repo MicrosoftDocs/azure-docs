@@ -1579,14 +1579,6 @@
     - name: ARM template
       displayName: Resource Manager
       href: ../ddos-protection/manage-ddos-protection-template.md?toc=/azure/virtual-machines/toc.json
-  - name: Open ports and filter traffic
-    items:
-    - name: CLI
-      href: ../virtual-network/tutorial-filter-network-traffic-cli.md
-    - name: PowerShell
-      href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
-    - name: Portal
-      href: ../virtual-network/tutorial-filter-network-traffic.md
   - name: Migrate a virtual machine public IP address
     href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-machines/toc.json
   - name: Assign public IP address
