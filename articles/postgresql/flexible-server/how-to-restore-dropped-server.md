@@ -32,7 +32,8 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need fol
     - **Subscription** = Your Subscription hosting the deleted server
     - **Operation** = Delete PostgreSQL Server (Microsoft.DBforPostgreSQL/flexibleservers/delete)
 
-    ![Activity log filtered for delete PostgreSQL server operation](./media/how-to-restore-dropped-server/activity-log-azure.png)
+    ![Activity log filtered for delete PostgreSQL server operation](./media/how-to-restore-server-portal/activity-log-azure.png")
+
 
 3. Select the **Delete PostgreSQL Server** event, then select the **JSON tab**. Copy the `resourceId` and `submissionTimestamp` attributes in JSON output. The resourceId is in the following format: `/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/deletedserver`.
 
@@ -40,7 +41,7 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need fol
 
 5. Provide the **resourceGroupName**, **serverName** (Target server name), **subscriptionId** properties, based on the resourceId attribute JSON value captured in the preceding step 3. The api-version property is pre-populated and can be left as-is, as shown in the following image.
 
-    ![Create server using REST API](./media/how-to-restore-dropped-server/create-server-from-rest-api-azure.png)
+    ![Create server using REST API](./media/how-to-restore-server-portal/create-server-from-rest-api-azure.png)
 
 6. Scroll below on Request Body section and paste the following replacing the "Dropped server Location"(e.g. CentralUS, EastUS etc.), "submissionTimestamp", and "resourceId". For "pointInTimeUTC", specify a value of "submissionTimestamp" plus **5 minutes** to ensure the command doesn't error out.
 
@@ -122,6 +123,7 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need fol
   }
 }
 
+```
 ## Next steps
 
 - If you're trying to restore a server within five days, and still receive an error after accurately following the steps discussed earlier, open a support incident for assistance. If you're trying to restore a dropped server after five days, an error is expected since the backup file cannot be found. Don't open a support ticket in this scenario. The support team cannot provide any assistance if the backup is deleted from the system. 
