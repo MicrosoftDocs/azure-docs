@@ -195,8 +195,6 @@ The [Read Well Known Text] sample shows how to read the well-known text string `
 <iframe height='500' scrolling='no' title='Read Well-Known Text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Read Well-Known Text</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
 -------------------------------------------------->
 
-The following code demonstrates reading and writing well-known text back and forth.
-
 The [Read and write Well Known Text] sample demonstrates how to read and write Well Known Text (WKT) strings as GeoJSON. For the source code of this sample, see [Read and write Well Known Text source].
 
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/read-and-write-well-known-text.png" alt-text="A screenshot showing the sample that demonstrates how to read and write Well Known Text (WKT) strings as GeoJSON.":::
