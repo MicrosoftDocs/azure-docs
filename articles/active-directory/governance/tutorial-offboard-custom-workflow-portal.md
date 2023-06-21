@@ -105,7 +105,7 @@ To run a workflow on demand for users by using the Azure portal:
 
 ## Check tasks and workflow status
 
-At any time, you can monitor the status of workflows and tasks. Three data pivots, users runs, and tasks are currently available in public preview. You can learn more in the how-to guide [Check the status of a workflow](check-status-workflow.md). In this tutorial, you check the status by using the user-focused reports.
+At any time, you can monitor the status of workflows and tasks. Three data pivots, users runs, and tasks are currently available. You can learn more in the how-to guide [Check the status of a workflow](check-status-workflow.md). In this tutorial, you check the status by using the user-focused reports.
 
 1. On the **Overview** page for the workflow, select **Workflow history**.  
 
