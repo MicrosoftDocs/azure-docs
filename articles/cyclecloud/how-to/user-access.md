@@ -2,8 +2,11 @@
 title: Cluster User Management
 description: Laern how to manage user access to cluster nodes in Azure CycleCloud. Enable sign-in access to cluster nodes through CycleCloud or a third-party user management system.
 author: jermth
-ms.date: 04/15/2019
+ms.date: 06/20/2023
 ms.author: jechia
+ms.topic: how-to
+ms.service: cyclecloud
+ms.custom: compute-evergreen
 ---
 
 # Cluster User Management
