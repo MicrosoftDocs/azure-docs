@@ -22,4 +22,13 @@ landingContent:
 # Start card title with a verb
   # Card (optional)
   - title: Anjuna
-    url: anjuna.md
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Anjuna
+            url: anjuna.md
+      - linkListType: reference
+        links:
+          - text: Anjuna website
+            url: https://www.anjuna.io/
+
