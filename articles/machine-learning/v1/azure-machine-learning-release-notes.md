@@ -31,7 +31,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + remove shap pin in azureml-interpret to update to latest in interpret-community
   + **azureml-responsibleai**
     + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.28.0
-    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.27.0
 
 ## 2023-05-20
 
