@@ -12,7 +12,7 @@ ms.custom:
 
 # How to manage the Private access traffic forwarding profile
 
-The Private access traffic forwarding profile routes traffic to your private network through the Global Secure Access Client. Enabling this traffic forwarding profile allows remote workers to connect to internal resources without a VPN.
+The Private access traffic forwarding profile routes traffic to your private network through the Global Secure Access Client. Enabling this traffic forwarding profile allows remote workers to connect to internal resources without a VPN. With the features of Microsoft Entra Private Access, you can control which private resources to tunnel through the service and apply Conditional Access policies to secure access to those services. Once your configurations are in place, you can view and manage all of those configurations from one place.
 
 ## Prerequisites
 
@@ -33,9 +33,10 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 1. Select the checkbox for **Private access profile**.
 
 ![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-manage-private-access-profile/private-access-traffic-profile.png)
+
 ## Private access policies
 
-To enable the Private access traffic forwarding profile, we recommend you first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDNs) for the private resources you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md).
+To enable the Private access traffic forwarding profile, we recommend you first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDNs) for the private resources you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md). For example, you can create a policy that requires using compliant devices when accessing Microsoft 365 services.
 
 You can also configure per-app access to your private resources. This process is similar to configuring Quick Access, but per-app access provides the option to enable or disable the per-app access without impacting the FQDNs and IP addresses included in Quick Access.
 
@@ -45,11 +46,19 @@ To manage the details included in the Private access traffic forwarding policy:
 1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
 1. Select the **View** link for **Private access policies**. 
 
-![Screenshot of the Private access profile, with the view applications link highlighted.](media/how-to-manage-private-access-profile/private-access-profile-link.png)
+:::image type="content" source="media/how-to-manage-private-access-profile/private-access-profile-link.png" alt-text="Screenshot of the Private access profile, with the view applications link highlighted." lightbox="media/how-to-manage-private-access-profile/private-access-profile-expanded.png":::
 
-Details of the Quick Access and any enterprise apps configured for Private access are displayed. Select the link for the application to view the details from the Enterprise applications area of Microsoft Entra ID.
+Details of your Quick Access and enterprise apps for Private access are displayed. Select the link for the application to view the details from the Enterprise applications area of Microsoft Entra ID.
 
 ![Screenshot of the private access application details.](media/how-to-manage-private-access-profile/private-access-app-details.png)
+
+## Linked Conditional Access policies
+
+Conditional Access policies can be applied to your Quick Access and Private Access applications. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
+
+Conditional Access policies are created and applied to the Quick Access application in the **Protection** area of Microsoft Entra ID. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
+
+![Screenshot of the linked Conditional Access policies area of Private Access.](media/how-to-manage-private-access-profile/private-access-conditional-access-policies.png)
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

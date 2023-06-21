@@ -52,6 +52,27 @@ The following example policy targets all users except for your break-glass accou
 
 After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
+## Create a Conditional Access policy targeting the Private access traffic profile
+
+The following example creates a Conditional Access policy requiring multifactor authentication for your Quick Access application.
+
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
+1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users or workload identities**.
+   1. Under **Include**, select **All users**.
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+1. Under **Target resources** > **Include**, and select **Select apps**.
+   1. Choose your configured Quick Access application.
+1. Under **Access controls** > **Grant**
+   1. Select **Grant access**, **Require multifactor authentication**, and select **Select**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
+1. Select **Create** to create to enable your policy.
+
+After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+
+
 ## User experience
 
 When users sign in to a machine with the Global Secure Access Client installed, configured, and running for the first time they are prompted to sign in. When users attempt to access a resource protected by a policy like the example above the policy is enforced and they're prompted to sign in if they haven't already. Looking at the system tray icon for the Global Secure Access Client you see a red circle indicating it's signed out or not running.

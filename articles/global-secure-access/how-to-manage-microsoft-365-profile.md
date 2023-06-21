@@ -39,7 +39,7 @@ To manage the details included in the Microsoft 365 traffic forwarding policy:
 1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
 1. Select the **View** link for **Microsoft 365 traffic policies**. 
 
-![Screenshot of the Microsoft 365 traffic policies.](media/how-to-manage-microsoft-365-profile/microsoft-365-traffic-policies.png)
+:::image type="content" source="media/how-to-manage-microsoft-365-profile/microsoft-365-traffic-policies.png" alt-text="Screenshot of the Private access profile, with the view applications link highlighted." lightbox="media/how-to-manage-microsoft-365-profile/microsoft-365-traffic-policies-expanded.png":::
 
 The policy groups are listed, with a checkbox to indicate if the policy group is enabled. Expand a policy group to view all of the IPs and FQDNs included in the group.
 
@@ -57,37 +57,22 @@ If the Microsoft 365 profile isn't enabled, or a specific FQDN or IP address byp
 
 ## Linked Conditional Access policies
 
-Conditional Access policies can be applied to your traffic profiles to provide more options for managing access to applications, sites, and services. For example, you can create a policy that requires using compliant devices when accessing Microsoft 365 services or requires multifactor authentication for all Microsoft 365 traffic.
+Conditional Access policies are created and applied to the traffic forwarding profile in the Conditional Access area of Microsoft Entra ID. For example, you can create a policy that requires using compliant devices when accessing Microsoft 365 services.
 
-Conditional Access policies are created and applied to the profile in the Conditional Access area of Microsoft Entra ID. For more information, see the [Conditional Access overview](../active-directory/conditional-access/overview.md).
+For more information on Conditional Access, see the [Conditional Access overview](../active-directory/conditional-access/overview.md).
 
-1. Select the **View** link for **Conditional Access policies applicable**.
+If you see "None" in the **Linked Conditional Access policies** section, there isn't a Conditional Access policy linked to the traffic forwarding profile. To create a Conditional Access policy, see [Universal Conditional Access through Global Secure Access.](how-to-target-resource.md).
 
-    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-manage-microsoft-365-profile/microsoft-365-conditional-access-policy-link.png)
+![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-manage-microsoft-365-profile/microsoft-365-conditional-access-policy-link.png)
 
-1. Select a link from the list to view the policy details. 
+### Edit an existing Conditional Access policy
+
+If the traffic forwarding profile has a linked Conditional Access policy, you can view and edit that policy.
+
+1. Select the **View** link for **Linked Conditional Access policies**.
+1. Select a policy from the list. The details of the policy open in Conditional Accesss. 
 
     ![Screenshot of the applied Conditional Access policies.](media/how-to-manage-microsoft-365-profile/conditional-access-applied-policies.png)
-
-Conditional Access policies are created and applied to the Quick Access application in the **Protection** area of Microsoft Entra ID. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
-
-The following example creates a Conditional Access policy requiring multifactor authentication for your quick access applications.
-
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
-1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
-1. Select **Create new policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-1. Under **Target resources** > **Include**, and select **Select apps**.
-   1. Choose your configured quick access application.
-1. Under **Access controls** > **Grant**
-   1. Select **Grant access**, **Require multifactor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **Report-only**.
-1. Select **Create** to create to enable your policy.
-
-After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Microsoft 365 remote network assignments
 
