@@ -38,7 +38,7 @@ To define an endpoint, you need to specify:
 
 ## Online deployments
 
-A **deployment** is a set of resources and computes required for hosting the model that does the actual inferencing. A single endpoint can contain multiple deployments with different configurations, which helps to _decouple the interface_ presented by the endpoint from _the implementation details_ present in the deployment. An online endpoint has a routing mechanism that can direct requests to specific deployments in the endpoint.
+A **deployment** is a set of resources and computes required for hosting the model that does the actual inferencing. A single endpoint can contain multiple deployments with different configurations. This setup helps to _decouple the interface_ presented by the endpoint from _the implementation details_ present in the deployment. An online endpoint has a routing mechanism that can direct requests to specific deployments in the endpoint.
 
 The following diagram shows an online endpoint that has two deployments, _blue_ and _green_. The blue deployment uses VMs with a CPU SKU, and runs version 1 of a model. The green deployment uses VMs with a GPU SKU, and runs version 2 of the model. The endpoint is configured to route 90% of incoming traffic to the blue deployment, while the green deployment receives the remaining 10%.
 
@@ -61,7 +61,7 @@ To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM temp
 
 ## Options for deploying models to online endpoints
 
-Azure Machine Learning supports model deployment to online endpoints for coders and non-coders alike, by providing options for _no-code deployment_, _low-code deployment_, and _full-code deployment_.
+Azure Machine Learning supports model deployment to online endpoints for coders and noncoders alike, by providing options for _no-code deployment_, _low-code deployment_, and _full-code deployment_.
 
 ### No-code model deployment
 
@@ -92,9 +92,9 @@ In turn, Azure Machine Learning uses the model assets you specified to create th
 > [!NOTE]
 > AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
 
-### Full code or BYOC model deployment
+### Full-code or BYOC model deployment
 
-**Full code** deployment or Bring Your Own Container (BYOC) option lets you virtually bring any containers to run your online endpoint. You can leverage all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​. For BYOC deployment, Azure Machine Learning requires that you provide:
+**Full-code** deployment or Bring Your Own Container (BYOC) option lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​. For BYOC deployment, Azure Machine Learning requires that you provide:
 - an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container
 - Port and route path info for:​
     - liveness (to check if server is running)​
@@ -103,7 +103,7 @@ In turn, Azure Machine Learning uses the model assets you specified to create th
 
 In turn, Azure Machine Learning provides all the platform features for communicating with your container. To learn how to deploy with custom containers, see [Use a custom container to deploy a model to an online endpoint](/azure/machine-learning/how-to-deploy-custom-container).
 
-## Local deployment of online endpoint and Visual Studio Code debugging
+## Local deployment and Visual Studio Code debugging
 
 You can deploy an endpoint locally to test it without having to deploy to the cloud. Azure Machine Learning creates a local Docker image that mimics the Azure Machine Learning image. Azure Machine Learning will build and run deployments for you locally and cache the image for rapid iterations.
 
@@ -111,26 +111,30 @@ Azure Machine Learning local endpoints use Docker and VS Code development contai
 
 :::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VS Code." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
 
-To interactively debug online endpoints in VS Code, see [Debug online endpoints locally in Visual Studio Code](/azure/machine-learning/how-to-debug-managed-online-endpoints-visual-studio-code?view=azureml-api-2&tabs=cli).
+To interactively debug online endpoints in VS Code, see [Debug online endpoints locally in Visual Studio Code](/azure/machine-learning/how-to-debug-managed-online-endpoints-visual-studio-code).
 
-## Native blue/green deployment
+## Traffic routing and mirroring to online deployments
 
-Recall that a single endpoint can have multiple deployments. The online endpoint can implement load balancing to allocate any percentage of traffic to each deployment, with the total allocation across all deployments adding up to 100%. Traffic allocation can also be used to safely rollout blue/green deployments by balancing requests between different instances.
+Recall that a single online endpoint can have multiple deployments. As the endpoint receives incoming traffic (or requests), it can route percentages of traffic to each deployment, as used in the native blue/green deployment strategy. It can also mirror (or copy) traffic from one deployment to another, also called traffic mirroring or shadowing.
+
+### Traffic routing for blue/green deployment
+
+Blue/green deployment is a deployment strategy that allows you to roll out a new deployment (the green deployment) to a small subset of users or requests before rolling it out completely. The endpoint can implement load balancing to allocate certain percentages of the traffic to each deployment, with the total allocation across all deployments adding up to 100%.
 
 > [!TIP]
 > A request can bypass the configured traffic load balancing by including an HTTP header of `azureml-model-deployment`. Set the header value to the name of the deployment you want the request to route to.
 
-The following image shows settings in the Azure Machine Learning studio for allocating traffic between a blue and green deployment.
+The following image shows settings in Azure Machine Learning studio for allocating traffic between a blue and green deployment.
 
 :::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments.":::
 
-This traffic allocation will route traffic as shown in the following image, with 10% of traffic going to the green deployment, and 90% of traffic going to the blue deployment.
+This traffic allocation routes traffic as shown in the following image, with 10% of traffic going to the green deployment, and 90% of traffic going to the blue deployment.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments.":::
 
-## Traffic mirroring to online deployments
+### Traffic mirroring to online deployments
 
-Traffic to one deployment can also be mirrored (or copied) to another deployment. Traffic mirroring (also called shadowing) is useful when you want to test for things like response latency or error conditions without impacting live clients; for example, when implementing a blue/green deployment where 100% of the traffic is routed to blue and 10% is mirrored to the green deployment. With mirroring, the results of traffic to the green deployment aren't returned to the clients, but the metrics and logs are recorded. Testing the new deployment with traffic mirroring/shadowing is also known as [shadow testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/shadow-testing/).
+The endpoint can also mirror (or copy) traffic from one deployment to another deployment. Traffic mirroring (also called [shadow testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/shadow-testing/)) is useful when you want to test a new deployment with production traffic without impacting the results that customers are receiving from existing deployments. For example, when implementing a blue/green deployment where 100% of the traffic is routed to blue and 10% is _mirrored_ to the green deployment, the results of the mirrored traffic to the green deployment aren't returned to the clients, but the metrics and logs are recorded.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing an endpoint mirroring traffic to a deployment.":::
 
@@ -189,13 +193,13 @@ Managed online endpoints can help streamline your deployment process. Managed on
 
 To learn how to deploy to a managed online endpoint, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
 
-## Other capabilities of online endpoints in Azure Machine Learning
+## More capabilities of online endpoints in Azure Machine Learning
 
 ### Application Insights integration
 
 All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues. 
 
-However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-online-endpoints) also include out-of-box integration with Azure Logs and Azure Metrics.
+However [managed online endpoints](#managed-online-endpoints) also include out-of-box integration with Azure Logs and Azure Metrics.
 
 ### Security
 
