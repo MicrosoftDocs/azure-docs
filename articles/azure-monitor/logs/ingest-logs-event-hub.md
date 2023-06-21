@@ -76,7 +76,7 @@ You'll need your subscription ID, resource group name, workspace name, workspace
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-resource-id.png" lightbox="media/ingest-logs-event-hub/event-hub-resource-id.png" alt-text="Screenshot showing the Resource JSON screen with the event hub resource ID highlighted.":::
 ## Create a destination table in your Log Analytics workspace
 
-Before you can ingest data, you need to set up a destination table. 
+Before you can ingest data, you need to set up a destination table. You can ingest data into custom tables and [supported Azure tables](../logs/logs-ingestion-api-overview.md#supported-tables).
 
 To create a custom table into which to ingest events, in the Azure portal:  
 
