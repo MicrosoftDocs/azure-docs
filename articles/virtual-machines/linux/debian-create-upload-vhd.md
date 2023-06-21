@@ -1,11 +1,11 @@
 ---
 title: Prepare an Debian Linux VHD 
 description: Learn how to create Debian VHD images for VM deployments in Azure.
-author: srijang
+author: maries
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 06/20/2023
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
 ---
@@ -22,22 +22,6 @@ This section assumes that you have already installed a Debian Linux operating sy
 * When installing the Linux system, it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
 * Do not configure a swap partition on the OS disk. The Azure Linux agent can be configured to create a swap file on the temporary resource disk. More information can be found in the steps below.
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1MB before conversion. For more information, see [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes).
-
-## Use Azure-Manage to create Debian VHDs
-There are tools available for generating Debian VHDs for Azure, such as the [azure-manage](https://github.com/credativ/azure-manage) scripts from [Credativ](https://www.credativ.com/). This is the recommended approach versus creating an image from scratch. For example, to create a Debian 8 VHD run the following commands to download the `azure-manage` utility (and dependencies) and run the `azure_build_image` script:
-
-```console
-# sudo apt-get update
-# sudo apt-get install git qemu-utils mbr kpartx debootstrap
-
-# sudo apt-get install python3-pip python3-dateutil python3-cryptography
-# sudo pip3 install azure-storage azure-servicemanagement-legacy azure-common pytest pyyaml
-# git clone https://github.com/credativ/azure-manage.git
-# cd azure-manage
-# sudo pip3 install .
-
-# sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
-```
 
 
 ## Prepare a Debian image for Azure
