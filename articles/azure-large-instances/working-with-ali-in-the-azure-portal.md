@@ -49,7 +49,7 @@ To begin using Azure CLI
 For more information, see [Quickstart for Bash in Azure Cloud Shells](../cloud-shell/quickstart.md). 
 
 If you prefer to run CLI reference commands locally, install the Azure CLI. 
-If you're running on Windows or macOS, consider running Azure CLI in a Docker container.
+If you're using Windows or macOS, consider running Azure CLI in a Docker container.
  For more information, see How to run the Azure CLI in a Docker container. 
 
  
@@ -120,12 +120,10 @@ You can view the details of a single instance.
 
 ### [Portal](#tab/azure-portal)
 
-In the list of BareMetal instancesALI, select the single instance you want to view. 
+In the list of BareMetal instancesALI, select the single instance you want to view.
 
 
 :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot showing the ALI instance attributes of a single instance." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
-
- 
 
 The attributes in the image don't look much different than the Azure virtual machine (VM) attributes.
 On the left, you see the Resource group, Azure region, and subscription name and ID. 
@@ -144,8 +142,7 @@ Use the proximity placement group associated with the ALI instance to ensure the
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see details of an ALI instance, run the [az baremetalinstance show](../../cli/azure/baremetalinstance#az-baremetalinstance-show) command:
- 
+To see details of an ALI instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
 
 ```azurecli
 az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
