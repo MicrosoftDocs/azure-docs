@@ -27,7 +27,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 Starting July 5, existing customers can migrate their legacy Defender for IoT purchasing plans to new, site-based Microsoft 365 licenses. <!--for example: image-->
 
-For more information, see [Migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan).
+For more information, see [Migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan) and [Defender for IoT subscription billing](billing.md).
 
 ## June 2023
 
