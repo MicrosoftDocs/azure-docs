@@ -135,7 +135,5 @@ To view the installed out-of-the-box detections, go to **Analytics** and then **
 For more information about getting out-of-the-box detections, see [Get built-in-analytics](detect-threats-built-in.md).
 
 ## Next steps
-In this quickstart, you learned how to get started using Microsoft Sentinel. Continue to the article for [how to detect threats](detect-threats-built-in.md).
 
-> [!div class="nextstepaction"]
-> [Create custom threat detection rules](detect-threats-custom.md) to automate your responses to threats.
+[Detect threats out-of-the-box](detect-threats-built-in.md) and [create custom threat detection rules](detect-threats-custom.md) to automate your responses to threats.
