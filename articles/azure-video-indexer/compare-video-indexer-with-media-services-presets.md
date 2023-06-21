@@ -6,7 +6,7 @@ ms.date: 11/10/2022
 ms.author: juliako
 
 ---
-
+ 
 # Compare Azure Media Services v3 presets and Azure Video Indexer
 
 This article compares the capabilities of **Azure Video Indexer(AVI) APIs** and **Media Services v3 APIs**.
