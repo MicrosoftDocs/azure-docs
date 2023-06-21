@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Deploy a Java application with WebLogic Server on an Azure Kubernetes Service (AKS) cluster
 
-This article shows you how to quickly deploy WebLogic Application Server (WLS) on Azure Kubernetes Service (AKS) with the simplest possible set of configuration choices using the Azure portal. For a more full featured tutorial, including the use of Azure Application Gateway to make WLS on AKS securely visible on the public Internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway.md).
+This article shows you how to quickly deploy WebLogic Application Server (WLS) on Azure Kubernetes Service (AKS) with the simplest possible set of configuration choices using the Azure portal. For a more full featured tutorial, including the use of Azure Application Gateway to make WLS on AKS securely visible on the public Internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway).
 
 For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Service, see the official documentation from Oracle at [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
@@ -69,7 +69,7 @@ The following steps show you how to start the deployment process.
 1. Select the storage container from the preceding section.
 1. Select the checkbox next to the sample app uploaded from the preceding section. Select **Select**.
 
-The following steps make it so the WLS admin console and the sample app are exposed to the public Internet with a built-in Kubernetes `LoadBalancer` service. For a more secure and scalable way to expose functionality to the public Internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway.md).
+The following steps make it so the WLS admin console and the sample app are exposed to the public Internet with a built-in Kubernetes `LoadBalancer` service. For a more secure and scalable way to expose functionality to the public Internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway).
 
 1. Select the **Networking** pane.
 1. Next to the question **Create Standard Load Balancer services for Oracle WebLogic Server?**, select **Yes**.
