@@ -1,11 +1,11 @@
 ---
-title: Frequently asked questions about convert-data - Azure Health Data Services
-description: Learn about the convert-data frequently asked questions.
+title: Frequently asked questions about the FHIR Converter - Azure Health Data Services
+description: Learn about the FHIR Converter frequently asked questions (FAQs).
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 06/16/2023
+ms.date: 06/21/2023
 ms.author: jasteppe
 ---
 

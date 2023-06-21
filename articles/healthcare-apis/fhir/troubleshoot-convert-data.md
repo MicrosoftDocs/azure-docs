@@ -1,12 +1,12 @@
 ---
-title: Troubleshoot convert-data - Azure Health Data Services
-description: Learn how to troubleshoot and fix convert-data.
+title: Troubleshoot the FHIR Converter- Azure Health Data Services
+description: Learn how to troubleshoot and fix the FHIR Converter.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: iomt
+ms.subservice: fhir
 ms.topic: troubleshooting
-ms.date: 06/16/2023
+ms.date: 06/21/2023
 ms.author: jasteppe
 ---
 

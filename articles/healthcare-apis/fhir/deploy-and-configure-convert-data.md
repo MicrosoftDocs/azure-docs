@@ -23,7 +23,7 @@ You can use the [FHIR Converter Visual Studio Code extension](https://marketplac
 > [!NOTE]
 > The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported.
 
-The provided default templates can be used as a base starting point if needed, on top of which your customizations can be added. When making updates to the templates, consider following the below guidelines to avoid unintended conversion results. The template should be authored in a way such that it yields a valid structure for FHIR bundle resource. 
+The provided default templates can be used as a base starting point if needed, on top of which your customizations can be added. When making updates to the templates, consider following the these guidelines to avoid unintended conversion results. The template should be authored in a way such that it yields a valid structure for a FHIR Bundle resource. 
 
 For instance, the Liquid templates should have a format such as the following code:
 
