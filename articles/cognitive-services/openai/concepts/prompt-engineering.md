@@ -5,7 +5,7 @@ description: Learn how to use prompt engineering to optimize your work with Azur
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 03/21/2023
-ms.custom: event-tier1-build-2022, references_regions
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin

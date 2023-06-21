@@ -9,6 +9,7 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: devx-track-js
 ---
 
 # Known issues in the SDKs and APIs
@@ -105,8 +106,8 @@ This issue is fixed in Azure Communication Services Calling SDK version 1.3.1-be
 
 * iOS Safari version: 15.1
 
-### MacOS Ventura Safari(v16.3 and below) screen sharing.
-Screen sharing does not work in MacOS Ventura Safari(v16.3 and below). Known issue from Safari and will be fixed in v16.4+ 
+### Screen sharing in macOS Ventura Safari (v16.3 and below) 
+Screen sharing does not work in macOS Ventura Safari(v16.3 and below). Known issue from Safari and will be fixed in v16.4+ 
 
 ### Refreshing a page doesn't immediately remove the user from their call
 
@@ -196,6 +197,12 @@ The environment in which this problem occurs is the following:
 
 The cause of this problem might be that acquiring your own stream from the same device will have a side effect of running into race conditions. Acquiring streams from other devices might lead the user into insufficient USB/IO bandwidth, and the `sourceUnavailableError` rate will skyrocket.  
 
+### Excessive use of certain APIs like mute/unmute will result in throttling on ACS infrastructure
+
+As a result of the mute/unmute API call, ACS infrastructure informs other participants in the call about the state of audio of a local participant who invoked mute/unmute, so that participants in the call know who is muted/unmuted.
+Excessive use of mute/unmute will be blocked in ACS infrastructure. That will happen if the participant (or application on behalf of participant) will attempt to mute/unmute continuously, every second, more than 15 times in a 30-second rolling window.
+
+
 ## Communication Services Call Automation APIs
 
 The following are known issues in the Communication Services Call Automation APIs:
@@ -214,4 +221,3 @@ Up to 100 users can join a group call using the JS web calling SDK.
 
 ## Android API emulators
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22) some crashes are expected.  
-

@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Use the drawing tools module

@@ -5,7 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
+ms.date: 05/31/2023
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
@@ -281,10 +281,11 @@ Once the scale set model is updated, the new configuration applies to any new VM
 ### Create-time properties
 Some properties can only be set when you create the scale set. These properties include:
 
-- Availability Zones
+- Availability zones
 - Image reference publisher
 - Image reference offer
 - Managed OS disk storage account type
+- Fault domains
 
 ### Properties that can only be changed based on the current value
 Some properties may be changed, with exceptions depending on the current value. These properties include:

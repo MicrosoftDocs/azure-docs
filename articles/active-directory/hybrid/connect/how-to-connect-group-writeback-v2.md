@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 Group writeback allows you to write cloud groups back to your on-premises Active Directory instance by using Azure Active Directory (Azure AD) Connect sync. You can use this feature to manage groups in the cloud, while controlling access to on-premises applications and resources.  
 
 > [!NOTE]
-> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](#understand-limitations-of-public-preview) before you enable this functionality. You should not deploy the functionality to write back security groups in your production environment. We are planning to replace the AADConnect security group writeback functionality with the new Cloud Sync group writeback feature, and when this releases we will remove the AADConnect Group Writeback functionality. This does not impact M365 group writeback funcitonality, which will remain unchanged.
+> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](#understand-limitations-of-public-preview) before you enable this functionality. You should not deploy the functionality to write back security groups in your production environment. We are planning to replace the AADConnect security group writeback functionality with the new Cloud Sync group writeback feature, and when this releases we will remove the AADConnect Group Writeback functionality. This does not impact M365 group writeback functionality, which will remain unchanged.
 
 
 There are two versions of group writeback. The original version is in general availability and is limited to writing back Microsoft 365 groups to your on-premises Active Directory instance as distribution groups. The new, expanded version of group writeback is in public preview and enables the following capabilities:  
@@ -135,6 +135,7 @@ These limitations and known issues are specific to group writeback:
 - Group Writeback does not support writeback of nested group members that have a scope of ‘Domain local’ in AD, since Azure AD security groups are written back with scope ‘Universal’. If you have a nested group like this, you'll see an export error in Azure AD Connect with the message “A universal group cannot have a local group as a member.”  The resolution is to remove the member with scope ‘Domain local’ from the Azure AD group or update the nested group member scope in AD to ‘Global’ or ‘Universal’ group. 
 - Nested cloud groups that are members of writeback enabled groups must also be enabled for writeback to remain nested in AD. 
 - Group Writeback setting to manage new security group writeback at scale is not yet available. You will need to configure writeback for each group.  
+- Group Writeback only supports writing back groups to a single Organization Unit (OU).
 
 ## Next steps 
 

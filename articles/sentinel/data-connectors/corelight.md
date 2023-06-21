@@ -3,14 +3,14 @@ title: "Corelight connector for Microsoft Sentinel"
 description: "Learn how to install the connector Corelight to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Corelight connector for Microsoft Sentinel
 
-The [Corelight](https://corelight.com/) data connector enables incident responders and threat hunters who use Microsoft Sentinel to work faster and more effectively. The data connector enables ingestion of events from [Zeek](https://zeek.org/) and [Suricata](https://suricata.io/) via Corelight Sensors into Microsoft Sentinel.
+The [Corelight](https://corelight.com/) data connector enables incident responders and threat hunters who use Microsoft Sentinel to work faster and more effectively. The data connector enables ingestion of events from [Zeek](https://zeek.org/) and [Suricata](https://suricata-ids.org/) via Corelight Sensors into Microsoft Sentinel.
 
 ## Connector attributes
 

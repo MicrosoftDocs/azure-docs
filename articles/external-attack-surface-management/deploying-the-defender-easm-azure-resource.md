@@ -52,6 +52,10 @@ Before you create a Defender EASM resource group, we recommend that you are fami
   -  westeurope
   -  northeurope
   -  switzerlandnorth
+  -  canadacentral
+  -  centralus
+  -  norwayeast
+  -  francecentral
 
     ![Screenshot of create resource group basics tab](media/QuickStart-3.png)
 

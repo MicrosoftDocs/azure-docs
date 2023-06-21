@@ -1,10 +1,10 @@
 ---
 title: Update management center (preview) support matrix
-description: Provides a summary of supported regions and operating system settings
+description: Provides a summary of supported regions and operating system settings.
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/02/2023
+ms.date: 05/31/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -62,14 +62,17 @@ Update management center (preview) is supported in the following regions current
 
 **Geography** | **Supported Regions**
 --- | ---
-Asia | East Asia </br> South East Asia
+Africa | South Africa North
+Asia Pacific | East Asia </br> South East Asia
 Australia | Australia East
 Brazil | Brazil South
 Canada | Canada Central
 Europe | North Europe </br> West Europe
 France | France Central
+India | Central India
 Japan | Japan East
 Korea | Korea Central
+Switzerland | Switzerland North
 United Kingdom | UK South </br> UK West
 United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
 
@@ -84,7 +87,11 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 # [Azure VMs](#tab/azurevm-os)
 
 > [!NOTE]
-> Currently, we don't support [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#specialized-images) and  non-Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, Azure Site Recovery etc.).
+> Currently, update management center has the following limitations regarding the operating system support: 
+> - Marketplace images other than the [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
+> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in update management center (preview). 
+>
+> For the above limitations, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview).
 
 **Marketplace/PIR images**
 
@@ -92,7 +99,7 @@ Currently, we support a combination of Offer, Publisher, and Sku of the image. E
 
 **Custom images**
 
-We support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Table below lists the operating systems that we support for generalized Azure Compute Gallery images. Refer to [Azure Compute Gallery (SIG) custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
+We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
 
    |**Windows Operating System**|
    |-- |
@@ -106,7 +113,7 @@ We support [generalized Azure Compute Gallery (SIG) custom images](../virtual-ma
 
    |**Linux Operating System**|
    |-- |
-   |CentOS 7.8|
+   |CentOS 7, 8|
    |Oracle Linux 7.x, 8x|
    |Red Hat Enterprise 7, 8, 9|
    |SUSE Linux Enterprise Server 12.x, 15.0-15.4|

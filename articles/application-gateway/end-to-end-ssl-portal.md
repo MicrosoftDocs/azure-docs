@@ -27,7 +27,7 @@ To configure end-to-end TLS with an application gateway, you need a certificate 
 For end-to-end TLS encryption, the right backend servers must be allowed in the application gateway. To allow this access, upload the public certificate of the backend servers, also known as Authentication Certificates (v1) or Trusted Root Certificates (v2), to the application gateway. Adding the certificate ensures that the application gateway communicates only with known backend instances. This configuration further secures end-to-end communication.
 
 > [!IMPORTANT]
-> If you receive an error message for the backend server certificate, verify that the frontend certificate Common Name (CN) matches the backend certificate CN. For more information, see [Trusted root certificate mismatch](./application-gateway-backend-health-troubleshooting.md#trusted-root-certificate-mismatch)
+> If you receive an error message for the backend server certificate, verify that the frontend certificate Common Name (CN) matches the backend certificate CN. For more information, see [Trusted root certificate mismatch](./application-gateway-backend-health-troubleshooting.md#trusted-root-certificate-mismatch-root-certificate-is-available-on-the-backend-server)
 
 To learn more, see [Overview of TLS termination and end to end TLS with Application Gateway](./ssl-overview.md).
 

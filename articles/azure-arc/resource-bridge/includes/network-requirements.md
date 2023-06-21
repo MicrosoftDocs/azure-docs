@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/30/2023
+ms.date: 06/02/2023
 ---
 
 ### Outbound connectivity
@@ -20,7 +20,7 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Resource bridge (appliance) image download| 80 | `msk8s.b.tlu.dl.delivery.mp.microsoft.com`| Management machine,  Appliance VM IPs and Control Plane IP need outbound connection. |  Download the Arc Resource Bridge OS images.  |
 |Resource bridge (appliance) image download| 443 | `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`| Management machine,  Appliance VM IPs and Control Plane IP need outbound connection. |  Download the Arc Resource Bridge OS images.  |
 |Azure Arc for Kubernetes container image download| 443 | `https://azurearcfork8s.azurecr.io`|  Appliance VM IPs and Control Plane IP need outbound connection. | Required to pull container images. |
-|ADHS telemetry service | 443 | `adhs.events.data.microsoft.com`| Appliance VM IPs and Control Plane IP need outbound connection. | Runs inside the appliance/mariner OS. Used periodically to send Microsoft required diagnostic data from control plane nodes. Used when telemetry is coming off Mariner, which would mean any Kubernetes control plane. |
+|ADHS telemetry service | 443 | `adhs.events.data.microsoft.com`| Appliance VM IPs and Control Plane IP need outbound connection. | Used periodically to send Microsoft required diagnostic data and telemetry from within the appliance VM. |
 |Microsoft events data service | 443 |`v20.events.data.microsoft.com`| Appliance VM IPs and Control Plane IP need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
 |Log collection for Arc Resource Bridge| 443 | `linuxgeneva-microsoft.azurecr.io`| Appliance VM IPs and Control Plane IP need outbound connection. | Push logs for Appliance managed components.|
 |Resource bridge components download| 443 | `kvamanagementoperator.azurecr.io`| Appliance VM IPs and Control Plane IP need outbound connection. | Required to pull artifacts for Appliance managed components.|

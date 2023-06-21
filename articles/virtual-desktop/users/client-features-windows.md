@@ -241,6 +241,9 @@ To deploy the Remote Desktop client in an enterprise, you can use `msiexec` to i
    msiexec /i <path to the MSI> /qn ALLUSERS=2 MSIINSTALLPERUSER=1
    ```
 
+> [!IMPORTANT]
+> If you want to deploy the Remote Desktop client per-user with Intune or Configuration Manager, you'll need to use a script. For more information, see [Install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager](../install-client-per-user.md).
+
 ### Update behavior
 
 You can control notifications about updates and when updates are installed. The update behavior of the client depends on two factors:

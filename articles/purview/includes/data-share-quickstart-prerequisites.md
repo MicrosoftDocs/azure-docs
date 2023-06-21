@@ -3,6 +3,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.subservice: purview-data-share
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 02/16/2023
 ---

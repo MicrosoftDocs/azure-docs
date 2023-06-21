@@ -4,9 +4,11 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Form Recognizer?
+  - name: 🆕 What is Azure Form Recognizer?
     displayName: models, develop, development
     href: overview.md
+  - name: 🆕 Choose a model
+    href: choose-model-feature.md
   - name: Form Recognizer Studio
     displayName: get started
     href: form-recognizer-studio-overview.md
@@ -168,12 +170,12 @@ items:
   - name: 🆕 Query field extraction (preview)
     displayName: queries, fields, OpenAI, chat
     href: concept-query-fields.md
-  - name: 🆕 Health insurance card model
-    displayName: health, proof, hospital
-    href: concept-insurance-card.md
   - name: 🆕 Add-on capabilities (preview)
     displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
     href: concept-add-on-capabilities.md
+  - name: 🆕 Health insurance card model
+    displayName: health, proof, hospital
+    href: concept-insurance-card.md
   - name: W-2 form model
     displayName: wages, taxes, salary, employees
     href: concept-w2.md
@@ -191,7 +193,7 @@ items:
     href: concept-business-card.md
   - name: Custom models
     items:
-    - name: Custom model
+    - name: Custom model overview
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
     - name: Custom template model

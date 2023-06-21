@@ -36,7 +36,7 @@ To enable self-service capabilities, choose the appropriate [authentication meth
 
 Additional considerations include:
 
-* Deploy [Azure AD Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md) in a subset of domain contollers with **Audit** mode to gather information about the impact of modern policies. 
+* Deploy [Azure AD Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md) in a subset of domain controllers with **Audit** mode to gather information about the impact of modern policies. 
 * Gradually enable [combined registration for SSPR and Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md). For example, roll out by region, subsidiary, or department for all users. 
 * Go through a cycle of password change for all users to flush out weak passwords. After the cycle is complete, implement the policy expiration time.
 * Switch the Password Protection configuration in the domain controllers that have the mode set to **Enforced**. For more information, see [Enable on-premises Azure AD Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md).

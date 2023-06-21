@@ -6,6 +6,7 @@ author: mlee3gsd
 ms.service:  synapse-analytics 
 ms.topic: overview
 ms.subservice: spark
+ms.custom: devx-track-python
 ms.date: 09/26/2022
 ms.author: martinle
 ms.reviewer: nirav

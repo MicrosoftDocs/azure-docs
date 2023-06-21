@@ -61,10 +61,13 @@ In the response, an HTTP status code of 204 is returned.
 
 ---
 
-The provisioning state on the managed cluster or agent pool should be **Canceled**. Use the REST API [Get Managed Clusters](/rest/api/aks/managed-clusters/get) or [Get Agent Pools](/rest/api/aks/agent-pools/get) to verify the operation. The provisioning state should update to **Canceled** within a few seconds of the abort request being accepted. Operation status of last running operation ID on the managed cluster/agent pool, which can be retrieved by performing a GET operation against the Managed Cluster or agent pool, should show a status of **Canceling**.
+The provisioning state on the managed cluster or agent pool should be **Canceled**. Use the REST API [Get Managed Clusters](/rest/api/aks/managed-clusters/get) or [Get Agent Pools](/rest/api/aks/agent-pools/get) to verify the operation. The provisioning state should update to **Canceled** within a few seconds of the abort request being accepted. The operation status of last running operation ID on the managed cluster/agent pool, which can be retrieved by performing a GET operation against the Managed Cluster or agent pool, should show a status of **Canceling**.
 
 When you terminate an operation, it doesn't roll back to the previous state and it stops at whatever step in the operation was in-process. Once complete, the cluster provisioning state shows a **Canceled** state. If the operation happens to be a cluster upgrade, during a cancel operation it stops where it is.
 
 ## Next steps
 
 Learn more about [Container insights](../azure-monitor/containers/container-insights-overview.md) to understand how it helps you monitor the performance and health of your Kubernetes cluster and container workloads.
+
+<!-- LINKS - internal -->
+[install-azure-cli]: /cli/azure/install-azure-cli

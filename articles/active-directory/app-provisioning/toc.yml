@@ -33,6 +33,8 @@ items:
         href: on-premises-powershell-connector.md
       - name: Provisioning with the web services connector
         href: on-premises-web-services-connector.md
+      - name: Provisioning with custom connectors
+        href: on-premises-custom-connector.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts

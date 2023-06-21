@@ -2,7 +2,7 @@
 title: Collect Linux application performance in Azure Monitor | Microsoft Docs
 description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 06/01/2023
 ms.reviewer: JeffWo
 
 ---

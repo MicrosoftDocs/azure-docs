@@ -85,6 +85,19 @@ A Defender for Cloud user can choose to opt out by deleting their [security cont
 ## Auditing and reporting
 Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md).
 
-## Next steps
+## Respond to data subject export requests for Defender for APIs
+The right of data portability allows data subjects to request a copy of their personal data in a structured, common, electronic format that can be transmitted to another data controller.
 
+### Manage export and view requests
+You can manage requests to export customer or user data.
+
+#### Export customer data (Tenant administrator only)
+As a tenant administrator, you have the ability to export customer data.
+
+**To export customer data**:
+1. Send an email to `D4APIS_DSRRequests@microsoft.com` that specifies the customer’s email address in the request. 
+2. The Defender for APIs team will respond with an email to the registered tenant's administrator email address that will ask for confirmation to export the data.
+3. Acknowledge the confirmation to export the data for the requested customer. The exported data will be sent to the tenant administrator's email address.
+    
+## Next steps
 [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)

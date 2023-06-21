@@ -1,7 +1,7 @@
 ---
-title: How to use API portal for VMware Tanzu with Azure Spring Apps Enterprise Tier
-titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to use API portal for VMware Tanzu with Azure Spring Apps Enterprise Tier.
+title: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan
+titleSuffix: Azure Spring Apps Enterprise plan
+description: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
@@ -15,15 +15,15 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use API portal for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
+This article shows you how to use API portal for VMware Tanzu® with the Azure Spring Apps Enterprise plan.
 
 [API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.1/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling single sign-on (SSO) authentication via configuration.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier instance with API portal enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan instance with API portal enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
   > To use API portal, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.

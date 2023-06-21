@@ -1,13 +1,13 @@
 ---
 title: How Accelerated Networking works in Linux and FreeBSD VMs
 description: How Accelerated Networking Works in Linux and FreeBSD VMs
-author: asudbring
+author: steveesp
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2023
-ms.author: allensu
+ms.author: steveesp
 ---
 
 # How Accelerated Networking works in Linux and FreeBSD VMs

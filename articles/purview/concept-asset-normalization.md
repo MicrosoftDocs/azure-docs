@@ -1,20 +1,23 @@
 ---
 title: Asset normalization
-description: Learn how Microsoft Purview prevents duplicate assets in your data map through asset normalization
+description: Learn how Microsoft Purview prevents duplicating assets in your data map through asset normalization.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 02/17/2023
+ms.date: 05/26/2023
 ms.custom: ignite-fall-2021
 ---
 
 # Asset normalization
 
-When ingesting assets into the Microsoft Purview data map, different sources updating the same data asset may send similar, but slightly different qualified names. While these qualified names represent the same asset, slight differences such as an extra character or different capitalization may cause these assets on the surface to appear different. To avoid storing duplicate entries and causing confusion when consuming the data catalog, Microsoft Purview applies normalization during ingestion to ensure all fully qualified names of the same entity type are in the same format.
+When ingesting assets into the Microsoft Purview data map, different sources updating the same data asset may send similar, but slightly different qualified names. While these qualified names represent the same asset, slight differences such as an extra character may cause these assets on the surface to appear different and cause duplicate entries in Microsoft Purview. To avoid storing duplicate entries and causing confusion when consuming the data catalog, Microsoft Purview applies normalization during ingestion to ensure all fully qualified names of the same entity type are in the same format.
 
 For example, you scan in an Azure Blob with the qualified name `https://myaccount.file.core.windows.net/myshare/folderA/folderB/my-file.parquet`. This blob is also consumed by an Azure Data Factory pipeline that will then add lineage information to the asset. The ADF pipeline may be configured to read the file as `https://myAccount.file.core.windows.net//myshare/folderA/folderB/my-file.parquet`. While the qualified name is different, this ADF pipeline is consuming the same piece of data. Normalization ensures that all the metadata from both Azure Blob Storage and Azure Data Factory is visible on a single asset, `https://myaccount.file.core.windows.net/myshare/folderA/folderB/my-file.parquet`.
+
+>[!IMPORTANT]
+>The rules listed below are the only kinds of potential dupilcation Microsoft Purview currently recognizes. If you are experiencing accidental asset duplication, compare the assets fully qualified names to check for caplitalization differences or additional characters. Update any ingestion points, for example your ADF pipelines, so that the qualified names match.
 
 ## Normalization rules
 

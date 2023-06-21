@@ -385,60 +385,6 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-### Microsoft.Communication.ChatMemberAddedToThreadWithUser event
-
-```json
-[{
-  "id": "4abd2b49-d1a9-4fcc-9cd7-170fa5d96443",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/{thread-id}/memberAdded/{rawId}/recipient/{rawId}",
-  "data": {
-    "time": "2020-09-18T00:47:13.1867087Z",
-    "addedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
-    "memberAdded": {
-      "displayName": "John Smith",
-      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
-    },
-    "createTime": "2020-09-18T00:46:41.559Z",
-    "version": 1600390033176,
-    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
-    "transactionId": "pVIjw/pHEEKUOUJ2DAAl5A.1.1.1.1.1818361951.1.1",
-    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
-  },
-  "eventType": "Microsoft.Communication.ChatMemberAddedToThreadWithUser",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2020-09-18T00:47:13.2342692Z"
-}]
-```
-
-### Microsoft.Communication.ChatMemberRemovedFromThreadWithUser event
-
-```json
-[{
-  "id": "b3701976-1ea2-4d66-be68-4ec4fc1b4b96",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/{thread-id}/memberRemoved/{rawId}/recipient/{rawId}",
-  "data": {
-    "time": "2020-09-18T00:47:51.1461742Z",
-    "removedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
-    "memberRemoved": {
-      "displayName": "John",
-      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
-    },
-    "createTime": "2020-09-18T00:46:41.559Z",
-    "version": 1600390071131,
-    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
-    "transactionId": "G9Y+UbjVmEuxAG3O4bEyvw.1.1.1.1.1819803816.1.1",
-    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
-  },
-  "eventType": "Microsoft.Communication.ChatMemberRemovedFromThreadWithUser",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2020-09-18T00:47:51.2244511Z"
-}]
-```
-
 ### Microsoft.Communication.ChatThreadCreated event
 
 ```json

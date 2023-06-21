@@ -19,7 +19,7 @@ You can access some of these logs through the portal. Logs can be sent to [Azure
 Metrics are lightweight and can support near real-time scenarios making them useful for alerting and fast issue detection.
 
 > [!NOTE]
-> Structured firewall logs (preview) is available which offers more control over the logs and faster queries. For more information, see [Azure Firewall preview features](firewall-preview.md#structured-firewall-logs-preview).
+> Structured firewall logs is available which offers more control over the logs and faster queries. For more information, see [Azure Structured Firewall Logs](firewall-structured-logs.md).
 
 ## Diagnostic logs
 

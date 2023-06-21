@@ -5,7 +5,7 @@ description: Secure Azure SQL Database connectivity with managed identity from a
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/01/2023
-ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
+ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet
 ---
 # Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity
 
@@ -63,7 +63,7 @@ First, enable Azure Active Directory authentication to SQL Database by assigning
 1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
-    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
+    $azureaduser=(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
     ```
 
     > [!TIP]

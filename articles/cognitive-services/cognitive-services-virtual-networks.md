@@ -20,7 +20,7 @@ An application that accesses a Cognitive Services resource when network rules ar
 
 > [!IMPORTANT]
 > Turning on firewall rules for your Cognitive Services account blocks incoming requests for data by default. In order to allow requests through, one of the following conditions needs to be met:
-
+>
 > * The request should originate from a service operating within an Azure Virtual Network (VNet) on the allowed subnet list of the target Cognitive Services account. The endpoint in requests originated from VNet needs to be set as the [custom subdomain](cognitive-services-custom-subdomains.md) of your Cognitive Services account.
 > * Or the request should originate from an allowed list of IP addresses.
 >
@@ -55,7 +55,7 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 
 > [!NOTE]
 > If you're using, Azure OpenAI, LUIS, Speech Services, or Language services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use Azure OpenAI Studio, LUIS portal , Speech Studio or Language Studio from a virtual network, you will need to use the following tags:
-
+>
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
@@ -96,10 +96,10 @@ You can manage default network access rules for Cognitive Services resources thr
 1. Display the status of the default rule for the Cognitive Services resource.
 
     ```azurepowershell-interactive
-    $parameters = @{
-        -ResourceGroupName "myresourcegroup"
-        -Name "myaccount"
-    }
+  $parameters = @{
+    "ResourceGroupName"= "myresourcegroup"
+    "Name"= "myaccount"
+}
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).DefaultAction
     ```
 
@@ -218,10 +218,10 @@ You can manage virtual network rules for Cognitive Services resources through th
 1. List virtual network rules.
 
     ```azurepowershell-interactive
-    $parameters = @{
-        -ResourceGroupName "myresourcegroup"
-        -Name "myaccount"
-    }
+ $parameters = @{
+    "ResourceGroupName"= "myresourcegroup"
+    "Name"= "myaccount"
+}
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).VirtualNetworkRules
     ```
 
@@ -374,10 +374,10 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 1. List IP network rules.
 
     ```azurepowershell-interactive
-    $parameters = @{
-        -ResourceGroupName "myresourcegroup"
-        -Name "myaccount"
-    }
+  $parameters = @{
+    "ResourceGroupName"= "myresourcegroup"
+    "Name"= "myaccount"
+}
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).IPRules
     ```
 

@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 04/28/2023
+ms.date: 05/16/2023
 ms.author: jasteppe
 ---
 
@@ -36,7 +36,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 When you have these prerequisites, you're ready to deploy the ARM template.
 
-## Review the ARM template (Optional)
+## Review the ARM template
 
 The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 

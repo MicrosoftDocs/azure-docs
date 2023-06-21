@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, python
+ms.custom: devx-track-js
 ---
 
 # Human interaction in Durable Functions - Phone verification sample

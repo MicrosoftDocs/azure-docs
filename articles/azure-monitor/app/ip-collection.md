@@ -3,7 +3,7 @@ title: Application Insights IP address collection | Microsoft Docs
 description: Understand how Application Insights handles IP addresses and geolocation.
 ms.topic: conceptual
 ms.date: 04/06/2023
-ms.custom: devx-track-js
+ms.custom:
 ms.reviewer: saars
 ---
 
