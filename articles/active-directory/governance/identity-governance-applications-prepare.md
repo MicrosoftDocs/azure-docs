@@ -46,7 +46,7 @@ Before you begin the process of governing application access from Azure AD, you 
 
 * **Ensure your Azure AD and Microsoft Online Services environment is ready for the [compliance requirements](../standards/standards-overview.md) for the applications to be integrated and properly licensed**.  Compliance is a shared responsibility among Microsoft, cloud service providers (CSPs), and organizations.  To use Azure AD to govern access to applications, you must have one of the following licenses in your tenant:
 
-  * Microsoft Entra Premium P2 or Microsoft Entra ID Governance
+  * Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
   * Enterprise Mobility + Security (EMS) E5 license
 
    Your tenant will need to have at least as many licenses as the number of member (non-guest) users who have or can request access to the applications, approve, or review access to the applications.  With an appropriate license for those users, you can then govern access to up to 1500 applications per user.

@@ -42,7 +42,7 @@ If you’ve been using Microsoft Identity Manager or other on-premises identity 
 
 To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
-- Microsoft Entra Premium P2 or Microsoft Entra ID Governance
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 ## Configure another access package or group membership as incompatible for requesting access to an access package

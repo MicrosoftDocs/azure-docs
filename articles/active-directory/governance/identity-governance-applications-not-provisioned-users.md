@@ -52,7 +52,7 @@ When you create an assignment for a user to an access package, Azure AD entitlem
 
 - You must have one of the following licenses in your tenant:
 
-  - Microsoft Entra Premium P2 or Microsoft Entra ID Governance
+  - Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
   - Enterprise Mobility + Security E5 license
 
 - You need to have an appropriate administrative role. If this is the first time you're performing these steps, you need the Global Administrator role to authorize the use of Microsoft Graph PowerShell in your tenant.

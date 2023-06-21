@@ -26,7 +26,7 @@ With Microsoft Entra, you can easily ensure that users have appropriate access. 
 
 ## Prerequisites
 
-- Microsoft Entra Premium P2 or Microsoft Entra ID Governance
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
