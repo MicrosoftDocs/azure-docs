@@ -129,7 +129,7 @@
   items:
   - name: Search
     items:
-    - name: Full-text search
+    - name: Full-text
       items:
       - name: Full-text search
         href: search-lucene-query-architecture.md
@@ -137,13 +137,13 @@
         href: search-query-overview.md
       - name: Relevance scoring
         href: index-similarity-and-scoring.md
-    - name: Semantic search
+    - name: Semantic
       items:
       - name: Semantic search
         href: semantic-search-overview.md
       - name: Semantic ranking
         href: semantic-ranking.md 
-    - name: Vector search
+    - name: Vectors
       href: vector-search-overview.md
   - name: Indexing
     items:
