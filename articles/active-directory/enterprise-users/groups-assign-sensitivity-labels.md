@@ -129,8 +129,8 @@ The sensitivity label option is only displayed for groups when all the following
 1. The [sensitivity label scope](/microsoft-365/compliance/sensitivity-labels?preserve-view=true&view=o365-worldwide#label-scopes) must be configured for Groups & Sites.
 3. The group is a Microsoft 365 group.
 4. The current signed-in user:
-    1. Has sufficient privileges to assign sensitivity labels. The user must be a Global Administrator, Group Administrator, or the group owner 
-    1. Must be within the scope of the [sensitivity label publishing policy](/microsoft-365/compliance/sensitivity-labels?preserve-view=true&view=o365-worldwide#what-label-policies-can-do)
+    1. has sufficient privileges to assign sensitivity labels. The user must be a Global Administrator, Group Administrator, or the group owner 
+    1. must be within the scope of the [sensitivity label publishing policy](/microsoft-365/compliance/sensitivity-labels?preserve-view=true&view=o365-worldwide#what-label-policies-can-do)
 
 Please make sure all the conditions are met in order to assign labels to a group.
 
