@@ -78,7 +78,7 @@ You can configure properties in [BlockBlobParallelUploadOptions](/javascript/api
 
 The following code example shows how to set values for [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) and include the options as part of an upload method call. The values provided in the samples aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string.ts" id="Snippet_UploadBlobTransferOptions":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-transfer-options.ts" id="Snippet_UploadBlobTransferOptions":::
 
 ### Upload a block blob with index tags
 
@@ -86,13 +86,13 @@ Blob index tags categorize data in your storage account using key-value tag attr
 
 The following example uploads a block blob with index tags set using [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions):
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string.ts" id="Snippet_UploadBlobIndexTags":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-index-tags.ts" id="Snippet_UploadBlobIndexTags":::
 
 ### Set a blob's access tier on upload
 
 You can set a blob's access tier on upload by using the [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) interface. The following code example shows how to set the access tier when uploading a blob:
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string.ts" id="Snippet_UploadAccessTier":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-access-tier.ts" id="Snippet_UploadAccessTier":::
 
 Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`.
 
