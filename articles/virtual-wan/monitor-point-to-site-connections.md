@@ -146,7 +146,7 @@ The Azure workbook is now ready to be created. We'll use a mix of built-in funct
 
    :::image type="content" source="./media/monitor-point-to-site-connections/final-monitoring.png" alt-text="Screenshot shows first Diagnostic settings page in Azure Monitor." lightbox="./media/monitor-point-to-site-connections/final-monitoring.png" :::
 
-1. Enable allLogs and allMetrics, and choose to send to "Log Analytics workspace" as the destination. Some logs are noisy and might be costly (specifically IKEDiagnosticLog). As a result, feel free to enable only specific logs you want to view instead of enabling allLogs.
+1. Enable allLogs and allMetrics, and choose to send to "Log Analytics workspace" as the destination. 
 
    :::image type="content" source="./media/monitor-point-to-site-connections/diagnostic-setting.png" alt-text="Screenshot shows second Diagnostic settings page in Azure Monitor." lightbox="./media/monitor-point-to-site-connections/diagnostic-setting.png":::
 
