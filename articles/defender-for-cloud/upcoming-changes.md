@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
+| [Recommendation released for GA: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](#recommendation-released-for-ga-running-container-images-should-have-vulnerability-findings-resolved-powered-by-microsoft-defender-vulnerability-management)
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 
 ### Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
@@ -148,6 +149,17 @@ Existing customers of Defender for Key-Vault, Defender for Azure Resource Manage
 
 For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h) 
 
+### Recommendation released for GA: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) 
+
+**Estimated date for change: July 2023**
+
+The existing recommendation `Running container images should have vulnerability findings resolved (powered by Qualys)` is replaced by a new recommendation powered by MDVM:
+
+|Recommendation | Description | Assessment Key|
+|--|--|--| 
+| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5
+
+Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
 ### Change to the Log Analytics daily cap
 
