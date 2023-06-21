@@ -53,7 +53,7 @@ npm init
 Install the npm packages:
 
 ```console
-npm install --save @azure/ai-language-text@1.1.0-beta.1
+npm install --save @azure/ai-language-text@1.1.0
 ```
 
 
