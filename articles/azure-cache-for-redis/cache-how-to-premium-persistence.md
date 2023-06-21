@@ -90,8 +90,8 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
   
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Authentication Method** | Drop-down and select an authentication method. Choices are **Managed Identity** or **Storage Key**| Choose your prefered authentication method. Using [managed identity](cache-managed-identity.md) allows you to use a storage account in a different subscription than the one in which your cache is located. |
-    | **Subscription** | Drop-down and select an subscription. | You can choose a storage account in a different subscription if you are using managed identity as the authentication method. |
+   | **Authentication Method** | Drop-down and select an authentication method. Choices are **Managed Identity** or **Storage Key**| Choose your preferred authentication method. Using [managed identity](cache-managed-identity.md) allows you to use a storage account in a different subscription than the one in which your cache is located. |
+    | **Subscription** | Drop-down and select a subscription. | You can choose a storage account in a different subscription if you're using managed identity as the authentication method. |
    | **Backup Frequency** | Drop-down and select a backup interval. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. | This interval starts counting down after the previous backup operation successfully completes. When it elapses, a new backup starts. |
    | **Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, we _strongly_ recommend that you disable the soft delete feature on the storage account as it leads to increased storage costs. For more information, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md). |
    | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
@@ -105,8 +105,8 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-    | **Authentication Method** | Drop-down and select an authentication method. Choices are **Managed Identity** or **Storage Key**| Choose your prefered authentication method. Using [managed identity](cache-managed-identity.md) allows you to use a storage account in a different subscription than the one in which your cache is located. |
-    | **Subscription** | Drop-down and select an subscription. | You can choose a storage account in a different subscription if you are using managed identity as the authentication method. |
+    | **Authentication Method** | Drop-down and select an authentication method. Choices are **Managed Identity** or **Storage Key**| Choose your preferred authentication method. Using [managed identity](cache-managed-identity.md) allows you to use a storage account in a different subscription than the one in which your cache is located. |
+    | **Subscription** | Drop-down and select a subscription. | You can choose a storage account in a different subscription if you're using managed identity as the authentication method. |
    | **First Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, we _strongly_ recommend that you disable the soft delete feature on the storage account as it leads to increased storage costs. For more information, see [Pricing and billing](/azure/storage/blobs/soft-delete-blob-overview). |
    | **First Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
    | **Second Storage Account** | (Optional) Drop-down and select your secondary storage account. | You can optionally configure another storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. |
@@ -270,7 +270,7 @@ For more information on performance when using AOF persistence, see [Does AOF pe
 
 AOF persistence does affect throughput. AOF runs on both the primary and replica process, therefore you see higher CPU and Server Load for a cache with AOF persistence than an identical cache without AOF persistence. AOF offers the best consistency with the data in memory because each write and delete is persisted with only a few seconds of delay. The trade-off is that AOF is more compute intensive.
 
-As long as CPU and Server Load are both less than 90%, there is a penalty on throughput, but the cache operates normally, otherwise. Above 90% CPU and Server Load, the throughput penalty can get much higher, and the latency of all commands processed by the cache increases. This is because AOF persistence runs on both the primary and replica process, increasing the load on the node in use, and putting persistence on the critical path of data.
+As long as CPU and Server Load are both less than 90%, there's a penalty on throughput, but the cache operates normally, otherwise. Above 90% CPU and Server Load, the throughput penalty can get much higher, and the latency of all commands processed by the cache increases. Latency increases because AOF persistence runs on both the primary and replica process, increasing the load on the node in use, and putting persistence on the critical path of data.
 
 ### What happens if I've scaled to a different size and a backup is restored that was made before the scaling operation?
 
@@ -282,7 +282,7 @@ For both RDB and AOF persistence:
 
 ### Can I use the same storage account for persistence across two different caches?
 
-Yes, you can use the same storage account for persistence across two different caches. The [limitations on subscriptions and regions](#prerequisites-and-limitations) will still apply.
+Yes, you can use the same storage account for persistence across two different caches. The [limitations on subscriptions and regions](#prerequisites-and-limitations) still apply.
 
 ### Will I be charged for the storage being used in data persistence?
 
@@ -311,7 +311,6 @@ All RDB persistence backups, except for the most recent one, are automatically d
 
 Use a second storage account for AOF persistence when you think you've higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits. This option is only available for Premium tier caches.
 
-
 ### How can I remove the second storage account?
 
 You can remove the AOF persistence secondary storage account by setting the second storage account to be the same as the first storage account. For existing caches, access  **Data persistence** from the **Resource menu** for your cache. To disable AOF persistence, select **Disabled**.
@@ -328,7 +327,9 @@ For more information on scaling, see [What happens if I've scaled to a different
 
 ### How is my AOF data organized in storage?
 
-When you use the Premium tier, data stored in AOF files is divided into multiple page blobs per shard. By default, half of the blobs are saved in the primary storage account and half are saved in the secondary storage account. Splitting the data across multiple page blobs and two different storage accounts increases the performance. If the peak rate of writes to the cache is not very high, then this additional performance might not be needed. In that case, the secondary storage account configuration can be removed. All of the AOF files are then stored in just the single primary storage account. The following table displays how many total page blobs are used for each pricing tier:
+When you use the Premium tier, data stored in AOF files is divided into multiple page blobs per shard. By default, half of the blobs are saved in the primary storage account and half are saved in the secondary storage account. Splitting the data across multiple page blobs and two different storage accounts increases the performance.
+
+If the peak rate of writes to the cache isn't very high, then this extra performance might not be needed. In that case, the secondary storage account configuration can be removed. All of the AOF files are instead stored in just the single primary storage account. The following table displays how many total page blobs are used for each pricing tier:
 
 | Premium tier | Blobs |
 |:------------:|---------------:|
@@ -339,9 +340,9 @@ When you use the Premium tier, data stored in AOF files is divided into multiple
 
 When clustering is enabled, each shard in the cache has its own set of page blobs, as indicated in the previous table. For example, a P2 cache with three shards distributes its AOF file across 48 page blobs:
 
-- sixteen blobs per shard
+- 16 blobs per shard
 - with three shards spread across the primary and secondary storage accounts
-- each with twenty four blobs.
+- each with 24 blobs.
 
 After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files. Set operations, sent to the cache during the rewrite, append to the second set. A backup is temporarily stored during rewrites if there's a failure. The backup is promptly deleted after a rewrite finishes. If soft delete is turned on for your storage account, the soft delete setting applies and existing backups continue to stay in the soft delete state.
 
@@ -349,14 +350,13 @@ After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the b
 
 Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you aren't using managed identity and instead authorizing to a storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process. This only applies to persistence in the Premium tier.
 
-
 ### Can I have AOF persistence enabled if I have more than one replica?
 
 With the Premium tier, you can't use Append-only File (AOF) persistence with multiple replicas. In the Enterprise and Enterprise Flash tiers, replica architecture is more complicated, but AOF persistence is supported when Enterprise caches are used in zone redundant deployment.  
 
 ### How do I check if soft delete is enabled on my storage account?
 
-Select the storage account that your cache is using for persistence. Select **Data Protection** from the Resource menu. In the working pane, check the state of *Enable soft delete for blobs*. For more information on soft delete in Azure storage accounts, see [Enable soft delete for blobs](/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal).
+Select the storage account that your cache is using for persistence. Select **Data Protection** from the Resource menu. In the working pane, check the state of _Enable soft delete for blobs_. For more information on soft delete in Azure storage accounts, see [Enable soft delete for blobs](/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal).
 
 ## Next steps
 
