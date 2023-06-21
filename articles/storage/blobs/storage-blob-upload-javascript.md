@@ -46,7 +46,7 @@ The following example uploads a block blob from a local file path:
 
 ## Upload a block blob from a stream
 
-The following example uploads a block by creating a readable stream and uploading the stream:
+The following example uploads a block blob by creating a readable stream and uploading the stream:
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js" id="Snippet_UploadBlob":::
 
@@ -70,7 +70,7 @@ You can define client library configuration options when uploading a blob. These
 
 You can configure properties in [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to improve performance for data transfer operations. The following table lists the properties you can configure, along with a description:
 
-| Method | Description |
+| Property | Description |
 | --- | --- |
 | [`blockSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-blocksize) | The maximum block size to transfer for each request as part of an upload operation. |
 | [`concurrency`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-concurrency) | The maximum number of parallel requests that are issued at any given time as a part of a single parallel transfer.
