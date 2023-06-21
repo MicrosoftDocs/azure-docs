@@ -108,6 +108,8 @@
         href: alchemer-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
+      - name: AlertEnterprise-Guardian
+        href: alert-enterprise-guardian-tutorial.md
       - name: AlertMedia
         href: alertmedia-tutorial.md
       - name: AlertOps
