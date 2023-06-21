@@ -13,7 +13,7 @@ ms.date: 06/16/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-The pg_azure_storage extension allows you to load data in multiple file formats directly from Azure blob storage to your Azure Cosmos DB for PostgreSQL cluster.Enabling the extension unlocks new capabilities of the `COPY` command. Containers with access level “Private” or “Blob” requires adding private access key.
+The pg_azure_storage extension allows you to load data in multiple file formats directly from Azure blob storage to your Azure Cosmos DB for PostgreSQL cluster. Enabling the extension also unlocks new capabilities of the [COPY](reference-copy-command.md) command. Containers with access level “Private” or “Blob” requires adding private access key.
 
 You can create the extension by running:
 
@@ -541,10 +541,8 @@ LIMIT 5;
 
 ## Next steps
 
-Learn more on how `COPY` command functionality is extended using azure_storage extention.
-
 > [!div class="nextstepaction"]
-> [Reference COPY command](reference-copy-command.md)
+> [How to use Azure Blob Storage with the COPY command](reference-copy-command.md)
 
 > [!div class="nextstepaction"]
 > [How to ingest data using pg_azure_storage](howto-ingest-azure-blob-storage.md)

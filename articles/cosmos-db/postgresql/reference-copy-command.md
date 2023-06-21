@@ -11,13 +11,14 @@ ms.date: 06/16/2023
 
 # COPY command on Azure Cosmos DB for PostgreSQL
 
-The [COPY](https://www.postgresql.org/docs/current/sql-copy.html) command used to move data between files and database tables. `COPY` is a server-based command that requires access to the disk, usually limited to server administrators. However, Azure Cosmos DB for PostgreSQL operates as a Platform-as-a-Service (PaaS) solution, which means that users aren't granted superuser privileges. `COPY` command is thus not fully supported on the platform.
+The [COPY](https://www.postgresql.org/docs/current/sql-copy.html) command is used to move data between files and database tables. `COPY` is a server-based command that requires access to the disk, usually limited to server administrators. However, Azure Cosmos DB for PostgreSQL operates as a Platform-as-a-Service (PaaS) solution, which means that users aren't granted superuser privileges. `COPY` command is thus not fully supported on the platform.
 
 Alternatively, `\COPY` is a command available in psql and other client interfaces that facilitates direct interaction with the local file system of the machine where it is executed.
 
-## Capabilities extended by pg_azure_storage extension
+## Azure Blob Storage support
 
-The `azure_storage` extension overcomes the disk access limitation by integrating `Azure Blob Storage` to store data files, which can then be directly imported into the database tables. When enabled the extension enhances the built in `COPY` command to directly interface to Azure Blob Storage.
+The `pg_azure_storage` extension overcomes disk access limitation by leveraging Azure Blob Storage as a data source. When enabled, the extension also enhances the built in `COPY` command with Azure Blob Storage support.
+
 Load data into `github_users` table using the `COPY` command:
 
 ```postgresql
