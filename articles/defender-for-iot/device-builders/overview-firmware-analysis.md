@@ -22,7 +22,7 @@ Use Microsoft Defender for IoT's firmware analysis to identify embedded security
 
 Defender for IoT can analyze your firmware for common weaknesses and vulnerabilities, and provide insight into your firmware security. This analysis is useful whether you build the firmware in-house or receive firmware from your supply chain.
 
-- **Software Bill of Materials (SBOM)**: Receive a detailed listing of open-source packages used during the firmware's build process. See the package version and what license governs the use of the open-source package.
+- **Software bill of materials (SBOM)**: Receive a detailed listing of open-source packages used during the firmware's build process. See the package version and what license governs the use of the open-source package.
 
 - **CVE analysis**: See which firmware components have publicly known security vulnerabilities and exposures.
 
