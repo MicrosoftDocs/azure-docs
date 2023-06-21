@@ -63,20 +63,30 @@ The content hub in Microsoft Sentinel is the centralized location to discover an
 
 1. Find and select the **Azure Activity** solution.
 
-1. On the toolbar at the top of the page, select **Install/Update**.
+   :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity.png" alt-text="Screenshot of the content hub with the solution for Azure Activity selected.":::
+
+1. On the toolbar at the top of the page, select :::image type="icon" source="media/quickstart-onboard/install-update-button.png"::: **Install/Update**.
 
 ## Set up the data connector
 
 Microsoft Sentinel ingests data from services and apps by connecting to the service and forwarding the events and logs to Microsoft Sentinel. For this quickstart, install the data connector to forward data for Azure Activity to Microsoft Sentinel.
  
 1. In Microsoft Sentinel, select **Data connectors**.
+
 1. Search for and select the **Azure Activity** data connector.
+
 1. In the details pane for the connector, select **Open connector page**.
+
 1. Review the instructions to configure the connector.
+
 1. Select **Launch Azure Policy Assignment Wizard**.
+
 1. On the **Basics** tab, set the **Scope** to the subscription and resource group that has activity to send to Microsoft Sentinel. For example, select the subscription that contains your Microsoft Sentinel instance.
+
 1. Select the **Parameters** tab.
+
 1. Set the **Primary Log Analytics workspace**. This should be the workspace where Microsoft Sentinel is installed.
+
 1. Select **Review + create** and **Create**.
 
 ## Generate activity data
@@ -84,13 +94,21 @@ Microsoft Sentinel ingests data from services and apps by connecting to the serv
 Let's generate some activity data by enabling a rule that was included in the Azure Activity solution for Microsoft Sentinel. This step also shows you how to manage content in the content hub.
 
 1. In Microsoft Sentinel, select **Content hub**.
+
 1. Find and select the **Azure Activity** solution.
+
 1. From the right-hand side pane, select **Manage**.
+
 1. Find and select the rule template **Suspicious Resource deployment**.
+
 1. Select **Configuration**.
+
 1. Select the rule and **Create rule**.
+
 1. On the **General** tab, change the **Status** to enabled. Leave the rest of the default values.
+
 1. Accept the defaults on the other tabs.
+
 1. On the **Review and create** tab, select **Create**.
 
 ## View data ingested into Microsoft Sentinel
@@ -98,17 +116,26 @@ Let's generate some activity data by enabling a rule that was included in the Az
 Now that you've enabled the Azure Activity data connector and generated some activity data let's view the activity data added to the workspace.
 
 1. In Microsoft Sentinel, select **Data connectors**.
+
 1. Search for and select the **Azure Activity** data connector.
+
 1. In the details pane for the connector, select **Open connector page**.
+
 1. Review the **Status** of the data connector. It should be **Connected**.
+
+   :::image type="content" source="media/quickstart-onboard/azure-activity-connected-status.png" alt-text="Screenshot of data connector for Azure Activity with the status showing as connected.":::
+
 1. In the left-hand side pane above the chart, select **Go to log analytics**.
+
 1. On the top of the pane, next to the **New query 1** tab, select the **+** to add a new query tab.
+
 1. In the query pane, run the following query to view the activity date ingested into the workspace.
 
    ```kusto
     AzureActivity
    ```
 
+   :::image type="content" source="media/quickstart-onboard/azure-activity-logs-query.png" alt-text="Screenshot of the log query window with results returned for the Azure Activity query.":::
 
 ## Next steps
 
