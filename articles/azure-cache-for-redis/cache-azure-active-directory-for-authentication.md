@@ -110,7 +110,7 @@ The following table includes links to code samples, which demonstrate how to con
 
 | **Client library**  | **Language**   | **Link to sample code**|
 |----|----|----|
-| StackExchange.Redis | C#/.NET        | StackExchange.Redis extension as a NuGet package    |
+| StackExchange.Redis | C#/.NET        | [.NET code Sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
 | Python              | Python         | [Python code Sample](https://aka.ms/redis/aad/sample-code/python)        |
 | Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
 | Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
