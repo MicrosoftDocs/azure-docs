@@ -600,7 +600,7 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 In a Consumption logic app workflow that starts with a request-based trigger, you can authenticate inbound calls sent to the endpoint created by that trigger by enabling [Azure AD OAuth](../active-directory/develop/index.yml). To set up this authentication, [define or add an authorization policy at the logic app level](#enable-azure-ad-inbound). This way, inbound calls use [OAuth access tokens](../active-directory/develop/access-tokens.md) for authorization.
 
-When your logic app receives an inbound request that includes an OAuth access token, Azure Logic Apps compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
+When your logic app workflow receives an inbound request that includes an OAuth access token, Azure Logic Apps compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
 
 In a Standard logic app workflow that starts with the Request trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by that trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, review [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
 
@@ -610,7 +610,7 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
 
   To enable Azure AD OAuth so that this option is the only way to call the request endpoint, use the following steps:
 
-  1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+  1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
   1. On the trigger, in the upper right corner, select the ellipses (**...**) button, and then select **Settings**.
 
@@ -625,11 +625,11 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
 
 * Only [Bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) authorization schemes are supported for Azure AD OAuth access tokens, which means that the `Authorization` header for the access token must specify the `Bearer` type.
 
-* Your logic app is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](../active-directory/develop/developer-glossary.md#claim). For more information, review [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+* Your logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](../active-directory/develop/developer-glossary.md#claim). For more information, review [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
 * An authorization policy must include at least the **Issuer** claim, which has a value that starts with either `https://sts.windows.net/` or `https://login.microsoftonline.com/` (OAuth V2) as the Azure AD issuer ID.
 
-  For example, suppose that your logic app has an authorization policy that requires two claim types, **Audience** and **Issuer**. This sample [payload section](../active-directory/develop/access-token-claims-reference.md#payload-claims) for a decoded access token includes both claim types where `aud` is the **Audience** value and `iss` is the **Issuer** value:
+  For example, suppose that your logic app resource has an authorization policy that requires two claim types, **Audience** and **Issuer**. This sample [payload section](../active-directory/develop/access-token-claims-reference.md#payload-claims) for a decoded access token includes both claim types where `aud` is the **Audience** value and `iss` is the **Issuer** value:
 
   ```json
   {
@@ -674,7 +674,7 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
 
 <a name="enable-azure-ad-inbound"></a>
 
-#### Enable Azure AD OAuth for your logic app
+#### Enable Azure AD OAuth for your Consumption logic app resource
 
 Follow these steps for either the Azure portal or your Azure Resource Manager template:
 
@@ -698,7 +698,6 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
    |----------|----------|------|-------------|
    | **Policy name** | Yes | String | The name that you want to use for the authorization policy |
    | **Claims** | Yes | String | The claim types and values that your workflow accepts from inbound calls. Here are the available claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. <br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). You can also specify your own claim type and value. |
-   |||
 
 1. To add another claim, select from these options:
 
@@ -802,7 +801,7 @@ For more information, review these topics:
 
 ### Expose your logic app with Azure API Management
 
-For more authentication protocols and options, consider exposing your logic app as an API by using Azure API Management. This service provides rich monitoring, security, policy, and documentation capabilities for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use Azure Active Directory Open Authentication (Azure AD OAuth), client certificate, or other security standards. When API Management receives a request, the service sends the request to your logic app and makes any necessary transformations or restrictions along the way. To let only API Management call your logic app, you can [restrict your logic app's inbound IP addresses](#restrict-inbound-ip).
+For more authentication protocols and options, consider exposing your logic app workflow as an API by using Azure API Management. This service provides rich monitoring, security, policy, and documentation capabilities for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use Azure Active Directory Open Authentication (Azure AD OAuth), client certificate, or other security standards. When API Management receives a request, the service sends the request to your logic app and makes any necessary transformations or restrictions along the way. To let only API Management call your logic app workflow, you can [restrict your logic app's inbound IP addresses](#restrict-inbound-ip).
 
 For more information, review the following documentation:
 
@@ -815,17 +814,19 @@ For more information, review the following documentation:
 
 ### Restrict inbound IP addresses
 
-Along with Shared Access Signature (SAS), you might want to specifically limit the clients that can call your logic app. For example, if you manage your request endpoint by using [Azure API Management](../api-management/api-management-key-concepts.md), you can restrict your logic app to accept requests only from the IP address for the [API Management service instance that you create](../api-management/get-started-create-service-instance.md).
+Along with Shared Access Signature (SAS), you might want to specifically limit the clients that can call your logic app workflow. For example, if you manage your request endpoint by using [Azure API Management](../api-management/api-management-key-concepts.md), you can restrict your logic app workflow to accept requests only from the IP address for the [API Management service instance that you create](../api-management/get-started-create-service-instance.md).
 
-Regardless of any IP addresses that you specify, you can still run a logic app that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+Regardless of any IP addresses that you specify, you can still run a logic app workflow that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
-To restrict the inbound IP addresses for your logic app, follow these steps for either the Azure portal or your Azure Resource Manager template:
+To restrict the inbound IP addresses for your logic app workflow, follow the corresponding steps for either the Azure portal or your Azure Resource Manager template. 
 
 <a name="restrict-inbound-ip-portal"></a>
 
 #### [Portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com), this filter affects both triggers *and* actions, contrary to the description in the portal under **Allowed inbound IP addresses**. To set up this filter separately for triggers and for actions, use the `accessControl` object in an Azure Resource Manager template for your logic app or the [Azure Logic Apps REST API: Workflow - Create Or Update operation](/rest/api/logic/workflows/createorupdate).
+In the Azure portal, IP address restriction affects both triggers *and* actions, contrary to the description in the portal under **Allowed inbound IP addresses**. To set up this filter separately for triggers and for actions, use the `accessControl` object in an Azure Resource Manager template for your logic app resource or the [Azure Logic Apps REST API: Workflow - Create Or Update operation](/rest/api/logic/workflows/createorupdate).
+
+##### Consumption workflows
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the workflow designer.
 
@@ -833,19 +834,22 @@ In the [Azure portal](https://portal.azure.com), this filter affects both trigge
 
 1. In the **Access control configuration** section, under **Allowed inbound IP addresses**, choose the path for your scenario:
 
-   * To make your logic app callable only as a nested logic app by using the built-in [Azure Logic Apps action](../logic-apps/logic-apps-http-endpoint.md), select **Only other Logic Apps**, which works *only* when you use the **Azure Logic Apps** action to call the nested logic app.
+   * To make your workflow callable using the [**Azure Logic Apps** built-in action](../logic-apps/logic-apps-http-endpoint.md), but only as a nested workflow, select **Only other Logic Apps**. This option works *only* when you use the **Azure Logic Apps** action to call the nested workflow.
 
-     This option writes an empty array to your logic app resource and requires that only calls from parent logic apps that use the built-in **Azure Logic Apps** action can trigger the nested logic app.
+     This option writes an empty array to your logic app resource and requires that only calls from parent workflows that use the built-in **Azure Logic Apps** action can trigger the nested workflow.
 
-   * To make your logic app callable only as a nested app by using the HTTP action, select **Specific IP ranges**, *not* **Only other Logic Apps**. When the **IP ranges for triggers** box appears, enter the parent logic app's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound). A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
+   * To make your workflow callable using the HTTP action, but only as a nested workflow, select **Specific IP ranges**. When the **IP ranges for triggers** box appears, enter the parent workflow's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound). A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
 
      > [!NOTE]
-     > If you use the **Only other Logic Apps** option and the HTTP action to call your nested logic app, 
+     > If you use the **Only other Logic Apps** option and the HTTP action to call your nested workflow, 
      > the call is blocked, and you get a "401 Unauthorized" error.
 
    * For scenarios where you want to restrict inbound calls from other IPs, when the **IP ranges for triggers** box appears, specify the IP address ranges that the trigger accepts. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
 
 1. Optionally, under **Restrict calls to get input and output messages from run history to the provided IP addresses**, you can specify the IP address ranges for inbound calls that can access input and output messages in run history.
+
+##### Standard workflows
+
 
 <a name="restrict-inbound-ip-template"></a>
 
