@@ -51,14 +51,14 @@ To get started with built-in App Service authentication, read:
 - [Enable App Service built-in authentication](scenario-secure-app-authentication-app-service.md)
 
 To get started with [Microsoft Authentication Library (MSAL)](/entra/msal/), read:
-- [Sign in users to a web app](/azure/active-directory/develop/scenario-web-app-sign-user-overview)
+- [Add sign-in with Microsoft to a web app](/azure/active-directory/develop/web-app-quickstart)
 - [Only allow authenticated user to access a web API](/azure/active-directory/develop/scenario-protected-web-api-overview)
 - [Sign in users to a single-page application (SPA)](/azure/active-directory/develop/scenario-spa-overview)
 
 To get started with [Microsoft.Identity.Web](/entra/msal/dotnet/microsoft-identity-web/), read:
 
-- [Sign in users to a web app](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore)
-- [Only allow authenticated user to access a web API](/azure/active-directory/develop/scenario-protected-web-api-overview)
+- [Sign in users to a web app](/azure/active-directory/develop/web-app-quickstart?pivots=devlang-aspnet-core)
+- [Protect a web API](/azure/active-directory/develop/web-api-quickstart?pivots=devlang-aspnet-core)
 - [Sign in users to a Blazor Server app](/azure/active-directory/develop/tutorial-blazor-server)
 
 Learn more about [App Service built-in authentication and authorization](overview-authentication-authorization.md)
