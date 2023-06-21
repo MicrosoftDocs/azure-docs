@@ -1,5 +1,5 @@
 ---
-title: Firmware Analysis for device builders - Microsoft Defender for IoT
+title: Firmware analysis for device builders - Microsoft Defender for IoT
 description: Learn how Microsoft Defender for IoT's firmware analysis helps device builders to market and deploy highly secure IoT/OT devices.
 ms.topic: conceptual
 ms.date: 06/15/2023
