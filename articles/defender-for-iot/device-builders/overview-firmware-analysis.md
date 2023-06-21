@@ -28,7 +28,7 @@ Defender for IoT can analyze your firmware for common weaknesses and vulnerabili
 
 - **Binary Hardening Analysis**: Identify binaries that haven't enabled specific security flags during compilation like buffer overflow protection, position independent executables, and more common hardening techniques.
 
-- **SSL Certificate Analysis**: Reveal expired and revoked TLS/SSL certificates.
+- **SSL certificate analysis**: Reveal expired and revoked TLS/SSL certificates.
 
 - **Public & Private Key Analysis**: Verify the public and private cryptographic keys discovered in the firmware are necessary and not accidental.
 
