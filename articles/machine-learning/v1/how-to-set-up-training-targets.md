@@ -6,8 +6,8 @@ services: machine-learning
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.service: training
-ms.subservice: core
+ms.service: machine-learning
+ms.subservice: training
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: UpdateFrequency5,sdkv1
