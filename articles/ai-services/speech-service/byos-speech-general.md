@@ -133,7 +133,7 @@ General rule is that you need to pass the following JSON string as a value of `-
 ```json
 [{"resourceId": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<resource_group_name>/providers/Microsoft.Storage/storageAccounts/<storage_account_name>"}]
 ```
-# [Azure REST](#tab/azure-cli)
+# [REST](#tab/rest)
 
 To create a BYOS-enabled Speech resource with a REST Request to Cognitive Servies API we use [Accounts - Create](/rest/api/cognitiveservices/accountmanagement/accounts/create) request.
 
