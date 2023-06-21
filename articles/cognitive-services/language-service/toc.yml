@@ -1015,6 +1015,8 @@ items:
             href: sentiment-opinion-mining/custom/how-to/train-model.md
           - name: Deploy model
             href: sentiment-opinion-mining/custom/how-to/deploy-model.md
+          - name: Call the API
+            href: sentiment-opinion-mining/custom/how-to/call-api.md
         
 - name: Text Analytics for health
   items:
