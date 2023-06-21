@@ -34,7 +34,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
     
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
-1. Select **public-ip**.
+1. Select **public-ip-nat**.
 
 1. Make note of the public IP address:
 
@@ -44,11 +44,13 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. Select **vm-1**.
 
-1. On the **Overview** page, select **Connect**, then **Bastion**.
+1. On the **Overview** page, select **Connect**, then select the **Bastion** tab.
+
+1. Select **Use Bastion**.
 
 1. Enter the username and password entered during VM creation. Select **Connect**.
 
-1. In the command line prompt, enter the following command:
+1. In the bash prompt, enter the following command:
 
     ```bash
     curl ifconfig.me
@@ -57,6 +59,8 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 1. Verify the IP address returned by the command matches the public IP address of the NAT gateway.
 
     ```output
+    azureuser@vm-1:~$ curl ifconfig.me
+    20.7.200.36
     ```
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
