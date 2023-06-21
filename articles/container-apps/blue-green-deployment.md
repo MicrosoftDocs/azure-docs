@@ -19,7 +19,7 @@ In the context of Azure Container Apps, the blue/green deployment release approa
 
 1. `Blue` revision: The revision labeled as `blue` represents the currently running and stable version of the application. It handles the production traffic, and users interact with it.
 
-1. `Green` revision: The revision labeled as `green` is a copy of the `blue` revision except it uses a newer version of the app code and possibly new set of environment variables. It doesn't receive any production traffic initially but can be accessed by using the label specific fully-qualified domain name (FQDN).
+1. `Green` revision: The revision labeled as `green` is a copy of the `blue` revision except it uses a newer version of the app code and possibly new set of environment variables. It doesn't receive any production traffic initially but can be accessed by using the label specific fully qualified domain name (FQDN).
 
 1. Testing and verification: The `green` revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing can involve various activities, including functional tests, performance tests, and compatibility checks.
 
