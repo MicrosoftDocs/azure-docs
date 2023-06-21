@@ -93,9 +93,10 @@ param appName string
 @description('Container environment name')
 param containerAppsEnvironmentName string
 
+@minLength(1)
 @maxLength(64)
 @description('CommitId for blue revision')
-param blueCommitId string = ''
+param blueCommitId string
 
 @maxLength(64)
 @description('CommitId for green revision')
@@ -147,7 +148,8 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
           }
         ] : [
           {
-            latestRevision: true // This block is used when an app is created for the first time
+            revisionName: '${appName}--${blueCommitId}'
+            label: 'blue'
             weight: 100
           }
         ]
