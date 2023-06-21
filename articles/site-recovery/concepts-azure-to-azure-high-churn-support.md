@@ -21,7 +21,7 @@ Azure Site Recovery supports churn (data change rate) up to 100 MB/s per VM. You
 - Source disks must be Managed Disks.
 
 >[!Warning]
-> This feature has been expanded in all public regions. However, this service is not available in any Government cloud regions. When using *High Churn* with any other regions outside the regions in the list, replication and/or reprotection may fail.
+> This Public Preview feature has been expanded in [all public regions](../site-recovery/azure-to-azure-support-matrix.md#region-support) where Azure Site Recovery is supported. However, this feature is not available in any Government cloud regions. When using *High Churn* with any other regions outside the supported regions, replication and/or reprotection may fail.
 
 ## Data change limits
 
