@@ -328,7 +328,7 @@ For more information on scaling, see [What happens if I've scaled to a different
 
 ### How is my AOF data organized in storage?
 
-When you use the Premium tier, data stored in AOF files is divided into multiple page blobs per shard in a storage container in primary and secondary storage accounts to increase performance of saving the data. When secondary storage account is not configured, AOF files from replica cache are also stored in primary storage account. The following table displays how many total page blobs are used for each pricing tier:
+When you use the Premium tier, data stored in AOF files is divided into multiple page blobs per shard. By default, half of the blobs are saved in the primary storage account and half are saved in the secondary storage account. Splitting the data across multiple page blobs and two different storage accounts increases the performance. If the peak rate of writes to the cache is not very high, then this additional performance might not be needed. In that case, the secondary storage account configuration can be removed. All of the AOF files are then stored in just the single primary storage account. The following table displays how many total page blobs are used for each pricing tier:
 
 | Premium tier | Blobs |
 |:------------:|---------------:|
