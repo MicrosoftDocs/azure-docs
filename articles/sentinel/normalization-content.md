@@ -58,8 +58,17 @@ The following built-in DNS query content is supported for ASIM normalization.
  - [Known Barium domains](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
  - [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml) 
  - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+ - [Known Granite Typhoon domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GraniteTyphoonIOCs.yaml)
+ - [Known Seashell Blizzard IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SeashellBlizzardIOCs.yaml)
+ - [Midnight Blizzard - Domain and IP IOCs - March 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/MidnightBlizzard_DomainIOCsMarch2021.yaml)
  - [Known Phosphorus group domains/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+ - [Known Forest Blizzard group domains - July 2019](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ForestBlizzardJuly2019IOCs.yaml)
  - [Solorigate Network Beacon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
+ - [Emerald Sleet domains included in DCU takedown](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/EmeraldSleetIOCs.yaml)
+ - [Known Diamond Sleet Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/DiamondSleetJan272021IOCs.yaml)
+ - [Known Ruby Sleet domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/RubySleetOct292020IOCs.yaml)
+ - [Known NICKEL domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NylonTyphoonIOCsNov2021.yaml)
+ - [Midnight Blizzard - Domain, Hash and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/MidnightBlizzard_IOCsMay2021.yaml)
  - [Solorigate Network Beacon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
 
 ## File Activity security content
@@ -72,7 +81,12 @@ The following built-in file activity content is supported for ASIM normalization
 
 - [SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
 - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+- [Silk Typhoon UM Service writing suspicious file](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SilkTyphoonUmServiceSuspiciousFile.yaml)
+- [Midnight Blizzard - Domain, Hash and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/MidnightBlizzard_IOCsMay2021.yaml)
 - [SUNSPOT log file creation ](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SUNSPOTLogFile.yaml)
+- [Known Diamond Sleet Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/DiamondSleetJan272021IOCs.yaml)
+- [Cadet Blizzard Actor IOC - January 2022](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/CadetBlizzard_Jan2022_IOC.yaml)
+- [Midnight Blizzard IOCs related to FoggyWeb backdoor](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/MidnightBlizzard_FoggyWeb.yaml)
 
 ## Network session security content
 
@@ -93,6 +107,9 @@ The following built-in network session related content is supported for ASIM nor
 - [Port scan detected  (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/PortScan.yaml)
 - [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml) 
 - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+- [Known Seashell Blizzard IP(https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SeashellBlizzardIOCs.yaml)
+- [Midnight Blizzard - Domain, Hash and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/MidnightBlizzard_IOCsMay2021.yaml)
+- [Known Forest Blizzard group domains - July 2019](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ForestBlizzardJuly2019IOCs.yaml)
 
 
 ### Hunting queries
@@ -113,6 +130,7 @@ The following built-in process activity content is supported for ASIM normalizat
  - [Probable AdFind Recon Tool Usage (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_AdFind_Usage.yaml)
  - [Base64 encoded Windows process command-lines (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_base64_encoded_pefile.yaml)
  - [Malware in the recycle bin (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_malware_in_recyclebin.yaml)
+ - [Midnight Blizzard - suspicious rundll32.exe execution of vbscript (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_MidnightBlizzard_SuspiciousRundll32Exec.yaml)
  - [SUNBURST suspicious SolarWinds child processes (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_SolarWinds_SUNBURST_Process-IOCs.yaml)
 
 ### Hunting queries
@@ -168,12 +186,14 @@ The following built-in web session related content is supported for ASIM normali
 - [Discord CDN Risky File Download  (ASIM Web Session Schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/DiscordCDNRiskyFileDownload_ASim.yaml)
 - [Excessive number of HTTP authentication failures from a source (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/ExcessiveNetworkFailuresFromSource.yaml)
 - [Known Barium domains](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
-- [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml)
+- [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml) 
+- [Known Ruby Sleet domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/RubySleetOct292020IOCs.yaml)
+- [Known Seashell Blizzard IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SeashellBlizzardIOCs.yaml)
+- [Known NICKEL domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NylonTyphoonIOCsNov2021.yaml)
+- [Midnight Blizzard - Domain and IP IOCs - March 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/MidnightBlizzard_DomainIOCsMarch2021.yaml)
+- [Midnight Blizzard - Domain, Hash and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/MidnightBlizzard_IOCsMay2021.yaml)
 - [Known Phosphorus group domains/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
 - [User agent search for log4j exploitation attempt](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Apache%20Log4j%20Vulnerability%20Detection/Analytic%20Rules/UserAgentSearch_log4j.yaml)
-
-
-
 
 ## <a name="next-steps"></a>Next steps
 
