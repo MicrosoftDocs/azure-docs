@@ -24,6 +24,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
+| [Recommendation set to be released for GA: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](#recommendation-set-to-be-released-for-ga-running-container-images-should-have-vulnerability-findings-resolved-powered-by-microsoft-defender-vulnerability-management) | July 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 
 ### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled". 
@@ -107,6 +108,8 @@ With this release, the recommendation `Container registry images should have vul
 
 Customers with both Defender for Containers plan and Defender CSPM plan should [disable the Qualys recommendation](tutorial-security-policy.md#disable-a-security-recommendation), to avoid multiple reports for the same images with potential impact on secure score. If you're currently using the sub-assesment API or Azure Resource Graph or continuous export, you should also update your requests to the new schema used by the MDVM recommendation prior to disabling the Qualys recommendation and using MDVM results instead.
 
+If you are also using our public preview offering for Windows containers vulnerability assessment powered by Qualys, and you would like to continue using it, you need to [disable Linux findings](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure#disable-specific-findings) using disable rules rather than disable the registry recommendation.
+
 Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
 ### Business model and pricing updates for Defender for Cloud plans
@@ -135,6 +138,23 @@ Existing customers of Defender for Key-Vault, Defender for Azure Resource Manage
 
 For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h) 
 
+### Recommendation set to be released for GA: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) 
+
+**Estimated date for change: July 2023**
+
+The recommendation `Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)` is set to be released as GA (General Availability):
+
+|Recommendation | Description | Assessment Key|
+|--|--|--| 
+| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5
+
+ Customers with both Defender for the Containers plan and Defender CSPM plan should [disable the Qualys running containers recommendation](https://learn.microsoft.com/azure/defender-for-cloud/tutorial-security-policy#disable-a-security-recommendation), to avoid multiple reports for the same images with potential impact on the secure score.
+
+If you're currently using the sub-assesment API or Azure Resource Graph or continuous export, you should also update your requests to the new schema used by the MDVM recommendation prior to disabling the Qualys recommendation and use MDVM results instead.
+
+If you are also using our public preview offering for Windows containers vulnerability assessment powered by Qualys, and you would like to continue using it, you need to [disable Linux findings](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure#disable-specific-findings) using disable rules rather than disable the runtime recommendation.
+
+Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
 ### Change to the Log Analytics daily cap
 
@@ -160,7 +180,7 @@ Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclud
 
 At that time, all billable data types will be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion.
 
-Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor/logs/daily-cap.md#workspaces-with-microsoft-defender-for-cloud)
+Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor/logs/daily-cap.md#workspaces-with-microsoft-defender-for-cloud).
 
 ## Next steps
 
