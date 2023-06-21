@@ -35,9 +35,15 @@ items:
   - name: Conditional Access
     expanded: false
     items:
-      - name: Universal Conditional Access through Global Secure Access 
+      - name: About Universal Conditional Access through Global Secure Access 
+        href: concept-universal-conditional-access.md
+      - name: Private Access apps
+        href: how-to-conditional-access-private-access.md
+      - name: Microsoft 365 traffic profile
         href: how-to-target-resource.md
       - name: Enable source IP restoration
+        href: how-to-source-ip-restoration.md
+      - name: Conditional Access for private access apps
         href: how-to-source-ip-restoration.md
       - name: Compliant network check
         href: how-to-compliant-network.md
@@ -52,17 +58,17 @@ items:
         href: how-to-manage-microsoft-365-profile.md
       - name: Manage the Private Access profile
         href: how-to-manage-private-access-profile.md
-  - name: Private access
+  - name: Private Access
     expanded: false
     items:
-      - name: About Private access
+      - name: About Private Access
         href: concept-private-access.md
-      - name: Configure quick access
-        href: how-to-configure-quick-access.md 
-      - name: Configure per-app access
-        href: how-to-configure-per-app-access.md
       - name: Configure connectors
         href: how-to-configure-connectors.md
+      - name: Configure Quick Access
+        href: how-to-configure-quick-access.md 
+      - name: Configure Per-app Access
+        href: how-to-configure-per-app-access.md
   - name: Logs and monitoring
     expanded: false
     items:

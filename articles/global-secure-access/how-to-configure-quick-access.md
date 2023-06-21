@@ -19,7 +19,6 @@ With Global Secure Access, you can define specific fully qualified domain names 
 To configure Quick Access, you must have:
 
 - A **Global Administrator** role in Microsoft Entra ID
-- A connector group with at least one active App Proxy connector
 
 To manage App Proxy connector groups, which is required for Quick Access, you must have:
 
@@ -56,7 +55,7 @@ If you don't already have a connector group set up, see [Configure connectors fo
 
 ## Configure Quick Access
 
-On the Quick Access page, you provide a name for the Quick Access app, select a connector group, and add FQDNs and IP addresses. You can complete all three steps at the same time, or you can add the network segments after the initial setup is complete. 
+On the Quick Access page, you provide a name for the Quick Access app, select a connector group, and add application segments, which include FQDNs and IP addresses. You can complete all three steps at the same time, or you can add the application segments after the initial setup is complete. 
 
 ### Name and connector group
 

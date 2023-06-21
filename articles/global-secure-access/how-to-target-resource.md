@@ -52,7 +52,7 @@ The following example policy targets all users except for your break-glass accou
 
 After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
-## Create a Conditional Access policy targeting the Private access traffic profile
+## Create a Conditional Access policy targeting the Quick Access application
 
 The following example creates a Conditional Access policy requiring multifactor authentication for your Quick Access application.
 
@@ -72,6 +72,7 @@ The following example creates a Conditional Access policy requiring multifactor 
 
 After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
+## Create a Conditional Access policy targeting the per-app applications
 
 ## User experience
 
