@@ -264,7 +264,7 @@ let KubePodInv = KubePodInventory
 | where ControllerKind == "ReplicaSet"
 | extend deployment = reverse(substring(reverse(ControllerName), indexof(reverse(ControllerName), "-") + 1))
 | where deployment == "deploymentName" //update with target deployment
-| extend ContainerId = "ContainerID"
+| extend ContainerId = ContainerID
 | summarize arg_max(TimeGenerated, *)  by deployment, ContainerId, PodStatus, ContainerStatus
 | project deployment, ContainerId, PodStatus, ContainerStatus;
 
@@ -288,7 +288,7 @@ KubePodInv
     | where _ResourceId =~ "clustereResourceID" //update with resource ID
     | where Namespace == "podNamespace" //update with target namespace
     | where PodStatus == "Failed"
-    | extend ContainerId = "ContainerID"
+    | extend ContainerId = ContainerID
     | summarize arg_max(TimeGenerated, *)  by  ContainerId, PodStatus, ContainerStatus
     | project ContainerId, PodStatus, ContainerStatus;
 
