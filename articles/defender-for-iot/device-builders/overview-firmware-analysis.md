@@ -24,7 +24,7 @@ Defender for IoT can analyze your firmware for common weaknesses and vulnerabili
 
 - **Software Bill of Materials (SBOM)**: Receive a detailed listing of open-source packages used during the firmware's build process. See the package version and what license governs the use of the open-source package.
 
-- **CVE Analysis**: Quickly see which firmware components have publicly known security vulnerabilities and exposures.
+- **CVE analysis**: See which firmware components have publicly known security vulnerabilities and exposures.
 
 - **Binary Hardening Analysis**: Identify binaries that haven't enabled specific security flags during compilation like buffer overflow protection, position independent executables, and more common hardening techniques.
 
