@@ -1698,7 +1698,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + Updates to error message to correctly display user error.
     + Support for cv_split_column_names to be used with training_data
   + **azureml-train-core**
-    + Added a new set of HyperDrive specific exceptions. azureml.train.hyperdrive will now throw detailed exceptions.
+    + Added a new set of HyperDrive specific exceptions. azureml.train.hyperdrive now throws detailed exceptions.
   + **azureml-widgets**
     + Azure Machine Learning Widgets is not displaying in JupyterLab
   
@@ -1843,7 +1843,7 @@ Access the following web-based authoring tools from the studio:
   + **azureml-automl-core**
     + Added more telemetry around post-training operations.
     + Speeds up automatic ARIMA training by using conditional sum of squares (CSS) training for series of length longer than 100. The length used is stored as the constant ARIMA_TRIGGER_CSS_TRAINING_LENGTH w/in the TimeSeriesInternal class at /src/azureml-automl-core/azureml/automl/core/shared/constants.py
-    + The user logging of forecasting runs was improved, now more information on what phase is currently running will be shown in the log
+    + The user logging of forecasting runs was improved, now more information on what phase is currently running is shown in the log
     + Disallowed target_rolling_window_size to be set to values less than 2
   + **azureml-automl-runtime**
     + Improved the error message shown when duplicated timestamps are found.
@@ -1961,7 +1961,7 @@ Access the following web-based authoring tools from the studio:
     + Optional parameter side_inputs added to ParallelRunStep. This parameter can be used to mount folder on the container. Currently supported types are DataReference and PipelineData.
     + Parameters passed in ParallelRunConfig can be overwritten by passing pipeline parameters now. New pipeline parameters supported aml_mini_batch_size, aml_error_threshold, aml_logging_level, aml_run_invocation_timeout (aml_node_count and aml_process_count_per_node are already part of earlier release).
   + **azureml-core**
-    + Deployed Azure Machine Learning Webservices will now default to `INFO` logging. This can be controlled by setting the `AZUREML_LOG_LEVEL` environment variable in the deployed service.
+    + Deployed Azure Machine Learning Webservices now defaults to `INFO` logging. This can be controlled by setting the `AZUREML_LOG_LEVEL` environment variable in the deployed service.
     + Python sdk uses discovery service to use 'api' endpoint instead of 'pipelines'.
     + Swap to the new routes in all SDK calls.
     + Changed routing of calls to the ModelManagementService to a new unified structure.
@@ -1970,7 +1970,7 @@ Access the following web-based authoring tools from the studio:
     + Added deprecation messages to the old profiling workflow. Fixed profiling cpu and memory limits.
     + Added RSection as part of Environment to run R jobs.
     + Added validation to `Dataset.mount` to raise error when source of the dataset is not accessible or does not contain any data.
-    + Added `--grant-workspace-msi-access` as another parameter for the Datastore CLI for registering Azure Blob Container that will allow you to register Blob Container that is behind a VNet.
+    + Added `--grant-workspace-msi-access` as another parameter for the Datastore CLI for registering Azure Blob Container that allows you to register Blob Container that is behind a VNet.
     + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
     + Fixed the issue in aks.py _deploy.
     + Validates the integrity of models being uploaded to avoid silent storage failures.
@@ -2019,7 +2019,7 @@ Access the following web-based authoring tools from the studio:
   + **azureml-contrib-mir**
     + Adds functionality in the MirWebservice class to retrieve the Access Token
   + **azureml-core**
-    + Deployed Azure Machine Learning Webservices will now default to `INFO` logging. This can be controlled by setting the `AZUREML_LOG_LEVEL` environment variable in the deployed service.
+    + Deployed Azure Machine Learning Webservices now defaults to `INFO` logging. This can be controlled by setting the `AZUREML_LOG_LEVEL` environment variable in the deployed service.
     + Fix iterating on `Dataset.get_all` to return all datasets registered with the workspace.
     + Improve error message when invalid type is passed to `path` argument of dataset creation APIs.
     + Python sdk uses discovery service to use 'api' endpoint instead of 'pipelines'.
@@ -2059,7 +2059,7 @@ Access the following web-based authoring tools from the studio:
   + **azureml-cli-common**
     + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
   + **azureml-core**
-    + Added `--grant-workspace-msi-access` as another parameter for the Datastore CLI for registering Azure Blob Container that will allow you to register Blob Container that is behind a VNet
+    + Added `--grant-workspace-msi-access` as another parameter for the Datastore CLI for registering Azure Blob Container that allows you to register Blob Container that is behind a VNet
     + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
     + Fixed the issue in aks.py _deploy
     + Validates the integrity of models being uploaded to avoid silent storage failures.
@@ -2226,7 +2226,7 @@ Access the following web-based authoring tools from the studio:
 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
-    + AutoML will now take into account both true and false classes when calculating averaged scalar metrics for binary classification tasks.
+    + AutoML now takes into account both true and false classes when calculating averaged scalar metrics for binary classification tasks.
     + Moved Machine learning and training code in AzureML-AutoML-Core to a new package AzureML-AutoML-Runtime.
   + **azureml-contrib-dataset**
     + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
@@ -2488,11 +2488,11 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + Creating an Experiment object gets or creates the experiment in the Azure Machine Learning workspace for run history tracking. The experiment ID and archived time are populated in the Experiment object on creation. Example: experiment = Experiment(workspace, "New Experiment") experiment_id = experiment.id archive() and reactivate() are functions that can be called on an experiment to hide and restore the experiment from being shown in the UX or returned by default in a call to list experiments. If a new experiment is created with the same name as an archived experiment, you can rename the archived experiment when reactivating by passing a new name. There can only be one active experiment with a given name. Example: experiment1 = Experiment(workspace, "Active Experiment") experiment1.archive() # Create new active experiment with the same name as the archived. experiment2. = Experiment(workspace, "Active Experiment") experiment1.reactivate(new_name="Previous Active Experiment") The static method list() on Experiment can take a name filter and ViewType filter. ViewType values are "ACTIVE_ONLY", "ARCHIVED_ONLY" and "ALL" Example: archived_experiments = Experiment.list( workspace, view_type="ARCHIVED_ONLY") all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
     + Support using environment for model deployment, and service update
   + **azureml-datadrift**
-    + The show attribute of DataDriftDector class won't support optional argument 'with_details' anymore. The show attribute will only present data drift coefficient and data drift contribution of feature columns.
+    + The show attribute of DataDriftDector class don't support optional argument 'with_details' anymore. The show attribute only presents data drift coefficient and data drift contribution of feature columns.
     + DataDriftDetector attribute 'get_output' behavior changes:
       + Input parameter start_time, end_time are optional instead of mandatory;
-      + Input specific start_time and/or end_time with a specific run_id in the same invoking will result in value error exception because they are mutually exclusive
-      + By input specific start_time and/or end_time, only results of scheduled runs will be returned;
+      + Input specific start_time and/or end_time with a specific run_id in the same invoking results in value error exception because they are mutually exclusive
+      + By input specific start_time and/or end_time, only results of scheduled runs are returned;
       + Parameter 'daily_latest_only' is deprecated.
     + Support retrieving Dataset-based Data Drift outputs.
   + **azureml-explain-model**
@@ -2527,11 +2527,11 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
         ```
     + Support using environment for model deployment, and service update.
   + **[azureml-datadrift](/python/api/azureml-datadrift)**
-    + The show attribute of [DataDriftDetector](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) class won't support optional argument 'with_details' anymore. The show attribute will only present data drift coefficient and data drift contribution of feature columns.
+    + The show attribute of [DataDriftDetector](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) class don't support optional argument 'with_details' anymore. The show attribute only presents data drift coefficient and data drift contribution of feature columns.
     + DataDriftDetector function [get_output]python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) behavior changes:
       + Input parameter start_time, end_time are optional instead of mandatory;
-      + Input specific start_time and/or end_time with a specific run_id in the same invoking will result in value error exception because they are mutually exclusive;
-      + By input specific start_time and/or end_time, only results of scheduled runs will be returned;
+      + Input specific start_time and/or end_time with a specific run_id in the same invoking results in value error exception because they are mutually exclusive;
+      + By input specific start_time and/or end_time, only results of scheduled runs are returned;
       + Parameter 'daily_latest_only' is deprecated.
     + Support retrieving Dataset-based Data Drift outputs.
   + **azureml-explain-model**
@@ -2588,7 +2588,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Added Prophet as a trainable pipeline (preview only)
     + Added deprecation message for explain_model() and retrieve_model_explanations().
     + Added Prophet as a trainable pipeline (preview only).
-    + Added support for automatic detection of target lags, rolling window size, and maximal horizon. If one of target_lags, target_rolling_window_size or max_horizon is set to 'auto', the heuristics will be applied to estimate the value of corresponding parameter based on training data.
+    + Added support for automatic detection of target lags, rolling window size, and maximal horizon. If one of target_lags, target_rolling_window_size or max_horizon is set to 'auto', the heuristics is applied to estimate the value of corresponding parameter based on training data.
     + Fixed forecasting in the case when data set contains one grain column, this grain is of a numeric type and there is a gap between train and test set
     + Fixed the error message about the duplicated index in the remote run in forecasting tasks
     + Fixed forecasting in the case when data set contains one grain column, this grain is of a numeric type and there is a gap between train and test set.
@@ -2608,7 +2608,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Add API `Dataset.Tabular`.[from_json_lines_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-json-lines-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) to create a TabularDataset from JSON Lines files. To learn about this tabular data in JSON Lines files on TabularDataset, visithttps://aka.ms/azureml-data for documentation.
     + Added other VM size fields (OS Disk, number of GPUs) to the [supported_vmsizes()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-) function
     + Added other fields to the [list_nodes()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#list-nodes--) function to show the run, the private, and the public IP, the port etc.
-    + Ability to specify a new field during cluster [provisioning](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--)  that can be set to enabled or disabled depending on whether you would like to leave the SSH port open or closed at the time of creating the cluster. If you do not specify it, the service will smartly open or close the port depending on whether you are deploying the cluster inside a VNet.
+    + Ability to specify a new field during cluster [provisioning](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--)  that can be set to enabled or disabled depending on whether you would like to leave the SSH port open or closed at the time of creating the cluster. If you do not specify it, the service smartly opens or closes the port depending on whether you are deploying the cluster inside a VNet.
   + **azureml-explain-model**
     + Improved documentation for Explanation outputs in the classification scenario.
     + Added the ability to upload the predicted y values on the explanation for the evaluation examples. Unlocks more useful visualizations.
@@ -2654,9 +2654,9 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Fixes bug where corrupt or empty models could be uploaded because of failed retries.
     + Fixed the bug where `DataReference` name changes when the `DataReference` mode changes (for example, when calling `as_upload`, `as_download`, or `as_mount`).
     + Make `mount_point` and `target_path` optional for `FileDataset.mount` and `FileDataset.download`.
-    + Exception that timestamp column cannot be found will be thrown out if the time serials-related API is called without fine timestamp column assigned or the assigned timestamp columns are dropped.
+    + Exception that timestamp column cannot be found is thrown out if the time serials-related API is called without fine timestamp column assigned or the assigned timestamp columns are dropped.
     + Time serials columns should be assigned with column whose type is Date, otherwise exception is expected
-    + Time serials columns assigning API 'with_timestamp_columns' can take None value fine/coarse timestamp column name, which will clear previously assigned timestamp columns.
+    + Time serials columns assigning API 'with_timestamp_columns' can take None value fine/coarse timestamp column name, which clears previously assigned timestamp columns.
     + Exception will be thrown out when either coarse grain or fine grained timestamp column is dropped with indication for user that dropping can be done after either excluding timestamp column in dropping list or call with_time_stamp with None value to release timestamp columns
     + Exception will be thrown out when either coarse grain or fine grained timestamp column is not included in keep columns list with indication for user that keeping can be done after either including timestamp column in keep column list or call with_time_stamp with None value to release timestamp columns.
     + Added logging for the size of a registered model.
@@ -2735,14 +2735,14 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     mydata = all_datasets['my-data']
     ```
 
-    + Introduce `parition_format` as argument to `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_parquet.files`. The partition information of each data path will be extracted into columns based on the specified format. '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute, and second for the datetime type. The partition_format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.csv' where the partition is by country/region and time, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' creates string column 'Country' with value 'USA' and datetime column 'PartitionDate' with value '2019-01-01'.
+    + Introduce `parition_format` as argument to `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_parquet.files`. The partition information of each data path is extracted into columns based on the specified format. '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute, and second for the datetime type. The partition_format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.csv' where the partition is by country/region and time, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' creates string column 'Country' with value 'USA' and datetime column 'PartitionDate' with value '2019-01-01'.
         ```python
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']
         ```
 
-    + Introduce `partition_format` as argument to `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_parquet.files`. The partition information of each data path will be extracted into columns based on the specified format. '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute, and second for the datetime type. The partition_format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.csv' where the partition is by country/region and time, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' creates string column 'Country' with value 'USA' and datetime column 'PartitionDate' with value '2019-01-01'.
+    + Introduce `partition_format` as argument to `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_parquet.files`. The partition information of each data path is extracted into columns based on the specified format. '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute, and second for the datetime type. The partition_format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.csv' where the partition is by country/region and time, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' creates string column 'Country' with value 'USA' and datetime column 'PartitionDate' with value '2019-01-01'.
     + `to_csv_files` and `to_parquet_files` methods have been added to `TabularDataset`. These methods enable conversion between a `TabularDataset` and a `FileDataset` by converting the data to files of the specified format.
     + Automatically log into the base image registry when saving a Dockerfile generated by Model.package().
     + 'gpu_support' is no longer necessary; AML now automatically detects and uses the nvidia docker extension when it is available. It will be removed in a future release.
@@ -2784,7 +2784,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
   + **azureml-automl-core**
     + Fixed an issue in AutoML where rows with missing labels were not removed properly.
     + Improved error logging in AutoML; full error messages will now always be written to the log file.
-    + AutoML has updated its package pinning to include `azureml-defaults`, `azureml-explain-model`, and `azureml-dataprep`. AutoML will no longer warn on package mismatches (except for `azureml-train-automl` package).
+    + AutoML has updated its package pinning to include `azureml-defaults`, `azureml-explain-model`, and `azureml-dataprep`. AutoML no longer warns on package mismatches (except for `azureml-train-automl` package).
     + Fixed an issue in `timeseries`  where cv splits are of unequal size causing bin calculation to fail.
     + When running ensemble iteration for the Cross-Validation training type, if we ended up having trouble downloading the models trained on the entire dataset, we were having an inconsistency between the model weights and the models that were being fed into the voting ensemble.
     + Fixed the error, raised when training and/or validation labels (y and y_valid) are provided in the form of pandas dataframe but not as numpy array.
@@ -2903,7 +2903,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 
 + **New features**
   + You can now request to execute specific inspectors (for example, histogram, scatter plot, etc.) on specific columns.
-  + Added a parallelize argument to `append_columns`. If True, data is loaded into memory but execution will run in parallel; if False, execution is streaming but single-threaded.
+  + Added a parallelize argument to `append_columns`. If True, data is loaded into memory but execution runs in parallel; if False, execution is streaming but single-threaded.
 
 ## 2019-07-23
 
@@ -2927,7 +2927,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Forecasting now allows different frequencies in train and test sets if they can be aligned. For example,  "quarterly starting in January" and at "quarterly starting in October" can be aligned.
     + The property "parameters" was added to the TimeSeriesTransformer.
     + Remove old exception classes.
-    + In forecasting tasks, the `target_lags` parameter now accepts a single integer value or a list of integers. If the integer was provided, only one lag is created. If a list is provided, the unique values of lags will be taken. target_lags=[1, 2, 2, 4] will create lags of one, two and four periods.
+    + In forecasting tasks, the `target_lags` parameter now accepts a single integer value or a list of integers. If the integer was provided, only one lag is created. If a list is provided, the unique values of lags is taken. target_lags=[1, 2, 2, 4] creates lags of one, two and four periods.
     + Fix the bug about losing columns types after the transformation (bug linked);
     + In `model.forecast(X, y_query)`, allow y_query to be an object type containing None(s) at the begin (#459519).
     + Add expected values to `automl` output
