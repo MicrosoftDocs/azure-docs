@@ -18,7 +18,7 @@
   - name: Semantic search (preview)
     href: search-get-started-semantic.md
   - name: Vector search (preview)
-    href: vector-search-quickstart.md
+    href: search-get-started-vector.md
   - name: Portal
     items:
     - name: Create an index
@@ -129,18 +129,22 @@
   items:
   - name: Search
     items:
-    - name: Full-text search
-      href: search-lucene-query-architecture.md
-    - name: Semantic search
-      href: semantic-search-overview.md
-    - name: Vector search
+    - name: Full-text
+      items:
+      - name: Full-text search
+        href: search-lucene-query-architecture.md
+      - name: Query types and composition
+        href: search-query-overview.md
+      - name: Relevance scoring
+        href: index-similarity-and-scoring.md
+    - name: Semantic
+      items:
+      - name: Semantic search
+        href: semantic-search-overview.md
+      - name: Semantic ranking
+        href: semantic-ranking.md 
+    - name: Vectors
       href: vector-search-overview.md
-    - name: Query types and composition
-      href: search-query-overview.md
-    - name: Relevance scoring
-      href: index-similarity-and-scoring.md
-    - name: Semantic ranking
-      href: semantic-ranking.md 
   - name: Indexing
     items:
     - name: Search indexes

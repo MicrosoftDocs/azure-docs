@@ -94,6 +94,6 @@ Here's a simple explanation of the RRF process:
 
 ## Next steps
 
-+ [Try the quickstart](vector-search-quickstart.md) to learn the REST APIs and field definitions used in vector search
++ [Try the quickstart](search-get-started-vector.md) to learn the REST APIs and field definitions used in vector search
 + [Try the Python](../demo-python/) or [JavaScript](../demo-javascript/) demos to generate embeddings from Azure OpenAI
 + [Learn more about embeddings](vector-search-how-to.md) and how to use them in Cognitive Search -->
