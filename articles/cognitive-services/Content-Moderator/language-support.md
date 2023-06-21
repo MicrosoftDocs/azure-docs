@@ -25,7 +25,7 @@ ms.author: pafarley
 | -------------------- |-------------|--------|---------------------|
 | Arabic (Romanized)   | Afrikaans   | Arabic   | Arabic |
 | Balinese | Albanian | Chinese (Simplified)    | Danish |
-| Bengali | Amharic | Chinese (Traditional)     | Dutch |
+| Bengali | Amharic | Chinese (Traditional)     | Dutch |F
 | Buginese | Arabic | Czech                     | English |
 | Buhid | Armenian | Danish                     | Finnish |
 | Carian | Assamese | Dutch                     | French |
@@ -37,7 +37,7 @@ ms.author: pafarley
 | Dhivehi | Bosnian - Cyrillic | Hungarian      | Portuguese |
 | Dutch | Bosnian - Latin | Italian             | Romanian |
 | English (Creole) | Breton [non-GeoPol] | Japanese  | Russian |
-| Farsi | Bulgarian | Korean                        | Slovak |
+| Hebrew | Bulgarian | Korean                        | Slovak |
 | French | Catalan | Norwegian                        | Spanish |
 | German | Central Kurdish | Polish        | Turkish |
 | Greek | Cherokee | Portuguese | |
@@ -60,7 +60,7 @@ ms.author: pafarley
 | Nko | Greek | | |
 | Norwegian (Bokmal) | Gujarati | | |
 | Norwegian (Nynorsk) |  Hausa | | |
-| Old (Persian) | Hebrew | | |
+| Dari | Hebrew | | |
 | Pashto | Hindi | | |
 | Polish | Hungarian | | |
 | Portuguese | Icelandic | | |
