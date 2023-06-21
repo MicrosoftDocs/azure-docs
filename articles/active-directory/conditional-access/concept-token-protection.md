@@ -50,6 +50,7 @@ This preview supports the following configurations:
 - The following Windows client devices aren't supported:
    - Windows Server 
    - Surface Hub
+   - Windows-based Microsoft Teams Rooms (MTR) systems
 
 ## Deployment
 
