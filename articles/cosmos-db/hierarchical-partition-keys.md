@@ -42,7 +42,7 @@ With hierarchical partition keys, we can partition first on **TenantId**, and th
 
 Queries that specify either the **TenantId**, or both **TenantId** and **UserId** is efficiently routed to only the subset of physical partitions that contain the relevant data. Specifying the full or prefix subpartitioned partition key path effectively avoids a full fan-out query. For example, if the container had 1000 physical partitions, but a particular **TenantId** was only on five of them, the query would only be routed to the smaller number of relevant physical partitions.
 
-## Using item ID in hierarchy
+## Use item ID in hierarchy
 
 <<<<<<< HEAD
 Hierarchical partition keys are highly recommended to users that may have multi-tenant applications. Hierarchical partitions allow users to scale beyond the logical partition key limit of 20 GB. If your current partition key or a single partition key is frequently hitting 20 GB, hierarchical partitions are a great choice for your workload. When choosing your hierarchical partition keys, it's important to keep the following general partitioning concepts in mind depending on your workload:
