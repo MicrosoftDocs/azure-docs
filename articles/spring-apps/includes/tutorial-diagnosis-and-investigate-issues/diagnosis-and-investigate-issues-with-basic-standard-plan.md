@@ -24,17 +24,17 @@ This section provides the steps to check the liveness for each app on Azure Spri
 1. Select **Availability** in the left navigational menu, select the **Add Standard test** to add a test.
 
 1. On the **Create Standard test** page, for **Test name**, enter `api-gateway`, 
-   for **URL**, enter `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/actuator/health/liveness` for the corresponding URL, 
+   for **URL**, enter `https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/actuator/health/liveness` for the corresponding URL, 
    extend the **Success criteria**, check the **Content match** box, and enter `UP` for **Content must contain**, then select **Save** to finish the configuration.
 
 1. Repeat the above steps to add other tests with below test names and URLs.
 
    | Test name         | URL                                                                                                                    | Content must contain |
    |-------------------|------------------------------------------------------------------------------------------------------------------------|----------------------|
-   | admin-server      | https://<your-Azure-Spring-Apps-instance-name>-admin-server.azuremicroservices.io/actuator/health/liveness             | UP                   |
-   | customers-service | https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/api/customer/actuator/health/liveness | UP                   |
-   | vets-service      | https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/api/vet/actuator/health/liveness      | UP                   |
-   | visits-service    | https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/api/visit/actuator/health/liveness    | UP                   |
+   | admin-server      | https://[your-Azure-Spring-Apps-instance-name]-admin-server.azuremicroservices.io/actuator/health/liveness             | UP                   |
+   | customers-service | https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/api/customer/actuator/health/liveness | UP                   |
+   | vets-service      | https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/api/vet/actuator/health/liveness      | UP                   |
+   | visits-service    | https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/api/visit/actuator/health/liveness    | UP                   |
 
 ## 3. Create a private dashboard instance
 
@@ -126,7 +126,7 @@ This section provides the steps to set up action groups and alert rules to monit
 
 1. After the alert rules creation, you can see the alert rules list as below:
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/aalert-rule-list.png" alt-text="Screenshot of the Azure portal with alert rule list.":::
+   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/alert-rule-list.png" alt-text="Screenshot of the Azure portal with alert rule list.":::
 
 ## 5. Custom your dashboard
 
