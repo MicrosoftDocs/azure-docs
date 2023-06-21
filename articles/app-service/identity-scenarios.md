@@ -25,7 +25,7 @@ The following table lists each authentication solution and some important factor
 |--|--|
 |Built-in App Service authentication |* You want less code to own and manage.<br>* Your app's language and SDKs don't provide user sign-in or authorization.<br>* You don't have the ability to modify your app code (for example, when migrating legacy apps).<br>* You need to handle authentication through configuration and not code.<br>* You need to sign in external or social users.|
 |Microsoft Authentication Library (MSAL)|* You need a code solution in one of several different languages<br>* You need to add custom authorization logic.<br>* You need to support incremental consent.<br>* You need information about the signed-in user in your code.<br>* You need to sign in external or social users.<br>* Your app needs to handle the access token expiring without making the user sign in again.|
-|Microsoft.Identity.Web |* You have an ASP.NET Core app. <br>* You need single sign-on support in your IDE during local development.<br>* You need to add custom authorization logic.<br>* You need to support incremental consent.<br>* You need information about the signed-in user in your code.<br>* You need to sign in external or social users.<br>* Your app needs to handle the access token expiring without making the user sign in again.|
+|Microsoft.Identity.Web |* You have an ASP.NET Core app. <br>* You need single sign-on support in your IDE during local development.<br>* You need to add custom authorization logic.<br>* You need to support incremental consent.<br>* You need conditional access in your web app.<br>* You need information about the signed-in user in your code.<br>* You need to sign in external or social users.<br>* Your app needs to handle the access token expiring without making the user sign in again.|
 
 The following table lists authentication scenarios and the authentication solution(s) you would use.
 
@@ -36,25 +36,26 @@ The following table lists authentication scenarios and the authentication soluti
 | Your app's language and libraries support user sign-in/authorization?  | ❌ | ✅ | ✅ |
 | Even if you can use a code solution, would you rather *not* use libraries? Don't want the maintenance burden?  | ✅ | ❌ | ❌ |
 | Does your web app need to provide incremental consent?  | ❌ | ✅ | ✅ |
+| Do you need conditional access in your web app? | ❌ | ❌ | ✅ |
 | Your app need to handle the access token expiring without making the user sign in again (use a refresh token)? | ❌ | ✅ | ✅ |
 | Need custom authorization logic or info about the signed-in user? | ❌ | ✅ | ✅ |
 | Need to sign in users from external or social identity providers?  | ✅ | ✅ | ✅ |
 | You have an ASP.NET Core app? | ✅ | ❌ | ✅ |
 | You have a single page app or static web app? | ✅ | ✅ | ✅ |
-| Want Visual Studio integration? | ❌ | ✅ | ✅ |
-| Need single sign-on support in your IDE during local development? | ❌ | ✅ | ✅ |
+| Want Visual Studio integration? | ❌ | ❌ | ✅ |
+| Need single sign-on support in your IDE during local development? | ❌ | ❌ | ✅ |
 
 ## Get started
 
 To get started with built-in App Service authentication, read:
 - [Enable App Service built-in authentication](scenario-secure-app-authentication-app-service.md)
 
-To get started with Microsoft Authentication Library (MSAL), read:
+To get started with [Microsoft Authentication Library (MSAL)](/entra/msal/), read:
 - [Sign in users to a web app](/azure/active-directory/develop/scenario-web-app-sign-user-overview)
 - [Only allow authenticated user to access a web API](/azure/active-directory/develop/scenario-protected-web-api-overview)
 - [Sign in users to a single-page application (SPA)](/azure/active-directory/develop/scenario-spa-overview)
 
-To get started with Microsoft.Identity.Web, read:
+To get started with [Microsoft.Identity.Web](/entra/msal/dotnet/microsoft-identity-web/), read:
 
 - [Sign in users to a web app](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore)
 - [Only allow authenticated user to access a web API](/azure/active-directory/develop/scenario-protected-web-api-overview)
