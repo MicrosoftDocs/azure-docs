@@ -325,7 +325,7 @@ await localScreenSharingStream.setMediaStream(mediaStream);
 
 ### Stop sending screen share stream
 
-Use the following code to stop sending a custom video stream after it has been set during a call.
+Use the following code to stop sending a custom screen share stream after it has been set during a call.
 
 ```js
 await call.stopScreenSharing();
