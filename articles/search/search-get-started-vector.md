@@ -10,9 +10,12 @@ ms.topic: quickstart
 ms.date: 06/29/2023
 ---
 
-# Quickstart: Call REST APIs for vector search queries
+# Quickstart: Call preview REST APIs for vector search queries
 
-Get started with vector search in Azure Cognitive Search using the preview REST APIs that create, load, and query a search index. Queries can be vector-only, or combined with text fields for hybrid search scenarios. Hybrid search refers to queries against vector fields, combined with queries that target textual fields that have been configured for filter, sort, facets, and semantic ranking.
+> [!IMPORTANT]
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and alpha SDKs.
+
+Get started with vector search in Azure Cognitive Search using the **2023-07-01-Preview** REST APIs that create, load, and query a search index. Queries can be vector-only, or combined with text fields for hybrid search scenarios. Hybrid search refers to queries that target vector fields *and* textual fields that have been configured for filter, sort, facets, and semantic ranking.
 
 ## Prerequisites
 

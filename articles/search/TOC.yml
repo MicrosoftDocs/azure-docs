@@ -18,7 +18,7 @@
   - name: Semantic search (preview)
     href: search-get-started-semantic.md
   - name: Vector search (preview)
-    href: vector-search-quickstart.md
+    href: search-get-started-vector.md
   - name: Portal
     items:
     - name: Create an index
