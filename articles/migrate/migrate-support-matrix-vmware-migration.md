@@ -51,6 +51,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Boot requirements** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **Disk size** | Up to 2-TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks.
+**Dynamic disk** | An OS disk as a dynamic disk is not supported. Ongoing replications need to be disabled and re-enabled after converting a dynamic OS disk to basic to start replication of the disk successfully.
 **Disk limits** |  Up to 60 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
@@ -66,7 +67,6 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Target disk** | VMs can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](./how-to-scale-out-for-migration.md) is deployed.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Supported for Windows Server 2008 R2 onwards. <br/> Supported for RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04, Ubuntu 19.04, Ubuntu 19.10, Ubuntu 20.04.
-**Dynamic disk** | An OS disk as a dynamic disk is not supported. Ongoing replications need to be disabled and re-enabled after converting a dynamic OS disk to basic to start replication of the disk successfully.
 
 > [!NOTE]
 > Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
