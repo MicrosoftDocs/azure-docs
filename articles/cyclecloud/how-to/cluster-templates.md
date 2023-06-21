@@ -4,7 +4,7 @@ description: Use or build cluster templates within Azure CycleCloud. See configu
 author: adriankjohnson
 ms.date: 06/20/2023
 ms.author: adjohnso
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: cyclecloud
 ms.custom: compute-evergreen
 ---
