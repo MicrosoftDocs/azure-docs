@@ -3,7 +3,7 @@ title: Automate threat response with playbooks in Microsoft Sentinel | Microsoft
 description: This article explains automation in Microsoft Sentinel, and shows how to use playbooks to automate threat prevention and response.
 author: yelevin
 ms.topic: conceptual
-ms.date: 06/13/2023
+ms.date: 06/21/2023
 ms.author: yelevin
 ---
 
