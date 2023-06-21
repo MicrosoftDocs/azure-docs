@@ -5,7 +5,7 @@ description: Learn how to configure Bastion for native client connections.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 06/19/2023
 ms.author: cherylmc
 ---
 
@@ -15,12 +15,10 @@ This article helps you configure your Bastion deployment to accept connections f
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
-* Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client.
-* You can configure this feature by either modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified.
+You can configure this feature by modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client.
 
-> [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
->
+>[!NOTE]
+>[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 ## Deploy Bastion with the native client feature
 
