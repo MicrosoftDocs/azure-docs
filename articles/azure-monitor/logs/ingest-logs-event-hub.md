@@ -281,8 +281,8 @@ To create a data collection rule in the Azure portal:
     - **Data Collection Rule Name** - Give the rule a name.
     - **Workspace Resource ID** - See [Collect required information](#collect-required-information). 
     - **Endpoint Resource ID** - Generated when you [create the data collection endpoint](#create-a-data-collection-endpoint).
-    - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name must end with the suffix *_CL*. If you're ingesting data to an Azure table, enter the table name without the suffix.  
-    - **Consumer Group** - By default, the consumer group is set to `$Default`. If needed, change the value to set a different [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups). 
+    - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name must end with the suffix *_CL*. If you're ingesting data to an Azure table, enter the table name - for example, `Syslog` - without the suffix.  
+    - **Consumer Group** - By default, the consumer group is set to `$Default`. If needed, change the value to a different [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups). 
 
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule set up in this tutorial.":::
 
@@ -295,9 +295,6 @@ To create a data collection rule in the Azure portal:
 1. Copy the **Resource ID** for the data collection rule. You'll use this information in the next step.
 
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-json-view.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-json-view.png" alt-text="Screenshot that shows the data collection rule JSON view.":::
-
-    > [!NOTE]
-    > The Azure portal might not show all of the properties of the DCR, such as the transformation, even if the DCR is created successfully with those properties.
 
 ### Configure user-assigned managed identity (optional)
 
@@ -458,9 +455,8 @@ To stop ingesting data from the event hub, delete all data collection rule assoc
 
 ## Next steps
 
-Learn more about using the API to create the resources in this tutorial:
+Learn more about to:
 
-- [Custom table](/rest/api/loganalytics/tables/create-or-update).
-- [Data collection endpoint](/rest/api/monitor/data-collection-endpoints).
-- [Data collection rule](/rest/api/monitor/data-collection-rules).
-- [Data collection rule association](/rest/api/monitor/data-collection-rule-associations).
+- [Create a custom table](../logs/create-custom-table.md#create-a-custom-table).
+- [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint).
+- [Update an existing data collection rule](../essentials/data-collection-rule-edit.md).
