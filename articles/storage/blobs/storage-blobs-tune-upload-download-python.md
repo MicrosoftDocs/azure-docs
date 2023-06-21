@@ -71,7 +71,7 @@ def upload_blob_transfer_options(self, account_url: str, container_name: str, bl
         blob_client = blob_client.upload_blob(data=data, overwrite=True, max_concurrency=2)
 ```
 
-In this example, we set the number of parallel transfer workers to 2, using the `max_concurrency` argument on the method call. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. The initial HTTP range request attempts to upload up to 8 MiB of data, as defined by the `max_single_put_size` argument. Note that `max_single_put_size` only applies for uploads when [using a seekable stream](#max_single_put_size-on-upload). If the blob size is smaller than 8 MiB, only a single request is necessary to complete the operation. If the blob size is larger than 8 MiB, all subsequent transfer requests have a maximum size of 4 MiB, which we set with the `max_block_size` argument during client construction.
+In this example, we set the number of parallel transfer workers to 2, using the `max_concurrency` argument on the method call. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. The initial HTTP range request attempts to upload up to 8 MiB of data, as defined by the `max_single_put_size` argument. Note that `max_single_put_size` only applies for uploads when [using a seekable stream](#max_single_put_size-for-uploads). If the blob size is smaller than 8 MiB, only a single request is necessary to complete the operation. If the blob size is larger than 8 MiB, all subsequent transfer requests have a maximum size of 4 MiB, which we set with the `max_block_size` argument during client construction.
 
 ## Performance considerations for uploads
 
