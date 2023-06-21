@@ -46,7 +46,7 @@ The following example uploads a block blob from a local file path:
 
 ## Upload a block blob from a stream
 
-The following example uploads a block by creating a readable stream and uploading the stream:
+The following example uploads a block blob by creating a readable stream and uploading the stream:
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js" id="Snippet_UploadBlob":::
 
