@@ -35,7 +35,7 @@ Updates in June include:
 |June 4     | [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)        |
 
 
-### Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
+### Recommendation released for preview: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)
 
 June 21, 2023
 
