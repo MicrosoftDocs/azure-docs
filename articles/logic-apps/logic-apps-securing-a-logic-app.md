@@ -215,15 +215,27 @@ Before using these settings to help you secure this data, review these considera
 
    ![Screenshot shows Standard workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon.](./media/logic-apps-securing-a-logic-app/select-secured-token-standard.png)
 
-1. After the logic app runs, you can view the history for that run.
+1. After the workflow runs, you can view the history for that run.
 
-   1. On the logic app's **Overview** pane, select the run that you want to view.
+   **Consumption**
 
-   1. On the **Logic app run** pane, expand the actions that you want to review.
+   1. On the logic app menu, select **Overview**. Under **Runs history**, select the run that you want to view.
 
-      If you chose to obscure both inputs and outputs, those values now appear hidden.
+   1. On the **Logic app run** pane, expand and select the actions that you want to review.
 
-      ![Hidden inputs and outputs in run history](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
+      If you chose to hide both inputs and outputs, those values now appear hidden.
+
+      ![Screenshot shows Consumption workflow run history view with hidden inputs and outputs.](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-consumption.png)
+
+   **Standard**
+
+   1. On the workflow menu, select **Overview**. Under **Run History**, select the run that you want to view.
+
+   1. On the workflow run history pane, select the actions that you want to review.
+
+      If you chose to hide both inputs and outputs, those values now appear hidden.
+
+      ![Screenshot shows Standard workflow run history view with hidden inputs and outputs.](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-standard.png)
 
 <a name="secure-data-code-view"></a>
 
