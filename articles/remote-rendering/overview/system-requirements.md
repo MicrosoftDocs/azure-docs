@@ -80,6 +80,7 @@ Requirements and limitations:
 * Only the Vulkan rendering API is supported. OpenGL support is not available.
 * The [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android) doesn't work for Quest devices.
 * When a Quest device goes to sleep and is woken up again, the remote content may not resume at all, or take a long time to recover.
+* The [ArrInspector](../resources/tools/arr-inspector.md) tool is not supported.
  
 See the [Unity setup](../how-tos/unity/unity-setup.md) page for more details.
 
