@@ -137,7 +137,7 @@ To see this code as part of a sample application, see the [sample on GitHub](htt
 
 ### Install client library packages
 
-Install the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) and [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet packages in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
+Install the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) and [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) NuGet packages in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
 #### .NET Core command line
 
@@ -146,7 +146,7 @@ Open a command line, and switch to the directory that contains your project file
 Run the install commands.
 
 ```dotnetcli
-dotnet add package Microsoft.Identity.Web.MicrosoftGraph
+dotnet add package Microsoft.Identity.Web.GraphServiceClient
 
 dotnet add package Microsoft.Identity.Web
 ```
@@ -157,7 +157,7 @@ Open the project/solution in Visual Studio, and open the console by using the **
 
 Run the install commands.
 ```powershell
-Install-Package Microsoft.Identity.Web.MicrosoftGraph
+Install-Package Microsoft.Identity.Web.GraphServiceClient
 
 Install-Package Microsoft.Identity.Web
 ```
@@ -256,11 +256,11 @@ public class IndexModel : PageModel
     {
         try
         {
-            var user = await _graphServiceClient.Me.Request().GetAsync();
+            var user = await _graphServiceClient.Me.GetAsync();
             ViewData["Me"] = user;
             ViewData["name"] = user.DisplayName;
 
-            using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+            using (var photoStream = await _graphServiceClient.Me.Photo.Content.GetAsync())
             {
                 byte[] photoByte = ((MemoryStream)photoStream).ToArray();
                 ViewData["photo"] = Convert.ToBase64String(photoByte);

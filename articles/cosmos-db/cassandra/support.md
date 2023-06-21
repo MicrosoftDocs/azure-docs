@@ -22,6 +22,10 @@ By using the Azure Cosmos DB for Apache Cassandra, you can enjoy the benefits of
 
 The Azure Cosmos DB for Apache Cassandra is compatible with Cassandra Query Language (CQL) v3.11 API (backward-compatible with version 2.x). The supported CQL commands, tools, limitations, and exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for Apache Cassandra.
 
+## Azure Managed Instance for Apache Cassandra
+
+For some customers, adapting to API for Cassandra can be a challenge due to differences in behaviour and/or configuration, especially for lift-and-shift migrations. If a feature that is critical for your application is listed as not supported below, consider using [Azure Managed Instance for Apache Cassandra](../../managed-instance-apache-cassandra/introduction.md). This is a first-party Azure service for hosting and maintaining pure open-source Apache Cassandra clusters with 100% compatibility.
+
 ## Cassandra driver
 
 The following versions of Cassandra drivers are supported by Azure Cosmos DB for Apache Cassandra:
