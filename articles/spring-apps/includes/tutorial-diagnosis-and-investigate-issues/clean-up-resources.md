@@ -11,7 +11,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 [!INCLUDE [clean-up-resources-portal](includes/tutorial-diagnosis-and-investigate-issues/clean-up-resources.md)]
 -->
 
-## 6. Clean up resources
+## 9. Clean up resources
 
 You can delete the Azure resource group, which includes all the resources in the resource group. To delete the entire resource group, including the newly created service:
 
