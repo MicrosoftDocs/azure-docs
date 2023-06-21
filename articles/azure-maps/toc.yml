@@ -78,8 +78,6 @@ items:
       href: creator-indoor-maps.md
     - name: Creator service geographic scope
       href: creator-geographic-scope.md
-    - name: Drawing conversion errors and warnings
-      href: drawing-conversion-error-codes.md
   - name: Encryption of data at rest
     href: ../security/fundamentals/encryption-atrest.md
   - name: Azure Services that support managed identities
@@ -255,8 +253,6 @@ items:
         href: how-to-use-indoor-module.md
       - name: Dynamic styling for indoor maps
         href: indoor-map-dynamic-styling.md
-      - name: Drawing error visualizer
-        href: drawing-error-visualizer.md
     - name: Spatial IO module 
       items:
       - name: Use the spatial IO module
@@ -397,6 +393,8 @@ items:
       href: drawing-error-visualizer.md
     - name: Drawing package requirements
       href: drawing-requirements.md
+    - name: Drawing conversion errors and warnings
+      href: drawing-conversion-error-codes.md
     - name: Dynamic maps StylesObject
       href: schema-stateset-stylesobject.md
     - name: Facility Ontology
