@@ -130,17 +130,21 @@
   - name: Search
     items:
     - name: Full-text search
-      href: search-lucene-query-architecture.md
+      items:
+      - name: Full-text search
+        href: search-lucene-query-architecture.md
+      - name: Query types and composition
+        href: search-query-overview.md
+      - name: Relevance scoring
+        href: index-similarity-and-scoring.md
     - name: Semantic search
-      href: semantic-search-overview.md
+      items:
+      - name: Semantic search
+        href: semantic-search-overview.md
+      - name: Semantic ranking
+        href: semantic-ranking.md 
     - name: Vector search
       href: vector-search-overview.md
-    - name: Query types and composition
-      href: search-query-overview.md
-    - name: Relevance scoring
-      href: index-similarity-and-scoring.md
-    - name: Semantic ranking
-      href: semantic-ranking.md 
   - name: Indexing
     items:
     - name: Search indexes
