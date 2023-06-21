@@ -548,6 +548,14 @@
     href: how-to-interactive-jobs.md
   - name: Schedule jobs
     href: how-to-schedule-pipeline-job.md
+- name: Work with foundation models
+  items:
+    - name: Foundation Models in Model Catalog
+      href: concept-foundation-models.md
+    - name: Open Source Models curated by AzureML 
+      href: how-to-use-foundation-models.md
+    - name: Hugging Face Hub community partner models
+      href: how-to-deploy-models-from-huggingface.md
 - name: Responsibly develop & monitor
   items: 
   - name: Responsible AI overview
@@ -911,14 +919,6 @@
     - name: Perform continuous monitoring
       displayName: model monitoring, data drift, data quality, model quality
       href: how-to-monitor-model-performance.md
-- name: Work with Foundation Models
-  items:
-    - name: Foundation Models in Model Catalog
-      href: concept-foundation-models.md
-    - name: Open Source Models curated by AzureML 
-      href: how-to-use-foundation-models.md
-    - name: Hugging Face Hub community partner models
-      href: how-to-deploy-models-from-huggingface.md
 - name: Infrastructure & security
   items:
     - name: Tutorials & templates
