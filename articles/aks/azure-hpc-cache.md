@@ -315,8 +315,8 @@ If you need to run an application as a non-root user, you may need to disable ro
 
 ## Next steps
 
-* For more information on Azure HPC Cache, see [HPC Cache Overview][hpc-cache].
-* For more information on using NFS with AKS, see [Manually create and use an NFS (Network File System) Linux Server volume with Azure Kubernetes Service (AKS)][aks-nfs].
+* For more information on Azure HPC Cache, see [HPC Cache overview][hpc-cache].
+* For more information on using NFS with AKS, see [Manually create and use a Network File System (NFS) Linux Server volume with AKS][aks-nfs].
 
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
@@ -344,4 +344,4 @@ If you need to run an application as a non-root user, you may need to disable ro
 [az-hpc-cache-blob-storage-target-add]: /cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_add
 [az-network-private-dns-zone-create]: /cli/azure/network/private-dns/zone#az_network_private_dns_zone_create
 [az-network-private-dns-link-vnet-create]: /cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create
-[az-network-private-dns-record-set-a-create]: /cli/azure/network/private-dns/record/set/a#az_network_private_dns_record_set_a_create
+[az-network-private-dns-record-set-a-create]: /cli/azure/network/private-dns/record-set/a#az_network_private_dns_record_set_a_create
