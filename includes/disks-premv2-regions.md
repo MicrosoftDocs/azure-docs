@@ -11,9 +11,11 @@
 ---
 Currently only available in the following regions:
 - Southeast Asia (Two availability zones)
+- Canada Central (Three availability zones)
 - North Europe (Three availability zones)
 - West Europe (Three availability zones)
 - UK South (Three availability zones)
+- Central US (One availability zone)
 - East US (Three availability zones)
 - East US 2 (Three availability zones)
 - South Central US (Three availability zones)
