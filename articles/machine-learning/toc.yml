@@ -255,8 +255,11 @@
       displayName: 
       href: how-to-connection.md
     - name: Import data
-      displayName:
       href: how-to-import-data-assets.md
+    - name: Schedule a data import
+      href: how-to-schedule-data-import.md
+    - name: Manage imported data
+      href: how-to-manage-imported-data-assets.md
   - name: Access and explore your data
     items:
     - name: Bookmark your favorite data assets
