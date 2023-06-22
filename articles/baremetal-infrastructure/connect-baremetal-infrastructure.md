@@ -78,7 +78,7 @@ During the deployment of your BareMetal instances, a new [Azure resource group](
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see all your BareMetal instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az-baremetalinstance-list) command for your resource group:
+To see all your ALI instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az-baremetalinstance-list) command for your resource group:
 
 ```azurecli
 az baremetalinstance list --resource-group DSM05A-T550 –output table
@@ -87,7 +87,8 @@ az baremetalinstance list --resource-group DSM05A-T550 –output table
 > [!TIP]
 > The `--output` parameter is a global parameter, available for all commands. The **table** value presents output in a friendly format. For more information, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).
 
----
+> [!Note]
+> If you deploy several Ali tenants under the same Azure subscription, you will see multiple Azure resource groups. 
 
 ## View the attributes of a single instance
 
