@@ -6,7 +6,6 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: rogarana
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
