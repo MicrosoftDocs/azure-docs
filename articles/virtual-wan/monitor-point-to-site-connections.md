@@ -39,13 +39,13 @@ To configure the above architecture, we'll use the following P2S VPN logs and Po
 ## Create Azure function app
 
 1. [Create an Azure function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app) and select **PowerShell Core** as your runtime stack
-1. [Assign system assigned managed identity to the function app](/azure-functions/functions-identity-access-azure-sql-with-managed-identity.md#enable-system-assigned-managed-identity-on-azure-function)
+1. [Assign a system assigned managed identity to the function app](../azure-functions/functions-identity-access-azure-sql-with-managed-identity.md#enable-system-assigned-managed-identity-on-azure-function)
 1. [Create an application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md) with the following 7 entries by inputting the **Name** and **Value** and then select **OK** after each value.
 
    | Name | Value|
    |---|---|
    |"resourcegroup" | your resource group |
-   | "sasuri"| `@Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>)`<br />--> update accordingly after keyvault is created in next section.|
+   | "sasuri"| `@Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/<version>)`<br />--> update accordingly after keyvault is created in next section.|
    |"subscription" |your subscription ID |
    |"tenantname" | your tenant ID |
    | "vpngw"|This name is something like \<guid>-eastus-ps2-gw. You can get this from the vWAN HUB User VPN settings. |
@@ -111,7 +111,7 @@ To configure the above architecture, we'll use the following P2S VPN logs and Po
 1. Go back to the **Configuration** tab for the Function App and modify the following entry. The value comes from the **Secret Identifier** field that appears after clicking on the secret:
 
    * **Name**: "sasuri"
-   * **Value**:  `@Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>)`
+   * **Value**:  `@Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/<version>)`
 
 ## Create Azure Workbook
 
