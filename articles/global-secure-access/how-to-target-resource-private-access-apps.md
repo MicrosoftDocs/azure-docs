@@ -41,7 +41,7 @@ You can create a Conditional Access policy for your Quick Access or Private Acce
 
     ![Screenshot of the Conditional Access menu option.](media/how-to-target-resource-private-access-apps/conditional-access-policies.png)
 
-1. Select **Create new policy**.
+1. Select **Create new policy**. The selected app appears in the **Target resources** details.
 
     ![Screenshot of the Conditional Access policy with the Quick Access app selected.](media/how-to-target-resource-private-access-apps/quick-access-target-resource.png)
 

@@ -14,7 +14,7 @@ ms.reviewer: mamkumar
 ---
 # Apply Conditional Access policies to the Microsoft 365 traffic profile
 
-With a devoted traffic forwarding profile for all of your Microsoft 365 traffic, you can apply Conditional Access policies to all of your Microsoft 365 traffic. With Conditional Access, you can require multifactor authentication and device compliance for accessing Microsoft 365 resources. 
+With a devoted traffic forwarding profile for all your Microsoft 365 traffic, you can apply Conditional Access policies to all of your Microsoft 365 traffic. With Conditional Access, you can require multifactor authentication and device compliance for accessing Microsoft 365 resources. 
 
 This article describes how to apply Conditional Access policies to your Microsoft 365 traffic forwarding profile.
 
@@ -28,7 +28,7 @@ This article describes how to apply Conditional Access policies to your Microsof
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 
-The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, and hybrid Azure AD join when accessing Microsoft 365 traffic.
+The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, and Microsoft Entra ID hybrid join when accessing Microsoft 365 traffic.
 
 :::image type="content" source="media/how-to-target-resource/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
 

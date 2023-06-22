@@ -33,7 +33,7 @@ This functionality allows administrators to consistently enforce Conditional Acc
 With Conditional Access, you can enable access controls and security policies for the network traffic acquired by Microsoft Entra Internet Access and Microsoft Entra Private Access. 
 
 - Select the [Microsoft 365 traffic profile as the Target resource](how-to-target-resource-microsoft-365-profile.md) in a policy to apply the policy to all Microsoft 365 traffic.
-- Apply Conditional Access policies to your [Quick Access and Per-app Access apps](how-to-target-resource-private-access-apps.md).
+- Apply Conditional Access policies to your [Private Access apps](how-to-target-resource-private-access-apps.md), such as Quick Access.
 - Enable [Global Secure Access signaling in Conditional Access](how-to-source-ip-restoration.md) so the source IP address is visible in the appropriate logs and reports.
 
 
@@ -46,3 +46,9 @@ When users sign in to a machine with the Global Secure Access Client installed, 
 When a user signs in the Global Secure Access Client has a green circle that you're signed in, and the client is running.
 
 :::image type="content" source="media/how-to-target-resource/global-secure-access-client-signed-in.png" alt-text="Screenshot showing the Global Secure Access Client is signed in and running.":::
+
+## Next steps
+
+- [Enable source IP restoration](how-to-source-ip-restoration.md)
+- [Create a Conditional Access policy for Microsoft 365 traffic](how-to-target-resource-microsoft-365-profile.md)
+- [Create a Conditional Access policy for Private Access apps](how-to-target-resource-private-access-apps.md)
