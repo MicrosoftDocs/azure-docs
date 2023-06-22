@@ -37,7 +37,7 @@ The following infrastructure workloads don't incur OpenShift Container Platform 
 
 ## Before you begin
 
-In order for Azure VMs added to an ARO cluster to recognize as infrastructure nodes (as opposed to more worker nodes) and not be charged an OpenShift fee, the following criteria must be met:
+In order for Azure VMs added to an ARO cluster to be recognized as infrastructure nodes (as opposed to more worker nodes) and not be charged an OpenShift fee, the following criteria must be met:
 
 - The nodes must be one of the following instance types only:
     - Standard_E4s_v5
@@ -150,63 +150,63 @@ spec:
 
 Below are some common commands/values used when creating and executing the template.
 
-```
 List all machine sets:
-    
+
+```
 oc get machineset -n openshift-machine-api
 ```
 
-```
 Get details for a specific machine set:
-    
+
+```
 oc get machineset <machineset_name> -n openshift-machine-api -o yaml
 ```
 
-```
 Cluster resource group:
-    
+
+```
 oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.resourceGroupName}'
 ```
 
-```
 Network resource group:
-    
+
+```
 oc get infrastructure cluster -o jsonpath='{.status.platformStatus.azure.networkResourceGroupName}'
 ```
 
-```
 Infrastructure ID:
-    
+
+```
 oc get infrastructure cluster -o jsonpath='{.status.infrastructureName}'
 ```
 
-```
 Region:
-    
+
+```
 oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.location}'
 ```
 
-```
 SKU:
-    
+
+```
 oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.sku}'
 ```
 
-```
 Subnet:
-    
+
+```
 oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.subnet}'
 ```
 
-```
 Version:
-    
-oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'
-``` 
 
 ```
+oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.image.version}'
+```
+
 Vnet:
-    
+
+```
 oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'
 ```
 
@@ -235,7 +235,7 @@ Use this procedure for any additional ingress controllers you may have in the cl
     oc -n openshift-ingress get pods -o wide
     ```
     
-    ```bash
+    ```
     NAME                              READY   STATUS        RESTARTS   AGE   IP         NODE                                                    NOMINATED NODE   READINESS GATES
     router-default-69f58645b7-6xkvh   1/1     Running       0          66s   10.129.6.6    cz-cluster-hsmtw-infra-aro-machinesets-eastus-3-l6dqw   <none>           <none>
     router-default-69f58645b7-vttqz   1/1     Running       0          66s   10.131.4.6    cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
@@ -257,7 +257,7 @@ Use this procedure for any additional ingress controllers you may have in the cl
     oc -n openshift-image-registry get pods -l "docker-registry" -o wide
     ```
     
-    ```bash
+    ```
     NAME                              READY   STATUS    RESTARTS   AGE     IP           NODE                                                    NOMINATED NODE   READINESS GATES
     image-registry-84cbd76d5d-cfsw7   1/1     Running   0          3h46m   10.128.6.7   cz-cluster-hsmtw-infra-aro-machinesets-eastus-2-kljml   <none>           <none>
     image-registry-84cbd76d5d-p2jf9   1/1     Running   0          3h46m   10.129.6.7   cz-cluster-hsmtw-infra-aro-machinesets-eastus-3-l6dqw   <none>           <none>
@@ -270,7 +270,76 @@ Use this procedure for any additional ingress controllers you may have in the cl
     > [!NOTE]
     > This will override any other customizations to the cluster monitoring stack, so you may want to merge your existing customizations before running the command.
     > 
-    
+
+    ```
+    cat << EOF | oc apply -f -
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: cluster-monitoring-config
+      namespace: openshift-monitoring
+    data:
+      config.yaml: |+
+        alertmanagerMain:
+          nodeSelector:
+            node-role.kubernetes.io/infra: ""
+          tolerations:
+            - effect: "NoSchedule"
+              key: "node-role.kubernetes.io/infra"
+              operator: "Exists"
+        prometheusK8s:
+          nodeSelector:
+            node-role.kubernetes.io/infra: ""
+          tolerations:
+            - effect: "NoSchedule"
+              key: "node-role.kubernetes.io/infra"
+              operator: "Exists"
+        prometheusOperator: {}
+        grafana:
+          nodeSelector:
+            node-role.kubernetes.io/infra: ""
+          tolerations:
+            - effect: "NoSchedule"
+              key: "node-role.kubernetes.io/infra"
+              operator: "Exists"
+        k8sPrometheusAdapter:
+          nodeSelector:
+            node-role.kubernetes.io/infra: ""
+          tolerations:
+            - effect: "NoSchedule"
+              key: "node-role.kubernetes.io/infra"
+              operator: "Exists"
+        kubeStateMetrics:
+          nodeSelector:
+            node-role.kubernetes.io/infra: ""
+          tolerations:
+            - effect: "NoSchedule"
+              key: "node-role.kubernetes.io/infra"
+              operator: "Exists"
+        telemeterClient:
+          nodeSelector:
+            node-role.kubernetes.io/infra: ""
+          tolerations:
+            - effect: "NoSchedule"
+              key: "node-role.kubernetes.io/infra"
+              operator: "Exists"
+        openshiftStateMetrics:
+          nodeSelector:
+            node-role.kubernetes.io/infra: ""
+          tolerations:
+            - effect: "NoSchedule"
+              key: "node-role.kubernetes.io/infra"
+              operator: "Exists"
+        thanosQuerier:
+          nodeSelector:
+            node-role.kubernetes.io/infra: ""
+          tolerations:
+            - effect: "NoSchedule"
+              key: "node-role.kubernetes.io/infra"
+              operator: "Exists"
+    EOF
+    ```
+        
 1. Verify that the OpenShift Monitoring Operator is starting pods on the new infrastructure nodes. Note that some nodes (such as `prometheus-operator`) will remain on master nodes.
 
     ```
@@ -278,7 +347,7 @@ Use this procedure for any additional ingress controllers you may have in the cl
     ```
     
     
-    ```bash
+    ```
     NAME                                           READY   STATUS    RESTARTS   AGE     IP            NODE                                                    NOMINATED NODE   READINESS GATES
     alertmanager-main-0                            6/6     Running   0          2m14s   10.128.6.11   cz-cluster-hsmtw-infra-aro-machinesets-eastus-2-kljml   <none>           <none>
     alertmanager-main-1                            6/6     Running   0          2m46s   10.131.4.11   cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
