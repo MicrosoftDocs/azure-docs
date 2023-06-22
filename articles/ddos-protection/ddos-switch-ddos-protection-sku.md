@@ -14,23 +14,16 @@ ms.custom: template-how-to-pattern
 In this guide, we walk through the steps to switch between Network Protection and IP Protection SKUs using Azure portal. This guide follows the *Application running on load-balanced virtual machines* architecture. To learn more about the different architectures, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md#application-running-on-load-balanced-virtual-machines).
 
 
-## Cost assessment
-
-When IP Protection is enabled for a public IP resource and then a DDoS protection plan is created and enabled on its virtual network, customers are billed for the lower *per Public IP resource* rate. In this case, we'll automatically start billing for Network Protection. To learn more about the pricing scenarios, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=ddos-protection).
-
-Network Protection cost begins once the DDoS protection plan is created. IP Protection cost begins once the Public IP address is configured with IP Protection, and its associated virtual network isn't protected by a DDoS protection plan. 
-
-For more information, see [Azure DDoS Protection Pricing](https://azure.microsoft.com/pricing/details/ddos-protection/).
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 
+## Switch Azure DDoS Protection SKUs
 
 #### [Network Protection](#tab/network-protection)
 
-### Add protected resources to DDoS protection plan
+### Switch to Network Protection
 
 Services must be added to the DDoS protection plan to be protected by Network Protection. Once the service is added to the DDoS protection plan, the SKU will automatically transition to Network Protection from IP Protection. You don't need disable IP protection during this transition.
 
@@ -47,11 +40,9 @@ Services must be added to the DDoS protection plan to be protected by Network Pr
 
 #### [IP Protection](#tab/ip-protection)
 
-You can switch from Network Protection to IP Protection using the Azure portal. 
+### Switch to IP Protection 
 
-### Enable IP Protection 
-
-To prevent DDoS protection downtime, you must enable IP Protection before disabling Network Protection.
+You can switch from Network Protection to IP Protection using the Azure portal. To prevent DDoS protection downtime, you must enable IP Protection before disabling Network Protection.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **public IP Addresses**. Select **public IP Address**.
