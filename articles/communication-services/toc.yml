@@ -811,6 +811,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
     - name: Call Automation (Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
+    - name: Call Automation (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/callautomation.html
+    - name: Call Automation (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-callautomation
   - name: Chat 
     items:
     - name: Chat (JavaScript)
