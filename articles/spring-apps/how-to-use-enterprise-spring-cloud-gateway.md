@@ -264,8 +264,6 @@ az spring gateway route-config create \
     --routes-file <json-file-with-routes>
 ```
 
----
-
 ## Next steps
 
 - [Azure Spring Apps](index.yml)
