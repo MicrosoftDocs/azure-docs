@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster
 
-ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, the integrated container image registry, and the components for cluster metrics and monitoring. These infrastructure machines aren't counted toward the total number of subscriptions that are required to run the environment.
+ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, and the components for cluster metrics and monitoring. These infrastructure machines aren't counted toward the total number of subscriptions that are required to run the environment.
 
 In a production deployment, it's recommended that you deploy at least three machine sets to hold infrastructure components. Each of these nodes can be deployed to different availability zones to increase availability. This type of configuration requires three different machines sets; one for each availability zone.
 
