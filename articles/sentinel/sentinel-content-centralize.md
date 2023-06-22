@@ -158,7 +158,7 @@ Yes. Currently, the only Microsoft Sentinel REST API calls that exist for conten
 
 New REST API operations on the content hub will be available soon to enable OOTB content management scenarios more broadly. This API update will include operations for the same content types scoped in the centralization changes (data connectors, playbook templates, workbook templates, analytics rule templates, hunting queries). A mechanism to update analytics rule templates installed on the workspace is also on the roadmap.
 
-**Action needed:** Plan to update your applications and processes to use the new OOTB content management API operations on the content hub when those are available in Q2 2023.  
+**Action needed:** Plan to update your applications and processes to use the new OOTB content management API operations on the content hub when those are available. Originally we expressed this would be available Q2 2023, but they are not ready yet.  
 
 ### How will the central tool identify my in-use OOTB content templates?
 
@@ -175,6 +175,10 @@ Currently, if an API data connection matches the data connector data type, it wi
 ### What if I'm working with content by using the repositories feature in Microsoft Sentinel?
 
 Repositories specifically deploy custom or active content in Microsoft Sentinel. The OOTB content centralization changes won't affect content that's deployed through the repositories feature.
+
+### Does this affect deployment groups in workspace manager?
+
+Just like Repositories, workspace manager deploys custom or active content only, so the OOTB content centralization changes won't affect content that's deployed through workspace manager either.
 
 ## Next steps
 

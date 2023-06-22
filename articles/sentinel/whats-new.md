@@ -34,7 +34,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 Along with the general availability (GA) of content hub, the [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) have also taken effect. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
 
-As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. To walk through steps of a solution installation, especially important if you need to install the solution in a different workspace, choose the **View details** link.
+As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. For more information on the content hub GA, see this [blog post](https://aka.ms/sentinelcontenthubga-blogpost).
 
 ### Windows Forwarded Events connector is now generally available
 
