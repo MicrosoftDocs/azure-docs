@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create, assign, and run a Storage Task'
+title: 'Quickstart: Create, assign, and run a storage task'
 titleSuffix: Azure Storage
-description: Learn how to create your first Storage Task. You'll also assign that task to a storage account, queue the task to run, and then view the results of the run.
+description: Learn how to create your first storage task. You'll also assign that task to a storage account, queue the task to run, and then view the results of the run.
 services: storage
 author: normesta
 ms.service: storage-tasks
@@ -10,9 +10,9 @@ ms.date: 05/16/2023
 ms.author: normesta
 ---
 
-# Quickstart: Create, assign, and run a Storage Task
+# Quickstart: Create, assign, and run a storage task
 
-In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a Storage Task and assign it to an Azure Storage account. Then, you'll review the results of the run. 
+In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. 
 
 > [!IMPORTANT]
 > Storage Tasks are currently in PREVIEW and is available in the following regions: \<List regions here\>.
@@ -36,7 +36,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 2. Under **Services**, select **Storage Tasks**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the search result of the string Storage Tasks.](./media/storage-task-create/storage-task-search.png)
+   > ![Screenshot of the search result of the string storage tasks.](./media/storage-task-create/storage-task-search.png)
 
 3. On the **Storage tasks** page, select **Create**.
 
@@ -57,7 +57,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 ## Add conditions
 
-You can specify the conditions of a Storage Task by making selections in **If** section of the **Visual Builder** tab. Every Storage task has at least one condition (or _clause_).
+You can specify the conditions of a storage task by making selections in **If** section of the **Visual Builder** tab. Every storage task has at least one condition (or _clause_).
 
 1. In the **Select a property** drop-down list of the **If** section, select **Container metadata value**.
 
@@ -79,7 +79,7 @@ You can specify the conditions of a Storage Task by making selections in **If** 
 
 ## Add operations
 
-You can specify the operations that a Storage Task performs by making selections in **Then** section of the **Visual Builder** tab. Every Storage task has at least one operation to perform when a blob or container meets the specified condition.
+You can specify the operations that a storage task performs by making selections in **Then** section of the **Visual Builder** tab. Every Storage task has at least one operation to perform when a blob or container meets the specified condition.
 
 1. In the **Select an operation** drop-down list of the **Then** section, select **Set blob immutability policy**.
 
@@ -101,7 +101,7 @@ You can specify the operations that a Storage Task performs by making selections
 
 ## Add an assignment
 
-A Storage Task _assignment_ specifies a storage account. After you enable the Storage task, the conditions and operations of your task will be applied to that storage account. The assignment also contains configuration properties which help you target specific blobs, or specify when and how often the task runs. You can add an assignment for each account you want to target.
+A storage task _assignment_ specifies a storage account. After you enable the Storage task, the conditions and operations of your task will be applied to that storage account. The assignment also contains configuration properties which help you target specific blobs, or specify when and how often the task runs. You can add an assignment for each account you want to target.
 
 1. Select **Add assignment**.
 
@@ -132,16 +132,16 @@ A Storage Task _assignment_ specifies a storage account. After you enable the St
 
    When the task is deployed, the **Your deployment is complete** page appears.
 
-8. Select **Go to resource** to open the **Overview** page of the Storage Task.
+8. Select **Go to resource** to open the **Overview** page of the storage task.
 
 ## Enable the task assignment
 
-Storage Task assignments are disabled by default. Enable assignments from the **Assignments** page.
+storage task assignments are disabled by default. Enable assignments from the **Assignments** page.
 
 1. Select **Assignments**, select the **mystoragetaskassignment** assignment, and then selet **Enable**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Assignments option and the Storage Task assignment link.](./media/storage-task-quickstart-portal/open-task-assignment.png)
+   > ![Screenshot of the Assignments option and the storage task assignment link.](./media/storage-task-quickstart-portal/open-task-assignment.png)
 
    The task assignment is queued to run.
 
@@ -169,4 +169,4 @@ After the task completes running, you can view the results of the run.
 
 ## Next steps
 
-[Create a Storage Task](storage-task-create.md)
+[Create a storage task](storage-task-create.md)

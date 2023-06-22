@@ -8,11 +8,11 @@ ms.author: normesta
 ms.date: 05/10/2023
 ---
 
-# Define Storage Task Conditions and operations
+# Define storage task conditions and operations
 
 Description goes here.
 
-To learn more about Storage Task conditions, see [Storage Task conditions and operations](storage-task-conditions-operations.md)
+To learn more about storage task conditions, see [Storage task conditions and operations](storage-task-conditions-operations.md)
 
 ## Open the conditions editor
 
@@ -38,35 +38,56 @@ To add a condition, select **Add new clause**, and to remove a condition, select
 
 To define a condition, choose a property, specify a value for that property, and then choose an operator that relates them together.
 
-1. In the **Blob property** drop-down list of the condition, choose a blob property. The following example selects the **Blob name** property. 
+#### Choose a property
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of the property drop-down list of a condition.](./media/storage-task-conditions-operations-edit/storage-task-condition-choose-property.png)
+In the **Blob property** drop-down list, choose a property. See [Supported blob properties](storage-task-conditions-reference.md#supported-blob-properties).
 
-   For a complete list of supported properties, see [Supported blob properties](storage-task-conditions-reference.md#supported-blob-properties).
+The following example selects the **Blob name** property.
 
-2. In **Property value** box, enter a value to compare with the property, and in the **Operator** drop-down list, choose the operator that you want the storage task to use when comparing the property with the value.
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the property drop-down list of a condition.](./media/storage-task-conditions-operations-edit/storage-task-condition-choose-property.png)
 
-   The following example specifies a value of `.log` along with the `Ends with` operator. This condition allows the operation defined in this storage task to execute only on blobs that have a `.log` file extension.
+#### Choose a value and operator
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of an example condition.](./media/storage-task-conditions-operations-edit/storage-task-blob-name-condition.png)
+In the **Property value** box, enter a value and in the **Operator** drop-down list, choose an operator. See [Supported Operators](storage-task-conditions-reference.md#supported-operators).
 
-   For a complete list of supported operations, see [Supported Operators](storage-task-conditions-reference.md#supported-operators).
+The following example specifies a value of `.log` along with the **Ends with** operator. This condition allows the operation defined in this storage task to execute only on blobs that have a `.log` file extension.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of an example condition.](./media/storage-task-conditions-operations-edit/storage-task-blob-name-condition.png)
+
+#### Apply And / Or to a condition
+
+You add **And** or **Or** to a condition. Specify **And** if you want to target objects that meet the criteria in both the current condition and the previous condition. Specify **Or** to target objects that meet the criterion in either the current condition or the previous condition.
+
+The following example shows conditions that use **And**. In this example, the storage task targets objects that have a `.log` extension and which have a tag named `Archive-Status` set to `Ready`.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of conditions that use the AND operators.](./media/storage-task-conditions-operations-edit/storage-task-condition-and-operator.png)
 
 ### Change the order of conditions
 
-Using the move up and move down clause.
-Explain the impact on condition processing.
-Show Screenshot of the move up button and screenshot of results on conditions.
-Explain some constraints
+You can arrange conditions in an order that you believe will improve the performance of a task run. For example, instead of first testing all blobs in an account against a name filter, you might elevate a condition that targets a specific container. That small adjustment can prevent the task from performing unnecessary evaluations.
+
+First, select the condition. Then, select **Move clause up** or **Move clause down** to change its position in the list.
+
+The following example shows the result of selecting a condition and then selecting **Move clause up**.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of condition appearing in a new position in the list.](./media/storage-task-conditions-operations-edit/storage-task-move-clause-up.png)
 
 ### Group and ungroup conditions
 
-Explain the impact of grouping and ungrouping. Why would you do this and what would happen.
-Show use of grouping button and impact of doing that
-Show screenshot of grouping
-Explain some constraints.
+Grouped conditions operate as a single unit separate from the rest of the conditions. Grouping conditions is similar to putting parentheses around a mathematical equation or logic expression. The **And** or **Or** operator for the first condition in the group applies to the whole group.
+
+Select the checkbox that appears next to each condition you want to group together. Then, select **Group**.
+
+The following example shows two conditions grouped together. In this example, the operation executes if a blob has the `.log` extension and either a tag named `Archive-Status` is set to the value of `Ready` or the file has not been accessed in 120 days.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of condition grouped together.](./media/storage-task-conditions-operations-edit/storage-task-grouped-clauses.png)
+
+To ungroup conditions, select the ungroup icon (:::image type="icon" source="./media/storage-task-conditions-operations-edit/ungroup-icon.png":::) or select each condition in the group, and select **Ungroup**.
 
 ## Define operations
 

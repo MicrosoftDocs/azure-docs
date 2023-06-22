@@ -1,5 +1,5 @@
 ---
-title: Monitor Storage tasks
+title: Monitor Azure Storage Tasks
 titleSuffix: Azure Storage
 description: Description of something about Azure Storage Tasks goes here  
 services: storage
@@ -12,7 +12,7 @@ ms.author: normesta
 
 ---
 
-# Monitor Storage Tasks
+# Monitor Azure Storage Tasks
 
 Put something here.
 
@@ -20,7 +20,7 @@ Put something here.
 
 Put something here.
 
-## Storage Tasks view
+## Storage tasks view
 
 Put something here
 

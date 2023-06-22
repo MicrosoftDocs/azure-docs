@@ -1,5 +1,5 @@
 ---
-title: Storage Tasks FAQ
+title: Azure Storage Tasks FAQ
 titleSuffix: Azure Storage
 description: Description goes here for FAQ
 author: normesta
@@ -10,7 +10,7 @@ ms.date: 05/16/2023
 ms.author: normesta
 ---
 
-# Storage Tasks FAQ
+# Azure Storage Tasks FAQ
 
 Introduction goes here.
 

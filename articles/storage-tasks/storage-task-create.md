@@ -1,5 +1,5 @@
 ---
-title: Create a Storage Task
+title: Create an Azure Storage Task
 description: Learn how to create a Storage Task. A storage task can perform operations on containers and blobs in one or more Azure Storage accounts. 
 author: normesta
 ms.service: storage-tasks
@@ -8,7 +8,7 @@ ms.author: normesta
 ms.date: 05/10/2023
 ---
 
-# Create a Storage Task
+# Create a storage task
 
 A storage task can perform operations on containers and blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Tasks?](overview.md).
 
@@ -33,19 +33,19 @@ On the **Storage tasks** page, select **Create**.
 
 ## Basics tab
 
-On the **Basics** tab, provide the essential information for your Storage Task. The following table describes the fields on the **Basics** tab.
+On the **Basics** tab, provide the essential information for your storage task. The following table describes the fields on the **Basics** tab.
 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
-| Project details | Subscription | Required | Select the subscription for the new Storage Task. |
-| Project details | Resource group | Required | Create a new resource group for this Storage Task, or select an existing one. For more information, see [Resource groups](../azure-resource-manager/management/overview.md#resource-groups). |
-| Instance details | Storage task name | Required | Choose a unique name for your Storage Task. Storage Task names must be between 3 and 18 characters in length and may contain only lowercase letters and numbers. |
-| Instance details | Region | Required | Select the appropriate region for your Storage Task. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). |
+| Project details | Subscription | Required | Select the subscription for the new storage task. |
+| Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../azure-resource-manager/management/overview.md#resource-groups). |
+| Instance details | Storage task name | Required | Choose a unique name for your storage task. storage task names must be between 3 and 18 characters in length and may contain only lowercase letters and numbers. |
+| Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). |
 
 The following image shows an example of the **Basics** tab.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of basics tab of the Storage Task create experience.](./media/storage-task-create/storage-task-basics-page.png)
+> ![Screenshot of basics tab of the storage task create experience.](./media/storage-task-create/storage-task-basics-page.png)
 
 ## Conditions tab
 
@@ -67,9 +67,9 @@ The following table describes the fields on the **Conditions** tab.
 The following image shows an example of the **Conditions** tab.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of conditions tab of the Storage Task create experience.](./media/storage-task-create/storage-task-conditions-tab.png)
+> ![Screenshot of conditions tab of the storage task create experience.](./media/storage-task-create/storage-task-conditions-tab.png)
 
-To learn more about conditions and operations, see [Storage Task conditions and operations](storage-task-conditions-operations.md).
+To learn more about conditions and operations, see [storage task conditions and operations](storage-task-conditions-operations.md).
 
 ## Assignments tab
 
@@ -95,9 +95,9 @@ The following table describes the fields that appear in the **Add assignment** p
 The following image shows an example of the **Add assignment** pane.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of assignment tab of the Storage Task create experience.](./media/storage-task-create/storage-task-assignment-tab.png)
+> ![Screenshot of assignment tab of the storage task create experience.](./media/storage-task-create/storage-task-assignment-tab.png)
 
-To learn more about assignments, see [Storage Task assignment](storage-task-assignment.md).
+To learn more about assignments, see [storage task assignment](storage-task-assignment.md).
 
 ## Tags tab
 
@@ -106,21 +106,21 @@ On the **Tags** tab, you can specify Resource Manager tags to help organize your
 The following image shows a standard configuration of the index tag properties for a new storage account.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of tags tab of the Storage Task create experience.](./media/storage-task-create/storage-task-tags-page.png)
+> ![Screenshot of tags tab of the storage task create experience.](./media/storage-task-create/storage-task-tags-page.png)
 
 ## Review + create tab
 
-When you navigate to the **Review + create** tab, Azure runs validation on the Storage Task settings that you have chosen. If validation passes, you can proceed to create the Storage Task.
+When you navigate to the **Review + create** tab, Azure runs validation on the storage task settings that you have chosen. If validation passes, you can proceed to create the storage task.
 
 If validation fails, then the portal indicates which settings need to be modified.
 
-The following image shows the **Review** tab data prior to the creation of a new Storage Task.
+The following image shows the **Review** tab data prior to the creation of a new storage task.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of review and create tab of the Storage Task create experience.](./media/storage-task-create/storage-task-validation-tab.png)
+> ![Screenshot of review and create tab of the storage task create experience.](./media/storage-task-create/storage-task-validation-tab.png)
 
 ## See also
 
-- [Storage Tasks Overview](overview.md)
-- [Create, assign, and run a Storage Task](storage-task-quickstart-portal.md)
+- [Azure Storage Tasks Overview](overview.md)
+- [Create, assign, and run a storage task](storage-task-quickstart-portal.md)
 - [Define conditions and operations](storage-task-conditions-operations-edit.md)

@@ -1,5 +1,5 @@
 ---
-title: About Storage Tasks
+title: About Azure Storage Tasks
 titleSuffix: Azure Storage
 description: Description of Azure Storage Tasks goes here  
 services: storage
@@ -12,12 +12,12 @@ ms.author: normesta
 
 ---
 
-# What are Azure Storage Tasks?
+# What is Azure Storage Tasks?
 
 Put something here.
 
 > [!IMPORTANT]
-> Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
+> Azure Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
@@ -55,5 +55,5 @@ Put any costs associated with using this service here.
 
 ## Next steps
 
-- [Quickstart: Create, assign, and run a Storage Task by using the Azure portal](storage-task-quickstart-portal.md)
+- [Quickstart: Create, assign, and run a storage task by using the Azure portal](storage-task-quickstart-portal.md)
 - [Known issues with Azure Storage Tasks](storage-task-known-issues.md)

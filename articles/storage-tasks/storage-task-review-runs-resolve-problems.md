@@ -1,5 +1,5 @@
 ---
-title: Review the results of a Storage Task run
+title: Review the results of a storage task run
 description: Description of how to article
 author: normesta
 ms.service: storage-tasks
@@ -8,7 +8,7 @@ ms.author: normesta
 ms.date: 05/10/2023
 ---
 
-# Review the results of a Storage Task run
+# Review the results of a storage task run
 
 View task runs and use Azure Monitor metrics to access success.
 
@@ -16,55 +16,13 @@ View task runs and use Azure Monitor metrics to access success.
 
 For more information about the task report see [Execution reports](storage-task-conditions.md#execution-reports).
 
-### [Portal](#tab/azure-portal)
-
-Put something here.
-
-### [PowerShell](#tab/powershell)
-
-Put something here.
-
-### [Azure CLI](#tab/azure-cli)
-
-Put something here.
-
----
-
-## View metrics in Storage Tasks view
+## View metrics in storage tasks view
 
 For more information about the task report see [Storage Task Monitoring](monitor-storage-tasks.md).
-
-### [Portal](#tab/azure-portal)
-
-Put something here.
-
-### [PowerShell](#tab/powershell)
-
-Put something here.
-
-### [Azure CLI](#tab/azure-cli)
-
-Put something here.
-
----
 
 ## View metrics in Storage Accounts view
 
 For more information about the task report see [Storage Task Monitoring](monitor-storage-tasks.md).
-
-### [Portal](#tab/azure-portal)
-
-Put something here.
-
-### [PowerShell](#tab/powershell)
-
-Put something here.
-
-### [Azure CLI](#tab/azure-cli)
-
-Put something here.
-
----
 
 ## See also
 

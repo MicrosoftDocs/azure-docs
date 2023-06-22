@@ -1,5 +1,5 @@
 ---
-title: Storage Task conditions & operations
+title: Storage task conditions & operations
 titleSuffix: Azure Storage
 description: Description of Azure Storage Tasks conditions goes here.
 services: storage
@@ -12,12 +12,12 @@ ms.author: normesta
 
 ---
 
-# Storage Task conditions and operations
+# Storage task conditions and operations
 
 Put something here.
 
 > [!IMPORTANT]
-> Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
+> Azure Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
@@ -45,7 +45,7 @@ Describe the experience and the benefit.
 
 It can be used to try things out. Then, you can debug issues. For example, tags value and count apply only to accounts that do not have a hierarchical namespace enabled.
 
-## Authorizing access to the Storage Task
+## Authorizing access to the Storage task
 
 Show built-in roles or custom roles with specific actions permissions required to list, read, create, manage and delete storage tasks.
 
@@ -54,4 +54,4 @@ These perms will need to be applied to the task for any other collaborators to e
 ## See also
 
 - [Define conditions and operations](storage-task-conditions-operations-edit.md)
-- [Storage Task assignments](storage-task-assignment.md)
+- [Storage task assignments](storage-task-assignment.md)

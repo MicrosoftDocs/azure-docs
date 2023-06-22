@@ -1,5 +1,5 @@
 ---
-title: Supported operands, properties, operands and values for Storage Tasks
+title: Supported operands, properties, operands and values for storage tasks
 titleSuffix: Azure Storage
 description: Description of Azure Storage reference article goes here.
 services: storage
