@@ -57,7 +57,9 @@ Before you begin, verify that:
 ## Deploy the data connector 
 
 1. Once the solution deployment is complete, return to your Sentinel workspace and select **Data connectors**. 
+
 1. In the search bar, type *Dynamics 365 F&O*, and select **Dynamics 365 F&O (Using Azure Function)**. 
+
 1. Select **Open connector page**.
 
 In the connector page, make sure that you meet the required prerequisites and complete the following [configuration steps](#configure-the-data-connector).
@@ -70,6 +72,7 @@ In the connector page, make sure that you meet the required prerequisites and co
 ### Deploy the Azure Resource Manager (ARM) template
 
 1. Select **Deploy to Azure**.
+
 1. Follow the installation wizard to complete deployment. 
 
 ### Enable data collection
@@ -79,25 +82,33 @@ To enable data collection, you create a new role in Finance and Operations with 
 To collect the managed identity application ID from Azure Active Directory: 
 
 1. In the [Azure Active Directory portal](https://aad.portal.azure.com/), select **Enterprise Applications**.
+
 1. Change the application type filter to **Managed Identities**.
+
 1. Search for and open the Function App created in the [previous step](#deploy-the-azure-resource-manager-arm-template). Copy the Application ID and save it for later use. 
 
 ### Create a role for data collection in Finance and Operations 
 
 1. In the Finance and Operations portal, navigate to **Workspaces > System administration**, and select **Security Configuration**.
+
 1. Under **Roles**, select **Create new** and give the new role a name, for example, *Database Log Viewer*.
+
 1. Select the new role from the list of roles, and select **Privileges** > **Add references**.
+
 1. Select **Database log Entity View** from the list of privileges. 
+
 1. Select **Unpublished objects**, and select **Publish all** to publish the role. 
 
 #### Create a user for data collection in Finance and Operations 
 
 1. In the Finance and Operations portal, navigate to **Modules > System administration**, and select **Users**.
+
 1. Create a new user and assign the role you [created in the previous step](#create-a-role-for-data-collection-in-finance-and-operations) to the user. 
 
 #### Register the managed identity in Finance and Operations
 
 1. In the Finance and Operations portal, navigate to **System administration > Setup > Azure Active Directory** applications.
+
 1. Create a new entry in the table: 
     - For the **Client Id**, type the application ID of the managed identity.
     - For the **Name**, type a name for the application. 
