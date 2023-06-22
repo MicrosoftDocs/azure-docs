@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal"
+title: "Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal"
 description: Shows how to quickly stand up WebLogic Server on Azure Kubernetes Service
 author: KarlErickson
 ms.author: edburns
