@@ -22,7 +22,7 @@ People regularly use their mobile devices for both personal and work tasks. Whil
 With Conditional Access, organizations can restrict access to [approved (modern authentication capable) client apps with Intune app protection policies](concept-conditional-access-grant.md#require-app-protection-policy). For older client apps that may not support app protection policies, administrators can restrict access to [approved client apps](concept-conditional-access-grant.md#require-approved-client-app).
 
 > [!WARNING]
-> App protection policies are supported on iOS and Android only.
+> App protection policies are supported on iOS and Android where applications meet specific requirements. **App protection policies are supported on Windows in preview for the Microsoft Edge browser only.**
 >
 > Not all applications that are supported as approved applications or support application protection policies. For a list of some common client apps, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy). If your application is not listed there, contact the application developer.
 > 
@@ -53,7 +53,7 @@ Organizations can choose to deploy this policy using the steps outlined below or
 1. Under **Cloud apps or actions**, select **All cloud apps**.
 1. Under **Conditions** > **Device platforms**, set **Configure** to **Yes**.
    1. Under **Include**, **Select device platforms**.
-   1. Choose **Android** and **iOS**
+   1. Choose **Android** and **iOS**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**.
    1. Select **Require approved client app** and **Require app protection policy**
