@@ -16,7 +16,7 @@ To enable Azure Remote Rendering (ARR) in Unity, some project configuration may 
 
 When using **OpenXR**, the **Azure Remote Rendering** feature must be enabled in the Unity OpenXR settings.
 
-![Screenshot of the Unity Project Settings dialog. The Open X R subentry is selected in the list on the left. The Azure Remote Rendering Open X R feature is highlighted with a checked checkbox.](./media/openxr-feature-setting.png)
+![Screenshot of the Unity Project Settings dialog. The Open XR subentry is selected in the list on the left. The Azure Remote Rendering Open XR feature is highlighted with a checked checkbox.](./media/openxr-feature-setting.png)
 
 For other required and recommended project settings, use the **Project Validator** included in the Azure Remote Rendering Unity package:
 1. Choose the **ValidateProject** entry from the **Remote Rendering** menu in the Unity editor toolbar.
