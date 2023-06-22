@@ -151,7 +151,11 @@ The `rules` section contains the following properties for alerting rules.
 
 ### Converting Prometheus rules file to a Prometheus rule group ARM template
 
-If you have a Prometheus rules configuration file (in YAML format), you can now convert it to an Azure Prometheus rule group ARM template, using the [az-prom-rules-converter utility](https://github.com/Azure/prometheus-collector/tree/main/tools/az-prom-rules-converter#az-prom-rules-converter)
+If you have a [Prometheus rules configuration file](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#configuring-rules) (in YAML format), you can now convert it to an Azure Prometheus rule group ARM template, using the [az-prom-rules-converter utility](https://github.com/Azure/prometheus-collector/tree/main/tools/az-prom-rules-converter#az-prom-rules-converter). In addition to the rules file, you can provide the utilty with additional parameters needed to create the Azure Prometheus rule grou, including: subscription, resource group, location, target Azure Monitor workspace, target clusterName, and action groups (used for alert rules). The utility creates a template file that can be deployed directly or within a deployment pipe providing some of these parameters as variables.
+
+> [!NOTE] 
+> The az-prom-convert-utility is provided as a courtesy tool. We recommend that you review the resulting template and verify it matches your intended configuration.
+
 
 ### Creating Prometheus rule group using Azure CLI
 
