@@ -94,7 +94,7 @@ To configure the above architecture, we'll use the following P2S VPN logs and Po
 
 ## Create Azure Key Vault
 
-1. Create [Azure Key Vault](../azure-functions/functions-identity-based-connections-tutorial.md#create-an-azure-key-vaults).
+1. Create [Azure Key Vault](../azure-functions/functions-identity-based-connections-tutorial.md#create-an-azure-key-vault).
     1. For **Permission model**, select **Vault access policy**.
     2. Leave the options under **Resource access** as disabled.
     3. Under **Access policies**, select **+ Create**.
