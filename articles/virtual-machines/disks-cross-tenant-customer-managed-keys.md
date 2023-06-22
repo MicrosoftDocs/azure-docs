@@ -2,11 +2,10 @@
 title: Use a disk encryption set across Azure AD tenants
 description: Learn how to use customer-managed keys with your Azure disks in different Azure AD tenants.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
