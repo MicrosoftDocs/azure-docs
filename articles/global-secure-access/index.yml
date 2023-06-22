@@ -55,8 +55,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Target resource
-            url: how-to-target-resource.md
+          - text: Conditional Access for the Microsoft 365 traffic profile
+            url: how-to-target-resource-microsoft-365-profile.md
+          - text: Conditional Access for Private Access apps
+            url: how-to-target-resource-private-access-apps.md
           - text: Source IP restoration
             url: how-to-source-ip-restoration.md
           - text: Compliant network check

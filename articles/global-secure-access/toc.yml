@@ -40,8 +40,8 @@ items:
       - name: Private Access apps
         href: how-to-conditional-access-private-access.md
       - name: Microsoft 365 traffic profile
-        href: how-to-target-resource.md
-      - name: Enable source IP restoration
+        href: how-to-target-resource-microsoft-365-profile.md
+      - name: Source IP restoration
         href: how-to-source-ip-restoration.md
       - name: Conditional Access for private access apps
         href: how-to-source-ip-restoration.md

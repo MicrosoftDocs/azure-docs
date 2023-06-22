@@ -5,7 +5,7 @@ description: How to use a traffic profile in a Conditional Access policy.
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 06/22/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -14,11 +14,9 @@ ms.reviewer: mamkumar
 ---
 # Universal Conditional Access through Global Secure Access
 
-In addition to sending traffic to Global Secure Access (preview), administrators can use Conditional Access policies to secure traffic profiles. They can mix and match controls as needed like requiring multifactor authentication, requiring a compliant device, or defining an acceptable sign-in risk. Applying these controls to network traffic not just cloud applications allows for what we call universal Conditional Access.
+With a devoted traffic forwarding profile for all of your Microsoft 365 traffic, you can apply Conditional Access policies to all of your Microsoft 365 traffic. With Conditional Access you can require multifactor authentication and device compliance for accessing Microsoft 365 resources. 
 
-Conditional Access on traffic profiles provides administrators with enormous control over their security posture. Administrators can enforce [Zero Trust principles](/security/zero-trust/) using policy to manage access to the network. Using traffic profiles allows consistent application of policy. For example, applications that don't support modern authentication can now be protected behind a traffic profile.
-
-This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profiles](concept-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365 or private, internal resources with these policies. Users can access these configured endpoints or traffic profiles only when they satisfy the configured Conditional Access policies. 
+This article describes how to apply Conditional Access policies to your Microsoft 365 traffic forwarding profile.
 
 ## Prerequisites
 
@@ -26,11 +24,11 @@ This functionality allows administrators to consistently enforce Conditional Acc
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
 * A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running.
-* You must be routing your Microsoft 365 and private network traffic through the **Global Secure Access preview**.
+* You must be routing your Microsoft 365 traffic through the **Global Secure Access preview**.
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 
-The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, or hybrid Azure AD join when accessing Microsoft 365 traffic.
+The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, and hybrid Azure AD join when accessing Microsoft 365 traffic.
 
 :::image type="content" source="media/how-to-target-resource/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
 
@@ -52,13 +50,7 @@ The following example policy targets all users except for your break-glass accou
 
 After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
-
-
-## Create a Conditional Access policy targeting the per-app applications
-
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Next steps
 
+- [Learn about traffic forwarding profiles](concept-traffic-forwarding.md)
 - [Manage the Microsoft 365 traffic profile](how-to-manage-microsoft-365-profile.md)
-- [Manage the private access traffic profile](how-to-manage-private-access-profile.md)

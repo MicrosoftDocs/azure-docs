@@ -40,7 +40,7 @@ To set up Microsoft Entra Internet Access, complete the following steps:
 Optionally: 
 
 - [Create a remote network](how-to-manage-remote-networks.md).
-- [Target the Microsoft 365 traffic profile with Conditional Access policy](how-to-target-resource.md).
+- [Target the Microsoft 365 traffic profile with Conditional Access policy](how-to-target-resource-microsoft-365-profile.md).
 - [Review the Global Secure Access logs](concept-global-secure-access-logs-monitoring.md).
 
 ## Microsoft Entra Private Access
