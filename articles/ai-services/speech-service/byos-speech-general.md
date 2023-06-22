@@ -1,5 +1,5 @@
 ---
-title: How to use "Bring-your-own-service" (BYOS) Speech resource
+title: How to use Bring your own storage (BYOS) Speech resource
 titleSuffix: Azure Cognitive Services
 description: Learn how to use "Bring-your-own-service" (BYOS) Speech resource.
 services: cognitive-services
