@@ -7,7 +7,7 @@ ms.date: 06/21/2023
 ms.author: yelevin
 ---
 
-# Create and customize Microsoft Sentinel playbooks from out-of-the-box templates
+# Create and customize Microsoft Sentinel playbooks from content templates
 
 A playbook template is a prebuilt, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
 
