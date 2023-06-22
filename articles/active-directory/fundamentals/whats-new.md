@@ -77,7 +77,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Entitlement Management                          
 **Product capability:** Entitlement Management                
 
-The Entitlement Management service can now be targeted in the conditional access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “*Azure AD Identity Governance - Entitlement Management*” in the cloud apps picker. For more information, see: [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies).
+The Entitlement Management service can now be targeted in the conditional access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “Azure AD Identity Governance - Entitlement Management” in the cloud apps picker. The Entitlement Management app includes the entitlement management part of My Access, the Entitlement Management part of the Entra and Azure portals, and the Entitlement Management part of MS Graph. For more information, see:  [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies).
 
 ---
 
@@ -88,6 +88,39 @@ The Entitlement Management service can now be targeted in the conditional access
 **Product capability:** End User Experiences                  
 
 The Azure Mobile app now includes a section for Azure Active Directory. Within Azure Active Directory on mobile, user can search for and view more details about user and groups. Additionally, permitted users can invite guest users to their active tenant, assign group memberships and ownerships for users, and view user sign-in logs. For more information, see: [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+
+---
+
+### General Availability - Privileged Identity Management for Groups
+
+**Type:** New feature       
+**Service category:** Privileged Identity Management                               
+**Product capability:** Privileged Identity Management                 
+
+Privileged Identity Management for Groups is now generally available. With this feature, you have the ability to grant users just-in-time membership in a group, which in turn provides access to Azure Active Directory roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, as well as third-party applications. Through one activation, you can conveniently assign a combination of permissions across different applications and RBAC systems.
+
+PIM for Groups offers can also be used for just-in-time ownership. As the owner of the group, you can manage group properties, including membership. For more information, see: [Privileged Identity Management (PIM) for Groups](../privileged-identity-management/concept-pim-for-groups.md).
+
+---
+
+### General Availability - Privileged Identity Management and Conditional Access integration 
+
+**Type:** New feature       
+**Service category:** Privileged Identity Management                               
+**Product capability:** Privileged Identity Management                    
+
+The Privileged Identity Management (PIM) integration with Conditional Access authentication context is generally available. You can require users to meet a variety of requirements during role activation such as:
+
+- Have specific authentication method through [Authentication Strengths](../authentication/concept-authentication-strengths.md)
+- Activate from a compliant device 
+- Validate location based on GPS
+- Not have certain level of sign-in risk identified with Identity Protection
+- Meet other requirements defined in Conditional Access policies
+
+The integration is available for all providers: PIM for Azure AD roles, PIM for Azure resources, PIM for groups.For more information, see:
+- [Configure Azure AD role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
+- [Configure Azure resource role settings in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-configure-role-settings.md)
+- [Configure PIM for Groups settings](../privileged-identity-management/groups-role-settings.md)
 
 ---
 
