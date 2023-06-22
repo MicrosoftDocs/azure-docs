@@ -96,8 +96,8 @@ Refresh and session token configuration are affected by the following properties
 |Refresh Token Max Inactive Time |MaxInactiveTime  |Refresh tokens |90 days  |
 |Single-Factor Refresh Token Max Age  |MaxAgeSingleFactor  |Refresh tokens (for any users)  |Until-revoked  |
 |Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Refresh tokens (for any users) |Until-revoked  |
-|Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent)  |Until-revoked |
-|Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and nonpersistent)  |Until-revoked |
+|Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Session tokens (persistent and non-persistent)  |Until-revoked |
+|Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and non-persistent)  |Until-revoked |
 
 Non-persistent session tokens have a Max Inactive Time of 24 hours whereas persistent session tokens have a Max Inactive Time of 90 days. Anytime the SSO session token is used within its validity period, the validity period is extended another 24 hours or 90 days. If the SSO session token isn't used within its Max Inactive Time period, it's considered expired and will no longer be accepted. Any changes to this default period should be changed using [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
@@ -124,9 +124,9 @@ You can use the following Microsoft Graph REST API commands for service principa
 
 | Command | Description |
 | --- | --- |
-| [Assign tokenLifetimePolicy](/graph/api/application-post-tokenlifetimepolicies) | Specifiy the service principal object ID to link the specified policy to a service principal. |
+| [Assign tokenLifetimePolicy](/graph/api/application-post-tokenlifetimepolicies) | Specify the service principal object ID to link the specified policy to a service principal. |
 | [List assigned tokenLifetimePolicy](/graph/api/application-list-tokenlifetimepolicies) | Specify the service principal object ID to get the policies that are assigned to a service principal. |
-| [Remove tokenLifetimePolicy](/graph/api/application-delete-tokenlifetimepolicies) | Specifiy the service principal object ID to remove a policy from the service principal. |
+| [Remove tokenLifetimePolicy](/graph/api/application-delete-tokenlifetimepolicies) | Specify the service principal object ID to remove a policy from the service principal. |
 
 ## Cmdlet reference
 
