@@ -7,7 +7,7 @@ ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.date: 09/14/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022
