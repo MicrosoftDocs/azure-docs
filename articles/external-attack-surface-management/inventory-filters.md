@@ -24,12 +24,12 @@ Defender EASM offers a wide variety of filters to obtain results of differing le
 ![Screenshot of expanded inventory filters.](media/filters-1.png)
 
 
-## Saved filters 
+## Saved queries 
 
 Users can save queries of interest to quickly access the resulting asset list.  This is beneficial to users who search for a particular subsets of assets on a routine basis, or need to easily refer to a specific filter configuration at a later time.  Saved filters help you easily access the assets you care about most based on highly customizable parameters.  
 
 
-To save a filter: 
+To save a query: 
 
 1. First, carefully select the filter(s) that will produce your desired results.  For more information on the applicable filters for each kind of asset, please see the "Next Steps" section. In this example, we are searching for domains expiring within 30 days that require renewal. Select **Search**.
 
@@ -37,12 +37,13 @@ To save a filter:
 
 2. Review the resulting assets. If you are satisfied with the selected filter(s) and wish to save the query, seleect **Save query**.
   
-3. Name your query, and provide a description. Once done, select **Save**.
+3. Name your query and provide a description. Please note that query names cannot be edited after the initial setup, but descriptions can be changed at a later time. Once done, select **Save**. A banner will appear that confirms the query has been saved. 
 
     ![Screenshot of saved query configuration page.](media/savedfilters-2.png)
 
-4. To view your saved filters, select the "Saved queries" tab at the top of the inventory list page. Any saved queries will be visible from the top section, and selecting any saved query name will filter your inventory by the designated parameters. 
+4. To view your saved filters, select the "Saved queries" tab at the top of the inventory list page. Any saved queries will be visible from the top section, and selecting "Open query" will filter your inventory by the designated parameters. From this page, you can also edit or delete saved queries. 
 
+    ![Screenshot of saved query tab on inventory with save confirmation banner displayed.](media/savedfilters-3.png)
 
 
 ## Operators
