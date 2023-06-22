@@ -183,7 +183,9 @@ With PIM for Groups, you can provide just-in-time access to groups in Amazon Web
 1. Assign your test user as [eligible for the group in PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
 
 
-Now any end user that was made eligible for the group in step 3 can get JIT access to the group in AWS by following the steps outlined [here](https://learn.microsoft.com/en-us/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
+Now any end user that was made eligible for the group in step 3 can get JIT access to the group in AWS by following the steps outlined [here].(https://learn.microsoft.com/en-us/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
+
+[!IMPORTANT] The group membership is provisioned roughly a minute after the activation is complete. Please wait before attempting to sign-in to AWS. If the user is unable to access the necessary group in AWS, please review the troubleshooting tips below and provisioning logs to ensure that the user was successfully provisioned. 
 
 ## Troubleshooting Tips
 
