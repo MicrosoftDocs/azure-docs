@@ -298,37 +298,37 @@ Before using these settings to help you secure this data, review these considera
 
    In the trigger or action's upper right corner, select the ellipses (**...**) button, and select **Settings**.
 
-   ![Screenshot shows Azure portal, Consumption workflow designer, and trigger or action with opened settings.](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-consumption.png)
+    [ ![Screenshot shows Azure portal, Consumption workflow designer, and trigger or action with opened settings.](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-consumption.png) ](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-consumption.png#lightbox)
 
    **Standard workflows**
 
    On the designer, select the trigger or action to open the information pane. On the **Settings** tab, expand **Security**.
 
-   ![Screenshot shows Azure portal, Standard workflow designer, and trigger or action with opened settings.](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-standard.png)
+   [ ![Screenshot shows Azure portal, Standard workflow designer, and trigger or action with opened settings.](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-standard.png) ](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-standard.png#lightbox)
 
 1. Turn on either **Secure Inputs**, **Secure Outputs**, or both. For Consumption workflows, make sure to select **Done**.
 
    **Consumption workflows**
 
-   ![Screenshot shows Consumption workflow with an action's Secure Inputs or Secure Outputs settings enabled.](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-consumption.png)
+   [ ![Screenshot shows Consumption workflow with an action's Secure Inputs or Secure Outputs settings enabled.](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-consumption.png) ](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-consumption.png#lightbox)
 
    The trigger or action now shows a lock icon in the title bar.
 
-   ![Screenshot shows Consumption workflow and an action's title bar with lock icon.](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar-consumption.png)
+   [ ![Screenshot shows Consumption workflow and an action's title bar with lock icon.](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar-consumption.png)](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar-consumption.png#lightbox)
 
    **Standard workflows**
 
-   ![Screenshot shows Standard workflow with an action's Secure Inputs or Secure Outputs settings enabled.](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-standard.png)
+   [ ![Screenshot shows Standard workflow with an action's Secure Inputs or Secure Outputs settings enabled.](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-standard.png) ](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-standard.png#lightbox)
 
    Tokens that represent secured outputs from previous actions also show lock icons. For example, in a subsequent action, after you select a token for a secured output from the dynamic content list, that token shows a lock icon.
 
    **Consumption workflows**
 
-   ![Screenshot shows Consumption workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon.](./media/logic-apps-securing-a-logic-app/select-secured-token-consumption.png)
+   [ ![Screenshot shows Consumption workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon.](./media/logic-apps-securing-a-logic-app/select-secured-token-consumption.png) ](./media/logic-apps-securing-a-logic-app/select-secured-token-consumption.png#lightbox)
 
    **Standard workflows**
 
-   ![Screenshot shows Standard workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon.](./media/logic-apps-securing-a-logic-app/select-secured-token-standard.png)
+   [ ![Screenshot shows Standard workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon.](./media/logic-apps-securing-a-logic-app/select-secured-token-standard.png) ](./media/logic-apps-securing-a-logic-app/select-secured-token-standard.png#lightbox)
 
 1. After the workflow runs, you can view the history for that run.
 
@@ -340,7 +340,7 @@ Before using these settings to help you secure this data, review these considera
 
       If you chose to hide both inputs and outputs, those values now appear hidden.
 
-      ![Screenshot shows Consumption workflow run history view with hidden inputs and outputs.](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-consumption.png)
+      [ ![Screenshot shows Consumption workflow run history view with hidden inputs and outputs.](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-consumption.png) ](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-consumption.png#lightbox)
 
    **Standard workflows**
 
@@ -350,7 +350,7 @@ Before using these settings to help you secure this data, review these considera
 
       If you chose to hide both inputs and outputs, those values now appear hidden.
 
-      ![Screenshot shows Standard workflow run history view with hidden inputs and outputs.](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-standard.png)
+      [ ![Screenshot shows Standard workflow run history view with hidden inputs and outputs.](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-standard.png)](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-standard.png#lightbox)
 
 <a name="secure-data-code-view"></a>
 
@@ -1245,13 +1245,13 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
 
        The following example adds a trigger:
 
-       ![Screenshot shows Azure portal, Consumption workflow designer, and Azure API Management trigger.](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png)
+      [ ![Screenshot shows Azure portal, Consumption workflow designer, and Azure API Management trigger.](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png) ](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png#lightbox)
 
     1. Select your previously created API Management service instance.
 
     1. Select the API operation to call.
 
-       ![Screenshot shows Azure portal, Consumption workflow designer, and selected API to call.](./media/logic-apps-securing-a-logic-app/select-api-consumption.png)
+       [ ![Screenshot shows Azure portal, Consumption workflow designer, and selected API to call.](./media/logic-apps-securing-a-logic-app/select-api-consumption.png) ](./media/logic-apps-securing-a-logic-app/select-api-consumption.png#lightbox)
 
     **Standard workflows**
 
@@ -1261,13 +1261,13 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
 
     1. After the **Add an action** pane opens, under the search box, from the **Runtime** list, select **In-App** to show only built-in connectors. Select the built-in action named **Call an Azure API Management API**.
 
-       ![Screenshot shows Azure portal, Standard workflow designer, and Azure API Management action.](./media/logic-apps-securing-a-logic-app/select-api-management-standard.png)
+       [ ![Screenshot shows Azure portal, Standard workflow designer, and Azure API Management action.](./media/logic-apps-securing-a-logic-app/select-api-management-standard.png) ](./media/logic-apps-securing-a-logic-app/select-api-management-standard.png#lightbox)
 
     1. Select your previously created API Management service instance.
 
     1. Select the API to call. If your connection is new, select **Create New**.
 
-       ![Screenshot shows Azure portal, Standard workflow designer, and selected API to call.](./media/logic-apps-securing-a-logic-app/select-api-standard.png)
+       [ ![Screenshot shows Azure portal, Standard workflow designer, and selected API to call.](./media/logic-apps-securing-a-logic-app/select-api-standard.png) ](./media/logic-apps-securing-a-logic-app/select-api-standard.png#lightbox)
 
 <a name="add-authentication-outbound"></a>
 
