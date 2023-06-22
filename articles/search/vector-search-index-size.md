@@ -20,9 +20,9 @@ The service enforces a vector index size quota **for every partition** in your s
 
 There are three major components that affect the size of your internal vector index:
 
-1. Raw size of the data
-1. Overhead from the selected algorithm
-1. Overhead from deleting or updating documents within the index
+- Raw size of the data
+- Overhead from the selected algorithm
+- Overhead from deleting or updating documents within the index
 
 ### Raw size of the data
 
