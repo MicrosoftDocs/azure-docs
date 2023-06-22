@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Defender EASM inventory filters overview
 
-This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management (Defender EASM), helping users surface specific subsets of inventory assets based on selected parameters.  This documentation section outlines each filter and operator and provides guidance on input options that yield the best results.  
+This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management (Defender EASM), helping users surface specific subsets of inventory assets based on selected parameters.  This documentation section outlines each filter and operator and provides guidance on input options that yield the best results.  It also explains how to save queries for easy accessibility to the filtered results. 
 
 ## How it works 
 
@@ -22,6 +22,27 @@ By default, the Inventory screen displays only Approved Inventory assets, hiding
 Defender EASM offers a wide variety of filters to obtain results of differing levels of granularity.  Some filters allow you to select value options from a dropdown, whereas others require the manual entry of the desired value.  
 
 ![Screenshot of expanded inventory filters.](media/filters-1.png)
+
+
+## Saved filters 
+
+Users can save queries of interest to quickly access the resulting asset list.  This is beneficial to users who search for a particular subsets of assets on a routine basis, or need to easily refer to a specific filter configuration at a later time.  Saved filters help you easily access the assets you care about most based on highly customizable parameters.  
+
+
+To save a filter: 
+
+1. First, carefully select the filter(s) that will produce your desired results.  For more information on the applicable filters for each kind of asset, please see the "Next Steps" section. In this example, we are searching for domains expiring within 30 days that require renewal. Select **Search**.
+
+    ![Screenshot of inventory page with "Search" and "Saved query" buttons highlighted.](media/savedfilters-1.png)
+
+2. Review the resulting assets. If you are satisfied with the selected filter(s) and wish to save the query, seleect **Save query**.
+  
+3. Name your query, and provide a description. Once done, select **Save**.
+
+    ![Screenshot of saved query configuration page.](media/savedfilters-2.png)
+
+4. To view your saved filters, select the "Saved queries" tab at the top of the inventory list page. Any saved queries will be visible from the top section, and selecting any saved query name will filter your inventory by the designated parameters. 
+
 
 
 ## Operators
@@ -109,3 +130,11 @@ The following filters require that the user manually enters the value with which
 ## Next Steps 
 
 [Understanding asset details](understanding-asset-details.md)
+[ASN asset filters](asn-asset-filters.md) 
+[Contact asset filters](contact-asset-filters.md) 
+[Domain asset filters](domain-asset-filters.md)
+[Host asset  filters](host-asset-filters.md) 
+[IP address asset filters](ip-address-asset-filters.md) 
+[IP block asset filters](ip-block-asset-filters.md) 
+[Page asset filters](page-asset-filters.md) 
+[SSL certificate asset filters](ssl-certificate-asset-filters.md) 
