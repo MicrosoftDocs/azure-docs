@@ -116,4 +116,4 @@ In this tutorial, you learned how to:
 Read the Overview of the cost optimization pillar to learn about the principles for balancing business goals with budget justification.
 
 > [!div class="nextstepaction"]
-> [Overview of the Well-Architected Framework cost optimization pillar](/well-architected/cost/overview)
+> [Overview of the Well-Architected Framework cost optimization pillar](/azure/well-architected/cost/overview)
