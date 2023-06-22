@@ -90,5 +90,5 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 
 ## Next steps
 
-- Read about [Cost allocation](capabilities-cost-allocation.md) to learn how to allocate costs to business units and applications.
+- Read about [Cost allocation](capabilities-allocation.md) to learn how to allocate costs to business units and applications.
 - Read about [Data analysis and showback](capabilities-analysis-showback.md) to learn how to analyze and report on costs.
