@@ -78,7 +78,7 @@ To resolve this problem, delete the resource bridge, register the providers, the
 
 ### Expired credentials in the appliance VM
 
-Arc resource bridge consists of an appliance VM that is deployed to the on-premises infrastructure. The appliance VM maintains a connection to the management endpoint of the on-premises infratructure using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the management endpoint. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
+Arc resource bridge consists of an appliance VM that is deployed to the on-premises infrastructure. The appliance VM maintains a connection to the management endpoint of the on-premises infrastructure using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the management endpoint. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
 
 To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
 
