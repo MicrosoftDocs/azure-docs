@@ -41,7 +41,7 @@ highlightedContent:
       itemType: concept
       url: costs/understand-work-scopes.md
     - title: What is FinOps?
-      itemType: concept
+      itemType: video
       url: finops/overview-finops.md
 
 productDirectory:
