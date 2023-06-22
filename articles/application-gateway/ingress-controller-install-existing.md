@@ -120,7 +120,7 @@ looks something like this: `/subscriptions/A/resourceGroups/B/providers/Microsof
     ```
 
 >[!Note]
->If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has _Network Contributor_ role assigned to the subnet the Application Gateway is deployed into.
+>If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has the Microsoft.Network/virtualNetworks/subnets/join/action permission.  To do so, you may assign the built-in _Network Contributor role_ to the managed identity used by AGIC to the subnet the Application Gateway is deployed into.
 
 ## Using a Service Principal
 It's also possible to provide AGIC access to ARM via a Kubernetes secret.
