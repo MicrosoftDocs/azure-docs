@@ -13,7 +13,7 @@ metadata:
   ms.topic: hub-page
   author: kcpitt
   ms.author: kellypi
-  ms.date: 02/25/2023
+  ms.date: 06/23/2023
   featureFlags:
   - clicktale
 highlightedContent:
@@ -747,6 +747,10 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/app-configuration.svg
       azureCategories:
         - developer-tools
+        - containers
+        - mobile
+        - security
+        - web
       url: azure-app-configuration/index.yml
     # Card
     - title: Azure Data Studio
@@ -882,6 +886,7 @@ productDirectory:
       azureCategories:
         - devops
         - developer-tools
+        - azure-virtual-desktop
       url: dev-box/index.yml
     # Card
     - title: Azure Active Directory (AD)
@@ -1588,6 +1593,51 @@ productDirectory:
        - networking
        - 5g-space
       url: network-function-manager/index.yml
+    # Card
+    - title: Azure Container Storage
+      summary: Manage persistent volumes for stateful container applications
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - storage
+       - containers
+      url: /storage/container-storage/
+   # Card
+    - title: Azure Managed Lustre
+      summary: A fully managed, cloud based parallel file system that enables customers to run their high performance computing (HPC) workloads in the cloud
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - storage
+      url: /azure-managed-lustre/
+   # Card
+    - title: Azure confidential ledger
+      summary: Tamperproof, unstructured data store hosted in trusted execution environments (TEEs) and backed by cryptographically verifiable evidence
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - storage
+       - databases
+       - security
+      url: /confidential-ledger/
+   # Card
+    - title: Azure Lab Services
+      summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - azure-virtual-desktop
+      url: /lab-services/
+   # Card
+    - title: Azure IoT
+      summary: A collection of Microsoft-managed cloud and edge services that connect, monitor, and control billions of IoT assets.
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - iot
+      url: /iot/
+    # Card
+    - title: Windows for IoT
+      summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - iot
+      url: /windows/iot/   
 tools:
   title: Languages and tools
   items:
