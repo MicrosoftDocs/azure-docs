@@ -5,8 +5,7 @@ description: Use the Azure CLI to manage access control lists (ACL) in storage a
 services: storage
 author: normesta
 
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: normesta

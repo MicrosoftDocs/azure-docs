@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Copy data to and from Azure Data Lake Storage Gen2 using the Apache Hadoop distributed copy tool (DistCp).
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta

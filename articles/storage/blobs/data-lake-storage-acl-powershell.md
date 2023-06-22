@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Use PowerShell cmdlets to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
