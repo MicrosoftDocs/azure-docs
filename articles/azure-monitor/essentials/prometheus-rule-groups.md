@@ -149,6 +149,10 @@ The `rules` section contains the following properties for alerting rules.
 | `rules.resolveConfigurations.timeToResolve` | False | string | Alert auto resolution timeout. Default = "PT5M" |
 | `rules.action[].actionGroupId` | false | string | One or more action group resource IDs. Each is activated when an alert is fired. |
 
+### Converting Prometheus rules file to a Prometheus rule group ARM template
+
+If you have a Prometheus rules configuration file (in YAML format), you can now convert it to an Azure Prometheus rule group ARM template, using the [az-prom-rules-converter utility](https://github.com/Azure/prometheus-collector/tree/main/tools/az-prom-rules-converter#az-prom-rules-converter)
+
 ### Creating Prometheus rule group using Azure CLI
 
 You can use Azure CLI to create and configure Prometheus rule groups, alert rules, and recording rules. The following code examples use [Azure Cloud Shell](../../cloud-shell/overview.md). 
