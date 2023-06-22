@@ -61,7 +61,8 @@ It's important to use the latest HEVC codec, as newer versions have significant 
 
 ### HoloLens 2
 
-Note that the [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.
+> [!NOTE]
+> The [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.
 
 ### Quest 2 and Quest Pro
 
