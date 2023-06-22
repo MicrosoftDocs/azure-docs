@@ -34,9 +34,9 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * There's no need to repeatedly create clusters for each VM size needed, using same settings, and replicating for each workspace.  
 * You can optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would need.
 * To further simplify job submission, you can skip the resources altogether. Azure Machine Learning defaults the instance count and chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. 
-* Lesser wait times before job starts executing in some cases
+* Lesser wait times before job starts executing in some cases.
 * User identity and workspace user assigned managed identity is supported for job submission. 
-* With managed network isolation you can streamline and automate your network isolation configuration 
+* With managed network isolation you can streamline and automate your network isolation configuration.
 
 ## How to use serverless compute
 
@@ -344,7 +344,7 @@ resources:
 
 ## AutoML job
 
-There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an automl image classification or NLP task with no instance type, we will automatically select a GPU VM size. It is possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the *Guided experience for submitting training jobs with serverless compute* feature in the preview panel and then [submit a training job in studio (preview)](how-to-train-with-ui.md).
+There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an AutoML image classification or NLP task with no instance type, we will automatically select a GPU VM size. It is possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the *Guided experience for submitting training jobs with serverless compute* feature in the preview panel and then [submit a training job in studio (preview)](how-to-train-with-ui.md).
 
 # [Python SDK](#tab/python)
 
