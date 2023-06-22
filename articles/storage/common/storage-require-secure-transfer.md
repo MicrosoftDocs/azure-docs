@@ -5,12 +5,12 @@ description: Learn how to require secure transfer for requests to Azure Storage.
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: jammart
 ms.reviewer: fryu
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---

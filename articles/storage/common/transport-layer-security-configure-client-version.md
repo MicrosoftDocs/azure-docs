@@ -5,12 +5,12 @@ description: Configure a client application to communicate with Azure Storage us
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/29/2022
 ms.author: jammart
 ms.reviewer: fryu
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell, engagement-fy23
 ---
