@@ -88,7 +88,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
     1. Click the **Open XR** checkbox under **Plug-In Providers**
     1. If a dialog opens that asks you to enable the native platform backends for the new input system click **No**.
 
-    ![Screenshot of the Unity Project Settings dialog. The X R Plug-in Management entry is selected in the list on the left. The tab with the windows logo is highlighted on the right. The Open XR checkbox below it is also highlighted.](./media/xr-plugin-management-settings.png)
+    ![Screenshot of the Unity Project Settings dialog. The XR Plug-in Management entry is selected in the list on the left. The tab with the windows logo is highlighted on the right. The Open XR checkbox below it is also highlighted.](./media/xr-plugin-management-settings.png)
 
     > [!NOTE]
     > If the **Microsoft HoloLens feature group** is disabled the Windows Mixed Reality OpenXR Plugin is missing from your project. Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to install it.
