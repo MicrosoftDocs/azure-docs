@@ -26,7 +26,22 @@ landingContent:
       links:
       - text: What is FinOps?
         url: overview-finops.md
-    - linkListType: tutorial
+    - linkListType: video
       links:
       - text: Conduct a FinOps iteration
         url: conduct-finops-iteration.md
+
+# Card (optional)
+
+  - title: Resources
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: FinOps with Azure e-book
+        url: https://aka.ms/finops/ebook
+      - text: FinOps Foundation
+        url: https://finops.org/
+    - linkListType: video
+      links:
+      - text: FinOps The operating model for the cloud
+        url: https://www.youtube.com/watch?v=VDrcgEne6lU

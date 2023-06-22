@@ -29,7 +29,7 @@ The FinOps Foundation, a non-profit organization focused on FinOps, offers a gre
 
 >[!VIDEO https://www.youtube.com/embed/VDrcgEne6lU]
 
-[FinOps The operating model for the cloud - YouTube](https://www.youtube.com/watch?v=VDrcgEne6lU)
+[FinOps The operating model for the cloud](https://www.youtube.com/watch?v=VDrcgEne6lU)
 
 ## Partnership with the FinOps Foundation
 
