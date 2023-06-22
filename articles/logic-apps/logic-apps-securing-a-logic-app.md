@@ -1245,7 +1245,7 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
 
        The following example adds a trigger:
 
-      [ ![Screenshot shows Azure portal, Consumption workflow designer, and Azure API Management trigger.](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png) ](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png#lightbox)
+       [ ![Screenshot shows Azure portal, Consumption workflow designer, and Azure API Management trigger.](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png) ](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png#lightbox)
 
     1. Select your previously created API Management service instance.
 
