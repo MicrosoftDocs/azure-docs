@@ -37,7 +37,7 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 1. Install [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) using the Azure AD global administrator account.
 
     1. Configure SCP and synchronize. 
-    1. Verify the domain local user is synced with Azure AD users. 
+    1. In the Azure portal, verify the domain local user is synced with Azure AD users. 
     <!-- how to ? -->
     >[!NOTE]
     >After the initial configuration, when you add a new local user, you must run the `Start-ADSyncSyncCycle` command in the Administrator PowerShell to synchronize the new user to Azure AD.
@@ -88,11 +88,10 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     > If you run into issues signing on, select more choices, then provide credentials. 
 
 1. Manually add DNS mapping in the hosts. 
-    Open `C:\Windows\System32\drivers\etc\hosts` and add an entry based on the mount point and LIF, for example `10.5.1.4 NETBIOS-1234.contoso.com`. Use the credentials retrieved during the machine creation. Cloud user credentials do not have the correct permission to modify the `/etc/hosts/` file. 
+    Open `C:\Windows\System32\drivers\etc\hosts` and add an entry based on the mount point and LIF, for example `10.5.1.4 NETBIOS-1234.contoso.com`. Use the hybrid credentials retrieved during the machine creation. Cloud user credentials do not have the correct permission to modify the `/etc/hosts/` file. 
 1. Mount using the mount info provided in the Azure NetApp Files. 
 net use * \\ NETBIOS-1234.contoso.com\volume1 
-1. Open a Command Prompt to issue the `klist` command. Record the cloud TGT (`krbtgt`) and CIFS server ticket information.  
-<!-- why? and when do you issue this -->
+1. Confirm the mounted volume is using Kerberos and not NTLM authentication. Open a Command Prompt to issue the `klist` command and observe the output in the cloud TGT (`krbtgt`) and CIFS server ticket information.  
 
 ## Further information 
 * [Understand guidelines for Active Directory Domain Services](understand-guidelines-active-directory-domain-service-site.md)
