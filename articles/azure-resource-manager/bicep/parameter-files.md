@@ -310,7 +310,7 @@ az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.bicep \
-  --parameters @storage.bicepparam
+  --parameters storage.bicepparam
 ```
 
 For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters). To deploy _.bicep_ files you need Azure CLI version 2.20 or higher.
