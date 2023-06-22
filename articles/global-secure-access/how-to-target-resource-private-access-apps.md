@@ -26,12 +26,16 @@ Applying Conditional Access policies to your Microsoft Entra Private Access apps
 
 ## Access Conditional Policies from Global Secure Access
 
-You can quickly view and create Conditional Access policies from Global Secure Access without navigating to Microsoft Entra ID.
+You can view and create Conditional Access policies from Global Secure Access without navigating to Microsoft Entra ID.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
 1. Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications.**
-1. Select an application from the list. 
+1. Select an application from the list.
+    ![Screenshot of the Enterprise applications details.](media/how-to-target-resource-private-access-apps/enterprise-apps.png)
+1. Select **Conditional Access** from the side menu. Any existing Conditional Access policies appear in a list. 
+    ![Screenshot of the Conditional Access menu option.](media/how-to-target-resource-private-access-apps/conditional-access-policies.png)
 
+Alternatively, you can got to **Microsoft Entra ID** > **Protection** > **Conditional Access** then select **Policies** from the side menu.
 ## Create a Conditional Access policy targeting the Quick Access application
 
 The following example creates a Conditional Access policy requiring multifactor authentication for your Quick Access application.
