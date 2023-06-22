@@ -37,7 +37,7 @@ A valid Azure AD access token for the the user or service principal performing t
 
 ```bash
 curl -X POST \
-    --data-binary @"<zip_file_path>" \
+    --data-binary "@<zip_file_path>" \
     -H "Authorization: Bearer <access_token>" \
     "https://<app_name>.scm.azurewebsites.net/api/zipdeploy"
 ```
