@@ -87,11 +87,11 @@ This new resource group lists the ALI you've deployed in that subscription.
 
 1. In the Azure portal, in the ALI subscription, select **Resource groups**.
 
-   :::image type="content" source="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Screenshot showing the list of Resource groups." lightbox="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" border="false":::
+   :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Screenshot showing the list of Resource groups." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" border="false":::
 
 1. In the list, locate the new resource group.
  
-   :::image type="content" source="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png" alt-text="Screenshot showing the BareMetal instance in a filtered Resource groups list." lightbox="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png"  border="false":::
+   :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png" alt-text="Screenshot showing the BareMetal instance in a filtered Resource groups list." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png"  border="false":::
 
 1. Select the new resource group to view its details. The image shows one ALI instance deployed. 
 
@@ -116,7 +116,7 @@ You can view the details of a single instance.
 
 In the list of ALI instances, select the single instance you want to view.
 
-:::image type="content" source="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot showing the ALI instance attributes of a single instance." lightbox="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
+:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot showing the ALI instance attributes of a single instance." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
 
 The attributes in the image don't look much different than the Azure virtual machine (VM) attributes.
 On the left, you see the Resource group, Azure region, and subscription name and ID. 
@@ -155,9 +155,7 @@ The data listed includes:
 * Subscription ID
 * Azure user who triggered the activity
 
- :::image type="content" source="../media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Screenshot showing the BareMetal instance activities." lightbox="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
-
-[test](../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png)
+ :::image type="content" source="../baremetal-infrastrucure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Screenshot showing the BareMetal instance activities." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
 
 Changes to the instance's metadata in Azure also get recorded in the Activity log. 
 Besides the restart, you can see the activity of Write BareMetalInstancesALI. 
