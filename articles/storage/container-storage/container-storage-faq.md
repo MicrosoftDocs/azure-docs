@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions.
 author: khdownie
 ms.service: storage
-ms.date: 05/12/2023
+ms.date: 06/22/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.topic: conceptual
@@ -37,17 +37,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-uninstall"></a>
   **How do I uninstall Azure Container Storage?**  
-  To uninstall Azure Container Storage, you can delete the `k8s-extension` by running the following Azure CLI command. Be sure to replace `<cluster-name>`, `<resource-group>`, and `<name>` with your own values (`<name>` should be the value you specified for the --name parameter when you installed Azure Container Storage).
-  
-  ```azurecli-interactive
-  az k8s-extension delete --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name <extension-name>
-  ```
-  
-  You can also use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources contained in the resource group:
-  
-  ```azurecli-interactive
-  az group delete --name <resource-group>
-  ```
+  See [Uninstall Azure Container Storage](container-storage-uninstall.md).
 
 ## Billing and pricing
 
