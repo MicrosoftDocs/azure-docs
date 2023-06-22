@@ -24,7 +24,7 @@ Supported in General Availability, to set up inbound calling in Omnichannel for 
 
 Call Automation enables you to build custom calling workflows within your applications to optimize business processes and boost customer satisfaction. The library supports managing incoming calls to the phone numbers acquired from Communication Services and incoming calls via Direct Routing. You can also use Call Automation to place outbound calls from the phone numbers owned by your resource, among other capabilities.   
 
-Learn more about [Call Automation](../voice-video-calling/call-automation.md), currently available in public preview.
+Learn more about [Call Automation](../voice-video-calling/call-automation.md), supported in General Availability.
 
 **Inbound calling with Power Virtual Agents**
 

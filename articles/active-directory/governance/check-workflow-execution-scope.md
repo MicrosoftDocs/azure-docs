@@ -14,7 +14,7 @@ ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
-# Check execution user scope of a workflow (Preview)
+# Check execution user scope of a workflow
 
 Workflow scheduling will automatically process the workflow for users meeting the workflows execution conditions. This article walks you through the steps to check the users who fall into the execution scope of a workflow. For more information about execution conditions, see: [workflow basics](../governance/understanding-lifecycle-workflows.md#workflow-basics).
 
@@ -26,11 +26,11 @@ To check the users who fall under the execution scope of a workflow, you'd follo
 
 1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
-1. In the left menu, select **Lifecycle workflows (Preview)**.
+1. In the left menu, select **Lifecycle workflows**.
 
 1. From the list of workflows, select the workflow you want to check the execution scope of.
 
-1. On the workflow overview page, select **Execution conditions (Preview)**.
+1. On the workflow overview page, select **Execution conditions**.
 
 1. On the Execution conditions page, select the **Execution User Scope** tab.
 

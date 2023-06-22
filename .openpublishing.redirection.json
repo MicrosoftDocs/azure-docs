@@ -17509,6 +17509,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/bastion/connect-native-client-windows.md",
+            "redirect_url": "/azure/bastion/native-client",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-wan/high-availability-vpn-client.md",
             "redirect_url": "/azure/virtual-wan/global-hub-profile",
             "redirect_document_id": false
@@ -22196,6 +22201,16 @@
         {
             "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
             "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-protocols.md",
+            "redirect_url": "/azure/active-directory/develop/v2-protocols",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-aad-b2c-considerations.md",
+            "redirect_url": "/azure/active-directory/develop/msal-net-b2c-considerations",
             "redirect_document_id": false
         },
         {

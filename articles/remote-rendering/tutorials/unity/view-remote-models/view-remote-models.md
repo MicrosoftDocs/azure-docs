@@ -88,7 +88,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
     1. Click the **Open XR** checkbox under **Plug-In Providers**
     1. If a dialog opens that asks you to enable the native platform backends for the new input system click **No**.
 
-    ![Screenshot of the Unity Project Settings dialog. The X R Plug-in Management entry is selected in the list on the left. The tab with the windows logo is highlighted on the right. The Open X R checkbox below it is also highlighted.](./media/xr-plugin-management-settings.png)
+    ![Screenshot of the Unity Project Settings dialog. The XR Plug-in Management entry is selected in the list on the left. The tab with the windows logo is highlighted on the right. The Open XR checkbox below it is also highlighted.](./media/xr-plugin-management-settings.png)
 
     > [!NOTE]
     > If the **Microsoft HoloLens feature group** is disabled the Windows Mixed Reality OpenXR Plugin is missing from your project. Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to install it.
@@ -97,11 +97,12 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
     1. Set **Depth Submission Mode** to *Depth 16 Bit*
     1. Add the **Microsoft Hand Interaction Profile** to **Interaction Profiles**.
     1. Enable these OpenXR features:
+        * **Azure Remote Rendering**
         * **Hand Tracking**
         * **Mixed Reality Features**
         * **Motion Controller Model**
 
-    ![Screenshot of the Unity Project Settings dialog. The Open X R sub-entry is selected in the list on the left. Highlights on the right side are placed on the Depth Submission Mode, Interaction Profiles, and Open X R feature settings.](./media/xr-plugin-management-openXR-settings.png)
+    ![Screenshot of the Unity Project Settings dialog. The Open XR subentry is selected in the list on the left. Highlights on the right side are placed on the Depth Submission Mode, Interaction Profiles, and Open XR feature settings.](./media/xr-plugin-management-openXR-settings.png)
 
     > [!NOTE]
     > If you don't see the required OpenXR features listed the Windows Mixed Reality OpenXR Plugin is missing from your project. Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to install it.
@@ -134,9 +135,9 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 Perform the following steps to validate that the project settings are correct.
 
 1. Choose the **ValidateProject** entry from the **RemoteRendering** menu in the Unity editor toolbar.
-1. Review the **ValidateProject** window for errors and fix project settings where necessary.
+1. Review the **Project Validator** window for errors and fix project settings where necessary.
 
-    ![Screenshot of the Unity Validate Project dialog. The dialog shows a mixture of successful checks, warnings, and errors.](./media/remote-render-unity-validation.png)
+    ![Screenshot of the Unity Project Validator dialog. The dialog shows a list of required, recommended, and development rules that are all successful checked.](./media/remote-render-unity-validation.png)
 
 > [!NOTE]
 > If you use MRTK in your project and you enable the camera subsystem, MRTK will override manual changes that you apply to the camera. This includes fixes from the ValidateProject tool.

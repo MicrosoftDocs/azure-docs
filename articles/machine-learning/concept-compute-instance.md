@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about the Azure Machine Learning compute instance, a fully managed cloud-based workstation.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: jcioffi

@@ -55,9 +55,9 @@ export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 
 ## Certificate revocation checks
 
-When the Speech SDK connects to the Speech Service, it checks the Transport Layer Security (TLS/SSL) certificate. The Speech SDK verifies that the certificate reported by the remote endpoint is trusted and hasn't been revoked. This verification provides a layer of protection against attacks involving spoofing and other related vectors. The check is accomplished by retrieving a certificate revocation list (CRL) from a certificate authority (CA) used by Azure. A list of Azure CA download locations for updated TLS CRLs can be found in [this document](../../security/fundamentals/tls-certificate-changes.md).
+When the Speech SDK connects to the Speech service, it checks the Transport Layer Security (TLS/SSL) certificate. The Speech SDK verifies that the certificate reported by the remote endpoint is trusted and hasn't been revoked. This verification provides a layer of protection against attacks involving spoofing and other related vectors. The check is accomplished by retrieving a certificate revocation list (CRL) from a certificate authority (CA) used by Azure. A list of Azure CA download locations for updated TLS CRLs can be found in [this document](../../security/fundamentals/tls-certificate-changes.md).
 
-If a destination posing as the Speech Service reports a certificate that's been revoked in a retrieved CRL, the SDK will terminate the connection and report an error via a `Canceled` event. The authenticity of a reported certificate can't be checked without an updated CRL. Therefore, the Speech SDK will also treat a failure to download a CRL from an Azure CA location as an error.
+If a destination posing as the Speech service reports a certificate that's been revoked in a retrieved CRL, the SDK will terminate the connection and report an error via a `Canceled` event. The authenticity of a reported certificate can't be checked without an updated CRL. Therefore, the Speech SDK will also treat a failure to download a CRL from an Azure CA location as an error.
 
 > [!WARNING]
 > If your solution uses proxy or firewall it should be configured to allow access to all certificate revocation list URLs used by Azure. Note that many of these URLs are outside of `microsoft.com` domain, so allowing access to `*.microsoft.com` is not enough. See [this document](../../security/fundamentals/tls-certificate-changes.md) for details. In exceptional cases you may ignore CRL failures (see [the correspondent section](#bypassing-or-ignoring-crl-failures)), but such configuration is strongly not recommended, especially for production scenarios.
@@ -66,7 +66,7 @@ If a destination posing as the Speech Service reports a certificate that's been 
 
 One cause of CRL-related failures is the use of large CRL files. This class of error is typically only applicable to special environments with extended CA chains. Standard public endpoints shouldn't encounter this class of issue.
 
-The default maximum CRL size used by the Speech SDK (10 MB) can be adjusted per config object. The property key for this adjustment is `CONFIG_MAX_CRL_SIZE_KB` and the value, specified as a string, is by default "10000" (10 MB). For example, when creating a `SpeechRecognizer` object (that manages a connection to the Speech Service), you can set this property in its `SpeechConfig`. In the snippet below, the configuration is adjusted to permit a CRL file size up to 15 MB.
+The default maximum CRL size used by the Speech SDK (10 MB) can be adjusted per config object. The property key for this adjustment is `CONFIG_MAX_CRL_SIZE_KB` and the value, specified as a string, is by default "10000" (10 MB). For example, when creating a `SpeechRecognizer` object (that manages a connection to the Speech service), you can set this property in its `SpeechConfig`. In the snippet below, the configuration is adjusted to permit a CRL file size up to 15 MB.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -158,7 +158,7 @@ speechConfig.properties.SetPropertyByString("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FA
 
 ::: zone-end
 
-To turn off certificate revocation checks, set the property `"OPENSSL_DISABLE_CRL_CHECK"` to `"true"`. Then, while connecting to the Speech Service, there will be no attempt to check or download a CRL and no automatic verification of a reported TLS/SSL certificate.
+To turn off certificate revocation checks, set the property `"OPENSSL_DISABLE_CRL_CHECK"` to `"true"`. Then, while connecting to the Speech service, there will be no attempt to check or download a CRL and no automatic verification of a reported TLS/SSL certificate.
 
 ::: zone pivot="programming-language-csharp"
 
