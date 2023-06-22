@@ -93,6 +93,7 @@ New-AzAutoscaleSetting -Name autoscalesetting2 -ResourceGroupName $resourceGroup
 
 ### [Resource Manager](#tab/resourcemanager)
 
+### Use Resource Manager templates to configure notifications.
 
 When you use the Resource Manager templates or REST API, include the `notifications` element in your [autoscale settings](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings?pivots=deployment-language-arm-template#resource-format-1), for example:
 
