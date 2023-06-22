@@ -6,7 +6,7 @@ ms.author: dacurwin
 ms.topic: how-to
 ms.date: 06/19/2023
 ---
-# Continuously export Microsoft Defender for Cloud data
+# Continuously export Microsoft Defender for Cloud data 
 
 Microsoft Defender for Cloud generates detailed security alerts and recommendations. To analyze the information in these alerts and recommendations, you can export them to Azure Log Analytics, Event Hubs, or to another [SIEM, SOAR, or IT classic deployment model solution](export-to-siem.md). You can stream the alerts and recommendations as they're generated or define a schedule to send periodic snapshots of all of the new data.
 

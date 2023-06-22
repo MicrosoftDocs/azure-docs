@@ -434,7 +434,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   - Australia Southeast
   - South Africa North
-  - East Asia (Hong Kong)
+  - East Asia (Hong Kong Special Administrative Region)
   - Central India
 
    [Learn more](overview.md#azure-regions).

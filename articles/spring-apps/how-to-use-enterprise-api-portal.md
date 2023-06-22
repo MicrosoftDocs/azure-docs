@@ -121,7 +121,7 @@ This section describes how to view and try out APIs with schema definitions in A
                "Method=PUT"
             ],
             "filters": [
-               "StripPrefix=0",
+               "StripPrefix=0"
             ]
          }
       ]
