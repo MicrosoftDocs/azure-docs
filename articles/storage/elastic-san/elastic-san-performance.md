@@ -18,7 +18,7 @@ This article helps clarify the performance of an Elastic SAN volume and how they
 
 Azure VMs have input/output operations per second (IOPS) and throughput performance limits based on the type and size of the VM. Elastic SAN volumes can be attached to VMs and the volumes have their own IOPS and throughput limits.
 
-Your application's performance gets capped when it requests more IOPS or thoughput than what is allotted for the VM or attached volumes. When capped, the application has suboptimal performance. This can lead to negative consequences like increased latency.
+Your application's performance gets capped when it requests more IOPS or throughput than what is allotted for the VM or attached volumes. When capped, the application has suboptimal performance. This can lead to negative consequences like increased latency.
 
 ## Examples
 
