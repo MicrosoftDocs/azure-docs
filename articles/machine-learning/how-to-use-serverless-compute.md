@@ -350,13 +350,13 @@ There's no need to specify compute for AutoML jobs. Resources can be optionally 
 
 If you want to specify the type or instance count, use the `ResourceConfiguration` class.
 
-[!notebook-python[] (~/azureml-examples/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb?name=classification-configuration)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb?name=classification-configuration)]
 
 # [Azure CLI](#tab/cli)
 
 If you want to specify the type or instance count, add a  `resources` section.
 
-:::code language="yaml" source="~/azureml-examples/cli/jobs/automl-standalone-jobs/cli-automl-classification-task-bankmarketing/cli-automl-classification-task-bankmarketing-serverless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-classification-task-bankmarketing/cli-automl-classification-task-bankmarketing-serverless.yml":::
 
 ---
 
@@ -366,13 +366,13 @@ If you want to specify the type or instance count, add a  `resources` section.
 
 For a pipeline job, specify `"serverless"` as your default compute type to use serverless compute.
 
-[!notebook-python[] (~/azureml-examples/sdk/python/jobs/pipelines/1a_pipeline_with_components_from_yaml/pipeline_with_components_from_yaml_serverless.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1a_pipeline_with_components_from_yaml/pipeline_with_components_from_yaml_serverless.ipynb?name=build-pipeline)]
 
 # [Azure CLI](#tab/cli)
 
 For a pipeline job, specify `azureml:serverless` as your default compute type to use serverless compute.  
 
-:::code language="yaml" source="~/azureml-examples/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline-serverless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline-serverless.yml":::
 
 ---
 
@@ -380,4 +380,4 @@ You can also set serverless compute as the default compute in Designer.
 
 ## Next steps
 
-View more examples of training with serverless compute at [azureml-examples](https://github.com/Azure/azureml-examples)
+View more examples of training with serverless compute at [azureml-examples-main](https://github.com/Azure/azureml-examples-main)
