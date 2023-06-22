@@ -38,7 +38,7 @@ items:
       - name: About Universal Conditional Access through Global Secure Access 
         href: concept-universal-conditional-access.md
       - name: Private Access apps
-        href: how-to-conditional-access-private-access.md
+        href: how-to-target-resource-private-access-apps.md
       - name: Microsoft 365 traffic profile
         href: how-to-target-resource-microsoft-365-profile.md
       - name: Source IP restoration

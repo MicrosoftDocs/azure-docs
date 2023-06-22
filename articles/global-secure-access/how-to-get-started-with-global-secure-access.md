@@ -51,19 +51,19 @@ To set up Quick Access for broader access to your network using Microsoft Entra 
 
 1. [Configure an App Proxy connector and connector group](how-to-configure-connectors.md).
 1. [Configure Quick Access to your private resources](how-to-configure-quick-access.md).
-1. [Enable the Private access traffic forwarding profile](how-to-manage-private-access-profile.md).
+1. [Enable the Private Access traffic forwarding profile](how-to-manage-private-access-profile.md).
 1. [Install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
 
 To create specific private apps for granular segmented access to private access resources using Microsoft Entra Private Access, complete the following steps:
 
 1. [Configure an App Proxy connector and connector group](how-to-configure-connectors.md).
 1. [Create a private Global Secure Access application](how-to-configure-per-app-access.md).
-1. [Enable the Private access traffic forwarding profile](how-to-manage-private-access-profile.md).
+1. [Enable the Private Access traffic forwarding profile](how-to-manage-private-access-profile.md).
 1. [Install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
 
 Optionally:
 
-- [Secure quick access applications with Conditional Access policy](how-to-configure-quick-access.md#linked-conditional-access-policies).
+- [Secure Quick Access applications with Conditional Access policies](how-to-target-resource-private-access-apps.md).
 - [Review the Global Secure Access logs](concept-global-secure-access-logs-monitoring.md).
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]

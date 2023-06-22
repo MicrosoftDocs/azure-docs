@@ -39,7 +39,7 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 To enable the Private Access traffic forwarding profile, we recommend you first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDNs) for the private resources you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md).
 
-You can also configure per-app access to your private resources by creating a Private Access app. Similar to Quick Access, you create a new Enterprise app which can then be assigned to the Private Access traffic forwarding profile. Quick Access contains the main group of private resources you always want to route through the service. Private Access apps can be enabled and disabled as needed without impacting the FQDNs and IP addresses included in Quick Access.
+You can also configure per-app access to your private resources by creating a Private Access app. Similar to Quick Access, you create a new Enterprise app, which can then be assigned to the Private Access traffic forwarding profile. Quick Access contains the main group of private resources you always want to route through the service. Private Access apps can be enabled and disabled as needed without impacting the FQDNs and IP addresses included in Quick Access.
 
 To manage the details included in the Private access traffic forwarding policy, select the **View** link for **Private access policies**. 
 
@@ -60,7 +60,7 @@ If you see "None" in the **Linked Conditional Access policies** section, there i
 ### Edit an existing Conditional Access policy
 
 1. Select the **View** link for **Linked Conditional Access policies**.
-1. Select a policy from the list. The details of the policy open in Conditional Accesss. 
+1. Select a policy from the list. The details of the policy open in Conditional Access. 
 
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]

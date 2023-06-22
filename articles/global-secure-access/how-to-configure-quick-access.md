@@ -111,7 +111,7 @@ You can view the properties from **Quick Access** or navigate to **Enterprise ap
 1. Add users and groups as needed.
     - For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
-Alternatively, you can assign users and groups when you create the Conditional Access policy for Quick Access. For more information, see [Quick access Conditional Access policies](how-to-configure-quick-access.md#linked-conditional-access-policies).
+Alternatively, you can assign users and groups when you create the Conditional Access policy for Quick Access. For more information, see [Quick access Conditional Access policies](how-to-configure-quick-access.md#link-conditional-access-policies).
 
 ## Update Quick Access application segments
 

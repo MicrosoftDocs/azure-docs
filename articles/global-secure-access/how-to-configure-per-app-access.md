@@ -129,7 +129,7 @@ For per-app access, you can enable or disable access to the app using the Global
 
 ### Assign Conditional Access policies
 
-Conditional Access policies for per-app access are configured at the application level for each app. Conditional Access policies are created and applied to the application in the **Protection** area of Microsoft Entra ID. For more information, see [Quick access Conditional Access policies](how-to-configure-quick-access.md#linked-conditional-access-policies).
+Conditional Access policies for per-app access are configured at the application level for each app. Conditional Access policies are created and applied to the application in the **Protection** area of Microsoft Entra ID. For more information, see [Quick access Conditional Access policies](how-to-configure-quick-access.md#link-conditional-access-policies).
 
 ## Enable Microsoft Entra Private Access
 

@@ -49,9 +49,9 @@ The policy groups include the following details:
 - **Protocol**: TCP (Transmission Control Protocol) or UDP (User Datagram Protocol)
 - **Action**: Forward or Bypass
 
-If the Microsoft 365 profile is disabled, or a policy within the profile is disabled, or a specific FQDN or IP address is bypassed, users can still access the site; however, the service doesn't process the traffic. If you only need to forward some of the Microsoft 365 resources within the policy groups, enable the group then change the **Action** in the details accordingly.
+You can choose to bypass certain traffic. Users can still access the site; however, the service doesn't process the traffic. You can bypass traffic to a specific FQDN or IP address, an entire policy group within the profile, or the entire Microsoft 365 profile itself. If you only need to forward some of the Microsoft 365 resources within the policy groups, enable the group then change the **Action** in the details accordingly.
 
-The following example shows setting the `*.sharepoint.com` FQDN to **Bypass** so the traffic will not be forwarded to the service.
+The following example shows setting the `*.sharepoint.com` FQDN to **Bypass** so the traffic won't be forwarded to the service.
 
 ![Screenshot of the Action dropdown menu.](media/how-to-manage-microsoft-365-profile/microsoft-365-policies-forward-bypass.png)
 
@@ -69,7 +69,7 @@ If the traffic forwarding profile has a linked Conditional Access policy, you ca
 
     ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-manage-microsoft-365-profile/microsoft-365-conditional-access-policy-link.png)
 
-1. Select a policy from the list. The details of the policy open in Conditional Accesss. 
+1. Select a policy from the list. The details of the policy open in Conditional Access. 
 
     ![Screenshot of the applied Conditional Access policies.](media/how-to-manage-microsoft-365-profile/conditional-access-applied-policies.png)
 

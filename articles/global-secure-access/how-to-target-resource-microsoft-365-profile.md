@@ -1,6 +1,6 @@
 ---
-title: Universal Conditional Access through Global Secure Access
-description: How to use a traffic profile in a Conditional Access policy.
+title: How to apply Conditional Access policies to the Microsoft 365 traffic profile
+description: Learn how to apply Conditional Access policies to the Microsoft 365 traffic profile.
 
 ms.service: network-access
 ms.subservice: 
@@ -12,9 +12,9 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: mamkumar
 ---
-# Universal Conditional Access through Global Secure Access
+# Apply Conditional Access policies to the Microsoft 365 traffic profile
 
-With a devoted traffic forwarding profile for all of your Microsoft 365 traffic, you can apply Conditional Access policies to all of your Microsoft 365 traffic. With Conditional Access you can require multifactor authentication and device compliance for accessing Microsoft 365 resources. 
+With a devoted traffic forwarding profile for all of your Microsoft 365 traffic, you can apply Conditional Access policies to all of your Microsoft 365 traffic. With Conditional Access, you can require multifactor authentication and device compliance for accessing Microsoft 365 resources. 
 
 This article describes how to apply Conditional Access policies to your Microsoft 365 traffic forwarding profile.
 
