@@ -181,7 +181,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Use the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, the AKS cluster, namespace, and event hub, and all related resources.
+Use the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet to remove the resource group, the AKS cluster, namespace, and event hub, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
