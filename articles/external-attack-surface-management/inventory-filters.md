@@ -26,24 +26,24 @@ Defender EASM offers a wide variety of filters to obtain results of differing le
 
 ## Saved queries 
 
-Users can save queries of interest to quickly access the resulting asset list.  This is beneficial to users who search for a particular subsets of assets on a routine basis, or need to easily refer to a specific filter configuration at a later time.  Saved filters help you easily access the assets you care about most based on highly customizable parameters.  
+Users can save queries of interest to quickly access the resulting asset list.  This is beneficial to users who search for a particular subset of assets on a routine basis, or need to easily refer to a specific filter configuration at a later time.  Saved filters help you easily access the assets you care about most based on highly customizable parameters.  
 
 
 To save a query: 
 
 1. First, carefully select the filter(s) that will produce your desired results.  For more information on the applicable filters for each kind of asset, please see the "Next Steps" section. In this example, we are searching for domains expiring within 30 days that require renewal. Select **Search**.
 
-    ![Screenshot of inventory page with "Search" and "Saved query" buttons highlighted.](media/savedfilters-1.png)
+    ![Screenshot of inventory page with "Search" and "Saved query" buttons highlighted.](media/saved-filters-1.png)
 
-2. Review the resulting assets. If you are satisfied with the selected filter(s) and wish to save the query, seleect **Save query**.
+2. Review the resulting assets. If you are satisfied with the selected filter(s) and wish to save the query, select **Save query**.
   
-3. Name your query and provide a description. Please note that query names cannot be edited after the initial setup, but descriptions can be changed at a later time. Once done, select **Save**. A banner will appear that confirms the query has been saved. 
+3. Name your query and provide a description. Query names cannot be edited after the initial setup, but descriptions can be changed at a later time. Once done, select **Save**. A banner will appear that confirms the query has been saved. 
 
-    ![Screenshot of saved query configuration page.](media/savedfilters-2.png)
+    ![Screenshot of saved query configuration page.](media/saved-filters-2.png)
 
 4. To view your saved filters, select the "Saved queries" tab at the top of the inventory list page. Any saved queries will be visible from the top section, and selecting "Open query" will filter your inventory by the designated parameters. From this page, you can also edit or delete saved queries. 
 
-    ![Screenshot of saved query tab on inventory with save confirmation banner displayed.](media/savedfilters-3.png)
+    ![Screenshot of saved query tab on inventory with save confirmation banner displayed.](media/saved-filters-3.png)
 
 
 ## Operators
@@ -124,18 +124,26 @@ The following filters require that the user manually enters the value with which
 ![Screenshot of query editor searching for a specific named asset.](media/filters-5.png)
 ![Screenshot of results returned when filtering for an asset by name.](media/filters-6.png)
 
-4. Once your inventory list contains the unapproved assets that you were searching for, you can modify the assets. For more information on updating assets, see the [Modifying inventory assets](labeling-inventory-assets.md) article. 
+5. Once your inventory list contains the unapproved assets that you were searching for, you can modify the assets. For more information on updating assets, see the [Modifying inventory assets](labeling-inventory-assets.md) article. 
 
 
 
 ## Next Steps 
 
 [Understanding asset details](understanding-asset-details.md)
+
 [ASN asset filters](asn-asset-filters.md) 
+
 [Contact asset filters](contact-asset-filters.md) 
+
 [Domain asset filters](domain-asset-filters.md)
+
 [Host asset  filters](host-asset-filters.md) 
+
 [IP address asset filters](ip-address-asset-filters.md) 
+
 [IP block asset filters](ip-block-asset-filters.md) 
+
 [Page asset filters](page-asset-filters.md) 
+
 [SSL certificate asset filters](ssl-certificate-asset-filters.md) 
