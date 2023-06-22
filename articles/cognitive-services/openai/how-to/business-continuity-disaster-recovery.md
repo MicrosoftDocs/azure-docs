@@ -7,9 +7,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 6/24/2022
-author: ChrisHMSFT
-ms.author: chrhoder
+ms.date: 6/21/2023
+author: mrbullwinkle    
+ms.author: mbullwin
 recommendations: false
 keywords: 
 
@@ -37,7 +37,7 @@ If you're using a default endpoint, you should configure your client code to mon
 
 Follow these steps to configure your client to monitor errors:
 
-1. Use this page to identify the list of available regions for the OpenAI service.
+1. Use the [models page](../concepts/models.md) to identify the list of available regions for the OpenAI service.
 
 2. Select a primary and one secondary/backup regions from the list.
 
