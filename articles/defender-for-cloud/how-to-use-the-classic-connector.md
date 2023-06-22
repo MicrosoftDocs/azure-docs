@@ -147,7 +147,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
     Defender for Cloud discovers the EC2 instances in the connected AWS account and uses SSM to onboard them to Azure Arc.
 
     > [!TIP]
-    > See [What operating systems for my EC2 instances are supported?](concept-aws-connector.md#what-operating-systems-for-my-ec2-instances-are-supported), for the list of supported operating systems.
+    > See [What operating systems for my EC2 instances are supported?](faq-general.yml)
 
     1. Select the **Resource Group** and **Azure Region** that the discovered AWS EC2s will be onboarded to in the selected subscription.
     
