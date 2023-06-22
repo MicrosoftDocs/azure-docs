@@ -31,8 +31,8 @@ Those who receive notifications include account administrators, service administ
 ## Language runtime version support timelines
 To learn more about specific language support policy timelines, visit the following resources:
 
-- [ASP.NET](https://aka.ms/aspnetrelease)
-- [.NET](https://aka.ms/dotnetrelease)
+- [.NET and ASP.NET Core](https://aka.ms/dotnetrelease)
+- [.NET Framework and ASP.NET](https://aka.ms/aspnetrelease)
 - [Node](https://aka.ms/noderelease)
 - [Java](https://aka.ms/javarelease)
 - [Python](https://aka.ms/pythonrelease)
