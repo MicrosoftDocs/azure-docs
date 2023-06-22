@@ -5,11 +5,11 @@ description: Learn about scalability and performance targets for standard storag
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 05/25/2022
 ms.author: tamram
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Scalability and performance targets for standard storage accounts
