@@ -190,7 +190,8 @@ To use this plugin, you need to construct the plugin and add it as an `extension
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
-***Tagging as the Line 193 referenced in this comment: https://github.com/MicrosoftDocs/azure-docs-pr/pull/242592#discussion_r1238825427 ***
+// Add the Click Analytics plug-in.
+// import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
 var RNPlugin = new ReactNativePlugin();
 // Add the Click Analytics plug-in.
 /* var clickPluginInstance = new ClickAnalyticsPlugin();
@@ -272,7 +273,8 @@ Set up an instance of Application Insights in the entry component in your app:
 import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
-***Tagging as the Line 274 referenced in this comment: https://github.com/MicrosoftDocs/azure-docs-pr/pull/242592#discussion_r1238825427 ***
+// Add the Click Analytics plug-in.
+// import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
 import { Router } from '@angular/router';
 
 @Component({
@@ -366,7 +368,7 @@ extensionConfig: {
 
 | Name    | Type   | Required? | Default | Type Description |
 |---------|--------|-----------|---------|------------------|
-| history | object | Optional  | null    | Track detailed router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>***Note***: If you’re using `react-router v6` or later, the `history` object is not available.<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects basic details about page views. Advanced users who want more detailed router history can use the `history` object, which collects every piece of information for the router change history. If both configurations are enabled, the `enableAutoRouteTracking` field overrides the `history` object. |
+| history | object | Optional  | null    | Track detailed router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects basic details about page views. Advanced users who want more detailed router history can use the `history` object, which collects every piece of information for the router change history. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
 
 ### React components usage tracking
 
