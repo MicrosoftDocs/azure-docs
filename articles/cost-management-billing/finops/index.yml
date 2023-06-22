@@ -41,6 +41,8 @@ landingContent:
         url: capabilities-analysis-showback.md
       - text: Cost allocation
         url: capabilities-allocation.md
+      - text: Managing shared cost
+        url: capabilities-shared-cost.md
 
 
 # Card (optional)

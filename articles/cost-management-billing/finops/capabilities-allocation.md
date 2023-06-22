@@ -43,7 +43,7 @@ Decide how you want to manage access to the cloud.
 - Organize subscriptions into environment-based management groups to optimize for policy assignment. Management groups allow policy admins to manage policies at the top level but blocks the ability to perform cross-subscription reporting without an external solution, which increases your data analysis and showback efforts.
 - Organize subscriptions into management groups based on the organizational hierarchy to optimize for organizational reporting. Management groups allow leaders within the organization to view costs more naturally from the portal but requires policy admins to use tag-based policies, which increases policy and governance efforts. Also keep in mind you may have multiple organizational hierarchies and management groups only support one.
 
-[Define a comprehensive tagging strategy](/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) that aligns with your organization's cost allocation objectives.
+[Define a comprehensive tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) that aligns with your organization's cost allocation objectives.
 - Consider the specific attributes that are relevant for cost attribution, such as:
   - How to map costs back to financial constructs, for example, cost center?
   - Can you map back to every level in the organizational hierarchy, for example, business unit, department, division, and team?
