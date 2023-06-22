@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 # Protecting authentication methods in Azure Active Directory
 
 >[!NOTE]
->The Microsoft managed value for Authenticator Lite will move from disabled to enabled on June 9th, 2023. All tenants left in the default state 'Microsoft managed' will be enabled for the feature on June 9th.
+>The Microsoft managed value for Authenticator Lite will move from disabled to enabled on June 26th, 2023. All tenants left in the default state **Microsoft managed** will be enabled for the feature on June 26th.
 
 Azure Active Directory (Azure AD) adds and improves security features to better protect customers against increasing attacks. As new attack vectors become known, Azure AD may respond by enabling protection by default to help customers stay ahead of emerging security threats. 
 
@@ -53,7 +53,7 @@ The following table lists each setting that can be set to Microsoft managed and 
 
 | Setting                                                                                         | Configuration |
 |-------------------------------------------------------------------------------------------------|---------------|
-| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Beginning in July, 2023, enabled for SMS and voice call users with trial subscriptions, and soon after to be enabled for SMS and voice call users with paid subscriptions.      |
+| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Beginning in July, 2023, enabled for SMS and voice call users with free and trial subscriptions, and soon after to be enabled for SMS and voice call users with paid subscriptions.      |
 | [Location in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)           | Disabled      |
 | [Application name in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)   | Disabled      |
 | [System-preferred MFA](concept-system-preferred-multifactor-authentication.md)                  | Disabled      |
