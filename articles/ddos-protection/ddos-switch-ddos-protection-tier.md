@@ -1,5 +1,5 @@
 ---
-title: How to switch Azure DDoS Protection tiers using Azure portal.
+title: How to switch Azure DDoS Protection tiers using Azure portal
 description: In this guide, we walk through the steps to switch Azure DDoS Protection tiers using Azure portal.
 author: abell
 ms.author: abell
