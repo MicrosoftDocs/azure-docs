@@ -24,7 +24,7 @@ In this quickstart, you create an AKS cluster and subscribe to AKS events.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Create an AKS cluster using the [az aks create][az-aks-create] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
+Create an AKS cluster using the [`az aks create`][az-aks-create] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location eastus
