@@ -122,7 +122,7 @@ The following steps show you how to verify the functionality of the deployment b
 1. Construct a fully qualified URL for the sample app by appending the `context-path` to the value of **clusterExternalUrl**. If you deployed the recommended sample app, the fully qualified URL will be something like `http://123.456.789.012:8001/testwebapp/`.
 1. Paste the fully qualified URL in an Internet-connected web browser. If you deployed the recommended sample app, you should see results similar to the following screenshot.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/testwebapp.png" alt-text="Screenshot of test web app." border="false":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/test-web-app.png" alt-text="Screenshot of test web app." border="false":::
 
 ## Clean up resources
 
