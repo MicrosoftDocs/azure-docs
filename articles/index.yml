@@ -1600,14 +1600,14 @@ productDirectory:
       azureCategories:
        - storage
        - containers
-      url: /storage/container-storage/
+      url: /azure/storage/container-storage/
    # Card
     - title: Azure Managed Lustre
       summary: A fully managed, cloud based parallel file system that enables customers to run their high performance computing (HPC) workloads in the cloud
       imageSrc: ./media/index/managed-lustre.svg
       azureCategories:
        - storage
-      url: /azure-managed-lustre/
+      url: /azure/azure-managed-lustre/
    # Card
     - title: Azure confidential ledger
       summary: Tamperproof, unstructured data store hosted in trusted execution environments (TEEs) and backed by cryptographically verifiable evidence
@@ -1616,21 +1616,21 @@ productDirectory:
        - storage
        - databases
        - security
-      url: /confidential-ledger/
+      url: /azure/confidential-ledger/
    # Card
     - title: Azure Lab Services
       summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
       imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
        - azure-virtual-desktop
-      url: /lab-services/
+      url: /azure/lab-services/
    # Card
     - title: Azure IoT
       summary: A collection of Microsoft-managed cloud and edge services that connect, monitor, and control billions of IoT assets.
       imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
        - iot
-      url: /iot/
+      url: /azure/iot/
     # Card
     - title: Windows for IoT
       summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
