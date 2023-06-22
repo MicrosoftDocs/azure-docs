@@ -68,13 +68,13 @@
   - name: Connect your hybrid and multicloud environments
     expanded: false
     items:
-    - name: Connect your on-premises machines
+    - name: Connect your on-premises machine
       displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises
       href: quickstart-onboard-machines.md
-    - name: Connect your AWS accounts
+    - name: Connect your AWS account
       displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
       href: quickstart-onboard-aws.md
-    - name: Connect your GCP projects
+    - name: Connect your GCP project
       displayName: hybrid, multicloud, multicloud, google, gcp
       href: quickstart-onboard-gcp.md
     - name: Connect non-Azure machines with Defender for Endpoint
@@ -137,6 +137,9 @@
     - name: Protecting your GCP projects and organizations
       displayName: GCP, connector, project, organizations
       href: concept-gcp-connector.md
+    - name: AWS connector
+      displayName: AWS, connector
+      href: concept-aws-connector.md
     - name: Zero Trust infrastructure and integrations
       displayName: zero trust, zero, trust
       href: zero-trust.md
@@ -405,6 +408,10 @@
     - name: Automate responses to alerts
       displayName: workflow
       href: workflow-automation.md
+  - name: Manage the classic connectors
+    displayName: classic, connector, AWS, GCP
+    href: how-to-use-the-classic-connector.md
+
 
 - name: Protect your workloads
   items:

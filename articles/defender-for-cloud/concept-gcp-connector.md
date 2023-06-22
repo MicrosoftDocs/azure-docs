@@ -4,7 +4,7 @@ description: Learn how the GCP connector works on Microsoft Defender for Cloud.
 titleSuffix: Microsoft Defender for Cloud
 ms.topic: conceptual
 ms.service: defender-for-cloud
-ms.date: 04/23/2023
+ms.date: 06/22/2023
 ---
 
 # Microsoft Defender for Cloud's GCP connector
@@ -139,4 +139,4 @@ The final step for onboarding is to review all of your selections and to create 
 
 ## Next steps
 
-[Quickstart: Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
+[Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
