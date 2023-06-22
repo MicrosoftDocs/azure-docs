@@ -7,8 +7,7 @@ metadata:
   title: Azure Elastic SAN documentation
   description: Create a virtual SAN to act as the storage for multiple compute options.
   services: storage
-  ms.service: storage
-  ms.subservice: elastic-san
+  ms.service: azure-elastic-san-storage
   ms.custom: ignite-2022
   ms.topic: landing-page
   ms.collection: collection
