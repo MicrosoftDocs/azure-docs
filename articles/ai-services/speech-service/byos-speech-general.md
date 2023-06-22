@@ -27,7 +27,7 @@ BYOS can be used with several Cognitive Services. For Speech, it can be used in 
 
 One Speech resource – Storage account combination can be used for all four scenarios simultaneously in all combinations.
 
-This article describes how to create and maintain BYOS-enabled Speech resource and applicable to all mentioned scenarios. See the scenario-specific information in the corresponding articles. !!!
+This article describes how to create and maintain BYOS-enabled Speech resource and applicable to all mentioned scenarios. See the scenario-specific information in the [corresponding articles](#next-steps).
 
 ## BYOS-enabled Speech resource. Basic rules
 
