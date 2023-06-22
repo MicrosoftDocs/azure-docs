@@ -109,11 +109,11 @@ Where the file *create-instance.yml* is:
 
   :::image type="content" source="media/how-to-create-compute-instance/required.png" alt-text="Screenshot shows required entries.":::
 
-    |Field  |Description  |
-    |---------|---------|
-    |Compute name     |  <ul><li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You'll see an alert if the name you choose isn't unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li></ul>     |
-    |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
-    |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
+  |Field  |Description  |
+  |---------|---------|
+  |Compute name     |  <ul><li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You'll see an alert if the name you choose isn't unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li></ul>     |
+  |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
+  |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 
 1. Select **Create** unless you want to configure advanced settings for the compute instance.
 1. <a name="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
