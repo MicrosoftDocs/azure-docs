@@ -413,7 +413,7 @@
     {
       "path_to_root": "azureml-examples-vj",
       "url": "https://github.com/azure/azureml-examples",
-      "branch": "vijetajo-patch-2",
+      "branch": "main",
       "branch_mapping": {}
     },
     {

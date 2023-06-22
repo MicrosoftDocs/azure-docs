@@ -3,6 +3,7 @@ title: Azure Communication Services - Voice and video calling events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for voice and video calling Events.
 ms.topic: conceptual
 ms.date: 12/02/2022
+author: VikramDhumal
 ms.author: vikramdh
 ---
 
@@ -277,8 +278,10 @@ This section contains an example of what that data would look like for each even
 ```
 
 ## Limitations
-Calling events are only available for ACS VoIP users. PSTN, bots, echo bot and Teams users events are excluded.
+Aside from `IncomingCall`, Calling events are only available for ACS VoIP users. PSTN, bots, echo bot and Teams users events are excluded.
 No calling events will be available for ACS - Teams meeting interop call.
+
+`IncomingCall` events have support for ACS VoIP users and PSTN numbers. For more details on which scenarios can trigger `IncomingCall` events, see the following [Incoming call concepts](../communication-services/concepts/call-automation/incoming-call-notification.md) documentation. 
 
 ## Next steps
 See the following tutorial: [Quickstart: Handle voice and video calling events](../communication-services/quickstarts/voice-video-calling/handle-calling-events.md).

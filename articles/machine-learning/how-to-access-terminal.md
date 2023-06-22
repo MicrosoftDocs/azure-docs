@@ -7,7 +7,7 @@ author: abeomor
 ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 11/04/2022
