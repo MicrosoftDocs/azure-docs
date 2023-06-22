@@ -187,6 +187,8 @@ Here's the body of the request:
 ```
 ***
 
+If you used Azure portal for creating a BYOS-enabled Speech resource, it's fully ready to use. If you used any other method, you need to perform the role assignment for the Speech resource managed identity within the scope of the associated Storage account. In all cases, you also need to review different Storage account settings related to data security. See [Configure Storage account](#configure-storage-account) section.
+
 ### (Optional) Verify Speech resource BYOS configuration
 
 You may always check, whether any given Speech resource is BYOS enabled, and what is the associated Storage account. You can do it either via Azure portal, or via Cognitive Services API.
@@ -213,7 +215,7 @@ Use the [Get-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices
 ```azurepowershell
 Get-AzCognitiveServicesAccount -ResourceGroupName "myResourceGroup" -name "myBYOSSpeechResource"
 ```
-In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
+In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource isn't BYOS-enabled.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -222,13 +224,86 @@ Use the [az cognitiveservices account show](/cli/azure/cognitiveservices/account
 az cognitiveservices account show -g "myResourceGroup" -n "myBYOSSpeechResource"
 ```
 
-In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
+In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource isn't BYOS-enabled.
 
 # [REST](#tab/rest)
 
 Use the [Accounts - Get](/rest/api/cognitiveservices/accountmanagement/accounts/get) request. In the request output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource isn't BYOS-enabled.
 
 ***
+
+## Configure Storage account
+
+To achieve high security and privacy of your data you need to properly configure the settings of the BYOS-associated Storage account. In case you didn't use Azure portal to create your BYOS-enabled Speech resource, you also need to perform a mandatory step of role assignment.
+
+### Assign resource access role
+
+This step is **mandatory** if you didn't use Azure portal to create your BYOS-enabled Speech resource.
+
+BYOS uses the Blob storage of a Storage account. Because of this, BYOS-enabled Speech resource managed identity needs *Storage Blob Data Contributor* role assignment within the scope of BYOS-associated Storage account.
+
+If you used Azure portal to create your BYOS-enabled Speech resource, you may skip the rest of this subsection. Your role assignment is already done. Otherwise, follow these steps.
+
+> [!IMPORTANT]
+> You need to be assigned the *Owner* role of the Storage account or higher scope (like Subscription) to perform the operation in the next steps. This is because only the *Owner* role can assign roles to others. See details [here](../../role-based-access-control/built-in-roles.md).
+
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the Storage account.
+1. Select *Access Control (IAM)* menu in the left pane.
+1. Select *Add role assignment* in the *Grant access to this resource* tile.
+1. Select *Storage Blob Data Contributor* under *Role* and then select *Next*.
+1. Select *Managed identity* under *Members* > *Assign access to*.
+1. Assign the managed identity of your Speech resource and then select *Review + assign*.
+1. After confirming the settings, select *Review + assign*
+
+### Configure Storage account security settings
+
+BYOS is using the [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) to communicate with Storage account. The mechanism allows setting very restricted Storage account data access rules.
+
+If you perform all actions in the section, your Storage account will be in the following configuration:
+- Access to all external network traffic is prohibited.
+- Access to Storage account using Storage account key is prohibited.
+- Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited.
+- Access to the BYOS-enanled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+
+So in effect your Storage account becomes completely "locked" and can only be accessed by your Speech resource, which will be able to:
+- Write artifacts of your Speech data processing (see details in the [correspondent articles](#next-steps)),
+- Read the files that were already present by the time the new configuration was applied. For example, source audio files for the Batch transcription or Dataset files for Custom model training and testing.
+
+You should consider this configuration as a model as far as the security of your data is concerned and customize it according to your needs.
+
+For example, you may allow traffic from selected public IP addresses and Azure Virtual networks. You may also set up access to your Storage account using [private endpoints](../../storage/common/storage-private-endpoints.md) (see as well [this tutorial](../../private-link/tutorial-private-endpoint-storage-portal.md)), re-enable access using Storage account key, allow access to other Azure trusted services, etc.
+
+> [!NOTE] 
+> Using [private endpoints for Speech](speech-services-private-link.md) isn't required to secure the Storage account. Private endpoints for Speech secure the channels for Speech API requests, and can be use as an extra component in your solution.
+
+**Restrict access to the storage account**
+
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the Storage account.
+1. In the *Settings* group in the left pane, select *Configuration*.
+1. Select *Disabled* for *Allow Blob public access*. 
+1. Select *Disabled* for *Allow storage account key access*
+1. Select *Save*.
+
+For more information, see [Prevent anonymous public read access to containers and blobs](../../storage/blobs/anonymous-read-access-prevent.md) and [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md).
+
+**Configure Azure Storage firewall**
+
+Having restricted access to the Storage account, you need to grant networking access to your Speech resource managed identity. Follow these steps to add access for the Speech resource.
+
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the Storage account.
+1. In the *Security + networking* group in the left pane, select *Networking*.
+1. In the *Firewalls and virtual networks* tab, select *Enabled from selected virtual networks and IP addresses*.
+1. Deselect all check boxes.
+1. Make sure *Microsoft network routing* is selected.
+1. Under the *Resource instances* section, select *Microsoft.CognitiveServices/accounts* as the resource type and select your Speech resource as the instance name. 
+1. Select *Save*.
+
+    > [!NOTE]
+    > It may take up to 5 min for the network changes to propagate.
+
 
 ## Next steps
 
