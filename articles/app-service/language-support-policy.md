@@ -1,8 +1,7 @@
 ---
 title: Language Support Policy
 description: App Service language runtime support policies 
-author: jeffmartinez
-
+author: jeffwmartinez
 ms.topic: article
 ms.date: 01/23/2023
 ms.author: jefmarti
