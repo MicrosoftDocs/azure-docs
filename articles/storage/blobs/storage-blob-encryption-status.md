@@ -5,12 +5,12 @@ description: Learn how to use Azure portal, PowerShell, or Azure CLI to check wh
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 02/09/2023
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
