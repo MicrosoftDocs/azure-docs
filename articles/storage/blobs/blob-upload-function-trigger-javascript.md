@@ -3,7 +3,7 @@ title: Upload and analyze a file with Azure Functions (JavaScript) and Blob Stor
 description: With JavaScript, learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Cognitive Services
 author: diberry
 ms.author: diberry
-ms.service: storage
+ms.service: azure-storage
 ms.topic: tutorial
 ms.date: 05/13/2022
 ms.devlang: javascript
