@@ -2,8 +2,11 @@
 title: Cluster User Management
 description: Laern how to manage user access to cluster nodes in Azure CycleCloud. Enable sign-in access to cluster nodes through CycleCloud or a third-party user management system.
 author: jermth
-ms.date: 04/15/2019
+ms.date: 06/20/2023
 ms.author: jechia
+ms.topic: how-to
+ms.service: cyclecloud
+ms.custom: compute-evergreen
 ---
 
 # Cluster User Management
@@ -62,4 +65,4 @@ The built-in user management system is enabled by default on every CycleCloud in
 
 For enterprise production clusters, it is recommended that user access be managed through a directory service such as LDAP, Active Directory, or NIS. This integration can be implemented by configuring PAM and NSS in the VM images used on each node, or creating CycleCloud projects that are executed during the software installation phase of each node.
 
-The [Azure Active Directory Domain Service](/services/active-directory-ds/) provides a managed service for Active Directory servers, and instructions for joining a Linux domain can be found [here](/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm).
+The [Azure Active Directory Domain Service](/azure/active-directory-domain-services/) provides a managed service for Active Directory servers, and instructions for joining a Linux domain can be found [here](/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm).

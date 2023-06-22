@@ -2,9 +2,14 @@
 title: Common Issues - Cluster Init
 description: Azure CycleCloud common issue - Cluster Init
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 06/20/2023
 ms.author: adjohnso
+ms.topic: conceptual
+ms.service: cyclecloud
+ms.custom: compute-evergreen
 ---
+
+
 # Common Issues: Cluster Init
 
 ## Possible Error Messages

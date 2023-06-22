@@ -2,8 +2,11 @@
 title: Cluster Template Reference - Parameters
 description: Read reference material for cluster template parameters to be used with Azure CycleCloud. See examples, an attribute reference, and a parameter type reference.
 author: KimliW
-ms.date: 03/10/2020
+ms.date: 06/20/2023
 ms.author: adjohnso
+ms.topic: conceptual
+ms.service: cyclecloud
+ms.custom: compute-evergreen
 ---
 
 # Cluster Parameters

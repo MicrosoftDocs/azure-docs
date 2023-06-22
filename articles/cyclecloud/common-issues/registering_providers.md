@@ -2,8 +2,11 @@
 title: Common Issues - Azure Credentials| Microsoft Docs
 description: Azure CycleCloud common issue - Azure Credentials
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 06/20/2023
 ms.author: adjohnso
+ms.topic: conceptual
+ms.service: cyclecloud
+ms.custom: compute-evergreen
 ---
 # Common Issues: Azure provider registration error
 

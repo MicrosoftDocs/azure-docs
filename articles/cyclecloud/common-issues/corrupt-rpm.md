@@ -2,9 +2,14 @@
 title: Common Issues - Corrupt RPM database
 description: Azure CycleCloud common issue - Corrupt RPM database
 author: andyhoward
-ms.date: 9/29/2022
+ms.date: 06/20/2023
 ms.author: anhoward
+ms.topic: conceptual
+ms.service: cyclecloud
+ms.custom: compute-evergreen
 ---
+
+
 # Common Issues: Corrupt RPM database
 
 ## Possible Error Messages

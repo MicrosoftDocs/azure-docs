@@ -2,9 +2,13 @@
 title: Common Issues - Chef Exceptions
 description: Azure CycleCloud common issue - Chef Exceptions
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 06/20/2023
 ms.author: adjohnso
+ms.topic: conceptual
+ms.service: cyclecloud
+ms.custom: compute-evergreen
 ---
+
 # Common Issues: Chef::Exceptions:X : \<resource-name\> had an error
 
 ## Possible Error Messages
