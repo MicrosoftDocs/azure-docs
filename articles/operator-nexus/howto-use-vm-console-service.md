@@ -2,7 +2,7 @@
 title: "Azure Operator Nexus: VM Console Service"
 description: Learn how to use the VM Console service.
 author: sshiba
-ms.author: sidney shiba
+ms.author: sidneyshiba
 ms.service: azure 
 ms.topic: how-to
 ms.date: 06/16/2023
@@ -13,10 +13,10 @@ ms.custom: template-how-to
 
 The Virtual Machine (VM) Console service provides managed SSH access to a VM hosted in an Azure for Operators Cluster. It relies on the Azure Private Link Service (PLS) to establish a private network connection between the user's network and the Azure Operator Nexus Cluster Manager's private network.
 
-<!--- IMG ![VM Console service overview](Docs/media/vm-console-private-link.png) IMG --->
+<!--- IMG ![VM Console service overview](articles/operator-nexus/media/vm-console-service.png) IMG --->
 :::image type="content" source="media/vm-console-service.png" alt-text="VM Console service overview.":::
 
-For more information about networking resources that enables private connectivity to an Azure Operator Nexus Cluster, see [Introduction to Azure Private Link](../private-link/private-link-overview).
+For more information about networking resources that enables private connectivity to an Azure Operator Nexus Cluster, see [Introduction to Azure Private Link](https://learn.microsoft.com/en-us/training/modules/introduction-azure-private-link/).
 
 This document provides guided instructions of how to use the VM Console service to establish an SSH session with a Virtual Machine in an Azure for Operators Nexus Cluster.
 
@@ -75,7 +75,7 @@ The Operator Nexus Cluster Manager automatically creates a PLS so that you can e
 
 This section provides a step-by-step guide to help you to establish a private network connectivity between your network and the Operator Nexus Cluster Manager's private network.
 
-<!--- IMG ![Private link networking overview](Docs/media/vm-console-private-link.png) IMG --->
+<!--- IMG ![Private link networking overview](articles/operator-nexus/media/vm-console-private-link.png) IMG --->
 :::image type="content" source="media/vm-console-private-link.png" alt-text="Private link networking overview.":::
 
 1. You need to retrieve the resource identifier for the PLS associated to the VM Console service running in the Nexus Operator Cluster Manager.
@@ -121,7 +121,7 @@ The Console resource provides the information about the Virtual Machine(VM) such
 
 This section provides step-by-step guide to help you to create a Console resource using Azure CLI commands.
 
-<!--- IMG ![VM Console Resource](Docs/media/vm-console-resource.png) IMG --->
+<!--- IMG ![VM Console Resource](articles/operator-nexus/media/vm-console-resource.png) IMG --->
 :::image type="content" source="media/vm-console-resource.png" alt-text="VM Console Resource.":::
 
 1. The first thing before you can establish an SSH session with a Virtual Machine(VM) of an Undercloud cluster is to create a ***Console*** resource in the Operator Nexus Cluster Manager cluster.
@@ -166,7 +166,7 @@ The VM Console service is a `ssh` server that "relays" the session to the design
 >    SSH [-i path-to-private-SSH-key] -p 2222 $virtual_machine_access_id@$sshmux_ple_ip
 > ```
 
-<!--- IMG ![VM Console SSH Session](Docs/media/vm-console-ssh-session.png) IMG --->
+<!--- IMG ![VM Console SSH Session](articles/operator-nexus/media/vm-console-ssh-session.png) IMG --->
 :::image type="content" source="media/vm-console-ssh-session.png" alt-text="VM Console SSH Session.":::
 
 The VM Console service was designed to allow ONLY one `ssh` session per Virtual Machine. Anyone establishing a successful `ssh` session to a Virtual Machine closes an existing session, if any.
