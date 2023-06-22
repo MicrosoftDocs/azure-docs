@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 06/22/2023
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -36,6 +36,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don't require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
 * Do not run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it will cause extra resource usage and stability issues that can affect the entire cluster.
 * Don't circumvent the deny assignment that is configured as part of the service, or perform administrative tasks that are normally prohibited by the deny assignment.
+* If you are making use of infrastructure nodes, do not run any undesignated workloads on them as this may affect the Service Level Agreement and cluster stability. Also, it is strongly recommended to have at least 3 Infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infra-nodes.md) for more information.
 
 ## Supported virtual machine sizes
 
