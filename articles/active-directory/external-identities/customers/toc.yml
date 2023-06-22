@@ -13,6 +13,8 @@ items:
   items: 
     - name: Set up a free trial
       href: quickstart-trial-setup.md 
+    - name: Set up a tenant
+      href: quickstart-tenant-setup.md
 - name: Samples
   expanded: true
   items: 

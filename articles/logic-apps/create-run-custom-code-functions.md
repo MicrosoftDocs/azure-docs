@@ -22,7 +22,24 @@ For integration solutions where you have to author and run .NET Framework code f
 - Create code that has the flexibility and control to solve your most challenging integration problems.
 - Debug code locally in Visual Studio Code. Step through your code and workflows in the same debugging session.
 - Deploy code alongside your workflows. No other service plans are necessary.
-- Support BizTalk Server migration scenarios Lift and shift your custom .NET Framework investments from on-premises to the cloud with 
+- Support BizTalk Server migration scenarios so you can lift-and shift custom .NET Framework investments from on premises to the cloud.
+
+With the capability to write your own code, you can accomplish scenarios such as the following:
+
+- Custom business logic implementation
+- Custom parsing to extract information from an inbound message
+- Data validation and simple transformations
+- Message shaping for outbound messages to another system, such as an API
+- Calculations
+
+However, custom code isn't suitable for scenarios such as the following:
+
+- Processes that take more than 10 minutes to run
+- Large message and data transformations
+- Complex batching and debatching scenarios
+- BizTalk Server pipeline components that implement streaming
+
+For more information about limitations in Azure Logic Apps, see [Limits and configuration - Azure Logic Apps](logic-apps-limits-and-config.md).
 
 ## Prerequisites
 
@@ -178,7 +195,7 @@ This example continues with the sample code without any changes.
 
 ## Compile and build your code
 
-After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compiles and adds your code to the **lib\custom\net472** folder in your logic app project where workflows look for custom code to run.
+After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compile and add your code to the **lib\custom\net472** folder in your logic app project where workflows look for custom code to run.
 
 1. In Visual Studio Code, from the **Terminal** menu, select **New Terminal**.
 
