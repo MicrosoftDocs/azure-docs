@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/21/2023
 ms.service: network-access
 ms.custom: 
-
+ms.reviewer: katabish
 ---
 # How to configure per-app access for Global Secure Access
 

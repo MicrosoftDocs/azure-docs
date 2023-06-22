@@ -1,6 +1,6 @@
 ---
-title: How to enable the Microsoft 365 profile
-description: Learn how to enable the Microsoft 365 traffic forwarding profile for Global Secure Access (preview).
+title: How to manage and enable the Microsoft 365 profile
+description: Learn how to manage and enable the Microsoft 365 traffic forwarding profile for Global Secure Access (preview).
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -9,7 +9,7 @@ ms.date: 06/09/2023
 ms.service: network-access
 ms.custom: 
 ---
-# How to enable the Microsoft 365 traffic forwarding profile
+# How to manage and enable the Microsoft 365 traffic forwarding profile
 
 With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires the traffic going to all Microsoft 365 services. The **Microsoft 365** profile manages the following policy groups:
 
@@ -49,7 +49,11 @@ The policy groups include the following details:
 - **Protocol**: TCP (Transmission Control Protocol) or UDP (User Datagram Protocol)
 - **Action**: Forward or Bypass
 
-If the Microsoft 365 profile isn't enabled, or a specific FQDN or IP address bypassed, users can still access the site; however, the service doesn't process the traffic. 
+If the Microsoft 365 profile is disabled, or a policy within the profile is disabled, or a specific FQDN or IP address is bypassed, users can still access the site; however, the service doesn't process the traffic. If you only need to forward some of the Microsoft 365 resources within the policy groups, enable the group then change the **Action** in the details accordingly.
+
+The following example shows setting the `*.sharepoint.com` FQDN to **Bypass** so the traffic will not be forwarded to the service.
+
+![Screenshot of the Action dropdown menu.](media/how-to-manage-microsoft-365-profile/microsoft-365-policies-forward-bypass.png)
 
 ## Linked Conditional Access policies
 

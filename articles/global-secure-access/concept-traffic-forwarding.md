@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 06/09/2023
 ms.service: network-access
 ms.custom: 
+ms.reviewer: katabish
 ---
 
 # Global Secure Access (preview) traffic forwarding profiles

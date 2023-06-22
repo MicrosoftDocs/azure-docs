@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 06/02/2023
 ms.service: network-access
 ms.custom: 
+ms.reviewer: katabish
 
 ---
 # How to configure Quick Access for Global Secure Access
@@ -23,7 +24,7 @@ To configure Quick Access, you must have:
 To manage App Proxy connector groups, which is required for Quick Access, you must have:
 
 - An **Application Administrator** role in Microsoft Entra ID
-- A Microsoft Entra ID Premium P1/P2 license
+- A Microsoft Entra ID P1/P2 license
 
 ### Known limitations
 
@@ -35,7 +36,7 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 
 Configuring your Quick Access settings is a major component to utilizing Microsoft Entra Private Access. When you configure Quick Access for the first time, Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Private Access. 
 
-To configure Quick Access, you also need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. The connector group handles the traffic to this new application. Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app.
+To configure Quick Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. The connector group handles the traffic to this new application. Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app.
 
 To summarize, the overall process is as follows:
 
@@ -70,9 +71,9 @@ On the Quick Access page, you provide a name for the Quick Access app, select a 
     - Your connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your "Quick Access" app without FQDNs and IP addresses.
 
-### Add Quick access range
+### Add Quick Access application segment
 
-The **Add Quick access range** portion of this process is where you define the FQDNs and IP addresses that you want to include in the traffic for Microsoft Entra Private Access. You can add these resources when you create the Quick Access app and return to add more or edit them later.
+The **Add Quick Access application segment** portion of this process is where you define the FQDNs and IP addresses that you want to include in the traffic for Microsoft Entra Private Access. You can add these resources when you create the Quick Access app and return to add more or edit them later.
 
 You can add fully qualified domain names (FQDN), IP addresses, and IP address ranges.
 
@@ -86,64 +87,46 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
     - IP address range (IP to IP). 
 1. Enter the appropriate detail for what you selected.
 1. Enter the port. 
-
-1. Continue adding as needed. You can add up to 500 app segments.
-
 1. Select the **Save** button when you're finished.
 
 ![Screenshot of the create quick access ranges fields.](media/how-to-configure-quick-access/create-new-quick-access-range.png)
 
-## Manage Quick Access properties
+> [!NOTE]
+> You can add up to 500 application segments to your Quick Access app.
+>
+> Do not overlap FQDNs, IP addresses, and IP ranges between your Quick Access app and any Private Access apps.
 
-When you configure Quick Access, a new enterprise app is created on your behalf. You can view the properties from **Quick Access** or navigate to **Enterprise applications** and search for your Quick Access app.
+## Assign users and groups
+
+When you configure Quick Access, a new enterprise app is created on your behalf. You need to grant access to the Quick Access app you created by assigning users and/or groups to the app. 
+
+You can view the properties from **Quick Access** or navigate to **Enterprise applications** and search for your Quick Access app.
 
 1. Select the **Edit application settings** button from Quick Access. 
-1. Select **Properties** from the side menu.
 
-![Screenshot of the edit application settings button.](media/how-to-configure-quick-access/edit-application-settings.png)
+    ![Screenshot of the edit application settings button.](media/how-to-configure-quick-access/edit-application-settings.png)
 
-### Assign users and groups
+1. Select **Users and groups** from the side menu.
 
-You need to grant access to the Quick Access app you created by assigning users and/or groups to the app. 
-
-If you're viewing the Quick Access app properties, select **Users and groups** from the side menu. Otherwise you can go to **Enterprise applications**, search for and select your application, then select **Users and groups** from the side menu.
-
-Add users and groups following the instructions in the [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) article.
+1. Add users and groups as needed.
+    - For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
 Alternatively, you can assign users and groups when you create the Conditional Access policy for Quick Access. For more information, see [Quick access Conditional Access policies](how-to-configure-quick-access.md#linked-conditional-access-policies).
 
-### Update Quick access ranges
+## Update Quick Access application segments
 
-You can add or update the sites and apps included in your Quick Access app at any time.
+You can add or update the FQDNs and IP addresses included in your Quick Access app at any time.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Applications** > **Quick Access**.
     - To add an FQDN or IP address, select **Add quick access range**.
     - To edit an FQDN or IP address, select it from the **Destination type** column.
 
-## Linked Conditional Access policies
+## Link Conditional Access policies
 
-Conditional Access policies can be applied to your Quick Access and Global Secure Access applications. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
+Conditional Access policies can be applied to your Quick Access app. Applying Conditional Access policies provides more options for managing access to applications, sites, and services.
 
-Conditional Access policies are created and applied to the Quick Access application in the **Protection** area of Microsoft Entra ID. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
-
-The following example creates a Conditional Access policy requiring multifactor authentication for your quick access applications.
-
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
-1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
-1. Select **Create new policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-1. Under **Target resources** > **Include**, and select **Select apps**.
-   1. Choose your configured quick access application.
-1. Under **Access controls** > **Grant**
-   1. Select **Grant access**, **Require multifactor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **Report-only**.
-1. Select **Create** to create to enable your policy.
-
-After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+Creating a Conditional Access policy is covered in detail in [How to create a Conditional Access policy for Private Access apps](how-to-target-resource-private-access-apps.md).
 
 ## Enable Microsoft Entra Private Access
 

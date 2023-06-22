@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/20/2023
 ms.service: network-access
 ms.custom: 
-
+ms.reviewer: katabish
 ---
 # How to configure App Proxy connectors for Microsoft Entra Private Access
 
