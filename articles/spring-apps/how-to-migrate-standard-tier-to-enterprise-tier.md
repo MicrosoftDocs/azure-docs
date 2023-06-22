@@ -1,7 +1,7 @@
 ---
 title: How to migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan
 titleSuffix: Azure Spring Apps Enterprise plan
-description: Shows how to migrate an Azure Spring Apps Basic or Standard plan instance to Enterprise plan.
+description: Shows you how to migrate an Azure Spring Apps Basic or Standard plan instance to Enterprise plan.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
@@ -45,11 +45,11 @@ Use the following steps to provision an Azure Spring Apps service instance:
 1. On the **Create Azure Spring Apps** page, set your **Subscription**, **Resource group**, and **Name** for the instance.
 1. For **Plan** in **Service Details**, select **Change**.
 
-   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/change-plan.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with the Change button highlighted in the plan section." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/change-plan.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/change-plan.png" alt-text="Screenshot of the Azure portal Azure Spring Apps creation page with the Change button highlighted in the plan section." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/change-plan.png":::
 
-1. On the **Choose your plan** page, select the **Enterprise** row in the table and then select **Select**.
+1. On the **Choose your plan** page, select the **Enterprise** row in the table, and then select **Select**.
 
-   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png" alt-text="Screenshot of the Azure portal Azure Spring Apps creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png":::
 
 1. Back on the **Create Azure Spring Apps** page, select **Terms** to agree to the legal terms and privacy statements of the Enterprise plan offering in the Azure Marketplace.
 
@@ -57,7 +57,7 @@ Use the following steps to provision an Azure Spring Apps service instance:
 
 1. On the **VMWare Tanzu settings** tab, scroll through the list to review the Tanzu components. All components are enabled by default.
 
-   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with V M ware Tanzu Settings section showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of the Azure portal Azure Spring Apps creation page with V M ware Tanzu Settings section showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png":::
 
    > [!NOTE]
    > Carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Apps instance, you can't enable or disable Tanzu components.
@@ -93,7 +93,7 @@ It takes about 5 minutes to finish the resource provisioning.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Enterprise plan. This step is required only for the first time you create an Azure Spring Apps on the Enterprise plan.
+1. Use the following command to accept the legal terms and privacy statements for the Enterprise plan. This step is required only the first time you create an Azure Spring Apps instance on the Enterprise plan.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
@@ -152,7 +152,7 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 
 1. In your Azure Spring Apps Enterprise instance, select **Application Configuration Service** in the navigation pane. View the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-overview.png" alt-text="Screenshot of Azure portal showing the Overview tab of the Application Configuration Service page." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-overview.png":::
+   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-overview.png" alt-text="Screenshot of the Azure portal showing the Overview tab of the Application Configuration Service page." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-overview.png":::
 
 1. Select **Settings** and complete the form in **Repositories** to add a new entry with the following information:
 
@@ -161,7 +161,7 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
    - URI: `https://github.com/Azure-Samples/spring-petclinic-microservices-config`
    - Label: `master`
 
-   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png" alt-text="Screenshot of Azure portal showing the Settings tab of the Application Configuration Service page." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png":::
+   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png" alt-text="Screenshot of the Azure portal showing the Settings tab of the Application Configuration Service page." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png":::
 
 1. Select **Validate** to validate access to the target URI.
 
@@ -193,9 +193,9 @@ Use the following steps to bind apps to Application Configuration Service for VM
 
 1. Select **App binding** and then select **Bind app**.
 
-   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-bind-app.png" alt-text="Screenshot of Azure portal showing the App binding tab of the Application Configuration Service page and the Bind app dropdown menu showing." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-bind-app.png":::
+   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-bind-app.png" alt-text="Screenshot of the Azure portal showing the App binding tab of the Application Configuration Service page and the Bind app dropdown menu showing." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-bind-app.png":::
 
-1. Select an app in the dropdown menu, and then select **Apply** to bind the application to Application Configuration Service for Tanzu.
+1. Select an app in the dropdown menu and then select **Apply** to bind the application to Application Configuration Service for Tanzu.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -230,9 +230,9 @@ To bind apps to Application Configuration Service for VMware Tanzu®, follow the
 
 1. Select **Bind app**.
 
-1. Select an app in the dropdown menu, and then select **Apply** to bind the application to Tanzu Service Registry.
+1. Select an app in the dropdown menu and then select **Apply** to bind the application to Tanzu Service Registry.
 
-   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'Bind app' dialog showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/service-reg-app-bind-dropdown.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/service-reg-app-bind-dropdown.png" alt-text="Screenshot of the Azure portal Azure Spring Apps with Service Registry page and 'Bind app' dialog showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/service-reg-app-bind-dropdown.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -312,42 +312,44 @@ The following table lists the APM providers available the plans.
 |--------------------------------------------------------------------|------------------------------------------------------------------------------------|
 | Application insight <br> New Relic <br> Dynatrace <br> AppDynamics | Application insight <br> New Relic <br> Dynatrace <br> AppDynamics <br> ElasticAPM |
 
-To check or update the current settings in Application Insights, use the following steps:
-
 ### [Azure portal](#tab/azure-portal)
 
-1. In your Azure Spring Apps Enterprise instance, select **Application Insights**.
-1. Enable or disable Application Insights by selecting **Edit binding** or  **Unbind binding**.
+To check or update the current settings in Application Insights, use the following steps:
 
-   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Application Insights page with the Edit binding option dropdown menu showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-binding-enable.png":::
+1. In your Azure Spring Apps Enterprise instance, select **Application Insights**.
+1. Enable or disable Application Insights by selecting **Edit binding** or **Unbind binding**.
+
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-binding-enable.png" alt-text="Screenshot of the Azure portal Application Insights page with the Edit binding option dropdown menu showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-binding-enable.png":::
 
 1. Select **Edit binding**. Edit the binding settings and then select **Save**.
 
-   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-edit-binding.png" alt-text="Screenshot of Azure portal 'Edit binding' pane." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-edit-binding.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-edit-binding.png" alt-text="Screenshot of the Azure portal 'Edit binding' pane." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-edit-binding.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Use the following command to create an Application Insights buildpack binding:
+The following commands show you how to check or update the current settings in Application Insights.
 
-   ```azurecli
-   az spring build-service builder buildpack-binding create \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-instance-name> \
-       --name <your-binding-name> \
-       --builder-name <your-builder-name> \
-       --type ApplicationInsights \
-       --properties sampling-percentage=<your-sampling-percentage> \
+Use the following command to create an Application Insights buildpack binding:
+
+```azurecli
+az spring build-service builder buildpack-binding create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name <your-binding-name> \
+    --builder-name <your-builder-name> \
+    --type ApplicationInsights \
+    --properties sampling-percentage=<your-sampling-percentage> \
                  connection-string=<your-connection-string>
-   ```
+```
 
-1. Use the following command to list all buildpack bindings, and find Application Insights bindings for the type `ApplicationInsights`:
+Use the following command to list all buildpack bindings, and find Application Insights bindings for the type `ApplicationInsights`:
 
-   ```azurecli
-   az spring build-service builder buildpack-binding list \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-instance-name> \
-       --builder-name <your-builder-name>
-   ```
+```azurecli
+az spring build-service builder buildpack-binding list \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --builder-name <your-builder-name>
+```
 
 Use the following command to replace an Application Insights buildpack binding:
 
