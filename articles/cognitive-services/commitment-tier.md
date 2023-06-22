@@ -34,7 +34,7 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier. 
 
     > [!NOTE]
-    > If you intend to purchase a commitment tier for disconnected container usage, you will need to select a different pricing tier. See the [disconnected containers](./containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments) article for more information
+    > If you intend to purchase a commitment tier for disconnected container usage, you will need to request separate access and select the **Commitment tier disconnected containers** pricing tier. See the [disconnected containers](./containers/disconnected-containers.md) article for more information
     
     :::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/commitment-tier/create-resource.png":::
 
