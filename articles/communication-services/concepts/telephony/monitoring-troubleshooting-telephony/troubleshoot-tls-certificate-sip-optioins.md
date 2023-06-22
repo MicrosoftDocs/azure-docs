@@ -1,7 +1,7 @@
 ---
 title: "Troubleshoot Azure Communication Services direct routing TLS certificate and SIP OPTIONS issues"
 ms.author: bobazile
-ms.date: 06/19/2023
+ms.date: 06/22/2023
 author: boris-bazilevskiy
 manager: rcole
 audience: ITPro
@@ -92,7 +92,7 @@ This issue might occur if:
      > [!NOTE]
      > Devices that support DNS names can use sip-all.pstnhub.microsoft.com to resolve to all possible IP addresses.
 
-   For more information, see [SIP Signaling: FQDNS](///link to sip signaling fqdns).
+   For more information, see [SIP Signaling: FQDNs](../direct-routing-infrastructure.md#sip-signaling-fqdns).
 
 - The installed root or intermediate certificate isn't part of the SBC certificate chain issuer. When the SBC starts the three-way handshake during the authentication process, the Azure service is unable to validate the certificate chain on the SBC and resets the connection. The SBC may be able to authenticate again as soon as the public root certificate is loaded again on the service cache or the certificate chain is fixed on the SBC. Make sure that the intermediate and root certificates installed on the SBC are correct.
   

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Communication Services direct routing outbound calls issues
 description: Learn how to troubleshoot Azure Communication Services direct routing potential issues that affect outbound calls.
-ms.date: 06/19/2023
+ms.date: 06/22/2023
 author: boris-bazilevskiy
 ms.author: bobazile
 manager: rcole
@@ -31,7 +31,7 @@ The `From` header contains any of the following items:
   If an `alternateCallerId` wasn't provided, it's replaced with "anonymous".
 - The phone number string that's passed when creating a `PhoneNumberIdentifier` object in [Call Automation SDK](../../../how-tos/call-automation/actions-for-call-control.md#make-an-outbound-call)
 - The phone number of the original caller if an Call Automation SDK [redirects the call](../../../how-tos/call-automation/actions-for-call-control.md#redirect-a-call).
-- - The phone number selected as a Caller ID in Omnichannel Agent client application.
+- The phone number selected as a Caller ID in Omnichannel Agent client application.
 
 The `P-Asserted-Identity` header contains the phone number of the user who is billed for the call. The `Privacy:id` indicates that the information in the header has to be hidden from the call recipient.
 
