@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 05/02/2023
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
@@ -29,7 +29,7 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -167,8 +167,10 @@ The following table describes the fields on the **Networking** tab.
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | Network connectivity | Network access | Required | By default, incoming network traffic is routed to the public endpoint for your storage account. You can specify that traffic must be routed to the public endpoint through an Azure virtual network. You can also configure private endpoints for your storage account. For more information, see [Use private endpoints for Azure Storage](storage-private-endpoints.md). |
-| Network connectivity | Endpoint type | Required | Azure Storage supports two types of endpoints: [standard endpoints](storage-account-overview.md#standard-endpoints) (the default) and [Azure DNS zone endpoints](storage-account-overview.md#azure-dns-zone-endpoints-preview) (preview). Within a given subscription, you can create up to 250 accounts with standard endpoints per region, and up to 5000 accounts with Azure DNS zone endpoints per region, for a total of 5250 storage accounts. To register for the preview, see [About the preview](storage-account-overview.md#about-the-preview). |
+| Network connectivity | Endpoint type | Required | Azure Storage supports two types of endpoints: [standard endpoints](storage-account-overview.md#standard-endpoints) (the default) and [Azure DNS zone endpoints](storage-account-overview.md#azure-dns-zone-endpoints-preview) (preview). Within a given subscription, you can create up to 250<sup>1</sup> accounts with standard endpoints per region, and up to 5000 accounts with Azure DNS zone endpoints per region, for a total of 5250 storage accounts. To register for the preview, see [About the preview](storage-account-overview.md#about-the-preview). |
 | Network routing | Routing preference | Required | The network routing preference specifies how network traffic is routed to the public endpoint of your storage account from clients over the internet. By default, a new storage account uses Microsoft network routing. You can also choose to route network traffic through the POP closest to the storage account, which may lower networking costs. For more information, see [Network routing preference for Azure Storage](network-routing-preference.md). |
+
+<sup>1</sup>With a quota increase, you can create up to 500 storage accounts with standard endpoints per region in a given subscription, for a total of 5500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
 
 The following image shows a standard configuration of the networking properties for a new storage account.
 
@@ -270,7 +272,7 @@ To create an account with Azure DNS zone endpoints (preview), follow these steps
 
 1. Close and reopen the PowerShell console.
 
-1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-azure-powershell).
 
     ```azurepowershell
     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 4.4.2-preview -AllowClobber -AllowPrerelease -Force

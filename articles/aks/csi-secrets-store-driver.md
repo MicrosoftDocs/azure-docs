@@ -115,7 +115,7 @@ In addition to an AKS cluster, you'll need an Azure key vault resource that stor
 The Secrets Store CSI Driver allows for the following methods to access an Azure key vault:
 
 * An [Azure Active Directory pod identity][aad-pod-identity] (preview)
-* An [Azure Active Directory workload identity][aad-workload-identity] (preview)
+* An [Azure Active Directory workload identity][aad-workload-identity]
 * A user-assigned or system-assigned managed identity
 
 Follow the instructions in [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods] for your chosen method.
@@ -258,7 +258,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
+      image: registry.k8s.io/e2e-test-images/busybox:1.29-1 
       command:
         - "/bin/sleep"
         - "10000"

@@ -97,5 +97,4 @@ If you will not continue to test custom question answering, you can delete the a
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Add questions with metadata](../../../qnamaker/quickstarts/add-question-metadata-portal.md)
+

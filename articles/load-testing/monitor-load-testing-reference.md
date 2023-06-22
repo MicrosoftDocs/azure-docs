@@ -6,11 +6,11 @@ ms.topic: reference
 ms.author: sacsharm
 ms.service: load-testing
 ms.custom: subject-monitoring
-ms.date: 04/22/2022
+ms.date: 06/02/2023
 ---
 # Monitor Azure Load Testing data reference
 
-Learn about the data and resources collected by Azure Monitor from your Azure Load Testing instance. See [Monitor Azure Load Testing](monitor-load-testing.md) for details on collecting and analyzing monitoring data.
+Learn about the data and resources collected by Azure Monitor from your Azure load testing instance. See [Monitor Azure Load Testing](monitor-load-testing.md) for details on collecting and analyzing monitoring data.
 
 ## Resource logs
 
@@ -45,5 +45,5 @@ Operational log entries include elements listed in the following table:
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitor Azure Load Testing](monitor-load-testing.md) for a description of monitoring Azure Load Testing.
-- See [Monitor Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitor Azure Load Testing](./monitor-load-testing.md) for a description of monitoring Azure Load Testing.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

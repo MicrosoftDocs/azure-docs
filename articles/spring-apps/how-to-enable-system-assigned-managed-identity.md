@@ -1,6 +1,6 @@
 ---
 title: Enable system-assigned managed identity for applications in Azure Spring Apps
-titleSuffix: Azure Spring Apps Enterprise Tier
+titleSuffix: Azure Spring Apps Enterprise plan
 description: How to enable system-assigned managed identity for applications.
 author: karlerickson
 ms.author: xiading
@@ -16,7 +16,7 @@ zone_pivot_groups: spring-apps-tier-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to enable and disable system-assigned managed identities for an application in Azure Spring Apps, using the Azure portal and CLI.
 
@@ -28,8 +28,8 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 
 ::: zone pivot="sc-enterprise"
 
-- An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
-- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
+- [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
 
 ::: zone-end
@@ -37,7 +37,7 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 ::: zone pivot="sc-standard"
 
 - An already provisioned Azure Spring Apps instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
-- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
 
 ::: zone-end
@@ -121,9 +121,11 @@ az spring app identity remove \
     --system-assigned
 ```
 
+---
+
 ## Get the client ID from the object ID (principal ID)
 
-Use the following command to get the client ID from the object/principle ID value:
+Use the following command to get the client ID from the object/principal ID value:
 
 ```azurecli
 az ad sp show --id <object-ID> --query appId

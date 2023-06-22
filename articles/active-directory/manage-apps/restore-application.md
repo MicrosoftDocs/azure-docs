@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 11/02/2022
 ms.author: jomondi
 ms.reviewer: sureshja
-ms.custom: mode-other
+ms.custom: enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-portal
 #Customer intent: As an administrator of an Azure AD tenant, I want to restore a soft deleted enterprise application.
 ---
@@ -22,6 +22,9 @@ In this article, you'll learn how to restore a soft deleted enterprise applicati
 
 >[!IMPORTANT]
 >If you deleted an [application registration](../develop/howto-remove-app.md) in its home tenant through app registrations in the Azure portal, the enterprise application, which is its corresponding service principal also got deleted. If you restore the deleted application registration through the Azure portal, its corresponding service principal, won't be restored. Instead, this action will create a new service principal. Therefore, if you had configurations on the previous enterprise application, you can't restore them through the Azure portal. Use the workaround provided in this article to recover the deleted service principal and its previous configurations.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To restore an enterprise application, you need:

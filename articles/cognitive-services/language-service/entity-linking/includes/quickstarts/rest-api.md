@@ -42,8 +42,7 @@ To call the API, you need the following information:
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 
 ## Entity linking
@@ -74,8 +73,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 '
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Entity-linking" target="_target">I ran into an issue</a>
+
 
 
 ### JSON response
@@ -149,8 +147,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 
 [!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
 
 ## Next steps
 

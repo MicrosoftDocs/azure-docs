@@ -3,7 +3,7 @@ title: Export template in Azure PowerShell
 description: Use Azure PowerShell to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
-ms.date: 09/03/2021
+ms.date: 05/22/2023
 ---
 # Use Azure PowerShell to export a template
 
@@ -21,7 +21,7 @@ This article shows how to export templates through **Azure PowerShell**. For oth
 
 ## Export template from a resource group
 
-After setting up your resource group, you can export an Azure Resource Manager template for the resource group. 
+After setting up your resource group, you can export an Azure Resource Manager template for the resource group.
 
 To export all resources in a resource group, use the [Export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) cmdlet and provide the resource group name.
 
@@ -72,7 +72,7 @@ If you use the `-SkipResourceNameParameterization` parameter when exporting the 
 "resources": [
   {
     "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2016-09-01",
+    "apiVersion": "2022-09-01",
     "name": "demoHostPlan",
     ...
   }
@@ -96,7 +96,7 @@ If you use the `-IncludeParameterDefaultValue` parameter when exporting the temp
 
 ## Save template from deployment history
 
-You can save a template from a deployment in the deployment history. The template you get is exactly the one that was used for deployment. 
+You can save a template from a deployment in the deployment history. The template you get is exactly the one that was used for deployment.
 
 To get a template from a resource group deployment, use the [Save-AzResourceGroupDeploymentTemplate](/powershell/module/az.resources/save-azresourcegroupdeploymenttemplate) cmdlet. You specify the name of the deployment to retrieve. For help with getting the name of a deployment, see [View deployment history with Azure Resource Manager](deployment-history.md).
 

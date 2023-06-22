@@ -7,8 +7,8 @@ summary: >
 brand: azure
 
 metadata:
-  title: Azure Active Directory B2C documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Active Directory B2C documentation
+  description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
   services: active-directory-b2c
   ms.service: active-directory
   ms.subservice: B2C
@@ -244,7 +244,7 @@ conceptualContent:
             url: data-residency.md
             itemType: how-to-guide
           - text: Security analytics with Microsoft Sentinel 
-            url: azure-sentinel.md
+            url: configure-security-analytics-sentinel.md
             itemType: how-to-guide             
           - text: Regulations
             url: ../compliance/index.yml
@@ -320,7 +320,7 @@ conceptualContent:
             url: find-help-open-support-ticket.md
             itemType: how-to-guide
           # - text: Videos
-            # url: azure-ad-external-identities-videos.md
+            # url: external-identities-videos.md
             #itemType: how-to-guide
           # - text: Custom policy references
             #url: trustframeworkpolicy.md

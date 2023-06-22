@@ -13,7 +13,7 @@ This article addresses questions most frequently asked about NC2 on Azure.
 
 ## What is Hyperconverged Infrastructure (HCI)?
 
-Hyper-converged infrastructure (HCI) uses locally attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
+Hyper-converged infrastructure (HCI) uses locally-attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
 
 ## How can I create a VM on a node?
 

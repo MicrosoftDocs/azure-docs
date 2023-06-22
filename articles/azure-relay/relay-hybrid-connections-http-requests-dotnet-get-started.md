@@ -2,7 +2,7 @@
 title: Azure Relay Hybrid Connections - HTTP requests in .NET
 description: Write a C# console application for Azure Relay Hybrid Connections HTTP requests in .NET.
 ms.topic: conceptual
-ms.custom: devx-track-csharp, mode-ui, mode-api
+ms.custom: devx-track-csharp, mode-ui, mode-api, devx-track-dotnet
 ms.date: 09/26/2022
 ---
 

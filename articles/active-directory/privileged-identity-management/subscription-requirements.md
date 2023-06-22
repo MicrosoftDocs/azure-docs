@@ -69,5 +69,4 @@ If an Azure AD Premium P2, EMS E5, or trial license expires, Privileged Identity
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)
 - [Start using Privileged Identity Management](pim-getting-started.md)
 - [Roles you can't manage in Privileged Identity Management](pim-roles.md)
-- [Create an access review of Azure resource roles in PIM](./pim-create-azure-ad-roles-and-resource-roles-review.md)
-- [Create an access review of Azure AD roles in PIM](./pim-create-azure-ad-roles-and-resource-roles-review.md)
+

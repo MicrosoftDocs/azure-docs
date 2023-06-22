@@ -1,12 +1,12 @@
 ---
 title: How to use the MedTech service Mapping debugger - Azure Health Data Services
-description: This article describes how to use the MedTech service Mapping debugger.
+description: Learn how to use the MedTech service Mapping debugger.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 05/16/2023
 ms.author: jasteppe
 ---
 
@@ -21,10 +21,10 @@ ms.author: jasteppe
 In this article, learn how to use the MedTech service Mapping debugger. The Mapping debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
 > [!TIP]
-> To learn about how the MedTech service transforms and persists device message data into the FHIR service see, [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
+> To learn about how the MedTech service transforms and persists device message data into the FHIR service see, [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
 The following video presents an overview of the Mapping debugger:
-
+>
 > [!VIDEO https://youtube.com/embed/OEGuCSGnECY]
 
 ## Overview of the Mapping debugger
@@ -38,14 +38,14 @@ The following video presents an overview of the Mapping debugger:
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-upload-and-download.png" alt-text="Screenshot of the Mapping debugger main screen with Upload and Download buttons highlighted." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-upload-and-download.png":::
 
    **Upload** - With this selection, you can upload:
-    - **Device mapping**: Can be edited and saved (optional) to the MedTech service.
-    - **FHIR destination mapping**: Can be edited and saved (optional) to the MedTech service.
-    - **Test device message**: Used by the validation service to produce a sample normalized measurement and FHIR Observation based on the supplied mappings.
+    * **Device mapping**: Can be edited and saved (optional) to the MedTech service.
+    * **FHIR destination mapping**: Can be edited and saved (optional) to the MedTech service.
+    * **Test device message**: Used by the validation service to produce a sample normalized measurement and FHIR Observation based on the supplied mappings.
 
    **Download** - With this selection you can download copies of:
-     - **Device mapping**: The device mapping currently used by your MedTech service.
-     - **FHIR destination mapping**: The FHIR destination mapping currently used by your MedTech service.
-     - **Mappings**: Both mappings currently used by your MedTech service
+     * **Device mapping**: The device mapping currently used by your MedTech service.
+     * **FHIR destination mapping**: The FHIR destination mapping currently used by your MedTech service.
+     * **Mappings**: Both mappings currently used by your MedTech service
 
 ## How to troubleshoot the device and FHIR destination mappings using the Mapping debugger
 
@@ -62,7 +62,7 @@ The following video presents an overview of the Mapping debugger:
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-save-mappings.png" alt-text="Screenshot of the Mapping debugger and the Save button." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-save-mappings.png":::
 
    > [!NOTE]
-   > The MedTech service only saves the mappings that have been changed/updated. For example: If you only made a change to the **device mapping**, only those changes are saved to your MedTech service and no changes would be saved to the FHIR destination mapping. This is by design and to help with performance of the MedTech service.
+   > The MedTech service only saves the mappings that have been changed/updated. For example: If you only made a change to the **device mapping**, only those changes are saved to your MedTech service and no changes would be saved to the **FHIR destination mapping**. This is by design and to help with performance of the MedTech service.
 
 4. Once the device and FHIR destination mappings are successfully saved, a confirmation from **Notifications** is created within the Azure portal.
 

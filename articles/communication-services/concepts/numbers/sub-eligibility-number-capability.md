@@ -29,7 +29,7 @@ More details on eligible subscription types are as follows:
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 | Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\* In some countries, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this, purchases for CSP and LSP customers is not allowed.
+\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this, purchases for CSP and LSP customers is not allowed.
 
 \** Applications from all other subscription types will be reviewed and approved on a case-by-case basis. Create a support ticket or reach out to acstns@microsoft.com for assistance with your application.
 
@@ -39,35 +39,108 @@ The capabilities and numbers that are available to you depend on the country/reg
 
 The following tables summarize current availability:
 
-## Customers with US Azure billing addresses
+## Customers with Australia Azure billing addresses
 
-| Number            | Type        | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
-| :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
-| USA               | Short-Codes\** | General Availability | General Availability | -        | -          |
-|  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia | Alphanumeric Sender ID\** | Public Preview       | -       | -        | -          |
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+|  Australia, Germany, Netherlands, United Kingdom, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
+
+\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+
+## Customers with Austria Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Austria           | Toll-Free** | -        | -        | Public Preview | Public Preview\* |
+| Austria           | Local**    | -        | -        | Public Preview | Public Preview\* |
+|  Austria, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \***  | Public Preview      | -        | -  | - |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Phone numbers in Austria can only be purchased for own use. Reselling or suballocating to another party is not allowed.
+
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+
+## Customers with Belgium Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Belgium           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Belgium           | Local     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+## Customers with Canada Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
+| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
+| UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| UK                | Local     | -        | -        | General Availability       | General Availability\* |
+|  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-## Customers with UK Azure billing addresses
+## Customers with Denmark Azure billing addresses
 
-| Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
-| :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
-| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
-| UK                 | Local          | -        | -        | 
-| USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | General Availability   | General Availability\* |
-| USA & Puerto Rico  | Local          | -        | -        | General Availability   | General Availability\* |
-| Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
-| Canada             | Local          | -        | -        | General Availability   | General Availability\* |
-| United Kingdom, Germany, Netherlands, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia            | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
+| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
+| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
+| UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| UK                | Local     | -        | -        | General Availability       | General Availability\* |
+| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
+| Italy   | Local**     | - | - | General Availability | General Availability\* |
+| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
+| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
+| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
+| Denmark, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
+## Customers with Estonia Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Estonia, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
+
+\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+
+## Customers with France Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| France            | Local**     | -        | -        | Public Preview | Public Preview\* |
+| France           | Toll-Free**     | -        | -        | Public Preview | Public Preview\* |
+| Norway           | Local**     | -        | -        | Public Preview | Public Preview\* |
+| Norway           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+|  France, Germany, Netherlands, United Kingdom, Australia, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \***  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+\** Phone numbers in France can only be purchased for own use. Reselling or suballocating to another party is not allowed.
+
+\*** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+
+## Customers with Germany Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Germany           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Germany           | Toll-Free     | -        | -        | Public Preview | Public Preview\* |
+|  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Alphanumeric sender ID in Netherlands can only be purchased for own use. Reselling or suballocating to another party is not allowed. Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
 ## Customers with Ireland Azure billing addresses
 
@@ -93,46 +166,6 @@ The following tables summarize current availability:
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-## Customers with Denmark Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
-| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
-| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
-| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
-| UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
-| UK                | Local     | -        | -        | General Availability       | General Availability\* |
-| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
-| Italy   | Local**     | - | - | General Availability | General Availability\* |
-| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
-| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
-| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
-| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
-|  Denmark, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
-
-\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
-
-\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
-
-## Customers with Canada Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
-| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
-| UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
-| UK                | Local     | -        | -        | General Availability       | General Availability\* |
-|  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
-
-\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
-
-\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
-
 ## Customers with Italy Azure billing addresses
 
 | Number  | Type      | Send SMS      | Receive SMS   | Make Calls     | Receive Calls    |
@@ -151,102 +184,73 @@ The following tables summarize current availability:
 | Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
 | Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+| France   | Local**     | - | - | Public Preview | Public Preview\* |
+| France   | Toll-Free** | - | - | Public Preview | Public Preview\* |
 | Italy, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \***  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Phone numbers in Italy can only be purchased for own use. Reselling or suballocating to another party is not allowed.
+\** Phone numbers from Italy, France can only be purchased for own use. Reselling or suballocating to another party is not allowed.
 
 \*** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-## Customers with Sweden Azure billing addresses
+## Customers with Latvia Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
-| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
-| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
-| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
-| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
-| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
-| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
-| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
-| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
-| Italy   | Local**     | - | - | General Availability | General Availability\* |
-|  Sweden, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
+|  Latvia, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Estonia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
 
-\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
-
-## Customers with France Azure billing addresses
+## Customers with Lithuania Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| France            | Local**     | -        | -        | Public Preview | Public Preview\* |
-|  France, Germany, Netherlands, United Kingdom, Australia, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \***  | Public Preview      | -        | -  | - |
+|  Lithuania, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Latvia, Estonia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
 
-\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
-
-\** Phone numbers in France can only be purchased for own use. Reselling or suballocating to another party is not allowed.
-
-\*** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
-
-## Customers with Spain Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Spain           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
-| Spain           | Local     | -        | -        | Public Preview | Public Preview\* |
-|  Spain, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
-
-\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
-
-\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
-
-## Customers with Switzerland Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Switzerland           | Local     | -        | -        | Public Preview | Public Preview\* |
-| Switzerland, Germany, Netherlands, United Kingdom, Australia, France, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
-
-\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
-
-\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
-
-## Customers with Belgium Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Belgium           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
-| Belgium           | Local     | -        | -        | Public Preview | Public Preview\* |
-
-\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
 ## Customers with Luxembourg Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Luxembourg           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | Luxembourg           | Local     | -        | -        | Public Preview | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-## Customers with Austria Azure billing addresses
+## Customers with Netherlands Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Austria           | Toll-Free** | -        | -        | Public Preview | Public Preview\* |
-| Austria           | Local**    | -        | -        | Public Preview | Public Preview\* |
-|  Austria, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \***  | Public Preview      | -        | -  | - |
+| Netherlands           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Netherlands           | Local     | -        | -        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
+|  Netherlands, Germany, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Phone numbers in Austria can only be purchased for own use. Reselling or suballocating to another party is not allowed.
+\** Alphanumeric sender ID in Netherlands can only be purchased for own use. Reselling or suballocating to another party is not allowed. Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+## Customers with Norway Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Norway           | Local**     | -        | -        | Public Preview | Public Preview\* |
+| Norway           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Phone numbers in Norway can only be purchased for own use. Reselling or suballocating to another party is not allowed.
+
+## Customers with Poland Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Poland, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
+
+\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
 ## Customers with Portugal Azure billing addresses
 
@@ -267,82 +271,93 @@ The following tables summarize current availability:
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
 | Slovakia           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Slovakia           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-## Customers with Norway Azure billing addresses
+## Customers with Spain Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Spain           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Spain           | Local     | -        | -        | Public Preview | Public Preview\* |
+|  Spain, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+
+## Customers with Sweden Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
+| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
+| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
+| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
+| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
+| Italy   | Local**     | - | - | General Availability | General Availability\* |
 | Norway           | Local**     | -        | -        | Public Preview | Public Preview\* |
 | Norway           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+|  Sweden, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Phone numbers in Norway can only be purchased for own use. Reselling or suballocating to another party is not allowed.
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-
-## Customers with Netherlands Azure billing addresses
+## Customers with Switzerland Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Netherlands           | Local     | -        | -        | Public Preview | Public Preview\* |
-|  Netherlands, Germany, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
+| Switzerland           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Switzerland           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Switzerland, Germany, Netherlands, United Kingdom, Australia, France, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Alphanumeric sender ID in Netherlands can only be purchased for own use. Reselling or suballocating to another party is not allowed. Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-## Customers with Germany Azure billing addresses
+## Customers with United Kingdom Azure billing addresses
 
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Germany           | Local     | -        | -        | Public Preview | Public Preview\* |
-|  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
+| Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
+| :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
+| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
+| UK                 | Local          | -        | -        | General Availability   | General Availability\* |
+| USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | General Availability   | General Availability\* |
+| USA & Puerto Rico  | Local          | -        | -        | General Availability   | General Availability\* |
+| Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
+| Canada             | Local          | -        | -        | General Availability   | General Availability\* |
+| United Kingdom, Germany, Netherlands, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia            | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
+
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Alphanumeric sender ID in Netherlands can only be purchased for own use. Reselling or suballocating to another party is not allowed. Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-## Customers with Australia Azure billing addresses
+## Customers with United States Azure billing addresses
 
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-|  Australia, Germany, Netherlands, United Kingdom, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
+| Number            | Type        | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
+| :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
+| USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
+| USA               | Short-Codes\** | General Availability | General Availability | -        | -          |
+| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
+| UK                 | Local          | -        | -        |
+| Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
+| Canada             | Local          | -        | -        | General Availability   | General Availability\* |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+|  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia | Alphanumeric Sender ID\** | Public Preview       | -       | -        | -          |
 
-\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-## Customers with Poland Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Poland, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
-
-\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
-
-## Customers with Lithuania Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-|  Lithuania, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Latvia, Estonia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
-
-\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
-
-## Customers with Latvia Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-|  Latvia, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Estonia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
-
-\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
-
-## Customers with Estonia Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Estonia, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia              | Alphanumeric Sender ID  \* | Public Preview      | -        | -  | - |
-
-\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
 ## Next steps
 

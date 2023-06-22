@@ -66,13 +66,18 @@
     },
     {
       "source_path_from_root": "/articles/iot-fundamentals/iot-solution-options.md",
-      "redirect_url": "/azure/iot/iot-solution-options",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-fundamentals/iot-support-help.md",
       "redirect_url": "/azure/iot/iot-support-help",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-solution-options.md",
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
     }
   ]
 }

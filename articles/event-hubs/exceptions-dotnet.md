@@ -10,10 +10,9 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-dotnet
 ms.date: 09/23/2021
 ms.author: spelluru
-
 ---
 
 # EventHubsException - .NET

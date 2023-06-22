@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 05/12/2022
 ms.author: jodowns
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Assign a managed identity access to an application role using PowerShell
@@ -33,7 +33,7 @@ In this article, you learn how to assign a managed identity to an application ro
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
-    - Run scripts locally by installing the latest version of [the Az PowerShell module](/powershell/azure/install-az-ps). You can also use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).
+    - Run scripts locally by installing the latest version of [the Az PowerShell module](/powershell/azure/install-azure-powershell). You can also use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).
 
 ## Assign a managed identity access to another application's app role
 

@@ -5,7 +5,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 06/02/2023
 ---
 
 # About Bastion configuration settings
@@ -25,14 +25,12 @@ The following table shows the availability of features per corresponding SKU.
 
 ### Specify SKU
 
-Currently, you must use the Azure portal if you want to specify the Standard SKU. If you use the Azure CLI or Azure PowerShell to configure Bastion, the SKU can't be specified and defaults to the Basic SKU.
-
 | Method | SKU Value | Links |
 | --- | --- | --- |
 | Azure portal | Tier - Basic or Standard | [Tutorial](tutorial-create-host-portal.md) |
 | Azure portal | Tier - Basic| [Quickstart](quickstart-host-portal.md) |
-| Azure PowerShell | Basic |[How-to](bastion-create-host-powershell.md) |
-| Azure CLI |  Basic| [How-to](create-host-cli.md) |
+| Azure PowerShell | Tier - Basic or Standard |[How-to](bastion-create-host-powershell.md) |
+| Azure CLI | Tier - Basic or Standard | [How-to](create-host-cli.md) |
 
 ### <a name="upgradesku"></a>Upgrade a SKU
 
@@ -60,7 +58,7 @@ Azure Bastion requires a dedicated subnet: **AzureBastionSubnet**. You must crea
 * Subnet size must be /26 or larger (/25, /24 etc.).
 * For host scaling, a /26 or larger subnet is recommended. Using a smaller subnet space limits the number of scale units. For more information, see the [Host scaling](#instance) section of this article.
 * The subnet must be in the same VNet and resource group as the bastion host.
-* The subnet cannot contain additional resources.
+* The subnet can't contain other resources.
 
 You can configure this setting using the following methods:
 
@@ -77,7 +75,7 @@ Azure Bastion requires a Public IP address. The Public IP must have the followin
 * The Public IP address SKU must be **Standard**.
 * The Public IP address assignment/allocation method must be **Static**.
 * The Public IP address name is the resource name by which you want to refer to this public IP address.
-* You can choose to use a public IP address that you already created, as long as it meets the criteria required by Azure Bastion and is not already in use.
+* You can choose to use a public IP address that you already created, as long as it meets the criteria required by Azure Bastion and isn't already in use.
 
 You can configure this setting using the following methods:
 
@@ -91,7 +89,7 @@ You can configure this setting using the following methods:
 
 An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU, you can specify the number of instances. This is called **host scaling**.
 
-Each instance can support 20 concurrent RDP connections and 40 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you are taking when connected to the client VM. For example, if you are doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, an additional scale unit (instance) is required.
+Each instance can support 20 concurrent RDP connections and 40 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you're taking when connected to the client VM. For example, if you're doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, another scale unit (instance) is required.
 
 Instances are created in the AzureBastionSubnet. To allow for host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of instances you can create. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
@@ -112,7 +110,7 @@ Custom port values are supported for the Standard SKU only.
 
 The Bastion **Shareable Link** feature lets users connect to a target resource using Azure Bastion without accessing the Azure portal.
 
-When a user without Azure credentials clicks a shareable link, a webpage will open that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what you have configured in the Azure portal for that target resource. Users can connect to the same resources that you can currently connect to with Azure Bastion: VMs or virtual machine scale set.
+When a user without Azure credentials clicks a shareable link, a webpage opens that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what you have configured in the Azure portal for that target resource. Users can connect to the same resources that you can currently connect to with Azure Bastion: VMs or virtual machine scale set.
 
 | Method | Value | Links | Requires Standard SKU |
 | --- | --- | --- | --- |

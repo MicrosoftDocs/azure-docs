@@ -25,7 +25,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Sign in to Azure
 

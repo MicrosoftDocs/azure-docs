@@ -67,9 +67,6 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    > [!NOTE]
    > The value of the `delegatedManagementSubnetId` variable you will supply below is exactly the same as the value of `--scope` that you supplied in the command above:
 
-   > [!NOTE]
-   > Cassandra 4.0 is in public preview and not recommended for production use cases.
-
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
@@ -156,7 +153,7 @@ sudo apt update
 sudo apt install openjdk-8-jdk openjdk-8-jre
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo "deb http://archive.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra

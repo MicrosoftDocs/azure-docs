@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: faq
-  ms.date: 04/03/2023
+  ms.date: 05/09/2023
   ms.author: justinha
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 summary: This page answers frequently asked questions about Azure Active Directory Domain Services.
@@ -28,8 +28,8 @@ sections:
       - question: |
           Can I enable Azure AD Domain Services in a Classic virtual network?
         answer: |
-          Classic virtual networks aren't supported for new deployments. Existing managed domains deployed in Classic virtual networks continue to be supported until they're retired on March 1, 2023. For existing deployments, you can [migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
-          
+          Classic virtual networks aren't supported.
+
           For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
           
       - question: |
@@ -37,11 +37,6 @@ sections:
         answer: |
           Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer available when you create a managed domain.
 
-      - question: |
-          Can I migrate my existing managed domain from a Classic virtual network to a Resource Manager virtual network?
-        answer: |
-          Yes. For more information, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
-          
       - question: |
           Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
         answer: |
@@ -104,12 +99,12 @@ sections:
       - question: |
           Can I connect to the domain controller for my managed domain using Remote Desktop?
         answer: |
-          No. You don't have permissions to connect to domain controllers for the managed domain using Remote Desktop. Members of the *AAD DC Administrators* group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the *Remote Server Administration Tools* feature on a Windows server joined to the managed domain. For more information, see [Create a management VM to configure and administer an Azure AD Domain Services managed domain](tutorial-create-management-vm.md).
+          No. You don't have permissions to connect to domain controllers for the managed domain using Remote Desktop. Members of the *Azure AD DC Administrators* group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the *Remote Server Administration Tools* feature on a Windows server joined to the managed domain. For more information, see [Create a management VM to configure and administer an Azure AD Domain Services managed domain](tutorial-create-management-vm.md).
           
       - question: |
           I've enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
         answer: |
-          Any user account that's part of the managed domain can join a VM. Members of the *AAD DC Administrators* group are granted remote desktop access to machines that have been joined to the managed domain.
+          Any user account that's part of the managed domain can join a VM. Members of the *Azure AD DC Administrators* group are granted remote desktop access to machines that have been joined to the managed domain.
 
       - question: |
           Do I have domain administrator privileges for the managed domain provided by Azure AD Domain Services?
@@ -134,7 +129,7 @@ sections:
       - question: |
           Can I modify or add DNS records in my managed domain?
         answer: |
-          Yes. Members of the *AAD DC Administrators* group are granted *DNS Administrator* privileges to modify DNS records in the managed domain. Those users can use the DNS Manager console on a machine running Windows Server joined to the managed domain to manage DNS. To use the DNS Manager console, install *DNS Server Tools*, which are part of the *Remote Server Administration Tools* optional feature on the server. For more information, see [Administer DNS in an Azure AD Domain Services managed domain](manage-dns.md).
+          Yes. Members of the *Azure AD DC Administrators* group are granted *DNS Administrator* privileges to modify DNS records in the managed domain. Those users can use the DNS Manager console on a machine running Windows Server joined to the managed domain to manage DNS. To use the DNS Manager console, install *DNS Server Tools*, which are part of the *Remote Server Administration Tools* optional feature on the server. For more information, see [Administer DNS in an Azure AD Domain Services managed domain](manage-dns.md).
           
       - question: |
           What is the password lifetime policy on a managed domain?

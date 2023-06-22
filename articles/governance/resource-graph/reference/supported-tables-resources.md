@@ -4,8 +4,8 @@ description: Provide a list of the Azure Resource Manager resource types support
 ms.date: 10/26/2022
 ms.topic: reference
 ms.custom: generated
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Azure Resource Graph table and resource type reference
 
@@ -32,6 +32,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.web/sites/config/web
 - microsoft.web/sites/slots/config/web
 - microsoft.web/sites/workflows
+
+## authorizationresources
+
+- microsoft.authorization/roleassignments
+- microsoft.authorization/roledefinitions
+- microsoft.authorization/classicadministrators
 
 ## chaosresources
 
@@ -238,8 +244,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.AppPlatform/Spring (Azure Spring Cloud)
 - microsoft.archive/collections
 - microsoft.Attestation/attestationProviders (Attestation providers)
-- microsoft.authorization/elevateaccessroleassignment
-- microsoft.Authorization/resourceManagementPrivateLinks (Resource management private links)
 - microsoft.automanage/accounts
 - microsoft.automanage/configurationprofilepreferences
 - microsoft.automanage/configurationprofiles
@@ -961,8 +965,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 
 For sample queries for this table, see [Resource Graph sample queries for securityresources](../samples/samples-by-table.md#securityresources).
 
-- microsoft.authorization/locks/providers/assessments/governanceassignments
-- microsoft.authorization/roleassignments/providers/assessments/governanceassignments
 - microsoft.security/assessments
   - Sample query: [Count healthy, unhealthy, and not applicable resources per recommendation](../samples/samples-by-category.md#count-healthy-unhealthy-and-not-applicable-resources-per-recommendation)
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)

@@ -5,7 +5,7 @@ ms.service: mariadb
 author: savjani
 ms.author: pariks
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 06/24/2022
 ---
 

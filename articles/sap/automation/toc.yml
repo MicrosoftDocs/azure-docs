@@ -33,6 +33,8 @@ items:
     items:
     - name: Get started with automation framework
       href: get-started.md
+    - name: Upgrading the automation framework
+      href: upgrading.md
     - name: Deployment
       items:
       - name: Deploy the control plane

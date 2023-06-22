@@ -1,3 +1,11 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 #### Suprasegmentals for German
 
 | Example&nbsp;1 (Onset for consonant, word-initial for vowel) | Example&nbsp;2 (Intervocalic for consonant, word-medial nucleus for vowel) | Example&nbsp;3 (Coda for consonant, word-final for vowel) | Comments |

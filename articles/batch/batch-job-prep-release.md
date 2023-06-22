@@ -2,17 +2,16 @@
 title: Job preparation and release tasks on Batch compute nodes
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 04/11/2023
 ms.devlang: csharp
-ms.custom: "seodec18, devx-track-csharp"
-
+ms.custom: seodec18, devx-track-csharp, devx-track-dotnet
 ---
 # Job preparation and release tasks on Batch compute nodes
 
 An Azure Batch job often requires setup before its tasks are executed, and post-job maintenance when its tasks are completed. For example, you might need to download common task input data to your compute nodes, or upload task output data to Azure Storage after the job completes. You can use *job preparation* and *job release* tasks for these operations.
 
 - A job preparation task runs before a job's tasks, on all compute nodes scheduled to run at least one task.
-- A job release task runs once the job is completed, on each node in the pool that executed at least one task.
+- A job release task runs once the job is completed, on each node in the pool that ran a job preparation task.
 
 As with other Batch tasks, you can specify a command line to invoke when a job preparation or release task runs. Job preparation and release tasks offer familiar Batch task features such as:
 
@@ -53,7 +52,7 @@ The job preparation task runs only on nodes that are scheduled to run a task. Th
 
 ## Job release task
 
-Once you mark a job as completed, the job release task runs on each node in the pool that ran at least one task. You mark a job as completed by issuing a terminate request. This request sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
+Once you mark a job as completed, the job release task runs on each node in the pool that ran a job preparation task. You mark a job as completed by issuing a terminate request. This request sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
 
 > [!NOTE]
 > Deleting a job also executes the job release task. However, if a job is already terminated, the release task doesn't run a second time if the job is later deleted.

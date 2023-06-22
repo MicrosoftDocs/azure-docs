@@ -23,6 +23,8 @@ landingContent:
             url: introduction.md
           - text: What's new?
             url: azure-vmware-solution-platform-updates.md
+          - text: Known issues
+            url: azure-vmware-solution-known-issues.md
           - text: FAQ
             url: ./faq.yml
       - linkListType: concept
