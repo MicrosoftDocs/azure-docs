@@ -118,6 +118,16 @@ All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api
 
 You can configure token lifetime policies and assign them to apps using Microsoft Graph. For more information, see the [tokenLifetimePolicy resource type](/graph/api/resources/tokenlifetimepolicy) and its associated methods.
 
+### Service principal policies
+
+You can use the following Microsoft Graph REST API commands for service principal policies.</br></br>
+
+| Command | Description |
+| --- | --- |
+| [Assign tokenLifetimePolicy](/graph/api/application-post-tokenlifetimepolicies) | Specifiy the service principal object ID to link the specified policy to a service principal. |
+| [List assigned tokenLifetimePolicy](/graph/api/application-list-tokenlifetimepolicies) | Specify the service principal object ID to get the policies that are assigned to a service principal. |
+| [Remove tokenLifetimePolicy](/graph/api/application-delete-tokenlifetimepolicies) | Specifiy the service principal object ID to remove a policy from the service principal. |
+
 ## Cmdlet reference
 
 These are the cmdlets in the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation).
@@ -141,16 +151,6 @@ You can use the following cmdlets for application policies.</br></br>
 | [New-MgApplicationTokenLifetimePolicyByRef](/powershell/module/microsoft.graph.applications/new-mgapplicationtokenlifetimepolicybyref) | Links the specified policy to an application. |
 | [Get-MgApplicationTokenLifetimePolicyByRef](/powershell/module/microsoft.graph.applications/get-mgapplicationtokenlifetimepolicybyref) | Gets the policies that are assigned to an application. |
 | [Remove-MgApplicationTokenLifetimePolicyByRef](/powershell/module/microsoft.graph.applications/remove-mgapplicationtokenlifetimepolicybyref) | Removes a policy from an application. |
-
-### Service principal policies
-
-You can use the following Microsoft Graph REST API commands for service principal policies.</br></br>
-
-| Command | Description |
-| --- | --- |
-| [Assign tokenLifetimePolicy](/graph/api/application-post-tokenlifetimepolicies?view=graph-rest-1.0) | Specifiy the service principal object ID to link the specified policy to a service principal. |
-| [List assigned tokenLifetimePolicy](/graph/api/application-list-tokenlifetimepolicies?view=graph-rest-1.0) | Specify the service principal object ID to get the policies that are assigned to a service principal. |
-| [Remove tokenLifetimePolicy](/graph/api/application-delete-tokenlifetimepolicies?view=graph-rest-1.0) | Specifiy the service principal object ID to remove a policy from the service principal. |
 
 ## Next steps
 
