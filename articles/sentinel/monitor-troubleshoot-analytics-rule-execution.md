@@ -9,7 +9,7 @@ ms.date: 06/19/2023
 
 # Monitor and troubleshoot the execution of your scheduled analytics rules
 
-To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools use Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md) to show you insights on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, and they also allow you to re-run failed attempts on specific execution windows for testing or troubleshooting purposes.
+To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools use Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md) to show you insights on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, and they also allow you to rerun failed attempts on specific execution windows for testing or troubleshooting purposes.
 
 > [!IMPORTANT]
 >
@@ -17,23 +17,23 @@ To ensure that Microsoft Sentinel's threat detection provides complete coverage 
 
 ## Summary
 
-There are two execution management tools for scheduled analytics rules: built-in scheduled rule insights and the capability to re-run scheduled rules on-demand.
+There are two execution management tools for scheduled analytics rules: built-in scheduled rule insights and the capability to rerun scheduled rules on-demand.
 
 On the **Analytics** page, the **Insights** panel displays as another tab in the details pane, alongside the **Info** tab. The **Insights** panel provides information about a rule's activity and results. For example: failed executions, top health issues, alert count over time, and closing classifications of incidents created by the rule. These insights help your security analysts identify potential issues or misconfigurations with analytics rules, and allow them to troubleshoot rule failures and optimize rule configurations for better performance and accuracy. 
 
-Also on the **Analytics** page, you have the ability to re-run analytics rules on-demand. This capability provides flexibility and control in validating the effectiveness of the rules. It can be useful in scenarios such as rule refinement, testing, validation, and others. Having the flexibility to initiate manual re-runs can support efficient security operations, enable effective incident response, and enhance the overall detection and response capabilities of the system. 
+Also on the **Analytics** page, you have the ability to rerun analytics rules on-demand. This capability provides flexibility and control in validating the effectiveness of the rules. It can be useful in scenarios such as rule refinement, testing, validation, and others. Having the flexibility to initiate manual reruns can support efficient security operations, enable effective incident response, and enhance the overall detection and response capabilities of the system. 
 
-## Use cases and benefits of re-run
+## Use cases and benefits of rule rerun
 
-Having the option to manually re-run analytics rules be beneficial in a few scenarios: 
+Here are some scenarios that can benefit from replaying specific runs of analytics rules: 
 
-**Rule refinement and tuning:** Analytics rules may require periodic adjustments and fine-tuning based on the evolving threat landscape and changing organizational needs. By manually re-running rules, security teams can assess the impact of rule modifications and validate their effectiveness before deploying them in a production environment. 
+**Rule refinement and tuning:** Analytics rules may require periodic adjustments and fine-tuning based on the evolving threat landscape and changing organizational needs. By manually rerunning rules, your analysts can assess the impact of rule modifications and validate their effectiveness before deploying them in a production environment.
 
-**Testing and validation:** When introducing new analytics rules, making significant changes to existing ones, or developing new incident playbooks, it is essential to thoroughly test their performance and accuracy. Manual re-running allows security teams to simulate different scenarios, including the end-to-end automated incident flow, and validate the rules against known patterns. This ensures that they generate the expected alerts without producing excessive false positives.  
+**Testing and validation:** When introducing new analytics rules, making significant changes to existing ones, or developing new incident playbooks, it is essential to thoroughly test their performance and accuracy. Manual rerunning allows you to simulate different scenarios, including end-to-end automated incident flow, and validate the rules against a consistent set of data inputs. This process ensures that the rules generate the expected alerts without producing excessive false positives.
 
-**Incident investigation:** In the event of a security incident or suspicious activity, security analysts may update a rule to surface additional details and need to re-run the on specific historical execution interval (up to last 7 days) to gather additional information and identify related events. Manual re-running allows analysts to perform in-depth investigations and helps ensure comprehensive coverage. 
+**Incident investigation:** In the event of a security incident or suspicious activity, your analysts may want to surface additional details in the alerts already generated. They can do this by updating the rule and rerunning it on specific execution intervals (going back up to seven days) to gather additional information and identify related events. Manual rerunning allows your analysts to perform in-depth investigations and helps ensure comprehensive coverage.
 
-**Compliance and auditing:** Some regulatory requirements or internal policies may necessitate re-running analytics rules periodically or on-demand to demonstrate continuous monitoring and compliance. Manual re-running provides the ability to meet such obligations by ensuring that rules are consistently applied and generating appropriate alerts. 
+**Compliance and auditing:** Some regulatory requirements or internal policies may necessitate rerunning analytics rules periodically or on-demand to demonstrate continuous monitoring and compliance. Manual rerunning provides the ability to meet such obligations by ensuring that rules are consistently applied and generate appropriate alerts. 
 
 ## View analytics rule insights
 
