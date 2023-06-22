@@ -30,7 +30,7 @@ For more information, see [Manage an AKS hybrid cluster](./howto-hybrid-aks.md#h
   * Network fabric controller and resource group
   * Network fabric instances and resource group
   * AKS hybrid cluster name and resource group
-* Prepare CLI commands, Bicep templates, and Azure Resource Manager templates (ARM templates) that you use for resource creation.
+* Prepare Azure CLI commands, Bicep templates, and Azure Resource Manager templates (ARM templates) that you use for resource creation.
 
 ## What does an unhealthy AKS hybrid cluster look like?
 

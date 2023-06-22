@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot accessing a CSN-connected internet host name within an AKS hybrid cluster for Azure Operator Nexus
-description: Learn how to troubleshoot accessing a CSN-connected internet host name within a AKS hybrid cluster for Azure Operator Nexus.
+description: Learn how to troubleshoot accessing a CSN-connected internet host name within an AKS hybrid cluster for Azure Operator Nexus.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -23,7 +23,7 @@ This article outlines troubleshooting for scenarios where you're having problems
 
 ## Common scenarios
 
-Assume that you're logged in to the jump server. You used SSH to access the AKS hybrid virtual machine (VM) by using the IP address of the worker nodes or control plane VMs. From the AKS hybrid VM, you can't reach any egress endpoints that you got when you created an AKS hybrid VM that uses the CSN.
+Assume that you're logged in to the jump server. You used SSH to access the AKS hybrid virtual machine (VM) by using the IP address of the worker nodes or control plane VMs. From the AKS hybrid VM, you can't reach any egress endpoints that you obtained when you created an AKS hybrid VM that uses the CSN.
 
 You're encountering an error when trying to access the fully qualified domain name (FQDN) of internet host names:
 
