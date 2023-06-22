@@ -652,6 +652,8 @@ items:
     href: essentials/activity-log-insights.md
   - name: Resource logs
     href: essentials/resource-logs.md
+  - name: Stream monitoring data
+    href: essentials/stream-monitoring-data-event-hubs.md
 - name: Data collection
   items: 
   - name: Overview
