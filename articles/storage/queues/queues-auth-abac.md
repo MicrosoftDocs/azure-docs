@@ -5,12 +5,11 @@ description: Authorize access to Azure queues using Azure role assignment condit
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-queue-storage
 ms.topic: conceptual
 ms.date: 10/19/2022
 ms.author: jammart
 ms.reviewer: nachakra
-ms.subservice: queues
 ---
 
 # Authorize access to queues using Azure role assignment conditions
