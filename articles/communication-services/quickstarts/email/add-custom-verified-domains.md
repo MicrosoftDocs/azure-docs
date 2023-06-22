@@ -79,17 +79,17 @@ To provision a custom domain, you need to:
 
 | Registrar Name | Documentation Link |
 | --- | --- |
-| IONOS by 1 & 1 | [Steps 1-7](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-1-1-internet?view=o365-worldwide#:~:text=Add%20a%20TXT%20record%20for%20verification,created%20can%20update%20across%20the%20Internet.) 
-| 123-reg.co.uk | [Steps 1-6](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-123-reg-co-uk?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve)
-| Amazon Web Services (AWS) | [Steps 1-8](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-aws?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve)
-| Cloudflare | [Steps 1-6](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-cloudflare?view=o365-worldwide#:~:text=Add%20a%20TXT,across%20the%20Internet.)
-| GoDaddy | [Steps 1-6](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-godaddy?view=o365-worldwide#:~:text=Add%20a%20TXT,across%20the%20Internet.)
-| Namecheap | [Steps 1-9](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-namecheap?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve)
-| Network Solutions | [Steps 1-9](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-network-solutions?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet,-.)
-| OVH | [Steps 1-9](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-ovh?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve)
-| web.com | [Steps 1-8](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-web-com?view=o365-worldwide#:~:text=with%20your%20domain.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet,-.)
-| Wix | [Steps 1-5](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-wix?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet,-.)
-| Other (General) | [Steps 1-4](https://learn.microsoft.com/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider?view=o365-worldwide#:~:text=Recommended%3A%20Verify%20with,domain%20is%20verified.)
+| IONOS by 1 & 1 | [Steps 1-7](/microsoft-365/admin/dns/create-dns-records-at-1-1-internet?view=o365-worldwide#:~:text=Add%20a%20TXT%20record%20for%20verification,created%20can%20update%20across%20the%20Internet.&preserve-view=true) 
+| 123-reg.co.uk | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-123-reg-co-uk?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve&preserve-view=true)
+| Amazon Web Services (AWS) | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-aws?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve&preserve-view=true)
+| Cloudflare | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-cloudflare?view=o365-worldwide#:~:text=Add%20a%20TXT,across%20the%20Internet.&preserve-view=true)
+| GoDaddy | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-godaddy?view=o365-worldwide#:~:text=Add%20a%20TXT,across%20the%20Internet.&preserve-view=true)
+| Namecheap | [Steps 1-9](/microsoft-365/admin/dns/create-dns-records-at-namecheap?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve&preserve-view=true)
+| Network Solutions | [Steps 1-9](/microsoft-365/admin/dns/create-dns-records-at-network-solutions?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet,-.&preserve-view=true)
+| OVH | [Steps 1-9](/microsoft-365/admin/dns/create-dns-records-at-ovh?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve&preserve-view=true)
+| web.com | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-web-com?view=o365-worldwide#:~:text=with%20your%20domain.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet,-.&preserve-view=true)
+| Wix | [Steps 1-5](/microsoft-365/admin/dns/create-dns-records-at-wix?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet,-.&preserve-view=true)
+| Other (General) | [Steps 1-4](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider?view=o365-worldwide#:~:text=Recommended%3A%20Verify%20with,domain%20is%20verified.&preserve-view=true)
 
 Click **Next** once you've completed this step. 
 
@@ -110,20 +110,19 @@ The following links provide additional information on how to add a CNAME record 
 
 | Registrar Name | Documentation Link |
 | --- | --- |
-| IONOS by 1 & 1 | [Steps 1-10](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-1-1-internet?view=o365-worldwide#:~:text=Add%20the%20CNAME,Select%20Save.) 
-| 123-reg.co.uk | [Steps 1-6](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-123-reg-co-uk?view=o365-worldwide#:~:text=for%20that%20record.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20Add.,-Add%20a%20TXT)
-| Amazon Web Services (AWS) | [Steps 1-8](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-aws?view=o365-worldwide#:~:text=selecting%20Delete.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft%20365,Select%20Create%20records.,-Add%20a%20TXT)
-| Cloudflare | [Steps 1-6](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-cloudflare?view=o365-worldwide#:~:text=Add%20the%20CNAME,Select%20Save.)
-| GoDaddy | [Steps 1-6](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-godaddy?view=o365-worldwide#:~:text=Add%20the%20CNAME,Select%20Save.)
-| Namecheap | [Steps 1-8](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-namecheap?view=o365-worldwide#:~:text=in%20this%20procedure.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20the%20Save%20Changes%20(check%20mark)%20control.,-Add%20a%20TXT)
-| Network Solutions | [Steps 1-9](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-network-solutions?view=o365-worldwide#:~:text=for%20each%20record.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,View%20in%20the%20upper%20right%20to%20view%20the%20record%20you%20created.,-Add%20a%20TXT)
-| OVH | [Steps 1-8](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-ovh?view=o365-worldwide#add-the-cname-record-required-for-microsoft:~:text=Select%20Confirm.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20Confirm.,-Add%20a%20TXT)
-| web.com | [Steps 1-8](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-web-com?view=o365-worldwide#add-the-cname-record-required-for-microsoft:~:text=for%20each%20record.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20ADD.,-Add%20a%20TXT)
-| Wix | [Steps 1-5](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-at-wix?view=o365-worldwide#add-the-cname-record-required-for-microsoft:~:text=Select%20Save.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Add%20a%20TXT)
-| Other (General) | [Guide](https://learn.microsoft.com/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns?view=o365-worldwide#add-cname-records:~:text=%3E%20OK.-,Add%20CNAME%20records,Select%20OK.,-Add%20the%20SIP)
+| IONOS by 1 & 1 | [Steps 1-10](/microsoft-365/admin/dns/create-dns-records-at-1-1-internet?view=o365-worldwide#:~:text=Add%20the%20CNAME,Select%20Save.&preserve-view=true) 
+| 123-reg.co.uk | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-123-reg-co-uk?view=o365-worldwide#:~:text=for%20that%20record.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20Add.,-Add%20a%20TXT&preserve-view=true)
+| Amazon Web Services (AWS) | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-aws?view=o365-worldwide#:~:text=selecting%20Delete.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft%20365,Select%20Create%20records.,-Add%20a%20TXT&preserve-view=true)
+| Cloudflare | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-cloudflare?view=o365-worldwide#:~:text=Add%20the%20CNAME,Select%20Save.&preserve-view=true)
+| GoDaddy | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-godaddy?view=o365-worldwide#:~:text=Add%20the%20CNAME,Select%20Save.&preserve-view=true)
+| Namecheap | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-namecheap?view=o365-worldwide#:~:text=in%20this%20procedure.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20the%20Save%20Changes%20(check%20mark)%20control.,-Add%20a%20TXT&preserve-view=true)
+| Network Solutions | [Steps 1-9](/microsoft-365/admin/dns/create-dns-records-at-network-solutions?view=o365-worldwide#:~:text=for%20each%20record.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,View%20in%20the%20upper%20right%20to%20view%20the%20record%20you%20created.,-Add%20a%20TXT&preserve-view=true)
+| OVH | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-ovh?view=o365-worldwide#add-the-cname-record-required-for-microsoft:~:text=Select%20Confirm.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20Confirm.,-Add%20a%20TXT&preserve-view=true)
+| web.com | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-web-com?view=o365-worldwide#add-the-cname-record-required-for-microsoft:~:text=for%20each%20record.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20ADD.,-Add%20a%20TXT&preserve-view=true)
+| Wix | [Steps 1-5](/microsoft-365/admin/dns/create-dns-records-at-wix?view=o365-worldwide#add-the-cname-record-required-for-microsoft:~:text=Select%20Save.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Add%20a%20TXT&preserve-view=true)
+| Other (General) | [Guide](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns?view=o365-worldwide#add-cname-records:~:text=%3E%20OK.-,Add%20CNAME%20records,Select%20OK.,-Add%20the%20SIP&preserve-view=true)
 
 Click **Next** once you've completed this step. 
-
     :::image type="content" source="./media/email-domains-custom-spf.png" alt-text="Screenshot that shows the D N S records that you need to add for S P F validation for your verified domains.":::
 
     :::image type="content" source="./media/email-domains-custom-dkim-1.png" alt-text="Screenshot that shows the D N S records that you need to add for D K I M.":::
