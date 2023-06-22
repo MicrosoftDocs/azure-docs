@@ -215,6 +215,27 @@ Use the following code to stop sending a custom video stream after it has been s
 await call.stopVideo();
 ```
 
+When switching cameras from a camera that has custome effects applied, to another camera device, first stop the video, switch the source on the `LocalVideoStream` and the start video again.
+```js
+const cameras = await this.deviceManager.getCameras();
+const newCameraDeviceInfo = cameras.find(cameraDeviceInfo => { return cameraDeviceInfo.id === '<another camera that you want to switch to>' });
+// If current camera is using custom raw media stream and video is on
+if (this.localVideoStream.mediaStreamType === 'RawMedia' && this.state.videoOn) {
+	// Stop raw custom video first
+	await this.call.stopVideo(this.localVideoStream);
+	// Switch the local video stream's source to the new camera to use
+	this.localVideoStream?.switchSource(newCameraDeviceInfo);
+	// Start video with the new camera device
+	await this.call.startVideo(this.localVideoStream);
+
+// Else if current camera is using normal stream from camera device and video is on
+} else if (this.localVideoStream.mediaStreamType === 'Video' && this.state.videoOn) {
+	// You can just switch the source, no need to stop and start again. Sent video will automatically switch to the new camera to use
+	this.localVideoStream?.switchSource(newCameraDeviceInfo);
+}
+
+```
+
 ### Receive a call with an incoming video stream
 
 You can access the raw video stream for an incoming call. You use `MediaStream` for the incoming raw video stream to process frames by using machine learning and to apply filters. The processed incoming video can then be rendered on the receiver side.
