@@ -35,9 +35,6 @@
     href: enable-enhanced-security.md
   - name: 3. Connect hybrid and multicloud environments
     items:
-    - name: Connect non-Azure machines with Defender for Endpoint
-      displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
-      href: onboard-machines-with-defender-for-endpoint.md
     - name: Connect AWS accounts
       displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
       href: quickstart-onboard-aws.md
@@ -80,6 +77,9 @@
     - name: Connect your GCP projects
       displayName: hybrid, multicloud, multicloud, google, gcp
       href: quickstart-onboard-gcp.md
+    - name: Connect non-Azure machines with Defender for Endpoint
+      displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
+      href: onboard-machines-with-defender-for-endpoint.md
   - name: Enable all plans
     displayName: enable, plans, security, protect
     href: enable-all-plans.md

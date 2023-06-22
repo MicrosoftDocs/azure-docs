@@ -59,5 +59,9 @@ In this quickstart you enabled Defender for Cloud on your Azure subscription. Th
 
 > [!div class="nextstepaction"]
 > [Quickstart: Connect your non-Azure machines to Microsoft Defender for Cloud with Azure Arc](quickstart-onboard-machines.md)
+>
 > [Quickstart: Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
+>
 > [Quickstart: Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
+>
+> [Quickstart: Connect your non-Azure machines to Microsoft Defender for Cloud with Defender for Endpoint](onboard-machines-with-defender-for-endpoint.md)
