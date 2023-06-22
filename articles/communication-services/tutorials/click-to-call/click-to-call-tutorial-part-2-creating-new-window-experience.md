@@ -123,7 +123,7 @@ To configure Click to Call in our `CallComposite`, we need to make some changes.
 
 To make sure we are passing around data correctly, let's create some handlers to send post messages between the parent window and child window to signal that we want some information. See diagram:
 
-<img src='../media/click-to-call/mermaid-charts-window-messaging.png' width='400' alt='click to call sample app home page with calling experience in new window'>
+<img src='../media/click-to-call/mermaid-charts-window-messaging.png' width='400' alt='disagram illustrating the flow of data between windows'>
 
 This flow illustrates that if the child window has spawned it needs to ask for the arguments. This behavior has to do with React and that if the parent window just sends a message right after creation, the call adapter arguments needed are lost when the application mounts. The adapter arguments are lost because in the new window the listener is not set yet until after a render pass completes. More on where these event handlers are made to come.
 
