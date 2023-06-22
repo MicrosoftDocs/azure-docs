@@ -18,41 +18,43 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure resource role settings in Privileged Identity Management
 
-In Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define role assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, and more. Use the following steps to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
+In Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define role assignment properties. These properties include multifactor authentication and approval requirements for activation, assignment maximum duration, and notification settings. This article shows how to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
-You need to have Owner or User Access Administrator role to manage PIM role settings for the resource. Role settings are defined per role and per resource: all assignments for the same role follow the same role settings. Role settings of one role are independent from role settings of another role. Role settings of one resource are independent from role settings of another resource, and role settings configured on a higher level, such as "Subscription" for example, aren't inherited on a lower level, such as "Resource Group" for example.
+You must have Owner or User Access Administrator role to manage PIM role settings for the resource. Role settings are defined per role and per resource. All assignments for the same role follow the same role settings. Role settings of one role are independent from role settings of another role. Role settings of one resource are independent from role settings of another resource.  Role settings configured on a higher level, such as "Subscription" for example, aren't inherited on a lower level, such as "Resource Group," for example.
 
-PIM role settings are also known as “PIM Policies”.
+PIM role settings are also known as PIM policies.
 
 ## Open role settings
 
-Follow these steps to open the settings for an Azure resource role.
+To open the settings for an Azure resource role:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/)
 
-1. Select **Azure AD Privileged Identity Management -> Azure Resources**. On this page you can see list of Azure resources discovered in PIM. Use Resource type filter to select all required resource types.
+1. Select **Azure AD Privileged Identity Management** > **Azure Resources**. This page shows a list of Azure resources discovered in PIM. Use the **Resource type** filter to select all required resource types.
 
-     :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-list.png" alt-text="Screenshot of the list of Azure resources discovered in PIM." lightbox="media/pim-resource-roles-configure-role-settings/resources-list.png":::
+     :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-list.png" alt-text="Screenshot that shows the list of Azure resources discovered in PIM." lightbox="media/pim-resource-roles-configure-role-settings/resources-list.png":::
 
-1. Select the resource that you need to configure PIM role settings for.
+1. Select the resource for which you need to configure PIM role settings.
 
-1. Select **Settings**. View list of PIM policies for a selected resource.
+1. Select **Settings**. View a list of PIM policies for a selected resource.
 
-    :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-role-settings.png" alt-text="Screenshot of the list of PIM policies for a selected resource." lightbox="media/pim-resource-roles-configure-role-settings/resources-role-settings.png":::
+    :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-role-settings.png" alt-text="Screenshot that shows the list of PIM policies for a selected resource." lightbox="media/pim-resource-roles-configure-role-settings/resources-role-settings.png":::
 
 1. Select the role or policy that you want to configure.
 
-1.	Select Edit to update role settings.
+1. Select Edit to update role settings.
 
-1.	Once finished, select Update.
+1. Select **Update**.
 
-## Role settings 
+## Role settings
+
+This section discusses role settings options.
 
 ### Activation maximum duration
 
 Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
 
-### On activation, require multi-factor authentication 
+### On activation, require multi-factor authentication
 
 You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication helps safeguard access to data and applications, providing another layer of security by using a second form of authentication. 
 
