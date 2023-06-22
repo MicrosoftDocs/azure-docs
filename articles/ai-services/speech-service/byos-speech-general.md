@@ -12,7 +12,7 @@ ms.date: 03/28/2023
 ms.author: alexeyo 
 ---
 
-# How to use "Bring-your-own-service" (BYOS) Speech resource
+# How to use the Bring your own storage (BYOS) Speech resource
 
 “Bring-your-own-storage” (BYOS) is a Cognitive services technology for customers, who have high requirements for data security and privacy. The core of the technology is the ability to associate an Azure Storage account that is owned and fully controlled by the user with the Speech resource, that will then use this Storage account for storing different artifacts related to the user data processing instead of storing the same artifacts within the Speech service premises as it is done in the regular case. This allows using all set of security features of Azure Storage account, including encrypting the data with the Customer-managed keys, using Private endpoints to access the data, etc.
 
