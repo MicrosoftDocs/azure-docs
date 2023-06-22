@@ -23,13 +23,13 @@ One type of licensing that ArcGIS Desktop offers is [concurrent use licenses](ht
 The license server is located in either your on-premises network or hosted on an Azure virtual machine within an Azure virtual network.  After your license server is set up, you'll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) with your lab plan.
 
 > [!IMPORTANT]
-> [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan. It can't be added later.
+> [Advanced networking](how-to-connect-vnet-injection.md) must be enabled during the creation of your lab plan. It can't be added later.
 
 For more information, see [Set up a license server as a shared resource](how-to-create-a-lab-with-shared-resource.md).
 
 ## Lab configuration
 
-When you get an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). If you're using a ArcGIS License Manager on a license server, enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plan. You can also use an existing lab plan.
+When you get an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). If you're using a ArcGIS License Manager on a license server, enable [advanced networking](how-to-connect-vnet-injection.md) when creating your lab plan. You can also use an existing lab plan.
 
 ### Lab plan settings
 
