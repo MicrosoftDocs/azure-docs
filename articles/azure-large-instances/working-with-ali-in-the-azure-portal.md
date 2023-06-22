@@ -44,7 +44,7 @@ You'll need to list your subscription in the Azure portal and then double-click 
 
 To begin using Azure CLI:
 
- Use the Bash environment in Azure Cloud Shell. 
+Use the Bash environment in Azure Cloud Shell.
 For more information, see [Quickstart for Bash in Azure Cloud Shells](../cloud-shell/quickstart.md). 
 
 If you prefer to run CLI reference commands locally, install the Azure CLI. 
@@ -85,16 +85,15 @@ This new resource group lists the ALI you've deployed in that subscription.
 
 ### [Portal](#tab/azure-portal)
 
-1. In the Azure portal, in the BareMetal subscription, select **Resource groups**.
+1. In the Azure portal, in the ALI subscription, select **Resource groups**.
 
-   :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Screenshot showing the list of Resource groups." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" border="false":::
+   :::image type="content" source="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Screenshot showing the list of Resource groups." lightbox="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" border="false":::
 
 1. In the list, locate the new resource group.
  
-   :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png" alt-text="Screenshot showing the BareMetal instance in a filtered Resource groups list." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png"  border="false":::
+   :::image type="content" source="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png" alt-text="Screenshot showing the BareMetal instance in a filtered Resource groups list." lightbox="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/filter-resource-groups.png"  border="false":::
 
-1. In the list, locate the new resource group.
-1. Select the new resource group to view its details. The image shows one Azure Large Instance deployed. 
+1. Select the new resource group to view its details. The image shows one ALI instance deployed. 
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -115,25 +114,23 @@ You can view the details of a single instance.
 
 ### [Portal](#tab/azure-portal)
 
-In the list of BareMetal instancesALI, select the single instance you want to view.
+In the list of ALI instances, select the single instance you want to view.
 
-
-:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot showing the ALI instance attributes of a single instance." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
+:::image type="content" source="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Screenshot showing the ALI instance attributes of a single instance." lightbox="../../../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
 
 The attributes in the image don't look much different than the Azure virtual machine (VM) attributes.
 On the left, you see the Resource group, Azure region, and subscription name and ID. 
 If you assigned tags, you see them here as well.
 By default, the ALI instances don't have tags assigned.
 
-On the right, you see the name of the ALI instance, operating system (OS), IP address, and SKU that shows the number of CPU threads and memory. You also see the power state and hardware version (revision of the ALI instance stamp).
+On the right, you see the name of the ALI instance, operating system (OS), IP address, and SKU that shows the number of CPU threads and memory. 
+You also see the power state and hardware version (revision of the ALI instance stamp).
 The power state indicates whether the hardware unit is powered on or off. The operating system details, however, don't indicate whether it's up and running. 
 
-Also on the right side, you find the  [Azure proximity placement group's name](../virtual-machines/co-location.md).
+Also on the right is the  [Azure proximity placement group's name](../virtual-machines/co-location.md).
 The placement group's name is created automatically for each deployed ALI instance. 
 Reference the proximity placement group when you deploy the Azure VMs that host the application layer. 
 Use the proximity placement group associated with the ALI instance to ensure the Azure VMs are deployed close to the ALI instance. 
-
- 
 
 ### [Azure CLI](#tab/azure-cli)
 
