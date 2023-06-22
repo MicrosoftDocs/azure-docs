@@ -79,7 +79,7 @@ To enable capture on an event hub with Azure Storage as the capture destination,
 
 ```
 Microsoft.Storage/storageAccounts/blobServices/containers/write
-Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write permission(s) on above resource for the user or the application and retry.  
+Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write
 ```
  
 
