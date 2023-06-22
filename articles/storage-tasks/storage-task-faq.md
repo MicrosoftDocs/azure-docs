@@ -1,7 +1,7 @@
 ---
 title: Storage Tasks FAQ
 titleSuffix: Azure Storage
-description: Description goes here
+description: Description goes here for FAQ
 author: normesta
 
 ms.service: storage-tasks

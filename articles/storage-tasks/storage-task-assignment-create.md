@@ -1,6 +1,6 @@
 ---
 title: Create and manage a Storage Task assignment
-description: Description of how to article
+description: Description of how to article for create task assignment goes here.
 author: normesta
 ms.service: storage-tasks
 ms.topic: how-to

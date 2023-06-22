@@ -1,6 +1,6 @@
 ---
 title: Define Storage Task conditions & operations
-description: Description of how to article
+description: Description of conditions how to goes here.
 author: normesta
 ms.service: storage-tasks
 ms.topic: how-to
