@@ -1,30 +1,30 @@
 ---
-title: Push and consume sensor data in Azure FarmBeats
+title: Push and consume sensor data in Data Manager for Agriculture 
 description: Learn how to push sensor data as a provider and egress it as a customer
 author: lbethapudi
 ms.author: lbethapudi
-ms.date: 06/19/2023
+ms.service: data-manager-for-agri
 ms.topic: how-to
-ms.service: azure-industry
-services: azure-industry
+ms.date: 06/19/2023
+ms.custom: template-how-to
 ---
-# Integration as both Sensor Partner and Customer in FarmBeats
+# Sensor Integration as both partner and customer in Azure Data Manager for Agriculture 
 
-Follow the below steps to register as a sensor partner so that you can start pushing your data into your FarmBeats instance.
+Follow the below steps to register as a sensor partner so that you can start pushing your data into your Data Manager for Agriculture instance.
 
 ## Step 1: Enable sensor integration
 
-1. Sensor integration should be enabled before it can be initiated. This step provisions required internal Azure resources for sensor integration for FarmBeats instance. This can be done by running below <a href="https://github.com/projectkudu/ARMClient" target=" blank">armclient</a> command.
+1. Sensor integration should be enabled before it can be initiated. This step provisions required internal Azure resources for sensor integration for Data Manager for Agriculture instance. This can be done by running following <a href="https://github.com/projectkudu/ARMClient" target=" blank">armclient</a> command.
 
 ```armclient 
-armclient patch /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>?api-version=2021-09-01-preview "{properties:{sensorIntegration:{enabled:'true'}}}"
+armclient patch /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<datamanager-instance-name>?api-version=2023-04-01-preview "{properties:{sensorIntegration:{enabled:'true'}}}"
 ```
 
 Sample output:
 
 ```json
 {
-  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>",
+  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<datamanager-instance-name>",
   "type": "Microsoft.AgFoodPlatform/farmBeats",
   "sku": {
     "name": "A0"
@@ -38,7 +38,7 @@ Sample output:
     "lastModifiedAt": "2022-03-11T03:40:06Z"
   },
   "properties": {
-    "instanceUri": "https://<farmbeats-instance-name>.farmbeats.azure.net/",
+    "instanceUri": "https://<datamanager-instance-name>.farmbeats.azure.net/",
     "provisioningState": "Succeeded",
     "sensorIntegration": {
       "enabled": "True",
@@ -51,18 +51,18 @@ Sample output:
 }
 ```
 
-2. The above job might take a few minutes to complete. To know the status of job, the below armclient command should be run
+2. The above job might take a few minutes to complete. To know the status of job, the following armclient command should be run
 
 ```armclient 
-armclient get /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> /providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>?api-version=2021-09-01-preview
+armclient get /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> /providers/Microsoft.AgFoodPlatform/farmBeats/<datamanager-instance-name>?api-version=2023-04-01-preview
 ```
 
-3. To verify whether it is completed, please look at the highlighted attribute below. It should be updated as “Succeeded” from “Creating” in the earlier step. Note that the attribute that indicates that the sensor integration is enabled in indicated by **provisioningState inside the sensorIntegration object**. 
+3. To verify whether it's completed, look at the highlighted attribute. It should be updated as “Succeeded” from “Creating” in the earlier step. The attribute that indicates that the sensor integration is enabled in indicated by **provisioningState inside the sensorIntegration object**. 
 
 Sample output: 
 ```json
 {
-  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>",
+  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<datamanager-instance-name>",
   "type": "Microsoft.AgFoodPlatform/farmBeats",
   "sku": {
     "name": "A0"
@@ -93,13 +93,13 @@ Sample output:
 ```
 Once the provisioning status for sensor integration is completed, sensor integration objects can be created. 
 
-## Step 2: Create Sensor Partner Integration
+## Step 2: Create sensor partner integration
 Create sensor partner integration step should be executed to connect customer with provider. 
 The integrationId is later used in sensor creation.
 API documentation: [Sensor Partner Integrations - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-partner-integrations/create-or-update)
 
-## Step 3: Create Sensor Data Model
-Use sensor data model to define the model of telemetry being sent. All the telemetry sent by the sensor will be validated as per this data model.
+## Step 3: Create sensor data model
+Use sensor data model to define the model of telemetry being sent. All the telemetry sent by the sensor is validated as per this data model.
 
 API documentation: [Sensor Data Models - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-data-models/create-or-update)
 
@@ -165,22 +165,22 @@ Corresponding sensor data model
 }
 ```
 
-## Step 4: Create Sensor
+## Step 4: Create sensor
 Create sensor using the corresponding integration ID and sensor data model ID. DeviceId and HardwareId are optional parameters, if needed, you can use the [Devices - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/devices/create-or-update?tabs=HTTP) to create the device.
 
 API documentation: [Sensors - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensors/create-or-update?tabs=HTTP)
 
-## Step 5: Get IoTHub Connection String
+## Step 5: Get IoTHub connection string
 Get IoTHub connection string to push sensor telemetry to the platform for the Sensor created. 
 
 API Documentation: [Sensors - Get Connection String](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensors/get-connection-string?tabs=HTTP)
 
-## Step 6: Push Data using IoT Hub SDK
+## Step 6: Push data using IoT Hub 
 Use [IoT Hub Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) to push the telemetry using the connection string.
 
 For all sensor telemetry events, "timestamp" is a mandatory property and has to be in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ).
 
-You're now all set to start pushing sensor data for all sensors using the respective connection string provided for each sensor. However, sensor data should be sent in a JSON format as defined by FarmBeats. Refer to the telemetry schema below.
+You're now all set to start pushing sensor data for all sensors using the respective connection string provided for each sensor. However, sensor data should be sent in a JSON format as defined by Data Manager for Agriculture. Refer to the telemetry schema that follows:
 
 ```json
 {
