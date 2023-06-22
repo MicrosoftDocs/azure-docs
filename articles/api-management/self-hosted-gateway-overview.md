@@ -114,8 +114,8 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 <sup>1</sup>For an API Management instance in an internal virtual network, enable private connectivity to the v2 configuration endpoint from the location of the self-hosted gateway, for example, using a private DNS in a peered network.<br/> 
 <sup>2</sup>Only required in v2 when API inspector or quotas are used in policies.<br/>
 <sup>3</sup>Only required when using Azure AD authentication to verify RBAC permissions.<br/>
-<sup>3</sup>Only required when using Azure AD authentication or Azure AD-related policies.<br/>
-<sup>4</sup>Only required when feature is used and requires public IP address, port, and hostname information.<br/>
+<sup>4</sup>Only required when using Azure AD authentication or Azure AD-related policies.<br/>
+<sup>5</sup>Only required when feature is used and requires public IP address, port, and hostname information.<br/>
 
 > [!IMPORTANT]
 > * DNS hostnames must be resolvable to IP addresses and the corresponding IP addresses must be reachable.
