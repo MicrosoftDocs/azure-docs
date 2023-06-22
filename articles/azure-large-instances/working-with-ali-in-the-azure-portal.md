@@ -74,13 +74,9 @@ az provider register --namespace Microsoft.BareMetalInfrastructure
 
 You can use the az provider list command to see all available providers. 
 
- 
+For more information about resource providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-For more information about resource providers, see Azure resource providers and types. 
-
- 
-
-### ALI in the Azure portal 
+### ALI in the Azure portal
 
 When you submit an ALI deployment request, specify the Azure subscription you're connecting to the ALI instance.
 Use the same subscription you use to deploy the application layer that works against the ALI.
@@ -92,7 +88,7 @@ This new resource group lists the ALI you've deployed in that subscription.
 
 1. In the Azure portal, in the BareMetal subscription, select **Resource groups**.
 
-   :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Screenshot showing the list of Resource groups." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png"  border="false":::
+   :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Screenshot showing the list of Resource groups." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" border="false":::
 
 1. In the list, locate the new resource group.
  
