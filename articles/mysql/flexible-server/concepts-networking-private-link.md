@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Private Link for Azure Database for MySQL - Flexible Server
+# Private Link for Azure Database for MySQL - Flexible Server (Preview)
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
