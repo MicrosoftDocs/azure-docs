@@ -120,7 +120,7 @@ git pull
 
 Make changes to the app by updating the code and pushing it to GitHub. GitHub Actions automatically builds and deploys the app.
 
-For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://nitro.unjs.io/deploy/providers/azure).
+For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://nitro.unjs.io/deploy/providers/azure#azure-static-web-apps).
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
