@@ -64,7 +64,7 @@ You can choose from two Defender for Servers paid plans:
 |[Agentless scanning](concept-agentless-data-collection.md) | Scans Azure virtual machines by using cloud APIs to collect data. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
 
 >[!Note]
->Once a plan is enables, a 30 days trial period starts counting. There is no way to stop, pause or extend this trial period.
+>Once a plan is enabled, a 30 day trial period begins. There is no way to stop, pause, or extend this trial period.
 >To enjoy the full 30-days trial, make sure to plan ahead to meet your evaluation purposes.
 
 ## Select a vulnerability assessment solution
