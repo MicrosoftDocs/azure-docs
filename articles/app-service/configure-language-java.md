@@ -242,6 +242,10 @@ Azure App Service supports out of the box tuning and customization through the A
 - [Add a CDN](../cdn/cdn-add-to-web-app.md)
 - [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
+### Copy App Content Locally
+
+Set the app setting `JAVA_COPY_ALL` to `true` to copy your app contents to the local worker from the shared file system. This helps address file-locking issues.
+
 ### Set Java runtime options
 
 To set allocated memory or other JVM runtime options, create an [app setting](configure-common.md#configure-app-settings) named `JAVA_OPTS` with the options. App Service passes this setting as an environment variable to the Java runtime when it starts.

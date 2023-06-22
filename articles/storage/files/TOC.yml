@@ -31,6 +31,8 @@
     href: storage-files-networking-overview.md
   - name: Disaster recovery and failover
     href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/files/toc.json
+  - name: Storage redundancy
+    href: files-redundancy.md
   - name: Geo-redundancy for large file shares
     href: geo-redundant-storage-for-large-file-shares.md
   - name: Azure file share snapshots
@@ -126,9 +128,9 @@
     - name: Use Azure Files with multiple AD DS forests
       href: storage-files-identity-multiple-forests.md
     - name: Enable Azure AD DS authentication and authorization
-      href: storage-files-identity-auth-active-directory-domain-service-enable.md
-    - name: Enable Azure AD Kerberos authentication for hybrid accounts
-      href: storage-files-identity-auth-azure-active-directory-enable.md
+      href: storage-files-identity-auth-domain-services-enable.md
+    - name: Enable Azure AD Kerberos authentication for hybrid identities
+      href: storage-files-identity-auth-hybrid-identities-enable.md
     - name: Enable AD Kerberos authentication for Linux clients (SMB)
       href: storage-files-identity-auth-linux-kerberos-enable.md
   - name: Authorize

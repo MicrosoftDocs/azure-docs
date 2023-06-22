@@ -30,8 +30,7 @@ Use the Optical character recognition client library to read printed and handwri
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=OCR&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
 
@@ -86,8 +85,7 @@ Use the Optical character recognition client library to read printed and handwri
    node index.js
    ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=OCR&Page=quickstart&Section=Read-printed-and-handwritten-text" target="_target">I ran into an issue</a>
+
 
 ## Output
 
@@ -115,8 +113,7 @@ calorie diet.
 End of quickstart.
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=OCR&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
+
 
 ## Clean up resources
 

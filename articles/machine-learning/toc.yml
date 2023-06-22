@@ -669,6 +669,9 @@
             - name: Import data (preview)
               displayName: Import data (preview)
               href: how-to-import-data-assets.md
+            - name: How to schedule a data import (preview)
+              displayName: How to schedule a data import (preview)
+              href: how-to-schedule-data-import.md
             - name: Manage imported data (preview)
               href: how-to-manage-imported-data-assets.md
         - name: Access and explore your data
@@ -800,7 +803,7 @@
               href: how-to-use-secrets-in-runs.md
             # v1
             - name: Train with SDK v1
-              href: ./v1/how-to-attach-compute-targets.md
+              href: ./v1/how-to-train-model.md
             - name: Distributed GPU guide
               displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
               href: ./v1/how-to-train-distributed-gpu.md
@@ -1055,7 +1058,7 @@
             - name: GPU inference
               href: ./v1/how-to-deploy-inferencing-gpus.md
             - name: Azure Cognitive Search
-              href: how-to-deploy-model-cognitive-search.md
+              href: ./v1/how-to-deploy-model-cognitive-search.md
             - name: FPGA inference
               href: ./v1/how-to-deploy-fpga-web-service.md
         - name: Profile models
@@ -1294,7 +1297,7 @@
     - name: Troubleshoot secure workspace connectivity
       href: how-to-troubleshoot-secure-connection-workspace.md
     - name: Troubleshoot SerializationError
-      href: how-to-troubleshoot-serialization-error.md
+      href: ./v1/how-to-troubleshoot-serialization-error.md
     - name: Troubleshoot descriptor error
       displayName: descriptors cannot not be created directly
       href: how-to-troubleshoot-protobuf-descriptor-error.md
@@ -1329,7 +1332,7 @@
       items:
         - name: VS Code interactive debugging
           displayName: vscode,remote,debug,pipelines,deployments,ssh
-          href: how-to-debug-visual-studio-code.md
+          href: ./v1/how-to-debug-visual-studio-code.md
     # end v1
 - name: Reference
   items:

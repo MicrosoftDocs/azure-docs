@@ -102,7 +102,7 @@ You need to agree with the enterprise team which IP subnets and addresses will b
 
 The RAN that you use to broadcast the signal across the enterprise site must comply with local regulations. For example, this could mean:
 
-- The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country.
+- The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country/region.
 - You have received permission for the RAN to broadcast using spectrum in a certain location, for example, by grant from a telecom operator, regulatory authority or via a technological solution such as a Spectrum Access System (SAS).
 - The RAN units in a site have access to high-precision timing sources, such as Precision Time Protocol (PTP) and GPS location services.
 

@@ -67,8 +67,8 @@ To resolve this problem, delete the resource bridge, register the providers, the
 1. Register the providers:
 
    ```azurecli
-   az provider register --namespace Microsoft.ExtendedLocation –wait
-   az provider register --namespace Microsoft.ResourceConnector –wait
+   az provider register --namespace Microsoft.ExtendedLocation –-wait
+   az provider register --namespace Microsoft.ResourceConnector –-wait
    ```
 
 1. Redeploy the resource bridge.

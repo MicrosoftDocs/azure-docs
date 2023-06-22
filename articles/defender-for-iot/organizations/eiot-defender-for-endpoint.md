@@ -69,11 +69,13 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
     - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network.
 
+**To hunt for threats**:
+
+On the **Device inventory** page, select **Go hunt** to query devices using tables like the *[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)* table. On the **Advanced hunting** page, query data using other schemas. 
+
+For more information, see [Advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) and [Understand the advanced hunting schema](/microsoft-365/security/defender/advanced-hunting-schema-tables).
+
 ## Next steps
 
-Learn how to set up an Enterprise IoT network sensor (Public preview) and gain more visibility into more IoT segments of your corporate network that aren't otherwise covered by Defender for Endpoint.
-
-Customers that have set up an Enterprise IoT network sensor will be able to see all discovered devices in the **Device inventory** in either Microsoft 365 Defender, or Defender for IoT in the Azure portal.
-
 > [!div class="nextstepaction"]
-> [Enhance device discovery with an Enterprise IoT network sensor](eiot-sensor.md)
+> [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)

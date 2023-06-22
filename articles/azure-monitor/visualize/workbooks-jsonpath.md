@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2023
+ms.date: 06/21/2023
 ---
 
 # Use JSONPath to transform JSON data in workbooks
