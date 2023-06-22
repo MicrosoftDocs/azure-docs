@@ -83,7 +83,7 @@ In this article you learn how to secure the following training compute resources
 
 ## Limitations
 
-* __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
+<!-- * __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
 
     * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
     * You may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
@@ -91,11 +91,49 @@ In this article you learn how to secure the following training compute resources
     Guidance such as using NSG rules, user-defined routes, and input/output requirements, apply as normal when using a different region than the workspace.
 
     > [!WARNING]
-    > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__.
+    > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__. -->
 
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
 
 * __Port 445__ must be open for _private_ network communications between your compute instances and the default storage account during training. For example, if your computes are in one VNet and the storage account is in another, don't block port 445 to the storage account VNet.
+
+## Compute cluster in a different VNet/region from workspace
+
+> [!IMPORTANT]
+> You can't create a *compute instance* in a different region/VNet, only a *compute cluster*.
+
+To create a compute cluster in a different Azure Virtual Network than your workspace, need to decide which method you want to use to enable communication between the two VNets.
+
+* Use VNet Peering.
+* Add a private endpoint for your workspace in the virtual network that will contain the compute cluster.
+
+Regardless of the method selected, you must also create the VNet; Azure Machine Learning will not create it for you.
+
+
+
+# [Azure CLI](#tab/cli)
+
+In the `az ml compute create` command, replace the following values:
+
+* `rg`: The resource group that the compute will be created in.
+* `ws`: The Azure Machine Learning workspace name.
+* `yourvnet`: The Azure Virtual Network to use for the compute.
+* `yoursubnet`: The subnet to use for the compute.
+* `region`: The Azure region to create the compute in.
+* `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
+
+```azurecli-interactive
+az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --location region --type AmlCompute
+```
+
+# [Python SDK](#tab/python)
+
+TBD
+
+
+# [Studio](#tab/azure-studio)
+
+---
 
 ## Compute instance/cluster with no public IP
 
@@ -162,7 +200,7 @@ az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws 
 az ml compute create --name myci --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type ComputeInstance --set enable_node_public_ip=False
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 > [!IMPORTANT]
 > The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
@@ -263,7 +301,7 @@ az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws 
 az ml compute create --name myci --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type ComputeInstance
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 > [!IMPORTANT]
 > The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
