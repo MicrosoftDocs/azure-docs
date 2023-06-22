@@ -58,10 +58,10 @@ The following table describes the fields on the **Conditions** tab.
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | If | And/Or | Required | An operator which combines two or more predicates to form a logical-AND or logical-OR expression. |
-| If | Blob property | Required | The blob or container property that you like to use in the condition. See [Supported blob properties](storage-task-conditions-reference.md#supported-blob-properties)|
-| If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-conditions-reference.md#supported-operators)|
-| If| Property value | Required | The value that relates to the corresponding property. See [Supported property values](storage-task-conditions-reference.md#supported-property-values) |
-| Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-conditions-reference.md#supported-operations)|
+| If | Blob property | Required | The blob or container property that you like to use in the condition. See [Supported blob properties](storage-task-conditions-operations.md#blob-properties)|
+| If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-conditions-operations.md#operators)|
+| If| Property value | Required | The value that relates to the corresponding property. See [Supported property values](storage-task-conditions-operations.md#property-values) |
+| Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-conditions-operations.md#operations)|
 | Then | Parameter | Required | A value used by the operation. |
 
 The following image shows an example of the **Conditions** tab.

@@ -31,16 +31,6 @@ Enabled/disabled.
 
 Something here about storage account targets, number of accounts supported and other constraints along with blob prefix and other details.
 
-## Role assignments
-
-When you create a task assignment, choose an Azure Built-in or custom role that has the permission necessary to perform the tasks that you've defined. 
-
-The following table shows the least privileged built-in Azure role required to perform each task. If you prefer to use a custom role, choose a role which gives permission to the Azure RBAC action associated with the task.
-
-| Task | Azure RBAC actions | Least privileged built-in Azure role |
-|--|--|
-| SetBlobTier | [Microsoft.Storage/storageAccounts/blobServices/write](../role-based-access-control/resource-provider-operations.md) | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
-
 ## Trigger
 
 What sets it off - run now? on a schedule?

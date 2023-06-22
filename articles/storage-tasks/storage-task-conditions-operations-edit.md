@@ -40,7 +40,7 @@ To define a condition, choose a property, specify a value for that property, and
 
 #### Choose a property
 
-In the **Blob property** drop-down list, choose a property. See [Supported blob properties](storage-task-conditions-reference.md#supported-blob-properties).
+In the **Blob property** drop-down list, choose a property. See [Supported blob properties](storage-task-conditions-operations.md#blob-properties).
 
 The following example selects the **Blob name** property.
 
@@ -49,7 +49,7 @@ The following example selects the **Blob name** property.
 
 #### Choose a value and operator
 
-In the **Property value** box, enter a value and in the **Operator** drop-down list, choose an operator. See [Supported Operators](storage-task-conditions-reference.md#supported-operators).
+In the **Property value** box, enter a value and in the **Operator** drop-down list, choose an operator. See [Supported Operators](storage-task-conditions-operations.md#operators).
 
 The following example specifies a value of `.log` along with the **Ends with** operator. This condition allows the operation defined in this storage task to execute only on blobs that have a `.log` file extension.
 

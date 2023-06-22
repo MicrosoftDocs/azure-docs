@@ -3,26 +3,28 @@ items:
   href: /azure/storage/container-storage/
 - name: Overview
   items:
-  - name: What are Storage Tasks?
+  - name: What is Azure Storage Tasks?
     href: overview.md
   expanded: true
 - name: Quickstarts
   items:
-  - name: Create, assign, and run a Storage Task
+  - name: Create, assign, and run a storage task
     href: storage-task-quickstart-portal.md
   expanded: true
 - name: Concepts
   items: 
-  - name: Storage Task conditions & operations
+  - name: Storage task conditions & operations
     href: storage-task-conditions-operations.md
-  - name: Storage Task assignments
+  - name: Storage task assignments
     href: storage-task-assignment.md
-  - name: Monitor Storage Tasks
+  - name: Storage task authorization
+    href: storage-task-authorization.md
+  - name: Monitor Azure Storage Tasks
     href: monitor-storage-tasks.md
   expanded: true
 - name: How-To
   items: 
-  - name: Create a Storage Task
+  - name: Create a storage task
     href: storage-task-create.md
   - name: Define conditions & operations
     href: storage-task-conditions-operations-edit.md
@@ -35,8 +37,6 @@ items:
   items:
   - name: REST API
     href: /rest/api/storageservices/blob-service-rest-api
-  - name: Supported operands, properties, operands and values
-    href: storage-task-conditions-reference.md
   - name: Monitoring data Reference
     href: storage-tasks-monitor-data-reference.md
   expanded: true
@@ -46,10 +46,10 @@ items:
       href: storage-task-faq.md
     - name: Known issues and limitations
       href: storage-task-known-issues.md
-    - name: Pricing for Storage Tasks
+    - name: Pricing for Azure Storage Tasks
       href: https://azure.microsoft.com/pricing/details/storage/blobs/
-    - name: Storage Tasks on Microsoft Q&A
+    - name: Azure Storage Tasks on Microsoft Q&A
       href: /answers/topics/azure-blob-storage.html
-    - name: Storage Tasks on Stack Overflow
+    - name: Azure Storage Tasks on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-blob-storage
   expanded: true
