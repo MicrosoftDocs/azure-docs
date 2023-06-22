@@ -33,6 +33,15 @@ landingContent:
 
 # Card (optional)
 
+  - title: Understanding cloud usage + cost
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Data analysis and showback
+        url: capabilities-analysis-showback.md
+
+# Card (optional)
+
   - title: Resources
     linkLists:
     - linkListType: reference
