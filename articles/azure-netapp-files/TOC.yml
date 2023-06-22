@@ -49,6 +49,10 @@
       href: default-individual-user-group-quotas-introduction.md
     - name: Requirements and considerations for large volumes
       href: large-volumes-requirements-considerations.md
+  - name: NAS as service 
+    items: 
+      - name: Understand NAS
+        href: understand-nas.md 
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files
@@ -115,8 +119,6 @@
         href: cross-zone-replication-introduction.md
       - name: Requirements and considerations for cross-zone replication 
         href: cross-zone-replication-requirements-considerations.md
-    - name: Double encryption at rest 
-      href: double-encryption-at-rest.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
