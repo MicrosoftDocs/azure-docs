@@ -113,16 +113,16 @@
     # end v1
 - name: Interact with Azure Machine Learning
   items:
-  - name: Understand resources and assets
+  - name: Resources and assets
     href: concept-azure-machine-learning-v2.md
-  - name: Workspace
+  - name: Workspaces
     href: concept-workspace.md
   - name: Environments
     href: concept-environments.md
-  - name: Compute instance
+  - name: Compute instances
     displayName: resource, dsvm, Data Science Virtual Machine
     href: concept-compute-instance.md
-  - name: Compute target
+  - name: Compute targets
     displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
     href: concept-compute-target.md
   - name: Manage environments in studio
@@ -157,7 +157,7 @@
   - name: Manage environments with SDK and CLI (v2)
     displayName: environment
     href: how-to-manage-environments-v2.md
-  - name: Azure Container for PyTorch
+  - name: Create Azure Container for PyTorch
     displayName: acpt
     href: how-to-azure-container-for-pytorch-environment.md
   - name: Launch VS Code remote
@@ -259,9 +259,6 @@
       href: how-to-import-data-assets.md
   - name: Access and explore your data
     items:
-    - name: Overview
-      displayName:
-      href:
     - name: Bookmark your favorite data assets
       displayName: Create data assets
       href: how-to-create-data-assets.md
@@ -324,10 +321,10 @@
     items:
     - name: Setup
       items:
-      - name: Image labeling
+      - name: Create image labeling projects
         displayName: data, dataset
         href: how-to-create-image-labeling-projects.md
-      - name: Text labeling
+      - name: Create text labeling projects
         displayName: data, dataset
         href: how-to-create-text-labeling-projects.md
       - name: Add users
@@ -351,7 +348,7 @@
     - name: Interactive development with Apache Spark
       displayName: Interactive Data Wrangling with Apache Spark
       href: interactive-data-wrangling-with-apache-spark-azure-ml.md
-  - name: Managed Feature Store
+  - name: Managed feature store
     items:
     - name: What is managed feature store
       href: concept-what-is-managed-feature-store.md
@@ -370,7 +367,7 @@
       - name: Export and delete data
         displayName: GDPR
         href: how-to-export-delete-data.md
-  - name: Sourcing human data responsibly
+  - name: Responsible sourcing of human data
     href: concept-sourcing-human-data.md
 - name: Automated Machine Learning
   items:
@@ -475,7 +472,7 @@
       - name: Troubleshoot automated ML
         href: ./v1/how-to-troubleshoot-auto-ml.md
       # end v1
-- name: Training
+- name: Train a model
   items:
   - name: Overview
     displayName: run config, machine learning pipeline, ml pipeline, train model
@@ -496,13 +493,13 @@
     href: how-to-use-secrets-in-runs.md
   - name: Custom Training
     items:
-    - name: scikit-learn
+    - name: Train scikit-learn models
       href: how-to-train-scikit-learn.md
-    - name: TensorFlow
+    - name: Train TensorFlow models
       href: how-to-train-tensorflow.md
-    - name: Keras
+    - name: Train Keras models
       href: how-to-train-keras.md
-    - name: PyTorch
+    - name: Train PyTorch models
       href: how-to-train-pytorch.md
     - name: Tune Hyperperameters
       href: how-to-tune-hyperparameters.md
@@ -550,9 +547,9 @@
     href: how-to-schedule-pipeline-job.md
 - name: Work with foundation models
   items:
-    - name: Foundation Models in Model Catalog
+    - name: Foundation models in model catalog
       href: concept-foundation-models.md
-    - name: Open Source Models curated by AzureML 
+    - name: Open source models curated by Azure Machine Learning
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
@@ -693,7 +690,7 @@
     displayName: mlops, mlopspython, production
     href: ./v1/how-to-convert-ml-experiment-to-production.md
   # end v1
-- name: Deploy with inferencing
+- name: Deploy for inferencing
   items:
     - name: Online endpoints (real-time)
       items:
