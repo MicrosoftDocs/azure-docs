@@ -4,7 +4,7 @@ description: This article describes how to create and manage workbooks for VM in
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/16/2023
+ms.date: 05/23/2023
 ms.topic: how-to
 ---
 

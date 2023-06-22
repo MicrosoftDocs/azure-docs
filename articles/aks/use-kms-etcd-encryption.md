@@ -3,7 +3,7 @@ title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Serv
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 06/08/2023
+ms.date: 06/15/2023
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
@@ -347,22 +347,23 @@ Use the following command to update all secrets. Otherwise, the old secrets will
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
-## KMS V2 support 
+## KMS v2 support
 
-Since AKS version 1.27 and above, enabling the KMS feature configures KMS V2. With KMS V2, you aren't limited to the 2,000 secrets support. For more information, you can refer to the [KMS V2 Improvements](https://kubernetes.io/blog/2022/09/09/kms-v2-improvements/).
+Starting with AKS version 1.27, enabling the KMS feature configures KMS v2. With KMS v2, you aren't limited to the 2,000 secrets it supports. For more information, review [KMS V2 Improvements](https://kubernetes.io/blog/2023/05/16/kms-v2-moves-to-beta/).
 
 ### Migration to KMS v2
 
-If your cluster version is less than 1.27 and you already enabled KMS, use the following steps to migrate to KMS V2:
+If your cluster version is less than 1.27 and you already enabled KMS, use the following steps to migrate to KMS v2:
 
 1. Disable KMS on the cluster.
 2. Perform the storage migration.
 3. Upgrade the cluster to version 1.27 or higher.
 4. Re-enable KMS on the cluster.
+5. Perform the storage migration.
 
 #### Disable KMS
 
-Disable KMS on an existing cluster using the `az aks update` command with the `--disable-azure-keyvault-kms` flag.
+To disable KMS on an existing cluster, use the `az aks update` command with the `--disable-azure-keyvault-kms` argument.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
@@ -370,7 +371,7 @@ az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azu
 
 #### Storage migration
 
-Update all secrets using the `kubectl get secrets` command with the `--all-namespaces` flag.
+To update all secrets, use the `kubectl get secrets` command with the `--all-namespaces` argument.
 
 ```azurecli-interactive
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
@@ -378,13 +379,13 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 
 #### Upgrade AKS cluster
 
-Upgrade the AKS cluster using the `az aks upgrade` command and specify your desired version as `1.27.x` or higher for `--kubernetes-version`.
+To upgrade an AKS cluster, use the `az aks upgrade` command and specify the desired version as `1.27.x` or higher with the `--kubernetes-version` argument.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version <AKS version>
 ```
 
-Example:
+For example:
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.27.1
@@ -392,8 +393,16 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 #### Re-enable KMS
 
-You can reenable the KMS feature on the cluster to encrypt the secrets. After that, the AKS cluster uses KMS V2.
-If you don’t want to do the KMS v2 migration, you can create a new 1.27+ cluster with KMS enabled.
+You can reenable the KMS feature on the cluster to encrypt the secrets. Afterwards, the AKS cluster uses KMS v2.
+If you don't want to do the KMS v2 migration, you can create a new version 1.27 and higher cluster with KMS enabled.
+
+#### Storage migration
+
+To re-encrypt all secrets under KMS v2, use the `kubectl get secrets` command with the `--all-namespaces` argument.
+
+```azurecli-interactive
+kubectl get secrets --all-namespaces -o json | kubectl replace -f -
+```
 
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md

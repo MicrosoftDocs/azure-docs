@@ -7,7 +7,7 @@ manager: martinco
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: fundamentals
-ms.date: 06/03/2022
+ms.date: 06/14/2023
 ms.author: jricketts
 ms.custom: references_regions
 ---

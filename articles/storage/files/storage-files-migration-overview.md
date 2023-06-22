@@ -50,7 +50,7 @@ A user of Active Directory, which is their on-premises domain controller, can na
 
 The alternative data stream is the primary aspect of file fidelity that currently can't be stored on a file in an Azure file share. It's preserved on-premises when Azure File Sync is used.
 
-Learn more about [on-premises Active Directory authentication](storage-files-identity-auth-active-directory-enable.md) and [Azure AD DS authentication](storage-files-identity-auth-active-directory-domain-service-enable.md) for Azure file shares.
+Learn more about [on-premises Active Directory authentication](storage-files-identity-auth-active-directory-enable.md) and [Azure AD DS authentication](storage-files-identity-auth-domain-services-enable.md) for Azure file shares.
 
 ## Migration guides
 

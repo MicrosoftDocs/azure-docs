@@ -23,14 +23,14 @@ Azure availability zones are at least three physically separate groups of datace
 
 There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
-Azure Operator Nexus offers availability zone-redundant deployments by default. Operator Nexus components, such as Cluster Manager and Network Fabric Controller are all deployed on an Azure Kubernetes Service (AKS) cluster that's enabled with availability zones. Other service dependencies, such as Resource Provider as a Service (RPaaS), Storage Account Service, and KeyVault are also configured with availability zone-redundancy.
+Azure Operator Nexus offers availability zone-redundant deployments by default. Operator Nexus components, such as Cluster Manager and Network Fabric Controller are all deployed on an Azure Kubernetes Service (AKS) cluster that's enabled with availability zones. Other service dependencies, such as Storage Account Service, and KeyVault are also configured with availability zone-redundancy.
 
 >[!NOTE]
->Operator Nexus On-Premises Clusters implements a multi-rack design that provides physical redundancy at all levels of the stack. Each rack is designed as a failure domain or Nexus zone. Customer workloads can be deployed across multiple racks/nodes, essentially providing a similar multi-availability zone experience.
+>Operator Nexus On-Premises instance implements a multi-rack design that provides physical redundancy at all levels of the stack. Each rack is designed as a failure domain or Nexus zone. Customer workloads can be deployed across multiple racks/nodes, essentially providing a similar multi-availability zone experience.
 
 ### Azure availability zone down experience
 
-In an availability zone-down scenario, API calls against the cluster and resource providers would continue to work without interruption. There would be no ​impact on the currently running on-premises tenant workloads or on the ability to create new tenant workloads. ​ Also, no data loss should occur, as the RPaaS ensures the resilience of the Operator Nexus and other resource types. 
+In an availability zone-down scenario, API calls against the cluster and resource providers would continue to work without interruption. There would be no impact on the currently running on-premises tenant workloads or on the ability to create new tenant workloads. Also, no data loss should occur, as the resilience of the Operator Nexus and other resource types is ensured. 
 
 ### Azure availability zone failover support
 
@@ -45,14 +45,14 @@ In general, availability targets are achieved through local and geo-redundant de
 
 Operator Nexus on-premises instances consist of a multi-rack design that provides physical redundancy at all levels of the stack. Each rack is designated as a failure domain and, thus, can be configured as a Nexus zone where these zones can and, preferably, should be used for local redundant workload deployments.
 
-### Nexus cluster: a mechanism for geo workload redundancy
+### Nexus instance: a mechanism for geo workload redundancy
 
-The Nexus on-premises clusters are hosted in a specific Azure region. As stated previously, the used Azure services and the Nexus resources are deployed in multiple availability zones of that Azure region.
+The Nexus on-premises instances are hosted in a specific Azure region. As stated previously, the used Azure services and the Nexus resources are deployed in multiple availability zones of that Azure region.
 
 Nexus instances that are geographically distributed, i.e., not in the same operator data center (possibly not even the same geographic region), **and hosted on different Azure regions** should be utilized to redundantly deploy workloads for geo-redundancy.
 
 > [!WARNING]
-> Deploying workloads on, say, two geographically distributed Nexus clusters is insufficient to achieve true geo-redundancy unless the geo-redundant Nexus clusters are hosted on different Azure regions.
+> Deploying workloads on, say, two geographically distributed Nexus instances is insufficient to achieve true geo-redundancy unless the geo-redundant Nexus instances are hosted on different Azure regions.
 > 
 > In the unlikely event that an Azure region becomes unavailable, the Azure services as well as the Nexus resources on that region will also become unavailable. While this doesn't impact running workloads, it prevents capabilities such as starting new workloads, analytics, etc.
 
@@ -61,7 +61,7 @@ Nexus instances that are geographically distributed, i.e., not in the same opera
 There are scenarios where multiple Nexus instances need to be deployed in the same geographic location.
 Workload geo-redundancy is obviously not achieved by deploying workloads on Nexus instances in the same geographic location.
 
-One consideration in designing for reliability, other than availability, is resiliency and the ability to recover from failures. Recovery from failures, and the ability to meet recovery time objectives, requires that we limit the "blast" or impact radius of failures.  In the scenario where multiple Nexus clusters are deployed in the same geo-location, resilient design demands that these Nexus instances be hosted on different Azure regions. Thus, when an Azure region fails, its impact is limited to one Nexus instance.
+One consideration in designing for reliability, other than availability, is resiliency and the ability to recover from failures. Recovery from failures, and the ability to meet recovery time objectives, requires that we limit the "blast" or impact radius of failures.  In the scenario where multiple Nexus instances are deployed in the same geo-location, resilient design demands that these Nexus instances be hosted on different Azure regions. Thus, when an Azure region fails, its impact is limited to one Nexus instance.
 
 ## Next steps
 
