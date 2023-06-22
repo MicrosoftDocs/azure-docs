@@ -22,7 +22,7 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
 
 > [!IMPORTANT]
-> The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
+> The cold tier is currently in PREVIEW and is available in all public regions.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see [Cold tier (preview)](#cold-tier-preview).
 
