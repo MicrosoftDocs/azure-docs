@@ -135,7 +135,7 @@ appInsights.loadAppInsights();
 
 ### 2. (Optional) Add a framework extension
 
-If you want to add a framework extension or you've already added one, see the [React, React Native, and Angular code samples to add Click Analytics](./javascript-framework-extensions.md#2-add-the-extension-to-your-code).
+If you want to add a framework extension or you've already added one, see the [React, React Native, and Angular code samples for adding the Click Analytics plug-in](./javascript-framework-extensions.md#2-add-the-extension-to-your-code).
 
 ### 3. (Optional) Set the authenticated user context
 
