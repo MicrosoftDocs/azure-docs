@@ -24,6 +24,7 @@ Savings plan discounts only apply to resources associated with subscriptions pur
 
 - EA admins with write permissions can directly purchase savings plans from **Cost Management + Billing** > **Savings plan**. No subscription-specific permissions are needed.
 - Subscription owners for one of the subscriptions in the enrollment account can purchase savings plans from **Home** > **Savings plan**.
+- Users that are assigned the built-in [Reservation Purchaser](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reservation-purchaser) role can purchase savings plans from **Home** > **Savings plan**.
 
 Enterprise Agreement (EA) customers can limit purchases to only EA admins by disabling the Add Savings Plan option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings.
 
