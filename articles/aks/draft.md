@@ -122,8 +122,8 @@ After you create your artifacts and set up GitHub OIDC, you can use `draft gener
 [web-app-routing]: web-app-routing.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-draft-update]: /cli/azure/ext/aks-preview/aks/draft#ext-aks-preview-aks-draft-update
-[az-aks-draft-up]: /cli/azure/ext/aks-preview/aks/draft#ext-aks-preview-aks-draft-up
-[az-aks-draft-create]: /cli/azure/ext/aks-preview/aks/draft#ext-aks-preview-aks-draft-create
-[az-aks-draft-setup-gh]: /cli/azure/ext/aks-preview/aks/draft#ext-aks-preview-aks-draft-setup-gh
-[az-aks-draft-generate-workflow]: /cli/azure/ext/aks-preview/aks/draft#ext-aks-preview-aks-draft-generate-workflow
+[az-aks-draft-update]: /cli/azure/aks/draft#az-aks-draft-update
+[az-aks-draft-up]: /cli/azure/aks/draft#az-aks-draft-up
+[az-aks-draft-create]: /cli/azure/aks/draft#az-aks-draft-create
+[az-aks-draft-setup-gh]: /cli/azure/aks/draft#az-aks-draft-setup-gh
+[az-aks-draft-generate-workflow]: /cli/azure/aks/draft#az-aks-draft-generate-workflow
