@@ -2,15 +2,15 @@
 title: Enable Microsoft Defender for Cloud on your Azure subscription
 description: Learn how to enable Microsoft Defender for Cloud's enhanced security features.
 ms.topic: install-set-up-deploy
-ms.date: 06/21/2023
+ms.date: 06/22/2023
 ms.custom: mode-other
 ---
 
 # Enable Microsoft Defender for Cloud
 
-In this quickstart guide, you'll learn how to enable Microsoft Defender for Cloud on your Azure subscription. 
+In this quickstart guide, you learn how to enable Microsoft Defender for Cloud on your Azure subscription. 
 
-Defender for Cloud provides unified security management and threat protection across your hybrid and multicloud workloads. While the free features offer limited security for your Azure resources only, you can also enable additional paid plans that add extra protection for your resources that exist on your on-premises and other clouds. To learn more about these plans and their costs, see the Defender for Cloud  [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+Defender for Cloud provides unified security management and threat protection across your hybrid and multicloud workloads. While the free features offer limited security for your Azure resources only, you can also enable other paid plans that add extra protection for your resources that exist on your on-premises and other clouds. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 Defender for Cloud helps you find and fix security vulnerabilities. Defender for Cloud also applies access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. 
 
@@ -35,13 +35,13 @@ Defender for Cloud helps you find and fix security vulnerabilities. Defender for
 
     :::image type="content" source="./media/get-started/overview.png" alt-text="Defender for Cloud's overview dashboard" lightbox="./media/get-started/overview.png":::
 
-Defender for Cloud is now enabled on your subscription and you will have access to the basic features provided by Defender for Cloud. These features include:
+Defender for Cloud is now enabled on your subscription and you have access to the basic features provided by Defender for Cloud. These features include:
 
 - The [Foundational Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan.
 - [Recommendations](security-policy-concept.md#what-is-a-security-recommendation).
 - Access to the [Asset inventory](asset-inventory.md).
 - [Workbooks](custom-dashboards-azure-workbooks.md).
-- Your [Secure score](secure-score-security-controls.md).
+- [Secure score](secure-score-security-controls.md).
 - [Regulatory compliance](update-regulatory-compliance-packages.md) with the [Microsoft cloud security benchmark](concept-regulatory-compliance.md).
 
 The Defender for Cloud overview page provides a unified view into the security posture of your hybrid cloud workloads, helping you discover and assess the security of your workloads and to identify and mitigate risks. Learn more in [Microsoft Defender for Cloud's overview page](overview-page.md).
@@ -55,7 +55,7 @@ Within minutes of launching Defender for Cloud for the first time, you might see
 
 ## Next steps
 
-In this quickstart you enabled Defender for Cloud on your Azure subscription. The next step is to set up your hybrid and multicloud environments.
+In this quickstart, you enabled Defender for Cloud on your Azure subscription. The next step is to set up your hybrid and multicloud environments.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Connect your non-Azure machines to Microsoft Defender for Cloud with Azure Arc](quickstart-onboard-machines.md)

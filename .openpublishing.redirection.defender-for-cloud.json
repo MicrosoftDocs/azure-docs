@@ -481,6 +481,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-enhanced-security.md",
+            "redirect_url": "/azure/defender-for-cloud/enable-all-plans",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/security-center/enhanced-security-features-overview.md",
             "redirect_url": "/azure/defender-for-cloud/enhanced-security-features-overview",
             "redirect_document_id": true

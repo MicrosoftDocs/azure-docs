@@ -9,11 +9,11 @@ ms.custom: mode-other
 
 # Protect all of your resources with Defender for Cloud
 
-In this deployment guide, you'll learn how to enable all of Microsoft Defender for Cloud's paid plans to your environments.
+In this deployment guide, you learn how to enable all of Microsoft Defender for Cloud's paid plans to your environments.
 
 ## Enable all paid plans on your subscription
 
-To enable all of the Defender for Cloud's protections, you'll need to enable the additional paid plans for each of the workloads that you want to protect.
+To enable all of the Defender for Cloud's protections, you need to enable the other paid plans for each of the workloads that you want to protect.
 
 > [!NOTE]
 > - You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level.
@@ -21,7 +21,7 @@ To enable all of the Defender for Cloud's protections, you'll need to enable the
 > - You can enable **Microsoft Defender for open-source relational databases** at the resource level only.
 > - The Microsoft Defender plans available at the workspace level are: **Microsoft Defender for Servers**, **Microsoft Defender for SQL servers on machines**.
 
-When you enabled Defender plans on an entire Azure subscription, the protections are inherited by all resources in the subscription.
+When you enabled Defender plans on an entire Azure subscription, the protections are applied to all other resources in the subscription.
 
 **To enable additional paid plans on a subscription**:
 
@@ -37,17 +37,17 @@ When you enabled Defender plans on an entire Azure subscription, the protections
 
 1. Select **Enable all** to enable all of the plans for Defender for Cloud.
 
-    :::image type="content" source="media/get-started/enable-all-plans.png" alt-text="Screenshot that shows where to select enable all on the plans page." lightbox="media/get-started/enable-all-plans.png":::
+    :::image type="content" source="media/get-started/enable-all-plans.png" alt-text="Screenshot that shows where the enable button is located on the plans page." lightbox="media/get-started/enable-all-plans.png":::
     
 1. Select **Save**.
 
 All of the plans are turned on and the monitoring components required by each plan are deployed to the protected resources.
 
-If you want to disable any of the plans, toggle the individual plan to **off**. The extensions used by the plan are not uninstalled but, after a short time, the extensions stop collecting data.
+If you want to disable any of the plans, toggle the individual plan to **off**. The extensions used by the plan aren't uninstalled but, after a short time, the extensions stop collecting data.
 
 > [!TIP]
 > To access Defender for Cloud on all subscriptions within a management group, see [Enable Defender for Cloud on multiple Azure subscriptions](onboard-management-group.md).
 
 ## Next steps
 
-[Enable Defender for Cloud's paid plans on multiple subscriptions or workspaces](tutorial-enable-enhanced-security.md).
+Learn more about [Microsoft Defender for Cloud's overview page](overview-page.md).
