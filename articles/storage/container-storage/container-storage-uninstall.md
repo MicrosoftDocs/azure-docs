@@ -15,7 +15,7 @@ This article shows you how to uninstall the Azure Container Storage extension in
 
 ## Delete extension instance
 
-To uninstall Azure Container Storage from your AKS cluster, delete the `k8s-extension` by running the following Azure CLI command. Be sure to replace `<cluster-name>`, `<resource-group>`, and `<name>` with your own values (`<name>` should be the value you specified for the `--name` parameter when you installed Azure Container Storage).
+To uninstall Azure Container Storage from your AKS cluster, delete the `k8s-extension` by running the following Azure CLI command. Be sure to replace `<cluster-name>`, `<resource-group>`, and `<name>` with your own values (`<name>` should be the value you specified for the `--name` parameter when you installed Azure Container Storage). Persistent volumes won't be deleted.
   
 ```azurecli-interactive
 az k8s-extension delete --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name <extension-name>
@@ -23,7 +23,7 @@ az k8s-extension delete --cluster-type managedClusters --cluster-name <cluster-n
 
 ## Delete AKS cluster
 
-To delete an AKS cluster, run the following Azure CLI command:
+To delete an AKS cluster and all persistent volumes, run the following Azure CLI command. Replace `<resource-group>` and `<cluster-name>` with your own values.
 
 ```azurecli-interactive
 az aks delete --resource-group <resource-group> --name <cluster-name>
@@ -31,7 +31,7 @@ az aks delete --resource-group <resource-group> --name <cluster-name>
 
 ## Delete resource group
 
-You can also use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources contained in the resource group:
+You can also use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources it contains. Replace `<resource-group>` with your resource group name.
 
 ```azurecli-interactive
 az group delete --name <resource-group>
