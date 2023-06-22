@@ -49,7 +49,7 @@
       href: default-individual-user-group-quotas-introduction.md
     - name: Requirements and considerations for large volumes
       href: large-volumes-requirements-considerations.md
-  - name: NAS as service 
+  - name: NAS volumes as a service 
     items: 
       - name: Understand NAS
         href: understand-nas.md 

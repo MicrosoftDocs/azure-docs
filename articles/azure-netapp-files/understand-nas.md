@@ -51,7 +51,7 @@ The following sections cover further details on these protocols.
 
 ## Network File System (NFS) 
 
-NFS is primarily used with Linux/UNIX based clients such as Red Hat, SUSE, Ubuntu, AIX, Solaris, Apple OS, etc. and Azure NetApp Files supports any NFS client that operates in the RFC standards. Windows can also leverage NFS for access, but it does not operate using Request for Comments (RFC) standards. 
+NFS is primarily used with Linux/UNIX based clients such as Red Hat, SUSE, Ubuntu, AIX, Solaris, Apple OS, etc. and Azure NetApp Files supports any NFS client that operates in the RFC standards. Windows can also use NFS for access, but it does not operate using Request for Comments (RFC) standards. 
 
 RFC standards for NFS protocols can be found here: 
 
@@ -85,7 +85,7 @@ NFSv4.x refers to all NFS versions/minor versions that are under NFSv4. This inc
 
 NFSv4.x has the following characteristics: 
 
-* NFSv4.x is a stateful protocol, which means that the client and server keep track of the states of the NFS connections, including lock states. The NFS mount leverages a concept known as a “state ID” to keep track of the connections. 
+* NFSv4.x is a stateful protocol, which means that the client and server keep track of the states of the NFS connections, including lock states. The NFS mount uses a concept known as a “state ID” to keep track of the connections. 
 * Locking is integrated into the NFS protocol and does not require ancillary locking protocols to keep track of NFS locks. Instead, locks are granted on a lease basis and will expire after a certain period of time if a client/server connection is lost, thus returning the lock back to the system for use with other NFS clients. 
 * The statefulness of NFSv4.x does contain some drawbacks, such as potential disruptions during network outages or storage failovers, and performance overhead in certain workload types (such as high metadata workloads). 
 * NFSv4.x provides many significant advantages over NFSv3, including:  
@@ -94,7 +94,7 @@ NFSv4.x has the following characteristics:
     * More features  
     * Compound NFS operations (multiple commands in a single packet request to reduce network chatter) 
     * TCP-only 
-* NFSv4.x can use a more robust file permission model that is similar to Windows NTFS permissions. These granular ACLs can be applied to users or groups and allow for permissions to be set on a wider range of operations than basic read/write/execute operations. NFSv4.x can also use the standard POSIX mode bits that NFSv3 leverages. 
+* NFSv4.x can use a more robust file permission model that is similar to Windows NTFS permissions. These granular ACLs can be applied to users or groups and allow for permissions to be set on a wider range of operations than basic read/write/execute operations. NFSv4.x can also use the standard POSIX mode bits that NFSv3 employs. 
 * Since NFSv4.x does not use ancillary protocols, Kerberos is applied to the entire NFS conversation when in use. 
 * NFSv4.x uses a combination of user/group names and domain strings to verify user and group information. The client and server must agree on the domain strings for proper user and group authentication to occur. If the domain strings do not match, then the NFS user or group gets squashed to the specified user in the /etc/idmapd.conf file on the NFS client (for example, nobody). 
 * While NFSv4.x does default to using domain strings, it is possible to configure the client and server to fall back on the classic numeric IDs seen in NFSv3 when AUTH_SYS is in use. 
