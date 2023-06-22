@@ -114,7 +114,7 @@ You can [install Azure CLI locally](/cli/azure/install-azure-cli) or use [Azure 
 > [!NOTE]
 > The following script doesn't use variables because variable usage differs, depending on the platform where Azure CLI runs. See information on Azure CLI variable usage in [this article](/cli/azure/azure-cli-variables).
 
-If you use local installation of PowerShell connect to your Azure account using `az login` command before trying the following script.
+If you use local installation of Azure CLI connect to your Azure account using `az login` command before trying the following script.
 
 ```azurecli
 az account set --subscription "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
@@ -150,7 +150,7 @@ Now execute the REST request:
 ```bash
 @ECHO OFF
 
-curl -v -X PUT https://management.azure.com/subscriptions/{AzureSubscriptionId}/resourceGroups/{myResourceGroup}/providers/Microsoft.CognitiveServices/accounts/{myBYOSSpeechResource}?api-version=2021-10-01
+curl -v -X PUT "https://management.azure.com/subscriptions/{AzureSubscriptionId}/resourceGroups/{myResourceGroup}/providers/Microsoft.CognitiveServices/accounts/{myBYOSSpeechResource}?api-version=2021-10-01"
 -H "Content-Type: application/json"
 -H "Authorization: Bearer {Value_of_token_variable}"
 
