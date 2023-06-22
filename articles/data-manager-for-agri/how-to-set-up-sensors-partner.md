@@ -129,12 +129,12 @@ As part of the sensor creation API, the partners will be providing the sensor ID
 
 #### Create Sensor Partner Integration
 Create sensor partner integration to connect a particular party with a specific provider. The integrationId will be later used in sensor creation.
-API documentation: [Sensor Partner Integrations - Create Or Update](https://learn.microsoft.com/en-us/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-partner-integrations/create-or-update?tabs=HTTP)
+API documentation: [Sensor Partner Integrations - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-partner-integrations/create-or-update?tabs=HTTP)
 
 #### Create Sensor Data Model
 Use sensor data model to define the model of telemetry being sent. All the telemetry sent by the sensor will be validated as per this data model.
 
-API documentation: [Sensor Data Models - Create Or Update](https://learn.microsoft.com/en-us/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-data-models/create-or-update?tabs=HTTP)
+API documentation: [Sensor Data Models - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-data-models/create-or-update?tabs=HTTP)
 
 Sample telemetry 
 ```json
@@ -145,7 +145,7 @@ Sample telemetry
 }
 ```
 
-Corressponding sensor data model 
+Corresponding sensor data model 
 ```json
 {
   "type": "Sensor",
@@ -199,14 +199,14 @@ Corressponding sensor data model
 ```
 
 #### Create Sensor
-Create sensor using the corressponding integration id and sensor data model id. DeviceId and HardwareId are optional parameters, if needed, you can use the [Devices - Create Or Update](https://learn.microsoft.com/en-us/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/devices/create-or-update?tabs=HTTP) to create the device.
+Create sensor using the corressponding integration id and sensor data model id. DeviceId and HardwareId are optional parameters, if needed, you can use the [Devices - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/devices/create-or-update?tabs=HTTP) to create the device.
 
-API documentation: [Sensors - Create Or Update](https://learn.microsoft.com/en-us/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensors/create-or-update?tabs=HTTP)
+API documentation: [Sensors - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensors/create-or-update?tabs=HTTP)
 
 #### Get IoTHub Connection String
 Get IoTHub connection string to push sensor telemetry to the platform for the Sensor created. 
 
-API Documentation: [Sensors - Get Connection String](https://learn.microsoft.com/en-us/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensors/get-connection-string?tabs=HTTP)
+API Documentation: [Sensors - Get Connection String](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensors/get-connection-string?tabs=HTTP)
 
 #### Push Data using IoT Hub SDK
 Use [IoT Hub Device SDKs](https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) to push the telemetry using the connection string.
