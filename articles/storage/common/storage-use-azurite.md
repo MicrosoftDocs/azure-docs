@@ -4,8 +4,8 @@ description: The Azurite open-source emulator provides a free local environment 
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 04/26/2023
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp

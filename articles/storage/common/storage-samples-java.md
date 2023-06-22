@@ -5,8 +5,8 @@ ms.custom: devx-track-java, devx-track-extended-java
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/01/2020
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: java
 ---
