@@ -47,8 +47,11 @@ Generate an API Token:
 
 1. Go to the **Integrations** tab on your Moqups **Dashboard's Account** page.
 1. In the **SCIM Provisioning** section of your **Integration tab**, click the **Generate token** button.
+
 	![Screenshot of generate token.](media/moqups-provisioning-tutorial/generate-token.png)
+
 1. Copy the **API Token** to your clipboard. You'll need this to complete the process in **Azure**.
+
 	![Screenshot of api token.](media/moqups-provisioning-tutorial/api-token.png)
 
 ## Step 3. Add Moqups from the Azure AD application gallery
