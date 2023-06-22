@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Creating a Click to Call Experience with Azure Communication Services
+# Creating a Click to Call Experience with Azure Communication Services 
 
 <img src='../media/click-to-call/Sample-app-splash.png' width='1000' alt='Home page of click to call sample app'>
 
