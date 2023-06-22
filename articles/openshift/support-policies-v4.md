@@ -19,7 +19,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 ## Cluster configuration requirements
 
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
-* The cluster must have a minimum of three worker nodes and three manager nodes.
+* The cluster must have a minimum of three worker nodes and three master nodes.
 * Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group is not supported.
 * Don't add taints that would prevent any default OpenShift components from being scheduled.
 * Don't remove or modify the default cluster Prometheus service, except to modify scheduling of the default Prometheus instance.
