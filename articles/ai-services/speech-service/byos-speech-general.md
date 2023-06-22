@@ -127,7 +127,7 @@ If you use local installation of Azure CLI connect to your Azure account using `
 ```azurecli
 az account set --subscription "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 
-az cognitiveservices account create -n myBYOSSpeechResource -g myResourceGroup --assign-identity --kind SpeechServices --sku S0 -l eastus --yes --storage '[{"resourceId": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<resource_group_name>/providers/Microsoft.Storage/storageAccounts/<storage_account_name>"}]'
+az cognitiveservices account create -n "myBYOSSpeechResource" -g "myResourceGroup" --assign-identity --kind SpeechServices --sku S0 -l eastus --yes --storage '[{"resourceId": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<resource_group_name>/providers/Microsoft.Storage/storageAccounts/<storage_account_name>"}]'
 ```
 > [!IMPORTANT]
 > This script will work in Azure Cloud Shell Bash. If you want to use it in any other environment, pay special attention to the format of the `--storage` parameter value. See the following information.
@@ -208,11 +208,21 @@ If *Storage* menu item is missing in the *Resource Management* group, the select
 
 # [PowerShell](#tab/powershell)
 
-Use the [Get-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount) command. In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group will have Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
+Use the [Get-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount) command:
+
+```azurepowershell
+Get-AzCognitiveServicesAccount -ResourceGroupName "myResourceGroup" -name "myBYOSSpeechResource"
+```
+In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group will have Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az cognitiveservices account show](/cli/azure/cognitiveservices/account) command. In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group will have Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
+Use the [az cognitiveservices account show](/cli/azure/cognitiveservices/account) command: 
+```bash
+az cognitiveservices account show -g "myResourceGroup" -n "myBYOSSpeechResource"
+```
+
+In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group will have Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
 
 # [REST](#tab/rest)
 
