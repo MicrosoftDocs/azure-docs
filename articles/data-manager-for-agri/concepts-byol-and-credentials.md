@@ -73,7 +73,7 @@ Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2021-09-0
 
 :::image type="content" source="./media/concepts-byol-and-credentials/details-key-vault.png" alt-text="Screenshot showing where key name and key version is available.":::
 
-In summary, you can use your license keys for satellite imagery and weather forecasts. You can do this safely via the Azure Key vault by storing your secrets, enabling system identity, providing read access to our Data Manger. Then you can use our data plan APIs that reference your license keys in your key vault. Our Data Manager does basic validations which includes whether it can access the secret specified in credentials object or not.
+In summary, you can use your license keys for satellite imagery and weather forecasts. You can do use your license keys safely via the Azure Key vault by storing your secrets, enabling system identity, providing read access to our Data Manger. Then you can use our data plan APIs that reference your license keys in your key vault. Our Data Manager does basic validations including checking if it can access the secret specified in credentials object or not.
 
 Flow showing how Azure Data Manager for Agriculture accesses secret.
 :::image type="content" source="./media/concepts-byol-and-credentials/access-to-keys.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
