@@ -62,6 +62,7 @@ To complete this tutorial, make sure you have:
 
 1. In Microsoft Sentinel, on the left-hand side menu under **Content management**, select **Content hub**.
 
+
 1. Search for and select the solution **Log4j Vulnerability Detection**.
 
 1. From the toolbar at the top of the page, select :::image type="icon" source="media/tutorial-log4j-detection/install-update-button.png"::: **Install/Update**.

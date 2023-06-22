@@ -21,23 +21,25 @@ SOC analysts are typically inundated with security alerts and incidents on a reg
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions. Analysts are also tasked with basic remediation and investigation of the incidents they do manage to address. To the extent that these activities can be automated, a SOC can be that much more productive and efficient, allowing analysts to devote more time and energy to investigative activity.
 
-A playbook is a collection of these remediation actions that you run from Microsoft Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md). It can be run manually on-demand on entities and alerts, or set to run automatically in response to specific alerts or incidents, when triggered by an [automation rule](automate-incident-handling-with-automation-rules.md).
+A playbook is a collection of these remediation actions that you run from Microsoft Sentinel as a routine, to help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md). It can be run in two ways:
+- **Manually** on-demand, on a particular entity or alert
+- **Automatically** in response to specific alerts or incidents, when triggered by an [automation rule](automate-incident-handling-with-automation-rules.md).
 
 For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
-Playbooks can be used within the subscription to which they belong. The **Active playbooks** tab on the **Automation** page displays all the active playbooks across any selected subscriptions. The **Playbooks templates** tab on the **Automation** page lists the installed playbooks templates.
+While the **Active playbooks** tab on the **Automation** page displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
 
 ### Playbook templates
 
 A playbook template is a prebuilt, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
 
-Playbook templates aren't active playbooks themselves, until you create a playbook (an editable copy of the template) from them.
+Playbook templates aren't usable as playbooks themselves. You create a playbook (an editable copy of the template) from them.
 
 You can get playbook templates from the following sources:
 
 - On the **Automation** page, the **Playbook templates** tab lists the playbook templates installed. Multiple active playbooks can be created from the same template.
 
-    When a new version of the template is published, the active playbooks created from that template show in the **Active playbooks** tab that an update is available.
+    When a new version of the template is published, the active playbooks created from that template show up in the **Active playbooks** tab displaying a label indicating that an update is available.
 
 - Playbook templates are available as part of product solutions or standalone content that you install from the content hub in Microsoft Sentinel. For more information, see [Microsoft Sentinel content and solutions](sentinel-solutions.md) and [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 

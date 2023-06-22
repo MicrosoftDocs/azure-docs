@@ -43,13 +43,13 @@ This article helps you understand how to:
 
 In Microsoft Sentinel, select **Content hub** and then select **Content type** to filter for **Playbook**. This filtered view lists all the solutions and standalone content that include one or more playbook templates. Install the solution or standalone content to get the template.
 
-In the Microsoft Sentinel, select **Automation** and then the **Playbooks templates** tab to view the installed templates
+Then, in Microsoft Sentinel, select **Automation** and then the **Playbook templates** tab to view the installed templates.
 
 :::image type="content" source="media/use-playbook-templates/gallery.png" alt-text="Screenshot of the playbooks gallery." lightbox="media/use-playbook-templates/gallery.png":::
 
 To find a playbook template that fits your requirements, you can filter the list by the following criteria:
 
-- **Trigger** indicates the playbook is triggered by incident creation (and can therefore be attached to an automation rule), by alert creation (and can therefore be attached to an analytics rule), or by something else. [Learn more](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary)
+- **Trigger** indicates whether the playbook is triggered by incident creation, by incident update, or by alert creation. [Learn more](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary)
 
 - **Logic Apps connectors** shows the external services this playbook interacts with. During the deployment process, each connector needs to assume an identity to authenticate to the external service.
 
