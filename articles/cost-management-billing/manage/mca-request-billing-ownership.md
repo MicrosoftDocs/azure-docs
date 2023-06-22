@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 06/21/2023
 ms.author: banders
 ---
 
@@ -45,7 +45,8 @@ Before you transfer billing products, read [Supplemental information about trans
 ## Prerequisites
 
 >[!IMPORTANT]
-> When you have a savings plan purchased under an Enterprise Agreement enrollment that was bought in a non-USD currency, you can't transfer it. Instead you must use it in the original enrollment. However, you change the scope of the savings plan so that is used by other subscriptions. For more information, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope). You can view your billing currency in the Azure portal on the enrollment properties page. For more information, see [To view enrollment properties](direct-ea-administration.md#to-view-enrollment-properties).
+> - When you have a savings plan purchased under an Enterprise Agreement enrollment that was bought in a non-USD currency, you can't transfer it. Instead you must use it in the original enrollment. However, you change the scope of the savings plan so that is used by other subscriptions. For more information, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope). You can view your billing currency in the Azure portal on the enrollment properties page. For more information, see [To view enrollment properties](direct-ea-administration.md#to-view-enrollment-properties).
+> - When you transfer subscriptions, cost and usage data for your Azure products aren't accessible after the transfer. We recommend that you [download your cost and usage data](../understand/download-azure-daily-usage.md) and invoices before you transfer subscriptions.
 
 Before you begin, make sure that the people involved in the product transfer have the required permissions.
 
