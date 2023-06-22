@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/09/2022
+ms.custom: references_regions
 ---
 
 # Service limits in Azure Cognitive Search
