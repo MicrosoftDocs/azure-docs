@@ -63,7 +63,6 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 ## Update (October 2022)
 
 - Support for export of errors and notifications from the portal for software inventory and agentless dependency.
-- Private preview: Plan replication. This is a new feature added to the Migration and Modernization tool of Azure Migrate. It helps to estimate the time and resources required for replication and migration of the discovered servers. This feature will help in planning the replication and migration schedule. Currently, the feature is available for VMware agentless migrations.  To enroll for private preview, please fill this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2QMeqnlmM1An_w4S8FpvJ5UNEQ1VEgzNUpEUE0xODBHVUdVVUxGMUdVNS4u).
 
 ## Update (September 2022)
 
