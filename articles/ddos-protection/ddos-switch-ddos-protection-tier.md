@@ -1,6 +1,6 @@
 ---
-title: How to switch Azure DDoS Protection SKUs using Azure portal.
-description: In this guide, we walk through the steps to switch Azure DDoS Protection SKUs using Azure portal.
+title: How to switch Azure DDoS Protection tiers using Azure portal.
+description: In this guide, we walk through the steps to switch Azure DDoS Protection tiers using Azure portal.
 author: abell
 ms.author: abell
 ms.service: ddos-protection
@@ -9,9 +9,9 @@ ms.date: 06/21/2023
 ms.custom: template-how-to-pattern 
 ---
 
-# How to switch Azure DDoS Protection SKUs using Azure portal
+# How to switch Azure DDoS Protection tiers using Azure portal
 
-In this guide, we walk through the steps to switch between Network Protection and IP Protection SKUs using Azure portal. This guide follows the *Application running on load-balanced virtual machines* architecture. To learn more about the different architectures, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md#application-running-on-load-balanced-virtual-machines).
+In this guide, we walk through the steps to switch between Network Protection and IP Protection tiers using Azure portal. This guide follows the *Application running on load-balanced virtual machines* architecture. To learn more about the different architectures, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md#application-running-on-load-balanced-virtual-machines).
 
 
 ## Prerequisites
@@ -19,13 +19,13 @@ In this guide, we walk through the steps to switch between Network Protection an
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 
-## Switch Azure DDoS Protection SKUs
+## Switch Azure DDoS Protection tiers
 
 #### [Network Protection](#tab/network-protection)
 
 ### Switch to Network Protection
 
-Services must be added to the DDoS protection plan to be protected by Network Protection. Once the service is added to the DDoS protection plan, the SKU will automatically transition to Network Protection from IP Protection. You don't need disable IP protection during this transition.
+Services must be added to the DDoS protection plan to be protected by Network Protection. Once the service is added to the DDoS protection plan, the tier will automatically transition to Network Protection from IP Protection. You don't need disable IP protection during this transition.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your DDoS protection plan.
