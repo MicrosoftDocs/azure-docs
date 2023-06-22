@@ -12,7 +12,8 @@ ms.date: 05/14/2023
 This article describes how to deploy the Microsoft Sentinel solution for D365 F&O. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
 
 > [!IMPORTANT]
-> The Microsoft Sentinel solution for D365 F&O is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The Microsoft Sentinel solution for D365 F&O is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
 
 ## Prerequisites
 
@@ -38,7 +39,7 @@ Before you begin, verify that:
     > [!NOTE]
     > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 
 
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-details.png" alt-text="Screenshot of the Finance and Operations environment details." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-details.png":::
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-details-new.png" alt-text="Screenshot of the Finance and Operations environment details." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-details-new.png":::
 
 ## Deploy the solution and enable the data connector
 
@@ -112,50 +113,34 @@ The analytics rules currently provided with this solution monitor and detect thr
 - All tables under **System**
 - The **Bank accounts** table under **Bank** 
 
-This screenshot shows the **System** and **Bank accounts** tables under **logging database changes**. To reach this dialog, follow the [enable auditing steps](#enable-auditing).
-
 If you're planning to use the analytics rules provided in this solution, enable auditing for the **System** and **Bank accounts** tables.
 
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables.png" alt-text="Screenshot of the selected Finance and Operations database tables to enable auditing." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables.png":::
+This screenshot shows the **System** and **Bank accounts** tables under **logging database changes**. 
 
-#### Enable auditing 
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables-new.png" alt-text="Screenshot of the selected Finance and Operations database tables to enable auditing." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables-new.png":::
 
-To enable on any Finance and Operations tables you want to monitor: 
+To enable auditing on Finance and Operations tables you want to monitor: 
 
 1. In Finance and Operations, Select **Modules > System Administration > Database log > Database log setup**.
 1. Select **New** > **Next**, and select the tables you want to monitor. 
 1. Select **Next**.  
 1. To enable auditing on all fields of the selected tables, mark all four check marks to the right of the table names with empty field labels. To see the tables with empty field labels at the top, sort the table list by the field table in ascending order (A to Z):
 
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-changes.png" alt-text="Screenshot of configuring the selected Finance and Operations database tables." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-changes.png":::
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-changes-new.png" alt-text="Screenshot of configuring the selected Finance and Operations database tables." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-changes-new.png":::
 
-1. Select **Finish**.
+1. Select **Next** and then **Finish**.
 1. Select **Yes** in all warning messages. 
 
 ### Verify that the data connector is ingesting logs to Microsoft Sentinel 
 
-To verify that log ingestion is working, you try to enable the **F&O – Bank account number changed** analytics rule, and trigger the rule to create an incident. 
+To verify that log ingestion is working: 
 
-1. To enable the **F&O – Bank account number changed** analytics rule, follow these [guidelines](../sentinel-solutions-deploy.md#analytics-rule).
-1. To trigger a detection, change the bank account number:
-    1. Select **Modules** > **General ledger** > **ledger setup** > **ledger**.
-    1. Under the account structures, select **Add**, and select any of the account structures (for example, **Manufacturing B/S**). 
-    1. In the dialog, select **Yes**.
-    1. Select **workspace** > **bank management** and select all bank accounts. 
-    1. In the new record, under **bank account**, add any name.
-    1. Select any main account and fill in a bank account number in the relevant field. 
-    1. Select **save**.
-    1. To trigger the detection, change the bank account number and select **save**. 
-1. Wait up to 15 minutes for Microsoft Sentinel to ingest the log and trigger the detection. 
-1. In Microsoft Sentinel, select **Incidents** and check for a new incident: 
+1. Run activities (create, update, delete) on any of the tables you enabled for monitoring in the [previous step](#enable-auditing). 
+1. Wait up to 15 minutes for Microsoft Sentinel to ingest the logs to the logs table in the workspace.
+1. Query the `FinanceOperationsActivity_CL` table in the Microsoft Sentinel workspace under **Logs**. 
+1. Check that the table shows new logs that reflect the activities you executed in step 1 of this procedure. 
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-new-incident.png" alt-text="Screenshot of viewing a new Finance and Operations incident in Microsoft Sentinel." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-new-incident.png":::
-
-1. If you want to view the raw logs, query the `FinanceOperationsActivity_CL` table: 
-
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png" alt-text="Screenshot of querying the query_FinanceOperationsActivity_CL_table to view the raw logs in Microsoft Sentinel." lightbox="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png"::: 
-
-1. Repeat this procedure (steps 1-5) to enable the rest of the [analytics rules provided with the solution](dynamics-365-finance-operations-security-content.md#built-in-analytics-rules).
 
 ## Next steps
 
