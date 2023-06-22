@@ -1,7 +1,7 @@
 ---
 title: 'Speech SDK for C# Universal Windows Platform (UWP) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: 'Use this guide to set up your platform for C# under Universal Windows Platform (UWP) with the Speech service SDK.'
+description: 'Use this guide to set up your platform for C# under Universal Windows Platform (UWP) with the Speech SDK.'
 services: cognitive-services
 author: markamos
 manager: nitinme

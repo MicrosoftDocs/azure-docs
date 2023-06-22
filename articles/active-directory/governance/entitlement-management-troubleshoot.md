@@ -133,6 +133,10 @@ You can only cancel a pending request that hasn't yet been delivered or whose de
 
 1. In the request details pane, select **Cancel request**.
 
+## Automatic assignment policies
+
+* Each automatic assignment policy can include at most 5000 users in scope of its rule.  Additional users in scope of the rule may not be assigned access.
+
 ## Multiple policies
 
 * Entitlement management follows least privilege best practices. When a user requests access to an access package that has multiple policies that apply, entitlement management includes logic to help ensure stricter or more specific policies are prioritized over generic policies. If a policy is generic, entitlement management might not display the policy to the requestor or might automatically select a stricter policy.
