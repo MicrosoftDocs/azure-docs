@@ -42,7 +42,7 @@ With hierarchical partition keys, we can partition first on **TenantId**, and th
 
 Queries that specify either the **TenantId**, or both **TenantId** and **UserId** is efficiently routed to only the subset of physical partitions that contain the relevant data. Specifying the full or prefix subpartitioned partition key path effectively avoids a full fan-out query. For example, if the container had 1000 physical partitions, but a particular **TenantId** was only on five of them, the query would only be routed to the smaller number of relevant physical partitions.
 
-## Using item ID in hierarchy
+## Use item ID in hierarchy
 
 If your container has a property that has a large range of possible values, it's likely a great partition key choice for the last level of your hierarchy. One possible example of this type of property is the **item ID**. The system property item ID exists in every item in your container. Adding item ID as another level guarantees that you can scale beyond the logical partition key limit of 20 GB. You can scale beyond this limit for the first or first and second level of keys.
 
