@@ -23,7 +23,7 @@ From the above figure, the blocks highlighted in white are the steps taken by a 
 
 ## Partner flow: Phase 1
 
-Here is the set of steps that a partner needs to do for integrating with Data Manager for Agriculture. This is a one-time integration. At the end of phase 1, partners establish their identity in Data Manager for Agriculture.
+Here's the set of steps that a partner needs to do for integrating with Data Manager for Agriculture. This is a one-time integration. At the end of phase 1, partners establish their identity in Data Manager for Agriculture.
   
 ### App creation
 
@@ -50,13 +50,13 @@ Follow the steps provided in [Add a client secret](/azure/active-directory/devel
 
 ### Registration
 
-Once the partner has created a multi-tenant Azure Active Directory app successfully, partners manually share the APP ID and Partner ID with Data Manager for Agriculture by emailing madma@microsoft.com alias. Using this information Data Manager for Agriculture validates if it’s an authentic partner and creating a partner identity (sensorPartnerId) using the internal APIs. As part of the registration process, partners are enabled to use their partner ID (sensorPartnerId) while creating the sensor/devices object and also as part of the sensor data that they'll push.
+Once the partner has created a multi-tenant Azure Active Directory app successfully, partners manually share the APP ID and Partner ID with Data Manager for Agriculture by emailing madma@microsoft.com alias. Using this information Data Manager for Agriculture validates if it’s an authentic partner and creating a partner identity (sensorPartnerId) using the internal APIs. As part of the registration process, partners are enabled to use their partner ID (sensorPartnerId) while creating the sensor/devices object and also as part of the sensor data that they push.
 
 Getting the partner ID marks the completion of partner-Data Manager for Agriculture integration. Now, the partner waits for input from any of their sensor customers to initiate their data ingestion into Data Manager for Agriculture.
 
 ## Customer flow
 
-Customers using Data Manager for Agriculture will now be aware of all the supported sensor partners and their respective APP IDs. This information is available in the public documentation for all our customers.
+Customers using Data Manager for Agriculture will be aware of all the supported sensor partners and their respective APP IDs. This information is available in the public documentation for all our customers.
 Based on the sensors that customers use and their respective sensor partner’s APP ID, the customer has to provide access to the partner (APP ID) to start pushing their sensor data into their Data Manager for Agriculture instance. Here are the required steps:
 
 ### Role assignment
@@ -84,9 +84,9 @@ The customer has made Data Manager for Agriculture aware that they need to get s
     * API endpoint (can be extracted from the first part of the integration link)
     * IntegrationId (is returned as part of the response to GET call)
     
-    Once partner validates and stores these data points, they can enable customers to add sensors for which the customers wants data to be pushed into Data Manager for Agriculture.
+    Once partner validates and stores these data points, they can enable customers to add sensors for which the data has to be pushed into Data Manager for Agriculture.
 
-2. **Add sensors/devices** – Now, the partner knows for which customer (API endpoint) do they need to integrate with, however, they still don’t know for which all sensors do they need to push the data. Hence, partners will collect the sensor/device information for which the data needs to be pushed. This data can be collected either manually or through portal UI.
+2. **Add sensors/devices** – Now, the partner knows for which customer (API endpoint) do they need to integrate with, however, they still don’t know for which all sensors do they need to push the data. Hence, partners collect the sensor/device information for which the data needs to be pushed. This data can be collected either manually or through portal UI.
 
     Post adding the sensors/devices, the customer can expect the respective sensors’ data flow into their Data Manager for Agriculture instance. This step marks the completion of customer onboarding to fetch sensor data.
 
@@ -121,18 +121,18 @@ The response should look like:
 }
 ```
 
-With the generated access_token, partners call the customers’ data plane endpoint to create sensor model, sensor, and device. It is created in that specific Data Manager for Agriculture instance using the APIs built by Data Manager for Agriculture. For more information on partners APIs,  refer to the [partner API documentation](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensor-partner-integrations).
+With the generated access_token, partners call the customers’ data plane endpoint to create sensor model, sensor, and device. It's created in that specific Data Manager for Agriculture instance using the APIs built by Data Manager for Agriculture. For more information on partners APIs, refer to the [partner API documentation](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensor-partner-integrations).
 
-As part of the sensor creation API, the partners provide the sensor ID, once the sensor resource is created, partners will call into the get connection string API to get a connection string for that sensor.
+As part of the sensor creation API, the partners provide the sensor ID, once the sensor resource is created, partners call into the get connection string API to get a connection string for that sensor.
 
 ### Push data
 
 #### Create Sensor Partner Integration
-Create sensor partner integration to connect a particular party with a specific provider. The integrationId will be later used in sensor creation.
+Create sensor partner integration to connect a particular party with a specific provider. The integrationId is later used in sensor creation.
 API documentation: [Sensor Partner Integrations - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensor-partner-integrations/create-or-update?tabs=HTTP)
 
 #### Create Sensor Data Model
-Use sensor data model to define the model of telemetry being sent. All the telemetry sent by the sensor will be validated as per this data model.
+Use sensor data model to define the model of telemetry being sent. All the telemetry sent by the sensor is validated as per this data model.
 
 API documentation: [Sensor Data Models - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensor-data-models/create-or-update?tabs=HTTP)
 
@@ -208,7 +208,7 @@ Get IoTHub connection string to push sensor telemetry to the platform for the Se
 
 API Documentation: [Sensors - Get Connection String](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensors/get-connection-string)
 
-#### Push Data using IoT Hub SDK
+#### Push Data using IoT Hub
 Use [IoT Hub Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks) to push the telemetry using the connection string.
 
 For all sensor telemetry events, "timestamp" is a mandatory property and has to be in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ).
@@ -241,7 +241,7 @@ Partner is now all set to start pushing sensor data for all sensors using the re
 }
 ```
 
-This marks the completion of the onboarding flow for partners as well. Once the data is pushed to IOTHub, the customers would be able to query sensor data using the egress API.
+Once the data is pushed to IOTHub, the customers would be able to query sensor data using the egress API.
 
 ## Next steps
 
