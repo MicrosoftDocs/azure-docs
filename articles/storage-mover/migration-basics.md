@@ -3,7 +3,7 @@ title: Cloud migration basics for file and folder storage
 description: Understand the basic decisions and strategies for the cloud migration of files and folders.
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: conceptual
 ms.date: 06/21/2022
 ---

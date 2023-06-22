@@ -3,7 +3,7 @@ title: Introduction to Azure Storage Mover | Microsoft Docs
 description: An overview of Azure Storage Mover, a fully managed migration service for your files and folder migrations to Azure Storage.
 author: stevenmatthew
 
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: overview
 ms.date: 03/27/2023
 ms.author: shaas
