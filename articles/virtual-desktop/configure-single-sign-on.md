@@ -32,7 +32,7 @@ Single sign-on is available on session hosts using the following operating syste
 - Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-10 Cumulative Updates for Windows 10 (KB5018410)](https://support.microsoft.com/kb/KB5018410) or later installed.
 - Windows Server 2022 with the [2022-10 Cumulative Update for Microsoft server operating system (KB5018421)](https://support.microsoft.com/kb/KB5018421) or later installed.
 
-Session hosts must be Azure AD-joined or [Hybrid Azure AD-Joined](../active-directory/devices/hybrid-azuread-join-plan.md).
+Session hosts must be Azure AD-joined or [hybrid Azure AD-Joined](../active-directory/devices/hybrid-azuread-join-plan.md).
 
 > [!NOTE]
 > Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services or Active Directory only joined session hosts.
@@ -79,14 +79,14 @@ To enable single sign-on in your environment, you must first create a Kerberos S
 
 You must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object) if your session host meets the following criteria:
 
-- Your session host is Hybrid Azure AD-joined. You must have a Kerberos Server object to complete authentication to the domain controller.
-- Your session host is Azure AD-joined and your environment contains Active Directory Domain Controllers. You must have Azure AD Kerberos for users to access on-premises resources, such as SMB shares, and Windows-integrated authentication to websites.
+- Your session host is hybrid Azure AD-joined. You must have a Kerberos Server object to complete authentication to the domain controller.
+- Your session host is Azure AD-joined and your environment contains Active Directory Domain Controllers. You must have a Kerberos Server object for users to access on-premises resources, such as SMB shares, and Windows-integrated authentication to websites.
 
 > [!IMPORTANT]
-> If you enable SSO on your Hybrid Azure AD-joined VMs before you create a Kerberos server object, one of the following things can happen: 
+> If you enable SSO on your hybrid Azure AD-joined VMs before you create a Kerberos server object, one of the following things can happen: 
 >
 > - You receive an error message saying the specific session doesn't exist.
-> - SSO stops responding and you'll see a standard authentication message for the session host. 
+> - SSO will be skipped and you'll see a standard authentication dialog for the session host. 
 >
 > To resolve these issues, create the Kerberos server object before trying to connect again.
 
