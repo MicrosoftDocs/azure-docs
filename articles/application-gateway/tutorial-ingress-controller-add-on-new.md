@@ -56,7 +56,7 @@ Deploying a new AKS cluster with the AGIC add-on enabled without specifying an e
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.225.0.0/16" --generate-ssh-keys
 ```
 
-If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has Network Contributor role assigned to the subnet the Application Gateway is deployed into.
+If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has the Microsoft.Network/virtualNetworks/subnets/join/action permission.  To do so, you may assign the built-in Network Contributor role to the managed identity used by AGIC to the subnet the Application Gateway is deployed into.
 
 ```azurecli-interactive
 # Get application gateway id from AKS addon profile
