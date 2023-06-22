@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 02/28/2022
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ---
