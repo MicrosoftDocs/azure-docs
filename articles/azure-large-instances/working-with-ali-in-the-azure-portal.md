@@ -12,7 +12,8 @@ ms.date: 06/01/2023
 
 In this article, we'll show what you can do in the Azure portal with your deployed Azure Large Instances (ALI). 
 
-> [!Note] For the time being, you will notice the BareMetal Infrastructure naming convention still in use in the Azure Portal. This will be replaced with Azure Large Instances soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered as synonyms to Azure Large Instances.
+> [!Note] 
+> For the time being, you will notice the BareMetal Infrastructure naming convention still in use in the Azure Portal. This will be replaced with Azure Large Instances soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered as synonyms to Azure Large Instances.
 
 ## Register the resource provider 
 
@@ -22,9 +23,9 @@ If you don't see your deployed ALI, register the resource provider with your sub
 
 You can register the Azure Large Instance resource provider using the Azure portal or the Azure CLI.
 
-### Register the resource provider using the Azure Portal
+### [Portal](#tab/azure-portal)
 
-You'll need to list your subscription in the Azure portal and then double-click the subscription used to deploy your BMI/ALI instance.
+You'll need to list your subscription in the Azure portal and then double-click the subscription used to deploy your ALI instance.
 
 1. Sign in to the Azure portal.
 2. On the Azure portal menu, select All services.
@@ -34,16 +35,14 @@ You'll need to list your subscription in the Azure portal and then double-click 
 
 :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png"  border="false":::
 
-:::image type="content" source="register-resource-provider-azure-portal.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="register-resource-provider-azure-portal.png"  border="false":::
-
 > [!Note]
 > If the resource provider isn't registered, select Register. 
 
  
 
-### Azure CLI 
+### [Azure CLI](#tab/azure-cli)
 
-To begin using Azure CLI
+To begin using Azure CLI:
 
  Use the Bash environment in Azure Cloud Shell. 
 For more information, see [Quickstart for Bash in Azure Cloud Shells](../cloud-shell/quickstart.md). 
