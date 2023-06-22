@@ -5,12 +5,12 @@ description: Learn how to use geo-redundant storage to design a highly available
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 08/23/2022
 ms.author: pauljewell
 ms.reviewer: artek
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
