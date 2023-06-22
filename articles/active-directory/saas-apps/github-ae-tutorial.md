@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 06/21/2023
 ms.author: jeedes
 ---
 
@@ -77,15 +77,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<YOUR-GITHUB-AE-HOSTNAME>`
+    `https://<YOUR-GITHUB-ENTERPRISE-SERVER-HOSTNAME>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<YOUR-GITHUB-AE-HOSTNAME>/saml/consume`
+    `https://<YOUR-GITHUB-ENTERPRISE-SERVER-HOSTNAME>/saml/consume`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
      In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<YOUR-GITHUB-AE-HOSTNAME>/sso`
+    `https://<YOUR-GITHUB-ENTERPRISE-SERVER-HOSTNAME>/sso`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [GitHub Enterprise Server Client support team](mailto:support@github.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Expand **Claim conditions** and select **Members** from **User type**.
 
-1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHAE.
+1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHES.
 
 1. Select **Attribute** for **Source** and enter **true** (without quotes) for the **Value**. 
 
