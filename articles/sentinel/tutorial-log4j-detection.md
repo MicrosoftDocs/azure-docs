@@ -195,7 +195,6 @@ If you're not going to continue to use this analytics rule, delete (or at least 
 1. Mark the check box next to your rule in the list, and select **Delete** from the top banner.  
     (If you don't want to delete it, you can select **Disable** instead.)
 
-<!-- Check that this part doesn't happen automatically when you delete the analytics rule. -->
 1. In the **Automation** page, select the **Automation rules** tab.
 
 1. Enter the name (or part of the name) of the automation rule you created in the **Search** bar.  
