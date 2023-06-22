@@ -16,6 +16,8 @@ ms.author: mbaldwin
 
 Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then create a [CryptographyClient]() use the client to set, update, and rotate a key in Azure Key Vault.
 
+
+
 ## Next steps
 
 * [Get a key with JavaScript SDK](javascript-developer-guide-get-key.md)

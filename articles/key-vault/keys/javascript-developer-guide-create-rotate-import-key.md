@@ -21,6 +21,8 @@ Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the 
 
 To create a key in Azure Key Vault, use the [createKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createkey) method of the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) class. After the key is created, update the key with a rotation policy. 
 
+A [KeyVaultkey](/javascript/api/@azure/keyvault-keys/keyvaultkey) is returned. Update the key using [updateKeyRotationPolicy](/javascript/api/@azure/keyvault-keys/keyclient) with a policy which includes notification.
+
 ```javascript
 // Azure client libraries
 import { DefaultAzureCredential } from '@azure/identity';
@@ -37,7 +39,6 @@ import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 dayjs.extend(duration);
 
-
 // Authenticate to Azure Key Vault
 const credential = new DefaultAzureCredential();
 const client = new KeyClient(
@@ -46,8 +47,7 @@ credential
 );
 
 // Name of key
-const timestamp: string = Date.now().toString();
-const keyName = `mykey-${timestamp}`;
+const keyName = `mykey-${Date.now().toString()}`;
 
 // Set key options
 const keyOptions: CreateKeyOptions = {
@@ -87,8 +87,7 @@ if (key) {
             action: 'Notify',
             timeBeforeExpiry: dayjs.duration({ days: 7 }).toISOString()
         }
-        ]
-    };
+    ]};
     
     // Set rotation policy: KeyRotationPolicy
     const keyRotationPolicy = await client.updateKeyRotationPolicy(
@@ -101,7 +100,7 @@ if (key) {
 
 ## Manually rotate key
 
-To rotate a key means to create a new version of the key. The previous version isn't deleted, but it's no longer the active version.
+To rotate a key means to create a new version of the key and set that version as the latest version. The previous version isn't deleted, but it's no longer the active version.
 
 ```javascript
 // Azure client libraries
