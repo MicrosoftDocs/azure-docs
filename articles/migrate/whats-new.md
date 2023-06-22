@@ -25,7 +25,7 @@ ms.custom: mvc, engagement-fy23
 - Build business case using Azure Migrate for:
     - Servers and workloads running in your Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
     - SQL Server Always On Failover Cluster Instances and Always On Availability Groups. [Learn more](how-to-discover-applications.md).
-- Envision savings with Azure Hybird Benefits by bringing your existing Windows Server licenses to Azure using Azure VM assessments. 
+- Envision savings with Azure Hybrid Benefits by bringing your existing Windows Server licenses to Azure using Azure VM assessments. 
 ## Update (March 2023)
 - Support for discovery and assessment of web apps for Azure app service for Hyper-V and Physical servers. [Learn more](how-to-create-azure-app-service-assessment.md).
 
