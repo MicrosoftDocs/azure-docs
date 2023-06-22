@@ -41,7 +41,7 @@ ms.author: radeltch
 
 This article describes how to deploy and configure VMs, install the cluster framework, and install an HA SAP NetWeaver system, using [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). The example configurations use VMs that run on SUSE Linux Enterprise Server (SLES).
 
-For new implementations on SLES for SAP Applications 15, we  recommended to deploy high availability for SAP ASCS/ERS in [simple mount configuration](./high-availability-guide-suse-nfs-simple-mount.md). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).
+For new implementations on SLES for SAP Applications 15, we  recommended deploying high availability for SAP ASCS/ERS in [simple mount configuration](./high-availability-guide-suse-nfs-simple-mount.md). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).
 
 ## Prerequisites  
 
@@ -167,7 +167,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 * Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [Storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
 * In general,  don't consolidate the shares for more than 5 SAP systems in a single storage account. This guideline helps avoid exceeding the storage account limits and simplifies performance analysis.
 * In general, avoid mixing shares like `sapmnt` for non-production and production SAP systems in the same storage account.
-* We recommend to deploy on SLES 15 SP2 or higher to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).
+* We recommend deploying on SLES 15 SP2 or higher to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).
 * Use a private endpoint. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs.
 * If you're deploying your VMs across Availability Zones, use [Storage account with ZRS](../../storage/common/storage-redundancy.md#zone-redundant-storage) in the Azure regions that supports ZRS.
 * Azure Files doesn't currently support automatic cross-region replication for disaster recovery scenarios.  
