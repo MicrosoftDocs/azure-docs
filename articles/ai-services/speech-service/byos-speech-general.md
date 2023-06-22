@@ -147,7 +147,7 @@ To create a BYOS-enabled Speech resource with a REST Request to Cognitive Servic
 
 You need to have a meaning of authentication. The example in this section uses [Microsoft Azure Active Directory token](/azure/active-directory/develop/access-tokens).
 
-This code snippet generates Azure AD token using interactive browser sign-in. it requires [Azure Identity client library](/dotnet/api/overview/azure/identity-readme):
+This code snippet generates Azure AD token using interactive browser sign-in. It requires [Azure Identity client library](/dotnet/api/overview/azure/identity-readme):
 ```csharp
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://management.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
