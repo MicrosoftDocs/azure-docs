@@ -14,7 +14,7 @@ ms.date: 06/29/2023
 
 When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes are restricted by the memory reserved for vector search for your service's tier (or SKU).
 
-The service will enforce a vector index size quota **for every partition** in your search service. Each additional partition will increase the available vector index size quota. This is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded will fail. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
 ## Factors affecting vector index size
 
@@ -26,7 +26,7 @@ There are three major components that affect the size of your internal vector in
 
 ### Raw size of the data
 
-Each vector is simply an array of numbers. We currently support single-precision floating-point numbers, which we call `Edm.Single`. These data structures require storage, which we'll refer to as the **"raw size"** of your data. We'll use this to estimate the vector index size requirements of your vector fields.
+Each vector is simply an array of numbers. We currently support single-precision floating-point numbers, which we call `Edm.Single`. These data structures require storage, which we refer to in this document as the **"raw size"** of your data. Please use this _raw size_ to estimate the vector index size requirements of your vector fields.
 
 The storage size of one vector is determined by its dimensionality. Multiply the size of one vector by the number of documents containing that vector field to obtain the _raw size_: 
 
