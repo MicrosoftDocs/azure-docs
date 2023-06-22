@@ -196,13 +196,13 @@ You may always check, whether any given Speech resource is BYOS enabled, and wha
 To check BYOS configuration of a Speech resource with Azure portal, you will need to access some portal preview features. Perform the following steps:
 
 1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&feature.canmodifystamps=true&Microsoft_Azure_ProjectOxford=stage1&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
-1. Close *Create Speech* screen by pressing *X* in the right upper corner.
-1. If asked agree to discard unsaved changes.
-1. Navigate to the Speech resource you want to check.
-1. Select *Storage* menu in the *Resource Management* group.
-1. Check that:
-  1. *Attached storage* field contains the Azure resource Id of the BYOS-associated Storage account.
-  1. *Identity type* has *System Assigned* selected.
+1.  Close *Create Speech* screen by pressing *X* in the right upper corner.
+1.  If asked agree to discard unsaved changes.
+1.  Navigate to the Speech resource you want to check.
+1.  Select *Storage* menu in the *Resource Management* group.
+1.  Check that:
+    1. *Attached storage* field contains the Azure resource Id of the BYOS-associated Storage account.
+    1. *Identity type* has *System Assigned* selected.
 
 If *Storage* menu item is missing in the *Resource Management* group, the selected Speech resource is not BYOS-enabled.
 
