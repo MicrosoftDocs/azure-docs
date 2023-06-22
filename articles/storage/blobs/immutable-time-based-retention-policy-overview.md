@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 09/14/2022
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Time-based retention policies for immutable blob data

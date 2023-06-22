@@ -4,7 +4,6 @@ titleSuffix: Azure Storage
 description: Optimize the performance of your SSH File Transfer Protocol (SFTP) requests by using the recommendations in this article.
 author: normesta
 
-ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/20/2022
