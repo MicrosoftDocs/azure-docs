@@ -1604,7 +1604,7 @@ productDirectory:
    # Card
     - title: Azure Managed Lustre
       summary: A fully managed, cloud based parallel file system that enables customers to run their high performance computing (HPC) workloads in the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      imageSrc: ./media/index/managed-lustre.svg
       azureCategories:
        - storage
       url: /azure-managed-lustre/
